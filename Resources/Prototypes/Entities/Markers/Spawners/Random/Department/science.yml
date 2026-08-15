@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Minor science loot spawner
 # Use case: Common areas that aren't science
@@ -21,6 +18,7 @@
     - NodeScanner
     - Multitool
     - Igniter
+    - SlimeScannerXenobio # Goob edit
     rareChance: 0.1
     prototypes:
     - ClothingHandsGlovesLatex
@@ -66,6 +64,7 @@
       - id: ToolboxElectricalFilled
       - id: ToolboxMechanicalFilled
       - id: MicroManipulatorStockPart
+      - id: SlimeScannerXenobio # Goob edit
     # Rare Group
     - !type:GroupSelector
       weight: 10
@@ -107,7 +106,7 @@
       state: generic
   - type: RandomSpawner
     rarePrototypes:
-    # - BorgModuleAdvancedChemical # Goob edit
+    - BorgModuleAdvancedTopical
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
 

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Xenobiology.Components;
@@ -129,7 +124,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         EnsureComp<ActiveSlimeGrinderComponent>(grinder);
         grinder.Comp.ProcessingTimer += physics.FixturesMass * grinder.Comp.ProcessingTimePerUnitMass;
 
-        var extractProto = _xenobio.GetProducedExtract((toProcess, slime));
+        var extractProto = slime.ProducedExtract;
         var extractQuantity = slime.ExtractsProduced;
 
         if (!grinder.Comp.YieldQueue.ContainsKey(extractProto))

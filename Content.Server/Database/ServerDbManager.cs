@@ -1,82 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Julian Giebel <j.giebel@netrocks.info>
-// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
-// SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Panela <107573283+AgentePanela@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
-// SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kamkoi <poiiiple1@gmail.com>
-// SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 tetra <169831122+Foralemes@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections.Immutable;
@@ -144,7 +65,7 @@ namespace Content.Server.Database
         /// </summary>
         /// <param name="id">The ban id to look for.</param>
         /// <returns>The ban with the given id or null if none exist.</returns>
-        Task<ServerBanDef?> GetServerBanAsync(int id);
+        Task<BanDef?> GetBanAsync(int id);
 
         /// <summary>
         ///     Looks up an user's most recent received un-pardoned ban.
@@ -156,11 +77,12 @@ namespace Content.Server.Database
         /// <param name="hwId">The legacy HWID of the user.</param>
         /// <param name="modernHWIds">The modern HWIDs of the user.</param>
         /// <returns>The user's latest received un-pardoned ban, or null if none exist.</returns>
-        Task<ServerBanDef?> GetServerBanAsync(
+        Task<BanDef?> GetBanAsync(
             IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
-            ImmutableArray<ImmutableArray<byte>>? modernHWIds);
+            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
+            BanType type = BanType.Server);
 
         /// <summary>
         ///     Looks up an user's ban history.
@@ -172,17 +94,18 @@ namespace Content.Server.Database
         /// <param name="modernHWIds">The modern HWIDs of the user.</param>
         /// <param name="includeUnbanned">If true, bans that have been expired or pardoned are also included.</param>
         /// <returns>The user's ban history.</returns>
-        Task<List<ServerBanDef>> GetServerBansAsync(
+        Task<List<BanDef>> GetBansAsync(
             IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
             ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned=true);
+            bool includeUnbanned=true,
+            BanType type = BanType.Server);
 
-        Task AddServerBanAsync(ServerBanDef serverBan);
-        Task AddServerUnbanAsync(ServerUnbanDef serverBan);
+        Task<BanDef> AddBanAsync(BanDef ban);
+        Task AddUnbanAsync(UnbanDef ban);
 
-        public Task EditServerBan(
+        public Task EditBan(
             int id,
             string reason,
             NoteSeverity severity,
@@ -206,45 +129,6 @@ namespace Content.Server.Database
         /// <returns><see cref="ServerBanExemptFlags.None"/> if the user is not exempt from any bans.</returns>
         Task<ServerBanExemptFlags> GetBanExemption(NetUserId userId, CancellationToken cancel = default);
 
-        #endregion
-
-        #region Role Bans
-        /// <summary>
-        ///     Looks up a role ban by id.
-        ///     This will return a pardoned role ban as well.
-        /// </summary>
-        /// <param name="id">The role ban id to look for.</param>
-        /// <returns>The role ban with the given id or null if none exist.</returns>
-        Task<ServerRoleBanDef?> GetServerRoleBanAsync(int id);
-
-        /// <summary>
-        ///     Looks up an user's role ban history.
-        ///     This will return pardoned role bans based on the <see cref="includeUnbanned"/> bool.
-        ///     Requires one of <see cref="address"/>, <see cref="userId"/>, or <see cref="hwId"/> to not be null.
-        /// </summary>
-        /// <param name="address">The IP address of the user.</param>
-        /// <param name="userId">The NetUserId of the user.</param>
-        /// <param name="hwId">The Hardware Id of the user.</param>
-        /// <param name="modernHWIds">The modern HWIDs of the user.</param>
-        /// <param name="includeUnbanned">Whether expired and pardoned bans are included.</param>
-        /// <returns>The user's role ban history.</returns>
-        Task<List<ServerRoleBanDef>> GetServerRoleBansAsync(
-            IPAddress? address,
-            NetUserId? userId,
-            ImmutableArray<byte>? hwId,
-            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned = true);
-
-        Task<ServerRoleBanDef> AddServerRoleBanAsync(ServerRoleBanDef serverBan);
-        Task AddServerRoleUnbanAsync(ServerRoleUnbanDef serverBan);
-
-        public Task EditServerRoleBan(
-            int id,
-            string reason,
-            NoteSeverity severity,
-            DateTimeOffset? expiration,
-            Guid editedBy,
-            DateTimeOffset editedAt);
         #endregion
 
         #region Playtime
@@ -292,7 +176,7 @@ namespace Content.Server.Database
             ConnectionDenyReason? denied,
             int serverId);
 
-        Task AddServerBanHitsAsync(int connection, IEnumerable<ServerBanDef> bans);
+        Task AddServerBanHitsAsync(int connection, IEnumerable<BanDef> bans);
 
         #endregion
 
@@ -384,8 +268,7 @@ namespace Content.Server.Database
         Task<AdminNoteRecord?> GetAdminNote(int id);
         Task<AdminWatchlistRecord?> GetAdminWatchlist(int id);
         Task<AdminMessageRecord?> GetAdminMessage(int id);
-        Task<ServerBanNoteRecord?> GetServerBanAsNoteAsync(int id);
-        Task<ServerRoleBanNoteRecord?> GetServerRoleBanAsNoteAsync(int id);
+        Task<BanNoteRecord?> GetBanAsNoteAsync(int id);
         Task<List<IAdminRemarksRecord>> GetAllAdminRemarks(Guid player);
         Task<List<IAdminRemarksRecord>> GetVisibleAdminNotes(Guid player);
         Task<List<AdminWatchlistRecord>> GetActiveWatchlists(Guid player);
@@ -396,8 +279,7 @@ namespace Content.Server.Database
         Task DeleteAdminNote(int id, Guid deletedBy, DateTimeOffset deletedAt);
         Task DeleteAdminWatchlist(int id, Guid deletedBy, DateTimeOffset deletedAt);
         Task DeleteAdminMessage(int id, Guid deletedBy, DateTimeOffset deletedAt);
-        Task HideServerBanFromNotes(int id, Guid deletedBy, DateTimeOffset deletedAt);
-        Task HideServerRoleBanFromNotes(int id, Guid deletedBy, DateTimeOffset deletedAt);
+        Task HideBanFromNotes(int id, Guid deletedBy, DateTimeOffset deletedAt);
 
         /// <summary>
         /// Mark an admin message as being seen by the target player.
@@ -436,6 +318,22 @@ namespace Content.Server.Database
 
         Task SetGhostColor(Guid player, System.Drawing.Color? color);
 
+        // Goob start
+        Task SetGhostCosmetics(Guid player, string? particles, string? hat, string? mask);
+
+        Task<List<RMCPatronTier>> GetPatronTiers();
+
+        Task<int> AddPatronTier(RMCPatronTier tier);
+
+        Task<bool> UpdatePatronTier(RMCPatronTier tier);
+
+        Task<int> CountPatronsInTier(int tierId);
+
+        Task<bool> DeletePatronTier(int tierId);
+
+        Task<bool> SetPatron(Guid player, int? tierId);
+        // Goob end
+
         Task SetLobbyMessage(Guid player, string message);
 
         Task SetNTShoutout(Guid player, string name);
@@ -467,6 +365,9 @@ namespace Content.Server.Database
         Task<List<PollVote>> GetPlayerVotesAsync(int pollId, NetUserId userId, CancellationToken cancel = default);
         Task<bool> HasPlayerVotedAsync(int pollId, NetUserId userId, CancellationToken cancel = default);
         Task<Dictionary<int, int>> GetPollResultsAsync(int pollId, CancellationToken cancel = default);
+        Task<bool> MarkPollSeenAsync(int pollId, NetUserId userId, CancellationToken cancel = default);
+        Task<HashSet<int>> GetSeenPollIdsAsync(NetUserId userId, CancellationToken cancel = default);
+        Task<int> GetPollSeenCountAsync(int pollId, CancellationToken cancel = default);
 
         #endregion
 
@@ -643,49 +544,51 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetAssignedUserIdAsync(name));
         }
 
-        public Task<ServerBanDef?> GetServerBanAsync(int id)
+        public Task<BanDef?> GetBanAsync(int id)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerBanAsync(id));
+            return RunDbCommand(() => _db.GetBanAsync(id));
         }
 
-        public Task<ServerBanDef?> GetServerBanAsync(
-            IPAddress? address,
-            NetUserId? userId,
-            ImmutableArray<byte>? hwId,
-            ImmutableArray<ImmutableArray<byte>>? modernHWIds)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerBanAsync(address, userId, hwId, modernHWIds));
-        }
-
-        public Task<List<ServerBanDef>> GetServerBansAsync(
+        public Task<BanDef?> GetBanAsync(
             IPAddress? address,
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
             ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned=true)
+            BanType type = BanType.Server)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerBansAsync(address, userId, hwId, modernHWIds, includeUnbanned));
+            return RunDbCommand(() => _db.GetBanAsync(address, userId, hwId, modernHWIds, type));
         }
 
-        public Task AddServerBanAsync(ServerBanDef serverBan)
+        public Task<List<BanDef>> GetBansAsync(
+            IPAddress? address,
+            NetUserId? userId,
+            ImmutableArray<byte>? hwId,
+            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
+            bool includeUnbanned=true,
+            BanType type = BanType.Server)
         {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.AddServerBanAsync(serverBan));
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetBansAsync(address, userId, hwId, modernHWIds, includeUnbanned, type));
         }
 
-        public Task AddServerUnbanAsync(ServerUnbanDef serverUnban)
+        public Task<BanDef> AddBanAsync(BanDef ban)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.AddServerUnbanAsync(serverUnban));
+            return RunDbCommand(() => _db.AddBanAsync(ban));
         }
 
-        public Task EditServerBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
+        public Task AddUnbanAsync(UnbanDef unban)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.EditServerBan(id, reason, severity, expiration, editedBy, editedAt));
+            return RunDbCommand(() => _db.AddUnbanAsync(unban));
+        }
+
+        public Task EditBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.EditBan(id, reason, severity, expiration, editedBy, editedAt));
         }
 
         public Task UpdateBanExemption(NetUserId userId, ServerBanExemptFlags flags)
@@ -699,43 +602,6 @@ namespace Content.Server.Database
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetBanExemption(userId, cancel));
         }
-
-        #region Role Ban
-        public Task<ServerRoleBanDef?> GetServerRoleBanAsync(int id)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerRoleBanAsync(id));
-        }
-
-        public Task<List<ServerRoleBanDef>> GetServerRoleBansAsync(
-            IPAddress? address,
-            NetUserId? userId,
-            ImmutableArray<byte>? hwId,
-            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned = true)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerRoleBansAsync(address, userId, hwId, modernHWIds, includeUnbanned));
-        }
-
-        public Task<ServerRoleBanDef> AddServerRoleBanAsync(ServerRoleBanDef serverRoleBan)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.AddServerRoleBanAsync(serverRoleBan));
-        }
-
-        public Task AddServerRoleUnbanAsync(ServerRoleUnbanDef serverRoleUnban)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.AddServerRoleUnbanAsync(serverRoleUnban));
-        }
-
-        public Task EditServerRoleBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.EditServerRoleBan(id, reason, severity, expiration, editedBy, editedAt));
-        }
-        #endregion
 
         #region Playtime
 
@@ -817,7 +683,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.AddConnectionLogAsync(userId, userName, address, hwId, trust, denied, serverId));
         }
 
-        public Task AddServerBanHitsAsync(int connection, IEnumerable<ServerBanDef> bans)
+        public Task AddServerBanHitsAsync(int connection, IEnumerable<BanDef> bans)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AddServerBanHitsAsync(connection, bans));
@@ -1078,16 +944,10 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetAdminMessage(id));
         }
 
-        public Task<ServerBanNoteRecord?> GetServerBanAsNoteAsync(int id)
+        public Task<BanNoteRecord?> GetBanAsNoteAsync(int id)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerBanAsNoteAsync(id));
-        }
-
-        public Task<ServerRoleBanNoteRecord?> GetServerRoleBanAsNoteAsync(int id)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerRoleBanAsNoteAsync(id));
+            return RunDbCommand(() => _db.GetBanAsNoteAsync(id));
         }
 
         public Task<List<IAdminRemarksRecord>> GetAllAdminRemarks(Guid player)
@@ -1149,16 +1009,10 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.DeleteAdminMessage(id, deletedBy, deletedAt));
         }
 
-        public Task HideServerBanFromNotes(int id, Guid deletedBy, DateTimeOffset deletedAt)
+        public Task HideBanFromNotes(int id, Guid deletedBy, DateTimeOffset deletedAt)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.HideServerBanFromNotes(id, deletedBy, deletedAt));
-        }
-
-        public Task HideServerRoleBanFromNotes(int id, Guid deletedBy, DateTimeOffset deletedAt)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.HideServerRoleBanFromNotes(id, deletedBy, deletedAt));
+            return RunDbCommand(() => _db.HideBanFromNotes(id, deletedBy, deletedAt));
         }
 
         public Task MarkMessageAsSeen(int id, bool dismissedToo)
@@ -1228,6 +1082,50 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SetGhostColor(player, color));
         }
+
+        // Goob start - ghost cosmetics + patron database commands
+        public Task SetGhostCosmetics(Guid player, string? particles, string? hat, string? mask)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetGhostCosmetics(player, particles, hat, mask));
+        }
+
+        public Task<List<RMCPatronTier>> GetPatronTiers()
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPatronTiers());
+        }
+
+        public Task<int> AddPatronTier(RMCPatronTier tier)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddPatronTier(tier));
+        }
+
+        public Task<bool> UpdatePatronTier(RMCPatronTier tier)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdatePatronTier(tier));
+        }
+
+        public Task<int> CountPatronsInTier(int tierId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.CountPatronsInTier(tierId));
+        }
+
+        public Task<bool> DeletePatronTier(int tierId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.DeletePatronTier(tierId));
+        }
+
+        public Task<bool> SetPatron(Guid player, int? tierId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetPatron(player, tierId));
+        }
+        // Goob end
 
         public Task SetLobbyMessage(Guid player, string message)
         {
@@ -1338,6 +1236,24 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetPollResultsAsync(pollId, cancel));
+        }
+
+        public Task<bool> MarkPollSeenAsync(int pollId, NetUserId userId, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.MarkPollSeenAsync(pollId, userId, cancel));
+        }
+
+        public Task<HashSet<int>> GetSeenPollIdsAsync(NetUserId userId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetSeenPollIdsAsync(userId, cancel));
+        }
+
+        public Task<int> GetPollSeenCountAsync(int pollId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPollSeenCountAsync(pollId, cancel));
         }
 
         #endregion

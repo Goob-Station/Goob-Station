@@ -1,36 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Body.Components;
@@ -114,14 +81,14 @@ public sealed class FoldableSystem : EntitySystem
     /// <summary>
     /// Set the folded state of the given <see cref="FoldableComponent"/>
     /// </summary>
-    public void SetFolded(EntityUid uid, FoldableComponent component, bool folded)
+    public void SetFolded(EntityUid uid, FoldableComponent component, bool folded, EntityUid? user = null)
     {
         component.IsFolded = folded;
         Dirty(uid, component);
         _appearance.SetData(uid, FoldedVisuals.State, folded);
         _buckle.StrapSetEnabled(uid, !component.IsFolded);
 
-        var ev = new FoldedEvent(folded);
+        var ev = new FoldedEvent(folded, user);
         RaiseLocalEvent(uid, ref ev);
     }
 
@@ -133,7 +100,7 @@ public sealed class FoldableSystem : EntitySystem
 
     public bool TryToggleFold(EntityUid uid, FoldableComponent comp, EntityUid? folder = null)
     {
-        var result = TrySetFolded(uid, comp, !comp.IsFolded);
+        var result = TrySetFolded(uid, comp, !comp.IsFolded, folder);
         if (!result && folder != null)
         {
             if (comp.IsFolded)
@@ -165,7 +132,7 @@ public sealed class FoldableSystem : EntitySystem
     /// <summary>
     /// Try to fold/unfold
     /// </summary>
-    public bool TrySetFolded(EntityUid uid, FoldableComponent comp, bool state)
+    public bool TrySetFolded(EntityUid uid, FoldableComponent comp, bool state, EntityUid? user = null)
     {
         if (state == comp.IsFolded)
             return false;
@@ -173,7 +140,7 @@ public sealed class FoldableSystem : EntitySystem
         if (!CanToggleFold(uid, comp))
             return false;
 
-        SetFolded(uid, comp, state);
+        SetFolded(uid, comp, state, user);
         return true;
     }
 
@@ -216,6 +183,7 @@ public record struct FoldAttemptEvent(FoldableComponent Comp, bool Cancelled = f
 /// <summary>
 /// Event raised on an entity after it has been folded.
 /// </summary>
-/// <param name="IsFolded"></param>
+/// <param name="IsFolded">True is it has been folded, false if it has been unfolded.</param>
+/// <param name="User">The player who did the folding.</param>
 [ByRefEvent]
-public readonly record struct FoldedEvent(bool IsFolded);
+public readonly record struct FoldedEvent(bool IsFolded, EntityUid? User);

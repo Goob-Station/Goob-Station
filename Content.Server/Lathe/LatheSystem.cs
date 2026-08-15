@@ -1,77 +1,3 @@
-// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ubis1 <140386474+ubis1@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
-// SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Soup-Byte07 <135303377+Soup-Byte07@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Soup-Byte07 <soupbyte30@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -83,6 +9,7 @@ using Content.Server.Lathe.Components;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Radio.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components;
@@ -90,31 +17,27 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
-using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
-using Content.Shared.Examine;
-using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
+using Content.Shared.Lathe;
+using Content.Shared.Localizations;
 using Content.Shared.Materials;
 using Content.Shared.Power;
 using Content.Shared.ReagentSpeed;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
-using Content.Goobstation.Shared.Lathe; // Goobstation
 using JetBrains.Annotations;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Server.Chat.Systems;
 using Content.Goobstation.Common.NTR.Scan; // Goobstation
-using Content.Shared.Chat;
 
 namespace Content.Server.Lathe
 {
     [UsedImplicitly]
-    public sealed class LatheSystem : SharedLatheSystem
+    public sealed partial class LatheSystem : SharedLatheSystem
     {
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -132,8 +55,7 @@ namespace Content.Server.Lathe
         [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
         [Dependency] private readonly StackSystem _stack = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!; // Goobstation - New recipes message
-        [Dependency] private readonly IComponentFactory _factory = default!; // Goobstation - Output to material storage
+        [Dependency] private readonly RadioSystem _radio = default!;
 
         /// <summary>
         /// Per-tick cache
@@ -147,11 +69,14 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<LatheComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<LatheComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<LatheComponent, TechnologyDatabaseModifiedEvent>(OnDatabaseModified);
+            SubscribeLocalEvent<LatheAnnouncingComponent, TechnologyDatabaseModifiedEvent>(OnTechnologyDatabaseModified);
             SubscribeLocalEvent<LatheComponent, ResearchRegistrationChangedEvent>(OnResearchRegistrationChanged);
 
             SubscribeLocalEvent<LatheComponent, LatheQueueRecipeMessage>(OnLatheQueueRecipeMessage);
             SubscribeLocalEvent<LatheComponent, LatheSyncRequestMessage>(OnLatheSyncRequestMessage);
-            SubscribeLocalEvent<LatheComponent, LatheQueueResetMessage>(OnLatheQueueResetMessage); // Goobstation
+            SubscribeLocalEvent<LatheComponent, LatheDeleteRequestMessage>(OnLatheDeleteRequestMessage);
+            SubscribeLocalEvent<LatheComponent, LatheMoveRequestMessage>(OnLatheMoveRequestMessage);
+            SubscribeLocalEvent<LatheComponent, LatheAbortFabricationMessage>(OnLatheAbortFabricationMessage);
 
             SubscribeLocalEvent<LatheComponent, BeforeActivatableUIOpenEvent>((u, c, _) => UpdateUserInterfaceState(u, c));
             SubscribeLocalEvent<LatheComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
@@ -212,7 +137,7 @@ namespace Content.Server.Lathe
             var recipes = GetAvailableRecipes(uid, component, true);
             foreach (var id in recipes)
             {
-                if (!_proto.TryIndex(id, out var proto))
+                if (!_proto.Resolve(id, out var proto))
                     continue;
                 foreach (var (mat, _) in proto.Materials)
                 {
@@ -245,23 +170,25 @@ namespace Content.Server.Lathe
             return ev.Recipes.ToList();
         }
 
-        public bool TryAddToQueue(EntityUid uid, LatheRecipePrototype recipe, LatheComponent? component = null)
+        public bool TryAddToQueue(EntityUid uid, LatheRecipePrototype recipe, int quantity, LatheComponent? component = null)
         {
             if (!Resolve(uid, ref component))
                 return false;
 
-            if (!CanProduce(uid, recipe, 1, component))
+            if (quantity <= 0)
+                return false;
+            quantity = int.Min(quantity, MaxItemsPerRequest);
+
+            if (!CanProduce(uid, recipe, quantity, component))
                 return false;
 
-            foreach (var (mat, amount) in recipe.Materials)
-            {
-                var adjustedAmount = recipe.ApplyMaterialDiscount
-                    ? (int) (-amount * component.MaterialUseMultiplier)
-                    : -amount;
+            foreach (var (mat, amount) in GetAdjustedAmount(component, recipe))
+                _materialStorage.TryChangeMaterialAmount(uid, mat, -amount * quantity);
 
-                _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
-            }
-            component.Queue.Enqueue(recipe);
+            if (component.Queue.Last is { } node && node.ValueRef.Recipe == recipe.ID)
+                node.ValueRef.ItemsRequested += quantity;
+            else
+                component.Queue.AddLast(new LatheRecipeBatch(recipe.ID, 0, quantity));
 
             return true;
         }
@@ -273,8 +200,11 @@ namespace Content.Server.Lathe
             if (component.CurrentRecipe != null || component.Queue.Count <= 0 || !this.IsPowered(uid, EntityManager))
                 return false;
 
-            var recipeProto = component.Queue.Dequeue();
-            var recipe = _proto.Index(recipeProto);
+            var batch = component.Queue.First();
+            batch.ItemsPrinted++;
+            if (batch.ItemsPrinted >= batch.ItemsRequested || batch.ItemsPrinted < 0) // Rollover sanity check
+                component.Queue.RemoveFirst();
+            var recipe = _proto.Index(batch.Recipe);
 
             var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * component.TimeMultiplier;
 
@@ -292,6 +222,11 @@ namespace Content.Server.Lathe
 
             if (time == TimeSpan.Zero)
             {
+                // Goobstation edit start: handle special case with lots of 0-time recipes that insert into storage
+                if (component.OutputToStorage)
+                    FinishProducingManyStorage((uid, component, lathe));
+                // Goobstation edit end
+
                 FinishProducing(uid, component, lathe);
             }
             return true;
@@ -307,18 +242,18 @@ namespace Content.Server.Lathe
                 var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
                 if (currentRecipe.Result is { } resultProto)
                 {
-                    // Goobstation, output to material storage instead of spawning
+                    // Goobstation, output to material storage instead of spawning, if preferred & possible
                     var prototype = _proto.Index(resultProto);
-                    if (comp.OutputToStorage && prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory))
-                    {
-                        _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition);
-                    }
-                    else
+                    if (!comp.OutputToStorage || !prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory)
+                        || !_materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition))
                     {
                         var result = Spawn(resultProto, Transform(uid).Coordinates);
                         _stack.TryMergeToContacts(result);
-                        if (TryComp<ScannableForPointsComponent>(result, out var scannable)) // Goobstation
-                            scannable.Points = 0; // Goobstation, this thing is to prevent ntr duping points via an emagged lathe
+
+                        // <Goobstation> No NTR factorio
+                        if (TryComp<ScannableForPointsComponent>(result, out var scannable))
+                            scannable.Points = 0;
+                        // </Goobstation>
                     }
                 }
 
@@ -361,8 +296,8 @@ namespace Content.Server.Lathe
                 return;
 
             var producing = component.CurrentRecipe;
-            if (producing == null && component.Queue.TryPeek(out var next))
-                producing = next;
+            if (producing == null && component.Queue.First is { } node)
+                producing = node.Value.Recipe;
 
             var state = new LatheUpdateState(GetAvailableRecipes(uid, component), component.Queue.ToArray(), producing);
             _uiSys.SetUiState(uid, LatheUiKey.Key, state);
@@ -439,12 +374,10 @@ namespace Content.Server.Lathe
         {
             if (!args.Powered)
             {
-                RemComp<LatheProducingComponent>(uid);
-                UpdateRunningAppearance(uid, false);
+                AbortProduction(uid);
             }
-            else if (component.CurrentRecipe != null)
+            else
             {
-                EnsureComp<LatheProducingComponent>(uid);
                 TryStartProducing(uid, component);
             }
         }
@@ -452,56 +385,49 @@ namespace Content.Server.Lathe
         private void OnDatabaseModified(EntityUid uid, LatheComponent component, ref TechnologyDatabaseModifiedEvent args)
         {
             UpdateUserInterfaceState(uid, component);
+        }
 
-            // Goobstation - Lathe message on recipes update - Start
-            if (args.UnlockedRecipes == null || args.UnlockedRecipes.Count == 0)
+        private void OnTechnologyDatabaseModified(Entity<LatheAnnouncingComponent> ent, ref TechnologyDatabaseModifiedEvent args)
+        {
+            if (args.NewlyUnlockedRecipes is null)
                 return;
 
-            var recipesCount = 0;
+            if (!TryGetAvailableRecipes(ent.Owner, out var potentialRecipes))
+                return;
 
-            foreach (var pack in component.DynamicPacks)
+            var recipeNames = new List<string>();
+            foreach (var recipeId in args.NewlyUnlockedRecipes)
             {
-                _proto.TryIndex(pack, out var proto);
-                if (proto is null)
+                if (!potentialRecipes.Contains(new(recipeId)))
                     continue;
-                recipesCount += proto.Recipes.Intersect(args.UnlockedRecipes).Count(); // which recipes we can use are the ones just unlocked?
+
+                if (!_proto.TryIndex(recipeId, out LatheRecipePrototype? recipe))
+                    continue;
+
+                var itemName = GetRecipeName(recipe!);
+                recipeNames.Add(Loc.GetString("lathe-unlock-recipe-radio-broadcast-item", ("item", itemName)));
             }
 
-            if (recipesCount > 0)
-                _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("lathe-technology-recipes-update-message", ("count", recipesCount)), InGameICChatType.Speak, hideChat: true);
-            // Goobstation - Lathe message on recipes update - End
-        }
+            if (recipeNames.Count == 0)
+                return;
 
+            var message =
+                recipeNames.Count > ent.Comp.MaximumItems ?
+                    Loc.GetString(
+                        "lathe-unlock-recipe-radio-broadcast-overflow",
+                        ("items", ContentLocalizationManager.FormatList(recipeNames.GetRange(0, ent.Comp.MaximumItems))),
+                        ("count", recipeNames.Count)
+                    ) :
+                    Loc.GetString(
+                        "lathe-unlock-recipe-radio-broadcast",
+                        ("items", ContentLocalizationManager.FormatList(recipeNames))
+                    );
 
-        // Goobstation - Lathe Queue Reset
-        private void OnLatheQueueResetMessage(EntityUid uid, LatheComponent component, LatheQueueResetMessage args)
-        {
-            if (component.Queue.Count > 0)
+            foreach (var channel in ent.Comp.Channels)
             {
-                var allMaterials = component.Queue.SelectMany(q => _proto.Index(q).Materials);
-                var totalMaterials = new Dictionary<string, int>();
-
-                foreach (var (mat, amount) in allMaterials)
-                {
-                    if(!totalMaterials.ContainsKey(mat))
-                        totalMaterials[mat] = 0;
-                    totalMaterials[mat] += amount;
-                }
-
-                if(_materialStorage.CanChangeMaterialAmount(uid, totalMaterials))
-                {
-                    foreach (var (mat, amount) in totalMaterials)
-                    {
-                        _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
-                    }
-                    component.Queue.Clear();
-                } else {
-                    _popup.PopupEntity(Loc.GetString("lathe-queue-reset-material-overflow"), uid);
-                }
+                _radio.SendRadioMessage(ent.Owner, message, channel, ent.Owner, escapeMarkup: false);
             }
-            UpdateUserInterfaceState(uid, component);
         }
-        // Goobstation - Lathe Queue Reset
 
         private void OnResearchRegistrationChanged(EntityUid uid, LatheComponent component, ref ResearchRegistrationChangedEvent args)
         {
@@ -513,25 +439,89 @@ namespace Content.Server.Lathe
             return GetAvailableRecipes(uid, component).Contains(recipe.ID);
         }
 
+        /// <summary>
+        /// Iterator returning adjusted amount of material needed to
+        /// produce a given recipe
+        /// </summary>
+        private static IEnumerable<(ProtoId<MaterialPrototype> mat, int amount)> GetAdjustedAmount(LatheComponent lathe, LatheRecipePrototype recipe)
+        {
+            foreach (var (mat, amount) in recipe.Materials)
+            {
+                var adjustedAmount = recipe.ApplyMaterialDiscount
+                    ? (int)(amount * lathe.MaterialUseMultiplier)
+                    : amount;
+
+                yield return (mat, adjustedAmount);
+            }
+        }
+
+        /// <summary>
+        /// Refunds the material cost of the currently running recipe,
+        /// without cancelling production
+        /// </summary>
+        private void RefundCurrentRecipe(EntityUid uid, LatheComponent lathe)
+        {
+            _proto.Resolve(lathe.CurrentRecipe, out var recipe);
+
+            foreach (var (mat, amount) in GetAdjustedAmount(lathe, recipe!))
+                _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
+        }
+
+        /// <summary>
+        /// Refunds the material cost of a given batch,
+        /// without deleting it
+        /// </summary>
+        private void RefundBatch(EntityUid uid, LatheComponent lathe, LatheRecipeBatch batch)
+        {
+            var delta = batch.ItemsRequested - batch.ItemsPrinted;
+
+            _proto.Resolve(batch.Recipe, out var recipe);
+
+            foreach (var (mat, amount) in GetAdjustedAmount(lathe, recipe!))
+                _materialStorage.TryChangeMaterialAmount(uid, mat, amount * delta);
+        }
+
+        public void AbortProduction(EntityUid uid, LatheComponent? component = null)
+        {
+            if (!Resolve(uid, ref component))
+                return;
+
+            if (component.CurrentRecipe != null)
+            {
+                if (component.Queue.Count > 0)
+                {
+                    // Batch abandoned while printing last item, need to create a one-item batch
+                    var batch = component.Queue.First();
+                    if (batch.Recipe != component.CurrentRecipe)
+                    {
+                        var newBatch = new LatheRecipeBatch(component.CurrentRecipe.Value, 0, 1);
+                        component.Queue.AddFirst(newBatch);
+                    }
+                    else if (batch.ItemsPrinted > 0)
+                    {
+                        batch.ItemsPrinted--;
+                    }
+                }
+
+                RefundCurrentRecipe(uid, component);
+                component.CurrentRecipe = null;
+            }
+            RemCompDeferred<LatheProducingComponent>(uid);
+            UpdateUserInterfaceState(uid, component);
+            UpdateRunningAppearance(uid, false);
+        }
+
         #region UI Messages
 
         private void OnLatheQueueRecipeMessage(EntityUid uid, LatheComponent component, LatheQueueRecipeMessage args)
         {
             if (_proto.TryIndex(args.ID, out LatheRecipePrototype? recipe))
             {
-                var count = 0;
-                for (var i = 0; i < args.Quantity; i++)
-                {
-                    if (TryAddToQueue(uid, recipe, component))
-                        count++;
-                    else
-                        break;
-                }
-                if (count > 0)
+                if (TryAddToQueue(uid, recipe, args.Quantity, component))
                 {
                     _adminLogger.Add(LogType.Action,
                         LogImpact.Low,
-                        $"{ToPrettyString(args.Actor):player} queued {count} {GetRecipeName(recipe)} at {ToPrettyString(uid):lathe}");
+                        $"{ToPrettyString(args.Actor):player} queued {args.Quantity} {GetRecipeName(recipe)} at {ToPrettyString(uid):lathe}");
                 }
             }
             TryStartProducing(uid, component);
@@ -541,6 +531,100 @@ namespace Content.Server.Lathe
         private void OnLatheSyncRequestMessage(EntityUid uid, LatheComponent component, LatheSyncRequestMessage args)
         {
             UpdateUserInterfaceState(uid, component);
+        }
+
+        /// <summary>
+        /// Removes a batch from the batch queue by index.
+        /// If the index given does not exist or is outside of the bounds of the lathe's batch queue, nothing happens.
+        /// </summary>
+        /// <param name="uid">The lathe whose queue is being altered.</param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
+        public void OnLatheDeleteRequestMessage(EntityUid uid, LatheComponent component, ref LatheDeleteRequestMessage args)
+        {
+            if (args.Index < 0 || args.Index >= component.Queue.Count)
+                return;
+
+            var node = component.Queue.First;
+            for (int i = 0; i < args.Index; i++)
+                node = node?.Next;
+
+            if (node == null) // Shouldn't happen with checks above.
+                return;
+
+            var batch = node.Value;
+            _adminLogger.Add(LogType.Action,
+                LogImpact.Low,
+                $"{ToPrettyString(args.Actor):player} deleted a lathe job for ({batch.ItemsPrinted}/{batch.ItemsRequested}) {GetRecipeName(batch.Recipe)} at {ToPrettyString(uid):lathe}");
+
+            RefundBatch(uid, component, batch);
+            component.Queue.Remove(node);
+            UpdateUserInterfaceState(uid, component);
+        }
+
+        public void OnLatheMoveRequestMessage(EntityUid uid, LatheComponent component, ref LatheMoveRequestMessage args)
+        {
+            if (args.Change == 0 || args.Index < 0 || args.Index >= component.Queue.Count)
+                return;
+
+            // New index must be within the bounds of the batch.
+            var newIndex = args.Index + args.Change;
+            if (newIndex < 0 || newIndex >= component.Queue.Count)
+                return;
+
+            var node = component.Queue.First;
+            for (int i = 0; i < args.Index; i++)
+                node = node?.Next;
+
+            if (node == null) // Something went wrong.
+                return;
+
+            if (args.Change > 0)
+            {
+                var newRelativeNode = node.Next;
+                for (int i = 1; i < args.Change; i++) // 1-indexed: starting from Next
+                    newRelativeNode = newRelativeNode?.Next;
+
+                if (newRelativeNode == null) // Something went wrong.
+                    return;
+
+                component.Queue.Remove(node);
+                component.Queue.AddAfter(newRelativeNode, node);
+            }
+            else
+            {
+                var newRelativeNode = node.Previous;
+                for (int i = 1; i < -args.Change; i++) // 1-indexed: starting from Previous
+                    newRelativeNode = newRelativeNode?.Previous;
+
+                if (newRelativeNode == null) // Something went wrong.
+                    return;
+
+                component.Queue.Remove(node);
+                component.Queue.AddBefore(newRelativeNode, node);
+            }
+
+            UpdateUserInterfaceState(uid, component);
+        }
+
+        public void OnLatheAbortFabricationMessage(EntityUid uid, LatheComponent component, ref LatheAbortFabricationMessage args)
+        {
+            AbortFabrication(uid, component, args.Actor); // Goobstation moved this method into the method below
+        }
+
+        public void AbortFabrication(EntityUid uid, LatheComponent component, EntityUid? actor) // goob moved this separately
+        {
+            if (component.CurrentRecipe == null)
+                return;
+
+            if (actor != null) // goob cause this is optional if you just want to stop fabricating
+                _adminLogger.Add(LogType.Action,
+                    LogImpact.Low,
+                    $"{ToPrettyString(actor):player} aborted printing {GetRecipeName(component.CurrentRecipe.Value)} at {ToPrettyString(uid):lathe}");
+
+            RefundCurrentRecipe(uid, component);
+            component.CurrentRecipe = null;
+            FinishProducing(uid, component);
         }
         #endregion
     }

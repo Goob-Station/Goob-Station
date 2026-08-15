@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Flammability;
@@ -31,6 +24,7 @@ public sealed class MadnessMaskSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -95,18 +89,23 @@ public sealed class MadnessMaskSystem : EntitySystem
                 if (_heretic.IsHereticOrGhoul(look))
                     continue;
 
-                if (HasComp<StaminaComponent>(look) && _random.Prob(.4f))
-                    _stamina.TakeOvertimeStaminaDamage(look, 10f);
+                if (!mask.AffectWearer
+                    && _inventory.TryGetContainingEntity(uid, out var wearer)
+                    && look == wearer)
+                    continue;
 
-                if (_random.Prob(.4f))
+                if (HasComp<StaminaComponent>(look) && _random.Prob(mask.StaminaProb))
+                    _stamina.TakeOvertimeStaminaDamage(look, mask.StaminaDamage);
+
+                if (_random.Prob(mask.JitterProb))
                     _jitter.DoJitter(look, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
 
-                if (_random.Prob(.25f))
+                if (_random.Prob(mask.RainbowProb))
                 {
                     _statusEffect.TryAddStatusEffectDuration(look,
                         "StatusEffectSeeingRainbow",
                         out _,
-                        TimeSpan.FromSeconds(10f));
+                        mask.RainbowDuration);
                 }
             }
         }

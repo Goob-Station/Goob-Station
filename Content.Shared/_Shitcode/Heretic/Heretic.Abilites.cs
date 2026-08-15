@@ -1,24 +1,10 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Polymorph;
 using Content.Shared.StatusEffect;
@@ -96,6 +82,9 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }
 
+[ByRefEvent]
+public readonly record struct HereticLostFocusEvent;
+
 // basic
 public sealed partial class HereticStartupEvent : HereticKnowledgeEvent;
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
@@ -105,13 +94,13 @@ public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // 
 [ByRefEvent]
 public readonly record struct HereticMindDetachedEvent(EntityUid Mind);
 
-public sealed partial class EventHereticShadowCloak : InstantActionEvent
+public sealed partial class EventHereticCloak : InstantActionEvent
 {
-    [DataField]
-    public ProtoId<StatusEffectPrototype> Status = "ShadowCloakAlertSE";
+    [DataField(required: true)]
+    public EntProtoId<HereticCloakedStatusEffectComponent> Status;
 
     [DataField]
-    public TimeSpan Lifetime = TimeSpan.FromSeconds(180);
+    public TimeSpan? Lifetime;
 }
 
 // living heart
@@ -211,9 +200,6 @@ public sealed partial class HereticVoidPullEvent : InstantActionEvent
             {"Cold", 30},
         },
     };
-
-    [DataField]
-    public TimeSpan StunTime = TimeSpan.FromSeconds(0.5);
 
     [DataField]
     public TimeSpan KnockDownTime = TimeSpan.FromSeconds(3);

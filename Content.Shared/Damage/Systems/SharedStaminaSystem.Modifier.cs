@@ -1,11 +1,8 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
+using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared.Damage.Systems;
 
@@ -13,47 +10,36 @@ public partial class SharedStaminaSystem
 {
     private void InitializeModifier()
     {
-        SubscribeLocalEvent<StaminaModifierComponent, ComponentStartup>(OnModifierStartup);
-        SubscribeLocalEvent<StaminaModifierComponent, ComponentShutdown>(OnModifierShutdown);
+        SubscribeLocalEvent<StaminaModifierStatusEffectComponent, StatusEffectAppliedEvent>(OnEffectApplied);
+        SubscribeLocalEvent<StaminaModifierStatusEffectComponent, StatusEffectRemovedEvent>(OnEffectRemoved);
+        SubscribeLocalEvent<StaminaModifierStatusEffectComponent, StatusEffectRelayedEvent<RefreshStaminaCritThresholdEvent>>(OnRefreshCritThreshold);
     }
 
-    private void OnModifierStartup(EntityUid uid, StaminaModifierComponent comp, ComponentStartup args)
+    private void OnEffectApplied(Entity<StaminaModifierStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        if (!TryComp<StaminaComponent>(uid, out var stamina))
-            return;
-
-        stamina.CritThreshold *= comp.Modifier;
+        RefreshStaminaCritThreshold(args.Target);
     }
 
-    private void OnModifierShutdown(EntityUid uid, StaminaModifierComponent comp, ComponentShutdown args)
+    private void OnEffectRemoved(Entity<StaminaModifierStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        if (!TryComp<StaminaComponent>(uid, out var stamina))
-            return;
-
-        stamina.CritThreshold /= comp.Modifier;
+        RefreshStaminaCritThreshold(args.Target);
     }
 
-    /// <summary>
-    /// Change the stamina modifier for an entity.
-    /// If it has <see cref="StaminaComponent"/> it will also be updated.
-    /// </summary>
-    public void SetModifier(EntityUid uid, float modifier, StaminaComponent? stamina = null, StaminaModifierComponent? comp = null)
+    private void OnRefreshCritThreshold(Entity<StaminaModifierStatusEffectComponent> ent, ref StatusEffectRelayedEvent<RefreshStaminaCritThresholdEvent> args)
     {
-        if (!Resolve(uid, ref comp))
+        var evArgs = args.Args;
+        evArgs.Modifier = Math.Max(ent.Comp.Modifier, evArgs.Modifier); // We only pick the highest value, to avoid stacking different status effects.
+        args.Args = evArgs;
+    }
+
+    public void RefreshStaminaCritThreshold(Entity<StaminaComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp))
             return;
 
-        var old = comp.Modifier;
+        var ev = new RefreshStaminaCritThresholdEvent(entity.Comp.BaseCritThreshold);
+        RaiseLocalEvent(entity, ref ev);
 
-        if (old.Equals(modifier))
-            return;
-
-        comp.Modifier = modifier;
-        Dirty(uid, comp);
-
-        if (Resolve(uid, ref stamina, false))
-        {
-            // scale to the new threshold, act as if it was removed then added
-            stamina.CritThreshold *= modifier / old;
-        }
+        entity.Comp.CritThreshold = ev.ThresholdValue * ev.Modifier;
     }
 }

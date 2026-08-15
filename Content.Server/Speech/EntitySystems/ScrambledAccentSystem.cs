@@ -1,14 +1,10 @@
-// SPDX-FileCopyrightText: 2022 Jessica M <jessica@jessicamaybe.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems
@@ -22,6 +18,7 @@ namespace Content.Server.Speech.EntitySystems
         public override void Initialize()
         {
             SubscribeLocalEvent<ScrambledAccentComponent, AccentGetEvent>(OnAccent);
+            SubscribeLocalEvent<ScrambledAccentComponent, StatusEffectRelayedEvent<AccentGetEvent>>(OnAccentRelayed);
         }
 
         public string Accentuate(string message)
@@ -48,9 +45,14 @@ namespace Content.Server.Speech.EntitySystems
             return msg;
         }
 
-        private void OnAccent(EntityUid uid, ScrambledAccentComponent component, AccentGetEvent args)
+        private void OnAccent(Entity<ScrambledAccentComponent> entity, ref AccentGetEvent args)
         {
             args.Message = Accentuate(args.Message);
+        }
+
+        private void OnAccentRelayed(Entity<ScrambledAccentComponent> entity, ref StatusEffectRelayedEvent<AccentGetEvent> args)
+        {
+            args.Args.Message = Accentuate(args.Args.Message);
         }
     }
 }

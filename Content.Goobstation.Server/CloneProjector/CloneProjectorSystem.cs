@@ -1,44 +1,37 @@
-// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.CloneProjector;
 using Content.Goobstation.Shared.CloneProjector.Clone;
-using Content.Server.Emp;
+using Content.Goobstation.Shared.Roles.Components;
+using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._DV.Carrying;
-using Content.Shared._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Holopad;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
+using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Storage;
-using Content.Shared.Strip.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -67,7 +60,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
     [Dependency] private readonly CarryingSystem _carrying = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly MobThresholdSystem _thresholds = default!;
-    [Dependency] private readonly InternalEncryptionKeySpawner _encryptionKeySpawner = default!;
+    [Dependency] private readonly GhostRoleSystem _ghost = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
 
     private ISawmill _sawmill = default!;
     public override void Initialize()
@@ -86,10 +80,15 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
         SubscribeLocalEvent<WearingCloneProjectorComponent, MobStateChangedEvent>(OnWearerStateChanged);
 
+        SubscribeLocalEvent<HolographicCloneComponent, MindAddedMessage>(OnMindAdded);
+        SubscribeLocalEvent<HolographicCloneComponent, MindRemovedMessage>(OnMindRemoved);
+
         InitializeClone();
 
         _sawmill = Logger.GetSawmill("clone-projector");
     }
+
+    private static readonly string MindRoleGemini = "MindRoleGemini";
 
     private void OnInit(Entity<CloneProjectorComponent> projector, ref MapInitEvent args) =>
         projector.Comp.CloneContainer = _container.EnsureContainer<Container>(projector.Owner, "CloneContainer");
@@ -292,19 +291,38 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             return false;
         }
 
-        var roleComp = EnsureComp<GhostRoleComponent>(clone);
-        roleComp.RoleName = Loc.GetString(projector.Comp.GhostRoleName);
-        roleComp.RoleDescription = Loc.GetString(projector.Comp.GhostRoleDescription);
-        roleComp.RoleRules = Loc.GetString(projector.Comp.GhostRoleRules);
+        var ghostRole = EnsureComp<GhostRoleComponent>(clone); // todo marty unfuck this and make gemini mindrole
+        ghostRole.RoleName = Loc.GetString(projector.Comp.GhostRoleName);
+        ghostRole.RoleDescription = Loc.GetString(projector.Comp.GhostRoleDescription);
+        ghostRole.RoleRules = Loc.GetString(projector.Comp.GhostRoleRules);
+
+        if (projector.Comp.RequiredRole != null)
+        {
+            var requirement = projector.Comp.GhostRoleRequirement = new();
+            requirement.Role = projector.Comp.RequiredRole.Value;
+            requirement.Time = projector.Comp.TimeNeeded;
+            ghostRole.MindRoles.Add(MindRoleGemini);
+        }
 
         Dirty(projector);
         return true;
     }
 
+    private void OnMindAdded(Entity<HolographicCloneComponent> ent, ref MindAddedMessage args)
+    {
+        if (!_role.MindHasRole<GeminiRoleComponent>(args.Mind))
+            _role.MindAddRole(args.Mind, MindRoleGemini, mind: args.Mind.Comp);
+    }
+
+    private void OnMindRemoved(Entity<HolographicCloneComponent> ent, ref MindRemovedMessage args)
+    {
+        _role.MindRemoveRole<GeminiRoleComponent>((args.Mind.Owner, args.Mind.Comp));
+    }
+
     public bool TryInsertClone(Entity<CloneProjectorComponent> projector, bool doCooldown = false)
     {
         if (projector.Comp.CloneUid is not { } clone
-            || _container.IsEntityOrParentInContainer(clone))
+            || !IsCloneDeployed(projector))
             return false;
 
         CleanClone(clone);
@@ -328,10 +346,18 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         return true;
     }
 
+    private bool IsCloneDeployed(CloneProjectorComponent projector)
+    {
+        if (projector.CloneUid is not { } clone)
+            return false;
+
+        return !_container.IsEntityOrParentInContainer(clone);
+    }
+
     private bool TryDeployClone(CloneProjectorComponent projector)
     {
         if (projector.CloneUid is not { } clone
-            || !_container.IsEntityOrParentInContainer(clone))
+            || IsCloneDeployed(projector))
             return false;
 
         return _container.TryRemoveFromContainer(clone);
@@ -350,7 +376,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         {
             if (slot.ContainedEntity is not { } item
                 || _whitelist.IsWhitelistFail(projector.ClonedItemWhitelist, item)
-                || _whitelist.IsBlacklistPass(projector.ClonedItemBlacklist, item))
+                || _whitelist.IsWhitelistPass(projector.ClonedItemBlacklist, item))
                 continue;
 
             var proto = Prototype(item);
@@ -461,6 +487,6 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
     private bool CanUseProjector(Entity<CloneProjectorComponent> projector, EntityUid user)
     {
-        return _whitelist.IsBlacklistFail(projector.Comp.UserBlacklist, user);
+        return _whitelist.IsWhitelistFail(projector.Comp.UserBlacklist, user);
     }
 }

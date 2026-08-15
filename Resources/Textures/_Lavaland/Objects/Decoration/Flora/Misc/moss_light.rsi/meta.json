@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Created by jaraten (discord/github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "full"
+    },
+    {
+      "name": "moss0",
+      "directions": 4
+    },
+    {
+      "name": "moss1",
+      "directions": 4
+    },
+    {
+      "name": "moss2",
+      "directions": 4
+    },
+    {
+      "name": "moss3",
+      "directions": 4
+    },
+    {
+      "name": "moss4",
+      "directions": 4
+    },
+    {
+      "name": "moss5",
+      "directions": 4
+    },
+    {
+      "name": "moss6",
+      "directions": 4
+    },
+    {
+      "name": "moss7",
+      "directions": 4
+    }
+  ]
+}

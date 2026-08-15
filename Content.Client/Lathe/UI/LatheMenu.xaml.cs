@@ -1,69 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2022 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Justin <justinly@usc.edu>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Thom <119594676+ItsMeThom@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Crotalus <Crotalus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Soup-Byte07 <soupbyte30@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
-// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -71,9 +5,9 @@ using System.Text;
 using Content.Client.Materials;
 using Content.Shared._DV.Salvage.Components; // DeltaV
 using Content.Shared._DV.Salvage.Systems; // DeltaV
-using Content.Client._Shitcode.Silo; // Goobstation
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
+using Content.Shared.Materials.OreSilo;
 using Content.Shared.Research.Prototypes;
 using Robust.Client.AutoGenerated;
 using Robust.Client.GameObjects;
@@ -83,6 +17,8 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+
 using Robust.Shared.Timing;
 using Robust.Shared.Physics; // DeltaV
 using Robust.Shared.Utility;
@@ -99,9 +35,12 @@ public sealed partial class LatheMenu : DefaultWindow
     private readonly LatheSystem _lathe;
     private readonly MaterialStorageSystem _materialStorage;
     private readonly MiningPointsSystem _miningPoints; // DeltaV
-    private readonly SiloSystem _silo; // Goobstation
     public event Action<BaseButton.ButtonEventArgs>? OnServerListButtonPressed;
     public event Action<string, int>? RecipeQueueAction;
+    public event Action<int>? QueueDeleteAction;
+    public event Action<int>? QueueMoveUpAction;
+    public event Action<int>? QueueMoveDownAction;
+    public event Action? DeleteFabricatingAction;
     public event Action<BaseButton.ButtonEventArgs>? OnResetQueueListButtonPressed; // Goobstation
     public event Action? OnClaimMiningPoints; // DeltaV
 
@@ -124,7 +63,6 @@ public sealed partial class LatheMenu : DefaultWindow
         _lathe = _entityManager.System<LatheSystem>();
         _materialStorage = _entityManager.System<MaterialStorageSystem>();
         _miningPoints = _entityManager.System<MiningPointsSystem>(); // DeltaV
-        _silo = _entityManager.System<SiloSystem>(); // Goobstation
 
         SearchBar.OnTextChanged += _ =>
         {
@@ -132,12 +70,21 @@ public sealed partial class LatheMenu : DefaultWindow
         };
         AmountLineEdit.OnTextChanged += _ =>
         {
+            if (int.TryParse(AmountLineEdit.Text, out var amount))
+            {
+                if (amount > LatheSystem.MaxItemsPerRequest)
+                    AmountLineEdit.Text = LatheSystem.MaxItemsPerRequest.ToString();
+                else if (amount < 0)
+                    AmountLineEdit.Text = "0";
+            }
+
             PopulateRecipes();
         };
 
         FilterOption.OnItemSelected += OnItemSelected;
 
         ServerListButton.OnPressed += a => OnServerListButtonPressed?.Invoke(a);
+        DeleteFabricating.OnPressed += _ => DeleteFabricatingAction?.Invoke();
         ResetQueueList.OnPressed += a => OnResetQueueListButtonPressed?.Invoke(a); // Goobstation
 
     }
@@ -197,12 +144,13 @@ public sealed partial class LatheMenu : DefaultWindow
     private bool IsSiloConnected(EntityUid uid, out string? warning, bool checkGrid = false)
     {
         warning = null;
-        var silo = _silo.GetSilo(uid);
-        if (silo != null
+        var silo = _entityManager.TryGetComponent<OreSiloClientComponent>(uid, out var siloComp)
+                        && siloComp.Silo != null;
+        if (silo
             && checkGrid)
         {
             if (_entityManager.TryGetComponent<TransformComponent>(uid, out var uidTransform)
-                && _entityManager.TryGetComponent<TransformComponent>(silo.Value, out var siloTransform))
+                && _entityManager.TryGetComponent<TransformComponent>(siloComp!.Silo, out var siloTransform))
             {
                 if (uidTransform.MapID != siloTransform.MapID)
                 {
@@ -217,10 +165,10 @@ public sealed partial class LatheMenu : DefaultWindow
             return false;
         }
 
-        if (silo == null)
+        if (silo)
             warning = Loc.GetString("lathe-menu-mining-points-no-connection-warning");
 
-        return silo != null;
+        return silo;
     }
 
     /// <summary>
@@ -242,7 +190,7 @@ public sealed partial class LatheMenu : DefaultWindow
         var recipesToShow = new List<LatheRecipePrototype>();
         foreach (var recipe in Recipes)
         {
-            if (!_prototypeManager.TryIndex(recipe, out var proto))
+            if (!_prototypeManager.Resolve(recipe, out var proto))
                 continue;
 
             // Category filtering
@@ -274,21 +222,50 @@ public sealed partial class LatheMenu : DefaultWindow
         RecipeCount.Text = Loc.GetString("lathe-menu-recipe-count", ("count", recipesToShow.Count));
 
         var sortedRecipesToShow = recipesToShow.OrderBy(_lathe.GetRecipeName);
-        RecipeList.Children.Clear();
+
+        // Get the existing list of queue controls
+        var oldChildCount = RecipeList.ChildCount;
         _entityManager.TryGetComponent(Entity, out LatheComponent? lathe);
 
+        int idx = 0;
         foreach (var prototype in sortedRecipesToShow)
         {
             var canProduce = _lathe.CanProduce(Entity, prototype, quantity, component: lathe);
+            var tooltipFunction = () => GenerateTooltipText(prototype);
 
-            var control = new RecipeControl(_lathe, prototype, () => GenerateTooltipText(prototype), canProduce, GetRecipeDisplayControl(prototype));
-            control.OnButtonPressed += s =>
+            if (idx >= oldChildCount)
             {
-                if (!int.TryParse(AmountLineEdit.Text, out var amount) || amount <= 0)
-                    amount = 1;
-                RecipeQueueAction?.Invoke(s, amount);
-            };
-            RecipeList.AddChild(control);
+                var control = new RecipeControl(_lathe, prototype, tooltipFunction, canProduce, GetRecipeDisplayControl(prototype));
+                control.OnButtonPressed += s =>
+                {
+                    if (!int.TryParse(AmountLineEdit.Text, out var amount) || amount <= 0)
+                        amount = 1;
+                    RecipeQueueAction?.Invoke(s, amount);
+                };
+                RecipeList.AddChild(control);
+            }
+            else
+            {
+                var child = RecipeList.GetChild(idx) as RecipeControl;
+
+                if (child == null)
+                {
+                    DebugTools.Assert($"Lathe menu recipe control at {idx} is not of type RecipeControl"); // Something's gone terribly wrong.
+                    continue;
+                }
+
+                child.SetRecipe(prototype);
+                child.SetTooltipSupplier(tooltipFunction);
+                child.SetCanProduce(canProduce);
+                child.SetDisplayControl(GetRecipeDisplayControl(prototype));
+            }
+            idx++;
+        }
+
+        // Shrink list if new list is shorter than old list.
+        for (var childIdx = oldChildCount - 1; idx <= childIdx; childIdx--)
+        {
+            RecipeList.RemoveChild(childIdx);
         }
     }
 
@@ -299,7 +276,7 @@ public sealed partial class LatheMenu : DefaultWindow
 
         foreach (var (id, amount) in prototype.Materials)
         {
-            if (!_prototypeManager.TryIndex(id, out var proto))
+            if (!_prototypeManager.Resolve(id, out var proto))
                 continue;
 
             var adjustedAmount = SharedLatheSystem.AdjustMaterial(amount, prototype.ApplyMaterialDiscount, multiplier);
@@ -382,24 +359,52 @@ public sealed partial class LatheMenu : DefaultWindow
     /// Populates the build queue list with all queued items
     /// </summary>
     /// <param name="queue"></param>
-    public void PopulateQueueList(IReadOnlyCollection<ProtoId<LatheRecipePrototype>> queue)
+    public void PopulateQueueList(IReadOnlyCollection<LatheRecipeBatch> queue)
     {
-        QueueList.DisposeAllChildren();
+        // Get the existing list of queue controls
+        var oldChildCount = QueueList.ChildCount;
 
-        var idx = 1;
-        foreach (var recipeProto in queue)
+        var idx = 0;
+        foreach (var batch in queue)
         {
-            var recipe = _prototypeManager.Index(recipeProto);
-            var queuedRecipeBox = new BoxContainer();
-            queuedRecipeBox.Orientation = BoxContainer.LayoutOrientation.Horizontal;
+            var recipe = _prototypeManager.Index(batch.Recipe);
 
-            queuedRecipeBox.AddChild(GetRecipeDisplayControl(recipe));
+            var itemName = _lathe.GetRecipeName(batch.Recipe);
+            string displayText;
+            if (batch.ItemsRequested > 1)
+                displayText = Loc.GetString("lathe-menu-item-batch", ("index", idx + 1), ("name", itemName), ("printed", batch.ItemsPrinted), ("total", batch.ItemsRequested));
+            else
+                displayText = Loc.GetString("lathe-menu-item-single", ("index", idx + 1), ("name", itemName));
 
-            var queuedRecipeLabel = new Label();
-            queuedRecipeLabel.Text = $"{idx}. {_lathe.GetRecipeName(recipe)}";
-            queuedRecipeBox.AddChild(queuedRecipeLabel);
-            QueueList.AddChild(queuedRecipeBox);
+            if (idx >= oldChildCount)
+            {
+                var queuedRecipeBox = new QueuedRecipeControl(displayText, idx, GetRecipeDisplayControl(recipe));
+                queuedRecipeBox.OnDeletePressed += s => QueueDeleteAction?.Invoke(s);
+                queuedRecipeBox.OnMoveUpPressed += s => QueueMoveUpAction?.Invoke(s);
+                queuedRecipeBox.OnMoveDownPressed += s => QueueMoveDownAction?.Invoke(s);
+                QueueList.AddChild(queuedRecipeBox);
+            }
+            else
+            {
+                var child = QueueList.GetChild(idx) as QueuedRecipeControl;
+
+                if (child == null)
+                {
+                    DebugTools.Assert($"Lathe menu queued recipe control at {idx} is not of type QueuedRecipeControl"); // Something's gone terribly wrong.
+                    continue;
+                }
+
+                child.SetDisplayText(displayText);
+                child.SetIndex(idx);
+                child.SetDisplayControl(GetRecipeDisplayControl(recipe));
+            }
             idx++;
+        }
+
+        // Shrink list if new list is shorter than old list.
+        for (var childIdx = oldChildCount - 1; idx <= childIdx; childIdx--)
+        {
+            QueueList.RemoveChild(childIdx);
         }
     }
 
