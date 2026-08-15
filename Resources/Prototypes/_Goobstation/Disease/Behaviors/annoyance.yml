@@ -186,8 +186,6 @@
     - !type:ModifyStatusEffect
       effectProto: StatusEffectDrowsiness
       time: 30
-      type: Add
-      refresh: false
   - type: DiseaseEmoteEffect
     emote: Yawn
   - type: DiseasePeriodicCondition
