@@ -333,8 +333,8 @@
       shoes-hydrakin:
       - state: equipped-FEET-sealed-hydrakin
   
-  - type: entity
-  parent: ClothingModsuitBootsStandard
+- type: entity
+  parent: ClothingShoesBase
   id: ClothingModsuitBootsBrigMed
   name: trauma modsuit boots
   description: Cool boots.
