@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/15/2026 20:47:28
-  entityCount: 9144
+  time: 08/15/2026 21:12:59
+  entityCount: 9140
 maps:
 - 1
 grids:
@@ -4362,7 +4362,7 @@ entities:
       pos: -32.5,-2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -119287.57
+      secondsUntilStateChange: -119556.93
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4397,7 +4397,7 @@ entities:
       pos: 27.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -46998.188
+      secondsUntilStateChange: -47267.543
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5213,7 +5213,7 @@ entities:
       pos: -32.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -165511.81
+      secondsUntilStateChange: -165781.17
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21894,25 +21894,8 @@ entities:
     - type: Transform
       pos: 1.5,16.5
       parent: 2
-- proto: DecalSpawnerDirtNear
-  entities:
-  - uid: 9057
-    components:
-    - type: Transform
-      pos: 19.5,30.5
-      parent: 2
 - proto: DecalSpawnerDirtSingle
   entities:
-  - uid: 9051
-    components:
-    - type: Transform
-      pos: 18.5,-10.5
-      parent: 2
-  - uid: 9062
-    components:
-    - type: Transform
-      pos: 15.5,12.5
-      parent: 2
   - uid: 9063
     components:
     - type: Transform
@@ -21922,13 +21905,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,-2.5
-      parent: 2
-- proto: DecalSpawnerDirtWide
-  entities:
-  - uid: 2672
-    components:
-    - type: Transform
-      pos: 27.5,-13.5
       parent: 2
 - proto: DefaultStationBeaconAICore
   entities:
@@ -46096,6 +46072,21 @@ entities:
       rot: 3.141592653589793 rad
       pos: -44.5,-22.5
       parent: 2
+  - uid: 210
+    components:
+    - type: Transform
+      pos: -55.5,12.5
+      parent: 2
+  - uid: 1247
+    components:
+    - type: Transform
+      pos: -55.5,11.5
+      parent: 2
+  - uid: 1248
+    components:
+    - type: Transform
+      pos: -55.5,10.5
+      parent: 2
   - uid: 1925
     components:
     - type: Transform
@@ -46121,6 +46112,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -45.5,-22.5
+      parent: 2
+  - uid: 2672
+    components:
+    - type: Transform
+      pos: -49.5,13.5
       parent: 2
   - uid: 4971
     components:
@@ -46170,6 +46166,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -51.5,-5.5
       parent: 2
+  - uid: 5472
+    components:
+    - type: Transform
+      pos: -49.5,9.5
+      parent: 2
 - proto: ReinforcedUraniumWindow
   entities:
   - uid: 6858
@@ -46215,11 +46216,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 0.5,0.5
-      parent: 2
-  - uid: 210
-    components:
-    - type: Transform
-      pos: -55.5,12.5
       parent: 2
   - uid: 249
     components:
@@ -46306,16 +46302,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 16.5,16.5
-      parent: 2
-  - uid: 1247
-    components:
-    - type: Transform
-      pos: -55.5,11.5
-      parent: 2
-  - uid: 1248
-    components:
-    - type: Transform
-      pos: -55.5,10.5
       parent: 2
   - uid: 1467
     components:
@@ -46626,11 +46612,6 @@ entities:
     components:
     - type: Transform
       pos: -64.5,2.5
-      parent: 2
-  - uid: 5472
-    components:
-    - type: Transform
-      pos: -49.5,13.5
       parent: 2
   - uid: 5491
     components:
@@ -47316,11 +47297,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 12.5,19.5
-      parent: 2
-  - uid: 7853
-    components:
-    - type: Transform
-      pos: -49.5,9.5
       parent: 2
   - uid: 7932
     components:
