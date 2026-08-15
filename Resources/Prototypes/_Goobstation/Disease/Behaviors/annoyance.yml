@@ -244,20 +244,3 @@
       rangeMax: 2
   - type: DiseaseProgressCondition
     minProgress: 0.5
-
-- type: entity
-  id: DiseaseBehaviorDisorientation
-  parent: DiseaseBehaviorBase
-  name: Disorientation
-  description: Rare symptom that causes disorientation in space in the final stages
-  components:
-  - type: DiseaseEffect
-    complexity: 40
-  - type: DiseaseReagentEffect
-    timeScale: false
-    effects:
-    - !type:MovespeedModifier #Literally inverts movement. If you move forward, you'll move backward, and so on.
-      walkSpeedModifier: -1
-      sprintSpeedModifier: -1
-  - type: DiseaseProgressCondition
-    minProgress: 0.8
