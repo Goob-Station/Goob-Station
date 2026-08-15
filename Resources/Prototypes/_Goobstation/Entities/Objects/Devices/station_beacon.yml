@@ -25,5 +25,5 @@
   suffix: Supermatter
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-radio-station
+    defaultText: station-beacon-supermatter
     color: "#FFFF00"
