@@ -43,4 +43,3 @@ public sealed partial class VoxAudioSystem : SharedVoxAudioSystem
         RaiseNetworkEvent(msg, filter ?? Filter.Broadcast());
     }
 }
-

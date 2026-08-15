@@ -80,7 +80,8 @@
     followEntity: false
   - type: CommunicationsConsole
     canShuttle: false
-    enableVox: true # Goobstation - yayyy
+    # Goobstation - yayyy
+    enableVox: true
     delay: 30
     voxVoices:
     - voxFem
