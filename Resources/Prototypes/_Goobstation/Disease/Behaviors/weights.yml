@@ -27,7 +27,6 @@
     DiseaseBehaviorDrowsiness: 0.5
     DiseaseBehaviorEuphoria: 0.5
     DiseaseBehaviorBS: 0.05
-    DiseaseBehaviorDisorientation: 0.05
     DiseaseBehaviorApathy: 0.33
     DiseaseBehaviorNecrosis: 0.1
     DiseaseBehaviorPulmonaryEdema: 1
