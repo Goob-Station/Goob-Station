@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/15/2026 00:35:04
-  entityCount: 9131
+  time: 08/15/2026 02:18:40
+  entityCount: 9128
 maps:
 - 1
 grids:
@@ -4298,7 +4298,7 @@ entities:
       pos: -32.5,-2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -112591.48
+      secondsUntilStateChange: -112680.4
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4333,7 +4333,7 @@ entities:
       pos: 27.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -40302.094
+      secondsUntilStateChange: -40391.01
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5159,7 +5159,7 @@ entities:
       pos: -32.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -158815.72
+      secondsUntilStateChange: -158904.64
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13310,7 +13310,7 @@ entities:
   - uid: 1517
     components:
     - type: Transform
-      pos: -59.5,-1.5
+      pos: -58.5,-2.5
       parent: 2
   - uid: 1526
     components:
@@ -13325,7 +13325,7 @@ entities:
   - uid: 1554
     components:
     - type: Transform
-      pos: -59.5,0.5
+      pos: -58.5,-0.5
       parent: 2
   - uid: 1590
     components:
@@ -13665,7 +13665,7 @@ entities:
   - uid: 2008
     components:
     - type: Transform
-      pos: -59.5,-0.5
+      pos: -58.5,-1.5
       parent: 2
   - uid: 2010
     components:
@@ -22206,11 +22206,6 @@ entities:
     - type: Transform
       pos: -31.5,2.5
       parent: 2
-  - uid: 2792
-    components:
-    - type: Transform
-      pos: -32.5,3.5
-      parent: 2
 - proto: DefaultStationBeaconEscapePodN
   entities:
   - uid: 2033
@@ -25913,6 +25908,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,2.5
       parent: 2
+  - uid: 2792
+    components:
+    - type: Transform
+      pos: -29.5,-3.5
+      parent: 2
   - uid: 2968
     components:
     - type: Transform
@@ -26038,12 +26038,8 @@ entities:
   - uid: 3511
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -27.5,-3.5
+      pos: -28.5,-3.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -68524.17
-      state: Closing
   - uid: 3518
     components:
     - type: Transform
@@ -26063,8 +26059,7 @@ entities:
   - uid: 3784
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -28.5,-3.5
+      pos: -27.5,-3.5
       parent: 2
   - uid: 3973
     components:
@@ -26193,12 +26188,6 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-3.5
-      parent: 2
-  - uid: 4037
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -29.5,-3.5
       parent: 2
   - uid: 4039
     components:
@@ -44374,6 +44363,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -25.5,19.5
       parent: 2
+  - uid: 4037
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -29.5,-4.5
+      parent: 2
   - uid: 4124
     components:
     - type: Transform
@@ -44646,12 +44641,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 26.5,6.5
-      parent: 2
-  - uid: 5342
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -29.5,-3.5
       parent: 2
   - uid: 5343
     components:
@@ -50475,13 +50464,6 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Engineering - PTL
-  - uid: 7326
-    components:
-    - type: Transform
-      pos: -54.5,-1.5
-      parent: 2
-    - type: SurveillanceCamera
-      id: Engineering - TEG Hallway
   - uid: 7459
     components:
     - type: Transform
@@ -50490,14 +50472,6 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Engineering - Grav/Anchor
-  - uid: 7553
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -58.5,-1.5
-      parent: 2
-    - type: SurveillanceCamera
-      id: Engineering - TEG
   - uid: 7836
     components:
     - type: Transform
