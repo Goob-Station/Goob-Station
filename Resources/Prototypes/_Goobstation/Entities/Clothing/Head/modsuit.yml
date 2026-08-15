@@ -25,7 +25,10 @@
       - state: equipped-HEAD-vox
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
-
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -100,6 +103,10 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -180,12 +187,14 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD
-      head-resomi:
-      - state: equipped-HEAD-resomi
       head-vox:
       - state: equipped-HEAD-vox
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/security.rsi
     layers:
@@ -210,6 +219,10 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -289,12 +302,14 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD
-      head-resomi:
-      - state: equipped-HEAD-resomi
       head-vox:
       - state: equipped-HEAD-vox
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/headofsecurity.rsi
     layers:
@@ -318,6 +333,10 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -402,10 +421,16 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -486,10 +511,16 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -568,12 +599,14 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD
-      head-resomi:
-      - state: equipped-HEAD-resomi
       head-vox:
       - state: equipped-HEAD-vox
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -588,6 +621,10 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -682,10 +719,16 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -754,10 +797,14 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD
-      head-resomi:
-      - state: equipped-HEAD-resomi
       head-vox:
       - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/captain.rsi
     layers:
@@ -782,6 +829,10 @@
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -848,3 +899,120 @@
     startingCharge: 600
   - type: BatterySelfRecharger
     autoRechargeRate: 2
+
+- type: entity
+  parent: BaseClothingModsuitHelmet
+  id: ClothingModsuitHelmetBrigMed
+  name: trauma modsuit helmet
+  description: Cool helmet without eye lenses. Eyes aren't needed for surgery.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Modsuits/brigmed.rsi
+    layers:
+    - state: helmet
+    - state: helmet-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-helmet
+    sealDownPopup: sealable-clothing-seal-down-helmet
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.65
+        Radiation: 0.6
+  - type: ComponentToggler
+    components:
+    - type: BreathMask
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
+    - type: IdentityBlocker
+    - type: IngestionBlocker
+    - type: HideLayerClothing
+      slots:
+      - Hair
+      - Snout
+      - HeadTop
+      - HeadSide
+  #THIS WILL BE REPLACED WITH MODULE ↓↓
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 3
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: true
+  - type: HandheldLight
+    addPrefix: true
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        id: radiating
+        interpolate: Linear
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        startValue: 0.1
+        endValue: 2.0
+        isLooped: true
+  - type: Battery
+    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRechargeRate: 2
+  - type: ShowHealthBars
+  - type: ShowHealthIcons
+  - type: ShowDiseaseIcons

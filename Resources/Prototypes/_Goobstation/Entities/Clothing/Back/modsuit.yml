@@ -456,3 +456,41 @@
         whitelist:
           components:
             - PowerCell
+
+- type: entity
+  parent: [ClothingModsuitStandard, BaseSecurityContraband]
+  id: ClothingModsuitBrigMed
+  name: security trauma modsuit control unit
+  description: A robust modular hardsuit control module unit for healing commies in spess.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/brigmed.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetBrigMed
+      gloves: ClothingModsuitGauntletsBrigMed
+      outerClothing: ClothingModsuitChestplateBrigMed
+      shoes: ClothingModsuitBootsBrigMed
+  - type: Construction
+    graph: Modsuit
+    node: security
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitBrigMed
+  id: ClothingModsuitBrigMedPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell

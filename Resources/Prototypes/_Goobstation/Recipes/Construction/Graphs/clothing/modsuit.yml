@@ -133,3 +133,6 @@
 
   - node: captain
     entity: ClothingModsuitCaptain
+
+  - node: brigmed
+    entity: ClothingModsuitBrigMed
