@@ -799,10 +799,6 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
-      head-vulpkanin:
-      - state: equipped-HEAD-vulpkanin
-      head-feroxi:
-      - state: equipped-HEAD-feroxi
       head-hydrakin:
       - state: equipped-HEAD-hydrakin
   - type: Sprite

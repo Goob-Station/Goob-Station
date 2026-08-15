@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Network;
+using Robust.Shared.Network;
 
 namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
 
@@ -13,7 +13,7 @@ public sealed partial class SpawnEntityEntityEffectSystem : EntityEffectSystem<T
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<SpawnEntity> args)
     {
-        var quantity = args.Effect.Number * (int)Math.Floor(args.Scale);
+        var quantity = args.Effect.ShouldScale ? args.Effect.Number * (int) Math.Floor(args.Scale) : args.Effect.Number; // Goobstation - Added ShouldSCale
         var proto = args.Effect.Entity;
 
         if (args.Effect.Predicted)

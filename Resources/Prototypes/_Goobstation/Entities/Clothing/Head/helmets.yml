@@ -47,6 +47,12 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.75
@@ -158,6 +164,12 @@
   - type: Armor
     coverage:
     - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -252,14 +264,19 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetMonk
-  name: monk's hood
-  description: For when a man wants to cover up his tonsure.
+  name: monk's blindfold
+  description: For people who want to give up unnecessary feelings.
   components:
   - type: Sprite
-    sprite: _ShitChap/Clothing/Head/Misc/monkhood.rsi
+    sprite: _ShitChap/Clothing/Head/Misc/monkblindfold.rsi
     state: icon
   - type: Clothing
-    sprite: _ShitChap/Clothing/Head/Misc/monkhood.rsi
+    sprite: _ShitChap/Clothing/Head/Misc/monkblindfold.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
@@ -281,14 +298,14 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetDragon
-  name: dragon hood
-  description: Fireball spewing not included.
+  name: dragon skull
+  description: Cool skull.
   components:
   - type: Sprite
-    sprite: _ShitChap/Clothing/Head/Misc/dragonhood.rsi
+    sprite: _ShitChap/Clothing/Head/Misc/dragonskull.rsi
     state: icon
   - type: Clothing
-    sprite: _ShitChap/Clothing/Head/Misc/dragonhood.rsi
+    sprite: _ShitChap/Clothing/Head/Misc/dragonskull.rsi
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar

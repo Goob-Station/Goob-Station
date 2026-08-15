@@ -1,0 +1,71 @@
+- type: entity
+  parent: [ ClothingNeckBase, BaseSyndicateContraband ] # TODO: Make it ClothingNeckUnbutcherableBase once upstream happens
+  id: ClothingNeckBombCollar
+  name: bomb collar
+  description: A bomb collar, it explodes.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Trauma/Clothing/Neck/bombcollar.rsi
+  - type: Clothing
+    sprite: _Trauma/Clothing/Neck/bombcollar.rsi
+    stripDelay: 10
+    equipDelay: 5
+  - type: SelfUnremovableClothing
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Minibomb
+    maxIntensity: 50
+    intensitySlope: 20
+    totalIntensity: 100
+    canCreateVacuum: false
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+
+- type: entity
+  parent: [ ClothingNeckBase, SurveillanceWirelessCameraBodyEntertainment, BaseSyndicateContraband ] # TODO: Make it ClothingNeckUnbutcherableBase once upstream happens
+  id: ClothingNeckSlayerCoat
+  name: S.L.A.Y.E.R coat
+  description: The Syndicate Lightly Armored Yet Explosive Resistant Overcoat, or S.L.A.Y.E.R. Overcoat for short, is Gorlex Marauders's only overcoat capable of protecting the wearer's limbs from explosive damage, if worn over the shoulders. Its interior is lined with hooks. Comes with proprietary technology that allows it to patch into Nanotrasen systems like a camera. Not for the faint of heart. Used to entertain and distract the crew while you do what needs to be done.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Trauma/Clothing/Neck/slayer_coat.rsi
+  - type: Clothing
+    sprite: _Trauma/Clothing/Neck/slayer_coat.rsi
+  - type: SelfUnremovableClothing
+  - type: FactionClothing
+    faction: Syndicate
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: SurveillanceCamera
+    id: Slayer
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: RadioShow
+    listenRange: 1
+    enabled: false
+    toggleOnInteract: true
+    unobstructedRequired: true

@@ -330,6 +330,7 @@
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFullHonkops
+      chaosScore: 300
       roleLoadout:
       - RoleSurvivalNukieHonkops
       components:
@@ -355,6 +356,7 @@
       max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 16 # Goobstation
       startingGear: SyndicateOperativeGearFullHonkops
+      chaosScore: 300
       roleLoadout:
       - RoleSurvivalNukieHonkops
       components:
