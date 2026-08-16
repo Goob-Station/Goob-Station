@@ -6500,7 +6500,7 @@ entities:
     - type: Transform
       pos: -6.5,12.5
       parent: 2
-- proto: CrateMaterialPlasteel
+- proto: CrateMaterialSteel300
   entities:
   - uid: 3560
     components:
@@ -22749,15 +22749,6 @@ entities:
     - type: Transform
       pos: -19.5,18.5
       parent: 2
-- proto: WarningWaste
-  entities:
-  - uid: 1354
-    components:
-    - type: Transform
-      pos: 8.5,-33.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
 - proto: WaterShower
   entities:
   - uid: 271

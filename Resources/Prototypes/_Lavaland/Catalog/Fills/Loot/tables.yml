@@ -5,32 +5,47 @@
     # Food
     - !type:NestedSelector
       tableId: LootFoodCommonMRE
+      prob: 1.0
     - !type:NestedSelector
       tableId: LootFoodCommonDrink
+      prob: 1.0
     - !type:NestedSelector
       tableId: LootFoodCommonMisc
+      prob: 0.8
     # Utility
     - !type:NestedSelector
       tableId: LootUtilityCommonTools
+      prob: 0.8
     - !type:NestedSelector
       tableId: LootUtilityCommonMisc
+      prob: 0.8
     # Medicine
     - !type:NestedSelector
       tableId: LootMedicineCommonTopicals
+      prob: 0.5
     - !type:NestedSelector
       tableId: LootMedicineCommonChemicals
+      prob: 0.2
     # Junk
     - !type:NestedSelector
       tableId: LootJunkCommonMisc
+      prob: 0.4
     # Misc
     - !type:NestedSelector
       tableId: LootMiscCommonValuables
+      prob: 0.6
     # Weapons
     - !type:NestedSelector
       tableId: MetalShelfCommonGunWeapons
+      prob: 0.1
     # Ammo
     - !type:NestedSelector
       tableId: MetalShelfCommonAmmo
+      prob: 0.25
+    # Materials
+    - !type:NestedSelector
+      tableId: MetalShelfCommonMaterial
+      prob: 1
 
 # Rare
 
@@ -41,33 +56,48 @@
     # Weapons
     - !type:NestedSelector
       tableId: MetalShelfRareGunWeapons
+      prob: 0.2
     - !type:NestedSelector
       tableId: MetalShelfRareMeleeWeapons
+      prob: 0.05
     # Ammo
     - !type:NestedSelector
       tableId: MetalShelfRareAmmo
+      prob: 0.35
     # Utility
     - !type:NestedSelector
       tableId: LootUtilityRareTools
+      prob: 0.6
     - !type:NestedSelector
       tableId: LootUtilityRareMisc
+      prob: 0.6
     # Medicine
     - !type:NestedSelector
       tableId: LootMedicineRareTopicals
+      prob: 0.6
     - !type:NestedSelector
       tableId: LootMedicineRareChemicals
+      prob: 0.4
     # Junk
     - !type:NestedSelector
       tableId: LootJunkRareCreatures
+      prob: 0.6
     # Misc
     - !type:NestedSelector
       tableId: LootMiscRareValuables
+      prob: 0.8
     # Food
     - !type:NestedSelector
       tableId: LootFoodRareMisc
+      prob: 0.7
     # Chemistry
     - !type:NestedSelector
       tableId: RandomChemistryBottleMedicalTier1
+      prob: 0.3
+    # Materials
+    - !type:NestedSelector
+      tableId: MetalShelfRareMaterial
+      prob: 0.85
 
 # Very rare
 
@@ -78,32 +108,47 @@
     # Weapons
     - !type:NestedSelector
       tableId: MetalShelfVeryRareGunWeapons
+      prob: 0.2
     - !type:NestedSelector
       tableId: MetalShelfVeryRareMeleeWeapons
+      prob: 0.05
     # Ammo
     - !type:NestedSelector
       tableId: MetalShelfVeryRareAmmo
+      prob: 0.8
     # Utility
     - !type:NestedSelector
       tableId: LootUtilityVeryRareTools
+      prob: 0.5
     - !type:NestedSelector
       tableId: LootUtilityVeryRarePower
+      prob: 0.5
     # Medicine
     - !type:NestedSelector
       tableId: LootMedicineVeryRareTopicals
+      prob: 0.5
     - !type:NestedSelector
       tableId: LootMedicineVeryRareChemicals
+      prob: 0.4
     # Misc
     - !type:NestedSelector
       tableId: LootMiscVeryRareValuables
+      prob: 0.5
     - !type:NestedSelector
       tableId: LootMiscVeryRareAnomalies
+      prob: 0.35
     # Food
     - !type:NestedSelector
       tableId: LootFoodVeryRareMisc
+      prob: 0.7
     # Chemistry
     - !type:NestedSelector
       tableId: RandomChemistryBottleMedicalTier2
+      prob: 0.4
+    # Materials
+    - !type:NestedSelector
+      tableId: MetalShelfVeryRareMaterial
+      prob: 0.9
 
 # Ultra rare
 
@@ -114,26 +159,40 @@
     # Weapons
     - !type:NestedSelector
       tableId: MetalShelfUltraRareGunWeapons
+      prob: 0.25
     # Ammo
     - !type:NestedSelector
       tableId: MetalShelfUltraRareAmmo
+      prob: 0.6
     # Utility
     - !type:NestedSelector
       tableId: LootUtilityUltraRareTools
+      prob: 0.6
     - !type:NestedSelector
       tableId: LootUtilityUltraRarePower
+      prob: 0.6
     # Medicine
     - !type:NestedSelector
       tableId: LootMedicineUltraRareTopicals
+      prob: 0.8
     - !type:NestedSelector
       tableId: LootMedicineUltraRareChemicals
+      prob: 0.8
     # Misc
     - !type:NestedSelector
       tableId: LootMiscUltraRareAnomalies
+      prob: 0.4
     - !type:NestedSelector
       tableId: LootMiscUltraRareValuables
+      prob: 0.5
     # Chemistry
     - !type:NestedSelector
       tableId: RandomChemistryBottleAnyTable
+      prob: 0.1
     - !type:NestedSelector
       tableId: RandomChemistryBottleMedicalTier3
+      prob: 0.3
+    # Materials
+    - !type:NestedSelector
+      tableId: MetalShelfUltraRareMaterial
+      prob: 0.8
