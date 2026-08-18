@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Organ;
@@ -11,10 +10,10 @@ using Content.Shared.Whitelist;
 using Content.Shared.DoAfter;
 using Content.Shared.Jittering;
 using Content.Shared.Gibbing.Events;
-using Content.Shared.StatusEffect;
-using Content.Shared.Mobs.Components;// TODO: change to StatusEffectNew when jittering would be migrated
+using Content.Shared.StatusEffectNew;
+using Content.Shared.Mobs.Components;
 
-namespace Content.Goobstation.Server.Xenobiology;
+namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 public sealed partial class EatCorpseSystem : EntitySystem
 {
@@ -26,10 +25,18 @@ public sealed partial class EatCorpseSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
+    private EntityQuery<OrganComponent> _organQuery;
+    private EntityQuery<BodyComponent> _bodyQuery;
+    private EntityQuery<BodyPartComponent> _bodyPartQuery;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<CorpseEaterComponent, EatCorpseEvent>(OnEatCorpseAttempt);
         SubscribeLocalEvent<CorpseEaterComponent, EatCorpseDoAfterEvent>(OnEatCorpseDoAfterEvent);
+
+        _organQuery = GetEntityQuery<OrganComponent>();
+        _bodyQuery = GetEntityQuery<BodyComponent>();
+        _bodyPartQuery = GetEntityQuery<BodyPartComponent>();
     }
 
     private void OnEatCorpseAttempt(Entity<CorpseEaterComponent> eater, ref EatCorpseEvent args)
@@ -47,8 +54,8 @@ public sealed partial class EatCorpseSystem : EntitySystem
         BodyComponent? targetBody = null,
         MobStateComponent? targetState = null)
     {
-        if (!Resolve(eaterUid, ref eater)
-            || !Resolve(targetUid, ref targetState, ref targetBody))
+        if (!Resolve(eaterUid, ref eater, false)
+            || !Resolve(targetUid, ref targetState, ref targetBody, false))
             return false;
 
         if (!_mobState.IsDead(targetUid))
@@ -67,30 +74,19 @@ public sealed partial class EatCorpseSystem : EntitySystem
         BodyComponent? targetBody = null,
         MobStateComponent? targetState = null)
     {
-        if (!Resolve(eaterUid, ref eater)
-            || !Resolve(targetUid, ref targetState, ref targetBody))
+        if (!Resolve(eaterUid, ref eater, false)
+            || !Resolve(targetUid, ref targetState, ref targetBody, false))
             return false;
 
-        if (!_body.TryGetRootPart(targetUid, out var rootPart, targetBody))
+        if (!_body.TryGetRootPart(targetUid, out var _, targetBody))
             return false;
 
-        if (!_body.GetBodyOrgans(targetUid, targetBody).Any(organ => IsValidOrganOrBodyPart(eater, organ.Id))
-            && !_body.GetBodyChildren(targetUid, targetBody, rootPart).Any(part => IsValidOrganOrBodyPart(eater, part.Id)))
+        if (!CanEatCorpse(eaterUid, targetUid, eater, targetBody))
         {
-            var notEatablePopup = Loc.GetString("slime-eat-corpse-fail-not-eatable", ("target", targetUid));
-            _popup.PopupEntity(notEatablePopup, eaterUid, eaterUid);
+            var fail = Loc.GetString("slime-eat-corpse-fail", ("target", targetUid));
+            _popup.PopupEntity(fail, eaterUid, PopupType.Small);
             return false;
         }
-
-        if (!_mobState.IsDead(targetUid))
-        {
-            var notDeadPopup = Loc.GetString("slime-eat-corpse-fail-not-dead", ("target", targetUid));
-            _popup.PopupEntity(notDeadPopup, eaterUid, eaterUid);
-            return false;
-        }
-
-        if (!CanEatCorpse(eaterUid, targetUid, eater, targetBody)) // all conditions already above, but just in case
-            return false;
 
         var doAfterArgs = new DoAfterArgs(EntityManager, eaterUid, eater.EatCorpseDoAfterDuration, new EatCorpseDoAfterEvent(), eaterUid, targetUid)
         {
@@ -98,6 +94,8 @@ public sealed partial class EatCorpseSystem : EntitySystem
             BreakOnMove = true,
             DuplicateCondition = DuplicateConditions.SameTool, // multiple slimes can eat one target, but one slime can't eat multiple targets
         };
+
+        EnsureComp<BeingEatenComponent>(targetUid); // Dont let slime interupt each other
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out eater.LastDoAfterId))
             return false;
@@ -114,11 +112,16 @@ public sealed partial class EatCorpseSystem : EntitySystem
         if (args.Cancelled || args.Handled || args.Target is not { } target)
         {
             if (args.Target is { } cancelledTarget)
+            {
                 _statusEffects.TryRemoveStatusEffect(cancelledTarget, "Jitter");
+                RemComp<BeingEatenComponent>(cancelledTarget);
+            }
+
+            args.Handled = true;
             return;
         }
 
-        if (!TryComp<BodyComponent>(target, out var body)
+        if (!_bodyQuery.TryComp(target, out var body)
             || !_body.TryGetRootPart(target, out var rootPart, body))
             return;
 
@@ -133,19 +136,21 @@ public sealed partial class EatCorpseSystem : EntitySystem
         if (toRemove == rootPart.Value.Owner)
         {
             _body.GibBody(target, gib: GibType.Drop);
+            RemComp<BeingEatenComponent>(target);
             return;
         }
 
         _body.RemoveOrgan(toRemove);
         _body.TryDetachPart(toRemove);
+        RemComp<BeingEatenComponent>(target);
     }
 
     private bool IsValidOrganOrBodyPart(CorpseEaterComponent eater, EntityUid target)
     {
-        if (HasComp<OrganComponent>(target))
+        if (_organQuery.HasComp(target))
             return _whitelist.CheckBoth(target, eater.OrganBlacklist, eater.OrganWhitelist);
 
-        if (TryComp<BodyPartComponent>(target, out var part))
+        if (_bodyPartQuery.TryComp(target, out var part))
             return part.PartComposition == eater.BodyPartComposition || eater.BodyPartComposition is null
                 && _whitelist.CheckBoth(target, eater.BodyPartBlacklist, eater.BodyPartWhitelist);
 

@@ -124,7 +124,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         EnsureComp<ActiveSlimeGrinderComponent>(grinder);
         grinder.Comp.ProcessingTimer += physics.FixturesMass * grinder.Comp.ProcessingTimePerUnitMass;
 
-        var extractProto = slime.ProducedExtract;
+        var extractProto = _xenobio.GetProducedExtract((toProcess, slime));
         var extractQuantity = slime.ExtractsProduced;
 
         if (!grinder.Comp.YieldQueue.ContainsKey(extractProto))

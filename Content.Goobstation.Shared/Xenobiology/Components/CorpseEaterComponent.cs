@@ -41,7 +41,7 @@ public sealed partial class CorpseEaterComponent : Component
     /// How long the do-after to separate body part or organ from corpse.
     /// </summary>
     [DataField]
-    public TimeSpan EatCorpseDoAfterDuration = TimeSpan.FromSeconds(20);
+    public TimeSpan EatCorpseDoAfterDuration = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// Stores last eat corpse DoAfter id, used for HTN stuff.

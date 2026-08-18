@@ -14,22 +14,23 @@ namespace Content.Goobstation.Shared.Xenobiology.Components;
 public sealed partial class SlimeComponent : Component
 {
     /// <summary>
-    /// What color is the slime?
+    /// Default slime.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public Color SlimeColor = Color.FromHex("#FFFFFF");
+    [DataField]
+    public EntProtoId DefaultSlimeProto = "MobSlimeXenobioBaby";
 
     /// <summary>
-    /// The intended proto ID of this slime, used for mitosis process.
+    /// If the associated breed prototype cannot be found,
+    /// it will use this extract as a fallback.
     /// </summary>
-    [DataField(required: true), AutoNetworkedField]
-    public EntProtoId Breed = "GreyMutation";
+    [DataField]
+    public EntProtoId DefaultExtract = "GreySlimeExtract";
 
     /// <summary>
     /// What is the current slime's current breed?
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
-    public LocId BreedName = "xenobio-breed-grey";
+    public ProtoId<BreedPrototype> Breed = "GreyMutation";
 
     /// <summary>
     /// The extract produced when this breed is ground.
@@ -38,10 +39,16 @@ public sealed partial class SlimeComponent : Component
     public EntProtoId ProducedExtract = "GreySlimeExtract";
 
     /// <summary>
+    /// What color is the slime?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Color SlimeColor = Color.FromHex("#FFFFFF");
+
+    /// <summary>
     /// If the mutation chance is met, what potential mutations are available?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public HashSet<EntProtoId> PotentialMutations = new();
+    public HashSet<ProtoId<BreedPrototype>> PotentialMutations = new();
 
     /// <summary>
     /// The stomach! Holds all consumed entities to be consumed.
@@ -70,7 +77,7 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// The entity which has tamed this slime.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public EntityUid? Tamer;
 
     [DataField]
@@ -79,8 +86,14 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// The entity, if any, currently being consumed by the slime.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public EntityUid? LatchedTarget;
+
+    /// <summary>
+    /// Should this slime have a shader?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ShouldHaveShader;
 
     /// <summary>
     /// The maximum amount of offspring produced by mitosis.
