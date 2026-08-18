@@ -41,11 +41,11 @@
     # Ammo
     - !type:NestedSelector
       tableId: MetalShelfCommonAmmo
-      prob: 0.25
+      prob: 0.1
     # Materials
     - !type:NestedSelector
       tableId: MetalShelfCommonMaterial
-      prob: 1
+      prob: 0.6
 
 # Rare
 

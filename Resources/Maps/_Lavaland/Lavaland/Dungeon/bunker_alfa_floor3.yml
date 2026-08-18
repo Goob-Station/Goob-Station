@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/11/2026 10:35:17
-  entityCount: 4749
+  time: 08/18/2026 16:01:21
+  entityCount: 4752
 maps:
 - 1
 grids:
@@ -6132,32 +6132,45 @@ entities:
     - type: Transform
       pos: 32.5,3.5
       parent: 2
-- proto: CrateMaterialBasicResource
+- proto: CrateMaterialGlass1200
   entities:
-  - uid: 3902
+  - uid: 3903
     components:
     - type: Transform
       pos: -2.5,-10.5
       parent: 2
-  - uid: 3903
-    components:
-    - type: Transform
-      pos: -3.5,-11.5
-      parent: 2
-  - uid: 3904
-    components:
-    - type: Transform
-      pos: -3.5,-10.5
-      parent: 2
-  - uid: 3907
-    components:
-    - type: Transform
-      pos: -4.5,-10.5
-      parent: 2
+- proto: CrateMaterialGold300
+  entities:
   - uid: 3908
     components:
     - type: Transform
       pos: -4.5,-11.5
+      parent: 2
+- proto: CrateMaterialPlastic1200
+  entities:
+  - uid: 3904
+    components:
+    - type: Transform
+      pos: -4.5,-10.5
+      parent: 2
+- proto: CrateMaterialSilver300
+  entities:
+  - uid: 3902
+    components:
+    - type: Transform
+      pos: -3.5,-11.5
+      parent: 2
+  - uid: 4750
+    components:
+    - type: Transform
+      pos: 36.5,19.5
+      parent: 2
+- proto: CrateMaterialSteel1200
+  entities:
+  - uid: 3907
+    components:
+    - type: Transform
+      pos: -3.5,-10.5
       parent: 2
   - uid: 4489
     components:
@@ -6794,19 +6807,19 @@ entities:
   - uid: 1826
     components:
     - type: Transform
-      pos: -9.510153,-16.464523
+      pos: -9.5,-16.5
       parent: 2
   - uid: 3501
     components:
     - type: Transform
-      pos: -14.658777,9.437338
+      pos: -14.5,9.5
       parent: 2
 - proto: GoonSupplyCrateFilledUltraRare
   entities:
   - uid: 185
     components:
     - type: Transform
-      pos: 2.4619055,-10.431169
+      pos: 2.5,-10.5
       parent: 2
   - uid: 2309
     components:
@@ -7357,7 +7370,7 @@ entities:
   - uid: 3503
     components:
     - type: Transform
-      pos: -13.080652,11.859213
+      pos: -13.5,11.5
       parent: 2
 - proto: MetalShelfLargeFilledCommon
   entities:
@@ -7365,34 +7378,34 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 18.977428,6.5033007
+      pos: 18.5,6.5
       parent: 2
   - uid: 2997
     components:
     - type: Transform
-      pos: 29.234348,17.664248
+      pos: 29.5,17.5
       parent: 2
   - uid: 3502
     components:
     - type: Transform
-      pos: -11.611902,11.812338
+      pos: -11.5,11.5
       parent: 2
 - proto: MetalShelfLargeFilledRare
   entities:
   - uid: 1896
     components:
     - type: Transform
-      pos: -6.891117,-3.3926125
+      pos: -6.5,-3.5
       parent: 2
   - uid: 1942
     components:
     - type: Transform
-      pos: -4.008158,-7.6898174
+      pos: -4.5,-7.5
       parent: 2
   - uid: 1943
     components:
     - type: Transform
-      pos: 2.0855918,-7.6741924
+      pos: 2.5,-7.5
       parent: 2
   - uid: 2935
     components:
@@ -7431,13 +7444,13 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -23.450846,5.689686
+      pos: -23.5,5.5
       parent: 2
   - uid: 3557
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -20.450846,5.595936
+      pos: -20.5,5.5
       parent: 2
 - proto: PaperOffice
   entities:
@@ -7944,6 +7957,16 @@ entities:
     components:
     - type: Transform
       pos: -24.5,19.5
+      parent: 2
+  - uid: 4751
+    components:
+    - type: Transform
+      pos: -25.5,21.5
+      parent: 2
+  - uid: 4752
+    components:
+    - type: Transform
+      pos: -7.5,3.5
       parent: 2
 - proto: RMCCatwalkHybrisa
   entities:
@@ -26192,12 +26215,12 @@ entities:
   - uid: 2985
     components:
     - type: Transform
-      pos: 22.154097,14.0624275
+      pos: 22.5,14.5
       parent: 2
   - uid: 2986
     components:
     - type: Transform
-      pos: 20.654097,13.6718025
+      pos: 20.5,13.5
       parent: 2
   - uid: 3056
     components:
@@ -26226,7 +26249,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -21.50091,11.490267
+      pos: -21.5,11.5
       parent: 2
   - uid: 4491
     components:
