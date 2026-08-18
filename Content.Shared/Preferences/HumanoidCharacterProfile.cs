@@ -51,6 +51,7 @@
 
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._Hood.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
@@ -69,6 +70,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using HoodHeritage = Content.Shared._Hood.Preferences.Heritage;
 
 namespace Content.Shared.Preferences
 {
@@ -127,6 +129,12 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         public ProtoId<SpeciesPrototype> Species { get; set; } = SharedHumanoidAppearanceSystem.DefaultSpecies;
+
+        /// <summary>
+        /// Cosmetic identity metadata. It is intentionally independent of species and appearance.
+        /// </summary>
+        [DataField]
+        public HoodHeritage Heritage { get; private set; } = HoodHeritage.Unspecified;
 
         [DataField] // Goob Station - Barks
         public ProtoId<BarkPrototype> BarkVoice { get; set; } = SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
@@ -202,7 +210,8 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts,
-            ProtoId<BarkPrototype> barkVoice) // Goob Station - Barks
+            ProtoId<BarkPrototype> barkVoice, // Goob Station - Barks
+            HoodHeritage heritage = HoodHeritage.Unspecified)
         {
             Name = name;
             FlavorText = flavortext;
@@ -220,6 +229,7 @@ namespace Content.Shared.Preferences
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
             BarkVoice = barkVoice; // Goob Station - Barks
+            Heritage = heritage;
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -253,7 +263,8 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
-                other.BarkVoice) // Goob Station - Barks
+                other.BarkVoice, // Goob Station - Barks
+                other.Heritage)
         {
         }
 
@@ -282,19 +293,10 @@ namespace Content.Shared.Preferences
             };
         }
 
-        // TODO: This should eventually not be a visual change only.
+        // Normal Hood profiles are always Human. Use RandomWithSpecies for explicit special-species characters.
         public static HumanoidCharacterProfile Random(HashSet<string>? ignoredSpecies = null)
         {
-            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-            var random = IoCManager.Resolve<IRobustRandom>();
-
-            var species = random.Pick(prototypeManager
-                .EnumeratePrototypes<SpeciesPrototype>()
-                .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
-                .ToArray()
-            ).ID;
-
-            return RandomWithSpecies(species);
+            return RandomWithSpecies(HoodCharacterProfilePolicy.NormalSpecies.Id);
         }
 
         public static HumanoidCharacterProfile RandomWithSpecies(string? species = null)
@@ -381,6 +383,11 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithSpecies(string species)
         {
             return new(this) { Species = species };
+        }
+
+        public HumanoidCharacterProfile WithHeritage(HoodHeritage heritage)
+        {
+            return new(this) { Heritage = heritage };
         }
 
         // begin Goobstation: port EE height/width sliders
@@ -570,6 +577,7 @@ namespace Content.Shared.Preferences
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
+            if (Heritage != other.Heritage) return false;
             if (Height != other.Height) return false; // Goobstation: port EE height/width sliders
             if (Width != other.Width) return false; // Goobstation: port EE height/width sliders
             if (BarkVoice != other.BarkVoice) return false; // Goob Station - Barks
@@ -588,7 +596,9 @@ namespace Content.Shared.Preferences
             var configManager = collection.Resolve<IConfigurationManager>();
             var prototypeManager = collection.Resolve<IPrototypeManager>();
 
-            if (!prototypeManager.TryIndex(Species, out var speciesPrototype) || speciesPrototype.RoundStart == false)
+            if (!HoodCharacterProfilePolicy.IsNormalCreationSpecies(Species) ||
+                !prototypeManager.TryIndex(Species, out var speciesPrototype) ||
+                speciesPrototype.RoundStart == false)
             {
                 Species = SharedHumanoidAppearanceSystem.DefaultSpecies;
                 speciesPrototype = prototypeManager.Index(Species);
@@ -615,6 +625,17 @@ namespace Content.Shared.Preferences
                 Gender.Male => Gender.Male,
                 Gender.Neuter => Gender.Neuter,
                 _ => Gender.Epicene // Invalid enum values.
+            };
+
+            var heritage = Heritage switch
+            {
+                HoodHeritage.Unspecified => HoodHeritage.Unspecified,
+                HoodHeritage.White => HoodHeritage.White,
+                HoodHeritage.Black => HoodHeritage.Black,
+                HoodHeritage.Latino => HoodHeritage.Latino,
+                HoodHeritage.Asian => HoodHeritage.Asian,
+                HoodHeritage.NativeAmerican => HoodHeritage.NativeAmerican,
+                _ => HoodHeritage.Unspecified,
             };
 
             string name;
@@ -726,6 +747,7 @@ namespace Content.Shared.Preferences
             Width = width; // Goobstation: port EE height/width sliders
             Sex = sex;
             Gender = gender;
+            Heritage = heritage;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
 
@@ -843,6 +865,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
             hashCode.Add(Species);
+            hashCode.Add((int) Heritage);
             hashCode.Add(Height); // Goobstation: port EE height/width sliders
             hashCode.Add(Width); // Goobstation: port EE height/width sliders
             hashCode.Add(Age);

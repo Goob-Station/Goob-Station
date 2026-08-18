@@ -1,0 +1,127 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Crisps
+
+- type: entity
+  id: SpawnPointCrispsLeader
+  parent: SpawnPointJobBase
+  name: crisps leader
+  components:
+  - type: SpawnPoint
+    job_id: CrispsLeader
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: SpawnPointCrispsMedia
+  parent: SpawnPointJobBase
+  name: crisps media personality
+  components:
+  - type: SpawnPoint
+    job_id: CrispsMediaPersonality
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: SpawnPointCrispsMember
+  parent: SpawnPointJobBase
+  name: crisps member
+  components:
+  - type: SpawnPoint
+    job_id: CrispsMember
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: SpawnPointCrispsDealer
+  parent: SpawnPointJobBase
+  name: crisps dealer
+  components:
+  - type: SpawnPoint
+    job_id: CrispsDealer
+  - type: Sprite
+    state: green
+
+# Buds
+
+- type: entity
+  id: SpawnPointBudsLeader
+  parent: SpawnPointJobBase
+  name: buds leader
+  components:
+  - type: SpawnPoint
+    job_id: BudsLeader
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: SpawnPointBudsMedia
+  parent: SpawnPointJobBase
+  name: buds media personality
+  components:
+  - type: SpawnPoint
+    job_id: BudsMediaPersonality
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: SpawnPointBudsMember
+  parent: SpawnPointJobBase
+  name: buds member
+  components:
+  - type: SpawnPoint
+    job_id: BudsMember
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: SpawnPointBudsDealer
+  parent: SpawnPointJobBase
+  name: buds dealer
+  components:
+  - type: SpawnPoint
+    job_id: BudsDealer
+  - type: Sprite
+    state: green
+
+# Retail and underground
+
+- type: entity
+  id: SpawnPointElectronicsStoreEmployee
+  parent: SpawnPointJobBase
+  name: electronics store employee
+  components:
+  - type: SpawnPoint
+    job_id: ElectronicsStoreEmployee
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: SpawnPointSmokeShopEmployee
+  parent: SpawnPointJobBase
+  name: smoke shop employee
+  components:
+  - type: SpawnPoint
+    job_id: SmokeShopEmployee
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: SpawnPointGunStoreEmployee
+  parent: SpawnPointJobBase
+  name: gun store employee
+  components:
+  - type: SpawnPoint
+    job_id: GunStoreEmployee
+  - type: Sprite
+    state: green
+
+- type: entity
+  id: SpawnPointUndergroundSeller
+  parent: SpawnPointJobBase
+  name: underground seller
+  components:
+  - type: SpawnPoint
+    job_id: UndergroundSeller
+  - type: Sprite
+    state: green

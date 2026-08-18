@@ -126,3 +126,15 @@
       blacklist:
         tags:
         - PetOnly
+    - name: phone
+      slotTexture: pocket
+      fullTextureName: template_small
+      slotFlags: PHONE
+      slotGroup: SecondHotbar
+      stripTime: 3
+      uiWindowPos: 3,2
+      strippingWindowPos: 2,3
+      displayName: Phone
+      whitelist:
+        components:
+        - Phone

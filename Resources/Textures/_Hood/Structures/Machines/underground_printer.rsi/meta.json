@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original development artwork generated for The Hood with OpenAI image generation on 2026-08-11; post-processed into an RSI by the project authors.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    { "name": "icon" },
+    { "name": "building" },
+    { "name": "unlit" },
+    { "name": "unlit-building" },
+    { "name": "inserting" },
+    { "name": "panel" }
+  ]
+}

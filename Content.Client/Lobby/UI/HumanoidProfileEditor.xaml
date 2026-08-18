@@ -65,6 +65,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                                    ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
                                     <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Hood: cosmetic identity metadata, independent of species and appearance. -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'hood-character-profile-heritage-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="HeritageButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
                                 <!-- Age -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-age-label'}" />

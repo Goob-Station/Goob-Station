@@ -5,6 +5,7 @@ using System.Linq;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
 using Content.Goobstation.Common.Clothing;
+using Content.Shared._Hood.Clothing;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -100,6 +101,9 @@ public sealed class ClientClothingSystem : ClothingSystem
 
     private void OnGetVisuals(EntityUid uid, ClothingComponent item, GetEquipmentVisualsEvent args)
     {
+        if (args.Slot == "belt" && HasComp<SuppressEquippedVisualInBeltComponent>(uid))
+            return;
+
         if (!TryComp(args.Equipee, out InventoryComponent? inventory))
             return;
 

@@ -2,9 +2,11 @@
 
 using Content.Client.Lobby;
 using Content.Server.Preferences.Managers;
+using Content.Shared._Hood.Preferences;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Robust.Client.State;
+using Robust.Shared.Maths;
 
 namespace Content.IntegrationTests.Tests.Lobby;
 
@@ -34,7 +36,8 @@ public sealed class CharacterCreationTest
         HumanoidCharacterProfile profile = null;
         await client.WaitPost(() =>
         {
-            profile = HumanoidCharacterProfile.Random();
+            profile = HumanoidCharacterProfile.Random().WithHeritage(Heritage.Latino);
+            Assert.That(profile.Species, Is.EqualTo(HoodCharacterProfilePolicy.NormalSpecies));
             clientPrefManager.CreateCharacter(profile);
         });
         await pair.RunTicksSync(5);
@@ -60,7 +63,8 @@ public sealed class CharacterCreationTest
 
         await client.WaitAssertion(() =>
         {
-            profile = HumanoidCharacterProfile.Random();
+            profile = HumanoidCharacterProfile.Random().WithHeritage(Heritage.Latino);
+            Assert.That(profile.Species, Is.EqualTo(HoodCharacterProfilePolicy.NormalSpecies));
             clientPrefManager.CreateCharacter(profile);
         });
         await pair.RunTicksSync(5);
@@ -74,7 +78,51 @@ public sealed class CharacterCreationTest
         serverCharacters = serverPrefManager.GetPreferences(user).Characters;
         Assert.That(serverCharacters, Has.Count.EqualTo(2));
         AssertEqual(serverCharacters[1], profile);
+
+        await server.WaitPost(() =>
+        {
+            var explicitSpeciesProfile = new HumanoidCharacterProfile()
+                .WithSpecies("Vox")
+                .WithHeritage(Heritage.Black);
+
+            Assert.That(explicitSpeciesProfile.Species.Id, Is.EqualTo("Vox"),
+                "Explicit special-species profile APIs must remain available before normal-profile validation.");
+            serverPrefManager.SetProfile(user, 1, explicitSpeciesProfile).Wait();
+        });
+
+        var validatedProfile = (HumanoidCharacterProfile) serverPrefManager.GetPreferences(user).Characters[1];
+        Assert.Multiple(() =>
+        {
+            Assert.That(validatedProfile.Species, Is.EqualTo(HoodCharacterProfilePolicy.NormalSpecies));
+            Assert.That(validatedProfile.Heritage, Is.EqualTo(Heritage.Black));
+        });
+
         await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public void WithHeritageDoesNotChangeAppearanceOrSpeciesTest()
+    {
+        var appearance = new HumanoidCharacterAppearance(
+            "Bald",
+            Color.Black,
+            "Shaved",
+            Color.Black,
+            Color.Azure,
+            Color.Beige,
+            new());
+        var original = new HumanoidCharacterProfile().WithCharacterAppearance(appearance);
+        var updated = original.WithHeritage(Heritage.Asian);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(updated.Heritage, Is.EqualTo(Heritage.Asian));
+            Assert.That(updated.Species, Is.EqualTo(original.Species));
+            Assert.That(updated.Appearance.MemberwiseEquals(original.Appearance), Is.True);
+            Assert.That(updated.JobPriorities, Is.EquivalentTo(original.JobPriorities));
+            Assert.That(updated.Height, Is.EqualTo(original.Height));
+            Assert.That(updated.Width, Is.EqualTo(original.Width));
+        });
     }
 
     private void AssertEqual(ICharacterProfile clientCharacter, HumanoidCharacterProfile b)
@@ -95,6 +143,7 @@ public sealed class CharacterCreationTest
             Assert.That(a.Sex, Is.EqualTo(b.Sex));
             Assert.That(a.Gender, Is.EqualTo(b.Gender));
             Assert.That(a.Species, Is.EqualTo(b.Species));
+            Assert.That(a.Heritage, Is.EqualTo(b.Heritage));
             Assert.That(a.PreferenceUnavailable, Is.EqualTo(b.PreferenceUnavailable));
             Assert.That(a.SpawnPriority, Is.EqualTo(b.SpawnPriority));
             Assert.That(a.FlavorText, Is.EqualTo(b.FlavorText));

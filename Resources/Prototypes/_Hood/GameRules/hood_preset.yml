@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: gamePreset
+  id: Hood
+  alias:
+  - hood
+  name: hood-game-preset-title
+  description: hood-game-preset-description
+  showInVote: true
+  supportedMaps: HoodMapPool
+  rules: []

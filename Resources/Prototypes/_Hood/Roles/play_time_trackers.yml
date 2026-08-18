@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: playTimeTracker
+  id: JobCrispsLeader
+
+- type: playTimeTracker
+  id: JobCrispsMediaPersonality
+
+- type: playTimeTracker
+  id: JobCrispsMember
+
+- type: playTimeTracker
+  id: JobCrispsDealer
+
+- type: playTimeTracker
+  id: JobBudsLeader
+
+- type: playTimeTracker
+  id: JobBudsMediaPersonality
+
+- type: playTimeTracker
+  id: JobBudsMember
+
+- type: playTimeTracker
+  id: JobBudsDealer
+
+- type: playTimeTracker
+  id: JobElectronicsStoreEmployee
+
+- type: playTimeTracker
+  id: JobSmokeShopEmployee
+
+- type: playTimeTracker
+  id: JobGunStoreEmployee
+
+- type: playTimeTracker
+  id: JobUndergroundSeller

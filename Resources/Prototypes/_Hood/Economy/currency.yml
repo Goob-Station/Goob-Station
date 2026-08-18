@@ -1,0 +1,55 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: currency
+  id: HoodDollar
+  displayName: hood-store-currency-dollar
+  cash:
+    1: HoodCash1
+    5: HoodCash5
+    10: HoodCash10
+    20: HoodCash20
+    50: HoodCash50
+    100: HoodCash100
+  canWithdraw: true
+
+- type: stack
+  id: HoodDollar1
+  name: stack-hood-dollar
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
+  spawn: HoodCash1
+  maxCount: 100
+
+- type: stack
+  id: HoodDollar5
+  name: stack-hood-dollar
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
+  spawn: HoodCash5
+  maxCount: 100
+
+- type: stack
+  id: HoodDollar10
+  name: stack-hood-dollar
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
+  spawn: HoodCash10
+  maxCount: 100
+
+- type: stack
+  id: HoodDollar20
+  name: stack-hood-dollar
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
+  spawn: HoodCash20
+  maxCount: 100
+
+- type: stack
+  id: HoodDollar50
+  name: stack-hood-dollar
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
+  spawn: HoodCash50
+  maxCount: 100
+
+- type: stack
+  id: HoodDollar100
+  name: stack-hood-dollar
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
+  spawn: HoodCash100
+  maxCount: 100

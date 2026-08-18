@@ -2,6 +2,7 @@
 
 - type: department
   id: Cargo
+  editorHidden: true # Hood fork: upstream department remains available to non-Hood maps/admin tools.
   name: department-Cargo
   description: department-Cargo-description
   color: "#A46106"
@@ -13,6 +14,7 @@
 
 - type: department
   id: Civilian
+  editorHidden: true # Hood fork
   name: department-Civilian
   description: department-Civilian-description
   color: "#9FED58"
@@ -65,6 +67,7 @@
 
 - type: department
   id: Command
+  editorHidden: true # Hood fork
   name: department-Command
   description: department-Command-description
   color: "#334E6D"
@@ -95,6 +98,7 @@
 
 - type: department
   id: Engineering
+  editorHidden: true # Hood fork
   name: department-Engineering
   description: department-Engineering-description
   color: "#EFB341"
@@ -106,6 +110,7 @@
 
 - type: department
   id: Medical
+  editorHidden: true # Hood fork
   name: department-Medical
   description: department-Medical-description
   color: "#52B4E9"
@@ -120,6 +125,7 @@
 
 - type: department
   id: Security
+  editorHidden: true # Hood fork
   name: department-Security
   description: department-Security-description
   color: "#DE3A3A"
@@ -135,6 +141,7 @@
 
 - type: department
   id: Science
+  editorHidden: true # Hood fork
   name: department-Science
   description: department-Science-description
   color: "#D381C9"
@@ -146,6 +153,7 @@
 
 - type: department
   id: Silicon
+  editorHidden: true # Hood fork
   name: department-Silicon
   description: department-Silicon-description
   color: "#D381C9"
@@ -155,6 +163,7 @@
 
 - type: department
   id: Specific
+  editorHidden: true # Hood fork
   name: department-Specific
   description: department-Specific-description
   color: "#9FED58"

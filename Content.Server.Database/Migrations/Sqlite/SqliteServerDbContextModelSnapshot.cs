@@ -1206,6 +1206,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("REAL")
                         .HasColumnName("height");
 
+                    b.Property<string>("Heritage")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("heritage");
+
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");

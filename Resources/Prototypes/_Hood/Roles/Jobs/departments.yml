@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: department
+  id: Crisps
+  name: department-Crisps
+  description: department-Crisps-description
+  color: "#4775D1"
+  weight: 40
+  roles:
+  - CrispsLeader
+  - CrispsMediaPersonality
+  - CrispsMember
+  - CrispsDealer
+
+- type: department
+  id: Buds
+  name: department-Buds
+  description: department-Buds-description
+  color: "#52A365"
+  weight: 40
+  roles:
+  - BudsLeader
+  - BudsMediaPersonality
+  - BudsMember
+  - BudsDealer
+
+- type: department
+  id: Retail
+  name: department-Retail
+  description: department-Retail-description
+  color: "#D6A33A"
+  weight: 20
+  roles:
+  - ElectronicsStoreEmployee
+  - SmokeShopEmployee
+  - GunStoreEmployee
+
+- type: department
+  id: Underground
+  name: department-Underground
+  description: department-Underground-description
+  color: "#8A6FA8"
+  weight: 10
+  roles:
+  - UndergroundSeller

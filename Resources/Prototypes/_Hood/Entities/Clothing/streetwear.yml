@@ -1,0 +1,133 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingUniformBase
+  id: HoodClothingUniformBaggyCream
+  name: cream tee and baggy jeans
+  description: A loose cream T-shirt with relaxed dark denim. Plain, comfortable, and everyday.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/Uniforms/baggy_cream.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/Uniforms/baggy_cream.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: HoodClothingUniformCargoGraphic
+  name: geometric tee and cargo pants
+  description: An original geometric tee paired with roomy olive cargo pants.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/Uniforms/cargo_graphic.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/Uniforms/cargo_graphic.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: HoodClothingOuterBlackZipHoodie
+  name: black zip hoodie
+  description: A heavyweight black hoodie with muted violet lining and no visible branding.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/OuterClothing/black_zip_hoodie.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/OuterClothing/black_zip_hoodie.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: HoodClothingOuterNavyVarsity
+  name: navy varsity jacket
+  description: A navy-and-cream street jacket from the fictional local label Arroyo Standard.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/OuterClothing/navy_varsity.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/OuterClothing/navy_varsity.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: HoodClothingShoesWhiteLowtops
+  name: white low-top sneakers
+  description: Clean low-top sneakers with grey panels and an original unbranded design.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/Shoes/white_lowtops.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/Shoes/white_lowtops.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: HoodClothingHeadCharcoalFittedCap
+  name: charcoal fitted cap
+  description: A fitted charcoal cap with a tiny gold dash and no team logo.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/Head/charcoal_fitted_cap.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/Head/charcoal_fitted_cap.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: HoodClothingUniformTankWorkpants
+  name: ribbed tank and work pants
+  description: A plain white ribbed tank paired with loose charcoal work pants.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/Uniforms/tank_workpants.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/Uniforms/tank_workpants.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: HoodClothingUniformForestPolo
+  name: forest polo and tan pants
+  description: A muted green polo with straight tan pants and no visible branding.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/Uniforms/forest_polo.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/Uniforms/forest_polo.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: HoodClothingOuterCharcoalPuffer
+  name: charcoal puffer jacket
+  description: A warm quilted puffer in understated charcoal.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/OuterClothing/charcoal_puffer.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/OuterClothing/charcoal_puffer.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: HoodClothingOuterBrownWorkJacket
+  name: brown canvas work jacket
+  description: A durable brown canvas jacket with a dark collar and plain hardware.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/OuterClothing/brown_work_jacket.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/OuterClothing/brown_work_jacket.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: HoodClothingHeadBlackKnitBeanie
+  name: black knit beanie
+  description: A simple cuffed knit beanie without a patch or logo.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/Head/black_knit_beanie.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/Head/black_knit_beanie.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: HoodClothingEyesSmokeRectangular
+  name: smoke rectangular glasses
+  description: Smoke-gray rectangular fashion lenses in an unbranded frame.
+  components:
+  - type: Sprite
+    sprite: _Hood/Clothing/Eyes/smoke_rectangular_glasses.rsi
+  - type: Clothing
+    sprite: _Hood/Clothing/Eyes/smoke_rectangular_glasses.rsi

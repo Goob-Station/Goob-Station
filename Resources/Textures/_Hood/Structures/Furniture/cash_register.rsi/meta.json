@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original asset generated with OpenAI image generation by OpenAI Codex for The Hood project, 2026; chroma-keyed and adapted to 32x32 pixel art by OpenAI Codex.",
+  "states": [
+    {
+      "name": "register"
+    }
+  ]
+}

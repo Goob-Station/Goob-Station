@@ -1,0 +1,470 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# This preset is intentionally abstract. It provides an opt-in Store-framework
+# catalog for later cashier terminals without turning the physical cash register
+# into a vending machine or replacing employee-run sales.
+- type: entity
+  id: StorePresetHoodRetail
+  abstract: true
+  components:
+  - type: Store
+    name: hood-store-name-neighborhood-retail
+    categories:
+    - HoodRetailBasics
+    currencyWhitelist:
+    - HoodDollar
+    balance:
+      HoodDollar: 0
+
+- type: entity
+  id: StorePresetHoodElectronics
+  abstract: true
+  components:
+  - type: Store
+    name: hood-store-name-electronics
+    categories:
+    - HoodRetailElectronics
+    currencyWhitelist:
+    - HoodDollar
+    balance:
+      HoodDollar: 0
+
+- type: entity
+  id: StorePresetHoodSmoke
+  abstract: true
+  components:
+  - type: Store
+    name: hood-store-name-smoke
+    categories:
+    - HoodRetailSmoke
+    currencyWhitelist:
+    - HoodDollar
+    balance:
+      HoodDollar: 0
+
+- type: entity
+  id: StorePresetHoodGun
+  abstract: true
+  components:
+  - type: Store
+    name: hood-store-name-gun
+    categories:
+    - HoodRetailGun
+    currencyWhitelist:
+    - HoodDollar
+    balance:
+      HoodDollar: 0
+
+- type: entity
+  id: StorePresetHoodUnderground
+  abstract: true
+  components:
+  - type: Store
+    name: hood-store-name-underground
+    categories:
+    - HoodRetailUnderground
+    currencyWhitelist:
+    - HoodDollar
+    balance:
+      HoodDollar: 0
+
+- type: entity
+  id: StorePresetHoodClothing
+  abstract: true
+  components:
+  - type: Store
+    name: hood-store-name-clothing
+    categories:
+    - HoodRetailClothing
+    currencyWhitelist:
+    - HoodDollar
+    balance:
+      HoodDollar: 0
+
+- type: storeCategory
+  id: HoodRetailBasics
+  name: hood-store-category-basics
+  priority: 0
+
+- type: storeCategory
+  id: HoodRetailElectronics
+  name: hood-store-category-electronics
+  priority: 10
+
+- type: storeCategory
+  id: HoodRetailSmoke
+  name: hood-store-category-smoke
+  priority: 20
+
+- type: storeCategory
+  id: HoodRetailGun
+  name: hood-store-category-gun
+  priority: 30
+
+- type: storeCategory
+  id: HoodRetailUnderground
+  name: hood-store-category-underground
+  priority: 40
+
+- type: storeCategory
+  id: HoodRetailClothing
+  name: hood-store-category-clothing
+  priority: 50
+
+- type: listing
+  id: HoodRetailWaterBottle
+  productEntity: DrinkWaterBottleFull
+  cost:
+    HoodDollar: 2
+  categories:
+  - HoodRetailBasics
+
+- type: listing
+  id: HoodRetailChips
+  productEntity: FoodSnackChips
+  cost:
+    HoodDollar: 3
+  categories:
+  - HoodRetailBasics
+
+- type: listing
+  id: HoodRetailLighter
+  productEntity: Lighter
+  cost:
+    HoodDollar: 5
+  categories:
+  - HoodRetailBasics
+
+# Electronics store: boxed phones keep the employee-facing stock mapper-friendly.
+- type: listing
+  id: HoodElectronicsStreetlineBox
+  productEntity: HoodPhoneStreetlineBox
+  cost:
+    HoodDollar: 120
+  categories:
+  - HoodRetailElectronics
+
+- type: listing
+  id: HoodElectronicsSunsetBox
+  productEntity: HoodPhoneSunsetBox
+  cost:
+    HoodDollar: 180
+  categories:
+  - HoodRetailElectronics
+
+- type: listing
+  id: HoodElectronicsPacificBox
+  productEntity: HoodPhonePacificBox
+  cost:
+    HoodDollar: 260
+  categories:
+  - HoodRetailElectronics
+
+- type: listing
+  id: HoodElectronicsSimCard
+  productEntity: HoodSimCard
+  cost:
+    HoodDollar: 15
+  categories:
+  - HoodRetailElectronics
+
+- type: listing
+  id: HoodElectronicsSimTool
+  productEntity: HoodSimTool
+  cost:
+    HoodDollar: 3
+  categories:
+  - HoodRetailElectronics
+
+# Smoke shop: deliberately small first-pass stock drawn from existing content.
+- type: listing
+  id: HoodSmokeCigPackGreen
+  productEntity: CigPackGreen
+  cost:
+    HoodDollar: 8
+  categories:
+  - HoodRetailSmoke
+
+- type: listing
+  id: HoodSmokeCigPackRed
+  productEntity: CigPackRed
+  cost:
+    HoodDollar: 8
+  categories:
+  - HoodRetailSmoke
+
+- type: listing
+  id: HoodSmokeCigarCase
+  productEntity: CigarCase
+  cost:
+    HoodDollar: 16
+  categories:
+  - HoodRetailSmoke
+
+- type: listing
+  id: HoodSmokeRollingPaper
+  productEntity: PackPaperRollingFilters
+  cost:
+    HoodDollar: 4
+  categories:
+  - HoodRetailSmoke
+
+- type: listing
+  id: HoodSmokeLighter
+  productEntity: Lighter
+  cost:
+    HoodDollar: 3
+  categories:
+  - HoodRetailSmoke
+
+- type: listing
+  id: HoodSmokeMatches
+  productEntity: Matchbox
+  cost:
+    HoodDollar: 2
+  categories:
+  - HoodRetailSmoke
+
+# Normal gun store: the full Glorp family and ordinary shared ammunition only.
+- type: listing
+  id: HoodGunGlorpG1
+  productEntity: HoodWeaponPistolGlorpG1
+  cost:
+    HoodDollar: 500
+  categories:
+  - HoodRetailGun
+
+- type: listing
+  id: HoodGunGlorpC2
+  productEntity: HoodWeaponPistolGlorpC2
+  cost:
+    HoodDollar: 475
+  categories:
+  - HoodRetailGun
+
+- type: listing
+  id: HoodGunGlorpS3
+  productEntity: HoodWeaponPistolGlorpS3
+  cost:
+    HoodDollar: 450
+  categories:
+  - HoodRetailGun
+
+- type: listing
+  id: HoodGunGlorpL4
+  productEntity: HoodWeaponPistolGlorpL4
+  cost:
+    HoodDollar: 600
+  categories:
+  - HoodRetailGun
+
+- type: listing
+  id: HoodGunPistolMagazine
+  productEntity: MagazinePistol
+  cost:
+    HoodDollar: 35
+  categories:
+  - HoodRetailGun
+
+- type: listing
+  id: HoodGunPistolAmmoBox
+  productEntity: MagazineBoxPistol
+  cost:
+    HoodDollar: 90
+  categories:
+  - HoodRetailGun
+
+- type: listing
+  id: HoodGunRookC9
+  productEntity: HoodWeaponCarbineRookC9
+  cost:
+    HoodDollar: 950
+  categories:
+  - HoodRetailGun
+
+- type: listing
+  id: HoodGunMesaP12
+  productEntity: HoodWeaponShotgunMesaP12
+  cost:
+    HoodDollar: 800
+  categories:
+  - HoodRetailGun
+
+- type: listing
+  id: HoodGunSubmachineMagazine
+  productEntity: MagazinePistolSubMachineGun
+  cost:
+    HoodDollar: 60
+  categories:
+  - HoodRetailGun
+
+- type: listing
+  id: HoodGunShotgunShellBox
+  productEntity: BoxLethalshot
+  cost:
+    HoodDollar: 110
+  categories:
+  - HoodRetailGun
+
+# Underground seller: separate category, restricted attachment and ammunition,
+# plus one intentionally selected concealable Glorp rather than the whole line.
+- type: listing
+  id: HoodUndergroundGunSwitch
+  productEntity: HoodGunSwitch
+  cost:
+    HoodDollar: 650
+  categories:
+  - HoodRetailUnderground
+
+- type: listing
+  id: HoodUndergroundGlorpS3
+  productEntity: HoodWeaponPistolGlorpS3
+  cost:
+    HoodDollar: 700
+  categories:
+  - HoodRetailUnderground
+
+- type: listing
+  id: HoodUndergroundHighCapacityMagazine
+  productEntity: MagazinePistolHighCapacity
+  cost:
+    HoodDollar: 85
+  categories:
+  - HoodRetailUnderground
+
+- type: listing
+  id: HoodUndergroundIncendiaryMagazine
+  productEntity: MagazinePistolIncendiary
+  cost:
+    HoodDollar: 120
+  categories:
+  - HoodRetailUnderground
+
+- type: listing
+  id: HoodUndergroundIncendiaryAmmoBox
+  productEntity: MagazineBoxPistolIncendiary
+  cost:
+    HoodDollar: 300
+  categories:
+  - HoodRetailUnderground
+
+- type: listing
+  id: HoodUndergroundArroyoR12
+  productEntity: HoodWeaponRifleArroyoR12
+  cost:
+    HoodDollar: 1500
+  categories:
+  - HoodRetailUnderground
+
+- type: listing
+  id: HoodUndergroundLightRifleMagazine
+  productEntity: MagazineLightRifle
+  cost:
+    HoodDollar: 95
+  categories:
+  - HoodRetailUnderground
+
+- type: listing
+  id: HoodUndergroundLightRifleAmmoBox
+  productEntity: MagazineBoxLightRifle
+  cost:
+    HoodDollar: 240
+  categories:
+  - HoodRetailUnderground
+
+# Neutral streetwear stock. These items are intentionally unaffiliated with either gang.
+- type: listing
+  id: HoodClothingBaggyCream
+  productEntity: HoodClothingUniformBaggyCream
+  cost:
+    HoodDollar: 42
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingCargoGraphic
+  productEntity: HoodClothingUniformCargoGraphic
+  cost:
+    HoodDollar: 55
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingBlackZipHoodie
+  productEntity: HoodClothingOuterBlackZipHoodie
+  cost:
+    HoodDollar: 68
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingNavyVarsity
+  productEntity: HoodClothingOuterNavyVarsity
+  cost:
+    HoodDollar: 110
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingWhiteLowtops
+  productEntity: HoodClothingShoesWhiteLowtops
+  cost:
+    HoodDollar: 75
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingCharcoalFittedCap
+  productEntity: HoodClothingHeadCharcoalFittedCap
+  cost:
+    HoodDollar: 32
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingTankWorkpants
+  productEntity: HoodClothingUniformTankWorkpants
+  cost:
+    HoodDollar: 38
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingForestPolo
+  productEntity: HoodClothingUniformForestPolo
+  cost:
+    HoodDollar: 48
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingCharcoalPuffer
+  productEntity: HoodClothingOuterCharcoalPuffer
+  cost:
+    HoodDollar: 125
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingBrownWorkJacket
+  productEntity: HoodClothingOuterBrownWorkJacket
+  cost:
+    HoodDollar: 95
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingBlackKnitBeanie
+  productEntity: HoodClothingHeadBlackKnitBeanie
+  cost:
+    HoodDollar: 28
+  categories:
+  - HoodRetailClothing
+
+- type: listing
+  id: HoodClothingSmokeRectangular
+  productEntity: HoodClothingEyesSmokeRectangular
+  cost:
+    HoodDollar: 40
+  categories:
+  - HoodRetailClothing

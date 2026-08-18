@@ -1,0 +1,128 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: BaseHoodCash
+  name: dollar bill
+  description: Physical cash accepted by Hood businesses.
+  abstract: true
+  components:
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,-2
+  - type: StaticPrice
+    price: 0
+  - type: Stack
+    stackType: HoodDollar1
+    count: 1
+    baseLayer: base
+    layerStates:
+    - cash
+    - cash_10
+    - cash_100
+    layerFunction: Threshold
+  - type: StackLayerThreshold
+    thresholds: [10, 100]
+  - type: Sprite
+    sprite: Objects/Economy/cash.rsi
+    state: cash
+    layers:
+    - state: cash
+      map: ["base"]
+  - type: Currency
+    price:
+      HoodDollar: 1
+  - type: Appearance
+  - type: Tag
+    tags:
+    - HoodCash
+    - Paper
+
+- type: entity
+  parent: BaseHoodCash
+  id: HoodCash1
+  suffix: $1
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash
+  - type: Stack
+    stackType: HoodDollar1
+    count: 1
+
+- type: entity
+  parent: BaseHoodCash
+  id: HoodCash5
+  suffix: $5
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash
+  - type: Stack
+    stackType: HoodDollar5
+    count: 1
+  - type: Currency
+    price:
+      HoodDollar: 5
+
+- type: entity
+  parent: BaseHoodCash
+  id: HoodCash10
+  suffix: $10
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash_10
+  - type: Stack
+    stackType: HoodDollar10
+    count: 1
+  - type: Currency
+    price:
+      HoodDollar: 10
+
+- type: entity
+  parent: BaseHoodCash
+  id: HoodCash20
+  suffix: $20
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash_10
+  - type: Stack
+    stackType: HoodDollar20
+    count: 1
+  - type: Currency
+    price:
+      HoodDollar: 20
+
+- type: entity
+  parent: BaseHoodCash
+  id: HoodCash50
+  suffix: $50
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash_10
+  - type: Stack
+    stackType: HoodDollar50
+    count: 1
+  - type: Currency
+    price:
+      HoodDollar: 50
+
+- type: entity
+  parent: BaseHoodCash
+  id: HoodCash100
+  suffix: $100
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash_100
+  - type: Stack
+    stackType: HoodDollar100
+    count: 1
+  - type: Currency
+    price:
+      HoodDollar: 100

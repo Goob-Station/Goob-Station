@@ -1277,6 +1277,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("real")
                         .HasColumnName("height");
 
+                    b.Property<string>("Heritage")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("heritage");
+
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");

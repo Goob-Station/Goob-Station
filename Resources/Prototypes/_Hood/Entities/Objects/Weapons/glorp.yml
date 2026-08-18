@@ -1,0 +1,99 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: HoodGunSwitch
+  parent: BaseItem
+  name: gun switch
+  description: A fictional, self-contained fire-control module for compatible Glorp pistols.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Weapons/gun_switch.rsi
+    state: switch
+  - type: Item
+    size: Tiny
+  - type: GunSwitch
+
+- type: entity
+  id: BaseHoodWeaponPistolGlorp
+  parent: BaseWeaponPistol
+  abstract: true
+  name: Glorp pistol
+  description: A fictional polymer-frame city pistol. It accepts standard pistol magazines.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Weapons/Guns/Glorp/fullsize.rsi
+  - type: Clothing
+    sprite: _Hood/Objects/Weapons/Guns/Glorp/fullsize.rsi
+  - type: Gun
+    fireRate: 5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: GunSwitchCompatible
+    baseModes:
+    - SemiAuto
+    switchSlot:
+      name: hood-gun-switch-slot-name
+      insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+      ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+      whitelist:
+        components:
+        - GunSwitch
+      whitelistFailPopup: hood-gun-switch-slot-fail
+  - type: SuppressEquippedVisualInBelt
+
+- type: entity
+  id: HoodWeaponPistolGlorpG1
+  parent: BaseHoodWeaponPistolGlorp
+  name: Glorp G1 pistol
+  description: A balanced full-size fictional sidearm with a steady grip.
+
+- type: entity
+  id: HoodWeaponPistolGlorpC2
+  parent: BaseHoodWeaponPistolGlorp
+  name: Glorp C2 pistol
+  description: A compact fictional sidearm intended for everyday carry.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Weapons/Guns/Glorp/compact.rsi
+  - type: Clothing
+    sprite: _Hood/Objects/Weapons/Guns/Glorp/compact.rsi
+  - type: Gun
+    maxAngle: 3
+    angleIncrease: 0.75
+
+- type: entity
+  id: HoodWeaponPistolGlorpS3
+  parent: BaseHoodWeaponPistolGlorp
+  name: Glorp S3 pistol
+  description: A short, subcompact fictional sidearm that trades control for concealability.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Weapons/Guns/Glorp/subcompact.rsi
+  - type: Clothing
+    sprite: _Hood/Objects/Weapons/Guns/Glorp/subcompact.rsi
+  - type: Item
+    size: Tiny
+    storedOffset: 0,-2
+  - type: Gun
+    fireRate: 4.5
+    maxAngle: 4
+    angleIncrease: 1
+
+- type: entity
+  id: HoodWeaponPistolGlorpL4
+  parent: BaseHoodWeaponPistolGlorp
+  name: Glorp L4 pistol
+  description: A long-slide fictional sidearm tuned for deliberate, accurate shots.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Weapons/Guns/Glorp/longslide.rsi
+  - type: Clothing
+    sprite: _Hood/Objects/Weapons/Guns/Glorp/longslide.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 0.5
+    maxAngle: 1.5
+    angleIncrease: 0.35

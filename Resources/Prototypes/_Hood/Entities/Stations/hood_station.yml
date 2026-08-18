@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# HoodDistrict instantiates this station prototype directly. Keeping it minimal
+# avoids pulling in NanoTrasen cargo, shuttle, CentComm, and station-event
+# infrastructure.
+- type: entity
+  id: HoodStation
+  parent:
+  - BaseStation
+  - BaseStationJobsSpawning
+  - BaseStationRecords
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+  - type: StationJobs
+    extendedAccessThreshold: -1
+    availableJobs:
+      # Keep both groups mechanically symmetric. The member roles are the
+      # current overflow jobs until a neutral resident role exists.
+      CrispsLeader: [ 1, 1 ]
+      CrispsMediaPersonality: [ 1, 1 ]
+      CrispsMember: [ -1, -1 ]
+      CrispsDealer: [ 2, 2 ]
+      BudsLeader: [ 1, 1 ]
+      BudsMediaPersonality: [ 1, 1 ]
+      BudsMember: [ -1, -1 ]
+      BudsDealer: [ 2, 2 ]
+      ElectronicsStoreEmployee: [ 2, 3 ]
+      SmokeShopEmployee: [ 2, 3 ]
+      GunStoreEmployee: [ 2, 3 ]
+      UndergroundSeller: [ 1, 2 ]

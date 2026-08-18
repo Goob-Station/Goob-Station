@@ -1,0 +1,136 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'hood-phone-ui-title'}"
+                      MinSize="380 660"
+                      SetSize="380 660">
+    <BoxContainer Orientation="Vertical" Margin="14 10 14 14" SeparationOverride="8">
+        <Label Text="{Loc 'hood-phone-ui-brand'}"
+               HorizontalAlignment="Center" />
+
+        <PanelContainer>
+            <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="3">
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'hood-phone-ui-sim-heading'}" />
+                    <Control HorizontalExpand="True" />
+                    <Button Name="EjectSimButton"
+                            Text="{Loc 'hood-phone-ui-eject-sim'}"
+                            Disabled="True" />
+                </BoxContainer>
+                <Label Name="SimStatusLabel"
+                       Text="{Loc 'hood-phone-ui-no-sim'}" />
+                <Label Name="PhoneNumberLabel"
+                       Text="{Loc 'hood-phone-ui-number-unavailable'}" />
+            </BoxContainer>
+        </PanelContainer>
+
+        <Label Name="OperationErrorLabel"
+               Text=""
+               FontColorOverride="#e06c75"
+               HorizontalAlignment="Center"
+               Visible="False" />
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+            <Button Name="ShowPhoneButton"
+                    Text="{Loc 'hood-phone-ui-phone-app'}"
+                    HorizontalExpand="True"
+                    ToggleMode="True"
+                    Pressed="True" />
+            <Button Name="ShowMessagesButton"
+                    Text="{Loc 'hood-phone-ui-messages-app'}"
+                    HorizontalExpand="True"
+                    ToggleMode="True" />
+        </BoxContainer>
+
+        <BoxContainer Name="CallPanel"
+                      Orientation="Vertical"
+                      VerticalExpand="True"
+                      SeparationOverride="10">
+            <Label Text="{Loc 'hood-phone-ui-call-heading'}" />
+
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <LineEdit Name="DialNumberInput"
+                          PlaceHolder="{Loc 'hood-phone-ui-number-placeholder'}"
+                          HorizontalExpand="True" />
+                <Button Name="DialButton"
+                        Text="{Loc 'hood-phone-ui-dial'}" />
+            </BoxContainer>
+
+            <PanelContainer>
+                <BoxContainer Orientation="Vertical" Margin="12" SeparationOverride="6">
+                    <Label Name="CallStateLabel"
+                           Text="{Loc 'hood-phone-ui-call-idle'}"
+                           HorizontalAlignment="Center" />
+                    <Label Name="CallPeerLabel"
+                           Text="{Loc 'hood-phone-ui-call-no-peer'}"
+                           HorizontalAlignment="Center" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <Button Name="AcceptCallButton"
+                        Text="{Loc 'hood-phone-ui-accept'}"
+                        HorizontalExpand="True"
+                        Disabled="True" />
+                <Button Name="RejectCallButton"
+                        Text="{Loc 'hood-phone-ui-reject'}"
+                        HorizontalExpand="True"
+                        Disabled="True" />
+            </BoxContainer>
+
+            <Button Name="HangupButton"
+                    Text="{Loc 'hood-phone-ui-hangup'}"
+                    Disabled="True" />
+
+            <Control VerticalExpand="True" />
+            <Label Text="{Loc 'hood-phone-ui-call-help'}"
+                   HorizontalAlignment="Center" />
+        </BoxContainer>
+
+        <BoxContainer Name="MessagesPanel"
+                      Orientation="Vertical"
+                      VerticalExpand="True"
+                      SeparationOverride="7"
+                      Visible="False">
+            <Label Text="{Loc 'hood-phone-ui-conversations'}" />
+
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <OptionButton Name="ConversationSelector"
+                              HorizontalExpand="True"
+                              Disabled="True" />
+                <LineEdit Name="MessageNumberInput"
+                          PlaceHolder="{Loc 'hood-phone-ui-number-placeholder'}"
+                          MinWidth="90" />
+                <Button Name="OpenConversationButton"
+                        Text="{Loc 'hood-phone-ui-open-chat'}" />
+            </BoxContainer>
+
+            <PanelContainer VerticalExpand="True">
+                <ScrollContainer Name="MessageScroll"
+                                 VerticalExpand="True"
+                                 HorizontalExpand="True">
+                    <BoxContainer Name="MessageList"
+                                  Orientation="Vertical"
+                                  Margin="8"
+                                  SeparationOverride="7"
+                                  HorizontalExpand="True">
+                        <Label Text="{Loc 'hood-phone-ui-no-conversation'}"
+                               HorizontalAlignment="Center" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </PanelContainer>
+
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <LineEdit Name="MessageInput"
+                          PlaceHolder="{Loc 'hood-phone-ui-message-placeholder'}"
+                          HorizontalExpand="True" />
+                <Button Name="SendMessageButton"
+                        Text="{Loc 'hood-phone-ui-send'}"
+                        Disabled="True" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

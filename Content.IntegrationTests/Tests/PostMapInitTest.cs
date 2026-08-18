@@ -129,6 +129,7 @@ namespace Content.IntegrationTests.Tests
             "Exo",          // okay fine fuck it.
             "Fland",
             "FlandHighPop",
+            "HoodDistrict",
             "Kettle",
             "Lambda",         // Not in pool
             "Lavatest",       // Dev map
@@ -172,6 +173,7 @@ namespace Content.IntegrationTests.Tests
               "Exo",
             //  "Fland",        // kill due to mem
               "FlandHighPop",
+              "HoodDistrict",
               "Kettle",
             //"Lambda",         // Not in pool
               "Lavatest",       //Dev map

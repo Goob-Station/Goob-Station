@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content.Server.Database;
+using Content.Shared._Hood.Preferences;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
@@ -41,7 +42,7 @@ namespace Content.IntegrationTests.Tests.Preferences
 
         private static HumanoidCharacterProfile CharlieCharlieson()
         {
-            return new()
+            return new HumanoidCharacterProfile()
             {
                 Name = "Charlie Charlieson",
                 FlavorText = "The biggest boy around.",
@@ -55,7 +56,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                     Color.Azure,
                     Color.Beige,
                     new ())
-            };
+            }.WithHeritage(Heritage.NativeAmerican);
         }
 
         private static ServerDbSqlite GetDb(RobustIntegrationTest.ServerIntegrationInstance server)
@@ -90,7 +91,12 @@ namespace Content.IntegrationTests.Tests.Preferences
             var originalProfile = CharlieCharlieson();
             await db.InitPrefsAsync(username, originalProfile);
             var prefs = await db.GetPlayerPreferencesAsync(username);
-            Assert.That(prefs.Characters.Single(p => p.Key == slot).Value.MemberwiseEquals(originalProfile));
+            var storedProfile = (HumanoidCharacterProfile) prefs.Characters.Single(p => p.Key == slot).Value;
+            Assert.Multiple(() =>
+            {
+                Assert.That(storedProfile.Heritage, Is.EqualTo(Heritage.NativeAmerican));
+                Assert.That(storedProfile.MemberwiseEquals(originalProfile), Is.True);
+            });
             await pair.CleanReturnAsync();
         }
 

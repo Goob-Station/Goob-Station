@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: gameMap
+  id: HoodDistrict
+  mapName: Hood District Blockout
+  mapPath: /Maps/_Hood/hood_district.yml
+  minPlayers: 0
+  maxRandomOffset: 0
+  randomRotation: false
+  stations:
+    HoodDistrict:
+      stationProto: HoodStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: Hood District

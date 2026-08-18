@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Hood jobs intentionally reuse only the ordinary backpack group. In particular,
+# they do not include PDA, headset, survival, or station-department loadout groups.
+- type: roleLoadout
+  id: JobCrispsLeader
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobCrispsMediaPersonality
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobCrispsMember
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobCrispsDealer
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobBudsLeader
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobBudsMediaPersonality
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobBudsMember
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobBudsDealer
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobElectronicsStoreEmployee
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobSmokeShopEmployee
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobGunStoreEmployee
+  groups:
+  - CommonBackpack
+
+- type: roleLoadout
+  id: JobUndergroundSeller
+  groups:
+  - CommonBackpack

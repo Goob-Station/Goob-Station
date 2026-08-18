@@ -11,6 +11,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Stylesheets;
 using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Shared._Hood.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -225,6 +226,23 @@ namespace Content.Client.Lobby.UI
             };
 
             #endregion Gender
+
+            #region Heritage
+
+            HeritageButton.AddItem(Loc.GetString("hood-character-profile-heritage-unspecified"), (int) Heritage.Unspecified);
+            HeritageButton.AddItem(Loc.GetString("hood-character-profile-heritage-white"), (int) Heritage.White);
+            HeritageButton.AddItem(Loc.GetString("hood-character-profile-heritage-black"), (int) Heritage.Black);
+            HeritageButton.AddItem(Loc.GetString("hood-character-profile-heritage-latino"), (int) Heritage.Latino);
+            HeritageButton.AddItem(Loc.GetString("hood-character-profile-heritage-asian"), (int) Heritage.Asian);
+            HeritageButton.AddItem(Loc.GetString("hood-character-profile-heritage-native-american"), (int) Heritage.NativeAmerican);
+
+            HeritageButton.OnItemSelected += args =>
+            {
+                HeritageButton.SelectId(args.Id);
+                SetHeritage((Heritage) args.Id);
+            };
+
+            #endregion Heritage
 
             // Goob Station
             #region Barks
@@ -658,7 +676,8 @@ namespace Content.Client.Lobby.UI
             SpeciesButton.Clear();
             _species.Clear();
 
-            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart));
+            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
+                .Where(o => o.RoundStart && HoodCharacterProfilePolicy.IsNormalCreationSpecies(o.ID)));
             _species.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
             var speciesIds = _species.Select(o => o.ID).ToList();
 
@@ -842,6 +861,7 @@ namespace Content.Client.Lobby.UI
             UpdateFlavorTextEdit();
             UpdateSexControls();
             UpdateGenderControls();
+            UpdateHeritageControls();
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
             UpdateAgeEdit();
@@ -1270,6 +1290,12 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
         }
 
+        private void SetHeritage(Heritage newHeritage)
+        {
+            Profile = Profile?.WithHeritage(newHeritage);
+            SetDirty();
+        }
+
         private void SetSpecies(string newSpecies)
         {
             Profile = Profile?.WithSpecies(newSpecies);
@@ -1482,6 +1508,14 @@ namespace Content.Client.Lobby.UI
             }
 
             PronounsButton.SelectId((int) Profile.Gender);
+        }
+
+        private void UpdateHeritageControls()
+        {
+            if (Profile == null)
+                return;
+
+            HeritageButton.SelectId((int) Profile.Heritage);
         }
 
         private void UpdateSpawnPriorityControls()
@@ -1712,7 +1746,8 @@ namespace Content.Client.Lobby.UI
 
         private void RandomizeEverything()
         {
-            Profile = HumanoidCharacterProfile.Random();
+            var heritage = Profile?.Heritage ?? Heritage.Unspecified;
+            Profile = HumanoidCharacterProfile.Random().WithHeritage(heritage);
             SetProfile(Profile, CharacterSlot);
             SetDirty();
         }

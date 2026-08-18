@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# These factions intentionally have no hostility relationships yet. They identify
+# job-driven affiliations without making NPC AI attack members of another group.
+- type: npcFaction
+  id: HoodCrisps
+
+- type: npcFaction
+  id: HoodBuds
+
+- type: npcFaction
+  id: HoodCivilian

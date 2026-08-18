@@ -1,0 +1,231 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: startingGear
+  id: HoodCivilianGear
+  equipment:
+    jumpsuit: HoodClothingUniformBaggyCream
+    shoes: HoodClothingShoesWhiteLowtops
+
+# Crisps
+
+- type: job
+  id: CrispsLeader
+  name: job-name-crisps-leader
+  description: job-description-crisps-leader
+  playTimeTracker: JobCrispsLeader
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  weight: 40
+  displayWeight: 40
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodCrisps
+
+- type: job
+  id: CrispsMediaPersonality
+  name: job-name-crisps-media-personality
+  description: job-description-crisps-media-personality
+  playTimeTracker: JobCrispsMediaPersonality
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-crisps-leader
+  setPreference: true
+  weight: 30
+  displayWeight: 30
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodCrisps
+
+- type: job
+  id: CrispsMember
+  name: job-name-crisps-member
+  description: job-description-crisps-member
+  playTimeTracker: JobCrispsMember
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-crisps-leader
+  setPreference: true
+  weight: 10
+  displayWeight: 10
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodCrisps
+
+- type: job
+  id: CrispsDealer
+  name: job-name-crisps-dealer
+  description: job-description-crisps-dealer
+  playTimeTracker: JobCrispsDealer
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-crisps-leader
+  setPreference: true
+  weight: 20
+  displayWeight: 20
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodCrisps
+
+# Buds
+
+- type: job
+  id: BudsLeader
+  name: job-name-buds-leader
+  description: job-description-buds-leader
+  playTimeTracker: JobBudsLeader
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  weight: 40
+  displayWeight: 40
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodBuds
+
+- type: job
+  id: BudsMediaPersonality
+  name: job-name-buds-media-personality
+  description: job-description-buds-media-personality
+  playTimeTracker: JobBudsMediaPersonality
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-buds-leader
+  setPreference: true
+  weight: 30
+  displayWeight: 30
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodBuds
+
+- type: job
+  id: BudsMember
+  name: job-name-buds-member
+  description: job-description-buds-member
+  playTimeTracker: JobBudsMember
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-buds-leader
+  setPreference: true
+  weight: 10
+  displayWeight: 10
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodBuds
+
+- type: job
+  id: BudsDealer
+  name: job-name-buds-dealer
+  description: job-description-buds-dealer
+  playTimeTracker: JobBudsDealer
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-buds-leader
+  setPreference: true
+  weight: 20
+  displayWeight: 20
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodBuds
+
+# Retail
+
+- type: job
+  id: ElectronicsStoreEmployee
+  name: job-name-electronics-store-employee
+  description: job-description-electronics-store-employee
+  playTimeTracker: JobElectronicsStoreEmployee
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-store-management
+  setPreference: true
+  weight: 10
+  displayWeight: 10
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodCivilian
+
+- type: job
+  id: SmokeShopEmployee
+  name: job-name-smoke-shop-employee
+  description: job-description-smoke-shop-employee
+  playTimeTracker: JobSmokeShopEmployee
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-store-management
+  setPreference: true
+  weight: 10
+  displayWeight: 10
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodCivilian
+
+- type: job
+  id: GunStoreEmployee
+  name: job-name-gun-store-employee
+  description: job-description-gun-store-employee
+  playTimeTracker: JobGunStoreEmployee
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-store-management
+  setPreference: true
+  weight: 10
+  displayWeight: 10
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodCivilian
+
+# Underground
+
+- type: job
+  id: UndergroundSeller
+  name: job-name-underground-seller
+  description: job-description-underground-seller
+  playTimeTracker: JobUndergroundSeller
+  startingGear: HoodCivilianGear
+  supervisors: job-supervisors-nobody
+  setPreference: true
+  weight: 10
+  displayWeight: 10
+  goobcoins: 0
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - HoodCivilian

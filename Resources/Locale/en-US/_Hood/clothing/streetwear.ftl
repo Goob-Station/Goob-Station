@@ -1,0 +1,12 @@
+ent-HoodClothingUniformBaggyCream = cream tee and baggy jeans
+    .desc = A loose cream T-shirt with relaxed dark denim. Plain, comfortable, and everyday.
+ent-HoodClothingUniformCargoGraphic = geometric tee and cargo pants
+    .desc = An original geometric tee paired with roomy olive cargo pants.
+ent-HoodClothingOuterBlackZipHoodie = black zip hoodie
+    .desc = A heavyweight black hoodie with muted violet lining and no visible branding.
+ent-HoodClothingOuterNavyVarsity = navy varsity jacket
+    .desc = A navy-and-cream street jacket from the fictional local label Arroyo Standard.
+ent-HoodClothingShoesWhiteLowtops = white low-top sneakers
+    .desc = Clean low-top sneakers with grey panels and an original unbranded design.
+ent-HoodClothingHeadCharcoalFittedCap = charcoal fitted cap
+    .desc = A fitted charcoal cap with a tiny gold dash and no team logo.

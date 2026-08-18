@@ -1,0 +1,164 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseSmartphone
+  parent: BaseItem
+  abstract: true
+  name: smartphone
+  description: A pocket-sized smartphone with a removable SIM card.
+  components:
+  - type: Phone
+    simSlot:
+      name: hood-phone-sim-slot-name
+      insertSound: /Audio/Machines/id_insert.ogg
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      whitelist:
+        components:
+        - SimCard
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      hood-phone-sim: !type:ContainerSlot {}
+  - type: ItemSlots
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - PHONE
+  - type: ActivatableUI
+    key: enum.PhoneUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.PhoneUiKey.Key:
+        type: PhoneBoundUserInterface
+  - type: Telephone
+    ringTone: /Audio/_Goobstation/Misc/phone_ring.ogg
+    transmissionRange: Map
+    compatibleRanges:
+    - Map
+    listeningRange: 1
+    speakerVolume: Whisper
+    unlistedNumber: true
+  - type: Ringer
+
+- type: entity
+  id: HoodPhoneStreetline
+  parent: BaseSmartphone
+  name: Streetline One smartphone
+  description: A straightforward everyday phone built for calls, messages, and city life.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Devices/Phones/streetline.rsi
+    state: icon
+  - type: Item
+    sprite: _Hood/Objects/Devices/Phones/streetline.rsi
+    size: Small
+
+- type: entity
+  id: HoodPhoneSunset
+  parent: BaseSmartphone
+  name: Sunset S smartphone
+  description: A slim smartphone with a bright display and a colorful case.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Devices/Phones/sunset.rsi
+    state: icon
+  - type: Item
+    sprite: _Hood/Objects/Devices/Phones/sunset.rsi
+    size: Small
+
+- type: entity
+  id: HoodPhonePacific
+  parent: BaseSmartphone
+  name: Pacific Pro smartphone
+  description: A polished smartphone in a restrained premium shell.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Devices/Phones/pacific.rsi
+    state: icon
+  - type: Item
+    sprite: _Hood/Objects/Devices/Phones/pacific.rsi
+    size: Small
+
+- type: entity
+  id: HoodSimCard
+  parent: BaseItem
+  name: SIM card
+  description: A removable identity card for Hood cellular service. Its number is assigned for this round.
+  components:
+  - type: SimCard
+  - type: Sprite
+    sprite: _Hood/Objects/Devices/Phones/accessories.rsi
+    state: sim
+  - type: Item
+    size: Tiny
+
+- type: entity
+  id: HoodSimTool
+  parent: BaseItem
+  name: SIM eject tool
+  description: A slim pin for opening a smartphone's SIM tray.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Devices/Phones/accessories.rsi
+    state: sim-tool
+  - type: Item
+    size: Tiny
+
+- type: entity
+  id: HoodPhoneStreetlineBox
+  parent: BoxCardboardSmall
+  name: Streetline One retail box
+  description: A retail package containing a Streetline One smartphone and SIM eject tool.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Devices/Phones/streetline_box.rsi
+    state: icon
+  - type: Item
+    sprite: _Hood/Objects/Devices/Phones/streetline_box.rsi
+    size: Small
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HoodPhoneStreetline
+        - id: HoodSimTool
+
+- type: entity
+  id: HoodPhoneSunsetBox
+  parent: BoxCardboardSmall
+  name: Sunset S retail box
+  description: A retail package containing a Sunset S smartphone and SIM eject tool.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Devices/Phones/sunset_box.rsi
+    state: icon
+  - type: Item
+    sprite: _Hood/Objects/Devices/Phones/sunset_box.rsi
+    size: Small
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HoodPhoneSunset
+        - id: HoodSimTool
+
+- type: entity
+  id: HoodPhonePacificBox
+  parent: BoxCardboardSmall
+  name: Pacific Pro retail box
+  description: A retail package containing a Pacific Pro smartphone and SIM eject tool.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Devices/Phones/pacific_box.rsi
+    state: icon
+  - type: Item
+    sprite: _Hood/Objects/Devices/Phones/pacific_box.rsi
+    size: Small
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HoodPhonePacific
+        - id: HoodSimTool

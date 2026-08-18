@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# These references let the existing chameleon system infer each job's starting
+# gear and role loadout. They are also required by ChameleonJobLoadoutTest.
+- type: chameleonOutfit
+  id: CrispsLeaderChameleonOutfit
+  job: CrispsLeader
+
+- type: chameleonOutfit
+  id: CrispsMediaPersonalityChameleonOutfit
+  job: CrispsMediaPersonality
+
+- type: chameleonOutfit
+  id: CrispsMemberChameleonOutfit
+  job: CrispsMember
+
+- type: chameleonOutfit
+  id: CrispsDealerChameleonOutfit
+  job: CrispsDealer
+
+- type: chameleonOutfit
+  id: BudsLeaderChameleonOutfit
+  job: BudsLeader
+
+- type: chameleonOutfit
+  id: BudsMediaPersonalityChameleonOutfit
+  job: BudsMediaPersonality
+
+- type: chameleonOutfit
+  id: BudsMemberChameleonOutfit
+  job: BudsMember
+
+- type: chameleonOutfit
+  id: BudsDealerChameleonOutfit
+  job: BudsDealer
+
+- type: chameleonOutfit
+  id: ElectronicsStoreEmployeeChameleonOutfit
+  job: ElectronicsStoreEmployee
+
+- type: chameleonOutfit
+  id: SmokeShopEmployeeChameleonOutfit
+  job: SmokeShopEmployee
+
+- type: chameleonOutfit
+  id: GunStoreEmployeeChameleonOutfit
+  job: GunStoreEmployee
+
+- type: chameleonOutfit
+  id: UndergroundSellerChameleonOutfit
+  job: UndergroundSeller

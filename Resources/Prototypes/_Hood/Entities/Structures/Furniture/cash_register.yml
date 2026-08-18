@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ BaseStructureDynamic, BaseBagOpenClose ]
+  id: HoodCashRegister
+  name: cash register
+  description: A sturdy point-of-sale till with a physical cash drawer.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Storage
+    grid:
+    - 0,0,9,3
+    maxItemSize: Small
+    quickInsert: true
+    whitelist:
+      tags:
+      - HoodCash
+  - type: Sprite
+    sprite: _Hood/Structures/Furniture/cash_register.rsi
+    noRot: true
+    layers:
+    - state: register
+      map: ["closeLayer"]
+    - state: register
+      map: ["openLayer"]
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.38,-0.34,0.38,0.34"
+        density: 160
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

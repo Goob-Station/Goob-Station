@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Deliberately abstract gameplay recipe. Material values are game units, not real specifications.
+- type: latheRecipe
+  id: HoodGunSwitchRecipe
+  result: HoodGunSwitch
+  categories:
+  - Weapons
+  completetime: 4
+  materials:
+    Steel: 250
+    Plastic: 250
+
+- type: latheRecipePack
+  id: HoodUndergroundStatic
+  recipes:
+  - HoodGunSwitchRecipe

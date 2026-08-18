@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: HoodWeaponCarbineRookC9
+  parent: BaseWeaponSubMachineGun
+  name: Rook C9 carbine
+  description: A compact fictional city carbine with simple select-fire controls. It accepts standard submachine-gun magazines.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Weapons/Guns/rook_c9.rsi
+    state: base
+  - type: Item
+    sprite: _Hood/Objects/Weapons/Guns/rook_c9.rsi
+  - type: Clothing
+    sprite: _Hood/Objects/Weapons/Guns/rook_c9.rsi
+  - type: Gun
+    fireRate: 7
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+
+- type: entity
+  id: HoodWeaponRifleArroyoR12
+  parent: BaseWeaponRifle
+  name: Arroyo R12 rifle
+  description: A fictional civilian-pattern rifle with restrained handling. It accepts standard light-rifle magazines.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Weapons/Guns/arroyo_r12.rsi
+    state: base
+  - type: Item
+    sprite: _Hood/Objects/Weapons/Guns/arroyo_r12.rsi
+  - type: Clothing
+    sprite: _Hood/Objects/Weapons/Guns/arroyo_r12.rsi
+  - type: Gun
+    fireRate: 4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+
+- type: entity
+  id: HoodWeaponShotgunMesaP12
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  name: Mesa P12 shotgun
+  description: A sturdy fictional pump shotgun made for utility use. It accepts standard shotgun shells.
+  components:
+  - type: Sprite
+    sprite: _Hood/Objects/Weapons/Guns/mesa_p12.rsi
+    state: icon
+  - type: Item
+    sprite: _Hood/Objects/Weapons/Guns/mesa_p12.rsi
+  - type: Clothing
+    sprite: _Hood/Objects/Weapons/Guns/mesa_p12.rsi
+  - type: GunRequiresWield
+  - type: GunSpreadModifier
+    spread: 0.6
+  - type: BallisticAmmoProvider
+    autoCycle: false
