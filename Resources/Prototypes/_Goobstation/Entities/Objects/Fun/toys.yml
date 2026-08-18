@@ -1172,3 +1172,43 @@
         Slash: 5
     biteSound:
       collection: VulpkaninSnarls
+      
+- type: entity
+  parent: BasePlushie
+  id: PlushieRouge
+  name: rouge plushie
+  description: A cute stuffed toy resembling the humble and always drunk CCO of CCO's. Their eyebrows seem glued to be permanently farrowed
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    layers:
+    - state: plushie_rouge_off
+    - state: plushie_rouge_on
+      visible: false
+      map: [ "Unsheathe" ]
+  - type: ItemToggle
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: SpeakOnCollide
+    pack: PlushieRouge
+  - type: ToggleableVisuals
+    spriteLayer: Unsheathe
+  - type: Appearance

@@ -31,6 +31,12 @@
         {
             "name": "plushie_holy"
         },
+		{
+			"name": "plushie_rouge_on"
+		},
+		{
+			"name": "plushie_rouge_off"
+		},
         {
             "name": "plushieholy-equipped-HELMET",
             "directions": 4
