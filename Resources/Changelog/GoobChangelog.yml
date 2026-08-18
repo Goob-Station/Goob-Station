@@ -24473,3 +24473,11 @@ Entries:
       message: Recolours Queen Xeno to be consistent with other Xenos
   id: 2802
   time: '2026-08-14T11:47:35.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: >-
+        Number Disk Cannot Call Vox Raiders or the GreyTide anymore, Replaced
+        with Slasher
+  id: 2803
+  time: '2026-08-18T20:00:23.0000000+00:00'
