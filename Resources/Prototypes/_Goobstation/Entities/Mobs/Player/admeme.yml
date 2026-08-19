@@ -29,6 +29,7 @@
   - Dwarf
   - Feroxi
   - Chitinid
+  - Hydrakin
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
