@@ -106165,8 +106165,6 @@ entities:
       pos: -31.5,63.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 14247
   - uid: 11006
@@ -106176,8 +106174,6 @@ entities:
       pos: -33.5,67.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 14247
   - uid: 13053
@@ -106187,8 +106183,6 @@ entities:
       pos: -27.5,67.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 14247
   - uid: 14236
@@ -106207,8 +106201,6 @@ entities:
       pos: -29.5,63.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 14247
 - proto: WeaponEnergyTurretAIControlPanel
