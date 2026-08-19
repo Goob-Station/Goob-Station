@@ -105,12 +105,17 @@ public sealed partial class PlayerPanel : FancyWindow
     {
         TrustScore.Text = Loc.GetString("player-panel-trust-score", ("trustScore", trustScore));
     }
-
-    public void SetAccountCreationDate(DateTime? date)
+    // goob edit start
+    public void SetAccountAge(TimeSpan? age)
     {
-        AccountCreationDate.Text = date != null ? Loc.GetString("player-panel-account-creation", ("date", date.Value)) : null;
+        AccountAge.Text = age != null
+            ? Loc.GetString("player-panel-account-age", 
+                ("days", age.Value.Days),
+                ("hours", age.Value.Hours % 24),
+                ("minutes", age.Value.Minutes % (24 * 60)))
+            : null;
     }
-
+    // goob edit end
     public void SetPlaytime(TimeSpan playtime)
     {
         Playtime.Text = Loc.GetString("player-panel-playtime",

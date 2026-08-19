@@ -20,7 +20,7 @@ public sealed class PlayerPanelEuiState(
     bool frozen,
     bool canAhelp,
     float trustScore,
-    DateTime? accountCreationDate)
+    TimeSpan? accountAge) // goob edit
     : EuiStateBase
 {
     public readonly NetUserId Guid = guid;
@@ -35,7 +35,7 @@ public sealed class PlayerPanelEuiState(
     public readonly bool Frozen = frozen;
     public readonly bool CanAhelp = canAhelp;
     public readonly float TrustScore = trustScore;
-    public readonly DateTime? AccountCreationDate = accountCreationDate;
+    public readonly TimeSpan? AccountAge = accountAge;
 }
 
 

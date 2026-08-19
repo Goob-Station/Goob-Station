@@ -14,7 +14,6 @@ player-panel-notes = Total Notes: {$totalNotes}
 player-panel-playtime = Total Playtime: {$days}d:{$hours}h:{$minutes}m
 player-panel-shared-connections = Shared Connections: {$sharedConnections}
 player-panel-trust-score = Trust Score: {TOSTRING($trustScore, "P0")}
-player-panel-account-creation = Account Created: {TOSTRING($date, "yyyy-MM-dd")}
 
 player-panel-copy-username = Copy
 player-panel-show-notes = Notes

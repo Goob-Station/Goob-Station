@@ -11,7 +11,6 @@ using Content.Shared.Administration.Systems;
 using Content.Shared.Database;
 using Content.Shared.Eui;
 using Content.Shared.Follower;
-using Content.Shared.Players;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 
@@ -38,7 +37,7 @@ public sealed class PlayerPanelEui : BaseEui
     private bool _canFreeze;
     private bool _canAhelp;
     private float _trustScore;
-    private DateTime? _accountCreationDate;
+    private TimeSpan? _accountAge; //goob edit
     private FollowerSystem _follower;
 
     public PlayerPanelEui(LocatedPlayerData player)
@@ -74,7 +73,7 @@ public sealed class PlayerPanelEui : BaseEui
             _frozen,
             _canAhelp,
             _trustScore,
-            _accountCreationDate);
+            _accountAge); // goob edit
     }
 
     private void OnPermsChanged(AdminPermsChangedEventArgs args)
@@ -210,7 +209,7 @@ public sealed class PlayerPanelEui : BaseEui
 
             var userData = session.Channel.UserData;
             _trustScore = userData.Trust;
-            _accountCreationDate = userData.CreatedTime;
+            _accountAge = DateTime.UtcNow - userData.CreatedTime; // goob edit
         }
         else
         {
