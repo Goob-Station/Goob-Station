@@ -24481,3 +24481,11 @@ Entries:
         with Slasher
   id: 2803
   time: '2026-08-18T20:00:23.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Reverted cloning genetic damage.
+    - type: Tweak
+      message: Readded cloning to CMO locker.
+  id: 2804
+  time: '2026-08-19T13:35:07.0000000+00:00'
