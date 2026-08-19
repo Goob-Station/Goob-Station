@@ -4,7 +4,6 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Prototypes;
-using Content.Shared.Chemistry.Reaction;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -19,6 +18,9 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
+// Goobtation - Start
+using Content.Shared._Goobstation.Inventory.Events;
+// Goobstation - End
 
 namespace Content.Shared.Fluids;
 
@@ -169,6 +171,18 @@ public abstract partial class SharedPuddleSystem
                 $"{ToPrettyString(args.User):actor} "
                 + $"splashed {SharedSolutionContainerSystem.ToPrettyString(splitSolution):solution} "
                 + $"from {ToPrettyString(entity.Owner):entity} onto {ToPrettyString(hit):target}");
+
+            // Goobstation - Start
+            var relayEv = new ReactiveInventoryCheckEvent(splitSolution, hit);
+            RaiseLocalEvent(hit, ref relayEv);
+
+            if (relayEv.Cancelled)
+                return;
+
+            // Pass the data back if the event user want to change the solution content
+            splitSolution = relayEv.SplitSol;
+
+            // Goobstation - End
 
             Reactive.DoEntityReaction(hit, splitSolution, ReactionMethod.Touch);
 
