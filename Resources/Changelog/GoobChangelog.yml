@@ -24489,3 +24489,9 @@ Entries:
       message: Readded cloning to CMO locker.
   id: 2804
   time: '2026-08-19T13:35:07.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: Enabled biomass reclaimer being unusable on souled bodies
+  id: 2805
+  time: '2026-08-19T13:44:35.0000000+00:00'
