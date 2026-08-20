@@ -63,13 +63,13 @@ public sealed partial class GoobCVars
     /// Enables paid Twitch Bits actions.
     /// </summary>
     public static readonly CVarDef<bool> TwitchBitsEnabled =
-        CVarDef.Create("twitch.bits.enabled", false, CVar.SERVERONLY);
+        CVarDef.Create("twitch.bits.enabled", true, CVar.SERVERONLY);
 
     /// <summary>
     /// SS14 username whose current in-round character receives Twitch Bits actions.
     /// </summary>
     public static readonly CVarDef<string> TwitchBitsTargetUsername =
-        CVarDef.Create("twitch.bits.target_username", string.Empty, CVar.SERVERONLY);
+        CVarDef.Create("twitch.bits.target_username", "GoobStation", CVar.SERVERONLY);
 
     /// <summary>
     /// Twitch Bits catalog SKU for inverting the target's controls for 60 seconds.

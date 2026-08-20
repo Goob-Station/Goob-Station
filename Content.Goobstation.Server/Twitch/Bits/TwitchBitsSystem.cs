@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using Content.Goobstation.Common.CCVar;
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
+using Content.Server.Popups;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Robust.Server.Player;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;
@@ -23,6 +25,7 @@ public sealed class TwitchBitsSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ITwitchApiManager _twitchApi = default!;
 
     private readonly Dictionary<string, ITwitchBitsAction> _actions = new(StringComparer.Ordinal);
@@ -142,7 +145,10 @@ public sealed class TwitchBitsSystem : EntitySystem
             return;
         }
 
-        var result = await _twitchApi.RunOnMainThread(() => ProcessTransaction(transaction, request.Input));
+        var result = await _twitchApi.RunOnMainThread(() => ProcessTransaction(
+            transaction,
+            request.Input,
+            request.DisplayName));
         switch (result.Status)
         {
             case ProcessStatus.Accepted:
@@ -213,7 +219,7 @@ public sealed class TwitchBitsSystem : EntitySystem
             result.Reason ?? "That action is not currently available.");
     }
 
-    private ProcessResult ProcessTransaction(TwitchBitsTransaction transaction, string? input)
+    private ProcessResult ProcessTransaction(TwitchBitsTransaction transaction, string? input, string? displayName)
     {
         PruneProcessedTransactions();
 
@@ -236,7 +242,8 @@ public sealed class TwitchBitsSystem : EntitySystem
             return new ProcessResult(ProcessStatus.UnknownSku, null, null, false);
 
         var action = matchingActions[0];
-        var actionContext = new TwitchBitsActionContext(transaction, input, true);
+        var twitchUserName = NormalizeTwitchUserName(displayName, transaction.UserId);
+        var actionContext = new TwitchBitsActionContext(transaction, input, true, twitchUserName);
         var validity = IsCurrentlyValid(action, actionContext, out var target);
         if (!validity.IsValid)
             return new ProcessResult(ProcessStatus.Unavailable, action, validity.Reason, false);
@@ -244,6 +251,7 @@ public sealed class TwitchBitsSystem : EntitySystem
         if (!action.Execute(target, actionContext))
             return new ProcessResult(ProcessStatus.Unavailable, action, "The SS14 server could not complete that action.", false);
 
+        ShowRedemptionToast(target, twitchUserName, action.DisplayName);
         _processedTransactions[transaction.TransactionId] = new ProcessedTransaction(action.Id, transaction.ExpiresAt);
         var impact = action.Id == "arm-nuke" ? LogImpact.High : LogImpact.Medium;
         _adminLogger.Add(
@@ -259,7 +267,7 @@ public sealed class TwitchBitsSystem : EntitySystem
         if (!_actions.TryGetValue(actionId, out var action))
             return new ProcessResult(ProcessStatus.UnknownSku, null, "That debug action does not exist.", false);
 
-        var actionContext = new TwitchBitsActionContext(null, input, true);
+        var actionContext = new TwitchBitsActionContext(null, input, true, "Broadcaster");
         var validity = IsCurrentlyValid(action, actionContext, out var target);
         if (!validity.IsValid)
             return new ProcessResult(ProcessStatus.Unavailable, action, validity.Reason, false);
@@ -267,6 +275,7 @@ public sealed class TwitchBitsSystem : EntitySystem
         if (!action.Execute(target, actionContext))
             return new ProcessResult(ProcessStatus.Unavailable, action, "The SS14 server could not complete that action.", false);
 
+        ShowRedemptionToast(target, "Broadcaster", action.DisplayName);
         var impact = action.Id == "arm-nuke" ? LogImpact.High : LogImpact.Medium;
         _adminLogger.Add(
             LogType.Action,
@@ -274,6 +283,23 @@ public sealed class TwitchBitsSystem : EntitySystem
             $"Twitch broadcaster {actor} ran free debug action {action.Id} on {ToPrettyString(target)}.");
         Log.Info($"Processed free Twitch debug action from {actor}: {action.Id}");
         return new ProcessResult(ProcessStatus.Accepted, action, null, false);
+    }
+
+    private void ShowRedemptionToast(EntityUid target, string twitchUserName, string actionName)
+    {
+        _popup.PopupEntity(
+            $"{twitchUserName} redeemed {actionName}.",
+            target,
+            target,
+            PopupType.Medium);
+    }
+
+    private static string NormalizeTwitchUserName(string? displayName, string fallback)
+    {
+        var normalized = string.IsNullOrWhiteSpace(displayName)
+            ? fallback
+            : string.Join(' ', displayName.Split((char[]?) null, StringSplitOptions.RemoveEmptyEntries));
+        return normalized.Length <= 25 ? normalized : normalized[..25];
     }
 
     private BitsStatusResponse CreateStatus()
@@ -338,7 +364,8 @@ public sealed class TwitchBitsSystem : EntitySystem
 
     private sealed record ExecuteActionRequest(
         [property: JsonPropertyName("receipt")] string? Receipt,
-        [property: JsonPropertyName("input")] string? Input);
+        [property: JsonPropertyName("input")] string? Input,
+        [property: JsonPropertyName("displayName")] string? DisplayName);
 
     private sealed record DebugActionRequest(
         [property: JsonPropertyName("actionId")] string? ActionId,

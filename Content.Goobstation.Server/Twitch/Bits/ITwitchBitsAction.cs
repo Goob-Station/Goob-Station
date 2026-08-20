@@ -5,7 +5,8 @@ namespace Content.Goobstation.Server.Twitch.Bits;
 public sealed record TwitchBitsActionContext(
     TwitchBitsTransaction? Transaction,
     string? Input,
-    bool IsExecution = false);
+    bool IsExecution = false,
+    string? TwitchUserName = null);
 
 public sealed record TwitchBitsActionValidity(bool IsValid, string? Reason)
 {

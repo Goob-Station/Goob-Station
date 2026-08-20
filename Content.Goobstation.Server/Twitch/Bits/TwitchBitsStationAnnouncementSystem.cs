@@ -50,7 +50,8 @@ public sealed class TwitchBitsStationAnnouncementSystem : EntitySystem, ITwitchB
         if (string.IsNullOrEmpty(message) || message.Length > GetMaximumLength())
             return false;
 
-        _chat.DispatchStationAnnouncement(target, message, "Twitch Transmission");
+        var twitchUser = context.TwitchUserName ?? "Twitch";
+        _chat.DispatchStationAnnouncement(target, $"{message} -{twitchUser}", "Station Announcement");
         return true;
     }
 
