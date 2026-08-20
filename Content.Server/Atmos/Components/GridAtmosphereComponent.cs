@@ -117,7 +117,7 @@ namespace Content.Server.Atmos.Components
         public readonly Queue<Entity<AtmosDeviceComponent>> CurrentRunAtmosDevices = new();
 
         [ViewVariables]
-        public int AtmosDeviceUpdateCounter; // fix subframe
+        public int AtmosDeviceUpdateCounter; // goobstation make subframe a feature
 
         [ViewVariables]
         public readonly HashSet<Vector2i> InvalidatedCoords = new(1000);
