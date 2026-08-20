@@ -12,6 +12,7 @@ using Content.Shared.GameTicking.Components;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Twitch.Secret;
 
@@ -100,7 +101,7 @@ public sealed class TwitchSecretSystem : GameRuleSystem<TwitchSecretRuleComponen
             }
 
             var prototype = remaining.Keys.First(proto => proto.ID == eventId);
-            options.Add(new TwitchEventVoteOption(i.ToString(), prototype.ID, prototype.Name));
+            options.Add(new TwitchEventVoteOption(i.ToString(), prototype.ID, GetEventDisplayName(prototype)));
             remaining.Remove(prototype);
         }
 
@@ -119,6 +120,18 @@ public sealed class TwitchSecretSystem : GameRuleSystem<TwitchSecretRuleComponen
             LogImpact.Medium,
             $"Twitch Secret opened vote {_activeVote.Id} with options {optionNames}.");
         Log.Info($"Opened Twitch event vote {_activeVote.Id}: {optionNames}");
+    }
+
+    private static string GetEventDisplayName(EntityPrototype prototype)
+    {
+        if (!string.IsNullOrWhiteSpace(prototype.Name))
+            return prototype.Name;
+
+        var name = CaseConversion.PascalToKebab(prototype.ID).Replace('-', ' ');
+        if (name.EndsWith(" rule", StringComparison.Ordinal))
+            name = name[..^5];
+
+        return char.ToUpperInvariant(name[0]) + name[1..];
     }
 
     private bool IsTwitchSecretActive()
