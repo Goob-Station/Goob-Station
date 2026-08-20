@@ -114,6 +114,18 @@ public sealed class TwitchApiManager : ITwitchApiManager
         return _extensionIdentities.TryGetValue(context, out identity);
     }
 
+    public bool TryValidateBitsReceipt(
+        string receipt,
+        DateTimeOffset now,
+        [NotNullWhen(true)] out TwitchBitsTransaction? transaction,
+        out TwitchBitsReceiptValidationError error)
+    {
+        lock (_secretLock)
+        {
+            return TwitchBitsReceiptValidator.TryValidate(receipt, _extensionSecret, now, out transaction, out error);
+        }
+    }
+
     public async Task<T?> ReadJsonAsync<T>(
         IStatusHandlerContext context,
         JsonSerializerOptions? options = null)

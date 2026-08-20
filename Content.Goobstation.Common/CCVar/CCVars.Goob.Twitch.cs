@@ -58,4 +58,52 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<int> TwitchApiMaxRequestBodySize =
         CVarDef.Create("twitch.api.max_request_body_size", 64 * 1024, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Enables paid Twitch Bits actions.
+    /// </summary>
+    public static readonly CVarDef<bool> TwitchBitsEnabled =
+        CVarDef.Create("twitch.bits.enabled", false, CVar.SERVERONLY);
+
+    /// <summary>
+    /// SS14 username whose current in-round character receives Twitch Bits actions.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchBitsTargetUsername =
+        CVarDef.Create("twitch.bits.target_username", string.Empty, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Twitch Bits catalog SKU for inverting the target's controls for 60 seconds.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchBitsInvertControlsSku =
+        CVarDef.Create("twitch.bits.sku.invert_controls", "ss14-invert-controls-60", CVar.SERVERONLY);
+
+    /// <summary>
+    /// Twitch Bits catalog SKU for dropping the target's active-hand item.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchBitsDropHeldSku =
+        CVarDef.Create("twitch.bits.sku.drop_held", "ss14-drop-held", CVar.SERVERONLY);
+
+    /// <summary>
+    /// Twitch Bits catalog SKU for dropping all of the target's equipment and held items.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchBitsDropAllSku =
+        CVarDef.Create("twitch.bits.sku.drop_all", "ss14-drop-all", CVar.SERVERONLY);
+
+    /// <summary>
+    /// Twitch Bits catalog SKU for arming an available nuclear device.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchBitsArmNukeSku =
+        CVarDef.Create("twitch.bits.sku.arm_nuke", "ss14-arm-nuke", CVar.SERVERONLY);
+
+    /// <summary>
+    /// Twitch Bits catalog SKU for sending a viewer-authored station announcement.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchBitsStationAnnouncementSku =
+        CVarDef.Create("twitch.bits.sku.station_announcement", "ss14-station-announcement", CVar.SERVERONLY);
+
+    /// <summary>
+    /// Maximum number of characters accepted in a Twitch Bits station announcement.
+    /// </summary>
+    public static readonly CVarDef<int> TwitchBitsStationAnnouncementMaxLength =
+        CVarDef.Create("twitch.bits.station_announcement_max_length", 160, CVar.SERVERONLY);
 }
