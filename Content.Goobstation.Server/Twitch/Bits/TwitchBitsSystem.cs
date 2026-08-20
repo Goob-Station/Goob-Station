@@ -34,6 +34,7 @@ public sealed class TwitchBitsSystem : EntitySystem
 
         _twitchApi.RegisterRoute(HttpMethod.Get, "/bits/actions", HandleGetActions, TwitchApiAccess.ExtensionJwt);
         _twitchApi.RegisterRoute(HttpMethod.Post, "/bits/transactions", HandleTransaction, TwitchApiAccess.ExtensionJwt);
+        _twitchApi.RegisterRoute(HttpMethod.Post, "/bits/debug/actions", HandleDebugAction, TwitchApiAccess.ExtensionJwt);
     }
 
     public void RegisterAction(ITwitchBitsAction action)
@@ -167,6 +168,51 @@ public sealed class TwitchBitsSystem : EntitySystem
         }
     }
 
+    private async Task HandleDebugAction(IStatusHandlerContext context)
+    {
+        if (!_twitchApi.TryGetExtensionIdentity(context, out var identity))
+            throw new InvalidOperationException("An authenticated Twitch identity was not available.");
+
+        if (identity.Role != TwitchExtensionRole.Broadcaster)
+        {
+            await RespondError(
+                context,
+                HttpStatusCode.Forbidden,
+                "broadcaster_required",
+                "Only the broadcaster can run free debug actions.");
+            return;
+        }
+
+        var request = await _twitchApi.ReadJsonAsync<DebugActionRequest>(context);
+        if (request == null || string.IsNullOrWhiteSpace(request.ActionId))
+        {
+            await RespondError(context, HttpStatusCode.BadRequest, "action_required", "An action ID is required.");
+            return;
+        }
+
+        var result = await _twitchApi.RunOnMainThread(() => ProcessDebugAction(
+            request.ActionId,
+            request.Input,
+            identity.UserId ?? identity.OpaqueUserId));
+        if (result.Status == ProcessStatus.Accepted)
+        {
+            await context.RespondJsonAsync(new ExecuteActionResponse(
+                result.Action!.Id,
+                result.Action.DisplayName,
+                false));
+            return;
+        }
+
+        var status = result.Status == ProcessStatus.UnknownSku
+            ? HttpStatusCode.BadRequest
+            : HttpStatusCode.Conflict;
+        await RespondError(
+            context,
+            status,
+            result.Status == ProcessStatus.UnknownSku ? "unknown_action" : "action_unavailable",
+            result.Reason ?? "That action is not currently available.");
+    }
+
     private ProcessResult ProcessTransaction(TwitchBitsTransaction transaction, string? input)
     {
         PruneProcessedTransactions();
@@ -190,7 +236,7 @@ public sealed class TwitchBitsSystem : EntitySystem
             return new ProcessResult(ProcessStatus.UnknownSku, null, null, false);
 
         var action = matchingActions[0];
-        var actionContext = new TwitchBitsActionContext(transaction, input);
+        var actionContext = new TwitchBitsActionContext(transaction, input, true);
         var validity = IsCurrentlyValid(action, actionContext, out var target);
         if (!validity.IsValid)
             return new ProcessResult(ProcessStatus.Unavailable, action, validity.Reason, false);
@@ -205,6 +251,28 @@ public sealed class TwitchBitsSystem : EntitySystem
             impact,
             $"Twitch Bits transaction {transaction.TransactionId} from user {transaction.UserId} ran {action.Id} on {ToPrettyString(target)}.");
         Log.Info($"Processed Twitch Bits transaction {transaction.TransactionId}: {action.Id}");
+        return new ProcessResult(ProcessStatus.Accepted, action, null, false);
+    }
+
+    private ProcessResult ProcessDebugAction(string actionId, string? input, string actor)
+    {
+        if (!_actions.TryGetValue(actionId, out var action))
+            return new ProcessResult(ProcessStatus.UnknownSku, null, "That debug action does not exist.", false);
+
+        var actionContext = new TwitchBitsActionContext(null, input, true);
+        var validity = IsCurrentlyValid(action, actionContext, out var target);
+        if (!validity.IsValid)
+            return new ProcessResult(ProcessStatus.Unavailable, action, validity.Reason, false);
+
+        if (!action.Execute(target, actionContext))
+            return new ProcessResult(ProcessStatus.Unavailable, action, "The SS14 server could not complete that action.", false);
+
+        var impact = action.Id == "arm-nuke" ? LogImpact.High : LogImpact.Medium;
+        _adminLogger.Add(
+            LogType.Action,
+            impact,
+            $"Twitch broadcaster {actor} ran free debug action {action.Id} on {ToPrettyString(target)}.");
+        Log.Info($"Processed free Twitch debug action from {actor}: {action.Id}");
         return new ProcessResult(ProcessStatus.Accepted, action, null, false);
     }
 
@@ -270,6 +338,10 @@ public sealed class TwitchBitsSystem : EntitySystem
 
     private sealed record ExecuteActionRequest(
         [property: JsonPropertyName("receipt")] string? Receipt,
+        [property: JsonPropertyName("input")] string? Input);
+
+    private sealed record DebugActionRequest(
+        [property: JsonPropertyName("actionId")] string? ActionId,
         [property: JsonPropertyName("input")] string? Input);
 
     private sealed record ExecuteActionResponse(

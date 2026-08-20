@@ -31,7 +31,7 @@ public sealed class TwitchBitsStationAnnouncementSystem : EntitySystem, ITwitchB
         if (_station.GetOwningStation(target) == null)
             return TwitchBitsActionValidity.Invalid("The streamer's character is not currently on a station.");
 
-        if (context.Transaction == null)
+        if (!context.IsExecution)
             return TwitchBitsActionValidity.Valid;
 
         var message = NormalizeMessage(context.Input);

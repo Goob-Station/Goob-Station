@@ -4,7 +4,8 @@ namespace Content.Goobstation.Server.Twitch.Bits;
 
 public sealed record TwitchBitsActionContext(
     TwitchBitsTransaction? Transaction,
-    string? Input);
+    string? Input,
+    bool IsExecution = false);
 
 public sealed record TwitchBitsActionValidity(bool IsValid, string? Reason)
 {
