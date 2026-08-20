@@ -51,8 +51,11 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
 
     private void OnSummonVoidCreatureSelected(Entity<ChooseVoidCreatureComponent> ent, ref RadialSelectorSelectedMessage args)
     {
-        if (args.SelectedItem is not { } proto || !_proto.TryIndex(proto, out _)
-            || !_mind.TryGetMind(ent.Owner, out var mindUid, out var mind))
+        if (args.SelectedItem is not { } proto
+            || !IsAllowedSummon(ent.Comp.AvailableSummons, proto)
+            || !_proto.TryIndex(proto, out _)
+            || !_mind.TryGetMind(ent.Owner, out var mindUid, out var mind)
+            || !IsOwner(ent.Owner, args.Actor))
             return;
 
         var coordinates = _transform.GetMoverCoordinates(ent.Owner);
@@ -66,5 +69,29 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
 
         _ui.CloseUi(ent.Owner, RadialSelectorUiKey.Key, args.Actor);
         Del(ent.Owner);
+    }
+
+    private bool IsOwner(EntityUid uid, EntityUid actor)
+    {
+        return _mind.TryGetMind(uid, out var mindUid, out _)
+            && _mind.TryGetMind(actor, out var actorMind, out _)
+            && actorMind == mindUid;
+    }
+
+    private bool IsAllowedSummon(List<RadialSelectorEntry> entries, string? proto)
+    {
+        if (proto == null)
+            return false;
+
+        foreach (var entry in entries)
+        {
+            if (entry.Prototype == proto)
+                return true;
+
+            if (entry.Category != null && IsAllowedSummon(entry.Category.Entries, proto))
+                return true;
+        }
+
+        return false;
     }
 }

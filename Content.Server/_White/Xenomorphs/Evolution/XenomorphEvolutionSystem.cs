@@ -66,7 +66,7 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
                 return;
             }
 
-            args.Handled = Evolve(uid, component.EvolvesTo.First().Prototype, component.EvolutionDelay);
+            args.Handled = Evolve(uid, component.EvolvesTo, component.EvolvesTo.First().Prototype, component.EvolutionDelay);
             return;
         }
 
@@ -78,17 +78,27 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
 
     private void OnEvolutionRecieved(EntityUid uid, XenomorphEvolutionComponent component, RadialSelectorSelectedMessage args)
     {
+        if (!IsOwner(uid, args.Actor))
+            return;
+
         if (component.Points < component.Max)
         {
             _popup.PopupEntity(Loc.GetString("xenomorphs-evolution-not-enough-points", ("seconds", (component.Max - component.Points) / component.PointsPerSecond)), uid, uid);
             return;
         }
 
-        if (Evolve(uid, args.SelectedItem, component.EvolutionDelay))
+        if (Evolve(uid, component.EvolvesTo, args.SelectedItem, component.EvolutionDelay))
             return;
 
         var actor = args.Actor;
         _ui.CloseUi(uid, RadialSelectorUiKey.Key, actor);
+    }
+
+    private bool IsOwner(EntityUid uid, EntityUid actor)
+    {
+        return _mind.TryGetMind(uid, out var mindUid, out _)
+            && _mind.TryGetMind(actor, out var actorMind, out _)
+            && actorMind == mindUid;
     }
 
     private void OnXenomorphEvolutionDoAfter(EntityUid uid, XenomorphEvolutionComponent component, ref XenomorphEvolutionDoAfterEvent args)
@@ -143,9 +153,27 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
         }
     }
 
-    public bool Evolve(EntityUid uid, string? evolveTo, TimeSpan evolutionDelay, bool checkNeedCasteDeath = true)
+    private bool IsAllowedEvolution(List<RadialSelectorEntry> entries, string? evolveTo)
+    {
+        if (evolveTo == null)
+            return false;
+
+        foreach (var entry in entries)
+        {
+            if (entry.Prototype == evolveTo)
+                return true;
+
+            if (entry.Category != null && IsAllowedEvolution(entry.Category.Entries, evolveTo))
+                return true;
+        }
+
+        return false;
+    }
+
+    public bool Evolve(EntityUid uid, List<RadialSelectorEntry> evolvesTo, string? evolveTo, TimeSpan evolutionDelay, bool checkNeedCasteDeath = true)
     {
         if (evolveTo == null
+            || !IsAllowedEvolution(evolvesTo, evolveTo)
             || !_protoManager.TryIndex(evolveTo, out var xenomorphPrototype)
             || !xenomorphPrototype.TryGetComponent<XenomorphComponent>(out var xenomorph, _componentFactory)) // Goobstation
             return false;

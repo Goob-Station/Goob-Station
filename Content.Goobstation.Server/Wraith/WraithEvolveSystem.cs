@@ -60,15 +60,43 @@ public sealed class WraithEvolveSystem : EntitySystem
 
     private void OnWraithEvolveRecieved(Entity<EvolveComponent> ent, ref RadialSelectorSelectedMessage args)
     {
+        if (!IsOwner(ent.Owner, args.Actor))
+            return;
+
         Evolve(ent, args.SelectedItem);
 
         _ui.CloseUi(ent.Owner, RadialSelectorUiKey.Key, args.Actor);
+    }
+
+    private bool IsOwner(EntityUid uid, EntityUid actor)
+    {
+        return _mind.TryGetMind(uid, out var mindUid, out _)
+            && _mind.TryGetMind(actor, out var actorMind, out _)
+            && actorMind == mindUid;
+    }
+
+    private bool IsAllowedEvolution(List<RadialSelectorEntry> entries, string? evolve)
+    {
+        if (evolve == null)
+            return false;
+
+        foreach (var entry in entries)
+        {
+            if (entry.Prototype == evolve)
+                return true;
+
+            if (entry.Category != null && IsAllowedEvolution(entry.Category.Entries, evolve))
+                return true;
+        }
+
+        return false;
     }
 
     private void Evolve(Entity<EvolveComponent> ent, string? evolve)
     {
         var uid = ent.Owner;
         if (evolve == null
+            || !IsAllowedEvolution(ent.Comp.AvailableEvolutions, evolve)
             || !_proto.TryIndex(evolve, out _)
             || !_mind.TryGetMind(uid, out var mindUid, out var mind))
             return;
