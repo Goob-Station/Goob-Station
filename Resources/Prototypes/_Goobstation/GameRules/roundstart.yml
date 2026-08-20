@@ -408,7 +408,7 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 1200
+    chaosScore: 500 # this was 1200? it only lost to blob and xenos
   - type: AntagSelection
     agentName: thief-round-end-agent-name
     definitions:
