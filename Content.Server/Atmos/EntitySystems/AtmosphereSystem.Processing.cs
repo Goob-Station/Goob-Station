@@ -593,8 +593,8 @@ namespace Content.Server.Atmos.EntitySystems
                 atmosphere.CurrentRunAtmosDevices.Clear();
                 atmosphere.CurrentRunAtmosDevices.EnsureCapacity(atmosphere.AtmosDevices.Count);
                 atmosphere.AtmosDeviceUpdateCounter++;
-                foreach (var device in atmosphere.AtmosDevices.OrderBy(device =>
-                             HashCode.Combine(device.Owner, atmosphere.AtmosDeviceUpdateCounter)))
+                foreach (var device in atmosphere.AtmosDevices.OrderBy(device => // goobstation fix subframe
+                             HashCode.Combine(device.Owner, atmosphere.AtmosDeviceUpdateCounter))) // goobstation fix subframe  
                 {
                     atmosphere.CurrentRunAtmosDevices.Enqueue(device);
                 }

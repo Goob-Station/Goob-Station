@@ -385,12 +385,12 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     The default pressure at which pumps and powered equipment max out at, in kPa.
         /// </summary>
-        public const float MaxOutputPressure = 22500;
+        public const float MaxOutputPressure = 22500; // goobstation fix subframe
 
         /// <summary>
         ///     The default maximum speed powered equipment can work at, in L/s.
         /// </summary>
-        public const float MaxTransferRate = 1000;
+        public const float MaxTransferRate = 1000; // goobstation fix subframe
 
         #endregion
     }
