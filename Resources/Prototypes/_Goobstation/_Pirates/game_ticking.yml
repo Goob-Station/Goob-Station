@@ -16,7 +16,7 @@
       Death: 25
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 650
+    chaosScore: 550 # Until Pirate gear gets reworked, they dont threaten the station as hard as dragon or colossus to justify this high of a chaos score (650)
   - type: PendingPirateRule
     ransomPrototype: BikeHornRansom
   - type: Tag

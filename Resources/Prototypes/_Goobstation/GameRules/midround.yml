@@ -126,7 +126,7 @@
       Combat: 20
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 280
+    chaosScore: 200 # same as Singular traitor, even though his threat level is much lower
   - type: AntagSpawner
     prototype: MobHumanTunnelClown
   - type: AntagSelection
@@ -343,6 +343,7 @@
     maxDifficulty: 10
   - type: StationEvent
     earliestStart: 35
+    maxOccurrences: 1 # yeah...
     weight: 2.5
     minimumPlayers: 50
     duration: 1
@@ -352,7 +353,7 @@
       Death: 300
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 800
+    chaosScore: 400 # from 800, this was higher than ninja, dragon, colossus and midround traitors...
   - type: AntagSpawner
     prototype: MobVoxRaider
   - type: RuleGrids
@@ -408,7 +409,7 @@
       Death: 40
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 600
+    chaosScore: 350 # slightly less than midround TOTs. down from 600
   - type: AntagLockerSpawn
   - type: AntagLoadProfileRule
     speciesOverride: Human

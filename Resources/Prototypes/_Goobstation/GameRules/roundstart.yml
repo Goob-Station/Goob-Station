@@ -69,7 +69,7 @@
     - prefRoles: [ Traitor ]
       max: 2
       playerRatio: 25
-      chaosScore: 300
+      chaosScore: 250 # Lowered for higher chance of getting these antags
       jobBlacklist: [ NanotrasenRepresentative ]
       whitelist:
         components:
