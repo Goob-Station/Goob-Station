@@ -72,7 +72,7 @@ public sealed class EventManagerSystem : EntitySystem
     /// <summary>
     /// Randomly runs an event from provided EntityTableSelector.
     /// </summary>
-    public void RunRandomEvent(EntityTableSelector limitedEventsTable)
+    public bool RunRandomEvent(EntityTableSelector limitedEventsTable)
     {
         var availableEvents = AvailableEvents(); // handles the player counts and individual event restrictions.
                                                  // Putting this here only makes any sense in the context of the toolshed commands in BasicStationEventScheduler. Kill me.
@@ -80,23 +80,29 @@ public sealed class EventManagerSystem : EntitySystem
         if (!TryBuildLimitedEvents(limitedEventsTable, availableEvents, out var limitedEvents))
         {
             Log.Warning("Provided event table could not build dict!");
-            return;
+            return true;
         }
+
+        var selectionAttempt = new StationEventSelectionAttemptEvent(limitedEvents);
+        RaiseLocalEvent(ref selectionAttempt);
+        if (selectionAttempt.Handled)
+            return selectionAttempt.ConsumeSchedule;
 
         var randomLimitedEvent = FindEvent(limitedEvents); // this picks the event, It might be better to use the GetSpawns to do it, but that will be a major rebalancing fuck.
         if (randomLimitedEvent == null)
         {
             Log.Warning("The selected random event is null!");
-            return;
+            return true;
         }
 
         if (!_prototype.Resolve(randomLimitedEvent, out _))
         {
             Log.Warning("A requested event is not available!");
-            return;
+            return true;
         }
 
         GameTicker.AddGameRule(randomLimitedEvent);
+        return true;
     }
 
     /// <summary>

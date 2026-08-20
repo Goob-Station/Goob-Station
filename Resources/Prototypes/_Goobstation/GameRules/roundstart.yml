@@ -15,6 +15,12 @@
 
 - type: entity
   parent: BaseGameRule
+  id: TwitchSecret
+  components:
+  - type: TwitchSecretRule
+
+- type: entity
+  parent: BaseGameRule
   id: Changeling
   components:
   - type: ChangelingRule

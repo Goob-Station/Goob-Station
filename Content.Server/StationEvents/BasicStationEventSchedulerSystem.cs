@@ -60,8 +60,10 @@ namespace Content.Server.StationEvents
                     continue;
                 }
 
-                _event.RunRandomEvent(eventScheduler.ScheduledGameRules);
-                ResetTimer(eventScheduler);
+                if (_event.RunRandomEvent(eventScheduler.ScheduledGameRules))
+                    ResetTimer(eventScheduler);
+                else
+                    eventScheduler.TimeUntilNextEvent = 1f;
             }
         }
 

@@ -59,8 +59,10 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
                 continue;
             }
 
-            PickNextEventTime(uid, scheduler);
-            _event.RunRandomEvent(scheduler.ScheduledGameRules);
+            if (_event.RunRandomEvent(scheduler.ScheduledGameRules))
+                PickNextEventTime(uid, scheduler);
+            else
+                scheduler.TimeUntilNextEvent = 1f;
         }
     }
 

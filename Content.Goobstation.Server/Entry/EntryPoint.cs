@@ -3,6 +3,7 @@ using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Common.JoinQueue;
 using Content.Goobstation.Common.ServerCurrency;
+using Content.Goobstation.Server.Twitch;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Timing;
 
@@ -13,6 +14,7 @@ public sealed class EntryPoint : GameServer
     private IVoiceChatServerManager _voiceManager = default!;
     private ICommonCurrencyManager _curr = default!;
     private IJoinQueueManager _joinQueue = default!;
+    private ITwitchApiManager _twitchApi = default!;
 
     public override void Init()
     {
@@ -29,6 +31,9 @@ public sealed class EntryPoint : GameServer
 
         _curr = IoCManager.Resolve<ICommonCurrencyManager>();
         _curr.Initialize();
+
+        _twitchApi = IoCManager.Resolve<ITwitchApiManager>();
+        _twitchApi.Initialize();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
@@ -49,6 +54,7 @@ public sealed class EntryPoint : GameServer
         base.Dispose(disposing);
 
         _curr.Shutdown();
+        _twitchApi.Shutdown();
         _voiceManager.Shutdown();
     }
 }

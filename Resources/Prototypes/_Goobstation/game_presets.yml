@@ -1,6 +1,19 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: gamePreset
+  id: TwitchSecret
+  alias:
+    - twitchsecret
+    - twitch-secret
+  name: twitch-secret-title
+  description: twitch-secret-description
+  showInVote: false
+  rules:
+    - TwitchSecret
+    - Secret
+    - BasicStationEventScheduler
+
+- type: gamePreset
   id: Changeling
   alias:
     - ling
