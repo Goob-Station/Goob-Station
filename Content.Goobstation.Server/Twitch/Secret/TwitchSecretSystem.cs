@@ -76,28 +76,79 @@ public sealed class TwitchSecretSystem : GameRuleSystem<TwitchSecretRuleComponen
             return;
 
         args.Handled = true;
+        args.ConsumeSchedule = TryOpenVote(args.Candidates, out _);
+    }
+
+    public bool TryOpenAdminVote(IReadOnlyList<string> eventIds, out string error)
+    {
+        if (!IsTwitchSecretActive())
+        {
+            error = "Twitch Secret is not active.";
+            return false;
+        }
 
         if (_activeVote != null)
         {
-            args.ConsumeSchedule = false;
-            return;
+            error = "A Twitch event vote is already active.";
+            return false;
         }
 
-        if (args.Candidates.Count < 3)
+        IReadOnlyDictionary<EntityPrototype, StationEventComponent> candidates;
+        if (eventIds.Count == 0)
         {
-            args.ConsumeSchedule = false;
-            return;
+            candidates = _eventManager.AvailableEvents();
+        }
+        else
+        {
+            var allEvents = _eventManager.AllEvents();
+            var selected = new Dictionary<EntityPrototype, StationEventComponent>();
+            foreach (var eventId in eventIds)
+            {
+                var prototype = allEvents.Keys.FirstOrDefault(proto => proto.ID == eventId);
+                if (prototype == null)
+                {
+                    error = $"{eventId} is not a station event.";
+                    return false;
+                }
+
+                if (!selected.TryAdd(prototype, allEvents[prototype]))
+                {
+                    error = $"{eventId} was specified more than once.";
+                    return false;
+                }
+            }
+
+            candidates = selected;
         }
 
-        var remaining = args.Candidates.ToDictionary(pair => pair.Key, pair => pair.Value);
+        return TryOpenVote(candidates, out error);
+    }
+
+    private bool TryOpenVote(
+        IReadOnlyDictionary<EntityPrototype, StationEventComponent> candidates,
+        out string error)
+    {
+        if (_activeVote != null)
+        {
+            error = "A Twitch event vote is already active.";
+            return false;
+        }
+
+        if (candidates.Count < 3)
+        {
+            error = "At least three station events are required to open a vote.";
+            return false;
+        }
+
+        var remaining = candidates.ToDictionary(pair => pair.Key, pair => pair.Value);
         var options = new List<TwitchEventVoteOption>(3);
         for (var i = 0; i < 3; i++)
         {
             var eventId = _eventManager.FindEvent(remaining);
             if (eventId == null)
             {
-                args.ConsumeSchedule = false;
-                return;
+                error = "The event manager could not select three station events.";
+                return false;
             }
 
             var prototype = remaining.Keys.First(proto => proto.ID == eventId);
@@ -112,7 +163,6 @@ public sealed class TwitchSecretSystem : GameRuleSystem<TwitchSecretRuleComponen
             openedAt,
             openedAt + VoteDuration,
             options);
-        args.ConsumeSchedule = true;
 
         var optionNames = string.Join(", ", options.Select(option => $"{option.PublicId}:{option.Name}"));
         _adminLogger.Add(
@@ -120,6 +170,8 @@ public sealed class TwitchSecretSystem : GameRuleSystem<TwitchSecretRuleComponen
             LogImpact.Medium,
             $"Twitch Secret opened vote {_activeVote.Id} with options {optionNames}.");
         Log.Info($"Opened Twitch event vote {_activeVote.Id}: {optionNames}");
+        error = string.Empty;
+        return true;
     }
 
     private static string GetEventDisplayName(EntityPrototype prototype)
@@ -154,20 +206,8 @@ public sealed class TwitchSecretSystem : GameRuleSystem<TwitchSecretRuleComponen
 
         _activeVote = null;
 
-        var currentlyAvailable = _eventManager.AvailableEvents();
-        var validOptions = vote.Options
-            .Where(option => currentlyAvailable.Keys.Any(proto => proto.ID == option.EventPrototypeId))
-            .ToList();
-
-        if (validOptions.Count == 0)
-        {
-            Log.Warning($"Twitch event vote {vote.Id} ended without any options that were still valid.");
-            _lastResult = new CompletedVote(vote.Id, DateTimeOffset.UtcNow, null, null, vote.Votes.Count);
-            return;
-        }
-
-        var highestVotes = validOptions.Max(option => option.VoteCount);
-        var tied = validOptions.Where(option => option.VoteCount == highestVotes).ToList();
+        var highestVotes = vote.Options.Max(option => option.VoteCount);
+        var tied = vote.Options.Where(option => option.VoteCount == highestVotes).ToList();
         var winner = RobustRandom.Pick(tied);
 
         _lastResult = new CompletedVote(
