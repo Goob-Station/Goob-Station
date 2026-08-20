@@ -117,6 +117,9 @@ namespace Content.Server.Atmos.Components
         public readonly Queue<Entity<AtmosDeviceComponent>> CurrentRunAtmosDevices = new();
 
         [ViewVariables]
+        public int AtmosDeviceUpdateCounter;
+
+        [ViewVariables]
         public readonly HashSet<Vector2i> InvalidatedCoords = new(1000);
 
         [ViewVariables]

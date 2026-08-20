@@ -592,7 +592,9 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 atmosphere.CurrentRunAtmosDevices.Clear();
                 atmosphere.CurrentRunAtmosDevices.EnsureCapacity(atmosphere.AtmosDevices.Count);
-                foreach (var device in atmosphere.AtmosDevices)
+                atmosphere.AtmosDeviceUpdateCounter++;
+                foreach (var device in atmosphere.AtmosDevices.OrderBy(device =>
+                             HashCode.Combine(device.Owner, atmosphere.AtmosDeviceUpdateCounter)))
                 {
                     atmosphere.CurrentRunAtmosDevices.Enqueue(device);
                 }
