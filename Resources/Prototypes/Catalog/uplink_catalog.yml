@@ -481,7 +481,7 @@
   description: uplink-emp-grenade-desc
   productEntity: EmpGrenade
   cost:
-    Telecrystal: 4 # goob - implanter is 10 and infintely better lmao
+    Telecrystal: 4 # goob - implanter is 20 now so somewhat worth now
   categories:
   - UplinkExplosives
   conditions: # Goob, two times cheaper for nukies
