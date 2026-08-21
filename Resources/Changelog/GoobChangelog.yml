@@ -24509,3 +24509,9 @@ Entries:
       message: bingles now raffle correctly
   id: 2807
   time: '2026-08-21T14:46:11.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: removed hyrdrakin from cc roles
+  id: 2808
+  time: '2026-08-21T14:46:36.0000000+00:00'
