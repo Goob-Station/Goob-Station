@@ -1,7 +1,5 @@
-using Content.Goobstation.Common.CCVar;
 using Content.Server.Nuke;
 using Content.Shared.Nuke;
-using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Server.Twitch.Bits;
 
@@ -13,7 +11,8 @@ public sealed class TwitchBitsArmNukeSystem : EntitySystem, ITwitchBitsAction
     public string Id => "arm-nuke";
     public string DisplayName => "Arm Nuke";
     public string DisplayDescription => "Arm an available nuclear device using its current countdown.";
-    public CVarDef<string> Sku => GoobCVars.TwitchBitsArmNukeSku;
+    public string Category => "Station";
+    public string Sku => "ss14-arm-nuke";
 
     public override void Initialize()
     {

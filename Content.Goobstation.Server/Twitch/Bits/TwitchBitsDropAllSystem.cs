@@ -1,9 +1,7 @@
 using System.Linq;
-using Content.Goobstation.Common.CCVar;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
-using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Server.Twitch.Bits;
 
@@ -16,7 +14,8 @@ public sealed class TwitchBitsDropAllSystem : EntitySystem, ITwitchBitsAction
     public string Id => "drop-all";
     public string DisplayName => "Drop Everything";
     public string DisplayDescription => "Drop all equipped and held items onto the ground.";
-    public CVarDef<string> Sku => GoobCVars.TwitchBitsDropAllSku;
+    public string Category => "Inventory";
+    public string Sku => "ss14-drop-all";
 
     public override void Initialize()
     {

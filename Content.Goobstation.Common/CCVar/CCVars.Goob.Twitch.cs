@@ -72,38 +72,38 @@ public sealed partial class GoobCVars
         CVarDef.Create("twitch.bits.target_username", "GoobStation", CVar.SERVERONLY);
 
     /// <summary>
-    /// Twitch Bits catalog SKU for inverting the target's controls for 60 seconds.
-    /// </summary>
-    public static readonly CVarDef<string> TwitchBitsInvertControlsSku =
-        CVarDef.Create("twitch.bits.sku.invert_controls", "ss14-invert-controls-60", CVar.SERVERONLY);
-
-    /// <summary>
-    /// Twitch Bits catalog SKU for dropping the target's active-hand item.
-    /// </summary>
-    public static readonly CVarDef<string> TwitchBitsDropHeldSku =
-        CVarDef.Create("twitch.bits.sku.drop_held", "ss14-drop-held", CVar.SERVERONLY);
-
-    /// <summary>
-    /// Twitch Bits catalog SKU for dropping all of the target's equipment and held items.
-    /// </summary>
-    public static readonly CVarDef<string> TwitchBitsDropAllSku =
-        CVarDef.Create("twitch.bits.sku.drop_all", "ss14-drop-all", CVar.SERVERONLY);
-
-    /// <summary>
-    /// Twitch Bits catalog SKU for arming an available nuclear device.
-    /// </summary>
-    public static readonly CVarDef<string> TwitchBitsArmNukeSku =
-        CVarDef.Create("twitch.bits.sku.arm_nuke", "ss14-arm-nuke", CVar.SERVERONLY);
-
-    /// <summary>
-    /// Twitch Bits catalog SKU for sending a viewer-authored station announcement.
-    /// </summary>
-    public static readonly CVarDef<string> TwitchBitsStationAnnouncementSku =
-        CVarDef.Create("twitch.bits.sku.station_announcement", "ss14-station-announcement", CVar.SERVERONLY);
-
-    /// <summary>
     /// Maximum number of characters accepted in a Twitch Bits station announcement.
     /// </summary>
     public static readonly CVarDef<int> TwitchBitsStationAnnouncementMaxLength =
         CVarDef.Create("twitch.bits.station_announcement_max_length", 160, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Maximum number of characters accepted for target speech.
+    /// </summary>
+    public static readonly CVarDef<int> TwitchBitsCharacterSpeechMaxLength =
+        CVarDef.Create("twitch.bits.character_speech_max_length", 120, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Twitch channel login read by Chat Critter for movement commands.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchChatChannelLogin =
+        CVarDef.Create("twitch.chat.channel_login", string.Empty, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Twitch account login used by the server to read channel chat.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchChatBotLogin =
+        CVarDef.Create("twitch.chat.bot_login", string.Empty, CVar.SERVERONLY);
+
+    /// <summary>
+    /// OAuth user access token with the chat:read scope for the configured Twitch chat account.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchChatOauthToken =
+        CVarDef.Create("twitch.chat.oauth_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    /// <summary>
+    /// Number of seconds a Chat Critter session remains active.
+    /// </summary>
+    public static readonly CVarDef<int> TwitchChatCritterDuration =
+        CVarDef.Create("twitch.chat_critter.duration", 300, CVar.SERVERONLY);
 }

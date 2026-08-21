@@ -170,11 +170,12 @@ public static class TwitchExtensionJwtValidator
         {
             "viewer" => TwitchExtensionRole.Viewer,
             "moderator" => TwitchExtensionRole.Moderator,
+            "editor" => TwitchExtensionRole.Editor,
             "broadcaster" => TwitchExtensionRole.Broadcaster,
             _ => default,
         };
 
-        return role is "viewer" or "moderator" or "broadcaster";
+        return role is "viewer" or "moderator" or "editor" or "broadcaster";
     }
 
     private static byte[] DecodeBase64Url(string value)

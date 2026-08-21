@@ -1,8 +1,6 @@
 using System.Linq;
-using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.MisandryBox;
 using Content.Shared.Movement.Components;
-using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Twitch.Bits;
@@ -19,7 +17,8 @@ public sealed class TwitchBitsInvertControlsSystem : EntitySystem, ITwitchBitsAc
     public string Id => "invert-controls";
     public string DisplayName => "Invert Controls";
     public string DisplayDescription => "Reverse the streamer's movement controls for 60 seconds.";
-    public CVarDef<string> Sku => GoobCVars.TwitchBitsInvertControlsSku;
+    public string Category => "Character";
+    public string Sku => "ss14-invert-controls-60";
 
     public override void Initialize()
     {

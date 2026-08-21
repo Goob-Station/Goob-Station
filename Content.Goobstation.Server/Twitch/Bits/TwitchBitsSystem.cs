@@ -27,6 +27,7 @@ public sealed class TwitchBitsSystem : EntitySystem
     [Dependency] private readonly ITwitchApiManager _twitchApi = default!;
 
     private readonly Dictionary<string, ITwitchBitsAction> _actions = new(StringComparer.Ordinal);
+    private readonly Dictionary<string, PendingModeration> _pendingModeration = new(StringComparer.Ordinal);
     private readonly Dictionary<string, ProcessedTransaction> _processedTransactions = new(StringComparer.Ordinal);
 
     public override void Initialize()
@@ -36,6 +37,8 @@ public sealed class TwitchBitsSystem : EntitySystem
         _twitchApi.RegisterRoute(HttpMethod.Get, "/bits/actions", HandleGetActions, TwitchApiAccess.ExtensionJwt);
         _twitchApi.RegisterRoute(HttpMethod.Post, "/bits/transactions", HandleTransaction, TwitchApiAccess.ExtensionJwt);
         _twitchApi.RegisterRoute(HttpMethod.Post, "/bits/debug/actions", HandleDebugAction, TwitchApiAccess.ExtensionJwt);
+        _twitchApi.RegisterRoute(HttpMethod.Get, "/bits/moderation", HandleGetModeration, TwitchApiAccess.ExtensionJwt);
+        _twitchApi.RegisterRoute(HttpMethod.Post, "/bits/moderation", HandleModerationDecision, TwitchApiAccess.ExtensionJwt);
     }
 
     public void RegisterAction(ITwitchBitsAction action)
@@ -91,10 +94,10 @@ public sealed class TwitchBitsSystem : EntitySystem
 
     private async Task HandleGetActions(IStatusHandlerContext context)
     {
-        if (!_twitchApi.TryGetExtensionIdentity(context, out _))
+        if (!_twitchApi.TryGetExtensionIdentity(context, out var identity))
             throw new InvalidOperationException("An authenticated Twitch identity was not available.");
 
-        var response = await _twitchApi.RunOnMainThread(CreateStatus);
+        var response = await _twitchApi.RunOnMainThread(() => CreateStatus(identity.Role));
         await context.RespondJsonAsync(response);
     }
 
@@ -150,10 +153,13 @@ public sealed class TwitchBitsSystem : EntitySystem
         switch (result.Status)
         {
             case ProcessStatus.Accepted:
+            case ProcessStatus.Queued:
                 await context.RespondJsonAsync(new ExecuteActionResponse(
                     result.Action!.Id,
                     result.Action.DisplayName,
-                    result.AlreadyProcessed));
+                    result.AlreadyProcessed,
+                    result.Status == ProcessStatus.Queued,
+                    result.PendingId));
                 return;
             case ProcessStatus.UnknownSku:
                 await RespondError(
@@ -177,16 +183,6 @@ public sealed class TwitchBitsSystem : EntitySystem
         if (!_twitchApi.TryGetExtensionIdentity(context, out var identity))
             throw new InvalidOperationException("An authenticated Twitch identity was not available.");
 
-        if (identity.Role != TwitchExtensionRole.Broadcaster)
-        {
-            await RespondError(
-                context,
-                HttpStatusCode.Forbidden,
-                "broadcaster_required",
-                "Only the broadcaster can run free debug actions.");
-            return;
-        }
-
         var request = await _twitchApi.ReadJsonAsync<DebugActionRequest>(context);
         if (request == null || string.IsNullOrWhiteSpace(request.ActionId))
         {
@@ -197,13 +193,16 @@ public sealed class TwitchBitsSystem : EntitySystem
         var result = await _twitchApi.RunOnMainThread(() => ProcessDebugAction(
             request.ActionId,
             request.Input,
+            request.DisplayName,
             identity.UserId ?? identity.OpaqueUserId));
-        if (result.Status == ProcessStatus.Accepted)
+        if (result.Status is ProcessStatus.Accepted or ProcessStatus.Queued)
         {
             await context.RespondJsonAsync(new ExecuteActionResponse(
                 result.Action!.Id,
                 result.Action.DisplayName,
-                false));
+                false,
+                result.Status == ProcessStatus.Queued,
+                result.PendingId));
             return;
         }
 
@@ -217,21 +216,78 @@ public sealed class TwitchBitsSystem : EntitySystem
             result.Reason ?? "That action is not currently available.");
     }
 
+    private async Task HandleGetModeration(IStatusHandlerContext context)
+    {
+        if (!_twitchApi.TryGetExtensionIdentity(context, out var identity))
+            throw new InvalidOperationException("An authenticated Twitch identity was not available.");
+
+        if (!CanModerate(identity.Role))
+        {
+            await RespondError(context, HttpStatusCode.Forbidden, "moderator_required", "A moderator, editor, or broadcaster must review text redemptions.");
+            return;
+        }
+
+        var response = await _twitchApi.RunOnMainThread(CreateModerationStatus);
+        await context.RespondJsonAsync(response);
+    }
+
+    private async Task HandleModerationDecision(IStatusHandlerContext context)
+    {
+        if (!_twitchApi.TryGetExtensionIdentity(context, out var identity))
+            throw new InvalidOperationException("An authenticated Twitch identity was not available.");
+
+        if (!CanModerate(identity.Role))
+        {
+            await RespondError(context, HttpStatusCode.Forbidden, "moderator_required", "A moderator, editor, or broadcaster must review text redemptions.");
+            return;
+        }
+
+        var request = await _twitchApi.ReadJsonAsync<ModerationDecisionRequest>(context);
+        if (request == null || string.IsNullOrWhiteSpace(request.Id))
+        {
+            await RespondError(context, HttpStatusCode.BadRequest, "redemption_required", "A pending redemption ID is required.");
+            return;
+        }
+
+        var actor = identity.UserId ?? identity.OpaqueUserId;
+        var result = await _twitchApi.RunOnMainThread(() => Moderate(request.Id, request.Approve, actor));
+        if (result.Status == ModerationStatus.NotFound)
+        {
+            await RespondError(context, HttpStatusCode.NotFound, "redemption_not_found", "That pending redemption no longer exists.");
+            return;
+        }
+
+        if (result.Status == ModerationStatus.Unavailable)
+        {
+            await RespondError(context, HttpStatusCode.Conflict, "action_unavailable", result.Reason ?? "That action is no longer available.");
+            return;
+        }
+
+        await context.RespondJsonAsync(new ModerationDecisionResponse(request.Id, request.Approve));
+    }
+
     private ProcessResult ProcessTransaction(TwitchBitsTransaction transaction, string? input, string? displayName)
     {
         PruneProcessedTransactions();
+        PrunePendingModeration();
 
         if (_processedTransactions.TryGetValue(transaction.TransactionId, out var processed))
         {
             var processedAction = _actions.GetValueOrDefault(processed.ActionId);
+            var pending = _pendingModeration.Values.FirstOrDefault(item => item.TransactionId == transaction.TransactionId);
             return processedAction == null
                 ? new ProcessResult(ProcessStatus.UnknownSku, null, null, true)
-                : new ProcessResult(ProcessStatus.Accepted, processedAction, null, true);
+                : new ProcessResult(
+                    pending == null ? ProcessStatus.Accepted : ProcessStatus.Queued,
+                    processedAction,
+                    null,
+                    true,
+                    pending?.Id);
         }
 
         var matchingActions = _actions.Values
             .Where(action => string.Equals(
-                _configuration.GetCVar(action.Sku).Trim(),
+                action.Sku,
                 transaction.Sku,
                 StringComparison.Ordinal))
             .Take(2)
@@ -245,6 +301,23 @@ public sealed class TwitchBitsSystem : EntitySystem
         var validity = IsCurrentlyValid(action, actionContext, out var target);
         if (!validity.IsValid)
             return new ProcessResult(ProcessStatus.Unavailable, action, validity.Reason, false);
+
+        if (action.RequiresInput)
+        {
+            var pending = QueueModeration(
+                action,
+                input,
+                twitchUserName,
+                transaction.UserId,
+                transaction.TransactionId,
+                false);
+            _processedTransactions[transaction.TransactionId] = new ProcessedTransaction(action.Id, transaction.ExpiresAt);
+            _adminLogger.Add(
+                LogType.Action,
+                LogImpact.Medium,
+                $"Twitch Bits transaction {transaction.TransactionId} from user {transaction.UserId} queued {action.Id} for moderation.");
+            return new ProcessResult(ProcessStatus.Queued, action, null, false, pending.Id);
+        }
 
         if (!action.Execute(target, actionContext))
             return new ProcessResult(ProcessStatus.Unavailable, action, "The SS14 server could not complete that action.", false);
@@ -260,27 +333,100 @@ public sealed class TwitchBitsSystem : EntitySystem
         return new ProcessResult(ProcessStatus.Accepted, action, null, false);
     }
 
-    private ProcessResult ProcessDebugAction(string actionId, string? input, string actor)
+    private ProcessResult ProcessDebugAction(string actionId, string? input, string? displayName, string actor)
     {
         if (!_actions.TryGetValue(actionId, out var action))
             return new ProcessResult(ProcessStatus.UnknownSku, null, "That debug action does not exist.", false);
 
-        var actionContext = new TwitchBitsActionContext(null, input, true, "Broadcaster");
+        var twitchUserName = NormalizeTwitchUserName(displayName, actor);
+        var actionContext = new TwitchBitsActionContext(null, input, true, twitchUserName);
         var validity = IsCurrentlyValid(action, actionContext, out var target);
         if (!validity.IsValid)
             return new ProcessResult(ProcessStatus.Unavailable, action, validity.Reason, false);
 
+        if (action.RequiresInput)
+        {
+            var pending = QueueModeration(action, input, twitchUserName, actor, null, true);
+            _adminLogger.Add(
+                LogType.Action,
+                LogImpact.Medium,
+                $"Twitch viewer {actor} queued free debug action {action.Id} for moderation.");
+            return new ProcessResult(ProcessStatus.Queued, action, null, false, pending.Id);
+        }
+
         if (!action.Execute(target, actionContext))
             return new ProcessResult(ProcessStatus.Unavailable, action, "The SS14 server could not complete that action.", false);
 
-        ShowRedemptionToast(target, "Broadcaster", action.DisplayName);
+        ShowRedemptionToast(target, twitchUserName, action.DisplayName);
         var impact = action.Id == "arm-nuke" ? LogImpact.High : LogImpact.Medium;
         _adminLogger.Add(
             LogType.Action,
             impact,
-            $"Twitch broadcaster {actor} ran free debug action {action.Id} on {ToPrettyString(target)}.");
+            $"Twitch viewer {actor} ran free debug action {action.Id} on {ToPrettyString(target)}.");
         Log.Info($"Processed free Twitch debug action from {actor}: {action.Id}");
         return new ProcessResult(ProcessStatus.Accepted, action, null, false);
+    }
+
+    private PendingModeration QueueModeration(
+        ITwitchBitsAction action,
+        string? input,
+        string twitchUserName,
+        string viewerId,
+        string? transactionId,
+        bool debug)
+    {
+        var pending = new PendingModeration(
+            Guid.NewGuid().ToString("N"),
+            action.Id,
+            action.DisplayName,
+            input ?? string.Empty,
+            twitchUserName,
+            viewerId,
+            transactionId,
+            debug,
+            DateTimeOffset.UtcNow);
+        _pendingModeration.Add(pending.Id, pending);
+        return pending;
+    }
+
+    private ModerationResult Moderate(string id, bool approve, string moderator)
+    {
+        PrunePendingModeration();
+        if (!_pendingModeration.TryGetValue(id, out var pending))
+            return new ModerationResult(ModerationStatus.NotFound, null);
+
+        if (!approve)
+        {
+            _pendingModeration.Remove(id);
+            _adminLogger.Add(
+                LogType.Action,
+                LogImpact.Medium,
+                $"Twitch moderator {moderator} rejected pending {pending.ActionId} from {pending.ViewerId}.");
+            return new ModerationResult(ModerationStatus.Rejected, null);
+        }
+
+        if (!_actions.TryGetValue(pending.ActionId, out var action))
+        {
+            _pendingModeration.Remove(id);
+            return new ModerationResult(ModerationStatus.NotFound, null);
+        }
+
+        var actionContext = new TwitchBitsActionContext(null, pending.Input, true, pending.TwitchUserName);
+        var validity = IsCurrentlyValid(action, actionContext, out var target);
+        if (!validity.IsValid)
+            return new ModerationResult(ModerationStatus.Unavailable, validity.Reason);
+
+        if (!action.Execute(target, actionContext))
+            return new ModerationResult(ModerationStatus.Unavailable, "The SS14 server could not complete that action.");
+
+        _pendingModeration.Remove(id);
+        ShowRedemptionToast(target, pending.TwitchUserName, action.DisplayName);
+        _adminLogger.Add(
+            LogType.Action,
+            LogImpact.Medium,
+            $"Twitch moderator {moderator} approved pending {pending.ActionId} from {pending.ViewerId} on {ToPrettyString(target)}.");
+        Log.Info($"Twitch moderator {moderator} approved {pending.ActionId} from {pending.ViewerId}");
+        return new ModerationResult(ModerationStatus.Approved, null);
     }
 
     private void ShowRedemptionToast(EntityUid target, string twitchUserName, string actionName)
@@ -298,7 +444,7 @@ public sealed class TwitchBitsSystem : EntitySystem
         return normalized.Length <= 25 ? normalized : normalized[..25];
     }
 
-    private BitsStatusResponse CreateStatus()
+    private BitsStatusResponse CreateStatus(TwitchExtensionRole role)
     {
         var actionResponses = new List<BitsActionResponse>(_actions.Count);
         foreach (var action in _actions.Values.OrderBy(action => action.Id, StringComparer.Ordinal))
@@ -306,9 +452,10 @@ public sealed class TwitchBitsSystem : EntitySystem
             var validity = IsCurrentlyValid(action, new TwitchBitsActionContext(null, null), out _);
             actionResponses.Add(new BitsActionResponse(
                 action.Id,
-                _configuration.GetCVar(action.Sku).Trim(),
+                action.Sku,
                 action.DisplayName,
                 action.DisplayDescription,
+                action.Category,
                 action.RequiresInput,
                 action.MaxInputLength,
                 action.InputPlaceholder,
@@ -321,7 +468,31 @@ public sealed class TwitchBitsSystem : EntitySystem
             _configuration.GetCVar(GoobCVars.TwitchBitsEnabled),
             DateTimeOffset.UtcNow,
             string.IsNullOrEmpty(target) ? null : target,
+            CanModerate(role),
             actionResponses);
+    }
+
+    private static bool CanModerate(TwitchExtensionRole role)
+    {
+        return role is TwitchExtensionRole.Moderator or
+            TwitchExtensionRole.Editor or
+            TwitchExtensionRole.Broadcaster;
+    }
+
+    private ModerationQueueResponse CreateModerationStatus()
+    {
+        PrunePendingModeration();
+        var items = _pendingModeration.Values
+            .OrderBy(item => item.CreatedAt)
+            .Select(item => new ModerationQueueItem(
+                item.Id,
+                item.ActionName,
+                item.Input,
+                item.TwitchUserName,
+                item.Debug,
+                item.CreatedAt))
+            .ToArray();
+        return new ModerationQueueResponse(DateTimeOffset.UtcNow, items);
     }
 
     private void PruneProcessedTransactions()
@@ -331,6 +502,16 @@ public sealed class TwitchBitsSystem : EntitySystem
         {
             if (transaction.ExpiresAt <= now)
                 _processedTransactions.Remove(transactionId);
+        }
+    }
+
+    private void PrunePendingModeration()
+    {
+        var cutoff = DateTimeOffset.UtcNow - TimeSpan.FromMinutes(15);
+        foreach (var (id, pending) in _pendingModeration.ToArray())
+        {
+            if (pending.CreatedAt < cutoff)
+                _pendingModeration.Remove(id);
         }
     }
 
@@ -346,7 +527,16 @@ public sealed class TwitchBitsSystem : EntitySystem
     private enum ProcessStatus : byte
     {
         Accepted,
+        Queued,
         UnknownSku,
+        Unavailable,
+    }
+
+    private enum ModerationStatus : byte
+    {
+        Approved,
+        Rejected,
+        NotFound,
         Unavailable,
     }
 
@@ -356,7 +546,21 @@ public sealed class TwitchBitsSystem : EntitySystem
         ProcessStatus Status,
         ITwitchBitsAction? Action,
         string? Reason,
-        bool AlreadyProcessed);
+        bool AlreadyProcessed,
+        string? PendingId = null);
+
+    private sealed record PendingModeration(
+        string Id,
+        string ActionId,
+        string ActionName,
+        string Input,
+        string TwitchUserName,
+        string ViewerId,
+        string? TransactionId,
+        bool Debug,
+        DateTimeOffset CreatedAt);
+
+    private sealed record ModerationResult(ModerationStatus Status, string? Reason);
 
     private sealed record ExecuteActionRequest(
         [property: JsonPropertyName("receipt")] string? Receipt,
@@ -365,17 +569,41 @@ public sealed class TwitchBitsSystem : EntitySystem
 
     private sealed record DebugActionRequest(
         [property: JsonPropertyName("actionId")] string? ActionId,
-        [property: JsonPropertyName("input")] string? Input);
+        [property: JsonPropertyName("input")] string? Input,
+        [property: JsonPropertyName("displayName")] string? DisplayName);
 
     private sealed record ExecuteActionResponse(
         [property: JsonPropertyName("actionId")] string ActionId,
         [property: JsonPropertyName("actionName")] string ActionName,
-        [property: JsonPropertyName("alreadyProcessed")] bool AlreadyProcessed);
+        [property: JsonPropertyName("alreadyProcessed")] bool AlreadyProcessed,
+        [property: JsonPropertyName("queuedForModeration")] bool QueuedForModeration,
+        [property: JsonPropertyName("pendingId")] string? PendingId);
+
+    private sealed record ModerationDecisionRequest(
+        [property: JsonPropertyName("id")] string? Id,
+        [property: JsonPropertyName("approve")] bool Approve);
+
+    private sealed record ModerationDecisionResponse(
+        [property: JsonPropertyName("id")] string Id,
+        [property: JsonPropertyName("approved")] bool Approved);
+
+    private sealed record ModerationQueueResponse(
+        [property: JsonPropertyName("serverTime")] DateTimeOffset ServerTime,
+        [property: JsonPropertyName("items")] IReadOnlyList<ModerationQueueItem> Items);
+
+    private sealed record ModerationQueueItem(
+        [property: JsonPropertyName("id")] string Id,
+        [property: JsonPropertyName("actionName")] string ActionName,
+        [property: JsonPropertyName("input")] string Input,
+        [property: JsonPropertyName("twitchUserName")] string TwitchUserName,
+        [property: JsonPropertyName("debug")] bool Debug,
+        [property: JsonPropertyName("createdAt")] DateTimeOffset CreatedAt);
 
     private sealed record BitsStatusResponse(
         [property: JsonPropertyName("enabled")] bool Enabled,
         [property: JsonPropertyName("serverTime")] DateTimeOffset ServerTime,
         [property: JsonPropertyName("targetUsername")] string? TargetUsername,
+        [property: JsonPropertyName("canModerate")] bool CanModerate,
         [property: JsonPropertyName("actions")] IReadOnlyList<BitsActionResponse> Actions);
 
     private sealed record BitsActionResponse(
@@ -383,6 +611,7 @@ public sealed class TwitchBitsSystem : EntitySystem
         [property: JsonPropertyName("sku")] string Sku,
         [property: JsonPropertyName("name")] string Name,
         [property: JsonPropertyName("description")] string Description,
+        [property: JsonPropertyName("category")] string Category,
         [property: JsonPropertyName("requiresInput")] bool RequiresInput,
         [property: JsonPropertyName("maxInputLength")] int? MaxInputLength,
         [property: JsonPropertyName("inputPlaceholder")] string? InputPlaceholder,

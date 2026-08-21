@@ -1,7 +1,5 @@
-using Content.Goobstation.Common.CCVar;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Server.Twitch.Bits;
 
@@ -13,7 +11,8 @@ public sealed class TwitchBitsDropHeldSystem : EntitySystem, ITwitchBitsAction
     public string Id => "drop-held";
     public string DisplayName => "Drop Held Item";
     public string DisplayDescription => "Force the streamer to drop the item in their active hand.";
-    public CVarDef<string> Sku => GoobCVars.TwitchBitsDropHeldSku;
+    public string Category => "Inventory";
+    public string Sku => "ss14-drop-held";
 
     public override void Initialize()
     {

@@ -1,5 +1,3 @@
-using Robust.Shared.Configuration;
-
 namespace Content.Goobstation.Server.Twitch.Bits;
 
 public sealed record TwitchBitsActionContext(
@@ -26,7 +24,9 @@ public interface ITwitchBitsAction
 
     string DisplayDescription { get; }
 
-    CVarDef<string> Sku { get; }
+    string Category => "Station";
+
+    string Sku { get; }
 
     bool RequiresInput => false;
 

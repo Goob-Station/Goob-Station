@@ -46,6 +46,37 @@ public sealed class TwitchExtensionJwtValidatorTests
         });
     }
 
+    [TestCase("moderator", TwitchExtensionRole.Moderator)]
+    [TestCase("editor", TwitchExtensionRole.Editor)]
+    [TestCase("broadcaster", TwitchExtensionRole.Broadcaster)]
+    public void AcceptsModerationRoles(string role, TwitchExtensionRole expected)
+    {
+        var token = CreateToken(new
+        {
+            channel_id = ChannelId,
+            exp = Now.ToUnixTimeSeconds() + 60,
+            opaque_user_id = "U-staff",
+            user_id = "1234",
+            role,
+            is_unlinked = false,
+        });
+
+        var valid = TwitchExtensionJwtValidator.TryValidate(
+            token,
+            Secret,
+            ChannelId,
+            Now,
+            out var identity,
+            out var error);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(valid, Is.True);
+            Assert.That(error, Is.EqualTo(TwitchExtensionJwtValidationError.None));
+            Assert.That(identity?.Role, Is.EqualTo(expected));
+        });
+    }
+
     [Test]
     public void RejectsModifiedSignature()
     {

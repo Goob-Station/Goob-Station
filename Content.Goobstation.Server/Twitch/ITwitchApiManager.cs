@@ -18,6 +18,7 @@ public enum TwitchExtensionRole
 {
     Viewer,
     Moderator,
+    Editor,
     Broadcaster,
 }
 

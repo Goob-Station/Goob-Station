@@ -28,12 +28,12 @@ public sealed class TwitchBitsToastSystem : EntitySystem
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
             SeparationOverride = 6,
-            MinWidth = 300,
+            MinWidth = 280,
+            MaxWidth = 360,
             MouseFilter = Control.MouseFilterMode.Ignore,
         };
         _ui.RootControl.AddChild(_stack);
-        LayoutContainer.SetAnchorAndMarginPreset(_stack, LayoutContainer.LayoutPreset.TopRight, margin: 20);
-        LayoutContainer.SetMarginTop(_stack, 80);
+        LayoutContainer.SetAnchorAndMarginPreset(_stack, LayoutContainer.LayoutPreset.CenterLeft, margin: 20);
     }
 
     public override void Shutdown()
@@ -90,6 +90,8 @@ public sealed class TwitchBitsToastSystem : EntitySystem
         var text = new Label
         {
             Text = message.Message,
+            MaxWidth = 332,
+            ClipText = true,
             FontColorOverride = Color.FromHex("#e5e5e5"),
             MouseFilter = Control.MouseFilterMode.Ignore,
         };
