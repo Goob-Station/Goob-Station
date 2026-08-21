@@ -105,5 +105,5 @@ public sealed partial class GoobCVars
     /// Number of seconds a Chat Critter session remains active.
     /// </summary>
     public static readonly CVarDef<int> TwitchChatCritterDuration =
-        CVarDef.Create("twitch.chat_critter.duration", 300, CVar.SERVERONLY);
+        CVarDef.Create("twitch.chat_critter.duration", 600, CVar.SERVERONLY);
 }

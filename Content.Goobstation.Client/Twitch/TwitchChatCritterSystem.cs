@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Client.Eye;
 using Content.Client.Viewport;
 using Content.Goobstation.Shared.Twitch;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
@@ -11,8 +12,9 @@ namespace Content.Goobstation.Client.Twitch;
 public sealed class TwitchChatCritterSystem : EntitySystem
 {
     private EyeLerpingSystem _eyes = default!;
-    private NetEntity? _pendingCritter;
-    private EntityUid? _critter;
+    private readonly FixedEye _defaultEye = new();
+    private NetEntity? _pendingCamera;
+    private EntityUid? _camera;
     private DefaultWindow? _window;
     private ScalingViewport? _viewport;
     private Label? _commandLabel;
@@ -36,24 +38,24 @@ public sealed class TwitchChatCritterSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_pendingCritter is not { } netCritter ||
-            !EntityManager.TryGetEntity(netCritter, out var critter) ||
-            critter == null ||
-            !TryComp<EyeComponent>(critter, out var eye))
+        if (_pendingCamera is not { } netCamera ||
+            !EntityManager.TryGetEntity(netCamera, out var camera) ||
+            camera == null ||
+            !TryComp<EyeComponent>(camera, out var eye))
         {
             return;
         }
 
-        _pendingCritter = null;
-        _critter = critter;
-        _eyes.AddEye(critter.Value);
+        _pendingCamera = null;
+        _camera = camera;
+        _eyes.AddEye(camera.Value);
         OpenWindow(eye);
     }
 
     private void OnOpen(TwitchChatCritterOpenEvent message)
     {
         CloseWindow(false);
-        _pendingCritter = message.Critter;
+        _pendingCamera = message.Camera;
     }
 
     private void OnCommand(TwitchChatCritterCommandEvent message)
@@ -67,13 +69,15 @@ public sealed class TwitchChatCritterSystem : EntitySystem
         _viewport = new ScalingViewport
         {
             MinSize = new Vector2(340, 220),
+            ViewportSize = new Vector2i(340, 220),
             VerticalExpand = true,
             HorizontalExpand = true,
             AlwaysRender = true,
             RenderScaleMode = ScalingViewportRenderScaleMode.CeilInt,
             MouseFilter = Control.MouseFilterMode.Ignore,
-            Eye = eye.Eye,
+            Eye = eye.Eye ?? _defaultEye,
         };
+        _viewport.OnResized += ResizeViewport;
         _commandLabel = new Label
         {
             Text = "Chat commands: up / down / left / right / bite",
@@ -87,7 +91,7 @@ public sealed class TwitchChatCritterSystem : EntitySystem
         };
         _window = new DefaultWindow
         {
-            Title = "Chat Critter",
+            Title = "Chat",
             MinSize = new Vector2(380, 290),
             SetSize = new Vector2(420, 330),
         };
@@ -98,11 +102,11 @@ public sealed class TwitchChatCritterSystem : EntitySystem
 
     private void CloseWindow(bool notifyServer)
     {
-        var critter = _critter;
-        _pendingCritter = null;
-        _critter = null;
+        var camera = _camera;
+        _pendingCamera = null;
+        _camera = null;
 
-        if (critter is { } entity && Exists(entity))
+        if (camera is { } entity && Exists(entity))
         {
             _eyes.RemoveEye(entity);
             if (notifyServer)
@@ -114,5 +118,15 @@ public sealed class TwitchChatCritterSystem : EntitySystem
         _window = null;
         _viewport = null;
         _commandLabel = null;
+    }
+
+    private void ResizeViewport()
+    {
+        if (_viewport == null)
+            return;
+
+        var width = Math.Max(_viewport.PixelWidth, (int) MathF.Floor(_viewport.MinWidth));
+        var height = Math.Max(_viewport.PixelHeight, (int) MathF.Floor(_viewport.MinHeight));
+        _viewport.ViewportSize = new Vector2i(width, height);
     }
 }

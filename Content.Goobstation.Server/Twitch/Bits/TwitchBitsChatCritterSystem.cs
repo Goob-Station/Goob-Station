@@ -1,21 +1,27 @@
-using System.Numerics;
 using System.Linq;
 using System.Text.Json;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Twitch;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.NPC.HTN;
+using Content.Server.Station.Systems;
+using Content.Server.StationEvents.Components;
+using Content.Shared.CombatMode;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Station.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -26,13 +32,16 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
     private static readonly ResPath OAuthPath = new("/twitch_chat_oauth.json");
 
     [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedGodmodeSystem _godmode = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly TwitchPairingSystem _pairings = default!;
     [Dependency] private readonly IResourceManager _resources = default!;
     [Dependency] private readonly ITaskManager _taskManager = default!;
@@ -109,8 +118,7 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
             if (state.StopAt == TimeSpan.Zero || _timing.CurTime < state.StopAt)
                 continue;
 
-            if (TryComp<PhysicsComponent>(state.Critter, out var physics))
-                _physics.SetLinearVelocity(state.Critter, Vector2.Zero, body: physics);
+            StopMoving(state);
             state.StopAt = TimeSpan.Zero;
         }
     }
@@ -132,6 +140,9 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
         if (!_players.TryGetSessionByEntity(target, out _))
             return TwitchBitsActionValidity.Invalid("The streamer session could not be found.");
 
+        if (!HasStationVent(target))
+            return TwitchBitsActionValidity.Invalid("The streamer's station has no valid vent spawn locations.");
+
         return TwitchBitsActionValidity.Valid;
     }
 
@@ -139,28 +150,33 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
     {
         if (!IsCurrentlyValid(target, context).IsValid ||
             !_players.TryGetSessionByEntity(target, out var session) ||
-            !_pairings.TryGetPairing(context.ChannelId, out var pairing))
+            !_pairings.TryGetPairing(context.ChannelId, out var pairing) ||
+            !TryPickStationVent(target, out var spawnCoordinates))
         {
             return false;
         }
 
-        var critter = Spawn("MobMouse", Transform(target).Coordinates.Offset(Vector2.UnitX));
+        var critter = Spawn("MobMouse", spawnCoordinates);
         RemComp<HTNComponent>(critter);
         RemComp<GhostRoleComponent>(critter);
         RemComp<GhostTakeoverAvailableComponent>(critter);
         _godmode.EnableGodmode(critter);
-        _meta.SetEntityName(critter, "Chat Critter");
-        _views.AddViewSubscriber(critter, session);
+        _combat.SetInCombatMode(critter, true);
+        _meta.SetEntityName(critter, "Chat");
+
+        var camera = SpawnAttachedTo("AdminCamera", critter.ToCoordinates());
+        _views.AddViewSubscriber(camera, session);
 
         _active[context.ChannelId] = new ActiveCritter(
             pairing.ChannelLogin,
             critter,
+            camera,
             session,
             _timing.CurTime + TimeSpan.FromSeconds(Math.Clamp(
                 _configuration.GetCVar(GoobCVars.TwitchChatCritterDuration),
                 30,
                 1800)));
-        RaiseNetworkEvent(new TwitchChatCritterOpenEvent(GetNetEntity(critter)), session);
+        RaiseNetworkEvent(new TwitchChatCritterOpenEvent(GetNetEntity(camera)), session);
         return true;
     }
 
@@ -175,19 +191,21 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
         {
             Bite(state.Critter);
         }
-        else if (TryComp<PhysicsComponent>(state.Critter, out var physics))
+        else if (TryComp<InputMoverComponent>(state.Critter, out var mover))
         {
             var direction = command switch
             {
-                "up" => Vector2.UnitY,
-                "down" => -Vector2.UnitY,
-                "left" => -Vector2.UnitX,
-                "right" => Vector2.UnitX,
-                _ => Vector2.Zero,
+                "up" => Direction.North,
+                "down" => Direction.South,
+                "left" => Direction.West,
+                "right" => Direction.East,
+                _ => Direction.Invalid,
             };
-            if (direction != Vector2.Zero)
+            if (direction != Direction.Invalid)
             {
-                _physics.SetLinearVelocity(state.Critter, direction * 4f, body: physics);
+                StopMoving(state, mover);
+                _mover.SetVelocityDirection((state.Critter, mover), direction, ushort.MaxValue, true);
+                state.Direction = direction;
                 state.StopAt = _timing.CurTime + TimeSpan.FromSeconds(0.45);
             }
         }
@@ -200,6 +218,8 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
         if (!TryComp<MeleeWeaponComponent>(critter, out var weapon))
             return;
 
+        _combat.SetInCombatMode(critter, true);
+
         var target = _lookup.GetEntitiesInRange<MobStateComponent>(Transform(critter).Coordinates, 1.25f)
             .Where(entity => entity.Owner != critter)
             .OrderBy(entity => (Transform(entity).Coordinates.Position - Transform(critter).Coordinates.Position).LengthSquared())
@@ -210,11 +230,11 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
 
     private void OnClose(TwitchChatCritterCloseEvent message, EntitySessionEventArgs args)
     {
-        var critter = GetEntity(message.Critter);
+        var camera = GetEntity(message.Camera);
         var state = _active.Values.FirstOrDefault(active =>
-            active.Critter == critter && args.SenderSession == active.Streamer);
-        if (state != null && Exists(critter))
-            _views.RemoveViewSubscriber(critter, args.SenderSession);
+            active.Camera == camera && args.SenderSession == active.Streamer);
+        if (state != null && Exists(camera))
+            _views.RemoveViewSubscriber(camera, args.SenderSession);
     }
 
     private void OnPairingChanged(TwitchPairingChangedEvent args)
@@ -282,24 +302,77 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
             return;
 
         RaiseNetworkEvent(new TwitchChatCritterClosedEvent(), state.Streamer);
+        StopMoving(state);
+        if (Exists(state.Camera))
+        {
+            _views.RemoveViewSubscriber(state.Camera, state.Streamer);
+            QueueDel(state.Camera);
+        }
         if (Exists(state.Critter))
         {
-            _views.RemoveViewSubscriber(state.Critter, state.Streamer);
             QueueDel(state.Critter);
         }
+    }
+
+    private void StopMoving(ActiveCritter state, InputMoverComponent? mover = null)
+    {
+        if (state.Direction == null || !Resolve(state.Critter, ref mover, false))
+            return;
+
+        _mover.SetVelocityDirection((state.Critter, mover), state.Direction.Value, ushort.MaxValue, false);
+        state.Direction = null;
+    }
+
+    private bool HasStationVent(EntityUid target)
+    {
+        if (_station.GetOwningStation(target) is not { } station)
+            return false;
+
+        var locations = EntityQueryEnumerator<VentCritterSpawnLocationComponent, TransformComponent>();
+        while (locations.MoveNext(out _, out _, out var transform))
+        {
+            if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool TryPickStationVent(EntityUid target, out EntityCoordinates coordinates)
+    {
+        coordinates = EntityCoordinates.Invalid;
+        if (_station.GetOwningStation(target) is not { } station)
+            return false;
+
+        var validLocations = new List<EntityCoordinates>();
+        var locations = EntityQueryEnumerator<VentCritterSpawnLocationComponent, TransformComponent>();
+        while (locations.MoveNext(out _, out _, out var transform))
+        {
+            if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
+                validLocations.Add(transform.Coordinates);
+        }
+
+        if (validLocations.Count == 0)
+            return false;
+
+        coordinates = _random.Pick(validLocations);
+        return true;
     }
 
     private sealed class ActiveCritter(
         string channelLogin,
         EntityUid critter,
+        EntityUid camera,
         ICommonSession streamer,
         TimeSpan expiresAt)
     {
         public string ChannelLogin { get; } = channelLogin;
         public EntityUid Critter { get; } = critter;
+        public EntityUid Camera { get; } = camera;
         public ICommonSession Streamer { get; } = streamer;
         public TimeSpan ExpiresAt { get; } = expiresAt;
         public TimeSpan StopAt { get; set; }
+        public Direction? Direction { get; set; }
     }
 
     private sealed record StoredOAuthState(
