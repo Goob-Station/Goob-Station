@@ -24495,3 +24495,11 @@ Entries:
       message: Enabled biomass reclaimer being unusable on souled bodies
   id: 2805
   time: '2026-08-19T13:44:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer clone instantly and at no cost by keeping your soul
+        tied down.
+  id: 2806
+  time: '2026-08-21T04:54:36.0000000+00:00'
