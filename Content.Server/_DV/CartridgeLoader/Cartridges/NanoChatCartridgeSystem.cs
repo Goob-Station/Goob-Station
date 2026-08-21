@@ -34,7 +34,7 @@ using Robust.Shared.Utility; // Goob
 
 namespace Content.Server._DV.CartridgeLoader.Cartridges;
 
-public sealed class NanoChatCartridgeSystem : EntitySystem
+public sealed partial class NanoChatCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
@@ -431,30 +431,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         }
 
         return false;
-    }
-
-    /// <summary>
-    /// Delivers a message from an anonymous (numberless) sender directly to a recipient's card,
-    /// Use this when there is no real sender card.
-    /// </summary>
-    public void DeliverAnonymousMessage(
-        Entity<NanoChatCardComponent> recipient,
-        uint senderNumber,
-        string senderName,
-        string content)
-    {
-        var message = new NanoChatMessage(_timing.CurTime, content, senderNumber);
-
-        _nanoChat.SetRecipient((recipient, recipient.Comp), senderNumber,
-            new NanoChatRecipient(senderNumber, senderName));
-
-        _nanoChat.AddMessage((recipient, recipient.Comp), senderNumber, message);
-
-        HandleUnreadNotification(recipient, message, senderNumber);
-
-        var msgEv = new NanoChatMessageReceivedEvent(recipient);
-        RaiseLocalEvent(ref msgEv);
-        UpdateUIForCard(recipient);
     }
 
     /// <summary>

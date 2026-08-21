@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Gangwars.Components;
 using Content.Goobstation.Shared.Gangwars.Events;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -24,6 +25,7 @@ public sealed class SharedGangSprayCanSystem : EntitySystem
     [Dependency] private readonly GangwarRuleSystem _gangwarRule = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
 
     public override void Initialize()
     {
@@ -41,7 +43,7 @@ public sealed class SharedGangSprayCanSystem : EntitySystem
             return;
 
         using var _ = args.PushGroup(nameof(GangSprayCanComponent));
-        args.PushMarkup(Loc.GetString("gang-spray-can-charges-remaining", ("charges", ent.Comp.Charges)));
+        args.PushMarkup(Loc.GetString("gang-spray-can-charges-remaining", ("charges", _charges.GetCurrentCharges(ent.Owner))));
     }
 
     private void OnAfterInteract(Entity<GangSprayCanComponent> ent, ref AfterInteractEvent args)
@@ -66,8 +68,7 @@ public sealed class SharedGangSprayCanSystem : EntitySystem
 
     private void TrySpray(Entity<GangSprayCanComponent> ent, EntityUid user, EntityCoordinates target, EntityUid? interactTarget)
     {
-        if (!target.IsValid(EntityManager)
-            || ent.Comp.IsEmpty)
+        if (!target.IsValid(EntityManager))
             return;
 
         if (!TryComp<GangMemberComponent>(user, out var gangMember) || gangMember.Gang == null)
@@ -76,12 +77,10 @@ public sealed class SharedGangSprayCanSystem : EntitySystem
             return;
         }
 
-        if (ent.Comp.Charges <= 0)
+        if (_charges.IsEmpty(ent.Owner))
         {
             _audio.PlayPredicted(ent.Comp.EmptySound, ent.Owner, user);
-            ent.Comp.IsEmpty = true;
             _appearance.SetData(ent, GangSprayCanVisuals.Empty, true);
-            Dirty(ent);
             return;
         }
 
@@ -98,8 +97,10 @@ public sealed class SharedGangSprayCanSystem : EntitySystem
             var clothingColorEv = new GangColorAppliedEvent();
             RaiseLocalEvent(interactTarget.Value, ref clothingColorEv);
 
-            ent.Comp.Charges--;
-            Dirty(ent);
+            _charges.TryUseCharge(ent.Owner);
+
+            if (_charges.IsEmpty(ent.Owner))
+                _appearance.SetData(ent, GangSprayCanVisuals.Empty, true);
 
             _audio.PlayPredicted(ent.Comp.UseSound, ent.Owner, user);
             _popup.PopupClient(Loc.GetString("gang-spray-can-clothing-painted"), user);
@@ -117,7 +118,7 @@ public sealed class SharedGangSprayCanSystem : EntitySystem
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
             ent.Comp.SprayDelay,
-            new GangSprayCanDoAfterEvent { ClickLocation = GetNetCoordinates(target), Gang = gangMember.Gang.Value },
+            new GangSprayCanDoAfterEvent { ClickLocation = GetNetCoordinates(snappedTarget), Gang = gangMember.Gang.Value },
             ent,
             target: null,
             used: ent)
@@ -141,8 +142,7 @@ public sealed class SharedGangSprayCanSystem : EntitySystem
         var snappedTarget = GetCoordinates(args.ClickLocation).SnapToGrid(EntityManager);
         PlaceSign(ent.Comp.SignPrototypes, snappedTarget, args.Gang, ent.Owner);
 
-        ent.Comp.Charges--;
-        Dirty(ent);
+        _charges.TryUseCharge(ent.Owner);
         _audio.PlayPredicted(ent.Comp.UseSound, ent.Owner, args.User);
 
         if (TryComp<GangMemberComponent>(args.User, out var gangMember))

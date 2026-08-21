@@ -68,13 +68,13 @@ public sealed partial class GangMemberComponent : Component
     /// Territory buff, 0.8 = 20% less stamina damage taken
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float StaminaBuff = 0.8f;
+    public float StaminaModifier = 0.8f;
 
     /// <summary>
     /// Territory buff, 0.75 = 25% more defense
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float DefenseBuff = 0.75f;
+    public float DefenseModifier = 0.75f;
 
     /// <summary>
     /// Passive healing per tick

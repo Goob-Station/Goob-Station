@@ -30,13 +30,13 @@ public sealed partial class GangLeaderComponent : Component
     /// How many members the leader has recruited so far.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int InvitesUsed;
+    public int MembersRecruited;
 
     /// <summary>
     /// Maximum number of members the leader is allowed to recruit.
     /// </summary>
     [DataField]
-    public int MaxInvites = 3;
+    public int MaxRecruits = 3;
 
     [DataField, AutoNetworkedField]
     public EntityUid? PendingInviteTarget;

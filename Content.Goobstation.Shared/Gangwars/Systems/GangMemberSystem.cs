@@ -157,7 +157,7 @@ public sealed class GangMemberSystem : EntitySystem
         if (!ent.Comp.IsInTerritory || !ent.Comp.WearingGangClothes)
             return;
 
-        args.Value *= ent.Comp.StaminaBuff;
+        args.Value *= ent.Comp.StaminaModifier;
     }
 
     private void OnDamageModify(Entity<GangMemberComponent> ent, ref DamageModifyEvent args)
@@ -165,6 +165,6 @@ public sealed class GangMemberSystem : EntitySystem
         if (!ent.Comp.IsInTerritory || !ent.Comp.WearingGangClothes)
             return;
 
-        args.Damage *= ent.Comp.DefenseBuff;
+        args.Damage *= ent.Comp.DefenseModifier;
     }
 }

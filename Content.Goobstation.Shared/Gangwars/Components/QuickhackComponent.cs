@@ -17,7 +17,7 @@ public sealed partial class QuickhackComponent : Component
     public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/_Goobstation/Gangs/quickhack_fail.ogg");
 
     [DataField]
-    public TimeSpan ShootAnimation = TimeSpan.FromSeconds(1.12);
+    public TimeSpan ShootAnimationLength = TimeSpan.FromSeconds(1.12);
 
     [DataField, AutoNetworkedField]
     public QuickhackState State;

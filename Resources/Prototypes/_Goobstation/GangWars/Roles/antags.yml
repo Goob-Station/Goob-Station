@@ -7,7 +7,10 @@
   requirements:
   - !type:DepartmentTimeRequirement
       department: Command
-      time: 3600 # 1h
+      time: 7200 # 2h
+  - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200 # 2h
   guides: [ GangWars ]
 
 - type: antag

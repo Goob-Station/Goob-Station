@@ -148,6 +148,8 @@
     size: Small
   - type: Appearance
   - type: GangSprayCan
+  - type: LimitedCharges
+    maxCharges: 5
 
 - type: entity
   name: gang machete

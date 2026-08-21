@@ -18,6 +18,7 @@ public sealed class GangHiddenStructureSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
     private static readonly ProtoId<TagPrototype> HideContextMenuTag = "HideContextMenu";
 
@@ -104,7 +105,10 @@ public sealed class GangHiddenStructureSystem : EntitySystem
             return;
 
         Reveal(ent);
-        _popup.PopupClient(Loc.GetString(ent.Comp.RevealPopup), args.User, args.User);
+
+        if (_interaction.InRangeUnobstructed(args.User, ent.Owner))
+            _popup.PopupPredicted(Loc.GetString(ent.Comp.RevealPopup), args.User, args.User);
+
         args.Handled = true;
     }
 }

@@ -201,21 +201,42 @@ public sealed class GangLeaderSystem : EntitySystem
 
     /// <summary>
     /// Places the gang locker inside a DropPodspawner and triggers it.
+    /// If placing it in the pod fails for any reason, the locker is placed at the target coordinates instead.
     /// </summary>
-    private void PlaceLockerInDropPod(Entity<GangLeaderComponent> _, EntityUid locker, EntityCoordinates coords)
+    private void PlaceLockerInDropPod(Entity<GangLeaderComponent> leader, EntityUid locker, EntityCoordinates coords)
     {
         if (!_netManager.IsServer)
             return;
 
-        _xform.Unanchor(locker);
-
-        var pod = Spawn(DropPodSpawner, coords);
-
-        if (_containers.TryGetContainer(pod, "clowncar_container", out var container)) // I don't know why drop pods use clowncar_container. It's just the magic of goobcode
-            _containers.Insert(locker, container);
-
-        _trigger.Trigger(pod);
+        if (!TryPlaceLockerInDropPod(leader, locker, coords))
+        {
+            _xform.Unanchor(locker);
+            _xform.SetCoordinates(locker, coords);
+            _xform.AnchorEntity(locker);
+        }
     }
+
+    private bool TryPlaceLockerInDropPod(Entity<GangLeaderComponent> _, EntityUid locker, EntityCoordinates coords)
+    {
+        try
+        {
+            var pod = Spawn(DropPodSpawner, coords);
+
+            if (!_containers.TryGetContainer(pod, "clowncar_container", out var container)) // I don't know why drop pods use clowncar_container. It's just the magic of goobcode
+                return false;
+
+            _xform.Unanchor(locker);
+            _containers.Insert(locker, container);
+            _trigger.Trigger(pod);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"Failed to place gang locker {ToPrettyString(locker)} in a drop pod: {ex}");
+            return false;
+        }
+    }
+
     private void OnLockerRemovedFromContainer(Entity<GangLockerComponent> ent, ref EntRemovedFromContainerMessage args) =>
         _xform.AnchorEntity(ent);
 
@@ -287,8 +308,8 @@ public sealed class GangLeaderSystem : EntitySystem
         gangMember.GangName = gangName;
         Dirty(recruit, gangMember);
 
-        leader.Comp.InvitesUsed++;
-        if (leader.Comp.InvitesUsed >= leader.Comp.MaxInvites)
+        leader.Comp.MembersRecruited++;
+        if (leader.Comp.MembersRecruited >= leader.Comp.MaxRecruits)
             _actions.RemoveAction(leader.Owner, leader.Comp.MemberOfferActionEnt);
         Dirty(leader);
 

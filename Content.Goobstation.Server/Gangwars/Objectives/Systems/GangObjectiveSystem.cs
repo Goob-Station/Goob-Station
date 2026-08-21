@@ -30,7 +30,7 @@ public sealed class GangObjectiveSystem : EntitySystem
         if (TryComp<MindComponent>(args.MindId, out var mind)
             && mind.OwnedEntity is { } mob
             && TryComp<GangLeaderComponent>(mob, out var leader))
-            comp.Recruited = leader.InvitesUsed;
+            comp.Recruited = leader.MembersRecruited;
 
         args.Progress = target > 0 ? MathF.Min((float) comp.Recruited / target, 1f) : 1f;
     }

@@ -39,7 +39,7 @@ public sealed partial class GangwarRuleComponent : Component
     /// How long after the gamerule starts before the first gang crate drops.
     /// </summary>
     [DataField]
-    public TimeSpan GangCrateDropDelay = TimeSpan.FromMinutes(8);
+    public TimeSpan FirstGangCrateDropDelay = TimeSpan.FromMinutes(8);
 
     /// <summary>
     /// How long between subsequent gang crate drops.

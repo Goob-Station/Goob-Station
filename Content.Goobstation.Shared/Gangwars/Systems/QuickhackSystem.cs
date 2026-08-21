@@ -71,7 +71,7 @@ public sealed class QuickhackSystem : EntitySystem
         _audio.PlayPredicted(comp.UseSound, uid, args.User);
 
         comp.State = QuickhackState.Firing;
-        comp.FiringResetAt = _timing.CurTime + comp.ShootAnimation;
+        comp.FiringResetAt = _timing.CurTime + comp.ShootAnimationLength;
         comp.FiringTarget = target;
         Dirty(uid, comp);
     }

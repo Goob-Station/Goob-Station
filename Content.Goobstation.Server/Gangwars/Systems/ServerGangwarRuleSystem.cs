@@ -10,6 +10,8 @@ using Content.Server.Pinpointer;
 using Content.Shared.Radio.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared._DV.NanoChat;
+using Content.Shared.SSDIndicator;
+using Content.Shared.Station;
 using Robust.Server.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -31,6 +33,7 @@ public sealed class ServerGangwarRuleSystem : GameRuleSystem<GangwarRuleComponen
     [Dependency] private readonly NanoChatCartridgeSystem _nanoChatCartridge = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedStationSystem _station = default!;
 
     public override void Initialize()
     {
@@ -56,7 +59,7 @@ public sealed class ServerGangwarRuleSystem : GameRuleSystem<GangwarRuleComponen
     {
         UpdateDrop(ruleComp,
             ref ruleComp.NextGangCrateDrop,
-            ruleComp.GangCrateDropDelay,
+            ruleComp.FirstGangCrateDropDelay,
             ruleComp.GangCrateDropInterval,
             ruleComp.GangCratePrototype,
             "gangwar-crate-drop-announcement");
@@ -149,7 +152,8 @@ public sealed class ServerGangwarRuleSystem : GameRuleSystem<GangwarRuleComponen
                 return;
 
             var locationName = GetLocationName(dropped.Value);
-            TipOffCivilian(locationName, (int) rule.TipOffHeadstartDelay.TotalSeconds);
+            var dropStation = _station.GetOwningStation(dropped.Value);
+            TipOffCivilian(locationName, (int) rule.TipOffHeadstartDelay.TotalSeconds, dropStation);
             rule.TipOffPendingLocation = locationName;
             rule.TipOffAnnounceAt = Timing.CurTime + rule.TipOffHeadstartDelay;
             return;
@@ -168,7 +172,7 @@ public sealed class ServerGangwarRuleSystem : GameRuleSystem<GangwarRuleComponen
         AnnounceGangDrop(rule, location, "gangwar-tipoff-drop-announcement");
     }
 
-    private void TipOffCivilian(string locationName, int headstartSeconds)
+    private void TipOffCivilian(string locationName, int headstartSeconds, EntityUid? dropStation)
     {
         var candidates = new List<Entity<NanoChatCardComponent>>();
         var cardQuery = AllEntityQuery<NanoChatCardComponent, IdCardComponent>();
@@ -184,7 +188,9 @@ public sealed class ServerGangwarRuleSystem : GameRuleSystem<GangwarRuleComponen
             var owner = pda.PdaOwner;
             if (owner == null
                 || HasComp<GangMemberComponent>(owner.Value)
-                || !HasComp<ActorComponent>(owner.Value))
+                || !HasComp<ActorComponent>(owner.Value)
+                || TryComp<SSDIndicatorComponent>(owner.Value, out var ssd) && ssd.IsSSD
+                || _station.GetOwningStation(owner.Value) != dropStation)
                 continue;
 
             candidates.Add((cardUid, card));
