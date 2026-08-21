@@ -24515,3 +24515,11 @@ Entries:
       message: removed hyrdrakin from cc roles
   id: 2808
   time: '2026-08-21T14:46:36.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: >-
+        Adds zombie infection resistance to fire suits, atmos fire suits, bomb
+        suits, and rad suits, alongside associated headwear.
+  id: 2809
+  time: '2026-08-21T18:30:02.0000000+00:00'
