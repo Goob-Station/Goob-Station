@@ -1,17 +1,18 @@
-#- type: listing        # Goobstation - Mald Remove
-#  id: UplinkSlayerCoat
-#  name: uplink-slayer-coat-name
-#  description: uplink-slayer-coat-desc
-#  productEntity: ClothingNeckSlayerCoat
-#  cost:
-#    Telecrystal: 20
-#  categories:
-#  - UplinkWearables
-#  conditions:
-#  - !type:BuyerWhitelistCondition
-#    blacklist:
-#      components:
-#      - SurplusBundle
+- type: listing
+  id: UplinkSlayerCoat
+  name: uplink-slayer-coat-name
+  description: uplink-slayer-coat-desc
+  productEntity: ClothingNeckSlayerCoat
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkBombCollarKit
