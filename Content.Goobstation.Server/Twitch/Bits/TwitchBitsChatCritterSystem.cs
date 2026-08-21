@@ -1,5 +1,6 @@
 using System.Numerics;
 using System.Linq;
+using System.Text.Json;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Twitch;
 using Content.Server.Ghost.Roles.Components;
@@ -11,15 +12,19 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Configuration;
+using Robust.Shared.ContentPack;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Twitch.Bits;
 
 public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsAction
 {
+    private static readonly ResPath OAuthPath = new("/twitch_chat_oauth.json");
+
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly SharedGodmodeSystem _godmode = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -28,15 +33,18 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
+    [Dependency] private readonly TwitchPairingSystem _pairings = default!;
+    [Dependency] private readonly IResourceManager _resources = default!;
     [Dependency] private readonly ITaskManager _taskManager = default!;
     [Dependency] private readonly TwitchBitsSystem _twitchBits = default!;
     [Dependency] private readonly ViewSubscriberSystem _views = default!;
 
+    private readonly Dictionary<string, ActiveCritter> _active = new(StringComparer.Ordinal);
     private TwitchChatIrcClient? _chat;
-    private EntityUid? _critter;
-    private ICommonSession? _streamer;
-    private TimeSpan _expiresAt;
-    private TimeSpan _stopAt;
+    private TwitchChatOAuthManager? _oauth;
+    private string _botLogin = string.Empty;
+    private string _clientId = string.Empty;
+    private string _configuredRefreshToken = string.Empty;
 
     public string Id => "chat-critter";
     public string DisplayName => "Start Chat Critter";
@@ -49,24 +57,40 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
         base.Initialize();
         _twitchBits.RegisterAction(this);
         SubscribeNetworkEvent<TwitchChatCritterCloseEvent>(OnClose);
+        SubscribeLocalEvent<TwitchPairingChangedEvent>(OnPairingChanged);
 
-        var channel = _configuration.GetCVar(GoobCVars.TwitchChatChannelLogin).Trim();
-        var botLogin = _configuration.GetCVar(GoobCVars.TwitchChatBotLogin).Trim();
-        var oauthToken = _configuration.GetCVar(GoobCVars.TwitchChatOauthToken).Trim();
-        if (!string.IsNullOrEmpty(channel) &&
-            !string.IsNullOrEmpty(botLogin) &&
-            !string.IsNullOrEmpty(oauthToken))
-        {
-            _chat = new TwitchChatIrcClient(channel, botLogin, oauthToken, (viewer, command) =>
-                _taskManager.RunOnMainThread(() => HandleCommand(viewer, command)));
-            _chat.Start();
-        }
+        _botLogin = _configuration.GetCVar(GoobCVars.TwitchChatBotLogin).Trim();
+        _clientId = _configuration.GetCVar(GoobCVars.TwitchChatClientId).Trim();
+        _configuredRefreshToken = _configuration.GetCVar(GoobCVars.TwitchChatRefreshToken).Trim();
+        var accessToken = _configuration.GetCVar(GoobCVars.TwitchChatOauthToken).Trim();
+        var refreshToken = _configuredRefreshToken;
+        LoadOAuthState(ref accessToken, ref refreshToken);
+        if (string.IsNullOrEmpty(_botLogin) || string.IsNullOrEmpty(accessToken))
+            return;
+
+        ResetChat(accessToken);
+        _oauth = new TwitchChatOAuthManager(
+            accessToken,
+            refreshToken,
+            _clientId,
+            _configuration.GetCVar(GoobCVars.TwitchChatClientSecret),
+            (newAccessToken, newRefreshToken) => _taskManager.RunOnMainThread(() =>
+            {
+                SaveOAuthState(newAccessToken, newRefreshToken);
+                ResetChat(newAccessToken);
+            }),
+            warning => _taskManager.RunOnMainThread(() => Log.Warning(warning)));
+        _oauth.Start();
     }
 
     public override void Shutdown()
     {
-        _chat?.Stop();
-        Cleanup();
+        foreach (var channelId in _active.Keys.ToArray())
+            Cleanup(channelId);
+        if (_chat != null)
+            _ = _chat.DisposeAsync();
+        if (_oauth != null)
+            _ = _oauth.DisposeAsync();
         base.Shutdown();
     }
 
@@ -74,33 +98,36 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
     {
         base.Update(frameTime);
 
-        if (_critter is not { } critter)
-            return;
-
-        if (!Exists(critter) || _timing.CurTime >= _expiresAt)
+        foreach (var (channelId, state) in _active.ToArray())
         {
-            Cleanup();
-            return;
-        }
+            if (!Exists(state.Critter) || _timing.CurTime >= state.ExpiresAt)
+            {
+                Cleanup(channelId);
+                continue;
+            }
 
-        if (_stopAt != TimeSpan.Zero && _timing.CurTime >= _stopAt)
-        {
-            if (TryComp<PhysicsComponent>(critter, out var physics))
-                _physics.SetLinearVelocity(critter, Vector2.Zero, body: physics);
-            _stopAt = TimeSpan.Zero;
+            if (state.StopAt == TimeSpan.Zero || _timing.CurTime < state.StopAt)
+                continue;
+
+            if (TryComp<PhysicsComponent>(state.Critter, out var physics))
+                _physics.SetLinearVelocity(state.Critter, Vector2.Zero, body: physics);
+            state.StopAt = TimeSpan.Zero;
         }
     }
 
     public TwitchBitsActionValidity IsCurrentlyValid(EntityUid target, TwitchBitsActionContext context)
     {
-        if (_critter is { } critter && Exists(critter))
+        if (_active.TryGetValue(context.ChannelId, out var active) && Exists(active.Critter))
             return TwitchBitsActionValidity.Invalid("Chat Critter is already active.");
 
-        if (_chat == null)
-            return TwitchBitsActionValidity.Invalid("Configure the Twitch chat channel, bot login, and OAuth token before starting Chat Critter.");
+        if (!_pairings.TryGetPairing(context.ChannelId, out var pairing))
+            return TwitchBitsActionValidity.Invalid("This Twitch channel is not linked to an SS14 player.");
 
-        if (!_chat.IsConnected)
-            return TwitchBitsActionValidity.Invalid("The SS14 server is still connecting to Twitch chat.");
+        if (_chat == null)
+            return TwitchBitsActionValidity.Invalid("Configure the Twitch bot login and OAuth token before starting Chat Critter.");
+
+        if (!_chat.IsConnected(pairing.ChannelLogin))
+            return TwitchBitsActionValidity.Invalid("The SS14 server is still connecting to this Twitch channel's chat.");
 
         if (!_players.TryGetSessionByEntity(target, out _))
             return TwitchBitsActionValidity.Invalid("The streamer session could not be found.");
@@ -111,7 +138,8 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
     public bool Execute(EntityUid target, TwitchBitsActionContext context)
     {
         if (!IsCurrentlyValid(target, context).IsValid ||
-            !_players.TryGetSessionByEntity(target, out var session))
+            !_players.TryGetSessionByEntity(target, out var session) ||
+            !_pairings.TryGetPairing(context.ChannelId, out var pairing))
         {
             return false;
         }
@@ -124,26 +152,30 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
         _meta.SetEntityName(critter, "Chat Critter");
         _views.AddViewSubscriber(critter, session);
 
-        _critter = critter;
-        _streamer = session;
-        _expiresAt = _timing.CurTime + TimeSpan.FromSeconds(Math.Clamp(
-            _configuration.GetCVar(GoobCVars.TwitchChatCritterDuration),
-            30,
-            1800));
+        _active[context.ChannelId] = new ActiveCritter(
+            pairing.ChannelLogin,
+            critter,
+            session,
+            _timing.CurTime + TimeSpan.FromSeconds(Math.Clamp(
+                _configuration.GetCVar(GoobCVars.TwitchChatCritterDuration),
+                30,
+                1800)));
         RaiseNetworkEvent(new TwitchChatCritterOpenEvent(GetNetEntity(critter)), session);
         return true;
     }
 
-    private void HandleCommand(string viewer, string command)
+    private void HandleCommand(string channelLogin, string viewer, string command)
     {
-        if (_critter is not { } critter || !Exists(critter) || _timing.CurTime >= _expiresAt)
+        var state = _active.Values.FirstOrDefault(active =>
+            string.Equals(active.ChannelLogin, channelLogin, StringComparison.OrdinalIgnoreCase));
+        if (state == null || !Exists(state.Critter) || _timing.CurTime >= state.ExpiresAt)
             return;
 
         if (command == "bite")
         {
-            Bite(critter);
+            Bite(state.Critter);
         }
-        else if (TryComp<PhysicsComponent>(critter, out var physics))
+        else if (TryComp<PhysicsComponent>(state.Critter, out var physics))
         {
             var direction = command switch
             {
@@ -155,13 +187,12 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
             };
             if (direction != Vector2.Zero)
             {
-                _physics.SetLinearVelocity(critter, direction * 4f, body: physics);
-                _stopAt = _timing.CurTime + TimeSpan.FromSeconds(0.45);
+                _physics.SetLinearVelocity(state.Critter, direction * 4f, body: physics);
+                state.StopAt = _timing.CurTime + TimeSpan.FromSeconds(0.45);
             }
         }
 
-        if (_streamer != null)
-            RaiseNetworkEvent(new TwitchChatCritterCommandEvent(viewer, command), _streamer);
+        RaiseNetworkEvent(new TwitchChatCritterCommandEvent(viewer, command), state.Streamer);
     }
 
     private void Bite(EntityUid critter)
@@ -179,32 +210,101 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
 
     private void OnClose(TwitchChatCritterCloseEvent message, EntitySessionEventArgs args)
     {
-        if (_critter is not { } critter ||
-            GetEntity(message.Critter) != critter ||
-            args.SenderSession != _streamer)
+        var critter = GetEntity(message.Critter);
+        var state = _active.Values.FirstOrDefault(active =>
+            active.Critter == critter && args.SenderSession == active.Streamer);
+        if (state != null && Exists(critter))
+            _views.RemoveViewSubscriber(critter, args.SenderSession);
+    }
+
+    private void OnPairingChanged(TwitchPairingChangedEvent args)
+    {
+        if (args.Paired)
+        {
+            _chat?.JoinChannel(args.ChannelLogin);
+            return;
+        }
+
+        _chat?.LeaveChannel(args.ChannelLogin);
+        Cleanup(args.ChannelId);
+    }
+
+    private void ResetChat(string accessToken)
+    {
+        var previous = _chat;
+        _chat = new TwitchChatIrcClient(_botLogin, accessToken, (channel, viewer, command) =>
+            _taskManager.RunOnMainThread(() => HandleCommand(channel, viewer, command)));
+        foreach (var pairing in _pairings.Pairings)
+            _chat.JoinChannel(pairing.ChannelLogin);
+        _chat.Start();
+        if (previous != null)
+            _ = previous.DisposeAsync();
+    }
+
+    private void LoadOAuthState(ref string accessToken, ref string refreshToken)
+    {
+        if (string.IsNullOrEmpty(_configuredRefreshToken) ||
+            !_resources.UserData.TryReadAllText(OAuthPath, out var json))
         {
             return;
         }
 
-        _views.RemoveViewSubscriber(critter, args.SenderSession);
-    }
-
-    private void Cleanup()
-    {
-        if (_streamer != null)
-            RaiseNetworkEvent(new TwitchChatCritterClosedEvent(), _streamer);
-
-        if (_critter is { } critter)
+        try
         {
-            if (_streamer != null && Exists(critter))
-                _views.RemoveViewSubscriber(critter, _streamer);
-            if (Exists(critter))
-                QueueDel(critter);
-        }
+            var state = JsonSerializer.Deserialize<StoredOAuthState>(json);
+            if (state == null ||
+                state.ClientId != _clientId ||
+                state.SeedRefreshToken != _configuredRefreshToken ||
+                string.IsNullOrWhiteSpace(state.AccessToken) ||
+                string.IsNullOrWhiteSpace(state.RefreshToken))
+            {
+                return;
+            }
 
-        _critter = null;
-        _streamer = null;
-        _expiresAt = TimeSpan.Zero;
-        _stopAt = TimeSpan.Zero;
+            accessToken = state.AccessToken;
+            refreshToken = state.RefreshToken;
+        }
+        catch (JsonException exception)
+        {
+            Log.Warning($"Could not load Twitch chat OAuth state: {exception.Message}");
+        }
     }
+
+    private void SaveOAuthState(string accessToken, string refreshToken)
+    {
+        var state = new StoredOAuthState(_clientId, _configuredRefreshToken, accessToken, refreshToken);
+        _resources.UserData.WriteAllText(OAuthPath, JsonSerializer.Serialize(state));
+    }
+
+    private void Cleanup(string channelId)
+    {
+        if (!_active.Remove(channelId, out var state))
+            return;
+
+        RaiseNetworkEvent(new TwitchChatCritterClosedEvent(), state.Streamer);
+        if (Exists(state.Critter))
+        {
+            _views.RemoveViewSubscriber(state.Critter, state.Streamer);
+            QueueDel(state.Critter);
+        }
+    }
+
+    private sealed class ActiveCritter(
+        string channelLogin,
+        EntityUid critter,
+        ICommonSession streamer,
+        TimeSpan expiresAt)
+    {
+        public string ChannelLogin { get; } = channelLogin;
+        public EntityUid Critter { get; } = critter;
+        public ICommonSession Streamer { get; } = streamer;
+        public TimeSpan ExpiresAt { get; } = expiresAt;
+        public TimeSpan StopAt { get; set; }
+    }
+
+    private sealed record StoredOAuthState(
+        string ClientId,
+        string SeedRefreshToken,
+        string AccessToken,
+        string RefreshToken);
 }

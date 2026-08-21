@@ -1,6 +1,7 @@
 namespace Content.Goobstation.Server.Twitch.Bits;
 
 public sealed record TwitchBitsActionContext(
+    string ChannelId,
     TwitchBitsTransaction? Transaction,
     string? Input,
     bool IsExecution = false,

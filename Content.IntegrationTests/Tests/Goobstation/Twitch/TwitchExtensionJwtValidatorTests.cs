@@ -103,7 +103,7 @@ public sealed class TwitchExtensionJwtValidatorTests
     }
 
     [Test]
-    public void RejectsTokenForAnotherChannel()
+    public void AcceptsTokenForAnotherChannelWithoutRestriction()
     {
         var token = CreateToken(new
         {
@@ -113,7 +113,20 @@ public sealed class TwitchExtensionJwtValidatorTests
             role = "viewer",
         });
 
-        AssertRejected(token, TwitchExtensionJwtValidationError.InvalidChannel);
+        var valid = TwitchExtensionJwtValidator.TryValidate(
+            token,
+            Secret,
+            null,
+            Now,
+            out var identity,
+            out var error);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(valid, Is.True);
+            Assert.That(error, Is.EqualTo(TwitchExtensionJwtValidationError.None));
+            Assert.That(identity?.ChannelId, Is.EqualTo("99999999"));
+        });
     }
 
     [Test]

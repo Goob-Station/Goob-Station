@@ -1,48 +1,90 @@
-using System;
 using System.Net.WebSockets;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Content.Goobstation.Server.Twitch.Bits;
 
-public sealed class TwitchChatIrcClient(
-    string channel,
-    string botLogin,
-    string oauthToken,
-    Action<string, string> onCommand)
+public sealed class TwitchChatIrcClient : IAsyncDisposable
 {
+    private readonly string _botLogin;
+    private readonly string _oauthToken;
+    private readonly Action<string, string, string> _onCommand;
+    private readonly HashSet<string> _desiredChannels = new(StringComparer.OrdinalIgnoreCase);
+    private readonly HashSet<string> _joinedChannels = new(StringComparer.OrdinalIgnoreCase);
+    private readonly object _channelLock = new();
+    private readonly SemaphoreSlim _sendLock = new(1, 1);
     private readonly CancellationTokenSource _cancellation = new();
-    private readonly string _channel = channel.Trim().TrimStart('#').ToLowerInvariant();
-    private readonly string _botLogin = botLogin.Trim().ToLowerInvariant();
-    private readonly string _oauthToken = oauthToken.Trim();
-    private volatile bool _isConnected;
+    private ClientWebSocket? _socket;
+    private Task? _runTask;
 
-    public bool IsConnected => _isConnected;
+    public TwitchChatIrcClient(string botLogin, string oauthToken, Action<string, string, string> onCommand)
+    {
+        _botLogin = botLogin.Trim().ToLowerInvariant();
+        _oauthToken = oauthToken.Trim();
+        _onCommand = onCommand;
+    }
 
     public void Start()
     {
-        _ = Run();
+        _runTask ??= Task.Run(RunAsync);
     }
 
-    public void Stop()
+    public void JoinChannel(string channel)
     {
-        _cancellation.Cancel();
+        channel = NormalizeChannel(channel);
+        if (channel.Length == 0)
+            return;
+
+        lock (_channelLock)
+            _desiredChannels.Add(channel);
+
+        _ = SendAsync($"JOIN #{channel}", _cancellation.Token);
     }
 
-    private async Task Run()
+    public void LeaveChannel(string channel)
+    {
+        channel = NormalizeChannel(channel);
+        if (channel.Length == 0)
+            return;
+
+        lock (_channelLock)
+        {
+            _desiredChannels.Remove(channel);
+            _joinedChannels.Remove(channel);
+        }
+
+        _ = SendAsync($"PART #{channel}", _cancellation.Token);
+    }
+
+    public bool IsConnected(string channel)
+    {
+        channel = NormalizeChannel(channel);
+        lock (_channelLock)
+            return _joinedChannels.Contains(channel);
+    }
+
+    private async Task RunAsync()
     {
         while (!_cancellation.IsCancellationRequested)
         {
             try
             {
-                await ConnectAndRead(_cancellation.Token);
+                await ConnectAndReadAsync(_cancellation.Token);
             }
-            catch (OperationCanceledException)
+            catch (OperationCanceledException) when (_cancellation.IsCancellationRequested)
             {
-                return;
+                break;
             }
             catch
+            {
+            }
+
+            lock (_channelLock)
+                _joinedChannels.Clear();
+
+            if (!_cancellation.IsCancellationRequested)
             {
                 try
                 {
@@ -50,35 +92,39 @@ public sealed class TwitchChatIrcClient(
                 }
                 catch (OperationCanceledException)
                 {
-                    return;
+                    break;
                 }
-            }
-            finally
-            {
-                _isConnected = false;
             }
         }
     }
 
-    private async Task ConnectAndRead(CancellationToken cancellation)
+    private async Task ConnectAndReadAsync(CancellationToken cancellationToken)
     {
-        using var socket = new ClientWebSocket();
-        await socket.ConnectAsync(new Uri("wss://irc-ws.chat.twitch.tv:443"), cancellation);
-        await Send(socket, "CAP REQ :twitch.tv/tags twitch.tv/commands", cancellation);
+        _socket?.Dispose();
+        _socket = new ClientWebSocket();
+        await _socket.ConnectAsync(new Uri("wss://irc-ws.chat.twitch.tv:443"), cancellationToken);
+        await SendAsync("CAP REQ :twitch.tv/tags twitch.tv/commands twitch.tv/membership", cancellationToken);
         var password = _oauthToken.StartsWith("oauth:", StringComparison.OrdinalIgnoreCase)
             ? _oauthToken
             : $"oauth:{_oauthToken}";
-        await Send(socket, $"PASS {password}", cancellation);
-        await Send(socket, $"NICK {_botLogin}", cancellation);
-        await Send(socket, $"JOIN #{_channel}", cancellation);
+        await SendAsync($"PASS {password}", cancellationToken);
+        await SendAsync($"NICK {_botLogin}", cancellationToken);
+
+        string[] channels;
+        lock (_channelLock)
+            channels = _desiredChannels.ToArray();
+
+        foreach (var channel in channels)
+            await SendAsync($"JOIN #{channel}", cancellationToken);
 
         var buffer = new byte[8192];
         var pending = new StringBuilder();
-        while (socket.State == WebSocketState.Open && !cancellation.IsCancellationRequested)
+
+        while (_socket.State == WebSocketState.Open && !cancellationToken.IsCancellationRequested)
         {
-            var result = await socket.ReceiveAsync(buffer, cancellation);
+            var result = await _socket.ReceiveAsync(buffer, cancellationToken);
             if (result.MessageType == WebSocketMessageType.Close)
-                return;
+                break;
 
             pending.Append(Encoding.UTF8.GetString(buffer, 0, result.Count));
             if (!result.EndOfMessage)
@@ -87,42 +133,89 @@ public sealed class TwitchChatIrcClient(
             var messages = pending.ToString().Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
             pending.Clear();
             foreach (var message in messages)
-            {
-                if (message.Contains($" 366 {_botLogin} #{_channel} ", StringComparison.OrdinalIgnoreCase))
-                    _isConnected = true;
-
-                if (message.StartsWith("PING ", StringComparison.Ordinal))
-                {
-                    await Send(socket, "PONG " + message[5..], cancellation);
-                    continue;
-                }
-
-                ParseMessage(message);
-            }
+                await HandleMessageAsync(message, cancellationToken);
         }
     }
 
-    private static Task Send(ClientWebSocket socket, string message, CancellationToken cancellation)
+    private async Task HandleMessageAsync(string message, CancellationToken cancellationToken)
     {
-        return socket.SendAsync(
-            Encoding.UTF8.GetBytes(message + "\r\n"),
-            WebSocketMessageType.Text,
-            true,
-            cancellation);
-    }
+        if (message.Contains("Login authentication failed", StringComparison.OrdinalIgnoreCase) ||
+            message.Contains("Improperly formatted auth", StringComparison.OrdinalIgnoreCase))
+        {
+            if (_socket != null)
+                await _socket.CloseAsync(WebSocketCloseStatus.PolicyViolation, "Authentication failed", cancellationToken);
+            return;
+        }
 
-    private void ParseMessage(string message)
-    {
-        var marker = $" PRIVMSG #{_channel} :";
-        var markerIndex = message.IndexOf(marker, StringComparison.OrdinalIgnoreCase);
+        if (message.StartsWith("PING ", StringComparison.Ordinal))
+        {
+            await SendAsync("PONG " + message[5..], cancellationToken);
+            return;
+        }
+
+        if (message.Contains(" RECONNECT", StringComparison.Ordinal))
+        {
+            if (_socket != null)
+                await _socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Reconnect", cancellationToken);
+            return;
+        }
+
+        var joinIndex = message.IndexOf(" 366 ", StringComparison.Ordinal);
+        if (joinIndex >= 0)
+        {
+            var channelStart = message.IndexOf('#', joinIndex);
+            if (channelStart >= 0)
+            {
+                var channelEnd = message.IndexOf(' ', channelStart);
+                var joinedChannel = message[(channelStart + 1)..(channelEnd < 0 ? message.Length : channelEnd)];
+                lock (_channelLock)
+                    _joinedChannels.Add(joinedChannel);
+            }
+            return;
+        }
+
+        var roomStateIndex = message.IndexOf(" ROOMSTATE #", StringComparison.Ordinal);
+        if (roomStateIndex >= 0)
+        {
+            MarkJoined(message[(roomStateIndex + 12)..]);
+            return;
+        }
+
+        var ownJoinIndex = message.IndexOf(" JOIN #", StringComparison.Ordinal);
+        if (ownJoinIndex >= 0 &&
+            message.Contains($":{_botLogin}!", StringComparison.OrdinalIgnoreCase))
+        {
+            MarkJoined(message[(ownJoinIndex + 7)..]);
+            return;
+        }
+
+        var marker = " PRIVMSG #";
+        var markerIndex = message.IndexOf(marker, StringComparison.Ordinal);
         if (markerIndex < 0)
             return;
 
-        var command = message[(markerIndex + marker.Length)..].Trim().ToLowerInvariant();
+        var channelStartIndex = markerIndex + marker.Length;
+        var channelEndIndex = message.IndexOf(" :", channelStartIndex, StringComparison.Ordinal);
+        if (channelEndIndex < 0)
+            return;
+
+        var channel = message[channelStartIndex..channelEndIndex];
+        lock (_channelLock)
+        {
+            if (!_desiredChannels.Contains(channel))
+                return;
+        }
+
+        var prefixStart = message.IndexOf(':');
+        var prefixEnd = message.IndexOf('!', prefixStart + 1);
+        if (prefixStart < 0 || prefixEnd < 0)
+            return;
+
+        var viewer = message[(prefixStart + 1)..prefixEnd];
+        var command = message[(channelEndIndex + 2)..].Trim().ToLowerInvariant();
         if (command is not ("up" or "down" or "left" or "right" or "bite"))
             return;
 
-        var displayName = "Twitch chat";
         if (message.StartsWith('@'))
         {
             var tagEnd = message.IndexOf(' ');
@@ -132,13 +225,82 @@ public sealed class TwitchChatIrcClient(
                 if (!tag.StartsWith("display-name=", StringComparison.Ordinal))
                     continue;
 
-                var value = tag[13..];
-                if (!string.IsNullOrWhiteSpace(value))
-                    displayName = value;
+                var displayName = tag[13..];
+                if (!string.IsNullOrWhiteSpace(displayName))
+                    viewer = displayName;
                 break;
             }
         }
 
-        onCommand(displayName, command);
+        _onCommand(channel, viewer, command);
+    }
+
+    private void MarkJoined(string value)
+    {
+        var end = value.IndexOf(' ');
+        var channel = value[..(end < 0 ? value.Length : end)].Trim().TrimStart('#');
+        if (channel.Length == 0)
+            return;
+
+        lock (_channelLock)
+        {
+            if (_desiredChannels.Contains(channel))
+                _joinedChannels.Add(channel);
+        }
+    }
+
+    private async Task SendAsync(string message, CancellationToken cancellationToken)
+    {
+        var socket = _socket;
+        if (socket?.State != WebSocketState.Open)
+            return;
+
+        var bytes = Encoding.UTF8.GetBytes(message + "\r\n");
+        var lockTaken = false;
+        try
+        {
+            await _sendLock.WaitAsync(cancellationToken);
+            lockTaken = true;
+            if (socket.State == WebSocketState.Open)
+                await socket.SendAsync(bytes, WebSocketMessageType.Text, true, cancellationToken);
+        }
+        catch (WebSocketException)
+        {
+        }
+        catch (OperationCanceledException)
+        {
+        }
+        catch (ObjectDisposedException)
+        {
+        }
+        finally
+        {
+            if (lockTaken)
+                _sendLock.Release();
+        }
+    }
+
+    private static string NormalizeChannel(string channel)
+    {
+        return channel.Trim().TrimStart('#').ToLowerInvariant();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        _cancellation.Cancel();
+        if (_runTask != null)
+        {
+            try
+            {
+                await _runTask;
+            }
+            catch (OperationCanceledException)
+            {
+            }
+        }
+
+        _socket?.Dispose();
+        _sendLock.Dispose();
+        _cancellation.Dispose();
     }
 }

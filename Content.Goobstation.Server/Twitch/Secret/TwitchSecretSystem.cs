@@ -23,6 +23,7 @@ public sealed class TwitchSecretSystem : GameRuleSystem<TwitchSecretRuleComponen
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly EventManagerSystem _eventManager = default!;
     [Dependency] private readonly ITwitchApiManager _twitchApi = default!;
+    [Dependency] private readonly TwitchPairingSystem _pairings = default!;
 
     private TwitchEventVote? _activeVote;
     private CompletedVote? _lastResult;
@@ -231,6 +232,14 @@ public sealed class TwitchSecretSystem : GameRuleSystem<TwitchSecretRuleComponen
         if (!_twitchApi.TryGetExtensionIdentity(context, out var identity))
             throw new InvalidOperationException("An authenticated Twitch identity was not available.");
 
+        if (!_pairings.TryGetPairing(identity.ChannelId, out _))
+        {
+            await context.RespondJsonAsync(
+                new ApiError("channel_not_paired", "This Twitch channel has not been linked to the SS14 server."),
+                HttpStatusCode.Forbidden);
+            return;
+        }
+
         var response = await _twitchApi.RunOnMainThread(() => CreateStatus(identity.OpaqueUserId));
         await context.RespondJsonAsync(response);
     }
@@ -239,6 +248,14 @@ public sealed class TwitchSecretSystem : GameRuleSystem<TwitchSecretRuleComponen
     {
         if (!_twitchApi.TryGetExtensionIdentity(context, out var identity))
             throw new InvalidOperationException("An authenticated Twitch identity was not available.");
+
+        if (!_pairings.TryGetPairing(identity.ChannelId, out _))
+        {
+            await context.RespondJsonAsync(
+                new ApiError("channel_not_paired", "This Twitch channel has not been linked to the SS14 server."),
+                HttpStatusCode.Forbidden);
+            return;
+        }
 
         var request = await _twitchApi.ReadJsonAsync<CastVoteRequest>(context);
         if (request == null || string.IsNullOrWhiteSpace(request.VoteId) || string.IsNullOrWhiteSpace(request.OptionId))

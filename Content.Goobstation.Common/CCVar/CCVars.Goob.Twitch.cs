@@ -17,12 +17,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("twitch.extension.owner_user_id", "40710601", CVar.SERVERONLY);
 
     /// <summary>
-    /// Twitch channel this SS14 server accepts Extension requests for.
-    /// </summary>
-    public static readonly CVarDef<string> TwitchExtensionChannelId =
-        CVarDef.Create("twitch.extension.channel_id", "40710601", CVar.SERVERONLY);
-
-    /// <summary>
     /// Base64-encoded shared secret from the Twitch Extension settings.
     /// </summary>
     public static readonly CVarDef<string> TwitchExtensionSecret =
@@ -66,12 +60,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("twitch.bits.enabled", true, CVar.SERVERONLY);
 
     /// <summary>
-    /// SS14 username whose current in-round character receives Twitch Bits actions.
-    /// </summary>
-    public static readonly CVarDef<string> TwitchBitsTargetUsername =
-        CVarDef.Create("twitch.bits.target_username", "GoobStation", CVar.SERVERONLY);
-
-    /// <summary>
     /// Maximum number of characters accepted in a Twitch Bits station announcement.
     /// </summary>
     public static readonly CVarDef<int> TwitchBitsStationAnnouncementMaxLength =
@@ -84,12 +72,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("twitch.bits.character_speech_max_length", 120, CVar.SERVERONLY);
 
     /// <summary>
-    /// Twitch channel login read by Chat Critter for movement commands.
-    /// </summary>
-    public static readonly CVarDef<string> TwitchChatChannelLogin =
-        CVarDef.Create("twitch.chat.channel_login", string.Empty, CVar.SERVERONLY);
-
-    /// <summary>
     /// Twitch account login used by the server to read channel chat.
     /// </summary>
     public static readonly CVarDef<string> TwitchChatBotLogin =
@@ -100,6 +82,24 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<string> TwitchChatOauthToken =
         CVarDef.Create("twitch.chat.oauth_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    /// <summary>
+    /// Client ID of the Twitch application used by the chat bot account.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchChatClientId =
+        CVarDef.Create("twitch.chat.client_id", string.Empty, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Client secret of the Twitch application used to refresh the chat bot token.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchChatClientSecret =
+        CVarDef.Create("twitch.chat.client_secret", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    /// <summary>
+    /// OAuth refresh token for the Twitch chat bot account.
+    /// </summary>
+    public static readonly CVarDef<string> TwitchChatRefreshToken =
+        CVarDef.Create("twitch.chat.refresh_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     /// <summary>
     /// Number of seconds a Chat Critter session remains active.

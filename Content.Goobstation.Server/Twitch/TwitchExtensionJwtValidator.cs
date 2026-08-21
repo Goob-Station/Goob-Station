@@ -26,7 +26,7 @@ public static class TwitchExtensionJwtValidator
     public static bool TryValidate(
         string token,
         ReadOnlySpan<byte> secret,
-        string expectedChannelId,
+        string? expectedChannelId,
         DateTimeOffset now,
         [NotNullWhen(true)] out TwitchExtensionIdentity? identity,
         out TwitchExtensionJwtValidationError error)
@@ -34,7 +34,7 @@ public static class TwitchExtensionJwtValidator
         identity = null;
         error = TwitchExtensionJwtValidationError.Malformed;
 
-        if (secret.IsEmpty || string.IsNullOrWhiteSpace(expectedChannelId))
+        if (secret.IsEmpty)
         {
             error = TwitchExtensionJwtValidationError.MissingConfiguration;
             return false;
@@ -98,7 +98,8 @@ public static class TwitchExtensionJwtValidator
             using var payload = JsonDocument.Parse(payloadBytes);
             var root = payload.RootElement;
 
-            if (!TryReadString(root, "channel_id", out var channelId) || channelId != expectedChannelId)
+            if (!TryReadString(root, "channel_id", out var channelId) ||
+                !string.IsNullOrWhiteSpace(expectedChannelId) && channelId != expectedChannelId)
             {
                 error = TwitchExtensionJwtValidationError.InvalidChannel;
                 return false;

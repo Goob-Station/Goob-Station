@@ -36,7 +36,6 @@ public sealed class TwitchApiManager : ITwitchApiManager
 
     private ISawmill _sawmill = default!;
     private volatile bool _enabled;
-    private volatile string _extensionChannelId = string.Empty;
     private volatile string _extensionClientId = string.Empty;
     private byte[] _extensionSecret = [];
     private volatile int _maxRequestBodySize = 64 * 1024;
@@ -67,7 +66,6 @@ public sealed class TwitchApiManager : ITwitchApiManager
             availableWhenDisabled: false);
 
         _configuration.OnValueChanged(GoobCVars.TwitchExtensionClientId, OnExtensionClientIdChanged, true);
-        _configuration.OnValueChanged(GoobCVars.TwitchExtensionChannelId, OnExtensionChannelIdChanged, true);
         _configuration.OnValueChanged(GoobCVars.TwitchExtensionSecret, OnExtensionSecretChanged, true);
         _configuration.OnValueChanged(GoobCVars.TwitchApiEnabled, OnEnabledChanged, true);
         _configuration.OnValueChanged(GoobCVars.TwitchApiToken, OnTokenChanged, true);
@@ -84,7 +82,6 @@ public sealed class TwitchApiManager : ITwitchApiManager
             return;
 
         _configuration.UnsubValueChanged(GoobCVars.TwitchExtensionClientId, OnExtensionClientIdChanged);
-        _configuration.UnsubValueChanged(GoobCVars.TwitchExtensionChannelId, OnExtensionChannelIdChanged);
         _configuration.UnsubValueChanged(GoobCVars.TwitchExtensionSecret, OnExtensionSecretChanged);
         _configuration.UnsubValueChanged(GoobCVars.TwitchApiEnabled, OnEnabledChanged);
         _configuration.UnsubValueChanged(GoobCVars.TwitchApiToken, OnTokenChanged);
@@ -426,7 +423,7 @@ public sealed class TwitchApiManager : ITwitchApiManager
             valid = TwitchExtensionJwtValidator.TryValidate(
                 token,
                 _extensionSecret,
-                _extensionChannelId,
+                null,
                 DateTimeOffset.UtcNow,
                 out identity,
                 out error);
@@ -581,11 +578,6 @@ public sealed class TwitchApiManager : ITwitchApiManager
     private void OnExtensionClientIdChanged(string clientId)
     {
         _extensionClientId = clientId.Trim();
-    }
-
-    private void OnExtensionChannelIdChanged(string channelId)
-    {
-        _extensionChannelId = channelId.Trim();
     }
 
     private void OnExtensionSecretChanged(string encodedSecret)
