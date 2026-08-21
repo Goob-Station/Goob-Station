@@ -283,7 +283,6 @@
   - type: Body
     prototype: AnimalNymphBrain
 
-
 - type: entity
   id: OrganDionaNymphStomach
   parent: MobDionaNymphAccent
