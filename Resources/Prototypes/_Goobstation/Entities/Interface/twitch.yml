@@ -6,4 +6,4 @@
   components:
   - type: Eye
     drawFov: true
-    zoom: 0.3, 0.3
+    zoom: 0.4, 0.4

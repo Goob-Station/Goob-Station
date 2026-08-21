@@ -15,6 +15,7 @@ SPDX-License-Identifier: MIT
     <PanelContainer Name="ChatWindowPanel" Access="Public" HorizontalExpand="True" VerticalExpand="True"
                     StyleClasses="StyleNano.StyleClassChatPanel">
         <BoxContainer Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer Name="TwitchChatCritterContainer" Access="Public" Orientation="Vertical" HorizontalExpand="True" Visible="False" Margin="8 8 8 0" />
             <!-- Goobstation Change - Output Panel -->
             <goobcontrols:CustomOutputPanel Name="Contents" HorizontalExpand="True" VerticalExpand="True" Margin="8 8 8 4" />
             <controls:ChatInputBox HorizontalExpand="True" Name="ChatInput" Access="Public" Margin="2"/>
