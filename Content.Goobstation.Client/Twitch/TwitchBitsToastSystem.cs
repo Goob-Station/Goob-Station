@@ -32,7 +32,7 @@ public sealed class TwitchBitsToastSystem : EntitySystem
             MouseFilter = Control.MouseFilterMode.Ignore,
         };
         _ui.RootControl.AddChild(_stack);
-        LayoutContainer.SetAnchorAndMarginPreset(_stack, LayoutContainer.LayoutPreset.TopRight, 20);
+        LayoutContainer.SetAnchorAndMarginPreset(_stack, LayoutContainer.LayoutPreset.TopRight, margin: 20);
         LayoutContainer.SetMarginTop(_stack, 80);
     }
 
