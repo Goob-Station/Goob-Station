@@ -126,7 +126,7 @@
       Combat: 20
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 200 # same as Singular traitor, even though his threat level is much lower
+    chaosScore: 280
   - type: AntagSpawner
     prototype: MobHumanTunnelClown
   - type: AntagSelection
@@ -344,7 +344,7 @@
   - type: StationEvent
     earliestStart: 35
     maxOccurrences: 1 # yeah...
-    weight: 2.5
+    weight: 2.0 # compensate for lower chaos score
     minimumPlayers: 50
     duration: 1
     chaos:
@@ -399,7 +399,7 @@
   id: SlasherSpawn
   components:
   - type: StationEvent
-    weight: 3
+    weight: 2
     duration: null
     earliestStart: 30
     minimumPlayers: 30
