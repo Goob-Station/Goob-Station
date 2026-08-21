@@ -14,13 +14,21 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle: null # no raffle for spammed role fuck you
   - type: GhostRoleMobSpawner
-    prototype: MobBingleRandom
+    prototype: MobBingle
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
       - state: green
       - sprite: _Goobstation/Mobs/Bingle/bingle.rsi
         state: icon
+
+- type: entity
+  id: SpawnPointGhostTurkle
+  parent: SpawnPointGhostBingle
+  suffix: Turkle
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobTurkle
 
 - type: entity
   id: SpawnPointGhostBinglePrime
