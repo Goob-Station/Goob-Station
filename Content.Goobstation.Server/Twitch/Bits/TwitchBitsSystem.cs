@@ -4,14 +4,13 @@ using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Shared.Twitch;
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
-using Content.Server.Popups;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Popups;
 using Robust.Server.Player;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;
@@ -25,7 +24,6 @@ public sealed class TwitchBitsSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ITwitchApiManager _twitchApi = default!;
 
     private readonly Dictionary<string, ITwitchBitsAction> _actions = new(StringComparer.Ordinal);
@@ -287,11 +285,9 @@ public sealed class TwitchBitsSystem : EntitySystem
 
     private void ShowRedemptionToast(EntityUid target, string twitchUserName, string actionName)
     {
-        _popup.PopupEntity(
-            $"{twitchUserName} redeemed {actionName}.",
-            target,
-            target,
-            PopupType.Medium);
+        RaiseNetworkEvent(
+            new TwitchBitsToastEvent($"{twitchUserName} redeemed {actionName}."),
+            target);
     }
 
     private static string NormalizeTwitchUserName(string? displayName, string fallback)
