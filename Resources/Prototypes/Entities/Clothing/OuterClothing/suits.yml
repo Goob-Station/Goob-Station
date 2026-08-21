@@ -35,6 +35,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.8
+  - type: ZombificationResistance # Goobstation - Zombies
+    zombificationResistanceCoefficient: 0.45 # Thick suit
   - type: ExplosionResistance
     damageCoefficient: 0.15
   - type: GroupExamine
@@ -77,6 +79,8 @@
     coolingCoefficient: 0.05
   - type: FireProtection
     reduction: 0.65 # doesnt have a full seal so not as good
+  - type: ZombificationResistance # Goobstation - Zombies
+    zombificationResistanceCoefficient: 0.50
   - type: Armor
     coverage:
     - Chest
@@ -127,6 +131,8 @@
     coolingCoefficient: 0.05
   - type: FireProtection
     reduction: 0.8 # atmos firesuit offers best protection, hardsuits are a little vulnerable
+  - type: ZombificationResistance # Goobstation - Zombies
+    zombificationResistanceCoefficient: 0.50
   - type: Armor
     coverage:
     - Chest
@@ -189,6 +195,8 @@
         Radiation: 0.01
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
+  - type: ZombificationResistance # Goobstation - Zombies
+    zombificationResistanceCoefficient: 0.50
   - type: GroupExamine
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
