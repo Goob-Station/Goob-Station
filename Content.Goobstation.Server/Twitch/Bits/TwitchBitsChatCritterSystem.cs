@@ -66,7 +66,6 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
     {
         base.Initialize();
         _twitchBits.RegisterAction(this);
-        SubscribeNetworkEvent<TwitchChatCritterCloseEvent>(OnClose);
         SubscribeLocalEvent<TwitchPairingChangedEvent>(OnPairingChanged);
 
         _botLogin = _configuration.GetCVar(GoobCVars.TwitchChatBotLogin).Trim();
@@ -171,16 +170,17 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
         var camera = SpawnAttachedTo("TwitchChatCamera", critter.ToCoordinates());
         _views.AddViewSubscriber(camera, session);
 
+        var expiresAt = _timing.CurTime + TimeSpan.FromSeconds(Math.Clamp(
+            _configuration.GetCVar(GoobCVars.TwitchChatCritterDuration),
+            30,
+            1800));
         _active[context.ChannelId] = new ActiveCritter(
             pairing.ChannelLogin,
             critter,
             camera,
             session,
-            _timing.CurTime + TimeSpan.FromSeconds(Math.Clamp(
-                _configuration.GetCVar(GoobCVars.TwitchChatCritterDuration),
-                30,
-                1800)));
-        RaiseNetworkEvent(new TwitchChatCritterOpenEvent(GetNetEntity(camera)), session);
+            expiresAt);
+        RaiseNetworkEvent(new TwitchChatCritterOpenEvent(GetNetEntity(camera), expiresAt), session);
         return true;
     }
 
@@ -230,15 +230,6 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
             .FirstOrDefault();
         if (target.Owner.Valid)
             _melee.AttemptLightAttack(critter, critter, weapon, target.Owner);
-    }
-
-    private void OnClose(TwitchChatCritterCloseEvent message, EntitySessionEventArgs args)
-    {
-        var camera = GetEntity(message.Camera);
-        var state = _active.Values.FirstOrDefault(active =>
-            active.Camera == camera && args.SenderSession == active.Streamer);
-        if (state != null && Exists(camera))
-            _views.RemoveViewSubscriber(camera, args.SenderSession);
     }
 
     private void OnPairingChanged(TwitchPairingChangedEvent args)

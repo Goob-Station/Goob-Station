@@ -6,6 +6,7 @@ using Content.Goobstation.Shared.Twitch;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Twitch;
 
@@ -14,6 +15,7 @@ public sealed class TwitchChatCritterSystem : EntitySystem
     private static readonly Vector2 ChatZoom = new(0.4f, 0.4f);
 
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private SharedEyeSystem _eye = default!;
     private EyeLerpingSystem _eyes = default!;
@@ -24,6 +26,8 @@ public sealed class TwitchChatCritterSystem : EntitySystem
     private BoxContainer? _content;
     private ScalingViewport? _viewport;
     private Label? _commandLabel;
+    private Label? _timerLabel;
+    private TimeSpan _expiresAt;
 
     public override void Initialize()
     {
@@ -32,18 +36,19 @@ public sealed class TwitchChatCritterSystem : EntitySystem
         _eyes = EntityManager.System<EyeLerpingSystem>();
         SubscribeNetworkEvent<TwitchChatCritterOpenEvent>(OnOpen);
         SubscribeNetworkEvent<TwitchChatCritterCommandEvent>(OnCommand);
-        SubscribeNetworkEvent<TwitchChatCritterClosedEvent>(_ => ClosePanel(false));
+        SubscribeNetworkEvent<TwitchChatCritterClosedEvent>(_ => ClosePanel());
     }
 
     public override void Shutdown()
     {
-        ClosePanel(false);
+        ClosePanel();
         base.Shutdown();
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+        UpdateTimer();
 
         if (_pendingCamera is { } netCamera)
         {
@@ -77,7 +82,8 @@ public sealed class TwitchChatCritterSystem : EntitySystem
 
     private void OnOpen(TwitchChatCritterOpenEvent message)
     {
-        ClosePanel(false);
+        ClosePanel();
+        _expiresAt = message.ExpiresAt;
         _pendingCamera = message.Camera;
     }
 
@@ -117,19 +123,20 @@ public sealed class TwitchChatCritterSystem : EntitySystem
             HorizontalExpand = true,
             ClipText = true,
         };
-        var close = new Button
+        _timerLabel = new Label
         {
-            Text = "×",
-            MinSize = new Vector2(28, 24),
+            MinSize = new Vector2(44, 24),
+            HorizontalAlignment = Control.HAlignment.Center,
+            VerticalAlignment = Control.VAlignment.Center,
         };
-        close.OnPressed += _ => ClosePanel(true);
+        UpdateTimer();
         var header = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
             Children =
             {
                 _commandLabel,
-                close,
+                _timerLabel,
             },
         };
         _content = new BoxContainer
@@ -146,18 +153,24 @@ public sealed class TwitchChatCritterSystem : EntitySystem
         host.Visible = true;
     }
 
-    private void ClosePanel(bool notifyServer)
+    private void UpdateTimer()
+    {
+        if (_timerLabel == null)
+            return;
+
+        var seconds = Math.Max(0, (int) Math.Ceiling((_expiresAt - _timing.CurTime).TotalSeconds));
+        _timerLabel.Text = $"{seconds / 60}:{seconds % 60:00}";
+    }
+
+    private void ClosePanel()
     {
         var camera = _camera;
         _pendingCamera = null;
         _camera = null;
+        _expiresAt = TimeSpan.Zero;
 
         if (camera is { } entity && Exists(entity))
-        {
             _eyes.RemoveEye(entity);
-            if (notifyServer)
-                RaiseNetworkEvent(new TwitchChatCritterCloseEvent(GetNetEntity(entity)));
-        }
 
         UnmountPanel();
     }
@@ -171,6 +184,7 @@ public sealed class TwitchChatCritterSystem : EntitySystem
         _content = null;
         _viewport = null;
         _commandLabel = null;
+        _timerLabel = null;
     }
 
     private void ResizeViewport()
