@@ -19,6 +19,8 @@ namespace Content.Goobstation.Server.Twitch.Bits;
 
 public sealed class TwitchBitsSystem : EntitySystem
 {
+    private const string AnonymousDebugUser = "Anonymous";
+
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
@@ -191,9 +193,7 @@ public sealed class TwitchBitsSystem : EntitySystem
         var result = await _twitchApi.RunOnMainThread(() => ProcessDebugAction(
             identity.ChannelId,
             request.ActionId,
-            request.Input,
-            request.DisplayName,
-            identity.UserId ?? identity.OpaqueUserId));
+            request.Input));
         if (result.Status is ProcessStatus.Accepted or ProcessStatus.Queued)
         {
             await context.RespondJsonAsync(new ExecuteActionResponse(
@@ -333,37 +333,43 @@ public sealed class TwitchBitsSystem : EntitySystem
         return new ProcessResult(ProcessStatus.Accepted, action, null, false);
     }
 
-    private ProcessResult ProcessDebugAction(string channelId, string actionId, string? input, string? displayName, string actor)
+    private ProcessResult ProcessDebugAction(string channelId, string actionId, string? input)
     {
         if (!_actions.TryGetValue(actionId, out var action))
             return new ProcessResult(ProcessStatus.UnknownSku, null, "That debug action does not exist.", false);
 
-        var twitchUserName = NormalizeTwitchUserName(displayName, actor);
-        var actionContext = new TwitchBitsActionContext(channelId, null, input, true, twitchUserName);
+        var actionContext = new TwitchBitsActionContext(channelId, null, input, true, AnonymousDebugUser);
         var validity = IsCurrentlyValid(action, actionContext, out var target);
         if (!validity.IsValid)
             return new ProcessResult(ProcessStatus.Unavailable, action, validity.Reason, false);
 
         if (action.RequiresInput)
         {
-            var pending = QueueModeration(action, channelId, input, twitchUserName, actor, null, true);
+            var pending = QueueModeration(
+                action,
+                channelId,
+                input,
+                AnonymousDebugUser,
+                AnonymousDebugUser,
+                null,
+                true);
             _adminLogger.Add(
                 LogType.Action,
                 LogImpact.Medium,
-                $"Twitch viewer {actor} queued free debug action {action.Id} for moderation.");
+                $"An anonymous Twitch viewer queued free debug action {action.Id} for moderation.");
             return new ProcessResult(ProcessStatus.Queued, action, null, false, pending.Id);
         }
 
         if (!action.Execute(target, actionContext))
             return new ProcessResult(ProcessStatus.Unavailable, action, "The SS14 server could not complete that action.", false);
 
-        ShowRedemptionToast(target, twitchUserName, action.DisplayName);
+        ShowRedemptionToast(target, AnonymousDebugUser, action.DisplayName);
         var impact = action.Id == "arm-nuke" ? LogImpact.High : LogImpact.Medium;
         _adminLogger.Add(
             LogType.Action,
             impact,
-            $"Twitch viewer {actor} ran free debug action {action.Id} on {ToPrettyString(target)}.");
-        Log.Info($"Processed free Twitch debug action from {actor}: {action.Id}");
+            $"An anonymous Twitch viewer ran free debug action {action.Id} on {ToPrettyString(target)}.");
+        Log.Info($"Processed anonymous free Twitch debug action: {action.Id}");
         return new ProcessResult(ProcessStatus.Accepted, action, null, false);
     }
 
@@ -573,8 +579,7 @@ public sealed class TwitchBitsSystem : EntitySystem
 
     private sealed record DebugActionRequest(
         [property: JsonPropertyName("actionId")] string? ActionId,
-        [property: JsonPropertyName("input")] string? Input,
-        [property: JsonPropertyName("displayName")] string? DisplayName);
+        [property: JsonPropertyName("input")] string? Input);
 
     private sealed record ExecuteActionResponse(
         [property: JsonPropertyName("actionId")] string ActionId,

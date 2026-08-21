@@ -1,0 +1,9 @@
+- type: entity
+  parent: AdminCamera
+  id: TwitchChatCamera
+  categories: [ HideSpawnMenu ]
+  name: Chat camera
+  components:
+  - type: Eye
+    drawFov: true
+    zoom: 0.3, 0.3

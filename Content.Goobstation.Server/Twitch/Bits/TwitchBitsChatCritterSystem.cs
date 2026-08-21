@@ -14,6 +14,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Station.Components;
 using Content.Shared.Weapons.Melee;
+using Content.Shared._vg.TileMovement;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Asynchronous;
@@ -160,11 +161,14 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
         RemComp<HTNComponent>(critter);
         RemComp<GhostRoleComponent>(critter);
         RemComp<GhostTakeoverAvailableComponent>(critter);
+        EnsureComp<TileMovementComponent>(critter);
         _godmode.EnableGodmode(critter);
         _combat.SetInCombatMode(critter, true);
         _meta.SetEntityName(critter, "Chat");
+        if (TryComp<InputMoverComponent>(critter, out var inputMover))
+            _mover.SetSprinting((critter, inputMover), ushort.MaxValue, true);
 
-        var camera = SpawnAttachedTo("AdminCamera", critter.ToCoordinates());
+        var camera = SpawnAttachedTo("TwitchChatCamera", critter.ToCoordinates());
         _views.AddViewSubscriber(camera, session);
 
         _active[context.ChannelId] = new ActiveCritter(
@@ -206,7 +210,7 @@ public sealed class TwitchBitsChatCritterSystem : EntitySystem, ITwitchBitsActio
                 StopMoving(state, mover);
                 _mover.SetVelocityDirection((state.Critter, mover), direction, ushort.MaxValue, true);
                 state.Direction = direction;
-                state.StopAt = _timing.CurTime + TimeSpan.FromSeconds(0.45);
+                state.StopAt = _timing.CurTime + TimeSpan.FromSeconds(0.08);
             }
         }
 
