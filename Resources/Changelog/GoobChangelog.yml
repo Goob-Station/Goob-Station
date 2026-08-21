@@ -24503,3 +24503,9 @@ Entries:
         tied down.
   id: 2806
   time: '2026-08-21T04:54:36.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: bingles now raffle correctly
+  id: 2807
+  time: '2026-08-21T14:46:11.0000000+00:00'
