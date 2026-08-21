@@ -746,7 +746,7 @@
   - type: StationEvent
     earliestStart: 35
     weight: 2.5 # Goobstation - was 5.5
-    minimumPlayers: 50 # Goobstation - was 20
+    minimumPlayers: 40 # Goobstation - was 20
     duration: 720 # Goobstation - required for custom nuke music. 720s to ensure loneop can hear the music and still have space for other midrounds incase of failure
     chaos: # Goobstation
       Hostile: 200
