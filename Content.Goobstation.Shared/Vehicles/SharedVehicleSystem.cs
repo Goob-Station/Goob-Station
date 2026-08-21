@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -30,6 +20,7 @@ using Content.Shared.Destructible;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Actions.Components;
+using Content.Shared.Gravity;
 
 namespace Content.Goobstation.Shared.Vehicles;
 
@@ -43,6 +34,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
     private static readonly EntProtoId HornActionId = "ActionHorn";
     private static readonly EntProtoId SirenActionId = "ActionSiren";
@@ -66,12 +58,21 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         SubscribeLocalEvent<VehicleComponent, BreakageEventArgs>(OnBreak);
         SubscribeLocalEvent<VehicleComponent, DamageChangedEvent>(OnRepair);
         SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
+        SubscribeLocalEvent<VehicleComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessModifiers);
     }
 
     private void OnInit(EntityUid uid, VehicleComponent component, ComponentInit args)
     {
+        EnsureComp<GravityAffectedComponent>(uid);
+        _gravity.RefreshWeightless(uid);
+
         _appearance.SetData(uid, VehicleState.Animated, component.EngineRunning);
         _appearance.SetData(uid, VehicleState.DrawOver, false);
+    }
+
+    private void OnRefreshWeightlessModifiers(EntityUid uid, VehicleComponent component, ref RefreshWeightlessModifiersEvent args)
+    {
+        args.WeightlessModifier = 0;
     }
 
     private void OnRemove(EntityUid uid, VehicleComponent component, ComponentRemove args)
