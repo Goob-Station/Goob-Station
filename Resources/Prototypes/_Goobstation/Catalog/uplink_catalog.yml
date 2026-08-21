@@ -368,7 +368,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: WeaponRifleBurner
   cost:
-    Telecrystal: 130 # current best weapon with delimb and explosions fixed
+    Telecrystal: 100 # should be fine after explosion limb modifier got fixed
   categories:
   - UplinkWeaponry
   conditions:
