@@ -1,3 +1,20 @@
+# Goobstation edit start
+- type: loadoutEffectGroup
+  id: SeniorAtmos
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobAtmosphericTechnician
+      time: 6h
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 60h
+# Goobstation edit end
+
+
 - type: loadout
   id: AtmosEnvirosuit
   equipment:
@@ -24,3 +41,16 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+- type: loadout
+  id: AtmosphericTechnicianUtilityBelt
+  equipment:
+    jumpsuit: ClothingBeltUtilityEngineering
+    
+- type: loadout
+  id: AtmosphericTechnicianAtmosBelt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorAtmos
+  equipment:
+    jumpsuit: ClothingBeltUtilityAtmosFilled

@@ -35,3 +35,25 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  
+- type: rcd
+  id: PipeManifold
+  category: Piping
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/pipeManifold.png
+  mode: ConstructObject
+  prototype: GasPipeManifold
+  cost: 1
+  delay: 0
+  rotation: User
+  fx: EffectRCDConstruct0
+  
+- type: rcd
+  id: PipePressureRegulator
+  category: PumpsValves
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/pressureRegulator.png
+  mode: ConstructObject
+  prototype: GasPressureRegulator
+  cost: 2
+  delay: 0
+  rotation: User
+  fx: EffectRCDConstruct0
