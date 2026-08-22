@@ -11,11 +11,11 @@
 - type: damageModifierSet
   id: Xenoborg 
   coefficients:
-    Ion: 0.5
+    Ion: 0.75
     Heat: 0.8
     Blunt: 0.8
     Slash: 0.8
-    Shock: 5 # my shaft miners shall validhunt with the LL syndie defib
+    Shock: 4 # my shaft miners shall validhunt with the LL syndie defib
 
 - type: damageModifierSet
   id: SiliconProtected
