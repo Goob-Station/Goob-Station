@@ -31,7 +31,7 @@ public sealed partial class RandomSpeciesChangeSystem
         if (list.Count == 0)
             return;
 
-        var sce = new SpeciesChange(_random.Pick(list).ID);
+        var sce = new SpeciesChange(_random.Pick(list).ID, effect.TransferAppearance);
         _effects.TryApplyEffect(entity.Owner, sce);
     }
 }
@@ -40,6 +40,7 @@ public sealed partial class RandomSpeciesChange : EntityEffectBase<RandomSpecies
 {
     [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesWhitelist;
     [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesBlacklist;
+    [DataField] public bool TransferAppearance;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-change-species-random");
