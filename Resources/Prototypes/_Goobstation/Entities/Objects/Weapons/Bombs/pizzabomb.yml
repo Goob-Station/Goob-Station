@@ -7,14 +7,21 @@
   id: FoodBoxPizzaBomb
   name: pizza box
   suffix: Bomb
-  description: A cardboard box for storing things.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Bombs/Pizzabomb.rsi
     layers:
     - state: icon
+      map: ["enum.TriggerVisualLayers.Base", "enum.ConstructionVisuals.Layer"]
     - state: primed
-      map: ["enum.TriggerVisualLayers.Base"]
+      map: ["enum.StorageVisualLayers.Door"]
+      visible: false
+  - type: EntityStorageVisuals
+    stateDoorOpen: primed
+    stateDoorClosed: null
+  - type: TriggerOnUiOpen
+    uiKeys:
+    - enum.StorageUiKey.Key
   - type: TimerTrigger
     delay: 100
     examinable: false
