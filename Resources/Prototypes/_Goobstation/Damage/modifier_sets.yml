@@ -9,6 +9,11 @@
     Piercing: 0.9
 
 - type: damageModifierSet
+  id: Xenoborg # just for ion damage resist
+  coefficients:
+    Ion: 0.5
+
+- type: damageModifierSet
   id: SiliconProtected
   coefficients:
     Blunt: 0.6
