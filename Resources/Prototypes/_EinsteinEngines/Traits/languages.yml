@@ -27,7 +27,7 @@
   name: trait-language-signlanguage-name
   description: trait-language-signlanguage-desc
   category: LanguageTraits
-  cost: 1
+  cost: 2 # Goob
   components:
   - type: LanguageSpeaker
   languagesSpoken:
