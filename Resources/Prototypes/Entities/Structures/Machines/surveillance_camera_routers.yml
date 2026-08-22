@@ -61,6 +61,7 @@
         - SurveillanceCameraGeneral
         - SurveillanceCameraMedical
         - SurveillanceCameraCommand
+        - SurveillanceCameraLavaland # Lavaland Change
 
 - type: entity
   parent: SurveillanceCameraRouterBase

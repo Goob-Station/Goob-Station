@@ -1,5 +1,17 @@
-station-beacon-ruin-lavaland = Lavaland
+# Lavaland Outpost
+station-beacon-lavaland = Lavaland
+station-beacon-lavaland-atmos = Lavaland Atmos
+station-beacon-lavaland-cargo-equipment = Lavaland Cargo equipment
+station-beacon-lavaland-generator = Lavaland Power Generator
+station-beacon-lavaland-tools-room = Lavaland Tools room
+station-beacon-lavaland-rest-room = Lavaland Rest room
+station-beacon-lavaland-qm-office = Lavaland QM's office
+station-beacon-lavaland-server = Lavaland Server room
+station-beacon-lavaland-storage = Lavaland Storage
+station-beacon-lavaland-dorms = Lavaland Dorms
+station-beacon-lavaland-medbay = Lavaland Medbay
 
+# Ruins
 station-beacon-ruin-abductor = Alien Signal
 station-beacon-ruin-arrivals = Arrivals Shuttle Signal
 station-beacon-ruin-beach-biodome = Beach Biodome
