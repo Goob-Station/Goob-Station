@@ -8,11 +8,11 @@
   - type: Sprite
     sprite: Mobs/Species/Diona/organs.rsi
   - type: Organ
-    intCap: 24
-    integrity: 24
+    intCap: 120
+    integrity: 120
     integrityThresholds:
-      Normal: 24
-      Damaged: 15
+      Normal: 120
+      Damaged: 75
       Destroyed: 0
   - type: Edible
   - type: Extractable
@@ -68,11 +68,11 @@
   - type: Sprite
     state: brain
   - type: Organ # Shitmed
-    intCap: 28
-    integrity: 28
+    intCap: 140
+    integrity: 140
     integrityThresholds:
-      Normal: 28
-      Damaged: 16
+      Normal: 140
+      Damaged: 80
       Destroyed: 0
     slotId: brain
   - type: Brain # Shitmed
@@ -113,11 +113,11 @@
       - state: eyeball-l
       - state: eyeball-r
   - type: Organ # Shitmed
-    intCap: 17 # dionas will have better eyes. :fort:
-    integrity: 17
+    intCap: 85 # dionas will have better eyes. :fort:
+    integrity: 85
     integrityThresholds:
-      Normal: 17
-      Damaged: 8
+      Normal: 85
+      Damaged: 40
       Destroyed: 0
     slotId: eyes
   - type: Tag # goob edit
@@ -144,11 +144,11 @@
         - ReagentId: Cellulose
           Quantity: 5
   - type: Organ # Shitmed
-    intCap: 35
-    integrity: 35
+    intCap: 175
+    integrity: 175
     integrityThresholds:
-      Normal: 35
-      Damaged: 19
+      Normal: 175
+      Damaged: 95
       Destroyed: 0
     slotId: stomach
   - type: Stomach
@@ -181,11 +181,11 @@
   - type: Sprite
     state: lungs
   - type: Organ # Shitmed
-    intCap: 21
-    integrity: 21
+    intCap: 105
+    integrity: 105
     integrityThresholds:
-      Normal: 21
-      Damaged: 12
+      Normal: 105
+      Damaged: 60
       Destroyed: 0
     slotId: lungs
   - type: Item

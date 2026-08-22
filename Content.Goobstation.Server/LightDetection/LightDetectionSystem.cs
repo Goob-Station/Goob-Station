@@ -53,7 +53,7 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
 
     public override void Update(float frameTime)
     {
-        if (_nextUpdate < _timing.CurTime)
+        if (_nextUpdate > _timing.CurTime)
             return;
 
         _nextUpdate = _timing.CurTime + TimeSpan.FromSeconds(UpdateFrequency);

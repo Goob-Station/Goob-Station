@@ -792,7 +792,6 @@
   - type: PacifismAllowedGun
   - type: GunExecutionBlacklist # Goobstation
 
-
 - type: entity
   name: Taser # Goobstation
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
@@ -832,7 +831,6 @@
   - type: Appearance
   - type: PacifismAllowedGun
   - type: GunExecutionBlacklist # Goobstation
-
 
 - type: entity
   name: elite taser

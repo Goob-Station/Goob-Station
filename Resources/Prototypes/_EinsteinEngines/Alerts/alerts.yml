@@ -15,3 +15,13 @@
       state: too_much_oxy
   name: alerts-high-oxygen-name
   description: alerts-high-oxygen-desc
+
+- type: alert
+  parent: BorgBattery
+  id: SiliconBattery
+  clientHandled: false # The silicon charge is not predicted so dont let the client handle it
+
+- type: alert
+  parent: BorgBatteryNone
+  id: SiliconBatteryNone
+  clientHandled: false # The silicon charge is not predicted so dont let the client handle it

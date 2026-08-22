@@ -1,0 +1,11 @@
+- type: entity
+  parent: TrashMimanaPeel
+  id: MimanaPeelStealthy
+  name: mimana peel
+  suffix: Stealthy
+  components:
+  - type: Stealth
+    maxVisibility: 1
+  - type: StealthOnMove
+    passiveVisibilityRate: -0.5
+    movementVisibilityRate: 0.6

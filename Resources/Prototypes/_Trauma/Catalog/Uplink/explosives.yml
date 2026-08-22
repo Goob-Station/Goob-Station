@@ -1,0 +1,19 @@
+- type: listing
+  id: UplinkGrenadeShrapnelFoam
+  name: uplink-explosive-foam-grenade-name
+  description: uplink-explosive-foam-grenade-desc
+  productEntity: GrenadeShrapnelFoam
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkStickyGrenade
+  name: uplink-sticky-grenade-name
+  description: uplink-sticky-grenade-desc
+  productEntity: StickyGrenade
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkExplosives

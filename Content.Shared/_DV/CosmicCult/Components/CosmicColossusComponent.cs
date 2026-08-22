@@ -46,7 +46,7 @@ public sealed partial class CosmicColossusComponent : Component
 
     [DataField] public EntityUid? EffigyPlaceActionEntity;
 
-    [DataField] public TimeSpan IngressDoAfter = TimeSpan.FromSeconds(4);
+    [DataField] public TimeSpan IngressDoAfter = TimeSpan.FromSeconds(1); // Goobstation
 
     [DataField] public TimeSpan AttackWait = TimeSpan.FromSeconds(1.5);
 

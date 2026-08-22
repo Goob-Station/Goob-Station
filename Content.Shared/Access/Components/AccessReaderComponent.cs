@@ -97,6 +97,12 @@ public sealed partial class AccessReaderComponent : Component
     /// </remarks>
     [DataField]
     public LocId ExaminationText = "access-reader-examination";
+
+    /// <summary>
+    /// Goobstation - Whether or not the examination text should be shown.
+    /// </summary>
+    [DataField]
+    public bool ShouldShowExaminationText = true;
 }
 
 [DataDefinition, Serializable, NetSerializable]

@@ -59,7 +59,6 @@
     back:
     - Flash
     - MagazinePistol
-    - ClothingMaskGasSecurity # Goobstation
 
 - type: chameleonOutfit
   id: WardenChameleonOutfit

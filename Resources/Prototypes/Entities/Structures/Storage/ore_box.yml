@@ -82,6 +82,7 @@
         layer:
         - MachineLayer
   # Lavaland Change Start
+  - type: OreBag
   - type: Construction
     graph: OreBox
     node: crate

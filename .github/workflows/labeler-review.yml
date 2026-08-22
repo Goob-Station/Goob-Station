@@ -1,27 +1,132 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
+# This is shit and needs cleanup but since we are technically running this after a workflow that runs on the fork and not master i kinda want to make sure we use nothing from that workflow
+# Forgive me for the mess. This is overkill.
+# I am future planning against shit that will never end up mattering.
 name: "Labels: Approved"
 
 on:
-  pull_request_review:
-    types: [submitted]
+  workflow_run:
+    workflows: ["Review Trigger"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
 
 jobs:
-  add_label:
-    # Change the repository name after you've made sure the team name is correct for your fork!
-    if: ${{ (github.repository == 'Goob-Station/Goob-Station') && (github.event.review.state == 'APPROVED') }}
-    permissions:
-      contents: read
-      pull-requests: write
+  label-on-approval:
+    if: |
+      github.event.workflow_run.name == 'Review Trigger' &&
+      github.event.workflow_run.event == 'pull_request_review' &&
+      github.event.workflow_run.repository.full_name == github.repository
     runs-on: ubuntu-latest
+
     steps:
-    - uses: tspascoal/get-user-teams-membership@v3
-      id: checkUserMember
-      with:
-        username: ${{ github.actor }}
-        team: "maintainers"
-        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-    - if: ${{ steps.checkUserMember.outputs.isTeamMember == 'true' }}
+
+    - name: Get PR context
+      id: pr-context
+      env:
+        GH_TOKEN: ${{ github.token }}
+        PR_TARGET_REPO: ${{ github.repository }}
+        HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+      run: |
+        PR_NUMBER=$(gh pr list \
+        --repo "${PR_TARGET_REPO}" \
+        --search "${HEAD_SHA}" \
+        --state all \
+        --json number \
+        --jq '.[0].number')
+
+          if [ -z "$PR_NUMBER" ] || [ "$PR_NUMBER" = "null" ]; then
+            echo "Could not resolve PR for commit ${HEAD_SHA}"
+            exit 1
+          fi
+
+          echo "Resolved PR: $PR_NUMBER"
+          echo "number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+
+    - name: Fetch reviews
+      env:
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OWNER: ${{ github.repository_owner }}
+        REPO: ${{ github.event.repository.name }}
+        PR_NUMBER: ${{ steps.pr-context.outputs.number }}
+      run: |
+        curl -s -o reviews.json -L \
+          -H "Authorization: Bearer $TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/$OWNER/$REPO/pulls/$PR_NUMBER/reviews
+
+        TYPE=$(jq -r 'type' reviews.json)
+
+        if [ "$TYPE" != "array" ]; then
+          echo "Unexpected API response:"
+          cat reviews.json
+          exit 1
+        fi
+
+    - name: Count approvals
+      id: check-approvals
+      run: |
+        APPROVALS=$(jq '
+          sort_by(.submitted_at)
+          | group_by(.user.login)
+          | map(last)
+          | map(select(.state=="APPROVED" and .user.type=="User"))
+          | length
+        ' reviews.json)
+
+        echo "Number of approvals: $APPROVALS"
+        echo "approvals=$APPROVALS" >> "$GITHUB_OUTPUT"
+
+    - name: Add Approved Label if Enough Approvals
+      if: steps.check-approvals.outputs.approvals >= 2
       uses: actions-ecosystem/action-add-labels@v1
+      env:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
       with:
+        number: ${{ steps.pr-context.outputs.number }}
         labels: "S: Approved"
+
+    - name: Remove Other Labels on Approved
+      if: steps.check-approvals.outputs.approvals >= 2
+      uses: actions-ecosystem/action-remove-labels@v1
+      env:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        number: ${{ steps.pr-context.outputs.number }}
+        labels: |
+          S: Needs Review
+          S: Needs Second Approval
+
+    - name: Add Second Approval Requirement
+      if: steps.check-approvals.outputs.approvals == 1
+      uses: actions-ecosystem/action-add-labels@v1
+      env:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        number: ${{ steps.pr-context.outputs.number }}
+        labels: |
+          S: Needs Review
+          S: Needs Second Approval
+
+    - name: Remove Other Labels on Second Approval
+      if: steps.check-approvals.outputs.approvals == 1
+      uses: actions-ecosystem/action-remove-labels@v1
+      env:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        number: ${{ steps.pr-context.outputs.number }}
+        labels: "S: Approved"
+        
+    - name: Remove All Other Labels if No Approval
+      if: steps.check-approvals.outputs.approvals < 1
+      uses: actions-ecosystem/action-remove-labels@v1
+      env:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        number: ${{ steps.pr-context.outputs.number }}
+        labels: |
+          S: Needs Review
+          S: Needs Second Approval

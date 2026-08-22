@@ -15,7 +15,7 @@ public sealed partial class HasComponentOnEquipmentConditionSystem
     {
         if (args.Condition.Components.Count == 0)
         {
-            args.Result = args.Condition.Invert;
+            args.Result = false;
             return;
         }
 
@@ -27,12 +27,12 @@ public sealed partial class HasComponentOnEquipmentConditionSystem
                 if (!args.Condition.Components.Any(comp =>
                         HasComp(item, comp.Value.Component.GetType())))
                     continue;
-                args.Result = !args.Condition.Invert;
+                args.Result = true;
                 return;
             }
         }
 
-        args.Result = args.Condition.Invert;
+        args.Result = false;
     }
 }
 
@@ -40,9 +40,6 @@ public sealed partial class HasComponentOnEquipmentCondition : EntityConditionBa
 {
     [DataField(required: true)]
     public ComponentRegistry Components = default!;
-
-    [DataField]
-    public bool Invert = false;
 
     public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {

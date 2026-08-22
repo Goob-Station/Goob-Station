@@ -125,10 +125,11 @@ public sealed partial class WoundSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        _woundJobQueue.Process();
 
         if (!_timing.IsFirstTimePredicted)
             return;
+
+        _woundJobQueue.Process();
 
         // If this still causes lag, we go with the nuclear option of also checking for ConsciousnessComponent :niceportrait:
         using var query = EntityQueryEnumerator<BodyComponent, DamageableComponent>();
@@ -143,7 +144,7 @@ public sealed partial class WoundSystem : EntitySystem
                 || !_body.TryGetRootPart(ent, out var rootPart, body: body))
                 continue;
 
-            body.HealAt += TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
+            body.HealAt = _timing.CurTime + TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
             foreach (var woundable in GetAllWoundableChildren(rootPart.Value))
                 if (woundable.Comp.CanHealDamage || woundable.Comp.CanHealBleeds)
                     _woundJobQueue.EnqueueJob(new WoundJob(this, woundable, ent, WoundJobTime));
@@ -388,11 +389,10 @@ public sealed partial class WoundSystem : EntitySystem
             RaiseLocalEvent(uid, ref ev);
 
             var bodySeverity = FixedPoint2.Zero;
-            if (TryComp<BodyPartComponent>(uid, out var bodyPart) && bodyPart.Body.HasValue)
+            if (TryComp<BodyPartComponent>(uid, out var bodyPart)
+                && bodyPart.Body.HasValue
+                && TryComp<BodyComponent>(bodyPart.Body.Value, out var bodyComp))
             {
-                if (!TryComp<BodyComponent>(bodyPart.Body.Value, out var bodyComp))
-                    return;
-
                 var rootPart = bodyComp.RootContainer?.ContainedEntity;
                 if (rootPart.HasValue)
                 {

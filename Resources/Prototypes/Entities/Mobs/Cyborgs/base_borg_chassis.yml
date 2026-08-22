@@ -248,6 +248,7 @@
     radius: 4
     netsync: false
   - type: Pullable
+  - type: Grabbable # Goob
   - type: Puller
     needsHands: false
   - type: StandingState

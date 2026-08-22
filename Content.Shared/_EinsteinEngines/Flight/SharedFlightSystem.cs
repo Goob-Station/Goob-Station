@@ -38,6 +38,7 @@ public abstract class SharedFlightSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly Content.Shared.Gravity.SharedGravitySystem _gravity = default!;
 
     public override void Initialize()
     {
@@ -106,6 +107,9 @@ public abstract class SharedFlightSystem : EntitySystem
         _actionsSystem.SetToggled(component.ToggleActionEntity, component.On);
         RaiseLocalEvent(uid, new FlightEvent(uid, component.On, component.IsAnimated));
         _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false, component.StaminaDrainKey, uid);
+
+        _gravity.RefreshWeightless(uid); // Force the gravity system to refresh
+
         _movementSpeed.RefreshWeightlessModifiers(uid);
         ToggleCollisionMasks(uid, component);
         UpdateHands(uid, active);

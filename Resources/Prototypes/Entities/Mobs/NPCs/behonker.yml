@@ -31,7 +31,7 @@
       autoRechargeRate: 40
     - type: Gun
       fireRate: 0.75
-      useKey: false
+      useKey: true # Trauma - was false
       selectedMode: SemiAuto
       availableModes:
         - SemiAuto

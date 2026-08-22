@@ -15,7 +15,7 @@
     - Spray
   - type: SolutionContainerManager
     solutions:
-      spray:
+      drink:
         maxVol: 100
         reagents:
         - ReagentId: StypticPowder
@@ -36,7 +36,7 @@
     - Spray
   - type: SolutionContainerManager
     solutions:
-      spray:
+      drink:
         maxVol: 100
         reagents:
         - ReagentId: SilverSulfadiazine

@@ -1,0 +1,355 @@
+# Particles
+
+- type: ghostCosmetic
+  id: GhostCosmeticSparkles
+  name: ghost-cosmetic-sparkles
+  category: Particles
+  particleEffect: GhostParticlesSparkles
+
+- type: ghostCosmetic
+  id: GhostCosmeticEmbers
+  name: ghost-cosmetic-embers
+  category: Particles
+  particleEffect: GhostParticlesEmbers
+
+- type: ghostCosmetic
+  id: GhostCosmeticEctoplasm
+  name: ghost-cosmetic-ectoplasm
+  category: Particles
+  particleEffect: GhostParticlesEctoplasm
+
+- type: ghostCosmetic
+  id: GhostCosmeticFrost
+  name: ghost-cosmetic-frost
+  category: Particles
+  particleEffect: GhostParticlesFrost
+
+- type: ghostCosmetic
+  id: GhostCosmeticGloom
+  name: ghost-cosmetic-gloom
+  category: Particles
+  particleEffect: GhostParticlesGloom
+
+# Hats
+
+- type: ghostCosmetic
+  id: GhostCosmeticTopHat
+  name: ghost-cosmetic-top-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/tophat.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticWizardHat
+  name: ghost-cosmetic-wizard-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/wizardhat.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticPirateHat
+  name: ghost-cosmetic-pirate-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/pirate.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticSantaHat
+  name: ghost-cosmetic-santa-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/santahat.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticUshanka
+  name: ghost-cosmetic-ushanka
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/ushanka.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticPartyHat
+  name: ghost-cosmetic-party-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/party_red.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticBowlerHat
+  name: ghost-cosmetic-bowler-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/bowler_hat.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticFedora
+  name: ghost-cosmetic-fedora
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/brownfedora.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticCatEars
+  name: ghost-cosmetic-cat-ears
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/catears.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticChefHat
+  name: ghost-cosmetic-chef-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/chefhat.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticCowboyHat
+  name: ghost-cosmetic-cowboy-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticDogEars
+  name: ghost-cosmetic-dog-ears
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/dogears.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticFez
+  name: ghost-cosmetic-fez
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/fez.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticJesterHat
+  name: ghost-cosmetic-jester-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/jester.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticPaperHat
+  name: ghost-cosmetic-paper-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/paper.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticPlagueDoctorHat
+  name: ghost-cosmetic-plague-doctor-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/plaguedoctor.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticSombrero
+  name: ghost-cosmetic-sombrero
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/sombrero.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticStrawHat
+  name: ghost-cosmetic-straw-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/straw_hat.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticWitchHat
+  name: ghost-cosmetic-witch-hat
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/witchhat.rsi
+    state: equipped-HELMET
+
+- type: ghostCosmetic
+  id: GhostCosmeticChristmasCrown
+  name: ghost-cosmetic-christmas-crown
+  category: Hat
+  sprite:
+    sprite: Clothing/Head/Hats/xmascrown.rsi
+    state: equipped-HELMET
+
+# Masks
+
+- type: ghostCosmetic
+  id: GhostCosmeticClownMask
+  name: ghost-cosmetic-clown-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/clown.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticMimeMask
+  name: ghost-cosmetic-mime-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/mime.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticFoxMask
+  name: ghost-cosmetic-fox-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/fox.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticBearMask
+  name: ghost-cosmetic-bear-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/bear.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticGoldenMask
+  name: ghost-cosmetic-golden-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/goldenmask.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticGasMask
+  name: ghost-cosmetic-gas-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/gas.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticBatMask
+  name: ghost-cosmetic-bat-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/bat.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticBeeMask
+  name: ghost-cosmetic-bee-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/bee.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticBreathMask
+  name: ghost-cosmetic-breath-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/breath.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticCluwneMask
+  name: ghost-cosmetic-cluwne-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/cluwne.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticMoustache
+  name: ghost-cosmetic-moustache
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/italian_moustache.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticJackalMask
+  name: ghost-cosmetic-jackal-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/jackal.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticJoyMask
+  name: ghost-cosmetic-joy-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/joy.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticMuzzle
+  name: ghost-cosmetic-muzzle
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/muzzle.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticNeckGaiter
+  name: ghost-cosmetic-neck-gaiter
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/neckgaiter.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticNinjaMask
+  name: ghost-cosmetic-ninja-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/ninja.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticPlagueDoctorMask
+  name: ghost-cosmetic-plague-doctor-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/plaguedoctormask.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticRatMask
+  name: ghost-cosmetic-rat-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/rat.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticRavenMask
+  name: ghost-cosmetic-raven-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/raven.rsi
+    state: equipped-MASK
+
+- type: ghostCosmetic
+  id: GhostCosmeticSadMimeMask
+  name: ghost-cosmetic-sad-mime-mask
+  category: Mask
+  sprite:
+    sprite: Clothing/Mask/sadmime.rsi
+    state: equipped-MASK

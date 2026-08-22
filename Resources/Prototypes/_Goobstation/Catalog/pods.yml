@@ -75,8 +75,11 @@
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
-    table:
-      id: ClothingOuterArmorMonk
+    table: !type:AllSelector
+      children:
+      - id: ClothingOuterArmorMonk
+      - id: ClothingHeadHatHelmetMonk
+      - id: ClothingUniformJumpsuitMonk
 
 - type: entity
   id: SpawnArmamentsBishop
@@ -97,8 +100,10 @@
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
-    table:
-      id: ClothingOuterArmorDragon
+    table: !type:AllSelector
+      children:
+      - id: ClothingOuterArmorDragon
+      - id: ClothingHeadHatHelmetDragon
 
 - type: entity
   id: SpawnArmamentsInquisitor

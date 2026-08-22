@@ -71,7 +71,9 @@
         volume: -12 # Ambient
         maxDistance: 10
         variation: 0.05
-  - type: SpamEmitSoundRequirePower # Goobstation
+  # Goobstation
+  - type: SpamEmitSoundRequirePower
+  - type: OreSiloClient
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -135,10 +137,12 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - Metal # Goobstation Start
+        # <Goobstation>
+        - Metal
         - Wooden
         - SheetPlasma
-        - Plastic # Goobstation End
+        - Plastic
+        # </Goobstation
   - type: Lathe
     idleState: icon
     runningState: building
@@ -741,17 +745,21 @@
     - type: Machine
       board: OreProcessorMachineCircuitboard
     - type: MaterialStorage
-      ignoreMaterialWhiteList: true # Goob edit
-      connectToSilo: true # Goob edit
-      disconnectSiloOffMap: true # Goob edit
-      disallowOreEjection: false # Goob edit
       ignoreColor: true
+      # <Goobstation>
+      ignoreMaterialWhiteList: true
+      connectToSilo: true
+      disconnectSiloOffMap: true
+      disallowOreEjection: false
+      # </Goobstation>
       whitelist:
         tags:
-          - Ore
-          - Sheet
-          - RawMaterial
-          - Ingot
+        - Ore
+        # <Goobstation>
+        - Sheet
+        - RawMaterial
+        - Ingot
+        # </Goobstation>
     - type: Lathe
       idleState: icon
       runningState: building

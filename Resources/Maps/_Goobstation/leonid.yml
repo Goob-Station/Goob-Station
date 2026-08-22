@@ -99603,8 +99603,6 @@ entities:
     - type: Transform
       pos: -57.5,-49.5
       parent: 2
-    - type: OreSiloClient
-      silo: 24372
 - proto: CleanerDispenser
   entities:
   - uid: 16141
@@ -114923,8 +114921,6 @@ entities:
     - type: Transform
       pos: -67.5,-49.5
       parent: 2
-    - type: OreSiloClient
-      silo: 24372
 - proto: ExtendedEmergencyNitrogenTankFilled
   entities:
   - uid: 21
@@ -160255,23 +160251,6 @@ entities:
     - type: Transform
       pos: -43.5,11.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        24393:
-        - - OreSilo
-          - OreSiloClient
-        28395:
-        - - OreSilo
-          - OreSiloClient
-        28396:
-        - - OreSilo
-          - OreSiloClient
-        18514:
-        - - OreSilo
-          - OreSiloClient
-        16140:
-        - - OreSilo
-          - OreSiloClient
 - proto: MaterialWoodPlank
   entities:
   - uid: 24373
@@ -160395,8 +160374,6 @@ entities:
     - type: Transform
       pos: -61.5,-23.5
       parent: 2
-    - type: OreSiloClient
-      silo: 24372
 - proto: MedkitAdvancedFilled
   entities:
   - uid: 24394
@@ -183737,8 +183714,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 24372
   - uid: 28396
     components:
     - type: Transform
@@ -183750,8 +183725,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 24372
 - proto: SeedExtractor
   entities:
   - uid: 28397

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
-    "copyright": "Scurret sprite by Very-Soft and Hannah 'FairlySadPanda' Dawson (see scurret.rsi). Original creature concept by VIDEOCULT, and used with kind permission. AI hologram edit by SabreML. Kobold/monkey sprites taken from SS14 Wizard's Den at https://github.com/space-wizards/space-station-14/tree/f574990b11db5936de3635a4273d5eb26217882e/Resources/Textures/Mobs/Animals, modified by Hitlinemoss",
+    "copyright": "Scurret sprite by Very-Soft and Hannah 'FairlySadPanda' Dawson (see scurret.rsi). Original creature concept by VIDEOCULT, and used with kind permission. AI hologram edit by SabreML. Kobold/monkey sprites taken from SS14 Wizard's Den at https://github.com/space-wizards/space-station-14/tree/f574990b11db5936de3635a4273d5eb26217882e/Resources/Textures/Mobs/Animals, modified by Hitlinemoss,  Taken from /TG/ at https://github.com/tgstation/tgstation. Performer hologram made by venikt (760006609254219790) on discord.  Some sprites modified by OnsenCapy",
     "size": {
         "x": 32,
         "y": 32
@@ -15,6 +15,35 @@
         },
         {
             "name": "ai_kobold"
+        },
+        {
+            "name": "ai_queen"
+        },
+        {
+            "name": "ai_performer"
+        },
+        {
+            "name": "ai_horror",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
         }
     ]
 }

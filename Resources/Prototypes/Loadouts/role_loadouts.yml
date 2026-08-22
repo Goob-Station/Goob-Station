@@ -9,6 +9,7 @@
   - CaptainMask # Goobstation - Lollypops!
   - CaptainBackpack
   - CaptainOuterClothing
+  - CaptainShoes # Goobstation
   - Survival
   - Trinkets
   - CaptainJobTrinkets
@@ -256,6 +257,8 @@
   - MimeJumpsuit
   - MimeBackpack
   - MimeOuterClothing
+  - MimeGloves # Goobstation
+  - MimeShoes # Goobstation
   - MimeBelt
   - Glasses
   - SurvivalMime
@@ -266,7 +269,7 @@
   - MimeEnvirohelm
   - MimeEnvirosuit
   - MimeEnvirogloves
-  - MimeGloves
+
 
 - type: roleLoadout
   id: JobMusician
@@ -502,6 +505,7 @@
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - HeadofSecurityShoes # Goobstation edit
+  - SecurityGloves #goob
   - SurvivalSecurity
   - Trinkets
   - HeadofSecurityJobTrinkets
@@ -524,6 +528,7 @@
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
+  - SecurityGloves #goob
   - SurvivalSecurity
   - Trinkets
   - WardenJobTrinkets
@@ -543,6 +548,7 @@
   - SecurityMelee # Goobstation
   - SecurityOuterClothing
   - SecurityShoes
+  - SecurityGloves #goob
   - SecurityNeck
   - SecurityPDA
   - SecurityBelt
@@ -607,7 +613,7 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - MedicalEyewear
+ # - MedicalEyewear #Goobstation - Spawns with medichem hud
   - SurvivalMedical
   - Trinkets
   - ChiefMedicalOfficerJobTrinkets

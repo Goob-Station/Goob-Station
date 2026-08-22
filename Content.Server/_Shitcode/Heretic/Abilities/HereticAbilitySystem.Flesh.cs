@@ -20,6 +20,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
+using Content.Shared.Nutrition;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
@@ -41,7 +42,7 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<FleshPassiveComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<FleshPassiveComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<FleshPassiveComponent, GetBodyOrganOverrideEvent<StomachComponent>>(OnGetStomach);
-        SubscribeLocalEvent<FleshPassiveComponent, ConsumingFoodEvent>(OnConsumingFood);
+        SubscribeLocalEvent<FleshPassiveComponent, IngestingEvent>(OnIngesting);
         SubscribeLocalEvent<FleshPassiveComponent, ExcludeMetabolismGroupsEvent>(OnExclude);
         SubscribeLocalEvent<FleshPassiveComponent, ComponentShutdown>(OnShutdown);
     }
@@ -66,15 +67,17 @@ public sealed partial class HereticAbilitySystem
         args.Groups.Add("Drink");
     }
 
-    private void OnConsumingFood(Entity<FleshPassiveComponent> ent, ref ConsumingFoodEvent args)
+    private void OnIngesting(Entity<FleshPassiveComponent> ent, ref IngestingEvent args)
     {
-        if (args.Volume <= FixedPoint2.Zero)
+        var volume = args.Split.Volume;
+
+        if (volume <= FixedPoint2.Zero)
             return;
 
         if (!Heretic.TryGetHereticComponent(ent, out var heretic, out _) || heretic.PathStage <= 0)
             return;
 
-        var multiplier = GetMultiplier((ent.Owner, ent.Comp), heretic, ref args, out var stage, out var multipliersApplied);
+        var multiplier = GetMultiplier((ent.Owner, ent.Comp), heretic, volume, args.Food, out var stage, out var multipliersApplied);
         if (!multipliersApplied)
             return;
 
@@ -90,25 +93,26 @@ public sealed partial class HereticAbilitySystem
 
     private float GetMultiplier(Entity<FleshPassiveComponent> ent,
         HereticComponent heretic,
-        ref ConsumingFoodEvent args,
+        FixedPoint2 volume,
+        EntityUid food,
         out float stage,
         out bool multipliersApplied)
     {
         stage = MathF.Pow(heretic.PathStage, 0.3f);
-        var multiplier = args.Volume.Float() * stage;
+        var multiplier = volume.Float() * stage;
         var oldMult = multiplier;
 
-        if (HasComp<MobStateComponent>(args.Food))
+        if (HasComp<MobStateComponent>(food))
             multiplier *= ent.Comp.MobMultiplier;
-        if (HasComp<BrainComponent>(args.Food))
+        if (HasComp<BrainComponent>(food))
             multiplier *= ent.Comp.BrainMultiplier;
-        if (HasComp<BodyPartComponent>(args.Food))
+        if (HasComp<BodyPartComponent>(food))
             multiplier *= ent.Comp.BodyPartMultiplier;
-        if (HasComp<OrganComponent>(args.Food))
+        if (HasComp<OrganComponent>(food))
             multiplier *= ent.Comp.OrganMultiplier;
-        if (HasComp<HumanOrganComponent>(args.Food))
+        if (HasComp<HumanOrganComponent>(food))
             multiplier *= ent.Comp.HumanMultiplier;
-        if (_tag.HasTag(args.Food, ent.Comp.MeatTag))
+        if (_tag.HasTag(food, ent.Comp.MeatTag))
             multiplier *= ent.Comp.MeatMultiplier;
         if (heretic.Ascended)
             multiplier *= ent.Comp.AscensionMultiplier;

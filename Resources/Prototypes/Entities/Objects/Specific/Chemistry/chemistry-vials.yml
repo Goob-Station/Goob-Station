@@ -14,10 +14,37 @@
     closeable: true
     closeSound:
       collection: bottleCloseSounds
+  - type: SolutionContainerManager #goob
+    solutions:
+      beaker:
+        maxVol: 30
   - type: FitsInDispenser
-    solution: drink
+    solution: beaker
   - type: ExaminableSolution
     exactVolume: true # It's a chemistry tool
+  - type: Spillable
+    solution: beaker
+  - type: MixableSolution
+    solution: beaker
+  - type: RefillableSolution
+    solution: beaker
+  - type: DrainableSolution
+    solution: beaker
+  - type: DrawableSolution
+    solution: beaker
+  - type: InjectableSolution
+    solution: beaker
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: beaker
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Edible
+    edible: Drink
+    solution: beaker
   - type: Tag
     tags:
     - Trash
@@ -42,6 +69,13 @@
       color: "#FF9880"
     affectedLayers:
     - "enum.SolutionContainerLayers.Fill"
+  - type: SolutionContainerVisuals #goob
+    maxFillLevels: 6
+    inHandsMaxFillLevels: 4
+    fillBaseName: fill-
+    inHandsFillBaseName: -fill-
+    solutionName: beaker
+
 
 ## Entities
 
@@ -58,10 +92,6 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     inHandsMaxFillLevels: 4
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
   - type: SolutionTransfer
     maxTransferAmount: 30
   - type: StaticPrice
@@ -106,7 +136,7 @@
     inHandsMaxFillLevels: 4
   - type: SolutionContainerManager
     solutions:
-      drink:
+      beaker: #Goob
         maxVol: 10
   - type: SolutionTransfer
     maxTransferAmount: 10
@@ -139,7 +169,7 @@
     currentLabel: reagent-name-vestine
   - type: SolutionContainerManager
     solutions:
-      drink:
+      beaker: #Goob
         maxVol: 30
         reagents:
         - ReagentId: Vestine
@@ -157,8 +187,8 @@
     currentLabel: reagent-name-radium
   - type: SolutionContainerManager
     solutions:
-      drink:
-        maxVol: 30 # Goobstation
+      beaker: #Goob
+        maxVol: 10 # Goobstation
         reagents:
           - ReagentId: Radium
             Quantity: 5
@@ -174,7 +204,7 @@
     currentLabel: reagent-name-chlorine
   - type: SolutionContainerManager
     solutions:
-      drink:
+      beaker: #Goob
         maxVol: 30 # Goobstation
         reagents:
           - ReagentId: Chlorine
@@ -191,10 +221,10 @@
     currentLabel: reagent-name-plasma
   - type: SolutionContainerManager
     solutions:
-      drink:
-        maxVol: 30 # Goobstation
+      beaker: #Goob
+        maxVol: 10 # Goobstation
         reagents:
           - ReagentId: Plasma
-            Quantity: 30 # Goobstation
+            Quantity: 10 # Goobstation
   - type: Tag
     tags: *TagVial

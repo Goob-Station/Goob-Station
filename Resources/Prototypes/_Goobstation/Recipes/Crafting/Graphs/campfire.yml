@@ -1,0 +1,25 @@
+- type: constructionGraph
+  id: RMCCampfire
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: campfire
+      steps:
+      - material: WoodPlank
+        amount: 8
+        doAfter: 3
+
+  - node: campfire
+    entity: RMCCampfire
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 8
+      - !type:DeleteEntity { }
+      steps:
+      - tool: Prying
+        doAfter: 3

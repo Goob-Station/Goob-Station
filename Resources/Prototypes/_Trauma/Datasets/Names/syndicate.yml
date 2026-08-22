@@ -1,0 +1,23 @@
+- type: localizedDataset
+  id: NamesMouseDeathCommando
+  values:
+    prefix: names-mouse-death-commando-dataset-
+    count: 40
+
+- type: localizedDataset
+  id: NamesNukieBehonker
+  values:
+    prefix: names-nukie-behonker-dataset-
+    count: 40
+
+- type: localizedDataset
+  id: NamesNukieCarp
+  values:
+    prefix: names-nukie-carp-dataset-
+    count: 40
+
+- type: localizedDataset
+  id: NamesNukieSpider
+  values:
+    prefix: names-spider-operative-dataset-
+    count: 46

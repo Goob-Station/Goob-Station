@@ -244,9 +244,6 @@ public abstract partial class SharedGunSystem
             EntityUid? ammoEntity = null;
             if (ent.Comp.Entities.Count > 0)
             {
-                if (!ent.Comp.AutoCycle) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle
-                    break;
-
                 var existingEnt = ent.Comp.Entities[^1];
                 ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
                 DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
@@ -271,12 +268,11 @@ public abstract partial class SharedGunSystem
             // Goobstation - put spent ammo back in the gun if it doesn't autocycle
             if (!ent.Comp.AutoCycle)
             {
-                ent.Comp.Entities.Add(ent);
-                Containers.Insert(ent.Owner, ent.Comp.Container);
+                ent.Comp.Entities.Add(ammoEnt);
+                Containers.Insert(ammoEnt, ent.Comp.Container);
                 DirtyField(ent.Owner, ent.Comp, nameof(BallisticAmmoProviderComponent.Entities));
             }
             // Goobstation - end
-
         }
 
         UpdateBallisticAppearance(ent);

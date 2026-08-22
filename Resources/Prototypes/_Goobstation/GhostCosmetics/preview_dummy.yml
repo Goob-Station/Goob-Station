@@ -1,0 +1,12 @@
+- type: entity
+  id: GhostCosmeticsPreviewDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    color: "#fff8"
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    layers:
+    - state: animated
+      shader: unshaded
+  - type: GhostColor

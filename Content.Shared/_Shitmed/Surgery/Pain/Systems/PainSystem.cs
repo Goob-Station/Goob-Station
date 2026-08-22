@@ -21,12 +21,10 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
-using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 
-[Virtual]
 public sealed partial class PainSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
@@ -50,6 +48,9 @@ public sealed partial class PainSystem : EntitySystem
 
     private bool _screamsEnabled = false;
     private float _screamChance = 0.20f;
+
+    private static readonly TimeSpan PainUpdateInterval = TimeSpan.FromSeconds(0.2);
+
     public override void Initialize()
     {
         base.Initialize();
@@ -71,10 +72,11 @@ public sealed partial class PainSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        _painJobQueue.Process();
 
         if (!_timing.IsFirstTimePredicted)
             return;
+
+        _painJobQueue.Process();
 
         // Process pain decay for all entities with active decay
         var decayQuery = EntityQueryEnumerator<PainDecayComponent, NerveSystemComponent>();
@@ -90,9 +92,10 @@ public sealed partial class PainSystem : EntitySystem
         using var query = EntityQueryEnumerator<NerveSystemComponent>();
         while (query.MoveNext(out var ent, out var nerveSystem))
         {
-            if (TerminatingOrDeleted(ent))
+            if (TerminatingOrDeleted(ent) || _timing.CurTime < nerveSystem.NextUpdate)
                 continue;
 
+            nerveSystem.NextUpdate = _timing.CurTime + PainUpdateInterval;
             _painJobQueue.EnqueueJob(new PainTimerJob(this, (ent, nerveSystem), PainJobTime));
         }
     }
@@ -153,9 +156,20 @@ public sealed partial class PainSystem : EntitySystem
         if (!_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var brainUid) || TerminatingOrDeleted(brainUid.Value))
             return;
 
-        foreach (var modifier in brainUid.Value.Comp.Modifiers
-                     .Where(modifier => modifier.Key.Item1 == uid))
-            brainUid.Value.Comp.Modifiers.Remove((modifier.Key.Item1, modifier.Key.Item2));
+        var removedAny = false;
+        foreach (var key in new List<(EntityUid, string)>(brainUid.Value.Comp.Modifiers.Keys))
+        {
+            if (key.Item1 != uid)
+                continue;
+
+            removedAny |= brainUid.Value.Comp.Modifiers.Remove(key);
+        }
+
+        if (removedAny)
+        {
+            UpdateNerveSystemPain(brainUid.Value, brainUid.Value.Comp);
+            Dirty(brainUid.Value.Owner, brainUid.Value.Comp);
+        }
 
         UpdateNerveSystemNerves(brainUid.Value, bodyPart.Body.Value, Comp<NerveSystemComponent>(brainUid.Value));
     }
@@ -187,12 +201,13 @@ public sealed partial class PainSystem : EntitySystem
             if (!TryComp<NerveComponent>(bodyPart.Id, out var nerve))
                 continue;
 
-            component.Nerves.Add(bodyPart.Id, nerve);
-            Dirty(uid, component);
+            component.Nerves.Add(bodyPart.Id);
 
             nerve.ParentedNerveSystem = uid;
             Dirty(bodyPart.Id, nerve); // ヾ(≧▽≦*)o
         }
+
+        Dirty(uid, component);
     }
 
     #region Pain Decay
@@ -243,6 +258,7 @@ public sealed partial class PainSystem : EntitySystem
             nerveSystem.Pain = FixedPoint2.Zero;
             Dirty(uid, nerveSystem);
             RemComp<PainDecayComponent>(uid);
+            UpdatePainConsciousness(uid, nerveSystem);
             return;
         }
 
@@ -255,6 +271,7 @@ public sealed partial class PainSystem : EntitySystem
         {
             nerveSystem.Pain = currentPain;
             Dirty(uid, nerveSystem);
+            UpdatePainConsciousness(uid, nerveSystem);
         }
     }
 

@@ -23,6 +23,7 @@
       - !type:SpawnEntity
         entity: SheetPlastic10
         number: 3
+        shouldScale: false
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -35,6 +36,7 @@
       - !type:SpawnEntity
         entity: SheetPlasma1
         number: 3
+        shouldScale: false
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:

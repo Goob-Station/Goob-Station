@@ -36,7 +36,7 @@ public sealed partial class CureZombieInfectionEntityEffectsSystem : EntityEffec
         if (HasComp<IncurableZombieComponent>(entity))
             return;
 
-        // Goob start cure
+        // <Goob> If check because new cure effects + popup
         if (HasComp<ZombifyOnDeathComponent>(entity)
             || HasComp<PendingZombieComponent>(entity))
         {
@@ -44,24 +44,25 @@ public sealed partial class CureZombieInfectionEntityEffectsSystem : EntityEffec
             RemComp<PendingZombieComponent>(entity);
 
             _popup.PopupEntity(
-                Loc.GetString("zombie-cured-popup"),
+                Loc.GetString("zombie-cure-success"),
                 entity,
                 PopupType.Medium
             );
         }
-        // Goob end cure
+        // </Goob>
 
         if (args.Effect.Innoculate)
             EnsureComp<ZombieImmuneComponent>(entity);
 
-        // Goob cure start, again,
+        // <Goob> new cure
         if (HasComp<ZombieComponent>(entity)
-            && entity.Comp.CurrentState != MobState.Alive)
+            && entity.Comp.CurrentState != MobState.Alive
+            && args.Effect.CureZombies)
         {
-            var ev = new EntityZombifiedEvent(entity);
+            var ev = new EntityUnZombifiedEvent(args.Effect.Innoculate);
             RaiseLocalEvent(entity, ref ev);
         }
-        // Goob cure end, again.
+        // </Goob>
     }
 }
 
@@ -85,7 +86,7 @@ public sealed partial class CureZombieInfection : EntityEffectBase<CureZombieInf
     ///  Goobstation - whether it cures zombies in a critical state or under
     /// </summary>
     [DataField]
-    public bool CureCriticalZombies; // Goob
+    public bool CureZombies = false; // Goob
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {

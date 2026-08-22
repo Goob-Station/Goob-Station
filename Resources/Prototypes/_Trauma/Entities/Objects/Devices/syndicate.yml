@@ -1,0 +1,76 @@
+- type: entity
+  parent: [ AppraisalTool, RadioJammer ]
+  id: AppraisalToolRadioJammer
+  suffix: Jammer
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/appraisal-tool.rsi
+    layers:
+    - state: icon
+    - state: jammer
+      sprite: Objects/Devices/jammer.rsi
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+    - state: jammer_high_charge
+      sprite: Objects/Devices/jammer.rsi
+      visible: false
+    - state: jammer_medium_charge
+      sprite: Objects/Devices/jammer.rsi
+      visible: false
+    - state: jammer_low_charge
+      sprite: Objects/Devices/jammer.rsi
+      visible: false
+  - type: Item
+    sprite: Objects/Tools/appraisal-tool.rsi
+    size: Small
+
+- type: entity
+  parent: [ DoorRemoteCanEletrifyDoors, BaseSyndicateContraband ]
+  id: DoorRemoteSyndicate
+  name: syndicate door remote
+  description: A gadget which can open and bolt doors remotely. This one works for syndicate agents.
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#5c0202"
+    - state: door_remotescreencolour
+      color: "#5c0202"
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+
+- type: entity # TODO: Clean up and parent off of BaseJammer once upstream happens
+  parent: RadioJammer
+  id: BorgRadioJammer
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+
+- type: entity
+  parent: BaseItem
+  id: HandheldStationMapRecordsTablet
+  name: station map
+  description: Displays a readout of the current station.
+  suffix: Records Tablet
+  components:
+  - type: GeneralStationRecordConsole
+  - type: Sprite
+    sprite: Objects/Devices/tablets.rsi
+    layers:
+    - state: tablet
+    - state: generic
+      shader: unshaded
+  - type: ActivatableUI
+    inHandsOnly: false
+    singleUser: true
+    key: enum.GeneralStationRecordConsoleKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GeneralStationRecordConsoleKey.Key:
+        type: GeneralStationRecordConsoleBoundUserInterface

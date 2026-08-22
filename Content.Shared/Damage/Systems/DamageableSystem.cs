@@ -348,23 +348,14 @@ namespace Content.Shared.Damage
                 }
 
                 // Goob edit start
-                List<float>? multipliers = null;
                 var damagePerPart = adjustedDamage;
-                if (targetedBodyParts.Count > 0 && adjustedDamage.PartDamageVariation != 0f)
-                {
-                    multipliers =
-                        GetDamageVariationMultipliers(adjustedDamage.PartDamageVariation, targetedBodyParts.Count);
-                }
-                else
-                    damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
+                damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
                 var appliedDamage = new DamageSpecifier();
                 var surplusHealing = new DamageSpecifier();
                 for (var i = 0; i < targetedBodyParts.Count; i++)
                 {
                     var (partId, _, partDamageable) = targetedBodyParts[i];
                     var modifiedDamage = damagePerPart;
-                    if (multipliers != null && multipliers.Count == targetedBodyParts.Count)
-                        modifiedDamage *= multipliers[i];
                     modifiedDamage += surplusHealing;
                     // Goob edit end
 
@@ -641,30 +632,6 @@ namespace Content.Shared.Damage
             return true;
         }
 
-        public List<float> GetDamageVariationMultipliers(float variation, int count)
-        {
-            DebugTools.AssertNotEqual(count, 0);
-            var list = new List<float>(count);
-            var weights = new List<float>(count);
-            var totalWeight = 0f;
-            var random = new System.Random((int) _timing.CurTick.Value);
-            for (var i = 0; i < count; i++)
-            {
-                var weight = random.NextFloat() * MathF.Abs(variation) + 1f;
-                weights.Add(weight);
-                totalWeight += weight;
-            }
-
-            DebugTools.AssertNotEqual(totalWeight, 0f);
-
-            foreach (var weight in weights)
-            {
-                list.Add(weight / totalWeight);
-            }
-
-            return list;
-        }
-
         public DamageSpecifier ApplySplitDamageBehaviors(SplitDamageBehavior splitDamageBehavior,
             DamageSpecifier damage,
             List<(EntityUid Id, BodyPartComponent Component, DamageableComponent Damageable)> parts)
@@ -676,6 +643,12 @@ namespace Content.Shared.Damage
                     return newDamage;
                 case SplitDamageBehavior.Split:
                     return newDamage / parts.Count;
+                case SplitDamageBehavior.SplitExplosion:
+                    var vitalParts = parts.Where(part =>
+                    TryComp<ConsciousnessRequiredComponent>(part.Id, out var consciousness)
+                    && consciousness.CausesDeath == true).ToList();
+
+                    return newDamage / vitalParts.Count;
                 case SplitDamageBehavior.SplitEnsureAllDamaged:
                     var damagedParts = parts.Where(part =>
                         part.Damageable.TotalDamage > FixedPoint2.Zero).ToList();

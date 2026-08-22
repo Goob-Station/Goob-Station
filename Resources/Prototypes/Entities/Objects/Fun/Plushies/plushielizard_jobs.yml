@@ -299,6 +299,7 @@
   description: An adorable stuffed toy that resembles a lizardperson as a salvage specialist. Seems like it's seen the coldness of space for a while.
   components:
   - type: Sprite
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi # GoobStation - New Sprite
     state: salvager
 
 - type: entity

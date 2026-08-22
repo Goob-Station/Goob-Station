@@ -9,9 +9,6 @@ namespace Content.Shared.Heretic;
 public record struct GetBodyOrganOverrideEvent<T>(Entity<T, OrganComponent>? Organ) where T : IComponent;
 
 [ByRefEvent]
-public readonly record struct ConsumingFoodEvent(EntityUid Food, FixedPoint2 Volume);
-
-[ByRefEvent]
 public record struct ImmuneToPoisonDamageEvent(bool Immune = false);
 
 [ByRefEvent]

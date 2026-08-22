@@ -5,6 +5,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Dignitary
+
+job-description-bso = Act as a bodyguard and advisor for Command and CentCom VIPs.
+job-description-ntr = Represent NT, Send reports back to them on the station's situation, Inform the heads of anything CentCom orders them to do.
+
 # Navy
 
 job-description-navy-officer-undercover = Complete your assigned tasks, Terminate the given targets. Good luck.

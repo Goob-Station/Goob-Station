@@ -60,5 +60,8 @@
   sounds:
     Scream:
       collection: PlasmamanUnisexScreams
+    Belch: # Frontier
+      collection: Belch # Frontier
   sound:
     path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+

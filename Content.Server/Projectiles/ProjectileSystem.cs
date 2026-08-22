@@ -156,6 +156,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             if (projectile.Comp.PenetrationThreshold < penetratable.PenetrateDamage)
             {
                 projectile.Comp.ProjectileSpent = true;
+                return false;
             }
 
             projectile.Comp.PenetrationThreshold -= FixedPoint2.New(penetratable.PenetrateDamage);
