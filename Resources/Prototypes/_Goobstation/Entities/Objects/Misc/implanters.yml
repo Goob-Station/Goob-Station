@@ -282,3 +282,11 @@
   components:
     - type: Implanter
       implant: RedspaceLifelineImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: TelepathyImplanter
+  suffix: Telepathy
+  components:
+  - type: Implanter
+    implant: TelepathyImplant
