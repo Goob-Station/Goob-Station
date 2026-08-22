@@ -614,7 +614,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 150 #goob
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -623,7 +623,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 400 #goob
       behaviors:
       - !type:PlaySoundBehavior
         sound:
