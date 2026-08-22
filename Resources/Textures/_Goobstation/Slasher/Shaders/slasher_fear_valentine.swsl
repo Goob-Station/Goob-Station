@@ -1,0 +1,210 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float intensity;
+
+const highp vec3 WINE  = vec3(0.55, 0.02, 0.16);   // deep shadow rose
+const highp vec3 ROSE  = vec3(1.00, 0.30, 0.50);   // mid glow rose
+const highp vec3 BLUSH = vec3(1.00, 0.62, 0.76);   // light highlight pink
+const highp vec3 GLINT = vec3(1.00, 0.88, 0.93);   // near-white specular / sparkle
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float dot2(highp vec2 v)
+{
+    return dot(v, v);
+}
+
+highp float sdHeart(highp vec2 p)
+{
+    p.x = abs(p.x);
+    if (p.y + p.x > 1.0)
+        return sqrt(dot2(p - vec2(0.25, 0.75))) - sqrt(2.0) / 4.0;
+    return sqrt(min(dot2(p - vec2(0.0, 1.0)),
+                    dot2(p - 0.5 * max(p.x + p.y, 0.0)))) * sign(p.x - p.y);
+}
+
+highp float heartbeat(highp float t)
+{
+    highp float x = fract(t);
+    highp float u = x * 9.0;
+    highp float v = (x - 0.16) * 9.0;
+    return exp(-(u * u)) + exp(-(v * v)) * 0.6;
+}
+
+highp mat2 rot(highp float a)
+{
+    highp float c = cos(a);
+    highp float s = sin(a);
+    return mat2(c, s, -s, c);
+}
+
+highp vec4 comp4(highp vec4 dst, highp vec4 src)
+{
+    return src + dst * (1.0 - src.a);
+}
+
+highp vec4 heartCell(highp vec2 id, highp vec2 local, highp float size, highp float soft,
+                     highp float fill, highp float seed, highp float t)
+{
+    highp float r1 = hash(id + seed);
+    if (r1 > fill)                          // sparse: only some cells carry a heart
+        return vec4(0.0);
+
+    highp float r2 = hash(id + seed + 17.3);
+    highp float r3 = hash(id + seed + 41.9);
+
+    highp vec2 c = vec2(0.5 + (r2 - 0.5) * 0.46 + 0.09 * sin(t * 1.4 + r3 * 6.28),
+                        0.5 + (r3 - 0.5) * 0.46);
+    highp float s = size * (0.6 + 0.8 * r2);
+    highp vec2 p = (local - c) / s;
+    p.y = -p.y;                             // UV grows downward; flip so the point sits at the bottom
+
+    p = rot((r3 - 0.5) * 0.9 + sin(t * 0.8 + r1 * 6.28) * 0.16) * p;
+
+    highp float d = sdHeart(p);
+
+    highp float core = smoothstep(soft, -soft, d);          // filled heart
+    highp float glow = exp(max(d, 0.0) * -5.5);             // halo outside the body
+
+    highp float grad = clamp(0.55 - p.y * 0.42, 0.0, 1.0);
+    highp vec3 col = mix(WINE, BLUSH, grad);
+    col += GLINT * smoothstep(0.55, 0.0, length(p - vec2(-0.34, 0.52)));
+
+    highp float tw = 0.7 + 0.3 * sin(t * 2.1 + r1 * 6.28);
+
+    highp vec3 premult = col * core + ROSE * glow * 0.7;    // body (premult) + additive glow
+    return vec4(premult * tw, core * tw);
+}
+
+highp vec4 heartLayer(highp vec2 sp, highp float cell, highp float fall, highp float size,
+                      highp float soft, highp float fill, highp float seed, highp float t)
+{
+    highp vec2 gv = sp / cell;
+    gv.y += t * fall;                       // hearts rain downward
+    highp vec2 id = floor(gv);
+    highp vec2 f = fract(gv);
+
+    // Composite the neighbours first, the home cell last so it reads on top.
+    highp vec4 acc = vec4(0.0);
+    acc = comp4(acc, heartCell(id + vec2(-1.0, -1.0), f - vec2(-1.0, -1.0), size, soft, fill, seed, t));
+    acc = comp4(acc, heartCell(id + vec2( 0.0, -1.0), f - vec2( 0.0, -1.0), size, soft, fill, seed, t));
+    acc = comp4(acc, heartCell(id + vec2( 1.0, -1.0), f - vec2( 1.0, -1.0), size, soft, fill, seed, t));
+    acc = comp4(acc, heartCell(id + vec2(-1.0,  0.0), f - vec2(-1.0,  0.0), size, soft, fill, seed, t));
+    acc = comp4(acc, heartCell(id + vec2( 1.0,  0.0), f - vec2( 1.0,  0.0), size, soft, fill, seed, t));
+    acc = comp4(acc, heartCell(id + vec2(-1.0,  1.0), f - vec2(-1.0,  1.0), size, soft, fill, seed, t));
+    acc = comp4(acc, heartCell(id + vec2( 0.0,  1.0), f - vec2( 0.0,  1.0), size, soft, fill, seed, t));
+    acc = comp4(acc, heartCell(id + vec2( 1.0,  1.0), f - vec2( 1.0,  1.0), size, soft, fill, seed, t));
+    acc = comp4(acc, heartCell(id, f, size, soft, fill, seed, t));
+    return acc;
+}
+
+highp vec3 over(highp vec3 dst, highp vec4 src)
+{
+    return dst * (1.0 - src.a) + src.rgb;
+}
+
+highp float sparkles(highp vec2 sp, highp float t)
+{
+    highp float cell = 0.075;
+    highp vec2 gv = sp / cell;
+    gv.y += t * 0.03;
+    highp vec2 id = floor(gv);
+    highp vec2 f = fract(gv) - 0.5;
+
+    highp float r = hash(id + 7.31);
+    if (r < 0.86)
+        return 0.0;
+
+    highp vec2 q = f - (vec2(hash(id + 1.1), hash(id + 2.2)) - 0.5) * 0.5;
+
+    highp float tw = max(0.0, sin(t * 4.0 + r * 40.0));
+    tw = tw * tw * tw;
+
+    highp float point = smoothstep(0.05, 0.0, length(q));
+    highp float streak = smoothstep(0.20, 0.0, abs(q.x)) * smoothstep(0.018, 0.0, abs(q.y))
+                       + smoothstep(0.20, 0.0, abs(q.y)) * smoothstep(0.018, 0.0, abs(q.x));
+    return (point + streak * 0.7) * tw;
+}
+
+void fragment()
+{
+    highp float i = clamp(intensity, 0.0, 1.0);
+    highp vec2 uv = UV;
+    highp vec2 px = SCREEN_PIXEL_SIZE;
+
+    highp float pulse = mix(heartbeat(TIME * 0.70), heartbeat(TIME * 1.30), smoothstep(0.45, 0.95, i));
+    highp float beat = 0.85 + 0.15 * pulse;
+
+    highp vec2 caDir = uv - 0.5;
+    highp float ca = i * (3.0 + 7.0 * i) * length(caDir);   // fully off at i = 0
+    highp vec3 scr;
+    scr.r = zTextureSpec(SCREEN_TEXTURE, uv + caDir * px * ca).r;
+    scr.g = zTextureSpec(SCREEN_TEXTURE, uv).g;
+    scr.b = zTextureSpec(SCREEN_TEXTURE, uv - caDir * px * ca).b;
+
+    highp float rad = 3.0 + 5.0 * i;
+    highp vec3 bloom = vec3(0.0);
+    bloom += zTextureSpec(SCREEN_TEXTURE, uv + vec2( 1.0,  0.0) * px * rad).rgb;
+    bloom += zTextureSpec(SCREEN_TEXTURE, uv + vec2(-1.0,  0.0) * px * rad).rgb;
+    bloom += zTextureSpec(SCREEN_TEXTURE, uv + vec2( 0.0,  1.0) * px * rad).rgb;
+    bloom += zTextureSpec(SCREEN_TEXTURE, uv + vec2( 0.0, -1.0) * px * rad).rgb;
+    bloom += zTextureSpec(SCREEN_TEXTURE, uv + vec2( 0.7,  0.7) * px * rad).rgb;
+    bloom += zTextureSpec(SCREEN_TEXTURE, uv + vec2(-0.7,  0.7) * px * rad).rgb;
+    bloom += zTextureSpec(SCREEN_TEXTURE, uv + vec2( 0.7, -0.7) * px * rad).rgb;
+    bloom += zTextureSpec(SCREEN_TEXTURE, uv + vec2(-0.7, -0.7) * px * rad).rgb;
+    bloom *= 0.125;
+
+    bloom *= bloom;
+    highp vec3 glow = bloom * (0.28 * i);
+    highp vec3 color = vec3(1.0) - (vec3(1.0) - scr) * (vec3(1.0) - glow);   // screen blend
+
+    highp float L = dot(color, vec3(0.299, 0.587, 0.114));
+    highp vec3 lit = color * vec3(1.08, 0.50, 0.70);           // pull green/blue down -> warm pink cast
+    lit = mix(lit, vec3(L) * ROSE * 1.25, 0.25);               // bias the hue toward rose at every luma
+    color = mix(color, lit, i);
+
+    highp float aspect = px.y / px.x;                          // width / height
+    highp vec2 sp = vec2(uv.x * aspect, uv.y);
+    highp vec2 ctr = vec2(0.5 * aspect, 0.5);
+    highp float dist = length(sp - ctr) / length(ctr);         // 0 centre -> ~1 corner
+
+    highp float dEdge = min(uv.x, 1.0 - uv.x);                 // 0 at the L/R edge, 0.5 at centre
+    highp float vedge = 1.0 - smoothstep(0.0, 0.24, dEdge);    // strong band on the sides
+    highp float radial = smoothstep(mix(0.80, 0.55, i), 1.05, dist);
+
+    highp float irisAmt = smoothstep(0.40, 0.85, i);
+    highp float irisScale = mix(1.15, 0.95, i);
+    highp vec2 hq = vec2((sp.x - ctr.x) / irisScale, (ctr.y - sp.y) / irisScale + 0.5);
+    highp float irisD = sdHeart(hq) * irisScale;               // signed dist to the window, screen units
+    highp float irisRim = smoothstep(0.0, 0.28, irisD) * irisAmt;
+
+    highp float rim = max(max(radial, vedge), irisRim);
+    highp float r = rim * i * beat;
+
+    highp float depth = mix(0.10, 1.0, rim);
+    color = over(color, heartLayer(sp, 0.230, -0.020, 0.30, 0.28, 0.55, 113.0, TIME)
+                        * (0.18 * i * depth));
+
+    color *= 1.0 - 0.90 * r;                                   // sink the sides hard toward black
+    color = mix(color, WINE, 0.55 * r);                        // bruise them deep rose
+    color += ROSE * rim * i * (0.10 + 0.22 * pulse);           // a pulsing rose ember along the rim
+
+    color += ROSE * exp(-abs(irisD) * 9.0) * irisAmt * i * (0.10 + 0.25 * pulse);
+
+    highp float side = 1.0 - smoothstep(0.0, 0.34, min(uv.x, 1.0 - uv.x));
+    side *= side;                                              // hug the two edges
+    highp float rain = side * i * (0.85 + 0.15 * pulse);
+
+    color = over(color, heartLayer(sp, 0.150, 0.045, 0.27, 0.09, 0.55, 3.0,  TIME) * rain);
+    color = over(color, heartLayer(sp, 0.100, 0.075, 0.21, 0.07, 0.55, 71.0, TIME) * rain);
+    color = over(color, heartLayer(sp, 0.066, 0.115, 0.17, 0.06, 0.50, 29.0, TIME) * (rain * 0.9));
+
+    color += GLINT * sparkles(sp, TIME) * side * i;
+
+    highp float dither = hash(uv * vec2(1280.0, 720.0) + fract(TIME) * 53.0) - 0.5;
+    color += dither * 0.015 * i;
+
+    COLOR = vec4(clamp(color, 0.0, 1.0), 1.0);
+}

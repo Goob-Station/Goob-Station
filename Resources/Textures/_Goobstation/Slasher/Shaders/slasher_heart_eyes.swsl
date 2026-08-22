@@ -1,0 +1,61 @@
+light_mode unshaded;
+
+uniform highp vec3 baseColor;
+uniform highp float aberration;
+uniform highp float shake;
+uniform highp float seed;
+uniform highp float opacity;
+
+highp float dot2(highp vec2 v)
+{
+    return dot(v, v);
+}
+
+highp float sdHeart(highp vec2 p)
+{
+    p.x = abs(p.x);
+    if (p.y + p.x > 1.0)
+        return sqrt(dot2(p - vec2(0.25, 0.75))) - sqrt(2.0) / 4.0;
+    return sqrt(min(dot2(p - vec2(0.0, 1.0)),
+                    dot2(p - 0.5 * max(p.x + p.y, 0.0)))) * sign(p.x - p.y);
+}
+
+highp float heartbeat(highp float t)
+{
+    highp float x = fract(t);
+    highp float u = x * 9.0;
+    highp float v = (x - 0.16) * 9.0;
+    return exp(-(u * u)) + exp(-(v * v)) * 0.6;
+}
+
+highp float heartAlpha(highp vec2 p, highp float radius)
+{
+    highp vec2 hp = vec2(p.x / radius, -p.y / radius + 0.5);
+    highp float d = sdHeart(hp) * radius;
+    return 1.0 - smoothstep(0.0, 0.06, d);
+}
+
+void fragment()
+{
+    highp vec2 p = (UV - vec2(0.5)) * 2.0;
+
+    highp float t = TIME * 6.0 + seed;
+    p += vec2(sin(t * 1.7), cos(t * 2.3)) * shake;
+
+    highp float pulse = heartbeat(TIME * 0.9 + seed * 0.05);
+    highp float radius = 0.62 * (0.92 + 0.10 * pulse);
+
+    highp vec2 ca = vec2(aberration, 0.0);
+    highp float aR = heartAlpha(p + ca, radius);
+    highp float aG = heartAlpha(p, radius);
+    highp float aB = heartAlpha(p - ca, radius);
+
+    highp vec3 col = vec3(baseColor.r * aR, baseColor.g * aG, baseColor.b * aB);
+
+    highp float glow = exp(-length(p) * 4.0) * (0.35 + 0.30 * pulse);
+    col += baseColor * glow;
+
+    highp float alpha = clamp(max(aR, max(aG, aB)) + glow, 0.0, 1.0);
+
+    COLOR = vec4(col, alpha * opacity);
+}

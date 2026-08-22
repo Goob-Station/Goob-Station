@@ -735,6 +735,35 @@ namespace Content.Server.Database
             return true;
         }
 
+        // Goobstation - Slasher prestige ascensions, persisted across rounds.
+        public async Task<List<string>> GetSlasherAscensionsAsync(NetUserId userId)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.SlasherAscensions
+                .Where(a => a.PlayerUserId == userId.UserId)
+                .Select(a => a.AscensionId)
+                .ToListAsync();
+        }
+
+        // Goobstation - Records a slasher prestige ascension for a player. No-op if already present.
+        public async Task AddSlasherAscensionAsync(NetUserId userId, string ascensionId)
+        {
+            await using var db = await GetDb();
+
+            var existing = await db.DbContext.SlasherAscensions
+                .AnyAsync(a => a.PlayerUserId == userId.UserId && a.AscensionId == ascensionId);
+
+            if (existing)
+                return;
+
+            db.DbContext.SlasherAscensions.Add(new SlasherAscension
+            {
+                PlayerUserId = userId.UserId,
+                AscensionId = ascensionId,
+            });
+            await db.DbContext.SaveChangesAsync();
+        }
+
         #endregion
 
         #region Connection Logs

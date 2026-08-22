@@ -16,14 +16,8 @@ public sealed partial class SlasherIncorporealComponent : Component
     [ViewVariables]
     public EntityUid? IncorporealizeActionEnt;
 
-    [ViewVariables]
-    public EntityUid? CorporealizeActionEnt;
-
     [DataField]
     public EntProtoId IncorporealizeActionId = "ActionSlasherIncorporealize";
-
-    [DataField]
-    public EntProtoId CorporealizeActionId = "ActionSlasherCorporealize";
 
     /// <summary>
     /// Current state of the slasher. True when incorporeal.
@@ -84,9 +78,9 @@ public sealed partial class SlasherIncorporealComponent : Component
 
     [DataField]
     public SoundSpecifier JauntAppear =
-        new SoundPathSpecifier(new ResPath("/Audio/_Goobstation/Effects/Slasher/SlasherJauntAppear.ogg"));
+        new SoundPathSpecifier(new ResPath("/Audio/_Goobstation/Slasher/Effects/SlasherJauntAppear.ogg"));
 
     [DataField]
     public SoundSpecifier JauntDisappear =
-        new SoundPathSpecifier(new ResPath("/Audio/_Goobstation/Effects/Slasher/SlasherJauntDisappear.ogg"));
+        new SoundPathSpecifier(new ResPath("/Audio/_Goobstation/Slasher/Effects/SlasherJauntDisappear.ogg"));
 }

@@ -1,0 +1,19 @@
+<Document>
+# Slasher: Monsieur
+
+[color=#ac3a0d]"Fucking Diabolical."[/color]
+
+Monsieur is a prestige kit - ascend (reach 15 souls) as [bold]Billy[/bold] to unlock it. It keeps the full Slasher toolkit and adds one signature tool: a tentacle arm that reels victims in.
+
+<Box>
+  <GuideEntityEmbed Entity="SlasherCrowbar" Caption="Crowbar"/>
+</Box>
+
+  ## What's different
+
+  - [bold]Tentacle Hook.[/bold] Launch a tentacle at a target and drag them straight to you. It grabs anything with a body, hits from a long way off, and briefly slows whatever it catches.
+
+[italic]Range: 15 tiles. Cooldown: 30 seconds.[/italic]
+
+  [textlink="Back to the Slasher guide" link="Slasher"]
+</Document>

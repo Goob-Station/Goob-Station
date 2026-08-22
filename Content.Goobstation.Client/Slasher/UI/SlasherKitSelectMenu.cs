@@ -1,11 +1,11 @@
-using Content.Client.IoC;
-using Content.Client.Resources;
 using Content.Client.UserInterface.Controls;
 using Content.Goobstation.Shared.Slasher.UI;
+using Robust.Client.Audio;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Slasher.UI;
@@ -18,8 +18,19 @@ public sealed class SlasherKitSelectMenu : FancyWindow
     [Dependency] private readonly EntityManager _entManager = default!;
 
     private readonly SpriteSystem _spriteSystem = default!;
+    private readonly AudioSystem _audioSystem = default!;
+
+    private const float CardSlotHeight = 336f;
+    private const float ConnectorHeight = 34f;
+    private const float ScrollBarThickness = 10f;
 
     private readonly BoxContainer _kitsContainer;
+    private readonly TierScrollContainer _scroll;
+    private readonly Button _normalTab;
+    private readonly Button _prestigeTab;
+    private readonly List<SlasherKitCard> _cards = new();
+
+    private bool _tierPicked;
 
     public event Action<int>? OnKitSelected;
 
@@ -27,6 +38,7 @@ public sealed class SlasherKitSelectMenu : FancyWindow
     {
         IoCManager.InjectDependencies(this);
         _spriteSystem = _entManager.System<SpriteSystem>();
+        _audioSystem = _entManager.System<AudioSystem>();
 
         var textColor = Color.FromHex("#fff5f8");
 
@@ -54,7 +66,9 @@ public sealed class SlasherKitSelectMenu : FancyWindow
 
         Title = Loc.GetString("slasher-kit-select-title");
         HideCloseButton(this);
-        MinSize = new System.Numerics.Vector2(720, 525);
+        Resizable = false;
+        SetSize = new System.Numerics.Vector2(720, 570);
+        MinSize = new System.Numerics.Vector2(720, 570);
 
         var chromeFrame = new PanelContainer
         {
@@ -118,6 +132,35 @@ public sealed class SlasherKitSelectMenu : FancyWindow
             StyleClasses = { "StatusFieldTitle" }
         };
 
+        var tabGroup = new ButtonGroup();
+
+        _normalTab = new Button
+        {
+            Text = Loc.GetString("slasher-kit-tab-normal"),
+            ToggleMode = true,
+            Group = tabGroup,
+            Pressed = true,
+            StyleClasses = { "OpenRight" }
+        };
+        _normalTab.OnPressed += _ => SetTier(showPrestige: false);
+
+        _prestigeTab = new Button
+        {
+            Text = Loc.GetString("slasher-kit-tab-prestige"),
+            ToggleMode = true,
+            Group = tabGroup,
+            StyleClasses = { "OpenLeft" }
+        };
+        _prestigeTab.OnPressed += _ => SetTier(showPrestige: true);
+
+        var tabRow = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            HorizontalAlignment = HAlignment.Left,
+            Margin = new Thickness(0, 4, 0, 0),
+            Children = { _normalTab, _prestigeTab }
+        };
+
         var scrollFrame = new PanelContainer
         {
             HorizontalExpand = true,
@@ -133,14 +176,18 @@ public sealed class SlasherKitSelectMenu : FancyWindow
             PanelOverride = insetTexture
         };
 
-        var scroll = new ScrollContainer
+        _scroll = new TierScrollContainer
         {
             HScrollEnabled = true,
-            VScrollEnabled = false,
-            VerticalExpand = true,
+            VScrollEnabled = true,
+            VerticalExpand = false,
             HorizontalExpand = true,
+            VerticalAlignment = VAlignment.Center,
+            MinHeight = CardSlotHeight + ScrollBarThickness,
+            MaxHeight = CardSlotHeight + ScrollBarThickness,
             Margin = new Thickness(6, 6, 6, 6)
         };
+        var scroll = _scroll;
 
         var staticSprite = new AnimatedTextureRect
         {
@@ -160,6 +207,7 @@ public sealed class SlasherKitSelectMenu : FancyWindow
         };
 
         headerColumn.AddChild(header);
+        headerColumn.AddChild(tabRow);
         headerPanel.AddChild(headerColumn);
         scroll.AddChild(_kitsContainer);
         staticSprite.AddChild(scroll);
@@ -194,48 +242,192 @@ public sealed class SlasherKitSelectMenu : FancyWindow
     public void UpdateState(SlasherKitSelectBoundUserInterfaceState state)
     {
         _kitsContainer.DisposeAllChildren();
+        _cards.Clear();
+
+        var normals = new List<(int Index, SlasherKitInfo Kit)>();
+        var prestigeByReq = new Dictionary<string, (int Index, SlasherKitInfo Kit)>();
+        var leftoverPrestige = new List<(int Index, SlasherKitInfo Kit)>();
 
         for (var i = 0; i < state.Kits.Count; i++)
         {
-            if (i > 0)
-            {
-                var separatorGlow = new PanelContainer
-                {
-                    MinWidth = 28,
-                    MaxWidth = 28,
-                    MinHeight = 3,
-                    MaxHeight = 3,
-                    VerticalAlignment = VAlignment.Center,
-                    HorizontalExpand = false,
-                    Margin = new Thickness(4, 0),
-                    PanelOverride = new StyleBoxFlat
-                    {
-                        BackgroundColor = Color.FromHex("#ff2a92")
-                    }
-                };
-
-                separatorGlow.AddChild(new PanelContainer
-                {
-                    MinWidth = 20,
-                    MaxWidth = 20,
-                    MinHeight = 1,
-                    MaxHeight = 1,
-                    VerticalAlignment = VAlignment.Center,
-                    HorizontalAlignment = HAlignment.Center,
-                    PanelOverride = new StyleBoxFlat
-                    {
-                        BackgroundColor = Color.FromHex("#fff2fa")
-                    }
-                });
-
-                _kitsContainer.AddChild(separatorGlow);
-            }
-
-            var index = i;
             var kit = state.Kits[i];
-            var card = new SlasherKitCard(kit, _spriteSystem);
-            card.SelectButton.OnPressed += _ => OnKitSelected?.Invoke(index);
-            _kitsContainer.AddChild(card);
+            if (kit.RequiredAscension == null)
+                normals.Add((i, kit));
+            else if (!prestigeByReq.ContainsKey(kit.RequiredAscension))
+                prestigeByReq[kit.RequiredAscension] = (i, kit);
+            else
+                leftoverPrestige.Add((i, kit));
+        }
+
+        var first = true;
+
+        foreach (var (index, kit) in normals)
+        {
+            if (!first)
+                _kitsContainer.AddChild(MakeSeparator());
+            first = false;
+
+            (int Index, SlasherKitInfo Kit)? prestige = null;
+            if (kit.AscensionId != null && prestigeByReq.Remove(kit.AscensionId, out var matched))
+                prestige = matched;
+
+            _kitsContainer.AddChild(MakeColumn(prestige, (index, kit)));
+        }
+
+        foreach (var entry in prestigeByReq.Values)
+        {
+            if (!first)
+                _kitsContainer.AddChild(MakeSeparator());
+            first = false;
+            _kitsContainer.AddChild(MakeColumn(entry, null));
+        }
+
+        foreach (var entry in leftoverPrestige)
+        {
+            if (!first)
+                _kitsContainer.AddChild(MakeSeparator());
+            first = false;
+            _kitsContainer.AddChild(MakeColumn(entry, null));
+        }
+
+        _normalTab.Pressed = true;
+        _prestigeTab.Pressed = false;
+        _tierPicked = false;
+    }
+
+    private BoxContainer MakeColumn((int Index, SlasherKitInfo Kit)? prestige, (int Index, SlasherKitInfo Kit)? normal)
+    {
+        var column = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical
+        };
+
+        if (prestige != null)
+            column.AddChild(MakeCard(prestige.Value.Index, prestige.Value.Kit));
+        else
+            column.AddChild(new Control { MinHeight = CardSlotHeight });
+
+        column.AddChild(prestige != null && normal != null
+            ? MakeConnector()
+            : new Control { MinHeight = ConnectorHeight });
+
+        if (normal != null)
+            column.AddChild(MakeCard(normal.Value.Index, normal.Value.Kit));
+        else
+            column.AddChild(new Control { MinHeight = CardSlotHeight });
+
+        return column;
+    }
+
+    private SlasherKitCard MakeCard(int index, SlasherKitInfo kit)
+    {
+        var card = new SlasherKitCard(kit, _spriteSystem, _audioSystem);
+        card.OnSelectConfirmed += () => OnKitSelected?.Invoke(index);
+        card.OnThemePlayStarted += StopOtherThemes;
+        _cards.Add(card);
+        return card;
+    }
+
+    private void SetTier(bool showPrestige)
+    {
+        _normalTab.Pressed = !showPrestige;
+        _prestigeTab.Pressed = showPrestige;
+        _tierPicked = true;
+        _scroll.VScrollTarget = showPrestige ? 0f : float.MaxValue;
+
+        foreach (var card in _cards)
+            card.StopMusic();
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (!_tierPicked)
+            _scroll.VScroll = float.MaxValue;
+    }
+
+    private static Control MakeConnector()
+    {
+        var holder = new Control { MinHeight = ConnectorHeight };
+
+        var glow = new PanelContainer
+        {
+            MinWidth = 6,
+            MaxWidth = 6,
+            HorizontalAlignment = HAlignment.Center,
+            VerticalAlignment = VAlignment.Stretch,
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#ff2a92") }
+        };
+
+        glow.AddChild(new PanelContainer
+        {
+            MinWidth = 2,
+            MaxWidth = 2,
+            HorizontalAlignment = HAlignment.Center,
+            VerticalAlignment = VAlignment.Stretch,
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#fff2fa") }
+        });
+
+        holder.AddChild(glow);
+        return holder;
+    }
+
+    private static BoxContainer MakeSeparator()
+    {
+        var glowHolder = new Control { MinHeight = CardSlotHeight };
+
+        var separatorGlow = new PanelContainer
+        {
+            MinWidth = 28,
+            MaxWidth = 28,
+            MinHeight = 3,
+            MaxHeight = 3,
+            VerticalAlignment = VAlignment.Center,
+            HorizontalAlignment = HAlignment.Center,
+            Margin = new Thickness(4, 0),
+            PanelOverride = new StyleBoxFlat
+            {
+                BackgroundColor = Color.FromHex("#ff2a92")
+            }
+        };
+
+        separatorGlow.AddChild(new PanelContainer
+        {
+            MinWidth = 20,
+            MaxWidth = 20,
+            MinHeight = 1,
+            MaxHeight = 1,
+            VerticalAlignment = VAlignment.Center,
+            HorizontalAlignment = HAlignment.Center,
+            PanelOverride = new StyleBoxFlat
+            {
+                BackgroundColor = Color.FromHex("#fff2fa")
+            }
+        });
+
+        glowHolder.AddChild(separatorGlow);
+
+        return new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            Children =
+            {
+                new Control { MinHeight = CardSlotHeight + ConnectorHeight },
+                glowHolder
+            }
+        };
+    }
+
+    /// <summary>
+    /// Stops every card's theme preview except the one that just started playing.
+    /// </summary>
+    private void StopOtherThemes(SlasherKitCard active)
+    {
+        foreach (var card in _cards)
+        {
+            if (card != active)
+                card.StopMusic();
         }
     }
 }

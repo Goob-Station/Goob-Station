@@ -71,7 +71,12 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
 
         _audio.PlayPredicted(comp.StaggerSound, uid, uid);
 
-        // Show popup to the slasher only
+        var overlay = EnsureComp<SlasherStaggerOverlayComponent>(uid);
+        overlay.Range = comp.Range;
+        overlay.ShockwaveShader = comp.ShockwaveShader;
+        overlay.RingColor = comp.RingColor;
+        Dirty(uid, overlay);
+
         _popup.PopupClient(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
 
         args.Handled = true;
