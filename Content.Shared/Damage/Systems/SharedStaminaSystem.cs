@@ -335,6 +335,9 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         || value == 0) // no damage???
             return;
 
+        if (!Timing.IsFirstTimePredicted)
+            return;
+
         var ev = new BeforeStaminaDamageEvent(value, source); // Goob change: Added source param.
         RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
