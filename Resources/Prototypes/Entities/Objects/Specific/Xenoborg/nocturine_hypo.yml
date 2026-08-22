@@ -7,7 +7,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 12
+        maxVol: 24
         reagents:
         - ReagentId: Nocturine
           Quantity: 24
