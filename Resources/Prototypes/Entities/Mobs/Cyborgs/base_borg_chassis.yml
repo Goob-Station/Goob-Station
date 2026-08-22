@@ -548,7 +548,7 @@
       0: Alive
       175: Critical # goob - increased to match overall goob balance
       400: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
- # - type: EmagSiliconLaw # goob - xenoborgs can't be emagged anymore
+  - type: EmagSiliconLaw # should xenoborgs be emagable? # goob - No
  #   stunTime: 5
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
