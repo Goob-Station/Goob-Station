@@ -1,0 +1,49 @@
+- type: entity
+  id: UglyBarrel1
+  name: storage barrel
+  suffix: Blue
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_blue
+
+- type: entity
+  id: UglyBarrel2
+  name: storage barrel
+  suffix: Green
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_green
+
+- type: entity
+  id: UglyBarrel3
+  name: storage barrel
+  suffix: Red
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_red
+
+- type: entity
+  id: UglyBarrel4
+  name: storage barrel
+  suffix: Yellow
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_yellow
+
+- type: entity
+  id: UglyBarrel5
+  name: storage barrel
+  suffix: White
+  parent: BaseBarrel
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_white

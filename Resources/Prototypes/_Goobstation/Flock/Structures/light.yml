@@ -138,7 +138,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/Light
-    drawdepth: WallMountedItems
+    drawdepth: FloorObjects
     layers:
     - map: ["enum.PoweredLightLayers.Base"]
       state: floorlight
@@ -154,7 +154,7 @@
     enabled: false
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/Light
-    drawdepth: WallMountedItems
+    drawdepth: FloorObjects
     layers:
     - map: ["enum.PoweredLightLayers.Base"]
       state: floorlightoff

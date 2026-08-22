@@ -35,3 +35,7 @@ stack-legion-skull = {$amount ->
 [1] legion skull
 *[other] legion skull
 }
+
+stack-ticket-green = Green coupon
+stack-ticket-orange = Orange coupon
+stack-ticket-red = Red coupon

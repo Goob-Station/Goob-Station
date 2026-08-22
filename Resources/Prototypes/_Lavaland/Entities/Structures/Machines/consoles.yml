@@ -1,0 +1,29 @@
+- type: entity
+  id: BaseConsole
+  parent: BaseConsoleMachine
+  name: Operating console
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+
+- type: entity
+  id: OperatingConsoleSmall
+  parent: BaseConsole
+  components:
+  - type: Sprite
+    state: operating-small
+
+- type: entity
+  id: OperatingConsoleSmallIdle
+  parent: OperatingConsoleSmall
+  components:
+  - type: Sprite
+    state: operating-small0
+
+- type: entity
+  id: OperatingConsoleSmallIdleB
+  parent: OperatingConsoleSmall
+  components:
+  - type: Sprite
+    state: operating-smallb

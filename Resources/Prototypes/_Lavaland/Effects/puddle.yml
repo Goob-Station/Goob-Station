@@ -1,0 +1,48 @@
+- type: entity
+  id: EffectRipplePermanent
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+        state: ripple
+  - type: EffectVisuals
+  - type: AnimationPlayer
+
+- type: entity
+  id: PuddleAlt
+  name: Puddle
+  description: It's a puddle of something.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/watercloset.rsi
+    state: puddle
+    drawdepth: FloorObjects
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+
+- type: entity
+  id: PuddleOil
+  parent: PuddleAlt
+  components:
+  - type: Sprite
+    state: puddle-oil
+
+- type: entity
+  id: PuddleOilSplash
+  parent: PuddleAlt
+  components:
+  - type: Sprite
+    state: puddle-oil-splash
+
+- type: entity
+  id: PuddleSplash
+  parent: PuddleAlt
+  components:
+  - type: Sprite
+    state: puddle-splash
