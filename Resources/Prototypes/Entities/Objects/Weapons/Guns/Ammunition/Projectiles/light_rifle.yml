@@ -32,8 +32,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 4 # Goobstation?
-        Heat: 4  # Goobstation?
+        Piercing: 9 # Goobstation.
+        Heat: 7  # Goobstation, it was baaaad.
 
 - type: entity
   parent: BaseBulletUranium

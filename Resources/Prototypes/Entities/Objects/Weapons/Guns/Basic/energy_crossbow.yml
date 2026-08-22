@@ -1,6 +1,7 @@
 - type: entity
   abstract: true
   parent: BaseItem
+  suffix: Wizden # Goobstation
   id: WeaponEnergyCrossbowBase
   components:
   - type: Sprite
