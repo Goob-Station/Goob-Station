@@ -544,7 +544,7 @@
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: MobThresholds
-    thresholds: # slightly tankier than a normal borg
+    thresholds: # goob - tankier than a normal borg
       0: Alive
       175: Critical # goob - increased to match overall goob balance
       400: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
