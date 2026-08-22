@@ -52,11 +52,19 @@
 - type: reaction
   id: AceticAnhydride
   minTemp: 323
+  requiredMixerCategories: # Goob
+  - Centrifuge
   reactants:
+    Benzene: # Goob
+      amount: 1
+    Chlorine: # Goob
+      amount: 1
+    Potassium: # Goob
+      amount: 1
     Vinegar:
       amount: 1
     Ethenone:
       amount: 1
   products:
-    AceticAnhydride: 1
+    AceticAnhydride: 4 # Goob
     Water: 1
