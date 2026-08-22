@@ -10,10 +10,10 @@
         maxVol: 12
         reagents:
         - ReagentId: Nocturine
-          Quantity: 12
+          Quantity: 24
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
       - ReagentId: Nocturine
-        Quantity: 0.2
+        Quantity: 0.4
