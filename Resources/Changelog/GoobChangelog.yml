@@ -24523,3 +24523,9 @@ Entries:
         suits, and rad suits, alongside associated headwear.
   id: 2809
   time: '2026-08-21T18:30:02.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Emote panel in separated layout is back.
+  id: 2810
+  time: '2026-08-22T18:52:46.0000000+00:00'
