@@ -79,6 +79,7 @@
   - type: Store
     balance:
       Telecrystal: 0
+  - type: AutoDiscount # Trauma
 
 # goobstation - duke nukies
 - type: entity

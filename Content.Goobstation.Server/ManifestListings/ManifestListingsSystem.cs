@@ -47,7 +47,7 @@ public sealed class ManifestListingsSystem : EntitySystem
         foreach (var list in ent.Comp.Listings.Values)
         {
             var storeSb = new StringBuilder();
-            HashSet<string> ignoredIds = new();
+            Dictionary<string, ListingDataWithCostModifiers> ignoredIds = new();
             // Data id -> amount purchased (needed for action upgrades)
             Dictionary<string, int> info = new();
             foreach (var data in list)
@@ -61,44 +61,44 @@ public sealed class ManifestListingsSystem : EntitySystem
                 if (data.ProductUpgradeId == null)
                     continue;
 
-                ignoredIds.Add(data.ProductUpgradeId);
                 var upgrade = list.FirstOrDefault(x => x.ID == data.ProductUpgradeId);
                 if (upgrade != null)
                 {
+                    // This assumes each upgrade corresponds to a single listing
+                    ignoredIds[data.ProductUpgradeId] = upgrade;
                     info[data.ID] += upgrade.PurchaseAmount;
                 }
             }
 
             foreach (var (dataId, count) in info)
             {
-                if (ignoredIds.Contains(dataId))
+                if (ignoredIds.ContainsKey(dataId))
                     continue;
 
                 var data = list.FirstOrDefault(x => x.ID == dataId);
                 if (data == null)
                     continue;
 
-                Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> cost = new();
-                var costMultiplier = count;
+                Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> totalCost = new();
 
-                if (data.SaleCost != null)
+                foreach (var cost in data.PurchaseCostHistory)
                 {
-                    var salePurchases = Math.Min(data.SaleLimit, count);
-                    foreach (var (currency, amount) in data.SaleCost)
+                    foreach (var (currency, amount) in cost)
                     {
-                        if (!cost.TryAdd(currency, amount * salePurchases))
-                            cost[currency] += amount * salePurchases;
+                        if (!totalCost.TryAdd(currency, amount))
+                            totalCost[currency] += amount;
                     }
-
-                    costMultiplier -= salePurchases;
                 }
 
-                if (costMultiplier != 0)
+                if (data.ProductUpgradeId != null && ignoredIds.TryGetValue(data.ProductUpgradeId, out var upgrade))
                 {
-                    foreach (var (currency, amount) in data.Cost)
+                    foreach (var cost in upgrade.PurchaseCostHistory)
                     {
-                        if (!cost.TryAdd(currency, amount * costMultiplier))
-                            cost[currency] += amount * costMultiplier;
+                        foreach (var (currency, amount) in cost)
+                        {
+                            if (!totalCost.TryAdd(currency, amount))
+                                totalCost[currency] += amount;
+                        }
                     }
                 }
 
@@ -147,7 +147,7 @@ public sealed class ManifestListingsSystem : EntitySystem
                 }
 
                 var costSb = new StringBuilder();
-                foreach (var (currencyId, amount) in cost)
+                foreach (var (currencyId, amount) in totalCost)
                 {
                     if (!totalSpent.TryAdd(currencyId, amount))
                         totalSpent[currencyId] += amount;

@@ -1,0 +1,4 @@
+- type: discountCategory
+  id: autoDiscounts
+  maxItems: 8
+  weight: 1
