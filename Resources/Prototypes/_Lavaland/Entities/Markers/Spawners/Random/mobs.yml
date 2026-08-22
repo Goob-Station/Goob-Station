@@ -23,6 +23,19 @@
       - id: MobWatcherMagmawing
       - id: MobWatcherIcewing
 
+- type: entityTable
+  id: LavalandCrystalMobs
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: LavalandMobCrystalSeed
+        weight: 0.5
+      - id: LavalandMobCrystalRing
+        weight: 0.3
+      - id: LavalandMobCrystalCrab
+        weight: 0.2
+
 - type: entity
   name: lavaland heavy mob spawner
   id: SpawnerRandomMobLavaland
@@ -52,3 +65,18 @@
   - type: SpawnTableOnTrigger
     table: !type:NestedSelector
       tableId: LavalandLightMobs
+
+- type: entity
+  name: lavaland crystal mob spawner
+  id: SpawnerRandomCrystalMobLavaland
+  parent: MarkerBase
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: LavalandCrystalMobs

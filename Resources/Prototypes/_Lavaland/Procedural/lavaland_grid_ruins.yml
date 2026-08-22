@@ -17,6 +17,13 @@
   patchToPlanet: false
 
 - type: lavalandGridRuin
+  id: MercuryFissure
+  name: lavaland-ruin-mercury-fissure
+  path: /Maps/_Lavaland/Lavaland/ORT_fissure.yml
+  priority: -1 # highest priority
+  patchToPlanet: false
+
+- type: lavalandGridRuin
   id: BiodomeSnow
   name: lavaland-ruin-biodome
   path: /Maps/_Lavaland/Lavaland/ruin_snow_biodome.yml

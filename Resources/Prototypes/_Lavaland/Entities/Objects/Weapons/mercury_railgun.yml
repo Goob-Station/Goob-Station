@@ -1,0 +1,87 @@
+- type: entity
+  name: mercury railgun
+  parent: BaseWeaponBatterySmall
+  id: WeaponMercuryRailgun
+  description: A highly advanced weapon that desintegrates structures on the molecular level. Also works on organic targets.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/mercury_railgun.rsi
+    state: icon
+  - type: Gun
+    clumsyProof: true # Let the clown have some fun
+    fireRate: 0.3 # Very slow
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/plasma_cutter.ogg
+  - type: Item
+    size: Large
+    shape:
+    - 2,2,2,2
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: MaterialEnergy
+    materialWhiteList: [Plasma]
+  - type: BatteryAmmoProvider
+    proto: BulletMercuryRailgun
+    fireCost: 100
+  - type: Appearance
+  - type: Construction
+    graph: MercuryRailgun
+    node: WeaponMercuryRailgun
+
+- type: entity
+  id: BulletMercuryRailgun
+  name: genetic bolt
+  categories: [ HideSpawnMenu ]
+  description: Tears you apart at the molecular level.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/plankton.rsi
+    state: plankton
+    noRot: true
+    drawdepth: Effects
+  - type: Reflective
+  - type: FlyBySound
+  - type: Clickable
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.10,0.1,0.30"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: GatheringProjectile
+    amount: 300
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      groups:
+        Genetic: 5
+      types:
+        Radiation: 15
+        Structural: 200
+  - type: StaminaDamageOnCollide
+    damage: 20
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: PointLight
+    radius: 3
+    color: cyan
+    energy: 2

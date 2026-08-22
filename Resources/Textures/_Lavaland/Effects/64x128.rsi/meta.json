@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/goonstation/goonstation/blob/318ff1ebf617abbd2ce857a09d501feca70a6b1e/icons/effects/64x128.dmi",
+  "size": {
+    "x": 64,
+    "y": 128
+  },
+  "states": [
+    {
+      "name": "lightning_1",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "lightning_2",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1
+        ]
+      ]
+    }
+  ]
+}
