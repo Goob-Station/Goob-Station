@@ -1,0 +1,471 @@
+- type: entity
+  parent: BaseSign
+  id: GangSignBase
+  abstract: true
+  name: gang sign
+  description: A gang sign, used by gang members to mark their territory. Its not a good idea to stand here, probably.
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Gangs/gang_tags.rsi
+    snapCardinals: true
+  - type: GangTerritory
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign1
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag1
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign2
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag2
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign3
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag3
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign4
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag4
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign5
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag5
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign6
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag6
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign7
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag7
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign8
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag8
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign9
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag9
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign10
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag10
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign11
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag11
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign12
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag12
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign13
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag13
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign14
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag14
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign15
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag15
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign16
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag16
+
+- type: entity
+  parent: GangSignBase
+  id: GangSign17
+  suffix: Gang
+  components:
+  - type: Sprite
+    state: gangtag17
+
+- type: weightedRandom
+  id: GangSigns
+  weights:
+    GangSign1: 1
+    GangSign2: 1
+    GangSign3: 1
+    GangSign4: 1
+    GangSign5: 1
+    GangSign6: 1
+    GangSign7: 1
+    GangSign8: 1
+    GangSign9: 1
+    GangSign10: 1
+    GangSign11: 1
+    GangSign12: 1
+    GangSign13: 1
+    GangSign14: 1
+    GangSign15: 1
+    GangSign16: 1
+    GangSign17: 1
+
+- type: entity
+  id: GangLocker
+  name: gang locker
+  suffix: Gang
+  parent: BaseStructure
+  description: A locker belonging to a gang.
+  components:
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Gangs/gang_locker.rsi
+    layers:
+    - state: icon
+  - type: GangLocker
+  - type: GangHiddenStructure
+  - type: StatusIcon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: Store
+    name: gang-store-title
+    categories:
+    - GangStoreStarterEquipment
+    - GangStoreConsumables
+    - GangStoreWeapons
+    - GangStoreEquipment
+    currencyWhitelist:
+    - GangPoint
+
+- type: damageModifierSet
+  id: GangCrate
+  flatReductions:
+    Blunt: 40
+    Slash: 40
+    Piercing: 40
+    Heat: 40
+    Shock: 40
+    Structural: 40
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateGang
+  name: gang crate
+  description: A locked crate containing various goodies. Can only be opened next to a gang locker.
+  suffix: Gang
+  components:
+  - type: Icon
+    sprite: _Goobstation/Gangs/Crates/crate.rsi
+    state: icon
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Gangs/Crates/crate.rsi
+    layers:
+    - state: icon
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: icon
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: EntityStorageVisuals
+    stateDoorOpen: icon_open
+    stateDoorClosed: icon
+  - type: Damageable
+    damageModifierSet: GangCrate
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 600
+  - type: GangCrate
+  - type: EntityStorage
+    capacity: 60
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        # Legendary tier
+        # PlushieMoth entry holds 80% = 20% chance one legendary item spawns.
+        - !type:GroupSelector
+          children:
+          - id: PlushieMoth
+            weight: 0.80
+          - id: WeaponLauncherRocketDisposableThermobaric
+            weight: 0.02
+          - id: WeaponShotgunHeavy
+            weight: 0.02
+          - id: StorageImplant
+            weight: 0.04
+          - id: AutosurgeonSandevistan
+            weight: 0.04
+          - id: WeaponSniperHristov
+            weight: 0.04
+          - id: SpaceCash30000
+            weight: 0.08
+            amount: !type:ConstantNumberSelector
+              value: 2
+        # Rare tier
+        - id: CapoeiraManual
+          prob: 0.05
+        - id: KravMagaImplanter
+          prob: 0.05
+        - id: Omnitool
+          prob: 0.05
+        - id: WeaponSubMachineGunDrozd
+          prob: 0.15
+        - id: WeaponLaserGun
+          prob: 0.1
+        - id: WeaponLaserSvalinn
+          prob: 0.1
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: PowerCellHyper
+          prob: 0.2
+        - id: WeaponRevolverPython
+          prob: 0.1
+        - id: CigarGoldenGang
+          prob: 0.15
+        - id: FlippoEngravedLighter
+          prob: 0.2
+        - id: FireAxe
+          prob: 0.3
+        - id: WeaponSniperMosin
+          prob: 0.3
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: FreedomImplanter
+          prob: 0.3
+        - id: ClothingHandsKnuckleDusters
+          prob: 0.3
+        - id: WeaponPistolMk58
+          prob: 0.3
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: WeaponShotgunSawn
+          prob: 0.3
+        - id: Stunbaton
+          prob: 0.3
+        - id: MedkitAdvancedFilled
+          prob: 0.3
+        - id: ClothingOuterVestWebMerc
+          prob: 0.3
+        - id: SpaceCash5000
+          prob: 0.3
+        # Common tier
+        - id: GangMachete
+          prob: 0.5
+        - id: ThrowingKnife
+          prob: 0.65
+          amount: !type:ConstantNumberSelector
+            value: 3
+        - id: CombatKnife
+          prob: 0.65
+        - id: GangSprayCan
+          prob: 0.65
+          amount: !type:ConstantNumberSelector
+            value: 3
+        - id: MedkitFilled
+          prob: 0.65
+        - id: SmokeGrenade
+          prob: 0.65
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: SpaceCash500
+          prob: 0.65
+        - id: ClothingEyesGlassesSunglasses
+          prob: 0.65
+        - id: Cigar
+          prob: 0.65
+          amount: !type:ConstantNumberSelector
+            value: 2
+
+- type: entity # Functions as a more common version of the crate. Odds are way lower for everything.
+  id: GangDuffelBag
+  parent: CrateGeneric
+  name: gang duffel bag
+  description: A battered duffel bag with a suspicious bulge inside. Looks like it's been rigged. Can only be opened next to a gang loc ker.
+  suffix: Gang
+  components:
+  - type: Icon
+    sprite: _Goobstation/Gangs/gang_duffel_bag.rsi
+    state: icon_trapped
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Gangs/gang_duffel_bag.rsi
+    layers:
+    - state: icon_trapped
+      map: ["enum.StorageVisualLayers.Base"]
+  - type: Damageable
+    damageModifierSet: GangCrate
+  - type: GangDuffelBag
+  - type: EntityStorage
+    capacity: 60
+    openSound:
+      path: /Audio/Items/zip.ogg
+    closeSound:
+      path: /Audio/Items/zip.ogg
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        # Legendary tier
+        # PlushieMoth entry holds 95% = 5% chance one legendary item spawns.
+        - !type:GroupSelector
+          children:
+          - id: PlushieMoth
+            weight: 0.95
+          - id: StorageImplant
+            weight: 0.01
+          - id: AutosurgeonSandevistan
+            weight: 0.01
+          - id: WeaponShotgunHeavy
+            weight: 0.01
+          - id: WeaponSniperHristov
+            weight: 0.01
+          - id: SpaceCash30000
+            weight: 1.0
+            amount: !type:ConstantNumberSelector
+              value: 2
+        # Rare tier
+        - id: GangGL06Bundle
+          prob: 0.02
+        - id: CapoeiraManual
+          prob: 0.02
+        - id: KravMagaImplanter
+          prob: 0.02
+        - id: Omnitool
+          prob: 0.02
+        - id: WeaponSubMachineGunDrozd
+          prob: 0.05
+        - id: WeaponLaserGun
+          prob: 0.03
+        - id: WeaponLaserSvalinn
+          prob: 0.03
+        - id: PowerCellHyper
+          prob: 0.07
+        - id: WeaponRevolverPython
+          prob: 0.03
+        - id: CigarGoldenGang
+          prob: 0.05
+        - id: FlippoEngravedLighter
+          prob: 0.07
+        - id: FireAxe
+          prob: 0.10
+        - id: WeaponSniperMosin
+          prob: 0.10
+        - id: FreedomImplanter
+          prob: 0.10
+        - id: ClothingHandsKnuckleDusters
+          prob: 0.10
+        - id: WeaponPistolMk58
+          prob: 0.10
+        - id: WeaponShotgunSawn
+          prob: 0.10
+        - id: GangMachete
+          prob: 0.10
+        - id: Stunbaton
+          prob: 0.10
+        - id: MedkitAdvancedFilled
+          prob: 0.10
+        - id: ClothingOuterVestWebMerc
+          prob: 0.10
+        - id: SpaceCash5000
+          prob: 0.10
+        # Common tier
+        - id: ThrowingKnife
+          prob: 0.25
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: CombatKnife
+          prob: 0.25
+        - id: GangSprayCan
+          prob: 0.5
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: GrenadeEMP
+          prob: 0.25
+        - id: SpaceCash500
+          prob: 0.25
+        - id: ClothingEyesGlassesSunglasses
+          prob: 0.25
+        - id: Cigar
+          prob: 0.25
+        - id: MedkitFilled
+          prob: 0.5
+        - id: SmokeGrenade
+          prob: 0.5

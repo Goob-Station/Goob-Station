@@ -1,0 +1,167 @@
+# Gang store currency
+- type: currency
+  id: GangPoint
+  displayName: store-currency-display-gangpoint
+  canWithdraw: false
+
+# Gang store categories
+- type: storeCategory
+  id: GangStoreStarterEquipment
+  name: gang-store-category-starter-equipment
+  priority: -1
+
+- type: storeCategory
+  id: GangStoreConsumables
+  name: gang-store-category-consumables
+  priority: 0
+
+- type: storeCategory
+  id: GangStoreWeapons
+  name: gang-store-category-weapons
+  priority: 1
+
+- type: storeCategory
+  id: GangStoreEquipment
+  name: gang-store-category-equipment
+  priority: 2
+
+# Gang store listings
+
+- type: listing
+  id: GangStoreMedkit
+  name: gang-store-listing-medkit-name
+  description: gang-store-listing-medkit-desc
+  productEntity: MedkitFilled
+  categories:
+  - GangStoreConsumables
+  cost:
+    GangPoint: 800
+
+- type: listing
+  id: GangStoreOmnizine
+  name: gang-store-listing-omnizine-name
+  description: gang-store-listing-omnizine-desc
+  productEntity: OmnizineMedipen
+  categories:
+  - GangStoreConsumables
+  cost:
+    GangPoint: 1100
+
+- type: listing
+  id: GangStoreQuickhack
+  name: gang-store-listing-quickhack-name
+  description: gang-store-listing-quickhack-desc
+  productEntity: Quickhack
+  categories:
+  - GangStoreConsumables
+  cost:
+    GangPoint: 800
+
+- type: listing
+  id: GangStoreSwitchblade
+  name: gang-store-listing-knife-name
+  description: gang-store-listing-knife-desc
+  productEntity: CombatKnife
+  categories:
+  - GangStoreWeapons
+  cost:
+    GangPoint: 800
+
+- type: listing
+  id: GangStoreThrowingKnife
+  name: gang-store-listing-throwingknife-name
+  description: gang-store-listing-throwingknife-desc
+  productEntity: ThrowingKnife
+  categories:
+  - GangStoreWeapons
+  cost:
+    GangPoint: 700
+
+- type: listing
+  id: GangStoreBaseballBat
+  name: gang-store-listing-baseballbat-name
+  description: gang-store-listing-baseballbat-desc
+  productEntity: BaseBallBat
+  categories:
+  - GangStoreWeapons
+  cost:
+    GangPoint: 2000
+
+- type: listing
+  id: GangStoreMachete
+  name: gang-store-listing-machete-name
+  description: gang-store-listing-machete-desc
+  productEntity: GangMachete
+  categories:
+  - GangStoreWeapons
+  cost:
+    GangPoint: 4000
+
+- type: listing
+  id: GangStoreBeginnerBundle
+  name: gang-store-listing-beginner-bundle-name
+  description: gang-store-listing-beginner-bundle-desc
+  productEntity: GangBeginnerBundle
+  categories:
+  - GangStoreStarterEquipment
+  cost:
+    GangPoint: 0
+  conditions:
+  - !type:ListingLimitedStockPerBuyerCondition
+    stock: 1
+
+- type: listing
+  id: GangStoreProPaint
+  name: gang-store-listing-propaint-name
+  description: gang-store-listing-propaint-desc
+  productEntity: GangSprayCan
+  categories:
+  - GangStoreEquipment
+  cost:
+    GangPoint: 300
+
+- type: listing
+  id: GangStoreClothesBundle
+  name: gang-store-listing-clothes-bundle-name
+  description: gang-store-listing-clothes-bundle-desc
+  productEntity: GangClothesBundle
+  categories:
+  - GangStoreEquipment
+  cost:
+    GangPoint: 300
+
+- type: listing
+  id: GangStoreEncryptionKey
+  name: gang-store-listing-encryption-key-name
+  description: gang-store-listing-encryption-key-desc
+  productEntity: EncryptionKeyGang
+  categories:
+  - GangStoreEquipment
+  cost:
+    GangPoint: 1500
+
+- type: listing
+  id: GangStoreLightArmorVest
+  name: gang-store-listing-light-armor-vest-name
+  description: gang-store-listing-light-armor-vest-desc
+  productEntity: ClothingOuterArmorBasic
+  categories:
+  - GangStoreEquipment
+  cost:
+    GangPoint: 2000
+
+- type: listing
+  id: GangStoreTipOff
+  name: gang-store-listing-tipoff-name
+  description: gang-store-listing-tipoff-desc
+  productEvent: !type:GangTipOffEvent {}
+  icon:
+    sprite: /Textures/_Goobstation/Gangs/gang_duffel_bag.rsi
+    state: icon
+  categories:
+  - GangStoreConsumables
+  cost:
+    GangPoint: 8000
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
