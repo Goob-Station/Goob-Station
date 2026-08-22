@@ -1490,8 +1490,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleAccessBreaker
-  name: access breaker xenoborg module
-  description: Module with a access breaker.
+  name: hacking xenoborg module
+  description: Module with a access breaker and cryptographic sequencer.
   components:
   - type: Sprite
     layers:
@@ -1500,6 +1500,7 @@
   - type: ItemBorgModule
     hands:
     - item: AccessBreaker
+    - item: Emag
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
 
