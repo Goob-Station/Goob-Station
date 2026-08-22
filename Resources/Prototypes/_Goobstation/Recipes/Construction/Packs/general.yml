@@ -1,0 +1,28 @@
+# This file contains combinations of other construction packs.
+- type: constructionPack
+  id: AllGroups
+  name: construction-pack-all
+  parent:
+  - Handmade
+  - WeaponsHandmade
+  - AdvancedHandmade
+  - AdvancedWeaponsHandmade
+  - TechnologicalHandmade
+  - TechnologicalWeaponsHandmade
+  - Materials
+  - SimpleFurniture
+  - Furniture
+  - Walls
+  - AdvancedWalls
+  - Windows
+  - AdvancedWindows
+  - Doors
+  - Airlocks
+  - Toys
+  - Bananium
+  - Infrastructure
+  - Electronics
+  - Science
+  - Bots
+  - Smokeables
+  - SpiderCraft
