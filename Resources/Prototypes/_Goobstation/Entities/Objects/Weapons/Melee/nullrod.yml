@@ -527,17 +527,18 @@
       changeSound:
         path: /Audio/Effects/Emotes/snap2.ogg
   - type: MeleeWeapon
-    canWideSwing: false
+    canWideSwing: true
     range: 3
-    attackRate: 0.9
+    attackRate: 1.6
     damage:
       types:
         Holy: 14
         Blunt: 14
     soundHit:
-      path: /Audio/Effects/Emotes/snap3.ogg
+      path: /Audio/_Goobstation/Effects/slap.ogg
       params:
         volume: 10
+    wideAnimation: WeaponArcSlash
   - type: Unremoveable
   - type: Nullrod
     DamageOnUntrainedUse:
