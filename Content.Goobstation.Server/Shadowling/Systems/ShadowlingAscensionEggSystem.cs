@@ -181,6 +181,8 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
         if (stationUid != null)
             _alertLevel.SetLevel(stationUid.Value, "delta", true, true, true, true);
 
+        RaiseLocalEvent(new AmberAlertThreatEvent());
+
         var effectEnt = Spawn(component.ShadowlingInside, Transform(eggUid).Coordinates);
         component.ShadowlingInsideEntity = effectEnt;
     }
