@@ -1,0 +1,764 @@
+- type: quickPhrase
+  id: BaseNouns
+  tab: Nouns
+  abstract: true
+
+- type: quickPhrase
+  id: BaseNounsSpecies
+  parent: BaseNouns
+  group: Species
+  abstract: true
+
+- type: quickPhrase
+  id: BaseNounsHurt
+  parent: BaseNouns
+  group: Damage types
+  abstract: true
+
+- type: quickPhrase
+  id: BaseNounsTime
+  parent: BaseNouns
+  group: Time
+  abstract: true
+
+- type: quickPhrase
+  id: BaseNounsRelationships
+  parent: BaseNouns
+  group: Relationships
+  abstract: true
+
+- type: quickPhrase
+  id: BaseNounsMats
+  parent: BaseNouns
+  group: Materials
+  abstract: true
+
+- type: quickPhrase
+  id: BaseNounsTools
+  parent: BaseNouns
+  group: Tools
+  abstract: true
+
+# basic
+
+- type: quickPhrase
+  id: PenPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-pen
+
+- type: quickPhrase
+  id: PaperPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-paper
+
+- type: quickPhrase
+  id: AirlockPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-airlock
+
+- type: quickPhrase
+  id: PDAPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-pda
+
+- type: quickPhrase
+  id: BountyPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-bounty
+
+- type: quickPhrase
+  id: FoodPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-food
+
+- type: quickPhrase
+  id: WeaponPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-weapon
+
+- type: quickPhrase
+  id: GunPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-gun
+
+- type: quickPhrase
+  id: KnifePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-knife
+
+- type: quickPhrase
+  id: MedsPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-meds
+
+- type: quickPhrase
+  id: FirePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-fire
+
+- type: quickPhrase
+  id: WaterPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-water
+
+- type: quickPhrase
+  id: EarthPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-earth
+
+- type: quickPhrase
+  id: AirPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-air
+
+- type: quickPhrase
+  id: ShuttlePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-shuttle
+
+- type: quickPhrase
+  id: NeedlePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-needle
+
+- type: quickPhrase
+  id: GiftPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-gift
+
+- type: quickPhrase
+  id: LathePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-lathe
+
+- type: quickPhrase
+  id: ComputerPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-computer
+
+- type: quickPhrase
+  id: ToolPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-tool
+
+- type: quickPhrase
+  id: FruitPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-fruit
+
+- type: quickPhrase
+  id: VegPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-veg
+
+- type: quickPhrase
+  id: MeatPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-meat
+
+- type: quickPhrase
+  id: AccessPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-access
+
+- type: quickPhrase
+  id: IDPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-id
+
+- type: quickPhrase
+  id: CablePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-cable
+
+- type: quickPhrase
+  id: GravPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-gravity
+
+- type: quickPhrase
+  id: SpaceSuitPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-ssuit
+
+- type: quickPhrase
+  id: MachinePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-machine
+
+- type: quickPhrase
+  id: TrashPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-trash
+
+- type: quickPhrase
+  id: BoxPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-box
+
+- type: quickPhrase
+  id: DoorPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-door
+
+- type: quickPhrase
+  id: BloodPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-blood
+
+- type: quickPhrase
+  id: AIPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-ai
+
+- type: quickPhrase
+  id: StatusPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-status
+
+- type: quickPhrase
+  id: GenPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-gen
+
+- type: quickPhrase
+  id: FuelPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-fuel
+
+- type: quickPhrase
+  id: MistakePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-mistake
+
+- type: quickPhrase
+  id: CigPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-cig
+
+- type: quickPhrase
+  id: GamePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-game
+
+- type: quickPhrase
+  id: BagPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-bag
+
+- type: quickPhrase
+  id: HatPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-hat
+
+- type: quickPhrase
+  id: ShoesPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-shoes
+
+- type: quickPhrase
+  id: GlovesPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-gloves
+
+- type: quickPhrase
+  id: MaskPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-mask
+
+- type: quickPhrase
+  id: GasPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-gas
+
+- type: quickPhrase
+  id: PowerPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-power
+
+- type: quickPhrase
+  id: EnginePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-engine
+
+- type: quickPhrase
+  id: PressurePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-pressure
+
+- type: quickPhrase
+  id: TempPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-temp
+
+- type: quickPhrase
+  id: ElectricPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-electric
+
+- type: quickPhrase
+  id: AnomPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-anom
+
+- type: quickPhrase
+  id: ArtiPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-arti
+
+- type: quickPhrase
+  id: CyborgPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-cyborg
+
+- type: quickPhrase
+  id: PlantPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-plant
+
+- type: quickPhrase
+  id: FlourPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-flour
+
+- type: quickPhrase
+  id: DoughPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-dough
+
+- type: quickPhrase
+  id: BeakerPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-beaker
+
+- type: quickPhrase
+  id: EggPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-egg
+
+- type: quickPhrase
+  id: BoozePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-booze
+
+- type: quickPhrase
+  id: SeedPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-seed
+
+- type: quickPhrase
+  id: OvenPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-oven
+
+- type: quickPhrase
+  id: ArtPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-art
+
+- type: quickPhrase
+  id: MusicPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-music
+
+- type: quickPhrase
+  id: DefibPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-defib
+
+- type: quickPhrase
+  id: StasisBedPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-stasis
+
+- type: quickPhrase
+  id: MailPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-mail
+
+- type: quickPhrase
+  id: ExpedPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-exped
+
+- type: quickPhrase
+  id: CrimePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-crime
+
+- type: quickPhrase
+  id: CuffsPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-cuffs
+
+- type: quickPhrase
+  id: WarrentPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-warrent
+
+- type: quickPhrase
+  id: ContraPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-contra
+
+- type: quickPhrase
+  id: NukePhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-nuke
+
+- type: quickPhrase
+  id: NukeDiskPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-nukedisk
+
+- type: quickPhrase
+  id: ExplosionPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-explosion
+
+- type: quickPhrase
+  id: BombPhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-bomb
+
+- type: quickPhrase
+  id: O2PhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-o2
+
+- type: quickPhrase
+  id: N2PhraseImp
+  parent: BaseNouns
+  text: imp-phrase-nouns-n2
+
+# damage types
+
+- type: quickPhrase
+  id: BrutePhraseImp
+  parent: BaseNounsHurt
+  text: imp-phrase-nouns-brute
+
+- type: quickPhrase
+  id: BurnPhraseImp
+  parent: BaseNounsHurt
+  text: imp-phrase-nouns-burn
+
+- type: quickPhrase
+  id: ToxicPhraseImp
+  parent: BaseNounsHurt
+  text: imp-phrase-nouns-toxic
+
+- type: quickPhrase
+  id: RadsPhraseImp
+  parent: BaseNounsHurt
+  text: imp-phrase-nouns-rads
+
+- type: quickPhrase
+  id: PoisonPhraseImp
+  parent: BaseNounsHurt
+  text: imp-phrase-nouns-poison
+
+# species
+
+- type: quickPhrase
+  id: DionaPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-diona
+
+- type: quickPhrase
+  id: SlimePhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-slime
+
+- type: quickPhrase
+  id: MothPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-moth
+
+- type: quickPhrase
+  id: LizardPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-reptilian
+
+- type: quickPhrase
+  id: SpiderPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-arachnid
+
+- type: quickPhrase
+  id: HumanPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-human
+
+- type: quickPhrase
+  id: DwarfPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-dwarf
+
+- type: quickPhrase
+  id: VoxPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-vox
+
+- type: quickPhrase
+  id: RaptorPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-raptor
+
+- type: quickPhrase
+  id: ThavenPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-thaven
+
+- type: quickPhrase
+  id: ApidPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-apid
+
+- type: quickPhrase
+  id: DecaPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-deca
+
+- type: quickPhrase
+  id: GrayPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-gray
+
+- type: quickPhrase
+  id: SnailPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-snail
+
+- type: quickPhrase
+  id: ShrimpPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-shrimp
+
+- type: quickPhrase
+  id: KodiPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-kodi
+
+- type: quickPhrase
+  id: UnguPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-ungu
+
+- type: quickPhrase
+  id: XenoPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-xeno
+
+- type: quickPhrase
+  id: BirdPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-bird
+
+- type: quickPhrase
+  id: CatPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-cat
+
+- type: quickPhrase
+  id: DogPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-dog
+
+- type: quickPhrase
+  id: FishPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-fish
+
+- type: quickPhrase
+  id: BugPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-bug
+
+- type: quickPhrase
+  id: PestPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-pest
+
+- type: quickPhrase
+  id: PetPhraseImp
+  parent: BaseNounsSpecies
+  text: imp-phrase-nouns-pet
+
+# time
+
+- type: quickPhrase
+  id: SecondPhraseImp
+  parent: BaseNounsTime
+  text: imp-phrase-nouns-second
+
+- type: quickPhrase
+  id: HourPhraseImp
+  parent: BaseNounsTime
+  text: imp-phrase-nouns-hour
+
+- type: quickPhrase
+  id: MinutePhraseImp
+  parent: BaseNounsTime
+  text: imp-phrase-nouns-minute
+
+- type: quickPhrase
+  id: YearPhraseImp
+  parent: BaseNounsTime
+  text: imp-phrase-nouns-year
+
+- type: quickPhrase
+  id: NowPhraseImp
+  parent: BaseNounsTime
+  text: imp-phrase-nouns-now
+
+- type: quickPhrase
+  id: LaterPhraseImp
+  parent: BaseNounsTime
+  text: imp-phrase-nouns-later
+
+- type: quickPhrase
+  id: SoonPhraseImp
+  parent: BaseNounsTime
+  text: imp-phrase-nouns-soon
+
+- type: quickPhrase
+  id: NextPhraseImp
+  parent: BaseNounsTime
+  text: imp-phrase-nouns-next
+
+# relationships
+
+- type: quickPhrase
+  id: FriendPhraseImp
+  parent: BaseNounsRelationships
+  text: imp-phrase-nouns-friend
+
+- type: quickPhrase
+  id: PartnerPhraseImp
+  parent: BaseNounsRelationships
+  text: imp-phrase-nouns-partner
+
+- type: quickPhrase
+  id: EnemyPhraseImp
+  parent: BaseNounsRelationships
+  text: imp-phrase-nouns-enemy
+
+- type: quickPhrase
+  id: ParentPhraseImp
+  parent: BaseNounsRelationships
+  text: imp-phrase-nouns-parent
+
+- type: quickPhrase
+  id: ChildPhraseImp
+  parent: BaseNounsRelationships
+  text: imp-phrase-nouns-child
+
+- type: quickPhrase
+  id: SiblingPhraseImp
+  parent: BaseNounsRelationships
+  text: imp-phrase-nouns-sib
+
+- type: quickPhrase
+  id: StrangerPhraseImp
+  parent: BaseNounsRelationships
+  text: imp-phrase-nouns-stranger
+
+- type: quickPhrase
+  id: BossPhraseImp
+  parent: BaseNounsRelationships
+  text: imp-phrase-nouns-boss
+
+# materials
+
+- type: quickPhrase
+  id: SteelPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-steel
+
+- type: quickPhrase
+  id: PlasteelPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-plasteel
+
+- type: quickPhrase
+  id: GlassPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-glass
+
+- type: quickPhrase
+  id: ClothPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-cloth
+
+- type: quickPhrase
+  id: PlasticPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-plastic
+
+- type: quickPhrase
+  id: UraniumPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-uranium
+
+- type: quickPhrase
+  id: PlasmaPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-plasma
+
+- type: quickPhrase
+  id: GoldPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-gold
+
+- type: quickPhrase
+  id: SilverPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-silver
+
+- type: quickPhrase
+  id: QuartzPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-quartz
+
+- type: quickPhrase
+  id: WoodPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-wood
+
+- type: quickPhrase
+  id: CardPhraseImp
+  parent: BaseNounsMats
+  text: imp-phrase-nouns-card
+
+# tools
+
+- type: quickPhrase
+  id: WrenchPhraseImp
+  parent: BaseNounsTools
+  text: imp-phrase-nouns-wrench
+
+- type: quickPhrase
+  id: CrowbarPhraseImp
+  parent: BaseNounsTools
+  text: imp-phrase-nouns-crowbar
+
+- type: quickPhrase
+  id: MultitoolPhraseImp
+  parent: BaseNounsTools
+  text: imp-phrase-nouns-multitool
+
+- type: quickPhrase
+  id: ScrewdriverPhraseImp
+  parent: BaseNounsTools
+  text: imp-phrase-nouns-screwdriver
+
+- type: quickPhrase
+  id: WirecutterPhraseImp
+  parent: BaseNounsTools
+  text: imp-phrase-nouns-wirecutter
+
+- type: quickPhrase
+  id: WeldingPhraseImp
+  parent: BaseNounsTools
+  text: imp-phrase-nouns-welding
