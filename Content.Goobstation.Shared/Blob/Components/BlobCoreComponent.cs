@@ -94,7 +94,7 @@ public sealed partial class BlobCoreComponent : Component
                 DamageDict = new Dictionary<string, FixedPoint2>
                 {
                     { "Structural", 150 },
-                    { "Heat", 20 },
+                    { "Shock", 18 },
                 },
             }
         },
@@ -103,8 +103,67 @@ public sealed partial class BlobCoreComponent : Component
             {
                 DamageDict = new Dictionary<string, FixedPoint2>
                 {
-                    { "Structural", 150 },
+                    { "Structural", 120 },
                     { "Poison", 15 },
+                }
+            }
+        },
+        {
+            BlobChemType.ComatoseFiber, new DamageSpecifier()
+            {
+                DamageDict = new Dictionary<string, FixedPoint2>
+                {
+                    { "Structural", 150 },
+                    { "Asphyxiation", 22 },
+                }
+            }
+        },
+        {
+            BlobChemType.ChainCoating, new DamageSpecifier()
+            {
+                DamageDict = new Dictionary<string, FixedPoint2>
+                {
+                    { "Structural", 150 },
+                    { "Blunt", 12 },
+                    { "Slash", 12 },
+                }
+            }
+        },
+        {
+            BlobChemType.SinewyTendons, new DamageSpecifier()
+            {
+                DamageDict = new Dictionary<string, FixedPoint2>
+                {
+                    { "Structural", 150 },
+                    { "Blunt", -8 },
+                    { "Slash", -8 },
+                    { "Piercing", -8 },
+                    { "Poison", -8 },
+                    { "Heat", -8 },
+                    { "Cold", -8 },
+                    { "Asphyxiation", -8 },
+                }
+            }
+        },
+        {
+            BlobChemType.CorrosiveSlime, new DamageSpecifier()
+            {
+                DamageDict = new Dictionary<string, FixedPoint2>
+                {
+                    { "Structural", 320 },
+                    { "Caustic", 13 },
+                    { "Cellular", 2}
+                }
+            }
+        },
+        {
+            BlobChemType.CryogenicPoison, new DamageSpecifier()
+            {
+                DamageDict = new Dictionary<string, FixedPoint2>
+                {
+                    { "Structural", 100 },
+                    { "Cold", 16 },
+                    { "Slash", 4}
                 }
             }
         },
@@ -120,8 +179,13 @@ public sealed partial class BlobCoreComponent : Component
         {BlobChemType.ReactiveSpines, Color.FromHex("#637b19")},
         {BlobChemType.BlazingOil, Color.FromHex("#937000")},
         {BlobChemType.RegenerativeMateria, Color.FromHex("#441e59")},
-        {BlobChemType.ExplosiveLattice, Color.FromHex("#6e1900")},
+        {BlobChemType.ExplosiveLattice, Color.FromHex("#6e2a00")},
         {BlobChemType.ElectromagneticWeb, Color.FromHex("#0d7777")},
+        {BlobChemType.ComatoseFiber, Color.FromHex("#191978")},
+        {BlobChemType.ChainCoating, Color.FromHex("#3b3b3b")},
+        {BlobChemType.SinewyTendons, Color.FromHex("#690f53")},
+        {BlobChemType.CorrosiveSlime, Color.FromHex("#9cae6b")},
+        {BlobChemType.CryogenicPoison, Color.FromHex("#5282ae")},
     };
 
     [DataField]
@@ -151,6 +215,35 @@ public sealed partial class BlobCoreComponent : Component
         /*
         {BlobTileType.Storage, 50},
         {BlobTileType.Turret, 75},*/
+    };
+
+    [DataField]
+    public Dictionary<BlobTileType, Dictionary<BlobChemType, FixedPoint2>> BlobTileCostsByChem = new()
+    {
+        [ BlobTileType.Strong ] = new()
+        {
+            { BlobChemType.ChainCoating, 10 },
+            { BlobChemType.SinewyTendons, 25 },
+        },
+        [ BlobTileType.Reflective ] = new()
+        {
+            { BlobChemType.ChainCoating, 10 },
+            { BlobChemType.SinewyTendons, 20 },
+        },
+        [ BlobTileType.Factory ] = new()
+        {
+            { BlobChemType.ChainCoating, 100 },
+            { BlobChemType.SinewyTendons, 60 },
+        },
+        [ BlobTileType.Resource ] = new()
+        {
+            { BlobChemType.ChainCoating, 85 },
+            { BlobChemType.SinewyTendons, 40 },
+        },
+        [ BlobTileType.Node ] = new()
+        {
+            { BlobChemType.CorrosiveSlime, 100 },
+        }
     };
 
     [DataField]
@@ -226,5 +319,10 @@ public enum BlobChemType : byte
     ReactiveSpines,
     RegenerativeMateria,
     ExplosiveLattice,
-    ElectromagneticWeb
+    ElectromagneticWeb,
+    ComatoseFiber,
+    SinewyTendons,
+    ChainCoating,
+    CorrosiveSlime,
+    CryogenicPoison
 }
