@@ -12,6 +12,8 @@
     blacklist:
       components:
       - SurplusBundle
+      - NukeOpsUplink
+      - LoneOpsUplink
 
 - type: listing
   id: UplinkBombCollarKit
