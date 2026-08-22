@@ -69,7 +69,7 @@
     - prefRoles: [ Traitor ]
       max: 2
       playerRatio: 25
-      chaosScore: 300
+      chaosScore: 250 # Lowered for higher chance of getting these antags
       jobBlacklist: [ NanotrasenRepresentative ]
       whitelist:
         components:
@@ -408,7 +408,7 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 1200
+    chaosScore: 500 # this was 1200? it only lost to blob and xenos
   - type: AntagSelection
     agentName: thief-round-end-agent-name
     definitions:

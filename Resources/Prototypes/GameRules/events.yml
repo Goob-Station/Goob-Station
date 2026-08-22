@@ -256,7 +256,7 @@
     earliestStart: 30 # Goobstation was 45
     #recorruenceDelay: 20 # Goobstation - no longer needed
     maxOccurrences: 1 # Goobstation
-    minimumPlayers: 50
+    minimumPlayers: 40 # Goobstation - lowered to match colossus
     duration: null
     chaos: # Goobstation
       Hostile: 20
@@ -309,7 +309,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 450 # Goobstation - how was this SO CHEAP (300) - antag that spawns 900 chaos score worth of Antags
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
     # Goobstation start
@@ -746,7 +746,7 @@
   - type: StationEvent
     earliestStart: 35
     weight: 2.5 # Goobstation - was 5.5
-    minimumPlayers: 50 # Goobstation - was 20
+    minimumPlayers: 40 # Goobstation - was 20
     duration: 720 # Goobstation - required for custom nuke music. 720s to ensure loneop can hear the music and still have space for other midrounds incase of failure
     chaos: # Goobstation
       Hostile: 200
@@ -754,7 +754,7 @@
       Death: 200
     eventType: HostilesSpawn # Goobstation
   - type: GameRule # Goobstation
-    chaosScore: 700
+    chaosScore: 550 # Goobstation - a bit lower than dragon and colossus, still kinda high for a solo ontag
   - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
@@ -812,8 +812,8 @@
     - prefRoles: [ TraitorSleeper ]
       fallbackRoles: [ Traitor ]
       min: 1
-      max: 2
-      playerRatio: 10
+      max: 3 # Goobstation - Wont happen as often due to higher max cost but more impactful
+      playerRatio: 15 # Goobstation 
       chaosScore: 200 # Goobstation - same as roundstart traitor gamerule
       blacklist:
         components:
@@ -897,7 +897,7 @@
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 160
+    chaosScore: 80 # Goobstation - Lets be honest, this is normally solved in less than 5 minutes, used to be 160
   - type: GreytideVirusRule
     accessGroups:
     - Cargo
