@@ -2911,6 +2911,12 @@
     damage:
       types:
         Piercing: 6
+  - type: TerrorSpider # Goobstation - terror spiders
+    spiderType: TerrorTarantula
+  - type: TerrorWrap
+  - type: ActionGrant
+    actions:
+      - ActionTerrorWrap
 
 - type: entity
   parent:
@@ -2967,6 +2973,13 @@
         reagents:
         - ReagentId: Laughter
           Quantity: 150
+    - type: TerrorSpider # Goobstation - terror spiders
+      spiderType: TerrorClown
+    - type: TerrorWrap
+    - type: ActionGrant
+      actions:
+        - ActionTerrorWrap
+
 - type: entity
   name: wizard spider
   parent: MobGiantSpider
