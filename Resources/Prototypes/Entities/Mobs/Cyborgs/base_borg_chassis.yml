@@ -553,6 +553,9 @@
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
     subverted: true
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: Xenoborg # Goob - xenoborg buff
   - type: IntrinsicRadioReceiver # Goob - moved binary to CM
   - type: CollectiveMind
     defaultChannel: Binary
