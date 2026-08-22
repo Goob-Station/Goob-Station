@@ -274,3 +274,74 @@
           Blunt: -10
           Piercing: -10
           Slash: -10
+
+- type: entity
+  id: OrganDubiousRandomizeLanguage
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: RandomLanguage
+
+- type: entity
+  id: OrganDubiousFlipGravity
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: FlipGravity
+
+- type: entity
+  id: OrganDubiousVomitChem
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: viral
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      minActivationTime: 15
+      maxActivationTime: 30
+      statusEffects:
+        VomitChem: VomitChem
+
+- type: entity
+  id: OrganDubiousRandomBodySize
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      minActivationTime: 15
+      maxActivationTime: 30
+      statusEffects:
+        RandomBodySize: RandomBodySize
+
+# Holy fuck i hate this
+- type: entity
+  id: OrganDubiousShittySandevistan
+  parent: OrganHeartSandevistan
+  name: mysterious gland
+  description: Suspicious alien gland, replaces the heart.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Misc/Dubious/organs.rsi
+    state: mindshock
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser
+      randomThreshold: true
+      showAlert: false
+      min: 0
+      max: 50
+      thresholds:
+        Warning: 15
+        Shaking: 30
+        Damage: 45
+        Death: 60
