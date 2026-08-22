@@ -511,13 +511,11 @@
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
   whitelist: #Goobstation - IPCs
-    tags:
-      - HarpyEmotes # Omu, allow harpy to buzz
-      - SiliconEmotes
     components:
     - Silicon
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to buzz
   chatTriggers:
     - buzzing
     - buzz
@@ -531,12 +529,11 @@
   icon: Interface/Emotes/weh.png
   chatMessages: ["chat-emote-msg-weh"]
   whitelist:
-    tags:
-      - HarpyEmotes # Omu, allow harpy to weh
-      - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   blacklist:
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to weh
+    - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   chatTriggers: # Floof - you can weh now
     - weh
     - wehs
@@ -561,16 +558,14 @@
   available: false
   icon: Interface/Emotes/chirp.png
   whitelist:
-    tags:
-    - HarpyEmotes # Omu, allow harpy to chirp
-      - FeroxiEmotes # Omu
-
     components:
     - Nymph
     - Vocal
   blacklist:
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to chirp
+    - FeroxiEmotes # Omu
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
     - chirp
@@ -586,14 +581,12 @@
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
   whitelist: #Goobstation - IPCs, C4 sentience
-    tags:
-      - HarpyEmotes # Omu, allow harpy to beep
-      - SiliconEmotes
     components:
     - Silicon
     - Explosive
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to beep
   chatTriggers:
     - beep
     - beeps
@@ -625,13 +618,11 @@
   icon: Interface/Emotes/buzztwo.png
   chatMessages: ["chat-emote-msg-buzzestwo"]
   whitelist: #Goobstation - IPCs
-    tags:
-      - HarpyEmotes # Omu, allow harpy to buzztwo
-      - SiliconEmotes
     components:
     - Silicon
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to buzztwo
   chatTriggers:
     - buzztwice
     - buzzstwice
@@ -651,13 +642,11 @@
   icon: Interface/Emotes/ping.png
   chatMessages: ["chat-emote-msg-ping"]
   whitelist: #Goobstation - IPCs
-    tags:
-      - HarpyEmotes # Omu, allow harpy to ping
-      - SiliconEmotes
     components:
     - Silicon
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to ping
   chatTriggers:
     - ping
     - pings
