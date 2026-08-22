@@ -105,7 +105,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 400 #goob
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -132,7 +132,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Repairable
-  #  doAfterDelay: 25 # goob xenoborg buffs
+    doAfterDelay: 25 
   - type: ContainerFill
     containers:
       borg_brain:
