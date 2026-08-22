@@ -15,13 +15,6 @@
         - !type:RoundDurationCondition
           max: 1
         children:
-        - id: Xenoborgs
-          weight: 25
-          conditions:
-          - !type:HasBudgetCondition
-          - !type:MaxRuleOccurenceCondition
-          - !type:PlayerCountCondition
-            min: 30
         - id: Traitor
           weight: 60
           conditions:
