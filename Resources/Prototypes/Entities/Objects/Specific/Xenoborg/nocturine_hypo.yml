@@ -7,13 +7,13 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 24
+        maxVol: 24 #goob
         reagents:
         - ReagentId: Nocturine
-          Quantity: 24
+          Quantity: 24 #goob
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
       - ReagentId: Nocturine
-        Quantity: 0.4
+        Quantity: 0.4 # goob - doubled noct regen rate
