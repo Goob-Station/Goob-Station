@@ -546,10 +546,10 @@
   - type: MobThresholds
     thresholds: # slightly tankier than a normal borg
       0: Alive
-      125: Critical
-      375: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
-  - type: EmagSiliconLaw # should xenoborgs be emagable?
-    stunTime: 5
+      175: Critical # goob - increased to match overall goob balance
+      400: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+ # - type: EmagSiliconLaw # goob - xenoborgs can't be emagged anymore
+ #   stunTime: 5
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
     subverted: true
@@ -611,7 +611,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 90
+        damage: 150
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -620,7 +620,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 375
+        damage: 400
       behaviors:
       - !type:PlaySoundBehavior
         sound:
