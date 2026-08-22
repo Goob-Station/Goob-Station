@@ -158,6 +158,7 @@
       - fishy
   - type: Tag
     tags:
+    - Fish # Trauma
     - Raw
     - Meat
   - type: Sprite
@@ -313,6 +314,14 @@
       - state: generic-pink-inhand-left
       right:
       - state: generic-pink-inhand-right
+  # <Trauma>
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:Vomit
+    whitelist:
+      tags:
+      - Chicken
+  # </Trauma>
 
 - type: entity
   parent: FoodMeatRawBase

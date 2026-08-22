@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "zap taken from tgstation at https://github.com/tgstation/tgstation/blob/5fdb6d3618af76b4835c145fe02c1906566ca8c0/icons/mob/actions/actions_spells.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "zap"
+        }
+    ]
+}

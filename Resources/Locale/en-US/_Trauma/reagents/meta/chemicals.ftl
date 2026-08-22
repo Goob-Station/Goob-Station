@@ -33,3 +33,15 @@ reagent-desc-ammonium-nitrate-fuel-oil = An off white, crystalline solid mixed w
 
 reagent-name-octogen = octogen
 reagent-desc-octogen = A white, opaque powder that has detonation velocity similar to re-entry speeds. Also known as HMX. Explodes at 553K.
+
+reagent-name-hephaestium = hephaestium
+reagent-desc-hephaestium = hephaestium, named after the greek god of stone Hephaestus, known to turn anything injected with it into stone.
+
+reagent-name-ageium = ageium
+reagent-desc-ageium = ageium, causes subjects injected with it to not age!
+
+reagent-name-nanomachines = nanomachines
+reagent-desc-nanomachines = A black, dark fluid that seems to move on it's own. Converts people into cyborgs.
+
+reagent-name-nanoprocessor = nanoprocessor
+reagent-desc-nanoprocessor = A white fluid that is responsible for computing at the nanoscopic level.

@@ -1,0 +1,575 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: FoodEggBase
+  id: BaseRanchingEgg
+  name: egg
+  components:
+  - type: Perishable
+    rotAfter: 99999999 # For my birthday wish I wish to remove rotting
+    molsPerSecondPerUnitMass: 0
+  - type: RotInto
+    entity: Eggshells
+    stage: 1
+  - type: Sprite
+    sprite: _Trauma/Objects/Misc/eggs.rsi
+    state: egg-white
+  - type: EggFertilizationTarget
+  - type: TimedReplace
+    entity: MobChickWhite
+  - type: BadFood
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: WhiteEgg
+  suffix: White
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: BrownEgg
+  suffix: Brown
+  components:
+  - type: Sprite
+    state: egg-brown
+  - type: TimedReplace
+    entity: MobChickBrown
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: VoidEgg
+  suffix: Void
+  components:
+  - type: Sprite
+    state: egg-purple
+  - type: TimedReplace
+    entity: MobChickVoid
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectShink
+      time: 30
+      type: Add
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDamageMod
+      time: 30
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: IxworthEgg
+  suffix: Ixworth
+  components:
+  - type: Sprite
+    state: egg-pet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Ageium
+          Quantity: 50
+  - type: TimedReplace
+    entity: MobChickIxworth
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SilkieEgg
+  suffix: Silkie
+  components:
+  - type: Sprite
+    state: egg-silkie
+  - type: TimedReplace
+    entity: MobChickSilkie
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: WhiteSilkieEgg
+  suffix: White Silkie
+  components:
+  - type: Sprite
+    state: egg-silkie_white
+  - type: TimedReplace
+    entity: MobChickWhiteSilkie
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: BlackSilkieEgg
+  suffix: Black Silkie
+  components:
+  - type: Sprite
+    state: egg-silkie_black
+  - type: TimedReplace
+    entity: MobChickBlackSilkie
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SelkieEgg
+  suffix: Selkie
+  components:
+  - type: Sprite
+    state: egg-sea
+  - type: TimedReplace
+    entity: MobChickSelkie
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: DreamEgg
+  suffix: Dream
+  components:
+  - type: Sprite
+    state: egg-dream
+  - type: TimedReplace
+    entity: MobChickDream
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDreamEgg
+      time: 60
+      type: Add
+    - !type:PopupMessage
+      visualType: MediumCaution
+      type: Local
+      messages:
+      - dream-egg-popup
+    - !type:PlaySoundEffect
+      sound: /Audio/_Goobstation/Changeling/Effects/armour_transform.ogg
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: PoultrygeistEgg
+  suffix: Poultrygeist
+  components:
+  - type: Sprite
+    state: egg-ghost
+  - type: TimedReplace
+    entity: MobChickPoultrygeist
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:SpawnRandomEntities
+      entity: BaseMobShadowDemon
+      number: 2
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SpicyEgg
+  suffix: Spicy
+  components:
+  - type: Sprite
+    state: egg-spicy
+  - type: TimedReplace
+    entity: MobChickSpicy
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: PigeonEgg
+  suffix: Pigeon
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Misc/eggs.rsi
+    state: egg-pigeon
+  - type: TimedReplace
+    entity: MobChickPigeon
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+    listenRange: 1
+  - type: RadioSpeaker
+    channels:
+    - Handheld
+  - type: ListenBlacklist
+    blacklist:
+      components:
+      - Advertise
+  - type: Speech
+    speechVerb: Robotic
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:AddComponents
+      components:
+      - type: TelecomExempt
+      - type: IntrinsicRadioReceiver
+      - type: ActiveRadio
+        channels:
+        - EggRadio
+  - type: Tag
+    tags:
+    - Radio
+
+- type: entity
+  parent: BaseItem
+  id: PigeonEggInedible
+  name: egg
+  suffix: Pigeon, inedible
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Misc/eggs.rsi
+    state: egg-pigeon
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: EggRadio
+    listenRange: 1
+  - type: RadioSpeaker
+    channels:
+    - EggRadio
+  - type: ListenBlacklist
+    blacklist:
+      components:
+      - Advertise
+  - type: Speech
+    speechVerb: Robotic
+  - type: Tag
+    tags:
+    - Radio
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: CandyEgg
+  suffix: Candy
+  components:
+  - type: Sprite
+    state: egg-candy
+  - type: TimedReplace
+    entity: MobChickCandy
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: SugarRushEffect
+      time: 20
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SeaEgg
+  suffix: Sea
+  components:
+  - type: Sprite
+    state: egg-sea
+  - type: TimedReplace
+    entity: MobChickSelkie
+
+- type: entity
+  parent: BaseItem
+  id: GoldenEgg
+  name: golden chicken egg
+  description: A very shiny egg!
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Misc/eggs.rsi
+    state: egg-golden
+  - type: StaticPrice
+    price: 5000
+
+- type: entity
+  parent: WaterBalloonBase
+  id: ClownEgg
+  name: egg?
+  suffix: Clown
+  description: doesn't look very eggy to me.
+  components:
+  - type: Sprite
+    state: egg-honk
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: CluwneEgg
+  suffix: Cluwne
+  components:
+  - type: Sprite
+    state: egg-cluwne
+  - type: TimedReplace
+    entity: MobChickCluwne
+
+- type: entity
+  parent: [BaseChickenCold, BaseRanchingEgg]
+  id: SnowEgg
+  suffix: Snow
+  components:
+  - type: Sprite
+    state: egg-snow
+  - type: TimedReplace
+    entity: MobChickSnow
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: SnowEggEffect
+      time: 10
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: GlassEgg
+  suffix: Glass
+  components:
+  - type: Sprite
+    state: egg-glass
+  - type: TimedReplace
+    entity: MobChickGlass
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: RaptorEgg
+  suffix: Raptor
+  components:
+  - type: Sprite
+    state: egg-raptor
+  - type: RaptorEgg
+  - type: TimedReplace
+    entity: MobChickRaptor
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: OnagadoriEgg
+  suffix: Onagadori
+  components:
+  - type: Sprite
+    state: egg-onagadori
+  - type: TimedReplace
+    entity: MobChickOnagadori
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: WizardEgg
+  suffix: Wizard
+  components:
+  - type: Sprite
+    state: egg-wizard
+  - type: TimedReplace
+    entity: MobChickWizard
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SynthEgg
+  suffix: Synth
+  components:
+  - type: Sprite
+    state: egg-plant
+  - type: TimedReplace
+    entity: MobChickSynth
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 15
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: MimeEgg
+  suffix: Mime
+  components:
+  - type: Sprite
+    state: egg-mime
+  - type: TimedReplace
+    entity: MobChickMime
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:AddComponents
+      components:
+      - type: MimePowers
+        preventWriting: true
+      - type: FrenchAccent
+
+- type: entity
+  id: BalloonEggSpawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: SpawnEntityTableOnTrigger
+    table: !type:GroupSelector
+      children:
+      - id: BalloonEggBlue
+      - id: BalloonEggRed
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: BalloonEggBlue
+  suffix: Blue, Oxygen
+  components:
+  - type: Sprite
+    state: egg-balloon-blue
+  - type: TimedReplace
+    entity: MobChickBalloon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpawnGasBehavior
+        gasMixture:
+          moles:
+            Oxygen: 100
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BalloonEggBlue
+  id: BalloonEggRed
+  suffix: Red, Plasma
+  components:
+  - type: Sprite
+    state: egg-balloon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpawnGasBehavior
+        gasMixture:
+          moles:
+            Plasma: 100
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: RobotEgg
+  suffix: Robot
+  components:
+  - type: Sprite
+    state: egg-robot
+  - type: TimedReplace
+    entity: MobChickRobot
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 50
+    disableDuration: 5
+  - type: TriggerOnIngested
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: KnightEgg
+  suffix: Knight
+  components:
+  - type: Sprite
+    state: egg-knight
+  - type: TimedReplace
+    entity: MobChickKnight
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDamageModKnightEgg
+      time: 30
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: StoneEgg
+  suffix: Stone
+  components:
+  - type: Sprite
+    state: egg-stone
+  - type: TimedReplace
+    entity: MobChickStone
+  # TODO: rock eater interaction
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: CockatriceEgg
+  suffix: Cockatrice
+  components:
+  - type: Sprite
+    state: egg-cockatrice
+  - type: TimedReplace
+    entity: MobChickCockatrice
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectCockatricePower
+      time: 30
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: SickleEgg
+  suffix: Sickle
+  components:
+  - type: Sprite
+    state: egg-popsicle
+  - type: TimedReplace
+    entity: MobChickSicle
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: SnowEggEffectNoDamage
+      time: 30
+      type: Add
+    - !type:ModifyStatusEffect
+      effectProto: DreamsicleEggEffect
+      time: 60
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: ZappyEgg
+  suffix: Zappy
+  components:
+  - type: Sprite
+    state: egg-zappy
+  - type: TimedReplace
+    entity: MobChickZappy
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectZappyPower
+      time: 30
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: PhoenixEgg
+  suffix: Phoenix
+  components:
+  - type: Sprite
+    state: egg-phoenix
+  - type: TimedReplace
+    entity: MobChickPhoenix
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectPhoenixHeal
+      time: 9
+      type: Add
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectPhoenixPower
+      time: 60
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: DragonEgg
+  suffix: Dragon Chicken
+  components:
+  - type: Sprite
+    state: egg-dragon
+  - type: TimedReplace
+    entity: MobChickDragon
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: StatusEffectDragonPower
+      time: 60
+      type: Add
+
+- type: entity
+  parent: BaseRanchingEgg
+  id: CoralEgg
+  suffix: Coral
+  components:
+  - type: Sprite
+    state: egg-coral
+  - type: TimedReplace
+    entity: MobChickCoral
+  - type: EntityEffectOnEaten
+    effects:
+    - !type:SpawnFriendly
+      entity: MobShark #https://static.wikia.nocookie.net/imagecomics/images/e/e8/Thragg%27s_Children_Invincible_Vol_1_136.jpg/revision/latest?cb=20250322215620
