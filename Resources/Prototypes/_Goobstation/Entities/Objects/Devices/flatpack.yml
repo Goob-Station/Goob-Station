@@ -231,8 +231,26 @@
 
 - type: entity
   parent: BaseFlatpack
+  id: ResearchAndDevelopmentServerMachineFlatpack
+  name: R&D server flat pack
+  description: A flatpack used for constructing an R&D server.
+  components:
+  - type: Flatpack
+    entity: ResearchAndDevelopmentServer
+
+- type: entity
+  parent: BaseFlatpack
+  id: ResearchComputerFlatpack
+  name: R&D computer flat pack
+  description: A flatpack used for constructing an R&D computer.
+  components:
+  - type: Flatpack
+    entity: ComputerResearchAndDevelopment
+
+- type: entity
+  parent: BaseFlatpack
   id: MaterialSiloFlatpack
-  name: material silo flatpack
+  name: material silo flat pack
   description: A flatpack used for constructing a material silo.
   components:
   - type: Flatpack
