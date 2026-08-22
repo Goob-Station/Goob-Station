@@ -623,7 +623,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 400 #goob
+        damage: 400 # goob
       behaviors:
       - !type:PlaySoundBehavior
         sound:
