@@ -398,7 +398,7 @@
       spawnerPrototype: SpawnPointGhostRoleMothershipCore
       mindRoles:
       - MindRoleMothershipCore
-      chaosScore: 250 # Goobstation
+      chaosScore: 200 # Goobstation
     - prefRoles: [ Xenoborg ]
       fallbackRoles: [ MothershipCore ]
       spawnerPrototype: SpawnPointGhostRoleXenoborg
