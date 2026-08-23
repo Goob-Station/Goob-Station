@@ -10,7 +10,7 @@
     integrity: 10000
     integrityThresholds:
       Normal: 10000
-      Damaged: 5000
+      Damaged: 1
       Destroyed: 0
   - type: Edible
   - type: Extractable
