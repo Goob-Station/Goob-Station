@@ -24564,3 +24564,11 @@ Entries:
         (was 0.1 brute)
   id: 2813
   time: '2026-08-23T16:10:47.0000000+00:00'
+- author: Anui-elxx
+  changes:
+    - type: Tweak
+      message: >-
+        Takes the contractor baton out back and curbstomps it to death. NO MORE
+        INSTANT DISARM AND KNOCKDOWN
+  id: 2814
+  time: '2026-08-23T16:11:56.0000000+00:00'
