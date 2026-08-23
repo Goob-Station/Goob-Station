@@ -8,12 +8,11 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.NukeOps;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
-using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared._White.Xenomorphs;
-using Content.Shared.Emag.Systems;
+using Content.Server.AlertLevel;
 using Content.Shared.Emp;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.NukeOps;
@@ -79,7 +78,7 @@ public sealed class AmberAlertSystem : EntitySystem
     /// </summary>
     public void UnlockAmberAlert()
     {
-        var query = EntityQueryEnumerator<Content.Server.AlertLevel.AlertLevelComponent>();
+        var query = EntityQueryEnumerator<AlertLevelComponent>();
         while (query.MoveNext(out var station, out _))
         {
             var amber = EnsureComp<AmberAlertComponent>(station);
