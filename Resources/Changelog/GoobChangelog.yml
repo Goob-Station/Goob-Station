@@ -24578,3 +24578,9 @@ Entries:
       message: killed hardlight bow explosion damage, goob is saved
   id: 2815
   time: '2026-08-23T16:12:42.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Fix
+      message: Xenomorphs no longer suffer from organ damage as easily.
+  id: 2816
+  time: '2026-08-23T18:47:34.0000000+00:00'
