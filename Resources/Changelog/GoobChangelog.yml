@@ -24529,3 +24529,9 @@ Entries:
       message: Emote panel in separated layout is back.
   id: 2810
   time: '2026-08-22T18:52:46.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Add
+      message: Added machine vision for area not covered by camera for AI.
+  id: 2811
+  time: '2026-08-23T16:04:48.0000000+00:00'
