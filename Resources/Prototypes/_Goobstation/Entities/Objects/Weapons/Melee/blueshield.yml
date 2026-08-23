@@ -92,10 +92,10 @@
       injector:
         maxVol: 5
   - type: Injector
-    activeModeProtoId: SyringeDrawMode #Goob start
+    activeModeProtoId: CombatInjectorDynamicMode # SyringeDrawMode #Goob start
     allowedModes:
-    - SyringeDrawMode
-    - SyringeInjectMode #Goob end
+    - CombatInjectorDynamicMode # SyringeDrawMode
+    - CombatInjectorInjectMode # SyringeInjectMode #Goob end
   - type: MeleeChemicalInjector
     transferAmount: 5
     solution: injector
