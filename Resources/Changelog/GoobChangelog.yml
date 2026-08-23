@@ -24572,3 +24572,9 @@ Entries:
         INSTANT DISARM AND KNOCKDOWN
   id: 2814
   time: '2026-08-23T16:11:56.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Tweak
+      message: killed hardlight bow explosion damage, goob is saved
+  id: 2815
+  time: '2026-08-23T16:12:42.0000000+00:00'
