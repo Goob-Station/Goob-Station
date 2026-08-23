@@ -28,14 +28,6 @@
     - /Audio/_Goobstation/Voice/sound_items_weapons_thudswoosh.ogg
 
 - type: soundCollection
-  id: Trill
-  files:
-    - /Audio/_Goobstation/Voice/Resomi/trill.ogg
-    - /Audio/_Starlight/Voice/Resomi/trill1.ogg # Omu start
-    - /Audio/_Starlight/Voice/Resomi/trill2.ogg
-    - /Audio/_Starlight/Voice/Resomi/trill3.ogg # Omu end - added from starlight
-
-- type: soundCollection
   id: Warble
   files:
     - /Audio/_Goobstation/Voice/Resomi/warble.ogg

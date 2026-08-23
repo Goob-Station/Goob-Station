@@ -91,8 +91,6 @@
       collection: FemaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Trill:
-      collection: Trill
     Yip:
       collection: Yip
     Warble:
@@ -221,8 +219,6 @@
       collection: MaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Trill:
-      collection: Trill
     Yip:
       collection: Yip
     Warble:
@@ -303,8 +299,6 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
     Growl:
       collection: VulpkaninGrowls
     Snarl:
@@ -361,8 +355,6 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
     Growl:
       collection: VulpkaninGrowls
     Snarl:
@@ -437,8 +429,6 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
     CatMeow:
@@ -483,8 +473,6 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
     CatMeow:
@@ -521,10 +509,6 @@
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
     Crying:
       path: /Audio/_Starlight/Voice/Arachnid/arachnid_cry.ogg # Omu
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -573,10 +557,6 @@
       collection: FeroxiCry # Omu
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
     Hiss:
       path: /Audio/Animals/snake_hiss.ogg
     Gasp:
@@ -623,10 +603,6 @@
       collection: FeroxiCry # Omu
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
     Hiss:
       path: /Audio/Animals/snake_hiss.ogg
     Gasp:

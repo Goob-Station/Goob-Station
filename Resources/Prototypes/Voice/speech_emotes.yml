@@ -529,11 +529,12 @@
   icon: Interface/Emotes/weh.png
   chatMessages: ["chat-emote-msg-weh"]
   whitelist:
+    tags:
+    - HarpyEmotes # Omu, allow harpy to weh
+    - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   blacklist:
     tags:
     - SiliconEmotes
-    - HarpyEmotes # Omu, allow harpy to weh
-    - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   chatTriggers: # Floof - you can weh now
     - weh
     - wehs
@@ -546,7 +547,8 @@
   chatMessages: ["chat-emote-msg-hew"]
   whitelist:
     tags:
-      - HarpyEmotes # Omu, allow harpy to hew
+    - HarpyEmotes # Omu, allow harpy to hew
+    - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   chatTriggers: # Omu, allow harpy to hew
     - hew
     - hews
@@ -666,18 +668,3 @@
     - rattles
     - rattle
     - rattled
-
-- type: emote # Omu
-  id: ReptilianScreech
-  name: chat-emote-name-reptile-screech
-  category: Vocal
-  icon: _Goobstation/Interface/Emotes/scream.png
-  chatMessages: ["chat-emote-msg-reptile-screech"]
-  whitelist:
-    tags:
-    - ReptilianEmotes
-  chatTriggers:
-    - screech
-    - screeches
-    - screeching
-    - screeched

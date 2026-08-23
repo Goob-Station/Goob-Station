@@ -19,7 +19,6 @@
     - FelinidEmotes
     - HarpyEmotes
     - ReptilianEmotes
-    - ThavenEmotes # gds
   blacklist:
     components:
     - BorgChassis

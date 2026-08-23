@@ -245,9 +245,6 @@
       collection: Belch # Frontier
     Rattle: #Omu
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
-    ReptilianScreech: #Omu
-      collection: ReptilianScreech
-
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -294,8 +291,6 @@
       collection: Belch # Frontier
     Rattle: #Omu
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
-    ReptilianScreech: #Omu
-      collection: ReptilianScreech
 
 - type: emoteSounds
   id: MaleSlime
@@ -412,6 +407,8 @@
       collection: VoxScreams
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Bagawk: # Mono
+      collection: Bagawk # Mono
     #Cough: # Goob - Tho we should doublecheck these.
     #  path: /Audio/Voice/Vox/vox_cough.ogg
     #Sigh:
