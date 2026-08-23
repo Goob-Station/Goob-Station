@@ -489,8 +489,6 @@ public sealed partial class HereticSystem : SharedHereticSystem
         ent.Comp.ChosenRitual = null;
         Dirty(ent);
 
-        RaiseLocalEvent(new AlertLevel.AmberAlertThreatEvent());
-
         // how???
         if (ent.Comp.CurrentPath == null)
             return;

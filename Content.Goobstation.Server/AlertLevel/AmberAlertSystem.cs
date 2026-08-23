@@ -1,17 +1,33 @@
 using System.Linq;
+using Content.Goobstation.Shared.AlertLevel;
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Slasher;
 using Content.Server.Access.Systems;
 using Content.Server.Communications;
+using Content.Server.GameTicking.Rules;
+using Content.Server.NukeOps;
 using Content.Server.Popups;
+using Content.Server.Power.Components;
+using Content.Server.Radio.Components;
+using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Systems;
+using Content.Shared._White.Xenomorphs;
+using Content.Shared.Emag.Systems;
+using Content.Shared.Emp;
+using Content.Shared.Heretic.Prototypes;
+using Content.Shared.NukeOps;
 using Content.Shared.Popups;
+using Content.Shared.Radio.Components;
 using Content.Shared.Verbs;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Server.AlertLevel;
+namespace Content.Goobstation.Server.AlertLevel;
 
 /// <summary>
-/// Goobstation.
 /// Controls whether the amber alert level is unlocked.
 /// </summary>
 public sealed class AmberAlertSystem : EntitySystem
@@ -19,17 +35,42 @@ public sealed class AmberAlertSystem : EntitySystem
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly IdCardSystem _idCard = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<AmberAlertThreatEvent>(OnThreat);
+        base.Initialize();
+
+        SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared, after: new[] { typeof(NukeopsRuleSystem) });
+        SubscribeLocalEvent<EventHereticAscension>(OnHereticAscension);
+        SubscribeLocalEvent<ShadowlingAscendEvent>(OnShadowlingAscend);
+        SubscribeLocalEvent<SlasherAscendedEvent>(OnSlasherAscend);
+        SubscribeLocalEvent<XenomorphsAnnouncedEvent>(OnXenomorphsAnnounced);
         SubscribeLocalEvent<AlertLevelSelectAttemptEvent>(OnAlertSelectAttempt);
         SubscribeLocalEvent<CommunicationsConsoleComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
     }
 
-    private void OnThreat(AmberAlertThreatEvent ev) =>
+
+    private void OnWarDeclared(ref WarDeclaredEvent ev)
+    {
+        if (ev.Status == WarConditionStatus.WarReady)
+            UnlockAmberAlert();
+    }
+
+    private void OnHereticAscension(EventHereticAscension args) =>
+        UnlockAmberAlert();
+
+    private void OnShadowlingAscend(ShadowlingAscendEvent ev) =>
+        UnlockAmberAlert(); // May as well
+
+    private void OnSlasherAscend(SlasherAscendedEvent ev) =>
+        UnlockAmberAlert();
+
+    private void OnXenomorphsAnnounced(XenomorphsAnnouncedEvent ev) =>
         UnlockAmberAlert();
 
     /// <summary>
@@ -38,9 +79,17 @@ public sealed class AmberAlertSystem : EntitySystem
     /// </summary>
     public void UnlockAmberAlert()
     {
-        var query = EntityQueryEnumerator<AlertLevelComponent>();
+        var query = EntityQueryEnumerator<Content.Server.AlertLevel.AlertLevelComponent>();
         while (query.MoveNext(out var station, out _))
-            EnsureComp<AmberAlertComponent>(station).Unlocked = true;
+        {
+            var amber = EnsureComp<AmberAlertComponent>(station);
+            if (amber.Unlocked)
+                continue;
+
+            amber.Unlocked = true;
+            _radio.SendRadioMessage(station, Loc.GetString("alert-level-amber-unlocked-announcement"), amber.CommandChannel, station);
+            PlayUnlockSound(amber, station);
+        }
     }
 
     private void OnAlertSelectAttempt(ref AlertLevelSelectAttemptEvent ev)
@@ -118,6 +167,7 @@ public sealed class AmberAlertSystem : EntitySystem
             amber.PendingCard = idCard.Owner;
             amber.PendingExpiry = _timing.CurTime + amber.PendingTimeout;
             _popup.PopupEntity(Loc.GetString("alert-level-amber-first-swipe"), console, user, PopupType.Medium);
+            AnnounceAuthorization(amber, console, idCard.Comp.FullName, "alert-level-amber-authorized-initiated-announcement");
             return false;
         }
 
@@ -137,7 +187,53 @@ public sealed class AmberAlertSystem : EntitySystem
 
         amber.PendingCard = null;
         amber.PendingExpiry = null;
+
+        AnnounceAuthorization(amber, console, idCard.Comp.FullName, "alert-level-amber-authorized-announcement");
+
         return true;
+    }
+
+    private void AnnounceAuthorization(AmberAlertComponent amber, EntityUid console, string? name, string locId)
+    {
+        var announcement = Loc.GetString(locId,
+            ("name", name ?? Loc.GetString("alert-level-amber-unknown-name")));
+        _radio.SendRadioMessage(console, announcement, amber.CommandChannel, console);
+
+        PlayUnlockSound(amber, console);
+    }
+
+    private void PlayUnlockSound(AmberAlertComponent amber, EntityUid source)
+    {
+        if (!IsCommandChannelUp(amber, source))
+            return;
+
+        var filter = Filter.Empty().AddWhereAttachedEntity(entity => HasCommandComms(amber, entity));
+        _audio.PlayGlobal(amber.UnlockSound, filter, true);
+    }
+
+    private bool HasCommandComms(AmberAlertComponent amber, EntityUid entity)
+    {
+        return TryComp<WearingHeadsetComponent>(entity, out var wearing)
+            && TryComp<ActiveRadioComponent>(wearing.Headset, out var radio)
+            && (radio.ReceiveAllChannels || radio.Channels.Contains(amber.CommandChannel))
+            && !HasComp<EmpDisabledComponent>(wearing.Headset);
+    }
+
+    private bool IsCommandChannelUp(AmberAlertComponent amber, EntityUid console)
+    {
+        var channel = _prototype.Index(amber.CommandChannel);
+        if (channel.LongRange)
+            return true;
+
+        var mapId = Transform(console).MapID;
+        var query = EntityQueryEnumerator<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent, TransformComponent>();
+        while (query.MoveNext(out _, out _, out var keys, out var power, out var transform))
+        {
+            if (transform.MapID == mapId && power.Powered && keys.Channels.Contains(amber.CommandChannel))
+                return true;
+        }
+
+        return false;
     }
 
     private void ExpirePending(AmberAlertComponent amber)
@@ -149,22 +245,3 @@ public sealed class AmberAlertSystem : EntitySystem
         }
     }
 }
-
-/// <summary>
-/// Goobstation.
-/// Raised when a player attempts to select an alert level from a communications
-/// console, before the level is actually changed. Cancel to prevent the change.
-/// </summary>
-[ByRefEvent]
-public record struct AlertLevelSelectAttemptEvent(EntityUid Station, EntityUid Console, EntityUid User, string Level)
-{
-    public bool Cancelled;
-}
-
-/// <summary>
-/// Goobstation.
-/// Broadcast when a major station threat manifests (war declaration, slasher/heretic/shadowling
-/// ascension, xenomorph outbreak, ...). The amber alert system listens for this to unlock the
-/// amber alert level for manual activation from a communications console.
-/// </summary>
-public sealed class AmberAlertThreatEvent : EntityEventArgs { }

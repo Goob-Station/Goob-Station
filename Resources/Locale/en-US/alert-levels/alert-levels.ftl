@@ -73,3 +73,7 @@ alert-level-amber-same-id = That ID was already swiped. A second, different comm
 alert-level-amber-needs-second-command = The second ID must have command access.
 alert-level-amber-verb-text = Unlock Amber Alert
 alert-level-amber-verb-message = Swipe your ID to unlock amber alert so it can be activated. Requires a Captain or Head of Security ID plus a second, different command ID.
+alert-level-amber-authorized-initiated-announcement = Amber alert unlock initiated by {$name}.
+alert-level-amber-authorized-announcement = Amber alert has been unlocked by {$name}.
+alert-level-amber-unknown-name = Unknown
+alert-level-amber-unlocked-announcement = Amber alert has been unlocked and can now be activated from any communications console.

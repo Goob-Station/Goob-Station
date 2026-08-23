@@ -435,8 +435,6 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 var timeRemain = nukeops.WarNukieArriveDelay + Timing.CurTime;
                 ev.DeclaratorEntity.Comp.ShuttleDisabledTime = timeRemain;
 
-                RaiseLocalEvent(new Content.Server.AlertLevel.AmberAlertThreatEvent()); // Goobstation - war declaration unlocks amber alert
-
                 DistributeExtraTc((uid, nukeops));
             }
         }

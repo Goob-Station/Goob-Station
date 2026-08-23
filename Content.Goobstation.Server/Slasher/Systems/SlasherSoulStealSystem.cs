@@ -237,7 +237,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         {
             comp.HasAscended = true;
 
-            RaiseLocalEvent(new AmberAlertThreatEvent());
+            RaiseLocalEvent(new SlasherAscendedEvent());
 
             // Initialize the light flicker timer when ascending
             comp.NextLightFlicker = _timing.CurTime + comp.LightFlickerInterval;

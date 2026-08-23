@@ -50,6 +50,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Logs;
+using Content.Goobstation.Shared.AlertLevel;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
 using Content.Server.DeviceNetwork.Systems;
@@ -404,6 +405,19 @@ namespace Content.Server.Communications
 
             var (uid, comp) = ent;
             args.Repeatable = true;
+
+            if (_emag.CompareFlag(args.Type, EmagType.Access))
+            {
+                var amberStation = _stationSystem.GetOwningStation(uid);
+                if (amberStation != null
+                    && TryComp<AmberAlertComponent>(amberStation, out var amber)
+                    && !amber.Unlocked)
+                {
+                    amber.Unlocked = true;
+                    _popupSystem.PopupEntity(Loc.GetString("alert-level-amber-unlocked"), uid, args.UserUid, PopupType.Medium);
+                    args.Handled = true;
+                }
+            }
 
             if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
                 return;
