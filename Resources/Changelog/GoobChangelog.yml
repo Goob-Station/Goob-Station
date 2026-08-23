@@ -24473,3 +24473,59 @@ Entries:
       message: Recolours Queen Xeno to be consistent with other Xenos
   id: 2802
   time: '2026-08-14T11:47:35.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: >-
+        Number Disk Cannot Call Vox Raiders or the GreyTide anymore, Replaced
+        with Slasher
+  id: 2803
+  time: '2026-08-18T20:00:23.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Reverted cloning genetic damage.
+    - type: Tweak
+      message: Readded cloning to CMO locker.
+  id: 2804
+  time: '2026-08-19T13:35:07.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: Enabled biomass reclaimer being unusable on souled bodies
+  id: 2805
+  time: '2026-08-19T13:44:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer clone instantly and at no cost by keeping your soul
+        tied down.
+  id: 2806
+  time: '2026-08-21T04:54:36.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: bingles now raffle correctly
+  id: 2807
+  time: '2026-08-21T14:46:11.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: removed hyrdrakin from cc roles
+  id: 2808
+  time: '2026-08-21T14:46:36.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: >-
+        Adds zombie infection resistance to fire suits, atmos fire suits, bomb
+        suits, and rad suits, alongside associated headwear.
+  id: 2809
+  time: '2026-08-21T18:30:02.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Emote panel in separated layout is back.
+  id: 2810
+  time: '2026-08-22T18:52:46.0000000+00:00'
