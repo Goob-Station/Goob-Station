@@ -1,10 +1,6 @@
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Shared.Parallax; // Goob - background meteors
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Parallax.Data;
@@ -36,4 +32,11 @@ public sealed partial class ParallaxPrototype : IPrototype
     /// </summary>
     [DataField("layersLQUseHQ")]
     public bool LayersLQUseHQ { get; private set; } = true;
+
+    // Goob - background meteors
+    /// <summary>
+    /// Optional cosmetic meteor/asteroid field drawn over this parallax.
+    /// </summary>
+    [DataField]
+    public MeteorParallaxConfig? Meteors { get; private set; }
 }

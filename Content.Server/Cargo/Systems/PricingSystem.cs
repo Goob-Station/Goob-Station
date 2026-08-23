@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 SpaceManiac <tad@platymuus.com>
-// SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration;
@@ -30,6 +6,7 @@ using Content.Server.Cargo.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration;
 using Content.Shared.Body.Components;
+using Content.Shared.Cargo;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Materials;
@@ -212,10 +189,7 @@ public sealed class PricingSystem : EntitySystem
     /// </summary>
     public double GetEstimatedPrice(EntityPrototype prototype)
     {
-        var ev = new EstimatedPriceCalculationEvent()
-        {
-            Prototype = prototype,
-        };
+        var ev = new EstimatedPriceCalculationEvent(prototype);
 
         RaiseLocalEvent(ref ev);
 
@@ -427,40 +401,4 @@ public sealed class PricingSystem : EntitySystem
 
         return price;
     }
-}
-
-/// <summary>
-/// A directed by-ref event fired on an entity when something needs to know it's price. This value is not cached.
-/// </summary>
-[ByRefEvent]
-public record struct PriceCalculationEvent()
-{
-    /// <summary>
-    /// The total price of the entity.
-    /// </summary>
-    public double Price = 0;
-
-    /// <summary>
-    /// Whether this event was already handled.
-    /// </summary>
-    public bool Handled = false;
-}
-
-/// <summary>
-/// Raised broadcast for an entity prototype to determine its estimated price.
-/// </summary>
-[ByRefEvent]
-public record struct EstimatedPriceCalculationEvent()
-{
-    public required EntityPrototype Prototype;
-
-    /// <summary>
-    /// The total price of the entity.
-    /// </summary>
-    public double Price = 0;
-
-    /// <summary>
-    /// Whether this event was already handled.
-    /// </summary>
-    public bool Handled = false;
 }

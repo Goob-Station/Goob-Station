@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
@@ -25,6 +5,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Traits.Assorted;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
@@ -48,6 +29,7 @@ public sealed class DamageOverlayUiController : UIController
 
     [UISystemDependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
     [UISystemDependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+    [UISystemDependency] private readonly StatusEffectsSystem _statusEffects = default!;
     private Overlays.DamageOverlay _overlay = default!;
 
     public override void Initialize()
@@ -124,43 +106,53 @@ public sealed class DamageOverlayUiController : UIController
         {
             if (!_mobThresholdSystem.TryGetIncapThreshold(entity, out var foundThreshold, thresholds))
                 return; //this entity cannot die or crit!!
-
             var critThreshold = foundThreshold.Value;
             switch (mobState.CurrentState)
             {
                 // Why the fuck is this the correct formatting??? Im gonna fucking kill someone.
                 case MobState.Alive:
                     {
+                        FixedPoint2 painLevel = 0;
+                        _overlay.PainLevel = 0;
                         if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
                             _overlay.PainLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
 
                         if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
                             _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
 
+                        if (!_statusEffects.TryEffectsWithComp<PainNumbnessStatusEffectComponent>(entity, out _))
+                        {
+                            foreach (var painDamageType in damageable.PainDamageGroups)
+                            {
+                                damageable.DamagePerGroup.TryGetValue(painDamageType, out var painDamage);
+                                painLevel += painDamage;
+                            }
+                            _overlay.PainLevel = FixedPoint2.Min(1f, painLevel / critThreshold).Float();
+                        }
                         if (_overlay.PainLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
                             _overlay.PainLevel = 0;
 
                         _overlay.CritLevel = 0;
                         _overlay.DeadLevel = 0;
                         break;
-                    }
-                case MobState.Critical:
-                    {
-                        if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
-                                FixedPoint2.Max(0.0, _mobThresholdSystem.CheckVitalDamage(entity, damageable)), out var critLevel)) // GoobStation
-                            return;
-                        _overlay.CritLevel = critLevel.Value.Float();
+                        }
+                        case MobState.Critical:
+                        {
+                            if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
+                                    FixedPoint2.Max(0.0, _mobThresholdSystem.CheckVitalDamage(entity, damageable)), out var critLevel)) // GoobStation
+                                return;
+                            _overlay.CritLevel = critLevel.Value.Float();
 
-                        _overlay.PainLevel = 0;
-                        _overlay.DeadLevel = 0;
-                        break;
-                    }
-                case MobState.Dead:
-                    {
-                        _overlay.PainLevel = 0;
-                        _overlay.CritLevel = 0;
-                        break;
-                    }
+                            _overlay.PainLevel = 0;
+                            _overlay.DeadLevel = 0;
+                            break;
+                        }
+                        case MobState.Dead:
+                        {
+                            _overlay.PainLevel = 0;
+                            _overlay.CritLevel = 0;
+                            break;
+                        }
             }
         }
         else if (body != null)

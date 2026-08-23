@@ -1,0 +1,8 @@
+- type: damageModifierSet
+  id: EntropicColossus
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 0.65
+    Holy: 4 # Goobstation - probally Should had this added a while back

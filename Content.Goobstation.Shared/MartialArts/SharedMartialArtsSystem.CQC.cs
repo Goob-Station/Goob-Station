@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -124,7 +110,7 @@ public partial class SharedMartialArtsSystem
         switch (args.Type)
         {
             case ComboAttackType.Disarm:
-                _stamina.TakeStaminaDamage(args.Target, 25f, applyResistances: true);
+                _stamina.TakeStaminaDamage(args.Target, 25f);
                 break;
             case ComboAttackType.Harm:
                 // Snap neck
@@ -188,7 +174,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
+        _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -212,11 +198,11 @@ public partial class SharedMartialArtsSystem
             if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
                 _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(10));
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent, applyResistances: true);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent);
         }
         else
         {
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         }
 
         if (TryComp<PullableComponent>(target, out var pullable))
@@ -233,8 +219,8 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
+        _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
@@ -245,7 +231,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
 
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
@@ -268,7 +254,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

@@ -1,25 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Henry <sigma1198@gmail.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 mubururu_ <139181059+muburu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2025 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -30,13 +8,13 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
   - type: Organ
-    intCap: 28
-    integrity: 28
+    intCap: 140
+    integrity: 140
     integrityThresholds:
-      Normal: 28
-      Damaged: 16
+      Normal: 140
+      Damaged: 80
       Destroyed: 0
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -62,18 +40,17 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
-  name: stomach
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
     state: stomach
   - type: Organ # Shitmed
-    intCap: 44
-    integrity: 44
+    intCap: 220
+    integrity: 220
     integrityThresholds:
-      Normal: 44
-      Damaged: 21
+      Normal: 220
+      Damaged: 105
       Destroyed: 0
     slotId: stomach
   - type: Item
@@ -109,11 +86,11 @@
       - state: lung-l
       - state: lung-r
   - type: Organ # Shitmed
-    intCap: 28
-    integrity: 28
+    intCap: 140
+    integrity: 140
     integrityThresholds:
-      Normal: 28
-      Damaged: 16
+      Normal: 140
+      Damaged: 80
       Destroyed: 0
     slotId: lungs
   - type: Lung
@@ -166,11 +143,11 @@
     - id: Poison
     - id: Narcotic
   - type: Organ # Shitmed
-    intCap: 21
-    integrity: 21
+    intCap: 105
+    integrity: 105
     integrityThresholds:
-      Normal: 21
-      Damaged: 12
+      Normal: 105
+      Damaged: 60
       Destroyed: 0
     slotId: heart
   - type: Heart # Shitmed: Lets you transplant spider hearts into other species
@@ -198,13 +175,12 @@
     metabolizerTypes: [Animal]
     groups:
     - id: Alcohol
-      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
   - type: Organ # Shitmed
-    intCap: 28
-    integrity: 28
+    intCap: 140
+    integrity: 140
     integrityThresholds:
-      Normal: 28
-      Damaged: 16
+      Normal: 140
+      Damaged: 80
       Destroyed: 0
     slotId: liver
   - type: Liver # Shitmed
@@ -222,11 +198,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ # Shitmed
-    intCap: 21
-    integrity: 21
+    intCap: 105
+    integrity: 105
     integrityThresholds:
-      Normal: 21
-      Damaged: 12
+      Normal: 105
+      Damaged: 60
       Destroyed: 0
     slotId: kidneys
   - type: Sprite
@@ -259,11 +235,11 @@
       - state: eyeball-l
       - state: eyeball-r
   - type: Organ # Shitmed
-    intCap: 17
-    integrity: 17
+    intCap: 85
+    integrity: 85
     integrityThresholds:
-      Normal: 17
-      Damaged: 8
+      Normal: 85
+      Damaged: 40
       Destroyed: 0
     slotId: eyes
   - type: Eyes # Shitmed

@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -15,11 +10,11 @@
     state: brain
   - type: Organ
     slotId: brain
-    intCap: 28
-    integrity: 28
+    intCap: 140
+    integrity: 140
     integrityThresholds:
-      Normal: 28
-      Damaged: 16
+      Normal: 140
+      Damaged: 80
       Destroyed: 0
   - type: Input
     context: "ghost"
@@ -68,11 +63,11 @@
   # start-backmen: surgery
   - type: Organ
     slotId: eyes
-    intCap: 12
-    integrity: 12
+    intCap: 60
+    integrity: 60
     integrityThresholds:
-      Normal: 12
-      Damaged: 6
+      Normal: 60
+      Damaged: 30
       Destroyed: 0
   - type: Eyes
   # end-backmen: surgery

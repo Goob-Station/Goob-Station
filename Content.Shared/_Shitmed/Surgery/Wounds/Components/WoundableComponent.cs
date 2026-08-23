@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
@@ -45,6 +39,9 @@ public sealed partial class WoundableComponent : Component
     /// </summary>
     [DataField]
     public bool AllowWounds = true;
+
+    [DataField]
+    public bool RedirectOverflowDamage;
 
     /// <summary>
     /// The same as DamageableComponent's one
@@ -188,9 +185,9 @@ public sealed partial class WoundableComponent : Component
     public DamageSpecifier? DamageOnAmputate;
 
     [DataField]
-    public Dictionary<TraumaType, FixedPoint2> TraumaDeductions = new()
+    public Dictionary<ProtoId<TraumaTypePrototype>, FixedPoint2> TraumaDeductions = new()
     {
-        {TraumaType.Dismemberment, 0.3f},
+        { "Dismemberment", 0.3f },
     };
 }
 
@@ -216,6 +213,4 @@ public sealed class WoundableComponentState : ComponentState
     public Dictionary<NetEntity, WoundableHealingMultiplier> HealingMultipliers = new();
 
     public WoundableSeverity WoundableSeverity;
-
-    public float HealingRateAccumulated;
 }

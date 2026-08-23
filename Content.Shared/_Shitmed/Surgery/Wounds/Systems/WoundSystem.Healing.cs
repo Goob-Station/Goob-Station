@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -12,6 +7,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared.Body.Part;
@@ -27,6 +23,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 public sealed partial class WoundSystem
 {
     [Dependency] private readonly PainSystem _pain = default!;
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
 
     // Updates pain state after wounds are healed and starts pain decay
     /// <param name="woundable">The entity on which to update the pain state</param>
@@ -36,22 +33,18 @@ public sealed partial class WoundSystem
         if (!TryComp<BodyPartComponent>(woundable, out var bodyPart) || !bodyPart.Body.HasValue)
             return;
 
-        // Get the body entity.
-        var body = bodyPart.Body.Value;
-
-        // Check if the body has a NerveSystemComponent.
-        if (!TryComp<NerveSystemComponent>(body, out var nerveSystem))
+        if (!_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var nerveSys))
             return;
 
         // Start pain decay if there's still pain after healing
-        if (nerveSystem.Pain > FixedPoint2.Zero)
+        if (nerveSys.Value.Comp.Pain > FixedPoint2.Zero)
         {
             // Calculate decay duration based on current pain level - 12 seconds per pain point
             // 50 pain * 12 seconds per pain point = 600 seconds = 10 minutes
-            var decayDuration = TimeSpan.FromSeconds(nerveSystem.Pain.Float() * 12);
+            var decayDuration = TimeSpan.FromSeconds(nerveSys.Value.Comp.Pain.Float() * 12);
 
             // Start the pain decay process
-            _pain.StartPainDecay(body, nerveSystem.Pain, decayDuration, nerveSystem);
+            _pain.StartPainDecay(nerveSys.Value, nerveSys.Value.Comp.Pain, decayDuration, nerveSys.Value.Comp);
         }
     }
 
@@ -123,29 +116,22 @@ public sealed partial class WoundSystem
         // Sort woundables by bleeding amount (descending)
         bleedingWoundables.Sort((a, b) => b.BleedAmount.CompareTo(a.BleedAmount));
 
-        float remainingHealAmount = healAmount * bleedingWoundables.Count;
-        bool anyHealed = false;
+        var remaining = FixedPoint2.New(healAmount);
 
         // Apply healing to each woundable in order
         foreach (var (woundable, _) in bleedingWoundables)
         {
-            if (remainingHealAmount <= 0)
+            if (remaining <= 0)
                 break;
 
-            FixedPoint2 modifiedBleed;
-            bool didHeal = TryHealBleedingWounds(woundable, -remainingHealAmount, out modifiedBleed);
-            if (didHeal)
-            {
-                anyHealed = true;
-                healed += -modifiedBleed - remainingHealAmount;
-                remainingHealAmount -= (float) modifiedBleed;
+            if (!TryHealBleedingWounds(woundable, (float) -remaining, out var healedHere))
+                continue;
 
-                if (remainingHealAmount <= 0)
-                    break;
-            }
+            healed += healedHere;
+            remaining -= healedHere;
         }
 
-        return anyHealed;
+        return healed > 0;
     }
 
     public bool TryHealBleedingWounds(EntityUid woundable, float bleedStopAbility, out FixedPoint2 modifiedBleed, WoundableComponent? component = null)
@@ -154,28 +140,39 @@ public sealed partial class WoundSystem
         if (!Resolve(woundable, ref component))
             return false;
 
+        var remaining = FixedPoint2.New(-bleedStopAbility);
+        if (remaining <= 0)
+            return false;
+
         foreach (var wound in GetWoundableWounds(woundable, component))
         {
             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
                 || !bleeds.IsBleeding)
                 continue;
 
-            if (-bleedStopAbility > bleeds.BleedingAmount)
+            if (remaining >= bleeds.BleedingAmount)
             {
-                modifiedBleed = bleeds.BleedingAmount;
+                modifiedBleed += bleeds.BleedingAmount;
+                remaining -= bleeds.BleedingAmount;
                 bleeds.BleedingAmountRaw = 0;
                 bleeds.IsBleeding = false;
                 bleeds.Scaling = 0;
             }
             else
             {
-                bleeds.BleedingAmountRaw += bleedStopAbility;
-                modifiedBleed = -bleedStopAbility;
+                var rawReduction = bleeds.Scaling > 0 ? remaining / bleeds.Scaling : remaining;
+                bleeds.BleedingAmountRaw = FixedPoint2.Max(FixedPoint2.Zero, bleeds.BleedingAmountRaw - rawReduction);
+                modifiedBleed += remaining;
+                remaining = FixedPoint2.Zero;
             }
 
             Dirty(wound, bleeds);
+
+            if (remaining <= 0)
+                break;
         }
-        return modifiedBleed <= -bleedStopAbility;
+
+        return modifiedBleed > 0;
     }
 
     public void ForceHealWoundsOnWoundable(EntityUid woundable,
@@ -221,13 +218,13 @@ public sealed partial class WoundSystem
             || component.Wounds == null)
             return false;
 
-        var woundsToHeal = new List<Entity<WoundComponent>>();
+        var woundsToHeal = new List<(Entity<WoundComponent> Wound, FixedPoint2 Floor)>();
         foreach (var wound in component.Wounds.ContainedEntities)
         {
             var woundComp = Comp<WoundComponent>(wound);
-            if (CanHealWound(wound, woundComp, ignoreBlockers)
+            if (CanHealWound(wound, out var floor, woundComp, ignoreBlockers)
                 && (damageGroup == null || damageGroup == woundComp.DamageGroup))
-                woundsToHeal.Add((wound, woundComp));
+                woundsToHeal.Add(((wound, woundComp), floor));
         }
 
         if (woundsToHeal.Count == 0)
@@ -235,11 +232,15 @@ public sealed partial class WoundSystem
 
         var healNumba = healAmount / woundsToHeal.Count;
         var actualHeal = FixedPoint2.Zero;
-        foreach (var wound in woundsToHeal)
+        foreach (var (wound, floor) in woundsToHeal)
         {
             var heal = ignoreMultipliers
                 ? -healNumba
                 : ApplyHealingRateMultipliers(wound, woundable, -healNumba, component);
+
+            heal = ClampHealToFloor(wound.Comp, heal, floor);
+            if (heal >= 0)
+                continue;
 
             actualHeal += -heal;
             ApplyWoundSeverity(wound, heal, wound);
@@ -313,13 +314,13 @@ public sealed partial class WoundSystem
     {
         healed = 0;
 
-        var woundsToHeal = new List<Entity<WoundComponent>>();
+        var woundsToHeal = new List<(Entity<WoundComponent> Wound, FixedPoint2 Floor)>();
         foreach (var wound in component.Wounds.ContainedEntities)
         {
             var woundComp = Comp<WoundComponent>(wound);
-            if (CanHealWound(wound, woundComp, ignoreBlockers)
+            if (CanHealWound(wound, out var floor, woundComp, ignoreBlockers)
                 && damageType == woundComp.DamageType)
-                woundsToHeal.Add((wound, woundComp));
+                woundsToHeal.Add(((wound, woundComp), floor));
         }
 
         if (woundsToHeal.Count == 0)
@@ -327,11 +328,15 @@ public sealed partial class WoundSystem
 
         var healNumba = healAmount / woundsToHeal.Count;
         var actualHeal = FixedPoint2.Zero;
-        foreach (var wound in woundsToHeal)
+        foreach (var (wound, floor) in woundsToHeal)
         {
             var heal = ignoreMultipliers
                 ? -healNumba
                 : ApplyHealingRateMultipliers(wound, woundable, -healNumba, component);
+
+            heal = ClampHealToFloor(wound.Comp, heal, floor);
+            if (heal >= 0)
+                continue;
 
             actualHeal += -heal;
             ApplyWoundSeverity(wound, heal, wound);
@@ -433,7 +438,11 @@ public sealed partial class WoundSystem
     }
 
     public bool CanHealWound(EntityUid wound, WoundComponent? comp = null, bool ignoreBlockers = false)
+        => CanHealWound(wound, out _, comp, ignoreBlockers);
+
+    public bool CanHealWound(EntityUid wound, out FixedPoint2 severityFloor, WoundComponent? comp = null, bool ignoreBlockers = false)
     {
+        severityFloor = FixedPoint2.Zero;
         if (!Resolve(wound, ref comp))
             return false;
 
@@ -451,7 +460,20 @@ public sealed partial class WoundSystem
         var ev1 = new WoundHealAttemptEvent((holdingWoundable, Comp<WoundableComponent>(holdingWoundable)), ignoreBlockers);
         RaiseLocalEvent(wound, ref ev1);
 
+        severityFloor = ev1.SeverityFloor;
         return !ev1.Cancelled;
+    }
+
+    private FixedPoint2 ClampHealToFloor(WoundComponent wound, FixedPoint2 heal, FixedPoint2 floor)
+    {
+        if (floor <= 0 || heal >= 0)
+            return heal;
+
+        var allowedReduction = wound.WoundSeverityPoint - floor;
+        if (allowedReduction <= 0)
+            return FixedPoint2.Zero;
+
+        return -heal > allowedReduction ? -allowedReduction : heal;
     }
 
     /// <summary>
