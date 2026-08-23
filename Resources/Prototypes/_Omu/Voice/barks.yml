@@ -1,23 +1,3 @@
-﻿# MORTIS
-- type: soundCollection
-  id: MortisBark
-  files:
-  - /Audio/_Omu/Voice/Barks/Mortis/a.ogg
-  - /Audio/_Omu/Voice/Barks/Mortis/e.ogg
-  - /Audio/_Omu/Voice/Barks/Mortis/i.ogg
-  - /Audio/_Omu/Voice/Barks/Mortis/o.ogg
-  - /Audio/_Omu/Voice/Barks/Mortis/u.ogg
-  - /Audio/_Omu/Voice/Barks/Mortis/y.ogg
-
-- type: bark
-  id: Mortis
-  name: Mortis
-  volume: 0.7
-  soundCollection:
-    collection: MortisBark
-  speciesWhitelist:
-  - IPC
-  - Harpy
 
 # Moff squeaksqueaksqueaksqueak
 - type: soundCollection
