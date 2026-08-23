@@ -238,3 +238,9 @@
     - is surprised
     - exclamation marks
     - exclamation mark
+
+- type: emote
+  id: Trill
+  name: chat-emote-name-trill
+  category: Vocal
+  available: false
