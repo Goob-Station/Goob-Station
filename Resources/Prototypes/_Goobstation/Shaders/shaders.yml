@@ -37,6 +37,11 @@
     intensity: 1.0
 
 - type: shader
+  id: AiMachineView
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/ai_machine_view.swsl"
+
+- type: shader
   id: HereticBlur
   kind: source
   path: "/Textures/_Goobstation/Shaders/heretic_blur.swsl"

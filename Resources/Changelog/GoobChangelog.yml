@@ -24529,3 +24529,52 @@ Entries:
       message: Emote panel in separated layout is back.
   id: 2810
   time: '2026-08-22T18:52:46.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Add
+      message: Added machine vision for area not covered by camera for AI.
+  id: 2811
+  time: '2026-08-23T16:04:48.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: >-
+        Hostile NPCs (xenomorphs, syndicate footsoldiers, shuttle pilots...) no
+        longer fall asleep permanently after 10 minutes. Only entities that were
+        actually player-controlled are affected by SSD sleep.
+    - type: Tweak
+      message: Syndicate footsoldiers and shuttle pilots now spawn with a pistol.
+    - type: Tweak
+      message: Lavaland ruins now spread across a much larger portion of the planet.
+    - type: Tweak
+      message: >-
+        The Syndicate Base and the Hierophant Arena now always generate far away
+        from the mining outpost.
+    - type: Fix
+      message: >-
+        Lavaland ruins can no longer overlap each other or spawn inside one
+        another due to a broken placement collision check.
+  id: 2812
+  time: '2026-08-23T16:08:08.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Tweak
+      message: >-
+        Dwarves' healing from ethanol was reverted back to 1 brute + 1 burn.
+        (was 0.1 brute)
+  id: 2813
+  time: '2026-08-23T16:10:47.0000000+00:00'
+- author: Anui-elxx
+  changes:
+    - type: Tweak
+      message: >-
+        Takes the contractor baton out back and curbstomps it to death. NO MORE
+        INSTANT DISARM AND KNOCKDOWN
+  id: 2814
+  time: '2026-08-23T16:11:56.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Tweak
+      message: killed hardlight bow explosion damage, goob is saved
+  id: 2815
+  time: '2026-08-23T16:12:42.0000000+00:00'
