@@ -95,6 +95,8 @@
       - state: equipped-HAND-sealed
       gloves-vox:
       - state: equipped-HAND-sealed-vox
+      gloves-hydrakin:
+      - state: equipped-HAND-sealed-hydrakin
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsParamedic
@@ -132,6 +134,8 @@
       - state: equipped-HAND-sealed
       gloves-vox:
       - state: equipped-HAND-sealed-vox
+      gloves-hydrakin:
+      - state: equipped-HAND-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -177,6 +181,8 @@
       - state: equipped-HAND-sealed
       gloves-vox:
       - state: equipped-HAND-sealed-vox
+      gloves-hydrakin:
+      - state: equipped-HAND-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -225,6 +231,8 @@
       - state: equipped-HAND-sealed-resomi
       gloves-vox:
       - state: equipped-HAND-sealed-vox
+      gloves-hydrakin:
+      - state: equipped-HAND-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -273,6 +281,8 @@
       - state: equipped-HAND-sealed-resomi
       gloves-vox:
       - state: equipped-HAND-sealed-vox
+      gloves-hydrakin:
+      - state: equipped-HAND-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -320,6 +330,8 @@
       - state: equipped-HAND-sealed
       gloves-vox:
       - state: equipped-HAND-sealed-vox
+      gloves-hydrakin:
+      - state: equipped-HAND-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:
@@ -373,6 +385,8 @@
       - state: equipped-HAND-sealed-resomi
       gloves-vox:
       - state: equipped-HAND-sealed-vox
+      gloves-hydrakin:
+      - state: equipped-HAND-sealed-hydrakin
   - type: Armor
     modifiers:
       coefficients:

@@ -29,6 +29,14 @@ public sealed partial class SSDIndicatorComponent : Component
     public ProtoId<SsdIconPrototype> Icon = "SSDIcon";
 
     /// <summary>
+    /// Goobstation: Whether a player has ever controlled this entity.
+    /// Entities that never had a player are exempt from SSD sleep.
+    /// </summary>
+    [AutoNetworkedField]
+    [DataField]
+    public bool HadPlayer;
+
+    /// <summary>
     /// The time at which the entity will fall asleep, if <see cref="CCVars.ICSSDSleep"/> is true.
     /// </summary>
     [AutoNetworkedField, AutoPausedField]

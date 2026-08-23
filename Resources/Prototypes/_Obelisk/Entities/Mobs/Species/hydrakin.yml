@@ -158,3 +158,8 @@
           32:
             sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
             state: neck
+      belt: # Goob
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: belt

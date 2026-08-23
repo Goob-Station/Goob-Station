@@ -33,5 +33,30 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <Button Name="GhostColorSaveButton" Access="Public" Text="{Loc 'rmc-ui-save'}"
                     Disabled="True" />
         </BoxContainer>
+        <!-- Goob start - ghost cosmetics -->
+        <BoxContainer Name="GhostCosmeticsTab" Access="Public" Orientation="Horizontal" Margin="5">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <Label Text="{Loc 'goob-ui-ghost-cosmetics-description'}" />
+                <BoxContainer Name="GhostParticlesRow" Access="Public" Orientation="Horizontal" Margin="0 10 0 0">
+                    <Label Text="{Loc 'goob-ui-ghost-cosmetics-particles'}" HorizontalExpand="True" />
+                    <OptionButton Name="GhostParticlesButton" Access="Public" MinWidth="220" />
+                </BoxContainer>
+                <BoxContainer Name="GhostHatRow" Access="Public" Orientation="Horizontal" Margin="0 5 0 0">
+                    <Label Text="{Loc 'goob-ui-ghost-cosmetics-hat'}" HorizontalExpand="True" />
+                    <OptionButton Name="GhostHatButton" Access="Public" MinWidth="220" />
+                </BoxContainer>
+                <BoxContainer Name="GhostMaskRow" Access="Public" Orientation="Horizontal" Margin="0 5 0 0">
+                    <Label Text="{Loc 'goob-ui-ghost-cosmetics-mask'}" HorizontalExpand="True" />
+                    <OptionButton Name="GhostMaskButton" Access="Public" MinWidth="220" />
+                </BoxContainer>
+                <Button Name="GhostCosmeticsSaveButton" Access="Public" Text="{Loc 'rmc-ui-save'}"
+                        Margin="0 10 0 0" />
+            </BoxContainer>
+            <PanelContainer Margin="10 0 0 0" VerticalAlignment="Center" StyleClasses="AngleRect">
+                <SpriteView Name="GhostCosmeticsPreview" Access="Public" Scale="3 3" SetSize="128 128"
+                            OverrideDirection="South" />
+            </PanelContainer>
+        </BoxContainer>
+        <!-- Goob end -->
     </TabContainer>
 </controls:PatronPerksWindow>

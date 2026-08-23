@@ -14,10 +14,37 @@
     closeable: true
     closeSound:
       collection: bottleCloseSounds
+  - type: SolutionContainerManager #goob
+    solutions:
+      beaker:
+        maxVol: 30
   - type: FitsInDispenser
-    solution: drink
+    solution: beaker
   - type: ExaminableSolution
     exactVolume: true # It's a chemistry tool
+  - type: Spillable
+    solution: beaker
+  - type: MixableSolution
+    solution: beaker
+  - type: RefillableSolution
+    solution: beaker
+  - type: DrainableSolution
+    solution: beaker
+  - type: DrawableSolution
+    solution: beaker
+  - type: InjectableSolution
+    solution: beaker
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: beaker
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Edible
+    edible: Drink
+    solution: beaker
   - type: Tag
     tags:
     - Trash
@@ -42,18 +69,13 @@
       color: "#FF9880"
     affectedLayers:
     - "enum.SolutionContainerLayers.Fill"
-  - type: DrawableSolution #Goob
-    solution: beaker
   - type: SolutionContainerVisuals #goob
     maxFillLevels: 6
     inHandsMaxFillLevels: 4
     fillBaseName: fill-
     inHandsFillBaseName: -fill-
     solutionName: beaker
-  - type: SolutionContainerManager #goob
-    solutions:
-      beaker:
-        maxVol: 30
+
 
 ## Entities
 
@@ -166,7 +188,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker: #Goob
-        maxVol: 30 # Goobstation
+        maxVol: 10 # Goobstation
         reagents:
           - ReagentId: Radium
             Quantity: 5
@@ -200,9 +222,9 @@
   - type: SolutionContainerManager
     solutions:
       beaker: #Goob
-        maxVol: 30 # Goobstation
+        maxVol: 10 # Goobstation
         reagents:
           - ReagentId: Plasma
-            Quantity: 30 # Goobstation
+            Quantity: 10 # Goobstation
   - type: Tag
     tags: *TagVial

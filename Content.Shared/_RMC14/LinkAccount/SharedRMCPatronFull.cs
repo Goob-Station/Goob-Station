@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._RMC14.LinkAccount;
@@ -9,6 +7,7 @@ public sealed record SharedRMCPatronFull(
     SharedRMCPatronTier? Tier,
     bool Linked,
     Color? GhostColor,
+    SharedRMCGhostCosmetics? GhostCosmetics, // Goob - ghost cosmetics
     SharedRMCLobbyMessage? LobbyMessage,
     SharedRMCRoundEndShoutouts? RoundEndShoutout
 );

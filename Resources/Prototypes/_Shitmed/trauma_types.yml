@@ -1,0 +1,71 @@
+- type: traumaType
+  id: NerveDamage
+  severityGate: 5
+  target: Woundable
+  traumaEntity: NerveDamage
+  causes:
+  - !type:WoundSeverityCause
+    damageTypes: [ Blunt, Piercing, Slash, Heat, Ion, Cold, Holy, Shock, Cellular, Caustic, Radiation, Poison ]
+    chance: !type:NerveTraumaChance
+
+- type: traumaType
+  id: BoneDamage
+  severityGate: 10
+  blocksHealing: true
+  target: Bone
+  traumaEntity: BoneDamage
+  causes:
+  - !type:WoundSeverityCause
+    damageTypes: [ Blunt, Piercing, Heat, Cellular ]
+    chance: !type:BoneFractureChance
+
+- type: traumaType
+  id: Dismemberment
+  severityGate: 10
+  blocksHealing: true
+  target: ParentWoundable
+  traumaEntity: Dismemberment
+  causes:
+  - !type:WoundSeverityCause
+    damageTypes: [ Blunt, Piercing, Slash ]
+    chance: !type:DismembermentChance
+      damageTypeMultipliers:
+        Piercing: 0.05
+
+- type: traumaType
+  id: OrganDamage
+  severityGate: 15
+  blocksHealing: true
+  target: Organ
+  traumaEntity: OrganDamage
+  causes:
+  - !type:WoundSeverityCause
+    damageTypes: [ Blunt, Piercing, Heat, Shock, Cellular, Radiation, Poison ]
+    chance: !type:OrganTraumaChance
+
+- type: traumaType
+  id: VeinsDamage
+  severityGate: 10
+  target: Woundable
+  traumaEntity: VeinsDamage
+  causes:
+  - !type:WoundSeverityCause
+    damageTypes: [ Blunt, Piercing, Slash, Heat, Ion, Cold, Shock, Cellular, Caustic, Radiation, Poison ]
+
+- type: traumaType
+  id: Shrapnel
+  target: Woundable
+  blocksHealing: true
+  traumaEntity: TraumaShrapnel
+  causes:
+  - !type:ExplosionCause
+    minDamage: 40
+    chance: 0.35
+    scaleWithDamage: true
+  treatment: !type:SurgicalTreatment
+
+- type: traumaType
+  id: Braindeath
+  target: Organ
+  blocksHealing: true
+  traumaEntity: TraumaBraindeath

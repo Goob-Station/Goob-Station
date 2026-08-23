@@ -34,6 +34,9 @@
   - StationAiIconWeird
   - StationAiIconInverted
   # </Trauma>
+  - StationAiIconBingle #Goobstation
+  - StationAiIconBlank #Goobstation
+  - StationAiIconPerformer #Goobstation
 
 - type: stationAiCustomizationGroup
   id: StationAiHolograms
@@ -47,7 +50,10 @@
   - StationAiHologramDog
   - StationAiHologramKobold
   - StationAiHologramMonkey
-  - StationAiHologramScurret # goob
+  - StationAiHologramScurret #Goobstation
+  - StationAiHologramHorror #Goobstation
+  - StationAiHologramQueen #Goobstation
+  - StationAiHologramPerformer  #Goobstation
 
 # Iconography
 - type: stationAiCustomization

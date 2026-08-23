@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "copyright": "Taken from https://github.com/DeltaV-Station/Delta-v/tree/61aee79dc23109773e02b182e7093f99137cb018/Resources/Textures/_DV/Objects/Weapons/Guns/Pistols/appraisal-gun.rsi",
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "bolt-open"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "mag-0"
+        },
+        {
+            "name": "equipped-BELT",
+            "directions": 4
+        }
+    ]
+}

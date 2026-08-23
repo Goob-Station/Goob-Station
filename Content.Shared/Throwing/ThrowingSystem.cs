@@ -152,7 +152,7 @@ public sealed class ThrowingSystem : EntitySystem
         bool throwInAir = true // WWDP throwInAir
             )
     {
-        if (baseThrowSpeed <= 0 || direction == Vector2Helpers.Infinity || direction == Vector2Helpers.NaN || direction == Vector2.Zero || friction < 0)
+        if (!float.IsFinite(baseThrowSpeed) || baseThrowSpeed <= 0 || !float.IsFinite(direction.X) || !float.IsFinite(direction.Y) || direction == Vector2.Zero || friction < 0) // Goob
             return;
 
         // Unanchor the entity if applicable

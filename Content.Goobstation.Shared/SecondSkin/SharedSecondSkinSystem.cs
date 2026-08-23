@@ -100,7 +100,6 @@ public abstract class SharedSecondSkinSystem : EntitySystem
     private void OnGetDeduction(Entity<SecondSkinUserComponent> ent, ref GetSecondSkinDeductionEvent args)
     {
         var coverage = (BodyPartType) args.Coverage;
-        var type = (TraumaType) args.TraumaType;
 
         if (!Exists(ent.Comp.SecondSkin) || !TryComp(ent.Comp.SecondSkin, out ArmorComponent? comp))
             return;
@@ -108,7 +107,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
         if (!comp.ArmorCoverage.Contains(coverage))
             return;
 
-        args.Deduction += comp.TraumaDeductions[type].Float();
+        args.Deduction += comp.TraumaDeductions.GetValueOrDefault(args.TraumaType).Float();
     }
 
     private void OnModifyDamage(Entity<SecondSkinUserComponent> ent, ref DamageModifyEvent args)
