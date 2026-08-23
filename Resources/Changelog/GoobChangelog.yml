@@ -24590,3 +24590,12 @@ Entries:
       message: Fixed the ghost action not killing you
   id: 2817
   time: '2026-08-23T18:54:50.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Blueshield Officers' combat injectors should work how they used to, with
+        fast (1-second normal inject) 3u/5u transfer amounts and
+        dynamic/inject-only modes.
+  id: 2818
+  time: '2026-08-23T18:58:09.0000000+00:00'
