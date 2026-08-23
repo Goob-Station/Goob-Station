@@ -24556,3 +24556,11 @@ Entries:
         another due to a broken placement collision check.
   id: 2812
   time: '2026-08-23T16:08:08.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Tweak
+      message: >-
+        Dwarves' healing from ethanol was reverted back to 1 brute + 1 burn.
+        (was 0.1 brute)
+  id: 2813
+  time: '2026-08-23T16:10:47.0000000+00:00'
