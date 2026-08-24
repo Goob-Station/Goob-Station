@@ -149,8 +149,8 @@
 - type: entity
   id: DiseaseBehaviorDeaf
   parent: DiseaseBehaviorBase
-  name: Deaf
-  description: Rare disease symptom that causes complete deaf.
+  name: Deafness
+  description: Rare disease symptom that causes complete deafness.
   components:
   - type: DiseaseEffect
     complexity: 14 # VERY annoying
@@ -164,7 +164,7 @@
   id: DiseaseBehaviorAnxiety
   parent: DiseaseBehaviorBase
   name: Anxiety
-  description: Causes anxiety and fear of hugs
+  description: Causes anxiety and fear of hugs.
   components:
   - type: DiseaseEffect
     complexity: 2
@@ -176,7 +176,7 @@
   id: DiseaseBehaviorDrowsiness
   parent: DiseaseBehaviorBase
   name: Drowsiness
-  description: Causes a strong desire to sleep
+  description: Causes a strong desire to sleep.
   components:
   - type: DiseaseEffect
     complexity: 10
@@ -216,7 +216,7 @@
   id: DiseaseBehaviorApathy
   parent: DiseaseBehaviorBase
   name: Apathy
-  description: Symptom causing the loss of world color diversity
+  description: Symptom that makes the world progressively lose its range of colors.
   components:
   - type: DiseaseEffect
     complexity: 5
