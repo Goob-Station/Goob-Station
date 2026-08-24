@@ -24473,3 +24473,147 @@ Entries:
       message: Recolours Queen Xeno to be consistent with other Xenos
   id: 2802
   time: '2026-08-14T11:47:35.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: >-
+        Number Disk Cannot Call Vox Raiders or the GreyTide anymore, Replaced
+        with Slasher
+  id: 2803
+  time: '2026-08-18T20:00:23.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Reverted cloning genetic damage.
+    - type: Tweak
+      message: Readded cloning to CMO locker.
+  id: 2804
+  time: '2026-08-19T13:35:07.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: Enabled biomass reclaimer being unusable on souled bodies
+  id: 2805
+  time: '2026-08-19T13:44:35.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer clone instantly and at no cost by keeping your soul
+        tied down.
+  id: 2806
+  time: '2026-08-21T04:54:36.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: bingles now raffle correctly
+  id: 2807
+  time: '2026-08-21T14:46:11.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: removed hyrdrakin from cc roles
+  id: 2808
+  time: '2026-08-21T14:46:36.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: >-
+        Adds zombie infection resistance to fire suits, atmos fire suits, bomb
+        suits, and rad suits, alongside associated headwear.
+  id: 2809
+  time: '2026-08-21T18:30:02.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Emote panel in separated layout is back.
+  id: 2810
+  time: '2026-08-22T18:52:46.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Add
+      message: Added machine vision for area not covered by camera for AI.
+  id: 2811
+  time: '2026-08-23T16:04:48.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: >-
+        Hostile NPCs (xenomorphs, syndicate footsoldiers, shuttle pilots...) no
+        longer fall asleep permanently after 10 minutes. Only entities that were
+        actually player-controlled are affected by SSD sleep.
+    - type: Tweak
+      message: Syndicate footsoldiers and shuttle pilots now spawn with a pistol.
+    - type: Tweak
+      message: Lavaland ruins now spread across a much larger portion of the planet.
+    - type: Tweak
+      message: >-
+        The Syndicate Base and the Hierophant Arena now always generate far away
+        from the mining outpost.
+    - type: Fix
+      message: >-
+        Lavaland ruins can no longer overlap each other or spawn inside one
+        another due to a broken placement collision check.
+  id: 2812
+  time: '2026-08-23T16:08:08.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Tweak
+      message: >-
+        Dwarves' healing from ethanol was reverted back to 1 brute + 1 burn.
+        (was 0.1 brute)
+  id: 2813
+  time: '2026-08-23T16:10:47.0000000+00:00'
+- author: Anui-elxx
+  changes:
+    - type: Tweak
+      message: >-
+        Takes the contractor baton out back and curbstomps it to death. NO MORE
+        INSTANT DISARM AND KNOCKDOWN
+  id: 2814
+  time: '2026-08-23T16:11:56.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Tweak
+      message: killed hardlight bow explosion damage, goob is saved
+  id: 2815
+  time: '2026-08-23T16:12:42.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Fix
+      message: Xenomorphs no longer suffer from organ damage as easily.
+  id: 2816
+  time: '2026-08-23T18:47:34.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed the ghost action not killing you
+  id: 2817
+  time: '2026-08-23T18:54:50.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Blueshield Officers' combat injectors should work how they used to, with
+        fast (1-second normal inject) 3u/5u transfer amounts and
+        dynamic/inject-only modes.
+  id: 2818
+  time: '2026-08-23T18:58:09.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Add
+      message: Diona Nymphs can now be carried and put into bags.
+  id: 2819
+  time: '2026-08-23T18:59:15.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Add
+      message: Added moth bark from omu
+  id: 2820
+  time: '2026-08-24T07:25:47.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Fix
+      message: Footprints are drinkable, not edible.
+  id: 2821
+  time: '2026-08-24T07:34:41.0000000+00:00'
