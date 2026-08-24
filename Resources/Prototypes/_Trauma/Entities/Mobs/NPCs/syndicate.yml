@@ -54,6 +54,19 @@
     - FootstepSound
   - type: Damageable
     damageModifierSet: NukieSpider
+  #goobstation start
+  - type: GrantDisease
+    baseDisease: DiseaseBaseMouse
+    complexity: 50 #evil...
+    possibleTypes:
+    - Bacterial
+    - Viral
+  - type: DiseaseOnHit
+    spreadParams:
+      chance: 0.2 # plague rat chance
+      power: 1
+      spreadType: Blood
+  #goobstation end
 
 - type: entity
   parent: MobGiantSpiderAngry
