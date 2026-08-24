@@ -93,7 +93,7 @@
   - type: MobThresholds # tankier
     thresholds:
       0: Alive
-      450: Critical # goob - effective HP same as a jugsuit with innate resists
+      350: Critical # goob - balance larp
       750: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
     stateAlertDict:
       Alive: BorgHealth
