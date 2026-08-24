@@ -1705,7 +1705,7 @@
           max: 213.0
           scale: 1.6
         damage: # Goobstation - Cryo rebalance
-          Burn: -10.0
+          Burn: -40.0 # Goobstation, this is meant to heal 10 All-Burn (10 Heat/Cold/Shock/Caustic)
       - !type:GenericStatusEffect # Mono edit
         conditions:
         - !type:MetabolizerTypeCondition
