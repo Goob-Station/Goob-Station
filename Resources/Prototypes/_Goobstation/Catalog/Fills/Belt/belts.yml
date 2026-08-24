@@ -179,13 +179,26 @@
 
 - type: entity
   id: ClothingBeltMilitaryWebbingFilled
-  parent: ClothingBeltMilitaryWebbing
-  suffix: Filled, BSO
+  parent: ClothingBeltMilitaryWebbingBSO # Goobstation, change the BSO-specific rig to the BSO's rig
+  suffix: Filled, Assault #BSO # Goobstation, commented out "BSO" and clarified "Assault"  to differentiate from the medical kit
   components:
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:NestedSelector
         tableId: BeltAssaultBSOEntityTable
+
+# Goobstation start, gives ERT their proper chest rig instead of using the BSO's
+# The Chosen One will still retain the BSO's chest rig to reduce the number of things I'm touching
+- type: entity
+  id: ClothingBeltMilitaryWebbingFilledERT
+  parent: ClothingBeltMilitaryWebbingERT
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltAssaultBSOEntityTable # It's meant to use this table anyhow, no need to make a new one
+# Goobstation end
 
 - type: entity
   parent: ChemBag
