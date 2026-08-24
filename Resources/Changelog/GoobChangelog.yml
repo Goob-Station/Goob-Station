@@ -24617,3 +24617,9 @@ Entries:
       message: Footprints are drinkable, not edible.
   id: 2821
   time: '2026-08-24T07:34:41.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Tweak
+      message: Octogen recipe now requires vestine
+  id: 2822
+  time: '2026-08-24T11:49:24.0000000+00:00'
