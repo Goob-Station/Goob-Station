@@ -461,7 +461,7 @@
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
   id: ClothingModsuitBrigMed
   name: security trauma modsuit control unit
-  description: A robust modular hardsuit control module unit for healing commies in spece.
+  description: A robust modular hardsuit control module unit for healing commies in space.
   components:
   - type: Appearance
   - type: Sprite
