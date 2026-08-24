@@ -24611,3 +24611,9 @@ Entries:
       message: Added moth bark from omu
   id: 2820
   time: '2026-08-24T07:25:47.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Fix
+      message: Footprints are drinkable, not edible.
+  id: 2821
+  time: '2026-08-24T07:34:41.0000000+00:00'
