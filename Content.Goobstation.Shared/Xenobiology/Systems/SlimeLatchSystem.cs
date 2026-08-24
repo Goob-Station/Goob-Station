@@ -130,17 +130,27 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood))
         {
             var chem = blood; // Don't resolve twice
-            var bloodProportion = blood.Volume / (chem.Volume + blood.Volume);
+
+            var totalVolume = chem.Volume + blood.Volume;
+
+            if (totalVolume <= 0)
+                return;
+
+            var bloodProportion = blood.Volume / totalVolume;
             var chemProportion = 1 - bloodProportion;
             var bloodTransfer = FixedPoint2.Min(ent.Comp.SuctionUnits * bloodProportion, availableVolume * bloodProportion);
             var chemTransfer = FixedPoint2.Min(ent.Comp.SuctionUnits * chemProportion, availableVolume * chemProportion);
+
+            var stomachCount = FixedPoint2.New(stomachList.Count);
             foreach (var stomach in stomachList)
             {
-                var bloodSolution = blood.SplitSolutionWithout(bloodTransfer / FixedPoint2.New(stomachList.Count), ent.Comp.ToxinReagent); // we don't want slime sucking it's own toxin instad of drinking blood
+                var bloodSolution = blood.SplitSolutionWithout(bloodTransfer / stomachCount, ent.Comp.ToxinReagent); // we don't want slime sucking it's own toxin instad of drinking blood
                 _stomach.TryTransferSolution(stomach.Owner, bloodSolution, stomach); // blood first, other chemicals later
-                var chemSolution = chem.SplitSolution(chemTransfer / FixedPoint2.New(stomachList.Count));
+
+                var chemSolution = chem.SplitSolution(chemTransfer / stomachCount);
                 _stomach.TryTransferSolution(stomach.Owner, chemSolution, stomach);
             }
+
             chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits);
         }
     }

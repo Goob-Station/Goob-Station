@@ -76,8 +76,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
             if (_latchedQuery.HasComp(entity)
             || _dotQuery.HasComp(entity) // it's taken
             || _mobSystem.IsDead(entity)
-            || growthComp.IsFirstStage && entity == slimeComp.Tamer // no killing tamer
-            || entity == slimeComp.Tamer && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish)) // no killing tamer unless very hungry
+            || growthComp.IsFirstStage && entity == slimeComp.Tamer) // no killing tamer
                 continue;
 
             targets.Add(entity);
