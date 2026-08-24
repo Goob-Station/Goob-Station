@@ -207,7 +207,7 @@
 
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase] # , BaseSyndicateContraband] # Goob, (medical) chest rigs are no longer contra
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
   id: ClothingBeltMilitaryWebbing
   name: chest rig
   description: A set of tactical webbing worn by Syndicate boarding parties.
