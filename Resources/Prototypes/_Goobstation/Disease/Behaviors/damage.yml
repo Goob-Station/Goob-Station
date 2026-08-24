@@ -123,7 +123,7 @@
 - type: entity
   id: DiseaseBehaviorOrganFailure
   parent: DiseaseBehaviorBase
-  name: Organ Failure
+  name: Organ failure
   description: In the final stage, there is a chance of instant death
   components:
   - type: DiseaseEffect
