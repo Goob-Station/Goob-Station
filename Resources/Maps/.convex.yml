@@ -29301,7 +29301,7 @@ entities:
     - type: Transform
       pos: 101.46009,28.48259
       parent: 1
-- proto: Brutepack10Lingering
+- proto: Brutepack
   entities:
   - uid: 17677
     components:

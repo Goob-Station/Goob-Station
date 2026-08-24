@@ -22,7 +22,7 @@ public sealed class ListenBlacklistSystem : EntitySystem
     // TODO: if chat ever gets refactored move this system to shared
     private void OnListenAttempt(Entity<ListenBlacklistComponent> ent, ref ListenAttemptEvent args)
     {
-        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, args.Source))
+        if (_whitelist.IsWhitelistPass(ent.Comp.Blacklist, args.Source))
             args.Cancel();
     }
 }

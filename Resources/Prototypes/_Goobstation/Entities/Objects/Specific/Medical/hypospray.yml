@@ -1,20 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Cartridge Autoinjectors
 
@@ -37,11 +20,12 @@
         maxVol: 10
   - type: ExaminableSolution
     solution: hypospray
-  - type: Hypospray
+  - type: Injector
     solutionName: hypospray
-    transferAmount: 10
-    onlyAffectsMobs: false
-    injectOnly: true
+    currentTransferAmount: null
+    activeModeProtoId: HyposprayInjectMode
+    allowedModes:
+    - HyposprayInjectMode
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
     delay: 30
@@ -108,11 +92,13 @@
         maxVol: 10
   - type: ExaminableSolution
     solution: hypospray
-  - type: Hypospray
+  - type: Injector
     solutionName: hypospray
-    transferAmount: 10
-    onlyAffectsMobs: false
-    injectOnly: true
+    ignoreClosed: false
+    activeModeProtoId: HyposprayDynamicMode
+    allowedModes:
+    - HyposprayDynamicMode
+    - HyposprayInjectMode
   - type: HyposprayBlockNonMobInjection
   - type: ContainerContainer
     containers:
@@ -350,11 +336,10 @@
         reagents:
         - ReagentId: Amnestizine
           Quantity: 10
-  - type: Food
+  - type: Edible
     delay: 0.2
     forceFeedDelay: 1.5
     transferAmount: null
-    eatMessage: edible-swallow
     useSound: /Audio/Items/pill.ogg
   - type: BadFood
   - type: FlavorProfile
@@ -378,9 +363,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: stasipen_empty
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 10
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -416,11 +398,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: ntstimpen_empty
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 50
-    onlyAffectsMobs: false
-    injectOnly: true
   - type: StaticPrice
     price: 500
 
@@ -505,7 +482,37 @@
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
-  - type: Hypospray
-    onlyAffectsMobs: false
+  - type: Injector
+    solutionName: hypospray
+    ignoreClosed: false
+    activeModeProtoId: HyposprayDynamicMode
+    allowedModes:
+    - HyposprayDynamicMode
+    - HyposprayInjectMode
   - type: UseDelay
     delay: 0.2
+
+# Auto-injectors
+
+- type: entity
+  parent: ChemicalMedipen
+  id: RomerolMedipen
+  name: romerol auto-injector
+  description: A non-refillable medipen containing multiple doses of "Braaaains".
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 5

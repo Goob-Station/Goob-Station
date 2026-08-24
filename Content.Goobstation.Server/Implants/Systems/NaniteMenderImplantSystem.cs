@@ -1,15 +1,10 @@
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Implants;
 using Content.Server.Administration.Systems;
 using Content.Server.Jittering;
 using Content.Server.Popups;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Implants.Systems;

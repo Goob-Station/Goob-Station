@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
@@ -28,6 +23,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 
@@ -127,25 +123,14 @@ public partial class PainSystem
         if (!Resolve(uid, ref nerveSys, false))
             return false;
 
-        // Create a modifier for WoundPain
-        var woundModifier = new PainModifier(
+        var modifier = new PainModifier(
             change,
-            MetaData(nerveUid).EntityPrototype!.ID,
-            PainDamageTypes.WoundPain,
+            MetaData(nerveUid).EntityPrototype?.ID ?? string.Empty,
+            painType,
             _timing.CurTime + time
         );
 
-        // Create a modifier for TraumaticPain
-        var traumaModifier = new PainModifier(
-            change,
-            MetaData(nerveUid).EntityPrototype!.ID,
-            PainDamageTypes.TraumaticPain,
-            _timing.CurTime + time
-        );
-
-        // Add both modifiers
-        nerveSys.Modifiers[(nerveUid, $"{identifier}_wound")] = woundModifier;
-        nerveSys.Modifiers[(nerveUid, $"{identifier}_trauma")] = traumaModifier;
+        nerveSys.Modifiers[(nerveUid, identifier)] = modifier;
 
         var ev = new PainModifierAddedEvent(uid, nerveUid, change);
         RaiseLocalEvent(uid, ref ev);
@@ -237,7 +222,7 @@ public partial class PainSystem
 
         var modifierToSet =
             modifier with { Change = change };
-        nerve.PainFeelingModifiers[(nerveUid, identifier)] = modifierToSet;
+        nerve.PainFeelingModifiers[(effectOwner, identifier)] = modifierToSet;
 
         UpdatePainFeels(nerveUid);
 
@@ -271,7 +256,7 @@ public partial class PainSystem
 
         var modifierToSet =
             modifier with { Change = change, Time = _timing.CurTime + time ?? modifier.Time };
-        nerve.PainFeelingModifiers[(nerveUid, identifier)] = modifierToSet;
+        nerve.PainFeelingModifiers[(effectOwner, identifier)] = modifierToSet;
 
         UpdatePainFeels(nerveUid);
 
@@ -305,7 +290,7 @@ public partial class PainSystem
 
         var modifierToSet =
             modifier with { Change = change ?? modifier.Change, Time = _timing.CurTime + time };
-        nerve.PainFeelingModifiers[(nerveUid, identifier)] = modifierToSet;
+        nerve.PainFeelingModifiers[(effectOwner, identifier)] = modifierToSet;
 
         UpdatePainFeels(nerveUid);
 
@@ -593,7 +578,7 @@ public partial class PainSystem
         if (screamString != null)
             _popup.PopupPredicted(screamString, body, null, PopupType.MediumCaution);
 
-        nerveSys.PainSoundsToPlay.Add(body, (specifier, audioParams, _timing.CurTime + delay));
+        nerveSys.PainSoundsToPlay[body] = (specifier, audioParams, _timing.CurTime + delay);
     }
 
     #endregion
@@ -676,7 +661,7 @@ public partial class PainSystem
                     sex = humanoid.Sex;
 
                 CleanupSounds(nerveSys);
-                if (_trauma.HasBodyTrauma(body, TraumaType.OrganDamage) && _random.Prob(0.22f))
+                if (_trauma.HasBodyTrauma(body, TraumaSystem.OrganDamage) && _random.Prob(0.22f))
                 {
                     // If the person suffers organ damage, do funny gaggling sound :3
                     PlayPainSound(body,
@@ -718,11 +703,15 @@ public partial class PainSystem
             if (_timing.CurTime > value.Time)
                 shouldUpdate |= TryRemovePainMultiplier(nerveSysEnt, key, nerveSys);
 
-        // I hate myself.
-        foreach (var (ent, nerve) in nerveSys.Nerves)
-            foreach (var (key, value) in nerve.PainFeelingModifiers.ToList())
+        foreach (var ent in nerveSys.Nerves)
+        {
+            if (!TryComp<NerveComponent>(ent, out var nerve))
+                continue;
+
+            foreach (var (key, value) in nerve.PainFeelingModifiers)
                 if (_timing.CurTime > value.Time)
                     shouldUpdate |= TryRemovePainFeelsModifier(key.Item1, key.Item2, ent, nerve);
+        }
 
         if (shouldUpdate
             && _net.IsServer)
@@ -756,34 +745,50 @@ public partial class PainSystem
             nerveSys.ReactionUpdateTime = _timing.CurTime + nerveSys.PainReactionTime;
         nerveSys.Pain = newPain;
 
-        if (!_consciousness.SetConsciousnessModifier(
-                organ.Body.Value,
-                uid,
-                -nerveSys.Pain,
-                identifier: PainModifierIdentifier,
-                type: ConsciousnessModType.Pain))
+        UpdatePainConsciousness(uid, nerveSys);
+    }
+
+    private void UpdatePainConsciousness(EntityUid uid, NerveSystemComponent nerveSys)
+    {
+        if (!TryComp<OrganComponent>(uid, out var organ) || organ.Body == null)
+            return;
+
+        _consciousness.SetConsciousnessModifier(
+            organ.Body.Value,
+            uid,
+            -nerveSys.Pain,
+            identifier: PainModifierIdentifier,
+            type: ConsciousnessModType.Pain);
+    }
+
+    public void RemoveAllPainEffects(Entity<NerveSystemComponent> nerveSys)
+    {
+        foreach (var key in new List<(EntityUid, string)>(nerveSys.Comp.Modifiers.Keys))
+            TryRemovePainModifier(nerveSys, key.Item1, key.Item2, nerveSys.Comp);
+
+        foreach (var key in new List<string>(nerveSys.Comp.Multipliers.Keys))
+            TryRemovePainMultiplier(nerveSys, key, nerveSys.Comp);
+
+        foreach (var nerveEnt in nerveSys.Comp.Nerves)
         {
-            _consciousness.AddConsciousnessModifier(
-                organ.Body.Value,
-                uid,
-                -nerveSys.Pain,
-                identifier: PainModifierIdentifier,
-                type: ConsciousnessModType.Pain);
+            if (!TryComp<NerveComponent>(nerveEnt, out var nerve))
+                continue;
+
+            foreach (var key in new List<(EntityUid, string)>(nerve.PainFeelingModifiers.Keys))
+                TryRemovePainFeelsModifier(key.Item1, key.Item2, nerveEnt, nerve);
         }
     }
 
     private void CleanupSounds(NerveSystemComponent nerveSys)
     {
-        foreach (var (id, _) in nerveSys.PlayedPainSounds.Where(sound => !TerminatingOrDeleted(sound.Key)))
+        foreach (var (id, _) in nerveSys.PlayedPainSounds)
         {
-            _IHaveNoMouthAndIMustScream.Stop(id);
-            nerveSys.PlayedPainSounds.Remove(id);
+            if (!TerminatingOrDeleted(id))
+                _IHaveNoMouthAndIMustScream.Stop(id);
         }
 
-        foreach (var (id, _) in nerveSys.PainSoundsToPlay.Where(sound => !TerminatingOrDeleted(sound.Key)))
-        {
-            nerveSys.PainSoundsToPlay.Remove(id);
-        }
+        nerveSys.PlayedPainSounds.Clear();
+        nerveSys.PainSoundsToPlay.Clear();
     }
 
     private void ApplyPainReflexesEffects(EntityUid body, Entity<NerveSystemComponent> nerveSys, PainThresholdTypes reaction)
@@ -866,7 +871,8 @@ public partial class PainSystem
         var painInput = nerveSys.Pain - nerveSys.LastPainThreshold;
 
         var nearestReflex = PainThresholdTypes.None;
-        foreach (var (reflex, threshold) in nerveSys.PainThresholds.OrderByDescending(kv => kv.Value))
+        nerveSys.SortedPainThresholds ??= nerveSys.PainThresholds.OrderByDescending(kv => kv.Value).ToArray();
+        foreach (var (reflex, threshold) in nerveSys.SortedPainThresholds)
         {
             if (painInput < threshold)
                 continue;
@@ -910,15 +916,22 @@ public partial class PainSystem
             return pain;
 
         var modifiedPain = pain * nerve.PainMultiplier;
-        if (nerveSys.Multipliers.Count == 0)
+
+        var toMultiply = FixedPoint2.Zero;
+        var matching = 0;
+        foreach (var multiplier in nerveSys.Multipliers.Values)
+        {
+            if (multiplier.PainDamageType != painType)
+                continue;
+
+            toMultiply += multiplier.Change;
+            matching++;
+        }
+
+        if (matching == 0)
             return modifiedPain;
 
-        var toMultiply =
-            nerveSys.Multipliers
-                .Where(markiplier => markiplier.Value.PainDamageType == painType)
-                .Aggregate(FixedPoint2.Zero, (current, markiplier) => current + markiplier.Value.Change);
-
-        return modifiedPain * toMultiply / nerveSys.Multipliers.Count; // o(*^＠^*)o
+        return modifiedPain * toMultiply / matching;
     }
 
     #endregion

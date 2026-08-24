@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio.Components;
 using Content.Server.Chat.Systems;
 
 namespace Content.Goobstation.Server.StationRadio;

@@ -1,13 +1,10 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Procedural;
+using Content.Shared._Lavaland.Procedural.Components;
 using Content.Shared._Lavaland.Procedural.Prototypes;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
@@ -28,33 +25,19 @@ public sealed partial class LavalandSystem
         var random = new Random(lavaland.Comp.Seed);
 
         var usedSpace = GetOutpostBoundary(lavaland);
-        var coords = GetCoordinates(pool.RuinDistance, pool.MaxDistance);
+        var coords = GetCoordinates(pool.RuinDistance, pool.MaxDistance, pool.MinDistance);
 
         random.Shuffle(coords);
 
         SetupGridRuins(pool.GridRuins, lavaland, preloader, ref coords, ref usedSpace);
 
         // Create a new list that excludes all already used spaces that intersect with big ruins.
-        var newCoords = coords.ToHashSet();
-        foreach (var usedBox in usedSpace)
-        {
-            var list = coords.Where(coord => !usedBox.Contains(coord)).ToHashSet();
-            newCoords = newCoords.Concat(list).ToHashSet();
-        }
-
-        coords = newCoords.ToList();
+        coords = coords.Where(coord => !usedSpace.Any(usedBox => usedBox.Contains(coord))).ToList();
 
         SetupDungeonRuins(pool.DungeonRuins, lavaland, preloader, random, ref coords, ref usedSpace);
 
         // Do that again
-        newCoords = coords.ToHashSet();
-        foreach (var usedBox in usedSpace)
-        {
-            var list = coords.Where(coord => !usedBox.Contains(coord)).ToHashSet();
-            newCoords = newCoords.Concat(list).ToHashSet();
-        }
-
-        coords = newCoords.ToList();
+        coords = coords.Where(coord => !usedSpace.Any(usedBox => usedBox.Contains(coord))).ToList();
 
         SetupMarkerRuins(pool.MarkerRuins, lavaland, ref coords, ref usedSpace);
     }
@@ -164,14 +147,14 @@ public sealed partial class LavalandSystem
         var spawned = spawnedBoundedGrid.Value;
         var ruinBox = spawned.Comp.LocalAABB;
 
-        if (!TryPlaceRuin(ruinBox, ruin.SpawnAttempts, coords, usedSpace, out var coord))
+        if (!TryPlaceRuin(ruinBox, ruin.SpawnAttempts, ruin.MinDistance, ruin.MaxDistance, coords, usedSpace, out var coord))
         {
             Log.Warning($"Failed to load ruin {ruin.ID} on {ToPrettyString(lavaland)} planet's surface: all attempts have failed and no eligible spot was found!");
             Del(spawnedBoundedGrid);
             return;
         }
 
-        usedSpace.Add(ruinBox);
+        usedSpace.Add(ruinBox.Translated(coord.Value));
         coords.Remove(coord.Value);
 
         // Teleport it into place on preloader map
@@ -227,7 +210,7 @@ public sealed partial class LavalandSystem
 
         var ruinBox = Box2.CentredAroundZero(ruin.Boundary);
 
-        if (!TryPlaceRuin(ruinBox, ruin.SpawnAttempts, coords, usedSpace, out var coord))
+        if (!TryPlaceRuin(ruinBox, ruin.SpawnAttempts, null, null, coords, usedSpace, out var coord))
         {
             Log.Warning($"Failed to load ruin {ruin.ID} on {ToPrettyString(lavaland)} planet's surface: all attempts have failed and no eligible spot was found!");
             return;
@@ -235,7 +218,7 @@ public sealed partial class LavalandSystem
 
         Spawn(ruin.SpawnedMarker, new EntityCoordinates(lavaland, coord.Value));
 
-        usedSpace.Add(ruinBox);
+        usedSpace.Add(ruinBox.Translated(coord.Value));
         coords.Remove(coord.Value);
     }
 
@@ -244,6 +227,8 @@ public sealed partial class LavalandSystem
     /// </summary>
     /// <param name="ruinBox">Boundaries of a ruin, confined inside a box</param>
     /// <param name="spawnAttempts">The maximum amount of spawn attempts we make before giving up on generating that ruin.</param>
+    /// <param name="minDistance">Optional override of the pool's min distance from the map center, for this specific ruin.</param>
+    /// <param name="maxDistance">Optional override of the pool's max distance from the map center, for this specific ruin.</param>
     /// <param name="coords">A list of all eligible planet coordinates. Has to be shuffled to be as efficient as possible.</param>
     /// <param name="usedSpace">A list of bounding boxes of already placed ruins, translated relative to their position.</param>
     /// <param name="pickedCoord">Picked coordinates that we can safely put a ruin at.</param>
@@ -251,6 +236,8 @@ public sealed partial class LavalandSystem
     private bool TryPlaceRuin(
         Box2 ruinBox,
         int spawnAttempts,
+        int? minDistance,
+        int? maxDistance,
         List<Vector2i> coords,
         List<Box2> usedSpace,
         [NotNullWhen(true)] out Vector2i? pickedCoord)
@@ -259,6 +246,12 @@ public sealed partial class LavalandSystem
         for (var i = 0; i < coords.Count && i < spawnAttempts; i++)
         {
             var pos = coords[i];
+
+            // Ruin can override the pool's distance band from the map center.
+            var distance = MathF.Sqrt(pos.X * pos.X + pos.Y * pos.Y);
+            if (distance < minDistance || distance > maxDistance)
+                continue;
+
             bool intersects = false;
             var translated = ruinBox.Translated(pos);
             foreach (var used in usedSpace)
@@ -280,33 +273,21 @@ public sealed partial class LavalandSystem
         return false;
     }
 
-    private List<Vector2i> GetCoordinates(int distance, int maxDistance)
+    /// <summary>
+    /// Builds a regular grid of positions, keeping only the points inside the [minDistance, maxDistance].
+    /// </summary>
+    private List<Vector2i> GetCoordinates(int distance, int maxDistance, int minDistance = 0)
     {
         var coords = new List<Vector2i>();
-        var moveVector = new Vector2i(maxDistance, maxDistance);
 
-        while (moveVector.Y >= -maxDistance)
+        for (var y = -maxDistance; y <= maxDistance; y += distance)
         {
-            // i love writing shitcode
-            // Moving like a snake through the entire map placing all dots onto its places.
-
-            while (moveVector.X > -maxDistance)
+            for (var x = -maxDistance; x <= maxDistance; x += distance)
             {
-                coords.Add(moveVector);
-                moveVector += new Vector2i(-distance, 0);
+                var length = MathF.Sqrt(x * x + y * y);
+                if (length >= minDistance && length <= maxDistance)
+                    coords.Add(new Vector2i(x, y));
             }
-
-            coords.Add(moveVector);
-            moveVector += new Vector2i(0, -distance);
-
-            while (moveVector.X < maxDistance)
-            {
-                coords.Add(moveVector);
-                moveVector += new Vector2i(distance, 0);
-            }
-
-            coords.Add(moveVector);
-            moveVector += new Vector2i(0, -distance);
         }
 
         return coords;

@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
@@ -15,6 +9,52 @@
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: beak
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
+
+- type: marking
+  # The cere is the base of the top part of the beak, the cere on this beak, is a square.
+  id: VoxBeakSquareCere
+  bodyPart: Snout
+  markingCategory: Snout
+  forcedColoring: true
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: beak_squarecere
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
+
+- type: marking
+  id: VoxBeakShaved
+  bodyPart: Snout
+  markingCategory: Snout
+  forcedColoring: true
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: beak_shaved
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
+
+- type: marking
+  id: VoxBeakHooked
+  bodyPart: Snout
+  markingCategory: Snout
+  forcedColoring: true
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: beak_hooked
   coloring:
     default:
       type:
@@ -201,7 +241,7 @@
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: tail_big_animated
-    
+
 
 - type: marking
   id: VoxTailSpikes
@@ -221,8 +261,8 @@
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail_spikes_animated 
-    
+    state: tail_spikes_animated
+
 - type: marking
   id: VoxTailDocked
   bodyPart: Tail
@@ -232,7 +272,7 @@
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: tail_docked
-    
+
 - type: marking
   id: VoxTailDockedAnimated
   bodyPart: Tail
@@ -241,8 +281,8 @@
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail_docked_animated 
-    
+    state: tail_docked_animated
+
 - type: marking
   id: VoxTailSplit
   bodyPart: Tail
@@ -252,7 +292,7 @@
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: tail_split
-    
+
 - type: marking
   id: VoxTailSplitAnimated
   bodyPart: Tail
@@ -261,4 +301,4 @@
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail_split_animated 
+    state: tail_split_animated

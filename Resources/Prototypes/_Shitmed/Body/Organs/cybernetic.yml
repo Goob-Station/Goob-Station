@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -33,11 +25,11 @@
     sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi
     state: eyes
   - type: Organ
-    intCap: 21
-    integrity: 21
+    intCap: 105
+    integrity: 105
     integrityThresholds:
-      Normal: 21
-      Damaged: 11
+      Normal: 105
+      Damaged: 55
       Destroyed: 0
     slotId: eyes
     onAdd:
@@ -114,15 +106,15 @@
     state: heart-on
   - type: Heart
   - type: Organ
-    intCap: 25
-    integrity: 25
+    intCap: 125
+    integrity: 125
     integrityThresholds:
-      Normal: 25
-      Damaged: 9
+      Normal: 125
+      Damaged: 45
       Destroyed: 0
     slotId: heart
     onAdd:
-    - type: StaminaModifier
+    - type: StaminaModifierStatusEffect
       modifier: 1.35
   - type: Metabolizer
     maxPoisonsProcessable: 2
@@ -151,15 +143,15 @@
   - type: Sprite
     state: heart-u-on
   - type: Organ
-    intCap: 32
-    integrity: 32
+    intCap: 160
+    integrity: 160
     integrityThresholds:
-      Normal: 32
-      Damaged: 9
+      Normal: 160
+      Damaged: 45
       Destroyed: 0
     slotId: heart
     onAdd:
-    - type: StaminaModifier
+    - type: StaminaModifierStatusEffect
       modifier: 1.7
   - type: Metabolizer
     maxPoisonsProcessable: 2
@@ -182,11 +174,11 @@
   components:
   - type: Liver
   - type: Organ
-    intCap: 29
-    integrity: 29
+    intCap: 145
+    integrity: 145
     integrityThresholds:
-      Normal: 29
-      Damaged: 12
+      Normal: 145
+      Damaged: 60
       Destroyed: 0
     slotId: liver
   - type: Sprite
@@ -218,11 +210,11 @@
       - state: lung-l
       - state: lung-r
   - type: Organ
-    intCap: 25
-    integrity: 25
+    intCap: 125
+    integrity: 125
     integrityThresholds:
-      Normal: 25
-      Damaged: 9
+      Normal: 125
+      Damaged: 45
       Destroyed: 0
     slotId: lungs
   - type: Item
@@ -242,6 +234,8 @@
       Lung:
         maxVol: 100.0
         canReact: false
+      food:
+        maxVol: 0
   - type: Tag
     tags:
     - Organ
@@ -258,11 +252,11 @@
       - state: lung-u-l
       - state: lung-u-r
   - type: Organ
-    intCap: 32
-    integrity: 32
+    intCap: 160
+    integrity: 160
     integrityThresholds:
-      Normal: 32
-      Damaged: 9
+      Normal: 160
+      Damaged: 45
       Destroyed: 0
     slotId: lungs
     onAdd:

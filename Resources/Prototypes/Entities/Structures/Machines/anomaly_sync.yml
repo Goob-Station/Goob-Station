@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: entity
@@ -47,7 +43,7 @@
           bounds: "-0.35,-0.35,0.35,0.35"
         density: 100
         mask:
-        - ItemMask 
+        - ItemMask
         hard: True
   - type: Transform
     anchored: true
@@ -62,7 +58,7 @@
   - type: DeviceList
   - type: PointLight
     radius: 1.8
-    energy: 1.6
+    energy: 3.0
     color: "#b53ca1"
   - type: LitOnPowered
   - type: Appearance

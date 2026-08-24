@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
@@ -36,7 +31,7 @@ public sealed partial class NerveSystemComponent : Component
 
     // Don't change, OR I will break your knees, filled up upon initialization.
     [ViewVariables(VVAccess.ReadOnly)]
-    public Dictionary<EntityUid, NerveComponent> Nerves = new();
+    public HashSet<EntityUid> Nerves = new();
 
     // Don't add manually!! Use built-in functions.
     [ViewVariables(VVAccess.ReadOnly)]
@@ -71,6 +66,9 @@ public sealed partial class NerveSystemComponent : Component
     public TimeSpan UpdateTime;
     public TimeSpan ReactionUpdateTime;
     public TimeSpan NextCritScream;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextUpdate;
 
     [DataField("painShockStun")]
     public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(2f);
@@ -254,4 +252,9 @@ public sealed partial class NerveSystemComponent : Component
         // :troll:
         { PainThresholdTypes.PainShockAndAgony, 85 },
     };
+
+    /// <summary>
+    /// Pre-sorted version of <see cref="PainThresholds"/> in descending order by value.
+    /// </summary>
+    public KeyValuePair<PainThresholdTypes, FixedPoint2>[]? SortedPainThresholds;
 }

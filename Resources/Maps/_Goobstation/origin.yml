@@ -79658,7 +79658,7 @@ entities:
     - type: Transform
       pos: -31.439095,-73.39239
       parent: 2
-- proto: ClothingBeltAssault
+- proto: ClothingBeltMilitaryWebbing
   entities:
   - uid: 12565
     components:
@@ -94491,7 +94491,7 @@ entities:
       parent: 14860
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 12399
     components:
@@ -145550,7 +145550,7 @@ entities:
     - type: Transform
       pos: 2.6569777,-7.614023
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 2207
     components:

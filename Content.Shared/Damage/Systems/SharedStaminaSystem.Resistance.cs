@@ -16,7 +16,8 @@ public partial class SharedStaminaSystem
 
     private void OnGetResistance(Entity<StaminaResistanceComponent> ent, ref BeforeStaminaDamageEvent args)
     {
-        args.Value *= ent.Comp.DamageCoefficient;
+        if (!args.FromMelee || ent.Comp.MeleeResistance) // DeltaV - StaminaResistance is only for disablers etc, blunt armor is for resisting baton. <- WHO THOUGHT THIS WAS A GOOD IDEA?
+            args.Value *= ent.Comp.DamageCoefficient;
     }
 
     private void RelayedResistance(Entity<StaminaResistanceComponent> ent, ref InventoryRelayedEvent<BeforeStaminaDamageEvent> args)

@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 OttoMaticode <124523848+OttoMaticode@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: entity
@@ -91,16 +78,23 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: RipleyChassis
-    requiredParts:
-      RipleyLArm: false
-      RipleyRArm: false
-      RipleyLLeg: false
-      RipleyRLeg: false
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: ripley
   - type: Sprite
     state: ripley_harness+o
     noRot: true
+  - type: PartAssembly
+    parts:
+      Ripley:
+      - RipleyLArm
+      - RipleyRArm
+      - RipleyLLeg
+      - RipleyRLeg
+    containerId: mech-assembly-container
+  - type: Construction
+    graph: Ripley
+    node: start
 
 - type: entity
   parent: BaseRipleyPartItem
@@ -149,26 +143,6 @@
   - type: Tag
     tags:
     - RipleyRArm
-
-- type: entity
-  id: RipleyChassis
-  parent: BaseRipleyPart
-  name: ripley chassis
-  description: An in-progress construction of the Ripley APLU mech.
-  components:
-  - type: Appearance
-  - type: ContainerContainer
-    containers:
-      battery-container: !type:Container
-  - type: MechAssemblyVisuals
-    statePrefix: ripley
-  - type: Sprite
-    noRot: true
-    state: ripley0
-  - type: Construction
-    graph: Ripley
-    node: start
-    defaultTarget: ripley
 
 # H.O.N.K.
 
@@ -219,16 +193,23 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: HonkerChassis
-    requiredParts:
-      HonkerLArm: false
-      HonkerRArm: false
-      HonkerLLeg: false
-      HonkerRLeg: false
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: honker
   - type: Sprite
     state: honker_harness+o
     noRot: true
+  - type: PartAssembly
+    parts:
+      Honker:
+      - HonkerLArm
+      - HonkerRArm
+      - HonkerLLeg
+      - HonkerRLeg
+    containerId: mech-assembly-container
+  - type: Construction
+    graph: Honker
+    node: start
 
 - type: entity
   parent: BaseHonkerPartItem
@@ -277,26 +258,6 @@
   - type: Tag
     tags:
     - HonkerRArm
-
-- type: entity
-  id: HonkerChassis
-  parent: BaseHonkerPart
-  name: H.O.N.K. chassis
-  description: An in-progress construction of a H.O.N.K. mech. Contains chuckle unit, bananium core and honk support systems.
-  components:
-  - type: Appearance
-  - type: ContainerContainer
-    containers:
-      battery-container: !type:Container
-  - type: MechAssemblyVisuals
-    statePrefix: honker
-  - type: Sprite
-    noRot: true
-    state: honker0
-  - type: Construction
-    graph: Honker
-    node: start
-    defaultTarget: honker
 
 # H.A.M.T.R.
 
@@ -347,16 +308,23 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: HamtrChassis
-    requiredParts:
-      HamtrLArm: false
-      HamtrRArm: false
-      HamtrLLeg: false
-      HamtrRLeg: false
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: hamtr
   - type: Sprite
     state: hamtr_harness+o
     noRot: true
+  - type: PartAssembly
+    parts:
+      Hamtr:
+      - HamtrLArm
+      - HamtrRArm
+      - HamtrLLeg
+      - HamtrRLeg
+    containerId: mech-assembly-container
+  - type: Construction
+    graph: Hamtr
+    node: start
 
 - type: entity
   parent: BaseHamtrPartItem
@@ -406,26 +374,6 @@
     tags:
     - HamtrRArm
 
-- type: entity
-  id: HamtrChassis
-  parent: BaseHamtrPart
-  name: HAMTR chassis
-  description: An in-progress construction of the HAMTR mech.
-  components:
-  - type: Appearance
-  - type: ContainerContainer
-    containers:
-      battery-container: !type:Container
-  - type: MechAssemblyVisuals
-    statePrefix: hamtr
-  - type: Sprite
-    noRot: true
-    state: hamtr0
-  - type: Construction
-    graph: Hamtr
-    node: start
-    defaultTarget: hamtr
-
 # Vim!!!!!!
 
 - type: entity
@@ -471,30 +419,17 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: VimChassis
-    requiredParts:
-      HelmetEVA: false
-      BorgLeg: false
+      battery-container: !type:Container
+  - type: PartAssembly
+    parts:
+      Vim:
+      - HelmetEVA
+      - BorgLeg
+      - BorgLeg
+    containerId: mech-assembly-container
   - type: Sprite
     state: harness
     noRot: true
-
-- type: entity
-  id: VimChassis
-  parent: BaseVimPart
-  name: vim chassis
-  description: An in-progress construction of the Vim exosuit.
-  components:
-  - type: Appearance
-  - type: ContainerContainer
-    containers:
-      battery-container: !type:Container
-  - type: MechAssemblyVisuals
-    statePrefix: vim
-  - type: Sprite
-    noRot: true
-    state: vim0
   - type: Construction
     graph: Vim
     node: start

@@ -12,7 +12,7 @@ namespace Content.Goobstation.UIKit.UserInterface.RichText;
 public sealed class IconTag : IMarkupTagHandler
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
     private SpriteSystem? _spriteSystem;
 
     public string Name => "icon";
@@ -24,7 +24,7 @@ public sealed class IconTag : IMarkupTagHandler
             control = null;
             return false;
         }
-        _spriteSystem ??= _entitySystem.GetEntitySystem<SpriteSystem>();
+        _spriteSystem ??= _entMan.System<SpriteSystem>();
         var texture = _prototype.TryIndex<JobIconPrototype>(id.StringValue, out var iconPrototype)
                 ? _spriteSystem.Frame0(iconPrototype.Icon)
                 : null;

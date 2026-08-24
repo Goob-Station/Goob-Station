@@ -1,13 +1,8 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Item.ItemToggle;
-using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Fluids;
@@ -16,7 +11,6 @@ public sealed class SpraySafetySystem : EntitySystem
 {
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -41,10 +35,10 @@ public sealed class SpraySafetySystem : EntitySystem
 
     private void OnSprayAttempt(Entity<SpraySafetyComponent> ent, ref SprayAttemptEvent args)
     {
-        if (!_toggle.IsActivated(ent.Owner))
-        {
-            _popup.PopupEntity(Loc.GetString(ent.Comp.Popup), ent, args.User);
-            args.Cancel();
-        }
+        if (_toggle.IsActivated(ent.Owner) || args.Cancelled)
+            return;
+
+        args.Cancel();
+        args.CancelPopupMessage = Loc.GetString(ent.Comp.Popup);
     }
 }

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -45,7 +38,7 @@ public sealed class JointVisualsOverlay : Overlay
             if (xform.MapID != args.MapId)
                 continue;
 
-            var other = _entManager.GetEntity(visuals.Target);
+            var other = visuals.Target;
 
             if (!xformQuery.TryGetComponent(other, out var otherXform))
                 continue;
@@ -54,7 +47,7 @@ public sealed class JointVisualsOverlay : Overlay
                 continue;
 
             var texture = spriteSystem.Frame0(visuals.Sprite);
-            var width = texture.Width / (float) EyeManager.PixelsPerMeter;
+            var width = texture.Width / (float)EyeManager.PixelsPerMeter;
 
             var coordsA = xform.Coordinates;
             var coordsB = otherXform.Coordinates;
@@ -67,7 +60,7 @@ public sealed class JointVisualsOverlay : Overlay
 
             var posA = xformSystem.ToMapCoordinates(coordsA).Position;
             var posB = xformSystem.ToMapCoordinates(coordsB).Position;
-            var diff = (posB - posA);
+            var diff = posB - posA;
             var length = diff.Length();
 
             var midPoint = diff / 2f + posA;

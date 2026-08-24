@@ -1,139 +1,7 @@
-# SPDX-FileCopyrightText: 2021 cheesePizza2 <34486300+cheesePizza2@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lawdog <159507482+Lawdog4817@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NotSoDana <75203942+NotSoDana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseItem
-  id: DrinkShaker
-  name: shaker
-  description: The trusty mixing buddy of the bartender.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
-  - type: MixableSolution
-    solution: drink
-  - type: Drink
-  - type: Shakeable
-  - type: FitsInDispenser
-    solution: drink
-  - type: DrawableSolution
-    solution: drink
-  - type: RefillableSolution
-    solution: drink
-  - type: DrainableSolution
-    solution: drink
-  - type: SolutionTransfer
-    canChangeTransferAmount: true
-  - type: Spillable
-    solution: drink
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/shaker.rsi
-    state: icon
-  - type: Item
-    sprite: Objects/Consumable/Drinks/shaker.rsi
-  - type: UserInterface
-    interfaces:
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
-  - type: PhysicalComposition #Goobstation - Recycle update
-    materialComposition:
-      Steel: 100
-  - type: DnaSubstanceTrace
-  - type: ReactionMixer
-    mixOnInteract: false
-    reactionTypes:
-    - Shake
-  - type: ExaminableSolution
-    solution: drink
-    heldOnly: true
-    examinableWhileClosed: false
-
-- type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkBaseMaterialGlass, DrinkBase, DrinkVisualsFillOverlay]
   id: DrinkShotGlass
   name: shot glass
   description: Perfect for slamming down onto the table angrily.
@@ -142,113 +10,18 @@
     solutions:
       drink:
         maxVol: 5
-  - type: SolutionTransfer
-    transferAmount: 10
-    minTransferAmount: 10
-  - type: Drink
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shotglass.rsi
-    layers:
-      - state: icon
-        map: [ "enum.SolutionContainerLayers.Base" ]
-      - state: fill1
-        map: [ "enum.SolutionContainerLayers.Fill" ]
-        visible: false
-      - state: icon-front
-        map: [ "enum.SolutionContainerLayers.Overlay" ]
-  - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 2
-    fillBaseName: fill
-
-- type: entity
-  parent: DrinkGlassBase
-  id: DrinkJar
-  name: jar
-  description: The hipster's cup.
-  components:
-  - type: Drink
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/jar.rsi
-    layers:
-      - state: icon
-        map: [ "enum.SolutionContainerLayers.Base" ]
-      - state: fill1
-        map: [ "enum.SolutionContainerLayers.Fill" ]
-        visible: false
-      - state: icon-front
-        map: [ "enum.SolutionContainerLayers.Overlay" ]
-  - type: Appearance
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 50
-  - type: SolutionContainerVisuals
-    maxFillLevels: 9
-    fillBaseName: fill
-    metamorphic: true
-    metamorphicDefaultSprite:
-      sprite: Objects/Consumable/Drinks/jar.rsi
-      state: icon
-  - type: TransformableContainer
-
-- type: entity
-  parent: DrinkGlassBase
-  id: DrinkJarWhat
-  name: jar of something
-  description: You can't really tell what this is.
-  components:
-  - type: Drink
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/jar_what.rsi
-
-- type: entity
-  id: BartenderMixer
-  abstract: true
-  components:
-  - type: DrainableSolution
-    solution: drink
-  - type: Drink
-  - type: DrawableSolution
-    solution: drink
-  - type: RefillableSolution
-    solution: drink
-  - type: SolutionTransfer
-    canChangeTransferAmount: true
-  - type: Spillable
-    solution: drink
-  - type: UserInterface
-    interfaces:
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
-
-- type: entity
-  parent: [BaseItem, BartenderMixer]
-  id: DrinkJigger
-  name: jigger
-  description: Like a shaker, but smaller. Used to control the amount of ingredients.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 20
-  - type: SolutionTransfer
-    canChangeTransferAmount: true
-    minTransferAmount: 1
-    maxTransferAmount: 20
-  - type: MixableSolution
-    solution: drink
+    inHandsMaxFillLevels: 1
   - type: FitsInDispenser
     solution: drink
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/jigger.rsi
-    state: icon
-  - type: PhysicalComposition #Goobstation - Recycle update
-    materialComposition:
-      Steel: 50
 
 - type: entity
-  parent: [BaseItem, BartenderMixer]
+  parent: [DrinkBaseMaterialMetal, DrinkBase]
   id: DrinkIceBucket
   name: ice bucket
   description: A special bucket of refreshy ice. Prohibited use for challenge with the same name!
@@ -262,12 +35,151 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/icebucket.rsi
     state: icon
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition
     materialComposition:
-      Steel: 100
+      Steel: 75
 
 - type: entity
-  parent: DrinkBase
+  parent: [DrinkBaseMaterialPorcelain, DrinkBase]
+  id: DrinkTeapot
+  name: teapot  # short and stout
+  description: An elegant teapot. It simply oozes class.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: Tea
+          Quantity: 100
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/teapot.rsi
+  - type: FitsInDispenser
+    solution: drink
+
+# Probably shouldn't be here
+# Also probably shouldn't let you put the cola back in, and should spawn deadly plastic rings after removing the last one
+- type: entity
+  parent: BaseStorageItem
+  id: DrinkCanPack
+  name: 6pack
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/6pack.rsi
+    layers:
+    - state: plastic-thingy
+    - state: 6pack1
+      map: ["6pack1"]
+    - state: 6pack2
+      map: ["6pack2"]
+    - state: 6pack3
+      map: ["6pack3"]
+    - state: 6pack4
+      map: ["6pack4"]
+    - state: 6pack5
+      map: ["6pack5"]
+    - state: 6pack6
+      map: ["6pack6"]
+  - type: Item
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,2,3
+    whitelist:
+      tags:
+      - Cola
+    hideStackVisualsWhenClosed: false
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: DrinkColaCan
+        amount: 6
+  - type: ItemCounter
+    count:
+      tags: [Cola]
+    composite: true
+    layerStates:
+    - 6pack1
+    - 6pack2
+    - 6pack3
+    - 6pack4
+    - 6pack5
+    - 6pack6
+  - type: Appearance
+
+# Bartender tools
+
+- type: entity
+  parent: [DrinkBaseMaterialStrongMetal, DrinkBase]
+  id: DrinkShaker
+  name: shaker
+  description: The trusty mixing buddy of the bartender.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+  - type: FitsInDispenser
+    solution: drink
+  - type: ExaminableSolution
+    heldOnly: true # Opaque, can't see inside from a distance
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shaker.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Consumable/Drinks/shaker.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+  - type: Shakeable
+  - type: ReactionMixer
+    mixerType: None
+    reactionTypes:
+    - Shake
+
+- type: entity
+  parent: DrinkShaker
+  id: DrinkShakerGold
+  name: golden shaker
+  description: A gold-plated shaker given as a token of appreciation for years of service. It doesn't make the drinks taste any different.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shaker_gold.rsi
+  - type: Item
+    sprite: Objects/Consumable/Drinks/shaker_gold.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 10 # Gold plated, not solid gold
+      Steel: 40
+
+- type: entity
+  parent: [DrinkBaseMaterialMetal, DrinkBase]
+  id: DrinkJigger
+  name: jigger
+  description: Like a shaker, but smaller. Used to control the amount of ingredients.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 20
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+    minTransferAmount: 1
+    maxTransferAmount: 20
+  - type: FitsInDispenser
+    solution: drink
+  - type: ExaminableSolution
+    heldOnly: true
+    exactVolume: true
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/jigger.rsi
+    state: icon
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 20
+
+- type: entity
+  parent: [DrinkBaseMaterialStrongMetal, DrinkBase, DrinkVisualsFill]
   id: Pitcher
   name: metal pitcher
   description: A stainless steel insulated pitcher. Everyone's best friend in the morning.
@@ -278,23 +190,64 @@
         maxVol: 60
   - type: Sprite
     sprite: Objects/Consumable/Drinks/pitcher.rsi
-    layers:
-    - state: icon
-      map: ["enum.SolutionContainerLayers.Base"]
-    - state: fill-6
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: false
-  - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
-    fillBaseName: fill-
-    #inHandsMaxFillLevels: 2
-    #inHandsFillBaseName: -fill-
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 300
+    inHandsMaxFillLevels: 2
   - type: FitsInDispenser
     solution: drink
+
+# Weird empty shakes
+
+- type: entity
+  abstract: true
+  parent: [DrinkBaseMaterialGlass, DrinkBase]
+  id: DrinkShakeBase
+  description: ''
+  components:
+  - type: ExaminableSolution
+    solution: drink
+  - type: FitsInDispenser
+    solution: drink
+
+- type: entity
+  parent: DrinkShakeBase
+  id: DrinkShakeBlue
+  name: blue milkshake
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shake-blue.rsi
+
+- type: entity
+  parent: DrinkShakeBase
+  id: DrinkShakeEmpty
+  name: shakeempty
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shake-empty.rsi
+
+- type: entity
+  parent: DrinkShakeBase
+  id: DrinkShakeMeat
+  name: meat shake
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shake-meat.rsi
+
+- type: entity
+  parent: DrinkShakeBase
+  id: DrinkShakeRobo
+  name: robo shake
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shake-robo.rsi
+
+- type: entity
+  parent: DrinkShakeBase
+  id: DrinkShakeWhite
+  name: white shake
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shake-white.rsi
 
 - type: entity
   name: bluespace shaker

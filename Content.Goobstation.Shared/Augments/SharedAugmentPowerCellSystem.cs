@@ -1,14 +1,16 @@
+using Content.Goobstation.Common.Augments;
 using Content.Shared.Body.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.PowerCell.Components;
 
 namespace Content.Goobstation.Shared.Augments;
 
-public abstract class SharedAugmentPowerCellSystem : EntitySystem
+public abstract class SharedAugmentPowerCellSystem : CommonAugmentPowerCellSystem
 {
     [Dependency] protected readonly AugmentSystem Augment = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] protected readonly SharedPowerCellSystem _powerCell = default!;
+    [Dependency] protected readonly PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {
@@ -33,7 +35,7 @@ public abstract class SharedAugmentPowerCellSystem : EntitySystem
         if (Augment.GetBody(ent) is not {} body)
             return;
 
-        if (args.Enabled && _powerCell.HasDrawCharge(ent.Owner, draw))
+        if (args.Enabled && _powerCell.HasDrawCharge(ent.Owner, draw.Owner))
         {
             var ev = new AugmentGainedPowerEvent(body);
             Augment.RelayEvent(body, ref ev);

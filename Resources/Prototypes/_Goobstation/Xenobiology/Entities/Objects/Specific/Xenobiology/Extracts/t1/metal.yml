@@ -21,12 +21,14 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
+      - !type:SpawnEntity
         entity: SheetGlass1
         number: 15
-      - !type:CreateEntityReactionEffect
+        shouldScale: false
+      - !type:SpawnEntity
         entity: SheetRGlass1
         number: 5
+        shouldScale: false
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -36,12 +38,13 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
+      - !type:SpawnEntity
         entity: SheetSteel1
         number: 15
-      - !type:CreateEntityReactionEffect
+      - !type:SpawnEntity
         entity: SheetPlasteel1
         number: 5
+        shouldScale: false
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:

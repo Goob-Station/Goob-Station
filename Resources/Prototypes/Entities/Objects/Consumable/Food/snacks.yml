@@ -1,123 +1,3 @@
-# SPDX-FileCopyrightText: 2021 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 FoLoKe <36813380+FoLoKe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2021 fishfish458 <fishfish458>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2022 bloodrizer <cheshire.panther@gmail.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2023 Bixkitts <72874643+Bixkitts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vladislav Kadira <130583174+FillerVK@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 FoxxoTrystan <45297731+FoxxoTrystan@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pspritechologist <naaronn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SpaceLizard <the.justice.league.of.canada@gmail.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Waylon Cude <waylon.cude@finzdani.net>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_snack.yml
 # Base
@@ -127,7 +7,6 @@
   id: FoodSnackBase
   abstract: true
   components:
-  - type: Food
   - type: Tag
     tags:
       - FoodSnack
@@ -162,7 +41,7 @@
     state: boritos
   - type: Item
     heldPrefix: boritos
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketBoritosTrash
 
@@ -179,7 +58,7 @@
     state: cnds
   - type: Item
     heldPrefix: cnds
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketCnDsTrash
 
@@ -197,7 +76,7 @@
     state: cheesiehonkers
   - type: Item
     heldPrefix: cheesiehonkers
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketCheesieTrash
 
@@ -216,14 +95,14 @@
     state: chips
   - type: Item
     heldPrefix: chips
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketChipsTrash
 
 - type: entity
-  name: chocolate bar
   parent: BaseItem
   id: FoodSnackChocolate
+  name: chocolate bar
   description: Tastes like cardboard.
   components:
   - type: Sprite
@@ -232,6 +111,7 @@
   - type: Item
     heldPrefix: chocolatebar
     size: Tiny
+    storedOffset: 1,-1
   - type: Tag
     tags:
       - FoodSnack
@@ -243,9 +123,9 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: chocolate bar
   parent: FoodSnackBase
   id: FoodSnackChocolateBar
+  name: chocolate bar
   description: Tastes like cardboard.
   components:
   - type: FlavorProfile
@@ -255,6 +135,7 @@
     state: chocolatebar-open
   - type: Item
     heldPrefix: chocolatebar-open
+    storedOffset: 1,-2
   - type: Tag
     tags:
       - FoodSnack
@@ -272,15 +153,16 @@
           Quantity: 1
 
 - type: entity
-  name: energy bar
   parent: FoodSnackBase
   id: FoodSnackEnergy
+  name: energy bar
   description: An energy bar with a lot of punch.
   components:
   - type: Sprite
     state: energybar
   - type: Item
     heldPrefix: energybar
+    storedOffset: 0,-1
   - type: SpawnItemsOnUse
     items:
       - id: FoodPacketEnergyTrash
@@ -289,9 +171,9 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: energy bar
   parent: FoodSnackBase
   id: FoodSnackEnergyBar
+  name: energy bar
   description: An energy bar with a lot of punch.
   components:
   - type: FlavorProfile
@@ -304,11 +186,12 @@
     state: energybar-open
   - type: Item
     heldPrefix: energybar-open
+    storedOffset: 0,-2
 
 - type: entity
-  name: Sweetie's pistachios
   parent: FoodSnackBase
   id: FoodSnackPistachios
+  name: Sweetie's pistachios
   description: Sweeties's name-brand pistachios. Probably won't give you diseases. Probably.
   components:
   - type: FlavorProfile
@@ -319,7 +202,8 @@
     state: pistachio
   - type: Item
     heldPrefix: pistachio
-  - type: Food
+    storedOffset: 1,0
+  - type: Edible
     trash:
     - FoodPacketPistachioTrash
   - type: Tag
@@ -342,7 +226,7 @@
     state: popcorn
   - type: Item
     heldPrefix: popcorn
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketPopcornTrash
 
@@ -359,7 +243,7 @@
     state: raisins
   - type: Item
     heldPrefix: raisins
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketRaisinsTrash
   - type: Tag
@@ -367,9 +251,9 @@
     - Fruit
 
 - type: entity
-  name: bob's semki sunflower seeds
   parent: FoodSnackBase
   id: FoodSnackSemki
+  name: bob's semki sunflower seeds
   description: Proudly produced by the Bob Bobson nutritional corporation. Perfect for spitting at people.
   components:
   - type: FlavorProfile
@@ -379,7 +263,8 @@
     state: semki
   - type: Item
     heldPrefix: semki
-  - type: Food
+    storedOffset: 1,0
+  - type: Edible
     trash:
     - FoodPacketSemkiTrash
 
@@ -396,7 +281,7 @@
     state: susjerky
   - type: Item
     heldPrefix: susjerky
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketSusTrash
   - type: Tag
@@ -416,7 +301,7 @@
     state: syndicakes
   - type: Item
     heldPrefix: syndicakes
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketSyndiTrash
 
@@ -441,11 +326,12 @@
           Quantity: 5
   - type: Sprite
     state: ramen
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketCupRamenTrash
   - type: Item
     heldPrefix: ramen
+    storedOffset: 0,-1
 
 - type: entity
   parent: DrinkRamen
@@ -464,9 +350,9 @@
           Quantity: 5
 
 - type: entity
-  name: chow mein
   parent: FoodSnackBase
   id: FoodSnackChowMein
+  name: chow mein
   description: A salty fried noodle snack. Looks like they forgot the vegetables.
   components:
   - type: FlavorProfile
@@ -478,6 +364,7 @@
     state: chinese1
   - type: Item
     heldPrefix: chinese1
+    storedOffset: 1,-2
   - type: SolutionContainerManager
     solutions:
       food:
@@ -487,14 +374,14 @@
           Quantity: 10
         - ReagentId: Soysauce
           Quantity: 2
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketChowMeinTrash
 
 - type: entity
-  name: dan dan noodles
   parent: FoodSnackBase
   id: FoodSnackDanDanNoodles
+  name: dan dan noodles
   description: A spicy Sichuan noodle snack. The chili oil slick pools on top.
   components:
   - type: FlavorProfile
@@ -506,6 +393,7 @@
     state: chinese2
   - type: Item
     heldPrefix: chinese2
+    storedOffset: 0,-2
   - type: SolutionContainerManager
     solutions:
       food:
@@ -517,14 +405,14 @@
           Quantity: 2
         - ReagentId: Soysauce
           Quantity: 2
-  - type: Food
+  - type: Edible
     trash:
     - FoodPacketDanDanTrash
 
 - type: entity
-  name: fortune cookie
   parent: FoodSnackBase
   id: FoodSnackCookieFortune
+  name: fortune cookie
   description: A boring cardboard tasting snack with a fortune inside. Surprise! You're boring too.
   components:
   - type: FlavorProfile
@@ -542,19 +430,21 @@
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: cookie_fortune
+    storedOffset: 1,-1
     size: Tiny
-  - type: Food
+  - type: Edible
     trash:
     - FoodCookieFortune
 
 - type: entity
-  id: FoodSnackNutribrick
   parent: BaseItem
+  id: FoodSnackNutribrick
   name: nutribrick
   description: A carefully synthesized brick designed to contain the highest ratio of nutriment to volume. Tastes like shit.
   components:
   - type: Item
     size: Small
+    storedOffset: -1,0
     heldPrefix: nutribrick
   - type: Tag
     tags:
@@ -570,8 +460,8 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  id: FoodSnackNutribrickOpen
   parent: FoodSnackBase
+  id: FoodSnackNutribrickOpen
   name: nutribrick
   description: A carefully synthesized brick designed to contain the highest ratio of nutriment to volume. Tastes like shit.
   components:
@@ -580,24 +470,24 @@
       - nutribrick
   - type: Item
     size: Small
+    storedOffset: -1,0
     heldPrefix: nutribrick-open
   - type: Tag
     tags:
       - ReptilianFood
   - type: Sprite
     state: nutribrick-open
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 20 #Goobstation
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 15 #Goobstation
 
 - type: entity
-  id: FoodSnackMREBrownie
   parent: BaseItem
+  id: FoodSnackMREBrownie
   name: brownie
   description: A precisely mixed brownie, made to withstand blunt trauma and harsh conditions. Tastes like shit.
   components:
@@ -606,6 +496,8 @@
     state: mre-brownie
   - type: Item
     heldPrefix: mre-brownie
+    size: Tiny
+    storedOffset: -1,-1
   - type: Tag
     tags:
       - FoodSnack
@@ -617,8 +509,8 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  id: FoodSnackMREBrownieOpen
   parent: FoodSnackBase
+  id: FoodSnackMREBrownieOpen
   name: brownie
   suffix: MRE
   description: A precisely mixed brownie, made to withstand blunt trauma and harsh conditions. Tastes like shit.
@@ -630,7 +522,7 @@
     state: mre-brownie-open
   - type: Item
     heldPrefix: mre-brownie-open
-  - type: Food
+    storedOffset: -1,-1
   - type: SolutionContainerManager
     solutions:
       food:
@@ -642,9 +534,9 @@
           Quantity: 3
 
 - type: entity
-  name: swirl lollipop
   parent: FoodSnackBase
   id: FoodSnackSwirlLollipop
+  name: swirl lollipop
   description: A swirly circle of pure concentrated sugar. Who's the biggest kid on the playground now?
   components:
   - type: Sprite
@@ -654,6 +546,8 @@
     sprite: Objects/Consumable/Food/candy.rsi
     heldPrefix: swirl_lollipop
     size: Small
+    storedRotation: -45
+    storedOffset: 0,-1
   - type: Tag
     tags:
     - FoodSnack
@@ -709,7 +603,7 @@
           Quantity: 5
         - ReagentId: Microplastics #Goob
           Quantity: 2
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
 
 - type: entity
@@ -969,15 +863,15 @@
   name: MRE wrapper
   description: A general purpose wrapper for a variety of military food goods.
   components:
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 45
+        maxVol: 25
         reagents:
         - ReagentId: Fiber
-          Quantity: 40
+          Quantity: 20
   - type: Tag
     tags:
     - ClothMade

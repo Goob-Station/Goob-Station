@@ -8,10 +8,10 @@
     - !type:PopupMessage
       type: Local
       messages: [ "curse-weakness-slow" ]
-    - !type:MovespeedModifier
-      walkSpeedModifier: 0.5
-      sprintSpeedModifier : 0.5
-      statusLifetime: 8
+    - !type:ModifyStatusEffect
+      effectProto: CurseWeaknessSlowDownEffect
+      type: Add
+      time: 8
     0.3:
     - !type:PopupMessage
       type: Local
@@ -27,7 +27,6 @@
       effectProto: StatusEffectDrowsiness
       time: 15
       type: Add
-      refresh: false
 
 - type: curse
   id: CurseBlood
@@ -39,7 +38,7 @@
     - !type:Emote
       emote: Cough
       showInChat: true
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: PuddleBloodSmall
     0.3:
     - !type:PopupMessage
@@ -48,7 +47,7 @@
       messages: ["curse-blood-1"]
     - !type:ModifyBloodLevel
       amount: -40
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: PuddleBlood
 
 - type: curse # TO DO: Make them emote "blinks"
@@ -58,7 +57,7 @@
   update: 90 #1.5 minutes
   effects:
     0.8:
-    - !type:ChemHealEyeDamage
+    - !type:EyeDamage
       amount: 2
     - !type:PopupMessage
       type: Local
@@ -74,7 +73,7 @@
   update: 60 #1 minute
   effects:
     0.6:
-    - !type:ChemVomit
+    - !type:Vomit
       hungerAmount: -5
     0.5:
     - !type:Emote
@@ -97,8 +96,8 @@
     rampMultiplier: 1.5 # The death curse deals more damage the longer it is on the curse holder.
   effects:
     0.5:
-    - !type:Paralyze
-      paralyzeTime: 2.5
+    - !type:ModifyParalysis
+      time: 2.5
     - !type:PopupMessage
       type: Local
       visualType: LargeCaution
@@ -116,7 +115,7 @@
     - !type:Emote
       emote: Scream
       showInChat: true
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: PuddleBloodSmall
     - !type:HealthChange
       damage:

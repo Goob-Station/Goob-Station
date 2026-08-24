@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # The ID is what is searched for on the paper, coming after the target identifier.
@@ -117,7 +113,7 @@
   id: pain
   clauseWeight: -5
   addedComponents:
-  - type: PainNumbness
+  - type: PainNumbnessStatusEffect
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 1
@@ -185,8 +181,10 @@
   clauseWeight: 35
   addedComponents:
   - type: Narcolepsy
-    timeBetweenIncidents: 300, 600
-    durationOfIncident: 10, 30
+    maxTimeBetweenIncidents: 600
+    minTimeBetweenIncidents: 300
+    maxDurationOfIncident: 30
+    minDurationOfIncident: 10
 
 - type: clause
   id: anorgan

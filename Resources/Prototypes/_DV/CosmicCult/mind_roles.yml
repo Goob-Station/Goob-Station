@@ -5,20 +5,23 @@
   components:
   - type: MindRole
     antagPrototype: CosmicAntagCultist
+    subtype: role-subtype-cultist
     exclusiveAntag: true
     roleType: TeamAntagonist
-    subtype: role-subtype-cosmic-cultist
   - type: CosmicCultRole
+  - type: RoleBriefing
+    briefing: objective-cosmiccult-charactermenu
 
-# Ascendant Event
 - type: entity
   parent: BaseMindRoleAntag
-  id: MindRoleCosmicAscended
-  name: Rogue Ascended Role
+  id: MindRoleCosmicColossus
+  name: Colossus Role
   components:
   - type: MindRole
-    antagPrototype: RogueAscended
+    antagPrototype: CosmicAntagColossus
     roleType: TeamAntagonist
+    subtype: role-subtype-colossus
     exclusiveAntag: true
-    subtype: role-subtype-rogue-ascended
-  - type: RogueAscendedRole
+  - type: CosmicColossusRole
+  - type: RoleBriefing
+    briefing: ghost-role-colossus-charactermenu

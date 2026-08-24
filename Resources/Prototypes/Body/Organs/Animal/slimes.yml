@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: entity
@@ -15,11 +10,11 @@
       sprite: Mobs/Species/Slime/organs.rsi
       state: brain-slime
     - type: Organ
-      intCap: 60 # to prevent slimes from getting oneshot
-      integrity: 60
+      intCap: 120 # to prevent slimes from getting oneshot
+      integrity: 120
       integrityThresholds:
-        Normal: 60
-        Damaged: 27
+        Normal: 120
+        Damaged: 60
         Destroyed: 0
       slotId: core
     - type: Stomach
@@ -34,11 +29,16 @@
         - id: Poison
         - id: Narcotic
         - id: Alcohol
-          rateModifier: 0.2
+          rateModifier: 2
     - type: SolutionContainerManager
       solutions:
         stomach:
           maxVol: 30.0
+        food:
+          maxVol: 5
+          reagents:
+          - ReagentId: GreyMatter
+            Quantity: 5
 
 - type: entity # Goobstation add
   id: XenobioSentientSlimesCore
@@ -50,6 +50,8 @@
       solutions:
         stomach:
           maxVol: 50.0 # 2.5u added per sec when slime latched, 20 sec metabolize time, 2.5 * 20 = 50u
+        food:
+          maxVol: 0
     - type: Metabolizer
       maxPoisonsProcessable: 3
       metabolizerTypes: [ Slime, XenobioSlime ]
@@ -75,11 +77,11 @@
         - state: lung-l-slime
         - state: lung-r-slime
     - type: Organ
-      intCap: 28
-      integrity: 28
+      intCap: 140
+      integrity: 140
       integrityThresholds:
-        Normal: 28
-        Damaged: 16
+        Normal: 140
+        Damaged: 80
         Destroyed: 0
     - type: Lung
       alert: LowNitrogen
@@ -100,3 +102,8 @@
         Lung:
           maxVol: 100.0
           canReact: false
+        food:
+          maxVol: 5
+          reagents:
+          - ReagentId: Slime
+            Quantity: 5

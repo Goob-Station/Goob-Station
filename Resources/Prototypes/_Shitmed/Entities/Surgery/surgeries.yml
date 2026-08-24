@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Base
@@ -205,6 +197,37 @@
     inverted: true
   - type: SurgeryTraumaPresentCondition
     trauma: OrganDamage
+
+- type: entity
+  parent: BasePartSurgery
+  id: SurgeryExtractForeignBody
+  name: Extract Foreign Body
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepExtractForeignBody
+  - type: SurgeryBleedsPresentCondition
+    inverted: true
+  - type: SurgeryTraumaTreatableCondition
+
+- type: entity
+  parent: BasePartSurgery
+  id: SurgeryRepairBrainDamage
+  name: Repair Brain Damage
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRepairBrain
+  - type: SurgeryPartCondition
+    parts: [ Head ]
+  - type: SurgeryBleedsPresentCondition
+    inverted: true
+  - type: SurgeryTraumaPresentCondition
+    trauma: Braindeath
 
 # I fucking hate hardcoding all of this shit to accomodate for surgery BUI.
 # If anyone can give me pointers on how to make it better I'd be incredibly grateful.

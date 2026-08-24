@@ -1,74 +1,18 @@
-// SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Injazz <43905364+Injazz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
-// SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 4dplanner <3combined@gmail.com>
-// SPDX-FileCopyrightText: 2020 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <anotherscuffed@gmail.com>
-// SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
-// SPDX-FileCopyrightText: 2020 Memory <58238103+FL-OZ@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 tmtmtl30 <53132901+tmtmtl30@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Radrark <76271993+Radrark@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 router <messagebus@vk.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 {Koks} <koks@blue-creature.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Shared.Friction;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Prometheus;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
-using DroneConsoleComponent = Content.Server.Shuttles.DroneConsoleComponent;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
-using Robust.Shared.Map.Components;
+using DroneConsoleComponent = Content.Server.Shuttles.DroneConsoleComponent;
 
 namespace Content.Server.Physics.Controllers;
 
@@ -76,20 +20,111 @@ public sealed class MoverController : SharedMoverController
 {
     private static readonly Gauge ActiveMoverGauge = Metrics.CreateGauge(
         "physics_active_mover_count",
-        "Active amount of InputMovers being processed by MoverController");
+        "Amount of ActiveInputMovers being processed by MoverController");
 
     [Dependency] private readonly ThrusterSystem _thruster = default!;
-    [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
 
     private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
+
+    private EntityQuery<ActiveInputMoverComponent> _activeQuery;
+    private EntityQuery<DroneConsoleComponent> _droneQuery;
+    private EntityQuery<ShuttleComponent> _shuttleQuery;
+
+    // Not needed for persistence; just used to save an alloc
+    private readonly HashSet<EntityUid> _seenMovers = [];
+    private readonly HashSet<EntityUid> _seenRelayMovers = [];
+    private readonly List<Entity<InputMoverComponent>> _moversToUpdate = [];
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<ActiveInputMoverComponent, EntityPausedEvent>(OnEntityPaused);
+        SubscribeLocalEvent<InputMoverComponent, EntityUnpausedEvent>(OnEntityUnpaused);
+
         SubscribeLocalEvent<RelayInputMoverComponent, PlayerAttachedEvent>(OnRelayPlayerAttached);
         SubscribeLocalEvent<RelayInputMoverComponent, PlayerDetachedEvent>(OnRelayPlayerDetached);
         SubscribeLocalEvent<InputMoverComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<InputMoverComponent, PlayerDetachedEvent>(OnPlayerDetached);
+
+        _activeQuery = GetEntityQuery<ActiveInputMoverComponent>();
+        _droneQuery = GetEntityQuery<DroneConsoleComponent>();
+        _shuttleQuery = GetEntityQuery<ShuttleComponent>();
+    }
+
+    private void OnEntityPaused(Entity<ActiveInputMoverComponent> ent, ref EntityPausedEvent args)
+    {
+        // Become unactive [sic] if we don't have PhysicsComp.IgnorePaused
+        if (PhysicsQuery.TryComp(ent, out var phys) && phys.IgnorePaused)
+            return;
+        RemCompDeferred<ActiveInputMoverComponent>(ent);
+    }
+
+    private void OnEntityUnpaused(Entity<InputMoverComponent> ent, ref EntityUnpausedEvent args)
+    {
+        UpdateMoverStatus((ent, ent.Comp));
+    }
+
+    protected override void OnMoverStartup(Entity<InputMoverComponent> ent, ref ComponentStartup args)
+    {
+        base.OnMoverStartup(ent, ref args);
+        UpdateMoverStatus((ent, ent.Comp));
+    }
+
+    protected override void OnTargetRelayShutdown(Entity<MovementRelayTargetComponent> ent, ref ComponentShutdown args)
+    {
+        base.OnTargetRelayShutdown(ent, ref args);
+        UpdateMoverStatus((ent, null, ent.Comp));
+    }
+
+    protected override void UpdateMoverStatus(Entity<InputMoverComponent?, MovementRelayTargetComponent?> ent)
+    {
+        // Track that we aren't in a loop of movement relayers
+        _seenMovers.Clear();
+        while (true)
+        {
+            if (!MoverQuery.Resolve(ent, ref ent.Comp1, logMissing: false))
+            {
+                RemCompDeferred<ActiveInputMoverComponent>(ent);
+                break;
+            }
+
+            var meta = MetaData(ent);
+            if (Terminating(ent, meta))
+                break;
+
+            ActiveInputMoverComponent? activeMover = null;
+            if (!meta.EntityPaused
+                || PhysicsQuery.TryComp(ent, out var phys) && phys.IgnorePaused)
+                activeMover = EnsureComp<ActiveInputMoverComponent>(ent);
+
+            // If we're a relay target, make sure our drivers are InputMovers
+            if (RelayTargetQuery.Resolve(ent, ref ent.Comp2, logMissing: false)
+                // In case we're called from ComponentShutdown:
+                && ent.Comp2.LifeStage <= ComponentLifeStage.Running
+                && Exists(ent.Comp2.Source)
+                && !_seenMovers.Contains(ent.Comp2.Source))
+            {
+                if (ent.Comp2.Source == ent.Owner)
+                {
+                    Log.Error($"Entity {ToPrettyString(ent)} is attempting to relay movement to itself!");
+                    break;
+                }
+
+                if (activeMover is not null)
+                    activeMover.RelayedFrom = ent.Comp2.Source;
+
+                ent = ent.Comp2.Source;
+                _seenMovers.Add(ent);
+                continue;
+            }
+
+            // No longer a well-defined relay target
+            if (activeMover is not null)
+                activeMover.RelayedFrom = null;
+
+            break;
+        }
     }
 
     private void OnRelayPlayerAttached(Entity<RelayInputMoverComponent> entity, ref PlayerAttachedEvent args)
@@ -119,49 +154,70 @@ public sealed class MoverController : SharedMoverController
         return true;
     }
 
-    private HashSet<EntityUid> _moverAdded = new();
-    private List<Entity<InputMoverComponent>> _movers = new();
-
-    private void InsertMover(Entity<InputMoverComponent> source)
-    {
-        // Already added
-        // Goob-Station - Surely there wasnt a reason this check was after the if statement, and nothing will break, right?
-        if (!_moverAdded.Add(source.Owner))
-            return;
-
-        if (TryComp(source, out MovementRelayTargetComponent? relay))
-        {
-            if (TryComp(relay.Source, out InputMoverComponent? relayMover))
-            {
-                InsertMover((relay.Source, relayMover));
-            }
-        }
-
-        _movers.Add(source);
-    }
-
     public override void UpdateBeforeSolve(bool prediction, float frameTime)
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        _moverAdded.Clear();
-        _movers.Clear();
-        var inputQueryEnumerator = AllEntityQuery<InputMoverComponent>();
+        // We use _seenMovers here as well as in UpdateMoverStatus—this means we
+        // cannot have any events get fired while we use it in this while loop.
+        _seenMovers.Clear();
+        _moversToUpdate.Clear();
 
-        // Need to order mob movement so that movers don't run before their relays.
-        while (inputQueryEnumerator.MoveNext(out var uid, out var mover))
+        // Don't use EntityQueryEnumerator because admin ghosts have to move on
+        // paused maps. Pausing movers is handled via ActiveInputMoverComponent.
+        var inputQueryEnumerator = AllEntityQuery<ActiveInputMoverComponent, InputMoverComponent>();
+        while (inputQueryEnumerator.MoveNext(out var uid, out var activeComp, out var moverComp))
         {
-            InsertMover((uid, mover));
+            _seenRelayMovers.Clear(); // O(1) if already empty
+            QueueRelaySources(activeComp.RelayedFrom);
+
+            // If it's already inserted, that's fine—that means it'll still be
+            // handled before its child movers
+            AddMover((uid, moverComp));
         }
 
-        foreach (var mover in _movers)
-        {
-            HandleMobMovement(mover, frameTime);
-        }
+        ActiveMoverGauge.Set(_moversToUpdate.Count);
 
-        ActiveMoverGauge.Set(_movers.Count);
+        foreach (var ent in _moversToUpdate)
+        {
+            HandleMobMovement(ent, frameTime);
+        }
 
         HandleShuttleMovement(frameTime);
+        return;
+
+        // When we insert a chain of relay sources we have to flip its ordering
+        // It's going to be extremely uncommon for a relay chain to be more than
+        // one entity so we just recurse as needed.
+        void QueueRelaySources(EntityUid? next)
+        {
+            // We only care if it's still a mover
+            if (!_activeQuery.TryComp(next, out var nextActive)
+                || !MoverQuery.TryComp(next, out var nextMover)
+                || !_seenRelayMovers.Add(next.Value))
+                return;
+
+            Debug.Assert(next.Value != nextActive.RelayedFrom);
+
+            // While it is (as of writing) currently true that this recursion
+            // should always terminate due to RelayedFrom always being written
+            // in a way that tracks if it's made a loop, we still take the extra
+            // memory (and small time cost) of making sure via _seenRelayMovers.
+            QueueRelaySources(nextActive.RelayedFrom);
+            AddMover((next.Value, nextMover));
+        }
+
+        // Track inserts so we have ~ O(1) inserts without duplicates. Hopefully
+        // it doesn't matter that both _seenMovers and _moversToUpdate are never
+        // trimmed? They should be pretty memory light anyway, and in general
+        // it'll be rare for there to be a decrease in movers.
+        void AddMover(Entity<InputMoverComponent> entity)
+        {
+            if (!_seenMovers.Add(entity))
+                return;
+
+            _moversToUpdate.Add(entity);
+        }
     }
 
     public (Vector2 Strafe, float Rotation, float Brakes) GetPilotVelocityInput(PilotComponent component)
@@ -209,7 +265,7 @@ public sealed class MoverController : SharedMoverController
 
     protected override void HandleShuttleInput(EntityUid uid, ShuttleButtons button, ushort subTick, bool state)
     {
-        if (!TryComp<PilotComponent>(uid, out var pilot) || pilot.Console == null)
+        if (!PilotQuery.TryComp(uid, out var pilot) || pilot.Console == null)
             return;
 
         ResetSubtick(pilot);
@@ -320,27 +376,25 @@ public sealed class MoverController : SharedMoverController
 
         // We just mark off their movement and the shuttle itself does its own movement
         var activePilotQuery = EntityQueryEnumerator<PilotComponent, InputMoverComponent>();
-        var shuttleQuery = GetEntityQuery<ShuttleComponent>();
         while (activePilotQuery.MoveNext(out var uid, out var pilot, out var mover))
         {
             var consoleEnt = pilot.Console;
 
             // TODO: This is terrible. Just make a new mover and also make it remote piloting + device networks
-            if (TryComp<DroneConsoleComponent>(consoleEnt, out var cargoConsole))
-            {
+            if (_droneQuery.TryComp(consoleEnt, out var cargoConsole))
                 consoleEnt = cargoConsole.Entity;
-            }
 
-            if (!TryComp(consoleEnt, out TransformComponent? xform)) continue;
+            if (!XformQuery.TryComp(consoleEnt, out var xform))
+                continue;
 
             var gridId = xform.GridUid;
             // This tries to see if the grid is a shuttle and if the console should work.
-            if (!TryComp<MapGridComponent>(gridId, out var _) ||
-                !shuttleQuery.TryGetComponent(gridId, out var shuttleComponent) ||
+            if (!MapGridQuery.HasComp(gridId) ||
+                !_shuttleQuery.TryGetComponent(gridId, out var shuttleComponent) ||
                 !shuttleComponent.Enabled)
                 continue;
 
-            if (!newPilots.TryGetValue(gridId!.Value, out var pilots))
+            if (!newPilots.TryGetValue(gridId.Value, out var pilots))
             {
                 pilots = (shuttleComponent, new List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>());
                 newPilots[gridId.Value] = pilots;
@@ -362,13 +416,12 @@ public sealed class MoverController : SharedMoverController
 
         // Collate all of the linear / angular velocites for a shuttle
         // then do the movement input once for it.
-        var xformQuery = GetEntityQuery<TransformComponent>();
         foreach (var (shuttleUid, (shuttle, pilots)) in _shuttlePilots)
         {
-            if (Paused(shuttleUid) || CanPilot(shuttleUid) || !TryComp<PhysicsComponent>(shuttleUid, out var body))
+            if (Paused(shuttleUid) || CanPilot(shuttleUid) || !PhysicsQuery.TryComp(shuttleUid, out var body))
                 continue;
 
-            var shuttleNorthAngle = _xformSystem.GetWorldRotation(shuttleUid, xformQuery);
+            var shuttleNorthAngle = TransformSystem.GetWorldRotation(shuttleUid, XformQuery);
 
             // Collate movement linear and angular inputs together
             var linearInput = Vector2.Zero;
@@ -378,7 +431,7 @@ public sealed class MoverController : SharedMoverController
             var brakeCount = 0;
             var angularCount = 0;
 
-            foreach (var (pilotUid, pilot, _, consoleXform) in pilots)
+            foreach (var (_, pilot, _, consoleXform) in pilots)
             {
                 var (strafe, rotation, brakes) = GetPilotVelocityInput(pilot);
 
@@ -628,9 +681,9 @@ public sealed class MoverController : SharedMoverController
 
     private bool CanPilot(EntityUid shuttleUid)
     {
-        return TryComp<FTLComponent>(shuttleUid, out var ftl)
+        return FTLQuery.TryComp(shuttleUid, out var ftl)
         && (ftl.State & (FTLState.Starting | FTLState.Travelling | FTLState.Arriving)) != 0x0
-            || HasComp<PreventPilotComponent>(shuttleUid);
+            || PreventPilotQuery.HasComp(shuttleUid);
     }
 
 }

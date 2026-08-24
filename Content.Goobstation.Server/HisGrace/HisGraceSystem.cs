@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -25,6 +20,7 @@ using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Jittering;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -500,12 +496,12 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
     {
         if (enabled)
         {
-            // hisGrace.Comp.PreventDrop = true; - Disabled until someone fixes it :P
+            EnsureComp<UnremoveableComponent>(hisGrace);
             EnsureComp<JitteringComponent>(hisGrace);
         }
         else
         {
-            // hisGrace.Comp.PreventDrop = false;
+            RemComp<UnremoveableComponent>(hisGrace);
             RemComp<JitteringComponent>(hisGrace);
         }
     }

@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client._Shitmed.Choice.UI;
@@ -165,17 +152,26 @@ public sealed class SurgeryBui : BoundUserInterface
 
             _window.Parts.AddChild(partButton);
 
-            foreach (var surgeryId in surgeries)
-            {
-                if (_system.GetSingleton(surgeryId) is not { } surgery ||
-                    !_entities.TryGetComponent(surgery, out SurgeryComponent? surgeryComp))
-                    continue;
+            if (oldPart != entity)
+                continue;
 
-                if (oldPart == entity && oldSurgery?.Proto == surgeryId)
+            var restored = false;
+            if (oldSurgery != null)
+            {
+                foreach (var surgeryId in surgeries)
+                {
+                    if (oldSurgery.Value.Proto != surgeryId
+                        || _system.GetSingleton(surgeryId) is not { } surgery
+                        || !_entities.TryGetComponent(surgery, out SurgeryComponent? surgeryComp))
+                        continue;
+
                     OnSurgeryPressed((surgery, surgeryComp), netEntity, surgeryId);
+                    restored = true;
+                    break;
+                }
             }
 
-            if (oldPart == entity && oldSurgery == null)
+            if (!restored)
                 OnPartPressed(netEntity, surgeries);
         }
 

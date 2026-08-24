@@ -1,25 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Body.Systems;
@@ -57,16 +35,21 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     public HashSet<string> AddedKeys = [];
 
     /// <summary>
-    ///     Maximum organ integrity, do keep in mind that Organs are supposed to be VERY and VERY damage sensitive
+    ///     Maximum organ integrity.
     /// </summary>
     [DataField("intCap"), AutoNetworkedField]
-    public FixedPoint2 IntegrityCap = 15;
+    public FixedPoint2 IntegrityCap = 120;
 
     /// <summary>
     ///     Current organ HP, or integrity, whatever you prefer to say
     /// </summary>
     [DataField("integrity"), AutoNetworkedField]
-    public FixedPoint2 OrganIntegrity = 15;
+    public FixedPoint2 OrganIntegrity = 120;
+
+    /// <summary>
+    ///     If true, this organ is never removed/deleted when it reaches Destroyed severity.
+    [DataField, AutoNetworkedField]
+    public bool Indestructible;
 
     /// <summary>
     ///     Current Organ severity, dynamically updated based on organ integrity
@@ -91,9 +74,22 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     [DataField] //TEMPORARY: MAKE REQUIRED WHEN EVERY YML HAS THESE.
     public Dictionary<OrganSeverity, FixedPoint2> IntegrityThresholds = new()
     {
-        { OrganSeverity.Normal, 15 },
-        { OrganSeverity.Damaged, 10 },
+        { OrganSeverity.Normal, 120 },
+        { OrganSeverity.Damaged, 60 },
         { OrganSeverity.Destroyed, 0 },
+    };
+
+    /// <summary>
+    ///     Pre-sorted version of <see cref="IntegrityThresholds"/> in ascending order by value.
+    /// </summary>
+    public KeyValuePair<OrganSeverity, FixedPoint2>[]? SortedIntegrityThresholds;
+
+    [DataField]
+    public Dictionary<OrganSeverity, FixedPoint2> HealSeverityFloor = new()
+    {
+        { OrganSeverity.Normal, 0 },
+        { OrganSeverity.Damaged, 10 },
+        { OrganSeverity.Destroyed, 30 },
     };
 
     /// <summary>

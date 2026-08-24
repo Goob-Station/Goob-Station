@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Eui;
@@ -17,7 +13,7 @@ public sealed class StatValuesEui : BaseEui
     public StatValuesEui()
     {
         _window = new StatsWindow();
-        _window.Title = "Melee stats";
+        _window.Title = Loc.GetString("stat-values-ui-title");
         _window.OpenCentered();
         _window.OnClose += Closed;
     }

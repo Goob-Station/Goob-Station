@@ -109,32 +109,44 @@
     {
       "name": "water_vapor"
     },
-    {
-      "name": "water_vapor-1"
-    },
-    {
-      "name": "purple"
-    },
-    {
-      "name": "purple-1"
-    },
-    {
-      "name": "brown"
-    },
-    {
-      "name": "brown-1"
-    },
-    {
-      "name": "healium"
-    },
-    {
-      "name": "healium-1"
-    },
+      {
+          "name": "water_vapor-1"
+      },
+      {
+          "name": "purple"
+      },
+      {
+          "name": "purple-1"
+      },
+      {
+          "name": "brown"
+      },
+      {
+          "name": "brown-1"
+      },
+      {
+          "name": "healium"
+      },
+      {
+          "name": "healium-1"
+      },
     {
       "name": "scrubber-connector"
     },
-    {
-      "name": "scrubber-open"
-    }
+      {
+          "name": "scrubber-open"
+      },
+      {
+          "name": "bounty"
+      },
+      {
+          "name": "captains_paper"
+      },
+      {
+          "name": "invoice"
+      },
+      {
+          "name": "paper"
+      }
   ]
 }

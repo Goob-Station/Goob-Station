@@ -1,38 +1,17 @@
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
-// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Robust.Shared.Serialization;
 using Content.Shared.Electrocution;
 
 namespace Content.Shared.Silicons.StationAi;
 
+// Handles airlock radial
 public abstract partial class SharedStationAiSystem
 {
-    // Handles airlock radial
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     private void InitializeAirlock()
     {
@@ -46,16 +25,32 @@ public abstract partial class SharedStationAiSystem
     /// </summary>
     private void OnAirlockBolt(EntityUid ent, DoorBoltComponent component, StationAiBoltEvent args)
     {
-        if (component.BoltWireCut)
+        if (component.BoltWireCut || !PowerReceiver.IsPowered(ent))
         {
             ShowDeviceNotRespondingPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change bolt status on {ent} to [{args.Bolted}] using the Station AI radial because it was unpowered.");
+            return;
+        }
+
+        if (!_access.IsAllowed(args.User, ent))
+        {
+            ShowDeviceNoAccessPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change bolt status on {ent} to [{args.Bolted}] using the Station AI radial because they had no access.");
             return;
         }
 
         var setResult = _doors.TrySetBoltDown((ent, component), args.Bolted, args.User, predicted: true);
         if (!setResult)
         {
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change bolt status on {ent} to [{args.Bolted}] using the Station AI radial.");
             ShowDeviceNotRespondingPopup(args.User);
+        }
+        else
+        {
+            _adminLogger.Add(LogType.Action, $"{args.User} set bolt status on {ent} to [{args.Bolted}] using the Station AI radial.");
         }
     }
 
@@ -67,10 +62,21 @@ public abstract partial class SharedStationAiSystem
         if (!PowerReceiver.IsPowered(ent))
         {
             ShowDeviceNotRespondingPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change emergency access status on {ent} to [{args.EmergencyAccess}] using the Station AI radial because it was unpowered.");
+            return;
+        }
+
+        if (!_access.IsAllowed(args.User, ent))
+        {
+            ShowDeviceNoAccessPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change emergency access status on {ent} to [{args.EmergencyAccess}] using the Station AI radial because they had no access.");
             return;
         }
 
         _airlocks.SetEmergencyAccess((ent, component), args.EmergencyAccess, args.User, predicted: true);
+        _adminLogger.Add(LogType.Action, $"{args.User} set emergency access status on {ent} to [{args.EmergencyAccess}] using the Station AI radial.");
     }
 
     /// <summary>
@@ -78,19 +84,27 @@ public abstract partial class SharedStationAiSystem
     /// </summary>
     private void OnElectrified(EntityUid ent, ElectrifiedComponent component, StationAiElectrifiedEvent args)
     {
-        if (
-            component.IsWireCut
-            || !PowerReceiver.IsPowered(ent)
-        )
+        if (component.IsWireCut || !PowerReceiver.IsPowered(ent))
         {
             ShowDeviceNotRespondingPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change electrified status on {ent} to [{args.Electrified}] using the Station AI radial because it was unpowered.");
             return;
         }
 
+        if (!_access.IsAllowed(args.User, ent))
+        {
+            ShowDeviceNoAccessPopup(args.User);
+            _adminLogger.Add(LogType.Action,
+                $"{args.User} was unable to change electrified status on {ent} to [{args.Electrified}] using the Station AI radial because they had no access.");
+            return;
+        }
+
+        _adminLogger.Add(LogType.Action, $"{args.User} set electrified status on {ent} to [{args.Electrified}] using the Station AI radial.");
         _electrify.SetElectrified((ent, component), args.Electrified);
         var soundToPlay = component.Enabled
-            ? component.AirlockElectrifyDisabled
-            : component.AirlockElectrifyEnabled;
+            ? component.AirlockElectrifyEnabled
+            : component.AirlockElectrifyDisabled;
         _audio.PlayLocal(soundToPlay, ent, args.User);
     }
 }

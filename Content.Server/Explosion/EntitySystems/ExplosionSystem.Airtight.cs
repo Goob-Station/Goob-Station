@@ -1,108 +1,46 @@
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
+using System.Runtime.InteropServices;
 using Content.Server.Atmos.Components;
+using Content.Server.Explosion.Components;
 using Content.Server.Destructible;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
+using Robust.Shared.Collections;
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+using static Content.Server.Explosion.Components.ExplosionAirtightGridComponent;
 
 namespace Content.Server.Explosion.EntitySystems;
 
 public sealed partial class ExplosionSystem
 {
-    [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
+    // We keep track of which tiles are airtight, and how much damage from explosions those airtight blockers can take.
+    // This is quite complicated, as the data effectively needs to be tracked *per tile*, *per explosion type*.
+    // To avoid wasting significant memory, we calculate the values and share the actual backing storage of it.
+    // Stored values are reference counted so they can be evicted when no longer needed.
+    // At the time of writing, this compacts the storage for Box Station from ~5500 tolerance value sets to 13,
+    // at round start.
 
-    private readonly Dictionary<string, int> _explosionTypes = new();
+    // Use integers instead of prototype IDs for storage of explosion data.
+    // This allows us to replace a Dictionary<string, FixedPoint2> with just a FixedPoint2[].
+    private readonly Dictionary<ProtoId<ExplosionPrototype>, int> _explosionTypes = new();
+    // Index to look up if we already have an existing set of tolerance values stored, so the data can be shared.
+    private readonly Dictionary<ToleranceValues, int> _toleranceIndex = new();
+    // Storage for tolerance values. Entries form a free linked list when not occupied by a set of real values.
+    private ValueList<CacheEntry> _toleranceData;
+    // First free position in _toleranceData.
+    // -1 indicates there are no free slots left and the storage must be expanded.
+    private int _freeListHead = -1;
 
     private void InitAirtightMap()
     {
-        // Currently explosion prototype hot-reload isn't supported, as it would involve completely re-computing the
-        // airtight map. Could be done, just not yet implemented.
+        _explosionTypes.Clear();
 
-        // for storing airtight entity damage thresholds for all anchored airtight entities, we will use integers in
-        // place of id-strings. This initializes the string <--> id association.
-        // This allows us to replace a Dictionary<string, float> with just a float[].
         int index = 0;
         foreach (var prototype in _prototypeManager.EnumeratePrototypes<ExplosionPrototype>())
         {
@@ -111,21 +49,25 @@ public sealed partial class ExplosionSystem
         }
     }
 
-    // The explosion intensity required to break an entity depends on the explosion type. So it is stored in a
-    // Dictionary<string, float>
-    //
-    // Hence, each tile has a tuple (Dictionary<string, float>, AtmosDirection). This specifies what directions are
-    // blocked, and how intense a given explosion type needs to be in order to destroy ALL airtight entities on that
-    // tile. This is the TileData struct.
-    //
-    // We then need this data for every tile on a grid. So this mess of a variable maps the Grid ID and Vector2i grid
-    // indices to this tile-data struct.
-    private Dictionary<EntityUid, Dictionary<Vector2i, TileData>> _airtightMap = new();
+    private void ReloadExplosionPrototypes(PrototypesReloadedEventArgs prototypesReloadedEventArgs)
+    {
+        if (!prototypesReloadedEventArgs.Modified.Contains(typeof(ExplosionPrototype)))
+            return;
 
-    public void UpdateAirtightMap(EntityUid gridId, Vector2i tile, MapGridComponent? grid = null, EntityQuery<AirtightComponent>? query = null)
+        InitAirtightMap();
+        ReloadMap();
+    }
+
+    public void UpdateAirtightMap(EntityUid gridId, Vector2i tile, MapGridComponent? grid = null)
     {
         if (Resolve(gridId, ref grid, false))
-            UpdateAirtightMap(gridId, grid, tile, query);
+            UpdateAirtightMap(gridId, grid, tile);
+    }
+
+    [Access(typeof(ExplosionGridTileFlood))]
+    public ToleranceValues GetToleranceValues(int idx)
+    {
+        return _toleranceData[idx].Values;
     }
 
     /// <summary>
@@ -138,36 +80,114 @@ public sealed partial class ExplosionSystem
     ///     something like a normal and a reinforced windoor on the same tile. But given that this is a pretty rare
     ///     occurrence, I am fine with this.
     /// </remarks>
-    public void UpdateAirtightMap(EntityUid gridId, MapGridComponent grid, Vector2i tile, EntityQuery<AirtightComponent>? query = null)
+    public void UpdateAirtightMap(EntityUid gridId, MapGridComponent grid, Vector2i tile)
     {
-        var tolerance = new float[_explosionTypes.Count];
+        var airtightGrid = EnsureComp<ExplosionAirtightGridComponent>(gridId);
+
+        // Calculate tile new airtight state.
+
+        var tolerance = new FixedPoint2[_explosionTypes.Count];
         var blockedDirections = AtmosDirection.Invalid;
 
-        if (!_airtightMap.ContainsKey(gridId))
-            _airtightMap[gridId] = new();
-
-        query ??= GetEntityQuery<AirtightComponent>();
-        var damageQuery = GetEntityQuery<DamageableComponent>();
-        var destructibleQuery = GetEntityQuery<DestructibleComponent>();
-        var anchoredEnumerator = _mapSystem.GetAnchoredEntitiesEnumerator(gridId, grid, tile);
+        var anchoredEnumerator = _map.GetAnchoredEntitiesEnumerator(gridId, grid, tile);
 
         while (anchoredEnumerator.MoveNext(out var uid))
         {
-            if (!query.Value.TryGetComponent(uid, out var airtight) || !airtight.AirBlocked && !airtight.BlockExplosions) // Goob edit
+            if (!_airtightQuery.TryGetComponent(uid, out var airtight) || !airtight.AirBlocked && !airtight.BlockExplosions) // Goob edit
                 continue;
 
             blockedDirections |= airtight.AirBlockedDirection;
-            var entityTolerances = GetExplosionTolerance(uid.Value, damageQuery, destructibleQuery);
-            for (var i = 0; i < tolerance.Length; i++)
-            {
-                tolerance[i] = Math.Max(tolerance[i], entityTolerances[i]);
-            }
+            GetExplosionTolerance(uid.Value, tolerance);
         }
 
-        if (blockedDirections != AtmosDirection.Invalid)
-            _airtightMap[gridId][tile] = new(tolerance, blockedDirections);
+        // Log.Info($"UPDATE {gridId}/{tile}: {blockedDirections}");
+
+        if (blockedDirections == AtmosDirection.Invalid)
+        {
+            // No longer airtight
+
+            if (!airtightGrid.Tiles.Remove(tile, out var tileData))
+            {
+                // Did not have this tile before and after, nothing to do.
+                return;
+            }
+
+            // Removing tile data.
+            DecrementRefCount(tileData.ToleranceCacheIndex);
+            return;
+        }
+
+        ref var tileEntry = ref CollectionsMarshal.GetValueRefOrAddDefault(airtightGrid.Tiles, tile, out var existed);
+        var cacheKey = new ToleranceValues { Values = tolerance };
+
+        // Remove previous tolerance reference if necessary.
+        if (existed)
+        {
+            ref var prevEntry = ref _toleranceData[tileEntry.ToleranceCacheIndex];
+            if (prevEntry.Values == cacheKey)
+            {
+                // No change.
+                return;
+            }
+
+            DecrementRefCount(tileEntry.ToleranceCacheIndex);
+        }
+
+        ref var newCacheIndex = ref CollectionsMarshal.GetValueRefOrAddDefault(_toleranceIndex, cacheKey, out existed);
+        if (existed)
+        {
+            _toleranceData[newCacheIndex].RefCount += 1;
+        }
         else
-            _airtightMap[gridId].Remove(tile);
+        {
+            if (_freeListHead < 0)
+                ExpandCache();
+
+            newCacheIndex = _freeListHead;
+            ref var newCacheEntry = ref _toleranceData[newCacheIndex];
+            _freeListHead = newCacheEntry.RefCount;
+
+            newCacheEntry.Values = cacheKey;
+            newCacheEntry.RefCount = 1;
+        }
+
+        tileEntry = new TileData
+        {
+            BlockedDirections = blockedDirections,
+            ToleranceCacheIndex = newCacheIndex,
+        };
+    }
+
+    private void ExpandCache()
+    {
+        var newCacheSize = Math.Max(8, _toleranceData.Count * 2);
+        var curSize = _toleranceData.Count;
+
+        _toleranceData.EnsureLength(newCacheSize);
+        for (var i = curSize; i < newCacheSize; i++)
+        {
+            _toleranceData[i].RefCount = _freeListHead;
+            _freeListHead = i;
+        }
+    }
+
+    private void DecrementRefCount(int index)
+    {
+        ref var cacheEntry = ref _toleranceData[index];
+
+        DebugTools.Assert(cacheEntry.RefCount > 0);
+        cacheEntry.RefCount -= 1;
+
+        if (cacheEntry.RefCount == 0)
+        {
+            var prevValue = cacheEntry.Values;
+            cacheEntry.Values = default;
+            cacheEntry.RefCount = _freeListHead;
+            _freeListHead = index;
+
+            var result = _toleranceIndex.Remove(prevValue);
+            DebugTools.Assert(result, "Failed to removed 0 refcounted index!");
+        }
     }
 
     /// <summary>
@@ -185,43 +205,43 @@ public sealed partial class ExplosionSystem
         if (!TryComp<MapGridComponent>(transform.GridUid, out var grid))
             return;
 
-        UpdateAirtightMap(transform.GridUid.Value, grid, _mapSystem.CoordinatesToTile(transform.GridUid.Value, grid, transform.Coordinates));
+        UpdateAirtightMap(transform.GridUid.Value, grid, _map.CoordinatesToTile(transform.GridUid.Value, grid, transform.Coordinates));
     }
 
     /// <summary>
     ///     Return a dictionary that specifies how intense a given explosion type needs to be in order to destroy an entity.
     /// </summary>
-    public float[] GetExplosionTolerance(
-        EntityUid uid,
-        EntityQuery<DamageableComponent> damageQuery,
-        EntityQuery<DestructibleComponent> destructibleQuery)
+    private void GetExplosionTolerance(EntityUid uid, Span<FixedPoint2> explosionTolerance)
     {
         // How much total damage is needed to destroy this entity? This also includes "break" behaviors. This ASSUMES
         // that this will result in a non-airtight entity.Entities that ONLY break via construction graph node changes
         // are currently effectively "invincible" as far as this is concerned. This really should be done more rigorously.
         var totalDamageTarget = FixedPoint2.MaxValue;
-        if (destructibleQuery.TryGetComponent(uid, out var destructible))
+        if (_destructibleQuery.TryGetComponent(uid, out var destructible))
         {
             totalDamageTarget = _destructibleSystem.DestroyedAt(uid, destructible);
         }
 
-        var explosionTolerance = new float[_explosionTypes.Count];
-        if (totalDamageTarget == FixedPoint2.MaxValue || !damageQuery.TryGetComponent(uid, out var damageable))
+        if (totalDamageTarget == FixedPoint2.MaxValue || !_damageableQuery.TryGetComponent(uid, out var damageable))
         {
             for (var i = 0; i < explosionTolerance.Length; i++)
             {
-                explosionTolerance[i] = float.MaxValue;
+                explosionTolerance[i] = ToleranceValues.Invulnerable;
             }
-            return explosionTolerance;
+
+            return;
         }
 
         // What multiple of each explosion type damage set will result in the damage exceeding the required amount? This
         // does not support entities dynamically changing explosive resistances (e.g. via clothing). But these probably
         // shouldn't be airtight structures anyways....
 
+        var mod = _damageableSystem.UniversalAllDamageModifier * _damageableSystem.UniversalExplosionDamageModifier;
         foreach (var (id, index) in _explosionTypes)
         {
-            if (!_prototypeManager.TryIndex<ExplosionPrototype>(id, out var explosionType))
+            // TODO EXPLOSION SYSTEM
+            // cache explosion type damage.
+            if (!_prototypeManager.Resolve(id, out ExplosionPrototype? explosionType))
                 continue;
 
             // evaluate the damage that this damage type would do to this entity
@@ -231,32 +251,54 @@ public sealed partial class ExplosionSystem
                 if (!damageable.Damage.DamageDict.ContainsKey(type))
                     continue;
 
+                // TODO EXPLOSION SYSTEM
+                // add a variant of the event that gets raised once, instead of once per prototype.
+                // Or better yet, just calculate this manually w/o the event.
+                // The event mainly exists for indirect resistances via things like inventory & clothing
+                // But this shouldn't matter for airtight entities.
                 var ev = new GetExplosionResistanceEvent(explosionType.ID);
                 RaiseLocalEvent(uid, ref ev);
 
-                damagePerIntensity += value * Math.Max(0, ev.DamageCoefficient);
+                damagePerIntensity += value * mod * Math.Max(0, ev.DamageCoefficient);
             }
 
-            explosionTolerance[index] = damagePerIntensity > 0
+            var toleranceValue = damagePerIntensity > 0
                 ? (float) ((totalDamageTarget - damageable.TotalDamage) / damagePerIntensity)
-                : float.MaxValue;
-        }
+                : ToleranceValues.Invulnerable;
 
-        return explosionTolerance;
+            explosionTolerance[index] = toleranceValue;
+        }
     }
 
-    /// <summary>
-    ///     Data struct that describes the explosion-blocking airtight entities on a tile.
-    /// </summary>
-    public struct TileData
+    private void OnAirtightGridRemoved(EntityUid entity)
     {
-        public TileData(float[] explosionTolerance, AtmosDirection blockedDirections)
+        if (!TryComp(entity, out ExplosionAirtightGridComponent? airtightGrid))
+            return;
+
+        foreach (var tile in airtightGrid.Tiles.Values)
         {
-            ExplosionTolerance = explosionTolerance;
-            BlockedDirections = blockedDirections;
+            DecrementRefCount(tile.ToleranceCacheIndex);
         }
 
-        public float[] ExplosionTolerance;
-        public AtmosDirection BlockedDirections = AtmosDirection.Invalid;
+        RemComp<ExplosionAirtightGridComponent>(entity);
     }
+
+    public override void ReloadMap()
+    {
+        var enumerator = EntityQueryEnumerator<ExplosionAirtightGridComponent, MapGridComponent>();
+        while (enumerator.MoveNext(out var uid, out var airtightComp, out var mapGrid))
+        {
+            foreach (var pos in airtightComp.Tiles.Keys)
+            {
+                UpdateAirtightMap(uid, pos, mapGrid);
+            }
+        }
+    }
+
+    private struct CacheEntry
+    {
+        public ToleranceValues Values;
+        public int RefCount; // Doubles as freelist chain
+    }
+
 }

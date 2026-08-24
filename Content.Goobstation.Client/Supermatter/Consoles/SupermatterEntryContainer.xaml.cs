@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -151,12 +148,12 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
 
     private float GetStoredGas(GasPrototype gas, SupermatterFocusData? focusData)
     {
-        var id = int.Parse(gas.ID);
-
-        if (focusData == null)
+        if (focusData is null)
             return 0;
 
-        return focusData.Value.GasStorage[(Gas)id];
+        Gas id = (Gas) Enum.Parse(typeof(Gas), gas.ID);
+
+        return focusData.Value.GasStorage[id];
     }
 
     private void UpdateEngineBar(ProgressBar bar, PanelContainer border, float value, float leftSize, float rightSize, Color leftColor, Color middleColor, Color rightColor)

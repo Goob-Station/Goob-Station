@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 
@@ -22,7 +18,7 @@
       MonumentCollider:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.1,-0.2,1.1,0.7"
+          bounds: "-1.5,-0.5,1.5,0.6"
         mask:
         - LargeMobMask
         layer:
@@ -31,7 +27,7 @@
         hard: false
   - type: Visibility
     layer: 16
-#  - type: SpriteFade # - Supercode breaks clickability with this.
+  # - type: SpriteFade
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
@@ -85,11 +81,6 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
-  - type: AmbientSound
-    range: 3.5
-    volume: -9
-    sound:
-      path: /Audio/_DV/CosmicCult/god_ambient.ogg
   - type: ActivatableUI
     singleUser: false
     requiresComplex: true
@@ -111,12 +102,19 @@
     - CosmicCult
   - type: WarpPoint
     location: The Monument
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
   - type: CosmicCorrupting
     corruptionReduction: 0.01
     enabled: false
     floodFillStarting: true
+  - type: Tag
+    tags:
+      - Structure # Parent has this tag
+      - GhostOnlyWarp
 
  ########### SPAWN-IN ANIMATION #############
 
@@ -351,6 +349,7 @@
  ########### STAGE 1 #############
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   parent: MonumentCosmicCultBase
   id: MonumentCosmicCult1
   suffix: Base, DO NOT MAP

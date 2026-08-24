@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.Implants.Components;
@@ -34,10 +25,10 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
     private void OnImplant(Entity<StypticStimulatorImplantComponent> implant, ref ImplantImplantedEvent args)
     {
-        if (!args.Implanted.HasValue || TerminatingOrDeleted(args.Implanted.Value))
+        if (!args.Implanted.IsValid() || TerminatingOrDeleted(args.Implanted))
             return;
 
-        implant.Comp.User = args.Implanted.Value;
+        implant.Comp.User = args.Implanted;
     }
 
     public override void Update(float frameTime)

@@ -29,6 +29,10 @@
         {
             "name": "neck",
             "directions": 4
+        },
+        {
+            "name": "belt",
+            "directions": 4
         }
     ]
 }

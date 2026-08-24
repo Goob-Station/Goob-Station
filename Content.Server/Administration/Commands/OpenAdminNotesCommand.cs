@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -11,6 +5,7 @@ using Content.Server.Administration.Notes;
 using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
+using Robust.Shared.Network;
 
 namespace Content.Server.Administration.Commands;
 
@@ -54,7 +49,7 @@ public sealed class OpenAdminNotesCommand : LocalizedCommands
                 return;
         }
 
-        await _adminNotes.OpenEui(player, notedPlayer);
+        await _adminNotes.OpenEui(player, new NetUserId(notedPlayer));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

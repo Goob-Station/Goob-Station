@@ -5,10 +5,56 @@
         "y": 64
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "A custom item by AftrLite (Github).",
+    "copyright": "default by AftrLite (Github). kitsunefox derived from default by NoElkaTheGod(GitHub).",
     "states": [
         {
-            "name": "vfx",
+            "name": "default",
+            "directions": 4,
+            "delays": [
+                [
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11
+                ],
+                [
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11
+                ],
+                [
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11
+                ],
+                [
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11
+                ]
+            ]
+        },
+        {
+            "name": "kitsunefox",
             "directions": 4,
             "delays": [
                 [

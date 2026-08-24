@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PraxisMapper <praxismapper@gmail.com>
-// SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Atmos.Components;
@@ -142,9 +131,16 @@ namespace Content.Server.Atmos.EntitySystems
 
             switch (tile.LastShare)
             {
+                // Refresh this tile's suspension cooldown if it had significant sharing.
                 case > Atmospherics.MinimumAirToSuspend:
                     ExcitedGroupResetCooldowns(tile.ExcitedGroup);
                     break;
+
+                // If this tile moved a very small amount of air, but not enough to matter,
+                // we set the dismantle cooldown to 0.
+                // This dissolves the group without performing an equalization as we expect
+                // the group to be mostly equalized already if we're moving around miniscule
+                // amounts of air.
                 case > Atmospherics.MinimumMolesDeltaToMove:
                     tile.ExcitedGroup.DismantleCooldown = 0;
                     break;

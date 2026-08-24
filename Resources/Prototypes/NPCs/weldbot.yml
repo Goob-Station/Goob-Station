@@ -19,7 +19,8 @@
 
         - !type:HTNPrimitiveTask
           operator: !type:SpeakOperator
-            speech: weldbot-start-weld
+            speech: !type:SingleSpeakOperatorSpeech
+              line: weldbot-start-weld
             hidden: true
 
         - !type:HTNPrimitiveTask

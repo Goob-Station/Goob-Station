@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
@@ -133,7 +128,7 @@ public sealed class SanguineStrikeSystem : SharedSanguineStrikeSystem
             return;
 
         Solution tempSol = new();
-        var missingBlood = userBlood.BloodMaxVolume - userBlood.BloodSolution.Value.Comp.Solution.Volume;
+        var missingBlood = userBlood.BloodReferenceSolution.Volume - userBlood.BloodSolution.Value.Comp.Solution.Volume;
         missingBlood = FixedPoint2.Max(FixedPoint2.Zero, missingBlood);
         var bloodSuckAmount = bloodStealAmount / bloodEntities.Count;
         foreach (var (entity, blood, solution) in bloodEntities)

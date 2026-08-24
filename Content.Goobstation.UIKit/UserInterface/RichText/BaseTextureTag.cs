@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -17,24 +14,21 @@ public abstract class BaseTextureTag
 {
     [Dependency] protected readonly IEntitySystemManager EntitySystemManager = default!;
 
-    protected static bool TryDrawIcon(Texture tex,
+    protected static Control DrawIcon(Texture tex,
         long scaleValue,
         Vector2 offset,
-        string? tooltip,
-        [NotNullWhen(true)] out Control? control)
+        string? tooltip)
     {
         var texture = new TooltipTextureRect(tooltip, offset);
 
         texture.Texture = tex;
         texture.TextureScale = new Vector2(scaleValue, scaleValue);
 
-        control = texture;
-        return true;
+        return texture;
     }
 
-    protected static bool TryDrawIconEntity(NetEntity netEntity, long spriteSize, [NotNullWhen(true)] out Control? control)
+    protected static Control DrawIconEntity(NetEntity netEntity, long spriteSize)
     {
-        control = null;
         var spriteView = new StaticSpriteView()
         {
             OverrideDirection = Direction.South,
@@ -44,8 +38,7 @@ public abstract class BaseTextureTag
         spriteView.SetEntity(netEntity);
         spriteView.Scale = new Vector2(2, 2);
 
-        control = spriteView;
-        return true;
+        return spriteView;
     }
 
     /// <summary>

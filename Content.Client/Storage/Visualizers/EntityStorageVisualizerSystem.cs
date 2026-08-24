@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.SprayPainter.Prototypes;
@@ -49,7 +44,7 @@ public sealed class EntityStorageVisualizerSystem : VisualizerSystem<EntityStora
         var forceRedrawBase = false;
         if (AppearanceSystem.TryGetData<string>(uid, PaintableVisuals.Prototype, out var prototype, args.Component))
         {
-            if (_prototypeManager.TryIndex(prototype, out var proto))
+            if (_prototypeManager.Resolve(prototype, out var proto))
             {
                 if (proto.TryGetComponent(out SpriteComponent? sprite, _componentFactory))
                 {

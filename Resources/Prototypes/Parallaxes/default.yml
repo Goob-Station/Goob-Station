@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: parallax
@@ -19,26 +11,35 @@
         path: "/Textures/Parallaxes/layer1.png"
       slowness: 0.998046875
       scale: "1, 1"
+      scrolling: "0.003, 0.0015"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
       slowness: 0.996625
+      scrolling: "0.006, 0.003"
+      shader: TwinkleStars
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.989375
+      scrolling: "0.009, 0.0045"
+      shader: TwinkleStars
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
       slowness: 0.987265625
+      scrolling: "0.014, 0.006"
+      shader: TwinkleStars
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_dim_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim-2.toml"
       slowness: 0.984352
+      scrolling: "0.018, 0.0075"
+      shader: TwinkleStars
   layersLQ:
     - texture:
         !type:GeneratedParallaxTextureSource
@@ -46,6 +47,38 @@
         configPath: "/Prototypes/Parallaxes/parallax_config.toml"
       slowness: 0.875
   layersLQUseHQ: false
+  # Goob - background comets
+  meteors:
+    style: Comet
+    count: 10
+    direction: 0
+    spread: 100
+    minSpeed: 0.05
+    maxSpeed: 0.1
+    minScale: 0.05
+    maxScale: 0.15
+    minSlowness: 1.00
+    maxSlowness: 0.95
+    spawnRadius: 15
+    trailLength: 10
+    headSize: 0.25
+    color: "#6a7380D8"
+    minBrightness: 0.5
+    maxBrightness: 1.0
+    twinkle: true
+    twinkleSpeed: 2.5
+    twinkleAmount: 0.6
+    glow: true
+    glowSize: 2.5
+    hero:
+      intervalMin: 45
+      intervalMax: 120
+      speed: 5
+      scale: 0.35
+      trailLength: 3.5
+      trailWidth: 0.25
+      color: "#6a7380D8"
+      glowSize: 2.5
 
 # Because hyperspace and the menu need their own.
 - type: parallax

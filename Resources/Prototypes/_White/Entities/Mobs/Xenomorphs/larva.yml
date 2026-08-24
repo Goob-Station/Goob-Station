@@ -54,7 +54,10 @@
       types:
         Blunt: 2
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: SulfuricAcid
+        Quantity: 50
   - type: MobPrice
     price: 250
   - type: Organ
@@ -89,6 +92,19 @@
     interfaces:
       enum.RadialSelectorUiKey.Key:
         type: TrackedRadialSelectorMenuBUI
+
+- type: entity
+  parent: MobXenomorphLarva
+  id: RoundStartMobXenomorphLarva
+  components:
+    - type: Stealth
+      enabledOnDeath: false
+      enabledOnCrit: false
+      lastVisibility: 0.2
+      enabled: true
+    - type: StealthOnMove
+      passiveVisibilityRate: -0.5
+      movementVisibilityRate: 0.6
 
 - type: entity
   parent: [BaseMobXenomorphDungeon, BaseMobXenomorphLarva]

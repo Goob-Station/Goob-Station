@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: constructionGraph
@@ -11,6 +8,9 @@
     edges:
     - to: vim
       steps:
+      - assemblyId: Vim
+        guideString: mech-construction-guide-string
+
       - tag: VoiceTrigger
         name: construction-graph-tag-voice-trigger
         icon:

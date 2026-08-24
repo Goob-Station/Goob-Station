@@ -1,11 +1,5 @@
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Damage;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Materials;
 using Robust.Shared.Audio;
@@ -68,18 +62,6 @@ public sealed partial class CloningPodComponent : Component
 
     [ViewVariables]
     public EntityUid? ConnectedConsole;
-
-    /// <summary>
-    /// Goobstation - How much damage a successful clone can receive
-    /// </summary>
-    [DataField]
-    public DamageSpecifier CloneDamage = new()
-    {
-        DamageDict = new()
-        {
-            { "Cellular", 20},
-        }
-    };
 }
 
 [Serializable, NetSerializable]

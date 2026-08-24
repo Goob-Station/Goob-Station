@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 ImHoks <imhokzzzz@gmail.com>
-// SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Stylesheets;
@@ -40,6 +28,8 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
     private Dictionary<string, CyborgControlData> _cyborgs = new();
 
     public EntityUid Entity;
+
+    private bool _allowBorgControl = true;
 
     public RoboticsConsoleWindow()
     {
@@ -74,7 +64,7 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         };
 
         // cant put multiple styles in xaml for some reason
-        DestroyButton.StyleClasses.Add(StyleBase.ButtonCaution);
+        DestroyButton.StyleClasses.Add(StyleClass.Negative);
     }
 
     public void SetEntity(EntityUid uid)
@@ -85,6 +75,7 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
     public void UpdateState(RoboticsConsoleState state)
     {
         _cyborgs = state.Cyborgs;
+        _allowBorgControl = state.AllowBorgControl;
 
         // clear invalid selection
         if (_selected is {} selected && !_cyborgs.ContainsKey(selected))
@@ -108,8 +99,8 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         PopulateData();
 
         var locked = _lock.IsLocked(Entity);
-        DangerZone.Visible = !locked;
-        LockedMessage.Visible = locked;
+        DangerZone.Visible = !locked && _allowBorgControl;
+        LockedMessage.Visible = locked && _allowBorgControl; // Only show if locked AND control is allowed
     }
 
     private void PopulateCyborgs()
@@ -143,11 +134,19 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         BorgSprite.Texture = _sprite.Frame0(data.ChassisSprite!);
 
         var batteryColor = data.Charge switch {
-            < 0.2f => "red",
-            < 0.4f => "orange",
-            < 0.6f => "yellow",
-            < 0.8f => "green",
-            _ => "blue"
+            < 0.2f => "#FF6C7F", // red
+            < 0.4f => "#EF973C", // orange
+            < 0.6f => "#E8CB2D", // yellow
+            < 0.8f => "#30CC19", // green
+            _ => "#00D3B8" // cyan
+        };
+
+        var hpPercentColor = data.HpPercent switch {
+            < 0.2f => "#FF6C7F", // red
+            < 0.4f => "#EF973C", // orange
+            < 0.6f => "#E8CB2D", // yellow
+            < 0.8f => "#30CC19", // green
+            _ => "#00D3B8" // cyan
         };
 
         var text = new FormattedMessage();
@@ -155,12 +154,14 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         text.AddMarkupOrThrow(Loc.GetString("robotics-console-designation"));
         text.AddText($" {data.Name}\n"); // prevent players trolling by naming borg [color=red]satan[/color]
         text.AddMarkupOrThrow($"{Loc.GetString("robotics-console-battery", ("charge", (int)(data.Charge * 100f)), ("color", batteryColor))}\n");
+        text.AddMarkupOrThrow($"{Loc.GetString("robotics-console-hp", ("hp", (int)(data.HpPercent * 100f)), ("color", hpPercentColor))}\n");
         text.AddMarkupOrThrow($"{Loc.GetString("robotics-console-brain", ("brain", data.HasBrain))}\n");
         text.AddMarkupOrThrow(Loc.GetString("robotics-console-modules", ("count", data.ModuleCount)));
         BorgInfo.SetMessage(text);
 
         // how the turntables
-        DisableButton.Disabled = !(data.HasBrain && data.CanDisable);
+        DisableButton.Disabled = !_allowBorgControl || !(data.HasBrain && data.CanDisable);
+        DestroyButton.Disabled = !_allowBorgControl;
     }
 
     protected override void FrameUpdate(FrameEventArgs args)

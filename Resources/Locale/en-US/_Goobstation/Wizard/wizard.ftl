@@ -26,9 +26,6 @@ wizard-role-greeting =
 wizard-role-briefing = You are a space wizard. Survive and wreak havoc on the simpletons.
 apprentice-role-briefing = You are a space wizard apprentice. Keep whoever summoned you alive.
 
-admin-verb-make-wizard = Make the target into a wizard.
-admin-verb-text-make-wizard = Make Wizard
-
 wizard-title = Wizard
 wizard-description = A powerful space wizard is visiting the station. Embrace the chaos.
 

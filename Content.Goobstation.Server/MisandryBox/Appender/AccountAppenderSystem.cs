@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System;
@@ -19,7 +15,6 @@ namespace Content.Goobstation.Server.MisandryBox.Appender;
 
 public sealed class AccountAppenderSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
     FrozenDictionary<string, AccountAppendPrototype> _protoIds = default!;
@@ -35,47 +30,34 @@ public sealed class AccountAppenderSystem : EntitySystem
     private void OnPlayerAttached(Entity<MobStateComponent> ent, ref PlayerAttachedEvent args)
     {
         var sesh = args.Player;
-        if (!TryGetComps(sesh, out var comps))
+        if (GetComps(sesh) is not {} comps)
             return;
 
-        foreach (var comp in comps)
-        {
-            AddComp(args.Entity, comp, overwrite: true);
-        }
+            EntityManager.AddComponents(ent, comps);
     }
 
     private void OnPlayerDetached(Entity<MobStateComponent> ent, ref PlayerDetachedEvent args)
     {
         var sesh = args.Player;
-        if (!TryGetComps(sesh, out var comps))
+        if (GetComps(sesh) is not {} comps)
             return;
 
-        foreach (var comp in comps)
-        {
-            RemComp(args.Entity, comp);
-        }
+            EntityManager.RemoveComponents(ent, comps);
     }
 
-    private bool TryGetComps(ICommonSession sesh, [NotNullWhen(true)] out List<IComponent>? comps)
+    private ComponentRegistry? GetComps(ICommonSession sesh)
     {
-        comps = [];
-
         if (!_protoIds.TryGetValue(sesh.Name.ToLowerInvariant(), out var proto))
         {
             if (!TryGuidFallback(sesh, out proto))
-                return false;
+                return null;
         }
 
-        foreach (var comp in proto.Components)
-        {
-            comps.Add((Component) _compFactory.GetComponent(comp, true));
-        }
-
-        return comps.Count > 0;
+        return proto.Components;
     }
 
     private bool TryGuidFallback(ICommonSession sesh,
-        [NotNullWhen(true)] out AccountAppendPrototype? prototype)
+                                 [NotNullWhen(true)] out AccountAppendPrototype? prototype)
     {
         prototype = null;
         var userid = sesh.UserId;

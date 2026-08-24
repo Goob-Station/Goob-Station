@@ -1,26 +1,16 @@
-// SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion; // Goobstation - Bible
 using Content.Server.Flash;
-using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Effects;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
+using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Silicons.Borgs.Components;
@@ -73,11 +63,11 @@ public sealed class CosmicGlareSystem : EntitySystem
                 return true;
 
             var ent = player.AttachedEntity.Value;
-
             if (!HasComp<MobStateComponent>(ent)
-                || !HasComp<HumanoidAppearanceComponent>(ent)
                 || _cosmicCult.EntityIsCultist(ent)
-                || _divineIntervention.ShouldDeny(ent))
+                || HasComp<BibleUserComponent>(ent)
+                || _divineIntervention.ShouldDeny(ent) // Goob
+                )
                 return true;
 
             return !_interact.InRangeUnobstructed((uid, Transform(uid)),
@@ -95,22 +85,15 @@ public sealed class CosmicGlareSystem : EntitySystem
         {
             var targetEnt = GetEntity(target);
 
-            _flash.Flash(targetEnt,
-                uid,
-                args.Action,
-                uid.Comp.CosmicGlareDuration,
-                uid.Comp.CosmicGlarePenalty,
-                false,
-                false,
-                uid.Comp.CosmicGlareStun);
+            _flash.Flash(targetEnt, uid, args.Action, uid.Comp.CosmicGlareDuration, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun, ignoreProtection: uid.Comp.CosmicEmpowered);
 
+            // Goob start we dont have whatever EE comps they're using take ours.
             if (HasComp<BorgChassisComponent>(targetEnt) // fuck them clankers
                 || HasComp<SiliconComponent>(targetEnt))
                 _stun.TryUpdateParalyzeDuration(targetEnt, uid.Comp.CosmicGlareDuration / 2);
+            // Goob end.
 
-            _color.RaiseEffect(Color.CadetBlue,
-                new List<EntityUid>() { targetEnt },
-                Filter.Pvs(targetEnt, entityManager: EntityManager));
+            _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { targetEnt }, Filter.Pvs(targetEnt, entityManager: EntityManager));
         }
     }
 }

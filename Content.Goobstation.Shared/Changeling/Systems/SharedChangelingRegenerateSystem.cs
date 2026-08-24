@@ -63,7 +63,7 @@ public abstract partial class SharedChangelingRegenerateSystem : EntitySystem
         if (_bloodQuery.TryComp(ent, out var bloodComp))
         {
             _blood.TryModifyBleedAmount((ent, bloodComp), -bloodComp.BleedAmount);
-            _blood.TryModifyBloodLevel((ent, bloodComp), bloodComp.BloodMaxVolume);
+            _blood.TryModifyBloodLevel((ent, bloodComp), bloodComp.BloodReferenceSolution.Volume);
         }
 
         if (missingLimbs)

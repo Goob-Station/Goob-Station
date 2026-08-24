@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 shibe <swiftshibe@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -25,12 +13,9 @@
       description: ghost-role-information-blob-description
       rules: You are an antagonist, destroy the station!
       mindRoles:
-      - MindRoleGhostRoleSoloAntagonist
+      - MindRoleGhostRoleSoloAntagonistGoob
       raffle:
         settings: default
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 18000 #5 hours
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:
@@ -46,6 +31,7 @@
   save: false
   components:
   - type: Temperature
+  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 5
@@ -113,13 +99,10 @@
     description: ghost-role-information-blob-description
     rules: You are an antagonist, destroy the station!
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
     reregister: false
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -130,6 +113,7 @@
   description: An ordinary part of yours required for the construction of more advanced tiles.
   components:
   - type: Temperature
+  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 5
@@ -194,6 +178,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
+    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5
@@ -232,6 +217,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
+    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5
@@ -272,6 +258,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
+    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5

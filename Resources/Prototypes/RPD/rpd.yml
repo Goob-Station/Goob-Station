@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Lenny <187471588+Bynnel@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: rcd
@@ -27,6 +21,7 @@
   delay: 0
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: PipeBend
@@ -38,6 +33,7 @@
   delay: 0
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: PipeTJunction
@@ -62,6 +58,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: VolumetricPump
@@ -74,6 +71,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: ManualValve
@@ -86,6 +84,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: SignalValve
@@ -98,6 +97,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: PressureValve
@@ -123,6 +123,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: VentScrubber
@@ -135,6 +136,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: VentGas
@@ -147,6 +149,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: DualPortVent
@@ -159,6 +162,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: VentPassive
@@ -171,6 +175,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: Radiator
@@ -183,6 +188,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: RadiatorBend
@@ -195,6 +201,7 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+  allowMultiDirection: true
 
 - type: rcd
   id: MixerGas

@@ -15,3 +15,50 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+- type: loadout
+  id: BoxerEnvirosuitGi
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitMartialGi
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: BoxerEnvirohelmGi
+  equipment:
+    head: ClothingHeadEnvirohelmMartialGi
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: BoxerEnvirosuitGladiator
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitGladiator
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: BoxerEnvirohelmGladiator
+  equipment:
+    head: ClothingHeadEnvirohelmGladiator
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+
+- type: loadout
+  id: BoxerHelmetGladiator
+  equipment:
+    head: ClothingHeadHatGladiator
+
+- type: loadout
+  id: BoxerGladiator
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator

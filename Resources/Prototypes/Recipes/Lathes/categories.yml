@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Generic
 - type: latheCategory
@@ -25,10 +19,6 @@
 - type: latheCategory
   id: Parts
   name: lathe-category-parts
-
-- type: latheCategory
-  id: Tiles
-  name: lathe-category-tiles
 
 - type: latheCategory
   id: Tools
@@ -86,28 +76,40 @@
 
 # Cutter machine
 - type: latheCategory
+  id: Tiles
+  name: lathe-category-tiles
+
+- type: latheCategory
+  id: Circuit
+  name: lathe-category-circuit-tile
+
+- type: latheCategory
   id: Concrete
-  name: lathe-category-concrete
+  name: lathe-category-concrete-tile
 
 - type: latheCategory
   id: Dark
-  name: lathe-category-dark
+  name: lathe-category-dark-tile
+
+- type: latheCategory
+  id: Faux
+  name: lathe-category-faux-tile
 
 - type: latheCategory
   id: Maints
-  name: lathe-category-maints
+  name: lathe-category-maints-tile
 
 - type: latheCategory
   id: Steel
-  name: lathe-category-steel
+  name: lathe-category-steel-tile
 
 - type: latheCategory
   id: White
-  name: lathe-category-white
+  name: lathe-category-white-tile
 
 - type: latheCategory
   id: Wood
-  name: lathe-category-wood
+  name: lathe-category-wood-tile
 
 - type: latheCategory
   id: Marble

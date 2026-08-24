@@ -132,7 +132,7 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         if (show && !ent.Comp.AlertDisplayed)
         {
             _alerts.ShowAlert(
-                ent,
+                ent.Owner,
                 ent.Comp.AlertId);
 
             ent.Comp.AlertDisplayed = true;
@@ -141,7 +141,7 @@ public abstract class SharedDarknessAdaptionSystem : EntitySystem
         if (!show && ent.Comp.AlertDisplayed)
         {
             _alerts.ClearAlert(
-                ent,
+                ent.Owner,
                 ent.Comp.AlertId);
 
             ent.Comp.AlertDisplayed = false;

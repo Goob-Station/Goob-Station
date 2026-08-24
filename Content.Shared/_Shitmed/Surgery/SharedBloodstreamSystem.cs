@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.CCVar;
@@ -32,42 +28,50 @@ public abstract partial class SharedBloodstreamSystem
 
     private void InitializeWounds()
     {
-        base.Initialize();
-
         SubscribeLocalEvent<BleedInflicterComponent, WoundSeverityPointChangedEvent>(OnBleedInflicterSeverityUpdate);
         SubscribeLocalEvent<BleedRemoverComponent, WoundSeverityPointChangedEvent>(OnBleedRemoverSeverityUpdate);
         SubscribeLocalEvent<BleedInflicterComponent, WoundHealAttemptEvent>(OnWoundHealAttempt);
         SubscribeLocalEvent<BleedInflicterComponent, WoundAddedEvent>(OnWoundAdded);
     }
 
+    private static readonly TimeSpan WoundBleedUpdateInterval = TimeSpan.FromSeconds(1);
+    private TimeSpan _nextWoundBleedUpdate;
+
     private void UpdateWounds(float frameTime)
     {
-        base.Update(frameTime);
+        if (_timing.CurTime < _nextWoundBleedUpdate)
+            return;
+
+        _nextWoundBleedUpdate = _timing.CurTime + WoundBleedUpdateInterval;
 
         var bleedsQuery = EntityQueryEnumerator<BleedInflicterComponent>();
         while (bleedsQuery.MoveNext(out var ent, out var bleeds))
         {
             var canBleed = CanWoundBleed(ent, bleeds) && bleeds.BleedingAmount > 0;
             if (canBleed != bleeds.IsBleeding)
+            {
+                bleeds.IsBleeding = canBleed;
                 Dirty(ent, bleeds);
+            }
 
-            bleeds.IsBleeding = canBleed;
-
-            if (!bleeds.IsBleeding)
+            if (!bleeds.IsBleeding || bleeds.Scaling >= bleeds.ScalingLimit)
                 continue;
 
-            var totalTime = bleeds.ScalingFinishesAt - bleeds.ScalingStartsAt;
-            var currentTime = bleeds.ScalingFinishesAt - _timing.CurTime;
-
-            if (totalTime <= currentTime || bleeds.ScalingLimit >= bleeds.Scaling)
+            var start = bleeds.ScalingStartsAt;
+            var end = bleeds.ScalingFinishesAt;
+            if (end <= start)
                 continue;
 
-            var newBleeds = FixedPoint2.Clamp(
-                (totalTime / currentTime) / (bleeds.ScalingLimit - bleeds.Scaling),
-                0,
-                bleeds.ScalingLimit);
+            var progress = (_timing.CurTime - start).TotalSeconds / (end - start).TotalSeconds;
+            if (progress <= 0)
+                continue;
 
-            bleeds.Scaling = newBleeds;
+            var target = FixedPoint2.New(1) + (bleeds.ScalingLimit - 1) * FixedPoint2.New(Math.Min(progress, 1.0));
+            var newScaling = FixedPoint2.Clamp(target, bleeds.Scaling, bleeds.ScalingLimit);
+            if (newScaling == bleeds.Scaling)
+                continue;
+
+            bleeds.Scaling = newScaling;
             Dirty(ent, bleeds);
         }
     }
@@ -285,8 +289,6 @@ public abstract partial class SharedBloodstreamSystem
         component.IsBleeding = true;
 
         Dirty(uid, component);
-
-        TryModifyBleedAmount(uid, component.BleedingAmountRaw.Float());
     }
 
     private void OnWoundHealAttempt(EntityUid uid, BleedInflicterComponent component, ref WoundHealAttemptEvent args)
@@ -309,11 +311,7 @@ public abstract partial class SharedBloodstreamSystem
             || args.NewSeverity < args.OldSeverity)
             return;
 
-        var oldBleedsAmount = args.OldSeverity * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
         component.BleedingAmountRaw = args.NewSeverity * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
-
-        var severityPenalty = component.BleedingAmountRaw - oldBleedsAmount / _cfg.GetCVar(SurgeryCVars.BleedsScalingTime);
-        component.SeverityPenalty += severityPenalty;
 
         var formula = (float) (args.NewSeverity / _cfg.GetCVar(SurgeryCVars.BleedsScalingTime) * component.ScalingSpeed);
         component.ScalingFinishesAt = _timing.CurTime + TimeSpan.FromSeconds(formula);
@@ -368,7 +366,7 @@ public abstract partial class SharedBloodstreamSystem
         if (!Resolve(ent.Owner, ref ent.Comp))
             return;
 
-        ent.Comp.BloodMaxVolume = volume;
+        ent.Comp.BloodReferenceSolution.Volume = volume;
     }
     // end Goobstation: port EE height/width sliders
 }

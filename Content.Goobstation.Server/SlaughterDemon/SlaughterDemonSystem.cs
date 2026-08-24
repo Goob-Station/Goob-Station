@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Devour;
@@ -9,6 +6,7 @@ using Content.Goobstation.Shared.SlaughterDemon.Systems;
 using Content.Server.Administration.Systems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Robust.Shared.Containers;

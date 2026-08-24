@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 #nullable enable
@@ -57,6 +51,9 @@ public abstract partial class InteractionTest
         public static implicit operator EntitySpecifier(string prototype)
             => new(prototype, 1);
 
+        public static implicit operator EntitySpecifier(EntProtoId prototype)
+            => new(prototype.Id, 1);
+
         public static implicit operator EntitySpecifier((string, int) tuple)
             => new(tuple.Item1, tuple.Item2);
 
@@ -101,7 +98,7 @@ public abstract partial class InteractionTest
             await Server.WaitPost(() =>
             {
                 uid = SEntMan.SpawnEntity(stackProto.Spawn, coords);
-                Stack.SetCount(uid, spec.Quantity);
+                Stack.SetCount((uid, null), spec.Quantity);
             });
             return uid;
         }

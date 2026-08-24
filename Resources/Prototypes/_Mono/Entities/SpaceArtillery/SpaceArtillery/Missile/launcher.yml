@@ -6,6 +6,8 @@
   parent: BallisticArtillery
   description: A rapid-fire swarm missile pod manufactured by Aetherion Dynamics. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    powerLoad: 950
   - type: StaticPrice
     price: 2000
   - type: Sprite
@@ -28,14 +30,13 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 200
   - type: SpaceArtillery
     powerChargeRate: 200
     powerUsePassive: 750
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipMissileASM417
     fireCost: 867
   - type: RadarBlip
@@ -54,6 +55,8 @@
   parent: BallisticArtillery
   description: ASM-501 Smerchs heavy torpedo launcher. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    powerLoad: 450
   - type: StaticPrice
     price: 7500
   - type: Sprite
@@ -79,10 +82,9 @@
     powerChargeRate: 250
     powerUsePassive: 200
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 60
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipMissileASM501
     fireCost: 350
   - type: RadarBlip
@@ -101,6 +103,8 @@
   parent: BallisticArtillery
   description: ASM-302 Vanyk basic guided missile pod. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    powerLoad: 950
   - type: StaticPrice
     price: 5000
   - type: Sprite
@@ -123,10 +127,9 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 60
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipMissileASM302
     fireCost: 300
   - type: SpaceArtillery
@@ -166,6 +169,8 @@
   parent: BallisticArtillery
   description: A hybrid EMP missile pod manufactured by Aetherion Dynamics. Deals both physical and EMP damage. Can be remotely activated, or linked up to a GCS.
   components:
+  - type: ApcPowerReceiver
+    powerLoad: 3000
   - type: StaticPrice
     price: 10000
   - type: Sprite
@@ -188,14 +193,13 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 500
   - type: SpaceArtillery
     powerChargeRate: 500
     powerUsePassive: 2500
     powerUseActive: 0
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShipMissileASM557
     fireCost: 12500
   - type: RadarBlip

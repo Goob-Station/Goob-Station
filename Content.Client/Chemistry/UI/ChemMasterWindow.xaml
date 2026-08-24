@@ -1,14 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2021 Spartak <artak10t@gmail.com>
-SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-SPDX-FileCopyrightText: 2022 Illiux <newoutlook@gmail.com>
-SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-SPDX-FileCopyrightText: 2023 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Dora <27211909+catdotjs@users.noreply.github.com>
-
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
@@ -47,8 +37,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <BoxContainer Orientation="Horizontal">
                 <Label Text="{Loc 'chem-master-window-buffer-text'}" />
                 <Control HorizontalExpand="True" />
+                <Button MinSize="80 0" Margin="0 0 10 0" Name="BufferSortButton" Access="Public" Text="{Loc 'chem-master-window-sort-type-none'}" />
                 <Button MinSize="80 0" Name="BufferTransferButton" Access="Public" Text="{Loc 'chem-master-window-transfer-button'}" ToggleMode="True" StyleClasses="OpenRight" />
-                <Button MinSize="80 0" Name="BufferSortButton" Access="Public" Text="{Loc 'chem-master-window-sort-type-none'}" StyleClasses="OpenBoth" />
                 <Button MinSize="80 0" Name="BufferDiscardButton" Access="Public" Text="{Loc 'chem-master-window-discard-button'}" ToggleMode="True" StyleClasses="OpenLeft" />
             </BoxContainer>
 
@@ -93,9 +83,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
             <!-- Packaging -->
             <BoxContainer Orientation="Horizontal">
-                <Label Text="{Loc 'chem-master-window-packaging-text'}" />
+                <Label Text="{Loc 'chem-master-output-source'}" StyleClasses="LabelSecondaryColor" Margin="0 0 5 0"/>
+                <Button MinSize="80 0" Name="OutputBufferDraw" Access="Public" Text="{Loc 'chem-master-output-buffer-draw'}" ToggleMode="True" StyleClasses="OpenRight" />
+                <Button MinSize="80 0" Name="OutputBeakerDraw" Access="Public" Text="{Loc 'chem-master-output-beaker-draw'}" ToggleMode="True" StyleClasses="OpenLeft" />
                 <Control HorizontalExpand="True"/>
-                <Label Text="{Loc 'chem-master-window-buffer-label'}" />
+                <!-- Output Draw Source -->
+                <Label Name="DrawSource"/>
                 <Label Name="BufferCurrentVolume" StyleClasses="LabelSecondaryColor" />
             </BoxContainer>
 
@@ -126,9 +119,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <BoxContainer Orientation="Horizontal">
                         <Label Text="{Loc 'chem-master-window-pills-label'}" />
                         <Control HorizontalExpand="True" MinSize="50 0" />
-                        <Label Text="{Loc 'chem-master-window-pills-number-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
+                        <Label Text="{Loc 'chem-master-window-pills-number-label'}" Margin="5 0 0 0" StyleClasses="LabelWeak" />
                         <SpinBox MinSize="100 0" Name="PillNumber" Access="Public" Value="0" />
-                        <Label Text="{Loc 'chem-master-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
+                        <Label Text="{Loc 'chem-master-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelWeak" />
                         <SpinBox MinSize="100 0" Name="PillDosage" Access="Public" Value="1" />
                         <Button MinSize="80 0" Name="CreatePillButton" Access="Public" Text="{Loc 'chem-master-window-create-button'}" />
                     </BoxContainer>
@@ -136,7 +129,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <BoxContainer Orientation="Horizontal">
                         <Label Text="{Loc 'chem-master-window-bottles-label'}" />
                         <Control HorizontalExpand="True" MinSize="50 0" />
-                        <Label Text="{Loc 'chem-master-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
+                        <Label Text="{Loc 'chem-master-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelWeak" />
                         <SpinBox MinSize="100 0" Name="BottleDosage" Access="Public" Value="0" />
                         <Button MinSize="80 0" Name="CreateBottleButton" Access="Public" Text="{Loc 'chem-master-window-create-button'}" />
                     </BoxContainer>

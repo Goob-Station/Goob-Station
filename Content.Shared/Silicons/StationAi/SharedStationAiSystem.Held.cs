@@ -1,31 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-// SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
-// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -33,6 +5,7 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -54,6 +27,7 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
+
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
 
@@ -77,20 +51,23 @@ public abstract partial class SharedStationAiSystem
         if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
             return;
 
-        _xforms.DropNextTo(core.Comp.RemoteEntity.Value, core.Owner) ;
+        _xforms.DropNextTo(core.Comp.RemoteEntity.Value, core.Owner);
     }
 
     /// <summary>
-    /// Tries to get the entity held in the AI core using StationAiCore.
+    /// Tries to find an AI being held in by an entity using <see cref="StationAiHolderComponent"/>.
     /// </summary>
-    public bool TryGetHeld(Entity<StationAiCoreComponent?> entity, out EntityUid held)
+    /// <param name="entity">The station AI holder.</param>
+    /// <param name="held">The found AI.</param>
+    /// <returns>True if an AI is found.</returns>
+    public bool TryGetHeld(Entity<StationAiHolderComponent?> entity, [NotNullWhen(true)] out EntityUid? held)
     {
         held = EntityUid.Invalid;
 
         if (!Resolve(entity.Owner, ref entity.Comp))
             return false;
 
-        if (!_containers.TryGetContainer(entity.Owner, StationAiCoreComponent.Container, out var container) ||
+        if (!_containers.TryGetContainer(entity.Owner, StationAiHolderComponent.Container, out var container) ||
             container.ContainedEntities.Count == 0)
             return false;
 
@@ -98,26 +75,32 @@ public abstract partial class SharedStationAiSystem
         return true;
     }
 
-    /// <summary>
-    /// Tries to get the entity held in the AI using StationAiHolder.
-    /// </summary>
-    public bool TryGetHeld(Entity<StationAiHolderComponent?> entity, out EntityUid held)
-    {
-        TryComp<StationAiCoreComponent>(entity.Owner, out var stationAiCore);
 
-        return TryGetHeld((entity.Owner, stationAiCore), out held);
+    /// <summary>
+    /// Tries to find an AI being held in by an entity using <see cref="StationAiCoreComponent"/>.
+    /// </summary>
+    /// <param name="entity">The station AI core.</param>
+    /// <param name="held">The found AI.</param>
+    /// <returns>True if an AI is found.</returns>
+    public bool TryGetHeld(Entity<StationAiCoreComponent?> entity, [NotNullWhen(true)] out EntityUid? held)
+    {
+        held = null;
+
+        return TryComp<StationAiHolderComponent>(entity.Owner, out var holder) &&
+            TryGetHeld((entity, holder), out held);
     }
 
+    /// <summary>
+    /// Tries to find the station AI core holding an AI.
+    /// </summary>
+    /// <param name="entity">The AI.</param>
+    /// <param name="core">The found AI core.</param>
+    /// <returns>True if an AI core is found.</returns>
     public bool TryGetCore(EntityUid entity, out Entity<StationAiCoreComponent?> core)
     {
-        var xform = Transform(entity);
-        var meta = MetaData(entity);
-        var ent = new Entity<TransformComponent?, MetaDataComponent?>(entity, xform, meta);
-
-        if (!_containers.TryGetContainingContainer(ent, out var container) ||
+        if (!_containers.TryGetContainingContainer(entity, out var container) ||
             container.ID != StationAiCoreComponent.Container ||
-            !TryComp(container.Owner, out StationAiCoreComponent? coreComp) ||
-            coreComp.RemoteEntity == null)
+            !TryComp(container.Owner, out StationAiCoreComponent? coreComp))
         {
             core = (EntityUid.Invalid, null);
             return false;
@@ -222,6 +205,11 @@ public abstract partial class SharedStationAiSystem
     private void ShowDeviceNotRespondingPopup(EntityUid toEntity)
     {
         _popup.PopupClient(Loc.GetString("ai-device-not-responding"), toEntity, PopupType.MediumCaution);
+    }
+
+    private void ShowDeviceNoAccessPopup(EntityUid toEntity)
+    {
+        _popup.PopupClient(Loc.GetString("ai-device-no-access"), toEntity, PopupType.MediumCaution);
     }
 }
 

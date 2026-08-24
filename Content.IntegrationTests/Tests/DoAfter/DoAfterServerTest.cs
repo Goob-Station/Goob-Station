@@ -1,25 +1,8 @@
-// SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
+using System.Collections.Generic;
 using Content.Shared.DoAfter;
+using Content.Shared.Interaction;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Reflection;
@@ -85,17 +68,16 @@ namespace Content.IntegrationTests.Tests.DoAfter
             var server = pair.Server;
             await server.WaitIdleAsync();
 
-            var entityManager = server.ResolveDependency<IEntityManager>();
+            var entityManager = server.EntMan;
             var timing = server.ResolveDependency<IGameTiming>();
-            var doAfterSystem = entityManager.EntitySysManager.GetEntitySystem<SharedDoAfterSystem>();
+            var doAfterSystem = entityManager.System<SharedDoAfterSystem>();
             var ev = new TestDoAfterEvent();
 
             // That it finishes successfully
             await server.WaitPost(() =>
             {
-                var tickTime = 1.0f / timing.TickRate;
                 var mob = entityManager.SpawnEntity("DoAfterDummy", MapCoordinates.Nullspace);
-                var args = new DoAfterArgs(entityManager, mob, tickTime / 2, ev, null) { Broadcast = true };
+                var args = new DoAfterArgs(entityManager, mob, timing.TickPeriod / 2, ev, null) { Broadcast = true };
 #pragma warning disable NUnit2045 // Interdependent assertions.
                 Assert.That(doAfterSystem.TryStartDoAfter(args));
                 Assert.That(ev.Cancelled, Is.False);
@@ -113,23 +95,17 @@ namespace Content.IntegrationTests.Tests.DoAfter
         {
             await using var pair = await PoolManager.GetServerClient();
             var server = pair.Server;
-            var entityManager = server.ResolveDependency<IEntityManager>();
+            var entityManager = server.EntMan;
             var timing = server.ResolveDependency<IGameTiming>();
-            var doAfterSystem = entityManager.EntitySysManager.GetEntitySystem<SharedDoAfterSystem>();
+            var doAfterSystem = entityManager.System<SharedDoAfterSystem>();
             var ev = new TestDoAfterEvent();
 
             await server.WaitPost(() =>
             {
-                var tickTime = 1.0f / timing.TickRate;
-
                 var mob = entityManager.SpawnEntity("DoAfterDummy", MapCoordinates.Nullspace);
-                var args = new DoAfterArgs(entityManager, mob, tickTime * 2, ev, null) { Broadcast = true };
+                var args = new DoAfterArgs(entityManager, mob, timing.TickPeriod * 2, ev, null) { Broadcast = true };
 
-                if (!doAfterSystem.TryStartDoAfter(args, out var id))
-                {
-                    Assert.Fail();
-                    return;
-                }
+                Assert.That(doAfterSystem.TryStartDoAfter(args, out var id));
 
                 Assert.That(!ev.Cancelled);
                 doAfterSystem.Cancel(id);
@@ -139,6 +115,68 @@ namespace Content.IntegrationTests.Tests.DoAfter
 
             await server.WaitRunTicks(3);
             Assert.That(ev.Cancelled);
+
+            await pair.CleanReturnAsync();
+        }
+
+        /// <summary>
+        /// Spawns two sets of mobs with a targeted DoAfter to check that the GetEntitiesInteractingWithTarget result
+        /// includes the correct interacting entities.
+        /// </summary>
+        [Test]
+        public async Task TestGetInteractingEntities()
+        {
+            await using var pair = await PoolManager.GetServerClient();
+            var server = pair.Server;
+            var entityManager = server.EntMan;
+            var timing = server.ResolveDependency<IGameTiming>();
+            var doAfterSystem = entityManager.System<SharedDoAfterSystem>();
+            var interactionSystem = entityManager.System<SharedInteractionSystem>();
+            var ev = new TestDoAfterEvent();
+
+            EntityUid mob = default;
+            EntityUid target = default;
+
+            EntityUid mob2 = default;
+            EntityUid mob3 = default;
+            EntityUid target2 = default;
+
+            await server.WaitPost(() =>
+            {
+                // Spawn two targets to interact with
+                target = entityManager.SpawnEntity("DoAfterDummy", MapCoordinates.Nullspace);
+                target2 = entityManager.SpawnEntity("DoAfterDummy", MapCoordinates.Nullspace);
+
+                // Spawn a mob which is interacting with the first target
+                mob = entityManager.SpawnEntity("DoAfterDummy", MapCoordinates.Nullspace);
+                var args = new DoAfterArgs(entityManager, mob, timing.TickPeriod * 5, ev, null, target) { Broadcast = true };
+                Assert.That(doAfterSystem.TryStartDoAfter(args));
+
+                // Spawn two more mobs which are interacting with the second target
+                mob2 = entityManager.SpawnEntity("DoAfterDummy", MapCoordinates.Nullspace);
+                var args2 = new DoAfterArgs(entityManager, mob2, timing.TickPeriod * 5, ev, null, target2) { Broadcast = true };
+                Assert.That(doAfterSystem.TryStartDoAfter(args2));
+
+                mob3 = entityManager.SpawnEntity("DoAfterDummy", MapCoordinates.Nullspace);
+                var args3 = new DoAfterArgs(entityManager, mob3, timing.TickPeriod * 5, ev, null, target2) { Broadcast = true };
+                Assert.That(doAfterSystem.TryStartDoAfter(args3));
+            });
+
+            var list = new HashSet<EntityUid>();
+            interactionSystem.GetEntitiesInteractingWithTarget(target, list);
+            Assert.That(list, Is.EquivalentTo([mob]), $"{mob} was not considered to be interacting with {target}");
+
+            interactionSystem.GetEntitiesInteractingWithTarget(target2, list);
+            Assert.That(list, Is.EquivalentTo([mob2, mob3]), $"{mob2} and {mob3} were not considered to be interacting with {target2}");
+
+            await server.WaitPost(() =>
+            {
+                entityManager.DeleteEntity(mob);
+                entityManager.DeleteEntity(mob2);
+                entityManager.DeleteEntity(mob3);
+                entityManager.DeleteEntity(target);
+                entityManager.DeleteEntity(target2);
+            });
 
             await pair.CleanReturnAsync();
         }

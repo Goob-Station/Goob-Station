@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 name: Benchmarks
@@ -29,6 +25,9 @@ jobs:
         echo "::set-output name=out::$(git rev-parse HEAD)"
       id: engine_version
     - name: Run script on centcomm
+      env:
+        CENTCOMM_ROBUST_BENCHMARK_RUNNER_KEY: ${{ secrets.CENTCOMM_ROBUST_BENCHMARK_RUNNER_KEY }}
+      if: env.CENTCOMM_ROBUST_BENCHMARK_RUNNER_KEY # stop it from being fucking annoying
       uses: appleboy/ssh-action@master
       with:
         host: centcomm.spacestation14.io

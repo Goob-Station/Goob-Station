@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -119,7 +114,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
         }
         else if ((itemXform.GridUid == null &&
                  (!TryComp(item.Value, out PhysicsComponent? body) ||
-                  _gravity.IsWeightless(item.Value, body, itemXform)) ||
+                  _gravity.IsWeightless(item.Value)) ||
                  itemXform.GridUid != xform.GridUid) && // If it is in space or on another grid
                  !RespawnItem(item.Value, itemXform, xform))
             return;

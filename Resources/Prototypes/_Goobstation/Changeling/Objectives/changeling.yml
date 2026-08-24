@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -156,7 +143,8 @@
   id: LingCMOStealObjective
   components:
   - type: NotJobRequirement
-    job: ChiefMedicalOfficer
+    jobs:
+    - ChiefMedicalOfficer
   - type: StealCondition
     owner: job-name-cmo
 
@@ -182,7 +170,8 @@
   id: LingRDStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    jobs:
+    - ResearchDirector
   - type: StealCondition
     owner: job-name-rd
 
@@ -207,7 +196,8 @@
   id: LingEnergyShotgunStealObjective
   components:
   - type: NotJobRequirement
-    job: Warden # Goob edit
+    jobs:
+    - Warden # Goob edit
   - type: StealCondition
     stealGroup: WeaponEnergyShotgun
     owner: job-name-warden # Goob edit
@@ -220,7 +210,8 @@
   id: LingCEStealObjective
   components:
   - type: NotJobRequirement
-    job: ChiefEngineer
+    jobs:
+    - ChiefEngineer
   - type: StealCondition
     owner: job-name-ce
 
@@ -238,7 +229,8 @@
   id: LingClipboardStealObjective
   components:
   - type: NotJobRequirement
-    job: Quartermaster
+    jobs:
+    - Quartermaster
   - type: StealCondition
     stealGroup: BoxFolderQmClipboard
     owner: job-name-qm
@@ -248,7 +240,8 @@
   id: LingKnuckleDustersStealObjective
   components:
   - type: NotJobRequirement
-    job: Quartermaster
+    jobs:
+    - Quartermaster
   - type: StealCondition
     stealGroup: ClothingHandsKnuckleDustersQM
     owner: job-name-qm
@@ -260,7 +253,8 @@
   id: LingCorgiMeatStealObjective
   components:
   - type: NotJobRequirement
-    job: HeadOfPersonnel
+    jobs:
+    - HeadOfPersonnel
   - type: StealCondition
     stealGroup: FoodMeatCorgi
     owner: objective-condition-steal-Ian
@@ -273,7 +267,8 @@
   id: LingCaptainObjective
   components:
   - type: NotJobRequirement
-    job: Captain
+    jobs:
+    - Captain
 
 - type: entity
   parent: LingCaptainObjective

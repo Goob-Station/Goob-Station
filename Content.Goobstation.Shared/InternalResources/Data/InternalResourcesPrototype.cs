@@ -7,7 +7,7 @@ namespace Content.Goobstation.Shared.InternalResources.Data;
 /// Prototype for internal resources type. Mostly contain visualization and information data.
 /// </summary>
 [Prototype]
-public sealed class InternalResourcesPrototype : IPrototype
+public sealed partial class InternalResourcesPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

@@ -1,0 +1,31 @@
+- type: skinColoration
+  id: Hues
+  strategy: !type:ClampedHsvColoration
+    value: [0.175, 1]
+
+- type: skinColoration
+  id: TintedHues
+  strategy: !type:ClampedHslColoration
+    saturation: [0, 0.1]
+    lightness: [0.85, 1]
+
+- type: skinColoration
+  id: VoxFeathers
+  strategy: !type:ClampedHsvColoration
+    hue: [0.081, 0.48]
+    saturation: [0.2, 0.8]
+    value: [0.36, 0.55]
+
+- type: skinColoration
+  id: HumanToned
+  strategy: !type:HumanTonedSkinColoration {}
+
+# Goob start.
+# Probably move this under _GoobStation later but this is also kinda better organized here.
+
+- type: skinColoration
+  id: AnimalFur # Okay fuck off I'm just porting the old values here but these are borderline uncapped so if you're here to change them then yeah, please do.
+  strategy: !type:ClampedHsvColoration
+    hue: [ 0.056, 0.125 ]
+    saturation: [ 0, 1.0 ]
+    value: [ 0, 1 ]

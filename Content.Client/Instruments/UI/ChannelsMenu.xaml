@@ -1,7 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
 SPDX-License-Identifier: MIT
 -->
 
@@ -14,7 +11,7 @@ SPDX-License-Identifier: MIT
             <Button Name="AllButton" Text="{Loc 'instruments-component-channels-all-button'}" HorizontalExpand="true" VerticalExpand="true" SizeFlagsStretchRatio="1"/>
             <Button Name="ClearButton" Text="{Loc 'instruments-component-channels-clear-button'}" HorizontalExpand="true" VerticalExpand="true" SizeFlagsStretchRatio="1"/>
         </BoxContainer>
-        <CheckButton Name="DisplayTrackNames"
+        <Button Name="DisplayTrackNames"
                      Text="{Loc 'instruments-component-channels-track-names-toggle'}" />
     </BoxContainer>
 </DefaultWindow>

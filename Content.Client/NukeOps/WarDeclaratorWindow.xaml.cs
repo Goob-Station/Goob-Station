@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rainfall <rainfey0+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Stylesheets;
@@ -70,38 +60,38 @@ public sealed partial class WarDeclaratorWindow : FancyWindow
                 WarButton.Disabled = true;
                 StatusLabel.Text = Loc.GetString("war-declarator-boost-declared");
                 UpdateTimer();
-                StatusLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateLow);
+                StatusLabel.SetOnlyStyleClass(StyleClass.Highlight);
                 break;
             case WarConditionStatus.YesWar:
                 WarButton.Text = Loc.GetString("war-declarator-ui-war-button");
                 StatusLabel.Text = Loc.GetString("war-declarator-boost-possible");
                 UpdateTimer();
-                StatusLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateGood);
+                StatusLabel.SetOnlyStyleClass(StyleClass.Positive);
                 break;
             case WarConditionStatus.NoWarSmallCrew:
                 StatusLabel.Text = Loc.GetString("war-declarator-boost-impossible");
                 InfoLabel.Text = Loc.GetString("war-declarator-conditions-small-crew");
-                StatusLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateNone);
+                StatusLabel.SetOnlyStyleClass(StyleClass.Negative);
                 break;
             case WarConditionStatus.NoWarShuttleDeparted:
                 StatusLabel.Text = Loc.GetString("war-declarator-boost-impossible");
                 InfoLabel.Text = Loc.GetString("war-declarator-conditions-left-outpost");
-                StatusLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateNone);
+                StatusLabel.SetOnlyStyleClass(StyleClass.Negative);
                 break;
             case WarConditionStatus.NoWarTimeout:
                 StatusLabel.Text = Loc.GetString("war-declarator-boost-impossible");
                 InfoLabel.Text = Loc.GetString("war-declarator-conditions-time-out");
-                StatusLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateNone);
+                StatusLabel.SetOnlyStyleClass(StyleClass.Negative);
                 break;
             case WarConditionStatus.NoWarUnknown:
                 StatusLabel.Text = Loc.GetString("war-declarator-boost-impossible");
                 InfoLabel.Text = Loc.GetString("war-declarator-conditions-unknown");
-                StatusLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateNone);
+                StatusLabel.SetOnlyStyleClass(StyleClass.Negative);
                 break;
             default:
                 StatusLabel.Text = Loc.GetString("war-declarator-boost-impossible");
                 InfoLabel.Text = Loc.GetString("war-declarator-conditions-unknown");
-                StatusLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateNone);
+                StatusLabel.SetOnlyStyleClass(StyleClass.Negative);
                 break;
         }
     }

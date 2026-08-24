@@ -8,6 +8,7 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -366,15 +367,18 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                         uid.Comp3.NerveSystem.Comp);
                 }
 
-                foreach (var nerve in uid.Comp3.NerveSystem.Comp.Nerves)
+                foreach (var nerveEnt in uid.Comp3.NerveSystem.Comp.Nerves)
                 {
-                    foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
+                    if (!TryComp<NerveComponent>(nerveEnt, out var nerve))
+                        continue;
+
+                    foreach (var painFeelsModifier in nerve.PainFeelingModifiers)
                     {
                         // Idk what it does, just remove it
                         _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
                             painFeelsModifier.Key.Item2,
-                            nerve.Key,
-                            nerve.Value);
+                            nerveEnt,
+                            nerve);
                     }
                 }
             }
@@ -411,19 +415,19 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         if (bloodHeal == FixedPoint2.Zero || !TryComp(uid, out SolutionContainerManagerComponent? sol) ||
             !_solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) ||
-            blood.BloodSolution.Value.Comp.Solution.Volume >= blood.BloodMaxVolume)
+            blood.BloodSolution.Value.Comp.Solution.Volume >= blood.BloodReferenceSolution.Volume)
             return;
 
         if (bloodHeal == null)
         {
             _blood.TryModifyBloodLevel((uid, blood),
-                blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume);
+                blood.BloodReferenceSolution.Volume - blood.BloodSolution.Value.Comp.Solution.Volume);
         }
         else
         {
             _blood.TryModifyBloodLevel((uid, blood),
                 FixedPoint2.Min(bloodHeal.Value,
-                    blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
+                    blood.BloodReferenceSolution.Volume - blood.BloodSolution.Value.Comp.Solution.Volume));
         }
     }
 

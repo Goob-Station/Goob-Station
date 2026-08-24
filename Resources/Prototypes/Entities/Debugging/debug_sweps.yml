@@ -1,30 +1,35 @@
-# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Avalon <148660190+BYONDFuckery@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: bang hitscan 1dmg
+  parent: BaseWeaponBatterySmall
+  id: WeaponHitscanDebug
+  description: pew pew!
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/debug.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/debug.rsi
+  - type: Gun
+    fireRate: 10
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: BatteryAmmoProvider
+    proto: DebugLaser
+    fireCost: 1
+  - type: BatterySelfRecharger
+    autoRechargeRate: 1000
+
+- type: entity
+  name: bang hitscan gibber
+  parent: WeaponHitscanDebug
+  id: WeaponHitscanDebugGib
+  components:
+  - type: BatteryAmmoProvider
+    proto: DebugLaserGib
 
 - type: entity
   name: bang, ded
@@ -33,9 +38,6 @@
   description: ded
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/debug.rsi
     state: icon
@@ -61,14 +63,14 @@
         priority: 2
         whitelist:
           tags:
-            - Debug
+            - MagazineDebug
       gun_chamber:
         name: Chamber
         startingItem: CartridgeDebug
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+            - CartridgeDebug
 
 - type: entity
   id: MagazinePistolDebug
@@ -78,7 +80,7 @@
   components:
   - type: Tag
     tags:
-      - Debug
+      - MagazineDebug
   - type: BallisticAmmoProvider
     proto: CartridgeDebug
     capacity: 1000
@@ -92,9 +94,6 @@
   categories: [ Debug, HideSpawnMenu ]
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: Projectile
     damage:
       types:
@@ -108,7 +107,7 @@
   components:
   - type: Tag
     tags:
-      - Debug
+    - CartridgeDebug
   - type: CartridgeAmmo
     proto: BulletDebug
 
@@ -119,9 +118,6 @@
   description: hit hard ye
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: Sprite
     sprite: Objects/Weapons/Melee/debug.rsi
     state: icon
@@ -138,9 +134,6 @@
   parent: MeleeDebugGib
   id: MeleeDebug100
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: MeleeWeapon
     damage:
       types:
@@ -151,9 +144,6 @@
   parent: MeleeDebugGib
   id: MeleeDebug200
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: MeleeWeapon
     damage:
       types:

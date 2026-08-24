@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Access.Components;
@@ -35,6 +24,18 @@ public sealed partial class LockComponent : Component
     public bool Locked  = true;
 
     /// <summary>
+    /// If true, will show verbs to lock and unlock the item. Otherwise, it will not.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ShowLockVerbs = true;
+
+    /// <summary>
+    /// If true will show examine text.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ShowExamine = true;
+
+    /// <summary>
     /// Whether or not the lock is locked by simply clicking.
     /// </summary>
     [DataField("lockOnClick"), ViewVariables(VVAccess.ReadWrite)]
@@ -48,16 +49,42 @@ public sealed partial class LockComponent : Component
     public bool UnlockOnClick = true;
 
     /// <summary>
-    /// Whether the lock requires access validation through <see cref="AccessReaderComponent"/>
+    /// Whether or not the lock is locked when used it hand.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool LockInHand;
+
+    /// <summary>
+    /// Whether or not the lock is unlocked when used in hand.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool UnlockInHand;
+
+    /// <summary>
+    /// Whether access requirements should be checked for this lock.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool UseAccess = true;
 
     /// <summary>
+    /// What readers should be checked to determine if an entity has access.
+    /// If null, all possible readers are checked.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public LockTypes? CheckedLocks;
+
+    /// <summary>
+    /// Whether any reader needs to be accessed to operate this lock.
+    /// By default, all readers need to be able to be accessed.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool CheckForAnyReaders;
+
+    /// <summary>
     /// The sound played when unlocked.
     /// </summary>
     [DataField("unlockingSound"), ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier UnlockSound = new SoundPathSpecifier("/Audio/Machines/door_lock_off.ogg")
+    public SoundSpecifier? UnlockSound = new SoundPathSpecifier("/Audio/Machines/door_lock_off.ogg")
     {
         Params = AudioParams.Default.WithVolume(-5f),
     };
@@ -66,7 +93,7 @@ public sealed partial class LockComponent : Component
     /// The sound played when locked.
     /// </summary>
     [DataField("lockingSound"), ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier LockSound = new SoundPathSpecifier("/Audio/Machines/door_lock_on.ogg")
+    public SoundSpecifier? LockSound = new SoundPathSpecifier("/Audio/Machines/door_lock_on.ogg")
     {
         Params = AudioParams.Default.WithVolume(-5f)
     };
@@ -97,6 +124,12 @@ public sealed partial class LockComponent : Component
     [DataField]
     [AutoNetworkedField]
     public TimeSpan UnlockTime;
+
+    /// <summary>
+    /// Whether this lock can be locked again after being unlocked.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool AllowRepeatedLocking = true;
 }
 
 /// <summary>

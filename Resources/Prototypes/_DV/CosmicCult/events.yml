@@ -1,51 +1,35 @@
 - type: entity
   parent: BaseGameRule
-  id: RogueAscendedSpawn
+  id: ColossusSpawn
   components:
+  - type: GameRule # Goobstation, same as dragon?
+    chaosScore: 600
   - type: StationEvent
-    weight: 6.5
+    weight: 4.5
     earliestStart: 30
     reoccurrenceDelay: 20
-    minimumPlayers: 30
+    minimumPlayers: 25
     duration: null
   - type: SpaceSpawnRule
   - type: AntagSpawner
-    prototype: MobRogueAscended
+    prototype: MobCosmicColossusLone
   - type: AntagObjectives
     objectives:
-    - RogueAscendedInfectionObjective
-    - RogueAscendedSurviveObjective
+    - ColossusSurviveObjective
+    - ColossusEffigyObjective
   - type: AntagSelection
-    agentName: rogue-ascended-round-end-agent-name
+    agentName: role-subtype-colossus
     definitions:
-    - spawnerPrototype: SpawnPointRogueAscended
+    - spawnerPrototype: SpawnPointCosmicColossus
       min: 1
       max: 1
       pickPlayer: false
       mindRoles:
-      - MindRoleCosmicAscended
+      - MindRoleCosmicColossus
       briefing:
-        text: rogue-ascended-role-greeting
+        text: ghost-role-colossus-briefing
         color: CadetBlue
-        sound: /Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg
+        sound: /Audio/_DV/CosmicCult/antag_cosmic_AI_briefing.ogg
       components:
-      - type: RogueAscended
-
-- type: entity
-  categories: [ HideSpawnMenu, Spawner ]
-  parent: BaseAntagSpawner
-  id: SpawnPointRogueAscended
-  components:
-  - type: GhostRole
-    name: ghost-role-information-rogue-ascended-name
-    description: ghost-role-information-rogue-ascended-description
-    rules: ghost-role-information-rogue-ascended-rules
-    mindRoles:
-    - MindRoleCosmicAscended
-  - type: Sprite
-    sprite: _DV/CosmicCult/Mobs/astralrogue.rsi
-    layers:
-    - state: underlay
-      shader: unshaded
-    - state: base
-      shader: unshaded
+      - type: CosmicColossus
+        timed: true

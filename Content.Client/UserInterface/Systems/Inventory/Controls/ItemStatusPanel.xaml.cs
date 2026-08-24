@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Items;
@@ -31,6 +19,7 @@ public sealed partial class ItemStatusPanel : Control
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     [ViewVariables] private EntityUid? _entity;
+    [ViewVariables] private Hand? _hand;
 
     // Tracked so we can re-run SetSide() if the theme changes.
     private HandUILocation _side;
@@ -115,29 +104,45 @@ public sealed partial class ItemStatusPanel : Control
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
-        UpdateItemName();
+        UpdateItemName(_hand);
     }
 
-    public void Update(EntityUid? entity)
+    public void Update(EntityUid? entity, Hand? hand)
     {
-        ItemNameLabel.Visible = entity != null;
-        NoItemLabel.Visible = entity == null;
+        if (entity == _entity && hand == _hand)
+            return;
 
+        _hand = hand;
         if (entity == null)
         {
-            ItemNameLabel.Text = "";
             ClearOldStatus();
             _entity = null;
+
+            if (hand?.EmptyLabel is { } label)
+            {
+                ItemNameLabel.Visible = true;
+                NoItemLabel.Visible = false;
+
+                ItemNameLabel.Text = Loc.GetString(label);
+            }
+            else
+            {
+                ItemNameLabel.Visible = false;
+                NoItemLabel.Visible = true;
+
+                ItemNameLabel.Text = "";
+            }
+
             return;
         }
 
-        if (entity != _entity)
-        {
-            _entity = entity.Value;
-            BuildNewEntityStatus();
+        ItemNameLabel.Visible = true;
+        NoItemLabel.Visible = false;
 
-            UpdateItemName();
-        }
+        _entity = entity.Value;
+        BuildNewEntityStatus();
+
+        UpdateItemName(hand);
     }
 
     public void UpdateHighlight(bool highlight)
@@ -145,14 +150,14 @@ public sealed partial class ItemStatusPanel : Control
         HighlightPanel.Visible = highlight;
     }
 
-    private void UpdateItemName()
+    private void UpdateItemName(Hand? hand)
     {
         if (_entity == null)
             return;
 
         if (!_entityManager.TryGetComponent<MetaDataComponent>(_entity, out var meta) || meta.Deleted)
         {
-            Update(null);
+            Update(null, hand);
             return;
         }
 

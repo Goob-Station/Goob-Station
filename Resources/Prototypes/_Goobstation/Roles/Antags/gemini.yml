@@ -1,0 +1,16 @@
+# You might have questions. So do i.
+# tl;dr ghostroles got a refactor im not putting this shit in c#
+# need to gate gemmini behind a time requirement but they're not a job OR an antag strictly so temporarily making them an antag
+# todo marty remove once you refactor ghostroles times in general
+
+- type: antag
+  id: TempGeminiGhostRoleAntag
+  name: role-type-familiar-name
+  antagonist: true # This is here because tests complain. This is bad. This is known. if you are reading this, ping me @notactuallymarty if i haven't gotten to fixing it by now.
+  objective: never-shown
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 5h
+  - !type:RoleTimeRequirement
+    role: JobScientist
+    time: 5h

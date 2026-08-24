@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions;
@@ -32,3 +26,23 @@ public readonly struct EntityZombifiedEvent
 ///     Event raised when a player zombifies themself using the "turn" action
 /// </summary>
 public sealed partial class ZombifySelfActionEvent : InstantActionEvent { };
+
+
+/// <summary>
+///  Goobstation
+///  Event raised when unzombifying or something.
+///  Does nothing on client server handles unzombifying after an entity effect.
+/// </summary>
+[ByRefEvent]
+public readonly struct EntityUnZombifiedEvent
+{
+    /// <summary>
+    ///     Whether this person should be inoculated from catching the infection again.
+    /// </summary>
+    public readonly bool Inoculate;
+
+    public EntityUnZombifiedEvent(bool inoculate)
+    {
+        Inoculate = inoculate;
+    }
+};

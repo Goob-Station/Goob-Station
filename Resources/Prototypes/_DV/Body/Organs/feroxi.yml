@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -42,11 +38,11 @@
     - state: lung-l
     - state: lung-r
   - type: Organ
-    intCap: 17 # Goob start
-    integrity: 17
+    intCap: 85 # Goob start
+    integrity: 85
     integrityThresholds:
-      Normal: 17
-      Damaged: 9
+      Normal: 85
+      Damaged: 45
       Destroyed: 0
     slotId: lungs
     removable: False # Goob end, make them actualy unremovable

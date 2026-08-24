@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Adeinitas <147965189+adeinitas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Danger Revolution! <142105406+DangerRevolution@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Timemaster99 <57200767+Timemaster99@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._EinsteinEngines.Flight.Events;
@@ -48,6 +38,7 @@ public abstract class SharedFlightSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly Content.Shared.Gravity.SharedGravitySystem _gravity = default!;
 
     public override void Initialize()
     {
@@ -89,7 +80,7 @@ public abstract class SharedFlightSystem : EntitySystem
             }
 
             // We make it 0.7f to compensate by how comparatively lame it is vs sprinting while on stimulants as another species.
-            if (TryComp<StaminaModifierComponent>(uid, out var staminaComp))
+            if (TryComp<StaminaModifierStatusEffectComponent>(uid, out var staminaComp))
                 _staminaSystem.ModifyStaminaDrain(uid,
                     component.StaminaDrainKey,
                     component.StaminaDrainRate * staminaComp.Modifier * component.StaminaDrainMultiplier);
@@ -116,6 +107,9 @@ public abstract class SharedFlightSystem : EntitySystem
         _actionsSystem.SetToggled(component.ToggleActionEntity, component.On);
         RaiseLocalEvent(uid, new FlightEvent(uid, component.On, component.IsAnimated));
         _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false, component.StaminaDrainKey, uid);
+
+        _gravity.RefreshWeightless(uid); // Force the gravity system to refresh
+
         _movementSpeed.RefreshWeightlessModifiers(uid);
         ToggleCollisionMasks(uid, component);
         UpdateHands(uid, active);
@@ -272,7 +266,7 @@ public abstract class SharedFlightSystem : EntitySystem
 
     private void OnStandingStateFlightAttempt(EntityUid uid, StandingStateComponent component, ref FlightAttemptEvent args)
     {
-        if (!_standing.IsDown(uid, component))
+        if (!_standing.IsDown(uid))
             return;
 
         _popupSystem.PopupClient(Loc.GetString("no-flight-while-lying"), uid, uid, PopupType.Medium);

@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 James Simonson <jamessimo89@gmail.com>
-// SPDX-FileCopyrightText: 2025 Soup-Byte07 <135303377+Soup-Byte07@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Popups;
@@ -110,13 +94,12 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
     private void OnChangeStatus(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordChangeStatus msg)
     {
         // prevent malf client violating wanted/reason nullability
-        var requireReason = msg.Status is SecurityStatus.Wanted
-            or SecurityStatus.Suspected
-            or SecurityStatus.Search
-            or SecurityStatus.Dangerous
-            or SecurityStatus.Demote; // Goobstation
-
-        if (requireReason != (msg.Reason != null))
+        if (msg.Status == SecurityStatus.Wanted != (msg.Reason != null) &&
+            msg.Status == SecurityStatus.Suspected != (msg.Reason != null) &&
+            msg.Status == SecurityStatus.Hostile != (msg.Reason != null) &&
+            msg.Status == SecurityStatus.Search != (msg.Reason != null) && // Goobstation
+            msg.Status == SecurityStatus.Dangerous != (msg.Reason != null) &&  // Goobstation
+            msg.Status == SecurityStatus.Demote != (msg.Reason != null)) // Goobstation
             return;
 
         if (!CheckSelected(ent, msg.Actor, out var mob, out var key))
@@ -173,6 +156,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         // figure out which radio message to send depending on transition
         var statusString = (oldStatus, msg.Status) switch
         {
+            (_, SecurityStatus.Hostile) => "hostile",
+            (_, SecurityStatus.Eliminated) => "eliminated",
             // person has been detained
             (_, SecurityStatus.Detained) => "detained",
             // person did something sus
@@ -183,12 +168,14 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             (_, SecurityStatus.Discharged) => "released",
             // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
             (_, SecurityStatus.Wanted) => "wanted",
+            (SecurityStatus.Hostile, SecurityStatus.None) => "not-hostile",
+            (SecurityStatus.Eliminated, SecurityStatus.None) => "not-eliminated",
             // person has been sentenced to perma
-            (_, SecurityStatus.Perma) => "perma",
+            (_, SecurityStatus.Perma) => "perma", // Goobstation
             // person needs to be searched
-            (_, SecurityStatus.Search) => "search",
+            (_, SecurityStatus.Search) => "search", // Goobstation
             // person is very dangerous
-            (_, SecurityStatus.Dangerous) => "dangerous",
+            (_, SecurityStatus.Dangerous) => "dangerous", // Goobstation
             // person is demoted from their job
             (_, SecurityStatus.Demote) => "demote", // Goobstation
             // person is no longer sus
@@ -200,11 +187,11 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             // criminal is no longer on parole
             (SecurityStatus.Paroled, SecurityStatus.None) => "not-parole",
             // criminal is no longer in perma
-            (SecurityStatus.Perma, SecurityStatus.None) => "not-perma",
+            (SecurityStatus.Perma, SecurityStatus.None) => "not-perma", // Goobstation
             // person no longer needs to be searched
-            (SecurityStatus.Search, SecurityStatus.None) => "not-search",
+            (SecurityStatus.Search, SecurityStatus.None) => "not-search", // Goobstation
             // person is no longer dangerous
-            (SecurityStatus.Dangerous, SecurityStatus.None) => "not-dangerous",
+            (SecurityStatus.Dangerous, SecurityStatus.None) => "not-dangerous", // Goobstation
             // person no longer demoted
             (SecurityStatus.Demote, SecurityStatus.None) => "not-demoted", // Goobstation
             // this is impossible
@@ -312,32 +299,5 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         key = new StationRecordKey(id, station);
         mob = user;
         return true;
-    }
-
-    /// <summary>
-    /// Checks if the new identity's name has a criminal record attached to it, and gives the entity the icon that
-    /// belongs to the status if it does.
-    /// </summary>
-    public void CheckNewIdentity(EntityUid uid)
-    {
-        var name = Identity.Name(uid, EntityManager);
-        var xform = Transform(uid);
-
-        // TODO use the entity's station? Not the station of the map that it happens to currently be on?
-        var station = _station.GetStationInMap(xform.MapID);
-
-        if (station != null && _records.GetRecordByName(station.Value, name) is { } id)
-        {
-            if (_records.TryGetRecord<CriminalRecord>(new StationRecordKey(id, station.Value),
-                    out var record))
-            {
-                if (record.Status != SecurityStatus.None)
-                {
-                    _criminalRecords.SetCriminalIcon(name, record.Status, uid);
-                    return;
-                }
-            }
-        }
-        RemComp<CriminalRecordComponent>(uid);
     }
 }

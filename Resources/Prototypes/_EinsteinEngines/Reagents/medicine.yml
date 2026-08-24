@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GNUtopia <erainach14@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: reagent
@@ -14,26 +11,29 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Artiplates
           max: 11
         amount: -1
       - !type:ModifyBloodLevel
         amount: 8 # at least you still make blood while ODing :]
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Artiplates
           max: 11
         damage:
           types:
             Bloodloss: -5
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: Artiplates
           min: 11
         damage:
           types:

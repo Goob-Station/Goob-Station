@@ -98,13 +98,13 @@ public record struct WoundableIntegrityChangedOnBodyEvent(Entity<WoundableCompon
 public record struct WoundableSeverityChangedEvent(WoundableSeverity OldSeverity, WoundableSeverity NewSeverity);
 
 [ByRefEvent]
-public record struct WoundHealAttemptEvent(Entity<WoundableComponent> Woundable, bool IgnoreBlockers = false, bool Cancelled = false);
+public record struct WoundHealAttemptEvent(Entity<WoundableComponent> Woundable, bool IgnoreBlockers = false, bool Cancelled = false, FixedPoint2 SeverityFloor = default);
 
 [ByRefEvent]
 public record struct WoundHealAttemptOnWoundableEvent(Entity<WoundComponent> Wound, bool Cancelled = false);
 
 [Serializable, DataRecord]
-public record struct WoundableSeverityMultiplier(FixedPoint2 Change, string Identifier = "Unspecified");
+public partial record struct WoundableSeverityMultiplier(FixedPoint2 Change, string Identifier = "Unspecified");
 
 [Serializable, DataRecord]
-public record struct WoundableHealingMultiplier(FixedPoint2 Change, string Identifier = "Unspecified");
+public partial record struct WoundableHealingMultiplier(FixedPoint2 Change, string Identifier = "Unspecified");

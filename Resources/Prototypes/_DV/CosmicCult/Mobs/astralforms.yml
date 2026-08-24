@@ -1,50 +1,3 @@
-- type: entity
-  parent:
-  - Incorporeal
-  - BaseMob
-  id: MobCosmicAstralAscended
-  name: astral ascended
-  description: Transcendant, ascendant.
-  components:
-  - type: Input
-    context: "ghost"
-  - type: Spectral
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 6
-    baseSprintSpeed: 6
-  - type: Sprite
-    sprite: _DV/CosmicCult/Mobs/astralform.rsi
-    layers:
-    - state: effect-underlay
-      shader: unshaded
-    - state: ascended-body
-      shader: unshaded
-  - type: NoSlip
-  - type: Eye
-    drawFov: false
-  - type: ContentEye
-    maxZoom: 1.2, 1.2
-  - type: Speech
-    speechVerb: Ghost
-  - type: PointLight
-    color: "#42a4ae"
-    radius: 2
-    energy: 3
-    softness: 1
-    castShadows: false
-  - type: LightBehaviour
-    behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 5.5
-       maxDuration: 5.5
-       startValue: 1
-       endValue: 3
-       property: Energy
-       enabled: true
-       isLooped: true
-       reverseWhenFinished: true
-
 ### ASTRAL PROJECTION
 - type: entity
   parent: [ Incorporeal, BaseMob ]
@@ -78,7 +31,7 @@
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
   - type: Examiner
   - type: ContentEye
     maxZoom: 1.2, 1.2
@@ -109,100 +62,52 @@
   - type: Visibility
     layer: 2 #ghost vis layer
 
-### ASCENDED EVENTSPAWN
 - type: entity
-  id: MobRogueAscended
-  parent:
-  - BaseMob
-  name: rogue ascended
-  suffix: MidRoundAntag
-  description: An entity from beyond the borders of bluespace. Its contours continuously blur and blend together, unnerving to the eye.
+  parent: [ BaseSimpleMob ]
+  id: MobCosmicAstralAscended
+  name: astral ascended
+  description: Transcendant, ascendant.
   components:
-  - type: FTLSmashImmune
-  - type: Physics
-    bodyStatus: InAir
-  - type: Speech
-    speechVerb: Ghost
-  - type: BodyEmotes # you know, for the funny.
-  - type: MovementAlwaysTouching
-  - type: CanMoveInAir
-  - type: CombatMode
-  - type: Bloodstream
-    bloodMaxVolume: 650
-    bloodReagent: Entropy
-    bloodlossDamage:
-      types:
-        Bloodloss: 0.5
-    bloodlossHealDamage:
-      types: # Don't use asphyx or cold on an Ascendant, lol
-        Bloodloss: -1
-        Asphyxiation: -4
-        Cold: -4
+  - type: Puller
+    needsHands: false
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.4
-    baseSprintSpeed: 4.4
-    weightlessAcceleration: 2 # Move around more easily in space.
-    weightlessFriction: 1
-    weightlessModifier: 1
-  - type: Sprite
-    sprite: _DV/CosmicCult/Mobs/astralrogue.rsi
-    noRot: true
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: underlay
-      shader: unshaded
-    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
-      state: base
-      shader: unshaded
-  - type: Appearance
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: underlay
-        BaseUnshaded: base
-      Critical:
-        BaseUnshaded: base-crit
-      Dead:
-        Base: underlay-off
-        BaseUnshaded: base-dead
-  - type: NoSlip
-  - type: Eye
-    drawFov: false
-  - type: GhostRole
-    makeSentient: true
-    name: ghost-role-information-rogue-ascended-name
-    description: ghost-role-information-rogue-ascended-description
-    rules: ghost-role-information-rogue-ascended-rules
-    mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
-  - type: RogueAscended # for the rogue ascended's MidRoundAntag Systems
-  - type: ActionGrant
-    actions:
-    - ActionRogueInfection
-    - ActionRogueGrandShunt
-    - ActionRogueCosmicNova
-    - ActionRogueSlumber
-  - type: Damageable
-    damageContainer: ManifestedSpirit
-    damageModifierSet: ManifestedSpirit
+    baseWalkSpeed: 6
+    baseSprintSpeed: 6
+    weightlessModifier: 1.5
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.45
-        density: 500
+          radius: 0.25
+        density: 50
         mask:
-        - SmallMobMask
+        - FlyingMobMask
         layer:
-        - SmallMobLayer
+        - FlyingMobLayer
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/astralform.rsi
+    layers:
+    - state: effect-underlay
+      shader: unshaded
+    - state: ascended-body
+      shader: unshaded
+  - type: Physics
+    bodyStatus: InAir
+  - type: NoSlip
+  - type: CanMoveInAir
+  - type: Eye
+    drawFov: true
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: Speech
+    speechVerb: Ghost
+  - type: TypingIndicator
+    proto: CosmicTyping
   - type: PointLight
     color: "#42a4ae"
     radius: 2
-    energy: 3
+    energy: 2
     softness: 1
     castShadows: false
   - type: LightBehaviour
@@ -211,78 +116,86 @@
        interpolate: Linear
        minDuration: 5.5
        maxDuration: 5.5
-       startValue: 1
-       endValue: 3
+       startValue: 0.5
+       endValue: 2
        property: Energy
        enabled: true
        isLooped: true
        reverseWhenFinished: true
-  - type: StatusEffects # Overwriting status effects
-    allowed:
-    - SlowedDown
-    - RadiationProtection
-    - Adrenaline
-  - type: MeleeWeapon
-    hidden: true
-    angle: 90
-    range: 2
-    animation: WeaponArcCosmic
-    attackRate: 1
-    clickDamageModifier: 1
-    damage:
-      types:
-        Slash: 3
-        Asphyxiation: 3
-        Cold: 3
-        Structural: 20
-    soundHit:
-      path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
-      params:
-        variation: 0.2
-        volume: -4
-    soundSwing:
-      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
-      params:
-        variation: 0.125
-        volume: -4
-    soundNoDamage:
-      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
-      params:
-        variation: 0.2
-        volume: -11
-  - type: StaminaDamageOnHit
-    damage: 32
-  - type: Puller
-    needsHands: false
-  - type: MobState
-  - type: MobStateActions
-    actions:
-      Critical:
-      - ActionCritSuccumb
-      - ActionCritLastWords
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      375: Critical
-      450: Dead
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      225: 0.7
-      375: 0.5
-  - type: Butcherable
-    spawned:
-    - id: AscendedDendrite
-      amount: 1
-  - type: InteractionPopup
-    successChance: 0.25
-    interactSuccessString: petting-success-rogue-ascended
-    interactFailureString: petting-failure-rogue-ascended
-    interactFailureSound:
-      path: /Audio/_DV/CosmicCult/ascendant_noise.ogg
-    soundPerceivedByOthers: false
-  - type: RandomMetadata
-    nameSegments:
-    - ascended_names
-    - ascended_titles
-  - type: WeakToHoly # Goobstation Shitchap
-    alwaysTakeHoly: true
+
+- type: entity
+  parent: MobCosmicAstralAscended
+  id: MobCosmicCustodian
+  name: malign custodian
+  description: An abomination wrought of malign mass. It floats with a weightless, unnerving grace.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+    weightlessModifier: 1
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/custodian.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: custodian
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: custodian_unshaded
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: custodian
+        BaseUnshaded: custodian_unshaded
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
+
+- type: entity
+  parent: MobCosmicAstralAscended
+  id: MobCosmicOracle
+  name: malign oracle
+  description: An abomination wrought of malign mass. Its gaze seeks relentlessly.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+    weightlessModifier: 1
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/oracle.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: oracle
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: oracle_unshaded
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: oracle
+        BaseUnshaded: oracle_unshaded
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
+
+- type: entity
+  parent: MobCosmicAstralAscended
+  id: MobCosmicLodestar
+  name: malign lodestar
+  description: An abomination wrought of malign mass. A searing light glimmers within.
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/lodestar.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: lodestar
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: lodestar_unshaded
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lodestar
+        BaseUnshaded: lodestar_unshaded
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded

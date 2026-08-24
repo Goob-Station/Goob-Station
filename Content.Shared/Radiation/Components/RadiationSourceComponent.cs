@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 namespace Content.Shared.Radiation.Components;
@@ -21,6 +16,17 @@ public sealed partial class RadiationSourceComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("intensity")]
     public float Intensity = 1;
+
+    /* Goobstation disabled and replaced with the one below
+    /// <summary>
+    ///     Defines how fast radiation rays will loose intensity
+    ///     over distance. The bigger the value, the shorter range
+    ///     of radiation source will be.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("slope")]
+    public float Slope = 0.5f;
+    */
 
     /// <summary>
     ///     GOOBSTATION
