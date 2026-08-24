@@ -129,7 +129,7 @@
   id: DiseaseBehaviorAbscesses
   parent: DiseaseBehaviorBase
   name: Abscesses
-  description: In the final stages, it deals heavy slash damage. Infective.
+  description: In the final stages deals heavy slash damage. Infective.
   components:
   - type: DiseaseEffect
     complexity: 40
