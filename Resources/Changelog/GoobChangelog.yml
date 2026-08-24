@@ -24605,3 +24605,9 @@ Entries:
       message: Diona Nymphs can now be carried and put into bags.
   id: 2819
   time: '2026-08-23T18:59:15.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Add
+      message: Added moth bark from omu
+  id: 2820
+  time: '2026-08-24T07:25:47.0000000+00:00'
