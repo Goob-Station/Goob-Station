@@ -31,6 +31,9 @@
     - ClothMade
     - WhitelistChameleon
     - DroneUsable # Goobstation
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
 
 - type: entity
   abstract: true
