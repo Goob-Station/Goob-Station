@@ -267,6 +267,8 @@
     sprite: _Goobstation/Wizard/Clothing/Head/psywizard.rsi
   - type: Clothing
     sprite: _Goobstation/Wizard/Clothing/Head/psywizard.rsi
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]

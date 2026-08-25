@@ -8,10 +8,8 @@
   - type: Clothing
     slots:
     - HEAD
-  # Goobstation edit start
-    equipSound:
+    equipSound:   #Goobstation
       collection: GenericEquip
-  # Goobstation edit end
   - type: Sprite
     state: icon
   - type: Item
@@ -31,7 +29,7 @@
     - ClothMade
     - WhitelistChameleon
     - DroneUsable # Goobstation
-  - type: HideLayerClothing
+  - type: HideLayerClothing # Goobstation
     layers:
       Hair: HEAD
 

@@ -1127,6 +1127,8 @@
       coefficients:
         Caustic: 0.9
         Radiation: 0.9
+  - type: HideLayerClothing
+    layers: {}
 
 
 - type: entity
@@ -1163,6 +1165,8 @@
     sprite: Clothing/Head/Hats/tacticalmaidheadband.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/tacticalmaidheadband.rsi
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadBase
@@ -1556,6 +1560,8 @@
     tags:
     - PetWearable
     - CorgiWearable
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadBase

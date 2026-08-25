@@ -10,6 +10,8 @@
     sprite: Clothing/Head/Misc/bunny.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/bunny.rsi
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadBase
@@ -56,6 +58,8 @@
   - type: Construction
     graph: flowerwreath
     node: flowerwreath
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadLightBase
@@ -100,6 +104,7 @@
     sprite: Clothing/Head/Misc/pwig.rsi
   - type: HideLayerClothing
     slots:
+    - Hair
     - HeadTop
 
 - type: entity
@@ -112,6 +117,8 @@
     sprite: Clothing/Head/Misc/head_mirror.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/head_mirror.rsi
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadBase
@@ -224,6 +231,8 @@
     accent: OwOAccent
   - type: StaticPrice
     price: 15000
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: [ClothingHeadHatCatEars, BaseToggleClothing]
@@ -246,6 +255,8 @@
     sprite: Clothing/Head/Hats/catears.rsi
   - type: AddAccentClothing
     accent: OwOAccent
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: BaseToggleAction
@@ -266,6 +277,8 @@
     sprite: Clothing/Head/Hats/dogears.rsi
   - type: AddAccentClothing
     accent: BarkAccent
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadBase
@@ -373,6 +386,8 @@
     sprite: Clothing/Head/Misc/hairflower.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/hairflower.rsi
+  - type: HideLayerClothing
+    layers: {}
 
 - type: entity
   parent: ClothingHeadBase
