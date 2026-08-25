@@ -24650,3 +24650,11 @@ Entries:
       message: Butchering boots that has item inside now will drop all content
   id: 2825
   time: '2026-08-25T11:49:56.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed all Agent IDs spawning with, and only with Maintenance access
+        (including wizard, vox raider, etc.)
+  id: 2826
+  time: '2026-08-25T23:52:37.0000000+00:00'
