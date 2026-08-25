@@ -24634,3 +24634,9 @@ Entries:
       message: fire fire axe and tempgun are now displayed correctly
   id: 2823
   time: '2026-08-25T01:55:28.0000000+00:00'
+- author: SkippyMcSkips
+  changes:
+    - type: Fix
+      message: Bananium Swords are craftable again. Clowns rejoice!
+  id: 2824
+  time: '2026-08-25T06:17:16.0000000+00:00'
