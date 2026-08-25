@@ -24623,3 +24623,14 @@ Entries:
       message: Octogen recipe now requires vestine
   id: 2822
   time: '2026-08-24T11:49:24.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        Antelope(Saiga-12), Bojevic, NZ CSG-242, Bulldog, double-barreled
+        shotgun, Enforcer, Kammerer, sawn-off shotgun, blunderbuss, improvised
+        shotgun, Hushpup - resprited
+    - type: Fix
+      message: fire fire axe and tempgun are now displayed correctly
+  id: 2823
+  time: '2026-08-25T01:55:28.0000000+00:00'
