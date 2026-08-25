@@ -286,6 +286,9 @@
     activatedDamage:
       types:
         Heat: 0.3
+  - type: Tag # Goobstation - added Tag for crafting
+    tags:
+    - ToySword
 
 - type: entity
   parent: [ BaseItem, BaseToySword ]
