@@ -260,7 +260,7 @@
     grid:
     - 0,0,19,9
 
-# Goobstation start; give the BSO an empty chest rig option (used for their on-spawn chest rig so that it's not Syndicate contra)
+# Used for BSO's on-spawn chest rig so that it's not Syndicate contra
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
   id: ClothingBeltMilitaryWebbingBSO
@@ -274,7 +274,7 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.05
-# Goobstation end; note that I'm not trying to touch the original below so that I don't cause a bunch of merge conflicts
+# I'm not trying to touch the original below so that I don't cause a bunch of merge conflicts for downstream
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
