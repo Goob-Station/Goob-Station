@@ -1,0 +1,212 @@
+- type: entity
+  id: BaseMobTerrorSpider
+  name: terror spider
+  parent: [ SimpleMobBase, ShowMedicalIcons ]
+  description: Arachnophobes not allowed.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: young_flesh  
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: young_flesh
+      Dead:
+        Base: young_flesh_dead
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    drawdepth: Mobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 250
+        mask: [MobMask]
+        layer: [MobLayer]
+  - type: MobState
+    allowedStates: [Alive, Dead]
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: NpcFactionMember
+    factions: [SimpleHostile]
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+  - type: InteractionPopup
+    successChance: 0.1
+    interactSuccessString: petting-success-tarantula
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/snake_hiss.ogg
+  - type: NoSlip
+  - type: IgnoreSpiderWeb
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 150
+  - type: Speech
+    speechVerb: Arachnid
+    speechSounds: Arachnid
+    allowedEmotes: ['Click', 'Chitter']
+  - type: Vocal
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
+  - type: TypingIndicator
+    proto: spider
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - TerrorSpider
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: ThermalVision
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+    thermalShader: null
+  - type: CollectiveMind
+    defaultChannel: TerrorSpiderHivemind
+    respectAccents: true
+    channels:
+    - TerrorSpiderHivemind
+  - type: Puller
+    needsHands: false
+  - type: PassiveDamage # Mild passive regenation, with the exception of poison and genetic, which cannot be used effectively against them.
+    allowedStates:
+      - Alive
+    damage:
+      groups:
+        Brute: -1
+        Burn: -1
+        Toxin: -3
+        Genetic: -3
+  # Terror
+  - type: TerrorSpider
+    spiderType: RedTerror
+  - type: TerrorWrap
+    cocoonProto: TerrorCocoon
+  - type: ActionGrant
+    actions:
+      - ActionTerrorWeb
+      - ActionTerrorWrap
+
+- type: entity
+  name: spiderling
+  parent: SimpleMobBase
+  id: MobSpiderlingBase
+  description: It never stays still for long.
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: spiderling
+  - type: Item
+    size: Tiny
+  - type: HTN
+    constantlyReplan: false
+    rootTask:
+      task: MouseCompound
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask: SmallMobMask
+        layer: SmallMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spiderling
+      Dead:
+        Base: spiderling_dead
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 150
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Slime
+          Quantity: 5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Cockroach
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip
+        recursive: false
+  - type: NonSpreaderZombie
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 0
+  - type: IgnoreSpiderWeb
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-terror-spiderling-name
+    description: ghost-role-information-terror-spiderling-description
+    rules: ghost-role-information-terror-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

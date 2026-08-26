@@ -1,0 +1,206 @@
+# black
+- type: entity
+  id: TerrorSpiderBlack
+  parent: BaseMobTerrorSpider
+  name: black terror spider
+  description: An ominous-looking spider, black as the darkest night. It has merciless eyes, and a blood-red hourglass pattern on its back.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: viper
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: viper
+      Dead:
+        Base: viper_dead
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 1000
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 0.2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+  - type: GhostRole
+    description: terror-black-briefing
+  - type: VentCrawler
+  # Terror
+  - type: TerrorPounce
+  - type: TerrorSpider
+    spiderType: BlackTerror
+  - type: ActionGrant
+    actions:
+    - ActionTerrorWeb
+    - ActionTerrorWrap
+    - ActionTerrorPoisonWeb
+    - ActionTerrorPounce
+
+# white
+- type: entity
+  id: TerrorSpiderWhite
+  parent: BaseMobTerrorSpider
+  name: white terror spider
+  description: An ominous-looking white spider, its ghostly eyes and vicious-looking fangs are the stuff of nightmares.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: ambush
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: ambush
+      Dead:
+        Base: ambush_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Poison: 2
+        Piercing: 8
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: GhostRole
+    description: terror-white-briefing
+  - type: VentCrawler
+  # Terror
+  - type: TerrorSpider
+    spiderType: WhiteTerror
+  - type: ActionGrant
+    actions:
+    - ActionTerrorWeb
+    - ActionTerrorWrap
+    - ActionTerrorInfestedWeb
+
+# purple
+- type: entity
+  id: TerrorSpiderPurple
+  parent: BaseMobTerrorSpider
+  name: purple terror spider
+  description: An ominous-looking purple spider. It looks about warily, as if waiting for something.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: tank
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: tank
+      Dead:
+        Base: tank_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.4
+    baseSprintSpeed: 3.4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 25
+      types:
+        Structural: 15
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: GhostRole
+    description: terror-purple-briefing
+  # Terror
+  - type: BerserkerRage
+  - type: TerrorTremor
+  - type: ProximityLeash
+    leashGroup: terrorSpider
+    maxDistance: 20
+    tickInterval: 2
+    breakThreshold: 15
+  - type: TerrorSpider
+    spiderType: PurpleTerror
+  - type: ActionGrant
+    actions:
+    - ActionTerrorWeb
+    - ActionTerrorWrap
+    - ActionTerrorThickWeb
+    - ActionTerrorTremor
+
+# brown
+- type: entity
+  id: TerrorSpiderBrown
+  parent: BaseMobTerrorSpider
+  name: brown terror spider
+  description: An ominous-looking spider, colored brown like the dirt it crawled out of. Its forearms have sharp digging claws.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: breacher
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: breacher
+      Dead:
+        Base: breacher_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 20
+      types:
+        Structural: 30
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: GhostRole
+    description: terror-brown-briefing
+  # Terror
+  - type: TerrorVentSmash
+  - type: TerrorCharge
+    structureDamage:
+      types:
+        Structural: 300
+    targetDamage:
+      groups:
+        Brute: 10
+  - type: TerrorSpider
+    spiderType: BrownTerror
+  - type: ActionGrant
+    actions:
+    - ActionTerrorWeb
+    - ActionTerrorWrap
+    - ActionTerrorVentSmash
+    - ActionTerrorCharge

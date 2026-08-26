@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by OnsenCapy",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        { "name": "lay" },
+        { "name": "laygreen" },
+        { "name": "layqueen" },
+        { "name": "web" },
+        { "name": "thickweb" },
+        { "name": "airtightWeb" },
+        { "name": "slimyWeb" },
+        { "name": "darkWeb" },
+        { "name": "eggWeb" },
+        { "name": "ventsmash" },
+        { "name": "wrap" },
+        { "name": "queensense" },
+        { "name": "royal" },
+        { "name": "summon" }
+    ]
+}

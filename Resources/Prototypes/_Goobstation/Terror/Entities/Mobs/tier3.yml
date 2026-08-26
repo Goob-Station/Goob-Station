@@ -1,0 +1,167 @@
+# prince
+- type: entity
+  id: TerrorSpiderPrince
+  parent: BaseMobTerrorSpider
+  name: prince of terror
+  description: An enormous, terrifying spider. It looks like it is judging everything it sees. Its hide seems armored, and it bears the scars of many battles.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: viper
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: guard
+      Dead:
+        Base: guard_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      600: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 40
+      types:
+        Structural: 25
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: GhostRole
+    description: terror-prince-briefing
+  # Terror
+  - type: TerrorPounce
+  - type: TerrorTremor
+  - type: TerrorCharge
+    structureDamage:
+      types:
+        Structural: 300
+    targetDamage:
+      groups:
+        Brute: 15
+  - type: ProximityLeashAnchor
+    leashGroup: terrorSpider
+  - type: TerrorSpider
+    spiderType: TerrorPrince
+  - type: ActionGrant
+    actions:
+    - ActionTerrorWeb
+    - ActionTerrorWrap
+    - ActionTerrorThickWeb
+    - ActionTerrorPounce
+    - ActionTerrorTremor
+    - ActionTerrorCharge
+
+# princess
+- type: entity
+  id: TerrorSpiderPrincess
+  parent: BaseMobTerrorSpider
+  name: princess of terror
+  description: An enormous spider. It looks strangely cute and fluffy.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: midwife
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: midwife
+      Dead:
+        Base: midwife_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Web
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: GhostRole
+    description: terror-princess-briefing
+  - type: VentCrawler
+  # Terror
+  - type: TerrorVentSmash
+  - type: SpiderEggLayer
+    generationInterval: 90
+    maxStoredEggs: 8
+  - type: TerrorSpider
+    spiderType: TerrorPrincess
+  - type: ActionGrant
+    actions:
+    - ActionTerrorWeb
+    - ActionTerrorWrap
+    - ActionTerrorAirtightWeb
+    - ActionTerrorLayEggs
+    - ActionTerrorVentSmash
+
+# mother
+- type: entity
+  id: TerrorSpiderMother
+  parent: BaseMobTerrorSpider
+  name: mother of terror
+  description: An enormous spider. Tiny spiderlings are crawling all over it. Their beady little eyes all stare at you. The horror!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: tangle
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: tangle
+      Dead:
+        Base: tangle_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: GhostRole
+    description: terror-mother-briefing
+  # Terror
+  - type: TerrorVentSmash
+  - type: TerrorLifeShare
+    selfCost:
+      groups:
+        Brute: 10
+    healAmount:
+      groups:
+        Brute: -30
+  - type: TerrorSpider
+    spiderType: TerrorMother
+  - type: ActionGrant
+    actions:
+    - ActionTerrorWeb
+    - ActionTerrorWrap
+    - ActionTerrorAirtightWeb
+    - ActionTerrorVentSmash
+    - ActionTerrorLifeShare

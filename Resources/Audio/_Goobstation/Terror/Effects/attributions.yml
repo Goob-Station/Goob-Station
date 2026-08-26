@@ -1,0 +1,9 @@
+- files: ["spider_walking.ogg"]
+  license: "Custom"
+  copyright: "Made by DRAGON-STUDIO"
+  source: "https://pixabay.com/sound-effects/nature-giant-spider-walking-511319/"
+
+- files: ["terror_attack1.ogg", "terror_attack2.ogg", "terror_attack3.ogg", "terror_pounce.ogg", "terror_charge.ogg"]
+  license: "Custom"
+  copyright: "Made by Yodguard"
+  source: "https://pixabay.com/users/yodguard-12455005/"

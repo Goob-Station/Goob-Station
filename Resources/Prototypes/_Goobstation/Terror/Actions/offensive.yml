@@ -1,0 +1,44 @@
+- type: entity
+  id: ActionTerrorPounce
+  name: Pounce
+  description: Pounce towards a direction. If it hits a living target, will stun them and inject them with venom, but if you hit a wall, you will be stunned instead.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 3
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: web
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:TerrorPounceEvent
+
+- type: entity
+  id: ActionTerrorCharge
+  name: Headbutt
+  description: Headbutt towards a direction. Will damage any structure in your path, or stun and damage the first living target it hits.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    useDelay: 3
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: web
+  - type: TargetAction
+    range: 1
+  - type: WorldTargetAction
+    event: !type:TerrorChargeEvent
+
+- type: entity
+  id: ActionTerrorTremor
+  name: Tremors
+  description: Stomp the ground and cause tremors underneath, knocking down anyone near you in a wide radius.
+  components:
+  - type: Action
+    useDelay: 3
+    icon:
+      sprite: _Goobstation/Terror/actions.rsi
+      state: queensense
+  - type: InstantAction
+    event: !type:TerrorTremorEvent

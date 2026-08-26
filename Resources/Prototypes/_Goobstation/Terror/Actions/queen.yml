@@ -1,0 +1,12 @@
+#- type: entity
+#  id: ActionTerrorQueenSense
+#  name: Hive sense
+#  description: Reach out to your brood telepathically, sensing their locations and types.
+#  components:
+#  - type: Action
+#    useDelay: 3
+#    icon:
+#      sprite: _Goobstation/Terror/actions.rsi
+#      state: queensense
+#  - type: InstantAction
+#    event: !type:TerrorQueenSenseEvent
