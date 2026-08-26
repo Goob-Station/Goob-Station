@@ -24634,3 +24634,33 @@ Entries:
       message: fire fire axe and tempgun are now displayed correctly
   id: 2823
   time: '2026-08-25T01:55:28.0000000+00:00'
+- author: SkippyMcSkips
+  changes:
+    - type: Fix
+      message: Bananium Swords are craftable again. Clowns rejoice!
+  id: 2824
+  time: '2026-08-25T06:17:16.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to regenerate blood naturally
+    - type: Fix
+      message: Plasmaman lobbying bundle is now 20 instead of 4
+    - type: Fix
+      message: Butchering boots that has item inside now will drop all content
+  id: 2825
+  time: '2026-08-25T11:49:56.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed all Agent IDs spawning with, and only with Maintenance access
+        (including wizard, vox raider, etc.)
+  id: 2826
+  time: '2026-08-25T23:52:37.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed ONI'SOMA
+  id: 2827
+  time: '2026-08-25T23:53:19.0000000+00:00'
