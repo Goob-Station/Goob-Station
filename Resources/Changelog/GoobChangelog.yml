@@ -24670,3 +24670,9 @@ Entries:
       message: Added Mime Medal!
   id: 2828
   time: '2026-08-26T13:00:55.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Added a phantom pain trait.
+  id: 2829
+  time: '2026-08-26T13:49:52.0000000+00:00'
