@@ -340,7 +340,7 @@ namespace Content.Server.Zombies
 
                     // If we cannot infect the living target, the zed will just heal itself.
                     if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread ||
-                        _random.Prob(GetZombieInfectionChance(uid, entity.Comp)))
+                        !_random.Prob(GetZombieInfectionChance(uid, entity.Comp)))
                         continue;
 
 

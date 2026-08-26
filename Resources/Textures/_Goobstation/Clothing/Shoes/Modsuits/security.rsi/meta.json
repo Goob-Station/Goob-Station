@@ -28,6 +28,14 @@
         {
           "name": "equipped-FEET-vox",
           "directions": 4
+        },
+        {
+          "name": "equipped-FEET-sealed-hydrakin",
+          "directions": 4
+        },
+        {
+          "name": "equipped-FEET-hydrakin",
+          "directions": 4
         }
   ]
 }

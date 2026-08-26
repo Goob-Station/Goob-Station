@@ -82,6 +82,8 @@
       - state: equipped-FEET-sealed
       shoes-vox:
       - state: equipped-FEET-sealed-vox
+      shoes-hydrakin:
+      - state: equipped-FEET-sealed-hydrakin
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ModifyStandingUpTime
@@ -130,6 +132,8 @@
       - state: equipped-FEET-sealed
       shoes-vox:
       - state: equipped-FEET-sealed-vox
+      shoes-hydrakin:
+      - state: equipped-FEET-sealed-hydrakin
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ModifyStandingUpTime
@@ -178,6 +182,8 @@
       - state: equipped-FEET-sealed
       shoes-vox:
       - state: equipped-FEET-sealed-vox
+      shoes-hydrakin:
+      - state: equipped-FEET-sealed-hydrakin
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsEngineer
@@ -209,6 +215,8 @@
       - state: equipped-FEET-sealed
       shoes-vox:
       - state: equipped-FEET-sealed-vox
+      shoes-hydrakin:
+      - state: equipped-FEET-sealed-hydrakin
   - type: ItemToggle
   - type: ToggleClothing
     action: ActionToggleMagboots
@@ -252,6 +260,8 @@
       - state: equipped-FEET-sealed
       shoes-vox:
       - state: equipped-FEET-sealed-vox
+      shoes-hydrakin:
+      - state: equipped-FEET-sealed-hydrakin
   - type: FireProtection # lmao
     reduction: 0.25
 
@@ -286,6 +296,8 @@
       - state: equipped-FEET-sealed
       shoes-vox:
       - state: equipped-FEET-sealed-vox
+      shoes-hydrakin:
+      - state: equipped-FEET-sealed-hydrakin
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsCaptain
@@ -317,3 +329,5 @@
       - state: equipped-FEET-sealed
       shoes-vox:
       - state: equipped-FEET-sealed-vox
+      shoes-hydrakin:
+      - state: equipped-FEET-sealed-hydrakin

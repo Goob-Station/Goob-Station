@@ -245,10 +245,11 @@
             scale: 1.6
           damage:
           # todo scale with temp like SS13
-            Airloss: -3
-            Brute: -3 # Goob
-            Burn: -3 # Goob
-            Toxin: -2
+          # Goob - Cryo buff till temp scaling is implemented
+            Airloss: -9 # Goob - Cryobuff
+            Brute: -9 # Goob - Cryobuff
+            Burn: -9 # Goob - Cryobuff
+            Toxin: -6 # Goob - Cryobuff
         - !type:GenericStatusEffect # Mono edit
           conditions:
           - !type:MetabolizerTypeCondition

@@ -209,7 +209,8 @@
           type: [ Dwarf ]
         damage:
           groups:
-            Brute: -0.1
+            Brute: -1
+            Burn: -1
       - !type:ModifyBloodLevel
         conditions:
         - !type:ReagentCondition

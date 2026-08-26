@@ -80,7 +80,7 @@ public sealed partial class WoundSystem
         RaiseLocalEvent(comp.HoldingWoundable, ref ev1);
     }
 
-    private void OnWoundRemoved(EntityUid woundableEntity, WoundComponent wound, EntGotRemovedFromContainerMessage args)
+    private void OnWoundRemoved(EntityUid woundEntity, WoundComponent wound, EntGotRemovedFromContainerMessage args)
     {
         if (wound.HoldingWoundable == EntityUid.Invalid)
             return;
@@ -90,12 +90,16 @@ public sealed partial class WoundSystem
             return;
 
         var oldHoldingWoundable = wound.HoldingWoundable;
-        wound.HoldingWoundable = EntityUid.Invalid;
 
         var ev = new WoundRemovedEvent(wound, oldParentWoundable, oldWoundableRoot);
-        RaiseLocalEvent(oldHoldingWoundable, ref ev);
+        RaiseLocalEvent(woundEntity, ref ev);
 
-        PredictedQueueDel(woundableEntity);
+        var ev1 = new WoundRemovedEvent(wound, oldParentWoundable, oldWoundableRoot);
+        RaiseLocalEvent(oldHoldingWoundable, ref ev1);
+
+        wound.HoldingWoundable = EntityUid.Invalid;
+
+        PredictedQueueDel(woundEntity);
     }
 
     private void OnWoundableInserted(EntityUid parentEntity, WoundableComponent parentWoundable, EntInsertedIntoContainerMessage args)
@@ -171,7 +175,8 @@ public sealed partial class WoundSystem
 
         TryComp<DamageableComponent>(uid, out var damageable);
         BodyPartComponent? bp = null;
-        var needsRedirect = component.WoundableIntegrity <= 0
+        var needsRedirect = component.RedirectOverflowDamage
+            && component.WoundableIntegrity <= 0
             && TryComp(uid, out bp)
             && bp.Body.HasValue;
 
@@ -223,10 +228,14 @@ public sealed partial class WoundSystem
 
     private void OnGetDoAfterDelayMultiplier(EntityUid uid, WoundableComponent component, ref GetDoAfterDelayMultiplierEvent args)
     {
-        if (component.WoundableIntegrity > 50)
+        if (component.IntegrityCap <= 0)
             return;
 
-        args.Multiplier *= (float) (component.WoundableIntegrity / component.IntegrityCap);
+        var integrityFraction = (float) (component.WoundableIntegrity / component.IntegrityCap);
+        if (integrityFraction > 0.5f)
+            return;
+
+        args.Multiplier *= 1f + (0.5f - integrityFraction) * 2f;
     }
 
     private void OnAttemptHandsMelee(EntityUid uid, WoundableComponent component, ref AttemptHandsMeleeEvent args)
