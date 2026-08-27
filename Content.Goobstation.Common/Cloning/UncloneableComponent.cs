@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: AGPL-3.0-or-l ater
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace Content.Goobstation.Common.Cloning;
 
