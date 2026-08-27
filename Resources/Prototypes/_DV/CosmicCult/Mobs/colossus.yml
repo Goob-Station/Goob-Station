@@ -14,7 +14,7 @@
     factions:
     - SimpleHostile
   - type: StaminaResistance
-    damageCoefficient: 0 # No more stunning colossi
+    damageCoefficient: 0.1 # Goob - Effective 90% stam resist
     worn: false
     meleeResistance: true
   - type: Sprite
