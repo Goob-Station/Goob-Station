@@ -29,8 +29,8 @@
 - type: speechSounds
   id: GoobMonkey
   saySound:
-    path: /Audio/_GoobStation/Animals/Monkey/monkey.ogg
+    path: /Audio/_Goobstation/Animals/Monkey/monkey.ogg
   askSound:
-    path: /Audio/_GoobStation/Animals/Monkey/monkey_ask.ogg
+    path: /Audio/_Goobstation/Animals/Monkey/monkey_ask.ogg
   exclaimSound:
-    path: /Audio/_GoobStation/Animals/Monkey/monkey_exclaim.ogg
+    path: /Audio/_Goobstation/Animals/Monkey/monkey_exclaim.ogg
