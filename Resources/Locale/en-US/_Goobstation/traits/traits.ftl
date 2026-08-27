@@ -35,3 +35,6 @@ trait-social-anxiety-disc = You have crippling social anxiety, you're freaked ou
 
 trait-deaf-name = Deaf
 trait-deaf-disc =  You're completly deaf, you can't hear anything, including yourself!
+
+trait-phantom-pain-name = Digital Phantom Pain
+trait-phantom-pain-desc = You have a very real and very serious medical condition that isn't made up or for attention seeking. Getting hit makes you break character to complain about it in LOOC. 

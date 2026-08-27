@@ -55,3 +55,11 @@
     - BorgChassis
   components:
     - type: Deaf
+
+- type: trait
+  id: PhantomPain
+  name: trait-phantom-pain-name
+  description: trait-phantom-pain-desc
+  category: Disabilities
+  components:
+    - type: PhantomPain

@@ -24650,3 +24650,29 @@ Entries:
       message: Butchering boots that has item inside now will drop all content
   id: 2825
   time: '2026-08-25T11:49:56.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed all Agent IDs spawning with, and only with Maintenance access
+        (including wizard, vox raider, etc.)
+  id: 2826
+  time: '2026-08-25T23:52:37.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed ONI'SOMA
+  id: 2827
+  time: '2026-08-25T23:53:19.0000000+00:00'
+- author: Andheisking
+  changes:
+    - type: Add
+      message: Added Mime Medal!
+  id: 2828
+  time: '2026-08-26T13:00:55.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Added a phantom pain trait.
+  id: 2829
+  time: '2026-08-26T13:49:52.0000000+00:00'
