@@ -19,8 +19,8 @@ public abstract class SharedAnimatedEmotesSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private const float DodgeStaminaCost = 20f;
-    private const float BorgDodgeBatteryCost = 20f;
+    private const float DodgeStaminaCost = 1000f;
+    private const float BorgDodgeBatteryCost = 1000f;
     private const string FlipDodgeEffect = "EffectParry";
 
     public static readonly TimeSpan FlipDuration = TimeSpan.FromMilliseconds(500);
