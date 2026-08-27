@@ -23,6 +23,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 
@@ -660,7 +661,7 @@ public partial class PainSystem
                     sex = humanoid.Sex;
 
                 CleanupSounds(nerveSys);
-                if (_trauma.HasBodyTrauma(body, TraumaType.OrganDamage) && _random.Prob(0.22f))
+                if (_trauma.HasBodyTrauma(body, TraumaSystem.OrganDamage) && _random.Prob(0.22f))
                 {
                     // If the person suffers organ damage, do funny gaggling sound :3
                     PlayPainSound(body,

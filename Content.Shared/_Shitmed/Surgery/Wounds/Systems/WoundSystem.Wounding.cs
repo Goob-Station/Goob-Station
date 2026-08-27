@@ -175,7 +175,8 @@ public sealed partial class WoundSystem
 
         TryComp<DamageableComponent>(uid, out var damageable);
         BodyPartComponent? bp = null;
-        var needsRedirect = component.WoundableIntegrity <= 0
+        var needsRedirect = component.RedirectOverflowDamage
+            && component.WoundableIntegrity <= 0
             && TryComp(uid, out bp)
             && bp.Body.HasValue;
 
