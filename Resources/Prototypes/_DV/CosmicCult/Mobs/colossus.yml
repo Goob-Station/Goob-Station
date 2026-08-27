@@ -14,7 +14,7 @@
     factions:
     - SimpleHostile
   - type: StaminaResistance
-    damageCoefficient: 0.1 # Goob - Effective 90% stam resist
+    damageCoefficient: 0.001 # Goob - Bandaid fix for flipdodge abuse
     worn: false
     meleeResistance: true
   - type: Sprite
