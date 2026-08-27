@@ -33,4 +33,4 @@
   askSound:
     path: /Audio/_GoobStation/Animals/Monkey/monkey_ask.ogg
   exclaimSound:
-    path: /Audio/_GoobStation/Animals/Monkey/monkey_exclaim.ogg
+    path: /Audio/Animals/monkey_scream.ogg
