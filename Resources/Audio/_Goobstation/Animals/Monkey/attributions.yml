@@ -9,8 +9,3 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from Goonstation"
   source: "https://github.com/goonstation/goonstation/tree/f8fe02984ebbf8a5f6b56fa37b8933456426de08/sound/misc/talk"
-
-- files: ["monkey_exclaim.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Taken from Goonstation"
-  source: "https://github.com/goonstation/goonstation/tree/f8fe02984ebbf8a5f6b56fa37b8933456426de08/sound/misc/talk"
