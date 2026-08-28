@@ -18,5 +18,5 @@ public sealed partial class TerrorTremorComponent : Component
     public TimeSpan Knockdown = TimeSpan.FromSeconds(3);
 
     [DataField]
-    public SoundSpecifier? Sound;
+    public SoundCollectionSpecifier? Sound = new SoundCollectionSpecifier("XenoFootstepLarge");
 }

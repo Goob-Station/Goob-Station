@@ -2,7 +2,9 @@ using Content.Goobstation.Shared.Terror.Components;
 using Content.Goobstation.Shared.Terror.Events;
 using Content.Goobstation.Shared.Terror.Gamerules;
 using Content.Goobstation.Shared.Terror.Systems;
+using Content.Shared._Starlight.VentCrawling;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -16,6 +18,7 @@ public sealed class TerrorLaySystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SpiderEggLayerSystem _eggLayer = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -38,7 +41,12 @@ public sealed class TerrorLaySystem : EntitySystem
         if (!_eggLayer.TryConsumeEgg(uid))
             return;
 
-        // TO DO: Remove VentCrawlerComponent from Queen upon laying her first egg
+        // Parity or something idk, makes it less annoying ig to corner her
+        if (proto.IsQueen && HasComp<VentCrawlerComponent>(uid))
+        {
+            RemCompDeferred<VentCrawlerComponent>(uid);
+            _popup.PopupPredicted(Loc.GetString("terror-queen-ventcrawl-gone"), uid, uid, PopupType.MediumCaution);
+        }
 
         var wraps = GetHiveWrapCount();
         var roll = _random.NextFloat();

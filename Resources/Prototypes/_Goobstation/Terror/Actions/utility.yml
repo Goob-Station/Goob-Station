@@ -65,7 +65,7 @@
     useDelay: 2
     icon:
       sprite: _Goobstation/Terror/actions.rsi
-      state: ventsmash
+      state: royal
   - type: TargetAction
     range: 2
   - type: EntityTargetAction

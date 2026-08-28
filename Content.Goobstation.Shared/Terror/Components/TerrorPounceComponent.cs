@@ -19,7 +19,7 @@ public sealed partial class TerrorPounceComponent : Component
     public float JumpThrowSpeed = 5f;
 
     [DataField]
-    public SoundSpecifier? JumpSound;
+    public SoundSpecifier? JumpSound = new SoundPathSpecifier("/Audio/_Goobstation/Terror/Effects/terror_pounce.ogg");
 
     [DataField]
     public TimeSpan TargetStun = TimeSpan.FromSeconds(2);

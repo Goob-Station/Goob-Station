@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Terror.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
@@ -26,7 +27,7 @@ public sealed class InfestOnHitSystem : EntitySystem
 
         foreach (var target in args.HitEntities)
         {
-            if (!HasComp<BodyComponent>(target)) continue;
+            if (!HasComp<HumanoidAppearanceComponent>(target)) continue;
 
             // just so the effect doesn't linger forever if something goes wrong.
             _status.TryAddStatusEffect(target, "Infested", out _, TimeSpan.FromMinutes(30));

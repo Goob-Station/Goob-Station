@@ -1,4 +1,6 @@
 using Content.Goobstation.Shared.Terror.Components;
+using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
@@ -6,6 +8,8 @@ namespace Content.Goobstation.Shared.Terror.Systems;
 public sealed class SpiderEggLayerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -35,7 +39,7 @@ public sealed class SpiderEggLayerSystem : EntitySystem
 
             comp.StoredEggs++;
 
-            // TO DO: Add pop-up
+            _popup.PopupPredicted(Loc.GetString("terror-gain-egg"), uid, uid);
 
             comp.NextGenerationTime = _timing.CurTime + comp.GenerationInterval;
             Dirty(uid, comp);
@@ -51,7 +55,7 @@ public sealed class SpiderEggLayerSystem : EntitySystem
 
         comp.StoredEggs = Math.Min(comp.StoredEggs + amount, comp.MaxStoredEggs);
 
-        // TO DO: Add pop-up
+        _popup.PopupPredicted(Loc.GetString("terror-gain-egg"), uid, uid);
 
         Dirty(uid, comp);
         return comp.StoredEggs;
@@ -65,14 +69,14 @@ public sealed class SpiderEggLayerSystem : EntitySystem
 
         if (comp.StoredEggs <= 0)
         {
-            // TO DO: Add pop-up
+            _popup.PopupPredicted(Loc.GetString("terror-no-eggs"), uid, uid);
 
             return false;
         }
 
         comp.StoredEggs--;
 
-        // TO DO: Add pop-up
+        _popup.PopupPredicted(Loc.GetString("terror-lay-egg"), uid, uid);
 
         Dirty(uid, comp);
         return true;

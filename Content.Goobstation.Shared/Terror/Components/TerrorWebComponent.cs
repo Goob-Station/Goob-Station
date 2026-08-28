@@ -10,8 +10,5 @@ namespace Content.Goobstation.Shared.Terror.Components;
 public sealed partial class TerrorWebComponent : Component
 {
     [DataField]
-    public string PopupMessage = "sticky-web-generic";
-
-    [DataField]
     public bool InflictsInfested;
 }

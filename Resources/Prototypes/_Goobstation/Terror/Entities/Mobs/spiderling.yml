@@ -4,16 +4,6 @@
   id: SpiderlingRed
   parent: MobSpiderlingBase
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: flesh_spiderling
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: flesh_spiderling
-      Dead:
-        Base: flesh_spiderling_dead
   - type: TerrorSpiderling
     growsInto: RedTerror
 
@@ -21,16 +11,6 @@
   id: SpiderlingGray
   parent: MobSpiderlingBase
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: ambush_spiderling
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: ambush_spiderling
-      Dead:
-        Base: ambush_spiderling_dead
   - type: TerrorSpiderling
     growsInto: GrayTerror
 
@@ -38,16 +18,6 @@
   id: SpiderlingGreen
   parent: MobSpiderlingBase
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: nurse_spiderling
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: nurse_spiderling
-      Dead:
-        Base: nurse_spiderling_dead
   - type: TerrorSpiderling
     growsInto: GreenTerror
 
@@ -57,16 +27,6 @@
   id: SpiderlingBlack
   parent: MobSpiderlingBase
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: viper_spiderling
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: viper_spiderling
-      Dead:
-        Base: viper_spiderling_dead
   - type: TerrorSpiderling
     growsInto: BlackTerror
 
@@ -74,16 +34,6 @@
   id: SpiderlingWhite
   parent: MobSpiderlingBase
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: ambush_spiderling
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: ambush_spiderling
-      Dead:
-        Base: ambush_spiderling_dead
   - type: TerrorSpiderling
     growsInto: WhiteTerror
 
@@ -91,16 +41,6 @@
   id: SpiderlingPurple
   parent: MobSpiderlingBase
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: tank_spiderling
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: tank_spiderling
-      Dead:
-        Base: tank_spiderling_dead
   - type: TerrorSpiderling
     growsInto: PurpleTerror
 
@@ -108,16 +48,6 @@
   id: SpiderlingBrown
   parent: MobSpiderlingBase
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: breacher_spiderling
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: breacher_spiderling
-      Dead:
-        Base: breacher_spiderling_dead
   - type: TerrorSpiderling
     growsInto: BrownTerror
 
@@ -129,23 +59,11 @@
   components:
   - type: TerrorSpiderling
     growsInto: TerrorPrince
-    # No guard_spiderling state exists in the atlas - falls back to the base's generic
-    # spiderling/spiderling_dead sprite. Swap in a real state once one exists.
 
 - type: entity
   id: SpiderlingPrincess
   parent: MobSpiderlingBase
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: midwife_spiderling
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: midwife_spiderling
-      Dead:
-        Base: midwife_spiderling_dead
   - type: TerrorSpiderling
     growsInto: TerrorPrincess
 
@@ -153,15 +71,5 @@
   id: SpiderlingMother
   parent: MobSpiderlingBase
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: tangle_spiderling
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: tangle_spiderling
-      Dead:
-        Base: tangle_spiderling_dead
   - type: TerrorSpiderling
     growsInto: TerrorMother

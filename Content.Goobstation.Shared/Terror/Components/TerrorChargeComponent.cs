@@ -10,7 +10,7 @@ namespace Content.Goobstation.Shared.Terror.Components;
 public sealed partial class TerrorChargeComponent : Component
 {
     [DataField]
-    public float DashDistance = 4f;
+    public float DashDistance = 5f;
 
     [DataField]
     public float DashSpeed = 6f;
@@ -28,9 +28,9 @@ public sealed partial class TerrorChargeComponent : Component
     public TimeSpan TargetKnockdown = TimeSpan.FromSeconds(2);
 
     [DataField]
-    public SoundSpecifier? ChargeSound;
+    public SoundSpecifier? ChargeSound = new SoundPathSpecifier("/Audio/_Goobstation/Terror/Effects/terror_charge.ogg");
 
     [DataField]
-    public SoundSpecifier? ImpactSound;
+    public SoundSpecifier? ImpactSound = new SoundPathSpecifier("/Audio/Weapons/punch1.ogg");
     public bool IsCharging;
 }

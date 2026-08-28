@@ -1,0 +1,203 @@
+<Document>
+  # Terror Spiders
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderQueen" Caption=""/>
+  </Box>
+  Terror Spiders are a genetically engineered bioweapon created from giant space spiders spliced with Xenomorph DNA. They rely on venom, ambushes, webs, and vents to overwhelm the station. Their strength varies wildly depending on their caste, and a coordinated hive can quickly overrun whole departments.
+
+  They are weak to ranged weapons and fire, but extremely dangerous in melee and in the dark. Every spider shares a hivemind, letting them sense the moment any spider dies and communicate instantly with the rest of the hive.
+
+  ## So I'm a spider, so what?
+
+  Terror Spiders are fast melee creatures that excel at ambushing isolated crew members. Your biggest strength revolves around your webs, which paralyze anyone who steps on them.
+
+  Most spiders are capable of vent crawling, allowing rapid traversal of the station, though a few heavier castes trade this away for raw power. Every spider also gains extra permanent regeneration by wrapping humanoid corpses into cocoons, the more the hive wraps, the stronger every spider's regen becomes, and the better the Queen's odds of laying a higher tier spider.
+
+  You also have a caste. Different castes play extremely differently, so your first priority is to understand which spider you are.
+
+  # Terror Spider Castes
+
+  Below are all castes, progressing from the lowest tier one, up to tier four.
+
+  ## Red Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderRed" Caption=""/>
+  </Box>
+  Best used as: a frontline brawler that gets more dangerous the longer a fight drags on.
+
+  **Passives**
+  - Deals more damage the lower its own health is.
+
+  **Weaknesses**
+  - Slowest spider in the hive.
+
+  ## Gray Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderGray" Caption=""/>
+  </Box>
+  Best used as: an ambusher that punishes anyone already caught in a web.
+
+  **Passives**
+  - Semi-invisible while standing on webs.
+  - Deals double damage to targets that are stunned or knocked down.
+
+  **Weaknesses**
+  - Low durability, loses a straight fight.
+
+  ## Green Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderGreen" Caption=""/>
+  </Box>
+  Best used as: a breeder that grows the hive from behind the front line.
+
+  **Passives**
+  - Gains a stored egg each time she wraps a corpse into a cocoon.
+
+  **Actives**
+  - Lays a stored egg at her location, hatching into a random tier-one spiderling.
+
+  **Weaknesses**
+  - Weak in direct combat. Cannot lay anything above tier one.
+
+  ## Black Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderBlack" Caption=""/>
+  </Box>
+  Best used as: a hit-and-run poisoner that closes distance fast.
+
+  **Passives**
+  - Melee attacks inject toxin.
+
+  **Actives**
+  - Pounces toward a target, stunning and knocking down whatever it hits.
+  - Can lay dark webs that poison anyone who steps on them.
+
+  **Weaknesses**
+  - Not built for a prolonged direct confrontation.
+
+  ## White Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderWhite" Caption=""/>
+  </Box>
+  Best used as: an infector that spreads the hive through victims rather than eggs.
+
+  **Passives**
+  - Melee hits infest the target with an egg. Left untreated, it bursts after several minutes, stunning the victim and spawning a single spiderling. Chugging enough pesticide clears it early.
+
+  **Actives**
+  - Can lay infested webs that infest anyone who steps on them.
+
+  **Weaknesses**
+  - Excellent for spreading chaos, but relies on victims going untreated to pay off.
+
+  ## Purple Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderPurple" Caption=""/>
+  </Box>
+  Best used as: a linebreaker or nest guard.
+
+  **Passives**
+  - Deals more damage the lower its own health is.
+  - Must stay within range of either the Queen, princess or prince. Stray too long and the hive link snaps, gibbing it on the spot.
+
+  **Actives**
+  - AoE stomp that stuns and knocks down every non-spider nearby.
+  - Can lay thick webs that block vision.
+
+  **Weaknesses**
+  - Cannot ventcrawl. Tied to wherever its psychic anchor is standing.
+
+  ## Brown Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderBrown" Caption=""/>
+  </Box>
+  Best used as: pure utility, clearing obstructions the rest of the hive can't.
+
+  **Actives**
+  - Can force open welded vents and scrubbers.
+  - Charges up, then dashes toward a target, breaking the first structure it hits, or knocking down the first living thing.
+
+  **Weaknesses**
+  - Weakest combat spider in the hive. Cannot ventcrawl.
+
+  ## Prince of Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderPrince" Caption=""/>
+  </Box>
+  Best used as: a tier-three miniboss built purely for slaughter.
+
+  **Actives**
+  - Has every tier-two active: pounce, AoE stomp, and the charging dash.
+  - Can lay thick webs that block vision.
+  - Also serves as a hive anchor for Purple Terrors.
+
+  **Weaknesses**
+  - Cannot ventcrawl. Not the fastest.
+
+  ## Princess of Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderPrincess" Caption=""/>
+  </Box>
+  Best used as: a secondary egg-layer that keeps the hive growing if the Queen is pinned down.
+
+  **Passives**
+  - Generates eggs on a fast, steady timer.
+
+  **Actives**
+  - Can smash welded vents.
+  - Can lay airtight webs that block both vision and airflow.
+
+  **Weaknesses**
+  - Can only ever lay tier-one eggs, unlike the Queen. Very fragile without protection, high priority target for the crew.
+
+  ## Mother of Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderMother" Caption=""/>
+  </Box>
+  Best used as: a support caste keeping the rest of the hive alive.
+
+  **Actives**
+  - Can sacrifice a portion of her own health to heal another spider for significantly more.
+  - Can smash welded vents.
+  - Can lay airtight webs that block both vision and airflow.
+
+  **Weaknesses**
+  - Extremely weak in direct fights, entirely centered on keeping others alive. Cannot ventcrawl.
+
+  ## Queen of Terror
+  <Box>
+    <GuideEntityEmbed Entity="TerrorSpiderQueen" Caption=""/>
+  </Box>
+  The apex of the hive.
+
+  **Passives**
+  - Generates eggs on a steady timer. The more corpses the hive has wrapped, the better her odds of laying a tier-two or tier-three egg instead of tier-one.
+
+  **Actives**
+  - Fires toxic spit at range, the only spider capable of fighting outside melee.
+  - Can smash welded vents, wrap corpses like any other spider, and lay airtight webs.
+  - Can broadcast a message heard by every member of the hive.
+  - Is capable of sensinng the location of every spider in the Hive.
+
+  **Weaknesses**
+  - Killing the Queen disrupts the hive's coordination and growth, and the entire hive shares a link with her. If she dies, a coin flip ensues, killing half of all remaining spiders on the spot, but empowering the ones remaining.
+
+  # Fighting Terror Spiders
+
+  - Use ranged weapons. Every spider except the Queen is limited to close-range combat.
+  - Weld vents and scrubbers, though Brown, Princess, Mother, and the Queen can force them back open.
+  - Avoid fighting in the dark or in webs, especially against Gray.
+  - Kill breeding and infecting spiders (Green, White, Princess, Queen) first since they're what let the hive spiral out of control.
+  - Fire and spacing are extremely effective, though spiders can always relocate when cornered.
+  - If bitten by a White Terror, get pesticide treatment immediately, waiting it out ends with a spiderling bursting out of you.
+
+  # Playing Terror Spiders Well
+
+  - Stick with the hive. Lone spiders die fast.
+  - Break lights. Darkness is your ally.
+  - Wrap downed crew for regeneration for the whole hive. The more corpses the hive manages to wrap, the stronger every spider's regen becomes and the better the Queen's odds of laying something stronger.
+  - Ambush from vents where you're able to. Coordinated attacks from the same vent can absolutely decimate an unprepared department.
+  - Protect egg-layers at all costs.
+  - Use webs to slow down advancing crew and trap groups.
+  - Coordinate kills; swarm isolated targets.
+</Document>

@@ -6,16 +6,16 @@
   description: An enormous, terrifying spider. Its egg sac is almost as big as its body, and teeming with spider eggs!
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: hunter
+        state: queen
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: hunter
+        Base: queen
       Dead:
-        Base: hunter_dead
+        Base: queen_dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -60,6 +60,7 @@
     description: terror-queen-briefing
   - type: VentCrawler
   # Terror
+  - type: TerrorQueenSense
   - type: ProximityLeashAnchor
     leashGroup: terrorSpider
   - type: TerrorVentSmash
@@ -70,9 +71,7 @@
     spiderType: TerrorQueen
   - type: ActionGrant
     actions:
-    - ActionTerrorWeb
-    - ActionTerrorWrap
     - ActionTerrorAirtightWeb
     - ActionTerrorLayEggs
-    #- ActionTerrorQueenSense
+    - ActionTerrorQueenSense
     - ActionTerrorVentSmash

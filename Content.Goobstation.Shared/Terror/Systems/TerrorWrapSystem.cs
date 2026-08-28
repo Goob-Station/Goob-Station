@@ -47,7 +47,7 @@ public sealed class TerrorWrapSystem : EntitySystem
 
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
-            _popup.PopupClient(Loc.GetString("terror-wrap-fail"), uid, uid); // TO DO: Unique pop-up
+            _popup.PopupClient(Loc.GetString("terror-wrap-fail-humanoid"), uid, uid);
             return;
         }
 

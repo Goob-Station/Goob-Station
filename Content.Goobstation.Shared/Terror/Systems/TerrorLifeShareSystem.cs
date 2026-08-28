@@ -21,15 +21,9 @@ public sealed class TerrorLifeShareSystem : EntitySystem
 
     private void OnLifeShare(Entity<TerrorLifeShareComponent> ent, ref TerrorLifeShareEvent args)
     {
-        if (args.Target == ent.Owner)
-        {
-            _popup.PopupClient(Loc.GetString("terror-life-share-self-invalid"), ent.Owner, ent.Owner);
-            return;
-        }
-
         if (!HasComp<TerrorSpiderComponent>(args.Target))
         {
-            _popup.PopupClient(Loc.GetString("terror-life-share-invalid-target"), ent.Owner, ent.Owner);
+            _popup.PopupPredicted(Loc.GetString("terror-life-share-invalid-target"), ent.Owner, ent.Owner);
             return;
         }
 

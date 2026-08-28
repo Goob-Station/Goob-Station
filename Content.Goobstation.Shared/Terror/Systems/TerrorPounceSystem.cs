@@ -33,7 +33,7 @@ public sealed class TerrorPounceSystem : EntitySystem
 
     private void OnPounce(Entity<TerrorPounceComponent> ent, ref TerrorPounceEvent args)
     {
-        _popup.PopupClient(Loc.GetString("terror-pounce-leap"), ent.Owner, ent.Owner);
+        _popup.PopupPredicted(Loc.GetString("terror-pounce-leap"), ent.Owner, ent.Owner, PopupType.Medium);
 
         ent.Comp.IsLeaping = true;
         Dirty(ent);
@@ -67,6 +67,7 @@ public sealed class TerrorPounceSystem : EntitySystem
         }
         else
         {
+            _popup.PopupPredicted(Loc.GetString("terror-pounce-leap-fail"), ent.Owner, ent.Owner, PopupType.MediumCaution);
             _stun.TryAddStunDuration(ent.Owner, ent.Comp.SelfStun);
         }
 

@@ -20,6 +20,9 @@
         { "name": "wrap" },
         { "name": "queensense" },
         { "name": "royal" },
-        { "name": "summon" }
+        { "name": "summon" },
+        { "name": "pounce" },
+        { "name": "charge" },
+        { "name": "tremor" }
     ]
 }

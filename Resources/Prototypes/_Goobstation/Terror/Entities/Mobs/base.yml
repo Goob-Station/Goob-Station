@@ -6,16 +6,16 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: young_flesh  
+        state: red  
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: young_flesh
+        Base: red
       Dead:
-        Base: young_flesh_dead
+        Base: red_dead
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -56,6 +56,8 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/snake_hiss.ogg
+  - type: GhostRole
+    description: terror-spider-briefing
   - type: NoSlip
   - type: IgnoreSpiderWeb
   - type: Bloodstream
@@ -125,7 +127,7 @@
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: spiderling

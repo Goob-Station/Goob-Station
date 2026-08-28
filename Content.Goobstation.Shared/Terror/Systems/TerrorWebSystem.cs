@@ -21,7 +21,7 @@ public sealed class TerrorWebSystem : EntitySystem
 
     private void OnTriggered(EntityUid uid, TerrorWebComponent comp, ref StepTrapTriggeredEvent ev)
     {
-        _popup.PopupPredicted(Loc.GetString(comp.PopupMessage), ev.Tripper, ev.Tripper, PopupType.MediumCaution);
+        _popup.PopupPredicted(Loc.GetString("sticky-web-generic"), ev.Tripper, ev.Tripper, PopupType.MediumCaution);
 
         if (comp.InflictsInfested)
         {

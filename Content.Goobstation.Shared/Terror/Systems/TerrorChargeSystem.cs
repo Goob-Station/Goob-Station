@@ -33,7 +33,7 @@ public sealed class TerrorChargeSystem : EntitySystem
 
     private void OnCharge(Entity<TerrorChargeComponent> ent, ref TerrorChargeEvent args)
     {
-        _popup.PopupClient(Loc.GetString("terror-charge-windup"), ent.Owner, ent.Owner);
+        _popup.PopupPredicted(Loc.GetString("terror-charge"), ent.Owner, ent.Owner);
 
         ent.Comp.IsCharging = true;
         Dirty(ent);

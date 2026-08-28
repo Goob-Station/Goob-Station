@@ -6,16 +6,16 @@
   description: An ominous-looking spider, black as the darkest night. It has merciless eyes, and a blood-red hourglass pattern on its back.
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: viper
+        state: widow
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: viper
+        Base: widow
       Dead:
-        Base: viper_dead
+        Base: widow_dead
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -33,17 +33,15 @@
     damage:
       types:
         Slash: 10
-  - type: GhostRole
-    description: terror-black-briefing
   - type: VentCrawler
   # Terror
   - type: TerrorPounce
+    injectReagent: Toxin
+    injectAmount: 7
   - type: TerrorSpider
     spiderType: BlackTerror
   - type: ActionGrant
     actions:
-    - ActionTerrorWeb
-    - ActionTerrorWrap
     - ActionTerrorPoisonWeb
     - ActionTerrorPounce
 
@@ -55,16 +53,16 @@
   description: An ominous-looking white spider, its ghostly eyes and vicious-looking fangs are the stuff of nightmares.
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: ambush
+        state: white
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: ambush
+        Base: white
       Dead:
-        Base: ambush_dead
+        Base: white_dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -80,16 +78,12 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: GhostRole
-    description: terror-white-briefing
   - type: VentCrawler
   # Terror
   - type: TerrorSpider
     spiderType: WhiteTerror
   - type: ActionGrant
     actions:
-    - ActionTerrorWeb
-    - ActionTerrorWrap
     - ActionTerrorInfestedWeb
 
 # purple
@@ -100,16 +94,16 @@
   description: An ominous-looking purple spider. It looks about warily, as if waiting for something.
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: tank
+        state: purple
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: tank
+        Base: purple
       Dead:
-        Base: tank_dead
+        Base: purple_dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.4
     baseSprintSpeed: 3.4
@@ -129,8 +123,6 @@
     speedModifier: 1
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: GhostRole
-    description: terror-purple-briefing
   # Terror
   - type: BerserkerRage
   - type: TerrorTremor
@@ -143,8 +135,6 @@
     spiderType: PurpleTerror
   - type: ActionGrant
     actions:
-    - ActionTerrorWeb
-    - ActionTerrorWrap
     - ActionTerrorThickWeb
     - ActionTerrorTremor
 
@@ -156,16 +146,16 @@
   description: An ominous-looking spider, colored brown like the dirt it crawled out of. Its forearms have sharp digging claws.
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: breacher
+        state: brown
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: breacher
+        Base: brown
       Dead:
-        Base: breacher_dead
+        Base: brown_dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -185,8 +175,6 @@
     speedModifier: 5
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: GhostRole
-    description: terror-brown-briefing
   # Terror
   - type: TerrorVentSmash
   - type: TerrorCharge
@@ -195,12 +183,10 @@
         Structural: 300
     targetDamage:
       groups:
-        Brute: 10
+        Brute: 20
   - type: TerrorSpider
     spiderType: BrownTerror
   - type: ActionGrant
     actions:
-    - ActionTerrorWeb
-    - ActionTerrorWrap
     - ActionTerrorVentSmash
     - ActionTerrorCharge

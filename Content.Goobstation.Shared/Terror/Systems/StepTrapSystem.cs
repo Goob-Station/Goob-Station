@@ -41,8 +41,7 @@ public sealed class StepTrapSystem : EntitySystem
 }
 
 /// <summary>
-/// Raised on the trap entity when something steps on it and the base stun is applied.
-/// Subscribe to this to add effects on top (reagent injection, component application, popups, etc.)
+/// Raised on the trap when something steps on it and the stun is applied.
 /// </summary>
 [ByRefEvent]
 public record struct StepTrapTriggeredEvent(EntityUid Tripper);

@@ -6,16 +6,16 @@
   description: An enormous, terrifying spider. It looks like it is judging everything it sees. Its hide seems armored, and it bears the scars of many battles.
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: viper
+        state: allblack
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: guard
+        Base: allblack
       Dead:
-        Base: guard_dead
+        Base: allblack_dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -35,10 +35,10 @@
     speedModifier: 5
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: GhostRole
-    description: terror-prince-briefing
   # Terror
   - type: TerrorPounce
+    injectReagent: Toxin
+    injectAmount: 10
   - type: TerrorTremor
   - type: TerrorCharge
     structureDamage:
@@ -46,15 +46,13 @@
         Structural: 300
     targetDamage:
       groups:
-        Brute: 15
+        Brute: 30
   - type: ProximityLeashAnchor
     leashGroup: terrorSpider
   - type: TerrorSpider
     spiderType: TerrorPrince
   - type: ActionGrant
     actions:
-    - ActionTerrorWeb
-    - ActionTerrorWrap
     - ActionTerrorThickWeb
     - ActionTerrorPounce
     - ActionTerrorTremor
@@ -68,16 +66,16 @@
   description: An enormous spider. It looks strangely cute and fluffy.
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: midwife
+        state: princess
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: midwife
+        Base: princess
       Dead:
-        Base: midwife_dead
+        Base: princess_dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -95,8 +93,6 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: GhostRole
-    description: terror-princess-briefing
   - type: VentCrawler
   # Terror
   - type: TerrorVentSmash
@@ -107,8 +103,6 @@
     spiderType: TerrorPrincess
   - type: ActionGrant
     actions:
-    - ActionTerrorWeb
-    - ActionTerrorWrap
     - ActionTerrorAirtightWeb
     - ActionTerrorLayEggs
     - ActionTerrorVentSmash
@@ -121,16 +115,16 @@
   description: An enormous spider. Tiny spiderlings are crawling all over it. Their beady little eyes all stare at you. The horror!
   components:
   - type: Sprite
-    sprite: _Goobstation/Terror/Entities/Mobs/TGstation
+    sprite: _Goobstation/Terror/Entities/Mobs
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: tangle
+        state: mother
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: tangle
+        Base: mother
       Dead:
-        Base: tangle_dead
+        Base: mother_dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -145,8 +139,6 @@
     speedModifier: 2
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: GhostRole
-    description: terror-mother-briefing
   # Terror
   - type: TerrorVentSmash
   - type: TerrorLifeShare
@@ -160,8 +152,6 @@
     spiderType: TerrorMother
   - type: ActionGrant
     actions:
-    - ActionTerrorWeb
-    - ActionTerrorWrap
     - ActionTerrorAirtightWeb
     - ActionTerrorVentSmash
     - ActionTerrorLifeShare

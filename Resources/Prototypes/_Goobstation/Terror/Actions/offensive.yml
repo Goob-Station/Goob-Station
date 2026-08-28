@@ -5,12 +5,12 @@
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 3
+    useDelay: 10
     icon:
       sprite: _Goobstation/Terror/actions.rsi
-      state: web
+      state: pounce
   - type: TargetAction
-    range: 1
+    range: 6
   - type: WorldTargetAction
     event: !type:TerrorPounceEvent
 
@@ -21,12 +21,12 @@
   components:
   - type: Action
     itemIconStyle: BigAction
-    useDelay: 3
+    useDelay: 10
     icon:
       sprite: _Goobstation/Terror/actions.rsi
-      state: web
+      state: charge
   - type: TargetAction
-    range: 1
+    range: 4
   - type: WorldTargetAction
     event: !type:TerrorChargeEvent
 
@@ -36,9 +36,9 @@
   description: Stomp the ground and cause tremors underneath, knocking down anyone near you in a wide radius.
   components:
   - type: Action
-    useDelay: 3
+    useDelay: 10
     icon:
       sprite: _Goobstation/Terror/actions.rsi
-      state: queensense
+      state: tremor
   - type: InstantAction
     event: !type:TerrorTremorEvent

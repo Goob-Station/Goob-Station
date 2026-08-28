@@ -22,5 +22,5 @@ public sealed partial class TerrorLifeShareComponent : Component
     public DamageSpecifier HealAmount = new();
 
     [DataField]
-    public SoundSpecifier? Sound;
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Voice/Slime/slime_schlorp.ogg");
 }

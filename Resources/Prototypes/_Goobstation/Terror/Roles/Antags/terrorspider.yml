@@ -1,0 +1,9 @@
+- type: antag
+  id: TerrorQueenRoundstart
+  name: roles-antag-terror-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-terror-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 180000
