@@ -16,7 +16,7 @@ using YamlDotNet.Core;
 using Robust.Shared.Toolshed.Commands.Values;
 using Content.Shared.Singularity.Components;
 
-namespace Content.Omu.Shared.DiodeDiscSystem;
+namespace Content.Shared._Omu.DiodeDisc;
 
 public sealed class DiodeDiscSystem : EntitySystem
 {
