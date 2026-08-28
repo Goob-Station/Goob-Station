@@ -8,6 +8,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Containers; // Goobstation
 
 namespace Content.Shared.Trigger.Systems;
 
@@ -19,6 +20,7 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly TurfSystem _turfSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // Goobstation
 
     protected override void OnTrigger(Entity<ScramOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
@@ -53,6 +55,17 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
     private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius, int tries = 40, PhysicsComponent? physicsComponent = null)
     {
         var userCoords = Transform(uid).Coordinates;
+
+        // Goobstation - start.
+        // Being in a locker any container set your coordinate to the locker with 0 x,y
+        // So just get the parent local coord instead
+        if (_container.IsEntityOrParentInContainer(uid))
+        {
+            var parent = _transform.GetParentUid(uid);
+            userCoords = Transform(parent).Coordinates;
+        }
+        // Goobstation - end
+
         EntityCoordinates? targetCoords = null;
 
         if (!Resolve(uid, ref physicsComponent))
