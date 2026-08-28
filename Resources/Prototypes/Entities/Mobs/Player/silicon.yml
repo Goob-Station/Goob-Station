@@ -14,7 +14,7 @@
     - Engineering
     - Medical
     - Science
-    - Security
+    # - Security # Goobstation - Stop validhunt AI
     - Service
     - Supply
   - type: ActiveRadio
@@ -25,7 +25,7 @@
     - Engineering
     - Medical
     - Science
-    - Security
+    # - Security # Goobstation - Stop validhunt AI
     - Service
     - Supply
   # Goobstation
