@@ -24698,3 +24698,11 @@ Entries:
       message: Removed Snowball station
   id: 2830
   time: '2026-08-28T00:46:41.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        You can now analyze vials and mini vials with chemical analysis goggles
+        as intended.
+  id: 2831
+  time: '2026-08-28T07:24:16.0000000+00:00'
