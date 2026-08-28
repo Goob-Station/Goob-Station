@@ -24706,3 +24706,11 @@ Entries:
         as intended.
   id: 2831
   time: '2026-08-28T07:24:16.0000000+00:00'
+- author: Aureu-K, Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Cryo chems can heal non-vital damage again. Cryoxadone also restores
+        blood as it used to.
+  id: 2832
+  time: '2026-08-28T07:25:00.0000000+00:00'
