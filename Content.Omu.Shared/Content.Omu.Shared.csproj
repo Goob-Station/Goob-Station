@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <Import Project="../MSBuild/Content.props" />
+
+  <ItemGroup>
+    <ProjectReference Include="../Content.Goobstation.Shared/Content.Goobstation.Shared.csproj" />
+    <ProjectReference Include="../Content.Shared/Content.Shared.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\RobustToolbox\Imports\Shared.props" />
+  <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
+  <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
+</Project>
