@@ -24714,3 +24714,11 @@ Entries:
         blood as it used to.
   id: 2832
   time: '2026-08-28T07:25:00.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Mindshield Implants Crate cost decreased from 3000 spesos to 1500
+        spesos.
+  id: 2833
+  time: '2026-08-28T07:25:47.0000000+00:00'
