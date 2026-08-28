@@ -24722,3 +24722,9 @@ Entries:
         spesos.
   id: 2833
   time: '2026-08-28T07:25:47.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: 'Square plasma tanks now fit in your back slot. '
+  id: 2834
+  time: '2026-08-28T22:23:35.0000000+00:00'
