@@ -10,7 +10,6 @@ using Content.Shared.Popups;
 using Content.Shared.Wires;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Content.Omu.Shared.DiodeDisc;
 using Content.Shared._DV.Construction;
 using YamlDotNet.Core;
 using Robust.Shared.Toolshed.Commands.Values;
