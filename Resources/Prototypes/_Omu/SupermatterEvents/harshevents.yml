@@ -73,6 +73,6 @@
 - type: supermatterEvent
   id: SMGravitySpawn
   protoToSpawn: AdminInstantEffectGravityWell
-  announcement: Supermatter-energy-surge
+  announcement: supermatter-energy-surge
 
 
