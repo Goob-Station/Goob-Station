@@ -24740,3 +24740,25 @@ Entries:
       message: Fixed speech bubbles not having fonts
   id: 2836
   time: '2026-08-29T16:10:02.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added new researchable mining tools: diamond pickaxe, super mining
+        drill, super plasma cutter.
+    - type: Add
+      message: Added craftable wooden and ashwooden pickaxes.
+    - type: Add
+      message: >-
+        Added craftable cudgels - they require more wood than baseball bats but
+        focus more on structural damage.
+    - type: Add
+      message: Added Gibtonite ore to Lavaland. Beware of explosions!
+    - type: Add
+      message: >-
+        Gray and pale sprouts that grow on Lavaland now can be gathered and
+        crafted into cloth.
+    - type: Tweak
+      message: Bone axe is now more difficult to craft.
+  id: 2837
+  time: '2026-08-29T17:46:27.0000000+00:00'
