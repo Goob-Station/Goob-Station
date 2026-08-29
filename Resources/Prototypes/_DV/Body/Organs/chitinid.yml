@@ -43,7 +43,7 @@
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
-      rateModifier: 0.1
+      # rateModifier: 0.1 # Goobstation; this line causes ethanol to not metabolize at all
   - type: Liver # Shitmed
   - type: Tag # goob edit
     tags:
