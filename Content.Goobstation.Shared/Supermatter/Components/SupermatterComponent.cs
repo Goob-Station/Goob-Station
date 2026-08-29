@@ -491,7 +491,7 @@ public sealed partial class SupermatterEventPrototype : IPrototype
     [DataField]
     public string EventType = default!;
     [DataField]
-    public Gas GasToSpawn = default!;
+    public Gas? GasToSpawn;
     [DataField]
     public string? ProtoToSpawn;
     [DataField]
