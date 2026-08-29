@@ -24794,3 +24794,11 @@ Entries:
         does the same as it did in coffee, but now also affects other drinks.
   id: 2840
   time: '2026-08-29T17:49:11.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: >-
+        CHUDSHIFT no longer shows up as 'Unknown Title - Unknown Artist' in the
+        lobby.
+  id: 2841
+  time: '2026-08-29T17:53:26.0000000+00:00'
