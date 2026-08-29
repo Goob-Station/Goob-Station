@@ -54,6 +54,9 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
     /// <remarks> Trends towards the outer radius. Compensates for small grids. </remarks>
     private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius, int tries = 40, PhysicsComponent? physicsComponent = null)
     {
+        if (!Resolve(uid, ref physicsComponent)) // Goobstation - Moved the resolve to top
+            return null;
+
         var userCoords = Transform(uid).Coordinates;
 
         // Goobstation - start.
@@ -69,10 +72,6 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
         // Goobstation - end
 
         EntityCoordinates? targetCoords = null;
-
-        if (!Resolve(uid, ref physicsComponent))
-            return targetCoords;
-
 
         for (var i = 0; i < tries; i++)
         {
