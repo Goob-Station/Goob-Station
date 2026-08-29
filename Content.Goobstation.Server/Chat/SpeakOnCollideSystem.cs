@@ -31,15 +31,8 @@ public sealed class SpeakOnCollideSystem : EntitySystem
         string message;
         if (ent.Comp.Text != null)
             message = Loc.GetString(ent.Comp.Text);
-        else
-        {
-            if (!_prototypeManager.Resolve(ent.Comp.Pack, out var messagePack))
-                return;
-            message = Loc.GetString(_random.Pick(messagePack.Values));
-        }
-        message = '>' + message;
-        _chat.TrySendInGameICMessage(ent, message, InGameICChatType.Speak, true);
-
+        if (_prototypeManager.Resolve(ent.Comp.Pack, out var messagePack))
+            _chat.TrySendInGameICMessage(ent, Loc.GetString(_random.Pick(messagePack.Values)), InGameICChatType.Speak, true);
     }
 
     private void HandleCollide(Entity<SpeakOnCollideComponent> ent, ref StartCollideEvent args)
