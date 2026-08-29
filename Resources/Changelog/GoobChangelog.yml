@@ -24802,3 +24802,9 @@ Entries:
         lobby.
   id: 2841
   time: '2026-08-29T17:53:26.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Normalised the volume of a lot of voices
+  id: 2842
+  time: '2026-08-29T17:56:00.0000000+00:00'
