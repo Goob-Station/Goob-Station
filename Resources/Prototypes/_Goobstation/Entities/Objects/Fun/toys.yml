@@ -1147,7 +1147,6 @@
     components:
     - type: EmbeddableProjectile
       sound: /Audio/_Goobstation/Weapons/Melee/swordimpact.ogg
-      removaltime: 0.0
 
 - type: entity
   parent: PlushieLizard
