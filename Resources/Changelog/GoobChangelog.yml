@@ -24776,3 +24776,21 @@ Entries:
       message: Removed Energy Magnum from normal play
   id: 2839
   time: '2026-08-29T17:48:44.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        New nutriment called "Junk food" which is present in snack foods, if
+        eaten in excess, will cause you to become sluggish.
+    - type: Tweak
+      message: >-
+        Lowered the nutriment value of snack foods, and increased it for cooked
+        foods. The change will be barely noticeable, but snack food will now
+        theoretically not fuel you for the entire round as easily.
+    - type: Tweak
+      message: >-
+        The effect present in coffee that increases your movement speed if you
+        drink enough of it is now instead a new reagent called "Caffeine" which
+        does the same as it did in coffee, but now also affects other drinks.
+  id: 2840
+  time: '2026-08-29T17:49:11.0000000+00:00'
