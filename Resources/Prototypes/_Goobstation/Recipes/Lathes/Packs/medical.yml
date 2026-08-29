@@ -59,6 +59,7 @@
   - PrescriptionGlasses
   - VehicleHoverchairSci
   - TinfoilHats
+  - AACTablet
 
 - type: latheRecipePack
   id: MedicalMiscRestricted

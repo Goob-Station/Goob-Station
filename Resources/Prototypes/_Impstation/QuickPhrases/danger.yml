@@ -1,0 +1,46 @@
+- type: quickPhrase
+  id: BaseDangerImp
+  tab: Danger
+  abstract: true
+
+ # types
+
+- type: quickPhrase
+  id: ViralPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-danger-viral
+
+- type: quickPhrase
+  id: LifeformPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-danger-lifeform
+
+- type: quickPhrase
+  id: BokenEqPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-danger-brokeneq
+
+- type: quickPhrase
+  id: ChemSpillPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-danger-chemspill
+
+- type: quickPhrase
+  id: ShockPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-danger-shock
+
+- type: quickPhrase
+  id: PowerOutPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-danger-powerout
+
+- type: quickPhrase
+  id: GasLeakPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-danger-gasleak
+
+- type: quickPhrase
+  id: UnionNTPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-danger-unionnt
