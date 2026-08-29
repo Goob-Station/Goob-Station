@@ -33,6 +33,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 3, 3 ]
+            RadioHost: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 4, 4 ]
@@ -59,6 +60,7 @@
             CargoTechnician: [ 3, 3 ]
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 2 ]
+            ShaftMiner: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
