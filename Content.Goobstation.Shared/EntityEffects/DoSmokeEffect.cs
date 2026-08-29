@@ -34,6 +34,10 @@ public sealed partial class DoSmokeEffect : EntityEffectBase<DoSmokeEffect>
     [DataField]
     public Solution Solution = new();
 
+    [DataField]
+    public LocId? GuidebookText = "entity-effect-guidebook-do-smoke";
+
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null; // TODO
+    => GuidebookText is { } loc ? Loc.GetString(loc, ("chance", Probability)) : null;
+
 }
