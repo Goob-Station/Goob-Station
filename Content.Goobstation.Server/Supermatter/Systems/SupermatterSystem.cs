@@ -130,6 +130,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     {
         if (sm.Timelocked < (_gameTiming.CurTime.TotalMinutes - sm.Timetounlock) && sm.Varlocked == true)        //omu start
         {
+            sm.Surge = false;
             sm.Varlocked = false;
             _achat.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
         }                                                                                                        //omu end
@@ -178,25 +179,22 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 _radioSystem.SendRadioMessage(uid, message, _proto.Index<RadioChannelPrototype>(sm.RadioChannel), uid);
                 _achat.SendAdminAlert($"{eventtorun.ID} run by supermatter {uid}");
             }
-            if (eventtorun.EventType == "Gas")   //If its a gas event - create the gas
+            if (eventtorun.GasToSpawn is not null)   //If its a gas event - create the gas
             {
                 var mix = _atmosphere.GetContainingMixture(uid, true, true);
                 if (mix == null)
                     return;
-                mix.AdjustMoles(eventtorun.GasToSpawn, 2000f);
+                mix.AdjustMoles(eventtorun.GasToSpawn.Value, 2000f);
             }
-            else if (eventtorun.EventType == "Spawn")    //If its a spawn event - spawn what we want next to the SM
+            else if (eventtorun.ProtoToSpawn is not null)    //If its a spawn event - spawn what we want next to the SM
             {
-                if (eventtorun.ProtoToSpawn != null)
-                {
-                    var xform = Transform(uid);
-                    var coords = xform.Coordinates;
-                    Vector2 xy = new Vector2(0f, -1f);
-                    coords = coords.Offset(xy);
-                    Spawn(eventtorun.ProtoToSpawn, coords);
-                }
+                var xform = Transform(uid);
+                var coords = xform.Coordinates;
+                Vector2 xy = new Vector2(0f, -1f);
+                coords = coords.Offset(xy);
+                Spawn(eventtorun.ProtoToSpawn, coords);
             }
-            else if (eventtorun.EventType == "Surge")
+            else if (eventtorun.ID == "SMSurge")
             {
                 sm.Varlocked = true;
                 _achat.SendAdminAlert($"{sm.Varlocked} = supermatter surge begun at time: {_gameTiming.CurTime.TotalMinutes}");
@@ -205,6 +203,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 sm.GasEfficiency = 0.30f;
                 sm.RadiationOutputFactorChanged = true;
                 sm.RadiationOutputFactor = 0.06f;
+                sm.Surge = true;
             }
         }
     }                            // Omu end

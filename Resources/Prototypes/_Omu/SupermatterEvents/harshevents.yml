@@ -13,78 +13,65 @@
 
 - type: supermatterEvent
   id: SMSurge
-  eventType: Surge
   announcement: Supermatter-Surge
 
 - type: supermatterEvent
   id: GasSpillOxy
-  eventType: Gas
-  gasToSpawn: Oxygen
+  gasToSpawn: 0   # Changed to gas ID
   announcement: Gas-Spill-Oxygen
 
 - type: supermatterEvent
   id: GasSpillPlasma
-  eventType: Gas
-  gasToSpawn: Plasma
+  gasToSpawn: 3 # Changed to gas ID
   announcement: Gas-Spill-Plasma
 
 - type: supermatterEvent
   id: GasSpillNitrium
-  eventType: Gas
-  gasToSpawn: Nitrium
+  gasToSpawn: 11 # Changed to gas ID
   announcement: Gas-Spill-Nitrium
 
 - type: supermatterEvent
   id: GasSpillNitrogen
-  eventType: Gas
-  gasToSpawn: Nitrogen
+  gasToSpawn: 1 # Changed to gas ID
   announcement: Gas-Spill-Nitrogen
 
 - type: supermatterEvent
   id: GasSpillCarbon
-  eventType: Gas
-  gasToSpawn: CarbonDioxide
+  gasToSpawn: 2 # Changed to gas ID
   announcement: Gas-Spill-CarbonDioxide
 
 - type: supermatterEvent
   id: GasSpillFrezon
-  eventType: Gas
-  gasToSpawn: Frezon
+  gasToSpawn: 8 # Changed to gas ID
   announcement: Gas-Spill-Frezon
 
 - type: supermatterEvent
   id: SMShardSpawn
-  eventType: Spawn
   protoToSpawn: SupermatterSliver
   announcement: supermatter-announcement-cc-tamper
 
 - type: supermatterEvent
   id: SMAnomSpawn
-  eventType: Spawn
   protoToSpawn: RandomAnomalySpawner
   announcement: supermatter-announcement-cc-tamper
 
 - type: supermatterEvent
   id: SMBSAnomSpawn
-  eventType: Spawn
   protoToSpawn: AnomalyBluespace
   announcement: supermatter-announcement-cc-tamper
 
 - type: supermatterEvent
   id: SMCrabSpawn
-  eventType: Spawn
   protoToSpawn: MobSupermatterCrab
   announcement: supermatter-announcement-cc-tamper
 
 - type: supermatterEvent
   id: SMEMPSpawn
-  eventType: Spawn
   protoToSpawn: AdminInstantEffectEMP7
   announcement: Supermatter-energy-surge
 
 - type: supermatterEvent
   id: SMGravitySpawn
-  eventType: Spawn
   protoToSpawn: AdminInstantEffectGravityWell
   announcement: Supermatter-energy-surge
 

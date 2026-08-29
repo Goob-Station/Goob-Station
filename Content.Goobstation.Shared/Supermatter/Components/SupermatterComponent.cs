@@ -482,18 +482,22 @@ public sealed partial class SupermatterComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool GasEfficiencyFactorChanged = false;
 
+    [DataField]
+    public bool Surge = false;
 }
+
 [Prototype]
 public sealed partial class SupermatterEventPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; set; } = default!;
+
     [DataField]
-    public string EventType = default!;
-    [DataField]
-    public Gas GasToSpawn = default!;
+    public int? GasToSpawn = default!; // Changed to gas ID
+
     [DataField]
     public string? ProtoToSpawn = default!;
+
     [DataField]
     public LocId? Announcement;
 }
