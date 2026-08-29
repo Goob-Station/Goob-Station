@@ -24734,3 +24734,9 @@ Entries:
       message: Fixed Borg sprites being errors
   id: 2835
   time: '2026-08-29T15:07:59.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed speech bubbles not having fonts
+  id: 2836
+  time: '2026-08-29T16:10:02.0000000+00:00'
