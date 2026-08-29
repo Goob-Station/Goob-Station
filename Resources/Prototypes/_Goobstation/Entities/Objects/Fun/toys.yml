@@ -1273,3 +1273,9 @@
   parent: PlushieRedstonewolf
   id: EvilPlushieRedstonewolf
   suffix: Evil
+  
+- type: entity
+  name: evil Rouge plush
+  parent: PlushieRouge
+  id: EvilPlushieRouge
+  suffix: Evil
