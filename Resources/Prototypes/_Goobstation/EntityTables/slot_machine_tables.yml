@@ -1,0 +1,7 @@
+- type: entityTable
+  id: SlotMachineMinorWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash1000
+    - id: SpaceCash2500
+    - id: ClothingEyesHudMedical

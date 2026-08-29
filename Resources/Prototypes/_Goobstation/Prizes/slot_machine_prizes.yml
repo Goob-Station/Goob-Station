@@ -1,0 +1,11 @@
+- type: prize
+  id: Lose
+  weight: 0.3
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Machines/buzz-two.ogg
+
+- type: prize
+  id: MinorWin
+  weight: 0.5
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineMinorWin

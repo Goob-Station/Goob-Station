@@ -5,7 +5,10 @@ using Content.Shared.Interaction;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 using Content.Shared.Chat;
+using Content.Shared.Coordinates;
+using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
+using Content.Shared.EntityTable;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
@@ -28,6 +31,7 @@ namespace Content.Goobstation.Shared.SlotMachine
         [Dependency] private readonly SharedStackSystem _stackSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
+        [Dependency] private readonly EntityTableSystem _entityTable = default!;
 
         public override void Initialize()
         {
@@ -35,40 +39,52 @@ namespace Content.Goobstation.Shared.SlotMachine
 
             SubscribeLocalEvent<SlotMachineComponent, ActivateInWorldEvent>(OnInteractHandEvent);
             SubscribeLocalEvent<SlotMachineComponent, SlotMachineDoAfterEvent>(OnSlotMachineDoAfter);
+            SubscribeLocalEvent<SlotMachineComponent, SlotMachineEmagDoAfterEvent>(OnSlotMachineEmagDoAfter);
             SubscribeLocalEvent<SlotMachineComponent, GotEmaggedEvent>(OnEmagged);
         }
 
         /// <summary>
-        /// For whenever it gets emagged
+        /// Spawns a random entity when emmaged
         /// </summary>
-        private void OnEmagged(EntityUid uid, SlotMachineComponent comp, ref GotEmaggedEvent args)
+        private void OnEmagged(Entity<SlotMachineComponent> ent, ref GotEmaggedEvent args)
         {
-            if(comp.Emagged)
+            if (HasComp<EmaggedComponent>(ent.Owner))
                 return;
 
             args.Handled = true;
-            comp.Emagged = true;
+            EnsureComp<EmaggedComponent>(ent);
 
-            comp.SpinCost = _random.Next(50, 100000);
-            comp.SmallPrizeAmount = _random.Next(-500, 5000);
-            comp.MediumPrizeAmount = _random.Next(-500, 10000);
-            comp.BigPrizeAmount = _random.Next(-500, 50000);
-            comp.JackPotPrizeAmount = _random.Next(-500, 100000);
+            var entities = _proto.EnumeratePrototypes<EntityPrototype>().ToList();
+            ent.Comp.EmagSpawnEntity = _random.Pick(entities).ID;
 
-            comp.SmallWinChance  = _random.NextFloat(0, 0.6f);
-            comp.MediumWinChance  = _random.NextFloat(0, 0.35f);
-            comp.BigWinChance  = _random.NextFloat(0f, 0.2f);
-            comp.JackPotWinChance  = _random.NextFloat(0, 0.1f);
-            comp.GodPotWinChance =  _random.NextFloat(0, 0.05f);
+            var doAfter =
+                new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DoAfterTime, new SlotMachineEmagDoAfterEvent(), ent.Owner)
+                {
+                    BreakOnMove = false,
+                    BreakOnDamage = false,
+                    MultiplyDelay = false,
+                };
 
-            // lord have mercy...
-            var allProtos = _proto.EnumeratePrototypes<EntityPrototype>().ToList();
+            ent.Comp.IsSpinning = true;
 
-            if (allProtos.Count > 0)
+            if (_net.IsServer)
             {
-                var randomProto = _random.Pick(allProtos);
-                comp.GodPotPrize = randomProto.ID;
+                _audio.PlayPvs(ent.Comp.SpinSound, ent.Owner);
+                _doAfter.TryStartDoAfter(doAfter);
+                _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, true);
             }
+        }
+
+        private void OnSlotMachineEmagDoAfter(Entity<SlotMachineComponent> ent, ref SlotMachineEmagDoAfterEvent args)
+        {
+            if (_net.IsServer && ent.Comp.EmagSpawnEntity is not null)
+            {
+                _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
+                Spawn(ent.Comp.EmagSpawnEntity, ent.Owner.ToCoordinates());
+            }
+
+            ent.Comp.IsSpinning = false;
+            Dirty(ent);
         }
 
         /// <summary>
@@ -81,11 +97,10 @@ namespace Content.Goobstation.Shared.SlotMachine
                 return;
 
             if (!_itemSlots.TryGetSlot(uid, "money", out var slot)
-                || slot.Item == null
-                || !TryComp<StackComponent>(slot.Item.Value, out var stack)
-                || stack.Count < comp.SpinCost)
+                || slot.Item is not { } item
+                || _stackSystem.GetCount(item) < comp.SpinCost)
             {
-                _popupSystem.PopupPredicted(Loc.GetString("slotmachine-no-money"), uid, uid, PopupType.Small); // No Money
+                _popupSystem.PopupPredicted(Loc.GetString("slotmachine-no-money"), uid, args.User); // No Money
                 return;
             }
 
@@ -97,102 +112,80 @@ namespace Content.Goobstation.Shared.SlotMachine
                  MultiplyDelay = false,
              };
 
-            _stackSystem.SetCount(stack.Owner, stack.Count - comp.SpinCost, stack);
-            Dirty(stack.Owner, stack);
+            if (TryComp<StackComponent>(item, out var stack))
+                _stackSystem.SetCount((item, stack), _stackSystem.GetCount(item) - comp.SpinCost);
+
             comp.IsSpinning = true;
 
-            if (_net.IsServer)
+            if (_net.IsServer) // DoAfters cause misperdicts?
             {
                 _audio.PlayPvs(comp.SpinSound, uid);
                 _doAfter.TryStartDoAfter(doAfter);
-            }
-            if (TryComp<AppearanceComponent>(uid, out var appearance) && _net.IsServer)
-            {
                 _appearance.SetData(uid, SlotMachineVisuals.Spinning, true);
             }
         }
 
-        private void OnSlotMachineDoAfter(EntityUid uid, SlotMachineComponent comp, SlotMachineDoAfterEvent args)
+        private void OnSlotMachineDoAfter(Entity<SlotMachineComponent> ent, ref SlotMachineDoAfterEvent args)
         {
             if (args.Cancelled) // Almost no way for it to be canceled but just in case
             {
-                comp.IsSpinning = false;
-                Dirty(uid, comp);
+                ent.Comp.IsSpinning = false;
+                Dirty(ent);
                 return;
             }
 
-            if (args.Handled || !_itemSlots.TryGetSlot(uid, "money", out var slot))
+            if (args.Handled)
                 return;
 
-            comp.IsSpinning = false;
-            Dirty(uid, comp);
+            ent.Comp.IsSpinning = false;
+            Dirty(ent);
 
-            if (TryComp<AppearanceComponent>(uid, out var appearance) && _net.IsServer)
-            {
-                _appearance.SetData(uid, SlotMachineVisuals.Spinning, false);
-            }
+            _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
 
-            // Handle the chances
-            StackComponent? stack = null;
-            if (slot.Item != null)
-                TryComp<StackComponent>(slot.Item.Value, out stack);
+            var prize = GetRandomPrize();
 
-            if (_random.Prob(comp.SmallWinChance))
-            {
-                _audio.PlayPredicted(comp.SmallWinSound, uid, args.User);
-                HandlePrize(uid, Loc.GetString("slotmachine-win-normal", ("amount", comp.SmallPrizeAmount)), stack, comp.SmallPrizeAmount);
-                return;
-            }
-            if (_random.Prob(comp.MediumWinChance))
-            {
-                _audio.PlayPredicted(comp.MediumWinSound, uid, args.User);
-                HandlePrize(uid, Loc.GetString("slotmachine-win-normal", ("amount", comp.MediumPrizeAmount)), stack, comp.MediumPrizeAmount);
-                return;
-            }
-            if (_random.Prob(comp.BigWinChance))
-            {
-                _audio.PlayPredicted(comp.BigWinSound, uid, args.User);
-                HandlePrize(uid, Loc.GetString("slotmachine-win-normal", ("amount", comp.BigPrizeAmount)), stack, comp.BigPrizeAmount);
-                return;
-            }
-            if (_random.Prob(comp.JackPotWinChance))
-            {
-                _audio.PlayPredicted(comp.JackPotWinSound, uid, args.User);
-                HandlePrize(uid, Loc.GetString("slotmachine-win-jackpot"), stack, comp.JackPotPrizeAmount);
-                return;
-            }
-            if (_random.Prob(comp.GodPotWinChance)) // THE GODPOT!!!
-            {
-                _audio.PlayPredicted(comp.GodPotWinSound, uid, args.User);
-                var coordinates = Transform(uid).Coordinates;
-                EntityManager.SpawnEntity(comp.GodPotPrize, coordinates);
-                _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("slotmachine-win-godpot"), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
-                return;
-            }
-
-            _audio.PlayPredicted(comp.LoseSound, uid, args.User); // If nothing then lose
+            HandlePrize(ent, prize);
         }
-        private void HandlePrize(EntityUid uid, string msg, StackComponent? stack, int prize)
+        private void HandlePrize(Entity<SlotMachineComponent> ent, PrizePrototype prize)
         {
-            if (stack == null)
-            {
-                // Spawn a new cash stack if there's no money left in the machine
-                var coordinates = Transform(uid).Coordinates;
-                var newStack = EntityManager.SpawnEntity("SpaceCash", coordinates);
-                if (TryComp<StackComponent>(newStack, out var newStackComp))
-                {
-                    _stackSystem.SetCount(newStack, prize, newStackComp);
-                    Dirty(newStack, newStackComp);
-                }
+            var win = _entityTable.GetSpawns(prize.PrizeTable);
 
-                _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
-                return;
+            foreach (var item in win)
+            {
+                Spawn(item, ent.Owner.ToCoordinates());
             }
 
-            // Add money to the stack and play a message
-            _stackSystem.SetCount(stack.Owner, stack.Count + prize, stack);
-            Dirty(stack.Owner, stack);
-            _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
+            _audio.PlayPredicted(prize.WinSound, ent, ent);
+            if (prize.WinMessage is not null)
+                _chatSystem.TrySendInGameICMessage(ent, prize.WinMessage, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
+        }
+
+        public PrizePrototype GetRandomPrize()
+        {
+            var query = _proto.EnumeratePrototypes<PrizePrototype>();
+
+            Dictionary<PrizePrototype, float> picks = new();
+            foreach (var fill in query)
+            {
+                picks[fill] = fill.Weight;
+            }
+
+            var sum = picks.Values.Sum();
+            var accumulated = 0f;
+
+            var rand = _random.NextFloat() * sum;
+
+            foreach (var (prize, weight) in picks)
+            {
+                accumulated += weight;
+
+                if (accumulated >= rand)
+                {
+                    return prize;
+                }
+            }
+
+            throw new InvalidOperationException("Unable to find weighted random for a slot machine prize (THIS SHOULDN'T BE POSSIBLE)");
         }
     }
 }
