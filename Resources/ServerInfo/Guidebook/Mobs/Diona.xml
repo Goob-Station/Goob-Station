@@ -20,7 +20,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box>
     <GuideEntityEmbed Entity="FloraTree" Caption=""/>
   </Box>
-  - Being exposed to too much Robust Harvest will cause a Diona to grow out of control, turning into an [color=#ffa500]immobile tree (dropping all their equipment)[/color].
+  - Being exposed to too much Robust Harvest will cause a Diona to grow out of control, turning into an [color=#ffa500]immobile tree (dropping all its equipment)[/color].
   Cutting down the tree will "restore" the Diona to their mobile state.
 
 
