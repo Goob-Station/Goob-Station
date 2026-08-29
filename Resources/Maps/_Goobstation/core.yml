@@ -75738,8 +75738,6 @@ entities:
       pos: 43.5,19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22854
   - uid: 22856
@@ -75749,8 +75747,6 @@ entities:
       pos: 44.5,19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22854
 - proto: FirelockEdge
@@ -98292,8 +98288,6 @@ entities:
       pos: 44.5,22.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22854
     - type: AtmosPipeColor
@@ -99519,8 +99513,6 @@ entities:
       pos: 44.5,21.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22854
     - type: AtmosPipeColor
@@ -150833,8 +150825,6 @@ entities:
       pos: 13.5,-76.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 4082
@@ -150843,8 +150833,6 @@ entities:
       pos: 15.5,-63.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 10790
@@ -150853,8 +150841,6 @@ entities:
       pos: 16.5,-74.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 10791
@@ -150863,8 +150849,6 @@ entities:
       pos: 16.5,-67.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 10792
@@ -150873,8 +150857,6 @@ entities:
       pos: 22.5,-67.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 10793
@@ -150883,8 +150865,6 @@ entities:
       pos: 22.5,-74.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 22714
@@ -150893,8 +150873,6 @@ entities:
       pos: 15.5,-78.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 22715
@@ -150903,8 +150881,6 @@ entities:
       pos: 13.5,-69.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 22716
@@ -150913,8 +150889,6 @@ entities:
       pos: 25.5,-69.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 22717
@@ -150923,8 +150897,6 @@ entities:
       pos: 25.5,-76.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 22718
@@ -150933,8 +150905,6 @@ entities:
       pos: 23.5,-78.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
   - uid: 22719
@@ -150943,8 +150913,6 @@ entities:
       pos: 20.5,-65.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 22720
 - proto: WeaponEnergyTurretAIControlPanel
