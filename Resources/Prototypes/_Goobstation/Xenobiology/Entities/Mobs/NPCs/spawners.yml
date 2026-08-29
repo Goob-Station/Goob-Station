@@ -21,7 +21,7 @@
       state: base
   - type: RandomSpawner
     prototypes:
-    - MobXenobioBabyGrey
-    - MobXenobioBabyGrey
-    - MobXenobioBabyPurple
-    - MobXenobioBabyBlue
+    - MobSlimeXenobioBabyGrey
+    - MobSlimeXenobioBabyGrey
+    - MobSlimeXenobioBabyPurple
+    - MobSlimeXenobioBabyBlue
