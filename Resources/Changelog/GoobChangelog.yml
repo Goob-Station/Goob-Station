@@ -24808,3 +24808,9 @@ Entries:
       message: Normalised the volume of a lot of voices
   id: 2842
   time: '2026-08-29T17:56:00.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Area mopping and advance mop speed buff - to my beloved janitors
+  id: 2843
+  time: '2026-08-29T17:58:43.0000000+00:00'
