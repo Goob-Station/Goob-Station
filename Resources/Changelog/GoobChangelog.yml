@@ -24728,3 +24728,9 @@ Entries:
       message: 'Square plasma tanks now fit in your back slot. '
   id: 2834
   time: '2026-08-28T22:23:35.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Borg sprites being errors
+  id: 2835
+  time: '2026-08-29T15:07:59.0000000+00:00'
