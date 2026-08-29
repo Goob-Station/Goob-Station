@@ -81,8 +81,8 @@
 - type: cargoProduct
   id: FunTennisDuffel
   icon:
-    sprite: _Goobstation/Objects/Fun/tennis.rsi
-    state: tennis_bundle_icon
+    sprite: _Goobstation/Objects/Fun/tennis_racket.rsi
+    state: tennis_racket
   product: ClothingBackpackDuffelTennisGame
   cost: 1000
   category: cargoproduct-category-name-fun

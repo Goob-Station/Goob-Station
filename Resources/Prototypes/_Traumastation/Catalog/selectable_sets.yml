@@ -101,7 +101,7 @@
   name: selectable-set-syndicate-door-kicker-name
   description: selectable-set-syndicate-door-kicker-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun_icon_48x.rsi
     state: icon
   content:
   - ClothingUniformJumpsuitOperative
