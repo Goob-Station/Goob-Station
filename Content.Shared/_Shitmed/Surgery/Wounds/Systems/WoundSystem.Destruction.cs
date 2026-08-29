@@ -13,6 +13,7 @@ using Content.Shared.Standing;
 using Content.Goobstation.Common.Medical;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
@@ -65,7 +66,7 @@ public sealed partial class WoundSystem
                     parentWoundableEntity,
                     (parentWoundableEntity, Comp<WoundableComponent>(parentWoundableEntity)),
                     (woundInduced.Value.Owner, traumaInflicter),
-                    TraumaType.Dismemberment,
+                    TraumaSystem.Dismemberment,
                     15f,
                     (bodyPart.PartType, bodyPart.Symmetry));
 

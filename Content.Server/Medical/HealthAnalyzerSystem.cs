@@ -416,7 +416,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         {
             foreach (var trauma in traumasFound)
             {
-                if (trauma.Comp.TraumaType == TraumaType.BoneDamage
+                if (trauma.Comp.TraumaType == TraumaSystem.BoneDamage
                     && trauma.Comp.TraumaTarget is { } boneWoundable
                     && TryComp(boneWoundable, out BoneComponent? boneComp))
                 {

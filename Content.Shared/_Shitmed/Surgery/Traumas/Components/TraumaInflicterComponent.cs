@@ -21,46 +21,27 @@ public sealed partial class TraumaInflicterComponent : Component
     public Container TraumaContainer = new();
 
     /// <summary>
-    /// I like optimisation. So, instead of putting a '-1' in TraumasChance, just remove it from allowed traumas
-    /// </summary>
-    [DataField(required: true), AutoNetworkedField]
-    public List<TraumaType> AllowedTraumas = new();
-
-    /// <summary>
     /// If present in the list, when trauma of the said type is applied, the armour will be counted in to the deduction
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public List<TraumaType> AllowArmourDeduction = new();
+    public List<ProtoId<TraumaTypePrototype>> AllowArmourDeduction = new();
 
     /// <summary>
-    /// If you feel like customizing this for different species, go on.
+    /// Optional per-inflicter override of the entity spawned for a trauma type.
+    /// When a type is not present here, <see cref="TraumaTypePrototype.TraumaEntity"/> is used.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public Dictionary<TraumaType, EntProtoId> TraumaPrototypes = new()
-    {
-        { TraumaType.Dismemberment, "Dismemberment" },
-        { TraumaType.OrganDamage, "OrganDamage" },
-        { TraumaType.BoneDamage, "BoneDamage" },
-        { TraumaType.NerveDamage, "NerveDamage" },
-        { TraumaType.VeinsDamage, "VeinsDamage" },
-    };
+    public Dictionary<ProtoId<TraumaTypePrototype>, EntProtoId> TraumaPrototypes = new();
 
     /// <summary>
     /// Additional chance (-1, 0, 1) that is added in chance calculation
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<TraumaType, FixedPoint2> TraumasChances = new()
-    {
-        { TraumaType.Dismemberment, 0 },
-        { TraumaType.OrganDamage, 0 },
-        { TraumaType.BoneDamage, 0 },
-        { TraumaType.NerveDamage, 0 },
-        { TraumaType.VeinsDamage, 0 },
-    };
+    public Dictionary<ProtoId<TraumaTypePrototype>, FixedPoint2> TraumasChances = new();
 
     /// <summary>
     /// When a wound is mangled, any receiving damage will be multiplied by these values and applied to the respective body elements.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<TraumaType, FixedPoint2>? MangledMultipliers;
+    public Dictionary<ProtoId<TraumaTypePrototype>, FixedPoint2>? MangledMultipliers;
 }
