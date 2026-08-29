@@ -38,11 +38,11 @@
     - state: lung-l
     - state: lung-r
   - type: Organ
-    intCap: 17 # Goob start
-    integrity: 17
+    intCap: 85 # Goob start
+    integrity: 85
     integrityThresholds:
-      Normal: 17
-      Damaged: 9
+      Normal: 85
+      Damaged: 45
       Destroyed: 0
     slotId: lungs
     removable: False # Goob end, make them actualy unremovable
