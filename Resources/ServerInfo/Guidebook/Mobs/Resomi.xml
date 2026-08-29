@@ -11,15 +11,23 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Resomi are a small avian-like species that hail from an icy world.
 
-  Like most other non-human species, Resomi are capable of digesting raw meat and other uncooked animal proteins.
+  ## Diet
 
-  As a result of the conditions of their home planet and ammonia-based blood, Resomi are immune to any cold damage and other effects.
-  Consequently, they find temperatures that most other species find comfortable to be unbearably hot, finding themselves suffering starting at just 30°C.
+  - Like most other non-human species, Resomi are capable of digesting raw meat and other uncooked animal proteins.
 
-  Along with their temperature tolerances, they take 30% more heat damage and 15% more brute damage.
+  ## Benefits
 
-  They also have weaker bones.
+  - As a result of the conditions of their home planet and ammonia-based blood, Resomi are [color=#1e90ff]immune to any cold damage and other effects.[/color]
+  - Due to their small size, they can fit in duffelbags.  
+  - Their unarmed attack deals [color=#ec3a3a]Slash[/color] damage.
+  
+  ## Drawbacks
 
-  Due to their small size, they can fit in duffelbags. They also weigh less, making it harder for them to pull other species. Their unarmed attack deals Slash damage.
+  - They find temperatures that most other species find comfortable to be unbearably hot, finding themselves [color=#ffa500]suffering starting at just 30°C.[/color]
+  - Along with their temperature tolerances, they [color=#ffa500]take 30% more heat damage and 15% more brute damage.[/color]
+  - They have weaker bones.
+  - They weigh less, making it harder for them to pull other species.
+  - Resomi have [color=#ffa500]33% less blood[/color], allowing them to suffer from blood loss much sooner.
+
 
 </Document>
