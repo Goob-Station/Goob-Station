@@ -25,6 +25,7 @@
       sounds:
         collection: Paracusia
     - type: PainNumbnessStatusEffect
+    - type: PhantomPain
     - type: PermanentBlindness
     - type: SocialAnxiety
     - type: TileMovement
