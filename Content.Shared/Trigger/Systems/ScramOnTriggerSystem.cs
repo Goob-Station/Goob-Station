@@ -55,7 +55,6 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
     private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius, int tries = 40, PhysicsComponent? physicsComponent = null)
     {
         var userCoords = Transform(uid).Coordinates;
-        var parent = _transform.GetParent(uid)!.Coordinates; // Goobstation
 
         // Goobstation - start.
         // Being in a locker any container set your coordinate to the locker with 0 x,y
@@ -63,7 +62,7 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
         if (_container.IsEntityOrParentInContainer(uid))
         {
             if (!_container.TryGetOuterContainer(uid, Transform(uid), out var container))
-                return parent; // Just assume that entity parent is not inside a container
+                return null;
 
             userCoords = Transform(container.Owner).Coordinates;
         }
