@@ -5,7 +5,6 @@ using System.Collections.Immutable; // Goobstation - Starlight collective mind p
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Effects;
@@ -54,6 +53,7 @@ using Content.Shared._RMC14.CCVar;
 // Goob start - the blind dont see
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Traits.Assorted;
+using Content.Goobstation.Common.Wizard.Events;
 // Goob end
 
 namespace Content.Server.Chat.Systems;
@@ -81,8 +81,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly TelepathicChatSystem _telepath = default!; // Goobstation Change
-    [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!; // Goobstation Change
-    [Dependency] private readonly ScryingOrbSystem _scrying = default!; // Goobstation Change
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
 
@@ -1076,14 +1074,16 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private IEnumerable<INetChannel> GetDeadChatClients()
     {
-        if (_ghostVisibility.GhostsVisible()) // Goobstation
-            return Filter.Broadcast().Recipients.Select(p => p.Channel);
+        // Goobstation start - Wizard ghost stuff
+        var ev = new GetDeadchatAdditionalHearersEvent();
+        RaiseLocalEvent(ref ev);
+        // Goobstation end
 
         return Filter.Empty()
             .AddWhereAttachedEntity(HasComp<GhostComponent>)
-            .AddWhereAttachedEntity(_scrying.IsScryingOrbEquipped) // Goobstation
             .Recipients
             .Union(_adminManager.ActiveAdmins)
+            .Intersect(ev.Filter.Recipients) // Goobstation - wizard ghost stuff
             .Select(p => p.Channel);
     }
 

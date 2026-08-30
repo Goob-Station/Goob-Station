@@ -1,26 +1,31 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.ScryingOrb;
+using System.Linq;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared.Eye;
 using Content.Shared.Ghost;
 using Content.Shared.Hands;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
 using Content.Shared.Verbs;
-using Robust.Server.Player;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
-public sealed class ScryingOrbSystem : SharedScryingOrbSystem
+public abstract class ScryingOrbSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedGhostSystem _ghost = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     private static readonly EntProtoId ObserverProto = "MobObserverWizard";
 
@@ -36,14 +41,20 @@ public sealed class ScryingOrbSystem : SharedScryingOrbSystem
         SubscribeLocalEvent<ScryingOrbComponent, GotUnequippedEvent>(OnUnequip);
     }
 
-    private void OnUnequip(Entity<ScryingOrbComponent> ent, ref GotUnequippedEvent args)
+    public bool IsEquipped(EntityUid uid)
     {
-        AttemptDisableXRay(args.Equipee);
-    }
+        var scryingOrbQuery = GetEntityQuery<ScryingOrbComponent>();
+        if (_hands.EnumerateHeld(uid).Any(scryingOrbQuery.HasComponent))
+            return true;
 
-    private void OnUnequipHand(Entity<ScryingOrbComponent> ent, ref GotUnequippedHandEvent args)
-    {
-        AttemptDisableXRay(args.User);
+        var enumerator = _inventory.GetSlotEnumerator(uid);
+        while (enumerator.MoveNext(out var container))
+        {
+            if (scryingOrbQuery.HasComp(container.ContainedEntity))
+                return true;
+        }
+
+        return false;
     }
 
     private void OnEquip(Entity<ScryingOrbComponent> ent, ref GotEquippedEvent args)
@@ -52,6 +63,16 @@ public sealed class ScryingOrbSystem : SharedScryingOrbSystem
             return;
 
         _eye.SetVisibilityMask(args.Equipee, eye.VisibilityMask | (int) VisibilityFlags.Ghost, eye);
+    }
+
+    private void OnUnequip(Entity<ScryingOrbComponent> ent, ref GotUnequippedEvent args)
+    {
+        AttemptDisableXRay(args.Equipee);
+    }
+
+    private void OnUnequipHand(Entity<ScryingOrbComponent> ent, ref GotUnequippedHandEvent args)
+    {
+        AttemptDisableXRay(args.User);
     }
 
     private void OnEquipHand(Entity<ScryingOrbComponent> ent, ref GotEquippedHandEvent args)
@@ -67,7 +88,7 @@ public sealed class ScryingOrbSystem : SharedScryingOrbSystem
         if (!TryComp(uid, out EyeComponent? eye))
             return;
 
-        if (IsScryingOrbEquipped(uid))
+        if (IsEquipped(uid))
             return;
 
         _eye.SetVisibilityMask(uid, eye.VisibilityMask & (int) ~VisibilityFlags.Ghost, eye);
@@ -106,14 +127,18 @@ public sealed class ScryingOrbSystem : SharedScryingOrbSystem
             return;
 
         var ghost = Spawn(ObserverProto, Transform(user).Coordinates);
-        _transformSystem.AttachToGridOrMap(ghost);
-        _player.TryGetSessionById(mindComp.UserId, out var session);
+        _xform.AttachToGridOrMap(ghost);
+        _playerManager.TryGetSessionById(mindComp.UserId, out var session);
+
         if (!string.IsNullOrWhiteSpace(mindComp.CharacterName))
             _meta.SetEntityName(ghost, mindComp.CharacterName);
         else if (!string.IsNullOrWhiteSpace(session?.Name))
             _meta.SetEntityName(ghost, session.Name);
 
+        if (!TryComp(user, out GhostComponent? ghostComp))
+            return;
+
         _mind.Visit(mind, ghost, mindComp);
-        _ghost.SetCanReturnToBody(Comp<GhostComponent>(ghost), true);
+        _ghost.SetCanReturnToBody((user, ghostComp), true);
     }
 }

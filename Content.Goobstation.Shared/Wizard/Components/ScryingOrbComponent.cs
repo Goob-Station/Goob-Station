@@ -2,7 +2,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.ScryingOrb;
+namespace Content.Goobstation.Shared.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ScryingOrbComponent : Component

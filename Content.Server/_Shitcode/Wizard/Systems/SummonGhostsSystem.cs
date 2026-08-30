@@ -17,7 +17,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
-public sealed class SummonGhostsSystem : SharedGhostVisibilitySystem
+public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
 {
     [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
