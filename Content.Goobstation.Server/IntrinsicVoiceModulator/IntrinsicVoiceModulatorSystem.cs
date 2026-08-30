@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Goobstation.Shared.IntrinsicVoiceModulator; // Goobstation
-using Content.Goobstation.Shared.IntrinsicVoiceModulator.Components; // Goobstation
-using Content.Goobstation.Shared.IntrinsicVoiceModulator.Events; // Goobstation
+using Content.Goobstation.Shared.IntrinsicVoiceModulator;
+using Content.Goobstation.Shared.IntrinsicVoiceModulator.Components;
+using Content.Goobstation.Shared.IntrinsicVoiceModulator.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared.Chat.RadioIconsEvents; // Goobstation
+using Content.Shared.Chat.RadioIconsEvents;
 using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Roles.Jobs;

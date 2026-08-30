@@ -720,7 +720,6 @@ public sealed partial class ChangelingSystem
             QueueDel(bola);
         }
 
-        // Goobstation start unwelds containers containing changelling.
         var parent = Transform(uid).ParentUid;
 
         if (parent != null && TryComp<WeldableComponent>(parent, out var weldable))
@@ -730,7 +729,6 @@ public sealed partial class ChangelingSystem
                 _weldable.SetWeldedState(parent, false);
             }
         }
-        // Goobstation end
 
         var soln = new Solution();
         soln.AddReagent("PolytrinicAcid", 10f);
