@@ -38,7 +38,6 @@
     - id: Narcotic
       rateModifier: 1
     - id: Alcohol # Same as parent
-      # rateModifier: 0.1 # This line post-upstream (2026/08/29) causes ethanol to not metabolize at all
     maxPoisonsProcessable: 3 # For proper processing of chems instead of heart
 
 - type: entity

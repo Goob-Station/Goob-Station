@@ -80,7 +80,6 @@
     metabolizerTypes: [Human]
     groups:
     - id: Alcohol
-      # rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink # Goob edit; this line causes alcohol to not metabolize at all. Ethanol metabolizes at 0.05u/s anyhow so it's fine
 
 - type: entity
   id: OrganHydrakinHeart
