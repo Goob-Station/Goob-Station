@@ -491,3 +491,15 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi
+
+# Chaplain
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMonk
+  name: monk's trousers
+  description: Simple pants, not much better than an old sack.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Uniforms/monk.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Uniforms/monk.rsi

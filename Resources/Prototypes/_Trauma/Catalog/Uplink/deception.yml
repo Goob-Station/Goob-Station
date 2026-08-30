@@ -1,0 +1,78 @@
+- type: listing
+  id: HandheldStationMapRecordsTablet
+  name: uplink-records-tablet-name
+  description: uplink-records-tablet-desc
+  icon:
+    sprite: _Trauma/Objects/Devices/tablets.rsi
+    state: icon
+  productEntity: HandheldStationMapRecordsTablet
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDeception
+
+- type: listing
+  id: UplinkObservationKitSyndie
+  name: uplink-observation-kit-name
+  description: uplink-observation-kit-desc-trauma
+  icon:
+    sprite: Objects/Storage/boxicons.rsi
+    state: tracks
+  productEntity: ObservationKitSyndie
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkDeception
+
+- type: listing
+  id: UplinkAccessConfiguratorSyndicate
+  name: uplink-syndicate-access-config-name
+  description: uplink-syndicate-access-config-desc
+  productEntity: AccessConfiguratorSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkSyndicateShuttleBoard
+  name: uplink-shuttle-board-name
+  description: uplink-shuttle-board-desc
+  productEntity: SyndicateShuttleConsoleCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: cpu_syndicate }
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkSyndicateShuttleBundle
+  name: uplink-shuttle-bundle-name
+  description: uplink-shuttle-bundle-desc
+  productEntity: CrateSyndicateShuttleBundle
+  icon: { sprite: Structures/Shuttles/thruster.rsi, state: base }
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkDoorRemoteSyndicate
+  name: uplink-syndicate-remote-name
+  description: uplink-syndicate-remote-desc
+  productEntity: DoorRemoteSyndicate
+  icon: { sprite: _Trauma/Objects/Devices/device_remote.rsi, state: icon }
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkComputerIFFSyndicateCircuitboard
+  name: uplink-shuttle-iff-name
+  description: uplink-shuttle-iff-desc
+  productEntity: ComputerIFFSyndicateCircuitboard
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkDisruption
