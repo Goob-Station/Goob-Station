@@ -174,11 +174,11 @@
           - Dwarf
           - Yowie  # Goobstation - Yowie
           - Cybernetic # Shitmed - Cybernetic Organs
-          - Oni # Goobstation, upstream fix for Oni (DeltaV) taking too much ethanol poisoning
+          - Oni # Goobstation, upstream fix for Oni taking too much ethanol poisoning
           inverted: true
         damage:
           types:
-            Poison: 0.1
+            Poison: 1 # 0.1 # Goob; pre-upstream life-threatening ethanol poisoning damage
             # dwarves take less toxin damage and heal a marginal amount of brute
 # Goobstation Start
 #      - !type:HealthChange
@@ -231,7 +231,7 @@
           type: [ Oni ]
         damage:
           types:
-            Poison: 0.05 # Goob edit from 0.2 to 0.05 due to upstream; it's not 0.02 because that will have no effect
+            Poison: 0.2
       # End DeltaV Additons
       - !type:Vomit
         probability: 0.04
