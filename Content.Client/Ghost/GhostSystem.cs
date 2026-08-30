@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Client._Shitcode.Wizard.Systems;
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
@@ -11,7 +10,7 @@ using Robust.Shared.Player;
 
 namespace Content.Client.Ghost
 {
-    public sealed partial class GhostSystem : SharedGhostSystem // Goob - make partial
+    public sealed partial class GhostSystem : SharedGhostSystem
     {
         [Dependency] private readonly IClientConsoleHost _console = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;

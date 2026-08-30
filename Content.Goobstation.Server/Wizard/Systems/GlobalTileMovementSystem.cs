@@ -1,8 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Wizard.Systems;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.EventSpells;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -17,8 +14,11 @@ using Content.Shared.GameTicking.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Goobstation.Shared.Wizard.Rules;
+using Content.Goobstation.Common.Wizard.Events;
+using Content.Server._Goobstation.Wizard.Systems;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server.Goobstation.Wizard.Systems;
 
 public sealed class GlobalTileMovementSystem : EntitySystem
 {
@@ -27,7 +27,7 @@ public sealed class GlobalTileMovementSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _log = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly WizardRuleSystem _wizardRuleSystem = default!;
+    [Dependency] private readonly WizardRuleSystem _wizardRule = default!;
     private static readonly EntProtoId GameRule = "GlobalTileMovement";
 
     public override void Initialize()
@@ -38,20 +38,18 @@ public sealed class GlobalTileMovementSystem : EntitySystem
         SubscribeLocalEvent<GhostRoleSpawnerUsedEvent>(OnGhostRoleSpawnerUsed);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
     }
-    public bool GlobalTileMovementIsActive()
+    public bool IsRuleActive()
     {
-        var query = EntityQueryEnumerator<GlobalTileMovementRuleComponent, ActiveGameRuleComponent, GameRuleComponent>();
-        while (query.MoveNext(out _, out _, out _, out _))
-        {
+        var query = EntityQueryEnumerator<GlobalTileMovementRuleComponent>();
+        while (query.MoveNext(out _))
             return true;
-        }
 
         return false;
     }
 
     private void OnGlobalTileToggle(GlobalTileToggleEvent ev)
     {
-        if (GlobalTileMovementIsActive())
+        if (IsRuleActive())
             return;
 
         _gameTicker.StartGameRule(GameRule);
@@ -65,13 +63,13 @@ public sealed class GlobalTileMovementSystem : EntitySystem
 
     private void OnRuleStarted(Entity<GlobalTileMovementRuleComponent> ent, ref GameRuleStartedEvent args)
     {
-        var map = _wizardRuleSystem.GetTargetMap();
+        var map = _wizardRule.GetTargetMap();
 
         if (map == null)
             return;
 
         var entities = new HashSet<Entity<MobStateComponent, MindContainerComponent>>();
-        _lookup.GetEntitiesOnMap<MobStateComponent, MindContainerComponent>(Transform(map.Value).MapID, entities);
+        _lookup.GetEntitiesOnMap(Transform(map.Value).MapID, entities);
         foreach (var (uid, _, _) in entities)
         {
             if (TerminatingOrDeleted(uid))
@@ -83,7 +81,7 @@ public sealed class GlobalTileMovementSystem : EntitySystem
 
     private void OnGhostRoleSpawnerUsed(GhostRoleSpawnerUsedEvent args)
     {
-        if (!GlobalTileMovementIsActive())
+        if (!IsRuleActive())
             return;
 
         EnsureComp<HierophantBeatComponent>(args.Spawned);
@@ -91,7 +89,7 @@ public sealed class GlobalTileMovementSystem : EntitySystem
 
     private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
     {
-        if (!GlobalTileMovementIsActive()
+        if (!IsRuleActive()
             || !ev.LateJoin
             || TerminatingOrDeleted(ev.Mob))
             return;

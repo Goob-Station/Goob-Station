@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wizard.Systems;
 
-public abstract class ScryingOrbSystem : EntitySystem
+public sealed partial class ScryingOrbSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;

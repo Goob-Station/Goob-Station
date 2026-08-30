@@ -2,7 +2,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Wizard.Components;
+namespace Content.Goobstation.Shared.Wizard.Rules;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ScryingOrbComponent : Component;
+public sealed partial class GhostsVisibleRuleComponent : Component;

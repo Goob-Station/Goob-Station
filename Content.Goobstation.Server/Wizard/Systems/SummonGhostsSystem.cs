@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Wizard.Events;
+using Content.Goobstation.Shared.Wizard.Rules;
+using Content.Goobstation.Shared.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.EventSpells;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Eye;
@@ -14,10 +15,11 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Systems;
 
-public sealed class SummonGhostsSystem : SharedGhostVisibilitySystem
+public sealed class SummonGhostsSystem : EntitySystem
 {
     [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -25,6 +27,9 @@ public sealed class SummonGhostsSystem : SharedGhostVisibilitySystem
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly IAdminLogManager _log = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
+
+    private static readonly EntProtoId GameRule = "GhostsVisible";
 
     public override void Initialize()
     {
@@ -53,7 +58,7 @@ public sealed class SummonGhostsSystem : SharedGhostVisibilitySystem
 
     private void OnSummonGhosts(SummonGhostsEvent ev)
     {
-        if (IsRuleActive())
+        if (_ghostVisibility.IsRuleActive())
             return;
 
         _gameTicker.StartGameRule(GameRule);
@@ -68,7 +73,7 @@ public sealed class SummonGhostsSystem : SharedGhostVisibilitySystem
 
     public bool IsVisible(GhostComponent component)
     {
-        if (!IsRuleActive())
+        if (!_ghostVisibility.IsRuleActive())
             return false;
 
         return !component.CanGhostInteract;

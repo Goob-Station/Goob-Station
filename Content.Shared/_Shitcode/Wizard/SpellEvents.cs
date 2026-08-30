@@ -465,13 +465,6 @@ public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent
     public SoundSpecifier? Sound;
 }
 
-[DataDefinition]
-public sealed partial class GlobalTileToggleEvent : EntityEventArgs
-{
-    [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost.ogg");
-}
-
 public sealed partial class PredictionToggleSpellEvent : EntityTargetActionEvent
 {
     [DataField]
@@ -492,35 +485,6 @@ public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
 
     [DataField]
     public Color MessageColor = Color.FromHex("#EDC349");
-}
-
-[DataDefinition]
-public sealed partial class SummonGhostsEvent : EntityEventArgs
-{
-    [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost2.ogg");
-}
-
-[DataDefinition]
-public sealed partial class DimensionShiftEvent : EntityEventArgs
-{
-    [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost.ogg");
-
-    [DataField]
-    public float OxygenMoles = 10f;
-
-    [DataField]
-    public float NitrogenMoles = 10f;
-
-    [DataField]
-    public float CarbonDioxideMoles = 10f;
-
-    [DataField]
-    public float Temperature = Atmospherics.T0C - 5f;
-
-    [DataField]
-    public string? Parallax = "Wizard";
 }
 
 [DataDefinition]

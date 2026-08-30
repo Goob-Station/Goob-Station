@@ -1,8 +1,8 @@
 using Content.Goobstation.Common.Wizard.Events;
 
-namespace Content.Client.Ghost;
+namespace Content.Shared.Ghost;
 
-public sealed partial class GhostSystem
+public abstract partial class SharedGhostSystem
 {
     public bool AreGhostsForcedVisible()
     {

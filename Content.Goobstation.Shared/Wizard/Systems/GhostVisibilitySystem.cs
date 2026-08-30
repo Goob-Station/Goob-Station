@@ -1,20 +1,22 @@
 using Content.Goobstation.Common.Wizard.Events;
-using Content.Shared._Goobstation.Wizard.EventSpells;
+using Content.Goobstation.Shared.Wizard.Rules;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Ghost;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
-public abstract class SharedGhostVisibilitySystem : EntitySystem
+namespace Content.Goobstation.Shared.Wizard.Systems;
+
+public sealed partial class GhostVisibilitySystem : EntitySystem
 {
-    [Dependency] private EntityQuery<GhostComponent> _ghostQuery = default!;
-    [Dependency] private ISharedAdminManager _adminManager = default!;
+    [Dependency] private readonly ISharedAdminManager _adminManager = default!;
 
-    protected static readonly EntProtoId GameRule = "GhostsVisible";
+    private EntityQuery<GhostComponent> _ghostQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _ghostQuery = GetEntityQuery<GhostComponent>();
 
         SubscribeLocalEvent<GetDeadchatAdditionalHearersEvent>(OnGetDeadchatHearers);
         SubscribeLocalEvent<GetCanSeeGhostsEvent>(OnGetCanSeeGhosts);
