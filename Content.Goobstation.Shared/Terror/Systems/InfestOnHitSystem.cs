@@ -29,6 +29,8 @@ public sealed class InfestOnHitSystem : EntitySystem
         {
             if (!HasComp<HumanoidAppearanceComponent>(target)) continue;
 
+            if (_status.HasStatusEffect(target, "Infested")) continue;
+
             // just so the effect doesn't linger forever if something goes wrong.
             _status.TryAddStatusEffect(target, "Infested", out _, TimeSpan.FromMinutes(30));
         }

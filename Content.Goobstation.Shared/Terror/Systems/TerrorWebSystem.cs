@@ -23,7 +23,7 @@ public sealed class TerrorWebSystem : EntitySystem
     {
         _popup.PopupPredicted(Loc.GetString("sticky-web-generic"), ev.Tripper, ev.Tripper, PopupType.MediumCaution);
 
-        if (comp.InflictsInfested)
+        if (comp.InflictsInfested && !_status.HasStatusEffect(ev.Tripper, "Infested"))
         {
             _status.TryAddStatusEffect(ev.Tripper, "Infested", out _, TimeSpan.FromMinutes(30));
         }

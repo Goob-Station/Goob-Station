@@ -54,7 +54,7 @@
       groups:
         Brute: 20
       types:
-        Structural: 50
+        Structural: 60
         Ion: 20
   - type: GhostRole
     description: terror-queen-briefing

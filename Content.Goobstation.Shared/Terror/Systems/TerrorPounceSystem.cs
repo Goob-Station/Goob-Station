@@ -4,9 +4,11 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
+using YamlDotNet.Core.Tokens;
 
 namespace Content.Goobstation.Shared.Terror.Systems;
 
@@ -21,6 +23,7 @@ public sealed class TerrorPounceSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -38,16 +41,16 @@ public sealed class TerrorPounceSystem : EntitySystem
         ent.Comp.IsLeaping = true;
         Dirty(ent);
 
-        var from = Transform(ent.Owner).Coordinates;
-        var direction = args.Target.ToMap(EntityManager, _transform).Position - _transform.GetMapCoordinates(ent.Owner).Position;
+        var selfMap = _transform.GetMapCoordinates(ent.Owner);
+        var targetMap = args.Target.ToMap(EntityManager, _transform);
+        var direction = targetMap.Position - selfMap.Position;
 
         if (direction.Length() > ent.Comp.JumpDistance)
         {
             direction = direction.Normalized() * ent.Comp.JumpDistance;
         }
 
-        var throwTarget = from.Offset(direction);
-        _throwing.TryThrow(ent.Owner, throwTarget, ent.Comp.JumpThrowSpeed);
+        _throwing.TryThrow(ent.Owner, direction, ent.Comp.JumpThrowSpeed);
 
         _audio.PlayPredicted(ent.Comp.JumpSound, ent.Owner, ent.Owner);
 
@@ -61,14 +64,20 @@ public sealed class TerrorPounceSystem : EntitySystem
             return;
         }
 
-        if (HasComp<MobStateComponent>(args.OtherEntity))
-        {
-            HitLivingTarget(ent, args.OtherEntity);
-        }
-        else
+        if (_tag.HasTag(args.OtherEntity, "Wall"))
         {
             _popup.PopupPredicted(Loc.GetString("terror-pounce-leap-fail"), ent.Owner, ent.Owner, PopupType.MediumCaution);
             _stun.TryAddStunDuration(ent.Owner, ent.Comp.SelfStun);
+
+            ent.Comp.IsLeaping = false;
+            Dirty(ent);
+
+            return;
+        }
+
+        if (HasComp<MobStateComponent>(args.OtherEntity))
+        {
+            HitLivingTarget(ent, args.OtherEntity);
         }
 
         ent.Comp.IsLeaping = false;

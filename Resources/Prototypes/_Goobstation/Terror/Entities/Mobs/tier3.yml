@@ -25,7 +25,7 @@
       groups:
         Brute: 40
       types:
-        Structural: 25
+        Structural: 60
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3

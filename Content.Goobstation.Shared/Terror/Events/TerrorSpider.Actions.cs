@@ -7,7 +7,7 @@ namespace Content.Goobstation.Shared.Terror.Events;
 #region Action
 
 public sealed partial class TerrorPounceEvent : WorldTargetActionEvent;
-public sealed partial class TerrorChargeEvent : WorldTargetActionEvent;
+public sealed partial class TerrorChargeEvent : EntityTargetActionEvent;
 public sealed partial class TerrorTremorEvent : InstantActionEvent;
 public sealed partial class TerrorLifeShareEvent : EntityTargetActionEvent;
 public sealed partial class TerrorWebEvent : InstantActionEvent;

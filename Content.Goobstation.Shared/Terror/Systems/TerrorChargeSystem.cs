@@ -38,16 +38,16 @@ public sealed class TerrorChargeSystem : EntitySystem
         ent.Comp.IsCharging = true;
         Dirty(ent);
 
-        var from = Transform(ent.Owner).Coordinates;
-        var direction = args.Target.ToMap(EntityManager, _transform).Position - _transform.GetMapCoordinates(ent.Owner).Position;
+        var selfMap = _transform.GetMapCoordinates(ent.Owner);
+        var targetMap = _transform.GetMapCoordinates(args.Target);
+        var direction = targetMap.Position - selfMap.Position;
 
         if (direction.Length() > ent.Comp.DashDistance)
         {
             direction = direction.Normalized() * ent.Comp.DashDistance;
         }
 
-        var throwTarget = from.Offset(direction);
-        _throwing.TryThrow(ent.Owner, throwTarget, ent.Comp.DashSpeed);
+        _throwing.TryThrow(ent.Owner, direction, ent.Comp.DashSpeed);
 
         _audio.PlayPredicted(ent.Comp.ChargeSound, ent.Owner, ent.Owner);
 

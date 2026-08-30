@@ -27,7 +27,8 @@
       state: charge
   - type: TargetAction
     range: 4
-  - type: WorldTargetAction
+  - type: EntityTargetAction
+    canTargetSelf: false
     event: !type:TerrorChargeEvent
 
 - type: entity

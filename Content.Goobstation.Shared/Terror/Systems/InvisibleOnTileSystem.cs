@@ -1,5 +1,4 @@
 using Content.Goobstation.Shared.Terror.Components;
-using Content.Goobstation.Shared.Terror.Prototypes;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.StepTrigger.Systems;
