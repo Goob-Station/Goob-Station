@@ -317,10 +317,6 @@ public sealed partial class InstantSummonsEvent : InstantActionEvent
     public SoundSpecifier? SummonSound;
 }
 
-public sealed partial class WizardTeleportEvent : InstantActionEvent
-{
-}
-
 public sealed partial class TrapsSpellEvent : InstantActionEvent
 {
     [DataField]

@@ -15,7 +15,6 @@ using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared._Goobstation.Wizard.SpellCards;
-using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared._Shitmed.Targeting;
@@ -130,7 +129,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
     [Dependency] private   readonly ExamineSystemShared _examine = default!;
     [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
-    [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
     [Dependency] private   readonly PullingSystem _pulling = default!;
     [Dependency] private   readonly MobThresholdSystem _threshold = default!;
     [Dependency] private   readonly TurfSystem _turf = default!;
@@ -165,7 +163,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
         SubscribeLocalEvent<ScreamForMeEvent>(OnScreamForMe);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
-        SubscribeLocalEvent<WizardTeleportEvent>(OnTeleport);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<SummonSimiansEvent>(OnSimians);
@@ -836,14 +833,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             return HasComp<ItemComponent>(obj) && !HasComp<VirtualItemComponent>(obj);
         }
-    }
-
-    private void OnTeleport(WizardTeleportEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        _teleport.OnTeleportSpell(ev.Performer, ev.Action);
     }
 
     private void OnTraps(TrapsSpellEvent ev)

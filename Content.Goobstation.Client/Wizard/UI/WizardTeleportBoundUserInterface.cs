@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.Teleport;
+using Content.Goobstation.Shared.Wizard.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Shitcode.Wizard.Teleport;
+namespace Content.Goobstation.Client.Wizard.UI;
 
 [UsedImplicitly]
 public sealed class WizardTeleportBoundUserInterface : BoundUserInterface
