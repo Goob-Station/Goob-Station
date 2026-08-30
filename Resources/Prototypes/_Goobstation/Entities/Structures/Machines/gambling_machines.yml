@@ -379,44 +379,9 @@
     - TauCetiBasic
     - RobotTalk
   - type: ClawMachine # EVIL LOOT!!!
-    rewards:
-    - PlushieMoth
-    - PlushieHuman
-    - PlushiePenguin
-    - PlushieXeve
-    - PlushieDurk
-    - PlushieMnwaar
-    - PlushieLouie
-    - FoamWonderprod
-    - PlushieBingle
-    - PlushieBongle
-    - PlushieBinglePony
-    - PlushieAbductor
-    - PlushieJvne
-    - PlushieFern
-    - PlushieNigel
-    - PlushieBrizby
-    - PlushieBoggle
-    - PlushieLehmin
-    - PlushieWachtel
-    - PlushieLeguia
-    - PlushiePasha
-    - PlushieLeoMalone
-    - PlushieRedstonewolf
-    evilRewards:
-    - EvilPlushieXeve
-    - EvilPlushieBoggle
-    - EvilPlushieBrizby
-    - EvilPlushieNigel
-    - EvilPlushieFern
-    - EvilPlushieJvne
-    - EvilPlushieMnwaar
-    - EvilPlushieDurk
-    - EvilPlushieLouie
-    - EvilPlushieWachtel
-    - EvilPlushieLeguia
-    - EvilPlushiePasha
-    - EvilPlushieTwofish
-    - EvilPlushieLeoMalone
-    - EvilPlushieRedstonewolf
+    prizes:
+    - ClawLose
+    - ClawGame
+    evilPrizes:
+    - ClawGameEvil
   - type: DoAfter

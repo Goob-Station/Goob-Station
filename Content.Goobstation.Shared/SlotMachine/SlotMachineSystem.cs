@@ -26,12 +26,10 @@ namespace Content.Goobstation.Shared.SlotMachine
         [Dependency] private readonly INetManager _net = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedChatSystem _chatSystem = default!;
         [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
         [Dependency] private readonly SharedStackSystem _stackSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly EntityTableSystem _entityTable = default!;
         [Dependency] private readonly PrizeSystem _prize = default!;
 
         public override void Initialize()
@@ -78,10 +76,10 @@ namespace Content.Goobstation.Shared.SlotMachine
 
         private void OnSlotMachineEmagDoAfter(Entity<SlotMachineComponent> ent, ref SlotMachineEmagDoAfterEvent args)
         {
-            if (_net.IsServer && ent.Comp.EmagSpawnEntity is not null)
+            if (ent.Comp.EmagSpawnEntity is not null)
             {
                 _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
-                Spawn(ent.Comp.EmagSpawnEntity, ent.Owner.ToCoordinates());
+                PredictedSpawnAtPosition(ent.Comp.EmagSpawnEntity, ent.Owner.ToCoordinates());
             }
 
             ent.Comp.IsSpinning = false;
@@ -91,21 +89,21 @@ namespace Content.Goobstation.Shared.SlotMachine
         /// <summary>
         /// Handle the logic for starting the slot machine
         /// </summary>
-        private void OnInteractHandEvent(EntityUid uid, SlotMachineComponent comp, ActivateInWorldEvent args)
+        private void OnInteractHandEvent(Entity<SlotMachineComponent> ent, ref ActivateInWorldEvent args)
         {
-            if (comp.IsSpinning || !_power.IsPowered(uid))
+            if (ent.Comp.IsSpinning || !_power.IsPowered(ent.Owner))
                 return;
 
-            if (!_itemSlots.TryGetSlot(uid, "money", out var slot)
+            if (!_itemSlots.TryGetSlot(ent.Owner, "money", out var slot)
                 || slot.Item is not { } item
-                || _stackSystem.GetCount(item) < comp.SpinCost)
+                || _stackSystem.GetCount(item) < ent.Comp.SpinCost)
             {
-                _popupSystem.PopupPredicted(Loc.GetString("slotmachine-no-money"), uid, args.User); // No Money
+                _popupSystem.PopupPredicted(Loc.GetString("slotmachine-no-money"), ent.Owner, args.User); // No Money
                 return;
             }
 
             var doAfter =
-             new DoAfterArgs(EntityManager, uid, comp.DoAfterTime, new SlotMachineDoAfterEvent(), uid)
+             new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DoAfterTime, new SlotMachineDoAfterEvent(), ent.Owner)
              {
                  BreakOnMove = false,
                  BreakOnDamage = false,
@@ -113,20 +111,23 @@ namespace Content.Goobstation.Shared.SlotMachine
              };
 
             if (TryComp<StackComponent>(item, out var stack))
-                _stackSystem.SetCount((item, stack), _stackSystem.GetCount(item) - comp.SpinCost);
+                _stackSystem.SetCount((item, stack), _stackSystem.GetCount(item) - ent.Comp.SpinCost);
 
-            comp.IsSpinning = true;
+            ent.Comp.IsSpinning = true;
 
-            if (_net.IsServer) // DoAfters cause misperdicts?
+            if (_net.IsServer) // The DoAfter causes a weird jitter if its predicted for some reason
             {
-                _audio.PlayPvs(comp.SpinSound, uid);
+                _audio.PlayPvs(ent.Comp.SpinSound, ent.Owner);
                 _doAfter.TryStartDoAfter(doAfter);
-                _appearance.SetData(uid, SlotMachineVisuals.Spinning, true);
+                _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, true);
             }
         }
 
         private void OnSlotMachineDoAfter(Entity<SlotMachineComponent> ent, ref SlotMachineDoAfterEvent args)
         {
+            if (args.Handled)
+                return;
+
             if (args.Cancelled) // Almost no way for it to be canceled but just in case
             {
                 ent.Comp.IsSpinning = false;
@@ -134,29 +135,12 @@ namespace Content.Goobstation.Shared.SlotMachine
                 return;
             }
 
-            if (args.Handled)
-                return;
-
             ent.Comp.IsSpinning = false;
             Dirty(ent);
 
             _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
 
-            var prize = _prize.GetRandomPrize(ent.Comp.Prizes);
-            HandlePrize(ent, prize);
-        }
-        private void HandlePrize(Entity<SlotMachineComponent> ent, PrizePrototype prize)
-        {
-            var win = _entityTable.GetSpawns(prize.PrizeTable);
-
-            foreach (var item in win)
-            {
-                PredictedSpawnAtPosition(item, ent.Owner.ToCoordinates());
-            }
-
-            _audio.PlayPredicted(prize.WinSound, ent, ent);
-            if (prize.WinMessage is not null)
-                _chatSystem.TrySendInGameICMessage(ent, Loc.GetString(prize.WinMessage), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
+            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner);
         }
     }
 }

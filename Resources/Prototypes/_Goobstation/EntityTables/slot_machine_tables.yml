@@ -33,12 +33,10 @@
   table: !type:AllSelector
     children:
     - !type:NestedSelector
-      rolls: !type:RangeNumberSelector
-        range: 1, 1
-      tableId: LootPodPot
+      tableId: LootGodPot
 
 - type: entityTable
-  id: LootPodPot
+  id: LootGodPot
   table: !type:GroupSelector
     children:
     - id: WeaponShotgunHeavy
@@ -63,3 +61,67 @@
   table: !type:AllSelector
     children:
     - id: Throngler
+
+# Claw machine
+
+- type: entityTable
+  id: ClawMachinePlushies
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: Plushies
+
+- type: entityTable
+  id: ClawMachineEvilPlushies
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: Plushies
+
+- type: entityTable
+  id: Plushies
+  table: !type:GroupSelector
+    children:
+    - id: PlushieMoth
+    - id: PlushieHuman
+    - id: PlushiePenguin
+    - id: PlushieXeve
+    - id: PlushieDurk
+    - id: PlushieMnwaar
+    - id: PlushieLouie
+    - id: FoamWonderprod
+    - id: PlushieBingle
+    - id: PlushieBongle
+    - id: PlushieBinglePony
+    - id: PlushieAbductor
+    - id: PlushieJvne
+    - id: PlushieFern
+    - id: PlushieNigel
+    - id: PlushieBrizby
+    - id: PlushieBoggle
+    - id: PlushieLehmin
+    - id: PlushieWachtel
+    - id: PlushieLeguia
+    - id: PlushiePasha
+    - id: PlushieLeoMalone
+    - id: PlushieRedstonewolf
+
+- type: entityTable
+  id: PlushiesEvil
+  table: !type:GroupSelector
+    children:
+    - id: EvilPlushieXeve
+    - id: EvilPlushieBoggle
+    - id: EvilPlushieBrizby
+    - id: EvilPlushieNigel
+    - id: EvilPlushieFern
+    - id: EvilPlushieJvne
+    - id: EvilPlushieMnwaar
+    - id: EvilPlushieDurk
+    - id: EvilPlushieLouie
+    - id: EvilPlushieWachtel
+    - id: EvilPlushieLeguia
+    - id: EvilPlushiePasha
+    - id: EvilPlushieTwofish
+    - id: EvilPlushieLeoMalone
+    - id: EvilPlushieRedstonewolf
