@@ -9,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobDiona" Caption=""/>
   </Box>
 
-  Dionas are a sentient mass of humanoid plant matter, known for their flammability and durability.
+  Dionas are a humanoid mass of sentient plant matter, known for their flammability and durability.
   
   ## Unique Abilities
 
@@ -43,7 +43,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Benefits
 
-  - They take [color=#1e90ff]30% less Blunt damage and 20% less Slash damage[/color]
+  - They take [color=#1e90ff]30% less Blunt damage and 20% less Slash damage.[/color]
   - They are made of heavy wood, allowing them to pull lighter species with ease.
   - Due to their durable structure, they are [color=#1e90ff]unaffected by equipment slowdown.[/color]
   - They get hungry and thirsty more slowly.
