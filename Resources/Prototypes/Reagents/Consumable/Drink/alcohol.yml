@@ -230,7 +230,7 @@
           type: [ Oni ]
         damage:
           types:
-            Poison: 0.2
+            Poison: 0.02 # Goob edit from 0.2 to 0.02 due to upstream making the metabolism rate 1/10 of what it was
       # End DeltaV Additons
       - !type:Vomit
         probability: 0.04
