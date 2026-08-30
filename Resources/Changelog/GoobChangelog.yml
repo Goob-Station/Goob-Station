@@ -24728,3 +24728,97 @@ Entries:
       message: 'Square plasma tanks now fit in your back slot. '
   id: 2834
   time: '2026-08-28T22:23:35.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Borg sprites being errors
+  id: 2835
+  time: '2026-08-29T15:07:59.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed speech bubbles not having fonts
+  id: 2836
+  time: '2026-08-29T16:10:02.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added new researchable mining tools: diamond pickaxe, super mining
+        drill, super plasma cutter.
+    - type: Add
+      message: Added craftable wooden and ashwooden pickaxes.
+    - type: Add
+      message: >-
+        Added craftable cudgels - they require more wood than baseball bats but
+        focus more on structural damage.
+    - type: Add
+      message: Added Gibtonite ore to Lavaland. Beware of explosions!
+    - type: Add
+      message: >-
+        Gray and pale sprouts that grow on Lavaland now can be gathered and
+        crafted into cloth.
+    - type: Tweak
+      message: Bone axe is now more difficult to craft.
+  id: 2837
+  time: '2026-08-29T17:46:27.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: Gray matter is now obtainable from grinding brains.
+    - type: Tweak
+      message: Altered the chemical composition of most brains to make more sense.
+  id: 2838
+  time: '2026-08-29T17:47:10.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Tweak
+      message: Removed Energy Magnum from normal play
+  id: 2839
+  time: '2026-08-29T17:48:44.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        New nutriment called "Junk food" which is present in snack foods, if
+        eaten in excess, will cause you to become sluggish.
+    - type: Tweak
+      message: >-
+        Lowered the nutriment value of snack foods, and increased it for cooked
+        foods. The change will be barely noticeable, but snack food will now
+        theoretically not fuel you for the entire round as easily.
+    - type: Tweak
+      message: >-
+        The effect present in coffee that increases your movement speed if you
+        drink enough of it is now instead a new reagent called "Caffeine" which
+        does the same as it did in coffee, but now also affects other drinks.
+  id: 2840
+  time: '2026-08-29T17:49:11.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: >-
+        CHUDSHIFT no longer shows up as 'Unknown Title - Unknown Artist' in the
+        lobby.
+  id: 2841
+  time: '2026-08-29T17:53:26.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Normalised the volume of a lot of voices
+  id: 2842
+  time: '2026-08-29T17:56:00.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Area mopping and advance mop speed buff - to my beloved janitors
+  id: 2843
+  time: '2026-08-29T17:58:43.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: >-
+        Added the General Secretary of the Workers' Party of Goobstation, Rouge,
+        as a plushie
+  id: 2844
+  time: '2026-08-30T01:08:38.0000000+00:00'
