@@ -174,7 +174,7 @@
           - Dwarf
           - Yowie  # Goobstation - Yowie
           - Cybernetic # Shitmed - Cybernetic Organs
-          - Oni # Goobstation, upstream fix for Oni taking too much ethanol poisoning
+          - Oni # Goobstation, fixes Oni taking base ethanol poisoning on top of their specific ethanol poisoning
           inverted: true
         damage:
           types:
