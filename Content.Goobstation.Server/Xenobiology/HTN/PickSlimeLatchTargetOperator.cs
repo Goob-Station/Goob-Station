@@ -7,11 +7,10 @@ using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared.Humanoid;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Components;  
 
 namespace Content.Goobstation.Server.Xenobiology.HTN;
 

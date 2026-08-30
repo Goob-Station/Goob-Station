@@ -1,9 +1,9 @@
 - type: npcFaction
   id: XenobioSlime
   hostile:
+  - Passive
   - NanoTrasen
   - Syndicate
-  - Passive
   - PetsNT
   - Zombie
   - Revolutionary

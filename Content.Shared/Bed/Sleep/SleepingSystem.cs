@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Sleeping;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Buckle.Components;
@@ -254,6 +255,14 @@ public sealed partial class SleepingSystem : EntitySystem
         /* Shitmed Change Start - Surgery needs this, sorry! If the nocturine gamers get too feisty
         I'll probably just increase the threshold */
 
+        var ev = new WakeOverrideEvent();
+        RaiseLocalEvent(ent.Owner, ref ev);
+
+        if (ev.Cancelled)
+            return;
+
+        if (ev.IgnoreDamage && !_statusEffect.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent))
+            return; // Let the entity wake up manually
 
         if (args.DamageDelta.GetTotal() >= ent.Comp.WakeThreshold
             && !_statusEffect.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent))

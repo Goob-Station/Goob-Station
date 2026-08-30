@@ -98,7 +98,10 @@ public sealed partial class EatCorpseSystem : EntitySystem
         EnsureComp<BeingEatenComponent>(targetUid); // Dont let slime interupt each other
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out eater.LastDoAfterId))
+        {
+            RemComp<BeingEatenComponent>(targetUid);
             return false;
+        }
 
         _jitter.DoJitter(targetUid, eater.EatCorpseDoAfterDuration, true);
         var attemptPopup = Loc.GetString("slime-eat-corpse-success", ("eater", eaterUid), ("target", targetUid));
@@ -123,7 +126,10 @@ public sealed partial class EatCorpseSystem : EntitySystem
 
         if (!_bodyQuery.TryComp(target, out var body)
             || !_body.TryGetRootPart(target, out var rootPart, body))
+        {
+            RemComp<BeingEatenComponent>(target);
             return;
+        }
 
         // TODO: randomize body parts or give a choice of which to tear off
         // we want to remove parts from the furthest from root to the nearest and remove organs of part before part itself
@@ -131,7 +137,10 @@ public sealed partial class EatCorpseSystem : EntitySystem
         var toRemove = partsAndOrgans.Reverse().FirstOrDefault(x => IsValidOrganOrBodyPart(eater, x), EntityUid.Invalid);
 
         if (toRemove == EntityUid.Invalid)
+        {
+            RemComp<BeingEatenComponent>(target);
             return;
+        }
 
         if (toRemove == rootPart.Value.Owner)
         {

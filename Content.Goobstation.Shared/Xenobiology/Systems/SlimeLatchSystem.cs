@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Sleeping;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
@@ -72,6 +73,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         SubscribeLocalEvent<SlimeComponent, EntGotInsertedIntoContainerMessage>(OnEntGotInsertedIntoContainer);
         SubscribeLocalEvent<SlimeComponent, SelfBeforeClimbEvent>(OnSelfBeforeClimb);
         SubscribeLocalEvent<SlimeComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
+        SubscribeLocalEvent<SlimeDamageOvertimeComponent, WakeOverrideEvent>(OnWakeOverride);
 
         _bloodstreamQuery = GetEntityQuery<BloodstreamComponent>();
         _hungerQuery = GetEntityQuery<HungerComponent>();
@@ -92,8 +94,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         _nextUpdate = now + _updateDelay;
 
-        var query = EntityQueryEnumerator<SlimeDamageOvertimeComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var dotComp, out var _))
+        var query = EntityQueryEnumerator<SlimeDamageOvertimeComponent, BodyComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var dotComp, out var _, out var _))
         {
             if (_mobState.IsDead(uid))
                 continue;
@@ -151,8 +153,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
                 _stomach.TryTransferSolution(stomach.Owner, chemSolution, stomach);
             }
 
-            chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits);
+            //chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits); Gonna comment it out until someone with better experience fix this annoying bug
         }
+    }
+
+    private void OnWakeOverride(Entity<SlimeDamageOvertimeComponent> ent, ref WakeOverrideEvent args)
+    {
+        args.IgnoreDamage = true;
     }
 
     private void OnMobStateChangedSOD(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
@@ -330,7 +337,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
 
         _audio.PlayEntity(ent.Comp.EatSound, ent, ent);
-        _popup.PopupEntity(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, PopupType.SmallCaution);
+        _popup.PopupPredicted(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, ent);
 
         Dirty(ent);
         Dirty(target, comp);
