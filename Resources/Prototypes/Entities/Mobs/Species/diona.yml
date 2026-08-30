@@ -14,9 +14,9 @@
   - type: HumanoidAppearance
     species: Diona
   - type: Hunger
-    baseDecayRate: 0.0083
+    baseDecayRate: 0.020833 # Goobstation base rate changed, 2 times lower than base
   - type: Thirst
-    baseDecayRate: 0.0083
+    baseDecayRate: 0.0625 # Goobsatation base rate changed, 2 times lower than base
   - type: Icon
     sprite: Mobs/Species/Diona/parts.rsi
     state: full

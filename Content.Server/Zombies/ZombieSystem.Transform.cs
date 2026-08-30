@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Traits;
 using Content.Server.Administration.Managers;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -17,10 +16,8 @@ using Content.Server.NPC.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
 using Content.Shared.Body.Components;
-using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
-using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
@@ -44,16 +41,21 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.Roles;
-using Content.Server.Animals.Components;
-using Content.Shared.Mech.Components;
-using Content.Shared.Rejuvenate; // Shitmed Change
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared.Temperature.Components;
-using Content.Shared.Mech.EntitySystems; // Goobstation
-using Content.Shared.Tag;
-using Content.Server.Cloning; // Goob - zedcure
+
+// Goobstation
+using Content.Server.Polymorph.Systems;
+using Content.Shared.Polymorph;
+using Content.Shared.Rejuvenate;
+using Content.Goobstation.Common.Traits;
+using Content.Shared.Damage;
+using Content.Shared.Mech.Components;
+using Content.Server.Mech.Systems;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Goobstation.Maths.FixedPoint;
+
 
 namespace Content.Server.Zombies;
 
@@ -81,9 +83,14 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedMechSystem _mech = default!; // Goobstation
-    [Dependency] private readonly CloningSystem _cloning = default!; // Goob - zombie cure
 
+    // <Goobstation>
+    [Dependency] private readonly MechSystem _mech = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    // </Goobstation>
+
+    private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
     private static readonly string MindRoleZombie = "MindRoleZombie";
@@ -115,6 +122,48 @@ public sealed partial class ZombieSystem
     /// </remarks>
     public void ZombifyEntity(EntityUid target, MobStateComponent? mobState = null)
     {
+        // <Goobstation> - Make the zombie a polymorphed thing
+        if (!Resolve(target, ref mobState, logMissing: false))
+            return;
+
+        if (HasComp<ZombieComponent>(target) || HasComp<ZombieImmuneComponent>(target))
+            return;
+
+        RaiseLocalEvent(target, new RejuvenateEvent(false, false)); // Shitmed Change
+
+        // make sure we dont leave romerol and shit in the bloodstream so they dont just. instantly get infected again if cured
+        if (TryComp(target, out BloodstreamComponent? targetStream))
+            _bloodstream.FlushChemicals((target, targetStream), FixedPoint2.MaxValue);
+
+        RemComp<ZombifyOnDeathComponent>(target);
+        RemCompDeferred<PendingZombieComponent>(target);
+
+        if (!TryComp(target, out MetaDataComponent? metadata) || metadata.EntityPrototype is null)
+            return;
+
+        PolymorphConfiguration polyConfig = new PolymorphConfiguration
+        {
+            Entity = (EntProtoId) metadata.EntityPrototype,
+            TransferDamage = true,
+            Forced = true,
+            Inventory = PolymorphInventoryChange.Transfer,
+            RevertOnCrit = false,
+            RevertOnDeath = false
+        };
+
+        if (_polymorph.PolymorphEntity(target, polyConfig) is not { } zombie)
+        {
+            Log.Error($"Failed to polymorph {target} into a zombie!");
+            return;
+        }
+
+        _meta.SetEntityName(zombie, _nameMod.GetBaseName(target));
+
+        // reassign target to polymorphed zombie !!
+        target = zombie;
+        mobState = Comp<MobStateComponent>(zombie);
+        // </Goobstation>
+
         //Don't zombfiy zombies
         if (HasComp<ZombieComponent>(target) || HasComp<ZombieImmuneComponent>(target))
             return;
@@ -143,18 +192,7 @@ public sealed partial class ZombieSystem
         //you're a real zombie now, son.
         RaiseLocalEvent(target, new RejuvenateEvent(false, false)); // Shitmed Change
 
-        // Goob start
-        if (!_cloning.TryCloning(target, null, "Antag", out var clone))
-            Log.Error($"Unable to make a clone for zombification of entity {ToPrettyString(target)}");
-        else
-            RemComp<PendingZombieComponent>(clone.Value);
-        // Goob end
-
         var zombiecomp = AddComp<ZombieComponent>(target);
-
-        // Goob - reference to cloned entity, for curing later
-        if (clone is not null)
-            zombiecomp.BeforeZombificationReferenceEnt = clone;
 
         //we need to basically remove all of these because zombies shouldn't
         //get diseases, breath, be thirst, be hungry, die in space, get double sentience, have offspring or be paraplegic.
@@ -337,11 +375,13 @@ public sealed partial class ZombieSystem
         RaiseLocalEvent(target, ref ev, true);
         //zombies get slowdown once they convert
         _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
-        if (TryComp<MechPilotComponent>(target, out var mechPilotComponent)) // Goobstation - kick out zombies from mechs on conversion
-            _mech.TryEject(mechPilotComponent.Mech, null, target);
 
         //Need to prevent them from getting an item, they have no hands.
         // Also prevents them from becoming a Survivor. They're undead.
-        _tag.AddTag(target, "InvalidForGlobalSpawnSpell");
+        _tag.AddTag(target, InvalidForGlobalSpawnSpellTag);
+        _tag.AddTag(target, CannotSuicideTag);
+
+        if (TryComp<MechPilotComponent>(target, out var mechPilotComponent)) // Goobstation - kick out zombies from mechs on conversion
+            _mech.TryEject(mechPilotComponent.Mech, null, target);
     }
 }

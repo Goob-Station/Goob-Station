@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
 
@@ -27,6 +27,12 @@ public abstract partial class BaseSpawnEntityEntityEffect<T> : EntityEffectBase<
     /// </summary>
     [DataField]
     public bool Predicted = true;
+
+    /// <summary>
+    /// Goobstation - Whether or not this effect should scale
+    /// </summary>
+    [DataField]
+    public bool ShouldScale = true;
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("entity-effect-guidebook-spawn-entity",

@@ -41,6 +41,8 @@
     back: ClothingBackpack
     shoes: ClothingShoesBootsCombat
     id: SyndiPDA
+  inhand:
+  - WeaponPistolViper # Goobstation - no fistfighting
   storage:
     back:
     - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes

@@ -39,6 +39,7 @@
       - !type:SpawnEntity
         entity: XenoExtractChronofield
         number: 1
+        shouldScale: false
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -51,6 +52,7 @@
       - !type:SpawnEntity
         entity: FloorTileItemSepia
         number: 30
+        shouldScale: false
   - type: Tag
     tags:
     - XenobiologySepiaExtract

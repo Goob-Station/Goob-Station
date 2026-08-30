@@ -28,6 +28,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Atmos.Components; // Goob - Check for pipe layer
 using Content.Shared.Doors.Systems;
 using Content.Shared.Doors.Components; // Goob - Check for Door Bolt
 
@@ -504,6 +505,13 @@ public sealed class RCDSystem : EntitySystem
                 {
                     var entDirection = Transform(ent).LocalRotation.GetCardinalDir();
                     if (entDirection != direction)
+                        isIdentical = false;
+                }
+
+                if (HasComp<AtmosPipeLayersComponent>(ent))     //Goob - check for pipe layers
+                {
+                    var entPipeLayer = Comp<AtmosPipeLayersComponent>(ent).CurrentPipeLayer;
+                    if (entPipeLayer != AtmosPipeLayer.Primary)
                         isIdentical = false;
                 }
 

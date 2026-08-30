@@ -80,7 +80,7 @@ public sealed class UpgradeKitSystem : EntitySystem
     public bool CanUpgrade(Entity<UpgradeKitComponent> ent, EntityUid target, EntityUid user)
     {
         if (_whitelist.IsWhitelistFail(ent.Comp.Whitelist, target) ||
-            _whitelist.IsWhitelistFail(ent.Comp.Blacklist, target))
+            _whitelist.IsWhitelistPass(ent.Comp.Blacklist, target)) // Goob Fail -> Pass
         {
             _popup.PopupClient(Loc.GetString("upgrade-kit-invalid-target"), target, user);
             return false;

@@ -14,6 +14,7 @@ public sealed class LinkAccountManager : IPostInjectInit
     public SharedRMCPatronTier? Tier { get; private set; }
     public bool Linked { get; private set; }
     public Color? GhostColor { get; private set; }
+    public SharedRMCGhostCosmetics? GhostCosmetics { get; private set; } // Goob - ghost cosmetics
     public SharedRMCLobbyMessage? LobbyMessage { get; private set; }
     public SharedRMCRoundEndShoutouts? RoundEndShoutout { get; private set; }
 
@@ -30,6 +31,7 @@ public sealed class LinkAccountManager : IPostInjectInit
         Tier = ev.Patron?.Tier;
         Linked = ev.Patron?.Linked ?? false;
         GhostColor = ev.Patron?.GhostColor;
+        GhostCosmetics = ev.Patron?.GhostCosmetics; // Goob - ghost cosmetics
         LobbyMessage = ev.Patron?.LobbyMessage;
         RoundEndShoutout = ev.Patron?.RoundEndShoutout;
         Updated?.Invoke();
@@ -48,7 +50,12 @@ public sealed class LinkAccountManager : IPostInjectInit
 
     public bool CanViewPatronPerks()
     {
-        return Tier is { } tier && (tier.GhostColor || tier.LobbyMessage || tier.RoundEndShoutout);
+        return Tier is { } tier &&
+               (tier.GhostColor ||
+                tier.GhostCosmetics || // Goob - ghost cosmetics
+                tier.GhostParticles || // Goob - ghost cosmetics
+                tier.LobbyMessage ||
+                tier.RoundEndShoutout);
     }
 
     void IPostInjectInit.PostInject()
