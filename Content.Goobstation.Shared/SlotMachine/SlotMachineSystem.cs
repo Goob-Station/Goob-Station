@@ -32,6 +32,7 @@ namespace Content.Goobstation.Shared.SlotMachine
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly EntityTableSystem _entityTable = default!;
+        [Dependency] private readonly PrizeSystem _prize = default!;
 
         public override void Initialize()
         {
@@ -90,7 +91,6 @@ namespace Content.Goobstation.Shared.SlotMachine
         /// <summary>
         /// Handle the logic for starting the slot machine
         /// </summary>
-
         private void OnInteractHandEvent(EntityUid uid, SlotMachineComponent comp, ActivateInWorldEvent args)
         {
             if (comp.IsSpinning || !_power.IsPowered(uid))
@@ -142,8 +142,7 @@ namespace Content.Goobstation.Shared.SlotMachine
 
             _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
 
-            var prize = GetRandomPrize();
-
+            var prize = _prize.GetRandomPrize(ent.Comp.Prizes);
             HandlePrize(ent, prize);
         }
         private void HandlePrize(Entity<SlotMachineComponent> ent, PrizePrototype prize)
@@ -152,40 +151,12 @@ namespace Content.Goobstation.Shared.SlotMachine
 
             foreach (var item in win)
             {
-                Spawn(item, ent.Owner.ToCoordinates());
+                PredictedSpawnAtPosition(item, ent.Owner.ToCoordinates());
             }
 
             _audio.PlayPredicted(prize.WinSound, ent, ent);
             if (prize.WinMessage is not null)
-                _chatSystem.TrySendInGameICMessage(ent, prize.WinMessage, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
-        }
-
-        public PrizePrototype GetRandomPrize()
-        {
-            var query = _proto.EnumeratePrototypes<PrizePrototype>();
-
-            Dictionary<PrizePrototype, float> picks = new();
-            foreach (var fill in query)
-            {
-                picks[fill] = fill.Weight;
-            }
-
-            var sum = picks.Values.Sum();
-            var accumulated = 0f;
-
-            var rand = _random.NextFloat() * sum;
-
-            foreach (var (prize, weight) in picks)
-            {
-                accumulated += weight;
-
-                if (accumulated >= rand)
-                {
-                    return prize;
-                }
-            }
-
-            throw new InvalidOperationException("Unable to find weighted random for a slot machine prize (THIS SHOULDN'T BE POSSIBLE)");
+                _chatSystem.TrySendInGameICMessage(ent, Loc.GetString(prize.WinMessage), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
         }
     }
 }

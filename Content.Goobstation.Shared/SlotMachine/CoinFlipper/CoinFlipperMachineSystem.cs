@@ -83,7 +83,7 @@ public sealed class CoinFlipperMachineSystem : EntitySystem
 
         StackComponent? stack = null;
         if (slot.Item != null)
-            TryComp<StackComponent>(slot.Item.Value, out stack);
+            TryComp(slot.Item.Value, out stack);
 
         if (_random.Prob(.5f))
         {

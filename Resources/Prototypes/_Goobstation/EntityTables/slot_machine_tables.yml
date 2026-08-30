@@ -2,6 +2,64 @@
   id: SlotMachineMinorWin
   table: !type:AllSelector
     children:
-    - id: SpaceCash1000
-    - id: SpaceCash2500
-    - id: ClothingEyesHudMedical
+    - id: SpaceCash10
+
+- type: entityTable
+  id: SlotMachineSmallWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash100
+
+- type: entityTable
+  id: SlotMachineMediumWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash500
+
+- type: entityTable
+  id: SlotMachineLargeWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash5000
+
+- type: entityTable
+  id: SlotMachineJackpot
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash30000
+
+- type: entityTable
+  id: SlotMachineGodPot
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 1, 1
+      tableId: LootPodPot
+
+- type: entityTable
+  id: LootPodPot
+  table: !type:GroupSelector
+    children:
+    - id: WeaponShotgunHeavy
+    - id: TeslaMiniEnergyBall
+
+# Qm Slot machine
+
+- type: entityTable
+  id: SlotMachineQmMinor
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash100000
+
+- type: entityTable
+  id: SlotMachineQmJackpot
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash1000000
+
+- type: entityTable
+  id: SlotMachineQmThrongler
+  table: !type:AllSelector
+    children:
+    - id: Throngler

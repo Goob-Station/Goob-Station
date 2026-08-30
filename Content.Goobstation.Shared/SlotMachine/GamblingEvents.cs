@@ -8,3 +8,9 @@ public sealed partial class SlotMachineDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class SlotMachineEmagDoAfterEvent : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class CoinFlipperDoAfterEvent : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class ClawGameDoAfterEvent : SimpleDoAfterEvent;

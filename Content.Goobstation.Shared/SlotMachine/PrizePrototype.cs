@@ -26,12 +26,6 @@ public sealed partial class PrizePrototype : IPrototype
     [DataField]
     public EntityTableSelector? PrizeTable;
 
-    /// <summary>
-    /// The tag that the gambling machine must have for this prize to be a valid choice
-    /// </summary>
-    [DataField]
-    public List<ProtoId<TagPrototype>>? Tags;
-
     [DataField]
     public LocId? WinMessage;
 

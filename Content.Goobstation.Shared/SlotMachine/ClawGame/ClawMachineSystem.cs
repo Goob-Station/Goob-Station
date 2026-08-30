@@ -1,15 +1,10 @@
-using Content.Shared.Chat;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.SlotMachine.ClawGame;
