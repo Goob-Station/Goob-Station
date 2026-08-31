@@ -420,7 +420,6 @@ public sealed partial class SupermatterComponent : Component
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
     #endregion EE
 
-    // Omu start
     #region Events
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("harsheventThreshold")]
