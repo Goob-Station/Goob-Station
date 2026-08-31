@@ -120,6 +120,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
         SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
+        SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();

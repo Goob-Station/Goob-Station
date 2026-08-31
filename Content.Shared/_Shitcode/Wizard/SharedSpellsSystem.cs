@@ -140,7 +140,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
-        SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
@@ -244,22 +243,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         BindSoul(ev, item.Value, mind, mindComponent);
-        ev.Handled = true;
-    }
-
-    private void OnMutate(MutateSpellEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (HasComp<SiliconComponent>(ev.Performer) || HasComp<BorgChassisComponent>(ev.Performer))
-        {
-            Popup(ev.Performer, "spell-fail-mutate-silicon");
-            return;
-        }
-
-        EnsureComp<HulkComponent>(ev.Performer).Duration = ev.Duration;
-
         ev.Handled = true;
     }
 

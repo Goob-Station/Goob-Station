@@ -337,3 +337,9 @@ public sealed partial class PolymorphSpellEvent : InstantActionEvent
     [DataField]
     public bool LoadActions;
 }
+
+public sealed partial class MutateSpellEvent : InstantActionEvent
+{
+    [DataField]
+    public float Duration = 30f;
+}

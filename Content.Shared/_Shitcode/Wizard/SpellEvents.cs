@@ -44,12 +44,6 @@ public sealed partial class BindSoulEvent : InstantActionEvent
     public ProtoId<ItemSizePrototype> PhylacterySize = "Ginormous";
 }
 
-public sealed partial class MutateSpellEvent : InstantActionEvent
-{
-    [DataField]
-    public float Duration = 30f;
-}
-
 public sealed partial class TeslaBlastEvent : InstantActionEvent
 {
     [DataField]
