@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Wizard.Components;
@@ -9,6 +10,8 @@ using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Chat;
@@ -20,6 +23,7 @@ using Content.Shared.Examine;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Fluids;
 using Content.Shared.Ghost;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
@@ -36,6 +40,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Projectiles;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -43,6 +48,7 @@ using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
@@ -97,14 +103,24 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedTeslaBlastSystem _teslaBlast = default!;
+    [Dependency] private readonly ConfirmableActionSystem _confirmableAction = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
+    private EntityQuery<ContainerManagerComponent> _containerManagerQuery;
+    private EntityQuery<BodyComponent> _bodyQuery;
+    private EntityQuery<BodyPartComponent> _bodyPartQuery;
+    private EntityQuery<InventoryComponent> _inventoryQuery;
+    private EntityQuery<HandsComponent> _handsQuery;
+    private EntityQuery<BinglePitComponent> _binglePitQuery;
 
     private LocId _locFailSilicon = "spell-fail-target-silicon";
     private LocId _locFailNotDead = "spell-fail-not-dead";
     private LocId _locFailHomingNoTargets = "spell-fail-no-targets";
     private LocId _locFailHandsOccupied = "spell-fail-hands-occupied";
+    private LocId _locFailNoHeldEntity = "spell-fail-no-held-entity";
 
     public override void Initialize()
     {
@@ -141,6 +157,12 @@ public abstract partial class SharedSpellsSystem : EntitySystem
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+        _containerManagerQuery = GetEntityQuery<ContainerManagerComponent>();
+        _bodyQuery = GetEntityQuery<BodyComponent>();
+        _bodyPartQuery = GetEntityQuery<BodyPartComponent>();
+        _inventoryQuery = GetEntityQuery<InventoryComponent>();
+        _handsQuery = GetEntityQuery<HandsComponent>();
+        _binglePitQuery = GetEntityQuery<BinglePitComponent>();
     }
 
     private bool IsTouchSpellDenied(EntityUid target)

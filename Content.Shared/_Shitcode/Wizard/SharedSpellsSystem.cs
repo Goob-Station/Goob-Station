@@ -138,7 +138,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
-        SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
@@ -239,87 +238,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         BindSoul(ev, item.Value, mind, mindComponent);
         ev.Handled = true;
-    }
-
-    private void OnInstantSummons(InstantSummonsEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (!TryComp(ev.Action, out InstantSummonsActionComponent? summons))
-            return;
-
-        Hands.TryGetActiveItem(ev.Performer, out var held);
-
-        if (held != null && held == summons.Entity)
-            return;
-
-        if (!Exists(summons.Entity) || !TryComp(summons.Entity.Value, out TransformComponent? xform))
-        {
-            if (ItemValid(held))
-                MarkItem(held.Value);
-            else
-                Popup(ev.Performer, "spell-fail-no-held-entity");
-
-            return;
-        }
-
-        if (ItemValid(held))
-        {
-            if (TryComp(ev.Action, out ConfirmableActionComponent? confirmable))
-            {
-                // if not primed, prime it and cancel the action
-                if (confirmable.NextConfirm is not { } confirm)
-                {
-                    _confirmableAction.Prime((ev.Action, confirmable), ev.Performer);
-                    return;
-                }
-
-                // primed but the delay isnt over, cancel the action
-                if (Timing.CurTime < confirm)
-                    return;
-
-                // primed and delay has passed, let the action go through
-                _confirmableAction.Unprime((ev.Action, confirmable));
-            }
-
-            MarkItem(held.Value);
-            return;
-        }
-
-        ev.Handled = true;
-
-        if (_net.IsClient)
-            return;
-
-        var item = summons.Entity.Value;
-
-        if (TryGetOuterNonMobContainer(item, xform, out var container))
-            item = container.Owner;
-
-        Audio.PlayEntity(ev.SummonSound, Filter.Pvs(item).Merge(Filter.Pvs(ev.Performer)), item, true);
-
-        if (TryComp(item, out EmbeddableProjectileComponent? embeddable) && embeddable.EmbeddedIntoUid != null)
-            _projectile.EmbedDetach(item, embeddable);
-
-        TransformSystem.SetMapCoordinates(item, TransformSystem.GetMapCoordinates(ev.Performer));
-        TransformSystem.AttachToGridOrMap(item);
-
-        Hands.TryForcePickupAnyHand(ev.Performer, item);
-
-        return;
-
-        void MarkItem(EntityUid obj)
-        {
-            summons.Entity = obj;
-            PopupLoc(ev.Performer, Loc.GetString("instant-summons-item-marked", ("item", obj)));
-            Dirty(ev.Action, summons);
-        }
-
-        bool ItemValid([NotNullWhen(true)] EntityUid? obj)
-        {
-            return HasComp<ItemComponent>(obj) && !HasComp<VirtualItemComponent>(obj);
-        }
     }
 
     private void OnSummonMobs(SummonMobsEvent ev)
@@ -500,45 +418,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         return hasSpells;
-    }
-
-    // Copied straight from SharedContainerSystem (and modified).
-    private bool TryGetOuterNonMobContainer(EntityUid uid,
-        TransformComponent xform,
-        [NotNullWhen(true)] out BaseContainer? container)
-    {
-        container = null;
-
-        if (!uid.IsValid())
-            return false;
-
-        var child = uid;
-        var parent = xform.ParentUid;
-
-        var managerQuery = GetEntityQuery<ContainerManagerComponent>();
-        var xformQuery = GetEntityQuery<TransformComponent>();
-        var bodyQuery = GetEntityQuery<BodyComponent>();
-        var bodyPartQuery = GetEntityQuery<BodyPartComponent>();
-        var inventoryQuery = GetEntityQuery<InventoryComponent>();
-        var handsQuery = GetEntityQuery<HandsComponent>();
-        var binglePitQuery = GetEntityQuery<BinglePitComponent>();
-
-        while (parent.IsValid() && !bodyQuery.HasComp(parent) && !bodyPartQuery.HasComp(parent) &&
-               !inventoryQuery.HasComp(parent) && !handsQuery.HasComp(parent) && !binglePitQuery.HasComp(parent))
-        {
-            if (((EntityManager.MetaQuery.GetComponent(child).Flags & MetaDataFlags.InContainer) ==
-                 MetaDataFlags.InContainer) && managerQuery.TryGetComponent(parent, out var conManager) &&
-                Container.TryGetContainingContainer(parent, child, out var parentContainer, conManager))
-            {
-                container = parentContainer;
-            }
-
-            var parentXform = xformQuery.GetComponent(parent);
-            child = parent;
-            parent = parentXform.ParentUid;
-        }
-
-        return container != null;
     }
 
     private void Popup(EntityUid uid, string message, PopupType type = PopupType.Small)

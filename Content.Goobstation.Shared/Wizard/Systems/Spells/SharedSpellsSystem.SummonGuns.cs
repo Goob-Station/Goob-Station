@@ -1,6 +1,8 @@
 
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
+using Content.Shared.Actions;
+using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
@@ -18,4 +20,10 @@ public abstract partial class SharedSpellsSystem
         var comp = EnsureComp<EnchantedBoltActionRifleComponent>(gun.Value);
         ev.Handled = true;
     }
+}
+
+public sealed partial class InstantSummonsEvent : InstantActionEvent
+{
+    [DataField]
+    public SoundSpecifier? SummonSound;
 }

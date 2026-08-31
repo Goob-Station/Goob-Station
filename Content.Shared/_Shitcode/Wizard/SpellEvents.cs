@@ -43,13 +43,6 @@ public sealed partial class BindSoulEvent : InstantActionEvent
     [DataField]
     public ProtoId<ItemSizePrototype> PhylacterySize = "Ginormous";
 }
-
-public sealed partial class InstantSummonsEvent : InstantActionEvent
-{
-    [DataField]
-    public SoundSpecifier? SummonSound;
-}
-
 public sealed partial class SummonMobsEvent : InstantActionEvent
 {
     [DataField]
