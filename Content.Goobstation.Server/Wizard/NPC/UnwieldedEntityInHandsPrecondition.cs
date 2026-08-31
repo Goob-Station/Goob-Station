@@ -2,10 +2,9 @@
 
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.Preconditions;
-using Content.Shared.Hands.Components;
 using Content.Shared.Wieldable.Components;
 
-namespace Content.Server._Goobstation.Wizard.NPC;
+namespace Content.Goobstation.Server.Wizard.NPC;
 
 public sealed partial class UnwieldedEntityInHandsPrecondition : HTNPrecondition
 {

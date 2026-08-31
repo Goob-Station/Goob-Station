@@ -22,9 +22,13 @@ using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Server.Wizard.Components;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Robust.Shared.Map;
 
 namespace Content.Goobstation.Server.Wizard.Systems;
 
+/// <summary>
+/// Handles wizard teleport spell and scroll of teleportation.
+/// </summary>
 public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
 {
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
@@ -33,9 +37,11 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly WizardRuleSystem _wizard = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SpellsSystem _spells = default!;
+
+    private EntityQuery<ActionComponent> _actionQuery;
 
     private static readonly EntProtoId SmokeProto = "AdminInstantEffectSmoke10";
 
@@ -55,7 +61,9 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         SubscribeLocalEvent<TeleportScrollComponent, AfterActivatableUIOpenEvent>(OnAfterUIOpen);
 
         SubscribeLocalEvent<WizardTeleportWarpPointComponent, MapInitEvent>(OnTeleportWarpMapInit,
-            after: new[] { typeof(NavMapSystem) });
+            after: [typeof(NavMapSystem)]);
+
+        _actionQuery = GetEntityQuery<ActionComponent>();
     }
 
     private void OnLocationSelected(Entity<UserInterfaceComponent> ent, ref WizardTeleportLocationSelectedMessage args)
@@ -68,16 +76,16 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
 
         var action = GetEntity(args.Action.Value);
 
-        if (!TryComp(action, out ActionComponent? actionComp) || !_actions.ValidAction((action, actionComp)))
+        if (!_actionQuery.TryComp(action, out var actionComp) || !_actions.ValidAction((action, actionComp)))
             return;
 
         var user = args.Actor;
-        var location = GetEntity(args.Location);
+        var targetLocationUid = GetEntity(args.Location);
 
-        if (!HasComp<WizardTeleportLocationComponent>(location))
+        if (!HasComp<WizardTeleportLocationComponent>(targetLocationUid))
             return;
 
-        if (!Teleport(user, location))
+        if (!TeleportToCoords(user, _xform.GetMapCoordinates(targetLocationUid)))
             return;
 
         _spells.SpeakSpell(user,
@@ -95,12 +103,12 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
             return;
 
         var user = args.Actor;
-        var location = GetEntity(args.Location);
+        var targetLocationUid = GetEntity(args.Location);
 
-        if (!HasComp<WizardTeleportLocationComponent>(location))
+        if (!HasComp<WizardTeleportLocationComponent>(targetLocationUid))
             return;
 
-        if (!Teleport(user, location))
+        if (!TeleportToCoords(user, _xform.GetMapCoordinates(targetLocationUid)))
             return;
 
         ent.Comp.UsesLeft--;
@@ -119,7 +127,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         Dirty(ent);
     }
 
-    private bool Teleport(EntityUid user, EntityUid location)
+    private bool TeleportToCoords(EntityUid user, MapCoordinates coords)
     {
         var ev = new TeleportAttemptEvent(false);
         RaiseLocalEvent(user, ref ev);
@@ -130,11 +138,10 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
 
         var userXform = Transform(user);
 
-        Spawn(SmokeProto, _transform.GetMapCoordinates(user, userXform));
+        Spawn(SmokeProto, _xform.GetMapCoordinates(user, userXform));
         _audio.PlayPvs(TeleportSound, userXform.Coordinates);
 
-        var coords = _transform.GetMapCoordinates(location);
-        _transform.SetMapCoordinates(user, coords);
+        _xform.SetMapCoordinates(user, coords);
 
         Spawn(SmokeProto, coords);
         _audio.PlayPvs(PostTeleportSound, userXform.Coordinates);
@@ -184,9 +191,9 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         if (!CanTeleportTo(xform))
             return;
 
-        var teleportLocation = Spawn(null, _transform.GetMapCoordinates(uid, xform));
+        var teleportLocation = Spawn(null, _xform.GetMapCoordinates(uid, xform));
         EnsureComp<WizardTeleportLocationComponent>(teleportLocation).Location = warp.Location;
-        _transform.AttachToGridOrMap(teleportLocation);
+        _xform.AttachToGridOrMap(teleportLocation);
     }
 
     private IEnumerable<WizardWarp> GetWizardTeleportLocations()

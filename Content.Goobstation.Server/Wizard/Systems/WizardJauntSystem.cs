@@ -1,40 +1,45 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Server.Polymorph.Components;
-using Content.Server.Polymorph.Systems;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Polymorph;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Systems;
 
+/// <summary>
+/// Handles effects for wizard jaunt.
+/// TODO should be shared or probably client. Relies on PolymorphedEntityComponent though
+/// </summary>
 public sealed class WizardJauntSystem : EntitySystem
 {
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+
+    private EntityQuery<TrailComponent> _trailQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<WizardJauntComponent, PolymorphedEvent>(OnPolymorph);
+
+        _trailQuery = GetEntityQuery<TrailComponent>();
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var trailQuery = GetEntityQuery<TrailComponent>();
-
         var query = EntityQueryEnumerator<WizardJauntComponent, PolymorphedEntityComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var jaunt, out var polymorphed, out var xform))
         {
             if (jaunt.JauntEndEffectEntity is {} endEffect)
             {
-                _transform.SetMapCoordinates(endEffect, _transform.GetMapCoordinates(xform));
+                _xform.SetMapCoordinates(endEffect, _xform.GetMapCoordinates(xform));
                 continue;
             }
 
@@ -44,12 +49,12 @@ public sealed class WizardJauntSystem : EntitySystem
                 continue;
 
             var ent = Spawn(jaunt.JauntEndEffect,
-                _transform.GetMapCoordinates(uid, xform),
-                rotation: _transform.GetWorldRotation(xform));
+                _xform.GetMapCoordinates(uid, xform),
+                rotation: _xform.GetWorldRotation(xform));
             _audio.PlayEntity(jaunt.JauntEndSound, Filter.Pvs(ent), ent, true);
             jaunt.JauntEndEffectEntity = ent;
 
-            if (!trailQuery.TryComp(ent, out var trail))
+            if (!_trailQuery.TryComp(ent, out var trail))
                 continue;
 
             trail.RenderedEntity = polymorphed.Parent;
@@ -65,11 +70,11 @@ public sealed class WizardJauntSystem : EntitySystem
             return;
 
         var startEffect = Spawn(comp.JauntStartEffect,
-            _transform.GetMapCoordinates(uid),
-            rotation: _transform.GetWorldRotation(uid));
+            _xform.GetMapCoordinates(uid),
+            rotation: _xform.GetWorldRotation(uid));
         _audio.PlayPvs(comp.JauntStartSound, startEffect);
 
-        if (!TryComp(startEffect, out TrailComponent? trail))
+        if (!_trailQuery.TryComp(startEffect, out var trail))
             return;
 
         trail.RenderedEntity = args.OldEntity;

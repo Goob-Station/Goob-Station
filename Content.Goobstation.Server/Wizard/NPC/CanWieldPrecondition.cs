@@ -5,7 +5,7 @@ using Content.Server.NPC.HTN.Preconditions;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 
-namespace Content.Server._Goobstation.Wizard.NPC;
+namespace Content.Goobstation.Server.Wizard.NPC;
 
 public sealed partial class CanWieldPrecondition : HTNPrecondition
 {
