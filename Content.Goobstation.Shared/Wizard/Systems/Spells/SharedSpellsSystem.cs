@@ -112,6 +112,8 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
         SubscribeLocalEvent<SummonSimiansEvent>(OnSummonSimians);
         SubscribeLocalEvent<MindContainerComponent, SummonSimiansMaxedOutEvent>(OnMonkeyAscensionRelay);
+        SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
+        SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();

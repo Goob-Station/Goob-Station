@@ -291,3 +291,12 @@ public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent
     [DataField]
     public ProtoId<TagPrototype> CursedMaskTag = "CursedAnimalMask";
 }
+
+public sealed partial class CluwneCurseEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public TimeSpan StutterDuration = TimeSpan.FromSeconds(30);
+}

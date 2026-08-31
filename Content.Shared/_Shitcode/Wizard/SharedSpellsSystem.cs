@@ -139,7 +139,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
@@ -171,28 +170,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     #region Spells
-
-    private void OnCluwneCurse(CluwneCurseEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (TryComp(ev.Target, out StatusEffectsComponent? status))
-        {
-            Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
-            _jitter.DoJitter(ev.Target, ev.StutterDuration, true, status: status);
-        }
-
-        EnsureComp<CluwneComponent>(ev.Target);
-
-        ev.Handled = true;
-    }
 
     private void OnBindSoul(BindSoulEvent ev)
     {

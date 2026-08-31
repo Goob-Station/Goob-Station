@@ -22,15 +22,6 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Goobstation.Wizard;
 
-public sealed partial class CluwneCurseEvent : EntityTargetActionEvent
-{
-    [DataField]
-    public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
-
-    [DataField]
-    public TimeSpan StutterDuration = TimeSpan.FromSeconds(30);
-}
-
 public sealed partial class BindSoulEvent : InstantActionEvent
 {
     [DataField]
