@@ -150,10 +150,6 @@ public sealed partial class SummonMobsEvent : InstantActionEvent
     public bool FactionIgnoreSummoner;
 }
 
-public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent
-{
-}
-
 public sealed partial class SwapSpellEvent : EntityTargetActionEvent
 {
     [DataField]

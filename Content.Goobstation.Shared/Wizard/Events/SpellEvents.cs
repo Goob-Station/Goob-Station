@@ -300,3 +300,5 @@ public sealed partial class CluwneCurseEvent : EntityTargetActionEvent
     [DataField]
     public TimeSpan StutterDuration = TimeSpan.FromSeconds(30);
 }
+
+public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent;

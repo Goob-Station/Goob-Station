@@ -147,7 +147,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
-        SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
@@ -465,40 +464,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         SpawnMobs(ev);
-
-        ev.Handled = true;
-    }
-
-    private void OnExsangunatingStrike(ExsanguinatingStrikeEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (!Hands.TryGetActiveItem(ev.Performer, out var held))
-            return;
-
-        if (!HasComp<ItemComponent>(held))
-        {
-            Popup(ev.Performer, "spell-fail-sanguine-strike-no-item");
-            return;
-        }
-
-        if (HasComp<VirtualItemComponent>(held))
-            return;
-
-        if (HasComp<SanguineStrikeComponent>(held))
-        {
-            Popup(ev.Performer, "spell-fail-sanguine-strike-already-empowered");
-            return;
-        }
-
-        if (!TryComp(held, out MeleeWeaponComponent? weapon) || weapon.Damage.GetTotal() == FixedPoint2.Zero)
-        {
-            PopupLoc(ev.Performer, Loc.GetString("spell-fail-sanguine-strike-not-weapon", ("item", held)));
-            return;
-        }
-
-        AddComp<SanguineStrikeComponent>(held.Value);
 
         ev.Handled = true;
     }
