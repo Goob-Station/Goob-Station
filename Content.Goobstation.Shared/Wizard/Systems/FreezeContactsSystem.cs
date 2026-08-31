@@ -3,7 +3,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Wizard.Components;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.Guardian;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;

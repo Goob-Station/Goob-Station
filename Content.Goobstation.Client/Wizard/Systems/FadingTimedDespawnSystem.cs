@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Goobstation.Shared.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.FadingTimedDespawn;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._Shitcode.Wizard.Systems;
+namespace Content.Goobstation.Client.Wizard.Systems;
 
 public sealed class FadingTimedDespawnSystem : SharedFadingTimedDespawnSystem
 {

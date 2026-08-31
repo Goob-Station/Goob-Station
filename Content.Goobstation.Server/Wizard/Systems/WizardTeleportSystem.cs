@@ -21,7 +21,6 @@ using Content.Goobstation.Shared.Wizard.Systems;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Server.Wizard.Components;
 using Content.Server._Goobstation.Wizard.Systems;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Robust.Shared.Map;
 
 namespace Content.Goobstation.Server.Wizard.Systems;
