@@ -6,7 +6,7 @@ using Content.Shared.Mind;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Shitcode.Wizard.Chemistry;
+namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class HasComponentConditionSystem : EntityConditionSystem<MetaDataComponent, HasComponentCondition>
 {

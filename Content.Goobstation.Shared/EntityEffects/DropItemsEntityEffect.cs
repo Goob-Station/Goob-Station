@@ -5,7 +5,7 @@ using Content.Shared.Standing;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Shitcode.Wizard.Chemistry;
+namespace Content.Goobstation.Shared.EntityEffects;
 
 public sealed partial class DropItemsEntityEffectSystem : EntityEffectSystem<HandsComponent, DropItemsEntityEffect>
 {
