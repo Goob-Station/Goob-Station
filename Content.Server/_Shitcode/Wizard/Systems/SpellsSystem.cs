@@ -588,11 +588,4 @@ public sealed class SpellsSystem : SharedSpellsSystem
         PopupCharged(uid, ev.Performer, false);
         return true;
     }
-
-    protected override void Blink(BlinkSpellEvent ev)
-    {
-        base.Blink(ev);
-
-        _teleport.RandomTeleport(ev.Performer, ev.Radius);
-    }
 }

@@ -162,7 +162,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
         SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
-        SubscribeLocalEvent<BlinkSpellEvent>(OnBlink);
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
@@ -898,15 +897,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
     }
 
-    private void OnBlink(BlinkSpellEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        Blink(ev);
-        ev.Handled = true;
-    }
-
     private void OnTileToggle(TileToggleSpellEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
@@ -1218,8 +1208,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     {
         return true;
     }
-
-    protected virtual void Blink(BlinkSpellEvent ev) { }
 
     #endregion
 }

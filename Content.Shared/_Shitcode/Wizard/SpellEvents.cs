@@ -314,12 +314,6 @@ public sealed partial class ChargeMagicEvent : InstantActionEvent
     };
 }
 
-public sealed partial class BlinkSpellEvent : InstantActionEvent
-{
-    [DataField]
-    public MinMax Radius = new(0, 6);
-}
-
 public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent
 {
     [DataField]
