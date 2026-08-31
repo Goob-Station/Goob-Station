@@ -1,22 +1,32 @@
 
 using System.Numerics;
 using Content.Goobstation.Common.Religion;
+using Content.Goobstation.Shared.Religion;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chat;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
+using Content.Shared.Emp;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Ghost;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory;
+using Content.Shared.Jittering;
 using Content.Shared.Magic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.PDA;
 using Content.Shared.Popups;
+using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -44,6 +54,12 @@ public sealed partial class SharedGoobSpellsSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] private readonly SharedStutteringSystem _stutter = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedEmpSystem _emp = default!;
+    [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -60,6 +76,8 @@ public sealed partial class SharedGoobSpellsSystem : EntitySystem
         SubscribeLocalEvent<CorpseExplosionEvent>(OnCorpseExplosion);
         SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
         SubscribeLocalEvent<MagicMissileEvent>(OnMagicMissile);
+        SubscribeLocalEvent<BananaTouchEvent>(OnBananaTouch);
+        SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
@@ -137,5 +155,39 @@ public sealed partial class SharedGoobSpellsSystem : EntitySystem
             return false;
 
         return _xform.InRange(ev.Target, xform.Coordinates, lockOnMark.LockOnRadius + 1f);
+    }
+
+    private void SetGear(EntityUid uid,
+        Dictionary<string, EntProtoId> gear,
+        bool force = true,
+        bool makeUnremoveable = true,
+        InventoryComponent? inventoryComponent = null)
+    {
+        // TODO: test if predicts properly, dont know why it does this
+        if (_net.IsClient)
+            return;
+
+        if (!Resolve(uid, ref inventoryComponent, false))
+            return;
+
+        foreach (var (slot, item) in gear)
+        {
+            _inventory.TryUnequip(uid, slot, true, force, false, inventoryComponent);
+
+            var ent = Spawn(item, Transform(uid).Coordinates);
+            if (!_inventory.TryEquip(uid, ent, slot, true, force, false, inventoryComponent))
+            {
+                Del(ent);
+                continue;
+            }
+
+            if (slot == "id" &&
+                TryComp(ent, out PdaComponent? pdaComponent) &&
+                TryComp<IdCardComponent>(pdaComponent.ContainedId, out var id))
+                id.FullName = MetaData(uid).EntityName;
+
+            if (makeUnremoveable && HasComp<ClothingComponent>(ent))
+                EnsureComp<UnremoveableComponent>(ent);
+        }
     }
 }

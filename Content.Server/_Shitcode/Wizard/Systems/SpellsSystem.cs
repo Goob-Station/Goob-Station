@@ -168,24 +168,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
             args.MessageColor);
     }
 
-    protected override void Emp(DisableTechEvent ev)
-    {
-        base.Emp(ev);
-
-        // This doesn't invoke EmpPulse() because I don't want it to spawn emp effect and play pulse sound
-        var coords = TransformSystem.GetMapCoordinates(ev.Performer);
-        foreach (var uid in Lookup.GetEntitiesInRange(coords, ev.Range))
-        {
-            if (_divineIntervention.TouchSpellDenied(uid))
-                continue;
-
-            _emp.TryEmpEffects(uid, ev.EnergyConsumption, TimeSpan.FromSeconds(ev.DisableDuration));
-        }
-
-
-        Spawn(ev.Effect, coords);
-    }
-
     protected override void SpawnSmoke(SmokeSpellEvent ev)
     {
         base.SpawnSmoke(ev);

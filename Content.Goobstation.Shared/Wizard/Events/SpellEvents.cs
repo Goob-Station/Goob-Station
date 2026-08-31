@@ -58,3 +58,36 @@ public sealed partial class MagicMissileEvent : InstantActionEvent
     [DataField]
     public float ProjectileSpeed = 6f;
 }
+
+public sealed partial class BananaTouchEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public Dictionary<string, EntProtoId> Gear = new()
+    {
+        {"mask", "ClothingMaskClown"},
+        {"jumpsuit", "ClothingUniformJumpsuitClown"},
+        {"shoes", "ClothingShoesClown"},
+        {"id", "ClownPDA"},
+    };
+
+    [DataField]
+    public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public TimeSpan JitterStutterDuration = TimeSpan.FromSeconds(30);
+}
+
+public sealed partial class DisableTechEvent : InstantActionEvent
+{
+    [DataField]
+    public float Range = 10f;
+
+    [DataField]
+    public float EnergyConsumption = 50000f;
+
+    [DataField]
+    public float DisableDuration = 60f;
+
+    [DataField]
+    public EntProtoId Effect = "EmpFlashEffect";
+}

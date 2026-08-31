@@ -142,9 +142,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
-        SubscribeLocalEvent<BananaTouchEvent>(OnBananaTouch);
         SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
-        SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
         SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
         SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
@@ -214,34 +212,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
-    private void OnBananaTouch(BananaTouchEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (TryComp(ev.Target, out StatusEffectsComponent? status))
-        {
-            Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
-            _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
-            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true);
-        }
-
-        var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
-
-        if (!targetWizard)
-            EnsureComp<ClumsyComponent>(ev.Target);
-
-        SetGear(ev.Target, ev.Gear, !targetWizard);
-
-        ev.Handled = true;
-    }
-
     private void OnMimeMalaise(MimeMalaiseEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
@@ -266,16 +236,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             MakeMime(ev.Target);
         else
             _statusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.WizardMuteDuration, true, status);
-
-        ev.Handled = true;
-    }
-
-    private void OnDisableTech(DisableTechEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        Emp(ev);
 
         ev.Handled = true;
     }
@@ -1336,8 +1296,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     #region ServerMethods
 
     public virtual void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school) { }
-
-    protected virtual void Emp(DisableTechEvent ev) { }
 
     protected virtual void SpawnSmoke(SmokeSpellEvent ev) { }
 
