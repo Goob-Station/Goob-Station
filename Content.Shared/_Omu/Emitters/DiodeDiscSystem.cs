@@ -21,7 +21,7 @@ public sealed class DiodeDiscSystem : EntitySystem
 
     private void OnAfterInteract(Entity<DiodeDiscComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target is not {} target)
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
         args.Handled = true;
