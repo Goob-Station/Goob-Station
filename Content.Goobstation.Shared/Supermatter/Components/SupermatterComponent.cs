@@ -455,9 +455,9 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField("Timetounlock")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public double Timetounlock = 5;
+    public double TimeToUnlock = 5;
 
-    public double Timelocked;
+    public double TimeLocked;
 
     /// <summary>
     /// The desired setpoint for a radiation output factor - bigger number means it will try reach a bigger value

@@ -128,7 +128,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     public void Cycle(EntityUid uid, SupermatterComponent sm)
     {
-        if (sm.Timelocked < _gameTiming.CurTime.TotalMinutes - sm.Timetounlock)
+        if (sm.TimeLocked < _gameTiming.CurTime.TotalMinutes - sm.TimeToUnlock)
         {
             sm.Surge = false;
             _chatmanager.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
@@ -196,7 +196,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             else if (eventToRun.ID == "SMSurge")
             {
                 _chatmanager.SendAdminAlert($"{sm.Surge} = supermatter surge begun at time: {_gameTiming.CurTime.TotalMinutes}");
-                sm.Timelocked = _gameTiming.CurTime.TotalMinutes;
+                sm.TimeLocked = _gameTiming.CurTime.TotalMinutes;
                 sm.GasEfficiencyFactorChanged = true;
                 sm.GasEfficiency = 0.30f;
                 sm.RadiationOutputFactorChanged = true;
