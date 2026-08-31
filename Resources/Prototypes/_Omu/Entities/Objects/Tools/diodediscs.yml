@@ -40,13 +40,15 @@
   components:
   - type: Tag
     tags:
-    - EmitterBoltElectroDisruptive
     - EmitterBolt
   - type: Projectile
     damage:
       types:
         Heat: 14
         Blunt: 6
+  - type: AngeringProjectile
+    integDamage: -1
+    energyDamage: -60
 
 - type: entity
   name: emitter bolt
@@ -56,17 +58,12 @@
   components:
   - type: Tag
     tags:
-    - EmitterBoltElectroBehavioural
     - EmitterBolt
   - type: Projectile
     damage:
       types:
         Heat: -5
         Blunt: -2
-
-
-- type: Tag
-  id: EmitterBoltElectroDisruptive
-
-- type: Tag
-  id: EmitterBoltElectroBehavioural
+  - type: AngeringProjectile
+    integDamage: 1
+    energyDamage: 100

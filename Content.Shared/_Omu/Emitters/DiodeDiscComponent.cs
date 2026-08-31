@@ -29,10 +29,21 @@ public sealed partial class DiodeDiscComponent : Component
     [DataField]
     public SoundSpecifier? UpgradeSound = new SoundPathSpecifier("/Audio/Items/rped.ogg");
 
+    [DataField]
     public EntityUid? SoundStream;
 
     [DataField]
     public EntProtoId NewBolt;
+}
+
+[RegisterComponent]
+public sealed partial class AngeringProjectileComponent : Component
+{
+    [DataField]
+    public float? IntegDamage;
+
+    [DataField]
+    public float? EnergyDamage;
 }
 
 [Serializable, NetSerializable]

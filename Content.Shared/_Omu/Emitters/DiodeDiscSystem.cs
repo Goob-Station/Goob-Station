@@ -31,9 +31,9 @@ public sealed class DiodeDiscSystem : EntitySystem
             return;
         if (HasComp<UpgradedMachineComponent>(target))
             return;
-        Dirty(ent);
         var ev = new DiodeDiscDoAfterEvent();
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.Delay, ev, ent, target, ent));
+        Dirty(ent);
     }
 
     private void OnDoAfter(Entity<DiodeDiscComponent> ent, ref DiodeDiscDoAfterEvent args)
@@ -41,7 +41,7 @@ public sealed class DiodeDiscSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (args.Handled || args.Args.Target is not {} target)
+        if (args.Handled || args.Args.Target is not { } target)
             return;
 
         args.Handled = true;

@@ -41,6 +41,7 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.Chat.Managers;
 using Content.Shared.Humanoid;
 using Content.Shared.Tag;
+using Content.Shared._Omu.DiodeDisc;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -682,30 +683,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             sm.Activated = true;
         }
 
-        if (_tag.HasTag(target, "EmitterBolt"))
+        if (TryComp<AngeringProjectileComponent>(target, out var projcomp))
         {
-            var meta = MetaData(target);
-            switch (meta.EntityPrototype?.ID)
-            {
-                case "EmitterBoltElectroDisruptive":
-                    {
-                        sm.Damage -= 1f;
-                        sm.Power -= 60f;
-                        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
-                        $"SUPERMATTER hit by healing bolt AT {Transform(uid).Coordinates}");
-                        QueueDel(target);
-                        return;
-                    }
-                case "EmitterBoltElectroBehavioural":
-                    {
-                        sm.Damage += 1f;
-                        sm.Power += 100f;
-                        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
-                        $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
-                        QueueDel(target);
-                        return;
-                    }
-            }
+            if (projcomp.IntegDamage is not null)
+                sm.Damage += projcomp.IntegDamage.Value;
+
+            if (projcomp.EnergyDamage is not null)
+            sm.Power += projcomp.EnergyDamage.Value;
         }
 
         if (TryComp<SupermatterFoodComponent>(target, out var food))
