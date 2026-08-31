@@ -365,3 +365,12 @@ public sealed partial class ChargeMagicEvent : InstantActionEvent
         "WizardStaff",
     };
 }
+
+public sealed partial class LightningBoltEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public float Damage = 50f;
+
+    [DataField]
+    public EntProtoId Proto = "ChargedLightning";
+}

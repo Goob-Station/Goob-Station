@@ -6,6 +6,7 @@ using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
+using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
@@ -16,10 +17,12 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Emp;
+using Content.Shared.Examine;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Fluids;
 using Content.Shared.Ghost;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
@@ -92,6 +95,9 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly RaysSystem _rays = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly SharedTeslaBlastSystem _teslaBlast = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -132,6 +138,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
+        SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();

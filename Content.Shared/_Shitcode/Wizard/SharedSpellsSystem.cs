@@ -141,7 +141,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
-        SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
@@ -259,28 +258,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         _teslaBlast.StartCharging(ev);
-    }
-
-    private void OnLightningBolt(LightningBoltEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (!_examine.InRangeUnOccluded(ev.Performer, ev.Target, SharedInteractionSystem.MaxRaycastRange))
-        {
-            Popup(ev.Performer, "spell-fail-lightning-bolt");
-            return;
-        }
-
-        _teslaBlast.ShootLightning(ev.Performer, ev.Target, ev.Proto, ev.Damage);
-
-        ev.Handled = true;
     }
 
     private void OnInstantSummons(InstantSummonsEvent ev)
