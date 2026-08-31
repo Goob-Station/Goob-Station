@@ -18,7 +18,7 @@
     newBolt: EmitterBoltElectroDisruptive
     componentsToAdd:
     - type: UpgradedMachine
-      upgrade: Emitter-Electro-Disrutpive
+      upgrade: emitter-electro-disrutpive
 
 - type: entity
   parent: BaseDiodeDisc
@@ -30,7 +30,7 @@
     newBolt: EmitterBoltElectroBehavioural
     componentsToAdd:
     - type: UpgradedMachine
-      upgrade: Emitter-Electro-Behavioural
+      upgrade: emitter-electro-behavioural
 
 - type: entity
   name: emitter bolt
