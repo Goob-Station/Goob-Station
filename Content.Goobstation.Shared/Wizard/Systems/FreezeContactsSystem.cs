@@ -2,6 +2,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.Guardian;
 using Content.Shared.ActionBlocker;
@@ -23,7 +24,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
-namespace Content.Shared._Goobstation.Wizard.TimeStop;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class FreezeContactsSystem : EntitySystem
 {
