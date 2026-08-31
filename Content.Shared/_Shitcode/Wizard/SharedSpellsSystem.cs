@@ -142,7 +142,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
-        SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
         SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
         SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
@@ -207,34 +206,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         EnsureComp<CluwneComponent>(ev.Target);
-
-        ev.Handled = true;
-    }
-
-    private void OnMimeMalaise(MimeMalaiseEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (!TryComp(ev.Target, out StatusEffectsComponent? status))
-            return;
-
-        Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
-
-        var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
-
-        SetGear(ev.Target, ev.Gear, !targetWizard);
-
-        if (!targetWizard)
-            MakeMime(ev.Target);
-        else
-            _statusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.WizardMuteDuration, true, status);
 
         ev.Handled = true;
     }
@@ -1271,13 +1242,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             if (makeUnremoveable && HasComp<ClothingComponent>(ent))
                 EnsureComp<UnremoveableComponent>(ent);
         }
-    }
-
-    private void MakeMime(EntityUid uid)
-    {
-        var powers = EnsureComp<MimePowersComponent>(uid);
-        powers.CanBreakVow = false;
-        Dirty(uid, powers);
     }
 
     #endregion

@@ -23,6 +23,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
+using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -61,6 +62,7 @@ public abstract partial class SharedGoobSpellsSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedEmpSystem _emp = default!;
     [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -79,6 +81,8 @@ public abstract partial class SharedGoobSpellsSystem : EntitySystem
         SubscribeLocalEvent<MagicMissileEvent>(OnMagicMissile);
         SubscribeLocalEvent<BananaTouchEvent>(OnBananaTouch);
         SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
+        SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
+        SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();

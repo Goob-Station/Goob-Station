@@ -103,3 +103,21 @@ public sealed partial class SmokeSpellEvent : InstantActionEvent
     [DataField]
     public int SpreadAmount = 30;
 }
+
+public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public Dictionary<string, EntProtoId> Gear = new()
+    {
+        {"mask", "ClothingMaskMime"},
+        {"jumpsuit", "ClothingUniformJumpsuitMime"},
+        {"belt", "ClothingBeltSuspendersRed"},
+        {"id", "MimePDA"},
+    };
+
+    [DataField]
+    public TimeSpan WizardMuteDuration = TimeSpan.FromSeconds(15);
+
+    [DataField]
+    public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
+}

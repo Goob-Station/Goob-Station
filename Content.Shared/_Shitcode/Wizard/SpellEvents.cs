@@ -31,24 +31,6 @@ public sealed partial class CluwneCurseEvent : EntityTargetActionEvent
     public TimeSpan StutterDuration = TimeSpan.FromSeconds(30);
 }
 
-public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent
-{
-    [DataField]
-    public Dictionary<string, EntProtoId> Gear = new()
-    {
-        {"mask", "ClothingMaskMime"},
-        {"jumpsuit", "ClothingUniformJumpsuitMime"},
-        {"belt", "ClothingBeltSuspendersRed"},
-        {"id", "MimePDA"},
-    };
-
-    [DataField]
-    public TimeSpan WizardMuteDuration = TimeSpan.FromSeconds(15);
-
-    [DataField]
-    public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
-}
-
 public sealed partial class RepulseEvent : InstantActionEvent
 {
     [DataField]
