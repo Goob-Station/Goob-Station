@@ -15,7 +15,7 @@ public sealed partial class PrizePrototype : IPrototype
     public string ID { get; set; } = default!;
 
     /// <summary>
-    /// The change to win this prize
+    /// The chance to win this prize
     /// </summary>
     [DataField]
     public required float Weight;
