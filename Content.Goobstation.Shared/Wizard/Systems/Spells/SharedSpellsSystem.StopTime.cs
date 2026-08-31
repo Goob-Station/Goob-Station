@@ -6,7 +6,7 @@ namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 /// <summary>
 /// TODO: finish moving goob wiz spells then remove Goob after deleting SpellsSystem
 /// </summary>
-public abstract partial class SharedSpellsSystem : EntitySystem
+public abstract partial class SharedSpellsSystem
 {
     private void OnStopTime(StopTimeEvent ev)
     {

@@ -195,3 +195,24 @@ public sealed partial class PredictionToggleSpellEvent : EntityTargetActionEvent
     [DataField]
     public SoundSpecifier? Sound;
 }
+
+public sealed partial class LesserSummonGunsEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "WeaponBoltActionEnchanted";
+}
+
+public sealed partial class ArcaneBarrageEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "ArcaneBarrage";
+}
+
+public sealed partial class ThrownLightningEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "ThrownLightning";
+
+    [DataField]
+    public SoundSpecifier? Sound;
+}

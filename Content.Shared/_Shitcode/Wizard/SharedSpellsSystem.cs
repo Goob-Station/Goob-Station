@@ -148,8 +148,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
         SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
-        SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
-        SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
@@ -158,7 +156,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
-        SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
@@ -371,33 +368,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             spellCardsAction.UsesLeft = spellCardsAction.CastAmount;
             RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer);
         }
-    }
-
-    private void OnArcaneBarrage(ArcaneBarrageEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (SpawnItemInHands(ev.Performer, ev.Proto, ev.Action) == null)
-            return;
-
-        ev.Handled = true;
-    }
-
-    private void OnLesserSummonGuns(LesserSummonGunsEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        var gun = SpawnItemInHands(ev.Performer, ev.Proto, ev.Action);
-        if (gun == null)
-            return;
-
-        var comp = EnsureComp<EnchantedBoltActionRifleComponent>(gun.Value);
-        comp.Caster = ev.Performer;
-        Dirty(gun.Value, comp);
-
-        ev.Handled = true;
     }
 
     private void OnBarnyardCurse(BarnyardCurseEvent ev)
@@ -766,21 +736,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             Popup(ev.Performer, "spell-soul-tap-message", PopupType.MediumCaution);
     }
 
-    private void OnThrownLightning(ThrownLightningEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        var packet = SpawnItemInHands(ev.Performer, ev.Proto, ev.Action);
-        if (packet == null)
-            return;
-
-        if (_net.IsServer)
-            Audio.PlayPvs(ev.Sound, packet.Value);
-
-        ev.Handled = true;
-    }
-
     private void OnCharge(ChargeMagicEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
@@ -967,26 +922,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         return container != null;
-    }
-
-    private EntityUid? SpawnItemInHands(EntityUid user, EntProtoId proto, EntityUid action)
-    {
-        if (!TryComp(user, out HandsComponent? hands))
-            return null;
-
-        if (!Hands.TryGetEmptyHand((user, hands), out var hand))
-        {
-            Popup(user, "spell-fail-hands-occupied");
-            return null;
-        }
-
-        var item = PredictedSpawnAtPosition(proto, Transform(user).Coordinates);
-        if (Hands.TryPickup(user, item, hand, false))
-            return item;
-
-        PredictedQueueDel(item);
-        Actions.SetCooldown(action, TimeSpan.FromSeconds(0.5));
-        return null;
     }
 
     private bool ValidateLockOnAction(WorldTargetActionEvent ev)

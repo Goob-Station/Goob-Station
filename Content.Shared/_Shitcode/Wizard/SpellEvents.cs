@@ -137,18 +137,6 @@ public sealed partial class SpellCardsEvent : WorldTargetActionEvent
     public Vector2 MinMaxLinearDamping = new(3f, 7f);
 }
 
-public sealed partial class ArcaneBarrageEvent : InstantActionEvent
-{
-    [DataField]
-    public EntProtoId Proto = "ArcaneBarrage";
-}
-
-public sealed partial class LesserSummonGunsEvent : InstantActionEvent
-{
-    [DataField]
-    public EntProtoId Proto = "WeaponBoltActionEnchanted";
-}
-
 public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent
 {
     [DataField(required: true)]
@@ -251,15 +239,6 @@ public sealed partial class SoulTapEvent : InstantActionEvent
 
     [DataField]
     public ProtoId<TagPrototype> DeadTag = "SoulTapped";
-}
-
-public sealed partial class ThrownLightningEvent : InstantActionEvent
-{
-    [DataField]
-    public EntProtoId Proto = "ThrownLightning";
-
-    [DataField]
-    public SoundSpecifier? Sound;
 }
 
 public sealed partial class ChargeMagicEvent : InstantActionEvent

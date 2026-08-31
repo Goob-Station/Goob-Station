@@ -17,10 +17,12 @@ using Content.Shared.Emp;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Fluids;
 using Content.Shared.Ghost;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.PDA;
@@ -31,6 +33,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
@@ -73,6 +76,9 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -80,6 +86,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     private LocId _locFailSilicon = "spell-fail-target-silicon";
     private LocId _locFailNotDead = "spell-fail-not-dead";
     private LocId _locFailHomingNoTargets = "spell-fail-no-targets";
+    private LocId _locFailHandsOccupied = "spell-fail-hands-occupied";
 
     public override void Initialize()
     {
@@ -99,6 +106,9 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
         SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
+        SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
+        SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
+        SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
@@ -210,5 +220,23 @@ public abstract partial class SharedSpellsSystem : EntitySystem
             if (makeUnremoveable && HasComp<ClothingComponent>(ent))
                 EnsureComp<UnremoveableComponent>(ent);
         }
+    }
+
+    private EntityUid? PredictedSpawnItemInHands(EntityUid user, EntProtoId proto, EntityUid action)
+    {
+        if (!_hands.TryGetEmptyHand(user, out var hand))
+        {
+            _popup.PopupClient(Loc.GetString(_locFailHandsOccupied), user);
+            return null;
+        }
+
+        var item = PredictedSpawnAtPosition(proto, Transform(user).Coordinates);
+        if (_hands.TryPickup(user, item, hand, false))
+            return item;
+
+        PredictedQueueDel(item);
+        _actions.SetCooldown(action, TimeSpan.FromSeconds(0.5)); // TODO: wtf?
+
+        return null;
     }
 }
