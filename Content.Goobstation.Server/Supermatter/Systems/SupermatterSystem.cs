@@ -128,10 +128,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
     public void Cycle(EntityUid uid, SupermatterComponent sm)
     {
-        if (sm.Timelocked < (_gameTiming.CurTime.TotalMinutes - sm.Timetounlock) && sm.Varlocked == true)
+        if (sm.Timelocked < _gameTiming.CurTime.TotalMinutes - sm.Timetounlock)
         {
             sm.Surge = false;
-            sm.Varlocked = false;
             _chatmanager.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
         }
         sm.ZapAccumulator++;
@@ -140,7 +139,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         ProcessAtmos(uid, sm);
         HandleDamage(uid, sm);
 
-        if (sm.Varlocked == false)
+        if (sm.Surge == false)
             AdjustSetpoints(sm);
 
         if (sm.Damage >= sm.DelaminationPoint || sm.Delamming)
@@ -196,8 +195,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             }
             else if (eventToRun.ID == "SMSurge")
             {
-                sm.Varlocked = true;
-                _chatmanager.SendAdminAlert($"{sm.Varlocked} = supermatter surge begun at time: {_gameTiming.CurTime.TotalMinutes}");
+                _chatmanager.SendAdminAlert($"{sm.Surge} = supermatter surge begun at time: {_gameTiming.CurTime.TotalMinutes}");
                 sm.Timelocked = _gameTiming.CurTime.TotalMinutes;
                 sm.GasEfficiencyFactorChanged = true;
                 sm.GasEfficiency = 0.30f;

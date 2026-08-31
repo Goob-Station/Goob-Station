@@ -458,7 +458,6 @@ public sealed partial class SupermatterComponent : Component
     public double Timetounlock = 5;
 
     public double Timelocked;
-    public bool Varlocked = false;
 
     /// <summary>
     /// The desired setpoint for a radiation output factor - bigger number means it will try reach a bigger value
