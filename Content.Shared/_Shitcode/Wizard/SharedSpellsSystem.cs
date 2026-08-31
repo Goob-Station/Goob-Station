@@ -144,7 +144,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
         SubscribeLocalEvent<BananaTouchEvent>(OnBananaTouch);
         SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
-        SubscribeLocalEvent<MagicMissileEvent>(OnMagicMissile);
         SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
         SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
@@ -155,7 +154,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
-        SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
         SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
         SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
@@ -268,48 +266,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             MakeMime(ev.Target);
         else
             _statusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.WizardMuteDuration, true, status);
-
-        ev.Handled = true;
-    }
-
-    private void OnMagicMissile(MagicMissileEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        var ghostQuery = GetEntityQuery<GhostComponent>();
-        var spectralQuery = GetEntityQuery<SpectralComponent>();
-
-        var (coords, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
-
-        var targets = Lookup.GetEntitiesInRange<StatusEffectsComponent>(coords, ev.Range, LookupFlags.Dynamic);
-        var hasTargets = false;
-
-        foreach (var (target, _) in targets)
-        {
-            if (target == ev.Performer)
-                continue;
-
-            if (ghostQuery.HasComp(target) || spectralQuery.HasComp(target))
-                continue;
-
-            hasTargets = true;
-
-            SpawnHomingProjectile(ev.Proto,
-                spawnCoords,
-                target,
-                ev.Performer,
-                mapCoords,
-                velocity,
-                ev.ProjectileSpeed,
-                false);
-        }
-
-        if (!hasTargets)
-        {
-            Popup(ev.Performer, "spell-fail-no-targets");
-            return;
-        }
 
         ev.Handled = true;
     }
@@ -536,29 +492,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         _teslaBlast.ShootLightning(ev.Performer, ev.Target, ev.Proto, ev.Damage);
-
-        ev.Handled = true;
-    }
-
-    private void OnHomingToolbox(HomingToolboxEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (!ValidateLockOnAction(ev))
-            return;
-
-        var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
-
-        SpawnHomingProjectile(ev.Proto,
-            spawnCoords,
-            ev.Entity,
-            ev.Performer,
-            mapCoords,
-            velocity,
-            ev.ProjectileSpeed,
-            true,
-            TransformSystem.ToMapCoordinates(ev.Target));
 
         ev.Handled = true;
     }

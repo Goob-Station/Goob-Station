@@ -67,18 +67,6 @@ public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
 }
 
-public sealed partial class MagicMissileEvent : InstantActionEvent
-{
-    [DataField]
-    public EntProtoId Proto = "ProjectileMagicMissile";
-
-    [DataField]
-    public float Range = 7f;
-
-    [DataField]
-    public float ProjectileSpeed = 6f;
-}
-
 public sealed partial class DisableTechEvent : InstantActionEvent
 {
     [DataField]
@@ -222,15 +210,6 @@ public sealed partial class LightningBoltEvent : EntityTargetActionEvent
 
     [DataField]
     public EntProtoId Proto = "ChargedLightning";
-}
-
-public sealed partial class HomingToolboxEvent : WorldTargetActionEvent
-{
-    [DataField]
-    public EntProtoId Proto = "ProjectileToolboxHoming";
-
-    [DataField]
-    public float ProjectileSpeed = 20f;
 }
 
 public sealed partial class SpellCardsEvent : WorldTargetActionEvent

@@ -37,3 +37,24 @@ public sealed partial class CorpseExplosionEvent : EntityTargetActionEvent
     [DataField(required: true)]
     public DamageSpecifier Damage = new();
 }
+
+public sealed partial class HomingToolboxEvent : WorldTargetActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "ProjectileToolboxHoming";
+
+    [DataField]
+    public float ProjectileSpeed = 20f;
+}
+
+public sealed partial class MagicMissileEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "ProjectileMagicMissile";
+
+    [DataField]
+    public float Range = 7f;
+
+    [DataField]
+    public float ProjectileSpeed = 6f;
+}
