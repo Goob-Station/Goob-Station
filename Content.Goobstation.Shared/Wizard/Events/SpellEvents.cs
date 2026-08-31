@@ -176,3 +176,15 @@ public sealed partial class RepulseEvent : InstantActionEvent
     [DataField]
     public EntProtoId EffectProto = "EffectRepulse";
 }
+
+public sealed partial class BlindSpellEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public TimeSpan BlindDuration = TimeSpan.FromSeconds(30f);
+
+    [DataField]
+    public TimeSpan BlurDuration = TimeSpan.FromSeconds(40f);
+
+    [DataField]
+    public EntProtoId? Effect = "GrenadeFlashEffect";
+}

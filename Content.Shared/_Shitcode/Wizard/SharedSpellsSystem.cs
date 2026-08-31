@@ -142,7 +142,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
-        SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
@@ -201,47 +200,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         EnsureComp<CluwneComponent>(ev.Target);
-
-        ev.Handled = true;
-    }
-
-    private void OnBlind(BlindSpellEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (HasComp<GhostComponent>(ev.Target) || HasComp<SpectralComponent>(ev.Target))
-            return;
-
-        if (!TryComp(ev.Target, out StatusEffectsComponent? status))
-            return;
-
-        _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(ev.Target,
-            "TemporaryBlindness",
-            ev.BlindDuration,
-            true,
-            status);
-
-        _statusEffects.TryAddStatusEffect<BlurryVisionComponent>(ev.Target,
-            "BlurryVision",
-            ev.BlurDuration,
-            true,
-            status);
-
-        if (_net.IsServer)
-        {
-            if (TryComp(ev.Target, out VocalComponent? vocal) && !HasComp<BorgChassisComponent>(ev.Target))
-                Emote(ev.Target, vocal.ScreamId);
-
-            if (ev.Effect != null)
-                Spawn(ev.Effect.Value, Transform(ev.Target).Coordinates);
-        }
 
         ev.Handled = true;
     }

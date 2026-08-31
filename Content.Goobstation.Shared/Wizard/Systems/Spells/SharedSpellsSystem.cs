@@ -97,6 +97,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
         SubscribeLocalEvent<RathenEvent>(OnRathen);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
+        SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();

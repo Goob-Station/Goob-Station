@@ -31,18 +31,6 @@ public sealed partial class CluwneCurseEvent : EntityTargetActionEvent
     public TimeSpan StutterDuration = TimeSpan.FromSeconds(30);
 }
 
-public sealed partial class BlindSpellEvent : EntityTargetActionEvent
-{
-    [DataField]
-    public TimeSpan BlindDuration = TimeSpan.FromSeconds(30f);
-
-    [DataField]
-    public TimeSpan BlurDuration = TimeSpan.FromSeconds(40f);
-
-    [DataField]
-    public EntProtoId? Effect = "GrenadeFlashEffect";
-}
-
 public sealed partial class BindSoulEvent : InstantActionEvent
 {
     [DataField]
