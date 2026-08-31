@@ -39,8 +39,6 @@ public sealed partial class SharedGoobSpellsSystem
         if (_timing.IsFirstTimePredicted)
             _body.GibBody(ev.Target, contents: GibContentsOption.Gib);
 
-        OnCorpseExplosion(ev);
-
         var coords = _xform.GetMapCoordinates(ev.Target);
         var targets = _lookup.GetEntitiesInRange<DamageableComponent>(coords, ev.KnockdownRange);
 
