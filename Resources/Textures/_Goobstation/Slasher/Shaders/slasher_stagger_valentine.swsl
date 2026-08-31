@@ -1,0 +1,100 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp vec2 renderScale;
+uniform highp vec2 center;
+uniform highp float progress;
+uniform highp float maxRadius;
+uniform highp float ringWidth;
+uniform highp float distortion;
+uniform highp vec3 ringColor;
+
+const highp vec3 WINE  = vec3(0.55, 0.02, 0.16);   // deep shadow rose
+const highp vec3 GLINT = vec3(1.00, 0.88, 0.93);   // near-white sparkle
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float dot2(highp vec2 v)
+{
+    return dot(v, v);
+}
+
+highp float sdHeart(highp vec2 p)
+{
+    p.x = abs(p.x);
+    if (p.y + p.x > 1.0)
+        return sqrt(dot2(p - vec2(0.25, 0.75))) - sqrt(2.0) / 4.0;
+    return sqrt(min(dot2(p - vec2(0.0, 1.0)),
+                    dot2(p - 0.5 * max(p.x + p.y, 0.0)))) * sign(p.x - p.y);
+}
+
+void fragment()
+{
+    highp vec2 screenUV = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+
+    highp vec2 delta = (FRAGCOORD.xy - center) / renderScale;
+    highp float dist = length(delta);
+    highp float angle = atan(delta.y, delta.x);
+
+    highp float ease = 1.0 - pow(1.0 - progress, 3.0);
+    highp float life = 1.0 - progress;
+    highp float beat = sin(clamp(progress, 0.0, 1.0) * 3.14159);
+
+    highp float w = max(ringWidth, 0.001);
+
+    highp float scale = max(ease * maxRadius * 1.9, 0.001);
+    highp vec2 hq = vec2(delta.x / scale, 0.5 - delta.y / scale);
+    highp float d = sdHeart(hq) * scale;
+
+    highp float tremble = sin(angle * 7.0 - progress * 11.0) * 0.5
+                        + sin(angle * 3.0 + progress * 5.0) * 0.5;
+    d -= tremble * w * 0.7;
+
+    highp float eb = d / w;
+    highp float wall = exp(-eb * eb);
+    highp float er = d / (w * 0.35);
+    highp float rim = exp(-er * er);
+
+    highp float behind = -d;                                  // > 0 inside the heart
+    highp float wake = clamp(behind / (w * 4.0), 0.0, 1.0)
+                     * exp(-behind / (w * 8.0));
+
+    highp float swoon = clamp((wall * 0.9 + wake) * (0.5 + 0.5 * beat), 0.0, 1.0);
+
+    highp vec2 dir = dist > 0.001 ? delta / dist : vec2(0.0);
+    highp float jitter = (hash(vec2(angle * 38.0, floor(progress * 50.0))) - 0.5) * 0.6;
+    highp vec2 offset = dir * (wall * life * (1.0 + jitter) * distortion) * renderScale;
+    highp vec2 px = FRAGCOORD.xy + offset;
+    highp float ca = wall * life * distortion * 0.5 * renderScale.x;
+
+    highp vec3 color;
+    color.r = zTextureSpec(SCREEN_TEXTURE, (px + dir * ca) * SCREEN_PIXEL_SIZE).r;
+    color.g = zTextureSpec(SCREEN_TEXTURE, px * SCREEN_PIXEL_SIZE).g;
+    color.b = zTextureSpec(SCREEN_TEXTURE, (px - dir * ca) * SCREEN_PIXEL_SIZE).b;
+
+    highp float luma = dot(color, vec3(0.299, 0.587, 0.114));
+
+    highp float washA = clamp(beat * 0.35 + swoon * 0.5, 0.0, 1.0);
+    color = mix(color, vec3(luma) * vec3(1.00, 0.78, 0.87), washA);
+    color = mix(color, color * vec3(1.05, 0.62, 0.80), washA);
+
+    color *= 1.0 - wall * life * 0.35;
+    color += ringColor * rim * life * (0.4 + 0.6 * beat);
+    color += WINE * wake * life * 0.30;                       // rosy afterglow inside the heart
+
+    highp float sect = floor((angle / 6.2831853 + 0.5) * 64.0);
+    highp float sr = hash(vec2(sect, 9.1));
+    highp float twk = max(0.0, sin(progress * 24.0 + sr * 40.0));
+    color += GLINT * rim * life * step(0.78, sr) * twk * twk;
+
+    highp float vd = length(screenUV - vec2(0.5)) * 1.42;     // 0 centre -> ~1 corner
+    highp float vig = 1.0 - smoothstep(0.30, 0.95, vd);       // 1 centre -> 0 edge
+    color *= mix(1.0, mix(0.40, 1.0, vig), beat * 0.85);
+    color = mix(color, WINE, (1.0 - vig) * beat * 0.35);
+
+    highp float grain = hash(FRAGCOORD.xy * 0.7 + floor(progress * 70.0)) - 0.5;
+    color += grain * (0.02 + 0.04 * beat);
+
+    COLOR = vec4(clamp(color, 0.0, 1.0), 1.0);
+}

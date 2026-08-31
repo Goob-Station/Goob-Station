@@ -1,0 +1,53 @@
+light_mode unshaded;
+
+uniform highp vec3 baseColor;
+uniform highp float aberration;
+uniform highp float shake;
+uniform highp float seed;
+uniform highp float opacity;
+
+// Five-point star SDF by Inigo Quilez.
+highp float sdStar5(highp vec2 p, highp float r, highp float rf)
+{
+    const highp vec2 k1 = vec2(0.809016994375, -0.587785252292);
+    const highp vec2 k2 = vec2(-k1.x, k1.y);
+    p.x = abs(p.x);
+    p -= 2.0 * max(dot(k1, p), 0.0) * k1;
+    p -= 2.0 * max(dot(k2, p), 0.0) * k2;
+    p.x = abs(p.x);
+    p.y -= r;
+    highp vec2 ba = rf * vec2(-k1.y, k1.x) - vec2(0.0, 1.0);
+    highp float h = clamp(dot(p, ba) / dot(ba, ba), 0.0, r);
+    return length(p - ba * h) * sign(p.y * ba.x - p.x * ba.y);
+}
+
+highp float starAlpha(highp vec2 p, highp float radius)
+{
+    highp float d = sdStar5(p, radius, 0.45);
+    return 1.0 - smoothstep(0.0, 0.06, d);
+}
+
+void fragment()
+{
+    highp vec2 p = (UV - vec2(0.5)) * 2.0;
+
+    highp float t = TIME * 6.0 + seed;
+    p += vec2(sin(t * 1.7), cos(t * 2.3)) * shake;
+    highp float twinkle = 0.95 + 0.05 * sin(TIME * 7.0 + seed);
+
+    highp float radius = 0.72 * twinkle;
+
+    highp vec2 ca = vec2(aberration, 0.0);
+    highp float aR = starAlpha(p + ca, radius);
+    highp float aG = starAlpha(p, radius);
+    highp float aB = starAlpha(p - ca, radius);
+
+    highp vec3 col = vec3(baseColor.r * aR, baseColor.g * aG, baseColor.b * aB);
+
+    highp float glow = exp(-length(p) * 4.0) * 0.5 * twinkle;
+    col += baseColor * glow;
+
+    highp float alpha = clamp(max(aR, max(aG, aB)) + glow, 0.0, 1.0);
+
+    COLOR = vec4(col, alpha * opacity);
+}
