@@ -3,7 +3,7 @@
 using Robust.Shared.Audio.Components;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.TeslaBlast;
+namespace Content.Goobstation.Shared.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CastingTeslaBlastComponent : Component

@@ -374,3 +374,33 @@ public sealed partial class LightningBoltEvent : EntityTargetActionEvent
     [DataField]
     public EntProtoId Proto = "ChargedLightning";
 }
+
+public sealed partial class TeslaBlastEvent : InstantActionEvent
+{
+    [DataField]
+    public TimeSpan Delay = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public float Range = 7f;
+
+    [DataField]
+    public int BoltCount = 1;
+
+    [DataField]
+    public int ArcDepth = 5;
+
+    [DataField]
+    public Vector2 MinMaxDamage = new(15f, 60f);
+
+    [DataField]
+    public Vector2 MinMaxStunTime = new(2f, 8f);
+
+    [DataField]
+    public EntProtoId LightningPrototype = "SuperchargedLightning";
+
+    [DataField]
+    public EntProtoId EffectPrototype = "EffectElectricity";
+
+    [DataField]
+    public SoundSpecifier? Sound;
+}

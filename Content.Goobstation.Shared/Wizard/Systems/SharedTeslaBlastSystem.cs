@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Shared.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
@@ -9,7 +11,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Wizard.TeslaBlast;
+namespace Content.Goobstation.Shared.Wizard.Spells;
 
 public abstract class SharedTeslaBlastSystem : EntitySystem
 {

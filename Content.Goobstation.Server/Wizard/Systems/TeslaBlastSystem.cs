@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Shared.Wizard.Spells;
 using Content.Server.Lightning;
-using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared.Electrocution;
 using Content.Shared.Physics;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Systems;
 
 public sealed class TeslaBlastSystem : SharedTeslaBlastSystem
 {

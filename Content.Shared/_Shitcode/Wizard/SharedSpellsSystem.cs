@@ -13,7 +13,6 @@ using Content.Shared._Goobstation.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
-using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Abilities.Mime;
@@ -124,7 +123,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly MobStateSystem _mobState = default!;
     [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
-    [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
     [Dependency] private   readonly ExamineSystemShared _examine = default!;
     [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
     [Dependency] private   readonly PullingSystem _pulling = default!;
@@ -140,7 +138,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
-        SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
@@ -242,22 +239,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         BindSoul(ev, item.Value, mind, mindComponent);
         ev.Handled = true;
-    }
-
-    private void OnTeslaBlast(TeslaBlastEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (TryComp(ev.Performer, out CastingTeslaBlastComponent? casting))
-        {
-            _teslaBlast.CancelDoAfter(ev.Performer, casting);
-
-            ev.Handled = true;
-            return;
-        }
-
-        _teslaBlast.StartCharging(ev);
     }
 
     private void OnInstantSummons(InstantSummonsEvent ev)
