@@ -3,11 +3,15 @@ using Content.Goobstation.CommonShared.Wizard.Components;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Systems.Spells;
+using Content.Server.Actions;
+using Content.Server.Chat.Managers;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.Spreader;
+using Content.Server.Store.Systems;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Friction;
 using Content.Shared.Hands.Components;
@@ -17,6 +21,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
@@ -44,6 +49,8 @@ public sealed partial class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
 
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly MapSystem _map = default!;
@@ -54,6 +61,9 @@ public sealed partial class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly TileFrictionController _tileFrictionController = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly StoreSystem _store = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
     private EntityQuery<TimedDespawnComponent> _timedDespawnQuery;

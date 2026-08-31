@@ -222,22 +222,6 @@ public sealed partial class ChargeMagicEvent : InstantActionEvent
 }
 
 [DataDefinition]
-public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
-{
-    [DataField]
-    public EntProtoId Action = "ActionGorillaForm";
-
-    [DataField]
-    public ProtoId<TagPrototype> MaxLevelTag = "SummonSimiansMaxLevelAction";
-
-    [DataField]
-    public ProtoId<TagPrototype> GorillaFormTag = "GorillaFormAction";
-
-    [DataField]
-    public Color MessageColor = Color.FromHex("#EDC349");
-}
-
-[DataDefinition]
 public sealed partial class GrantFactionsEvent : EntityEventArgs
 {
     [DataField(required: true)]

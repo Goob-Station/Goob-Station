@@ -1,6 +1,12 @@
 using Content.Goobstation.CommonShared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
+using Content.Server.Store.Components;
+using Content.Server.Store.Systems;
+using Content.Shared.Actions.Components;
+using Content.Shared.Chat;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 
@@ -52,5 +58,47 @@ public sealed partial class SpellsSystem
                 Dirty(weapon, weaponDespawn);
             }
         }
+    }
+
+    protected override void OnMonkeyAscensionRelay(Entity<MindContainerComponent> ent, ref SummonSimiansMaxedOutEvent args)
+    {
+        var (uid, comp) = ent;
+        if (!TryComp(comp.Mind, out MindComponent? mindComp) ||
+            !TryComp(comp.Mind.Value, out ActionsContainerComponent? container))
+            return;
+
+        var hasMaxLevelSimians = false;
+        var hasGorillaForm = false;
+        foreach (var (action, _) in _actions.GetActions(uid))
+        {
+            if (!hasGorillaForm && _tag.HasTag(action, args.GorillaFormTag))
+                hasGorillaForm = true;
+
+            if (!_tag.HasTag(action, args.MaxLevelTag))
+                continue;
+
+            if (TryComp(action, out StoreRefundComponent? refund))
+                StoreSystem.DisableListingRefund(refund.Data);
+
+            hasMaxLevelSimians = true;
+        }
+
+        if (hasGorillaForm || !hasMaxLevelSimians)
+            return;
+
+        _actions.AddAction(comp.Mind.Value, args.Action);
+
+        if (!_playerManager.TryGetSessionById(mindComp.UserId, out var session))
+            return;
+
+        var message = Loc.GetString("spell-summon-simians-maxed-out-message");
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+        _chatManager.ChatMessageToOne(ChatChannel.Server,
+            message,
+            wrappedMessage,
+            default,
+            false,
+            session.Channel,
+            args.MessageColor);
     }
 }

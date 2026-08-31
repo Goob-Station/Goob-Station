@@ -266,3 +266,19 @@ public sealed partial class SummonSimiansEvent : InstantActionEvent
     [DataField]
     public Angle SpawnAngle = Angle.FromDegrees(40);
 }
+
+[DataDefinition]
+public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
+{
+    [DataField]
+    public EntProtoId Action = "ActionGorillaForm";
+
+    [DataField]
+    public ProtoId<TagPrototype> MaxLevelTag = "SummonSimiansMaxLevelAction";
+
+    [DataField]
+    public ProtoId<TagPrototype> GorillaFormTag = "GorillaFormAction";
+
+    [DataField]
+    public Color MessageColor = Color.FromHex("#EDC349");
+}

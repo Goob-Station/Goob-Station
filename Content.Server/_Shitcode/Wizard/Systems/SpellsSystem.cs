@@ -115,55 +115,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<MindContainerComponent, SummonSimiansMaxedOutEvent>(OnMonkeyAscension);
     }
 
     protected override void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev)
     {
         RaiseNetworkEvent(ev, Filter.PvsExcept(uid));
-    }
-
-    private void OnMonkeyAscension(Entity<MindContainerComponent> ent, ref SummonSimiansMaxedOutEvent args)
-    {
-        var (uid, comp) = ent;
-        if (!TryComp(comp.Mind, out MindComponent? mindComp) ||
-            !TryComp(comp.Mind.Value, out ActionsContainerComponent? container))
-            return;
-
-        var hasMaxLevelSimians = false;
-        var hasGorillaForm = false;
-        foreach (var (action, _) in Actions.GetActions(uid))
-        {
-            if (!hasGorillaForm && Tag.HasTag(action, args.GorillaFormTag))
-                hasGorillaForm = true;
-
-            if (!Tag.HasTag(action, args.MaxLevelTag))
-                continue;
-
-            if (TryComp(action, out StoreRefundComponent? refund))
-                StoreSystem.DisableListingRefund(refund.Data);
-
-            hasMaxLevelSimians = true;
-        }
-
-        if (hasGorillaForm || !hasMaxLevelSimians)
-            return;
-
-        ActionContainer.AddAction(comp.Mind.Value, args.Action, container);
-
-        if (!_player.TryGetSessionById(mindComp.UserId, out var session))
-            return;
-
-        var message = Loc.GetString("spell-summon-simians-maxed-out-message");
-        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
-        _chatManager.ChatMessageToOne(ChatChannel.Server,
-            message,
-            wrappedMessage,
-            default,
-            false,
-            session.Channel,
-            args.MessageColor);
     }
 
     protected override void Emote(EntityUid uid, string emoteId)
