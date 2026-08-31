@@ -49,8 +49,7 @@ public sealed class DiodeDiscSystem : EntitySystem
         var user = args.Args.User;
         // do the upgrading now
         EntityManager.AddComponents(target, ent.Comp.ComponentsToAdd);
-        if (_net.IsServer)
-            QueueDel(ent);
+        PredictedQueueDel(ent);
 
         if (!TryComp<EmitterComponent>(target, out var blaster))
             return;
