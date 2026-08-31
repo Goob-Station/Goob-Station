@@ -158,3 +158,21 @@ public sealed partial class RathenEvent : InstantActionEvent
     [DataField]
     public float LimbTearChance = 0.2f;
 }
+
+public sealed partial class RepulseEvent : InstantActionEvent
+{
+    [DataField]
+    public float Force = 180f;
+
+    [DataField]
+    public float MinRange = 0.00001f;
+
+    [DataField]
+    public float MaxRange = 5f;
+
+    [DataField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(4);
+
+    [DataField]
+    public EntProtoId EffectProto = "EffectRepulse";
+}

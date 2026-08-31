@@ -142,7 +142,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
-        SubscribeLocalEvent<RepulseEvent>(OnRepulse);
         SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
@@ -202,16 +201,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         EnsureComp<CluwneComponent>(ev.Target);
-
-        ev.Handled = true;
-    }
-
-    private void OnRepulse(RepulseEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        Repulse(ev);
 
         ev.Handled = true;
     }
@@ -1184,8 +1173,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     #region ServerMethods
 
     public virtual void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school) { }
-
-    protected virtual void Repulse(RepulseEvent ev) { }
 
     protected virtual void Emote(EntityUid uid, string emoteId) { }
 
