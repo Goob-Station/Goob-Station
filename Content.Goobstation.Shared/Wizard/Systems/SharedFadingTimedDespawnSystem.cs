@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Wizard.Components;
+using Content.Goobstation.CommonShared.Wizard.Components;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Wizard.FadingTimedDespawn;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 /// <summary>
 /// This is a copy of SharedTimedDespawnSystem with some modifications

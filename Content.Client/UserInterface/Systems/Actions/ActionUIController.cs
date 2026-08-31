@@ -46,6 +46,7 @@ using static Robust.Client.UserInterface.Controls.MultiselectOptionButton<
     Content.Client.UserInterface.Systems.Actions.Windows.ActionsWindow.Filters>;
 using static Robust.Client.UserInterface.Controls.TextureRect;
 using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
+using Content.Goobstation.Common.Wizard.Components;
 
 namespace Content.Client.UserInterface.Systems.Actions;
 

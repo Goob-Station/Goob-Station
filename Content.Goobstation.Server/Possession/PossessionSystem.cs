@@ -2,6 +2,7 @@
 
 using Content.Goobstation.Common.Magic;
 using Content.Goobstation.Common.Religion;
+using Content.Goobstation.CommonShared.Wizard.Components;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Possession;
@@ -11,7 +12,6 @@ using Content.Server.Actions;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Stunnable;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Coordinates;
@@ -173,6 +173,7 @@ public sealed partial class PossessionSystem : EntitySystem
     /// <param name="doesMindshieldBlock">Does having a mindshield block being possessed?</param>
     /// <param name="doesChaplainBlock">Is the chaplain immune to this possession?</param>
     /// <param name="HideActions">Should all actions be hidden during?</param>
+    /// TODO bro soem of this is literlaly copied from magi csystem
     public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false, bool doesChaplainBlock = true, bool hideActions = true, bool polymorphPossessor = true, bool doesImmuneBlock = true)
     {
         // Possessing a dead guy? What.

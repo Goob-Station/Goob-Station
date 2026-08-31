@@ -2,7 +2,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.Simians;
+namespace Content.Goobstation.Shared.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class DropItemsOnTimedDespawnComponent : Component

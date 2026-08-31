@@ -1,10 +1,8 @@
-
 using System.Numerics;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
-using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
@@ -22,7 +20,6 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.PDA;
@@ -48,34 +45,35 @@ namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 /// </summary>
 public abstract partial class SharedSpellsSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly WoundSystem _wound = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly SharedMagicSystem _magic = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedExplosionSystem _explosion = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly SharedStutteringSystem _stutter = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedEmpSystem _emp = default!;
-    [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -110,6 +108,8 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
         SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
+        SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
+        SubscribeLocalEvent<SummonSimiansEvent>(OnSummonSimians);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
@@ -159,7 +159,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         Dirty(ent);
     }
 
-    private (EntityCoordinates coords, MapCoordinates mapCoords, EntityCoordinates spawnCoords, Vector2 velocity)
+    protected (EntityCoordinates coords, MapCoordinates mapCoords, EntityCoordinates spawnCoords, Vector2 velocity)
         GetProjectileData(EntityUid shooter)
     {
         var coords = Transform(shooter).Coordinates;
@@ -173,20 +173,6 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         var velocity = _physics.GetMapLinearVelocity(spawnCoords);
 
         return (coords, mapCoords, spawnCoords, velocity);
-    }
-
-    private bool ValidateLockOnAction(WorldTargetActionEvent ev)
-    {
-        if (!TryComp(ev.Action.Owner, out LockOnMarkActionComponent? lockOnMark))
-            return false;
-
-        if (!_xformQuery.TryComp(ev.Entity, out var xform))
-            return true;
-
-        if (!HasComp<MobStateComponent>(ev.Entity.Value) || !HasComp<DamageableComponent>(ev.Entity.Value))
-            return false;
-
-        return _xform.InRange(ev.Target, xform.Coordinates, lockOnMark.LockOnRadius + 1f);
     }
 
     private void SetGear(EntityUid uid,

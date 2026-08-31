@@ -29,8 +29,6 @@ using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
-using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Shitmed.Damage; // Shitmed Change
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
@@ -315,55 +313,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
             });
     }
 
-    protected override void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto)
-    {
-        base.ShootSpellCards(ev, proto);
-
-        var targetMap = TransformSystem.ToMapCoordinates(ev.Target);
-
-        var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
-
-        var mapDirection = targetMap.Position - mapCoords.Position;
-        if (mapDirection == Vector2.Zero)
-            return;
-        var mapAngle = mapDirection.ToAngle();
-
-        var angles = _gun.LinearSpread(mapAngle - ev.Spread / 2, mapAngle + ev.Spread / 2, ev.ProjectilesAmount);
-
-        var linearDamping = Random.NextFloat(ev.MinMaxLinearDamping.X, ev.MinMaxLinearDamping.Y);
-
-        var setHoming = Exists(ev.Entity) && ev.Entity != ev.Performer && HasComp<MobStateComponent>(ev.Entity);
-
-        for (var i = 0; i < ev.ProjectilesAmount; i++)
-        {
-            var newUid = Spawn(proto, spawnCoords);
-            _gun.ShootProjectile(newUid, angles[i].ToVec(), velocity, ev.Performer, ev.Performer, ev.ProjectileSpeed);
-
-            if (!TryComp(newUid, out PhysicsComponent? physics))
-                continue;
-
-            Physics.SetAngularVelocity(newUid,
-                Random.NextFloat(-ev.MaxAngularVelocity, ev.MaxAngularVelocity),
-                false,
-                body: physics);
-            Physics.SetLinearDamping(newUid, physics, linearDamping, false);
-            _tileFriction.SetModifier(newUid, linearDamping);
-
-            var spellCard = EnsureComp<SpellCardComponent>(newUid);
-            if (!setHoming)
-            {
-                Dirty(newUid, physics);
-                continue;
-            }
-
-            spellCard.Target = ev.Entity;
-            _gun.SetTarget(newUid, ev.Entity, out var targeted, false);
-            Entity<SpellCardComponent, PhysicsComponent, TargetedProjectileComponent> ent = (newUid, spellCard, physics,
-                targeted);
-            Dirty(ent);
-        }
-    }
-
     protected override void Speak(EntityUid uid, string message)
     {
         base.Speak(uid, message);
@@ -415,58 +364,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
             if (ev.FactionIgnoreSummoner)
                 _faction.IgnoreEntity(mob, ev.Performer);
-        }
-    }
-
-    protected override void SpawnMonkeys(SummonSimiansEvent ev)
-    {
-        base.SpawnMonkeys(ev);
-
-        if (!ProtoMan.TryIndex(ev.Mobs, out var mobs) || !ProtoMan.TryIndex(ev.Weapons, out var weapons))
-            return;
-
-        if (mobs.Weights.Count == 0)
-            return;
-
-        var handsQuery = GetEntityQuery<HandsComponent>();
-        var despawnQuery = GetEntityQuery<TimedDespawnComponent>();
-        var fadingQuery = GetEntityQuery<FadingTimedDespawnComponent>();
-
-        var positions = GetSpawnCoordinatesAroundPerformer(ev.Performer,
-            ev.Range,
-            ev.Amount,
-            ev.SpawnAngle,
-            (int) CollisionGroup.MobMask);
-        foreach (var pos in positions)
-        {
-            var mob = Spawn(mobs.Pick(Random), pos);
-
-            if (!handsQuery.TryComp(mob, out var hands) || hands.Count == 0 || weapons.Weights.Count == 0)
-                continue;
-
-            var weapon = Spawn(weapons.Pick(Random), pos);
-
-            if (!Hands.TryPickupAnyHand(mob, weapon, true, false, false, hands))
-            {
-                QueueDel(weapon);
-                continue;
-            }
-
-            FadingTimedDespawnComponent? weaponDespawn;
-            if (despawnQuery.TryComp(mob, out var despawn))
-            {
-                weaponDespawn = EnsureComp<FadingTimedDespawnComponent>(weapon);
-                weaponDespawn.Lifetime = despawn.Lifetime + 30f;
-                weaponDespawn.FadeOutTime = 4f;
-                Dirty(weapon, weaponDespawn);
-            }
-            else if (fadingQuery.TryComp(mob, out var fading))
-            {
-                weaponDespawn = EnsureComp<FadingTimedDespawnComponent>(weapon);
-                weaponDespawn.Lifetime = fading.Lifetime + 30f;
-                weaponDespawn.FadeOutTime = 4f;
-                Dirty(weapon, weaponDespawn);
-            }
         }
     }
 

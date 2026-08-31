@@ -10,11 +10,9 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.Components;
-using Content.Shared._Goobstation.Wizard.LesserSummonGuns;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
-using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared._Shitmed.Targeting;
@@ -147,12 +145,10 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
-        SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
-        SubscribeLocalEvent<SummonSimiansEvent>(OnSimians);
         SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
@@ -338,35 +334,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         _teslaBlast.ShootLightning(ev.Performer, ev.Target, ev.Proto, ev.Damage);
 
         ev.Handled = true;
-    }
-
-    private void OnSpellCards(SpellCardsEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (!ValidateLockOnAction(ev))
-            return;
-
-        if (!TryComp(ev.Action.Owner, out SpellCardsActionComponent? spellCardsAction))
-            return;
-
-        ShootSpellCards(ev, spellCardsAction.PurpleCard ? ev.PurpleProto : ev.RedProto);
-
-        spellCardsAction.PurpleCard = !spellCardsAction.PurpleCard;
-
-        ev.Handled = true;
-        if (_net.IsClient)
-            return;
-        spellCardsAction.UsesLeft--;
-        if (spellCardsAction.UsesLeft > 0)
-            Actions.SetUseDelay(ev.Action.Owner, TimeSpan.FromSeconds(0.5));
-        else
-        {
-            Actions.SetUseDelay(ev.Action.Owner, spellCardsAction.UseDelay);
-            spellCardsAction.UsesLeft = spellCardsAction.CastAmount;
-            RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer);
-        }
     }
 
     private void OnBarnyardCurse(BarnyardCurseEvent ev)
@@ -573,16 +540,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         SpawnMobs(ev);
-
-        ev.Handled = true;
-    }
-
-    private void OnSimians(SummonSimiansEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        SpawnMonkeys(ev);
 
         ev.Handled = true;
     }
@@ -904,20 +861,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         return container != null;
     }
 
-    private bool ValidateLockOnAction(WorldTargetActionEvent ev)
-    {
-        if (!TryComp(ev.Action.Owner, out LockOnMarkActionComponent? lockOnMark))
-            return false;
-
-        if (!TryComp(ev.Entity, out TransformComponent? xform))
-            return true;
-
-        if (!HasComp<MobStateComponent>(ev.Entity.Value) || !HasComp<DamageableComponent>(ev.Entity.Value))
-            return false;
-
-        return TransformSystem.InRange(ev.Target, xform.Coordinates, lockOnMark.LockOnRadius + 1f);
-    }
-
     private void Popup(EntityUid uid, string message, PopupType type = PopupType.Small)
     {
         _popup.PopupClient(Loc.GetString(message), uid, uid, type);
@@ -934,42 +877,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         RaiseLocalEvent(target, ev, true);
 
         return ev.Cancelled;
-    }
-
-    private void SpawnHomingProjectile(EntProtoId proto,
-        EntityCoordinates coords,
-        EntityUid? target,
-        EntityUid user,
-        MapCoordinates mapCoords,
-        Vector2 velocity,
-        float speed,
-        bool checkMobState,
-        MapCoordinates? toCoords = null)
-    {
-        if (target == null && toCoords == null)
-            return;
-
-        var targetPos = toCoords?.Position ?? TransformSystem.GetMapCoordinates(target!.Value).Position;
-
-        var direction = targetPos - mapCoords.Position;
-        if (direction == Vector2.Zero)
-            return;
-
-        var projectile = PredictedSpawnAtPosition(proto, coords);
-
-        _gunSystem.ShootProjectile(projectile, direction, velocity, user, user, speed);
-
-        if (target == null || target == user || checkMobState && !HasComp<MobStateComponent>(target))
-            return;
-
-        _gunSystem.SetTarget(projectile, target, out var targeted, false);
-
-        var homing = EnsureComp<HomingProjectileComponent>(projectile);
-        homing.Target = target;
-
-        Entity<HomingProjectileComponent, TargetedProjectileComponent> ent = (projectile, homing, targeted);
-
-        Dirty(ent);
     }
 
     protected (EntityCoordinates coords, MapCoordinates mapCoords, EntityCoordinates spawnCoords, Vector2 velocity)
@@ -1035,14 +942,9 @@ public abstract class SharedSpellsSystem : EntitySystem
     {
         return true;
     }
-
-    protected virtual void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto) {}
-
     protected virtual void Speak(EntityUid uid, string message) { }
 
     protected virtual void SpawnMobs(SummonMobsEvent ev) { }
-
-    protected virtual void SpawnMonkeys(SummonSimiansEvent ev) { }
 
     protected virtual bool ChargeItem(EntityUid uid, ChargeMagicEvent ev)
     {

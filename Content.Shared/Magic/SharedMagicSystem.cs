@@ -8,7 +8,6 @@ using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
@@ -58,6 +57,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
+using Content.Goobstation.CommonShared.Wizard.Components;
 
 namespace Content.Shared.Magic;
 

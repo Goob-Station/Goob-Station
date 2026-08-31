@@ -1,6 +1,8 @@
+using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
+using Content.Shared.Random;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -221,4 +223,46 @@ public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent
 {
     [DataField]
     public SoundSpecifier? Sound;
+}
+
+public sealed partial class SpellCardsEvent : WorldTargetActionEvent
+{
+    [DataField]
+    public EntProtoId RedProto = "ProjectileSpellCardRed";
+
+    [DataField]
+    public EntProtoId PurpleProto = "ProjectileSpellCardPurple";
+
+    [DataField]
+    public float ProjectileSpeed = 20f;
+
+    [DataField]
+    public int ProjectilesAmount = 7;
+
+    [DataField]
+    public Angle Spread = Angle.FromDegrees(30);
+
+    [DataField]
+    public float MaxAngularVelocity = MathF.PI / 3f;
+
+    [DataField]
+    public Vector2 MinMaxLinearDamping = new(3f, 7f);
+}
+
+public sealed partial class SummonSimiansEvent : InstantActionEvent
+{
+    [DataField(required: true)]
+    public ProtoId<WeightedRandomEntityPrototype> Mobs;
+
+    [DataField(required: true)]
+    public ProtoId<WeightedRandomEntityPrototype> Weapons;
+
+    [DataField]
+    public float Range = 1f;
+
+    [DataField]
+    public int Amount = 4;
+
+    [DataField]
+    public Angle SpawnAngle = Angle.FromDegrees(40);
 }

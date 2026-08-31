@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Common.Weapons.Ranged;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;

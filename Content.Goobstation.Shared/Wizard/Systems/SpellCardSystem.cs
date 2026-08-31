@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Common.Wizard.Components;
+using Content.Goobstation.Shaerd.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared.Friction;
 using Content.Shared.Movement.Events;
 using Robust.Shared.Network;

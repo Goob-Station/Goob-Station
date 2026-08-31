@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Effects;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Goobstation.CommonShared.Wizard.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;

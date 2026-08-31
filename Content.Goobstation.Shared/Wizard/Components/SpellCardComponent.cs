@@ -3,7 +3,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Wizard.SpellCards;
+namespace Content.Goobstation.Shaerd.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SpellCardComponent : Component

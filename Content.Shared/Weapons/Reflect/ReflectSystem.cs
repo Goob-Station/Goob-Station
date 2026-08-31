@@ -22,6 +22,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Examine;
 using Content.Shared.Localizations;
+using Content.Goobstation.Shared.Wizard.Components;
 
 namespace Content.Shared.Weapons.Reflect;
 

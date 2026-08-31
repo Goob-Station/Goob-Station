@@ -2,7 +2,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.SpellCards;
+namespace Content.Goobstation.Common.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LockOnMarkActionComponent : Component

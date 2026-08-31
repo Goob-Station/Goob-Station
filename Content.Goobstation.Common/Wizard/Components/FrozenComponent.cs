@@ -2,9 +2,8 @@
 
 using System.Numerics;
 using Robust.Shared.GameStates;
-using Robust.Shared.Physics.Components;
 
-namespace Content.Goobstation.Shared.Wizard.Components;
+namespace Content.Goobstation.Common.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FrozenComponent : Component

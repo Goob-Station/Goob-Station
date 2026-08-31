@@ -113,30 +113,6 @@ public sealed partial class LightningBoltEvent : EntityTargetActionEvent
     public EntProtoId Proto = "ChargedLightning";
 }
 
-public sealed partial class SpellCardsEvent : WorldTargetActionEvent
-{
-    [DataField]
-    public EntProtoId RedProto = "ProjectileSpellCardRed";
-
-    [DataField]
-    public EntProtoId PurpleProto = "ProjectileSpellCardPurple";
-
-    [DataField]
-    public float ProjectileSpeed = 20f;
-
-    [DataField]
-    public int ProjectilesAmount = 7;
-
-    [DataField]
-    public Angle Spread = Angle.FromDegrees(30);
-
-    [DataField]
-    public float MaxAngularVelocity = MathF.PI / 3f;
-
-    [DataField]
-    public Vector2 MinMaxLinearDamping = new(3f, 7f);
-}
-
 public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent
 {
     [DataField(required: true)]
@@ -190,24 +166,6 @@ public sealed partial class SummonMobsEvent : InstantActionEvent
 
     [DataField]
     public bool FactionIgnoreSummoner;
-}
-
-public sealed partial class SummonSimiansEvent : InstantActionEvent
-{
-    [DataField(required: true)]
-    public ProtoId<WeightedRandomEntityPrototype> Mobs;
-
-    [DataField(required: true)]
-    public ProtoId<WeightedRandomEntityPrototype> Weapons;
-
-    [DataField]
-    public float Range = 1f;
-
-    [DataField]
-    public int Amount = 4;
-
-    [DataField]
-    public Angle SpawnAngle = Angle.FromDegrees(40);
 }
 
 public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent

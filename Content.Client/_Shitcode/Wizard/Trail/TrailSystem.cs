@@ -2,8 +2,8 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared._Goobstation.Wizard.TimeStop;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Animations;

@@ -42,6 +42,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Content.Server.Atmos.Components;
+using Content.Goobstation.Shared.Wizard.Components;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
