@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wizard.Events;
@@ -120,4 +121,16 @@ public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent
 
     [DataField]
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
+}
+
+public sealed partial class ChuuniInvocationsEvent : InstantActionEvent
+{
+    [DataField]
+    public Dictionary<string, EntProtoId> Gear = new()
+    {
+        {"eyes", "ClothingEyesEyepatchMedical"},
+    };
+
+    [DataField]
+    public ProtoId<TagPrototype> WizardHatTag = "WizardHat";
 }

@@ -724,36 +724,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
-    private void OnChuuniInvocations(ChuuniInvocationsEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (!TryComp(ev.Performer, out InventoryComponent? inventory))
-            return;
-
-        if (!_inventory.HasSlot(ev.Performer, "eyes", inventory))
-        {
-            Popup(ev.Performer, "spell-fail-cant-wear-eyepatch");
-            return;
-        }
-
-        if (_inventory.TryGetSlotEntity(ev.Performer, "eyes", out var eyepatch, inventory) &&
-            HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
-        {
-            Popup(ev.Performer, "spell-fail-already-wear-eyepatch");
-            return;
-        }
-
-        SetGear(ev.Performer, ev.Gear, inventoryComponent: inventory);
-
-        if (_net.IsServer && _inventory.TryGetSlotEntity(ev.Performer, "head", out var hat, inventory) &&
-            Tag.HasTag(hat.Value, ev.WizardHatTag))
-            QueueDel(hat.Value);
-
-        ev.Handled = true;
-    }
-
     private void OnSwap(SwapSpellEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))

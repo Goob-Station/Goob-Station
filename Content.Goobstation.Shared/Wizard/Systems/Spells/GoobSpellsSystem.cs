@@ -25,6 +25,7 @@ using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
@@ -63,6 +64,7 @@ public abstract partial class SharedGoobSpellsSystem : EntitySystem
     [Dependency] private readonly SharedEmpSystem _emp = default!;
     [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -83,6 +85,7 @@ public abstract partial class SharedGoobSpellsSystem : EntitySystem
         SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
         SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
         SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
+        SubscribeLocalEvent<ChuuniInvocationsEvent>(OnChuuniInvocations);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();

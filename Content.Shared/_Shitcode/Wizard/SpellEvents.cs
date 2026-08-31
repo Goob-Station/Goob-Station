@@ -262,18 +262,6 @@ public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent
 {
 }
 
-public sealed partial class ChuuniInvocationsEvent : InstantActionEvent
-{
-    [DataField]
-    public Dictionary<string, EntProtoId> Gear = new()
-    {
-        {"eyes", "ClothingEyesEyepatchMedical"},
-    };
-
-    [DataField]
-    public ProtoId<TagPrototype> WizardHatTag = "WizardHat";
-}
-
 public sealed partial class SwapSpellEvent : EntityTargetActionEvent
 {
     [DataField]
