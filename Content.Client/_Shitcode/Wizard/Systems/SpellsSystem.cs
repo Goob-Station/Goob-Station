@@ -21,9 +21,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WizardComponent, GetStatusIconsEvent>(GetWizardIcon);
-        SubscribeLocalEvent<ApprenticeComponent, GetStatusIconsEvent>(GetApprenticeIcon);
-
         SubscribeNetworkEvent<StopTargetingEvent>(OnStopTargeting);
         SubscribeAllEvent<ChargeSpellRaysEffectEvent>(OnChargeEffect);
     }
@@ -75,17 +72,5 @@ public sealed class SpellsSystem : SharedSpellsSystem
             return;
 
         StopTargeting?.Invoke();
-    }
-
-    private void GetWizardIcon(Entity<WizardComponent> ent, ref GetStatusIconsEvent args)
-    {
-        if (ProtoMan.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
-            args.StatusIcons.Add(iconPrototype);
-    }
-
-    private void GetApprenticeIcon(Entity<ApprenticeComponent> ent, ref GetStatusIconsEvent args)
-    {
-        if (ProtoMan.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
-            args.StatusIcons.Add(iconPrototype);
     }
 }

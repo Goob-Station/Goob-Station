@@ -216,3 +216,9 @@ public sealed partial class ThrownLightningEvent : InstantActionEvent
     [DataField]
     public SoundSpecifier? Sound;
 }
+
+public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public SoundSpecifier? Sound;
+}

@@ -263,12 +263,6 @@ public sealed partial class ChargeMagicEvent : InstantActionEvent
     };
 }
 
-public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent
-{
-    [DataField]
-    public SoundSpecifier? Sound;
-}
-
 [DataDefinition]
 public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
 {

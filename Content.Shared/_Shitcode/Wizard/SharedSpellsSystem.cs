@@ -157,7 +157,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
-        SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
 
@@ -796,25 +795,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("spell-charge-no-spells-to-charge-pulled"), uid, uid, PopupType.Medium);
             return false;
         }
-    }
-
-    private void OnTileToggle(TileToggleSpellEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (HasComp<HierophantBeatComponent>(ev.Target))
-            RemComp<HierophantBeatComponent>(ev.Target);
-        else
-            EnsureComp<HierophantBeatComponent>(ev.Target);
-
-        ev.Handled = true;
     }
 
     #endregion

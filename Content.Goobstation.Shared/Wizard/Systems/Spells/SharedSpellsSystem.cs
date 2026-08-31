@@ -109,6 +109,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
         SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
+        SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
