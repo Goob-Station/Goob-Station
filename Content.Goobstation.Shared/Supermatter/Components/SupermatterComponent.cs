@@ -500,6 +500,7 @@ public sealed partial class SupermatterEventPrototype : IPrototype
     public LocId? Announcement;
 }
 #endregion
+ 
 [Serializable, NetSerializable]
 public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
 {
