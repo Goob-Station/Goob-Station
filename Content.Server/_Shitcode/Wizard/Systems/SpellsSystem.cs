@@ -99,7 +99,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
@@ -120,25 +119,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
         base.Initialize();
 
         SubscribeLocalEvent<MindContainerComponent, SummonSimiansMaxedOutEvent>(OnMonkeyAscension);
-        SubscribeLocalEvent<BloodlossDamageMultiplierComponent, StoppedTakingBloodlossDamageEvent>(OnBloodlossStopped);
-        SubscribeLocalEvent<BloodlossDamageMultiplierComponent, GetBloodlossDamageMultiplierEvent>(OnGetBloodlossMultiplier);
-    }
-
-    private void OnGetBloodlossMultiplier(Entity<BloodlossDamageMultiplierComponent> ent,
-        ref GetBloodlossDamageMultiplierEvent args)
-    {
-        args.Multiplier *= ent.Comp.Multiplier;
     }
 
     protected override void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev)
     {
         RaiseNetworkEvent(ev, Filter.PvsExcept(uid));
-    }
-
-    private void OnBloodlossStopped(Entity<BloodlossDamageMultiplierComponent> ent,
-        ref StoppedTakingBloodlossDamageEvent args)
-    {
-        RemCompDeferred(ent.Owner, ent.Comp);
     }
 
     private void OnMonkeyAscension(Entity<MindContainerComponent> ent, ref SummonSimiansMaxedOutEvent args)
@@ -492,22 +477,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, false);
     }
 
-    protected override bool ScreamForMe(ScreamForMeEvent ev)
-    {
-        if (!TryComp(ev.Target, out BloodstreamComponent? bloodstream))
-            return false;
 
-        if (TryComp(ev.Target, out VocalComponent? vocal))
-            Emote(ev.Target, vocal.ScreamId);
-
-        Spawn(ev.Effect, TransformSystem.GetMapCoordinates(ev.Target));
-
-        _bloodstream.SpillAllSolutions((ev.Target, bloodstream));
-        _bloodstream.TryModifyBleedAmount((ev.Target, bloodstream), bloodstream.MaxBleedAmount);
-        EnsureComp<BloodlossDamageMultiplierComponent>(ev.Target);
-
-        return true;
-    }
 
     private IEnumerable<MapCoordinates> GetSpawnCoordinatesAroundPerformer(EntityUid performer,
         float range,

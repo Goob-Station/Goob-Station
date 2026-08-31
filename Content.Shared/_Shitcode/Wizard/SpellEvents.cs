@@ -305,12 +305,6 @@ public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent
     public ProtoId<TagPrototype> CursedMaskTag = "CursedAnimalMask";
 }
 
-public sealed partial class ScreamForMeEvent : EntityTargetActionEvent
-{
-    [DataField]
-    public EntProtoId Effect = "SanguineFlashEffect";
-}
-
 public sealed partial class InstantSummonsEvent : InstantActionEvent
 {
     [DataField]

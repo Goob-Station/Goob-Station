@@ -161,7 +161,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
         SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
-        SubscribeLocalEvent<ScreamForMeEvent>(OnScreamForMe);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
@@ -727,29 +726,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         // This should transform into animal noise
         Speak(ev.Target, "!");
-
-        ev.Handled = true;
-    }
-
-    private void OnScreamForMe(ScreamForMeEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (HasComp<BorgChassisComponent>(ev.Target) || HasComp<SiliconComponent>(ev.Target))
-        {
-            Popup(ev.Performer, "spell-fail-target-silicon");
-            return;
-        }
-
-        if (!ScreamForMe(ev))
-            return;
 
         ev.Handled = true;
     }
@@ -1508,11 +1484,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     protected virtual void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto) {}
 
     protected virtual void Speak(EntityUid uid, string message) { }
-
-    protected virtual bool ScreamForMe(ScreamForMeEvent ev)
-    {
-        return true;
-    }
 
     protected virtual void SpawnMobs(SummonMobsEvent ev) { }
 
