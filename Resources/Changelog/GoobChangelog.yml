@@ -24828,3 +24828,11 @@ Entries:
       message: Fixed Borgs movement sprites being nothing
   id: 2845
   time: '2026-08-31T15:27:52.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Amber alert now requires a significant threat or Captain / Hos + 1
+        command member to unlock it.
+  id: 2846
+  time: '2026-08-31T16:45:14.0000000+00:00'
