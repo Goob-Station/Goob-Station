@@ -161,7 +161,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
-        SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
 
@@ -859,25 +858,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             RemComp<HierophantBeatComponent>(ev.Target);
         else
             EnsureComp<HierophantBeatComponent>(ev.Target);
-
-        ev.Handled = true;
-    }
-
-    private void OnPredictionToggle(PredictionToggleSpellEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (HasComp<CurseOfByondComponent>(ev.Target))
-            RemComp<CurseOfByondComponent>(ev.Target);
-        else
-            EnsureComp<CurseOfByondComponent>(ev.Target);
 
         ev.Handled = true;
     }

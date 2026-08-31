@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.Components;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
-namespace Content.Client._Goobstation.Wizard.Systems;
+
+namespace Content.Goobstation.Client.Wizard.Systems;
 
 public sealed class CurseOfByondSystem : EntitySystem
 {

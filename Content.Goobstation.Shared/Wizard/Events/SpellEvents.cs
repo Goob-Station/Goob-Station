@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.Tag;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Wizard.Events;
@@ -187,4 +188,10 @@ public sealed partial class BlindSpellEvent : EntityTargetActionEvent
 
     [DataField]
     public EntProtoId? Effect = "GrenadeFlashEffect";
+}
+
+public sealed partial class PredictionToggleSpellEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public SoundSpecifier? Sound;
 }

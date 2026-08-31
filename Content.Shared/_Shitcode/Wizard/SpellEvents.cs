@@ -290,12 +290,6 @@ public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent
     public SoundSpecifier? Sound;
 }
 
-public sealed partial class PredictionToggleSpellEvent : EntityTargetActionEvent
-{
-    [DataField]
-    public SoundSpecifier? Sound;
-}
-
 [DataDefinition]
 public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
 {
