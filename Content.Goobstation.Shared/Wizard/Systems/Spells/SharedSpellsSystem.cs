@@ -5,14 +5,17 @@ using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chat;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Emp;
 using Content.Shared.Explosion.EntitySystems;
+using Content.Shared.Fluids;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
@@ -32,6 +35,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
@@ -65,6 +69,10 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly WoundSystem _wound = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -87,6 +95,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
         SubscribeLocalEvent<ChuuniInvocationsEvent>(OnChuuniInvocations);
         SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
+        SubscribeLocalEvent<RathenEvent>(OnRathen);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
