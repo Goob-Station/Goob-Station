@@ -39,7 +39,7 @@ namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 /// <summary>
 /// TODO: finish moving goob wiz spells then remove Goob after deleting SpellsSystem
 /// </summary>
-public abstract partial class SharedGoobSpellsSystem : EntitySystem
+public abstract partial class SharedSpellsSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;

@@ -5,7 +5,7 @@ using Content.Shared.Coordinates.Helpers;
 
 namespace Content.Goobstation.Server.Wizard.Systems;
 
-public sealed partial class GoobSpellsSystem
+public sealed partial class SpellsSystem
 {
     protected override void OnSmokeRelay(SmokeSpellEvent ev)
     {

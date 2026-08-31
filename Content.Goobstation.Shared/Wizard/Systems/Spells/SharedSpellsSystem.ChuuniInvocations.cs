@@ -3,7 +3,7 @@ using Content.Shared._Goobstation.Wizard.Chuuni;
 
 namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
-public abstract partial class SharedGoobSpellsSystem
+public abstract partial class SharedSpellsSystem
 {
     private LocId _locFailCantWear = "spell-fail-cant-wear-eyepatch";
     private LocId _locFailAlreadyWear = "spell-fail-already-wear-eyepatch";

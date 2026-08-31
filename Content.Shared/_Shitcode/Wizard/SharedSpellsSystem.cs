@@ -159,7 +159,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<SummonSimiansEvent>(OnSimians);
         SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
-        SubscribeLocalEvent<ChuuniInvocationsEvent>(OnChuuniInvocations);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
         SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);

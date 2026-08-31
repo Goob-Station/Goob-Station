@@ -7,7 +7,7 @@ using Robust.Shared.Map;
 
 namespace Content.Goobstation.Server.Wizard.Systems;
 
-public sealed partial class GoobSpellsSystem : SharedGoobSpellsSystem
+public sealed partial class SpellsSystem : SharedSpellsSystem
 {
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly MapSystem _map = default!;

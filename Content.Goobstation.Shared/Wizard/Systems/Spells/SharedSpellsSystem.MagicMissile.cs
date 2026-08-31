@@ -3,7 +3,7 @@ using Content.Shared.StatusEffect;
 
 namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
-public abstract partial class SharedGoobSpellsSystem
+public abstract partial class SharedSpellsSystem
 {
     private void OnMagicMissile(MagicMissileEvent ev)
     {
