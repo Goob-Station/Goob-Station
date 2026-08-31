@@ -49,12 +49,6 @@ public sealed partial class RepulseEvent : InstantActionEvent
     public EntProtoId EffectProto = "EffectRepulse";
 }
 
-public sealed partial class StopTimeEvent : InstantActionEvent
-{
-    [DataField]
-    public EntProtoId Proto = "Chronofield";
-}
-
 public sealed partial class BlindSpellEvent : EntityTargetActionEvent
 {
     [DataField]

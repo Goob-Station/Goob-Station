@@ -143,7 +143,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
-        SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
         SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
@@ -215,20 +214,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         Repulse(ev);
-
-        ev.Handled = true;
-    }
-
-    private void OnStopTime(StopTimeEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (_net.IsServer)
-        {
-            var effect = Spawn(ev.Proto, TransformSystem.GetMapCoordinates(ev.Performer));
-            EnsureComp<PreventCollideComponent>(effect).Uid = ev.Performer; // Just in case
-        }
 
         ev.Handled = true;
     }

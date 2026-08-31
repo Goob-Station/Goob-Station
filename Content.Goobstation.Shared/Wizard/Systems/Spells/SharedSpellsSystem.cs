@@ -86,6 +86,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
         SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
         SubscribeLocalEvent<ChuuniInvocationsEvent>(OnChuuniInvocations);
+        SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();

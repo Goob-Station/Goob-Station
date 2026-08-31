@@ -134,3 +134,9 @@ public sealed partial class ChuuniInvocationsEvent : InstantActionEvent
     [DataField]
     public ProtoId<TagPrototype> WizardHatTag = "WizardHat";
 }
+
+public sealed partial class StopTimeEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "Chronofield";
+}
