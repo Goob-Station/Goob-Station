@@ -1558,6 +1558,7 @@
     - VimPilot
     - DoorBumpOpener
     - AnomalyHost
+    - XenobioSlimeFavoriteFood # Goobstation
   - type: Reactive
     groups:
       Flammable: [ Touch ]

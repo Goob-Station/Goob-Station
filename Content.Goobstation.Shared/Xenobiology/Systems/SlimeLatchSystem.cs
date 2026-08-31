@@ -5,6 +5,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
+using Content.Shared._Goobstation.Sleep;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Components;
@@ -16,7 +17,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Nutrition.Components;
@@ -73,7 +73,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         SubscribeLocalEvent<SlimeComponent, EntGotInsertedIntoContainerMessage>(OnEntGotInsertedIntoContainer);
         SubscribeLocalEvent<SlimeComponent, SelfBeforeClimbEvent>(OnSelfBeforeClimb);
         SubscribeLocalEvent<SlimeComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
-        SubscribeLocalEvent<SlimeDamageOvertimeComponent, WakeOverrideEvent>(OnWakeOverride);
+        SubscribeLocalEvent<SlimeDamageOvertimeComponent, WakeDamageOverrideEvent>(OnWakeOverride);
+        SubscribeLocalEvent<SlimeDamageOvertimeComponent, SleepOverrideEvent>(OnSleepOverride);
 
         _bloodstreamQuery = GetEntityQuery<BloodstreamComponent>();
         _hungerQuery = GetEntityQuery<HungerComponent>();
@@ -153,13 +154,21 @@ public sealed partial class SlimeLatchSystem : EntitySystem
                 _stomach.TryTransferSolution(stomach.Owner, chemSolution, stomach);
             }
 
-            //chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits); Gonna comment it out until someone with better experience fix this annoying bug
+            chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits);
         }
     }
 
-    private void OnWakeOverride(Entity<SlimeDamageOvertimeComponent> ent, ref WakeOverrideEvent args)
+    private void OnWakeOverride(Entity<SlimeDamageOvertimeComponent> ent, ref WakeDamageOverrideEvent args)
     {
         args.IgnoreDamage = true;
+    }
+
+    private void OnSleepOverride(Entity<SlimeDamageOvertimeComponent> ent, ref SleepOverrideEvent args)
+    {
+        if (!TryComp<MobStateComponent>(ent.Owner, out var mobState))
+            return;
+
+        args.MobState = mobState.CurrentState;
     }
 
     private void OnMobStateChangedSOD(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)

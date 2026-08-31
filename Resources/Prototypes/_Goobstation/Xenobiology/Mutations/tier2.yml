@@ -1,6 +1,7 @@
 - type: breed
-  breedName: yellow slime
+  parent: BaseMutation
   id: YellowMutation
+  breedName: yellow slime
   producedExtract: YellowSlimeExtract
   components:
   - type: Slime
@@ -14,8 +15,9 @@
     - BluespaceMutation
 
 - type: breed
-  breedName: dark purple slime
+  parent: BaseMutation
   id: DarkPurpleMutation
+  breedName: dark purple slime
   producedExtract: DarkPurpleSlimeExtract
   components:
   - type: Slime
@@ -29,8 +31,9 @@
     - SepiaMutation
 
 - type: breed
-  breedName: dark blue slime
+  parent: BaseMutation
   id: DarkBlueMutation
+  breedName: dark blue slime
   producedExtract: DarkBlueSlimeExtract
   components:
   - type: Slime
@@ -44,8 +47,9 @@
     - CeruleanMutation
 
 - type: breed
-  breedName: silver slime
+  parent: BaseMutation
   id: SilverMutation
+  breedName: silver slime
   producedExtract: SilverSlimeExtract
   components:
   - type: Slime
@@ -61,8 +65,9 @@
     - PyriteMutation
 
 - type: breed
-  breedName: bluespace slime
+  parent: BaseMutation
   id: BluespaceMutation
+  breedName: bluespace slime
   producedExtract: BluespaceSlimeExtract
   components:
   - type: Slime
@@ -76,8 +81,9 @@
     - BluespaceMutation
 
 - type: breed
-  breedName: sepia slime
+  parent: BaseMutation
   id: SepiaMutation
+  breedName: sepia slime
   producedExtract: SepiaSlimeExtract
   components:
   - type: Slime
@@ -91,8 +97,9 @@
     - SepiaMutation
 
 - type: breed
-  breedName: cerulean slime
+  parent: BaseMutation
   id: CeruleanMutation
+  breedName: cerulean slime
   producedExtract: CeruleanSlimeExtract
   components:
   - type: Slime
@@ -104,8 +111,9 @@
     - CeruleanMutation
 
 - type: breed
-  breedName: pyrite slime
+  parent: BaseMutation
   id: PyriteMutation
+  breedName: pyrite slime
   producedExtract: PyriteSlimeExtract
   components:
   - type: Slime

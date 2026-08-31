@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -155,4 +156,10 @@ public sealed partial class SlimeComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier EatSound = new("/Audio/Voice/Talk/slime.ogg");
+
+    /// <summary>
+    /// This is mostly for slime to find their favorite food tag
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Whitelist;
 }

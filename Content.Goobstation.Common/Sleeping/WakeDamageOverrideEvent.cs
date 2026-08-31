@@ -6,7 +6,7 @@ namespace Content.Goobstation.Common.Sleeping;
 /// so you can wake up whenever you want
 /// </summary>
 [ByRefEvent]
-public record struct WakeOverrideEvent(bool IgnoreDamage = false, bool Cancelled = false)
+public record struct WakeDamageOverrideEvent(bool IgnoreDamage = false, bool Cancelled = false)
 {
     /// <summary>
     /// Should this entity ignore the wake up threshold

@@ -13,6 +13,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Security.Cryptography;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
@@ -50,6 +51,8 @@ public partial class XenobiologySystem
         s.MaxOffspring += rand.Next(-1, 2);
         s.ExtractsProduced += rand.Next(0, 2);
         s.MitosisHunger *= rand.NextFloat(.75f, 1.2f);
+        if (s.Whitelist == null)
+            Log.Debug("It's null you bastard");
         Dirty(slime);
     }
 
@@ -116,6 +119,7 @@ public partial class XenobiologySystem
                 sl.Comp.MutationChance = ent.Comp.MutationChance;
                 sl.Comp.MaxOffspring = ent.Comp.MaxOffspring;
                 sl.Comp.ExtractsProduced = ent.Comp.ExtractsProduced;
+                sl.Comp.Whitelist = ent.Comp.Whitelist;
                 Dirty(sl);
             }
         }

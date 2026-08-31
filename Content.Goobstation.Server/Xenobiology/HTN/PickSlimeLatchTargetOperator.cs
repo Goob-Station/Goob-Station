@@ -7,10 +7,10 @@ using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared.ActionBlocker;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Nutrition.Components;  
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Server.Xenobiology.HTN;
 
@@ -22,11 +22,14 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
     private GoobHungerSystem _hunger = default!;
     private PathfindingSystem _pathfinding = default!;
     private SlimeLatchSystem _latch = default!;
+    private EntityWhitelistSystem _whitelist = default!;
 
     private EntityQuery<BeingLatchedComponent> _latchedQuery = default!;
     private EntityQuery<SlimeDamageOvertimeComponent> _dotQuery = default!;
     private EntityQuery<SlimeComponent> _slimeQuery = default!;
     private EntityQuery<MobGrowthComponent> _growthQuery = default!;
+
+    private List<EntityUid> _targets;
 
     [DataField(required: true)]
     public string RangeKey = string.Empty;
@@ -51,17 +54,20 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
         _factions = sysManager.GetEntitySystem<NpcFactionSystem>();
         _hunger = sysManager.GetEntitySystem<GoobHungerSystem>();
         _latch = sysManager.GetEntitySystem<SlimeLatchSystem>();
+        _whitelist = sysManager.GetEntitySystem<EntityWhitelistSystem>();
 
         _latchedQuery = _ent.GetEntityQuery<BeingLatchedComponent>();
         _dotQuery = _ent.GetEntityQuery<SlimeDamageOvertimeComponent>();
         _slimeQuery = _ent.GetEntityQuery<SlimeComponent>();
         _growthQuery = _ent.GetEntityQuery<MobGrowthComponent>();
+
+        _targets = [];
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var targets = new List<EntityUid>();
+        _targets.Clear();
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _ent)
         || !_slimeQuery.TryComp(owner, out var slimeComp)
@@ -78,10 +84,16 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
             || growthComp.IsFirstStage && entity == slimeComp.Tamer) // no killing tamer
                 continue;
 
-            targets.Add(entity);
+            _targets.Add(entity);
         }
 
-        foreach (var target in targets)
+        if (_targets.Count > 0)
+        {
+            _targets.Sort((x, y) => _whitelist.IsWhitelistPass(slimeComp.Whitelist, y)
+            .CompareTo(_whitelist.IsWhitelistPass(slimeComp.Whitelist, x)));
+        }
+
+        foreach (var target in _targets)
         {
             if (!_ent.TryGetComponent<TransformComponent>(target, out var xform))
                 continue;

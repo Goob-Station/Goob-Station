@@ -1,6 +1,7 @@
 - type: breed
-  breedName: oil slime
+  parent: BaseMutation
   id: OilMutation
+  breedName: oil slime
   producedExtract: OilSlimeExtract
   components:
   - type: Slime
@@ -14,8 +15,9 @@
     - OilMutation
 
 - type: breed
-  breedName: light pink slime
+  parent: BaseMutation
   id: LightPinkMutation
+  breedName: light pink slime
   producedExtract: LightPinkSlimeExtract
   components:
   - type: Slime
@@ -27,8 +29,9 @@
     - LightPinkMutation
 
 - type: breed
-  breedName: black slime
+  parent: BaseMutation
   id: BlackMutation
+  breedName: black slime
   producedExtract: BlackSlimeExtract
   components:
   - type: Slime
@@ -40,8 +43,9 @@
     - BlackMutation
 
 - type: breed
-  breedName: adamantine slime
+  parent: BaseMutation
   id: AdamantineMutation
+  breedName: adamantine slime
   producedExtract: AdamantineSlimeExtract
   components:
   - type: Slime
