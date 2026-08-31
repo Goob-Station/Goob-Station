@@ -44,9 +44,9 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
     protected override void UpdateEntityAppearance(
         Entity<BorgSwitchableTypeComponent> entity,
         BorgTypePrototype prototype,
-        BorgSubtypePrototype subtypePrototype)
+        BorgSubtypePrototype? subtypePrototype)
     {
-        if (TryComp(entity, out SpriteComponent? sprite))
+        if (TryComp(entity, out SpriteComponent? sprite) && subtypePrototype is not null)
         {
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Light, prototype.SpriteBodyState);
