@@ -11,16 +11,6 @@
   group: market
 
 - type: cargoProduct
-  id: LivestockXenobioSlimes
-  icon:
-    sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
-    state: base
-  product: CrateNPCXenobioSlime
-  cost: 12600 # You should buy it usually if you messed up something (also it somehow fulfills the bounty for brains if it's less than 12500???)
-  category: cargoproduct-category-name-science
-  group: market
-
-- type: cargoProduct
   id: ScienceResearchServer
   icon:
     sprite: Structures/Machines/server.rsi
