@@ -43,26 +43,6 @@ public sealed partial class BindSoulEvent : InstantActionEvent
     [DataField]
     public ProtoId<ItemSizePrototype> PhylacterySize = "Ginormous";
 }
-public sealed partial class SummonMobsEvent : InstantActionEvent
-{
-    [DataField]
-    public List<EntProtoId> Mobs = new();
-
-    [DataField]
-    public float Range = 1f;
-
-    [DataField]
-    public int Amount = 9;
-
-    [DataField]
-    public Angle SpawnAngle = Angle.FromDegrees(160);
-
-    [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
-    public int CollisionMask = (int) CollisionGroup.MobMask;
-
-    [DataField]
-    public bool FactionIgnoreSummoner;
-}
 
 public sealed partial class SwapSpellEvent : EntityTargetActionEvent
 {

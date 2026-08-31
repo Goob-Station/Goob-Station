@@ -138,7 +138,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
-        SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
@@ -237,16 +236,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         BindSoul(ev, item.Value, mind, mindComponent);
-        ev.Handled = true;
-    }
-
-    private void OnSummonMobs(SummonMobsEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        SpawnMobs(ev);
-
         ev.Handled = true;
     }
 
@@ -496,8 +485,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     protected virtual void Emote(EntityUid uid, string emoteId) { }
 
     protected virtual void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent) { }
-
-    protected virtual void SpawnMobs(SummonMobsEvent ev) { }
 
     #endregion
 }

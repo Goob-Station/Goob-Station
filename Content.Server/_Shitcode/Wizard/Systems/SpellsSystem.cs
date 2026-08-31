@@ -254,24 +254,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
         }
     }
 
-    protected override void SpawnMobs(SummonMobsEvent ev)
-    {
-        base.SpawnMobs(ev);
-
-        if (ev.Mobs.Count == 0)
-            return;
-
-        var positions =
-            GetSpawnCoordinatesAroundPerformer(ev.Performer, ev.Range, ev.Amount, ev.SpawnAngle, ev.CollisionMask);
-        foreach (var pos in positions)
-        {
-            var mob = Spawn(Random.Pick(ev.Mobs), pos);
-
-            if (ev.FactionIgnoreSummoner)
-                _faction.IgnoreEntity(mob, ev.Performer);
-        }
-    }
-
     public override void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school)
     {
         base.SpeakSpell(speakerUid, casterUid, speech, school);

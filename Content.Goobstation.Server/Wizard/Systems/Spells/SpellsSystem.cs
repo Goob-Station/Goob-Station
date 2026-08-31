@@ -26,6 +26,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
@@ -76,6 +77,7 @@ public sealed partial class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
     private EntityQuery<TimedDespawnComponent> _timedDespawnQuery;

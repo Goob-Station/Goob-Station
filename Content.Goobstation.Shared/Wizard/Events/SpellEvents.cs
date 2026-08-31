@@ -2,11 +2,14 @@ using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
+using Content.Shared.Physics;
 using Content.Shared.Polymorph;
 using Content.Shared.Random;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
+using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Wizard.Events;
 
@@ -403,4 +406,25 @@ public sealed partial class TeslaBlastEvent : InstantActionEvent
 
     [DataField]
     public SoundSpecifier? Sound;
+}
+
+public sealed partial class SummonMobsEvent : InstantActionEvent
+{
+    [DataField]
+    public List<EntProtoId> Mobs = new();
+
+    [DataField]
+    public float Range = 1f;
+
+    [DataField]
+    public int Amount = 9;
+
+    [DataField]
+    public Angle SpawnAngle = Angle.FromDegrees(160);
+
+    [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
+    public int CollisionMask = (int) CollisionGroup.MobMask;
+
+    [DataField]
+    public bool FactionIgnoreSummoner;
 }
