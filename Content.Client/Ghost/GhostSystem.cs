@@ -10,7 +10,7 @@ using Robust.Shared.Player;
 
 namespace Content.Client.Ghost
 {
-    public sealed partial class GhostSystem : SharedGhostSystem
+    public sealed class GhostSystem : SharedGhostSystem
     {
         [Dependency] private readonly IClientConsoleHost _console = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;

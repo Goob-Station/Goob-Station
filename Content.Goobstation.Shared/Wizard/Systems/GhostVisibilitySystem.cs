@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Goobstation.Common.Wizard.Events;
 using Content.Goobstation.Shared.Wizard.Rules;
 using Content.Shared.Administration.Managers;
@@ -6,17 +7,22 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Wizard.Systems;
 
+/// <summary>
+/// Checks whether an entity should be allowed to see ghosts.
+/// </summary>
 public sealed partial class GhostVisibilitySystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminManager _adminManager = default!;
 
     private EntityQuery<GhostComponent> _ghostQuery;
+    private EntityQuery<ScryingViewerComponent> _scryingViewerQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _ghostQuery = GetEntityQuery<GhostComponent>();
+        _scryingViewerQuery = GetEntityQuery<ScryingViewerComponent>();
 
         SubscribeLocalEvent<GetDeadchatAdditionalHearersEvent>(OnGetDeadchatHearers);
         SubscribeLocalEvent<GetCanSeeGhostsEvent>(OnGetCanSeeGhosts);
@@ -29,17 +35,17 @@ public sealed partial class GhostVisibilitySystem : EntitySystem
     }
     private void OnGetCanSeeGhosts(ref GetCanSeeGhostsEvent ev)
     {
-        if (CanSeeGhosts(ev.Uid, ev.CheckIfForced))
+        if (CanSeeGhosts(ev.Uid))
             ev.Can = true;
     }
 
-    public bool CanSeeGhosts(EntityUid? uid, bool checkIfForced)
-    {
-        if (IsRuleActive() ||
-            uid is { Valid: true } && (checkIfForced && _ghostQuery.HasComp(uid) || _adminManager.IsAdmin(uid.Value)))
-            return true;
-        return false;
-    }
+    public bool CanSeeGhosts(EntityUid? uid)
+        => IsRuleActive() ||
+        uid is { Valid: true } && (
+            _ghostQuery.HasComp(uid) ||
+            _scryingViewerQuery.HasComp(uid) ||
+            _adminManager.IsAdmin(uid.Value)
+        );
 
     public bool IsRuleActive()
     {

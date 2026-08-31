@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared.Eye;
 using Content.Shared.Ghost;
@@ -27,6 +28,10 @@ public sealed partial class ScryingOrbSystem : EntitySystem
     [Dependency] private readonly SharedGhostSystem _ghost = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
+    private EntityQuery<EyeComponent> _eyeQuery;
+    private EntityQuery<GhostComponent> _ghostQuery;
+    private EntityQuery<ScryingOrbComponent> _scryingOrbQuery;
+
     private static readonly EntProtoId ObserverProto = "MobObserverWizard";
 
     public override void Initialize()
@@ -39,18 +44,53 @@ public sealed partial class ScryingOrbSystem : EntitySystem
         SubscribeLocalEvent<ScryingOrbComponent, GotEquippedEvent>(OnEquip);
         SubscribeLocalEvent<ScryingOrbComponent, GotUnequippedHandEvent>(OnUnequipHand);
         SubscribeLocalEvent<ScryingOrbComponent, GotUnequippedEvent>(OnUnequip);
+
+        _eyeQuery = EntityManager.GetEntityQuery<EyeComponent>();
+        _ghostQuery = EntityManager.GetEntityQuery<GhostComponent>();
+        _scryingOrbQuery = EntityManager.GetEntityQuery<ScryingOrbComponent>();
     }
 
+    private void HandleEquip(EntityUid user)
+    {
+        EnsureComp<ScryingViewerComponent>(user);
+
+        if (!_eyeQuery.TryComp(user, out var eye))
+            return;
+
+        _eye.SetVisibilityMask(user, eye.VisibilityMask | (int) VisibilityFlags.Ghost, eye);
+    }
+
+    private void HandleUnequip(EntityUid user)
+    {
+        // Would still fire Unequipped if its in their hand or moved to another slot probably
+        // make sure it Doesnt
+        if (IsEquipped(user))
+            return;
+
+        RemComp<ScryingViewerComponent>(user);
+
+        if (!_eyeQuery.TryComp(user, out var eye))
+            return;
+
+        _eye.SetVisibilityMask(user, eye.VisibilityMask & (int) ~VisibilityFlags.Ghost, eye);
+        _eye.SetDrawFov(user, true, eye);
+        _eye.SetDrawLight((user, eye), true);
+    }
+
+    /// <summary>
+    /// Get whether a scrying orb is equipped anywhere on the entity.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <returns></returns>
     public bool IsEquipped(EntityUid uid)
     {
-        var scryingOrbQuery = GetEntityQuery<ScryingOrbComponent>();
-        if (_hands.EnumerateHeld(uid).Any(scryingOrbQuery.HasComponent))
+        if (_hands.EnumerateHeld(uid).Any(_scryingOrbQuery.HasComp))
             return true;
 
         var enumerator = _inventory.GetSlotEnumerator(uid);
         while (enumerator.MoveNext(out var container))
         {
-            if (scryingOrbQuery.HasComp(container.ContainedEntity))
+            if (_scryingOrbQuery.HasComp(container.ContainedEntity))
                 return true;
         }
 
@@ -58,47 +98,20 @@ public sealed partial class ScryingOrbSystem : EntitySystem
     }
 
     private void OnEquip(Entity<ScryingOrbComponent> ent, ref GotEquippedEvent args)
-    {
-        if (!TryComp(args.Equipee, out EyeComponent? eye))
-            return;
-
-        _eye.SetVisibilityMask(args.Equipee, eye.VisibilityMask | (int) VisibilityFlags.Ghost, eye);
-    }
-
-    private void OnUnequip(Entity<ScryingOrbComponent> ent, ref GotUnequippedEvent args)
-    {
-        AttemptDisableXRay(args.Equipee);
-    }
-
-    private void OnUnequipHand(Entity<ScryingOrbComponent> ent, ref GotUnequippedHandEvent args)
-    {
-        AttemptDisableXRay(args.User);
-    }
+        => HandleEquip(args.Equipee);
 
     private void OnEquipHand(Entity<ScryingOrbComponent> ent, ref GotEquippedHandEvent args)
-    {
-        if (!TryComp(args.User, out EyeComponent? eye))
-            return;
+        => HandleEquip(args.User);
 
-        _eye.SetVisibilityMask(args.User, eye.VisibilityMask | (int) VisibilityFlags.Ghost, eye);
-    }
+    private void OnUnequip(Entity<ScryingOrbComponent> ent, ref GotUnequippedEvent args)
+        => HandleUnequip(args.Equipee);
 
-    private void AttemptDisableXRay(EntityUid uid)
-    {
-        if (!TryComp(uid, out EyeComponent? eye))
-            return;
-
-        if (IsEquipped(uid))
-            return;
-
-        _eye.SetVisibilityMask(uid, eye.VisibilityMask & (int) ~VisibilityFlags.Ghost, eye);
-        _eye.SetDrawFov(uid, true, eye);
-        _eye.SetDrawLight((uid, eye), true);
-    }
+    private void OnUnequipHand(Entity<ScryingOrbComponent> ent, ref GotUnequippedHandEvent args)
+        => HandleUnequip(args.User);
 
     private void OnActivate(Entity<ScryingOrbComponent> ent, ref ActivateInWorldEvent args)
     {
-        if (!args.Complex || HasComp<GhostComponent>(args.User))
+        if (!args.Complex || _ghostQuery.HasComp(args.User))
             return;
 
         Ghost(args.User);
@@ -106,7 +119,7 @@ public sealed partial class ScryingOrbSystem : EntitySystem
 
     private void OnGetInteractionVerb(Entity<ScryingOrbComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || HasComp<GhostComponent>(args.User))
+        if (!args.CanAccess || !args.CanInteract || _ghostQuery.HasComp(args.User))
             return;
 
         var user = args.User;
@@ -126,7 +139,7 @@ public sealed partial class ScryingOrbSystem : EntitySystem
         if (!_mind.TryGetMind(user, out var mind, out var mindComp))
             return;
 
-        var ghost = Spawn(ObserverProto, Transform(user).Coordinates);
+        var ghost = PredictedSpawnAtPosition(ObserverProto, Transform(user).Coordinates);
         _xform.AttachToGridOrMap(ghost);
         _playerManager.TryGetSessionById(mindComp.UserId, out var session);
 
@@ -135,10 +148,7 @@ public sealed partial class ScryingOrbSystem : EntitySystem
         else if (!string.IsNullOrWhiteSpace(session?.Name))
             _meta.SetEntityName(ghost, session.Name);
 
-        if (!TryComp(user, out GhostComponent? ghostComp))
-            return;
-
         _mind.Visit(mind, ghost, mindComp);
-        _ghost.SetCanReturnToBody((user, ghostComp), true);
+        _ghost.SetCanReturnToBody((ghost, _ghostQuery.GetComponent(ghost)), true);
     }
 }
