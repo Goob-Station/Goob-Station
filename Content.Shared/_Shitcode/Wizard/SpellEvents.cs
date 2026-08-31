@@ -49,18 +49,6 @@ public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
 }
 
-public sealed partial class SmokeSpellEvent : InstantActionEvent
-{
-    [DataField]
-    public EntProtoId Proto = "Smoke";
-
-    [DataField]
-    public float Duration = 10;
-
-    [DataField]
-    public int SpreadAmount = 30;
-}
-
 public sealed partial class RepulseEvent : InstantActionEvent
 {
     [DataField]

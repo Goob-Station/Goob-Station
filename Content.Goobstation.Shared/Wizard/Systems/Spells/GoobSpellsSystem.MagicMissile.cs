@@ -1,8 +1,9 @@
+using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared.StatusEffect;
 
-namespace Content.Goobstation.Shared.Wizard.Systems;
+namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
-public sealed partial class SharedGoobSpellsSystem
+public abstract partial class SharedGoobSpellsSystem
 {
     private void OnMagicMissile(MagicMissileEvent ev)
     {

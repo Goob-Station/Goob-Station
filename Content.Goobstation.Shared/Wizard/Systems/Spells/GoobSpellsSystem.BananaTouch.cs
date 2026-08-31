@@ -1,10 +1,11 @@
 
+using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Clumsy;
 
-namespace Content.Goobstation.Shared.Wizard.Systems;
+namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
-public sealed partial class SharedGoobSpellsSystem
+public abstract partial class SharedGoobSpellsSystem
 {
     private void OnBananaTouch(BananaTouchEvent ev)
     {

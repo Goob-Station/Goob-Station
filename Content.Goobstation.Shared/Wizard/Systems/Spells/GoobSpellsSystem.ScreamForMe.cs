@@ -1,11 +1,12 @@
 using Content.Goobstation.Shared.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Speech.Components;
 
-namespace Content.Goobstation.Shared.Wizard.Systems;
+namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
-public sealed partial class SharedGoobSpellsSystem
+public abstract partial class SharedGoobSpellsSystem
 {
     private void OnScreamForMe(ScreamForMeEvent ev)
     {

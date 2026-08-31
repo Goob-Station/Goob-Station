@@ -2,6 +2,7 @@
 using System.Numerics;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared.Access.Components;
@@ -31,12 +32,12 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Wizard.Systems;
+namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
 /// <summary>
 /// TODO: finish moving goob wiz spells then remove Goob after deleting SpellsSystem
 /// </summary>
-public sealed partial class SharedGoobSpellsSystem : EntitySystem
+public abstract partial class SharedGoobSpellsSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;

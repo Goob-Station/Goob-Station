@@ -1,6 +1,8 @@
-namespace Content.Goobstation.Shared.Wizard.Systems;
+using Content.Goobstation.Shared.Wizard.Events;
 
-public sealed partial class SharedGoobSpellsSystem
+namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
+
+public abstract partial class SharedGoobSpellsSystem
 {
     private void OnHomingToolbox(HomingToolboxEvent ev)
     {

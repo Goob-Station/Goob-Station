@@ -3,7 +3,7 @@ using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Wizard.Systems;
+namespace Content.Goobstation.Shared.Wizard.Events;
 
 public sealed partial class ScreamForMeEvent : EntityTargetActionEvent
 {
@@ -90,4 +90,16 @@ public sealed partial class DisableTechEvent : InstantActionEvent
 
     [DataField]
     public EntProtoId Effect = "EmpFlashEffect";
+}
+
+public sealed partial class SmokeSpellEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "Smoke";
+
+    [DataField]
+    public float Duration = 10;
+
+    [DataField]
+    public int SpreadAmount = 30;
 }

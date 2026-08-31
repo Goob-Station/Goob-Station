@@ -1,11 +1,12 @@
+using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Gibbing.Events;
 
-namespace Content.Goobstation.Shared.Wizard.Systems;
+namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
-public sealed partial class SharedGoobSpellsSystem
+public abstract partial class SharedGoobSpellsSystem
 {
 
     private void OnCorpseExplosion(CorpseExplosionEvent ev)

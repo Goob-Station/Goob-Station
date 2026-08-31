@@ -143,7 +143,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
         SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
-        SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
         SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
         SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
@@ -236,16 +235,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             MakeMime(ev.Target);
         else
             _statusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.WizardMuteDuration, true, status);
-
-        ev.Handled = true;
-    }
-
-    private void OnSmoke(SmokeSpellEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        SpawnSmoke(ev);
 
         ev.Handled = true;
     }
@@ -1296,8 +1285,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     #region ServerMethods
 
     public virtual void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school) { }
-
-    protected virtual void SpawnSmoke(SmokeSpellEvent ev) { }
 
     protected virtual void Repulse(RepulseEvent ev) { }
 

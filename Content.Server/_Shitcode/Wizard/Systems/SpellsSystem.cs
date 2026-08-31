@@ -168,33 +168,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
             args.MessageColor);
     }
 
-    protected override void SpawnSmoke(SmokeSpellEvent ev)
-    {
-        base.SpawnSmoke(ev);
-
-        var xform = Transform(ev.Performer);
-        var mapCoords = TransformSystem.GetMapCoordinates(ev.Performer, xform);
-
-        if (!MapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
-            !Map.TryGetTileRef(gridUid, grid, xform.Coordinates, out var tileRef) ||
-            tileRef.Tile.IsEmpty)
-            return;
-
-        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && _turf.IsSpace(tileRef.Tile))
-            return;
-
-        var coords = Map.MapToGrid(gridUid, mapCoords);
-        var ent = Spawn(ev.Proto, coords.SnapToGrid());
-        if (!TryComp<SmokeComponent>(ent, out var smoke))
-        {
-            Log.Error($"Smoke prototype {ev.Proto} was missing SmokeComponent");
-            Del(ent);
-            return;
-        }
-
-        _smoke.StartSmoke(ent, new Solution("ThickSmoke", 50), ev.Duration, ev.SpreadAmount, smoke);
-    }
-
     protected override void Repulse(RepulseEvent ev)
     {
         var mapPos = TransformSystem.GetMapCoordinates(ev.Performer);
