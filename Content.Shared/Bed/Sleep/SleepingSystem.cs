@@ -158,7 +158,11 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnComponentRemoved(Entity<SleepingComponent> ent, ref ComponentRemove args)
     {
-        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.WakeAction);
+        if (!TryComp<ActionComponent>(ent.Comp.WakeAction, out var action)) // Goobstation - Xenobio
+            return;
+
+        if (action != null) // Goobstation - Xenobio.
+            _actionsSystem.RemoveAction(ent.Owner, ent.Comp.WakeAction);
 
         var ev = new SleepStateChangedEvent(false);
         RaiseLocalEvent(ent, ref ev);

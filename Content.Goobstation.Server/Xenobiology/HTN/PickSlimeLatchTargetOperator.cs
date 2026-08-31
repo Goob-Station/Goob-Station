@@ -29,8 +29,6 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
     private EntityQuery<SlimeComponent> _slimeQuery = default!;
     private EntityQuery<MobGrowthComponent> _growthQuery = default!;
 
-    private List<EntityUid> _targets;
-
     [DataField(required: true)]
     public string RangeKey = string.Empty;
 
@@ -60,14 +58,12 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
         _dotQuery = _ent.GetEntityQuery<SlimeDamageOvertimeComponent>();
         _slimeQuery = _ent.GetEntityQuery<SlimeComponent>();
         _growthQuery = _ent.GetEntityQuery<MobGrowthComponent>();
-
-        _targets = [];
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        _targets.Clear();
+        var targets = new List<EntityUid>();
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _ent)
         || !_slimeQuery.TryComp(owner, out var slimeComp)
@@ -84,16 +80,16 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
             || growthComp.IsFirstStage && entity == slimeComp.Tamer) // no killing tamer
                 continue;
 
-            _targets.Add(entity);
+            targets.Add(entity);
         }
 
-        if (_targets.Count > 0)
+        if (targets.Count > 0)
         {
-            _targets.Sort((x, y) => _whitelist.IsWhitelistPass(slimeComp.Whitelist, y)
+            targets.Sort((x, y) => _whitelist.IsWhitelistPass(slimeComp.Whitelist, y)
             .CompareTo(_whitelist.IsWhitelistPass(slimeComp.Whitelist, x)));
         }
 
-        foreach (var target in _targets)
+        foreach (var target in targets)
         {
             if (!_ent.TryGetComponent<TransformComponent>(target, out var xform))
                 continue;

@@ -48,11 +48,9 @@ public partial class XenobiologySystem
         // every xenobio slime copy is personalized. feel free to tweak it as you like
         // the rest of the shit such as inheritance is handled by SpawnSlime
         s.MutationChance *= rand.NextFloat(.5f, 1.5f);
-        s.MaxOffspring += rand.Next(-1, 2);
+        s.MaxOffspring += rand.Next(-1, 1);
         s.ExtractsProduced += rand.Next(0, 2);
         s.MitosisHunger *= rand.NextFloat(.75f, 1.2f);
-        if (s.Whitelist == null)
-            Log.Debug("It's null you bastard");
         Dirty(slime);
     }
 
