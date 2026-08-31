@@ -2,6 +2,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Client.Wizard.Overlays;
 using Content.Goobstation.Common.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Robust.Client.GameObjects;
@@ -14,7 +15,7 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.Wizard.Trail;
+namespace Content.Goobstation.Client.Wizard.Systems;
 
 public sealed class TrailSystem : EntitySystem
 {

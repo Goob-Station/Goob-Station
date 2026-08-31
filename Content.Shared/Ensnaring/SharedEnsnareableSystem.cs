@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.DoAfter;
-using Content.Shared._Goobstation.Wizard.Mutate;
+using Content.Goobstation.Common.Wizard.Events;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.Components;
@@ -31,7 +31,6 @@ public sealed partial class EnsnareableDoAfterEvent : SimpleDoAfterEvent
 public abstract class SharedEnsnareableSystem : EntitySystem
 {
     [Dependency] private   readonly INetManager _net = default!; // Goobstation
-    [Dependency] private   readonly SharedHulkSystem _hulk = default!; // Goobstation
     [Dependency] private   readonly AlertsSystem _alerts = default!;
     [Dependency] private   readonly MovementSpeedModifierSystem _speedModifier = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
@@ -96,16 +95,13 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         ensnaring.Ensnared = null;
 
         // Goobstation start
+        // TODO: just catch ensnareremoveevent dumbass
         if (ensnaring.DestroyOnRemove)
         {
-            if (_net.IsServer)
-                QueueDel(args.Args.Used.Value);
+            PredictedQueueDel(args.Args.Used.Value);
         }
         else
             _hands.PickupOrDrop(args.Args.User, args.Args.Used.Value);
-
-        if (args.User == args.Target && TryComp(args.User, out HulkComponent? hulk))
-            _hulk.Roar((args.User, hulk));
         // Goobstation end
 
         if (args.User == args.Target)
@@ -177,8 +173,16 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         var freeTime = user == target ? component.BreakoutTime : component.FreeTime;
         var breakOnMove = !component.CanMoveBreakout;
 
-        if (user == target && HasComp<HulkComponent>(user)) // Goobstation
-            freeTime = 0f;
+        // Goobstation - start
+        var ev = new EnsnareableFreeAttemptEvent(user, target);
+        RaiseLocalEvent(user, ref ev);
+        if (ev.Cancelled)
+            return;
+
+        var ev2 = new EnsnareableModifyDurationEvent(user, target, freeTime);
+        RaiseLocalEvent(user, ref ev);
+        freeTime = ev2.Duration;
+        // Goobstation - end
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, user, freeTime, new EnsnareableDoAfterEvent(), target, target: target, used: ensnare)
         {
