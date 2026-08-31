@@ -22,35 +22,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
         base.Initialize();
 
         SubscribeNetworkEvent<StopTargetingEvent>(OnStopTargeting);
-        SubscribeAllEvent<ChargeSpellRaysEffectEvent>(OnChargeEffect);
-    }
-
-    private void OnChargeEffect(ChargeSpellRaysEffectEvent ev)
-    {
-        var uid = GetEntity(ev.Uid);
-
-        CreateChargeEffect(uid, ev);
-    }
-
-    protected override void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev)
-    {
-        if (!Timing.IsFirstTimePredicted || uid == EntityUid.Invalid)
-            return;
-
-        var rays = _rays.DoRays(TransformSystem.GetMapCoordinates(uid),
-            Color.Yellow,
-            Color.Fuchsia,
-            10,
-            15,
-            minMaxRadius: new Vector2(3f, 6f),
-            proto: "EffectRayCharge",
-            server: false);
-
-        if (rays == null)
-            return;
-
-        var track = EnsureComp<TrackUserComponent>(rays.Value);
-        track.User = uid;
     }
 
     public void SetSwapSecondaryTarget(EntityUid user, EntityUid? target, EntityUid action)

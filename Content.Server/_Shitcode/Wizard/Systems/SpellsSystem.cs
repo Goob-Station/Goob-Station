@@ -117,11 +117,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
         base.Initialize();
     }
 
-    protected override void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev)
-    {
-        RaiseNetworkEvent(ev, Filter.PvsExcept(uid));
-    }
-
     protected override void Emote(EntityUid uid, string emoteId)
     {
         base.Emote(uid, emoteId);
@@ -326,27 +321,5 @@ public sealed class SpellsSystem : SharedSpellsSystem
             InGameICChatType.Speak,
             false,
             colorOverride: color);
-    }
-
-    protected override bool ChargeItem(EntityUid uid, ChargeMagicEvent ev)
-    {
-        if (!TryComp(uid, out BatteryComponent? battery) || battery.LastCharge >= battery.MaxCharge)
-            return false;
-
-        if (Tag.HasTag(uid, ev.WandTag))
-        {
-            var difference = battery.MaxCharge - battery.LastCharge;
-            var charge = MathF.Min(difference, ev.WandChargeRate);
-            var degrade = charge * ev.WandDegradePercentagePerCharge;
-            var afterDegrade = MathF.Max(ev.MinWandDegradeCharge, battery.MaxCharge - degrade);
-            if (battery.MaxCharge > ev.MinWandDegradeCharge)
-                _battery.SetMaxCharge(uid, afterDegrade);
-            _battery.SetCharge(uid, battery.LastCharge + charge);
-        }
-        else
-            _battery.SetCharge(uid, battery.MaxCharge);
-
-        PopupCharged(uid, ev.Performer, false);
-        return true;
     }
 }

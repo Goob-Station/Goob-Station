@@ -1,12 +1,16 @@
+using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
+using Content.Shared._Goobstation.Wizard;
+using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Clothing.Components;
@@ -20,6 +24,8 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
+using Content.Shared.Magic.Components;
+using Content.Shared.Magic.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -27,6 +33,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -82,6 +89,9 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly RaysSystem _rays = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -121,6 +131,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
+        SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
@@ -236,5 +247,21 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         _actions.SetCooldown(action, TimeSpan.FromSeconds(0.5)); // TODO: wtf?
 
         return null;
+    }
+
+    private bool RechargeAllSpells(EntityUid uid, EntityUid? except = null)
+    {
+        var magicQuery = GetEntityQuery<MagicComponent>();
+        var ents = except != null
+            ? _actions.GetActions(uid).Where(x => x.Owner != except.Value && magicQuery.HasComp(x.Owner))
+            : _actions.GetActions(uid).Where(x => magicQuery.HasComp(x.Owner));
+        var hasSpells = false;
+        foreach (var (ent, _) in ents)
+        {
+            hasSpells = true;
+            _actions.SetCooldown(ent, TimeSpan.Zero);
+        }
+
+        return hasSpells;
     }
 }

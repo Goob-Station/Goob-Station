@@ -146,7 +146,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
-        SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
 
@@ -489,68 +488,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             Popup(ev.Performer, "spell-soul-tap-message", PopupType.MediumCaution);
     }
 
-    private void OnCharge(ChargeMagicEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        ev.Handled = true;
-
-        var raysEv = new ChargeSpellRaysEffectEvent(GetNetEntity(ev.Performer));
-        CreateChargeEffect(ev.Performer, raysEv);
-
-        if (TryComp<PullerComponent>(ev.Performer, out var puller) && HasComp<PullableComponent>(puller.Pulling) &&
-            RechargePerson(puller.Pulling.Value))
-            return;
-
-        if (TryComp(ev.Performer, out CarryingComponent? carrying) && RechargePerson(carrying.Carried))
-            return;
-
-        if (!TryComp(ev.Performer, out HandsComponent? hands))
-            return;
-
-        foreach (var item in Hands.EnumerateHeld((ev.Performer, hands)))
-        {
-            if (Tag.HasAnyTag(item, ev.RechargeTags))
-            {
-                if (TryComp<LimitedChargesComponent>(item, out var limitedCharges))
-                {
-                    _charges.SetCharges((item, limitedCharges), limitedCharges.MaxCharges);
-                    PopupCharged(item, ev.Performer);
-                    break;
-                }
-
-                if (TryComp<BasicEntityAmmoProviderComponent>(item, out var basicAmmoComp) &&
-                    basicAmmoComp is { Count: not null, Capacity: not null } &&
-                    basicAmmoComp.Count < basicAmmoComp.Capacity)
-                {
-                    _gunSystem.UpdateBasicEntityAmmoCount((item, basicAmmoComp), basicAmmoComp.Capacity.Value);
-                    PopupCharged(item, ev.Performer);
-                    break;
-                }
-            }
-
-            if (ChargeItem(item, ev))
-                break;
-        }
-
-        return;
-
-        bool RechargePerson(EntityUid uid)
-        {
-            if (RechargeAllSpells(uid))
-            {
-                PopupCharged(uid, ev.Performer, false);
-                _popup.PopupEntity(Loc.GetString("spell-charge-spells-charged-pulled"), uid, uid, PopupType.Medium);
-                ev.Handled = true;
-                return true;
-            }
-
-            _popup.PopupEntity(Loc.GetString("spell-charge-no-spells-to-charge-pulled"), uid, uid, PopupType.Medium);
-            return false;
-        }
-    }
-
     #endregion
 
     #region Helpers
@@ -589,18 +526,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
             TransformSystem.SetParent(effect, Transform(effect), ent, transform);
         }
-    }
-
-    protected abstract void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev);
-
-    protected void PopupCharged(EntityUid uid, EntityUid performer, bool client = true)
-    {
-        var message = Loc.GetString("spell-charge-spells-charged-entity",
-            ("entity", Identity.Entity(uid, EntityManager)));
-        if (client)
-            PopupLoc(performer, message, PopupType.Medium);
-        else
-            _popup.PopupEntity(message, performer, performer, PopupType.Medium);
     }
 
     private bool RechargeAllSpells(EntityUid uid, EntityUid? except = null)
@@ -736,11 +661,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     protected virtual void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent) { }
 
     protected virtual void SpawnMobs(SummonMobsEvent ev) { }
-
-    protected virtual bool ChargeItem(EntityUid uid, ChargeMagicEvent ev)
-    {
-        return true;
-    }
 
     #endregion
 }
