@@ -24822,3 +24822,9 @@ Entries:
         as a plushie
   id: 2844
   time: '2026-08-30T01:08:38.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Borgs movement sprites being nothing
+  id: 2845
+  time: '2026-08-31T15:27:52.0000000+00:00'
