@@ -149,7 +149,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
         SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
-        SubscribeLocalEvent<CorpseExplosionEvent>(OnCorpseExplosion);
         SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
@@ -354,65 +353,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             var effect = Spawn(ev.Proto, TransformSystem.GetMapCoordinates(ev.Performer));
             EnsureComp<PreventCollideComponent>(effect).Uid = ev.Performer; // Just in case
-        }
-
-        ev.Handled = true;
-    }
-
-    private void OnCorpseExplosion(CorpseExplosionEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (HasComp<BorgChassisComponent>(ev.Target))
-        {
-            Popup(ev.Performer, "spell-fail-target-borg");
-            return;
-        }
-
-        if (!_mobState.IsDead(ev.Target))
-        {
-            Popup(ev.Performer, "spell-fail-not-dead");
-            return;
-        }
-
-        var coords = TransformSystem.GetMapCoordinates(ev.Target);
-
-        if (Timing.IsFirstTimePredicted)
-            Body.GibBody(ev.Target, contents: GibContentsOption.Gib);
-
-        ExplodeCorpse(ev);
-
-        var targets = Lookup.GetEntitiesInRange<DamageableComponent>(coords, ev.KnockdownRange);
-        var ghostQuery = GetEntityQuery<GhostComponent>();
-        var spectralQuery = GetEntityQuery<SpectralComponent>();
-        var statusQuery = GetEntityQuery<StatusEffectsComponent>();
-        var bodyPartQuery = GetEntityQuery<BodyPartComponent>();
-        foreach (var (target, damageable) in targets)
-        {
-            if (target == ev.Performer || target == ev.Target)
-                continue;
-
-            if (ghostQuery.HasComp(target) || spectralQuery.HasComp(target) || bodyPartQuery.HasComp(target))
-                continue;
-
-            var range = (TransformSystem.GetMapCoordinates(target).Position - coords.Position).Length();
-
-            range = MathF.Max(1f, range);
-
-            Damageable.TryChangeDamage(target,
-                ev.Damage / range,
-                damageable: damageable,
-                origin: ev.Performer,
-                targetPart: TargetBodyPart.All);
-
-            if (!statusQuery.TryComp(target, out var status))
-                continue;
-
-            if (HasComp<SiliconComponent>(target) || HasComp<BorgChassisComponent>(target))
-                Stun.TryUpdateParalyzeDuration(target, ev.SiliconStunTime / range);
-            else
-                Stun.KnockdownOrStun(target, ev.KnockdownTime / range, true);
         }
 
         ev.Handled = true;
@@ -1469,8 +1409,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     protected virtual void SpawnSmoke(SmokeSpellEvent ev) { }
 
     protected virtual void Repulse(RepulseEvent ev) { }
-
-    protected virtual void ExplodeCorpse(CorpseExplosionEvent ev) { }
 
     protected virtual void Emote(EntityUid uid, string emoteId) { }
 

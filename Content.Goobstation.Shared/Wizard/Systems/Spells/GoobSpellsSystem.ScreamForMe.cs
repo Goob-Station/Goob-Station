@@ -1,15 +1,12 @@
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Speech.Components;
 
 namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed partial class SharedGoobSpellsSystem
 {
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-
     private void OnScreamForMe(ScreamForMeEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)

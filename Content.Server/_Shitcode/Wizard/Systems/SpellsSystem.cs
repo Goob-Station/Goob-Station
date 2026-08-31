@@ -259,21 +259,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
         }
     }
 
-    protected override void ExplodeCorpse(CorpseExplosionEvent ev)
-    {
-        base.ExplodeCorpse(ev);
-
-        _explosion.QueueExplosion(ev.Target,
-            ev.ExplosionId,
-            ev.TotalIntensity,
-            ev.Slope,
-            ev.MaxIntenity,
-            0f,
-            0,
-            false,
-            ev.Performer);
-    }
-
     protected override void Emote(EntityUid uid, string emoteId)
     {
         base.Emote(uid, emoteId);
