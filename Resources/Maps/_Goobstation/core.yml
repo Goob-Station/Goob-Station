@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/30/2026 10:03:42
-  entityCount: 23076
+  time: 08/31/2026 17:49:25
+  entityCount: 23080
 maps:
 - 17546
 grids:
@@ -62515,13 +62515,6 @@ entities:
     - type: Transform
       pos: -28.238953,-33.403942
       parent: 2
-- proto: ClothingHandsGlovesColorBlack
-  entities:
-  - uid: 14223
-    components:
-    - type: Transform
-      pos: 52.361446,-25.989706
-      parent: 2
 - proto: ClothingHandsGlovesColorGray
   entities:
   - uid: 16304
@@ -62563,6 +62556,13 @@ entities:
     components:
     - type: Transform
       pos: 26.46458,-54.482555
+      parent: 2
+- proto: ClothingHandsTacticalMaidGloves
+  entities:
+  - uid: 4822
+    components:
+    - type: Transform
+      pos: 52.36896,-25.942062
       parent: 2
 - proto: ClothingHeadBandBotany
   entities:
@@ -63110,6 +63110,17 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: ClothingShoesGaloshes
+  entities:
+  - uid: 21385
+    components:
+    - type: MetaData
+      name: galoshen't
+    - type: Transform
+      pos: -67.57681,-26.72285
+      parent: 2
+    missingComponents:
+    - NoSlip
 - proto: ClothingShoesWizard
   entities:
   - uid: 17264
@@ -64672,6 +64683,9 @@ entities:
     - type: Transform
       pos: -29.5,27.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -96.13338
+      state: Closing
   - uid: 8134
     components:
     - type: Transform
@@ -64769,7 +64783,7 @@ entities:
       pos: -27.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17886.127
+      secondsUntilStateChange: -18274.883
       state: Closing
 - proto: CurtainsPurpleOpen
   entities:
@@ -105246,11 +105260,6 @@ entities:
     - type: Transform
       pos: 55.5,-44.5
       parent: 2
-  - uid: 21385
-    components:
-    - type: Transform
-      pos: -26.5,-45.5
-      parent: 2
   - uid: 21871
     components:
     - type: Transform
@@ -108072,6 +108081,18 @@ entities:
     components:
     - type: Transform
       pos: 12.045464,-40.476917
+      parent: 2
+- proto: MagazineBoxMagnum
+  entities:
+  - uid: 23062
+    components:
+    - type: Transform
+      pos: -29.542988,27.595263
+      parent: 2
+  - uid: 23063
+    components:
+    - type: Transform
+      pos: -29.449238,27.485888
       parent: 2
 - proto: MailingUnit
   entities:
@@ -124053,16 +124074,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: SignInterrogation
-  entities:
-  - uid: 4822
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -16.5,29.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
 - proto: SignJanitor
   entities:
   - uid: 6821
@@ -126136,6 +126147,18 @@ entities:
     components:
     - type: Transform
       pos: 91.44817,-20.40292
+      parent: 2
+- proto: SpeedLoaderMagnum
+  entities:
+  - uid: 23064
+    components:
+    - type: Transform
+      pos: -29.699238,27.345263
+      parent: 2
+  - uid: 23065
+    components:
+    - type: Transform
+      pos: -29.621113,27.610888
       parent: 2
 - proto: SpiderWeb
   entities:
@@ -132340,6 +132363,15 @@ entities:
     components:
     - type: Transform
       pos: 45.5,-27.5
+      parent: 2
+- proto: ToolboxArtistic
+  entities:
+  - uid: 14223
+    components:
+    - type: MetaData
+      name: Has Grace
+    - type: Transform
+      pos: -26.534868,-45.462246
       parent: 2
 - proto: ToolboxArtisticFilled
   entities:
