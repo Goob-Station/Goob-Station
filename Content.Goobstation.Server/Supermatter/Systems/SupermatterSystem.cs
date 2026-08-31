@@ -61,12 +61,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly ThunderstrikeSystem _thunderstrikeSystem = default!;
-    private const string LTGSM = "/Textures/_Goobstation/MisandryBox/LTGSM.png";
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RadioSystem _radioSystem = default!;
-    [Dependency] private readonly IChatManager _ichat = default!;
+    [Dependency] private readonly IChatManager _chatmanager = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+
+    private const string LTGSM = "/Textures/_Goobstation/MisandryBox/LTGSM.png";
     private DelamType _delamType = DelamType.Explosion;
 
     public override void Initialize()
@@ -130,7 +131,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         {
             sm.Surge = false;
             sm.Varlocked = false;
-            _ichat.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
+            _chatmanager.SendAdminAlert($"SM variables unlocked at time {_gameTiming.CurTime.TotalMinutes}");
         }
         sm.ZapAccumulator++;
         sm.YellAccumulator++;
@@ -175,7 +176,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             {
                 var message = Loc.GetString(eventToRun.Announcement);
                 _radioSystem.SendRadioMessage(uid, message, _proto.Index<RadioChannelPrototype>(sm.RadioChannel), uid);
-                _ichat.SendAdminAlert($"{eventToRun.ID} run by supermatter {uid}");
+                _chatmanager.SendAdminAlert($"{eventToRun.ID} run by supermatter {uid}");
             }
             if (eventToRun.GasToSpawn is not null)   //If its a gas event - create the gas
             {
@@ -195,7 +196,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             else if (eventToRun.ID == "SMSurge")
             {
                 sm.Varlocked = true;
-                _ichat.SendAdminAlert($"{sm.Varlocked} = supermatter surge begun at time: {_gameTiming.CurTime.TotalMinutes}");
+                _chatmanager.SendAdminAlert($"{sm.Varlocked} = supermatter surge begun at time: {_gameTiming.CurTime.TotalMinutes}");
                 sm.Timelocked = _gameTiming.CurTime.TotalMinutes;
                 sm.GasEfficiencyFactorChanged = true;
                 sm.GasEfficiency = 0.30f;
@@ -669,13 +670,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             // Original log entry
             _adminLog.Add(LogType.Supermatter, impact,
                 $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");
-            _ichat.SendAdminAlert(
+            _chatmanager.SendAdminAlert(
                 $"{activator:actor} activated Supermatter {ToPrettyString(uid):subject}");
 
             // New admin alert
             _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
                 $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
-            _ichat.SendAdminAlert(
+            _chatmanager.SendAdminAlert(
                 $"SUPERMATTER ACTIVATED BY {activator} AT {Transform(uid).Coordinates}");
 
             sm.Activated = true;
@@ -683,23 +684,27 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (_tag.HasTag(target, "EmitterBolt"))
         {
-            if (_tag.HasTag(target, "EmitterBoltElectroDisruptive"))
+            var meta = MetaData(target);
+            switch (meta.EntityPrototype?.ID)
             {
-                sm.Damage -= 1f;
-                sm.Power -= 60f;
-                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
-                $"SUPERMATTER hit by healing bolt AT {Transform(uid).Coordinates}");
-                QueueDel(target);
-                return;
-            }
-            if (_tag.HasTag(target, "EmitterBoltElectroBehavioural"))
-            {
-                sm.Damage += 1f;
-                sm.Power += 100f;
-                _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
-                $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
-                QueueDel(target);
-                return;
+                case "EmitterBoltElectroDisruptive":
+                    {
+                        sm.Damage -= 1f;
+                        sm.Power -= 60f;
+                        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                        $"SUPERMATTER hit by healing bolt AT {Transform(uid).Coordinates}");
+                        QueueDel(target);
+                        return;
+                    }
+                case "EmitterBoltElectroBehavioural":
+                    {
+                        sm.Damage += 1f;
+                        sm.Power += 100f;
+                        _adminLog.Add(LogType.AdminMessage, LogImpact.Extreme,
+                        $"SUPERMATTER hit by harming bolt AT {Transform(uid).Coordinates}");
+                        QueueDel(target);
+                        return;
+                    }
             }
         }
 
@@ -720,12 +725,12 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
                 _thunderstrikeSystem.Smite(target, true, null, LTGSM); // funny :3
             else
             {
-                EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
+                SpawnNextToOrDrop("Ash", target);
                 _audio.PlayPvs(sm.DustSound, uid);
             }
 
             if (HasComp<HumanoidAppearanceComponent>(target) || HasComp<ActorComponent>(target))
-                _ichat.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
+                _chatmanager.SendAdminAlert($"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
         }
         QueueDel(target);
     }
@@ -742,7 +747,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         sm.MatterPower += 200;
 
-        EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
+        SpawnNextToOrDrop("Ash", target);
         _audio.PlayPvs(sm.DustSound, uid);
         QueueDel(target);
     }
@@ -810,13 +815,13 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         {
             var events = _proto.Index<WeightedRandomPrototype>(sm.HarshEvents);
             var chosenevent = events.Pick(_random);
-            return (chosenevent);
+            return chosenevent;
         }
         else
         {
             var events = _proto.Index<WeightedRandomPrototype>(sm.NormalEvents);
             var chosenevent = events.Pick(_random);
-            return (chosenevent);
+            return chosenevent;
         }
 
     }
@@ -828,11 +833,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.GasEfficiencyFactorChanged)
         {
             var diff = sm.GasEfficiency - sm.GasEfficiencySetpoint;
-            diff = diff/50;
+            diff = diff / 50;
             Math.Round(diff, 5);
-            if (diff >0)
+            if (diff > 0)
                 sm.GasEfficiency = sm.GasEfficiency - diff;
-            else if (diff <0)
+            else if (diff < 0)
                 sm.GasEfficiency = sm.GasEfficiency + diff;
             else if (diff == 0)
                 sm.GasEfficiency = sm.GasEfficiencySetpoint;
@@ -845,11 +850,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.RadiationOutputFactorChanged)
         {
             var diff = sm.RadiationOutputFactor - sm.RadiationOutputFactorSetpoint;
-            diff = diff/50;
+            diff = diff / 50;
             Math.Round(diff, 5);
-            if (diff >0)
+            if (diff > 0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor - diff;
-            else if (diff <0)
+            else if (diff < 0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactor + diff;
             else if (diff == 0)
                 sm.RadiationOutputFactor = sm.RadiationOutputFactorSetpoint;
