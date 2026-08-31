@@ -145,7 +145,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
-        SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
@@ -332,57 +331,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         _teslaBlast.ShootLightning(ev.Performer, ev.Target, ev.Proto, ev.Damage);
-
-        ev.Handled = true;
-    }
-
-    private void OnBarnyardCurse(BarnyardCurseEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (ev.Masks.Count == 0)
-            return;
-
-        if (!TryComp(ev.Target, out InventoryComponent? inventory))
-            return;
-
-        if (!_inventory.HasSlot(ev.Target, "mask", inventory))
-        {
-            Popup(ev.Performer, "spell-fail-target-cant-wear-mask");
-            return;
-        }
-
-        if (_inventory.TryGetSlotEntity(ev.Target, "mask", out var ent, inventory) &&
-            HasComp<UnremoveableComponent>(ent) && Tag.HasTag(ent.Value, ev.CursedMaskTag))
-        {
-            Popup(ev.Performer, "spell-fail-target-cursed");
-            return;
-        }
-
-        if (_net.IsClient)
-            return;
-
-        var (maskEnt, sound) = Random.Pick(ev.Masks);
-
-        var gear = new Dictionary<string, EntProtoId>
-        {
-            { "mask", maskEnt },
-        };
-
-        SetGear(ev.Target, gear, inventoryComponent: inventory);
-
-        if (sound != null)
-            Audio.PlayEntity(sound, Filter.Pvs(ev.Target), ev.Target, true);
-
-        // This should transform into animal noise
-        Speak(ev.Target, "!");
 
         ev.Handled = true;
     }
@@ -942,7 +890,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     {
         return true;
     }
-    protected virtual void Speak(EntityUid uid, string message) { }
 
     protected virtual void SpawnMobs(SummonMobsEvent ev) { }
 

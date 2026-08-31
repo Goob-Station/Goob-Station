@@ -269,15 +269,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
             });
     }
 
-    protected override void Speak(EntityUid uid, string message)
-    {
-        base.Speak(uid, message);
-
-        _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, false);
-    }
-
-
-
     private IEnumerable<MapCoordinates> GetSpawnCoordinatesAroundPerformer(EntityUid performer,
         float range,
         int amount,

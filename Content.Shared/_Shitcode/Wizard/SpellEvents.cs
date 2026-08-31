@@ -113,15 +113,6 @@ public sealed partial class LightningBoltEvent : EntityTargetActionEvent
     public EntProtoId Proto = "ChargedLightning";
 }
 
-public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent
-{
-    [DataField(required: true)]
-    public Dictionary<EntProtoId, SoundSpecifier?> Masks = new();
-
-    [DataField]
-    public ProtoId<TagPrototype> CursedMaskTag = "CursedAnimalMask";
-}
-
 public sealed partial class InstantSummonsEvent : InstantActionEvent
 {
     [DataField]

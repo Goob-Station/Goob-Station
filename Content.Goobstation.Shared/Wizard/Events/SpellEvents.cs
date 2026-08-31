@@ -282,3 +282,12 @@ public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
     [DataField]
     public Color MessageColor = Color.FromHex("#EDC349");
 }
+
+public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent
+{
+    [DataField(required: true)]
+    public Dictionary<EntProtoId, SoundSpecifier?> Masks = new();
+
+    [DataField]
+    public ProtoId<TagPrototype> CursedMaskTag = "CursedAnimalMask";
+}
