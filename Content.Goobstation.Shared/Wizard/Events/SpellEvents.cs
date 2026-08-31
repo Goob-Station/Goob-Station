@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
+using Content.Shared.Polymorph;
 using Content.Shared.Random;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
@@ -302,3 +303,37 @@ public sealed partial class CluwneCurseEvent : EntityTargetActionEvent
 }
 
 public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent;
+
+public sealed partial class TrapsSpellEvent : InstantActionEvent
+{
+    [DataField]
+    public List<EntProtoId> Traps = new()
+    {
+        "TrapShock",
+        "TrapFlame",
+        "TrapDamage",
+        "TrapChill",
+        "TrapBlind",
+    };
+
+    [DataField]
+    public float Range = 3f;
+
+    [DataField]
+    public int Amount = 5;
+}
+
+public sealed partial class PolymorphSpellEvent : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<PolymorphPrototype>? ProtoId;
+
+    [DataField]
+    public bool MakeWizard = true;
+
+    [DataField]
+    public SoundSpecifier? Sound;
+
+    [DataField]
+    public bool LoadActions;
+}

@@ -44,21 +44,6 @@ public sealed partial class BindSoulEvent : InstantActionEvent
     public ProtoId<ItemSizePrototype> PhylacterySize = "Ginormous";
 }
 
-public sealed partial class PolymorphSpellEvent : InstantActionEvent
-{
-    [DataField]
-    public ProtoId<PolymorphPrototype>? ProtoId;
-
-    [DataField]
-    public bool MakeWizard = true;
-
-    [DataField]
-    public SoundSpecifier? Sound;
-
-    [DataField]
-    public bool LoadActions;
-}
-
 public sealed partial class MutateSpellEvent : InstantActionEvent
 {
     [DataField]
@@ -108,25 +93,6 @@ public sealed partial class InstantSummonsEvent : InstantActionEvent
 {
     [DataField]
     public SoundSpecifier? SummonSound;
-}
-
-public sealed partial class TrapsSpellEvent : InstantActionEvent
-{
-    [DataField]
-    public List<EntProtoId> Traps = new()
-    {
-        "TrapShock",
-        "TrapFlame",
-        "TrapDamage",
-        "TrapChill",
-        "TrapBlind",
-    };
-
-    [DataField]
-    public float Range = 3f;
-
-    [DataField]
-    public int Amount = 5;
 }
 
 public sealed partial class SummonMobsEvent : InstantActionEvent

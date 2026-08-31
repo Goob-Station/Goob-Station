@@ -1,25 +1,34 @@
 using System.Linq;
 using Content.Goobstation.CommonShared.Wizard.Components;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Systems.Spells;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
+using Content.Server.Chat.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Hands.Systems;
+using Content.Server.Polymorph.Systems;
 using Content.Server.Spreader;
 using Content.Server.Store.Systems;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Goobstation.Wizard.Chuuni;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Friction;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Tag;
+using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Map;
@@ -64,6 +73,9 @@ public sealed partial class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly StoreSystem _store = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
     private EntityQuery<TimedDespawnComponent> _timedDespawnQuery;
@@ -105,5 +117,64 @@ public sealed partial class SpellsSystem : SharedSpellsSystem
             else
                 yield return position;
         }
+    }
+
+    private void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school)
+    {
+        if (!Exists(speakerUid))
+            return;
+
+        Color? color = null;
+
+        if (Exists(casterUid))
+        {
+            var invocationEv = new GetSpellInvocationEvent(school, casterUid);
+            RaiseLocalEvent(casterUid, invocationEv);
+            if (invocationEv.Invocation != null)
+                speech = Loc.GetString(invocationEv.Invocation);
+            if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+            {
+                // Heal both caster and speaker
+                _damageable.TryChangeDamage(casterUid,
+                    -invocationEv.ToHeal,
+                    true,
+                    false,
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll);
+
+                if (speakerUid != casterUid)
+                {
+                    _damageable.TryChangeDamage(speakerUid,
+                        -invocationEv.ToHeal,
+                        true,
+                        false,
+                        targetPart: TargetBodyPart.All,
+                        splitDamage: SplitDamageBehavior.SplitEnsureAll);
+                }
+            }
+
+            if (speakerUid != casterUid)
+            {
+                var colorEv = new GetMessageColorOverrideEvent();
+                RaiseLocalEvent(casterUid, colorEv);
+                color = colorEv.Color;
+            }
+        }
+
+        _chat.TrySendInGameICMessage(speakerUid,
+            speech,
+            InGameICChatType.Speak,
+            false,
+            colorOverride: color);
+    }
+
+    private void DelayedSpeech(string? speech, EntityUid speaker, EntityUid caster, MagicSchool school)
+    {
+        Timer.Spawn(200,
+            () =>
+            {
+                var toSpeak = speech == null ? string.Empty : Loc.GetString(speech);
+                SpeakSpell(speaker, caster, toSpeak, school);
+            });
     }
 }

@@ -140,12 +140,10 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
-        SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
-        SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
@@ -247,14 +245,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         BindSoul(ev, item.Value, mind, mindComponent);
         ev.Handled = true;
-    }
-
-    private void OnPolymorph(PolymorphSpellEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        ev.Handled = Polymorph(ev);
     }
 
     private void OnMutate(MutateSpellEvent ev)
@@ -390,72 +380,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             return HasComp<ItemComponent>(obj) && !HasComp<VirtualItemComponent>(obj);
         }
-    }
-
-    private void OnTraps(TrapsSpellEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (ev.Traps.Count == 0)
-            return;
-
-        if (_net.IsClient)
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (!Mind.TryGetMind(ev.Performer, out var mind, out _))
-            return;
-
-        var range = ev.Range;
-        var mapPos = TransformSystem.GetMapCoordinates(ev.Performer);
-        var box = Box2.CenteredAround(mapPos.Position, new Vector2(range, range));
-        var circle = new Circle(mapPos.Position, range);
-        var grids = new List<Entity<MapGridComponent>>();
-        MapManager.FindGridsIntersecting(mapPos.MapId, box, ref grids);
-
-        bool IsTileValid((EntityCoordinates, TileRef) data)
-        {
-            var (coords, tile) = data;
-
-            if (_turf.IsSpace(tile))
-                return false;
-
-            var trapQuery = GetEntityQuery<WizardTrapComponent>();
-            var flags = LookupFlags.Static | LookupFlags.Sundries | LookupFlags.Sensors;
-            foreach (var (entity, fix) in Lookup.GetEntitiesInRange<FixturesComponent>(coords, 0.1f, flags))
-            {
-                if (fix.Fixtures.Any(x =>
-                        x.Value.Hard && (x.Value.CollisionLayer & (int) CollisionGroup.LowImpassable) != 0))
-                    return false;
-
-                if (trapQuery.HasComp(entity))
-                    return false;
-            }
-
-            return true;
-        }
-
-        var tiles = new List<(EntityCoordinates, TileRef)>();
-        foreach (var grid in grids)
-        {
-            tiles.AddRange(Map.GetTilesIntersecting(grid.Owner, grid.Comp, circle)
-                .Select(x => (Map.GridTileToLocal(grid.Owner, grid.Comp, x.GridIndices), x))
-                .Where(IsTileValid));
-        }
-
-        for (var i = 0; i < Math.Min(tiles.Count, ev.Amount); i++)
-        {
-            var (coords, _) = Random.PickAndTake(tiles);
-            var trap = Spawn(Random.Pick(ev.Traps), coords);
-            var trapComp = EnsureComp<WizardTrapComponent>(trap);
-            trapComp.IgnoredMinds.Add(mind);
-            Dirty(trap, trapComp);
-        }
-
-        ev.Handled = true;
     }
 
     private void OnSummonMobs(SummonMobsEvent ev)
@@ -827,11 +751,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     protected virtual void Emote(EntityUid uid, string emoteId) { }
 
     protected virtual void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent) { }
-
-    protected virtual bool Polymorph(PolymorphSpellEvent ev)
-    {
-        return true;
-    }
 
     protected virtual void SpawnMobs(SummonMobsEvent ev) { }
 
