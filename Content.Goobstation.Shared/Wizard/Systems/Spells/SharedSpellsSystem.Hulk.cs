@@ -1,6 +1,6 @@
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Shared._Goobstation.Wizard.Mutate;
 
 namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 

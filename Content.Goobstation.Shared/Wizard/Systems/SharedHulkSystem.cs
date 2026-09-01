@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Wizard.Events;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
@@ -14,7 +15,7 @@ using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Mutate;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public abstract class SharedHulkSystem : EntitySystem
 {
