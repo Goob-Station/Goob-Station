@@ -18,8 +18,8 @@ using Content.Goobstation.Server.Wizard.Components;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server._Goobstation.Wizard.Store;
 using Content.Server._Goobstation.Wizard.Components;
+using Content.Goobstation.Common.Store;
 
 namespace Content.Goobstation.Server.Wizard.Systems;
 
