@@ -671,6 +671,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> GpsUpdateRate =
         CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
 
+    public static readonly CVarDef<bool> FlipDodgeEnabled =
+        CVarDef.Create("emotes.flip_dodge_enabled", false, CVar.SERVER | CVar.REPLICATED);
+
     #region Particles
 
     /// <summary>
