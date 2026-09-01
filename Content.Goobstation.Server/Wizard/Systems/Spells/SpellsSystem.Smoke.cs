@@ -3,7 +3,7 @@ using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
 
-namespace Content.Goobstation.Server.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Spells.Systems;
 
 public sealed partial class SpellsSystem
 {

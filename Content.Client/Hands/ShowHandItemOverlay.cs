@@ -3,7 +3,7 @@
 using System.Numerics;
 using Content.Client.Hands.Systems;
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Shared.Weapons.AmmoSelector;
+using Content.Goobstation.Common.Weapons.AmmoSelector;
 using Content.Shared.CCVar;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;

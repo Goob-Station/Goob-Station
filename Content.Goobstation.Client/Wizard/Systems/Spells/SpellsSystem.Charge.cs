@@ -1,7 +1,7 @@
 using System.Numerics;
 using Content.Client.Animations;
 
-namespace Content.Goobstation.Client.Wizard.Spells.Systems;
+namespace Content.Goobstation.Client.Wizard.Systems.Spells;
 
 public sealed partial class SpellsSystem
 {

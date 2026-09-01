@@ -1,12 +1,12 @@
 using System.Numerics;
-using Content.Goobstation.Shaerd.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Spells.Systems;
 
 public sealed partial class SpellsSystem
 {

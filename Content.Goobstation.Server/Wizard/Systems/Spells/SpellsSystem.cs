@@ -1,11 +1,10 @@
 using System.Linq;
-using Content.Goobstation.CommonShared.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Server.Wizard.Systems;
 using Content.Goobstation.Shared.Religion;
-using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Systems;
 using Content.Goobstation.Shared.Wizard.Systems.Spells;
-using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.Body.Systems;
@@ -46,7 +45,7 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Spells.Systems;
 
 public sealed partial class SpellsSystem : SharedSpellsSystem
 {

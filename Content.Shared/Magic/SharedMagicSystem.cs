@@ -56,8 +56,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
-using Content.Goobstation.CommonShared.Wizard.Components;
 using Content.Goobstation.Common.Wizard.Events;
+using Content.Goobstation.Common.Wizard.Components;
 
 namespace Content.Shared.Magic;
 

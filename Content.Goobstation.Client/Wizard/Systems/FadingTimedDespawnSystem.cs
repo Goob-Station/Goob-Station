@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.CommonShared.Wizard.Components;
-using Content.Goobstation.Shared.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Systems;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;

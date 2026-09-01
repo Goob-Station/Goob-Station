@@ -11,7 +11,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Wizard.Spells;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public abstract class SharedTeslaBlastSystem : EntitySystem
 {

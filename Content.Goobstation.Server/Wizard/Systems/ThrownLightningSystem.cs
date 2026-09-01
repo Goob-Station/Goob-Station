@@ -1,12 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Effects;
-using Content.Goobstation.Server.Wizard.Systems;
+using Content.Goobstation.Server.Wizard.Spells.Systems;
 using Content.Goobstation.Shared.Wizard.Components;
-using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Electrocution;
 using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Magic.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
@@ -16,7 +14,6 @@ namespace Content.Goobstation.Server.Wizard.Systems;
 public sealed class ThrownLightningSystem : EntitySystem
 {
     [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SpellsSystem _spells = default!;
     [Dependency] private readonly SparksSystem _sparks = default!;
 

@@ -20,9 +20,9 @@ using Robust.Shared.Prototypes;
 using Content.Goobstation.Shared.Wizard.Systems;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Server.Wizard.Components;
-using Content.Server._Goobstation.Wizard.Systems;
 using Robust.Shared.Map;
-using Content.Goobstation.CommonShared.Wizard.Components;
+using Content.Goobstation.Server.Wizard.Spells.Systems;
+using Content.Goobstation.Common.Wizard.Components;
 
 namespace Content.Goobstation.Server.Wizard.Systems;
 

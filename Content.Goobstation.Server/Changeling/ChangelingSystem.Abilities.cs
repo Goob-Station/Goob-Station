@@ -47,7 +47,7 @@ using Content.Goobstation.Shared.Devour.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Shared.Light.Components;
-using Content.Goobstation.Shared.Weapons.AmmoSelector;
+using Content.Goobstation.Common.Weapons.AmmoSelector;
 
 namespace Content.Goobstation.Server.Changeling;
 

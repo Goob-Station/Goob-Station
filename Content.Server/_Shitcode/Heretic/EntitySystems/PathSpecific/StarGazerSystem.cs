@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Physics;
-using Content.Goobstation.CommonShared.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Roles;

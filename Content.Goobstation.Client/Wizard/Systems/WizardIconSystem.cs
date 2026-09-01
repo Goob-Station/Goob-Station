@@ -2,7 +2,7 @@ using Content.Shared._Goobstation.Wizard;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Wizard;
+namespace Content.Goobstation.Client.Wizard.Systems;
 
 public sealed partial class WizardSystem : EntitySystem
 {

@@ -2,8 +2,7 @@
 
 using Content.Goobstation.Common.Magic;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.CommonShared.Wizard.Components;
-using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Possession;
 using Content.Goobstation.Shared.Religion;
@@ -33,7 +32,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
-using static Content.Shared.Administration.Notes.AdminMessageEuiState;
 
 namespace Content.Goobstation.Server.Possession;
 

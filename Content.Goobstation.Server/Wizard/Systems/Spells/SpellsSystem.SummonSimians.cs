@@ -1,4 +1,4 @@
-using Content.Goobstation.CommonShared.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
 using Content.Server.Store.Components;
@@ -10,7 +10,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 
-namespace Content.Goobstation.Server.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Spells.Systems;
 
 public sealed partial class SpellsSystem
 {

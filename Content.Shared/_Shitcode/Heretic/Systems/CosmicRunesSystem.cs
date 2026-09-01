@@ -3,7 +3,7 @@ using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.CommonShared.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Goobstation.Shared.Bible;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;

@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.UserInterface;
 public sealed partial class ActivatableUiUserWhitelistComponent : Component
 {
     [DataField(required: true)]
-    public EntityWhitelist Whitelist;
+    public EntityWhitelist Whitelist = new();
 
     [DataField]
     public bool CheckMind;

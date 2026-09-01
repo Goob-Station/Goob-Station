@@ -2,7 +2,6 @@
 
 using System.Numerics;
 using Content.Goobstation.Common.Wizard.Components;
-using Content.Goobstation.Shaerd.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Friction;

@@ -4,7 +4,7 @@ using Content.Shared.Magic.Components;
 using Content.Shared.Mind;
 using Content.Shared.Speech.Components;
 
-namespace Content.Goobstation.Server.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Spells.Systems;
 
 public sealed partial class SpellsSystem
 {

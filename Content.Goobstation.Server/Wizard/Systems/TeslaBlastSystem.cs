@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Shared.Wizard.Spells;
+using Content.Goobstation.Shared.Wizard.Systems;
 using Content.Server.Lightning;
 using Content.Shared.Electrocution;
 using Content.Shared.Physics;

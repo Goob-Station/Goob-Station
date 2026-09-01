@@ -18,7 +18,7 @@ using Content.Shared.Movement.Components;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar;
 
-namespace Content.Server.Goobstation.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Systems;
 
 public sealed class GlobalTileMovementSystem : EntitySystem
 {

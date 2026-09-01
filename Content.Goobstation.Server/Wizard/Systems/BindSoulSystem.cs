@@ -11,11 +11,10 @@ using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Destructible;
 using Content.Shared.Destructible.Thresholds.Triggers;
 using Content.Shared.Humanoid;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.GameObjects.Components.Localization;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Goobstation.Shared.Wizard.Systems;
 
 namespace Content.Goobstation.Server.Wizard.Systems;
 

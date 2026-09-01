@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Goobstation.Shared.Wizard.Components;
+using Content.Shared._Goobstation.Wizard.Projectiles;
+
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class EntityTrailSystem : EntitySystem
 {
