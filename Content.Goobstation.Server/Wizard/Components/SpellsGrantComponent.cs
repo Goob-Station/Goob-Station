@@ -3,7 +3,7 @@
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Components;
+namespace Content.Goobstation.Server.Wizard.Components;
 
 [RegisterComponent]
 public sealed partial class SpellsGrantComponent : Component
