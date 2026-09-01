@@ -732,8 +732,8 @@ public abstract class SharedMagicSystem : EntitySystem
 
         var tarHasMind = _mind.TryGetMind(ev.Target, out var tarMind, out var tarMindComp);
 
-        _tag.AddTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
-        _tag.AddTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(ev.Performer, "IgnoreBindSoul"); // Goobstation // TODO make constant again
+        _tag.AddTag(ev.Target, "IgnoreBindSoul"); // Goobstation // TODO make constant again
 
         _mind.TransferTo(perMind, ev.Target);
 
@@ -767,8 +767,8 @@ public abstract class SharedMagicSystem : EntitySystem
         }
         // Goobstation end
 
-        _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
-        _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(ev.Performer, "IgnoreBindSoul"); // Goobstation // TODO make constant again
+        _tag.RemoveTag(ev.Target, "IgnoreBindSoul"); // Goobstation // TODO make constant again
 
         _stun.KnockdownOrStun(ev.Target, ev.TargetStunDuration, true); // Goob edit
         _stun.KnockdownOrStun(ev.Performer, ev.PerformerStunDuration, true); // Goob edit

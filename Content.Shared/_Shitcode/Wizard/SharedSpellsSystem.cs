@@ -122,7 +122,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedGunSystem _gunSystem = default!;
     [Dependency] private   readonly MobStateSystem _mobState = default!;
     [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
     [Dependency] private   readonly ExamineSystemShared _examine = default!;
     [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
     [Dependency] private   readonly PullingSystem _pulling = default!;
@@ -137,7 +136,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
@@ -159,85 +157,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     #region Spells
-
-    private void OnBindSoul(BindSoulEvent ev)
-    {
-        if (ev.Handled)
-            return;
-
-        if (_mobState.IsCritical(ev.Performer))
-            return;
-
-        if (!Mind.TryGetMind(ev.Performer, out var mind, out var mindComponent))
-            return;
-
-        TryComp<SoulBoundComponent>(mind, out var soulBound);
-
-        if (Mind.IsCharacterDeadIc(mindComponent))
-        {
-            if (soulBound == null)
-            {
-                Popup(ev.Performer, "spell-fail-soul-not-bound");
-                return;
-            }
-
-            if (!HasComp<PhylacteryComponent>(soulBound.Item))
-            {
-                Popup(ev.Performer, "spell-fail-item-destroyed");
-                return;
-            }
-
-            if (!TryComp(soulBound.Item, out TransformComponent? xform) || xform.MapUid == null ||
-                xform.MapUid != soulBound.MapId)
-            {
-                Popup(ev.Performer, "spell-fail-item-on-another-plane");
-                return;
-            }
-
-            _bindSoul.Resurrect(mind, soulBound.Item.Value, mindComponent, soulBound);
-            ev.Handled = true;
-            return;
-        }
-
-        if (HasComp<GhostComponent>(ev.Performer))
-            return;
-
-        if (soulBound != null)
-        {
-            Popup(ev.Performer, "spell-fail-no-soul");
-            return;
-        }
-
-        if (!_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (HasComp<SiliconComponent>(ev.Performer) || HasComp<BorgChassisComponent>(ev.Performer))
-        {
-            Popup(ev.Performer, "spell-fail-bind-soul-silicon");
-            return;
-        }
-
-        if (!Hands.TryGetActiveItem(ev.Performer, out var item))
-        {
-            Popup(ev.Performer, "spell-fail-no-held-entity");
-            return;
-        }
-
-        if (HasComp<UnremoveableComponent>(item) || !HasComp<ItemComponent>(item))
-        {
-            PopupLoc(ev.Performer, Loc.GetString("spell-fail-unremoveable", ("item", item)));
-            return;
-        }
-
-        if (_whitelist.IsValid(ev.Blacklist, item))
-        {
-            PopupLoc(ev.Performer, Loc.GetString("spell-fail-soul-item-not-suitable", ("item", item)));
-            return;
-        }
-
-        BindSoul(ev, item.Value, mind, mindComponent);
-        ev.Handled = true;
-    }
 
     private void OnSwap(SwapSpellEvent ev)
     {
@@ -483,8 +402,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     public virtual void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school) { }
 
     protected virtual void Emote(EntityUid uid, string emoteId) { }
-
-    protected virtual void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent) { }
 
     #endregion
 }

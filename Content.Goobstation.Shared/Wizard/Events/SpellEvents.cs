@@ -2,10 +2,12 @@ using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
+using Content.Shared.Item;
 using Content.Shared.Physics;
 using Content.Shared.Polymorph;
 using Content.Shared.Random;
 using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
@@ -427,4 +429,26 @@ public sealed partial class SummonMobsEvent : InstantActionEvent
 
     [DataField]
     public bool FactionIgnoreSummoner;
+}
+
+public sealed partial class BindSoulEvent : InstantActionEvent
+{
+    [DataField]
+    public EntityWhitelist Blacklist = new();
+
+    [DataField]
+    public EntProtoId Entity = "MobSkeletonPerson";
+
+    [DataField]
+    public SoundSpecifier? Sound;
+
+    [DataField]
+    public Dictionary<string, EntProtoId> Gear = new()
+    {
+        {"head", "ClothingHeadHatBlackwizardReal"},
+        {"outerClothing", "ClothingOuterWizardBlackReal"},
+    };
+
+    [DataField]
+    public ProtoId<ItemSizePrototype> PhylacterySize = "Ginormous";
 }

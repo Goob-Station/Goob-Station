@@ -22,28 +22,6 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Goobstation.Wizard;
 
-public sealed partial class BindSoulEvent : InstantActionEvent
-{
-    [DataField]
-    public EntityWhitelist Blacklist;
-
-    [DataField]
-    public EntProtoId Entity = "MobSkeletonPerson";
-
-    [DataField]
-    public SoundSpecifier? Sound;
-
-    [DataField]
-    public Dictionary<string, EntProtoId> Gear = new()
-    {
-        {"head", "ClothingHeadHatBlackwizardReal"},
-        {"outerClothing", "ClothingOuterWizardBlackReal"},
-    };
-
-    [DataField]
-    public ProtoId<ItemSizePrototype> PhylacterySize = "Ginormous";
-}
-
 public sealed partial class SwapSpellEvent : EntityTargetActionEvent
 {
     [DataField]

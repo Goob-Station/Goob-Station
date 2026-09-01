@@ -6,6 +6,7 @@ using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
 using Content.Goobstation.Shared.Wizard.Spells;
+using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Access.Components;
@@ -25,9 +26,11 @@ using Content.Shared.Fluids;
 using Content.Shared.Ghost;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Item;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
 using Content.Shared.Magic.Components;
@@ -37,16 +40,19 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Projectiles;
+using Content.Shared.Roles;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -106,6 +112,14 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     [Dependency] private readonly ConfirmableActionSystem _confirmableAction = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
+    [Dependency] private readonly SharedBindSoulSystem _bindSoul = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly GrammarSystem _grammar = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -225,7 +239,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         return (coords, mapCoords, spawnCoords, velocity);
     }
 
-    private void SetGear(EntityUid uid,
+    protected void SetGear(EntityUid uid,
         Dictionary<string, EntProtoId> gear,
         bool force = true,
         bool makeUnremoveable = true,

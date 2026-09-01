@@ -5,10 +5,13 @@ using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Systems.Spells;
 using Content.Server.Actions;
+using Content.Server.Antag;
+using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Hands.Systems;
+using Content.Server.Inventory;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Spreader;
 using Content.Server.Store.Systems;
@@ -78,6 +81,9 @@ public sealed partial class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly ServerInventorySystem _serverInventory = default!;
+    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
     private EntityQuery<TimedDespawnComponent> _timedDespawnQuery;

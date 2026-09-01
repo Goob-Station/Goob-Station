@@ -399,12 +399,12 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         }
 
-        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(uid, "IgnoreBindSoul"); // Goobstation // TODO make constant again
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
 
-        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(uid, "IgnoreBindSoul"); // Goobstation // TODO make constant again
 
         //Ensures a map to banish the entity to
         EnsurePausedMap();
@@ -513,12 +513,12 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         }
 
-        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(uid, "IgnoreBindSoul"); // Goobstation // TODO make constant again
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, parent, mind: mind);
 
-        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(uid, "IgnoreBindSoul"); // Goobstation // TODO make constant again
 
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;

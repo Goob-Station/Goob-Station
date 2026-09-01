@@ -19,7 +19,7 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Systems;
 
 public sealed class HulkSystem : SharedHulkSystem
 {
