@@ -116,9 +116,9 @@ public abstract partial class SharedSpellsSystem
 
         var mapId = xform.MapUid;
 
-        var newEntity = Spawn(ev.Entity,
-            _xform.GetMapCoordinates(oldEnt, xform),
-            rotation: _xform.GetWorldRotation(oldEnt));
+        var newEntity = PredictedSpawnAtPosition(ev.Entity,
+            xform.Coordinates);
+        _xform.SetWorldRotation(newEntity, _xform.GetWorldRotation(oldEnt));
 
         if (_container.TryGetContainingContainer((oldEnt, xform, meta), out var cont))
             _container.Insert(newEntity, cont);
