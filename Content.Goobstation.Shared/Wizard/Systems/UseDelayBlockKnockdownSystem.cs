@@ -2,17 +2,17 @@
 
 using System.Linq;
 using Content.Goobstation.Common.Effects;
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared.Timing;
-using Robust.Server.Audio;
+using Robust.Shared.Audio.Systems;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class UseDelayBlockKnockdownSystem : EntitySystem
 {
     [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SparksSystem _sparks = default!;
 
     public override void Initialize()
@@ -38,7 +38,7 @@ public sealed class UseDelayBlockKnockdownSystem : EntitySystem
         {
             if (comp.DoCustom)
             {
-                Spawn(comp.CustomEffect, coords);
+                PredictedSpawnAtPosition(comp.CustomEffect, coords);
                 return;
             }
 
