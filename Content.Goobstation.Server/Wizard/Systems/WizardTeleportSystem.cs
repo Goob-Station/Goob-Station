@@ -39,7 +39,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
     [Dependency] private readonly WizardRuleSystem _wizard = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly Content.Server._Goobstation.Wizard.Systems.SpellsSystem _goidaSpells = default!;
+    [Dependency] private readonly SpellsSystem _spells = default!;
 
     private EntityQuery<ActionComponent> _actionQuery;
 
@@ -88,7 +88,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         if (!TeleportToCoords(user, _xform.GetMapCoordinates(targetLocationUid)))
             return;
 
-        _goidaSpells.SpeakSpell(user,
+        _spells.SpeakSpell(user,
             user,
             Loc.GetString("action-speech-spell-teleport", ("location", args.LocationName)),
             MagicSchool.Translocation);

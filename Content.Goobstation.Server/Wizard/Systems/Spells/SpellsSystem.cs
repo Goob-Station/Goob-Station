@@ -4,6 +4,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Systems.Spells;
+using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.Body.Systems;
@@ -127,7 +128,10 @@ public sealed partial class SpellsSystem : SharedSpellsSystem
         }
     }
 
-    private void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school)
+    // TODO want this function dead on the streets
+    // just gating access for now
+    [Access(typeof(ThrownLightningSystem), typeof(WizardTeleportSystem))]
+    public void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school)
     {
         if (!Exists(speakerUid))
             return;
