@@ -3,11 +3,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Ghost.Roles.Events;
-using Content.Shared._Lavaland.Movement;
 using Content.Shared.Chat;
-using Content.Shared.GameTicking;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
@@ -17,6 +13,10 @@ using Robust.Shared.Prototypes;
 using Content.Goobstation.Shared.Wizard.Rules;
 using Content.Goobstation.Common.Wizard.Events;
 using Content.Goobstation.Server.Wizard.Systems;
+using Content.Shared._vg.TileMovement;
+using Content.Shared.Movement.Components;
+using Robust.Shared.Configuration;
+using Content.Shared.CCVar;
 
 namespace Content.Server.Goobstation.Wizard.Systems;
 
@@ -28,6 +28,7 @@ public sealed class GlobalTileMovementSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly WizardRuleSystem _wizardRule = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     private static readonly EntProtoId GameRule = "GlobalTileMovement";
 
     public override void Initialize()
@@ -35,9 +36,15 @@ public sealed class GlobalTileMovementSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<GlobalTileToggleEvent>(OnGlobalTileToggle);
         SubscribeLocalEvent<GlobalTileMovementRuleComponent, GameRuleStartedEvent>(OnRuleStarted);
-        SubscribeLocalEvent<GhostRoleSpawnerUsedEvent>(OnGhostRoleSpawnerUsed);
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
+        SubscribeLocalEvent<InputMoverComponent, MapInitEvent>(OnInputMoverMapInit);
     }
+
+    private void OnInputMoverMapInit(Entity<InputMoverComponent> ent, ref MapInitEvent args)
+    {
+        if (IsRuleActive())
+            EnsureComp<TileMovementComponent>(ent);
+    }
+
     public bool IsRuleActive()
     {
         var query = EntityQueryEnumerator<GlobalTileMovementRuleComponent>();
@@ -54,6 +61,8 @@ public sealed class GlobalTileMovementSystem : EntitySystem
 
         _gameTicker.StartGameRule(GameRule);
 
+        _configurationManager.SetCVar(CCVars.MovementMobPushing, true); // lmao
+
         var message = Loc.GetString("global-tile-movement-message");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, Color.Red);
@@ -68,32 +77,14 @@ public sealed class GlobalTileMovementSystem : EntitySystem
         if (map == null)
             return;
 
-        var entities = new HashSet<Entity<MobStateComponent, MindContainerComponent>>();
+        var entities = new HashSet<Entity<InputMoverComponent>>();
         _lookup.GetEntitiesOnMap(Transform(map.Value).MapID, entities);
-        foreach (var (uid, _, _) in entities)
+        foreach (var (uid, _) in entities)
         {
             if (TerminatingOrDeleted(uid))
                 continue;
 
-            EnsureComp<HierophantBeatComponent>(uid);
+            EnsureComp<TileMovementComponent>(uid);
         }
-    }
-
-    private void OnGhostRoleSpawnerUsed(GhostRoleSpawnerUsedEvent args)
-    {
-        if (!IsRuleActive())
-            return;
-
-        EnsureComp<HierophantBeatComponent>(args.Spawned);
-    }
-
-    private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
-    {
-        if (!IsRuleActive()
-            || !ev.LateJoin
-            || TerminatingOrDeleted(ev.Mob))
-            return;
-
-        EnsureComp<HierophantBeatComponent>(ev.Mob);
     }
 }

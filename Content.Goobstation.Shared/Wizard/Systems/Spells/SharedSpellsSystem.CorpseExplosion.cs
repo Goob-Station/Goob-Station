@@ -8,7 +8,7 @@ namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
 public abstract partial class SharedSpellsSystem
 {
-
+    // TODO: this kills wiz lmao
     private void OnCorpseExplosion(CorpseExplosionEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
@@ -26,7 +26,6 @@ public abstract partial class SharedSpellsSystem
             return;
         }
 
-        // Only visual
         _explosion.QueueExplosion(ev.Target,
             ev.ExplosionId,
             ev.TotalIntensity,
