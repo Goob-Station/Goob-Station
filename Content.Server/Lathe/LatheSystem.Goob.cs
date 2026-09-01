@@ -1,12 +1,4 @@
-﻿using System.Linq;
-using Content.Goobstation.Common.NTR.Scan;
-using Content.Goobstation.Shared.Lathe;
-using Content.Server.Chat.Systems;
-using Content.Server.Lathe.Components;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Lathe;
-using Content.Shared.Materials;
+﻿using Content.Shared.Lathe;
 
 namespace Content.Server.Lathe;
 
