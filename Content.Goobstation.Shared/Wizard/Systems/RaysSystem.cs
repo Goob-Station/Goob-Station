@@ -5,7 +5,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 
-namespace Content.Shared._Goobstation.Wizard.SupermatterHalberd;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class RaysSystem : EntitySystem
 {
