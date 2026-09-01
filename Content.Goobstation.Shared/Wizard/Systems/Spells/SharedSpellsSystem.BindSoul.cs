@@ -11,6 +11,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Item;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Roles.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
@@ -156,7 +157,7 @@ public abstract partial class SharedSpellsSystem
         _faction.AddFaction(newEntity, "Wizard");
         RemCompDeferred<TransferMindOnGibComponent>(newEntity);
         EnsureComp<WizardComponent>(newEntity);
-        if (!_role.MindHasRole<GoobWizardRoleComponent>(mind, out _))
+        if (!_role.MindHasRole<WizardRoleComponent>(mind, out _))
             _role.MindAddRole(mind, "MindRoleWizard", mindComponent, true);
 
         EnsureComp<PhylacteryComponent>(item);

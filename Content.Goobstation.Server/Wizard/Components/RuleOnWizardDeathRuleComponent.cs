@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Goobstation.Server.Wizard.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Components;
+namespace Content.Goobstation.Server.Wizard.Components;
 
 [RegisterComponent, Access(typeof(WizardRuleSystem))]
 public sealed partial class RuleOnWizardDeathRuleComponent : Component

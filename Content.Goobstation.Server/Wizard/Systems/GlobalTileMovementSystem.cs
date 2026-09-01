@@ -16,7 +16,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Goobstation.Shared.Wizard.Rules;
 using Content.Goobstation.Common.Wizard.Events;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Goobstation.Server.Wizard.Systems;
 
 namespace Content.Server.Goobstation.Wizard.Systems;
 

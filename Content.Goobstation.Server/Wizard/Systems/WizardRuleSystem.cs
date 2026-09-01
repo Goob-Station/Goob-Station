@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Server.Wizard.Components;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
@@ -22,13 +23,14 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Roles.Components;
 using Content.Shared.Station.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Goobstation.Server.Wizard.Systems;
 
 public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 {
@@ -50,7 +52,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
         SubscribeLocalEvent<WizardRuleComponent, AfterAntagEntitySelectedEvent>(OnAfterAntagSelected);
 
-        SubscribeLocalEvent<GoobWizardRoleComponent, GetBriefingEvent>(OnWizardGetBriefing);
+        SubscribeLocalEvent<WizardRoleComponent, GetBriefingEvent>(OnWizardGetBriefing);
         SubscribeLocalEvent<ApprenticeRoleComponent, GetBriefingEvent>(OnApprenticeGetBriefing);
 
         SubscribeLocalEvent<WizardComponent, MobStateChangedEvent>(OnStateChanged);
@@ -158,7 +160,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         var query = EntityQueryEnumerator<MindComponent>();
         while (query.MoveNext(out var mind, out var mindComp))
         {
-            if (!_role.MindHasRole<GoobWizardRoleComponent>(mind) && !_role.MindHasRole<ApprenticeRoleComponent>(mind))
+            if (!_role.MindHasRole<WizardRoleComponent>(mind) && !_role.MindHasRole<ApprenticeRoleComponent>(mind))
                 continue;
 
             if (!_mind.IsCharacterDeadIc(mindComp))
@@ -219,7 +221,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         component.TargetStation = _random.Pick(stations);
     }
 
-    private void OnWizardGetBriefing(Entity<GoobWizardRoleComponent> ent, ref GetBriefingEvent args)
+    private void OnWizardGetBriefing(Entity<WizardRoleComponent> ent, ref GetBriefingEvent args)
     {
         args.Append(Loc.GetString("wizard-role-briefing"));
     }
