@@ -24865,3 +24865,11 @@ Entries:
       message: Fixed vox and plasmaman getting disease
   id: 2849
   time: '2026-09-01T08:04:22.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: >-
+        Chitinads can no longer be injected, but this time by anything, take
+        your pills folk
+  id: 2850
+  time: '2026-09-01T21:23:01.0000000+00:00'
