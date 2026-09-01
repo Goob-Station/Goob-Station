@@ -24836,3 +24836,26 @@ Entries:
         command member to unlock it.
   id: 2846
   time: '2026-08-31T16:45:14.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Shadowkin, chitinids, yowie, hydrakin, and people with cybernetic livers
+        now properly metabolize ethanol at the standard metabolism rate
+        (0.05u/s).
+    - type: Tweak
+      message: >-
+        Ethanol poisoning now deals the damage it did pre-upstream (2 glasses of
+        absinthe have a non-zero chance of putting you into crit).
+    - type: Fix
+      message: Oni actually take reduced damage from ethanol poisoning.
+  id: 2847
+  time: '2026-09-01T00:35:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Stamina-altering chems and natural stamina regen ignore armor
+        resistances as intended.
+  id: 2848
+  time: '2026-09-01T00:41:42.0000000+00:00'
