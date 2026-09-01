@@ -24859,3 +24859,9 @@ Entries:
         resistances as intended.
   id: 2848
   time: '2026-09-01T00:41:42.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed vox and plasmaman getting disease
+  id: 2849
+  time: '2026-09-01T08:04:22.0000000+00:00'
