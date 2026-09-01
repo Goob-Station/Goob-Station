@@ -9,35 +9,54 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobDiona" Caption=""/>
   </Box>
 
-  They can't wear shoes, but are not slowed by Kudzu.
-  They get hungry and thirsty slower.
-  Their "blood" is tree sap and can't be metabolised from Iron.
-  They are made of heavy wood, allowing them to pull lighter species with ease.
-  Being plants, Weed Killer poisons them, while Robust Harvest heals them (but not without risk when overused!)
+  Dionas are a humanoid mass of sentient plant matter, known for their flammability and durability.
+  
+  ## Unique Abilities
 
-  They take [color=#1e90ff]30% less Blunt damage and 20% less Slash damage[/color];
-  but [color=#ffa500]50% more Heat damage, 20% more Shock damage, and they can easily
-  catch on fire when receiving enough Heat damage from *any* source.[/color]
+  ### Rooting
+  - A diona can root itself in the ground at any time, becoming [color=#1e90ff]immune to many slipping hazards[/color]. However, they will also absorb the liquids beneath them through their roots.
 
-  ## Make Like A Tree And Leave
+  ### Make Like A Tree And Leave
   <Box>
     <GuideEntityEmbed Entity="FloraTree" Caption=""/>
   </Box>
-  Being exposed to too much Robust Harvest will cause a Diona to grow out of control, turning into an immobile tree (dropping all their equipment).
+  - Being exposed to too much Robust Harvest will cause a Diona to grow out of control, turning into an [color=#ffa500]immobile tree (dropping all its equipment)[/color].
   Cutting down the tree will "restore" the Diona to their mobile state.
 
-  ## Diona Nymphs
+
+  ### Diona Nymphs
   <Box>
     <GuideEntityEmbed Entity="MobDionaNymph" Caption=""/>
     <GuideEntityEmbed Entity="MobDionaNymph" Caption=""/>
     <GuideEntityEmbed Entity="MobDionaNymph" Caption=""/>
   </Box>
-  After death, a Diona can voluntarily destroy their own body, releasing their "internal organs" as three Nymphs,
+  - After death, a Diona can voluntarily destroy their own body, releasing their "internal organs" as three Nymphs,
   with the player taking control of the Brain Nymph.
   It can talk but has no hands or inventory, and can't do much.
 
-  After 10 minutes, a Nymph can reform into a whole Diona. This will be a new randomised body with a random name,
+  - After 10 minutes, a Nymph can reform into a whole Diona. This will be a new randomised body with a random name,
   and there will be little to no evidence beyond their word about who they were before.
+
+  ## Diet
+
+  Dionas have no discernible changes to their diets when compared to humans.
+
+  ## Benefits
+
+  - They take [color=#1e90ff]30% less Blunt damage and 20% less Slash damage.[/color]
+  - They are made of heavy wood, allowing them to pull lighter species with ease.
+  - Due to their durable structure, they are [color=#1e90ff]unaffected by equipment slowdown.[/color]
+  - They get hungry and thirsty more slowly.
+  - Being plants, Robust Harvest [color=#1e90ff]heals them[/color] (but not without [color=#ffa500]risk when overused![/color])
+
+  ## Drawbacks
+
+  - They take [color=#ffa500]50% more Heat damage, 20% more Shock damage, and they can easily
+  catch on fire when receiving enough Heat damage from ANY source.[/color]
+  - Their "blood" is tree sap and [color=#ffa500]can't be metabolised from Iron.[/color]
+  - Due to their heavy stature, they are [color=#ffa500]unable to sprint.[/color]
+  - Being plants, Weed Killer [color=#ffa500]poisons them.[/color]
+
 
 
 </Document>

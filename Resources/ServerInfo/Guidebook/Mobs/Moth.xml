@@ -9,13 +9,29 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobMoth" Caption=""/>
   </Box>
 
-  They can eat cotton, fabrics and clothing, but virtually none of the food that others would consider "edible". They prefer a somewhat lower temperature range than humans. They are obsessed with the number "65".
+  Moth people are a winged species, sporting antennae and similar bug-like features. One of their key defining traits is that they are obsessed with the number "65".
 
-  Their wings give them better acceleration if there is no gravity on the station, but they still can't move without equipment when floating out in space.
-  They can also dash small distances once in 6.5 seconds using their wings, but that requires the gravity to be present. However they move 6.5% slower than other species due to their weak legs.
+  ## Unique Abilities
 
-  They take [color=#1e90ff]30% less Cold damage[/color] but [color=#ffa500]30% more Heat and 6.5% more Brute damage, and catch on fire more easily[/color].
+  ### Winged Dash
 
-  They are also 6.5% lighter than most species.
+  - Moth people can [color=#1e90ff]dash small distances once in 6.5 seconds[/color] using their wings, but that requires the gravity to be present. 
+
+  ## Diet
+
+  - They can eat cotton, fabrics and clothing, but virtually none of the food that others would consider "edible".
+
+  ## Benefits 
+
+  - They take [color=#1e90ff]30% less Cold damage[/color]
+  - Their wings give them better acceleration if there is no gravity on the station, but they still can't move without equipment when floating out in space.
+  - They are also [color=#1e90ff]6.5% lighter than most species.[/color]
+  
+  ## Drawbacks
+
+  - They move [color=#ffa500]6.5% slower[/color] than other species due to their weak legs. 
+  - They take [color=#ffa500]30% more Heat and 6.5% more Brute damage, and catch on fire more easily[/color].
+  - They prefer a somewhat lower temperature range than humans, making them more susceptible to higher temperatures.
+  
 
 </Document>
