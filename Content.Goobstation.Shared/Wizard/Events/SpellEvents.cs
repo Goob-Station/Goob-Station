@@ -466,3 +466,18 @@ public sealed partial class SoulTapEvent : InstantActionEvent
     [DataField]
     public ProtoId<TagPrototype> DeadTag = "SoulTapped";
 }
+
+public sealed partial class SwapSpellEvent : EntityTargetActionEvent
+{
+    [DataField]
+    public SoundSpecifier? Sound;
+
+    [DataField]
+    public float Range = 15f;
+
+    [DataField]
+    public EntProtoId Effect = "SwapSpellEffect";
+
+    [DataField]
+    public bool ThroughWalls = true;
+}

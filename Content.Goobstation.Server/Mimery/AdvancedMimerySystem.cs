@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Wizard.Events;
 using Content.Goobstation.Shared.Mimery;
 using Content.Server.Chat.Systems;
 using Content.Shared._Goobstation.Wizard;

@@ -5,7 +5,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+namespace Content.Goobstation.Shared.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SwapOnProjectileHitComponent : Component
@@ -17,7 +17,7 @@ public sealed partial class SwapOnProjectileHitComponent : Component
     public EntProtoId Effect = "SwapSpellEffect";
 
     [DataField]
-    public EntityWhitelist Whitelist;
+    public EntityWhitelist Whitelist = new();
 
     [DataField]
     public bool DeleteProjectileOnSwap;

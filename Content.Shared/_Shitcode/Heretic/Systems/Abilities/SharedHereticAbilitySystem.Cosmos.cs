@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Wizard.Events;
 using Content.Goobstation.CommonShared.Wizard.Components;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Shitcode.Heretic.Components;

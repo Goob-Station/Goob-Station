@@ -1,14 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Whitelist;
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class SwapOnProjectileHitSystem : EntitySystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedSpellsSystem _spells = default!;
+    [Dependency] private readonly TheSwapSystem _theSwap = default!;
 
     public override void Initialize()
     {
@@ -27,7 +28,7 @@ public sealed class SwapOnProjectileHitSystem : EntitySystem
         if (!_whitelist.IsValid(comp.Whitelist, args.Target))
             return;
 
-        _spells.Swap(args.Shooter.Value,
+        _theSwap.Swap(args.Shooter.Value,
             Transform(args.Shooter.Value),
             args.Target,
             Transform(args.Target),

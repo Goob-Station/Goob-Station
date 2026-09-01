@@ -47,10 +47,12 @@ using static Robust.Client.UserInterface.Controls.MultiselectOptionButton<
 using static Robust.Client.UserInterface.Controls.TextureRect;
 using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 using Content.Goobstation.Common.Wizard.Components;
+using Content.Client._Shitcode;
 
 namespace Content.Client.UserInterface.Systems.Actions;
 
-public sealed class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
+// Goobstation - made partail
+public sealed partial class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
 {
     [Dependency] private readonly IOverlayManager _overlays = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -64,7 +66,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
     [UISystemDependency] private readonly TransformSystem _transform = default!; // Goobstation
-    [UISystemDependency] private readonly SpellsSystem? _spells = default!; // Goobstation
+    [UISystemDependency] private readonly StopTargetingSystem? _stopTargetingSystem = default!; // Goobstation
     [UISystemDependency] private readonly ActionTargetMarkSystem? _mark = default!; // Goobstation
     [UISystemDependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
 
@@ -134,8 +136,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             // Goobstation end
         }
 
-        if (_spells != null) // Goobstation
-            _spells.StopTargeting += StopTargeting;
+        if (_stopTargetingSystem != null) // Goobstation
+            _stopTargetingSystem.StopTargeting += StopTargeting;
 
         UpdateFilterLabel();
         QueueWindowUpdate();
@@ -262,8 +264,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             // Goobstation end
         }
 
-        if (_spells != null) // Goobstation
-            _spells.StopTargeting -= StopTargeting;
+        if (_stopTargetingSystem != null) // Goobstation
+            _stopTargetingSystem.StopTargeting -= StopTargeting;
 
         CommandBinds.Unregister<ActionUIController>();
     }
@@ -315,7 +317,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!swap.AllowSecondaryTarget)
             return false;
 
-        if (_actionsSystem == null || _spells == null)
+        if (_actionsSystem == null || _stopTargetingSystem == null)
             return false;
 
         var entity = args.EntityUid;
@@ -328,7 +330,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return false;
         }
 
-        _spells.SetSwapSecondaryTarget(user, entity, actionId);
+        SetSwapSecondaryTarget(user, entity, actionId); // Goobstation - shitcode
 
         return true;
     }
@@ -1061,7 +1063,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
 
         if (EntityManager.HasComponent<SwapSpellComponent>(uid) && _playerManager.LocalEntity != null) // Goobstation
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, uid);
+            SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, uid); // Goobstation - shitcode
 
         Func<EntityUid, bool>? predicate = null;
         var attachedEnt = action.AttachedEntity;
@@ -1091,7 +1093,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         // Goobstation
         if (EntityManager.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value);
+            SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value); // Goobstation - shitcode
 
         SelectingTargetFor = null;
 

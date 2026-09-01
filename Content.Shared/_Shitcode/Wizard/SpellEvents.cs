@@ -22,21 +22,6 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Goobstation.Wizard;
 
-public sealed partial class SwapSpellEvent : EntityTargetActionEvent
-{
-    [DataField]
-    public SoundSpecifier? Sound;
-
-    [DataField]
-    public float Range = 15f;
-
-    [DataField]
-    public EntProtoId Effect = "SwapSpellEffect";
-
-    [DataField]
-    public bool ThroughWalls = true;
-}
-
 [DataDefinition]
 public sealed partial class GrantFactionsEvent : EntityEventArgs
 {

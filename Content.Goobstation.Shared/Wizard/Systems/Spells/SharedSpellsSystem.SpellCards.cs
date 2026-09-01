@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Goobstation.Common.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Events;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
 using Content.Shared._Goobstation.Wizard;

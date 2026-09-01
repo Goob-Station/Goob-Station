@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Common.Religion;
+using Content.Goobstation.Common.Wizard.Events;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
@@ -40,6 +41,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
@@ -122,6 +124,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -175,6 +178,8 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
+        SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
+        SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();

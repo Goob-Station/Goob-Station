@@ -136,110 +136,13 @@ public abstract class SharedSpellsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
-        SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
-    }
-
-    private void OnSwapSecondaryTarget(SetSwapSecondaryTarget ev)
-    {
-        var action = GetEntity(ev.Action);
-        var target = GetEntity(ev.Target);
-
-        if (!TryComp(action, out SwapSpellComponent? swap))
-            return;
-
-        if (!swap.AllowSecondaryTarget)
-            return;
-
-        swap.SecondaryTarget = target;
-        Dirty(action, swap);
     }
 
     #region Spells
 
-    private void OnSwap(SwapSpellEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (IsTouchSpellDenied(ev.Target))
-        {
-            ev.Handled = true;
-            return;
-        }
-
-        if (ev.Performer == ev.Target)
-            return;
-
-        if (!TryComp(ev.Action, out SwapSpellComponent? swap))
-            return;
-
-        if (!ev.ThroughWalls && !_examine.InRangeUnOccluded(ev.Performer, ev.Target, ev.Range))
-            return;
-
-        var userXform = Transform(ev.Performer);
-        var targetXform = Transform(ev.Target);
-
-        Swap(ev.Performer, userXform, ev.Target, targetXform, ev.Sound, ev.Effect);
-
-        if (swap.SecondaryTarget != null && Exists(swap.SecondaryTarget) &&
-            swap.SecondaryTarget.Value != ev.Target && swap.SecondaryTarget.Value != ev.Performer)
-        {
-            var secondaryTarget = swap.SecondaryTarget.Value;
-            var secondaryTargetXform = Transform(secondaryTarget);
-
-            if (secondaryTargetXform.MapID == userXform.MapID &&
-                TransformSystem.InRange((ev.Performer, userXform), (secondaryTarget, secondaryTargetXform), ev.Range))
-                Swap(secondaryTarget, secondaryTargetXform, ev.Target, targetXform, ev.Sound, ev.Effect, false);
-        }
-
-        swap.SecondaryTarget = null;
-        Dirty(ev.Action, swap);
-        if (_net.IsServer)
-            RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer); // Just in case
-
-        ev.Handled = true;
-    }
-
     #endregion
 
     #region Helpers
-
-    public void Swap(EntityUid uid,
-        TransformComponent xform,
-        EntityUid otherUid,
-        TransformComponent otherXform,
-        SoundSpecifier? swapSound,
-        EntProtoId swapEffect,
-        bool spawnSecondaryEffects = true)
-    {
-        _pulling.StopAllPulls(uid);
-        _pulling.StopAllPulls(otherUid);
-        SpawnEffects(uid, xform);
-        if (spawnSecondaryEffects)
-            SpawnEffects(otherUid, otherXform);
-        TransformSystem.SwapPositions((uid, xform), (otherUid, otherXform));
-        Physics.WakeBody(uid);
-        Physics.WakeBody(otherUid);
-        return;
-
-        void SpawnEffects(EntityUid ent, TransformComponent transform)
-        {
-            if (_net.IsClient)
-                return;
-
-            Audio.PlayPvs(swapSound, transform.Coordinates);
-            var effect = Spawn(swapEffect, transform.Coordinates);
-            if (TryComp(effect, out TrailComponent? trail))
-            {
-                trail.SpawnPosition = TransformSystem.GetWorldPosition(transform);
-                trail.RenderedEntity = ent;
-                Dirty(effect, trail);
-            }
-
-            TransformSystem.SetParent(effect, Transform(effect), ent, transform);
-        }
-    }
 
     private bool RechargeAllSpells(EntityUid uid, EntityUid? except = null)
     {
@@ -340,12 +243,4 @@ public abstract class SharedSpellsSystem : EntitySystem
 public sealed class ChargeSpellRaysEffectEvent(NetEntity uid) : EntityEventArgs
 {
     public NetEntity Uid = uid;
-}
-
-[Serializable, NetSerializable]
-public sealed class SetSwapSecondaryTarget(NetEntity action, NetEntity? target) : EntityEventArgs
-{
-    public NetEntity Action = action;
-
-    public NetEntity? Target = target;
 }
