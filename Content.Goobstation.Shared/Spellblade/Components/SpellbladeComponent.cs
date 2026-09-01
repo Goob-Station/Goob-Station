@@ -1,13 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Spellblade.Prototypes;
+using Content.Goobstation.Shared.Spellblade.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Goobstation.Shared.Spellblade.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedSpellbladeSystem))]
 public sealed partial class SpellbladeComponent : Component
 {
     [DataField, AutoNetworkedField]

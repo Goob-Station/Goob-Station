@@ -1,13 +1,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.Atmos.Events;
+using Content.Goobstation.Shared.Spellblade.Components;
 using Content.Shared._White.Blink;
+using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Electrocution;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Timing;
@@ -16,8 +20,9 @@ using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Goobstation.Shared.Spellblade.Systems;
 
+[Access(typeof(SharedSpellbladeSystem))]
 public abstract class SharedSpellbladeSystem : EntitySystem
 {
     [Dependency] protected readonly UseDelaySystem UseDelay = default!;
@@ -44,6 +49,24 @@ public abstract class SharedSpellbladeSystem : EntitySystem
         SubscribeLocalEvent<ShieldedComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<ShieldedComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeStatusEffect);
         SubscribeLocalEvent<ShieldedComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<GetFireProtectionEvent>(OnGetFireProtection);
+        SubscribeLocalEvent<MobStateComponent, ResistPressureEvent>(OnResistPressure);
+    }
+
+    private void OnResistPressure(Entity<MobStateComponent> ent, ref ResistPressureEvent ev)
+    {
+        if (IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(ent))
+        {
+            ev.Cancelled = true;
+        }
+    }
+
+    private void OnGetFireProtection(ref GetFireProtectionEvent ev)
+    {
+        if (IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(ev.Target))
+        {
+            ev.Multiplier = -999f; // ignore any possible fire AP
+        }
     }
 
     private void OnDamageModify(Entity<ShieldedComponent> ent, ref DamageModifyEvent args)

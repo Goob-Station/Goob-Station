@@ -4,7 +4,6 @@ using System.Linq;
 using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Lightning;
-using Content.Shared._Goobstation.Wizard.Spellblade;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
@@ -14,8 +13,10 @@ using Content.Shared.Physics;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Atmos.Components;
+using Content.Goobstation.Shared.Spellblade.Systems;
+using Content.Goobstation.Shared.Spellblade.Components;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Goobstation.Server.Spellblade.Systems;
 
 public sealed class SpellbladeSystem : SharedSpellbladeSystem
 {

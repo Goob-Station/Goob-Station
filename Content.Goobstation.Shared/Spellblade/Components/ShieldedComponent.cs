@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Spellblade.Systems;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Goobstation.Shared.Spellblade.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, Access(typeof(SharedSpellbladeSystem))]
 public sealed partial class ShieldedComponent : Component
 {
     [DataField]

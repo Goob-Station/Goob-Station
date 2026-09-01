@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.Spellblade;
+using Content.Goobstation.Shared.Spellblade.Components;
+using Content.Goobstation.Shared.Spellblade.Systems;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._Shitcode.Wizard.Spellblade;
+namespace Content.Goobstation.Client.Spellblade.Systems;
 
 public sealed class SpellbladeSystem : SharedSpellbladeSystem
 {

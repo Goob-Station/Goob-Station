@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+using Content.Goobstation.Shared.Spellblade.Systems;
 
-[RegisterComponent]
+namespace Content.Goobstation.Shared.Spellblade.Components;
+
+[RegisterComponent, Access(typeof(SharedSpellbladeSystem))]
 public sealed partial class ForceshieldSpellbladeEnchantmentComponent : Component
 {
     [DataField]

@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.Spellblade;
+using Content.Goobstation.Shared.Spellblade.Components;
+using Content.Goobstation.Shared.Spellblade.Prototypes;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Shitcode.Wizard.Spellblade;
+namespace Content.Goobstation.Client.Spellblade.UI;
 
 [UsedImplicitly]
 public sealed class SpellbladeBoundUserInterface : BoundUserInterface
