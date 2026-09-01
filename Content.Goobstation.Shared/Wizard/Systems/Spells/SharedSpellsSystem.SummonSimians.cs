@@ -3,9 +3,6 @@ using Content.Shared.Mind.Components;
 
 namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 
-/// <summary>
-/// TODO: finish moving goob wiz spells then remove Goob after deleting SpellsSystem
-/// </summary>
 public abstract partial class SharedSpellsSystem
 {
     private void OnSummonSimians(SummonSimiansEvent ev)

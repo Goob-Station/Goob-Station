@@ -1,6 +1,8 @@
 using System.Numerics;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Explosion;
 using Content.Shared.Item;
 using Content.Shared.Physics;
@@ -451,4 +453,16 @@ public sealed partial class BindSoulEvent : InstantActionEvent
 
     [DataField]
     public ProtoId<ItemSizePrototype> PhylacterySize = "Ginormous";
+}
+
+public sealed partial class SoulTapEvent : InstantActionEvent
+{
+    [DataField]
+    public FixedPoint2 MaxHealthReduction = 20;
+
+    [DataField]
+    public ProtoId<DamageTypePrototype> KillDamage = "Cellular";
+
+    [DataField]
+    public ProtoId<TagPrototype> DeadTag = "SoulTapped";
 }

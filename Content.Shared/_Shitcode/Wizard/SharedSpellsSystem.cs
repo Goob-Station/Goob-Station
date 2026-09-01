@@ -137,7 +137,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
-        SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
 
@@ -200,76 +199,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer); // Just in case
 
         ev.Handled = true;
-    }
-
-    private void OnSoulTap(SoulTapEvent ev)
-    {
-        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
-            return;
-
-        if (!Mind.TryGetMind(ev.Performer, out var mind, out _) || HasComp<SoulBoundComponent>(mind) ||
-            Tag.HasTag(ev.Performer, ev.DeadTag))
-        {
-            Popup(ev.Performer, "spell-fail-no-soul");
-            return;
-        }
-
-        if (!RechargeAllSpells(ev.Performer, ev.Action.Owner))
-        {
-            Popup(ev.Performer, "spell-fail-no-spells");
-            return;
-        }
-
-        if (!TryComp(ev.Performer, out MobThresholdsComponent? thresholds))
-            return;
-
-        if (!_threshold.TryGetThresholdForState(ev.Performer, MobState.Dead, out var dead, thresholds))
-            return;
-
-        ev.Handled = true;
-
-        var targetHealth = dead.Value - ev.MaxHealthReduction;
-        var kill = false;
-        if (targetHealth < 1)
-        {
-            targetHealth = 1;
-            kill = true;
-        }
-
-        if (_threshold.TryGetThresholdForState(ev.Performer, MobState.Critical, out var crit, thresholds) &&
-            targetHealth <= crit)
-            _threshold.SetMobStateThreshold(ev.Performer, targetHealth - 0.01, MobState.Critical, thresholds);
-
-        _threshold.SetMobStateThreshold(ev.Performer, targetHealth, MobState.Dead, thresholds);
-
-        if (kill)
-        {
-            Tag.AddTag(ev.Performer, ev.DeadTag);
-
-            Popup(ev.Performer, "spell-soul-tap-dead-message-user", PopupType.LargeCaution);
-
-            var dmg = Damageable.TryChangeDamage(ev.Performer,
-                new DamageSpecifier(ProtoMan.Index(ev.KillDamage), 666),
-                true);
-            if ((dmg == null || dmg.GetTotal() < 1) && Timing.IsFirstTimePredicted)
-                Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
-        }
-
-        if (_mobState.IsDead(ev.Performer))
-        {
-            var message = Loc.GetString("spell-soul-tap-dead-message-others",
-                ("uid", Identity.Entity(ev.Performer, EntityManager)));
-            _popup.PopupEntity(message, ev.Performer, Filter.PvsExcept(ev.Performer), true, PopupType.LargeCaution);
-            return;
-        }
-
-        if (TerminatingOrDeleted(ev.Performer) || EntityManager.IsQueuedForDeletion(ev.Performer))
-            return;
-
-        if (targetHealth - ev.MaxHealthReduction < 1)
-            Popup(ev.Performer, "spell-soul-tap-almost-dead-message", PopupType.LargeCaution);
-        else
-            Popup(ev.Performer, "spell-soul-tap-message", PopupType.MediumCaution);
     }
 
     #endregion
@@ -406,8 +335,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     #endregion
 }
 
-[Serializable, NetSerializable]
-public sealed class StopTargetingEvent : EntityEventArgs;
 
 [Serializable, NetSerializable]
 public sealed class ChargeSpellRaysEffectEvent(NetEntity uid) : EntityEventArgs

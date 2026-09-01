@@ -72,9 +72,10 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -120,6 +121,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
 
     private EntityQuery<SpectralComponent> _spectralQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -168,6 +170,11 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
+        SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
+        SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
+        SubscribeLocalEvent<SummonMobsEvent>(OnSummonMobs);
+        SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
+        SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();

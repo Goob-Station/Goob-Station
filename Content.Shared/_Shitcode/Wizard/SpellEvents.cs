@@ -37,18 +37,6 @@ public sealed partial class SwapSpellEvent : EntityTargetActionEvent
     public bool ThroughWalls = true;
 }
 
-public sealed partial class SoulTapEvent : InstantActionEvent
-{
-    [DataField]
-    public FixedPoint2 MaxHealthReduction = 20;
-
-    [DataField]
-    public ProtoId<DamageTypePrototype> KillDamage = "Cellular";
-
-    [DataField]
-    public ProtoId<TagPrototype> DeadTag = "SoulTapped";
-}
-
 [DataDefinition]
 public sealed partial class GrantFactionsEvent : EntityEventArgs
 {
