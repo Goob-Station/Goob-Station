@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 
-namespace Content.Shared._Goobstation.Wizard.HighFrequencyBlade;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class RandomRotationSystem : EntitySystem
 {
