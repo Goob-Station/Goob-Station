@@ -5,6 +5,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Goobstation.Wizard.Guardian;
 
 // I hate server components I hate server components I hate server components
+// this is used for checking in FreezeContactsSystem
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class GuardianSharedComponent : Component
 {

@@ -5,13 +5,13 @@ using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+namespace Content.Goobstation.Shared.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LifeStealOnProjectileHitComponent : Component
 {
     [DataField]
-    public EntityWhitelist Whitelist;
+    public EntityWhitelist Whitelist = new();
 
     [DataField]
     public FixedPoint2 LifeStealAmount = 20;

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
@@ -8,7 +9,7 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class RejuvenateOnProjectileHitSystem : EntitySystem
 {

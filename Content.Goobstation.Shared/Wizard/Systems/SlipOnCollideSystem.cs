@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared.Slippery;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Shared._Goobstation.Wizard.SlipOnCollide;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class SlipOnCollideSystem : EntitySystem
 {
