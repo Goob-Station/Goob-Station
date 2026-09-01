@@ -10,8 +10,12 @@ using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Goobstation.Shared.Wizard.Components;
+using Content.Shared.Magic.Events;
+using Content.Shared.Magic;
+using Content.Goobstation.Common.Wizard.Events;
 
-namespace Content.Shared._Goobstation.Wizard.Chuuni;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class ChuuniEyepatchSystem : EntitySystem
 {
@@ -19,6 +23,7 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly ClothingSystem _clothing = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -29,6 +34,18 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
         SubscribeLocalEvent<ChuuniEyepatchComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetSpellInvocationEvent>>(OnGetInvocation);
         SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetMessageColorOverrideEvent>>(OnGetPostfix);
+        SubscribeLocalEvent<ChuuniEyepatchComponent, ModifySpellRequirementsEvent>(OnModifySpellRequirements);
+    }
+
+    private void OnModifySpellRequirements(Entity<ChuuniEyepatchComponent> ent, ref ModifySpellRequirementsEvent args)
+    {
+        if (!_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch)
+            || !HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
+            return;
+
+        args.RequiresSpeech = true;
+        args.SlotFlags = (int) SlotFlags.OUTERCLOTHING;
+        args.RequiredSlots = 1;
     }
 
     public override void Update(float frameTime)

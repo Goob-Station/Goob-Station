@@ -18,7 +18,6 @@ using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Systems;
-using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -54,6 +53,7 @@ using Content.Shared._RMC14.CCVar;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Traits.Assorted;
 using Content.Goobstation.Common.Wizard.Events;
+using Content.Goobstation.Shared.Wizard.Systems;
 // Goob end
 
 namespace Content.Server.Chat.Systems;

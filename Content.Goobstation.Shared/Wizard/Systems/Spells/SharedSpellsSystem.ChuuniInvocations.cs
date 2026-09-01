@@ -1,5 +1,5 @@
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
-using Content.Shared._Goobstation.Wizard.Chuuni;
 
 namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 

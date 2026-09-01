@@ -7,7 +7,6 @@ using Content.Goobstation.Common.Magic;
 using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
@@ -58,6 +57,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Content.Goobstation.CommonShared.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Events;
 
 namespace Content.Shared.Magic;
 
@@ -198,16 +198,17 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
         }
 
-        var requiresSpeech = comp.RequiresSpeech;
-        var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
-        var requiredSlots = 2;
-        if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
-            HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
-        {
-            requiresSpeech = true;
-            flags = SlotFlags.OUTERCLOTHING;
-            requiredSlots = 1;
-        }
+        var ev = new ModifySpellRequirementsEvent(
+            (int) (SlotFlags.OUTERCLOTHING | SlotFlags.HEAD),
+            2,
+            comp.RequiresSpeech,
+            args.Performer
+        );
+        RaiseLocalEvent(ent, ref ev);
+
+        var requiresSpeech = ev.RequiresSpeech;
+        var flags = (SlotFlags) ev.SlotFlags;
+        var requiredSlots = ev.RequiredSlots;
 
         var slots = 0;
         // Goobstation end

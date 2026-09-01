@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Wizard.Events;
 using Content.Goobstation.Shared.Changeling;
 using Content.Goobstation.Shared.Chemistry;
 using Content.Goobstation.Shared.Clothing;
@@ -11,7 +12,7 @@ using Content.Goobstation.Shared.Grab;
 using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.Security.ContrabandIcons.Components;
 using Content.Goobstation.Shared.Stunnable;
-using Content.Shared._Goobstation.Wizard.Chuuni;
+using Content.Goobstation.Shared.Wizard.Systems;
 using Content.Shared._White.Standing;
 using Content.Shared.Flash;
 using Content.Shared.Heretic;
