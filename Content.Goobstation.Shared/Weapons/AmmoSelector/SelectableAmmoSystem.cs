@@ -2,17 +2,17 @@
 
 using System.Linq;
 using Content.Goobstation.Common.Changeling;
-using Content.Shared._Goobstation.Wizard.UserInterface;
+using Content.Goobstation.Common.Weapons.AmmoSelector;
+using Content.Goobstation.Shared.UserInterface;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
+namespace Content.Goobstation.Shared.Weapons.AmmoSelector;
 
 public sealed class SelectableAmmoSystem : EntitySystem
 {

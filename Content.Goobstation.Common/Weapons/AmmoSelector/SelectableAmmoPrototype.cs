@@ -6,9 +6,9 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
+namespace Content.Goobstation.Common.Weapons.AmmoSelector;
 
-[Prototype("selectableAmmo")]
+[Prototype]
 public sealed partial class SelectableAmmoPrototype : IPrototype
 {
     [IdDataField]

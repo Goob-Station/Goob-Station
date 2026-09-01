@@ -14,7 +14,6 @@ using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared.Chemistry.Components;
@@ -48,6 +47,7 @@ using Content.Goobstation.Shared.Devour.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Shared.Light.Components;
+using Content.Goobstation.Shared.Weapons.AmmoSelector;
 
 namespace Content.Goobstation.Server.Changeling;
 
