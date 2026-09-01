@@ -222,12 +222,8 @@ namespace Content.Server.Lathe
 
             if (time == TimeSpan.Zero)
             {
-                // Goobstation edit start: handle special case with lots of 0-time recipes that insert into storage
-                if (component.OutputToStorage)
-                    FinishProducing(uid, component, lathe, true);
-                // Goobstation edit end
-
-                FinishProducing(uid, component, lathe);
+                FinishProducing(uid, component, lathe,
+                    component.OutputToStorage); // Goobstation edit start: handle special case with lots of 0-time recipes that insert into storage
             }
             return true;
         }
