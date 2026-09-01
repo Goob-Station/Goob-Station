@@ -24851,3 +24851,11 @@ Entries:
       message: Oni actually take reduced damage from ethanol poisoning.
   id: 2847
   time: '2026-09-01T00:35:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Stamina-altering chems and natural stamina regen ignore armor
+        resistances as intended.
+  id: 2848
+  time: '2026-09-01T00:41:42.0000000+00:00'
