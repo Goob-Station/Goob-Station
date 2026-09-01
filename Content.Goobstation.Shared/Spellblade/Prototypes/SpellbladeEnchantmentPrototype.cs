@@ -7,6 +7,7 @@ using Robust.Shared.Utility;
 namespace Content.Goobstation.Shared.Spellblade.Prototypes;
 
 [DataDefinition, Access(typeof(SharedSpellbladeSystem))]
+[Prototype]
 public sealed partial class SpellbladeEnchantmentPrototype : IPrototype
 {
     [IdDataField]
