@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._Goobstation.Wizard.Accents;
+namespace Content.Goobstation.Server.Speech;
 
 [RegisterComponent]
 public sealed partial class PigAccentComponent : AnimalAccentComponent

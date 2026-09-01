@@ -3,7 +3,7 @@
 using Content.Shared.Speech;
 using Robust.Shared.Random;
 
-namespace Content.Server._Goobstation.Wizard.Accents;
+namespace Content.Goobstation.Server.Speech;
 
 public sealed class AnimalAccentSystem : EntitySystem
 {
