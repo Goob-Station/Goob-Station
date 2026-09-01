@@ -5,7 +5,6 @@ using Content.Goobstation.Shared.Clothing;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.Heretic.EntitySystems.PathSpecific;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Shitcode.Weapons.Misc;
 using Content.Shared.Armor;
 using Content.Shared.Damage.Events;
 using Content.Shared.Heretic.Components.PathSpecific;
@@ -132,7 +131,7 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
         if (TryComp(uid, out UseDelayComponent? delay))
             _delay.TryResetDelay((uid, delay), id: comp.UseDelay);
 
-        foreach (var (hit, _) in args.HitEntities)
+        foreach (var hit in args.HitEntities)
         {
             if (!_status.CanAddStatusEffect(hit, "StatusEffectStunned")) // holy fucking slop
                 continue;

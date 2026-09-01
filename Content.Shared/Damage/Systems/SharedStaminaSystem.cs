@@ -34,11 +34,11 @@ using Content.Goobstation.Common.Damage.Events;
 
 // Goobstation usings
 using Robust.Shared.Random; // Shove
-using Content.Shared._Shitcode.Weapons.Misc;
 using Content.Goobstation.Common.Stunnable; // Martial Arts
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Damage.Events;
 using Robust.Shared.Utility;
+using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 
 
 namespace Content.Shared.Damage.Systems;
@@ -201,7 +201,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         }
 
         // Goobstation
-        RaiseLocalEvent(uid, new StaminaDamageMeleeHitEvent(toHit, args.Direction));
+        RaiseLocalEvent(uid, new StaminaDamageMeleeHitEvent([.. toHit.Select(x => x.Entity)], args.Direction));
 
         // goobstation
         foreach (var (ent, comp) in toHit)
