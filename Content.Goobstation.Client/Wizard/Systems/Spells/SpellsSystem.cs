@@ -1,6 +1,6 @@
 using Content.Goobstation.Common.Wizard.Events;
+using Content.Goobstation.Shared.Wizard.Systems;
 using Content.Goobstation.Shared.Wizard.Systems.Spells;
-using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 

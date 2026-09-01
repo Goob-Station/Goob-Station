@@ -8,7 +8,6 @@ using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
 using Content.Goobstation.Shared.Wizard.Spells;
 using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;

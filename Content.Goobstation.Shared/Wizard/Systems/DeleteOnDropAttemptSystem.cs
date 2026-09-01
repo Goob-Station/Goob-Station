@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Shared.Examine;
 
-namespace Content.Shared._Goobstation.Wizard.ArcaneBarrage;
+namespace Content.Goobstation.Shared.Wizard.Systems;
 
 public sealed class DeleteOnDropAttemptSystem : EntitySystem
 {
