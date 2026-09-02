@@ -44,6 +44,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared.Temperature.Components;
+using Content.Shared.Chemistry.Reagent;
 
 // Goobstation
 using Content.Server.Polymorph.Systems;
@@ -95,6 +96,7 @@ public sealed partial class ZombieSystem
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
     private static readonly string MindRoleZombie = "MindRoleZombie";
     private static readonly List<ProtoId<AntagPrototype>> BannableZombiePrototypes = ["Zombie"];
+    private static readonly ProtoId<ReagentPrototype> ZombieBloodProto = "ZombieBlood"; // Goob - Zombie blood update
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -292,7 +294,15 @@ public sealed partial class ZombieSystem
         //NOTE: they are supposed to bleed, just not take damage
         _bloodstream.SetBloodLossThreshold(target, 0f);
         //Give them zombie blood
-        _bloodstream.ChangeBloodReagents(target, zombiecomp.NewBloodReagents);
+        // Goob Start - Zombie blood update
+        if (TryComp<BloodstreamComponent>(target, out var targStream))
+        {
+            // Grab current bloodstream volume to replace
+            var oldVolume = targStream.BloodReferenceSolution.Volume;
+            // Give them new blood
+            _bloodstream.ChangeBloodReagents(target, new([new(ZombieBloodProto, oldVolume)]));
+        }
+        // Goob end
 
         //This is specifically here to combat insuls, because frying zombies on grilles is funny as shit.
         _inventory.TryUnequip(target, "gloves", true, true);
