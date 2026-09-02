@@ -17,16 +17,28 @@ public sealed class RandomizeAiLawsetSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<RandomizeLawsetComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<RandomizeLawsetComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<RandomizeLawsetComponent, ComponentStartup>(OnComponentStartup);
     }
     
-    private void OnStartup(EntityUid uid, RandomizeLawsetComponent randomAiLawset, ComponentStartup args)
+    private void OnMapInit(Entity<RandomizeLawsetComponent> randomAiLawset, ref MapInitEvent args)
     {
-        if(string.IsNullOrEmpty(randomAiLawset.WeightedId.Id) 
-           || !_proto.TryIndex(randomAiLawset.WeightedId, out var weightedProto))
+        if (string.IsNullOrEmpty(randomAiLawset.Comp.WeightedId.Id)
+           || !_proto.TryIndex(randomAiLawset.Comp.WeightedId, out var weightedProto))
             return;
         var randomLawset = weightedProto.Pick(_random);
-        EnsureComp<SiliconLawProviderComponent>(uid, out var comp);
+        EnsureComp<SiliconLawProviderComponent>(randomAiLawset, out var comp);
+        comp.Laws = randomLawset;
+    }
+
+    private void OnComponentStartup(Entity<RandomizeLawsetComponent> randomAiLawset, ref ComponentStartup args)
+    {
+        if (string.IsNullOrEmpty(randomAiLawset.Comp.WeightedId.Id)
+           || !_proto.TryIndex(randomAiLawset.Comp.WeightedId, out var weightedProto))
+            return;
+        var randomLawset = weightedProto.Pick(_random);
+        if (EnsureComp<SiliconLawProviderComponent>(randomAiLawset, out var comp))
+            return;
         comp.Laws = randomLawset;
     }
 }

@@ -66,6 +66,29 @@
   - Gambamov5
   obeysTo: laws-owner-station
 
+- type: siliconLawset
+  id: AsimovLawset
+  laws:
+  - Asimov1
+  - Asimov2
+  - Asimov3
+  obeysTo: laws-owner-human
+
+- type: siliconLaw
+  id: Asimov1
+  order: 1
+  lawString: law-asimov-1
+
+- type: siliconLaw
+  id: Asimov2
+  order: 2
+  lawString: law-asimov-2
+
+- type: siliconLaw
+  id: Asimov3
+  order: 3
+  lawString: law-asimov-3
+
 # Ai starting laws weighted random
 - type: weightedRandom
   id: AIStartingLawsets
