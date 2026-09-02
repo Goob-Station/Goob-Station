@@ -2,7 +2,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Wizard.Refund;
+namespace Content.Goobstation.Common.Wizard.Refund;
 
 [Serializable, NetSerializable]
 public sealed class StoreRefundState(List<RefundListingData> listings, bool refundDisabled) : BoundUserInterfaceState
