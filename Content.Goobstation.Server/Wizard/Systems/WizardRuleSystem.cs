@@ -2,18 +2,16 @@
 
 using System.Linq;
 using Content.Goobstation.Server.Wizard.Components;
+using Content.Goobstation.Shared.Roles.Components;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Server._Goobstation.Wizard.Components;
-using Content.Server.Administration.Logs;
 using Content.Server.Antag;
-using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Shitcode.Wizard.Components;
 using Content.Shared.Cloning.Events;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;

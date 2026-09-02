@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Goobstation.Weapons.Ranged;
+namespace Content.Goobstation.Shared.Weapons.Ranged;
 
 /// <summary>
 ///     Component that allows syringe-firing guns to uncap their injection limit on firing.

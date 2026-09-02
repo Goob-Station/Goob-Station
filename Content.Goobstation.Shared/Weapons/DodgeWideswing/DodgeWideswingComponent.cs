@@ -1,9 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.GameStates;
-using Robust.Shared.Localization;
-
-namespace Content.Shared._Goobstation.Weapons.DodgeWideswing;
+namespace Content.Goobstation.Shared.Weapons.DodgeWideswing;
 
 /// <summary>
 /// Makes this entity have a chance to dodge a wideswing attack, converting the incoming damage into stamina damage.

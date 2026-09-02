@@ -2,7 +2,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Weapons.UseDelay;
+namespace Content.Goobstation.Shared.Weapons.UseDelay;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class UseDelayBlockMeleeComponent : Component

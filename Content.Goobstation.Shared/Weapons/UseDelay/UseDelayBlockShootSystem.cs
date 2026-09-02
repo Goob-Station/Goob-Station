@@ -3,7 +3,7 @@
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Ranged.Systems;
 
-namespace Content.Shared._Goobstation.Weapons.UseDelay;
+namespace Content.Goobstation.Shared.Weapons.UseDelay;
 
 public sealed class UseDelayBlockShootSystem : EntitySystem
 {
