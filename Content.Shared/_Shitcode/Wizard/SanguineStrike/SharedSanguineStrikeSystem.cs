@@ -134,6 +134,6 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
             null,
             false,
             targetPart: TargetBodyPart.All,
-            splitDamage: SplitDamageBehavior.SplitEnsureAll);
+            splitDamage: SplitDamageBehavior.SplitEnsureAllDamagedAndOrganic);
     }
 }

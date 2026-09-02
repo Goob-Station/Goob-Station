@@ -176,6 +176,7 @@ public abstract partial class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
+        SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
 
         _spectralQuery = GetEntityQuery<SpectralComponent>();
