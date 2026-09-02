@@ -22,7 +22,8 @@ public sealed class RandomizeAiLawsetSystem : EntitySystem
     
     private void OnStartup(EntityUid uid, RandomizeLawsetComponent randomAiLawset, ComponentStartup args)
     {
-        if(string.IsNullOrEmpty(randomAiLawset.WeightedId.Id) ||!_proto.TryIndex(randomAiLawset.WeightedId, out var weightedProto))
+        if(string.IsNullOrEmpty(randomAiLawset.WeightedId.Id) 
+           || !_proto.TryIndex(randomAiLawset.WeightedId, out var weightedProto))
             return;
         var randomLawset = weightedProto.Pick(_random);
         EnsureComp<SiliconLawProviderComponent>(uid, out var comp);
