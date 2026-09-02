@@ -24873,3 +24873,11 @@ Entries:
         your pills folk
   id: 2850
   time: '2026-09-01T21:23:01.0000000+00:00'
+- author: Duuckie, feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        Zombies and changelings have the appropriate amount of max blood for
+        their species.
+  id: 2851
+  time: '2026-09-02T12:31:32.0000000+00:00'
