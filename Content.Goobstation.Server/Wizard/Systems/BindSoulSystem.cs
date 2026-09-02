@@ -7,7 +7,6 @@ using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Shared.IdentityManagement;
 using Content.Server.Respawn;
 using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Destructible;
 using Content.Shared.Destructible.Thresholds.Triggers;
 using Content.Shared.Humanoid;
@@ -15,6 +14,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.GameObjects.Components.Localization;
 using Content.Goobstation.Shared.Wizard.Systems;
+using Content.Goobstation.Shared.Wizard.Components;
 
 namespace Content.Goobstation.Server.Wizard.Systems;
 

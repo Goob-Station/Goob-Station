@@ -13,7 +13,6 @@ using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Shitcode.Wizard.Components;
 using Content.Shared.Cloning.Events;
 using Content.Shared.GameTicking.Components;

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.MagicMirror;
+using Content.Goobstation.Shared.WizardMirror;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Shitcode.Wizard.MagicMirror;
+namespace Content.Goobstation.Client.WizardMirror;
 
 [UsedImplicitly]
 public sealed class WizardMirrorBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)

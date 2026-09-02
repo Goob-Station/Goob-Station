@@ -13,7 +13,6 @@ using Content.Shared.Roles.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
-using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard;
 
 namespace Content.Goobstation.Shared.Wizard.Systems.Spells;

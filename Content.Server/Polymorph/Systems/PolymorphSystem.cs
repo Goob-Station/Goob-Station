@@ -3,11 +3,8 @@
 using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
-using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
 using Content.Shared._DV.Polymorph;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
@@ -29,8 +26,6 @@ using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
@@ -38,8 +33,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;

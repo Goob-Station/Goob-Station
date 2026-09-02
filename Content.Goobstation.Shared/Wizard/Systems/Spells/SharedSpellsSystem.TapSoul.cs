@@ -1,5 +1,5 @@
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Events;
-using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Damage;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.IdentityManagement;

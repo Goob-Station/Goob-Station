@@ -3,7 +3,6 @@
 using System.Linq;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Systems;
-using Content.Shared._Goobstation.Wizard.BindSoul;
 using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Wizard.Systems;

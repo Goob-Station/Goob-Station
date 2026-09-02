@@ -16,7 +16,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Direction = Robust.Shared.Maths.Direction;
 
-namespace Content.Client._Shitcode.Wizard.MagicMirror;
+namespace Content.Goobstation.Client.WizardMirror;
 
 [GenerateTypedNameReferences]
 public sealed partial class WizardMirrorWindow : DefaultWindow
