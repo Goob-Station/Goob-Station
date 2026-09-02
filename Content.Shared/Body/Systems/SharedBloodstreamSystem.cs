@@ -682,20 +682,20 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         }
 
         // ent.Comp.BloodReferenceSolution = reagents.Clone(); // Goob, scaling max according to original volume; see below
-        // DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BloodReferenceSolution)); // Goob
 
         // Goob start: appropriately scale the target's BloodReferenceSolution according to their previous max volume
         var referenceSolution = reagents.Clone();
         referenceSolution.ScaleSolution(ent.Comp.BloodReferenceSolution.MaxVolume / referenceSolution.Volume); // Using the old max to scale the reference solution up/down
         referenceSolution.MaxVolume = ent.Comp.BloodReferenceSolution.MaxVolume; // This doesn't actually affect blood regeneration, but it'd be slopcode if I didn't set this
         ent.Comp.BloodReferenceSolution = referenceSolution;
-        DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BloodReferenceSolution));
         // Goob end
+        DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BloodReferenceSolution));
+
 
         if (currentVolume == FixedPoint2.Zero)
             return;
 
-        var solution = reagents.Clone(); // ent.Comp.BloodReferenceSolution.Clone(); // Goob, adjusted due to above fixes; this acts the same otherwise
+        var solution = reagents.Clone(); // Goob, adjusted due to above fixes; this acts the same otherwise
         solution.ScaleSolution(currentVolume / solution.Volume);
         SolutionContainer.AddSolution(ent.Comp.BloodSolution.Value, solution);
     }
