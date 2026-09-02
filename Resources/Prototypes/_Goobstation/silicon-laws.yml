@@ -65,3 +65,12 @@
   - Gambamov4
   - Gambamov5
   obeysTo: laws-owner-station
+
+# Ai starting laws weighted random
+- type: weightedRandom
+  id: AIStartingLawsets
+  weights:
+    Crewsimov: 0.5
+    Asimov: 0.2
+    NTDefault: 2
+    Corporate: 2
