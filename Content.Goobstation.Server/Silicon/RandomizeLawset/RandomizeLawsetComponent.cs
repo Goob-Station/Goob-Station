@@ -6,5 +6,6 @@ namespace Content.Goobstation.Server.Silicon.RandomizeLawset;
 [RegisterComponent]
 public sealed partial class RandomizeLawsetComponent : Component
 {
-    public string WeightedId;
+    [DataField(required: true)]
+    public ProtoId<WeightedRandomPrototype> WeightedId;
 }
