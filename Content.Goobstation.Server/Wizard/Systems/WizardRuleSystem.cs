@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Content.Goobstation.Server.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;

@@ -1,8 +1,6 @@
 using Content.Goobstation.Shared.Wizard.Events;
+using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Shitcode.Wizard.Components;
 using Content.Shared.Construction.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
@@ -15,6 +13,8 @@ using Content.Shared.Roles.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
+using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard;
 
 namespace Content.Goobstation.Shared.Wizard.Systems.Spells;
 

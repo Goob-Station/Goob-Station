@@ -2,9 +2,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.BindSoul;
+namespace Content.Goobstation.Shared.Wizard.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class PhylacteryComponent : Component
-{
-}
+public sealed partial class PhylacteryComponent : Component;
