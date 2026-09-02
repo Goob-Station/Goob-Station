@@ -199,7 +199,7 @@ public abstract class SharedMagicSystem : EntitySystem
             comp.RequiresSpeech,
             args.Performer
         );
-        RaiseLocalEvent(ent, ref ev);
+        RaiseLocalEvent(args.Performer, ref ev);
 
         var requiresSpeech = ev.RequiresSpeech;
         var flags = (SlotFlags) ev.SlotFlags;

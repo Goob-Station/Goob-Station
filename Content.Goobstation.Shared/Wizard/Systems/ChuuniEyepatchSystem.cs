@@ -14,6 +14,7 @@ using Content.Goobstation.Shared.Wizard.Components;
 using Content.Shared.Magic.Events;
 using Content.Shared.Magic;
 using Content.Goobstation.Common.Wizard.Events;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Goobstation.Shared.Wizard.Systems;
 
@@ -34,10 +35,11 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
         SubscribeLocalEvent<ChuuniEyepatchComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetSpellInvocationEvent>>(OnGetInvocation);
         SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetMessageColorOverrideEvent>>(OnGetPostfix);
-        SubscribeLocalEvent<ChuuniEyepatchComponent, ModifySpellRequirementsEvent>(OnModifySpellRequirements);
+        SubscribeLocalEvent<MobStateComponent, ModifySpellRequirementsEvent>(OnModifySpellRequirements);
     }
 
-    private void OnModifySpellRequirements(Entity<ChuuniEyepatchComponent> ent, ref ModifySpellRequirementsEvent args)
+    // would be preferable as an inventory relay thing but cant do that in common and is used in content.shared
+    private void OnModifySpellRequirements(Entity<MobStateComponent> ent, ref ModifySpellRequirementsEvent args)
     {
         if (!_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch)
             || !HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
