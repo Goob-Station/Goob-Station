@@ -1,23 +1,20 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Server.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Systems;
-using Content.Server._Goobstation.Wizard.Components;
-using Content.Server.Chat.Systems;
 using Content.Server.Humanoid;
-using Content.Server.Popups;
-using Content.Server.Toolshed.Commands.Misc;
-using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared.Chat;
 using Content.Shared.Humanoid;
+using Content.Shared.Popups;
 using Content.Shared.Sprite;
 using Content.Shared.Weapons.Ranged.Components;
-using Robust.Server.Console.Commands;
-using Robust.Server.GameObjects;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -27,12 +24,12 @@ public sealed class HulkSystem : SharedHulkSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedChatSystem _chat = default!;
 
     public override void Initialize()
     {
