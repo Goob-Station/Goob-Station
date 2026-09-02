@@ -79,18 +79,22 @@
   - type: SolutionContainerManager
     solutions:
       organ:
-        maxVol: 15 # goob edit
+        maxVol: 20 # goob edit
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
         - ReagentId: Cognizine # goob edit
           Quantity: 5 # goob edit
+        - ReagentId: GreyMatter #Goob
+          Quantity: 5 #Goob
       Lung:
         maxVol: 100
         canReact: False
       food:
-        maxVol: 5
+        maxVol: 15 #Goob
         reagents:
+        - ReagentId: Nutriment #Goob
+          Quantity: 10 #Goob
         - ReagentId: GreyMatter
           Quantity: 5
   - type: Tag # goob edit
