@@ -2,7 +2,7 @@
 
 using System.Numerics;
 
-namespace Content.Server._Goobstation.Wizard.Components;
+namespace Content.Goobstation.Server.Wizard.Components;
 
 /// <summary>
 /// This component is needed for accessing scale from server side. Required for HulkSystem

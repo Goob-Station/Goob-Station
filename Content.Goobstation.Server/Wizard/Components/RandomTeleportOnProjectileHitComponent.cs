@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Whitelist;
 
-namespace Content.Server._Goobstation.Wizard.Components;
+namespace Content.Goobstation.Server.Wizard.Components;
 
 [RegisterComponent]
 public sealed partial class RandomTeleportOnProjectileHitComponent : Component
