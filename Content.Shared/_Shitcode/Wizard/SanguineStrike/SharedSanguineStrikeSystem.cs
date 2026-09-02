@@ -14,7 +14,7 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems; // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 
 namespace Content.Shared._Goobstation.Wizard.SanguineStrike;
 
