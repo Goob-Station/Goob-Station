@@ -24921,3 +24921,9 @@ Entries:
       message: Buffed beast's blood but also made it more punishing.
   id: 2857
   time: '2026-09-03T13:26:54.0000000+00:00'
+- author: Mistabay
+  changes:
+    - type: Fix
+      message: Brigmedic's armored gown now has a back slot.
+  id: 2858
+  time: '2026-09-03T22:44:21.0000000+00:00'
