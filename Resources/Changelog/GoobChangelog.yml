@@ -24909,3 +24909,9 @@ Entries:
         doctor.
   id: 2855
   time: '2026-09-03T07:25:03.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Disabled flip dodge
+  id: 2856
+  time: '2026-09-03T07:26:29.0000000+00:00'
