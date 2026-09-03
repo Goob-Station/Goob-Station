@@ -24927,3 +24927,11 @@ Entries:
       message: Brigmedic's armored gown now has a back slot.
   id: 2858
   time: '2026-09-03T22:44:21.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: >-
+        The throngler is back in the cargo lottery pool. Sponsored by the Goob
+        Hugbox & Throngler Citizens' Party!
+  id: 2859
+  time: '2026-09-03T23:24:50.0000000+00:00'
