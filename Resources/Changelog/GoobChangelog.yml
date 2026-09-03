@@ -24893,3 +24893,11 @@ Entries:
       message: Fixed being unable to craft Bone Axe
   id: 2853
   time: '2026-09-03T07:18:12.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Ore lathes now print raw materials properly into storage in bulk instead
+        of having to print one by one.
+  id: 2854
+  time: '2026-09-03T07:20:58.0000000+00:00'
