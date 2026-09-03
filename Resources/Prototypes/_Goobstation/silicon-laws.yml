@@ -67,7 +67,7 @@
   obeysTo: laws-owner-station
 
 - type: siliconLawset
-  id: AsimovLawset
+  id: Asimov
   laws:
   - Asimov1
   - Asimov2
