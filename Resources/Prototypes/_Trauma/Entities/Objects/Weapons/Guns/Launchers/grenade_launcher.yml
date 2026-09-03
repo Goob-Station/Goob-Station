@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseItem
+  id: LauncherStickyGrenadeRegenerating
+  name: sticky grenade launcher
+  description: A self-reloading launcher that fires sticky grenades. They embed into whatever they hit and explode after 3 seconds.
+  suffix: Regenerating
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Large
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 25
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 15
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: BasicEntityAmmoProvider
+    proto: CartridgeStickyGrenade
+    capacity: 1
+    count: 1
+  - type: AmmoCounter

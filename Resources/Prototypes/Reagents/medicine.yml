@@ -245,10 +245,23 @@
             scale: 1.6
           damage:
           # todo scale with temp like SS13
-            Airloss: -3
-            Brute: -3 # Goob
-            Burn: -3 # Goob
-            Toxin: -2
+          # Goob - Cryo buff till temp scaling is implemented
+            Airloss: -9 # Goob - Cryobuff
+            Brute: -9 # Goob - Cryobuff
+            Burn: -9 # Goob - Cryobuff
+            Toxin: -6 # Goob - Cryobuff
+          # Omu Start -- add bloddloss back to cryox
+        - !type:ModifyBloodLevel
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          amount: 8
+        - !type:ModifyBleed
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          amount: -1
+          #Omu End
         - !type:GenericStatusEffect # Mono edit
           conditions:
           - !type:MetabolizerTypeCondition

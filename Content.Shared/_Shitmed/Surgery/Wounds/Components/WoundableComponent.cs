@@ -40,6 +40,9 @@ public sealed partial class WoundableComponent : Component
     [DataField]
     public bool AllowWounds = true;
 
+    [DataField]
+    public bool RedirectOverflowDamage;
+
     /// <summary>
     /// The same as DamageableComponent's one
     /// </summary>
@@ -182,9 +185,9 @@ public sealed partial class WoundableComponent : Component
     public DamageSpecifier? DamageOnAmputate;
 
     [DataField]
-    public Dictionary<TraumaType, FixedPoint2> TraumaDeductions = new()
+    public Dictionary<ProtoId<TraumaTypePrototype>, FixedPoint2> TraumaDeductions = new()
     {
-        {TraumaType.Dismemberment, 0.3f},
+        { "Dismemberment", 0.3f },
     };
 }
 
@@ -210,6 +213,4 @@ public sealed class WoundableComponentState : ComponentState
     public Dictionary<NetEntity, WoundableHealingMultiplier> HealingMultipliers = new();
 
     public WoundableSeverity WoundableSeverity;
-
-    public float HealingRateAccumulated;
 }

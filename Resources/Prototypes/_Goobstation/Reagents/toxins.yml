@@ -271,7 +271,7 @@
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts!
-          invert: true
+          inverted: true
 
 - type: reagent
   id: Tirizene
@@ -389,3 +389,80 @@
         - !type:MetabolizerTypeCondition # Goob, Vox are stinky
           type: [ Vox ]
           inverted: true
+
+- type: reagent
+  id: Caffeine
+  name: reagent-name-caffeine
+  group: Narcotics
+  desc: reagent-desc-caffeine
+  physicalDesc: reagent-physical-desc-bitter
+  flavor: bitter
+  color: "#6f4e37"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05 # Very slow so people actually can make use of its effect
+      effects:
+      - !type:Jitter
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caffeine
+          min: 20
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caffeine
+          min: 10
+          max: 60
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caffeine
+          min: 60
+      - !type:MovementSpeedModifier # Overdoing it MonkaS
+        walkSpeedModifier: 0.70
+        sprintSpeedModifier: 0.70
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caffeine
+          min: 60
+      - !type:PopupMessage
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caffeine
+          min: 100
+
+- type: reagent
+  id: JunkFood
+  name: reagent-name-junk-food
+  group: Narcotics
+  desc: reagent-desc-junk-food
+  physicalDesc: reagent-physical-desc-exhilarating
+  flavor: trashy
+  color: "#6f4e37"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.9
+        sprintSpeedModifier: 0.9
+        conditions:
+        - !type:ReagentCondition
+          reagent: JunkFood
+          min: 15
+          max: 50
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+        conditions:
+        - !type:ReagentCondition
+          reagent: JunkFood
+          min: 50
