@@ -87,7 +87,7 @@
   name: hydrakin heart
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Hydrakin ]
+    metabolizerTypes: [ Hydrakin, Animal ]
 
 - type: entity
   id: OrganHydrakinLungs
