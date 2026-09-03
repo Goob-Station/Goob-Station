@@ -24901,3 +24901,11 @@ Entries:
         of having to print one by one.
   id: 2854
   time: '2026-09-03T07:20:58.0000000+00:00'
+- author: J C Denton
+  changes:
+    - type: Tweak
+      message: >-
+        Brigmed's surgery speed has been increased to 1.5, same as medical
+        doctor.
+  id: 2855
+  time: '2026-09-03T07:25:03.0000000+00:00'
