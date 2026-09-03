@@ -14,7 +14,6 @@ public sealed class RandomizeAiLawsetSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     
-
     public override void Initialize()
     {
         SubscribeLocalEvent<RandomizeLawsetComponent, MapInitEvent>(OnMapInit);
