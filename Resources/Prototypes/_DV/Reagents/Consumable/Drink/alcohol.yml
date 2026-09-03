@@ -13,7 +13,7 @@
       effects:
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.2
+        amount: 0.5
     Narcotic:
       metabolismRate: 0.1
       effects:
