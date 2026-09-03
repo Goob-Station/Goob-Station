@@ -24881,3 +24881,9 @@ Entries:
         their species.
   id: 2851
   time: '2026-09-02T12:31:32.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to steal Energy Shotgun
+  id: 2852
+  time: '2026-09-03T07:17:37.0000000+00:00'
