@@ -29,7 +29,9 @@
     stealGroup: IDCard
   - type: MiningPoints # DeltaV
   - type: NanoChatCard # DeltaV
-  # Goobstation edit start
+  # <Goob>
+  - type: Shreddable
+    shredderState: shreddingID
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/card_pickup.ogg
@@ -45,7 +47,7 @@
       path: /Audio/_Goobstation/Items/handling/card_drop.ogg
       params:
         volume: -5
-  # Goobstation edit end
+  # </Goob>
 
 #IDs with layers
 
