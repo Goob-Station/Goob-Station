@@ -74,7 +74,7 @@
     #- id: WraithMidround # Goobstation - Wraith
     #TODO when midrounds are "reviewed" by the chudmins add them back
     #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
-    #- id: WizardSpawn # Goob. Unless?
+    - id: WizardMidround # Goobstation - Wizard
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
 
