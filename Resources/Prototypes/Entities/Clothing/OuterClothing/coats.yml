@@ -88,7 +88,7 @@
     - Tail
     - Arm
     - Leg
-    traumaDeductions: # Goobstation - 
+    traumaDeductions: # Goobstation -
       Dismemberment: 0.2
       OrganDamage: 0.2
       BoneDamage: 0.2
@@ -531,7 +531,7 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, BaseSecurityContraband] # Goobstation
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband] # Goobstation
   id: ClothingOuterCoatAMG
   name: armored medical gown
   description: The version of the medical gown, with elements of a bulletproof vest, looks strange, but your heart is protected.

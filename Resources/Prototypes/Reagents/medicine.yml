@@ -1708,7 +1708,8 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange
+      # - !type:EvenHealthChange # Goob, return Aloxadone to its pre-upstream strength
+      - !type:HealthChange
         conditions:
         - !type:TemperatureCondition
           max: 213.0
@@ -1717,7 +1718,12 @@
           max: 213.0
           scale: 1.6
         damage: # Goobstation - Cryo rebalance
-          Burn: -10.0
+          # Burn: -10.0
+          types: # Goob start; return Aloxadone to its pre-upstream strength
+            Heat: -10.0
+            Cold: -10.0
+            Shock: -10.0
+            Caustic: -10.0 # Goob end
       - !type:GenericStatusEffect # Mono edit
         conditions:
         - !type:MetabolizerTypeCondition

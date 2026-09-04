@@ -76,3 +76,13 @@
 # Science Modules
 
 # Service Modules
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedClowning
+  result: BorgModuleAdvancedClowning
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 375
