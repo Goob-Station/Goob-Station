@@ -24955,3 +24955,11 @@ Entries:
         them
   id: 2862
   time: '2026-09-04T10:24:29.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The Blueshield Officer now spawns with the appropriate blueshield chest
+        rig and not a syndicate chest rig.
+  id: 2863
+  time: '2026-09-04T10:55:37.0000000+00:00'
