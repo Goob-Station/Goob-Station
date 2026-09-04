@@ -1,7 +1,7 @@
 - type: species
   id: Feroxi
   name: species-name-feroxi
-  roundStart: false
+  roundStart: true
   prototype: MobFeroxi
   sprites: MobFeroxiSprites
   defaultSkinTone: "#8DB9D6"
