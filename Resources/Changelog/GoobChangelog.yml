@@ -24605,3 +24605,353 @@ Entries:
       message: Diona Nymphs can now be carried and put into bags.
   id: 2819
   time: '2026-08-23T18:59:15.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Add
+      message: Added moth bark from omu
+  id: 2820
+  time: '2026-08-24T07:25:47.0000000+00:00'
+- author: shackhorn
+  changes:
+    - type: Fix
+      message: Footprints are drinkable, not edible.
+  id: 2821
+  time: '2026-08-24T07:34:41.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Tweak
+      message: Octogen recipe now requires vestine
+  id: 2822
+  time: '2026-08-24T11:49:24.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        Antelope(Saiga-12), Bojevic, NZ CSG-242, Bulldog, double-barreled
+        shotgun, Enforcer, Kammerer, sawn-off shotgun, blunderbuss, improvised
+        shotgun, Hushpup - resprited
+    - type: Fix
+      message: fire fire axe and tempgun are now displayed correctly
+  id: 2823
+  time: '2026-08-25T01:55:28.0000000+00:00'
+- author: SkippyMcSkips
+  changes:
+    - type: Fix
+      message: Bananium Swords are craftable again. Clowns rejoice!
+  id: 2824
+  time: '2026-08-25T06:17:16.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to regenerate blood naturally
+    - type: Fix
+      message: Plasmaman lobbying bundle is now 20 instead of 4
+    - type: Fix
+      message: Butchering boots that has item inside now will drop all content
+  id: 2825
+  time: '2026-08-25T11:49:56.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed all Agent IDs spawning with, and only with Maintenance access
+        (including wizard, vox raider, etc.)
+  id: 2826
+  time: '2026-08-25T23:52:37.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed ONI'SOMA
+  id: 2827
+  time: '2026-08-25T23:53:19.0000000+00:00'
+- author: Andheisking
+  changes:
+    - type: Add
+      message: Added Mime Medal!
+  id: 2828
+  time: '2026-08-26T13:00:55.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Added a phantom pain trait.
+  id: 2829
+  time: '2026-08-26T13:49:52.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed supreme salvager cloak typo.
+    - type: Fix
+      message: Plasmaman is not capable of rotting now.
+    - type: Fix
+      message: Fixed derelict medical borg being unable to do surgery.
+    - type: Fix
+      message: Fixed barber scissor flickering if used on any entity.
+    - type: Fix
+      message: Fixed rummage can only be used once per trash bag.
+    - type: Fix
+      message: Fixed being able to put things inside biogenerator across screen.
+    - type: Fix
+      message: Now Bingle roles will properly deleted if the pit is destroyed
+    - type: Fix
+      message: Fixed being unable to get bible thief objective completed.
+    - type: Fix
+      message: Removed Snowball station
+  id: 2830
+  time: '2026-08-28T00:46:41.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        You can now analyze vials and mini vials with chemical analysis goggles
+        as intended.
+  id: 2831
+  time: '2026-08-28T07:24:16.0000000+00:00'
+- author: Aureu-K, Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Cryo chems can heal non-vital damage again. Cryoxadone also restores
+        blood as it used to.
+  id: 2832
+  time: '2026-08-28T07:25:00.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Mindshield Implants Crate cost decreased from 3000 spesos to 1500
+        spesos.
+  id: 2833
+  time: '2026-08-28T07:25:47.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Tweak
+      message: 'Square plasma tanks now fit in your back slot. '
+  id: 2834
+  time: '2026-08-28T22:23:35.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Borg sprites being errors
+  id: 2835
+  time: '2026-08-29T15:07:59.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed speech bubbles not having fonts
+  id: 2836
+  time: '2026-08-29T16:10:02.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added new researchable mining tools: diamond pickaxe, super mining
+        drill, super plasma cutter.
+    - type: Add
+      message: Added craftable wooden and ashwooden pickaxes.
+    - type: Add
+      message: >-
+        Added craftable cudgels - they require more wood than baseball bats but
+        focus more on structural damage.
+    - type: Add
+      message: Added Gibtonite ore to Lavaland. Beware of explosions!
+    - type: Add
+      message: >-
+        Gray and pale sprouts that grow on Lavaland now can be gathered and
+        crafted into cloth.
+    - type: Tweak
+      message: Bone axe is now more difficult to craft.
+  id: 2837
+  time: '2026-08-29T17:46:27.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: Gray matter is now obtainable from grinding brains.
+    - type: Tweak
+      message: Altered the chemical composition of most brains to make more sense.
+  id: 2838
+  time: '2026-08-29T17:47:10.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Tweak
+      message: Removed Energy Magnum from normal play
+  id: 2839
+  time: '2026-08-29T17:48:44.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        New nutriment called "Junk food" which is present in snack foods, if
+        eaten in excess, will cause you to become sluggish.
+    - type: Tweak
+      message: >-
+        Lowered the nutriment value of snack foods, and increased it for cooked
+        foods. The change will be barely noticeable, but snack food will now
+        theoretically not fuel you for the entire round as easily.
+    - type: Tweak
+      message: >-
+        The effect present in coffee that increases your movement speed if you
+        drink enough of it is now instead a new reagent called "Caffeine" which
+        does the same as it did in coffee, but now also affects other drinks.
+  id: 2840
+  time: '2026-08-29T17:49:11.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: >-
+        CHUDSHIFT no longer shows up as 'Unknown Title - Unknown Artist' in the
+        lobby.
+  id: 2841
+  time: '2026-08-29T17:53:26.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Normalised the volume of a lot of voices
+  id: 2842
+  time: '2026-08-29T17:56:00.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Area mopping and advance mop speed buff - to my beloved janitors
+  id: 2843
+  time: '2026-08-29T17:58:43.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: >-
+        Added the General Secretary of the Workers' Party of Goobstation, Rouge,
+        as a plushie
+  id: 2844
+  time: '2026-08-30T01:08:38.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Borgs movement sprites being nothing
+  id: 2845
+  time: '2026-08-31T15:27:52.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Amber alert now requires a significant threat or Captain / Hos + 1
+        command member to unlock it.
+  id: 2846
+  time: '2026-08-31T16:45:14.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Shadowkin, chitinids, yowie, hydrakin, and people with cybernetic livers
+        now properly metabolize ethanol at the standard metabolism rate
+        (0.05u/s).
+    - type: Tweak
+      message: >-
+        Ethanol poisoning now deals the damage it did pre-upstream (2 glasses of
+        absinthe have a non-zero chance of putting you into crit).
+    - type: Fix
+      message: Oni actually take reduced damage from ethanol poisoning.
+  id: 2847
+  time: '2026-09-01T00:35:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Stamina-altering chems and natural stamina regen ignore armor
+        resistances as intended.
+  id: 2848
+  time: '2026-09-01T00:41:42.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed vox and plasmaman getting disease
+  id: 2849
+  time: '2026-09-01T08:04:22.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: >-
+        Chitinads can no longer be injected, but this time by anything, take
+        your pills folk
+  id: 2850
+  time: '2026-09-01T21:23:01.0000000+00:00'
+- author: Duuckie, feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        Zombies and changelings have the appropriate amount of max blood for
+        their species.
+  id: 2851
+  time: '2026-09-02T12:31:32.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to steal Energy Shotgun
+  id: 2852
+  time: '2026-09-03T07:17:37.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to craft Bone Axe
+  id: 2853
+  time: '2026-09-03T07:18:12.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Ore lathes now print raw materials properly into storage in bulk instead
+        of having to print one by one.
+  id: 2854
+  time: '2026-09-03T07:20:58.0000000+00:00'
+- author: J C Denton
+  changes:
+    - type: Tweak
+      message: >-
+        Brigmed's surgery speed has been increased to 1.5, same as medical
+        doctor.
+  id: 2855
+  time: '2026-09-03T07:25:03.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Disabled flip dodge
+  id: 2856
+  time: '2026-09-03T07:26:29.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Tweak
+      message: Buffed beast's blood but also made it more punishing.
+  id: 2857
+  time: '2026-09-03T13:26:54.0000000+00:00'
+- author: Mistabay
+  changes:
+    - type: Fix
+      message: Brigmedic's armored gown now has a back slot.
+  id: 2858
+  time: '2026-09-03T22:44:21.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: >-
+        The throngler is back in the cargo lottery pool. Sponsored by the Goob
+        Hugbox & Throngler Citizens' Party!
+  id: 2859
+  time: '2026-09-03T23:24:50.0000000+00:00'
+- author: hzlayer
+  changes:
+    - type: Fix
+      message: Feroxi can now breathe pluoxium.
+  id: 2860
+  time: '2026-09-04T10:14:38.0000000+00:00'
+- author: Girl Skippy
+  changes:
+    - type: Add
+      message: Re-added the Clowning and Advanced Clowning modules to borgs
+  id: 2861
+  time: '2026-09-04T10:15:33.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: >-
+        Windoors no longer close automatically while you're on the same tile as
+        them
+  id: 2862
+  time: '2026-09-04T10:24:29.0000000+00:00'
