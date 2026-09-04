@@ -24935,3 +24935,9 @@ Entries:
         Hugbox & Throngler Citizens' Party!
   id: 2859
   time: '2026-09-03T23:24:50.0000000+00:00'
+- author: hzlayer
+  changes:
+    - type: Fix
+      message: Feroxi can now breathe pluoxium.
+  id: 2860
+  time: '2026-09-04T10:14:38.0000000+00:00'
