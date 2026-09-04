@@ -174,10 +174,11 @@
           - Dwarf
           - Yowie  # Goobstation - Yowie
           - Cybernetic # Shitmed - Cybernetic Organs
+          - Oni # Goobstation, fixes Oni taking base ethanol poisoning on top of their specific ethanol poisoning
           inverted: true
         damage:
           types:
-            Poison: 0.1
+            Poison: 1 # 0.1 # Goob; pre-upstream life-threatening ethanol poisoning damage
             # dwarves take less toxin damage and heal a marginal amount of brute
 # Goobstation Start
 #      - !type:HealthChange

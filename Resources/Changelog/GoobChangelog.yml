@@ -24822,3 +24822,128 @@ Entries:
         as a plushie
   id: 2844
   time: '2026-08-30T01:08:38.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Borgs movement sprites being nothing
+  id: 2845
+  time: '2026-08-31T15:27:52.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Amber alert now requires a significant threat or Captain / Hos + 1
+        command member to unlock it.
+  id: 2846
+  time: '2026-08-31T16:45:14.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Shadowkin, chitinids, yowie, hydrakin, and people with cybernetic livers
+        now properly metabolize ethanol at the standard metabolism rate
+        (0.05u/s).
+    - type: Tweak
+      message: >-
+        Ethanol poisoning now deals the damage it did pre-upstream (2 glasses of
+        absinthe have a non-zero chance of putting you into crit).
+    - type: Fix
+      message: Oni actually take reduced damage from ethanol poisoning.
+  id: 2847
+  time: '2026-09-01T00:35:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Stamina-altering chems and natural stamina regen ignore armor
+        resistances as intended.
+  id: 2848
+  time: '2026-09-01T00:41:42.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed vox and plasmaman getting disease
+  id: 2849
+  time: '2026-09-01T08:04:22.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: >-
+        Chitinads can no longer be injected, but this time by anything, take
+        your pills folk
+  id: 2850
+  time: '2026-09-01T21:23:01.0000000+00:00'
+- author: Duuckie, feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        Zombies and changelings have the appropriate amount of max blood for
+        their species.
+  id: 2851
+  time: '2026-09-02T12:31:32.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to steal Energy Shotgun
+  id: 2852
+  time: '2026-09-03T07:17:37.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to craft Bone Axe
+  id: 2853
+  time: '2026-09-03T07:18:12.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Ore lathes now print raw materials properly into storage in bulk instead
+        of having to print one by one.
+  id: 2854
+  time: '2026-09-03T07:20:58.0000000+00:00'
+- author: J C Denton
+  changes:
+    - type: Tweak
+      message: >-
+        Brigmed's surgery speed has been increased to 1.5, same as medical
+        doctor.
+  id: 2855
+  time: '2026-09-03T07:25:03.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Disabled flip dodge
+  id: 2856
+  time: '2026-09-03T07:26:29.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Tweak
+      message: Buffed beast's blood but also made it more punishing.
+  id: 2857
+  time: '2026-09-03T13:26:54.0000000+00:00'
+- author: Mistabay
+  changes:
+    - type: Fix
+      message: Brigmedic's armored gown now has a back slot.
+  id: 2858
+  time: '2026-09-03T22:44:21.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: >-
+        The throngler is back in the cargo lottery pool. Sponsored by the Goob
+        Hugbox & Throngler Citizens' Party!
+  id: 2859
+  time: '2026-09-03T23:24:50.0000000+00:00'
+- author: hzlayer
+  changes:
+    - type: Fix
+      message: Feroxi can now breathe pluoxium.
+  id: 2860
+  time: '2026-09-04T10:14:38.0000000+00:00'
+- author: Girl Skippy
+  changes:
+    - type: Add
+      message: Re-added the Clowning and Advanced Clowning modules to borgs
+  id: 2861
+  time: '2026-09-04T10:15:33.0000000+00:00'
