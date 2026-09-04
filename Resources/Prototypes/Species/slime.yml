@@ -3,7 +3,7 @@
 - type: species
   id: SlimePerson
   name: species-name-slime
-  roundStart: false
+  roundStart: true
   prototype: MobSlimePerson
   sprites: MobSlimeSprites
   defaultSkinTone: "#b8b8b8"
