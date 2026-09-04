@@ -1,0 +1,105 @@
+- type: entity
+  id: TerrorEggBase
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Goobstation/Terror/Objects/eggs.rsi
+    layers:
+    - state: terroreggs
+  - type: TimedDespawn
+    lifetime: 60.15
+  - type: TimedSpawner
+    intervalSeconds: 60
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: TerrorEggRed
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingRed
+
+- type: entity
+  id: TerrorEggGray
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingGray
+
+- type: entity
+  id: TerrorEggGreen
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingGreen
+
+- type: entity
+  id: TerrorEggBlack
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingBlack
+
+- type: entity
+  id: TerrorEggWhite
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingWhite
+
+- type: entity
+  id: TerrorEggPurple
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingPurple
+
+- type: entity
+  id: TerrorEggBrown
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingBrown
+
+- type: entity
+  id: TerrorEggPrince
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingPrince
+
+- type: entity
+  id: TerrorEggPrincess
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingPrincess
+
+- type: entity
+  id: TerrorEggMother
+  parent: TerrorEggBase
+  name: terror spider egg
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - SpiderlingMother

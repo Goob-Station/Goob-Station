@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from BeeStation-Hornet at https://github.com/BeeStation/BeeStation-Hornet/blob/ec2d6a7595f9ae53aeb18ba77c92205f6ed120bb/icons/mob/huds/antag_hud.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "nightmare"
+    }
+  ]
+}

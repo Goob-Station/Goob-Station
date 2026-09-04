@@ -1,0 +1,102 @@
+# Red
+- type: entity
+  id: TerrorSpiderRed
+  parent: BaseMobTerrorSpider
+  name: red terror spider
+  description: An ominous-looking red spider, it has eight beady red eyes, and nasty, big, pointy fangs! It looks like it has a vicious streak a mile wide.
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 15
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: VentCrawler
+  # Terror
+  - type: BerserkerRage
+  - type: TerrorSpider
+    spiderType: RedTerror
+
+# Gray
+- type: entity
+  id: TerrorSpiderGray
+  parent: BaseMobTerrorSpider
+  name: gray terror spider
+  description: An ominous-looking gray spider. It seems to blend into webs, making it hard to see.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: grey 
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: grey
+      Dead:
+        Base: grey_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+  - type: VentCrawler
+  # Terror
+  - type: BonusDamageOnStatusEffect
+    damageMultiplier: 2
+    requiredStatusEffects:
+    - Stun
+    - KnockedDown
+  - type: TerrorSpider
+    spiderType: GrayTerror
+
+# Green
+- type: entity
+  id: TerrorSpiderGreen
+  parent: BaseMobTerrorSpider
+  name: green terror spider
+  description: An ominous-looking green spider. It has a small egg-sac attached to it, and dried blood stains on its carapace.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: green
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: green
+      Dead:
+        Base: green_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+  - type: VentCrawler
+  # Terror
+  - type: SpiderEggLayer
+    generationInterval: 999999
+  - type: TerrorSpider
+    spiderType: GreenTerror
+  - type: ActionGrant
+    actions:
+    - ActionTerrorSlimyWeb
+    - ActionTerrorLayEggs

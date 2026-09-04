@@ -1,0 +1,77 @@
+# queen
+- type: entity
+  id: TerrorSpiderQueen
+  parent: BaseMobTerrorSpider
+  name: queen of terror
+  description: An enormous, terrifying spider. Its egg sac is almost as big as its body, and teeming with spider eggs!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Terror/Entities/Mobs
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: queen
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: queen
+      Dead:
+        Base: queen_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 1000
+  - type: BatteryAmmoProvider
+    proto: BulletToxicTerror
+    fireCost: 50
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: BatterySelfRecharger
+    autoRechargeRate: 25
+  - type: Gun
+    fireRate: 1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes: [ SemiAuto ]
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 0.3
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 4
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 20
+      types:
+        Structural: 60
+        Ion: 20
+  - type: GhostRole
+    description: terror-queen-briefing
+  - type: VentCrawler
+  # Terror
+  - type: TerrorQueenSense
+  - type: ProximityLeashAnchor
+    leashGroup: terrorSpider
+  - type: TerrorVentSmash
+  - type: SpiderEggLayer
+    generationInterval: 45
+    maxStoredEggs: 3
+  - type: TerrorSpider
+    spiderType: TerrorQueen
+  - type: ActionGrant
+    actions:
+    - ActionTerrorAirtightWeb
+    - ActionTerrorLayEggs
+    - ActionTerrorQueenSense
+    - ActionTerrorVentSmash

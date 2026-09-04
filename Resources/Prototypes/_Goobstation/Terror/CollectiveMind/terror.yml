@@ -1,0 +1,5 @@
+- type: collectiveMind
+  id: TerrorSpiderHivemind
+  name: collective-mind-terror
+  keycode: 'r'
+  color: "#8b0000"

@@ -1,0 +1,103 @@
+- type: terrorSpider
+  id: RedTerror
+  tier: 1
+  mobPrototype: TerrorSpiderRed
+
+- type: terrorSpider
+  id: GrayTerror
+  tier: 1
+  isInvisibleOnWeb: true
+  mobPrototype: TerrorSpiderGray
+
+- type: terrorSpider
+  id: GreenTerror
+  tier: 1
+  isEggLayer: true
+  mobPrototype: TerrorSpiderGreen
+  layConfig:
+    tiers:
+    - tier: 1
+      eggs:
+      - TerrorEggRed
+      - TerrorEggGray
+      - TerrorEggGreen
+      baseChance: 1.0
+
+- type: terrorSpider
+  id: BlackTerror
+  tier: 2
+  mobPrototype: TerrorSpiderBlack
+
+- type: terrorSpider
+  id: WhiteTerror
+  tier: 2
+  canInfestOnHit: true
+  mobPrototype: TerrorSpiderWhite
+
+- type: terrorSpider
+  id: PurpleTerror
+  tier: 2
+  mobPrototype: TerrorSpiderPurple
+
+- type: terrorSpider
+  id: BrownTerror
+  tier: 2
+  mobPrototype: TerrorSpiderBrown
+
+- type: terrorSpider
+  id: TerrorPrince
+  tier: 3
+  mobPrototype: TerrorSpiderPrince
+
+- type: terrorSpider
+  id: TerrorPrincess
+  tier: 3
+  isEggLayer: true
+  mobPrototype: TerrorSpiderPrincess
+  layConfig:
+    tiers:
+    - tier: 1
+      eggs:
+      - TerrorEggRed
+      - TerrorEggGray
+      - TerrorEggGreen
+      baseChance: 1.0
+
+- type: terrorSpider
+  id: TerrorMother
+  tier: 3
+  mobPrototype: TerrorSpiderMother
+
+- type: terrorSpider
+  id: TerrorQueen
+  tier: 4
+  isQueen: true
+  isEggLayer: true
+  mobPrototype: TerrorSpiderQueen
+  layConfig:
+    tiers:
+    - tier: 1
+      eggs:
+      - TerrorEggRed
+      - TerrorEggGray
+      - TerrorEggGreen
+      baseChance: 0.7
+    - tier: 2
+      eggs:
+      - TerrorEggBlack
+      - TerrorEggWhite
+      - TerrorEggPurple
+      - TerrorEggBrown
+      baseChance: 0.25
+      scaleWithHive: true
+      maxChance: 0.5
+      curveK: 5
+    - tier: 3
+      eggs:
+      - TerrorEggPrince
+      - TerrorEggPrincess
+      - TerrorEggMother
+      baseChance: 0.05
+      scaleWithHive: true
+      maxChance: 0.3
+      curveK: 8

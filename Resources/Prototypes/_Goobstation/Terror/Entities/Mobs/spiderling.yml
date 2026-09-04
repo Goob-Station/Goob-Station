@@ -1,0 +1,75 @@
+# Tier 1
+
+- type: entity
+  id: SpiderlingRed
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: RedTerror
+
+- type: entity
+  id: SpiderlingGray
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: GrayTerror
+
+- type: entity
+  id: SpiderlingGreen
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: GreenTerror
+
+# Tier 2
+
+- type: entity
+  id: SpiderlingBlack
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: BlackTerror
+
+- type: entity
+  id: SpiderlingWhite
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: WhiteTerror
+
+- type: entity
+  id: SpiderlingPurple
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: PurpleTerror
+
+- type: entity
+  id: SpiderlingBrown
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: BrownTerror
+
+# Tier 3
+
+- type: entity
+  id: SpiderlingPrince
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: TerrorPrince
+
+- type: entity
+  id: SpiderlingPrincess
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: TerrorPrincess
+
+- type: entity
+  id: SpiderlingMother
+  parent: MobSpiderlingBase
+  components:
+  - type: TerrorSpiderling
+    growsInto: TerrorMother

@@ -1,0 +1,18 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: Infested
+  name: infested
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - HumanoidAppearance
+    blacklist:
+      components:
+      - TerrorSpider
+  - type: StatusEffectAlert
+    alert: Infested
+  - type: Infested
+    damage:
+      groups:
+        Toxin: 2
