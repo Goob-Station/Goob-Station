@@ -85,12 +85,16 @@
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
 
-- type: stealTargetGroup
-  id: WeaponEnergyMagnum
-  name: steal-target-groups-weapon-energy-magnum
-  sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
-    state: icon
+# Goob Start - Removing Energy Magnum
+
+# - type: stealTargetGroup
+#   id: WeaponEnergyMagnum
+#   name: steal-target-groups-weapon-energy-magnum
+#   sprite:
+#     sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+#     state: icon
+
+# # Goob End - Removing Energy Magnum
 
 # Thief Collection
 

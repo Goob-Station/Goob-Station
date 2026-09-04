@@ -1,0 +1,13 @@
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  icon: { sprite: Objects/Misc/module.rsi, state: cpu_supply }
+  id: CargoBountyComputerCircuitboard
+  result: CargoBountyComputerCircuitboard
+  completetime: 4
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  icon: { sprite: Objects/Misc/module.rsi, state: cpu_supply }
+  id: SalvageJobBoardComputerCircuitboard
+  result: SalvageJobBoardComputerCircuitboard
+  completetime: 4

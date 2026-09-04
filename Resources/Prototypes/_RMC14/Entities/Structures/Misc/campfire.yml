@@ -2,7 +2,7 @@
   id: RMCCampfire
   parent: Bonfire
   name: campfire
-  description: A useful tool to turn fellow marines into lifelong friends. Pull up a chair!
+  description: A useful tool to turn fellow spessmen into lifelong friends. Pull up a chair!
   components:
   - type: Sprite
     noRot: true
@@ -10,3 +10,7 @@
     layers:
       - state: campfire
       - state: burning
+  - type: ParallaxStargaze # Goob
+  - type: Construction # Goob
+    graph: RMCCampfire
+    node: campfire
