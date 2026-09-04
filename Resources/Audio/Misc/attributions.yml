@@ -94,3 +94,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Citadel station"
   source: "https://github.com/Citadel-Station-13/Citadel-Station-13/blob/e31455667ebf3331255c1143e1e7215bc737a287/sound/misc/deltakalaxon.ogg"
+
+- files: [ "Alert_state_change" ]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Battlefield 14"
+  source: "https://github.com/PunishedJoe/Battlefield14"

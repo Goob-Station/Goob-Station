@@ -11,28 +11,28 @@
       shuttleTime: 600
     blue:
       announcement: alert-level-blue-announcement
-      sound: /Audio/Misc/bluealert.ogg
+      sound: /Audio/Misc/Alert_State_Change.ogg
       color: DodgerBlue
       forceEnableEmergencyLights: true
       emergencyLightColor: DodgerBlue
       shuttleTime: 600
     violet:
       announcement: alert-level-violet-announcement
-      sound: /Audio/Misc/notice1.ogg
+      sound: /Audio/Misc/Alert_State_Change.ogg
       color: Violet
       emergencyLightColor: Violet
       forceEnableEmergencyLights: true
       shuttleTime: 600
     yellow:
       announcement: alert-level-yellow-announcement
-      sound: /Audio/Misc/notice1.ogg
+      sound: /Audio/Misc/Alert_State_Change.ogg
       color: Yellow
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true
       shuttleTime: 600
     red:
       announcement: alert-level-red-announcement
-      sound: /Audio/Misc/redalert.ogg
+      sound: /Audio/Misc/Alert_State_Change.ogg
       color: Red
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
@@ -97,14 +97,14 @@
       selectable: false
       emagSelectable: true
       sound:
-        path: /Audio/Items/bikehorn.ogg
+        path: /Audio/Misc/Alert_State_Change.ogg
       color: Magenta
       emergencyLightColor: Magenta
       forceEnableEmergencyLights: true
       shuttleTime: 600
     amber: # Goobstation
       announcement: alert-level-amber-announcement
-      sound: /Audio/_Goobstation/Announcements/amberalarm.ogg
+      sound: /Audio/Misc/Alert_State_Change.ogg
       color: "#8A3324"
       emergencyLightColor: "#8A3324"
       forceEnableEmergencyLights: true
