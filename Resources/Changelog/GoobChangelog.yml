@@ -24881,3 +24881,85 @@ Entries:
         their species.
   id: 2851
   time: '2026-09-02T12:31:32.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to steal Energy Shotgun
+  id: 2852
+  time: '2026-09-03T07:17:37.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to craft Bone Axe
+  id: 2853
+  time: '2026-09-03T07:18:12.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Ore lathes now print raw materials properly into storage in bulk instead
+        of having to print one by one.
+  id: 2854
+  time: '2026-09-03T07:20:58.0000000+00:00'
+- author: J C Denton
+  changes:
+    - type: Tweak
+      message: >-
+        Brigmed's surgery speed has been increased to 1.5, same as medical
+        doctor.
+  id: 2855
+  time: '2026-09-03T07:25:03.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Disabled flip dodge
+  id: 2856
+  time: '2026-09-03T07:26:29.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Tweak
+      message: Buffed beast's blood but also made it more punishing.
+  id: 2857
+  time: '2026-09-03T13:26:54.0000000+00:00'
+- author: Mistabay
+  changes:
+    - type: Fix
+      message: Brigmedic's armored gown now has a back slot.
+  id: 2858
+  time: '2026-09-03T22:44:21.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: >-
+        The throngler is back in the cargo lottery pool. Sponsored by the Goob
+        Hugbox & Throngler Citizens' Party!
+  id: 2859
+  time: '2026-09-03T23:24:50.0000000+00:00'
+- author: hzlayer
+  changes:
+    - type: Fix
+      message: Feroxi can now breathe pluoxium.
+  id: 2860
+  time: '2026-09-04T10:14:38.0000000+00:00'
+- author: Girl Skippy
+  changes:
+    - type: Add
+      message: Re-added the Clowning and Advanced Clowning modules to borgs
+  id: 2861
+  time: '2026-09-04T10:15:33.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: >-
+        Windoors no longer close automatically while you're on the same tile as
+        them
+  id: 2862
+  time: '2026-09-04T10:24:29.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The Blueshield Officer now spawns with the appropriate blueshield chest
+        rig and not a syndicate chest rig.
+  id: 2863
+  time: '2026-09-04T10:55:37.0000000+00:00'
