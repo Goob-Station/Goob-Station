@@ -24947,3 +24947,11 @@ Entries:
       message: Re-added the Clowning and Advanced Clowning modules to borgs
   id: 2861
   time: '2026-09-04T10:15:33.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: >-
+        Windoors no longer close automatically while you're on the same tile as
+        them
+  id: 2862
+  time: '2026-09-04T10:24:29.0000000+00:00'
