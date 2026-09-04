@@ -6,7 +6,7 @@ namespace Content.Goobstation.Shared.Shredder;
 public sealed partial class ShreddableComponent : Component
 {
     /// <summary>
-    /// What state to switch to, used so in the future people can add shredding to more things
+    /// What state to switch to, used so multiple items can have unique shredding sprites.
     /// </summary>
     [DataField]
     public string ShredderState = "shredding";
