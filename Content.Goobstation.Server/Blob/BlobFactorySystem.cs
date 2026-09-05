@@ -92,6 +92,24 @@ public sealed class BlobFactorySystem : EntitySystem
     private const string Bicaridine = "Bicaridine";
 
     [ValidatePrototypeId<ReagentPrototype>]
+    private const string ChloralHydrate = "ChloralHydrate";
+
+    [ValidatePrototypeId<ReagentPrototype>]
+    private const string Profanol = "Profanol";
+
+    [ValidatePrototypeId<ReagentPrototype>]
+    private const string PolytrinicAcid = "PolytrinicAcid";
+
+    [ValidatePrototypeId<ReagentPrototype>]
+    private const string Ipecac = "Ipecac";
+
+    [ValidatePrototypeId<ReagentPrototype>]
+    private const string Razorium = "Razorium";
+
+    [ValidatePrototypeId<ReagentPrototype>]
+    private const string Fresium = "Fresium";
+
+    [ValidatePrototypeId<ReagentPrototype>]
     private const string Aluminium = "Aluminium";
     [ValidatePrototypeId<ReagentPrototype>]
     private const string Iron = "Iron";
@@ -129,6 +147,22 @@ public sealed class BlobFactorySystem : EntitySystem
             default:
                 blobGas.AddSolution(new Solution(TearGas, FixedPoint2.New(30)),_prototypeManager);
                 break;
+            case BlobChemType.ComatoseFiber:
+                blobGas.AddSolution(new Solution(ChloralHydrate, FixedPoint2.New(30)),_prototypeManager);
+                break;
+            case BlobChemType.ChainCoating:
+                blobGas.AddSolution(new Solution(Razorium, FixedPoint2.New(30)),_prototypeManager);
+                break;
+            case BlobChemType.SinewyTendons:
+                blobGas.AddSolution(new Solution(Ipecac, FixedPoint2.New(15)),_prototypeManager);
+                blobGas.AddSolution(new Solution(Profanol, FixedPoint2.New(15)),_prototypeManager);
+                break;
+            case BlobChemType.CorrosiveSlime:
+                blobGas.AddSolution(new Solution(PolytrinicAcid, FixedPoint2.New(30)),_prototypeManager);
+                break;
+            case BlobChemType.CryogenicPoison:
+                blobGas.AddSolution(new Solution(Fresium, FixedPoint2.New(30)),_prototypeManager);
+                break;
         }
     }
 
@@ -142,6 +176,10 @@ public sealed class BlobFactorySystem : EntitySystem
 
         // forget dead pods
         component.BlobPods = component.BlobPods.Where(b => !TerminatingOrDeleted(b) && _mobState.IsAlive(b)).ToList();
+        if (blobCoreComponent.CurrentChem == BlobChemType.SinewyTendons)
+        {
+            component.SpawnLimit = 5;
+        }
 
         if (component.BlobPods.Count >= component.SpawnLimit)
             return;
@@ -162,5 +200,6 @@ public sealed class BlobFactorySystem : EntitySystem
 
         //smokeOnTrigger.SmokeColor = blobCoreComponent.ChemСolors[blobCoreComponent.CurrentChem];
         component.Accumulator = 0;
+        component.SpawnLimit = 3;
     }
 }

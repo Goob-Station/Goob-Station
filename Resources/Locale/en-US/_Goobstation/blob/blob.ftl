@@ -80,22 +80,38 @@ blob-target-already-connected = already connected
 # UI
 blob-chem-swap-ui-window-name = Swap chemicals
 blob-chem-reactivespines-info = Reactive Spines
-                                Deals 25 brute damage.
+                                Deals 8 brute, 8 slash, 8 pierce and 150 structural damage.
 blob-chem-blazingoil-info = Blazing Oil
-                            Deals 15 burn damage and lights targets on fire.
+                            Deals 15 burn and 150 structural damage, lights targets on fire.
                             Makes you vulnerable to water.
 blob-chem-regenerativemateria-info = Regenerative Materia
-                                    Deals 6 brute damage and 15 toxin damage.
-                                    The blob core regenerates health 10 times faster than normal and generates 1 extra resource.
+                                    Deals 150 structural damage and 15 toxin damage.
+                                    The blob core regenerates health 10 times faster than normal and resource blobs generates 1 extra resource.
 blob-chem-explosivelattice-info = Explosive Lattice
-                                    Deals 5 burn damage and explodes the target, dealing 10 brute damage.
+                                    Deals 5 burn damage and 150 structural damage, explodes the target, dealing 10 brute damage.
                                     Spores explode on death.
                                     You become immune to explosions.
                                     You take 50% more damage from burns and electrical shock.
 blob-chem-electromagneticweb-info = Electromagnetic Web
-                                    Deals 20 burn damage, 20% chance to cause an EMP pulse when attacking.
+                                    Deals 20 burn damage and 150 structural damage, 20% chance to cause an EMP pulse when attacking.
                                     Blob tiles cause an EMP pulse when destroyed.
                                     You take 25% more brute and heat damage.
+blob-chem-comatosefiber-info = Comatose Fiber
+                                Deals 22 asphyxiation damage and 150 structural damage.
+blob-chem-chaincoating-info = Chain Coating
+                                Deals 12 slash and blunt damage, and 150 structural damage.
+                                The blob becomes more resistant to all types of damage.
+                                Resource production is reduced.
+blob-chem-sinewytendons-info = Sinewy Tendons
+                                Heals 8 blunt, slash, poisons, punctures, asphyxiation, cold, and burns per hit.
+                                Pulse frequency increases, maximum number of pods increases from 3 to 5.
+                                Factories and resource blobs are cheaper.
+blob-chem-corrosiveslime-info = Corrosive Slime
+                                Deals 320 structural damage, 2 cellular damage, and 13 acid damage.
+                                Blob node price increased from 50 to 100.
+blob-chem-cryogenicpoison-info = Cryogenic Poison
+                                Deals 16 cold damage, 4 slash damage, and 100 structural damage.
+
 
 blob-alert-out-off-station = The blob was removed because it was found outside the station!
 

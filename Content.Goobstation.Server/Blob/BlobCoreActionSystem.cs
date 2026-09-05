@@ -179,9 +179,25 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         }
 
         var cost = core.Comp.BlobTileCosts[BlobTileType.Normal];
+
+        switch (core.Comp.CurrentChem)
+        {
+            case BlobChemType.ChainCoating:
+                cost *= 1.5f;
+                break;
+        }
+
         if (targetTileEmpty)
         {
-            cost *= 2.5f;
+            switch (core.Comp.CurrentChem)
+            {
+                case BlobChemType.ComatoseFiber:
+                    cost *= 1f;
+                    break;
+                default:
+                    cost *= 2.5f;
+                    break;
+            }
 
             var plating = _tileDefinitionManager["Plating"];
             var platingTile = new Tile(plating.TileId);
