@@ -1,0 +1,5 @@
+# size used by topicals
+- type: stack
+  abstract: true
+  id: BaseTopicalStack
+  maxCount: 15

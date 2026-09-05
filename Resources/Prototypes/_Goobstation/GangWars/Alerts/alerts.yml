@@ -1,0 +1,22 @@
+- type: alert
+  id: GangBonus
+  icons:
+  - sprite: /Textures/_Goobstation/Gangs/GangAlerts/gang_bonus.rsi
+    state: dark
+  - sprite: /Textures/_Goobstation/Gangs/GangAlerts/gang_bonus.rsi
+    state: icon
+  - sprite: /Textures/_Goobstation/Gangs/GangAlerts/gang_bonus.rsi
+    state: healing
+  - sprite: /Textures/_Goobstation/Gangs/GangAlerts/gang_bonus.rsi
+    state: healingfast
+  maxSeverity: 4
+  name: alerts-gang-bonus-name
+  description: alerts-gang-bonus-desc
+
+- type: alert
+  id: GangTrapped
+  icons:
+  - sprite: /Textures/_Goobstation/Gangs/GangAlerts/trapped.rsi
+    state: icon
+  name: alerts-gang-trapped-name
+  description: alerts-gang-trapped-desc

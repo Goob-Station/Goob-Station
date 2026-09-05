@@ -58,3 +58,5 @@ public sealed class BeforeXenomorphEvolutionEvent(ProtoId<XenomorphCastePrototyp
     public ProtoId<XenomorphCastePrototype> Caste = caste;
     public bool CheckNeedCasteDeath = checkNeedCasteDeath;
 }
+
+public sealed class XenomorphsAnnouncedEvent : EntityEventArgs;
