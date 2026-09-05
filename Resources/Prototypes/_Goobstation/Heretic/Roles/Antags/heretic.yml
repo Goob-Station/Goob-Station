@@ -11,7 +11,7 @@
     time: 54000 # 15h
   guides: [ Heretics ]
 
-- type: antag
+- type: Heretic
   id: Ghoul
   name: roles-antag-ghoul-name
   antagonist: true
