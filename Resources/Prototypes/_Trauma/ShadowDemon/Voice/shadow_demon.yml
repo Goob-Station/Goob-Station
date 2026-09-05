@@ -1,0 +1,7 @@
+﻿- type: emoteSounds
+  id: ShadowDemon
+  sounds:
+    Laugh:
+      collection: ShadowDemonLaugh
+    Scream:
+      collection: ShadowDemonScream

@@ -1,0 +1,85 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: RanchIncubator
+  name: incubator
+  description: Put an egg in here to make a chicken!
+  components:
+  - type: Sprite
+    sprite: _Trauma/Structures/Machines/ranchobjects.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: incubator
+    - state: incubator-egg
+      map: ["egg"]
+      visible: false
+  - type: ApcPowerReceiver
+    powerLoad: 20
+  - type: Machine
+    board: RanchIncubatorCircuitboard
+  - type: ItemSlots
+    slots:
+      egg-slot:
+        priority: 4
+        whitelist:
+          tags:
+          - Egg
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      egg-slot: !type:ContainerSlot
+  - type: GenericVisualizer
+    visuals:
+      enum.EggIncubatorVisuals.Egg:
+        egg:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: EggIncubator
+
+- type: entity
+  parent: PetCarrier
+  id: ChickenCarrier
+  name: chicken carrier
+  description: Allows chickens to be carried comfortably. It smells vaguely of toilet water and explosives.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: OverMobs
+    sprite: _Trauma/Structures/Machines/ranchobjects.rsi
+    layers:
+    - state: chicken-carrier
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: chicken-carrier
+      map: [ "enum.StorageVisualLayers.Door" ]
+  - type: EntityStorage
+    capacity: 1
+    airtight: false
+    showContents: true
+    whitelist:
+      tags:
+      - Chicken
+  - type: EntityStorageVisuals
+    stateDoorOpen: chicken-carrier
+    stateDoorClosed: chicken-carrier
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+        showEnts: True
+      paper_label: !type:ContainerSlot
+        showEnts: False
+
+- type: entity
+  parent: BaseStructure
+  id: RanchBox
+  name: nesting box
+  description: Was a nice place for a hen to lay her eggs. Due to advancements in bluespace chickens science, they no longer have to.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Structures/Machines/ranchobjects.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    state: box

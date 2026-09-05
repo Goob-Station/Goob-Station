@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from goonstation at https://github.com/goonstation/goonstation/blob/bf6c41c62ee24aa2bb0f8dee22a3d8836c389665/icons/obj/items/belts.dmi, https://github.com/goonstation/goonstation/blob/bf6c41c62ee24aa2bb0f8dee22a3d8836c389665/icons/mob/clothing/belt.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    }
+  ]
+}

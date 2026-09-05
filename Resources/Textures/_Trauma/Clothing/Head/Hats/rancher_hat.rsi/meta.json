@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from goonstation at https://github.com/goonstation/goonstation/blob/9dac4b64199a622a76c9b54a33e7f06e485fa02b/icons/mob/clothing/head.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    }
+  ]
+}

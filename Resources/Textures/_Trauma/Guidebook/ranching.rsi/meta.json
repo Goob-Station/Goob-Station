@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Created by John John",
+    "size": {
+        "x": 993,
+        "y": 810
+    },
+    "states": [
+        {
+            "name": "icon"
+        }
+    ]
+}

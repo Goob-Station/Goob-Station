@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: BasePDA
+  id: RancherPDA
+  name: rancher PDA
+  description: The second best friend of a rancher!
+  components:
+  - type: Sprite
+    state: pda-rancher
+  - type: Icon
+    state: pda-rancher
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-rancher
+  - type: Pda
+    id: RancherIDCard
+  - type: PdaBorderColor
+    borderColor: "#4eb349"
+    accentVColor: "#60c95b"

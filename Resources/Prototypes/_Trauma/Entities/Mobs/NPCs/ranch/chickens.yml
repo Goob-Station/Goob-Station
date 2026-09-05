@@ -1,0 +1,1859 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: BaseMobChickRanch
+  name: chicken
+  description: Comes before an egg, and IS a dinosaur!
+  components:
+  - type: UnhappyWhenCrowded
+    tag: Chicken
+  - type: Happiness
+  - type: NpcFactionMember
+    factions:
+    - Chicken
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: chick
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      20: Critical
+      50: Dead
+  - type: AnimalAgeing
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: chick
+      Critical:
+        Base: chick-dead
+      Dead:
+        Base: chick-dead
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 8
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Speech
+    speechVerb: SmallMob
+    speechSounds: Cluck
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Chicken
+    - VimPilot
+  - type: Appearance
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatChicken
+      amount: 3
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-bird
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/chicken_cluck_happy.ogg
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
+  - type: Unrevivable
+  - type: ExaminableHunger
+  - type: Hunger
+    thresholds:
+      Overfed: 100
+      Okay: 50
+      Peckish: 35
+      Starving: 20
+      Dead: 15
+    starvationDamage:
+      types:
+        Asphyxiation: 1
+
+- type: entity
+  abstract: true
+  parent: BaseMobChickRanch
+  id: BaseMobAdultChickenRanch
+  components:
+  - type: AnimalAgeing # Not exactly needed, but probably should do for spawning in
+    currentAgeState: Adult
+    yearsOld: 15
+  - type: GroupRetaliation
+    range: 5
+
+- type: entity
+  abstract: true
+  parent: [BaseMobAdultChickenRanch, MobCombat]
+  id: BaseMobRoosterRanch
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: rooster
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Critical
+      100: Dead
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 10
+  - type: NPCRetaliation
+    attackMemoryLength: 60
+  - type: EggFertilizer
+  - type: HostileWhenUnhappy
+    unhappyTask: !type:HTNCompoundTask
+      task: SimpleHostileCompound
+    happyTask: !type:HTNCompoundTask
+      task: RoosterCompound
+  - type: HTN
+    rootTask:
+      task: RoosterCompound
+    blackboard:
+      MinimumIdleTime: !type:Single
+        5
+      MaximumIdleTime: !type:Single
+        20
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: rooster
+      Critical:
+        Base: rooster-dead
+      Dead:
+        Base: rooster-dead
+
+- type: entity
+  abstract: true
+  parent: BaseMobAdultChickenRanch
+  id: BaseMobHenRanch
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      90: Dead
+  - type: RanchingEggLayer
+  - type: MostRecentlyEatenFoodTags
+  - type: Happiness
+  - type: HTN
+    rootTask:
+      task: HenCompound
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: hen
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hen
+      Critical:
+        Base: hen-dead
+      Dead:
+        Base: hen-dead
+
+# White
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickWhite
+  name: white chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobWhiteHen
+    - MobWhiteRooster
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobWhiteHen
+  name: white hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+  - type: VomitCounter
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobWhiteRooster
+  name: white rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-white.rsi
+
+# Brown
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickBrown
+  name: brown chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobBrownHen
+    - MobBrownRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobBrownHen
+  name: brown hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobBrownRooster
+  name: brown rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-brown.rsi
+  - type: AddComponentOnHappy
+    components:
+    - type: EggFertilizer
+      specialReplacement: MobChickGolden
+
+# Void
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickVoid
+  name: void chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobVoidHen
+    - MobVoidRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
+  - type: FavoriteFood
+    tag:
+    - EggPlant
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobVoidHen
+  name: void hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobVoidRooster
+  name: void rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-purple.rsi
+
+# Ixworth
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickIxworth
+  name: ixworth chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobIxworthHen
+    - MobIxworthRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
+  - type: FavoriteFood
+    tag:
+    - Tomato
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobIxworthHen
+  name: ixworth hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobIxworthRooster
+  name: ixworth rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pet.rsi
+
+# Silkie
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickSilkie
+  name: silkie chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSilkieHen
+    - MobSilkieRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobSilkieHen
+  name: silkie hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobSilkieRooster
+  name: silkie rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+# Black Silkie
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickBlackSilkie
+  name: black silkie chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobBlackSilkieHen
+    - MobBlackSilkieRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobBlackSilkieHen
+  name: black silkie hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
+  - type: SpawnEntityOnOldAgeDeath
+    happyDeathEnt: DreamEgg
+    sadDeathEnt: PoultrygeistEgg
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobBlackSilkieRooster
+  name: black silkie rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_black.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
+
+# White Silkie
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickWhiteSilkie
+  name: white silkie chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobWhiteSilkieHen
+    - MobWhiteSilkieRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobWhiteSilkieHen
+  name: white silkie hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobWhiteSilkieRooster
+  name: white silkie rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-silkie_white.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+# Selkie Silkie
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickSelkie
+  name: selkie chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSelkieHen
+    - MobSelkieRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-sea.rsi
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobSelkieHen
+  name: selkie hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-sea.rsi
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobSelkieRooster
+  name: selkie rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-sea.rsi
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: StoneEgg
+    specialReplacement: CoralEgg
+
+# Snow chicken
+
+- type: entity
+  abstract: true
+  id: BaseChickenCold
+  components:
+  - type: TemperatureDamage
+    heatDamageThreshold: 273.15
+    coldDamageThreshold: 200
+
+- type: entity
+  parent: [BaseChickenCold, BaseMobChickRanch]
+  id: MobChickSnow
+  name: snow chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSnowHen
+    - MobSnowRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-snow.rsi
+
+- type: entity
+  parent: [BaseChickenCold, BaseMobHenRanch]
+  id: MobSnowHen
+  name: snow hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-snow.rsi
+
+- type: entity
+  parent: [BaseChickenCold, BaseMobRoosterRanch]
+  id: MobSnowRooster
+  name: snow rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-snow.rsi
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: CandyEgg
+    specialReplacement: SickleEgg
+
+# Dream
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickDream
+  name: dream chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobDreamHen
+    - MobDreamRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobDreamRooster
+  name: dream rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobDreamHen
+  name: dream hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dream.rsi
+  - type: FavoriteFood
+    tag:
+    - DeliciousLookingApple
+
+# Poultrygeist
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickPoultrygeist
+  name: poultrygeist chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobPoultrygeistHen
+    - MobPoultrygeistRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobPoultrygeistHen
+  name: poultrygeist hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobPoultrygeistRooster
+  name: poultrygeist rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-ghost.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
+
+# Spicy
+
+- type: entity
+  abstract: true
+  id: BaseChickenSpicy
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileAnomalyFireball
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.4
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: HTN
+    rootTask:
+      task: RangedRoosterCompound
+  - type: Damageable
+    damageModifierSet: SpicyChicken
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickSpicy
+  name: spicy chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSpicyHen
+    - MobSpicyRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+  - type: Damageable
+    damageModifierSet: SpicyChicken
+  - type: FavoriteFood
+    tag:
+    - Chili
+
+- type: entity
+  parent: [BaseChickenSpicy, BaseMobHenRanch]
+  id: MobSpicyHen
+  name: spicy hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+  - type: FavoriteFood
+    tag:
+    - Chili
+
+- type: entity
+  parent: [BaseChickenSpicy, BaseMobRoosterRanch]
+  id: MobSpicyRooster
+  name: spicy rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-spicy.rsi
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: OnagadoriEgg
+    specialReplacement: PhoenixEgg
+  - type: FavoriteFood
+    tag:
+    - Chili
+
+# Pigeon
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickPigeon
+  name: carrier pigeon chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobPigeonHen
+    - MobPigeonRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pigeon.rsi
+  - type: FavoriteFood
+    tag:
+    - Peas
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobPigeonHen
+  name: carrier pigeon hen
+  components:
+  - type: SpawnLootOnDeath
+    table:
+      id: PigeonEggInedible
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pigeon.rsi
+  - type: FavoriteFood
+    tag:
+    - Peas
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobPigeonRooster
+  name: carrier pigeon rooster
+  components:
+  - type: SpawnLootOnDeath
+    table:
+      id: PigeonEggInedible
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-pigeon.rsi
+  - type: FavoriteFood
+    tag:
+    - Peas
+
+# Cotton Candy
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickCandy
+  name: cotten candy chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobCandyHen
+    - MobCandyRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
+  - type: FavoriteFood
+    tag:
+    - Sugar
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobCandyHen
+  name: cotten candy hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
+  - type: Bounceable
+    entityToSpawn: ZappyEgg
+    effects:
+    - !type:ThrowRandomly
+      speed: 5
+  - type: FavoriteFood
+    tag:
+    - Sugar
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobCandyRooster
+  name: cotten candy rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-candy.rsi
+  - type: FavoriteFood
+    tag:
+    - Sugar
+  - type: Bounceable
+    entityToSpawn: ZappyEgg
+    effects:
+    - !type:ThrowRandomly
+      speed: 5
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: SnowEgg
+    specialReplacement: SickleEgg
+
+# Golden
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickGolden
+  name: golden chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobGoldenHen
+    - MobGoldenRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
+  - type: FavoriteFood
+    tag:
+    - ClearCorn
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobGoldenHen
+  name: golden hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
+  - type: FavoriteFood
+    tag:
+    - ClearCorn
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobGoldenRooster
+  name: golden rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-golden.rsi
+  - type: FavoriteFood
+    tag:
+    - ClearCorn
+
+# Clown
+
+- type: entity
+  abstract: true
+  id: BaseChickenClown
+  components:
+  - type: Inventory
+    templateId: RanchChicken
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+  - type: FavoriteFood
+    tag:
+    - Banana
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-bird
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Items/Toys/pushHornHonk.ogg
+  - type: MeleeWeapon
+    soundHit:
+      collection: BikeHorn
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+  - type: SpamEmitSound
+    minInterval: 2
+    maxInterval: 12
+    sound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+
+- type: entity
+  parent: [BaseChickenClown, BaseMobChickRanch]
+  id: MobChickClown
+  name: clown chick #TODO think of a funny pun to use instead
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobClownHen
+    - MobClownRooster
+  - type: ReplaceOnItemEquipped
+    ent: MobChickMime
+    requiredTags:
+    - Cigarette
+  - type: Tag
+    tags:
+    - FootstepSound
+
+- type: entity
+  parent: [BaseChickenClown, BaseMobHenRanch]
+  id: MobClownHen
+  name: henk
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: ReplaceOnItemEquipped
+    ent: MobMimeHen
+    requiredTags:
+    - Cigarette
+  - type: ReplaceOnUnhappy
+    ent: MobCluwneHen
+  - type: Tag
+    tags:
+    - FootstepSound
+
+- type: entity
+  parent: [BaseChickenClown, BaseMobRoosterRanch]
+  id: MobClownRooster
+  name: henkster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-honk.rsi
+  - type: ReplaceOnItemEquipped
+    ent: MobMimeRooster
+    requiredTags:
+    - Cigarette
+  - type: ReplaceOnUnhappy
+    ent: MobCluwneRooster
+  - type: Tag
+    tags:
+    - FootstepSound
+
+# Cluwne
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickCluwne
+  name: huOnkHoNkHoeNKs
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cluwne.rsi
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobCluwneHen
+    - MobCluwneRooster
+  - type: FavoriteFood
+    tag:
+    - Banana
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobCluwneHen
+  name: huOnkHoNkHoeNKs
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cluwne.rsi
+  - type: FavoriteFood
+    tag:
+    - Banana
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobCluwneRooster
+  name: huOnkHoNkHoeNKs
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cluwne.rsi
+  - type: FavoriteFood
+    tag:
+    - Banana
+
+# Glass chicken
+
+- type: entity
+  abstract: true
+  id: GlassChickenBase
+  description: Looks very fragile...
+  components:
+  - type: DealDamageOnPulled
+  - type: ChickenChest
+  - type: SolutionContainerManager
+    solutions:
+      GlassChicken:
+        maxVol: 30
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PopupBehavior
+        popup: grabbed-shatter-popup
+        popupType: LargeCaution
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior
+        solution: bloodstream
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: [GlassChickenBase, BaseMobChickRanch]
+  id: MobChickGlass
+  name: glass chick
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-glass.rsi
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobGlassHen
+    - MobGlassRooster
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+- type: entity
+  parent: [GlassChickenBase, BaseMobHenRanch]
+  id: MobGlassHen
+  name: glass hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-glass.rsi
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+- type: entity
+  parent: [GlassChickenBase, BaseMobRoosterRanch]
+  id: MobGlassRooster
+  name: glass rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-glass.rsi
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+# Raptor
+
+- type: entity
+  id: BaseChickenRaptor
+  abstract: true
+  description: It looks hungry...
+  components:
+  - type: Tameable
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5.5
+    baseSprintSpeed: 5.5
+  - type: MeleeWeapon
+    attackRate: 2
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+        Piercing: 5
+  - type: NpcFactionMember
+    factions:
+    - Raptor
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-reptile
+    interactFailureString: petting-failure-generic
+    interactSuccessSound:
+      path: /Audio/Animals/lizard_happy.ogg
+  - type: Tag
+    tags:
+    - Raptor
+  - type: FavoriteFood
+    tag:
+    - Nugget
+
+- type: entity
+  parent: [BaseChickenRaptor, BaseMobChickRanch]
+  id: MobChickRaptor
+  name: raptor chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobRaptorHen
+    - MobRaptorRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-raptor.rsi
+
+- type: entity
+  parent: [BaseChickenRaptor, BaseMobHenRanch]
+  id: MobRaptorHen
+  name: raptor hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-raptor.rsi
+
+- type: entity
+  parent: [BaseChickenRaptor, BaseMobRoosterRanch]
+  id: MobRaptorRooster
+  name: tiercel # the truecell roosters
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-raptor.rsi
+  - type: HTN
+    rootTask:
+      task: RaptorRoosterCompound
+
+# Onagadori
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickOnagadori
+  name: onagadori chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobOnagadoriHen
+    - MobOnagadoriRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-onagadori.rsi
+  - type: FavoriteFood
+    tag:
+    - Peanut
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobOnagadoriHen
+  name: onagadori hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-onagadori.rsi
+  - type: FavoriteFood
+    tag:
+    - Peanut
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobOnagadoriRooster
+  name: onagadori rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-onagadori.rsi
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: SpicyEgg
+    specialReplacement: PhoenixEgg
+  - type: FavoriteFood
+    tag:
+    - Peanut
+
+# Wizard
+
+- type: entity
+  abstract: true
+  id: BaseChickenWizard
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileMagicMissileLesser
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 5
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/_Goobstation/Wizard/magic_missile.ogg
+  - type: PolymorphOnItemsGiven
+    whitelist:
+      components:
+      - Cash
+    amount: 1000
+  - type: HTN
+    rootTask:
+      task: RangedRoosterCompound
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickWizard
+  name: wiz chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobWizardHen
+    - MobWizardRooster
+  - type: PolymorphOnItemsGiven
+    whitelist:
+      components:
+      - Cash
+    amount: 1000
+    replacementEntities:
+    - MobDragonHen
+    - MobDragonRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-wizard.rsi
+  - type: FavoriteFood
+    tag:
+    - MagicMushroom
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobWizardHen
+  name: witchen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-wizard.rsi
+  - type: SpawnLootOnDeath
+    table:
+      id: ClothingHeadHatWizard
+  - type: PolymorphOnItemsGiven
+    whitelist:
+      components:
+      - Cash
+    amount: 1000
+    replacementEntities:
+    - MobDragonHen
+  - type: FavoriteFood
+    tag:
+    - MagicMushroom
+
+- type: entity
+  parent: [BaseChickenWizard, BaseMobRoosterRanch]
+  id: MobWizardRooster
+  name: wizter
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-wizard.rsi
+  - type: SpawnLootOnDeath
+    table:
+      id: ClothingHeadHatWizard
+  - type: PolymorphOnItemsGiven
+    replacementEntities:
+    - MobDragonRooster
+  - type: FavoriteFood
+    tag:
+    - MagicMushroom
+
+# Synth Chicken
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickSynth
+  name: synth chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSynthHen
+    - MobSynthRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-plant.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobSynthHen
+  name: synth hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-plant.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobSynthRooster
+  name: synth rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-plant.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+# Mime Chicken
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickMime
+  name: mime chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobMimeHen
+    - MobMimeRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-mime.rsi
+  - type: FavoriteFood
+    tag:
+    - Cigarette
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobMimeHen
+  name: mime hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-mime.rsi
+  - type: FavoriteFood
+    tag:
+    - Cigarette
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobMimeRooster
+  name: mime rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-mime.rsi
+  - type: FavoriteFood
+    tag:
+    - Cigarette
+
+# Balloon Chicken
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickBalloon
+  name: balloon chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobBalloonHen
+    - MobBalloonRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-balloon.rsi
+  - type: FavoriteFood
+    tag:
+    - BalloonMelon
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobBalloonHen
+  name: balloon hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-balloon.rsi
+  - type: FavoriteFood
+    tag:
+    - BalloonMelon
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobBalloonRooster
+  name: balloon rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-balloon.rsi
+  - type: FavoriteFood
+    tag:
+    - BalloonMelon
+
+# Robot Chicken
+
+- type: entity
+  abstract: true
+  id: BaseChickenRobot
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: EmpPulse
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Effects/Lightning/lightningbolt.ogg
+  - type: HTN
+    rootTask:
+      task: RangedRoosterCompound
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 250
+
+- type: entity
+  parent: [BaseChickenRobot, BaseMobChickRanch]
+  id: MobChickRobot
+  name: robot chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobRobotHen
+    - MobRobotRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-robot.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+- type: entity
+  parent: [BaseChickenRobot, BaseMobHenRanch]
+  id: MobRobotHen
+  name: robot hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-robot.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+- type: entity
+  parent: [BaseChickenRobot, BaseMobRoosterRanch]
+  id: MobRobotRooster
+  name: robot rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-robot.rsi
+  - type: FavoriteFood
+    tag:
+    - SynthMeat
+
+# Knight Chicken
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickKnight
+  name: esquire chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobKnightHen
+    - MobKnightRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-knight.rsi
+  - type: FavoriteFood
+    tag:
+    - SteelWheat
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobKnightHen
+  name: Shieldmaidhen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-knight.rsi
+  - type: FavoriteFood
+    tag:
+    - SteelWheat
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobKnightRooster
+  name: Fowlcions
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-knight.rsi
+  - type: FavoriteFood
+    tag:
+    - SteelWheat
+
+# Stone Chicken
+
+- type: entity
+  abstract: true
+  id: BaseChickenStone
+  components:
+  - type: Damageable
+    damageModifierSet: StoneChicken
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+      - !type:SpillBehavior
+        solution: bloodstream
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          GoldOre1Unprocessed:
+            min: 0
+            max: 10
+          SilverOre1Unprocessed:
+            min: 0
+            max: 15
+          UraniumOre1Unprocessed:
+            min: 0
+            max: 3
+          PlasmaOre1Unprocessed:
+            min: 0
+            max: 5
+          DiamondOre1Unprocessed:
+            min: 0
+            max: 3
+          BananiumOre1Unprocessed:
+            min: 0
+            max: 1
+          ArtifactFragmentOre1Unprocessed:
+            min: 0
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: [BaseChickenStone, BaseMobChickRanch]
+  id: MobChickStone
+  name: stone chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobStoneHen
+    - MobStoneRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-stone.rsi
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+- type: entity
+  parent: [BaseChickenStone, BaseMobHenRanch]
+  id: MobStoneHen
+  name: stone hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-stone.rsi
+  - type: PlateableChicken
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+- type: entity
+  parent: [BaseChickenStone, BaseMobRoosterRanch]
+  id: MobStoneRooster
+  name: stone rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-stone.rsi
+  - type: EggFertilizer
+    specialReplacementRequiredEgg: SelkieEgg
+    specialReplacement: CoralEgg
+  - type: PlateableChicken
+  - type: FavoriteFood
+    tag:
+    - Rice
+
+# Cockatrice
+
+- type: entity
+  parent: BaseMobChickRanch
+  id: MobChickCockatrice
+  name: cockatrice chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobCockatriceHen
+    - MobCockatriceRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cockatrice.rsi
+  - type: FavoriteFood
+    tag:
+    - LizardTail
+
+- type: entity
+  parent: BaseMobHenRanch
+  id: MobCockatriceHen
+  name: cockatrice hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cockatrice.rsi
+  - type: FavoriteFood
+    tag:
+    - LizardTail
+
+- type: entity
+  parent: BaseMobRoosterRanch
+  id: MobCockatriceRooster
+  name: cockatrice rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-cockatrice.rsi
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 6
+        Poison: 4
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Hephaestium
+          Quantity: 90
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 6
+  - type: FavoriteFood
+    tag:
+    - LizardTail
+
+# Legendary
+
+- type: entity
+  abstract: true
+  id: BaseChickenLegendary
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      250: Dead
+
+# Sickle
+
+- type: entity
+  abstract: true
+  parent: BaseChickenLegendary
+  id: BaseChickenSicle
+  components:
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: dead
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+
+- type: entity
+  parent: [BaseChickenSicle, BaseMobChickRanch]
+  id: MobChickSicle
+  name: sickle chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobSicleHen
+    - MobSicleRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dreamsickle.rsi
+
+- type: entity
+  parent: [BaseChickenSicle, BaseMobHenRanch]
+  id: MobSicleHen
+  name: sickle hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dreamsickle.rsi
+
+- type: entity
+  parent: [BaseChickenSicle, BaseMobRoosterRanch]
+  id: MobSicleRooster
+  name: sickle rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dreamsickle.rsi
+
+# Zappy
+
+- type: entity
+  abstract: true
+  parent: BaseChickenLegendary
+  id: BaseChickenZappy
+  components:
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table:
+      id: TeslaMiniEnergyBall
+  - type: PointLight
+    enabled: true
+    radius: 8
+    energy: 2
+    color: "#4080FF"
+
+- type: entity
+  parent: [BaseChickenZappy, BaseMobChickRanch]
+  id: MobChickZappy
+  name: zappy chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobZappyHen
+    - MobZappyRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-zappy.rsi
+
+- type: entity
+  parent: [BaseChickenZappy, BaseMobHenRanch]
+  id: MobZappyHen
+  name: zappy hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-zappy.rsi
+
+- type: entity
+  parent: [BaseChickenZappy, BaseMobRoosterRanch]
+  id: MobZappyRooster
+  name: zappy rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-zappy.rsi
+  - type: NPCRetaliation
+    attackMemoryLength: 20
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: ThunderCloud
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Effects/Lightning/lightningshock.ogg
+  - type: HTN
+    rootTask:
+      task: RangedRoosterCompound
+
+# Phoenix
+
+- type: entity
+  abstract: true
+  parent: BaseChickenLegendary
+  id: BaseChickenPhoenix
+  components:
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: Ash
+      - id: PhoenixEgg
+  - type: FavoriteFood
+    tag:
+    - Chili
+
+- type: entity
+  parent: [BaseChickenPhoenix, BaseMobChickRanch]
+  id: MobChickPhoenix
+  name: phoenix chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobPhoenixHen
+    - MobPhoenixRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-phoenix.rsi
+
+- type: entity
+  parent: [BaseChickenPhoenix, BaseMobHenRanch]
+  id: MobPhoenixHen
+  name: phoenix hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-phoenix.rsi
+
+- type: entity
+  parent: [BaseChickenPhoenix, BaseMobRoosterRanch]
+  id: MobPhoenixRooster
+  name: phoenix rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-phoenix.rsi
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 10
+        Heat: 10
+
+# Dragon
+
+- type: entity
+  abstract: true
+  parent: BaseChickenLegendary
+  id: BaseChickenDragon
+  components:
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+  - type: FavoriteFood
+    tag:
+    - Ore
+
+- type: entity
+  parent: [BaseChickenDragon, BaseMobChickRanch]
+  id: MobChickDragon
+  name: dragon chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobDragonHen
+    - MobDragonRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dragon.rsi
+
+- type: entity
+  parent: [BaseChickenDragon, BaseMobHenRanch]
+  id: MobDragonHen
+  name: dragon hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dragon.rsi
+
+- type: entity
+  parent: [BaseChickenDragon, BaseMobRoosterRanch]
+  id: MobDragonRooster
+  name: dragon rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-dragon.rsi
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileFireball
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: HTN
+    rootTask:
+      task: RangedRoosterCompound
+
+# Coral Chicken
+
+- type: entity
+  abstract: true
+  parent: BaseChickenLegendary
+  id: BaseChickenCoral
+  components:
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+
+- type: entity
+  parent: [BaseChickenCoral, BaseMobChickRanch]
+  id: MobChickCoral
+  name: coral chick
+  components:
+  - type: SpawnEntityOnAgeUp
+    entToSpawn:
+    - MobCoralHen
+    - MobCoralRooster
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-coral.rsi
+
+- type: entity
+  parent: [BaseChickenCoral, BaseMobHenRanch]
+  id: MobCoralHen
+  name: coral hen
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-coral.rsi
+
+- type: entity
+  parent: [BaseChickenCoral, BaseMobRoosterRanch]
+  id: MobCoralRooster
+  name: coral rooster
+  components:
+  - type: Sprite
+    sprite: _Trauma/Mobs/Ranch/chicken-coral.rsi

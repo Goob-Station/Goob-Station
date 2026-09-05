@@ -23,8 +23,14 @@
     HandheldJuicer: 1
     #TO DO:
     #plant analyzer
+    HydroponicsWateringCan: 1 # Trauma
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
     Chainsaw: 1 #Goob
     Joint: 1
     ChemistryBottleLeft4Zed: 1
+    # <Trauma>
+    HydroponicsGoldenWateringCan: 1
+    HydroponicsRainbowWateringCan: 1
+    HydroponicsWeedWateringCan: 1
+    # </Trauma>

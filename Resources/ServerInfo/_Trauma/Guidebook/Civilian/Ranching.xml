@@ -1,0 +1,139 @@
+<Document>
+# Ranching
+Yeehaw, welcome to the Ranch! As the Rancher, your job is to raise, breed and care for the station's chickens. With the right feed, a little affection and some patience, your humble flock can diversify into dozens of exotic breeds whose eggs grant everything from radio implants to fire breath.
+
+<Box>
+<GuideEntityEmbed Entity="MobWhiteHen" Caption="white hen"/>
+<GuideEntityEmbed Entity="MobWhiteRooster" Caption="white rooster"/>
+<GuideEntityEmbed Entity="MobChickWhite" Caption="white chick"/>
+<GuideEntityEmbed Entity="WhiteEgg" Caption="white egg"/>
+</Box>
+
+## Getting Started
+Your supplies locker contains two [color=yellow]white eggs[/color] and a chicken carrier. Pop an egg into the [color=yellow]incubator[/color] and it will hatch into a chick after about a minute. If you lose your incubator, a replacement board can be printed at the service techfab and built like any other machine.
+
+<Box>
+<GuideEntityEmbed Entity="RanchIncubator" Caption="incubator"/>
+<GuideEntityEmbed Entity="ChickenCarrier" Caption="chicken carrier"/>
+<GuideEntityEmbed Entity="RanchBox" Caption="nesting box"/>
+</Box>
+
+Eggs [bold]do not hatch on their own[/bold]. There are two ways to hatch one:
+- Put it in the [color=yellow]incubator[/color]. About a minute later, out pops a chick.
+- Leave it near a [color=yellow]well-fed rooster[/color]. Roosters wander over to unhatched eggs and sit on them, which starts the same hatching timer. A rooster fertilizing an egg can also change what hatches from it - see Crossbreeding below.
+
+## The Chicken Life Cycle
+Chickens age one "year" every 15-30 seconds. Examine a chicken to see its life stage.
+- [color=lightgreen]Chick[/color] (0-14): cute, harmless, and doesn't lay anything yet.
+- [color=lightgreen]Adult[/color] (15-29): each chick randomly grows into either a [color=yellow]hen[/color] (lays eggs) or a [color=yellow]rooster[/color] (fertilizes eggs and defends the flock). It's a coin flip - raise plenty of chicks.
+- [color=lightgreen]Senior[/color] (30-34): still with you, but the end draws near.
+- At 35 years, a chicken [color=red]dies of old age[/color], and no defibrillator will bring it back.
+
+Want a chicken to live forever? [color=yellow]Ixworth eggs[/color] are laced with 50u of [color=#FF69B4]Ageium[/color], a chemical that completely stops ageing while at least 20u is in the body. Feed one to a favourite chicken (or a favourite crewmate) and it will never age - the effect wears off as the chemical metabolizes, so keep the doses coming.
+
+## Hunger and Happiness
+Chickens graze on any food left on the floor and can be fed by hand. A hen must be at least [color=yellow]Okay[/color] on hunger to lay, and each egg costs some of her fullness, so keep the buffet stocked.
+
+Every chicken also has a hidden [color=yellow]happiness[/color] value that slowly decays over time. Chickens start at 20 happiness and can range from -1000 to 1000.
+- [color=lightgreen]Petting[/color] a chicken: +1 happiness.
+- Feeding a chicken its [color=lightgreen]favourite food[/color]: +30 happiness. Every breed has one - it's listed with each breed below.
+- [color=red]Hurting[/color] a chicken or making it [color=red]vomit[/color]: -10 happiness.
+- [color=red]Overcrowding[/color]: a chicken packed in with six or more other chickens loses 5 happiness every ten seconds. Give them space.
+
+Happiness matters: several egg types only come from happy hens, one only comes from utterly miserable ones, and an unhappy [color=red]rooster will turn on you and attack[/color]. Treat your birds well.
+
+## How Hens Decide What to Lay
+Every 15-40 seconds, a fed hen tries to lay an egg. What comes out depends on four things, checked in this order of priority:
+- [color=yellow]Chemicals[/color] in her bloodstream (injected or eaten in food).
+- The [color=yellow]special foods[/color] she has eaten since her last egg. A hen remembers what she ate; laying an egg clears her memory, so keep the special feed coming.
+- Breed-specific rarity.
+- Her [color=yellow]happiness[/color].
+
+In short: a white hen that has eaten tomatoes lays an Ixworth egg even if she is also very happy, because special food beats happiness. If no special condition is met, she lays her breed's plain egg.
+
+## Roosters and Crossbreeding
+Roosters don't lay, but they earn their keep:
+- They [color=yellow]defend the flock[/color] - hurt a chicken in view of a rooster and it will remember you.
+- A well-fed rooster automatically [color=yellow]sits on nearby eggs[/color], hatching them without an incubator.
+- Some roosters pass something extra on when they fertilize an egg:
+
+- A [color=yellow]white rooster[/color] that has eaten a [color=lightgreen]banana[/color] hatches the next egg it sits on into a [color=yellow]clown chick[/color] (a "henk").
+- A [color=yellow]brown rooster[/color] at a near-impossible [color=lightgreen]777 happiness[/color] hatches eggs into [color=yellow]golden chicks[/color].
+- A [color=yellow]spicy rooster[/color] sitting on an [color=lightgreen]Onagadori egg[/color] (or an Onagadori rooster on a spicy egg) produces a [color=orange]Phoenix egg[/color].
+- A [color=yellow]selkie rooster[/color] sitting on a [color=lightgreen]stone egg[/color] produces a [color=cyan]Coral egg[/color].
+- A [color=yellow]snow rooster[/color] sitting on a [color=lightgreen]candy egg[/color] (or a candy rooster on a snow egg) produces a [color=pink]Sickle egg[/color].
+
+## Breed Guide
+Special foods are grown in Botany - clear corn, meth apples, delicious-looking apples, balloon melons, magic mushrooms, synthmeat, steel wheat, peanuts and chilly peppers all come from seeds your botanists can cultivate.
+
+### First Generation
+<Box>
+<GuideEntityEmbed Entity="MobWhiteHen" Caption="white"/>
+<GuideEntityEmbed Entity="MobBrownHen" Caption="brown"/>
+<GuideEntityEmbed Entity="MobIxworthHen" Caption="ixworth"/>
+<GuideEntityEmbed Entity="MobSilkieHen" Caption="silkie"/>
+<GuideEntityEmbed Entity="MobGlassHen" Caption="glass"/>
+</Box>
+- [color=yellow]White chicken[/color] (favourite: rice) - your starting bird. White hens lay white eggs, and are the springboard to almost everything else.
+- [color=yellow]Brown chicken[/color] (favourite: chili) - a [color=lightgreen]happy (50+) white hen[/color] lays brown eggs.
+- [color=yellow]Void chicken[/color] (favourite: eggplant) - a white hen that has [color=red]vomited[/color] lays void eggs. Feed her something a chicken really shouldn't eat.
+- [color=yellow]Ixworth chicken[/color] (favourite: tomato) - feed a white hen [color=lightgreen]tomatoes[/color]. Their pink eggs stop the ageing of whoever eats them.
+- [color=yellow]Silkie chicken[/color] (favourite: synthmeat) - feed a white hen [color=lightgreen]apples[/color].
+- [color=yellow]Black silkie[/color] (favourite: delicious-looking apple) - feed a white hen [color=lightgreen]delicious-looking apples[/color]. Criminally cute, and important later.
+- [color=yellow]White silkie[/color] (favourite: synthmeat) - feed a white hen [color=lightgreen]meth apples[/color]. Who needs doctors when you can doctor food instead?
+- [color=yellow]Onagadori[/color] (favourite: peanut) - feed a white hen [color=lightgreen]peanuts[/color]. Stunning plumage, spicier destiny.
+- [color=yellow]Glass chicken[/color] (favourite: rice) - feed a white hen [color=lightgreen]clear corn[/color]. Glass chickens [color=red]shatter if you drag them around[/color], but any food a glass chicken eats is [color=lightgreen]duplicated[/color] on the spot. Yes, really. No, don't ask how.
+- [color=yellow]Henk (clown chicken)[/color] (favourite: banana) - feed a [color=yellow]white rooster[/color] a banana and let it hatch any egg. Henks honk, wear things, and their "eggs" are water balloons.
+
+### Second Generation
+<Box>
+<GuideEntityEmbed Entity="MobSpicyHen" Caption="spicy"/>
+<GuideEntityEmbed Entity="MobRaptorHen" Caption="raptor"/>
+<GuideEntityEmbed Entity="MobStoneHen" Caption="stone"/>
+<GuideEntityEmbed Entity="MobCandyHen" Caption="candy"/>
+<GuideEntityEmbed Entity="MobKnightHen" Caption="shieldmaidhen"/>
+</Box>
+- [color=yellow]Spicy chicken[/color] (favourite: chili) - feed a brown hen [color=lightgreen]chilis[/color]. Spicy chickens breathe fire when provoked. Not a Pokémon. Probably.
+- [color=yellow]Raptor[/color] (favourite: chicken nugget) - feed a brown hen [color=lightgreen]meat[/color]. Raptor hens are adorable; raptor roosters are called [color=red]tiercels[/color] and will attack everything that isn't a raptor, including you. They can be [color=lightgreen]tamed by petting them 10-20 times[/color] - godspeed.
+- [color=yellow]Synth chicken[/color] (favourite: synthmeat) - feed a brown hen [color=lightgreen]synthmeat[/color]. Their eggs are full of stimulants.
+- [color=yellow]Golden chicken[/color] (favourite: clear corn) - fertilize an egg with a [color=lightgreen]777-happiness brown rooster[/color]. A [color=lightgreen]very happy (70+) golden hen[/color] lays golden eggs worth a fortune.
+- [color=yellow]Stone chicken[/color] (favourite: rice) - a glass or stone hen with [color=lightgreen]THC[/color] in her system lays stone eggs. Make of that what you will. Stone chickens can be [color=yellow]plated with uranium ore[/color] - click them with it - to create a radioactive chicken. Why? Because you can.
+- [color=yellow]Wizard chicken (witchen/wizter)[/color] (favourite: magic mushroom) - feed a glass hen [color=lightgreen]magic mushrooms[/color]. Wizters fling magic at attackers.
+- [color=yellow]Selkie chicken[/color] - feed a white silkie [color=lightgreen]fish[/color].
+- [color=yellow]Snow chicken[/color] - feed a white silkie [color=lightgreen]chilly peppers[/color]. Snow chickens prefer the cold and suffer in the heat.
+- [color=yellow]Cotton candy chicken[/color] (favourite: sugar) - feed a silkie or candy hen [color=lightgreen]sugar[/color] while she's happy (20+). Bouncy in a very literal way.
+- [color=yellow]Carrier pigeon[/color] (favourite: peas) - feed a silkie [color=lightgreen]peas[/color]. Their eggs are radios. See below.
+- [color=yellow]Shieldmaidhen[/color] (favourite: steel wheat) - feed an ixworth hen [color=lightgreen]steel wheat[/color]. Armored and sturdy.
+- [color=yellow]Dream chicken[/color] (favourite: delicious-looking apple) - let a [color=lightgreen]happy (30+)[/color] black silkie [color=yellow]die of old age[/color] and she leaves behind a dream egg.
+- [color=yellow]Poultrygeist[/color] (favourite: chili) - let an [color=red]unhappy (0 or less)[/color] black silkie die of old age instead. For poultrygeists, death is a restless sleep.
+- [color=yellow]Mime chicken[/color] (favourite: cigarette) - put a [color=lightgreen]cigarette[/color] on a henk. It immediately takes a vow of silence.
+- [color=yellow]huOnkHoNkHoeNKs[/color] (favourite: banana) - make a henk [color=red]miserable (-50)[/color]. Oh god, what have you done. You spent all that time getting henks and this is what you do to them?
+- [color=yellow]Balloon chicken[/color] (favourite: balloon melon) - feed a henk [color=lightgreen]balloon melons[/color]. Their eggs are literal balloons: blue ones pop into oxygen, red ones pop into [color=red]plasma[/color].
+- [color=yellow]Robot chicken[/color] (favourite: synthmeat) - a synth hen with [color=lightgreen]nanomachines[/color] in her system lays robot eggs. Nanomachines, son - grind machine circuit boards for nanoprocessor and react it into nanomachines. Careful: 40u of nanomachines in a person turns them into a cyborg.
+
+### Third Generation
+<Box>
+<GuideEntityEmbed Entity="MobCockatriceHen" Caption="cockatrice"/>
+<GuideEntityEmbed Entity="MobPhoenixHen" Caption="phoenix"/>
+<GuideEntityEmbed Entity="MobDragonHen" Caption="dragon"/>
+<GuideEntityEmbed Entity="MobZappyHen" Caption="zappy"/>
+<GuideEntityEmbed Entity="MobCoralHen" Caption="coral"/>
+</Box>
+- [color=yellow]Cockatrice[/color] (favourite: lizard tail) - feed a stone hen a [color=lightgreen]lizard tail[/color]. Beware the roosters: their bites inject a [color=red]petrifying venom[/color] that turns inattentive ranchers into statues.
+- [color=yellow]Phoenix[/color] - have a [color=yellow]spicy rooster[/color] sit on an [color=lightgreen]Onagadori egg[/color], or an Onagadori rooster on a spicy egg. Fiery birds of renewal.
+- [color=yellow]Dragon[/color] - give a wizard chicken [color=lightgreen]1000 spesos in cash[/color] and it will ascend. Majestic, and yes, it breathes fire.
+- [color=yellow]Zappy chicken[/color] - throw [color=yellow]cotton candy chickens[/color] at each other. After nine collisions, the static discharge produces a zappy egg. Zappy roosters shoot lightning.
+- [color=yellow]Sickle chicken[/color] - have a [color=yellow]snow rooster[/color] sit on a [color=lightgreen]candy egg[/color] or a candy rooster on a snow egg. Orange dreamchickles!
+- [color=yellow]Coral chicken[/color] - have a [color=yellow]selkie rooster[/color] sit on a [color=lightgreen]stone egg[/color]. The royal protectors of the ocean.
+
+## Egg Effects
+Most special eggs do something when eaten. Experiment at your own risk.
+
+## Rancher's Notes
+- Hens forget their special food each time they lay. Keep feeding the target food until the right egg comes out, and don't mix feeds in one pen.
+- Special food and chemicals [bold]beat[/bold] happiness in the laying order - a tomato-fed white hen lays Ixworth eggs even while happy enough for brown ones.
+- Only fertilized or incubated eggs hatch, so eggs you keep for eating or cooking are safe in a crate - just keep them away from roosters.
+- Roosters only sit on eggs when well fed. A hungry rooster is a lazy rooster.
+- Glass chickens + one bag of food = infinite food. The chef doesn't need to know.
+- If your flock suddenly hates you, check for overcrowding, injuries, or that one guy from cargo who keeps shoving your hens.
+</Document>

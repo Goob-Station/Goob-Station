@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: inventoryTemplate
+  id: RanchChicken
+  slots:
+  - name: mask
+    slotTexture: mask
+    slotFlags: MASK
+    uiWindowPos: 0,2
+    strippingWindowPos: 1,2
+    displayName: Mask
+    whitelist:
+      tags:
+      - Cigarette

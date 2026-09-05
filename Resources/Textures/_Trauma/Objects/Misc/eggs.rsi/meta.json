@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Taken from goonstation at https://github.com/goonstation/goonstation/blob/66218b8852fc7eba761beadc86fc8bb1e93cbdc1/icons/mob/ranch/chickens.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "egg-white"
+    },
+    {
+      "name": "egg-glass"
+    },
+    {
+      "name": "egg-brown"
+    },
+    {
+      "name": "egg-golden"
+    },
+    {
+      "name": "egg-honk"
+    },
+    {
+      "name": "egg-raptor"
+    },
+    {
+      "name": "egg-stone"
+    },
+    {
+      "name": "egg-robot"
+    },
+    {
+      "name": "egg-spicy"
+    },
+    {
+      "name": "egg-power_gold"
+    },
+    {
+      "name": "egg-time"
+    },
+    {
+      "name": "egg-space"
+    },
+    {
+      "name": "egg-purple"
+    },
+    {
+      "name": "egg-power_blue"
+    },
+    {
+      "name": "egg-plant"
+    },
+    {
+      "name": "egg-cluwne"
+    },
+    {
+      "name": "egg-silkie"
+    },
+    {
+      "name": "egg-silkie_white"
+    },
+    {
+      "name": "egg-silkie_black"
+    },
+    {
+      "name": "egg-candy"
+    },
+    {
+      "name": "egg-sea"
+    },
+    {
+      "name": "egg-dream"
+    },
+    {
+      "name": "egg-cockatrice"
+    },
+    {
+      "name": "egg-balloon"
+    },
+    {
+      "name": "egg-balloon-blue"
+    },
+    {
+      "name": "egg-ghost"
+    },
+    {
+      "name": "egg-pet"
+    },
+    {
+      "name": "egg-snow"
+    },
+    {
+      "name": "egg-pigeon"
+    },
+    {
+      "name": "egg-wizard"
+    },
+    {
+      "name": "egg-popsicle"
+    },
+    {
+      "name": "egg-onagadori"
+    },
+    {
+      "name": "egg-knight"
+    },
+    {
+      "name": "egg-mime"
+    },
+    {
+      "name": "egg-zappy"
+    },
+    {
+      "name": "egg-phoenix"
+    },
+    {
+      "name": "egg-dragon"
+    },
+    {
+      "name": "egg-coral"
+    }
+  ]
+}

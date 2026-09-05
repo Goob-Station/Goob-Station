@@ -277,6 +277,12 @@
     tags:
     - Ore
     - OreUranium
+  # <Trauma>
+  - type: PlateableChickenOre
+    components:
+    - type: RadiationSource
+      intensity: 4.5
+  # </Trauma>
 
 - type: entity
   parent: UraniumOre

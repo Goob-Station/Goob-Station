@@ -78,6 +78,7 @@ public abstract class SharedPhaseShiftSystem : EntitySystem
 
         var stealth = EnsureComp<StealthComponent>(ent);
         _stealth.SetVisibility(ent, stealth.MinVisibility, stealth);
+        _stealth.SetRevealOnDamage(ent, ent.Comp.RevealOnDamage, stealth); // Trauma
 
         if (TryComp(ent, out PullableComponent? pullable))
             _pulling.TryStopPull(ent, pullable);
