@@ -1,0 +1,23 @@
+- type: entity
+  parent: [ BaseSyndicateContraband, HandheldCrewMonitor ]
+  id: SyndiCrewMonitor
+  name: syndicate crew monitor
+  description: The syndicated version of crew monitor, intercepts information from the server.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
+    state: syndiscanner
+  - type: Item
+    sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
+  - type: PowerCellDraw
+    useCharge: 0
+
+- type: entity
+  parent: SyndiCrewMonitor
+  id: SyndiCrewMonitorEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

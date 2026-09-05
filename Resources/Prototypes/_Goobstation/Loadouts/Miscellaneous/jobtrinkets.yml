@@ -1,0 +1,65 @@
+- type: loadout
+  id: LizardPlushieBrigmedic
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBrigmedic
+      time: 72000 # 20hr
+  storage:
+    back:
+    - PlushieLizardJobBrigmedic
+
+- type: loadout
+  id: LizardPlushieShaftMiner
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobShaftMiner
+      time: 72000 # 20hr
+  storage:
+    back:
+    - PlushieLizardJobShaftMiner
+
+- type: loadout
+  id: LizardPlushieNTR
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobNanotrasenRepresentative
+      time: 72000 # 20hr
+  storage:
+    back:
+    - PlushieLizardJobNanotrasenRepresentative
+
+- type: loadout
+  id: LizardPlushieBSO
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBlueshieldOfficer
+      time: 72000 # 20hr
+  storage:
+    back:
+    - PlushieLizardJobBlueshieldOfficer
+
+- type: loadout
+  id: LizardPlushieVirologist
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobVirologist
+      time: 72000 # 20hr
+  storage:
+    back:
+    - PlushieLizardJobVirologist
+
+- type: loadout
+  id: LizardPlushieCC
+  storage:
+    back:
+    - PlushieLizardJobCentCommOfficial

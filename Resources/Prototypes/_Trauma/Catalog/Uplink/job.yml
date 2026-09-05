@@ -1,0 +1,155 @@
+- type: listing
+  id: UplinkBananiumSword
+  name: uplink-banana-esword-name
+  description: uplink-banana-esword-desc
+  productEntity: BananiumSword
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkMimanaStealthy
+  name: uplink-mimana-stealthy-name
+  description: uplink-mimana-stealthy-desc
+  productEntity: MimanaPeelStealthy
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+    - Mime
+
+- type: listing
+  id: UplinkEmergencyMedipenMute
+  name: uplink-medipen-mute-name
+  description: uplink-medipen-mute-desc
+  productEntity: EmergencyMedipenMute
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+
+- type: listing
+  id: UplinkClothingShoesColorWhiteSilent
+  name: uplink-silent-shoes-name
+  description: uplink-silent-shoes-desc
+  productEntity: ClothingShoesColorWhiteSilent
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+
+- type: listing
+  id: UplinkUtilityKnifeReagent
+  name: uplink-utility-knife-name
+  description: uplink-utility-knife-desc
+  productEntity: UtilityKnifeReagent
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Cargo
+
+- type: listing
+  id: UplinkKudzuGrenade
+  name: uplink-kudzu-grenade-name
+  description: uplink-kudzu-grenade-desc
+  productEntity: KudzuGrenade
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Botanist
+
+- type: listing
+  id: UplinkViperAppraisal
+  name: uplink-appraisal-tool-gun-name
+  description: uplink-appraisal-tool-gun-desc
+  productEntity: WeaponPistolViperAppraisal
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Cargo
+
+- type: listing
+  id: UplinkAppraisalToolRadioJammer
+  name: uplink-appraisal-tool-jammer-name
+  description: uplink-appraisal-tool-jammer-desc
+  productEntity: AppraisalToolRadioJammer
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Cargo
+
+- type: listing
+  id: UplinkOmnimedToolSyndie
+  name: uplink-omnimed-tool-name
+  description: uplink-omnimed-tool-desc
+  productEntity: OmnimedToolSyndie
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Medical
+
+- type: listing
+  id: UplinkRealBananiumSword
+  name: uplink-real-banana-esword-name
+  description: uplink-real-banana-esword-desc
+  productEntity: RealBananiumSword
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+
+- type: listing
+  id: BehonkerOperativeReinforcement
+  name: uplink-behonker-name
+  description: uplink-behonker-desc
+  productEntity: ReinforcementRadioSyndicateBehonker
+  icon: { sprite: _Trauma/Mobs/Monsters/Demons/syndie_behonker.rsi, state: alive }
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown

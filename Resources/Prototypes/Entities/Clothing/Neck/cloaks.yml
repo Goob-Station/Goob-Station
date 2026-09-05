@@ -142,7 +142,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakSalvagerSupreme
-  name: supereme salvager's cloak
+  name: supreme salvager's cloak
   description: Worn by the most skilled salvagers, for one who has mastered space and made the mining asteroid his domain. They don't just hand these things out, y'know?
   components:
   - type: Sprite

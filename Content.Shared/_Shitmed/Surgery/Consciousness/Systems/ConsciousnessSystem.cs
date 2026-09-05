@@ -5,7 +5,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
-[Virtual]
 public sealed partial class ConsciousnessSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;

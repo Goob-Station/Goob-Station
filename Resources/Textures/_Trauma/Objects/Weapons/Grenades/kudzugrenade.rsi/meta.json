@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from https://github.com/Flarbergaster/ss14-harmony/tree/67053e6b4014378a712b26db053105f56752fc48/Resources/Textures/_Harmony/Objects/Weapons/Grenades/kudzugrenade.rsi, inhand sprites by simka",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "primed"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

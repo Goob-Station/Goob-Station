@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "moxie_is_moxie",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "china_lake"
+    },
+    {
+      "name": "defib"
+    },
+    {
+      "name": "access_config"
+    },
+    {
+      "name": "jammer"
+    },
+    {
+      "name": "hypo"
+    },
+    {
+      "name": "surgery"
+    },
+    {
+      "name": "projector"
+    },
+    {
+      "name": "dart"
+    }
+  ]
+}

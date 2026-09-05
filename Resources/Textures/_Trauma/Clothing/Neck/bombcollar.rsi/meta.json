@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by armok for traumastation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "delays": [
+        [
+          3,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "equipped-NECK",
+      "directions": 4,
+      "delays": [
+        [
+            3,
+            0.25
+        ],
+        [
+            3,
+            0.25
+        ],
+        [
+            3,
+            0.25
+        ],
+        [
+            3,
+            0.25
+        ]
+      ]
+    }
+  ]
+}

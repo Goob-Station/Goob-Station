@@ -25,6 +25,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Repairable;
 using Content.Shared.StationAi;
 using Content.Shared.Verbs;
+using Content.Shared.Wall; 
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -198,6 +199,13 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             return;
         }
 
+        // goobstation - AI machine vision
+        if (ent.Comp.Enabled && (targetXform.Anchored || HasComp<WallMountComponent>(args.Target)) && PowerReceiver.IsPowered(args.Target))
+        {
+            args.Result = BoundUserInterfaceRangeResult.Pass;
+            return;
+        }
+
         var targetTile = Maps.LocalToTile(targetXform.GridUid.Value, grid, targetXform.Coordinates);
 
         lock (_vision)
@@ -224,6 +232,16 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         // No cross-grid
         if (targetXform.GridUid != Transform(args.User).GridUid && !ent.Comp.AllowCrossGrid) // Shitmed Change
         {
+            return;
+        }
+
+        // goobstation - AI machine vision
+        if (TryComp<StationAiWhitelistComponent>(target, out var whitelist)
+            && whitelist.Enabled
+            && (targetXform.Anchored || HasComp<WallMountComponent>(target))
+            && PowerReceiver.IsPowered(target))
+        {
+            args.InRange = true;
             return;
         }
 

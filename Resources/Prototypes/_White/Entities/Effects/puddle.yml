@@ -46,6 +46,7 @@
     delay: 3
     transferAmount: 0.5
     solution: print
+    edible: Drink
   - type: Tag
     tags:
     - DNASolutionScannable

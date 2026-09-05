@@ -36,7 +36,7 @@ public sealed partial class HungerComponent : Component
     /// </summary>
     /// <remarks>Any time this is modified, <see cref="HungerSystem.SetAuthoritativeHungerValue"/> should be called.</remarks>
     [DataField("baseDecayRate"), ViewVariables(VVAccess.ReadWrite)]
-    public float BaseDecayRate = 0.01666666666f;
+    public float BaseDecayRate = 0.04166666666f; // Goobstation changed to 150/3600
 
     /// <summary>
     /// The actual amount at which <see cref="LastAuthoritativeHungerValue"/> decays.

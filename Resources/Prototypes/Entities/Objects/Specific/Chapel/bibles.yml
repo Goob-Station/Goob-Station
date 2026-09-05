@@ -138,8 +138,8 @@
   #  - type: Tag
   #    tags:
   #    - Bible
-  #  - type: StealTarget
-  #    stealGroup: Bible
+  - type: StealTarget # Goobstation - fix
+    stealGroup: Bible
   - type: EnchantingTool # Goobstation
   - type: StatusEffectOnCollideGhost # Goobstation
     whitelist:

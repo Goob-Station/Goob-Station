@@ -17,10 +17,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
            <controls:ConfirmButton Name="WhitelistToggle" Text="{Loc 'player-panel-false'}" Visible="False"></controls:ConfirmButton>
        </BoxContainer>
        <Label Name="Playtime"/>
+       <Label Name="AccountAge"/> <!--goob edit-->
        <Label Name="Notes"/>
        <Label Name="Bans"/>
        <Label Name="RoleBans"/>
        <Label Name="SharedConnections"/>
+       <Label Name="TrustScore"/>
 
        <BoxContainer Align="Center">
            <GridContainer Rows="6">

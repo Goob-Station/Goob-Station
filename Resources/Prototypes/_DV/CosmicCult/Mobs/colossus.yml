@@ -253,6 +253,8 @@
   - type: GuideHelp
     guides:
     - CosmicColossus
+  - type: WeakToHoly # Holy Dmg
+    alwaysTakeHoly: true
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
@@ -393,4 +395,4 @@
     - !type:HealthChange
       damage:
         types:
-          Cold: 12.5
+          Cold: 15 # Goobstation - 7 hits to kill instead of 8
