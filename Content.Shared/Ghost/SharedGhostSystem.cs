@@ -14,7 +14,7 @@ namespace Content.Shared.Ghost
     /// System for the <see cref="GhostComponent"/>.
     /// Prevents ghosts from interacting when <see cref="GhostComponent.CanGhostInteract"/> is false.
     /// </summary>
-    public abstract class SharedGhostSystem : EntitySystem
+    public abstract partial class SharedGhostSystem : EntitySystem // Goob - made partial
     {
         [Dependency] protected readonly SharedPopupSystem Popup = default!;
 

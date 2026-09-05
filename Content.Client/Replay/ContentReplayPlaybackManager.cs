@@ -197,7 +197,7 @@ public sealed class ContentReplayPlaybackManager
             case InstrumentStartMidiEvent:
             case InstrumentMidiEventEvent:
             case InstrumentStopMidiEvent:
-            case ChargeSpellRaysEffectEvent: // Goobstation
+            //case ChargeSpellRaysEffectEvent: // Goobstation // TODO shitcode - i dont know if this is needed
                 // Block visual effects, pop-ups, and sounds
                 return true;
         }

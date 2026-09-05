@@ -24,7 +24,7 @@ public sealed class BackEquipSystem : EntitySystem
             .Bind(ContentKeyFunctions.SmartEquipBack,
                 InputCmdHandler.FromDelegate(HandleEquipToBack,
                     handle: false,
-                    outsidePrediction: false)) // Goobstation - Smart equip to back
+                    outsidePrediction: false))
             .Register<BackEquipSystem>();
     }
 

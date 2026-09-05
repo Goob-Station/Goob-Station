@@ -3,7 +3,6 @@
 using System.Linq;
 using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared.Administration;
@@ -28,6 +27,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Goobstation.Common.Wizard.Components;
 
 namespace Content.Shared._Goobstation.Heretic.Systems;
 

@@ -39,6 +39,7 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Timing; // Goobstation - Add Cooldown to shock to prevent entity overload
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 using PullerComponent = Content.Shared.Movement.Pulling.Components.PullerComponent;
+using Content.Goobstation.Common.Wizard.Components;
 
 namespace Content.Server.Electrocution;
 
@@ -166,19 +167,20 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
     private void OnElectrifiedStartCollide(EntityUid uid, ElectrifiedComponent electrified, ref StartCollideEvent args)
     {
-        // Goob edit start
-        if (!electrified.OnBump)
-            return;
-        if (TryComp(uid, out BeamComponent? beam))
+        if (electrified.OnBump)
         {
-            var struck = EnsureComp<StruckByLightningComponent>(args.OtherEntity);
-            if (!struck.BeamIndices.Add(beam.BeamIndex))
-                return;
-            if (TryComp(uid, out TimedDespawnComponent? despawn))
-                struck.Lifetime = MathF.Max(struck.Lifetime, despawn.Lifetime + 1f);
+            // Goobstation - Shitcode edit start
+            if (TryComp(uid, out BeamComponent? beam))
+            {
+                var struck = EnsureComp<StruckByLightningComponent>(args.OtherEntity);
+                if (!struck.BeamIndices.Add(beam.BeamIndex))
+                    return;
+                if (TryComp(uid, out TimedDespawnComponent? despawn))
+                    struck.Lifetime = MathF.Max(struck.Lifetime, despawn.Lifetime + 1f);
+            }
+            // Goob edit end
+            TryDoElectrifiedAct(uid, args.OtherEntity, 1, electrified);
         }
-        TryDoElectrifiedAct(uid, args.OtherEntity, 1, electrified);
-        // Goob edit end
     }
 
     private void OnElectrifiedAttacked(EntityUid uid, ElectrifiedComponent electrified, AttackedEvent args)

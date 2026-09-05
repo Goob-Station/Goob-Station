@@ -89,10 +89,9 @@
 
 - type: listing
   id: SpellbookBlink
-  productUpgradeId: SpellbookBlinkUpgrade # Goobstation
   name: spellbook-blink-name
   description: spellbook-blink-desc
-  productAction: ActionBlinkSpell # Goob edit
+  productAction: ActionBlink
   cost:
     WizCoin: 1
   categories:

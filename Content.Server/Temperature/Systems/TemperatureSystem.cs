@@ -7,7 +7,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
-using Content.Shared._Goobstation.Wizard.Spellblade;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
@@ -28,9 +27,6 @@ public sealed partial class TemperatureSystem : SharedTemperatureSystem
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
 
     private EntityQuery<TemperatureImmunityComponent> _immuneQuery; // DeltaV
-
-    [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
-
     public override void Initialize()
     {
         base.Initialize();

@@ -4,7 +4,6 @@ using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
 using Content.Server.Audio;
-using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.Atmos;
@@ -25,9 +24,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
-using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared.Atmos.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Effects;
 using Content.Shared.Heretic;
@@ -42,6 +39,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Content.Server.Atmos.Components;
+using Content.Goobstation.Common.Wizard.Components;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 

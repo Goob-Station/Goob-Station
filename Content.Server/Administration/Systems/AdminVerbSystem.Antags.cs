@@ -241,6 +241,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Head/Hats/wizardhat.rsi"), "icon"),
             Act = () =>
             {
+                // TODO shitcode: give upstream wizardrulecomponent *smile*
                 _antag.ForceMakeAntag<WizardRuleComponent>(targetPlayer, "Wizard");
             },
             Impact = LogImpact.High,

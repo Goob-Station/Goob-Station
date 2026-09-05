@@ -12,6 +12,6 @@ namespace Content.Goobstation.Shared.Clothing.Components
         public ComponentRegistry Components { get; private set; } = new();
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public Dictionary<string, bool> Active = new(); // Goobstation
+        public Dictionary<string, bool> Active = new();
     }
 }
