@@ -18,7 +18,7 @@ using Robust.Shared.Map;
 namespace Content.Goobstation.Server.Xenobiology.Systems;
 
 // any other bs needed serverside
-public class XenobiologyMiscSystems : EntitySystem
+public sealed class XenobiologyMiscSystems : EntitySystem
 {
     public override void Initialize()
     {
