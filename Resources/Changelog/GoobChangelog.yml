@@ -24980,3 +24980,9 @@ Entries:
       message: Hydrakin are now poisoned by theobromine
   id: 2865
   time: '2026-09-05T02:13:13.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: Bleeding should be comparable to pre-upstream levels of bleeding.
+  id: 2866
+  time: '2026-09-05T02:15:40.0000000+00:00'
