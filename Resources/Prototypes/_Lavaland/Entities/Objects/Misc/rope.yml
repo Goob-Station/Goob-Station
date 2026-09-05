@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseItem
+  id: LavalandEscapeRopeFissure
+  name: escape rope
+  description: The climbing is the tough part.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Misc/rope.rsi
+    state: escape-rope
+  - type: SpawnItemsOnUse
+    items:
+      - id: ORTArenaExitPortal
+    sound:
+      path: /Audio/Items/Handcuffs/rope_takeoff.ogg

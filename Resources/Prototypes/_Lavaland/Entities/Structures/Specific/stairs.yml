@@ -1,0 +1,18 @@
+- type: entity
+  id: StairFairy
+  parent: Stairs
+  name: grassy ramp
+  suffix: fairy
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/stairs.rsi
+    state: stairs_fairy
+    drawdepth: FloorTiles
+
+- type: entity
+  parent: RMCPlatformKutjevo
+  id: RMCPlatformKutjevoVisionBlocker
+  name: cave edge
+  description: Don't go over the edge!
+  components:
+  - type: Occluder
