@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 266.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 05:38:17
-  entityCount: 23076
+  time: 08/04/2026 16:04:15
+  entityCount: 23073
 maps:
 - 1
 grids:
@@ -7715,136 +7715,31 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           temperature: 235
           moles:
-          - 27.225372
-          - 102.419266
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 27.225372
+            Nitrogen: 102.419266
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Plasma: 6666.982
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Nitrogen: 6666.982
+        - volume: 2500
+          temperature: 293.15
+          moles: {}
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 6666.982
         chunkSize: 4
     - type: BecomesStation
       id: Marathon
@@ -7864,6 +7759,9 @@ entities:
     - type: GridPathfinding
     - type: ImplicitRoof
     - type: FTLDrive
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -11308,7 +11206,7 @@ entities:
       pos: -1.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5156.457
+      secondsUntilStateChange: -5171.9653
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11807,7 +11705,7 @@ entities:
       pos: 40.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8902.282
+      secondsUntilStateChange: -8917.79
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11844,7 +11742,7 @@ entities:
       pos: 41.5,8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5750.8228
+      secondsUntilStateChange: -5766.331
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -45337,6 +45235,13 @@ entities:
     - type: Transform
       pos: -5.5,-50.5
       parent: 2
+- proto: CargoMailTeleporter
+  entities:
+  - uid: 15702
+    components:
+    - type: Transform
+      pos: 21.5,0.5
+      parent: 2
 - proto: CargoTechFab
   entities:
   - uid: 7049
@@ -52026,6 +51931,18 @@ entities:
     - type: Transform
       pos: -12.663173,-12.436495
       parent: 2
+- proto: ChemDispenser
+  entities:
+  - uid: 8308
+    components:
+    - type: Transform
+      pos: -9.5,-7.5
+      parent: 2
+  - uid: 8309
+    components:
+    - type: Transform
+      pos: -5.5,-7.5
+      parent: 2
 - proto: ChemistryHotplate
   entities:
   - uid: 8310
@@ -52170,22 +52087,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8330
     components:
     - type: Transform
@@ -52197,22 +52100,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetChef
   entities:
   - uid: 8331
@@ -52226,22 +52115,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetChefFilled
   entities:
   - uid: 8332
@@ -52279,22 +52154,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8337
     components:
     - type: Transform
@@ -52306,22 +52167,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8338
     components:
     - type: Transform
@@ -52333,22 +52180,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8339
     components:
     - type: Transform
@@ -52360,22 +52193,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8340
     components:
     - type: Transform
@@ -52387,22 +52206,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8341
     components:
     - type: Transform
@@ -52414,22 +52219,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8342
     components:
     - type: Transform
@@ -52446,22 +52237,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8344
     components:
     - type: Transform
@@ -52483,22 +52260,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8347
     components:
     - type: Transform
@@ -52520,22 +52283,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8350
     components:
     - type: Transform
@@ -52552,22 +52301,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8352
     components:
     - type: Transform
@@ -52579,22 +52314,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8353
     components:
     - type: Transform
@@ -52606,22 +52327,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8354
     components:
     - type: Transform
@@ -52633,22 +52340,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8355
     components:
     - type: Transform
@@ -52660,22 +52353,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8356
     components:
     - type: Transform
@@ -52687,22 +52366,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8357
     components:
     - type: Transform
@@ -52714,22 +52379,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8358
     components:
     - type: Transform
@@ -52751,22 +52402,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8361
     components:
     - type: Transform
@@ -52778,22 +52415,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8362
     components:
     - type: Transform
@@ -52805,22 +52428,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8363
     components:
     - type: Transform
@@ -52832,22 +52441,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetEmergencyN2FilledRandom
   entities:
   - uid: 8364
@@ -52868,22 +52463,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8366
     components:
     - type: Transform
@@ -52895,22 +52476,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8367
     components:
     - type: Transform
@@ -52922,22 +52489,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8368
     components:
     - type: Transform
@@ -52949,22 +52502,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8369
     components:
     - type: Transform
@@ -52981,22 +52520,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8371
     components:
     - type: Transform
@@ -53008,22 +52533,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8372
     components:
     - type: Transform
@@ -53050,22 +52561,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8376
     components:
     - type: Transform
@@ -53077,22 +52574,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8377
     components:
     - type: Transform
@@ -53109,22 +52592,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8379
     components:
     - type: Transform
@@ -53136,22 +52605,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8380
     components:
     - type: Transform
@@ -53168,22 +52623,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetJanitorFilled
   entities:
   - uid: 8382
@@ -53197,22 +52638,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetL3JanitorFilled
   entities:
   - uid: 8383
@@ -53226,22 +52653,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetL3ScienceFilled
   entities:
   - uid: 8384
@@ -53267,22 +52680,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8387
     components:
     - type: Transform
@@ -53294,22 +52693,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetLegalFilled
   entities:
   - uid: 8388
@@ -53323,22 +52708,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8389
     components:
     - type: Transform
@@ -53350,22 +52721,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetMaintenanceFilledRandom
   entities:
   - uid: 8390
@@ -53379,22 +52736,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8391
     components:
     - type: Transform
@@ -53411,22 +52754,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8393
     components:
     - type: Transform
@@ -53443,22 +52772,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8395
     components:
     - type: Transform
@@ -53470,22 +52785,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8396
     components:
     - type: Transform
@@ -53497,22 +52798,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8397
     components:
     - type: Transform
@@ -53524,22 +52811,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetRadiationSuitFilled
   entities:
   - uid: 8398
@@ -53573,22 +52846,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8403
     components:
     - type: Transform
@@ -53600,22 +52859,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8404
     components:
     - type: Transform
@@ -53639,22 +52884,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8407
     components:
     - type: Transform
@@ -53666,22 +52897,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClosetToolFilled
   entities:
   - uid: 8408
@@ -53695,22 +52912,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8409
     components:
     - type: Transform
@@ -53722,22 +52925,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: ClothingBackpack
   entities:
   - uid: 8410
@@ -56159,22 +55348,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: CrateCoffin
   entities:
   - uid: 8800
@@ -56241,22 +55416,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8810
     components:
     - type: Transform
@@ -56283,22 +55444,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8814
     components:
     - type: Transform
@@ -56310,22 +55457,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: CrateEngineeringCableHV
   entities:
   - uid: 8815
@@ -56346,22 +55479,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: CrateFilledSpawner
   entities:
   - uid: 8817
@@ -56451,22 +55570,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: CrateMedicalScrubs
   entities:
   - uid: 8832
@@ -56546,22 +55651,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 8843
     components:
     - type: Transform
@@ -56573,22 +55664,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: CrateStoneGrave
   entities:
   - uid: 8844
@@ -56682,22 +55759,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: CrewMonitoringServer
   entities:
   - uid: 8859
@@ -63743,18 +62806,6 @@ entities:
     - type: Transform
       pos: -17.315872,-34.317642
       parent: 2
-- proto: ChemDispenser
-  entities:
-  - uid: 8308
-    components:
-    - type: Transform
-      pos: -9.5,-7.5
-      parent: 2
-  - uid: 8309
-    components:
-    - type: Transform
-      pos: -5.5,-7.5
-      parent: 2
 - proto: EngineeringTechFab
   entities:
   - uid: 10046
@@ -64095,13 +63146,6 @@ entities:
       parent: 2
     - type: FaxMachine
       name: Captain
-- proto: FigureSpawner
-  entities:
-  - uid: 10093
-    components:
-    - type: Transform
-      pos: -75.5,-63.5
-      parent: 2
 - proto: filingCabinet
   entities:
   - uid: 10094
@@ -66115,7 +65159,7 @@ entities:
       pos: 12.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4118.7905
+      secondsUntilStateChange: -4134.299
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 1795.33154
@@ -102216,22 +101260,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15618
     components:
     - type: Transform
@@ -102243,22 +101273,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15619
     components:
     - type: Transform
@@ -102270,22 +101286,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerBoozeFilled
   entities:
   - uid: 15620
@@ -102299,22 +101301,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15621
     components:
     - type: Transform
@@ -102326,22 +101314,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15622
     components:
     - type: Transform
@@ -102353,22 +101327,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerBotanistFilled
   entities:
   - uid: 15623
@@ -102382,22 +101342,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15624
     components:
     - type: Transform
@@ -102409,22 +101355,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15625
     components:
     - type: Transform
@@ -102436,22 +101368,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerBrigmedicFilled
   entities:
   - uid: 15626
@@ -102479,22 +101397,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerChiefEngineerFilled
   entities:
   - uid: 15629
@@ -102522,22 +101426,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerElectricalSuppliesFilled
   entities:
   - uid: 15632
@@ -102556,22 +101446,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerEngineer
   entities:
   - uid: 15634
@@ -102636,22 +101512,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15644
     components:
     - type: Transform
@@ -102663,22 +101525,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15645
     components:
     - type: Transform
@@ -102690,22 +101538,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15646
     components:
     - type: Transform
@@ -102717,22 +101551,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15647
     components:
     - type: Transform
@@ -102744,22 +101564,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15648
     components:
     - type: Transform
@@ -102771,22 +101577,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15649
     components:
     - type: Transform
@@ -102798,22 +101590,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerFreezer
   entities:
   - uid: 9960
@@ -102827,22 +101605,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -102865,22 +101629,8 @@ entities:
         immutable: False
         temperature: 234.99968
         moles:
-        - 2.0214376
-        - 7.6044564
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 2.0214376
+          Nitrogen: 7.6044564
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -102905,22 +101655,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -102947,22 +101683,8 @@ entities:
         immutable: False
         temperature: 234.99968
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15651
     components:
     - type: Transform
@@ -102979,22 +101701,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15653
     components:
     - type: Transform
@@ -103006,22 +101714,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15654
     components:
     - type: Transform
@@ -103033,22 +101727,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerFreezerVaultFilled
   entities:
   - uid: 15655
@@ -103069,22 +101749,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerHeadOfSecurityFilled
   entities:
   - uid: 15657
@@ -103098,22 +101764,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerMedicalFilled
   entities:
   - uid: 15658
@@ -103183,22 +101835,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 2.0214376
-        - 7.6044564
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 2.0214376
+          Nitrogen: 7.6044564
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103223,22 +101861,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerSalvageSpecialistFilledHardsuit
   entities:
   - uid: 15669
@@ -103269,22 +101893,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15673
     components:
     - type: Transform
@@ -103296,22 +101906,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15674
     components:
     - type: Transform
@@ -103323,22 +101919,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerScienceFilledXenobiology
   entities:
   - uid: 15675
@@ -103379,22 +101961,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15681
     components:
     - type: Transform
@@ -103406,22 +101974,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15682
     components:
     - type: Transform
@@ -103433,22 +101987,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerSecurityFilled
   entities:
   - uid: 15683
@@ -103462,22 +102002,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15684
     components:
     - type: Transform
@@ -103489,22 +102015,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15685
     components:
     - type: Transform
@@ -103516,22 +102028,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15686
     components:
     - type: Transform
@@ -103543,22 +102041,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15687
     components:
     - type: Transform
@@ -103570,22 +102054,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerWardenFilled
   entities:
   - uid: 15688
@@ -103599,22 +102069,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: LockerWeldingSuppliesFilled
   entities:
   - uid: 15689
@@ -103628,22 +102084,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15690
     components:
     - type: Transform
@@ -103665,22 +102107,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: MachineAnomalyGenerator
   entities:
   - uid: 15693
@@ -103735,19 +102163,12 @@ entities:
     - type: Transform
       pos: -6.5,-12.5
       parent: 2
-- proto: MailMetricsCartridge
+- proto: MachineMaterialSilo
   entities:
-  - uid: 15701
+  - uid: 15744
     components:
     - type: Transform
-      pos: 18.860258,2.8436055
-      parent: 2
-- proto: MailTeleporter
-  entities:
-  - uid: 15702
-    components:
-    - type: Transform
-      pos: 21.5,0.5
+      pos: 6.5,41.5
       parent: 2
 - proto: MaintenanceFluffSpawner
   entities:
@@ -103976,13 +102397,6 @@ entities:
     - type: Transform
       pos: -24.501097,-36.300484
       parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 15744
-    components:
-    - type: Transform
-      pos: 6.5,41.5
-      parent: 2
 - proto: MaterialWoodPlank
   entities:
   - uid: 15745
@@ -104006,6 +102420,13 @@ entities:
     components:
     - type: Transform
       pos: 17.5,-9.5
+      parent: 2
+- proto: MechFigurineSpawner50
+  entities:
+  - uid: 10093
+    components:
+    - type: Transform
+      pos: -75.5,-63.5
       parent: 2
 - proto: MedicalBed
   entities:
@@ -104203,18 +102624,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: MobSlimeXenobioBabyGrey
-  entities:
-  - uid: 15781
-    components:
-    - type: Transform
-      pos: 47.5,12.5
-      parent: 2
-  - uid: 15782
-    components:
-    - type: Transform
-      pos: 46.5,12.5
-      parent: 2
 - proto: MonkeyCube
   entities:
   - uid: 15783
@@ -104272,22 +102681,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15791
     components:
     - type: Transform
@@ -104300,22 +102695,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15792
     components:
     - type: Transform
@@ -104328,22 +102709,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15793
     components:
     - type: Transform
@@ -104356,22 +102723,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.3955739
-        - 12.773826
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.3955739
+          Nitrogen: 12.773826
   - uid: 15794
     components:
     - type: Transform
@@ -104384,22 +102737,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.3955739
-        - 12.773826
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.3955739
+          Nitrogen: 12.773826
   - uid: 15795
     components:
     - type: Transform
@@ -104412,22 +102751,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.3955739
-        - 12.773826
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.3955739
+          Nitrogen: 12.773826
   - uid: 15796
     components:
     - type: Transform
@@ -104440,22 +102765,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.3955739
-        - 12.773826
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.3955739
+          Nitrogen: 12.773826
   - uid: 15797
     components:
     - type: Transform
@@ -104474,22 +102785,8 @@ entities:
         immutable: False
         temperature: 293.14954
         moles:
-        - 3.1239278
-        - 11.75192
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.1239278
+          Nitrogen: 11.75192
   - uid: 15799
     components:
     - type: Transform
@@ -104502,22 +102799,8 @@ entities:
         immutable: False
         temperature: 293.14954
         moles:
-        - 3.1239278
-        - 11.75192
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.1239278
+          Nitrogen: 11.75192
   - uid: 15800
     components:
     - type: Transform
@@ -104530,22 +102813,8 @@ entities:
         immutable: False
         temperature: 293.14954
         moles:
-        - 3.1239278
-        - 11.75192
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.1239278
+          Nitrogen: 11.75192
   - uid: 15801
     components:
     - type: Transform
@@ -104558,22 +102827,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 15802
     components:
     - type: Transform
@@ -105808,6 +104063,13 @@ entities:
     components:
     - type: Transform
       pos: 40.559143,-53.538166
+      parent: 2
+- proto: PlushieSpawner50
+  entities:
+  - uid: 19598
+    components:
+    - type: Transform
+      pos: 13.5,6.5
       parent: 2
 - proto: PollBooth
   entities:
@@ -121616,7 +119878,7 @@ entities:
     - type: Transform
       pos: 19.53292,7.7526426
       parent: 2
-- proto: SpacemenFigureSpawner
+- proto: SpacemenFigurineSpawner90
   entities:
   - uid: 18504
     components:
@@ -122595,6 +120857,14 @@ entities:
     - type: Transform
       pos: -16.5,-16.5
       parent: 2
+- proto: StationAiFixerComputer
+  entities:
+  - uid: 15701
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 25.5,14.5
+      parent: 2
 - proto: StationAiUploadComputer
   entities:
   - uid: 18666
@@ -123486,22 +121756,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
   - uid: 18812
     components:
     - type: Transform
@@ -123513,22 +121769,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
   - uid: 18813
     components:
     - type: Transform
@@ -128592,13 +126834,6 @@ entities:
     - type: Transform
       pos: -25.44764,39.398945
       parent: 2
-- proto: ToySpawner
-  entities:
-  - uid: 19598
-    components:
-    - type: Transform
-      pos: 13.5,6.5
-      parent: 2
 - proto: TrashBag
   entities:
   - uid: 19599
@@ -129561,13 +127796,6 @@ entities:
     components:
     - type: Transform
       pos: -48.5,33.5
-      parent: 2
-- proto: VendingMachineMailDrobe
-  entities:
-  - uid: 19676
-    components:
-    - type: Transform
-      pos: 19.5,-7.5
       parent: 2
 - proto: VendingMachineMedical
   entities:
@@ -144987,22 +143215,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: WardrobeCargoFilled
   entities:
   - uid: 22667
@@ -145016,22 +143230,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 22668
     components:
     - type: Transform
@@ -145043,22 +143243,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: WardrobeChapel
   entities:
   - uid: 22669
@@ -145072,22 +143258,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 22670
     components:
     - type: Transform
@@ -145099,22 +143271,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: WardrobeChapelFilled
   entities:
   - uid: 22671
@@ -145128,22 +143286,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: WardrobeEngineeringFilled
   entities:
   - uid: 22672
@@ -145169,22 +143313,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -145226,22 +143356,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: WardrobePrisonFilled
   entities:
   - uid: 22677
@@ -145255,22 +143371,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 22678
     components:
     - type: Transform
@@ -145282,22 +143384,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 22679
     components:
     - type: Transform
@@ -145309,22 +143397,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 22680
     components:
     - type: Transform
@@ -145336,22 +143410,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 22681
     components:
     - type: Transform
@@ -145363,22 +143423,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: WardrobeSecurityFilled
   entities:
   - uid: 22682
@@ -145392,22 +143438,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
   - uid: 22683
     components:
     - type: Transform
@@ -145419,22 +143451,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: WardrobeYellowFilled
   entities:
   - uid: 22684
@@ -145448,22 +143466,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 3.4430928
+          Nitrogen: 12.952587
 - proto: WarningCO2
   entities:
   - uid: 22685
