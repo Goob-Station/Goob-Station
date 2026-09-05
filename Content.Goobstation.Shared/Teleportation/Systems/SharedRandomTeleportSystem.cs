@@ -1,15 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
-using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Effects;
-using Content.Goobstation.Common.Grab;
-using Content.Goobstation.Shared.GrabIntent;
-using Content.Goobstation.Common.MartialArts;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Destructible.Thresholds;
-using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Physics;
+using Content.Shared.Random.Helpers;
+using Content.Shared.Stacks;
 using Content.Shared.Teleportation;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -17,11 +16,12 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using System.Numerics;
 
 namespace Content.Goobstation.Shared.Teleportation.Systems;
 
-[Virtual]
-public partial class SharedRandomTeleportSystem : EntitySystem
+public sealed class SharedRandomTeleportSystem : EntitySystem
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -30,6 +30,10 @@ public partial class SharedRandomTeleportSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly SparksSystem _sparks = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -38,23 +42,50 @@ public partial class SharedRandomTeleportSystem : EntitySystem
         base.Initialize();
 
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
+
+        SubscribeLocalEvent<RandomTeleportOnUseComponent, UseInHandEvent>(OnUseInHand);
     }
 
-    public bool RandomTeleport(EntityUid target, RandomTeleportComponent rtp, bool sound = true, bool @event = true)
-        => RandomTeleport(target, rtp, out _, sound, @event);
+    private void OnUseInHand(Entity<RandomTeleportOnUseComponent> ent, ref UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
 
-    public bool RandomTeleport(EntityUid target, RandomTeleportComponent rtp, out Vector2? finalWorldPos, bool sound = true, bool @event = true)
+        args.Handled = true;
+
+        if (!RandomTeleport(args.User, ent.Comp, out var wp, user: args.User))
+            return;
+
+        _adminLog.Add(LogType.Action, LogImpact.Low, $"{args.User:actor} randomly teleported to {wp} using {ent:used}");
+
+        if (!ent.Comp.ConsumeOnUse)
+            return;
+
+        if (TryComp<StackComponent>(ent, out var stack))
+        {
+            _stack.ReduceCount((ent.Owner, stack), 1);
+            return;
+        }
+
+        // It's consumed on use and it's not a stack so delete it
+        PredictedQueueDel(ent);
+    }
+
+    public bool RandomTeleport(EntityUid target, RandomTeleportComponent rtp, bool sound = true, EntityUid? user = null)
+        => RandomTeleport(target, rtp, out _, sound, user);
+
+    public bool RandomTeleport(EntityUid target, RandomTeleportComponent rtp, out Vector2? finalWorldPos, bool sound = true, EntityUid? user = null)
     {
         finalWorldPos = null;
 
-        if (@event && !CanTeleport(target))
+        if (!_teleport.CanTeleport(target))
             return false;
 
         // play sound before and after teleport if playSound is true
         if (sound) _audio.PlayPvs(rtp.DepartureSound, Transform(target).Coordinates, AudioParams.Default);
         _sparks.DoSparks(Transform(target).Coordinates); // also sparks!!
 
-        finalWorldPos = RandomTeleport(target, rtp.Radius, rtp.TeleportAttempts, rtp.ForceSafeTeleport, rtp.TeleportPulledEntities);
+        finalWorldPos = RandomTeleport(target, rtp.Radius, rtp.TeleportAttempts, rtp.ForceSafeTeleport, rtp.TeleportPulled);
 
         if (sound) _audio.PlayPvs(rtp.ArrivalSound, Transform(target).Coordinates, AudioParams.Default);
         _sparks.DoSparks(Transform(target).Coordinates);
@@ -62,17 +93,22 @@ public partial class SharedRandomTeleportSystem : EntitySystem
         return true;
     }
 
-    public Vector2 GetTeleportVector(float minRadius, float extraRadius)
+    public Vector2 GetTeleportVector(IRobustRandom rand, float minRadius, float extraRadius)
     {
         // Generate a random number from 0 to 1 and multiply by radius to get distance we should teleport to
         // A square root is taken from the random number so we get an uniform distribution of teleports, else you would get more teleports close to you
-        var distance = minRadius + extraRadius * MathF.Sqrt(_random.NextFloat());
+        var distance = minRadius + extraRadius * MathF.Sqrt(rand.NextFloat());
         // Generate a random vector with the length we've chosen
-        return _random.NextAngle().ToVec() * distance;
+        return rand.NextAngle().ToVec() * distance;
     }
 
-    public Vector2? RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true, bool teleportPulledEntities = false)
+    public Vector2? RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true,
+        bool pulled = true, EntityUid? user = null)
     {
+        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(uid).Id);
+        var rand = new RobustRandom();
+        rand.SetSeed(seed);
+
         var xform = Transform(uid);
         var entityCoords = _xform.ToMapCoordinates(xform.Coordinates);
 
@@ -95,7 +131,7 @@ public partial class SharedRandomTeleportSystem : EntitySystem
             if (forceSafe && i >= triesBase)
                 extraRadius *= (tries - i) / triesBase;
 
-            targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadius));
+            targetCoords = entityCoords.Offset(GetTeleportVector(rand, radius.Min, extraRadius));
 
             // Try to not teleport into open space
             if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
@@ -123,40 +159,10 @@ public partial class SharedRandomTeleportSystem : EntitySystem
                 break;
             }
         }
+        if (!foundValid) targetCoords = entityCoords.Offset(GetTeleportVector(rand, radius.Min, extraRadiusBase));
 
-        // We haven't found a valid teleport, so just teleport to any spot in range
-        if (!foundValid) targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadiusBase));
-
-        // if we teleport the pulled entity goes with us
-        EntityUid? pullableEntity = null;
-        var stage = GrabStage.No;
-        if (TryComp<PullerComponent>(uid, out var puller))
-        {
-            if (TryComp<GrabIntentComponent>(uid, out var grabIntent))
-                stage = grabIntent.GrabStage;
-            pullableEntity = puller.Pulling;
-        }
-
-        _pullingSystem.StopAllPulls(uid);
-
-        var newPos = targetCoords.Position;
-        _xform.SetWorldPosition(uid, newPos);
-
-        // pulled entity goes with us
-        // btw STOP REVERSING CHECKS
-        if (pullableEntity != null && teleportPulledEntities)
-        {
-            _xform.SetWorldPosition(pullableEntity.Value, newPos);
-            _pullingSystem.TryStartPull(uid, pullableEntity.Value, grabStageOverride: stage, force: true);
-        }
-
-        return newPos;
-    }
-
-    private bool CanTeleport(EntityUid uid)
-    {
-        var ev = new TeleportAttemptEvent(false);
-        RaiseLocalEvent(uid, ref ev);
-        return !ev.Cancelled;
+        var newPos = _xform.ToCoordinates(targetCoords);
+        _teleport.Teleport(uid, newPos, user, pulled);
+        return newPos.Position;
     }
 }

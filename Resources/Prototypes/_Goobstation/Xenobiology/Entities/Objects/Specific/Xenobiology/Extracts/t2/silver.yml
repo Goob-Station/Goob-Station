@@ -10,51 +10,37 @@
       color: "#c4c4c4"
       shader: XenoMetallic
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractEvil
       - !type:Jitter
         time: 5
         frequency: 20
-      - !type:AreaReactionEffect
+      - !type:DoSmokeEffect
         duration: 10
-        prototypeId: AluminiumMetalFoam
-        sound:
-          path: /Audio/Effects/extinguish.ogg
+        spreadAmount: 75
+        smokePrototype: AluminiumMetalFoam
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/extinguish.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
       - !type:SpawnEntity
         entity: IngotSilver1
         number: 2
-        shouldScale: false
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
       - !type:SpawnEntity
         entity: XenobioGoopBall
         number: 3
-        shouldScale: false
   - type: Tag
     tags:
     - XenobiologySilverExtract

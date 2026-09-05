@@ -7,6 +7,17 @@
     lifetime: 15
 
 - type: entity
+  parent: MarkerBase
+  id: XenoExtractChronofieldSpawner
+  name: sepia chronofield spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: SpawnOnDespawn
+    prototype: XenoExtractChronofield
+
+- type: entity
   id: XenoGooWall
   name: gelatinous growth
   description: This could very well be the blob from space LIDL.
@@ -67,8 +78,17 @@
     color: teal
 
 - type: entity
-  name: random hostile mob spawner
   id: RHostileMobSpawner
+  parent: MarkerBase
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: RandomHostileMobSpawner
+
+- type: entity
+  name: random hostile mob spawner
+  id: RandomHostileMobSpawner
   parent: MarkerBase
   components:
   - type: RandomSpawner
@@ -109,8 +129,17 @@
     offset: 0.0
 
 - type: entity
-  name: random neutral mob spawner
   id: RNeutralMobSpawner
+  parent: MarkerBase
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: RandomNeutralMobSpawner
+
+- type: entity
+  name: random neutral mob spawner
+  id: RandomNeutralMobSpawner
   parent: MarkerBase
   components:
   - type: RandomSpawner
@@ -137,8 +166,17 @@
     offset: 0.0
 
 - type: entity
-  name: random passive mob spawner
   id: RPassiveMobSpawner
+  parent: MarkerBase
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: RandomPassiveMobSpawner
+
+- type: entity
+  name: random passive mob spawner
+  id: RandomPassiveMobSpawner
   parent: MarkerBase
   components:
   - type: RandomSpawner

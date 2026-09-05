@@ -1,16 +1,27 @@
 - type: entity
-  name: random T1 xenobio slime spawner
-  id: XenobioSlimeBabySpawner
   parent: MarkerBase
+  id: MobSlimeXenobioBabyGreySpawner
+  name: grey slime spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: MobSlimeXenobioBabyGrey
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioSlimeBabySpawner
+  name: random T1 xenobio slime spawner
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
-        state: base
+    - state: red
+    - sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+      state: base
   - type: RandomSpawner
     prototypes:
     - MobSlimeXenobioBabyGrey
-    - MobSlimeXenobioBabyGrey # more chance to get spawned because it's the mother of all slimes
+    - MobSlimeXenobioBabyGrey
     - MobSlimeXenobioBabyPurple
     - MobSlimeXenobioBabyBlue
