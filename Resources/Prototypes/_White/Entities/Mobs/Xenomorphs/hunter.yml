@@ -40,8 +40,8 @@
     enabledOnDeath: false # Removing Stealth on death, so you can do surgery
     enabled: false
     lastVisibility: 0.2
-  - type: Jump
-    jumpAction: ActionJumpXenomorph
+  - type: Leap
+    jumpAction: ActionLeapXenomorph
   #- type: ActionGrant # Goobstation - moved to organ
   #  actions:
   #  - ActionTransferPlasma

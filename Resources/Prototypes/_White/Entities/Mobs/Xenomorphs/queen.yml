@@ -22,14 +22,9 @@
         Brute: 5
     inject:
       ChloralHydrate: 10 # Goobstation - new chemical
-  #- type: ActionGrant # Goobstation - moved to organs
-  #  actions:
-  #  - ActionTransferPlasma
-  #  - ActionSpawnWallResin
-  #  - ActionSpawnResinMembrane
-  #  - ActionSpawnResinNest
-  #  - ActionSpawnResinWeedNode
-  #  - ActionSpawnXenomorphEgg
+  - type: ActionGrant
+    actions:
+    - ActionXenomorphPromotion
   - type: Body
     prototype: XenomorphQueen
   - type: TypingIndicator

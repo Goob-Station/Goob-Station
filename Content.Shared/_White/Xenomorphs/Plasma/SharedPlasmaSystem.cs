@@ -10,18 +10,24 @@ public abstract class SharedPlasmaSystem : EntitySystem
 
     public override void Initialize()
     {
+        SubscribeLocalEvent<PlasmaVesselComponent, ComponentStartup>(OnPlasmaVesselStartup);
         SubscribeLocalEvent<PlasmaVesselComponent, ComponentShutdown>(OnPlasmaVesselShutdown);
         SubscribeLocalEvent<PlasmaVesselComponent, TransferPlasmaActionEvent>(OnPlasmaTransfer);
     }
 
-    private void OnPlasmaVesselShutdown(EntityUid uid, PlasmaVesselComponent component, ComponentShutdown args) =>
-        _alerts.ClearAlert(uid, component.PlasmaAlert);
-
-    private void OnPlasmaTransfer(EntityUid uid, PlasmaVesselComponent component, TransferPlasmaActionEvent args)
+    private void OnPlasmaVesselStartup(Entity<PlasmaVesselComponent> ent, ref ComponentStartup args)
     {
-        if (args.Handled
-            || !TryComp<PlasmaVesselComponent>(args.Target, out var plasmaVesselTarget)
-            || !ChangePlasmaAmount(uid, -args.Amount, component))
+        _alerts.ShowAlert(ent.Owner, ent.Comp.PlasmaAlert);
+    }
+
+    private void OnPlasmaVesselShutdown(Entity<PlasmaVesselComponent> ent, ref ComponentShutdown args)
+    {
+        _alerts.ClearAlert(ent.Owner, ent.Comp.PlasmaAlert);
+    }
+
+    private void OnPlasmaTransfer(Entity<PlasmaVesselComponent> ent, ref TransferPlasmaActionEvent args)
+    {
+        if (args.Handled || !TryComp<PlasmaVesselComponent>(args.Target, out var plasmaVesselTarget))
             return;
 
         ChangePlasmaAmount(args.Target, args.Amount, plasmaVesselTarget);
@@ -36,8 +42,6 @@ public abstract class SharedPlasmaSystem : EntitySystem
 
         component.Plasma = FixedPoint2.Min(component.Plasma + amount, component.MaxPlasma);
         Dirty(uid, component);
-
-        RaiseLocalEvent(uid, new PlasmaAmountChangeEvent(component.Plasma));
 
         _alerts.ShowAlert(uid, component.PlasmaAlert);
 

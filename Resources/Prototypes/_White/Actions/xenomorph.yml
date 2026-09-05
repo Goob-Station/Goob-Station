@@ -44,12 +44,13 @@
 
 - type: entity
   id: ActionEvolutionQueen
-  parent: ActionEvolutionPraetorian
   name: Evolve to queen (500)
   description: Produce an internal egg sac capable of spawning children. Only one queen can exist at a time.
   components:
   - type: Action
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_queen }
+  - type: PlasmaCostAction
+    plasmaCost: 500
 
 # Structures actions
 - type: entity
@@ -230,10 +231,10 @@
 
 # Jump action
 - type: entity
-  id: ActionJumpXenomorph
+  id: ActionLeapXenomorph
   parent: BaseAction
-  name: Jump
-  description: Stun your enemies with a quick jump.
+  name: Leap # Who the fuck called it a jump
+  description: Stun your enemies with a quick leap.
   components:
   - type: Action
     priority: 0
@@ -243,7 +244,7 @@
   - type: TargetAction
     range: 10
   - type: WorldTargetAction
-    event: !type:JumpActionEvent
+    event: !type:LeapActionEvent
 
 # Transfer plasma action
 - type: entity
@@ -261,6 +262,8 @@
     range: 2
   - type: EntityTargetAction
     event: !type:TransferPlasmaActionEvent
+  - type: PlasmaCostAction
+    plasmaCost: 50
 
 # Promotion action
 - type: entity

@@ -1,11 +1,10 @@
-using Content.Shared.Actions;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Jump;
 
 [RegisterComponent]
-public sealed partial class JumpComponent : Component
+public sealed partial class LeapComponent : Component
 {
     [DataField]
     public SoundSpecifier? JumpSound;
@@ -22,5 +21,3 @@ public sealed partial class JumpComponent : Component
     [ViewVariables]
     public EntityUid? JumpActionEntity;
 }
-
-public sealed partial class JumpActionEvent : WorldTargetActionEvent;

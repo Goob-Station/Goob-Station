@@ -40,10 +40,7 @@ public sealed partial class TransferPlasmaActionEvent : EntityTargetActionEvent
 
 public sealed partial class EvolutionsActionEvent : InstantActionEvent;
 
-public sealed partial class PromotionActionEvent : EntityTargetActionEvent
-{
-    // Target is already provided by EntityTargetActionEvent
-}
+public sealed partial class PromotionActionEvent : EntityTargetActionEvent;
 
 public sealed partial class TailLashActionEvent : WorldTargetActionEvent;
 
@@ -60,9 +57,4 @@ public sealed class BeforeXenomorphEvolutionEvent(ProtoId<XenomorphCastePrototyp
 {
     public ProtoId<XenomorphCastePrototype> Caste = caste;
     public bool CheckNeedCasteDeath = checkNeedCasteDeath;
-}
-
-public sealed class PlasmaAmountChangeEvent(FixedPoint2 amount) : EntityEventArgs
-{
-    public FixedPoint2 Amount = amount;
 }

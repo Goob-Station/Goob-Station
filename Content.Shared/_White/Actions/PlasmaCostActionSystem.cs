@@ -1,20 +1,18 @@
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._White.Xenomorphs;
 using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared._White.Xenomorphs.Plasma.Components;
-using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
+using Content.Shared.Popups;
 
 namespace Content.Shared._White.Actions;
 
 public sealed class PlasmaCostActionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPlasmaSystem _plasma = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<PlasmaCostActionComponent, ActionRelayedEvent<PlasmaAmountChangeEvent>>(OnPlasmaAmountChange);
         SubscribeLocalEvent<PlasmaCostActionComponent, ActionAttemptEvent>(OnActionAttempt); // Goobstation
     }
 
@@ -41,25 +39,17 @@ public sealed class PlasmaCostActionSystem : EntitySystem
             _plasma.ChangePlasmaAmount(performer, -cost);
     }
 
-    [Obsolete("Use HasEnoughPlasma and DeductPlasma separately for better control")]
-    public bool CheckPlasmaCost(EntityUid performer, FixedPoint2 cost)
-    {
-        if (!HasEnoughPlasma(performer, cost))
-            return false;
-
-        DeductPlasma(performer, cost);
-        return true;
-    }
-
-    private void OnPlasmaAmountChange(EntityUid uid, PlasmaCostActionComponent component, ActionRelayedEvent<PlasmaAmountChangeEvent> args)
-    {
-        _actions.SetEnabled(uid, component.PlasmaCost <= args.Args.Amount);
-    }
-
     private void OnActionAttempt(Entity<PlasmaCostActionComponent> ent, ref ActionAttemptEvent args)
     {
+        if (args.Cancelled)
+            return;
+
         if (!_plasma.HasPlasma(args.User, ent.Comp.PlasmaCost))
+        {
+            _popup.PopupPredicted(Loc.GetString("plasma-not-enough"), args.User, args.User);
             args.Cancelled = true;
+            return;
+        }
     }
     // Goobstation end
 }

@@ -1,10 +1,17 @@
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Server._White.Xenomorphs.Plasma;
 using Content.Server.DoAfter;
+using Content.Server.Mind;
+using Content.Server.Popups;
 using Content.Shared._White.Actions;
 using Content.Shared._White.Actions.Events;
+using Content.Shared._White.Xenomorphs;
+using Content.Shared._White.Xenomorphs.Plasma;
+using Content.Shared._White.Xenomorphs.Queen;
+using Content.Shared._White.Xenomorphs.Xenomorph;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
-using Content.Goobstation.Maths.FixedPoint;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
@@ -24,21 +31,31 @@ public sealed class ActionsSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly PlasmaCostActionSystem _plasmaCost = default!; // Goobstation=
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly PlasmaCostActionSystem _plasmaAction = default!;
+    [Dependency] private readonly SharedPlasmaSystem _plasma = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<SpawnTileEntityActionEvent>(OnSpawnTileEntityAction);
         SubscribeLocalEvent<PlaceTileEntityEvent>(OnPlaceTileEntityEvent);
-
         SubscribeLocalEvent<PlaceTileEntityDoAfterEvent>(OnPlaceTileEntityDoAfter);
     }
 
     private void OnSpawnTileEntityAction(SpawnTileEntityActionEvent args)
     {
-        if (!args.Handled && CreationTileEntity(args.Performer, args.Performer.ToCoordinates(), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
-            args.Handled = true;
+        if (args.Handled || !CreationTileEntity(args.Performer, args.Performer.ToCoordinates(), args.TileId, args.Entity,
+            args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
+            return;
+
+        var action = args.Action;
+
+        if (TryComp<PlasmaCostActionComponent>(action, out var plasma))
+            _plasmaAction.DeductPlasma(args.Performer, plasma.PlasmaCost);
+
+        args.Handled = true;
     }
 
     private void OnPlaceTileEntityEvent(PlaceTileEntityEvent args)
@@ -97,22 +114,35 @@ public sealed class ActionsSystem : EntitySystem
         if (args.Cancelled || args.Handled)
             return;
 
-        // Check plasma cost only when the action is about to complete
-        if (!_plasmaCost.HasEnoughPlasma(args.User, args.PlasmaCost))
+        if (!CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity,
+            args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask, GetEntity(args.Action)))
             return;
 
-        _plasmaCost.DeductPlasma(args.User, args.PlasmaCost);
+        var action = GetEntity(args.Action);
 
-        if (CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
-            args.Handled = true;
+        if (TryComp<PlasmaCostActionComponent>(action, out var plasma))
+            _plasmaAction.DeductPlasma(args.User, plasma.PlasmaCost);
+
+        args.Handled = true;
     }
 
     #region Helpers
 
-    private bool CreationTileEntity(EntityUid user, EntityCoordinates coordinates, string? tileId, EntProtoId? entProtoId, SoundSpecifier? audio, int collisionLayer = 0, int collisionMask = 0)
+    private bool CreationTileEntity(EntityUid user, EntityCoordinates coordinates, string? tileId, EntProtoId? entProtoId,
+        SoundSpecifier? audio, int collisionLayer = 0, int collisionMask = 0, EntityUid? actionId = null)
     {
+        if (!_proto.Resolve(entProtoId, out var proto))
+            return false;
+
         if (_container.IsEntityOrParentInContainer(user))
             return false;
+
+        // Here to avoid plasma becoming negative after do after finished and user don't have enough plasma
+        if (TryComp<PlasmaCostActionComponent>(actionId, out var action) && !_plasma.HasPlasma(user, action.PlasmaCost))
+        {
+            _popup.PopupEntity(Loc.GetString("plasma-not-enough"), user, user);
+            return false;
+        }
 
         if (tileId != null)
         {
@@ -127,7 +157,7 @@ public sealed class ActionsSystem : EntitySystem
 
         _audio.PlayPvs(audio, coordinates);
 
-        if (entProtoId == null || CheckTileBlocked(coordinates, collisionLayer, collisionMask))
+        if (CheckTileBlocked(coordinates, collisionLayer, collisionMask))
             return false;
 
         Spawn(entProtoId, coordinates);
@@ -143,6 +173,5 @@ public sealed class ActionsSystem : EntitySystem
         var tileIndices = _mapSystem.TileIndicesFor(grid, mapGrid, coordinates);
         return !_anchorable.TileFree(mapGrid, tileIndices, collisionLayer, collisionMask);
     }
-
     #endregion
 }
