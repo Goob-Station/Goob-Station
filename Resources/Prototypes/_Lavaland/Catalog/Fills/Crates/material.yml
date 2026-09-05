@@ -1,0 +1,161 @@
+# 300
+- type: entity
+  parent: CrateMaterialGlass
+  id: CrateMaterialGlass300
+  name: large glass sheet crate
+  description: 300 sheets of glass, packed with care.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SheetGlass
+        amount: 10
+
+- type: entity
+  parent: CrateMaterialSteel
+  id: CrateMaterialSteel300
+  name: large steel sheet crate
+  description: 300 sheets of steel.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SheetSteel
+        amount: 10
+
+- type: entity
+  parent: CrateMaterialTextiles
+  id: CrateMaterialTextiles300
+  name: large textiles crate
+  description: 200 pieces of cloth and 100 pieces of durathread.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MaterialCloth
+          amount: 20
+        - id: MaterialDurathread
+          amount: 10
+
+- type: entity
+  parent: CrateMaterialPlastic
+  id: CrateMaterialPlastic300
+  name: large plastic sheet crate
+  description: 300 sheets of plastic.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SheetPlastic
+        amount: 10
+
+- type: entity
+  parent: CrateMaterialWood
+  id: CrateMaterialWood300
+  name: large wood crate
+  description: A large bunch of wood planks.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: MaterialWoodPlank
+        amount: 10
+
+- type: entity
+  parent: CrateMaterialBrass
+  id: CrateMaterialBrass300
+  name: large brass crate
+  description: 300 sheets of brass.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SheetBrass
+        amount: 10
+
+- type: entity
+  parent: CrateMaterialPlasteel
+  id: CrateMaterialPlasteel300
+  name: large plasteel crate
+  description: 300 sheets of plasteel.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SheetPlasteel
+        amount: 10
+
+- type: entity
+  parent: CrateMaterialPlasma
+  id: CrateMaterialPlasma300
+  name: large solid plasma crate
+  description: 300 sheets of plasma.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SheetPlasma
+        amount: 10
+
+- type: entity
+  parent: CrateMaterialGold
+  id: CrateMaterialGold300
+  name: large gold crate
+  description: 300 bars of gold.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: IngotGold
+        amount: 10
+
+- type: entity
+  parent: CrateMaterialSilver
+  id: CrateMaterialSilver300
+  name: large silver crate
+  description: 300 bars of silver.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: IngotSilver
+        amount: 10
+
+# 1000 material variants
+
+- type: entity
+  parent: CrateMaterialGlass
+  id: CrateMaterialGlass1200
+  name: bulk glass sheet crate
+  description: 1200 sheets of glass, packed with care.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SheetGlass
+        amount: 40
+
+- type: entity
+  parent: CrateMaterialSteel
+  id: CrateMaterialSteel1200
+  name: bulk steel sheet crate
+  description: 1200 sheets of steel.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SheetSteel
+        amount: 40
+
+- type: entity
+  parent: CrateMaterialPlastic
+  id: CrateMaterialPlastic1200
+  name: bulk plastic sheet crate
+  description: 1200 sheets of plastic.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SheetPlastic
+        amount: 40

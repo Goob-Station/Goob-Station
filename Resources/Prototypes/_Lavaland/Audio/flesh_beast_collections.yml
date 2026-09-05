@@ -1,0 +1,13 @@
+- type: soundCollection
+  id: FleshGrowl
+  files:
+  - /Audio/_Lavaland/Mobs/Flesh/growl1.ogg
+  - /Audio/_Lavaland/Mobs/Flesh/growl2.ogg
+
+- type: soundCollection
+  id: FleshBreathe
+  files:
+  - /Audio/_Lavaland/Mobs/Flesh/breathing1.ogg
+  - /Audio/_Lavaland/Mobs/Flesh/breathing2.ogg
+  - /Audio/_Lavaland/Mobs/Flesh/breathing3.ogg
+  - /Audio/_Lavaland/Mobs/Flesh/breathing4.ogg

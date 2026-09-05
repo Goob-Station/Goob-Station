@@ -1,0 +1,64 @@
+- type: entityTable
+  id: MetalShelfCommonMaterial
+  table: !type:GroupSelector
+    children:
+    - id: SheetSteel
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SheetGlass
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SheetPlastic
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: MetalShelfRareMaterial
+  table: !type:GroupSelector
+    children:
+    - id: SheetSteel
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SheetGlass
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SheetPlasteel
+    - id: SheetPlastic
+    - id: SheetPlasma
+    - id: IngotSilver
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: MetalShelfVeryRareMaterial
+  table: !type:GroupSelector
+    children:
+    - id: SheetUranium
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SheetPlasma
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: IngotSilver
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: IngotGold
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: MetalShelfUltraRareMaterial
+  table: !type:GroupSelector
+    children:
+    - id: SheetUranium
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: SheetPlasma
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: IngotGold
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: IngotSilver
+      amount: !type:RangeNumberSelector
+        range: 1, 3

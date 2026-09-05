@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Server.Interaction;
 using Content.Server.Stealth;
 using Content.Shared.Physics;
@@ -36,8 +37,8 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
         if (!blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager))
             return false;
 
-        // goob edit - stealthed entities can't be seen by npcs
-        if (_entManager.TryGetComponent<StealthComponent>(target, out var stealth) && _stealth.GetVisibility(target, stealth) <= stealth.ExamineThreshold)
+        // goob edit - stealthed entities can't be seen by npcs AND they are not currently in a dungeon that doesn't like cheese.
+        if (_entManager.TryGetComponent<StealthComponent>(target, out var stealth) && _stealth.GetVisibility(target, stealth) <= stealth.ExamineThreshold && !_entManager.HasComponent<BlockTeleportComponent>(target)) // BlockTeleport because that's the comp lavaland dungeons assign you.
             return false;
 
         var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);

@@ -1,0 +1,22 @@
+# This folder is for environmental HAZARDS specifically, for the record.
+
+- type: entity
+  id: EnvironmentalHazardBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      hazard:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: SpeedModifierContacts

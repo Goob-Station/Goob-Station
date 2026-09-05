@@ -1,0 +1,42 @@
+#Common
+- type: entityTable
+  id: MetalShelfCommonGunWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponFlareGun
+    - id: WeaponSniperMosin
+    - id: WeaponMakeshiftLaser
+    - id: WeaponNailgun
+
+# Rare
+- type: entityTable
+  id: MetalShelfRareGunWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponPistolMk58
+    - id: WeaponLaserGun
+    - id: WeaponLaserSvalinn
+
+# Very rare
+- type: entityTable
+  id: MetalShelfVeryRareGunWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponAdvancedLaser
+    - id: WeaponLaserCarbine
+    - id: WeaponSubMachineGunDrozd
+    - id: WeaponShotgunEnforcer
+    - id: WeaponShotgunKammerer
+    - id: WeaponRifleLecter
+
+# Ultra rare
+- type: entityTable
+  id: MetalShelfUltraRareGunWeapons
+  table: !type:GroupSelector
+    children:
+    - id: WeaponRifleAk
+    - id: WeaponSubMachineGunWt550
+    - id: WeaponSubMachineGunAtreides
+    - id: WeaponLaserCannon
+    - id: WeaponRevolverDeckard
+    - id: WeaponRifleEstoc

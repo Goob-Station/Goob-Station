@@ -1,0 +1,11 @@
+- type: entity
+  id: CoatRack
+  name: coat rack
+  description: A standing rack for coats. It's empty.
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi
+    state: coatrack
+  - type: Clickable
+  - type: InteractionOutline

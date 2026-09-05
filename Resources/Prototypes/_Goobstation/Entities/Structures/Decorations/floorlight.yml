@@ -8,6 +8,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
+    drawdepth: FloorObjects
     sprite: _Goobstation/Structures/Decoration/floorlight.rsi
     layers:
       - map: ["enum.PoweredLightLayers.Base"]
@@ -38,6 +39,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
+    drawdepth: FloorObjects
     sprite: _Goobstation/Structures/Decoration/floorlight.rsi
     layers:
       - map: ["enum.PoweredLightLayers.Base"]
@@ -65,6 +67,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Decoration/floorlight.rsi
+    drawdepth: FloorObjects
     layers:
       - map: ["enum.PoweredLightLayers.Base"]
         state: base

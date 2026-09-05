@@ -118,8 +118,8 @@ namespace Content.Shared.Movement.Systems
                 return;
 
 
-            move.WalkSpeedModifier = Math.Min(ev.WalkSpeedModifier, _maxSpeed); // Goobstation Change
-            move.SprintSpeedModifier = Math.Min(ev.SprintSpeedModifier, _maxSpeed); // Goobstation Change
+            move.WalkSpeedModifier = Math.Min(ev.WalkSpeedModifier, move.MaxSpeedOverride ?? _maxSpeed); // Goobstation Change
+            move.SprintSpeedModifier = Math.Min(ev.SprintSpeedModifier, move.MaxSpeedOverride ?? _maxSpeed); // Goobstation Change
             Dirty(uid, move);
         }
 

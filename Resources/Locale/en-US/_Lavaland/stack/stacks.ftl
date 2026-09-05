@@ -55,3 +55,7 @@ stack-flowers-pale = {$amount ->
 [1] pale flower
 *[other] pale flowers
 }
+
+stack-ticket-green = Green coupon
+stack-ticket-orange = Orange coupon
+stack-ticket-red = Red coupon
