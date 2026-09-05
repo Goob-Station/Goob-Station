@@ -24986,3 +24986,11 @@ Entries:
       message: Bleeding should be comparable to pre-upstream levels of bleeding.
   id: 2866
   time: '2026-09-05T02:15:40.0000000+00:00'
+- author: redmagicspider
+  changes:
+    - type: Fix
+      message: Blind/visually impaired characters can now hear whispers.
+    - type: Fix
+      message: Visually impaired (not totally blind) characters can see sign language.
+  id: 2867
+  time: '2026-09-05T02:17:43.0000000+00:00'
