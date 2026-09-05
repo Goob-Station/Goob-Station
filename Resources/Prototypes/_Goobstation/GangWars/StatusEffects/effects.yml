@@ -1,0 +1,11 @@
+- type: entity
+  parent: StatusEffectSlowdown
+  id: GangDuffelBagTrappedStatusEffect
+  name: gang duffel bag trapped slowdown
+  components:
+  - type: MovementModStatusEffect
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: StatusEffectAlert
+    alert: GangTrapped
+    showDuration: true

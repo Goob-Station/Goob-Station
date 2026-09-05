@@ -1,0 +1,51 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseGangObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Gangs/gang_objective_giver.rsi
+      state: icon
+    difficulty: 1.5
+    issuer: objective-issuer-gang
+
+- type: entity
+  parent: BaseGangObjective
+  id: GangLeaderRecruitObjective
+  components:
+  - type: NumberObjective
+    min: 3
+    max: 3
+    title: gang-objective-recruit-title
+    description: gang-objective-recruit-description
+  - type: GangLeaderRecruitCondition
+
+- type: entity
+  parent: BaseGangObjective
+  id: GangFirstPlaceObjective
+  name: Be in first place
+  description: Lead your gang to the top of the leaderboard by the end of the shift.
+  components:
+  - type: GangFirstPlaceCondition
+
+- type: entity
+  parent: BaseGangObjective
+  id: GangEarnPointsObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/coins.rsi
+      state: coin_gold
+  - type: NumberObjective
+    min: 15000
+    max: 30000
+    title: gang-objective-earn-points-title
+    description: gang-objective-earn-points-description
+  - type: GangEarnPointsCondition
+
+- type: entity
+  parent: [BaseGangObjective, BaseSurviveObjective]
+  id: GangMemberSurviveObjective
+  name: Survive
+  description: Stay alive until the end of the shift. Dead gangsters don't collect winnings.

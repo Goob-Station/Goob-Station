@@ -1,0 +1,7 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              Orientation="Horizontal"
+              SeparationOverride="4"
+              HorizontalExpand="True">
+    <Button Name="NameButton" HorizontalExpand="True" ToggleMode="True"/>
+    <Button Name="PointsButton"/>
+</BoxContainer>
