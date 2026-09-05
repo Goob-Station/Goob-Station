@@ -24972,3 +24972,25 @@ Entries:
         guidebook!
   id: 2864
   time: '2026-09-05T01:30:04.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Hydrakin are now forced to sleep by cryo chems
+    - type: Fix
+      message: Hydrakin are now poisoned by theobromine
+  id: 2865
+  time: '2026-09-05T02:13:13.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: Bleeding should be comparable to pre-upstream levels of bleeding.
+  id: 2866
+  time: '2026-09-05T02:15:40.0000000+00:00'
+- author: redmagicspider
+  changes:
+    - type: Fix
+      message: Blind/visually impaired characters can now hear whispers.
+    - type: Fix
+      message: Visually impaired (not totally blind) characters can see sign language.
+  id: 2867
+  time: '2026-09-05T02:17:43.0000000+00:00'
