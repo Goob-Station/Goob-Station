@@ -81,7 +81,6 @@ public sealed class ActionsSystem : EntitySystem
                 Audio = args.Audio,
                 BlockedCollisionLayer = args.BlockedCollisionLayer,
                 BlockedCollisionMask = args.BlockedCollisionMask, // Goobstation start
-                PlasmaCost = plasmaCostValue,
                 Action = GetNetEntity(args.Action) // Goobstation end
             };
 
@@ -114,14 +113,14 @@ public sealed class ActionsSystem : EntitySystem
         if (args.Cancelled || args.Handled)
             return;
 
-        if (!CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity,
-            args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask, GetEntity(args.Action)))
-            return;
-
         var action = GetEntity(args.Action);
 
         if (TryComp<PlasmaCostActionComponent>(action, out var plasma))
             _plasmaAction.DeductPlasma(args.User, plasma.PlasmaCost);
+
+        if (!CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity,
+            args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
+            return;
 
         args.Handled = true;
     }
@@ -129,20 +128,13 @@ public sealed class ActionsSystem : EntitySystem
     #region Helpers
 
     private bool CreationTileEntity(EntityUid user, EntityCoordinates coordinates, string? tileId, EntProtoId? entProtoId,
-        SoundSpecifier? audio, int collisionLayer = 0, int collisionMask = 0, EntityUid? actionId = null)
+        SoundSpecifier? audio, int collisionLayer = 0, int collisionMask = 0)
     {
         if (!_proto.Resolve(entProtoId, out var proto))
             return false;
 
         if (_container.IsEntityOrParentInContainer(user))
             return false;
-
-        // Here to avoid plasma becoming negative after do after finished and user don't have enough plasma
-        if (TryComp<PlasmaCostActionComponent>(actionId, out var action) && !_plasma.HasPlasma(user, action.PlasmaCost))
-        {
-            _popup.PopupEntity(Loc.GetString("plasma-not-enough"), user, user);
-            return false;
-        }
 
         if (tileId != null)
         {

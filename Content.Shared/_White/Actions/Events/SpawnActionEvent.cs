@@ -86,7 +86,6 @@ public sealed partial class PlaceTileEntityDoAfterEvent : DoAfterEvent
     public SoundSpecifier? Audio;
     public int BlockedCollisionMask;
     public int BlockedCollisionLayer;
-    public FixedPoint2 PlasmaCost; // Goobstation
     public NetEntity Action; // Goobstation
 
     public override DoAfterEvent Clone() => this;
