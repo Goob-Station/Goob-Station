@@ -255,3 +255,12 @@
   components:
   - type: Flatpack
     entity: MachineMaterialSilo
+
+- type: entity
+  parent: BaseFlatpack
+  id: ShredderFlatpack
+  name: shredder flat pack
+  description: A flatpack used for constructing a shredder.
+  components:
+  - type: Flatpack
+    entity: Shredder
