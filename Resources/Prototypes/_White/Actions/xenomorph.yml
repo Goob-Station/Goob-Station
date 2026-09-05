@@ -43,6 +43,7 @@
     plasmaCost: 500
 
 - type: entity
+  parent: ActionEvolution
   id: ActionEvolutionQueen
   name: Evolve to queen (500)
   description: Produce an internal egg sac capable of spawning children. Only one queen can exist at a time.
