@@ -3,9 +3,17 @@ slotmachine-message = Pull the lever and test your luck on the slot machine!
 
 slotmachine-no-money = Not enough money!
 
-slotmachine-win-normal = Congrats, you have won {$amount} spesos!
-slotmachine-win-jackpot = CONGRATULATIONS, YOU HIT THE JACKPOT!!
+slotmachine-win-minor = You've won 50 spesos
+slotmachine-win-small = You've won 100 spesos!
+slotmachine-win-medium = Congrats!, You've won 500 spesos!
+slotmachine-win-large = Congratulations! You've won 5000 spesos!
+
+slotmachine-win-jackpot = CONGRATULATIONS, YOU'VE HIT THE JACKPOT!!
 slotmachine-win-godpot = ERROR INTERGER OVERFLOW, DISPENSING "GODPOT"
+
+slotmachine-win-qm-minor = Congratulations, you've won 100,000 spesos
+slotmachine-win-qm-jackpot = CONGRATULATIONS, YOU'VE WON 1,000,000 SPESOS, JACKPOT!!
+slotmachine-win-qm-throngler = If security tries to take this from you, remind them that they are mortal.
 
 wires-board-name-slot-machine = Slot Machine
 
@@ -21,3 +29,5 @@ coinflipper-win = Winner! You won {$amount} spesos!
 clawmachine-fail-self = You mess up and drop the plushie!
 clawmachine-fail-other = {$user} messes up and drops the plushie!
 clawmachine-fail-generic = The plushie falls out of the claw, how disappointing...
+
+clawmachine-win-evil = Did you know that everything in security's armory is yours becuase of how taxes work, you can freely take it and they can't do anything, this IS legal advice.

@@ -1,0 +1,127 @@
+- type: entityTable
+  id: SlotMachineMinorWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash10
+
+- type: entityTable
+  id: SlotMachineSmallWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash100
+
+- type: entityTable
+  id: SlotMachineMediumWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash500
+
+- type: entityTable
+  id: SlotMachineLargeWin
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash5000
+
+- type: entityTable
+  id: SlotMachineJackpot
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash30000
+
+- type: entityTable
+  id: SlotMachineGodPot
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: LootGodPot
+
+- type: entityTable
+  id: LootGodPot
+  table: !type:GroupSelector
+    children:
+    - id: WeaponShotgunHeavy
+    - id: TeslaMiniEnergyBall
+
+# Qm Slot machine
+
+- type: entityTable
+  id: SlotMachineQmMinor
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash100000
+
+- type: entityTable
+  id: SlotMachineQmJackpot
+  table: !type:AllSelector
+    children:
+    - id: SpaceCash1000000
+
+- type: entityTable
+  id: SlotMachineQmThrongler
+  table: !type:AllSelector
+    children:
+    - id: Throngler
+
+# Claw machine
+
+- type: entityTable
+  id: ClawMachinePlushies
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: Plushies
+
+- type: entityTable
+  id: ClawMachineEvilPlushies
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: Plushies
+
+- type: entityTable
+  id: Plushies
+  table: !type:GroupSelector
+    children:
+    - id: PlushieMoth
+    - id: PlushieHuman
+    - id: PlushiePenguin
+    - id: PlushieXeve
+    - id: PlushieDurk
+    - id: PlushieMnwaar
+    - id: PlushieLouie
+    - id: FoamWonderprod
+    - id: PlushieBingle
+    - id: PlushieBongle
+    - id: PlushieBinglePony
+    - id: PlushieAbductor
+    - id: PlushieJvne
+    - id: PlushieFern
+    - id: PlushieNigel
+    - id: PlushieBrizby
+    - id: PlushieBoggle
+    - id: PlushieLehmin
+    - id: PlushieWachtel
+    - id: PlushieLeguia
+    - id: PlushiePasha
+    - id: PlushieLeoMalone
+    - id: PlushieRedstonewolf
+
+- type: entityTable
+  id: PlushiesEvil
+  table: !type:GroupSelector
+    children:
+    - id: EvilPlushieXeve
+    - id: EvilPlushieBoggle
+    - id: EvilPlushieBrizby
+    - id: EvilPlushieNigel
+    - id: EvilPlushieFern
+    - id: EvilPlushieJvne
+    - id: EvilPlushieMnwaar
+    - id: EvilPlushieDurk
+    - id: EvilPlushieLouie
+    - id: EvilPlushieWachtel
+    - id: EvilPlushieLeguia
+    - id: EvilPlushiePasha
+    - id: EvilPlushieTwofish
+    - id: EvilPlushieLeoMalone
+    - id: EvilPlushieRedstonewolf
