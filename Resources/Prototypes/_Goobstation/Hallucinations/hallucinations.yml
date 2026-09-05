@@ -1,0 +1,752 @@
+- type: weightedRandom
+  id: HallucinationGroups
+  weights:
+    HallucinationGroupSounds: 3
+    HallucinationGroupMobs: 2
+    HallucinationGroupMorphs: 2
+    HallucinationGroupAppearances: 2
+    HallucinationGroupSpeech: 1
+
+- type: weightedRandom
+  id: HallucinationGroupSounds
+  weights:
+    HallucinationWhispers: 4
+    HallucinationFootsteps: 3
+    HallucinationKnocking: 2
+    HallucinationScreams: 2
+    HallucinationScreamsFemale: 2
+    HallucinationZombieGroans: 1.5
+    HallucinationLaughter: 2
+    HallucinationGiggling: 2
+    HallucinationHissing: 1.5
+    HallucinationGrowling: 1.5
+    HallucinationGlassBreak: 2
+    HallucinationMetalBang: 2
+    HallucinationBodyfall: 1.5
+    HallucinationBonesRattle: 1.5
+    HallucinationDemonGrowl: 1
+    HallucinationExplosionFar: 1
+    HallucinationChurchBell: 1
+    HallucinationOminous: 1
+    HallucinationSparks: 1.5
+    HallucinationSpaceWind: 1
+    HallucinationAlarm: 1
+    HallucinationBuzzing: 1.5
+    HallucinationVentHiss: 1.5
+    HallucinationAirlockCreak: 1.5
+
+- type: weightedRandom
+  id: HallucinationGroupMobs
+  weights:
+    HallucinationSpiders: 1.5
+    HallucinationClownSpiders: 1
+    HallucinationVermin: 1.5
+    HallucinationBeasts: 1
+    HallucinationXenos: 0.8
+    HallucinationSlimes: 1
+    HallucinationHorrors: 0.5
+
+- type: weightedRandom
+  id: HallucinationGroupMorphs
+  weights:
+    HallucinationImpostor: 1.5
+    HallucinationImpostorHorror: 0.5
+
+- type: weightedRandom
+  id: HallucinationGroupAppearances
+  weights:
+    HallucinationChangeling: 2
+    HallucinationMansus: 1
+    HallucinationHeretic: 1.5
+    HallucinationGunman: 1.5
+    HallucinationKnife: 2.5
+    HallucinationMachete: 1.5
+    HallucinationKatana: 1
+    HallucinationEnergyBlade: 1
+    HallucinationCultDagger: 1
+    HallucinationFireaxe: 1
+    HallucinationRifle: 1.5
+    HallucinationShotgun: 1
+    HallucinationSmg: 1
+
+- type: weightedRandom
+  id: HallucinationGroupSpeech
+  weights:
+    HallucinationFakeSpeech: 3
+    HallucinationFakeSpeechMass: 0.5
+
+# Sounds
+
+- type: hallucination
+  id: HallucinationWhispers
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: Paracusia
+
+- type: hallucination
+  id: HallucinationFootsteps
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: FootstepFloor
+    rangeMin: 2
+    rangeMax: 5
+
+- type: hallucination
+  id: HallucinationKnocking
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/glass_knock.ogg
+
+- type: hallucination
+  id: HallucinationScreams
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: MaleScreams
+
+- type: hallucination
+  id: HallucinationScreamsFemale
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: FemaleScreams
+
+- type: hallucination
+  id: HallucinationZombieGroans
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: ZombieScreams
+
+- type: hallucination
+  id: HallucinationLaughter
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: MaleLaugh
+
+- type: hallucination
+  id: HallucinationGiggling
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: FemaleLaugh
+
+- type: hallucination
+  id: HallucinationHissing
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: HarpyHisses
+
+- type: hallucination
+  id: HallucinationGrowling
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: HarpyGrowls
+
+- type: hallucination
+  id: HallucinationGlassBreak
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      collection: GlassBreak
+
+- type: hallucination
+  id: HallucinationMetalBang
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/metal_slam1.ogg
+
+- type: hallucination
+  id: HallucinationBodyfall
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/bodyfall1.ogg
+
+- type: hallucination
+  id: HallucinationBonesRattle
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/bone_rattle.ogg
+
+- type: hallucination
+  id: HallucinationDemonGrowl
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/demon_attack1.ogg
+
+- type: hallucination
+  id: HallucinationExplosionFar
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/explosionfar.ogg
+    rangeMin: 4
+    rangeMax: 8
+
+- type: hallucination
+  id: HallucinationChurchBell
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/church_bell1.ogg
+
+- type: hallucination
+  id: HallucinationOminous
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/ominous.ogg
+
+- type: hallucination
+  id: HallucinationSparks
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/sparks1.ogg
+
+- type: hallucination
+  id: HallucinationSpaceWind
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Effects/space_wind.ogg
+
+- type: hallucination
+  id: HallucinationAlarm
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Ambience/Objects/alarm.ogg
+
+- type: hallucination
+  id: HallucinationBuzzing
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Ambience/Objects/buzzing.ogg
+
+- type: hallucination
+  id: HallucinationVentHiss
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Ambience/Objects/gas_hiss.ogg
+
+- type: hallucination
+  id: HallucinationAirlockCreak
+  effect:
+    !type:SoundHallucinationEffect
+    sound:
+      path: /Audio/Machines/airlock_creaking.ogg
+
+# Mobs
+
+- type: hallucination
+  id: HallucinationSpiders
+  effect:
+    !type:MobHallucinationEffect
+    mobs:
+    - MobHallucinationSpider
+    countMin: 1
+    countMax: 2
+
+- type: hallucination
+  id: HallucinationClownSpiders
+  effect:
+    !type:MobHallucinationEffect
+    mobs:
+    - MobHallucinationClownSpider
+    countMin: 1
+    countMax: 3
+
+- type: hallucination
+  id: HallucinationVermin
+  effect:
+    !type:MobHallucinationEffect
+    mobs:
+    - MobHallucinationRat
+    - MobHallucinationCockroach
+    - MobHallucinationBat
+    - MobHallucinationSnake
+    countMin: 1
+    countMax: 3
+
+- type: hallucination
+  id: HallucinationBeasts
+  effect:
+    !type:MobHallucinationEffect
+    mobs:
+    - MobHallucinationBear
+    - MobHallucinationCarp
+    - MobHallucinationSharkminnow
+    countMin: 1
+    countMax: 2
+
+- type: hallucination
+  id: HallucinationXenos
+  effect:
+    !type:MobHallucinationEffect
+    mobs:
+    - MobHallucinationXeno
+    - MobHallucinationRunner
+    countMin: 1
+    countMax: 2
+
+- type: hallucination
+  id: HallucinationSlimes
+  effect:
+    !type:MobHallucinationEffect
+    mobs:
+    - MobHallucinationSlime
+    countMin: 1
+    countMax: 2
+
+- type: hallucination
+  id: HallucinationHorrors
+  effect:
+    !type:MobHallucinationEffect
+    mobs:
+    - MobHallucinationGoliath
+    - MobHallucinationHellspawn
+    - MobHallucinationFlesh
+    countMin: 1
+    countMax: 1
+
+# A person looks like one of the mobs (only the victim sees it)
+
+- type: hallucination
+  id: HallucinationImpostor
+  effect:
+    !type:MorphHallucinationEffect
+    mobs:
+    - MobHallucinationSpider
+    - MobHallucinationClownSpider
+    - MobHallucinationRat
+    - MobHallucinationSnake
+    - MobHallucinationBear
+    - MobHallucinationCarp
+    - MobHallucinationSharkminnow
+    - MobHallucinationCockroach
+    - MobHallucinationBat
+    - MobHallucinationSlime
+
+- type: hallucination
+  id: HallucinationImpostorHorror
+  effect:
+    !type:MorphHallucinationEffect
+    mobs:
+    - MobHallucinationXeno
+    - MobHallucinationRunner
+    - MobHallucinationGoliath
+    - MobHallucinationHellspawn
+    - MobHallucinationFlesh
+
+# Appearances (someone holding an l6, clothes, etc.)
+
+- type: hallucination
+  id: HallucinationChangeling
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - ArmBladeChangeling
+    - ArmClawChangeling
+    states:
+    - inhand-left
+    - inhand-right
+    sound:
+      collection: gib
+
+- type: hallucination
+  id: HallucinationMansus
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - TouchSpellMansus
+    states:
+    - inhand-left
+    - inhand-right
+    sound:
+      path: /Audio/Items/welder.ogg
+
+- type: hallucination
+  id: HallucinationHeretic
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - ClothingOuterArmorHeretic
+    states:
+    - equipped-OUTERCLOTHING
+    sound:
+      path: /Audio/Items/welder.ogg
+
+- type: hallucination
+  id: HallucinationGunman
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - WeaponLightMachineGunL6C
+    states:
+    - wielded-inhand-left
+    - wielded-inhand-right
+    sound:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+
+- type: hallucination
+  id: HallucinationKnife
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - CombatKnife
+    - SurvivalKnife
+    - KitchenKnife
+    - PlasmaShiv
+    states:
+    - inhand-left
+    - inhand-right
+    sound:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: hallucination
+  id: HallucinationMachete
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - Machete
+    - Cutlass
+    - CaptainSabre
+    states:
+    - inhand-left
+    - inhand-right
+    sound:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: hallucination
+  id: HallucinationKatana
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - Katana
+    - EnergyKatana
+    states:
+    - inhand-left
+    - inhand-right
+    sound:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: hallucination
+  id: HallucinationEnergyBlade
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - EnergyDagger
+    - EnergyCutlass
+    states:
+    - inhand-left
+    - inhand-right
+    sound:
+      path: /Audio/Weapons/ebladeon.ogg
+
+- type: hallucination
+  id: HallucinationCultDagger
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - RitualDagger
+    states:
+    - inhand-left
+    - inhand-right
+    sound:
+      collection: gib
+
+- type: hallucination
+  id: HallucinationFireaxe
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - FireAxe
+    states:
+    - wielded-inhand-left
+    - wielded-inhand-right
+
+- type: hallucination
+  id: HallucinationRifle
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - WeaponRifleAk
+    - WeaponRifleLecter
+    states:
+    - wielded-inhand-left
+    - wielded-inhand-right
+
+- type: hallucination
+  id: HallucinationShotgun
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - WeaponShotgunBulldog
+    states:
+    - wielded-inhand-left
+    - wielded-inhand-right
+
+- type: hallucination
+  id: HallucinationSmg
+  effect:
+    !type:AppearanceHallucinationEffect
+    prototypes:
+    - WeaponSubMachineGunC20r
+    states:
+    - wielded-inhand-left
+    - wielded-inhand-right
+
+# Fake conversations
+
+- type: hallucination
+  id: HallucinationFakeSpeech
+  effect:
+    !type:SpeechHallucinationEffect
+
+- type: hallucination
+  id: HallucinationFakeSpeechMass
+  effect:
+    !type:SpeechHallucinationEffect
+    mass: true
+
+- type: localizedDataset
+  id: HallucinationSpeech
+  values:
+    prefix: hallucination-speech-
+    count: 60
+
+# Status effect
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectHallucinating
+  name: hallucinating
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Hallucinating
+
+# Base
+
+- type: entity
+  id: BaseMobHallucination
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+  - type: Clickable
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MovementAlwaysTouching
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 4.5
+  - type: StandingState
+  - type: Appearance
+  - type: InputMover
+  - type: MobMover
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: TimedDespawn
+    lifetime: 10
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationSpider
+  name: tarantula
+  suffix: Hallucination
+  description: Widely recognized to be the literal worst thing in existence.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: tarantula-moving
+    noMovementLayers:
+      movement:
+        state: tarantula
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationClownSpider
+  name: clown spider
+  suffix: Hallucination
+  description: Combines the two most terrifying things in existence, spiders and clowns.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: clown
+      sprite: Mobs/Animals/clownspider.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationRat
+  name: rat
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: rat
+      sprite: Mobs/Animals/rat.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationSnake
+  name: snake
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: snake
+      sprite: Mobs/Animals/snake.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationBear
+  name: bear
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: bear
+      sprite: Mobs/Animals/bear.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationCockroach
+  name: cockroach
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: cockroach
+      sprite: Mobs/Animals/cockroach.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationBat
+  name: bat
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: bat
+      sprite: Mobs/Animals/bat.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationCarp
+  name: space carp
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: alive
+      sprite: Mobs/Aliens/Carps/space.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationSharkminnow
+  name: sharkminnow
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: alive
+      sprite: Mobs/Aliens/Carps/sharkminnow.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationXeno
+  name: alien
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: running
+      sprite: Mobs/Aliens/Xenos/rouny.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationRunner
+  name: alien
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: running
+      sprite: Mobs/Aliens/Xenos/runner.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationGoliath
+  name: goliath
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: goliath
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationSlime
+  name: slime
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: blue_adult_slime
+      sprite: Mobs/Aliens/slimes.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationHellspawn
+  name: hellspawn
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: alive
+      sprite: Mobs/Demons/hellspawn.rsi
+
+- type: entity
+  parent: BaseMobHallucination
+  id: MobHallucinationFlesh
+  name: abomination
+  suffix: Hallucination
+  components:
+  - type: Sprite
+    layers:
+    - state: golem
+      sprite: Mobs/Aliens/flesh.rsi
