@@ -85,3 +85,32 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: VialSummon
+
+- type: entity
+  name: vial of cloudy blood
+  id: BottleOfLesserBlood
+  parent: BottleOfBlood
+  description: A magically infused bottle of blood, mixed with something else. Used in rituals to attract lesser creatures.
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: liquid
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 0
+            max: 1
+      - !type:AddGameRuleBehavior
+        rule: SlaughterDemonMidround
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
