@@ -129,7 +129,7 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
-    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble', 'Mars', 'Belch']
+    allowedEmotes: ['Chirp', 'Warble', 'Wurble', 'Mars', 'Chitter', 'Squeak', 'Flap', 'Scree', 'Call', 'Squawk', 'Squish', 'Bubble', 'Pop', 'Gnash', 'Thump', 'Yap', 'Squee', 'Snort', 'Gekker'] # Omu (Chitter, Squeak, Flap, 'Scree', 'Call', 'Squawk', 'Squish', 'Bubble', 'Pop', 'Gnash', 'Thump')
   - type: Vocal
     sounds:
       Male: SoundsHarpyMale

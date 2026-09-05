@@ -1,0 +1,24 @@
+- files: ["moth_cough.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Recorded by elim Guerrero Ruz on iNaturalist.org, modified by Squamatic (Github) and honeyed-lemons (Github)."
+  source: "https://www.inaturalist.org/observations/99285950"
+
+- files: ["moth_cry.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Recorded by Tobias Gratzer on iNaturalist.org, modified by Entings (Github) and honeyed-lemons (Github)."
+  source: "https://www.inaturalist.org/observations/246194812"
+
+- files: ["moth_gasp.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Recorded by Shumik A on iNaturalist.org; modified by Squamatic (Github) and honeyed-lemons (Github)."
+  source: "https://www.inaturalist.org/observations/244114635"
+
+- files: ["moth_sigh.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Recorded by Brad Walker on iNaturalist.org, modified by Squamatic (Github) and honeyed-lemons (Github)."
+  source: "https://www.inaturalist.org/observations/64873292"
+
+- files: ["moth_yawn.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Recorded by Jonathan Fréchette on iNaturalist.org, modified by Squamatic (Github) and honeyed-lemons (Github)."
+  source: "https://www.inaturalist.org/observations/32944727"

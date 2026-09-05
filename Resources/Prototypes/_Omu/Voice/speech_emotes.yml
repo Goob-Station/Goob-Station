@@ -1,0 +1,75 @@
+- type: emote
+  id: Yap
+  name: chat-emote-name-yap
+  icon: _Goobstation/Interface/Emotes/bark.png
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+    - VulpEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-yap"]
+  chatTriggers:
+    - yap
+    - yaps
+    - yapping
+    - yapped
+
+- type: emote
+  id: Squee # idk man i feel like it fits the sound
+  name: chat-emote-name-squee
+  icon: Interface/Emotes/squeak.png
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+    - RodentiaEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-squee"]
+  chatTriggers:
+    - squee
+    - squees
+    - squeeing
+    - squeed
+
+- type: emote
+  id: Snort
+  name: chat-emote-name-snort
+  icon: Interface/Emotes/squeak.png
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+    - RodentiaEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-snort"]
+  chatTriggers:
+    - snort
+    - snorts
+    - snorting
+    - snorted
+
+- type: emote
+  id: Gekker
+  name: chat-emote-name-gekker
+  icon: _Goobstation/Interface/Emotes/bark.png
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+    - VulpEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-gekker"]
+  chatTriggers:
+    - gekker
+    - gekkers
+    - gekkering
+    - gekkered
