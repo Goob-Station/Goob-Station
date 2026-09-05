@@ -24963,3 +24963,12 @@ Entries:
         rig and not a syndicate chest rig.
   id: 2863
   time: '2026-09-04T10:55:37.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        sponsored by the Goobs Hugbox Citizens' Party, Join today! Gangwars
+        playtesting is here! Heavily in dev and admin only for now. Checkout the
+        guidebook!
+  id: 2864
+  time: '2026-09-05T01:30:04.0000000+00:00'
