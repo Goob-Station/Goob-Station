@@ -135,6 +135,22 @@
     item: Chitzite
     action: ActionChitzite
     coughPopup: chitzite-cough
+  - type: Reactive # Goobstation - pest spray makes bugs scream
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion, Eyes]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPie
+    - reagents: [ PestKiller ]
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
   - type: CosmicMarkVisuals
     subtleState: moth
 
