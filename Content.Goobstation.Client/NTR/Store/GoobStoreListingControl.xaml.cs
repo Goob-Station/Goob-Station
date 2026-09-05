@@ -23,6 +23,6 @@ public sealed partial class GoobStoreListingControl : Control
             return;
 
         if (prototype.ResetRestockOnPurchase)
-            listing.RestockTime = _timing.CurTime + prototype.RestockDuration;
+                listing.RestockTime = _timing.CurTime + prototype.RestockTime;
     }
 }
