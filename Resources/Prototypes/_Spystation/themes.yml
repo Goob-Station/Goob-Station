@@ -1,0 +1,16 @@
+- type: uiTheme
+  id: SS14DetectiveTheme
+  path: /Textures/_Spystation/Interface/Detective/
+  colors:
+    whiteText: "#C8B195"
+    slotSelectedGold: "#A08663"
+    slotColor: "#846E50"
+    slotOutline: "#331613"
+    slotText: "#634E37"
+    nanoGold: "#A08663"
+    goodGreenFore: "#31843E"
+    concerningOrangeFore: "#A5762F"
+    dangerousRedFore: "#BB3232"
+    disabledFore: "#4A3525"
+    _itemstatus_content_margin_right: "#06060604"
+    _itemstatus_content_margin_left: "#06060604"

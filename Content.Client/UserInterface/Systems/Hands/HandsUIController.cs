@@ -18,6 +18,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared._NF.Interaction.Components;
+using Robust.Client.ResourceManagement;
+using Content.Client.Resources;
 
 namespace Content.Client.UserInterface.Systems.Hands;
 
@@ -25,7 +27,8 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
 {
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-
+    [Dependency] private readonly IResourceCache _resCache = default!;
+ 
     [UISystemDependency] private readonly HandsSystem _handsSystem = default!;
     [UISystemDependency] private readonly UseDelaySystem _useDelay = default!;
 
@@ -338,6 +341,10 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
     private HandButton AddHand(string handName, Hand hand)
     {
         var button = new HandButton(handName, hand.Location);
+        button.HighlightTexturePath = hand.Location == HandLocation.Left
+            ? "lhandactive"
+            : "rhandactive";
+        button.HighlightTextureFallbackPath = "slot_highlight";
         button.StoragePressed += StorageActivate;
         button.Pressed += HandPressed;
 
