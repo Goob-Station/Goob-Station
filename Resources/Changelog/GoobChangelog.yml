@@ -24972,3 +24972,11 @@ Entries:
         guidebook!
   id: 2864
   time: '2026-09-05T01:30:04.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Hydrakin are now forced to sleep by cryo chems
+    - type: Fix
+      message: Hydrakin are now poisoned by theobromine
+  id: 2865
+  time: '2026-09-05T02:13:13.0000000+00:00'
