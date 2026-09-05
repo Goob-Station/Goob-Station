@@ -491,7 +491,7 @@
     mindRoles:
     - MindRoleGhostRoleSilicon
     job: StationAi
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - TauCetiBasic
     - Canilunzt

@@ -1,0 +1,134 @@
+# Simple combination of 2-3 parts.
+- type: constructionPack
+  id: Handmade
+  name: construction-pack-handmade
+  recipes:
+  - CardShield
+  - MakeshiftShield
+  - blindfold
+  - flowerwreath
+  - rag
+  - strawHat
+  - BoxCardboard
+  - BigBox
+  - cardHelmet
+  - cardArmour
+
+  # Simple combination of more than 3 parts that require good level of intellegence.
+- type: constructionPack
+  id: AdvancedHandmade
+  parent: [ Handmade ]
+  name: construction-pack-handmade-advanced
+  recipes:
+  - Spear
+  - SpearReinforced
+  - SpearPlasma
+  - SpearUranium
+  - SpearSharkMinnow
+  - WoodenBuckler
+  - scraparmor
+  - scraphelmet
+  - GoliathCloak
+  - BrassOuterClot
+  - BrassHelmet
+  - MedicalPatchMakeshift
+  - woodenWand
+  - FishingRodMakeshift
+
+# Anything that is makeshift, but known only because of technological progress.
+# Added alongside some exceptions, like baseball bats, which are simple to make, but you need to know that they even exist.
+- type: constructionPack
+  id: TechnologicalHandmade
+  parent: [ AdvancedHandmade ]
+  name: construction-pack-technological
+  recipes:
+  - PowerCellPotato
+  - PotatoAI
+  - PotatoAIChip
+  - ghost_sheet
+  - makeshifthandcuffs
+  - muzzle
+  - gauze
+  - rollingpin
+  - PetCarrier
+  - ClothingBagPet
+  - ClothingEyesHudMedSec
+  - ClothingEyesGlassesSecurity
+  - ClothingBeltQuiver
+  - ClothingHeadHelmetJustice
+  - makeshiftvoicechanger
+  - MedicalGlasses
+  - DiagnosticGlasses
+  - MedicalSecurityGlasses
+  - GlassesMedDiag
+  - HudMedDiagHUD
+  - Hammer
+  - FoodBoxPizza
+  - portableChemicalMixerConstruction
+  - MakeshiftIDCard
+  - ToyGrenade
+  - HexNutDouble
+  - ScrewDouble
+  - TileCanvas
+  - RevolutionaryManifesto
+  - RevFlash
+  - OreBox
+  - OreBoxAshwood
+  - GlassesMedChem
+  - GogglesMedChem
+
+# Simple survival weapons that don't require special skills.
+- type: constructionPack
+  id: WeaponsHandmade
+  name: construction-pack-weapons-handmade
+  recipes:
+  - Shiv
+  - ReinforcedShiv
+  - PlasmaShiv
+  - UraniumShiv
+  - ImprovisedArrow
+  - ImprovisedArrowCarp
+  - ImprovisedArrowPlasma
+  - ImprovisedArrowUranium
+  - CardArrow
+  - ImprovisedBow
+  - CardSword
+  - BladedFlatcapGrey
+  - BladedFlatcapBrown
+  - BladedPlasmaFlatcapGrey
+  - BladedUraniumFlatcapGrey
+  - BladedReinforcedFlatcapGrey
+  - BladedPlasmaFlatcapBrown
+  - BladedUraniumFlatcapBrown
+  - BladedReinforcedFlatcapBrown
+  - boomerang
+
+# More complex weapons that require experience in the wilds. (Ashwalker weapons)
+- type: constructionPack
+  id: AdvancedWeaponsHandmade
+  parent: [ WeaponsHandmade ]
+  name: construction-pack-weapons-advanced
+  recipes:
+  - SpearBone
+  - BoneArmor
+  - BoneHelmet
+  - BoneDaggerConstruction
+  - BoneAxeConstruction
+
+# Weapons that require complex knowledge.
+- type: constructionPack
+  id: TechnologicalWeaponsHandmade
+  parent: [ WeaponsHandmade ]
+  name: construction-pack-weapons-technological
+  recipes:
+  - Bola
+  - ClothingHandsKnuckleDustersBrass
+  - bat
+  - makeshiftstunprod
+  - pneumaticcannon
+  - improvisedshotgun
+  - ShellShotgunImprovised
+  - riflestock
+  - firebomb
+  - pipebomb
+  - Molotov

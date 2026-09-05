@@ -8,7 +8,6 @@ using Content.Goobstation.Client.ServerCurrency;
 using Content.Goobstation.Client.Voice;
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Goobstation.Shared.MisandryBox.JumpScare;
-using Robust.Shared.IoC;
 
 namespace Content.Goobstation.Client.IoC;
 

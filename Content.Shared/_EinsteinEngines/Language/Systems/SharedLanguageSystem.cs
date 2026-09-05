@@ -35,6 +35,8 @@ public abstract class SharedLanguageSystem : EntitySystem
     /// </summary>
     public static LanguagePrototype Universal { get; private set; } = default!;
 
+    public static readonly EntProtoId LanguageKnowledgeId = "LanguageKnowledge"; // Goobstation edit
+
     [Dependency] protected readonly IPrototypeManager _prototype = default!;
     [Dependency] protected readonly SharedGameTicker _ticker = default!;
 

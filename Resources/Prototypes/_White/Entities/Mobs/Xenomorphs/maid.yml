@@ -48,7 +48,7 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - Xeno
     - XenoHivemind

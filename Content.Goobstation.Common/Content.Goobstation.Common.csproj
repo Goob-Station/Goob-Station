@@ -13,6 +13,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <ProjectReference Include="..\Content.ModuleManager\Content.ModuleManager.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="JetBrains.Annotations" />
+    </ItemGroup>
+
     <Import Project="..\RobustToolbox\Imports\Shared.props" />
 
     <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
