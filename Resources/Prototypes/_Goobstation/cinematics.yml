@@ -1,0 +1,749 @@
+# If changing heretic ascensions cinematics make sure they still line up with the actual ascension audio.
+
+- type: cinematic
+  id: HereticAscensionAsh # 15.5s
+  addComp:
+  - type: CinematicLetterbox
+    fraction: 0.16
+    color: "#0a0302"
+  - type: CinematicZoom
+    zoomFactor: 0.6
+  - type: CinematicPressure
+    shockTime: 12
+    shockDuration: 1.2
+    color: "#ff7b24"
+  - type: CinematicShake
+    amplitude: 0.035
+  segments:
+  - duration: 4
+    sound:
+      path: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_ash.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-ash-1
+      showSubject: true
+      writeTime: 1.8
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#100401"
+      hotColor: "#fff1cf"
+      midColor: "#ff9126"
+      deepColor: "#7a1d05"
+  - duration: 4.5
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-ash-2
+      showSubject: true
+      writeTime: 2
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#100401"
+      hotColor: "#fff1cf"
+      midColor: "#ff9126"
+      deepColor: "#7a1d05"
+  - duration: 3.5
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-ash-3
+      showSubject: true
+      writeTime: 1.4
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#100401"
+      hotColor: "#fff1cf"
+      midColor: "#ff9126"
+      deepColor: "#7a1d05"
+  - duration: 3.5
+    sound:
+      path: /Audio/_Goobstation/Heretic/witness_ascension.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 2
+      letterWave: 1
+      waveSpeed: 1.3
+      text: heretic-cinematic-ash-punch
+      writeTime: 0.01
+      verticalPosition: 0.5
+      fontSize: 125
+      tracking: 0.05
+      maxWidthFraction: 0.92
+      slamScale: 0.25
+      slamDecay: 6
+      kick: 0.12
+      kickTime: 0.94
+      stepRate: 12
+      igniteTime: 0
+      throb: 0.02
+      auraScale: 1.15
+      textColor: "#100401"
+      hotColor: "#fff1cf"
+      midColor: "#ff9126"
+      deepColor: "#7a1d05"
+    - type: CinematicShake
+      amplitude: 0.06
+
+- type: cinematic
+  id: HereticAscensionBlade # 18s
+  addComp:
+  - type: CinematicLetterbox
+    fraction: 0.16
+    color: "#050608"
+  - type: CinematicZoom
+    zoomFactor: 0.85
+  - type: CinematicPressure
+    shockTime: 14.5
+    shockDuration: 1.2
+    color: "#8fb8ff"
+  - type: CinematicShake
+    amplitude: 0.03
+  segments:
+  - duration: 5
+    sound:
+      path: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_blade.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-blade-1
+      showSubject: true
+      writeTime: 2
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#05070c"
+      hotColor: "#ffffff"
+      midColor: "#9fc4ff"
+      deepColor: "#2c4a75"
+  - duration: 5
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-blade-2
+      showSubject: true
+      writeTime: 2
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#05070c"
+      hotColor: "#ffffff"
+      midColor: "#9fc4ff"
+      deepColor: "#2c4a75"
+  - duration: 4.5
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-blade-3
+      showSubject: true
+      writeTime: 1.6
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#05070c"
+      hotColor: "#ffffff"
+      midColor: "#9fc4ff"
+      deepColor: "#2c4a75"
+  - duration: 3.5
+    sound:
+      path: /Audio/_Goobstation/Heretic/witness_ascension.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 2
+      letterWave: 1
+      waveSpeed: 1.3
+      text: heretic-cinematic-blade-punch
+      writeTime: 0.01
+      verticalPosition: 0.5
+      fontSize: 125
+      tracking: 0.05
+      maxWidthFraction: 0.92
+      slamScale: 0.25
+      slamDecay: 6
+      kick: 0.12
+      kickTime: 0.94
+      stepRate: 12
+      igniteTime: 0
+      throb: 0.02
+      auraScale: 1.15
+      textColor: "#05070c"
+      hotColor: "#ffffff"
+      midColor: "#9fc4ff"
+      deepColor: "#2c4a75"
+    - type: CinematicShake
+      amplitude: 0.05
+
+- type: cinematic
+  id: HereticAscensionLock # 15s
+  addComp:
+  - type: CinematicLetterbox
+    fraction: 0.16
+    color: "#020604"
+  - type: CinematicZoom
+    zoomFactor: 0.88
+  - type: CinematicPressure
+    shockTime: 11.5
+    shockDuration: 1.2
+    color: "#42e896"
+  - type: CinematicShake
+    amplitude: 0.025
+  segments:
+  - duration: 4
+    sound:
+      path: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_knock.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-lock-1
+      showSubject: true
+      writeTime: 1.8
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#02100a"
+      hotColor: "#e8fff2"
+      midColor: "#4fe89e"
+      deepColor: "#0e5c38"
+  - duration: 4.5
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-lock-2
+      showSubject: true
+      writeTime: 2
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#02100a"
+      hotColor: "#e8fff2"
+      midColor: "#4fe89e"
+      deepColor: "#0e5c38"
+  - duration: 3
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-lock-3
+      showSubject: true
+      writeTime: 1.2
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#02100a"
+      hotColor: "#e8fff2"
+      midColor: "#4fe89e"
+      deepColor: "#0e5c38"
+  - duration: 3.5
+    sound:
+      path: /Audio/_Goobstation/Heretic/witness_ascension.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 2
+      letterWave: 1
+      waveSpeed: 1.3
+      text: heretic-cinematic-lock-punch
+      writeTime: 0.01
+      verticalPosition: 0.5
+      fontSize: 125
+      tracking: 0.05
+      maxWidthFraction: 0.92
+      slamScale: 0.25
+      slamDecay: 6
+      kick: 0.12
+      kickTime: 0.94
+      stepRate: 12
+      igniteTime: 0
+      throb: 0.02
+      auraScale: 1.15
+      textColor: "#02100a"
+      hotColor: "#e8fff2"
+      midColor: "#4fe89e"
+      deepColor: "#0e5c38"
+    - type: CinematicShake
+      amplitude: 0.05
+
+- type: cinematic
+  id: HereticAscensionFlesh # 10s
+  addComp:
+  - type: CinematicLetterbox
+    fraction: 0.16
+    color: "#0a0203"
+  - type: CinematicZoom
+    zoomFactor: 0.85
+  - type: CinematicPressure
+    shockTime: 6.5
+    shockDuration: 1.2
+    color: "#e03131"
+    flowSpeed: 1.4
+  - type: CinematicShake
+    amplitude: 0.045
+  segments:
+  - duration: 3
+    sound:
+      path: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_flesh.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-flesh-1
+      showSubject: true
+      writeTime: 1.4
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#0d0303"
+      hotColor: "#ffe4dc"
+      midColor: "#ff5a4a"
+      deepColor: "#711212"
+  - duration: 3.5
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-flesh-2
+      showSubject: true
+      writeTime: 1.6
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#0d0303"
+      hotColor: "#ffe4dc"
+      midColor: "#ff5a4a"
+      deepColor: "#711212"
+  - duration: 3.5
+    sound:
+      path: /Audio/_Goobstation/Heretic/witness_ascension.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 2
+      letterWave: 1
+      waveSpeed: 1.3
+      text: heretic-cinematic-flesh-punch
+      writeTime: 0.01
+      verticalPosition: 0.5
+      fontSize: 125
+      tracking: 0.05
+      maxWidthFraction: 0.92
+      slamScale: 0.25
+      slamDecay: 6
+      kick: 0.12
+      kickTime: 0.94
+      stepRate: 12
+      igniteTime: 0
+      throb: 0.02
+      auraScale: 1.15
+      textColor: "#0d0303"
+      hotColor: "#ffe4dc"
+      midColor: "#ff5a4a"
+      deepColor: "#711212"
+    - type: CinematicShake
+      amplitude: 0.07
+
+- type: cinematic
+  id: HereticAscensionVoid # 17s
+  addComp:
+  - type: CinematicLetterbox
+    fraction: 0.16
+    color: "#020308"
+  - type: CinematicZoom
+    zoomFactor: 1.12
+  - type: CinematicPressure
+    shockTime: 13.5
+    shockDuration: 1.2
+    color: "#5aa4e8"
+    flowSpeed: 0.6
+  - type: CinematicShake
+    amplitude: 0.02
+  segments:
+  - duration: 5
+    sound:
+      path: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_void.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-void-1
+      showSubject: true
+      writeTime: 2.2
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#04080f"
+      hotColor: "#f0faff"
+      midColor: "#6fb2ff"
+      deepColor: "#1c3f77"
+  - duration: 5
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-void-2
+      showSubject: true
+      writeTime: 2.2
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#04080f"
+      hotColor: "#f0faff"
+      midColor: "#6fb2ff"
+      deepColor: "#1c3f77"
+  - duration: 3.5
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-void-3
+      showSubject: true
+      writeTime: 1.4
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#04080f"
+      hotColor: "#f0faff"
+      midColor: "#6fb2ff"
+      deepColor: "#1c3f77"
+  - duration: 3.5
+    sound:
+      path: /Audio/_Goobstation/Heretic/witness_ascension.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 2
+      letterWave: 1
+      waveSpeed: 1.3
+      text: heretic-cinematic-void-punch
+      writeTime: 0.01
+      verticalPosition: 0.5
+      fontSize: 125
+      tracking: 0.05
+      maxWidthFraction: 0.92
+      slamScale: 0.25
+      slamDecay: 6
+      kick: 0.12
+      kickTime: 0.94
+      stepRate: 12
+      igniteTime: 0
+      throb: 0.02
+      auraScale: 1.15
+      textColor: "#04080f"
+      hotColor: "#f0faff"
+      midColor: "#6fb2ff"
+      deepColor: "#1c3f77"
+    - type: CinematicShake
+      amplitude: 0.04
+
+- type: cinematic
+  id: HereticAscensionRust # 13.1s
+  addComp:
+  - type: CinematicLetterbox
+    fraction: 0.16
+    color: "#070502"
+  - type: CinematicZoom
+    zoomFactor: 0.88
+  - type: CinematicPressure
+    shockTime: 9.6
+    shockDuration: 1.2
+    color: "#b08d2a"
+    flowSpeed: 0.7
+  - type: CinematicShake
+    amplitude: 0.03
+  segments:
+  - duration: 3.2
+    sound:
+      path: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_rust.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-rust-1
+      showSubject: true
+      writeTime: 1.4
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#100b02"
+      hotColor: "#fff0b8"
+      midColor: "#c89a2e"
+      deepColor: "#5c4410"
+  - duration: 3.4
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-rust-2
+      showSubject: true
+      writeTime: 1.6
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#100b02"
+      hotColor: "#fff0b8"
+      midColor: "#c89a2e"
+      deepColor: "#5c4410"
+  - duration: 3
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-rust-3
+      showSubject: true
+      writeTime: 1.4
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#100b02"
+      hotColor: "#fff0b8"
+      midColor: "#c89a2e"
+      deepColor: "#5c4410"
+  - duration: 3.5
+    sound:
+      path: /Audio/_Goobstation/Heretic/witness_ascension.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 2
+      letterWave: 1
+      waveSpeed: 1.3
+      text: heretic-cinematic-rust-punch
+      writeTime: 0.01
+      verticalPosition: 0.5
+      fontSize: 125
+      tracking: 0.05
+      maxWidthFraction: 0.92
+      slamScale: 0.25
+      slamDecay: 6
+      kick: 0.12
+      kickTime: 0.94
+      stepRate: 12
+      igniteTime: 0
+      throb: 0.02
+      auraScale: 1.15
+      textColor: "#100b02"
+      hotColor: "#fff0b8"
+      midColor: "#c89a2e"
+      deepColor: "#5c4410"
+    - type: CinematicShake
+      amplitude: 0.06
+
+- type: cinematic
+  id: HereticAscensionCosmos # 17.5s
+  addComp:
+  - type: CinematicLetterbox
+    fraction: 0.16
+    color: "#050208"
+  - type: CinematicZoom
+    zoomFactor: 1.1
+  - type: CinematicPressure
+    shockTime: 14
+    shockDuration: 1.2
+    color: "#9d5cff"
+    flowSpeed: 0.8
+  - type: CinematicShake
+    amplitude: 0.025
+  segments:
+  - duration: 5
+    sound:
+      path: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_cosmos.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-cosmos-1
+      showSubject: true
+      writeTime: 2
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#0a0312"
+      hotColor: "#f5e6ff"
+      midColor: "#a86bff"
+      deepColor: "#3d1a75"
+  - duration: 5
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-cosmos-2
+      showSubject: true
+      writeTime: 2.2
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#0a0312"
+      hotColor: "#f5e6ff"
+      midColor: "#a86bff"
+      deepColor: "#3d1a75"
+  - duration: 4
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 1.5
+      text: heretic-cinematic-cosmos-3
+      showSubject: true
+      writeTime: 1.8
+      verticalPosition: 0.62
+      fontSize: 46
+      maxWidthFraction: 0.72
+      textColor: "#0a0312"
+      hotColor: "#f5e6ff"
+      midColor: "#a86bff"
+      deepColor: "#3d1a75"
+  - duration: 3.5
+    sound:
+      path: /Audio/_Goobstation/Heretic/witness_ascension.ogg
+    addComp:
+    - type: CinematicCaption
+      fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+      textSound:
+        collection: HereticScriptWhispers
+        params:
+          volume: -4
+      shake: 2
+      letterWave: 1
+      waveSpeed: 1.3
+      text: heretic-cinematic-cosmos-punch
+      writeTime: 0.01
+      verticalPosition: 0.5
+      fontSize: 125
+      tracking: 0.05
+      maxWidthFraction: 0.92
+      slamScale: 0.25
+      slamDecay: 6
+      kick: 0.12
+      kickTime: 0.94
+      stepRate: 12
+      igniteTime: 0
+      throb: 0.02
+      auraScale: 1.15
+      textColor: "#0a0312"
+      hotColor: "#f5e6ff"
+      midColor: "#a86bff"
+      deepColor: "#3d1a75"
+    - type: CinematicShake
+      amplitude: 0.05
+
+- type: soundCollection
+  id: HereticScriptWhispers
+  files:
+  - /Audio/_Goobstation/Heretic/hiss/lowHiss1.ogg
+  - /Audio/_Goobstation/Heretic/hiss/lowHiss2.ogg
+  - /Audio/_Goobstation/Heretic/hiss/lowHiss3.ogg
