@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobSpeciesOrganic
+  parent: [ BaseMobSpeciesNonPerishable ]
   id: BaseMobPlasmaman
   name: Urist McPlasma
   abstract: true
@@ -62,7 +62,6 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
-  - type: Carriable
   - type: Body
     prototype: Plasmaman
     requiredLegs: 2

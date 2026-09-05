@@ -8,11 +8,11 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
   - type: Organ
-    intCap: 28
-    integrity: 28
+    intCap: 140
+    integrity: 140
     integrityThresholds:
-      Normal: 28
-      Damaged: 16
+      Normal: 140
+      Damaged: 80
       Destroyed: 0
   - type: Edible
   - type: Extractable
@@ -46,11 +46,11 @@
     sprite: Mobs/Species/Arachnid/organs.rsi
     state: stomach
   - type: Organ # Shitmed
-    intCap: 44
-    integrity: 44
+    intCap: 220
+    integrity: 220
     integrityThresholds:
-      Normal: 44
-      Damaged: 21
+      Normal: 220
+      Damaged: 105
       Destroyed: 0
     slotId: stomach
   - type: Item
@@ -86,11 +86,11 @@
       - state: lung-l
       - state: lung-r
   - type: Organ # Shitmed
-    intCap: 28
-    integrity: 28
+    intCap: 140
+    integrity: 140
     integrityThresholds:
-      Normal: 28
-      Damaged: 16
+      Normal: 140
+      Damaged: 80
       Destroyed: 0
     slotId: lungs
   - type: Lung
@@ -143,11 +143,11 @@
     - id: Poison
     - id: Narcotic
   - type: Organ # Shitmed
-    intCap: 21
-    integrity: 21
+    intCap: 105
+    integrity: 105
     integrityThresholds:
-      Normal: 21
-      Damaged: 12
+      Normal: 105
+      Damaged: 60
       Destroyed: 0
     slotId: heart
   - type: Heart # Shitmed: Lets you transplant spider hearts into other species
@@ -176,11 +176,11 @@
     groups:
     - id: Alcohol
   - type: Organ # Shitmed
-    intCap: 28
-    integrity: 28
+    intCap: 140
+    integrity: 140
     integrityThresholds:
-      Normal: 28
-      Damaged: 16
+      Normal: 140
+      Damaged: 80
       Destroyed: 0
     slotId: liver
   - type: Liver # Shitmed
@@ -198,11 +198,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ # Shitmed
-    intCap: 21
-    integrity: 21
+    intCap: 105
+    integrity: 105
     integrityThresholds:
-      Normal: 21
-      Damaged: 12
+      Normal: 105
+      Damaged: 60
       Destroyed: 0
     slotId: kidneys
   - type: Sprite
@@ -235,11 +235,11 @@
       - state: eyeball-l
       - state: eyeball-r
   - type: Organ # Shitmed
-    intCap: 17
-    integrity: 17
+    intCap: 85
+    integrity: 85
     integrityThresholds:
-      Normal: 17
-      Damaged: 8
+      Normal: 85
+      Damaged: 40
       Destroyed: 0
     slotId: eyes
   - type: Eyes # Shitmed

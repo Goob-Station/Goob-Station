@@ -131,6 +131,13 @@
       - id: PlushieLizardJobZookeeper
       - id: PlushieLizardJobMultiweh
         weight: 0.5 # 1 in >800
+      # GoobStation - New extra lizards
+      - id: PlushieLizardJobBlueshieldOfficer
+      - id: PlushieLizardJobBrigmedic
+      - id: PlushieLizardJobCentCommOfficial
+      - id: PlushieLizardJobNanotrasenRepresentative
+      - id: PlushieLizardJobShaftMiner
+      - id: PlushieLizardJobVirologist
 
 # Figurines representing all your favorite coworkers
 - type: entityTable # size 1x2  # price 75
