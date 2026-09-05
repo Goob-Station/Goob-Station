@@ -342,7 +342,7 @@
       maxPicks: 5
     maxDifficulty: 10
   - type: StationEvent
-    earliestStart: 35
+    earliestStart: 20
     maxOccurrences: 1 # yeah...
     weight: 2.0 # compensate for lower chaos score
     minimumPlayers: 50
