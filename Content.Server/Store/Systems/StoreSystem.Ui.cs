@@ -187,11 +187,10 @@ public sealed partial class StoreSystem
         OnPurchase(listing); // Goob edit - ntr shittery
 
         // Goobstation start
+        var purchasedEv = new ListingPurchasedEvent(buyer, uid, listing);
+        RaiseLocalEvent(uid, ref purchasedEv);
         if (_mind.TryGetMind(buyer, out var mindId, out _))
-        {
-            var ev = new ListingPurchasedEvent(buyer, uid, listing);
-            RaiseLocalEvent(mindId, ref ev);
-        }
+            RaiseLocalEvent(mindId, ref purchasedEv);
         // Goobstation end
 
         // if (!IsOnStartingMap(uid, component)) // Goob edit

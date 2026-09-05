@@ -4,4 +4,4 @@
   abstract: true
   components:
   - type: Contraband
-    allowedJobs: [ SalvageSpecialist ]
+    allowedJobs: [ SalvageSpecialist, ShaftMiner ]
