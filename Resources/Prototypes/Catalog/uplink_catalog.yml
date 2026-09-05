@@ -1585,7 +1585,7 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: shield }
   productEntity: EmpImplanter
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 10 # goob
   categories:
     - UplinkImplants
 
