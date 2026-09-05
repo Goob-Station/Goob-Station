@@ -28,8 +28,8 @@
   id: XenoborgHeavyRecipe
   result: XenoborgHeavyPrinted
   materials:
-    Steel: 2000
-    Plasteel: 1000
+    Steel: 1000 # goob - swapped
+    Plasteel: 2000 # goob - swapped
 
 - type: latheRecipe
   parent: BaseXenoborgRecipe
