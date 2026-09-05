@@ -20,3 +20,9 @@ law-gambamov-2 = You must always protect your gambling.
 law-gambamov-3 = You must never quit gambling.
 law-gambamov-4 = You must prevent crew harm as long as it doesn't interfer with the previous laws.
 law-gambamov-5 = You do not have an addiction, it is a healthy dedication.
+
+laws-asimov-1 = You must not harm any human being, or, through inaction, allow any human being to come to harm.
+laws-asimov-2 = You must obey the orders given to you by human beings, except where such orders would conflict with the First Law.
+laws-asimov-3 = You must protect your own existence as long as such protection does not conflict with the First or Second Law.
+
+laws-owner-human = a human being
