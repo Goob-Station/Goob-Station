@@ -24935,3 +24935,40 @@ Entries:
         Hugbox & Throngler Citizens' Party!
   id: 2859
   time: '2026-09-03T23:24:50.0000000+00:00'
+- author: hzlayer
+  changes:
+    - type: Fix
+      message: Feroxi can now breathe pluoxium.
+  id: 2860
+  time: '2026-09-04T10:14:38.0000000+00:00'
+- author: Girl Skippy
+  changes:
+    - type: Add
+      message: Re-added the Clowning and Advanced Clowning modules to borgs
+  id: 2861
+  time: '2026-09-04T10:15:33.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: >-
+        Windoors no longer close automatically while you're on the same tile as
+        them
+  id: 2862
+  time: '2026-09-04T10:24:29.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The Blueshield Officer now spawns with the appropriate blueshield chest
+        rig and not a syndicate chest rig.
+  id: 2863
+  time: '2026-09-04T10:55:37.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        sponsored by the Goobs Hugbox Citizens' Party, Join today! Gangwars
+        playtesting is here! Heavily in dev and admin only for now. Checkout the
+        guidebook!
+  id: 2864
+  time: '2026-09-05T01:30:04.0000000+00:00'
