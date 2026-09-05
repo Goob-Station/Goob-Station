@@ -55,3 +55,23 @@
       Min: 1
       Max: 10
       PotencyDivisor: 10
+
+- type: seed
+  id: spaceshroom
+  name: seeds-spaceshroom-name
+  noun: seeds-noun-spores
+  displayName: seeds-spaceshroom-display-name
+  plantRsi: _Goobstation/Objects/Specific/Hydroponics/spaceshroom.rsi
+  packetPrototype: SpaceshroomSeeds
+  productPrototypes:
+    - FoodSpaceshroom
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 10
+  production: 5
+  yield: 3
+  growthStages: 3
+  waterConsumption: 1
+  nutrientConsumption: 0.4
+  idealLight: 5
+  idealHeat: 288

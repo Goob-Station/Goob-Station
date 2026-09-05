@@ -19,3 +19,13 @@
     seedId: bluespaceTomato
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Hydroponics/bluespace_tomato.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of spaceshroom spores
+  id: SpaceshroomSeeds
+  components:
+    - type: Seed
+      seedId: spaceshroom
+    - type: Sprite
+      sprite: _Goobstation/Objects/Specific/Hydroponics/spaceshroom.rsi
