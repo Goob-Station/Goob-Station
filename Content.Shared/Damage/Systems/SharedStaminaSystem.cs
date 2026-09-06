@@ -176,6 +176,13 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             return;
         }
 
+        // Goobstation - Martial Arts
+        if (TryComp<MartialArtsKnowledgeComponent>(args.User, out var knowledgeComp)
+            && TryComp<MartialArtBlockedComponent>(args.Weapon, out var blockedComp)
+            && knowledgeComp.MartialArtsForm == blockedComp.Form && blockedComp.StaminaDmgBlock == false)
+            return;
+        // Goobstation
+
         var ev = new StaminaDamageOnHitAttemptEvent(args.Direction == null, false); // Goob edit
         RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
