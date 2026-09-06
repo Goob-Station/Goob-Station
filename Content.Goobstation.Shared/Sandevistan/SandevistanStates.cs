@@ -15,3 +15,14 @@ public enum SandevistanState : byte
     Disable = 5,
     Death = 6,
 }
+
+/// <summary>
+/// Phase of the statveka dash-attack sequence.
+/// </summary>
+public enum SandevistanDashPhase : byte
+{
+    Windup,
+    Dashing,
+    Circling,
+    Trampling,
+}

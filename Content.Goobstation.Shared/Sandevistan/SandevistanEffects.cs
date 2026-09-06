@@ -71,18 +71,14 @@ public sealed partial class SandevistanDisableEffect : SandevistanEffect
 
     public override void Effect(EntityUid uid, SandevistanUserComponent comp, IEntityManager entityManager, float frameTime)
     {
-        var netManager = IoCManager.Resolve<INetManager>();
-        var audio = entityManager.System<SharedAudioSystem>();
-
-        if (netManager.IsServer)
+        if (IoCManager.Resolve<INetManager>().IsServer)
         {
-            var timing = IoCManager.Resolve<IGameTiming>();
             var glitchComp = entityManager.EnsureComponent<SandevistanGlitchComponent>(uid);
-            glitchComp.ExpiresAt = timing.CurTime + GlitchDuration;
+            glitchComp.ExpiresAt = IoCManager.Resolve<IGameTiming>().CurTime + GlitchDuration;
             entityManager.Dirty(uid, glitchComp);
+            entityManager.System<SharedAudioSystem>().PlayPvs(OverloadSound, uid);
         }
 
-        audio.PlayPredicted(OverloadSound, uid, null);
         entityManager.System<SandevistanSystem>().Disable(uid, comp);
     }
 }

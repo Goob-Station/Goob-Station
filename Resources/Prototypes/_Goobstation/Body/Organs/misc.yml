@@ -18,10 +18,10 @@
     onAdd:
     - type: SandevistanUser
       thresholds:
-        Warning: 15
-        Shaking: 30
-        Damage: 45
-        Disable: 60
+        Warning: 10
+        Shaking: 15
+        Disable: 35
+        Death: 80
 
 - type: entity
   parent: [ OrganHumanHeart, BaseSyndicateContraband ]
@@ -38,6 +38,7 @@
   - type: OrganActions
     actions:
     - ActionToggleSandevistan
+    - ActionSandevistanCounter
   - type: Organ
     onAdd:
     - type: SandevistanUser
@@ -46,10 +47,10 @@
       doAfterModifier: 1
       slowfieldEnabled: true
       thresholds:
-        Warning: 6
-        Shaking: 10
-        Damage: 20
-        Disable: 24
+        Shaking: 1
+        Warning: 2
+        Disable: 10
+        Death: 80
 
 - type: entity
   parent: [OrganHumanHeart, BaseSyndicateContraband]

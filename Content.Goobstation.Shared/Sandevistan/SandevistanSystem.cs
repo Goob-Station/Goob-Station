@@ -1,31 +1,30 @@
+using System.Numerics;
 using Content.Shared._Shitmed.DoAfter;
-using Content.Shared.Abilities;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
+using Content.Shared.Camera;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using Content.Shared.Doors.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Projectiles;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared._White.Grab;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Goobstation.Common.Weapons.Ranged;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Collision.Shapes;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Spawners;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Sandevistan;
 
-public sealed class SandevistanSystem : EntitySystem
+public sealed partial class SandevistanSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -35,12 +34,24 @@ public sealed class SandevistanSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-
-    private const string SlowfieldFixtureId = "sandevistan-slowfield";
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly ThrownItemSystem _thrownItem = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+    // TODO: Sandevistan, Uncomment once the cinematic system is merged.
+    // [Dependency] private readonly SharedCinematicSystem _cinematic = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        UpdatesAfter.Add(typeof(SharedPhysicsSystem));
 
         SubscribeLocalEvent<SandevistanUserComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SandevistanUserComponent, ComponentShutdown>(OnShutdown);
@@ -51,27 +62,16 @@ public sealed class SandevistanSystem : EntitySystem
         SubscribeLocalEvent<SandevistanUserComponent, GetDoAfterDelayMultiplierEvent>(OnModifyDoAfterDelay);
         SubscribeLocalEvent<SandevistanUserComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
 
-        SubscribeLocalEvent<SandevistanSlowedComponent, RemoveSandevistanSlowdownEvent>(OnRemoveSlowdown);
-        SubscribeLocalEvent<SandevistanSlowedComponent, RefreshMovementSpeedModifiersEvent>(OnSlowedRefreshSpeed);
-
-        SubscribeLocalEvent<ActiveSandevistanUserComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<ActiveSandevistanUserComponent, EndCollideEvent>(OnEndCollide);
-        SubscribeLocalEvent<ActiveSandevistanUserComponent, PreventCollideEvent>(OnPreventCollide);
-        SubscribeLocalEvent<ActiveSandevistanUserComponent, AmmoShotUserEvent>(OnAmmoShot);
-
-        SubscribeLocalEvent<PhysicsUpdateAfterSolveEvent>(OnPhysicsUpdateAfterSolve);
+        InitializeDash();
+        InitializeSlowfield();
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var cleanupQuery = EntityQueryEnumerator<SandevistanSlowedComponent>();
-        while (cleanupQuery.MoveNext(out var target, out var slowed))
-        {
-            if (!slowed.IsSlowed)
-                RemComp(target, slowed);
-        }
+        UpdateSlowfield();
+        UpdateDash();
 
         if (_netManager.IsServer)
         {
@@ -81,59 +81,50 @@ public sealed class SandevistanSystem : EntitySystem
                 if (_timing.CurTime >= glitchComp.ExpiresAt)
                     RemCompDeferred<SandevistanGlitchComponent>(glitchUid);
             }
+
         }
 
-        if (_netManager.IsServer)
+        var inactiveQuery = EntityQueryEnumerator<SandevistanUserComponent>();
+        while (inactiveQuery.MoveNext(out var inactiveUid, out var inactiveComp))
         {
-            var inactiveQuery = EntityQueryEnumerator<SandevistanUserComponent>();
-            while (inactiveQuery.MoveNext(out var inactiveUid, out var inactiveComp))
-            {
-                if (inactiveComp.Active || inactiveComp.CurrentLoad <= 0f)
-                    continue;
+            if (inactiveComp.Active || inactiveComp.CurrentLoad <= 0f)
+                continue;
 
-                inactiveComp.CurrentLoad = MathF.Max(0f, inactiveComp.CurrentLoad + inactiveComp.LoadPerInactiveSecond * frameTime);
-                Dirty(inactiveUid, inactiveComp);
-            }
+            inactiveComp.CurrentLoad = MathF.Max(0f, inactiveComp.CurrentLoad + inactiveComp.LoadPerInactiveSecond * frameTime);
+            Dirty(inactiveUid, inactiveComp);
         }
 
         var query = EntityQueryEnumerator<ActiveSandevistanUserComponent, SandevistanUserComponent>();
         while (query.MoveNext(out var uid, out _, out var comp))
         {
+            if (!comp.Active)
+                continue;
+
             UpdateAfterimages(uid, comp);
 
-            if (_netManager.IsServer)
-            {
-                comp.CurrentLoad += comp.LoadPerActiveSecond * frameTime;
-                Dirty(uid, comp);
-            }
-
-            var filteredStates = new List<int>();
-            foreach (var stateThreshold in comp.Thresholds)
-                if (comp.CurrentLoad >= stateThreshold.Value)
-                    filteredStates.Add((int) stateThreshold.Key);
-
-            filteredStates.Sort((a, b) => b.CompareTo(a));
-            foreach (var state in filteredStates)
-            {
-                if (!comp.Effects.TryGetValue((SandevistanState) state, out var effects))
-                    continue;
-
-                foreach (var effect in effects)
-                    effect.Effect(uid, comp, EntityManager, frameTime);
-            }
-
-            if (comp.NextPopupTime > _timing.CurTime)
-            {
-                Dirty(uid, comp);
+            // The load buildup is paused during the dash-attack animation.
+            if (comp.DashActive)
                 continue;
-            }
+
+            comp.CurrentLoad += comp.LoadPerActiveSecond * frameTime;
+            Dirty(uid, comp);
 
             var popup = -1;
-            foreach (var state in filteredStates)
-                if (state > popup && state < 4) // Goida
-                    popup = state;
+            for (var i = (int) SandevistanState.Death; i >= 0; i--)
+            {
+                var state = (SandevistanState) i;
+                if (!comp.Thresholds.TryGetValue(state, out var threshold) || comp.CurrentLoad < threshold)
+                    continue;
 
-            if (popup == -1)
+                if (comp.Effects.TryGetValue(state, out var effects))
+                    foreach (var effect in effects)
+                        effect.Effect(uid, comp, EntityManager, frameTime);
+
+                if (popup == -1 && state <= SandevistanState.Damage)
+                    popup = i;
+            }
+
+            if (popup == -1 || comp.NextPopupTime > _timing.CurTime)
                 continue;
 
             if (_netManager.IsServer)
@@ -156,14 +147,45 @@ public sealed class SandevistanSystem : EntitySystem
 
         if (ent.Comp.Active)
         {
-            _audio.PlayPredicted(ent.Comp.EndSound, ent, ent);
+            PlayToggleSound(ent, ent.Comp.EndSound);
             Disable(ent, ent.Comp);
-            Dirty(ent);
             return;
         }
 
+        Enable(ent);
+    }
+
+    /// <summary>
+    /// Whether the sandevistan has enough load overhead to be enabled.
+    /// </summary>
+    private bool CanEnable(Entity<SandevistanUserComponent> ent)
+    {
+        if (!ent.Comp.Thresholds.TryGetValue(SandevistanState.Disable, out var max))
+            return true;
+
+        var loadAfter = ent.Comp.CurrentLoad + ent.Comp.LoadPerActivation + ent.Comp.ActivationHeadroom;
+        if (loadAfter < max.Float())
+            return true;
+
+        _popup.PopupClient(Loc.GetString("sandevistan-cooldown-popup"), ent, ent, PopupType.MediumCaution);
+        return false;
+    }
+
+    /// <summary>
+    /// Attempts to activate the sandevistan.
+    /// </summary>
+    private bool Enable(Entity<SandevistanUserComponent> ent)
+    {
+        if (ent.Comp.Active)
+            return true;
+
+        if (!CanEnable(ent))
+            return false;
+
         ent.Comp.Active = true;
         EnsureComp<ActiveSandevistanUserComponent>(ent);
+
+        ent.Comp.CurrentLoad += ent.Comp.LoadPerActivation;
 
         if (TryComp<SandevistanSlowedComponent>(ent, out var slowed))
         {
@@ -173,14 +195,15 @@ public sealed class SandevistanSystem : EntitySystem
 
         _speed.RefreshMovementSpeedModifiers(ent);
 
-        EnsureComp<DogVisionComponent>(ent);
+        var vision = EnsureComp<SandevistanSlowdownVisionComponent>(ent);
+        vision.SlowAudio = ent.Comp.SlowfieldEnabled;
+        Dirty(ent.Owner, vision);
 
-        if (ent.Comp.SlowfieldEnabled)
-            CreateSlowfieldFixture(ent, ent.Comp);
-
-        _audio.PlayPredicted(ent.Comp.StartSound, ent, ent);
+        SetFixtures(ent, ent.Comp, true);
+        PlayToggleSound(ent, ent.Comp.StartSound);
         Dirty(ent);
         PlayLoopedAudio(ent, ent.Comp);
+        return true;
     }
 
     private void OnRefreshSpeed(Entity<SandevistanUserComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -223,90 +246,98 @@ public sealed class SandevistanSystem : EntitySystem
 
     public void Disable(EntityUid uid, SandevistanUserComponent comp)
     {
+        EndDash(uid, comp, disable: false);
+
         var wasActive = comp.Active;
         if (comp.Active)
         {
-            if (comp.SlowfieldEnabled)
+            SetFixtures(uid, comp, false);
+
+            // Remove slowdown from all affected entities
+            var query = EntityQueryEnumerator<SandevistanSlowedComponent>();
+            while (query.MoveNext(out var target, out var slowed))
             {
-                DestroySlowfieldFixture(uid, comp);
+                if (slowed.Source != uid)
+                    continue;
 
-                // Remove slowdown from all affected entities
-                var query = EntityQueryEnumerator<SandevistanSlowedComponent>();
-                while (query.MoveNext(out var target, out var slowed))
-                {
-                    if (slowed.Source != uid)
-                        continue;
-
-                    var ev = new RemoveSandevistanSlowdownEvent(uid);
-                    RaiseLocalEvent(target, ref ev);
-                }
+                var ev = new RemoveSandevistanSlowdownEvent(uid);
+                RaiseLocalEvent(target, ref ev);
             }
 
             RemCompDeferred<ActiveSandevistanUserComponent>(uid);
             comp.Active = false;
         }
 
-        comp.LastEnabled = _timing.CurTime;
         comp.ColorAccumulator = 0;
         _speed.RefreshMovementSpeedModifiers(uid);
-        DeleteAfterimages(uid);
-        StopLoopedAudio(comp);
+        comp.PlayingStream = _audio.Stop(comp.PlayingStream);
 
-        RemCompDeferred<DogVisionComponent>(uid);
+        RemCompDeferred<SandevistanSlowdownVisionComponent>(uid);
 
         if (wasActive)
             Dirty(uid, comp);
     }
 
     #region Afterimage Methods
+
     /// <summary>
     /// Update afterimages for sandevistan user
     /// </summary>
     public void UpdateAfterimages(EntityUid uid, SandevistanUserComponent comp)
     {
-        if (_timing.CurTime >= comp.NextAfterimageTime)
-        {
-            SpawnAfterimage(uid, comp);
+        if (_netManager.IsServer || !_timing.IsFirstTimePredicted)
+            return;
 
-            comp.NextAfterimageTime = _timing.CurTime + TimeSpan.FromSeconds(comp.AfterimageInterval);
+        var pos = _transform.GetWorldPosition(uid);
+
+        var stale = _timing.CurTime - comp.LastAfterimageTrackTime > comp.TrailRestartGap;
+        comp.LastAfterimageTrackTime = _timing.CurTime;
+
+        var delta = pos - comp.LastAfterimagePos;
+        var dist = delta.Length();
+
+        if (stale || dist > comp.AfterimageDistance * comp.MaxAfterimagesPerUpdate)
+        {
+            SpawnAfterimage(uid, comp, pos);
+            comp.ColorAccumulator++;
+            comp.LastAfterimagePos = pos;
+            return;
         }
 
-        comp.ColorAccumulator++;
+        if (dist < comp.AfterimageDistance)
+            return;
+
+        var dir = delta / dist;
+        var steps = (int) (dist / comp.AfterimageDistance);
+        for (var i = 1; i <= steps; i++)
+        {
+            SpawnAfterimage(uid, comp, comp.LastAfterimagePos + dir * (comp.AfterimageDistance * i));
+            comp.ColorAccumulator++;
+        }
+
+        comp.LastAfterimagePos += dir * (comp.AfterimageDistance * steps);
     }
 
     /// <summary>
-    /// Spawn afterimage for sandevistan user
+    /// Spawn an afterimage for a sandevistan user at the given world position.
     /// </summary>
-    private void SpawnAfterimage(EntityUid uid, SandevistanUserComponent comp)
+    private void SpawnAfterimage(EntityUid uid, SandevistanUserComponent comp, Vector2 worldPos)
     {
         var xform = Transform(uid);
-        var coordinates = xform.Coordinates;
+        var coordinates = xform.ParentUid.IsValid()
+            ? _transform.ToCoordinates(xform.ParentUid, new MapCoordinates(worldPos, xform.MapID))
+            : xform.Coordinates;
+
         var afterimage = Spawn(null, coordinates);
 
-        var afterimageComp = EnsureComp<SandevistanAfterimageComponent>(afterimage);
-        afterimageComp.SourceEntity = uid;
-        afterimageComp.Hue = comp.ColorAccumulator % 100f / 100f;
-        afterimageComp.DirectionOverride = xform.LocalRotation.GetCardinalDir();
-        Dirty(afterimage, afterimageComp);
-    }
-
-    /// <summary>
-    /// Deletes all afterimages for a given source entity
-    /// </summary>
-    public void DeleteAfterimages(EntityUid sourceUid)
-    {
-        // Sometimes it doesn't capture the last afterimage. This just makes sure the timing isn't off.
-        Timer.Spawn(TimeSpan.FromSeconds(1), () =>
+        // Can't use ensurecomp due to prediction shenanigans.
+        // This just makes sure the component has these fields changed before being added.
+        AddComp(afterimage, new SandevistanAfterimageComponent
         {
-            var query = EntityQueryEnumerator<SandevistanAfterimageComponent>();
-            while (query.MoveNext(out var afterimageUid, out var afterimageComp))
-            {
-                if (afterimageComp.SourceEntity != sourceUid)
-                    continue;
-
-                var despawn = EnsureComp<TimedDespawnComponent>(afterimageUid);
-                despawn.Lifetime = 3f;
-            }
+            SourceEntity = uid,
+            Hue = comp.ColorAccumulator % 100f / 100f,
+            DirectionOverride = xform.LocalRotation.GetCardinalDir(),
+            Order = comp.ColorAccumulator,
         });
     }
 
@@ -323,7 +354,7 @@ public sealed class SandevistanSystem : EntitySystem
 
         Timer.Spawn(TimeSpan.FromSeconds(comp.LoopSoundDelay), () =>
         {
-            if (!Deleted(uid) && comp.Active && comp.PlayingStream == null)
+            if (!TerminatingOrDeleted(uid) && comp.Active && comp.PlayingStream == null)
             {
                 var stream = _audio.PlayPvs(comp.LoopSound, uid);
                 if (stream?.Entity is { } entity)
@@ -332,215 +363,15 @@ public sealed class SandevistanSystem : EntitySystem
         });
     }
     /// <summary>
-    /// Stop looped audio for sandevistan user
+    /// Plays an activation/deactivation sound.
     /// </summary>
-    private void StopLoopedAudio(SandevistanUserComponent comp)
+    private void PlayToggleSound(Entity<SandevistanUserComponent> ent, SoundSpecifier? sound)
     {
-        if (comp.PlayingStream != null)
-        {
-            _audio.Stop(comp.PlayingStream);
-            comp.PlayingStream = null;
-        }
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        _audio.Stop(ent.Comp.ToggleStream);
+        ent.Comp.ToggleStream = _audio.PlayPredicted(sound, ent, ent)?.Entity;
     }
-    #endregion
-
-    #region Slowfield Methods
-
-    private void OnAmmoShot(Entity<ActiveSandevistanUserComponent> ent, ref AmmoShotUserEvent args)
-    {
-        if (!TryComp<SandevistanUserComponent>(ent, out var comp) || !comp.SlowfieldEnabled)
-            return;
-
-        foreach (var projectile in args.FiredProjectiles)
-            ApplySlowdown(ent, projectile, comp);
-    }
-
-    private void CreateSlowfieldFixture(EntityUid uid, SandevistanUserComponent comp)
-    {
-        if (!TryComp<PhysicsComponent>(uid, out var physics))
-            return;
-
-        var shape = new PhysShapeCircle(comp.SlowfieldRadius);
-
-        _fixtures.TryCreateFixture(
-            uid,
-            shape,
-            SlowfieldFixtureId,
-            collisionLayer: (int) CollisionGroup.ThrownItem,
-            collisionMask: (int) (CollisionGroup.MobMask | CollisionGroup.BulletImpassable | CollisionGroup.ThrownItem),
-            hard: false,
-            body: physics);
-    }
-
-    private void DestroySlowfieldFixture(EntityUid uid, SandevistanUserComponent comp)
-    {
-        if (!TryComp<PhysicsComponent>(uid, out var physics))
-            return;
-
-        _fixtures.DestroyFixture(uid, SlowfieldFixtureId, body: physics);
-    }
-
-    private void OnStartCollide(Entity<ActiveSandevistanUserComponent> ent, ref StartCollideEvent args)
-    {
-        if (!TryComp<SandevistanUserComponent>(ent, out var comp) || !comp.SlowfieldEnabled)
-            return;
-
-        var target = args.OtherEntity;
-
-        if (args.OurFixtureId != SlowfieldFixtureId
-            || target == ent.Owner)
-            return;
-
-        ApplySlowdown(ent, target, comp);
-    }
-
-    private void OnEndCollide(Entity<ActiveSandevistanUserComponent> ent, ref EndCollideEvent args)
-    {
-        var target = args.OtherEntity;
-
-        if (!TryComp<SandevistanSlowedComponent>(target, out var slowed) || slowed.Source != ent.Owner)
-            return;
-
-        if (args.OurFixtureId != SlowfieldFixtureId)
-            return;
-
-
-        var ev = new RemoveSandevistanSlowdownEvent(ent.Owner);
-        RaiseLocalEvent(target, ref ev);
-    }
-
-    private void OnPreventCollide(Entity<ActiveSandevistanUserComponent> ent, ref PreventCollideEvent args)
-    {
-        if (!TryComp<FixturesComponent>(ent, out var fixtures)
-            || !fixtures.Fixtures.TryGetValue(SlowfieldFixtureId, out var slowfieldFixture)
-            || args.OurFixture != slowfieldFixture)
-            return;
-
-        if (HasComp<DoorComponent>(args.OtherEntity))
-            args.Cancelled = true;
-    }
-
-    private void ApplySlowdown(EntityUid source, EntityUid target, SandevistanUserComponent comp)
-    {
-        if (TryComp<SandevistanSlowedComponent>(target, out var existing) && existing.IsSlowed)
-            return;
-
-        if (HasComp<ActiveSandevistanUserComponent>(target))
-            return;
-
-        var slowed = EnsureComp<SandevistanSlowedComponent>(target);
-        slowed.IsSlowed = true;
-        slowed.Source = source;
-
-        // Mobs
-        if (HasComp<MobStateComponent>(target))
-        {
-            slowed.SpeedMultiplier = comp.MobSpeedMultiplier;
-            _speed.RefreshMovementSpeedModifiers(target);
-            EnsureComp<DogVisionComponent>(target);
-        }
-
-        // Bullets
-        else if (TryComp<ProjectileComponent>(target, out _))
-        {
-            slowed.SpeedMultiplier = comp.ProjectileSpeedMultiplier;
-            ApplyProjectileSlowdown(target, slowed);
-        }
-
-        // Thrown items
-        else if (TryComp<ThrownItemComponent>(target, out var thrown))
-        {
-            slowed.SpeedMultiplier = comp.ThrownItemSpeedMultiplier;
-            ApplyThrownItemSlowdown(target, slowed, thrown);
-        }
-
-        Dirty(target, slowed);
-    }
-
-    private void ApplyProjectileSlowdown(EntityUid target, SandevistanSlowedComponent slowed)
-    {
-        if (!TryComp<PhysicsComponent>(target, out var physics))
-            return;
-
-        slowed.OriginalLinearVelocity = physics.LinearVelocity;
-        _physics.SetLinearVelocity(target, physics.LinearVelocity * slowed.SpeedMultiplier, body: physics);
-    }
-
-    private void ApplyThrownItemSlowdown(EntityUid target, SandevistanSlowedComponent slowed, ThrownItemComponent thrown)
-    {
-        if (!TryComp<PhysicsComponent>(target, out var physics))
-            return;
-
-        slowed.OriginalLinearVelocity = physics.LinearVelocity;
-        _physics.SetLinearVelocity(target, slowed.OriginalLinearVelocity * slowed.SpeedMultiplier, body: physics);
-
-        // Extend LandTime
-        // e.g. 95% slower (multiplier 0.05) = 20x longer to land
-        if (thrown.LandTime != null && slowed.SpeedMultiplier > 0)
-        {
-            var remaining = thrown.LandTime.Value - _timing.CurTime;
-            thrown.LandTime = _timing.CurTime + remaining / slowed.SpeedMultiplier;
-        }
-    }
-
-    private void OnRemoveSlowdown(Entity<SandevistanSlowedComponent> ent, ref RemoveSandevistanSlowdownEvent args)
-    {
-        if (ent.Comp.Source != args.Source)
-            return;
-
-        if (!ent.Comp.IsSlowed)
-            return;
-
-        ent.Comp.IsSlowed = false;
-
-        // Mobs
-        if (HasComp<MobStateComponent>(ent))
-        {
-            _speed.RefreshMovementSpeedModifiers(ent);
-            if (HasComp<DogVisionComponent>(ent))
-                RemCompDeferred<DogVisionComponent>(ent);
-        }
-
-        // Bullets
-        else if (TryComp<PhysicsComponent>(ent, out var physics)
-            && ent.Comp.OriginalLinearVelocity.LengthSquared() > 0.01f)
-            _physics.SetLinearVelocity(ent, ent.Comp.OriginalLinearVelocity, body: physics);
-
-        // Thrown items
-        if (TryComp<ThrownItemComponent>(ent, out var thrown)
-            && thrown.LandTime != null
-            && ent.Comp.SpeedMultiplier > 0)
-        {
-            // Convert remaining landtime back to normal speed
-            // e.g. item was slowed 95% (mult=0.05), 10s remain in slowfield time = 0.5s at normal speed
-            var remainingSlowed = thrown.LandTime.Value - _timing.CurTime;
-            thrown.LandTime = _timing.CurTime + remainingSlowed * ent.Comp.SpeedMultiplier;
-        }
-    }
-
-    private void OnSlowedRefreshSpeed(Entity<SandevistanSlowedComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
-    {
-        if (HasComp<MobStateComponent>(ent) && ent.Comp.IsSlowed)
-            args.ModifySpeed(ent.Comp.SpeedMultiplier, ent.Comp.SpeedMultiplier);
-    }
-
-    /// <summary>
-    /// Used to continuously enforce slowdown on thrown items, otherwise they would ignore it.
-    /// </summary>
-    private void OnPhysicsUpdateAfterSolve(ref PhysicsUpdateAfterSolveEvent args)
-    {
-        var query = EntityQueryEnumerator<SandevistanSlowedComponent>();
-        while (query.MoveNext(out var uid, out var slowed))
-        {
-            if (!slowed.IsSlowed || !HasComp<ThrownItemComponent>(uid) || slowed.OriginalLinearVelocity.LengthSquared() <= 0.01f)
-                continue;
-
-            var targetVelocity = slowed.OriginalLinearVelocity * slowed.SpeedMultiplier;
-            if (TryComp<PhysicsComponent>(uid, out var physics)
-                && (physics.LinearVelocity - targetVelocity).LengthSquared() > 0.01f)
-                _physics.SetLinearVelocity(uid, targetVelocity, body: physics);
-        }
-    }
-
     #endregion
 }

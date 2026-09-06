@@ -1,0 +1,4 @@
+- files: ["sande_start.ogg", "sande_loop.ogg", "sande_end.ogg", "counter_buildup.ogg", "counter_armed.ogg", "counter_armed_loop.ogg", "counter_trigger.ogg", "counter_fizzle.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Loltart"
+  source: "https://goida.zip/"

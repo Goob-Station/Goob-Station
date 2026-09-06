@@ -25,4 +25,16 @@ public sealed partial class SandevistanAfterimageComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Direction DirectionOverride;
+
+    [DataField, AutoNetworkedField]
+    public int Order;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan? DespawnAt;
+
+    [DataField]
+    public TimeSpan FadeDuration = TimeSpan.FromSeconds(0.5);
+
+    [DataField]
+    public float BaseAlpha = 0.85f;
 }
