@@ -8,6 +8,7 @@ sandevistan-effect-desc-stamina = you will start losing stamina.
 sandevistan-effect-desc-damage = you will start taking physical damage.
 sandevistan-effect-desc-knockdown = you will be knocked down.
 sandevistan-effect-desc-disable = the implant will forcefully shut down.
+sandevistan-effect-desc-disablenoanim = the implant will forcefully shut down.
 sandevistan-effect-desc-death = you will die.
 
 sandevistan-cooldown-popup = The sandevistan needs time to cool down!

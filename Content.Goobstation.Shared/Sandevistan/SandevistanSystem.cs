@@ -160,7 +160,8 @@ public sealed partial class SandevistanSystem : EntitySystem
     /// </summary>
     private bool CanEnable(Entity<SandevistanUserComponent> ent)
     {
-        if (!ent.Comp.Thresholds.TryGetValue(SandevistanState.Disable, out var max))
+        if (!ent.Comp.Thresholds.TryGetValue(SandevistanState.Disable, out var max)
+            && !ent.Comp.Thresholds.TryGetValue(SandevistanState.DisableNoAnim, out max))
             return true;
 
         var loadAfter = ent.Comp.CurrentLoad + ent.Comp.LoadPerActivation + ent.Comp.ActivationHeadroom;
@@ -195,9 +196,8 @@ public sealed partial class SandevistanSystem : EntitySystem
 
         _speed.RefreshMovementSpeedModifiers(ent);
 
-        var vision = EnsureComp<SandevistanSlowdownVisionComponent>(ent);
-        vision.SlowAudio = ent.Comp.SlowfieldEnabled;
-        Dirty(ent.Owner, vision);
+        EntityManager.AddComponents(ent, ent.Comp.VisionComponents);
+        EntityManager.AddComponents(ent, ent.Comp.ActivationComponents);
 
         SetFixtures(ent, ent.Comp, true);
         PlayToggleSound(ent, ent.Comp.StartSound);
@@ -272,7 +272,8 @@ public sealed partial class SandevistanSystem : EntitySystem
         _speed.RefreshMovementSpeedModifiers(uid);
         comp.PlayingStream = _audio.Stop(comp.PlayingStream);
 
-        RemCompDeferred<SandevistanSlowdownVisionComponent>(uid);
+        EntityManager.RemoveComponents(uid, comp.VisionComponents);
+        EntityManager.RemoveComponents(uid, comp.ActivationComponents);
 
         if (wasActive)
             Dirty(uid, comp);

@@ -2,3 +2,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by Loltart"
   source: "https://goida.zip/"
+
+- files: ["time_slow.ogg", "time_slow_reverse.ogg"]
+  license: "CC0-1.0"
+  copyright: "Made by SOUNDS_YKT"
+  source: "https://pixabay.com/sound-effects/film-special-effects-time-freeze-tension-327055/"

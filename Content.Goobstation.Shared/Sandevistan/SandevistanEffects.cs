@@ -83,6 +83,15 @@ public sealed partial class SandevistanDisableEffect : SandevistanEffect
     }
 }
 
+/// <summary>
+/// Shuts the sandevistan off with no glitch or sound.
+/// </summary>
+public sealed partial class SandevistanDisableNoAnimEffect : SandevistanEffect
+{
+    public override void Effect(EntityUid uid, SandevistanUserComponent comp, IEntityManager entityManager, float frameTime)
+        => entityManager.System<SandevistanSystem>().Disable(uid, comp);
+}
+
 public sealed partial class SandevistanDeathEffect : SandevistanEffect
 {
     public override void Effect(EntityUid uid, SandevistanUserComponent comp, IEntityManager entityManager, float frameTime)

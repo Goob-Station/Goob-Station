@@ -238,9 +238,7 @@ public sealed partial class SandevistanSystem
         {
             slowed.SpeedMultiplier = comp.MobSpeedMultiplier;
             _speed.RefreshMovementSpeedModifiers(target);
-            var targetVision = EnsureComp<SandevistanSlowdownVisionComponent>(target);
-            targetVision.SlowAudio = true;
-            Dirty(target, targetVision);
+            EntityManager.AddComponents(target, comp.VisionComponents);
         }
 
         // Bullets
@@ -333,17 +331,18 @@ public sealed partial class SandevistanSystem
         ent.Comp.IsSlowed = false;
 
         var isMob = HasComp<MobStateComponent>(ent);
-        var thrown = CompOrNull<ThrownItemComponent>(ent);
+        var isThrown = TryComp<ThrownItemComponent>(ent, out var thrown);
 
         if (isMob)
         {
             _speed.RefreshMovementSpeedModifiers(ent);
-            RemCompDeferred<SandevistanSlowdownVisionComponent>(ent);
+            if (TryComp<SandevistanUserComponent>(args.Source, out var source))
+                EntityManager.RemoveComponents(ent, source.VisionComponents);
             RestoreSlowedWeapon(ent);
         }
 
         // Bullets and thrown items always carry slowed velocity; a mob only does while flying from a trample.
-        if ((!isMob || thrown != null)
+        if ((!isMob || isThrown)
             && ent.Comp.OriginalLinearVelocity.LengthSquared() > 0.01f
             && TryComp<PhysicsComponent>(ent, out var physics))
             _physics.SetLinearVelocity(ent, ent.Comp.OriginalLinearVelocity, body: physics);

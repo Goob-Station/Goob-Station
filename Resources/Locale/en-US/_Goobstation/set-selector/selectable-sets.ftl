@@ -252,3 +252,6 @@ selectable-set-research-director-modsuit-desc =
     A modular hardsuit armored perfectly to turn you into a research tank,
     not even the most dangerous of experiments will harm you in this,
     and the worst of assistants will think twice before breaking in sci.
+
+selectable-set-syndicate-timestopper-name = Timestopper Bundle
+selectable-set-syndicate-timestopper-description = Summon your holoparasite, Stop the world, walk up, and leave them full of knives. A timestopper sandevistan autosurgeon, a holoparasite, two kits of throwing knives, and a brandostyle jacket and boots.

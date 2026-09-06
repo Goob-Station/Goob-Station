@@ -17,6 +17,8 @@
   - type: Organ
     onAdd:
     - type: SandevistanUser
+      visionComponents:
+      - type: SandevistanSlowdownVision
       thresholds:
         Warning: 10
         Shaking: 15
@@ -46,11 +48,60 @@
       attackSpeedModifier: 1
       doAfterModifier: 1
       slowfieldEnabled: true
+      visionComponents:
+      - type: SandevistanSlowdownVision
+      - type: AudioPitch
       thresholds:
         Shaking: 1
         Warning: 2
         Disable: 10
-        Death: 80
+
+- type: entity
+  parent: [ OrganHumanHeart, BaseSyndicateContraband ]
+  id: OrganHeartTimestopperSandevistan
+  name: mi13 timestopper sandevistan
+  description: A cybernetic heart implant. This one is an offshoot of the statveka. While having a stronger effect it's not as stable. Once used by a certain vampire..
+  components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/sandevistan.rsi
+    layers:
+    - state: icon
+    scale: 0.5, 0.5
+  - type: OrganActions
+    actions:
+    - ActionToggleSandevistan
+    - ActionSandevistanCounter
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser
+      movementSpeedModifier: 1
+      attackSpeedModifier: 1
+      doAfterModifier: 1
+      slowfieldEnabled: true
+      trampleFieldEnabled: false
+      loadPerActivation: 0
+      mobSpeedMultiplier: 0.015
+      thrownItemSpeedMultiplier: 0.005
+      projectileSpeedMultiplier: 0.003
+      startSound:
+        path: /Audio/_Goobstation/Sandevistan/time_slow.ogg
+        params:
+          volume: 12
+      endSound:
+        path: /Audio/_Goobstation/Sandevistan/time_slow_reverse.ogg
+        params:
+          volume: 12
+      loopSound: null
+      visionComponents:
+      - type: SandevistanTimestopVision
+      - type: AudioReverb
+      activationComponents:
+      - type: SandevistanTimestopBurst
+      thresholds:
+        Warning: 2
+        Shaking: 3
+        DisableNoAnim: 8
 
 - type: entity
   parent: [OrganHumanHeart, BaseSyndicateContraband]

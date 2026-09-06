@@ -26,20 +26,20 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField, AutoNetworkedField]
     public float CurrentLoad = 0f; // Only updated when enabled
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float LoadPerActiveSecond = 1f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float LoadPerInactiveSecond = -0.25f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float LoadPerActivation = 2f;
 
     /// <summary>
     /// This is the required amount of load they need to have available from the closest disable threshold
     /// to enable their sandevistan. Activation cost is also added to this.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float ActivationHeadroom = 2f;
 
     [DataField, AutoNetworkedField]
@@ -53,6 +53,7 @@ public sealed partial class SandevistanUserComponent : Component
         { SandevistanState.Damage,   [new SandevistanDamageEffect()] },
         { SandevistanState.Knockdown,[new SandevistanKnockdownEffect()] },
         { SandevistanState.Disable,  [new SandevistanDisableEffect()] },
+        { SandevistanState.DisableNoAnim, [new SandevistanDisableNoAnimEffect()] },
         { SandevistanState.Death,    [new SandevistanDeathEffect()] },
     };
 
@@ -93,13 +94,13 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField]
     public EntityUid? ToggleStream;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? StartSound = new SoundPathSpecifier("/Audio/_Goobstation/Sandevistan/sande_start.ogg");
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? EndSound = new SoundPathSpecifier("/Audio/_Goobstation/Sandevistan/sande_end.ogg");
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? LoopSound = new SoundPathSpecifier("/Audio/_Goobstation/Sandevistan/sande_loop.ogg")
     {
         Params = new AudioParams
@@ -116,6 +117,18 @@ public sealed partial class SandevistanUserComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<AlertPrototype> LoadAlert = "SandevistanLoad";
+
+    /// <summary>
+    /// Components added to the user + anyone that goes into the slowdown field.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry VisionComponents = new();
+
+    /// <summary>
+    /// Components applied to the user only.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry ActivationComponents = new();
 
     // Cursed
     // A successful counter (see the Counter Stance action, granted by the statveka organ) launches the
@@ -323,19 +336,19 @@ public sealed partial class SandevistanUserComponent : Component
     /// <summary>
     /// Speed multiplier for mobs in the slowfield.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float MobSpeedMultiplier = 0.15f;
 
     /// <summary>
     /// Speed multiplier for thrown items in the slowfield.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float ThrownItemSpeedMultiplier = 0.05f;
 
     /// <summary>
     /// Speed multiplier for projectiles in the slowfield.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float ProjectileSpeedMultiplier = 0.03f;
 
     /// <summary>
