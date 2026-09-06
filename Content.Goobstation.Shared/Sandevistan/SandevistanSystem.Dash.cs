@@ -89,15 +89,16 @@ public sealed partial class SandevistanSystem
     private void UpdateDashAttack(EntityUid uid, SandevistanUserComponent sande)
     {
         if (!sande.Active
-            || TerminatingOrDeleted(sande.DashTarget)
-            || !_mobState.IsAlive(sande.DashTarget) && sande.DashPhase != SandevistanDashPhase.Trampling)
+            || sande.DashTarget is not { } target
+            || TerminatingOrDeleted(target)
+            || !_mobState.IsAlive(target) && sande.DashPhase != SandevistanDashPhase.Trampling)
         {
             EndDash(uid, sande);
             return;
         }
 
         var userPos = _transform.GetWorldPosition(uid);
-        var targetPos = _transform.GetWorldPosition(sande.DashTarget);
+        var targetPos = _transform.GetWorldPosition(target);
 
         switch (sande.DashPhase)
         {
@@ -325,7 +326,9 @@ public sealed partial class SandevistanSystem
     /// </summary>
     private void BeginTrample(EntityUid uid, SandevistanUserComponent sande)
     {
-        var target = sande.DashTarget;
+        if (sande.DashTarget is not { } target)
+            return;
+
         var userPos = _transform.GetWorldPosition(uid);
         var targetPos = _transform.GetWorldPosition(target);
 
@@ -453,7 +456,9 @@ public sealed partial class SandevistanSystem
     {
         sande.DashTrampleStruck = true;
 
-        var target = sande.DashTarget;
+        if (sande.DashTarget is not { } target)
+            return;
+
         var dir = sande.DashTrampleDir;
 
         _recoil.KickCamera(target, dir * sande.DashAttackTrampleCameraKick);
@@ -479,6 +484,7 @@ public sealed partial class SandevistanSystem
         //     _cinematic.StopCinematic(uid);
 
         sande.DashActive = false;
+        sande.DashTarget = null;
         sande.DashFinalApproach = false;
         sande.DashTrampleStruck = false;
         RemCompDeferred<ForcedDirectionRotateComponent>(uid);

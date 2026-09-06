@@ -269,7 +269,7 @@ public sealed partial class SandevistanUserComponent : Component
     public bool DashActive;
 
     [DataField, AutoNetworkedField]
-    public EntityUid DashTarget;
+    public EntityUid? DashTarget;
 
     [DataField, AutoNetworkedField]
     public SandevistanDashPhase DashPhase;
