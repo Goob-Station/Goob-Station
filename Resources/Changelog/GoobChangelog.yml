@@ -24994,3 +24994,11 @@ Entries:
       message: Visually impaired (not totally blind) characters can see sign language.
   id: 2867
   time: '2026-09-05T02:17:43.0000000+00:00'
+- author: 8Platanus8
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a visual issue causing the revolver ammo indicator to not update
+        when using a speedloader
+  id: 2868
+  time: '2026-09-06T17:27:04.0000000+00:00'
