@@ -1,0 +1,25 @@
+- type: entity
+  id: Ointment10Lingering
+  parent: Ointment
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Ointment
+    count: 10
+
+- type: entity
+  id: Brutepack10Lingering
+  parent: Brutepack
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Brutepack
+    count: 10
+
+- type: entity
+  id: Gauze10Lingering
+  parent: Gauze
+  suffix: Single
+  components:
+  - type: Stack
+    count: 10

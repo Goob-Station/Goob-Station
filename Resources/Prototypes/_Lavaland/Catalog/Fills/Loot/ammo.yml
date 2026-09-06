@@ -1,0 +1,67 @@
+- type: entityTable
+  id: MetalShelfCommonAmmo
+  table: !type:GroupSelector
+    children:
+    - id: MagazinePistol
+    - id: MagazineNailgun
+
+- type: entityTable
+  id: MetalShelfRareAmmo
+  table: !type:GroupSelector
+    children:
+    - id: MagazinePistolIncendiary
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistolUranium
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: BoxShotgunSlug
+    - id: MagazinePistol
+      amount: !type:RangeNumberSelector
+        range: 2, 3
+
+- type: entityTable
+  id: MetalShelfVeryRareAmmo
+  table: !type:GroupSelector
+    children:
+    - id: MagazineRifle
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistolSubMachineGun
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: MagazinePistolSubMachineGunTopMounted
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: BoxShotgunSlug
+    - id: MagazineLightRifle
+
+- type: entityTable
+  id: MetalShelfUltraRareAmmo
+  table: !type:GroupSelector
+    children:
+    - id: MagazineRifleUranium
+      amount: !type:RangeNumberSelector
+        range: 2, 3
+    - id: MagazineRifleIncendiary
+      amount: !type:RangeNumberSelector
+        range: 2, 3
+    - id: MagazinePistolSubMachineGunIncendiary
+      amount: !type:RangeNumberSelector
+        range: 2, 3
+    - id: MagazineLightRifle
+    - id: MagazineLightRifleIncendiary
+    - id: MagazineLightRifleUranium
+    - id: MagazineLightRiflePkBox
+    - id: MagazinePistolSubMachineGunUranium
+      amount: !type:RangeNumberSelector
+        range: 2, 3
+    - id: MagazinePistolSubMachineGunTopMounted
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: BoxShotgunIncendiary
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: BoxShotgunUranium
+      amount: !type:RangeNumberSelector
+        range: 1, 3

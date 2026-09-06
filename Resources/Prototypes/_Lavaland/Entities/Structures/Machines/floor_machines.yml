@@ -1,0 +1,202 @@
+- type: entity
+  id: GannetsMachineBase
+  parent: BaseFloorMachine
+  abstract: true
+  name: machine
+  description: An old machine.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+
+- type: entity
+  id: GannetsMachineOff
+  parent: GannetsMachineBase
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine10
+
+- type: entity
+  id: GannetsMachineOn
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine11
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: White
+
+- type: entity
+  id: GannetsMachineOff20
+  parent: GannetsMachineBase
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine20
+
+- type: entity
+  id: GannetsMachineOn21
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine21
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: White
+
+- type: entity
+  id: GannetsMachineOff30
+  parent: GannetsMachineBase
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine30
+
+- type: entity
+  id: GannetsMachineOn31
+  parent: GannetsMachineOff
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: gannets_machine31
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: White
+
+- type: entity
+  id: GunbotFab
+  parent: BaseFloorMachine
+  name: mass-replication machine
+  description: Seems like it used to fabricate weapons.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gunbot_fab
+
+- type: entity
+  id: GunbotFabBroken
+  parent: GunbotFab
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gunbot_fab-broken
+
+# Lever machine
+
+- type: entity
+  id: LeverMachine0
+  parent: BaseFloorMachine
+  name: lever machine
+  description: Ancient technology. The lever could use some oil...
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: lever0
+
+- type: entity
+  id: LeverMachine0Locked
+  parent: LeverMachine0
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: lever0-locked
+
+- type: entity
+  id: LeverMachine1
+  parent: LeverMachine0
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: lever1
+
+- type: entity
+  id: LeverMachine1Locked
+  parent: LeverMachine0
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: lever1-locked
+
+# Radar
+
+- type: entity
+  id: RadarMachine
+  parent: BaseFloorMachine
+  name: military terminal
+  description: Beeps and boops.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: radar
+
+# Crane arm
+
+- type: entity
+  id: MarsFactoryArm
+  parent: BaseFloorMachine
+  name: Factory arm
+  description: Used for moving large payloads in hazardous enviroments.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: marsfactory_arm
+
+# Large machine
+
+- type: entity
+  id: DisplayPanelMachine
+  parent: BaseFloorMachine
+  name: large machine
+  description: Contains information on the aerodynamics of a cow.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: displays
+
+- type: entity
+  id: DisplayPanelOffMachine
+  parent: DisplayPanelMachine
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: displays_off
+
+- type: entity
+  id: GaugePanelMachine
+  parent: DisplayPanelMachine
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gauges
+
+- type: entity
+  id: GaugePanelOffMachine
+  parent: DisplayPanelMachine
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: gauges_off
+
+# Recorders
+
+- type: entity
+  id: RecorderRackMachine
+  parent: DisplayPanelMachine
+  name: 
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: recorders
+
+- type: entity
+  id: RecorderRackOffMachine
+  parent: DisplayPanelMachine
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/64x64.rsi
+    state: recorders-off

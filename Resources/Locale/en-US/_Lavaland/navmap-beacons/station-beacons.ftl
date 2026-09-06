@@ -5,6 +5,7 @@ station-beacon-ruin-arrivals = Arrivals Shuttle Signal
 station-beacon-ruin-beach-biodome = Beach Biodome
 station-beacon-ruin-golem-shuttle = Freelancer Signal
 station-beacon-ruin-hierophant-arena = Zealous Signal
+station-beacon-ruin-bunker-alfa = Bunker Alfa
 station-beacon-ruin-hunter-shelter = Hunter Signal
 station-beacon-ruin-small-outpost = Small Outpost
 station-beacon-ruin-rouge-ai = Unknown Laboratory

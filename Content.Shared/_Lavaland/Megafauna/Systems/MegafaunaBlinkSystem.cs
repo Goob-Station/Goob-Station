@@ -1,4 +1,5 @@
-﻿using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Goobstation.Common.BlockTeleport;
+using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.Coordinates.Helpers;
 using Robust.Shared.Audio;
@@ -60,6 +61,9 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
     {
         if (args.Handled
             || !args.Target.IsValid(EntityManager))
+            return;
+
+        if (HasComp<BlockTeleportComponent>(ent))
             return;
 
         var comp = ent.Comp;

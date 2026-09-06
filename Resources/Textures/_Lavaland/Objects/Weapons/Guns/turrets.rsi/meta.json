@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/discordia-space/CEV-Eris/blob/b19c3591d119595cfe807d6fc7f197b1d8a1f343/icons/obj/turrets.dmi and https://github.com/discordia-space/CEV-Eris/blob/b19c3591d119595cfe807d6fc7f197b1d8a1f343/icons/obj/machines/mining_turret.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "heavy_turret",
+      "directions": 8
+    },
+    {
+      "name": "mining_turret",
+      "directions": 8
+    },
+    {
+      "name": "turret_base"
+    },
+    {
+      "name": "mining_base"
+    }
+  ]
+}

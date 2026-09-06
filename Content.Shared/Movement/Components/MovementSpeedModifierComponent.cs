@@ -98,6 +98,11 @@ namespace Content.Shared.Movement.Components
         [AutoNetworkedField, ViewVariables]
         public float SprintSpeedModifier = 1.0f;
 
+        /// <summary>
+        /// Goobstation - Override Goobstation's movement speed cap.
+        [DataField, AutoNetworkedField]
+        public float? MaxSpeedOverride;
+
         #endregion
 
         #region Weightless

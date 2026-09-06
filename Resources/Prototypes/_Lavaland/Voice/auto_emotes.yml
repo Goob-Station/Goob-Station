@@ -1,0 +1,29 @@
+# Flesh beasts
+- type: autoEmote
+  id: FleshGrowling
+  emote: Scream
+  interval: 15
+  chance: 0.5
+  withChat: false
+
+- type: emoteSounds
+  id: FleshSmall
+  sound:
+    collection: FleshGrowl
+    params:
+      variation: 0.125
+
+# Flesh beasts
+- type: autoEmote
+  id: FleshBreathing
+  emote: Scream
+  interval: 15
+  chance: 0.5
+  withChat: false
+
+- type: emoteSounds
+  id: FleshLarge
+  sound:
+    collection: FleshBreathe
+    params:
+      variation: 0.125

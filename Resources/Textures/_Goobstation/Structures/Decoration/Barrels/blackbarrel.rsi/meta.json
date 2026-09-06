@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
-    "copyright": "Goonstation 13",
+    "copyright": "https://github.com/goonstation/goonstation/blob/b2d5a223e9723015ce4546b269768bab38eb465e/icons/obj/stationobjs.dmi, hueshifts by OnsenCapy",
     "size": {
         "x": 32,
         "y": 32
@@ -23,6 +23,21 @@
         },
         {
             "name": "barrel"
+        },
+        {
+            "name": "barrel_white"
+        },
+        {
+            "name": "barrel_yellow"
+        },
+        {
+            "name": "barrel_green"
+        },
+        {
+            "name": "barrel_red"
+        },
+        {
+            "name": "barrel_blue"
         }
     ]
 }

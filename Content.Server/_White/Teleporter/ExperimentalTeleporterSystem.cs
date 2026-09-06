@@ -41,6 +41,9 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
 
     private void OnUse(EntityUid uid, ExperimentalTeleporterComponent component, UseInHandEvent args)
     {
+        if (HasComp<BlockTeleportComponent>(args.User)) // Goobstation - block teleports inside dungeons
+            return;
+
         if (_charges.IsEmpty(uid)
             || !TryComp<TransformComponent>(args.User, out var xform)
             || (_containerSystem.IsEntityInContainer(args.User)

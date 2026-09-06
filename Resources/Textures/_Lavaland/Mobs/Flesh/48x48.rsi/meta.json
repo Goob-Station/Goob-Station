@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by WitchBlaade (Discord), Blind One and dead edit by OnsenCapy",
+    "size": {
+        "x": 48,
+        "y": 48
+    },
+    "states": [
+        {
+            "name": "runner2",
+            "directions": 4
+        },
+        {
+            "name": "tank2",
+            "directions": 4
+        },
+        {
+            "name": "spitter2",
+            "directions": 4
+        },
+        {
+            "name": "blindone",
+            "directions": 4
+        },
+        {
+            "name": "dead2"
+        }
+    ]
+}
