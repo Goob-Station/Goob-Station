@@ -562,7 +562,7 @@
       path: /Audio/_Goobstation/RadioStation/music/peakasshole.ogg
 
 - type: entity
-  parent: BaseVinylDisc
+  parent: BaseVinylDisk
   id: VinylDiskSpaceAsshole
   name: "vinyl disk: Space Asshole"
   components:
