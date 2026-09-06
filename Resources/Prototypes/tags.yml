@@ -1629,6 +1629,15 @@
 - type: Tag
   id: XenoborgModuleStealth # Cyborg module category for evil stealth xenoborg
 
+- type: Tag
+  id: Cartridge556x45mmFMJ # Custom cartridge
+
+- type: Tag
+  id: ammuniton556x45mmBox # Custom cartridge box
+
+- type: Tag
+  id: G36MagazineRifle # Custom Magazine
+
 ## Y ##
 ## Z ##
 # ALPHABETICAL

@@ -1,0 +1,36 @@
+- type: entity
+  id: BaseCartridge556x45mm
+  name: cartridge (5.56x45mm FMJ)
+  parent: BaseCartridge
+  description: An extremely-common intermediate cartridge for rifles.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge556x45mmFMJ
+  - type: CartridgeAmmo
+    proto: Bullet556x45mmFMJ
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/rifle_ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+    - type: Appearance
+    - type: SpentAmmoVisuals
+  - type: EmitSoundOnLand
+    id: Bulletdrop556
+
+- type: entity
+  id: Cartridge556x45mmFMJ
+  name: cartridge (5.56x45mm FMJ)
+  parent: BaseCartridge556x45mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet556x45mmFMJ
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/rifle_ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+    - type: Appearance

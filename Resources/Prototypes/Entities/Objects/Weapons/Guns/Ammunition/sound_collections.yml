@@ -17,3 +17,11 @@
   files:
   - "/Audio/Items/Toys/ToyFall1.ogg"
   - "/Audio/Items/Toys/ToyFall2.ogg"
+
+- type: soundcollection
+  id: Bulletdrop556
+  files:
+  - "/Audio/Weapons/Guns/Casings/cartridges/casing_556_1.ogg"
+  - "/Audio/Weapons/Guns/Casings/cartridges/casing_556_2.ogg"
+  - "/Audio/Weapons/Guns/Casings/cartridges/casing_556_3.ogg"
+  - "/Audio/Weapons/Guns/Casings/cartridges/casing_556_4.ogg"
