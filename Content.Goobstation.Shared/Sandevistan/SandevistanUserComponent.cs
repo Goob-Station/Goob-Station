@@ -346,6 +346,12 @@ public sealed partial class SandevistanUserComponent : Component
     public float MobSpeedMultiplier = 0.15f;
 
     /// <summary>
+    /// Whether items thrown by the user are slowed down in the slowfield.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool SlowThrownItems;
+
+    /// <summary>
     /// Speed multiplier for thrown items in the slowfield.
     /// </summary>
     [DataField, AutoNetworkedField]

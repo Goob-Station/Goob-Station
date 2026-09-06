@@ -75,7 +75,6 @@
   - type: OrganActions
     actions:
     - ActionToggleSandevistan
-    - ActionSandevistanCounter
   - type: Organ
     onAdd:
     - type: SandevistanUser
@@ -83,7 +82,8 @@
       attackSpeedModifier: 3
       doAfterModifier: 1
       slowfieldEnabled: true
-      hitDamageMultiplier: 0.5
+      slowThrownItems: true
+      hitDamageMultiplier: 0.25
       hitKnockbackStrength: 2
       hitKnockbackDelayed: true
       afterimageColor: "#9a9a9a"

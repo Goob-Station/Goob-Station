@@ -147,7 +147,6 @@ public sealed partial class SandevistanSystem : EntitySystem
 
         if (ent.Comp.Active)
         {
-            PlayToggleSound(ent, ent.Comp.EndSound);
             Disable(ent, ent.Comp);
             return;
         }
@@ -200,6 +199,7 @@ public sealed partial class SandevistanSystem : EntitySystem
         EntityManager.AddComponents(ent, ent.Comp.ActivationComponents);
 
         SetFixtures(ent, ent.Comp, true);
+        _physics.WakeBody(ent.Owner);
         PlayToggleSound(ent, ent.Comp.StartSound);
         Dirty(ent);
         PlayLoopedAudio(ent, ent.Comp);
@@ -252,6 +252,7 @@ public sealed partial class SandevistanSystem : EntitySystem
         if (comp.Active)
         {
             SetFixtures(uid, comp, false);
+            PlayToggleSound((uid, comp), comp.EndSound);
 
             // Remove slowdown from all affected entities
             var query = EntityQueryEnumerator<SandevistanSlowedComponent>();

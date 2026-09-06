@@ -2,6 +2,7 @@ using Content.Shared.Damage;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
@@ -27,6 +28,7 @@ public sealed class SharedCounterSystem : EntitySystem
         SubscribeLocalEvent<CounterComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
         SubscribeLocalEvent<CounterComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<CounterComponent, ProjectileReflectAttemptEvent>(OnProjectileReflect);
+        SubscribeLocalEvent<CounterComponent, HitScanReflectAttemptEvent>(OnHitscanReflect);
         SubscribeLocalEvent<CounterComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<CounterComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
     }
@@ -180,6 +182,24 @@ public sealed class SharedCounterSystem : EntitySystem
 
         args.Cancelled = true;
         Trigger(ent, args.Component.Shooter ?? args.ProjUid);
+    }
+
+    private void OnHitscanReflect(Entity<CounterComponent> ent, ref HitScanReflectAttemptEvent args)
+    {
+        if (args.Reflected || ent.Comp.Triggered || ent.Comp.MeleeOnly)
+            return;
+
+        if (!ent.Comp.Active)
+        {
+            if (ent.Comp.CancelOnBuildup)
+                EndCounter(ent, ent.Comp, fizzle: true);
+            return;
+        }
+
+        // it stops at the user then acts as if they reflected it but it goes behind them.
+        // Not really sure how I would make it a seemless passthrough.
+        args.Reflected = true;
+        Trigger(ent, args.Shooter ?? args.SourceItem);
     }
 
     #endregion

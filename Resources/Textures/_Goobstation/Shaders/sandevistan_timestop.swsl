@@ -8,6 +8,7 @@ const highp int   kBlurTaps   = 12;
 const highp vec3  kPurple     = vec3(0.70, 0.50, 0.95);
 const highp vec3  kWarmWhite  = vec3(0.78, 0.74, 0.70);
 const highp vec3  kPaleGold   = vec3(0.80, 0.74, 0.55);
+const highp float kDomeEnd    = 1.15;
 
 highp float luma(highp vec3 c) {
     return dot(c, vec3(0.299, 0.587, 0.114));
@@ -39,13 +40,18 @@ void fragment() {
     highp vec2 dir = u / max(dist, 0.0001);
     highp float t = activated;
     highp float flash1 = smoothstep(0.08, 0.0, t);
-    highp float dome1 = smoothstep(0.02, 0.035, t) * smoothstep(0.19, 0.15, t);
     highp float psych = smoothstep(0.12, 0.17, t) * smoothstep(0.48, 0.42, t);
-    highp float dome2 = smoothstep(0.33, 0.36, t) * smoothstep(0.47, 0.43, t);
     highp float flash2 = smoothstep(0.41, 0.45, t) * smoothstep(0.52, 0.47, t);
     highp float grey = smoothstep(0.43, 0.5, t);
-    highp float r1 = mix(0.03, 0.9, easeOut((t - 0.03) / 0.13));
-    highp float r2 = mix(0.05, 0.95, easeOut((t - 0.35) / 0.11));
+    highp float p1 = clamp((t - 0.03) / 0.13, 0.0, 1.0);
+    highp float dome1 = p1 > 0.0 && p1 < 1.0 ? 1.0 : 0.0;
+    highp float hump1 = 4.0 * p1 * (1.0 - p1);
+    highp float r1 = kDomeEnd * easeOut(p1);
+    highp float p2 = clamp((t - 0.33) / 0.14, 0.0, 1.0);
+    highp float dome2 = p2 > 0.0 && p2 < 1.0 ? 1.0 : 0.0;
+    highp float hump2 = 4.0 * p2 * (1.0 - p2);
+    highp float r2 = kDomeEnd * easeOut(p2);
+
     highp vec3 sharp = tex(u);
     highp float rim2 = exp(-(dist - r2) * (dist - r2) / 0.0006);
     u -= dir * rim2 * dome2 * 0.03;
@@ -53,7 +59,7 @@ void fragment() {
     highp float cs = cos(swirl);
     highp float sn = sin(swirl);
     u = vec2(u.x * cs - u.y * sn, u.x * sn + u.y * cs);
-    highp float blur = 0.12 * smoothstep(0.19, 0.0, t) + 0.05 * psych + 0.06 * dome2;
+    highp float blur = 0.12 * smoothstep(0.19, 0.0, t) + 0.05 * psych + 0.06 * hump2;
     highp vec3 base = vec3(0.0);
     highp vec3 ray = vec3(0.0);
     for (int i = 0; i < kBlurTaps; i++) {
@@ -80,17 +86,18 @@ void fragment() {
     highp float wall1 = exp(-(dist - r1) * (dist - r1) / 0.0012) * 0.012
         + exp(-(dist - r1) * (dist - r1) / 0.00015) * 0.024
         + exp(-out1 * out1 / 0.006) * 0.007;
-    col = mix(col, kWarmWhite, 0.25 * in1 * dome1);
-    col += wall1 * dome1 * kWarmWhite;
+    col = mix(col, kWarmWhite, 0.1 * in1 * (1.0 - p1) * dome1);
+    col += wall1 * dome1 * 0.4 * kWarmWhite;
+
     highp float in2 = smoothstep(r2, r2 - 0.08, dist);
     highp float out2 = max(dist - r2, 0.0);
     highp float wall2 = exp(-(dist - r2) * (dist - r2) / 0.00015) * 0.03
-        + exp(-(dist - r2 + 0.03) * (dist - r2 + 0.03) / 0.0002) * 0.015
         + exp(-out2 * out2 / 0.005) * 0.009;
-    col = mix(col, kPaleGold, 0.25 * in2 * dome2);
-    col = mix(col, col * kPurple, 0.65 * (1.0 - in2) * dome2);
-    col += wall2 * dome2 * 0.5 * vec3(0.85, 0.8, 0.75);
-    highp float burst = max(max(dome1, psych), dome2);
+    col = mix(col, kPaleGold, 0.1 * in2 * (1.0 - p2) * dome2);
+    col = mix(col, col * kPurple, 0.65 * (1.0 - in2) * smoothstep(0.0, 0.2, p2) * dome2);
+    col += wall2 * dome2 * 0.2 * vec3(0.85, 0.8, 0.75);
+
+    highp float burst = max(max(hump1, psych), hump2);
     col *= 1.0 - smoothstep(0.45, 0.95, dist) * 0.45 * burst;
     highp float glow = exp(-dist * dist / 0.008);
     col += glow * flash1 * vec3(0.9, 0.82, 0.6) * 0.7;

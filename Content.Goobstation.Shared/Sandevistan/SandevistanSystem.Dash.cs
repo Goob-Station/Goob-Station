@@ -486,11 +486,8 @@ public sealed partial class SandevistanSystem
         Dirty(uid, sande);
         _actionBlocker.UpdateCanMove(uid);
 
-        if (!disable)
-            return;
-
-        PlayToggleSound((uid, sande), sande.EndSound);
-        Disable(uid, sande);
+        if (disable)
+            Disable(uid, sande);
     }
 
     /// <summary>

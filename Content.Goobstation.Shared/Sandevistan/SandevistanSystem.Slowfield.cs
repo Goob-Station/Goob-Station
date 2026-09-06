@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Goobstation.Shared.ForcedDirectionRotate;
+using Content.Shared._Goobstation.Wizard.Guardian;
 using Content.Shared.Doors.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Systems;
@@ -38,6 +39,7 @@ public sealed partial class SandevistanSystem
         SubscribeLocalEvent<ActiveSandevistanUserComponent, EndCollideEvent>(OnEndCollide);
         SubscribeLocalEvent<ActiveSandevistanUserComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<ActiveSandevistanUserComponent, AmmoShotUserEvent>(OnAmmoShot);
+        SubscribeLocalEvent<ActiveSandevistanUserComponent, ThrowEvent>(OnThrow);
 
         SubscribeLocalEvent<MeleeWeaponComponent, MeleeHitEvent>(OnMeleeHit);
 
@@ -61,6 +63,14 @@ public sealed partial class SandevistanSystem
 
         foreach (var projectile in args.FiredProjectiles)
             ApplySlowdown(ent, projectile, comp);
+    }
+
+    private void OnThrow(Entity<ActiveSandevistanUserComponent> ent, ref ThrowEvent args)
+    {
+        if (!TryComp<SandevistanUserComponent>(ent, out var comp) || !comp.SlowfieldEnabled || !comp.SlowThrownItems)
+            return;
+
+        ApplySlowdown(ent, args.Thrown, comp);
     }
 
     private void SetFixtures(EntityUid uid, SandevistanUserComponent comp, bool create)
@@ -122,11 +132,8 @@ public sealed partial class SandevistanSystem
             }
         }
 
-        if (!comp.HitDisables)
-            return;
-
-        PlayToggleSound((user, comp), comp.EndSound);
-        Disable(user, comp);
+        if (comp.HitDisables)
+            Disable(user, comp);
     }
 
     private void LaunchTarget(EntityUid user, SandevistanUserComponent comp, EntityUid target, Vector2 dir, Vector2 userVel, float distance)
@@ -249,6 +256,10 @@ public sealed partial class SandevistanSystem
         if (HasComp<MobStateComponent>(target))
         {
             slowed.SpeedMultiplier = comp.MobSpeedMultiplier;
+
+            if (TryComp<GuardianSharedComponent>(target, out var guardian) && guardian.Host == source)
+                slowed.SpeedMultiplier = 1f;
+
             _speed.RefreshMovementSpeedModifiers(target);
             EntityManager.AddComponents(target, comp.VisionComponents);
         }
@@ -281,6 +292,8 @@ public sealed partial class SandevistanSystem
 
         slowed.OriginalLinearVelocity = physics.LinearVelocity;
         _physics.SetLinearVelocity(target, physics.LinearVelocity * slowed.SpeedMultiplier, body: physics);
+
+        _physics.SetSleepingAllowed(target, physics, false);
 
         if (thrown?.LandTime is { } landTime && slowed.SpeedMultiplier > 0)
             thrown.LandTime = _timing.CurTime + (landTime - _timing.CurTime) / slowed.SpeedMultiplier;
@@ -354,10 +367,13 @@ public sealed partial class SandevistanSystem
         }
 
         // Bullets and thrown items always carry slowed velocity; a mob only does while flying from a trample.
-        if ((!isMob || isThrown)
-            && ent.Comp.OriginalLinearVelocity.LengthSquared() > 0.01f
-            && TryComp<PhysicsComponent>(ent, out var physics))
-            _physics.SetLinearVelocity(ent, ent.Comp.OriginalLinearVelocity, body: physics);
+        if ((!isMob || isThrown) && TryComp<PhysicsComponent>(ent, out var physics))
+        {
+            _physics.SetSleepingAllowed(ent, physics, true);
+
+            if (ent.Comp.OriginalLinearVelocity.LengthSquared() > 0.01f)
+                _physics.SetLinearVelocity(ent, ent.Comp.OriginalLinearVelocity, body: physics);
+        }
 
         // Convert the remaining slowed landing time back to normal speed
         // e.g. slowed 95% (mult=0.05), 10s remain in slowfield time = 0.5s at normal speed

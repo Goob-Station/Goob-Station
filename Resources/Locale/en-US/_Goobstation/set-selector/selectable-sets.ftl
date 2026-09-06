@@ -129,6 +129,14 @@ selectable-set-syndicate-builder-description =
     Contains: 2 disposable ballistic turrets, a telecrystal miner flatpack,
     some tools and materials to get you started, and a syndicate encryption key.
 
+selectable-set-syndicate-timestopper-name = Timestopper Bundle
+selectable-set-syndicate-timestopper-description =
+    Summon your holoparasite, Stop the world, walk up,
+    and leave them full of knives.
+    Contains: A timestopper sandevistan autosurgeon, a holoparasite,
+    two kits of throwing knives, and a brandostyle jacket and boots.
+
+
 # Blueshield
 
 selectable-set-blueshield-shield-name = blueshield set
@@ -253,5 +261,3 @@ selectable-set-research-director-modsuit-desc =
     not even the most dangerous of experiments will harm you in this,
     and the worst of assistants will think twice before breaking in sci.
 
-selectable-set-syndicate-timestopper-name = Timestopper Bundle
-selectable-set-syndicate-timestopper-description = Summon your holoparasite, Stop the world, walk up, and leave them full of knives. A timestopper sandevistan autosurgeon, a holoparasite, two kits of throwing knives, and a brandostyle jacket and boots.
