@@ -148,7 +148,6 @@
     metabolizerTypes: [Shadowkin]
     groups:
     - id: Alcohol
-      rateModifier: 0.1
   - type: FoodSequenceElement #Goob
     entries:
       Burger: FSE_OrganShadowkinLiver

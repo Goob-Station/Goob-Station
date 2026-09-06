@@ -1101,6 +1101,8 @@
   - type: Battery
     maxCharge: 1200 # Goobstation
     startingCharge: 1200 # Goobstation
+  - type: StealTarget # Goobstation
+    stealGroup: WeaponEnergyShotgun
 
 - type: entity
   name: energy magnum
