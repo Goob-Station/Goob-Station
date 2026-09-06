@@ -25002,3 +25002,25 @@ Entries:
         when using a speedloader
   id: 2868
   time: '2026-09-06T17:27:04.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Add
+      message: Xenobio to core.
+    - type: Add
+      message: Shaft miners to core. (lavaland is public)
+    - type: Add
+      message: Radio host to core.
+    - type: Add
+      message: NTR/BSO room to core.
+    - type: Add
+      message: AI turrets to core.
+    - type: Add
+      message: Brigmed to core.
+    - type: Add
+      message: Holopads to core.
+    - type: Add
+      message: Some cameras where needed to core.
+    - type: Add
+      message: Cloning to core.
+  id: 2869
+  time: '2026-09-06T20:47:40.0000000+00:00'
