@@ -179,7 +179,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         // Goobstation - Martial Arts
         if (TryComp<MartialArtsKnowledgeComponent>(args.User, out var knowledgeComp)
             && TryComp<MartialArtBlockedComponent>(args.Weapon, out var blockedComp)
-            && knowledgeComp.MartialArtsForm == blockedComp.Form && blockedComp.StaminaDmgBlock == false)
+            && knowledgeComp.MartialArtsForm == blockedComp.Form && blockedComp.StaminaDmgBlock == True)
             return;
         // Goobstation
 
