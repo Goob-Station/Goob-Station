@@ -264,6 +264,12 @@ public sealed partial class SandevistanSystem : EntitySystem
                 RaiseLocalEvent(target, ref ev);
             }
 
+            foreach (var (target, launch) in comp.PendingKnockback)
+                if (!TerminatingOrDeleted(target))
+                    _grabThrown.Throw(target, uid, launch, comp.SlowfieldKnockbackSpeed);
+
+            comp.PendingKnockback.Clear();
+
             RemCompDeferred<ActiveSandevistanUserComponent>(uid);
             comp.Active = false;
         }

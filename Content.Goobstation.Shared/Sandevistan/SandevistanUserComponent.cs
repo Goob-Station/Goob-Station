@@ -357,17 +357,26 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField, AutoNetworkedField]
     public float ProjectileSpeedMultiplier = 0.03f;
 
-    /// <summary>
-    /// Extra damage applied for melee hits.
-    /// </summary>
     [DataField]
-    public float SlowfieldHitDamageMultiplier = 3f;
+    public float HitDamageMultiplier = 1f;
 
     /// <summary>
-    /// Whether landing a melee hit ends the sandevistan.
+    /// If enabled, when hitting someone with an active sandevistan, it will disable it.
     /// </summary>
     [DataField]
-    public bool SlowfieldHitDisables = true;
+    public bool HitDisables;
+
+    [DataField, AutoNetworkedField]
+    public float HitKnockbackStrength;
+
+    /// <summary>
+    /// Prevents the hit knockback from taking effect until after the sandevistan is disabled.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool HitKnockbackDelayed;
+
+    [DataField]
+    public Dictionary<EntityUid, Vector2> PendingKnockback = new();
 
     /// <summary>
     /// How far a melee-hit target is thrown.

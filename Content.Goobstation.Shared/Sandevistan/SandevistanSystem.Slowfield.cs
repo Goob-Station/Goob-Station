@@ -88,13 +88,12 @@ public sealed partial class SandevistanSystem
     }
 
     /// <summary>
-    /// Any melee hit landed while the slowfield is active hits for increased damage, knocks back the target, and disables the sandevistan.
+    /// Melee hits landed while active can hit for increased damage, knock back the target, and disable the sandevistan.
     /// </summary>
     private void OnMeleeHit(Entity<MeleeWeaponComponent> weapon, ref MeleeHitEvent args)
     {
         if (!TryComp<SandevistanUserComponent>(args.User, out var comp)
             || !comp.Active
-            || !comp.SlowfieldEnabled
             || comp.DashActive
             || !args.IsHit
             || args.HitEntities.Count == 0
@@ -105,38 +104,48 @@ public sealed partial class SandevistanSystem
         var userPos = _transform.GetWorldPosition(user);
         var userVel = TryComp<PhysicsComponent>(user, out var userBody) ? userBody.LinearVelocity : Vector2.Zero;
 
-        args.BonusDamage += args.BaseDamage * (comp.SlowfieldHitDamageMultiplier - 1f);
+        args.BonusDamage += args.BaseDamage * (comp.HitDamageMultiplier - 1f);
 
-        foreach (var target in args.HitEntities)
+        if (comp.HitKnockbackStrength > 0f)
         {
-            if (!HasComp<PhysicsComponent>(target))
-                continue;
+            foreach (var target in args.HitEntities)
+            {
+                if (!HasComp<PhysicsComponent>(target))
+                    continue;
 
-            var dir = _transform.GetWorldPosition(target) - userPos;
+                var dir = _transform.GetWorldPosition(target) - userPos;
 
-            if (dir.LengthSquared() < 0.01f)
-                dir = args.Direction ?? (userVel.LengthSquared() > 0.01f ? userVel : new Vector2(0f, -1f));
+                if (dir.LengthSquared() < 0.01f)
+                    dir = args.Direction ?? (userVel.LengthSquared() > 0.01f ? userVel : new Vector2(0f, -1f));
 
-            LaunchTarget(user, comp, target, dir, userVel);
+                LaunchTarget(user, comp, target, dir, userVel, comp.HitKnockbackStrength);
+            }
         }
 
-        if (!comp.SlowfieldHitDisables)
+        if (!comp.HitDisables)
             return;
 
         PlayToggleSound((user, comp), comp.EndSound);
         Disable(user, comp);
     }
 
-    private void LaunchTarget(EntityUid user, SandevistanUserComponent comp, EntityUid target, Vector2 dir, Vector2 userVel)
+    private void LaunchTarget(EntityUid user, SandevistanUserComponent comp, EntityUid target, Vector2 dir, Vector2 userVel, float distance)
     {
         if (dir.LengthSquared() < 0.01f)
             return;
 
         var dirNorm = Vector2.Normalize(dir);
         var momentum = MathF.Max(0f, Vector2.Dot(userVel, dirNorm));
-        var distance = comp.SlowfieldKnockbackDistance + momentum * comp.SlowfieldMomentumScale;
+        var launch = dirNorm * (distance + momentum * comp.SlowfieldMomentumScale);
 
-        _grabThrown.Throw(target, user, dirNorm * distance, comp.SlowfieldKnockbackSpeed);
+        if (!comp.HitKnockbackDelayed)
+        {
+            _grabThrown.Throw(target, user, launch, comp.SlowfieldKnockbackSpeed);
+            return;
+        }
+
+        comp.PendingKnockback.TryGetValue(target, out var pending);
+        comp.PendingKnockback[target] = pending + launch;
     }
 
     private void OnStartCollide(Entity<ActiveSandevistanUserComponent> ent, ref StartCollideEvent args)
@@ -191,7 +200,7 @@ public sealed partial class SandevistanSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        LaunchTarget(user, comp, target, velocity, velocity);
+        LaunchTarget(user, comp, target, velocity, velocity, comp.SlowfieldKnockbackDistance);
         ApplyTrampleAirSlowdown(user, target, comp);
 
         _damageable.TryChangeDamage(target, comp.SlowfieldSlamDamage, origin: user);
