@@ -70,6 +70,12 @@ public sealed partial class SandevistanUserComponent : Component
     public int ColorAccumulator;
 
     /// <summary>
+    /// Colour of the afterimages. Left null they cycle through the rainbow.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Color? AfterimageColor;
+
+    /// <summary>
     /// A new afterimage spawns once the user has moved at least this many tiles from the last one.
     /// If it's too far its considered a teleport and no afterimages get spawned.
     /// </summary>
@@ -356,6 +362,12 @@ public sealed partial class SandevistanUserComponent : Component
     /// </summary>
     [DataField]
     public float SlowfieldHitDamageMultiplier = 3f;
+
+    /// <summary>
+    /// Whether landing a melee hit ends the sandevistan.
+    /// </summary>
+    [DataField]
+    public bool SlowfieldHitDisables = true;
 
     /// <summary>
     /// How far a melee-hit target is thrown.

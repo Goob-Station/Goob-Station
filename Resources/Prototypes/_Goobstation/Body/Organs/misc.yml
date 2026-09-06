@@ -48,6 +48,7 @@
       attackSpeedModifier: 1
       doAfterModifier: 1
       slowfieldEnabled: true
+      trampleEnabled: true
       visionComponents:
       - type: SandevistanSlowdownVision
       - type: AudioPitch
@@ -79,7 +80,9 @@
       attackSpeedModifier: 1
       doAfterModifier: 1
       slowfieldEnabled: true
-      trampleFieldEnabled: false
+      slowfieldHitDamageMultiplier: 1
+      slowfieldHitDisables: false
+      afterimageColor: "#9a9a9a"
       loadPerActivation: 0
       mobSpeedMultiplier: 0.015
       thrownItemSpeedMultiplier: 0.005

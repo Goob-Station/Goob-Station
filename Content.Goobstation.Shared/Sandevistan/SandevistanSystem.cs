@@ -336,7 +336,7 @@ public sealed partial class SandevistanSystem : EntitySystem
         AddComp(afterimage, new SandevistanAfterimageComponent
         {
             SourceEntity = uid,
-            Hue = comp.ColorAccumulator % 100f / 100f,
+            Color = comp.AfterimageColor ?? Color.FromHsv(new Vector4(comp.ColorAccumulator % 100f / 100f, 1f, 1f, 1f)),
             DirectionOverride = xform.LocalRotation.GetCardinalDir(),
             Order = comp.ColorAccumulator,
         });

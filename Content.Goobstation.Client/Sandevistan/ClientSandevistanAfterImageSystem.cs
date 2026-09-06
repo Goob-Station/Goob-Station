@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Goobstation.Shared.Sandevistan;
 using Content.Shared.Tag;
 using Robust.Client.GameObjects;
@@ -47,7 +46,7 @@ public sealed class ClientSandevistanAfterimageSystem : EntitySystem
             var remaining = (float) (despawnAt - _timing.CurTime).TotalSeconds;
             var alpha = Math.Clamp(remaining / (float) comp.FadeDuration.TotalSeconds, 0f, 1f) * comp.BaseAlpha;
             if (TryComp<SpriteComponent>(uid, out var sprite))
-                _sprite.SetColor((uid, sprite), Color.FromHsv(new Vector4(comp.Hue, 1f, 1f, alpha)));
+                _sprite.SetColor((uid, sprite), comp.Color.WithAlpha(alpha));
         }
     }
 
@@ -61,7 +60,7 @@ public sealed class ClientSandevistanAfterimageSystem : EntitySystem
         var afterimageSprite = EnsureComp<SpriteComponent>(ent);
         _sprite.CopySprite((ent.Comp.SourceEntity, userSprite), (ent.Owner, afterimageSprite));
         _sprite.SetDrawDepth((ent.Owner, afterimageSprite), (int) DrawDepthEnum.FloorEffects);
-        _sprite.SetColor((ent.Owner, afterimageSprite), Color.FromHsv(new Vector4(ent.Comp.Hue, 1, 1, ent.Comp.BaseAlpha)));
+        _sprite.SetColor((ent.Owner, afterimageSprite), ent.Comp.Color.WithAlpha(ent.Comp.BaseAlpha));
         afterimageSprite.PostShader = null;
 
         var layer = 0;

@@ -71,7 +71,7 @@ public sealed partial class SandevistanSystem
         if (comp.SlowfieldEnabled)
             SetFixture(uid, physics, SlowfieldFixtureId, comp.SlowfieldRadius, create);
 
-        if (comp.SlowfieldEnabled || comp.TrampleEnabled)
+        if (comp.TrampleEnabled)
             SetFixture(uid, physics, TrampleFixtureId, comp.SlowfieldTrampleRadius, create);
     }
 
@@ -119,6 +119,9 @@ public sealed partial class SandevistanSystem
 
             LaunchTarget(user, comp, target, dir, userVel);
         }
+
+        if (!comp.SlowfieldHitDisables)
+            return;
 
         PlayToggleSound((user, comp), comp.EndSound);
         Disable(user, comp);

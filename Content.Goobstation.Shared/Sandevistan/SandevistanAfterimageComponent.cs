@@ -14,11 +14,8 @@ public sealed partial class SandevistanAfterimageComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid SourceEntity;
 
-    /// <summary>
-    /// The hue for the rainbow color cycle.
-    /// </summary>
     [DataField, AutoNetworkedField]
-    public float Hue;
+    public Color Color;
 
     /// <summary>
     /// The direction the user's sprite was facing when the afterimage was spawned.
