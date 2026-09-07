@@ -25058,3 +25058,9 @@ Entries:
         damage
   id: 2872
   time: '2026-09-07T01:39:57.0000000+00:00'
+- author: balt-dev
+  changes:
+    - type: Add
+      message: Added a vinyl for Space Asshole.
+  id: 2873
+  time: '2026-09-07T01:42:57.0000000+00:00'
