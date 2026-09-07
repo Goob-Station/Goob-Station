@@ -1,0 +1,41 @@
+- type: entity
+  id: BaseCartridge9x19parabellum
+  name: cartridge (9x19_Parabellum)
+  parent: BaseCartridge
+  description: An extremely-common caliber cartridge for pistols.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge9x19parabellum
+  - type: CartridgeAmmo
+    proto: Bullet9x19parabellum
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Cartridge9x19parabellum
+  name: cartridge (9x19_parabellum)
+  parent: BaseCartridge9x19parabellum
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet9x19parabellum
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals

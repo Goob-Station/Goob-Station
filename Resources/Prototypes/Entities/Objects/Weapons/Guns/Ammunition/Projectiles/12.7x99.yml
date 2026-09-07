@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseBullet
+  id: Bullet127x99
+  categories: [ HideSpawnMenu ]
+  name: bullet (12.7x99 FMJ)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 115
+      armorPenetration: 0.45 # Goobstation
+    penetrationThreshold: 85 # Goobstation - This count as penetration health
+  - type: StaminaDamageOnCollide
+    damage: 100 # Goob edit

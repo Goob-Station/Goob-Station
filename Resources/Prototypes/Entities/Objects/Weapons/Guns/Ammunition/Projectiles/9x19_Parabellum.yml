@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseBullet
+  id: Bullet9x19parabellum
+  categories: [ HideSpawnMenu ]
+  name: bullet (9x19_Parabellum)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18
+      armorPenetration: 0.10 # Goobstation

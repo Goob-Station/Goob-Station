@@ -1,13 +1,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: G36
+  name: G3
   parent: [BaseWeaponRifle, BaseGunWieldable]
-  id: WeaponRifleG36
-  description: G36 is a german made rifle for the german army uses 5.56x45 NATO
+  id: WeaponRifleG3
+  description: G3 is a heavy battle rifle made for the german army uses 7.62x51
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Rifles/G36.rsi
+    sprite: Objects/Weapons/Guns/Rifles/G3.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -17,46 +17,46 @@
     minAngle: -10
     maxAngle: -10
   - type: Gun
-    minAngle: 3
-    maxAngle: 14
+    minAngle: 4
+    maxAngle: 19
     angleIncrease: 6
     angleDecay: 80
-    fireRate: 8
+    fireRate: 6
     shotsPerBurst: 3
     availableModes:
     - Burst
     - FullAuto
     - SemiAuto
     soundGunshot:
-      collection: M16Fire
+      collection: G3Fire
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/Weapons/Guns/M16/rack.ogg
+      path: /Audio/Weapons/Guns/G3/rack.ogg
     soundBoltClosed:
-      path: /Audio/Weapons/Guns/M16/uc_m16_chamber_press.ogg
+      path: /Audio/Weapons/Guns/G3/chamber.ogg
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Rifles/G36.rsi
+    sprite: Objects/Weapons/Guns/Rifles/G3.rsi
   - type: Item
-    sprite: Objects/Weapons/Guns/Rifles/G36.rsi
+    sprite: Objects/Weapons/Guns/Rifles/G3.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: G36MagazineRifle
-        insertSound: /Audio/Weapons/Guns/M16/uc_m16_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/M16/uc_m16_magout.ogg
+        startingItem: G3MagazineRifle
+        insertSound: /Audio/Weapons/Guns/G3/magin.ogg
+        ejectSound: /Audio/Weapons/Guns/G3/magout.ogg
         priority: 2
         whitelist:
           tags:
-          - G36MagazineRifle
+          - G3MagazineRifle
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge556x45mmFMJ
+        startingItem: Cartridge762x51FMJ
         priority: 1
         whitelist:
           tags:
-          - Cartridge556x45mmFMJ
+          - Cartridge762x51FMJ
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot

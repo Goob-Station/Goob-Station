@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox127x99
+  name: ammunition box (12.7x99 FMJ)
+  components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  # Goobstation edit end
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      type: Tag
+      tags:
+        - ammunitonBox127x99
+    proto: Cartridge127x99
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi
+    state: base-b
+  - type: Appearance
+
+# Boxes
+- type: entity
+  parent: BaseMagazineBox127x99
+  id: ammunitonBox127x99
+  name: ammunition box (12.7x99 FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 15
+    proto: Cartridge127x99
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 3
+    zeroVisible: false
+  - type: Appearance

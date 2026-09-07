@@ -1,0 +1,41 @@
+- type: entity
+  id: BaseCartridge762x51
+  name: cartridge (7.62x51mm)
+  parent: BaseCartridge
+  description: An extremely-common intermediate cartridge for rifles.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge762x51FMJ
+  - type: CartridgeAmmo
+    proto: Bullet762x51
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/rifle_ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Cartridge762x51FMJ
+  name: cartridge (7.62x51 FMJ)
+  parent: BaseCartridge762x51
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet762x51
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/rifle_ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals

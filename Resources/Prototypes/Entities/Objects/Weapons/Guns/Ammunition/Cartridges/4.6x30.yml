@@ -1,0 +1,41 @@
+- type: entity
+  id: BaseCartridge46x30
+  name: cartridge (4.6x30 FMJ)
+  parent: BaseCartridge
+  description: An extremely-common PDW cartridge for handguns or submachine gun.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge46x30FMJ
+  - type: CartridgeAmmo
+    proto: Bullet46x30FMJ
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing_steel.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Cartridge46x30FMJ
+  name: cartridge (4.6x30 FMJ)
+  parent: BaseCartridge46x30
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet46x30FMJ
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing_steel.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals

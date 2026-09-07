@@ -1,0 +1,41 @@
+- type: entity
+  id: BaseCartridge45ACP
+  name: cartridge (45 ACP)
+  parent: BaseCartridge
+  description: An extremely-common caliber cartridge for pistols.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge45ACP
+  - type: CartridgeAmmo
+    proto: Bullet45ACP
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing_steel.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Cartridge45ACP
+  name: cartridge (45 ACP)
+  parent: BaseCartridge45ACP
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45ACP
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing_steel.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals

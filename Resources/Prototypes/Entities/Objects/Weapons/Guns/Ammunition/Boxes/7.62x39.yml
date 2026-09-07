@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox762x39
+  name: ammunition box (7.62x39)
+  components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  # Goobstation edit end
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      type: Tag
+      tags:
+        - ammuniton762x39Box
+    proto: Cartridge762x39FMJ
+    capacity: 70
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/7.62x39mm.rsi
+    state: base
+  - type: Appearance
+
+# Boxes
+- type: entity
+  parent: BaseMagazineBox762x39
+  id: ammuniton762x39Box
+  name: ammunition box (7.62x39 FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 70
+    proto: Cartridge762x39FMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]

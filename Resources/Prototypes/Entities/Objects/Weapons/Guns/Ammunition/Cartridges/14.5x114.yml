@@ -1,0 +1,41 @@
+- type: entity
+  id: BaseCartridge145x114
+  name: cartridge (14.5x114 FMJ)
+  parent: BaseCartridge
+  description: an even larger anti material calibre bullet
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge145x114
+  - type: CartridgeAmmo
+    proto: Bullet145x114
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/big_ammo_casing_steel.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Cartridge145x114
+  name: cartridge (14.5x114 FMJ)
+  parent: BaseCartridge145x114
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet145x114
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/big_ammo_casing_steel.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals

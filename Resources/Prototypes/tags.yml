@@ -1641,6 +1641,66 @@
 - type: Tag
   id: WeaponRifleG36 # Custom Gun
 
+- type: Tag
+  id: Cartridge762x39FMJ # Custom cartridge
+
+- type: Tag
+  id: Cartridge762x51FMJ # Custom cartridge
+
+- type: Tag
+  id: ammuniton762x39Box # Custom cartridge box
+
+- type: Tag
+  id: ammuniton762x51Box # Custom cartridge box
+
+- type: Tag
+  id: Cartridge9x19parabellum # Custom cartridge
+
+- type: Tag
+  id: Cartridge45ACP # Custom cartridge
+
+- type: Tag
+  id: ammuniton9x19parabellumbox # Custom cartridge box
+
+- type: Tag
+  id: ammuniton45ACPbox # Custom cartridge box
+
+- type: Tag
+  id: Cartridge6.8SPC # Custom cartridge
+
+- type: Tag
+  id: ammunitonBox145x114 # Custom cartridge
+
+- type: Tag
+  id: Cartridge145x114 # Custom cartridge
+
+- type: Tag
+  id: Cartridge127x99 # Custom cartridge
+
+- type: Tag
+  id: ammunitonBox127x99 # Custom cartridge box
+
+- type: Tag
+  id: G3MagazineRifle # Custom Magazine
+
+- type: Tag
+  id: G3MagazineRifleEmpty # Custom Magazine
+
+- type: Tag
+  id: WeaponRifleG3
+
+- type: Tag
+  id: Cartridge57x28FMJ
+
+- type: Tag
+  id: ammuniton5.7x28box
+
+- type: Tag
+  id: Cartridge46x30FMJ
+
+- type: Tag
+  id: ammuniton4.6x30mmbox
+
 ## Y ##
 ## Z ##
 # ALPHABETICAL

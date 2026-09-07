@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseBullet
+  id: Bullet46x30FMJ
+  categories: [ HideSpawnMenu ]
+  name: bullet (4.6x30 FMJ)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18
+      armorPenetration: 0.25 # Goobstation

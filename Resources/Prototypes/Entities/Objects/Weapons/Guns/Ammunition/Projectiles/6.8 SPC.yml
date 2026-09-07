@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseBullet
+  id: Bullet6.8SPC
+  categories: [ HideSpawnMenu ]
+  name: bullet (6.8 SPC)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 34
+      armorPenetration: 0.45 # Goobstation

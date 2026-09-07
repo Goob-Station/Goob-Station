@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox45ACP
+  name: ammunition box (45 ACP)
+  components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  # Goobstation edit end
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      type: Tag
+      tags:
+        - ammuniton45ACPbox
+    proto: Cartridge45ACP
+    capacity: 70
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/45_ACP.rsi
+    state: base
+  - type: Appearance
+
+# Boxes
+- type: entity
+  parent: BaseMagazineBox45ACP
+  id: ammuniton45ACPbox
+  name: ammunition box (45 ACP)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 70
+    proto: Cartridge45ACP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]

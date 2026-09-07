@@ -1,0 +1,41 @@
+- type: entity
+  id: BaseCartridge127x99
+  name: cartridge (12.7x99 FMJ)
+  parent: BaseCartridge
+  description: an anti material calibre bullet
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge127x99
+  - type: CartridgeAmmo
+    proto: Bullet127x99
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/big_ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Cartridge127x99
+  name: cartridge (12.7x99 FMJ)
+  parent: BaseCartridge127x99
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet127x99
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/big_ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals

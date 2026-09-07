@@ -1,0 +1,41 @@
+- type: entity
+  id: BaseCartridge6.8SPC
+  name: cartridge (6.8 SPC)
+  parent: BaseCartridge
+  description: a higher power designed caliber
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge6.8SPC
+  - type: CartridgeAmmo
+    proto: Bullet6.8SPC
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/rifle_ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Cartridge6.8SPC
+  name: cartridge (6.8 SPC)
+  parent: BaseCartridge6.8SPC
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet6.8SPC
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/rifle_ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals

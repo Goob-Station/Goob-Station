@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from SS13 Shiptest, edited by _starch_ (discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "incendiary"
+    },
+    {
+      "name": "practice"
+    },
+    {
+      "name": "rubber"
+    },
+    {
+      "name": "emp"
+    },
+    {
+      "name": "HP"
+    },
+    {
+      "name": "steelAP"
+    },
+    {
+      "name": "plasteelAP"
+    },
+    {
+      "name": "synthAP"
+    },
+    {
+      "name": "uranium"
+    },
+    {
+      "name": "RIP"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "base-b"
+    }
+  ]
+}
