@@ -158,7 +158,7 @@ namespace Content.Server.Pointing.EntitySystems
             }
 
             // This is probably an entity relaying through holopad i.e. Station AI. Redirect the verb.
-            var relayPointer = EntityUid.Invalid; // need this to check for point origin later. null if original entity is the one pointing.
+            var relayPointer = EntityUid.Invalid; // need this to check for point origin later. Invalid (zero) if original entity is the one pointing.
 
             if (TryComp<HolopadUserComponent>(player, out var holopadComp))
             {
