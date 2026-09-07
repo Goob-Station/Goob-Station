@@ -15,21 +15,18 @@
     sprite: Objects/Weapons/Guns/Ammunition/Casings/rifle_ammo_casing.rsi
     layers:
     - state: base
-      map: ["enum.AmmoVisualLayers.Base"]
-    - type: Appearance
-    - type: SpentAmmoVisuals
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
+  - type: Appearance
+  - type: SpentAmmoVisuals
 
 - type: entity
-  id: BaseCartridge556x45mm
+  id: Cartridge556x45mmFMJ
   name: cartridge (5.56x45mm FMJ)
-  parent: BaseCartridge
-  description: An extremely-common intermediate cartridge for rifles.
-  abstract: true
+  parent: BaseCartridge556x45mm
   components:
-  - type: Tag
-    tags:
-    - Cartridge
-    - Cartridge556x45mmFMJ
   - type: CartridgeAmmo
     proto: Bullet556x45mmFMJ
   - type: Sprite
@@ -37,4 +34,8 @@
     layers:
     - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#D4AF37"
   - type: Appearance
+  - type: SpentAmmoVisuals
