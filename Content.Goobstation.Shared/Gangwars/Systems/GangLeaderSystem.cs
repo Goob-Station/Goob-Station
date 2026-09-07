@@ -5,6 +5,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Database;
 using Content.Shared.Mind;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Trigger.Systems;
@@ -256,6 +257,12 @@ public sealed class GangLeaderSystem : EntitySystem
         if (ent.Comp.PendingInviteTarget != null)
         {
             _popup.PopupClient(Loc.GetString("gang-invite-already-outgoing"), ent.Owner, ent.Owner);
+            return;
+        }
+
+        if (HasComp<MindShieldComponent>(target))
+        {
+            _popup.PopupClient(Loc.GetString("gang-invite-target-mindshielded"), ent.Owner, ent.Owner);
             return;
         }
 
