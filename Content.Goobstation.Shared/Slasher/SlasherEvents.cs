@@ -4,6 +4,8 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Slasher;
 
+public sealed class SlasherAscendedEvent : EntityEventArgs;
+
 [ByRefEvent]
 public sealed partial class SlasherRegenerateEvent : InstantActionEvent;
 

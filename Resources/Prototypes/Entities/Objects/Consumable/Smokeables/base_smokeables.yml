@@ -42,6 +42,10 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 15
+    # Goobstation - Grindable cigarette start
+  - type: Extractable
+    grindableSolutionName: smokable
+    # Goobstation - Grindable cigarette end
 
 - type: entity
   parent: BaseSmokable

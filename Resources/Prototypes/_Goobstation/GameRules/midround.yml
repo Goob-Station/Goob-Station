@@ -117,7 +117,7 @@
   id: TunnelClownMidround
   components:
   - type: StationEvent
-    weight: 4
+    weight: 1.5
     duration: null
     earliestStart: 15
     minimumPlayers: 20
@@ -152,7 +152,7 @@
   id: SingulothKnightsMidround
   components:
   - type: StationEvent
-    weight: 2.5
+    weight: 1
     duration: null
     earliestStart: 45
     minimumPlayers: 50
@@ -254,7 +254,7 @@
   id: MimeAssassinMidround
   components:
   - type: StationEvent
-    weight: 4
+    weight: 1.2
     duration: null
     earliestStart: 30
     minimumPlayers: 30
@@ -293,7 +293,7 @@
   id: DarkPriestMidround
   components:
   - type: StationEvent
-    weight: 3
+    weight: 0.05
     duration: null
     earliestStart: 30
     minimumPlayers: 30
@@ -342,9 +342,8 @@
       maxPicks: 5
     maxDifficulty: 10
   - type: StationEvent
-    earliestStart: 20
-    maxOccurrences: 1 # yeah...
-    weight: 2.0 # compensate for lower chaos score
+    earliestStart: 35
+    weight: 0.9
     minimumPlayers: 50
     duration: 1
     chaos:

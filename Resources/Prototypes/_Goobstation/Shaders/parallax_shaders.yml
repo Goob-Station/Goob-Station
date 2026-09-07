@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: shader
+  id: TwinkleStars
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/twinkle_stars.swsl"
+  params:
+    twinkleSpeed: 2.5
+    twinkleAmount: 0.8
+
+- type: shader
+  id: MeteorGlow
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/meteor_glow.swsl"

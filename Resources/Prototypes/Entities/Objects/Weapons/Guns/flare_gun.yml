@@ -7,7 +7,7 @@
   description: A compact, single-shot pistol that fires shotgun shells. Comes with a safety feature that prevents the user from fitting lethal shells inside.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/flaregun.rsi #GoobStation resprite
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -16,7 +16,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
-    sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/flaregun.rsi #GoobStation resprite
   - type: ItemSlots
     slots:
       gun_chamber:
@@ -38,7 +38,7 @@
     soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
     soundRack: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/flaregun.rsi #GoobStation resprite
     quickEquip: false
     slots:
     - Belt
@@ -83,13 +83,13 @@
   description: A modified flare gun originally designed to be used by security to launch non-lethal shotgun shells, however it can also fire lethal shells without risk.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi #GoobStation resprite
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
   - type: Item
     size: Small
-    sprite: Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi #GoobStation resprite
   - type: ItemSlots
     slots:
       gun_chamber:
