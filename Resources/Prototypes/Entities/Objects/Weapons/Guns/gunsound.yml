@@ -25,3 +25,33 @@
   - /Audio/Weapons/Guns/M16/uc_m16_fire-04.ogg
   - /Audio/Weapons/Guns/M16/uc_m16_fire-05.ogg
   - /Audio/Weapons/Guns/M16/uc_m16_fire-06.ogg
+
+- type: soundCollection
+  id: BerettaFire
+  files:
+  - /Audio/Weapons/Guns/Beretta/fire-01.ogg
+  - /Audio/Weapons/Guns/Beretta/fire-02.ogg
+  - /Audio/Weapons/Guns/Beretta/fire-03.ogg
+  - /Audio/Weapons/Guns/Beretta/fire-04.ogg
+  - /Audio/Weapons/Guns/Beretta/fire-05.ogg
+  - /Audio/Weapons/Guns/Beretta/fire-06.ogg
+
+- type: soundCollection
+  id: SCARHFire
+  files:
+  - /Audio/Weapons/Guns/SCAR/fire-556-01.ogg
+  - /Audio/Weapons/Guns/SCAR/fire-556-02.ogg
+  - /Audio/Weapons/Guns/SCAR/fire-556-03.ogg
+  - /Audio/Weapons/Guns/SCAR/fire-556-04.ogg
+  - /Audio/Weapons/Guns/SCAR/fire-556-05.ogg
+  - /Audio/Weapons/Guns/SCAR/fire-556-06.ogg
+
+- type: soundCollection
+  id: MP7Fire
+  files:
+  - /Audio/Weapons/Guns/MP7/uc_mp7_fire-01.ogg
+  - /Audio/Weapons/Guns/MP7/uc_mp7_fire-02.ogg
+  - /Audio/Weapons/Guns/MP7/uc_mp7_fire-03.ogg
+  - /Audio/Weapons/Guns/MP7/uc_mp7_fire-04.ogg
+  - /Audio/Weapons/Guns/MP7/uc_mp7_fire-05.ogg
+  - /Audio/Weapons/Guns/MP7/uc_mp7_fire-06.ogg

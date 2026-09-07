@@ -1687,19 +1687,37 @@
   id: G3MagazineRifleEmpty # Custom Magazine
 
 - type: Tag
-  id: WeaponRifleG3
+  id: WeaponRifleG3 # Custom Gun
 
 - type: Tag
-  id: Cartridge57x28FMJ
+  id: Cartridge57x28FMJ # Custom cartridge
 
 - type: Tag
-  id: ammuniton5.7x28box
+  id: ammuniton5.7x28box # Custom cartridge box
 
 - type: Tag
-  id: Cartridge46x30FMJ
+  id: Cartridge46x30FMJ # Custom cartridge
 
 - type: Tag
-  id: ammuniton4.6x30mmbox
+  id: ammuniton4.6x30mmbox # custom cartridge box
+
+- type: Tag
+  id: Pistolmagazine5.7x28 # custom pistolmag
+
+- type: Tag
+  id: Pistolmagazine5.7x28Empty # custom empty pistolmag
+
+- type: Tag
+  id: WeaponPistolFiveSeven # custom Pistol
+
+- type: Tag
+  id: WeaponRifleSCAR-H # custom Gun
+
+- type: Tag
+  id: SMGMagazine46x30FMJ # custom SMG mag
+
+- type: Tag
+  id: WeaponRifleMP7 # custom Gun
 
 ## Y ##
 ## Z ##

@@ -1,0 +1,69 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Empty mags
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: BaseG3MagazineRifle
+  name: "magazine (7.62x51mm)"
+  components:
+  - type: Tag
+    tags:
+      - G3MagazineRifle
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge762x51FMJ
+    capacity: 20
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/SCARH.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseG3MagazineRifle
+  id: G3MagazineRifle
+  name: "magazine (7.62x51mm)"
+  description: magazine
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge762x51FMJ
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/SCARH.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - type: Appearance
+
+- type: entity
+  parent: BaseG3MagazineRifle
+  id: G3MagazineRifleEmpty
+  name: "magazine (7.62x51mm)"
+  suffix: empty
+  description: magazine
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/SCARH.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - type: Appearance

@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: FiveSeven
+  parent: BaseWeaponPistol
+  id: WeaponPistolFiveSeven
+  description: made in Belgium chambered in 5.7x28 FMJ
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/FiveSeven.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    minAngle: 3
+    maxAngle: 11
+    angleIncrease: 3
+    angleDecay: 6
+    fireRate: 5
+    projectileSpeed: 30
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BerettaFire
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Beretta/rack.ogg
+    soundBoltOpened:
+      path: /Audio/Weapons/Guns/Beretta/slidepull.ogg
+    soundBoltClosed:
+      path: /Audio/Weapons/Guns/Beretta/sliderel.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Pistolmagazine5.7x28
+        insertSound: /Audio/Weapons/Guns/Beretta/magin.ogg
+        ejectSound: /Audio/Weapons/Guns/Beretta/magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Pistolmagazine5.7x28
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge57x28FMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge57x28FMJ
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

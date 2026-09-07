@@ -3,25 +3,25 @@
 - type: entity
   abstract: true
   parent: [ BaseItem, BaseSecurityContraband ]
-  id: BaseG3MagazineRifle
-  name: "magazine (7.62x51mm)"
+  id: BaseG36MagazineRifle
+  name: "magazine (5.56x45mm)"
   components:
   - type: Tag
     tags:
-      - G3MagazineRifle
+      - G36MagazineRifle
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - Cartridge762x51FMJ
-    capacity: 20
+        - Cartridge556x45mmFMJ
+    capacity: 30
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/SCARH.rsi
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/G36.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -34,36 +34,48 @@
   - type: Appearance
 
 - type: entity
-  parent: BaseG3MagazineRifle
-  id: G3MagazineRifle
-  name: "magazine (7.62x51mm)"
-  description: magazine for the G3
+  parent: BaseG36MagazineRifle
+  id: G36MagazineRifle
+  name: "magazine (5.56x45mm)"
+  description: magazine
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge762x51FMJ
+    proto: Cartridge556x45mmFMJ
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/SCARH.rsi
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/G36.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
 
 - type: entity
-  parent: BaseG3MagazineRifle
-  id: G3MagazineRifleEmpty
-  name: "magazine (7.62x51mm)"
+  parent: BaseG36MagazineRifle
+  id: G36MagazineRifleEmpty
+  name: "magazine (5.56x45mm)"
   suffix: empty
-  description: magazine for the G3
+  description: magazine
   components:
   - type: BallisticAmmoProvider
     proto: null
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/SCARH.rsi
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/G36.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right

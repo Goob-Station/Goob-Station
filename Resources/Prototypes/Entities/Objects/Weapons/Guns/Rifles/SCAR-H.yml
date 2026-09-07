@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: SCAR-H
+  parent: [BaseWeaponRifle, BaseGunWieldable]
+  id: WeaponRifleSCAR-H
+  description: SCAR-H is a premium battle rifle chambered in  7.62x51
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/SCAR.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-h-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/SCAR.rsi
+  - type: GunWieldBonus
+    minAngle: -18
+    maxAngle: -45
+  - type: Gun
+    fireRate: 5
+    minAngle: 20
+    maxAngle: 60
+    angleIncrease: 1.5
+    projectileSpeed: 45
+    soundGunshot:
+      collection: SCARHFire
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    selectedMode: FullAuto
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/SCAR/rack.ogg
+    soundBoltClosed:
+      path: /Audio/Weapons/Guns/SCAR/boltcatch.ogg
+    soundBoltOpened:
+      path: /Audio/Weapons/Guns/SCAR/chpull.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: G3MagazineRifle
+        insertSound: /Audio/Weapons/Guns/SCAR/magin-762.ogg
+        ejectSound: /Audio/Weapons/Guns/SCAR/magout-762.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - G3MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge762x51FMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge762x51FMJ
+  - type: MagazineVisuals
+    magState: mag-h
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

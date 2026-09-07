@@ -1,0 +1,55 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: MP7
+  parent: [BaseWeaponRifle, BaseGunWieldable]
+  id: WeaponRifleMP7
+  description: made in space germany chambered in 4.6x30 FMJ
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/SMGs/MP7.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/SMGs/MP7.rsi
+  - type: GunWieldBonus
+    minAngle: -25
+    maxAngle: -55
+  - type: Gun
+    fireRate: 11
+    minAngle: 35
+    maxAngle: 60
+    angleIncrease: 1.5
+    projectileSpeed: 45
+    soundGunshot:
+      collection: MP7Fire
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    selectedMode: FullAuto
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/MP7/uc_mp7_chamber.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SMGMagazine46x30FMJ
+        insertSound: /Audio/Weapons/Guns/MP7/uc_mp7_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MP7/uc_mp7_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - SMGMagazine46x30FMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge46x30FMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge46x30FMJ
+  - type: Appearance

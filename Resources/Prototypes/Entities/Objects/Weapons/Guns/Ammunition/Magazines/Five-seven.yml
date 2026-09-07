@@ -3,25 +3,25 @@
 - type: entity
   abstract: true
   parent: [ BaseItem, BaseSecurityContraband ]
-  id: BaseG36MagazineRifle
-  name: "magazine (5.56x45mm)"
+  id: BaseMagazine57x28
+  name: "magazine (5.7x28 FMJ)"
   components:
   - type: Tag
     tags:
-      - G36MagazineRifle
+      - Pistolmagazine5.7x28
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - Cartridge556x45mmFMJ
-    capacity: 30
+        - Cartridge57x28FMJ
+    capacity: 14
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/G36.rsi
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/FiveSeven.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -29,53 +29,42 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 2
+    steps: 6
     zeroVisible: false
   - type: Appearance
 
 - type: entity
-  parent: BaseG36MagazineRifle
-  id: G36MagazineRifle
-  name: "magazine (5.56x45mm)"
-  description: magazine for the G36
+  parent: BaseMagazine57x28
+  id: Pistolmagazine5.7x28
+  name: "magazine (5.7x28)"
+  description: magazine
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge556x45mmFMJ
+    proto: Cartridge57x28FMJ
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/G36.rsi
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/FiveSeven.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - type: Appearance
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
 
 - type: entity
-  parent: BaseG36MagazineRifle
-  id: G36MagazineRifleEmpty
-  name: "magazine (5.56x45mm)"
+  parent: BaseMagazine57x28
+  id: Pistolmagazine5.7x28Empty
+  name: "magazine (5.7x28)"
   suffix: empty
-  description: magazine for the G36
+  description: magazine
   components:
   - type: BallisticAmmoProvider
     proto: null
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/G36.rsi
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/FiveSeven.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - type: Appearance
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
+
