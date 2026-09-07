@@ -5,7 +5,6 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Database;
 using Content.Shared.Mind;
-using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Trigger.Systems;
@@ -260,27 +259,30 @@ public sealed class GangLeaderSystem : EntitySystem
             return;
         }
 
-        if (HasComp<MindShieldComponent>(target))
-        {
-            _popup.PopupClient(Loc.GetString("gang-invite-target-mindshielded"), ent.Owner, ent.Owner);
-            return;
-        }
-
         if (HasComp<GangMemberComponent>(target))
         {
             _popup.PopupClient(Loc.GetString("gang-invite-target-already-member"), ent.Owner, ent.Owner);
             return;
         }
 
+        // It was either this (leave it unpredicted) or I make a marker comp and add it to every command / sec role for 1 interaction (conflict bait).
+        // Will need to nuke this later after adding pre-made gangs.
+        if (!_netManager.IsServer)
+            return;
+
+        var serverChecks = new GangInviteServerCheckEvent(ent.Owner, target);
+        RaiseLocalEvent(ref serverChecks);
+        if (serverChecks.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString("gang-invite-target-invalid"), ent.Owner, ent.Owner);
+            return;
+        }
+
         ent.Comp.PendingInviteTarget = target;
         Dirty(ent);
 
-        if (_netManager.IsServer)
-        {
-            RaiseNetworkEvent(new GangInviteOfferEvent(Name(ent.Owner), gangMember.Gang.Value, GetNetEntity(ent.Owner), gangMember.GangName ?? string.Empty), targetActor.PlayerSession);
-        }
-
-        _popup.PopupClient(Loc.GetString("gang-invite-sent", ("name", Name(target))), ent.Owner, ent.Owner);
+        RaiseNetworkEvent(new GangInviteOfferEvent(Name(ent.Owner), gangMember.Gang.Value, GetNetEntity(ent.Owner), gangMember.GangName ?? string.Empty), targetActor.PlayerSession);
+        _popup.PopupEntity(Loc.GetString("gang-invite-sent", ("name", Name(target))), ent.Owner, ent.Owner);
     }
 
     private void OnInviteResponse(GangInviteResponseEvent ev, EntitySessionEventArgs args)
