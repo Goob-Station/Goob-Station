@@ -766,3 +766,5 @@
         reagents:
         - ReagentId: JuiceThatMakesYouWeh
           Quantity: 60
+  - type: Injector # Goob, fix weh pens dumping all 60u at once and turning people into lizards
+    currentTransferAmount: 1 # Goob
