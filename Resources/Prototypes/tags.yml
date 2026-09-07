@@ -1638,6 +1638,9 @@
 - type: Tag
   id: G36MagazineRifle # Custom Magazine
 
+- type: Tag
+  id: WeaponRifleG36 # Custom Gun
+
 ## Y ##
 ## Z ##
 # ALPHABETICAL

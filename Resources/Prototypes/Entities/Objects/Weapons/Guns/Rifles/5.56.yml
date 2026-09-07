@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: G36
+  parent: [BaseWeaponRifle, BaseGunWieldable]
+  id: WeaponRifleG36
+  description: G36 is a german made rifle for the german army uses 5.56x45 NATO
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/G36.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -10
+  - type: Gun
+    minAngle: 3
+    maxAngle: 14
+    angleIncrease: 6
+    angleDecay: 80
+    fireRate: 8
+    shotsPerBurst: 3
+    availableModes:
+    - Burst
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/G3/fire-01.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/G3/rack.ogg
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/G36.rsi
+  - type: Item
+    sprite: Objects/Weapons/Guns/Rifles/G36.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: G36MagazineRifle
+        insertSound: /Audio/Weapons/Guns/G3/magin.ogg
+        ejectSound: /Audio/Weapons/Guns/G3/magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - G36MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge556x45mmFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
