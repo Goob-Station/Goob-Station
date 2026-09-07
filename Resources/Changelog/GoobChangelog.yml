@@ -25024,3 +25024,11 @@ Entries:
       message: Cloning to core.
   id: 2869
   time: '2026-09-06T20:47:40.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: >-
+        Significantly decreased the chances of the Tunnel Clown, Singuloth
+        Knights, Mime Assassin, Dark Priest, and Vox Raiders midrounds spawning.
+  id: 2870
+  time: '2026-09-07T01:37:34.0000000+00:00'
