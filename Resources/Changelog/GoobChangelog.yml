@@ -25042,3 +25042,19 @@ Entries:
       message: Xenobio slime now should prioritize monkey to eat rather than people!
   id: 2871
   time: '2026-09-07T01:38:24.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: xenoborgs are now able to spawn naturally roundstart.
+    - type: Tweak
+      message: Nocturine is back to it's former glory.
+    - type: Tweak
+      message: 'Test buff for xenoborgs: base health 125 -> 175'
+    - type: Tweak
+      message: 'Test buff for xenoborgs: heavy health 250 -> 350'
+    - type: Tweak
+      message: >-
+        Test buff for xenoborgs: now have 25% ion resist but take 4x shock
+        damage
+  id: 2872
+  time: '2026-09-07T01:39:57.0000000+00:00'
