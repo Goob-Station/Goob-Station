@@ -41,7 +41,7 @@ public sealed class SmokeOnTriggerSystem : EntitySystem
 
         // TODO: move all of this into an API function in SmokeSystem
 
-        args.Handled = true;
+        args.Handled = SpawnSmoke(target.Value, ent.Comp.SmokePrototype, ent.Comp.Solution, ent.Comp.Duration, ent.Comp.SpreadAmount); // goobstation, actually call the damn helperfunc pls
     }
 
     /// Trauma - Moved it to helper function
