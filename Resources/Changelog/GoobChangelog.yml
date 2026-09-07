@@ -25064,3 +25064,9 @@ Entries:
       message: Added a vinyl for Space Asshole.
   id: 2873
   time: '2026-09-07T01:42:57.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed SM logging
+  id: 2874
+  time: '2026-09-07T19:07:08.0000000+00:00'
