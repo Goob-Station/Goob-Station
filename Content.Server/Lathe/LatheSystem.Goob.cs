@@ -1,12 +1,4 @@
-﻿using System.Linq;
-using Content.Goobstation.Common.NTR.Scan;
-using Content.Goobstation.Shared.Lathe;
-using Content.Server.Chat.Systems;
-using Content.Server.Lathe.Components;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Lathe;
-using Content.Shared.Materials;
+﻿using Content.Shared.Lathe;
 
 namespace Content.Server.Lathe;
 
@@ -18,80 +10,27 @@ public sealed partial class LatheSystem
     /// Produces 0-time items that output into the storage automatically.
     /// Used in order to prevent stack overflows (of the server) caused by printing a lot of materials at once.
     /// TODO It's still not great and in the future should be replaced with something even more optimized.
+    ///
+    /// update i don't know why its needed this fucking way and i don't care. Im removing the dupe code method.
+    /// tl;dr this just gets the next recipe and sets the current recipe again until there isnt any.
     /// </summary>
-    private void FinishProducingManyStorage(Entity<LatheComponent, LatheProducingComponent> ent)
+    private bool TryStartNextBulkRecipe(EntityUid uid, LatheComponent comp)
     {
-        var (uid, comp, prodComp) = ent;
+        if (comp.Queue.First is not { } node) // break here, when queue empty it stop. wow.
+            return false;
 
-        if (comp.CurrentRecipe != null)
-        {
-            var count = comp.Queue.Count;
-            while (comp.CurrentRecipe != null)
-            {
-                var batch = comp.Queue.First();
-                batch.ItemsPrinted++;
-                if (batch.ItemsPrinted >= batch.ItemsRequested || batch.ItemsPrinted < 0)
-                    comp.Queue.RemoveFirst();
+        var batch = node.Value;
+        var recipe = _proto.Index(batch.Recipe);
+        var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * comp.TimeMultiplier;
 
-                // Modified FinishProducing method
-                var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
-                if (currentRecipe.Result is { } resultProto)
-                {
-                    var prototype = _proto.Index(resultProto);
-                    // Storage output is already true if we are in this method
-                    if (prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory))
-                    {
-                        _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition);
-                    }
-                    else
-                    {
-                        // This case should ideally never happen? But whatever
-                        var result = Spawn(resultProto, Transform(uid).Coordinates);
-                        _stack.TryMergeToContacts(result);
-                        if (TryComp<ScannableForPointsComponent>(result, out var scannable)) // Goobstation
-                            scannable.Points = 0; // Goobstation, this thing is to prevent ntr duping points via an emagged lathe
-                    }
-                }
+        if (time != TimeSpan.Zero)
+            return false;
 
-                if (currentRecipe.ResultReagents is { } resultReagents &&
-                    comp.ReagentOutputSlotId is { } slotId)
-                {
-                    var toAdd = new Solution(
-                        resultReagents.Select(p => new ReagentQuantity(p.Key.Id, p.Value)));
+        batch.ItemsPrinted++;
+        if (batch.ItemsPrinted >= batch.ItemsRequested || batch.ItemsPrinted < 0)
+            comp.Queue.RemoveFirst();
 
-                    // dispense it in the container if we have it and dump it if we don't
-                    if (_container.TryGetContainer(uid, slotId, out var container) &&
-                        container.ContainedEntities.Count == 1 &&
-                        _solution.TryGetFitsInDispenser(container.ContainedEntities.First(), out var solution, out _))
-                    {
-                        _solution.AddSolution(solution.Value, toAdd);
-                    }
-                    else
-                    {
-                        // No popup because this is a mass-produced case and we don't want 10000 popups
-                        //_popup.PopupEntity(Loc.GetString("lathe-reagent-dispense-no-container", ("name", uid)), uid);
-                        _puddle.TrySpillAt(uid, toAdd, out _);
-                    }
-                }
-
-                var recipeProto = comp.Queue.First().Recipe;
-                var recipe = _proto.Index(batch.Recipe);
-                var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * comp.TimeMultiplier;
-                if (time != TimeSpan.Zero)
-                    break;
-
-                comp.CurrentRecipe = recipe;
-            }
-        }
-
-        comp.CurrentRecipe = null;
-        prodComp.StartTime = _timing.CurTime;
-
-        if (!TryStartProducing(uid, comp))
-        {
-            RemCompDeferred(uid, prodComp);
-            UpdateUserInterfaceState(uid, comp);
-            UpdateRunningAppearance(uid, false);
-        }
+        comp.CurrentRecipe = recipe;
+        return true;
     }
 }

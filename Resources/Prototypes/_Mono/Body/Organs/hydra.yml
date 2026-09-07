@@ -87,7 +87,7 @@
   name: hydrakin heart
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Hydrakin ]
+    metabolizerTypes: [ Hydrakin, Animal ] # goob edit - theobromine hurty
 
 - type: entity
   id: OrganHydrakinLungs

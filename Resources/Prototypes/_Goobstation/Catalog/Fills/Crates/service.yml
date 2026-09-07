@@ -217,6 +217,8 @@
       weight: 1
     - id: VinylDiskWeAreNumberTwo
       weight: 1
+    - id: VinylDiskSpaceAsshole
+      weight: 0.8
 
 - type: entityTable
   id: RandomVinylSleeve
