@@ -266,6 +266,7 @@
   - type: Construction # Doesn't seem like there's a better way to block deconstruction.
     graph: CrateGang
     node: crate
+    deconstructionTarget: null
   - type: GangCrate
   - type: EntityStorage
     capacity: 60
