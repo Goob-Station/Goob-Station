@@ -62,7 +62,7 @@
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: WeaponPistolAnaconda
   name: Anaconda
-  description: A bulky hand cannon with a built in fabricator in its grip. Quickly prints ammo for itself, though don't count on it being fast enough for sustained firefights.
+  description: A bulky hand cannon with a built in fabricator in its grip. Slowly prints ammo for itself, though don't count on it being fast enough for sustained firefights.
   components:
   - type: Item
     size: Small
@@ -84,17 +84,17 @@
     - suitStorage
     - Belt
   - type: Gun
-    fireRate: 4
+    fireRate: 3
     availableModes:
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/hpistol.ogg
   - type: BasicEntityAmmoProvider
-    proto: BaseCartrigeMagnum
-    capacity: 12
-    count: 12
+    proto: BulletCaselessRifle
+    capacity: 7
+    count: 7
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1.3
+    rechargeCooldown: 4
     rechargeSound:
       path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
   - type: RestrictGunshotsByUserTag # Goobstation

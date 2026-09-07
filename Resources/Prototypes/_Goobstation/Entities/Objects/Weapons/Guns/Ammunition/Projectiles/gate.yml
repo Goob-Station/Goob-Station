@@ -13,12 +13,12 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 65
+        Piercing: 30
         Structural: 1000
     ignoreResistances: true
-    penetrationThreshold: 2532
+    penetrationThreshold: 1337
   - type: StaminaDamageOnCollide
-    damage: 160
+    damage: 150
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -33,11 +33,11 @@
   - type: Projectile
     damage:
       types:
-        Ion: 78 # 76
+        Ion: 65 # 65
     deleteOnCollide: false
   - type: Electrified
     shockDamage: 1
-    shockTime: 10
+    shockTime: 1
     requirePower: false
     ignoreInsulation: true
   - type: TimedDespawn
