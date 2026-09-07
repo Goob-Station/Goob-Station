@@ -25032,3 +25032,13 @@ Entries:
         Knights, Mime Assassin, Dark Priest, and Vox Raiders midrounds spawning.
   id: 2870
   time: '2026-09-07T01:37:34.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed all xenobio extract. Sorry for the long wait
+    - type: Fix
+      message: Xenobio should (hopefully) be less laggy
+    - type: Fix
+      message: Xenobio slime now should prioritize monkey to eat rather than people!
+  id: 2871
+  time: '2026-09-07T01:38:24.0000000+00:00'
