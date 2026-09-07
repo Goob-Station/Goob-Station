@@ -1,0 +1,20 @@
+- type: entity
+  id: ActionPredictNextLine
+  name: Your next line is...
+  description: Predict the next line of your opponent.
+  components:
+  - type: Action
+    useDelay: 25
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: ranged_tentacle
+  - type: TargetAction
+    range: 4
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event: !type:HamonNextLineEvent
