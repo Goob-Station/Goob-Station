@@ -11,7 +11,7 @@ namespace Content.Goobstation.Shared.Cinematic;
 public sealed partial class CinematicComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public ProtoId<CinematicPrototype> Timeline;
+    public ProtoId<CinematicPrototype>? Timeline;
 
     [DataField, AutoNetworkedField]
     public TimeSpan StartTime;
