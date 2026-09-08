@@ -3,6 +3,7 @@
 using Content.Server.Administration;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
+using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.Chat;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -42,11 +43,10 @@ public sealed partial class CritMobActionsSystem : EntitySystem
         if (!TryComp<ActorComponent>(uid, out var actor) || !_mobState.IsCritical(uid))
             return;
 
-        // Goobstation
-        PreventLarvaHostDeath(uid, actor, args);
-        if (args.Handled)
+        // <GoobStation>
+        if (HasComp<XenomorphLarvaVictimComponent>(uid))
             return;
-        // END
+        // </GoobStation>
 
         _host.ExecuteCommand(actor.PlayerSession, "ghost");
         args.Handled = true;

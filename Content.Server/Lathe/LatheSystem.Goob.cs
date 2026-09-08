@@ -26,8 +26,13 @@ public sealed partial class LatheSystem
         if (comp.CurrentRecipe != null)
         {
             var count = comp.Queue.Count;
-            for (int i = 0; i < count + 1; i++)
+            while (comp.CurrentRecipe != null)
             {
+                var batch = comp.Queue.First();
+                batch.ItemsPrinted++;
+                if (batch.ItemsPrinted >= batch.ItemsRequested || batch.ItemsPrinted < 0)
+                    comp.Queue.RemoveFirst();
+
                 // Modified FinishProducing method
                 var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
                 if (currentRecipe.Result is { } resultProto)
@@ -69,18 +74,13 @@ public sealed partial class LatheSystem
                     }
                 }
 
-                // Dequeue recipes on a loop
-                // We do this after the main code since the first recipe is given outside of this method
                 var recipeProto = comp.Queue.First().Recipe;
-                comp.Queue.RemoveFirst();
-
-                var recipe = _proto.Index(recipeProto);
+                var recipe = _proto.Index(batch.Recipe);
                 var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * comp.TimeMultiplier;
                 if (time != TimeSpan.Zero)
-                    break; // Now it should be handled by another method
+                    break;
 
                 comp.CurrentRecipe = recipe;
-                AbortFabrication(ent, comp, null);
             }
         }
 

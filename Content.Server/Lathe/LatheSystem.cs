@@ -245,7 +245,7 @@ namespace Content.Server.Lathe
                     // Goobstation, output to material storage instead of spawning, if preferred & possible
                     var prototype = _proto.Index(resultProto);
                     if (!comp.OutputToStorage || !prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory)
-                        || _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition))
+                        || !_materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition))
                     {
                         var result = Spawn(resultProto, Transform(uid).Coordinates);
                         _stack.TryMergeToContacts(result);
