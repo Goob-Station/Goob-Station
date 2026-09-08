@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.Cinematic;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -19,6 +20,7 @@ public sealed partial class CinematicCaptionSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private CinematicCaptionOverlay _overlay = default!;
+    private readonly List<SoundFade> _fades = new();
 
     public override void Initialize()
     {
@@ -56,6 +58,28 @@ public sealed partial class CinematicCaptionSystem : EntitySystem
                 StartSound(caption);
             else
                 StopSound(caption);
+        }
+
+        UpdateFades(frameTime);
+    }
+
+    private void UpdateFades(float frameTime)
+    {
+        for (var i = _fades.Count - 1; i >= 0; i--)
+        {
+            var fade = _fades[i];
+            fade.Elapsed += frameTime;
+
+            var progress = fade.Elapsed / fade.Duration;
+            if (progress >= 1f || !TryComp<AudioComponent>(fade.Stream, out var audio))
+            {
+                _audio.Stop(fade.Stream);
+                _fades.RemoveAt(i);
+                continue;
+            }
+
+            _audio.SetVolume(fade.Stream, fade.StartVolume + SharedAudioSystem.GainToVolume(1f - progress), audio);
+            _fades[i] = fade;
         }
     }
 
@@ -141,9 +165,25 @@ public sealed partial class CinematicCaptionSystem : EntitySystem
 
     private void StopSound(CinematicCaptionComponent component)
     {
-        if (component.Stream is { } stream)
-            _audio.Stop(stream);
+        if (component.Stream is { } stream && !TerminatingOrDeleted(stream))
+            FadeOut(stream, component.TextSoundFadeTime);
 
         component.Stream = null;
+    }
+
+    private void FadeOut(EntityUid stream, float duration)
+    {
+        if (duration <= 0f || !TryComp<AudioComponent>(stream, out var audio))
+        {
+            _audio.Stop(stream);
+            return;
+        }
+
+        _fades.Add(new SoundFade(stream, duration, audio.Params.Volume));
+    }
+
+    private record struct SoundFade(EntityUid Stream, float Duration, float StartVolume)
+    {
+        public float Elapsed;
     }
 }

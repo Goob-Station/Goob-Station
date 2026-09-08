@@ -31,6 +31,12 @@ public sealed partial class CinematicCaptionComponent : Component
     public SoundSpecifier? TextSound = new SoundPathSpecifier("/Audio/_Goobstation/Cinematic/ui_write.ogg");
 
     /// <summary>
+    /// How long the text write in sound takes to fade out.
+    /// </summary>
+    [DataField]
+    public float TextSoundFadeTime;
+
+    /// <summary>
     /// Subject name, if any, shown above the actual text of the caption.
     /// </summary>
     [DataField]
