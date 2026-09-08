@@ -6,6 +6,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
 using Robust.Shared.Graphics;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Cinematic;
 
@@ -26,11 +27,11 @@ public sealed class CinematicCaptionOverlay : Overlay
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private CaptionTargets? _targets;
+    private readonly Dictionary<(ResPath Path, int Size), VectorFont> _fonts = new();
+    private readonly CaptionLayout _layout = new();
 
     public ShaderInstance? AuraShader;
     public ShaderInstance? BlurShader;
-
-    private readonly CaptionLayout _layout = new();
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
@@ -142,9 +143,6 @@ public sealed class CinematicCaptionOverlay : Overlay
             glyphs += line.Length;
         }
 
-        if (caption.Cursor.Length > 0)
-            Measure(handle, font, caption.Cursor, layout.Tracking);
-
         layout.Shown = (int) MathF.Ceiling(Math.Clamp(caption.Progress, 0f, 1f) * glyphs);
         layout.SubjectFont = null;
         layout.SubjectTracking = 0f;
@@ -192,17 +190,27 @@ public sealed class CinematicCaptionOverlay : Overlay
 
     private VectorFont RasterFont(CinematicCaptionComponent caption, float viewportScale, float sizeScale = 1f)
     {
-        var resource = _cache.GetResource<FontResource>(caption.FontPath);
         var min = CinematicCaptionComponent.MinGlyphRasterSize;
         var max = CinematicCaptionComponent.MaxGlyphSheetExtent;
         var size = Math.Max(min, (int) (caption.FontSize * viewportScale * sizeScale));
-        var font = new VectorFont(resource, size);
+        var font = GetFont(caption.FontPath, size);
         var height = font.GetHeight(1f);
         if (height <= max)
             return font;
 
-        size = Math.Max(min, size * max / height);
-        return new VectorFont(resource, size);
+        return GetFont(caption.FontPath, Math.Max(min, size * max / height));
+    }
+
+    /// <summary>
+    /// Prevents caching per frame which is entirely uneeded.
+    /// </summary>
+    private VectorFont GetFont(ResPath path, int size)
+    {
+        var key = (path, size);
+        if (!_fonts.TryGetValue(key, out var font))
+            _fonts[key] = font = new VectorFont(_cache.GetResource<FontResource>(path), size);
+
+        return font;
     }
 
     private static float Step(float time, float rate)
@@ -268,8 +276,8 @@ public sealed class CinematicCaptionOverlay : Overlay
 
         for (var c = 0; c < caption.Subject.Length; c++)
         {
-            var glyph = caption.Subject[c].ToString();
-            handle.DrawString(font, new Vector2(x, layout.SubjectTop + drift), glyph, Color.White);
+            var glyph = caption.Subject.AsSpan(c, 1);
+            handle.DrawString(font, new Vector2(x, layout.SubjectTop + drift), glyph, 1f, Color.White);
 
             x += handle.GetDimensions(font, glyph, 1f).X;
             if (c < caption.Subject.Length - 1)
@@ -306,8 +314,8 @@ public sealed class CinematicCaptionOverlay : Overlay
                     ? 0f
                     : MathF.Sin(layout.Time * caption.WaveSpeed + c * 0.55f + i) * wave;
 
-                var glyph = line[c].ToString();
-                handle.DrawString(layout.Font, new Vector2(x, y + drift + bob), glyph, Color.White);
+                var glyph = line.AsSpan(c, 1);
+                handle.DrawString(layout.Font, new Vector2(x, y + drift + bob), glyph, 1f, Color.White);
 
                 written++;
                 x += handle.GetDimensions(layout.Font, glyph, 1f).X;
@@ -453,7 +461,7 @@ public sealed class CinematicCaptionOverlay : Overlay
             && (levelCount == 0 || current.Levels.Length == levelCount))
             return current;
 
-        _targets?.Dispose();
+        ReleaseTargets();
 
         var sample = new TextureSampleParameters { Filter = true };
         var maskFormat = new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8);
@@ -474,10 +482,23 @@ public sealed class CinematicCaptionOverlay : Overlay
         return _targets;
     }
 
-    protected override void DisposeBehavior()
+    public void ReleaseTargets()
     {
         _targets?.Dispose();
         _targets = null;
+    }
+
+    protected override void DisposeBehavior()
+    {
+        ReleaseTargets();
+
+        AuraShader?.Dispose();
+        AuraShader = null;
+
+        BlurShader?.Dispose();
+        BlurShader = null;
+
+        _fonts.Clear();
 
         base.DisposeBehavior();
     }

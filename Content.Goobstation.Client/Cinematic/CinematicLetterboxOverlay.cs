@@ -9,7 +9,7 @@ namespace Content.Goobstation.Client.Cinematic;
 /// </summary>
 public sealed partial class CinematicLetterboxOverlay : Overlay
 {
-    [Dependency] IEntityManager _entityManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 

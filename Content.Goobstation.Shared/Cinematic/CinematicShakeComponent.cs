@@ -1,8 +1,7 @@
-
 namespace Content.Goobstation.Shared.Cinematic;
 
 /// <summary>
-/// It shakes a camera. 
+/// It shakes a camera.
 /// </summary>
 [RegisterComponent]
 public sealed partial class CinematicShakeComponent : Component

@@ -5,6 +5,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Cinematic;
@@ -13,8 +14,8 @@ namespace Content.Goobstation.Shared.Cinematic;
 /// Plays a scripted <see cref="CinematicPrototype"/> on an entity.
 /// Split across files:
 /// <list type="bullet">
-/// <item>Segments: loading everything.</item>
-/// <item>Camera: camera pulling.</item>
+/// <item>Segments: timeline and segment components, sounds and events.</item>
+/// <item>Camera: engagement and camera pulling.</item>
 /// <item>Audio: audio ducking.</item>
 /// </list>
 /// </summary>
@@ -23,6 +24,7 @@ public sealed partial class SharedCinematicSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -43,16 +45,22 @@ public sealed partial class SharedCinematicSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
+        var viewer = _player.LocalEntity;
+
         var query = EntityQueryEnumerator<CinematicComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (!_proto.TryIndex(comp.Timeline, out var timeline))
                 continue;
 
-            LoadTimeline((uid, comp), timeline);
-            HandleSegments((uid, comp), timeline);
+            var ent = new Entity<CinematicComponent>(uid, comp);
 
-            if (_timing.CurTime >= comp.EndTime)
+            LoadTimeline(ent, timeline);
+            UpdateEngagement(ent, timeline, viewer);
+            HandleSegments(ent, timeline);
+            UpdateAudio(ent, timeline, viewer);
+
+            if (_net.IsServer && _timing.CurTime >= comp.EndTime)
                 StopCinematic(uid);
         }
     }
@@ -66,8 +74,8 @@ public sealed partial class SharedCinematicSystem : EntitySystem
         var query = EntityQueryEnumerator<CinematicComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            UpdateCamera((uid, comp), viewer, frameTime);
-            UpdateAudio((uid, comp), viewer);
+            if (_proto.TryIndex(comp.Timeline, out var timeline))
+                UpdateCamera((uid, comp), timeline, viewer, frameTime);
         }
     }
 
@@ -75,6 +83,7 @@ public sealed partial class SharedCinematicSystem : EntitySystem
     {
         if (_proto.TryIndex(ent.Comp.Timeline, out var timeline))
         {
+            ent.Comp.Overridden?.Clear();
             UnloadSegment(ent, timeline);
             UnloadTimeline(ent, timeline);
         }
@@ -98,13 +107,11 @@ public sealed partial class SharedCinematicSystem : EntitySystem
         var timeline = _proto.Index(protoId);
 
         var comp = AddComp<CinematicComponent>(uid);
+        comp.Timeline = protoId;
         comp.StartTime = _timing.CurTime;
         comp.EndTime = _timing.CurTime + GetDuration(timeline);
-        comp.Timeline = protoId;
-        comp.ActiveSegment = -1;
         comp.SubjectName = subject;
         comp.StationName = station;
-        comp.RegistryApplied = false;
         Dirty(uid, comp);
 
         return true;
@@ -124,18 +131,18 @@ public sealed partial class SharedCinematicSystem : EntitySystem
         return TimeSpan.FromSeconds(total);
     }
 
-    private float GetStrength(CinematicComponent comp)
+    private float GetStrength(CinematicComponent comp, CinematicPrototype timeline)
     {
         var now = _timing.CurTime;
         if (now < comp.StartTime || now >= comp.EndTime)
             return 0f;
 
-        var intro = comp.IntroTime <= 0f
+        var intro = timeline.IntroTime <= 0f
             ? 1f
-            : (float) (now - comp.StartTime).TotalSeconds / comp.IntroTime;
-        var outro = comp.OutroTime <= 0f
+            : (float) (now - comp.StartTime).TotalSeconds / timeline.IntroTime;
+        var outro = timeline.OutroTime <= 0f
             ? 1f
-            : (float) (comp.EndTime - now).TotalSeconds / comp.OutroTime;
+            : (float) (comp.EndTime - now).TotalSeconds / timeline.OutroTime;
 
         return SmoothStep(Math.Clamp(Math.Min(intro, outro), 0f, 1f));
     }

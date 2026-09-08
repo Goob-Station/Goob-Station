@@ -67,4 +67,12 @@ public sealed class CinematicPressureOverlay : Overlay
 
         return pressure != null;
     }
+
+    protected override void DisposeBehavior()
+    {
+        Shader?.Dispose();
+        Shader = null;
+
+        base.DisposeBehavior();
+    }
 }

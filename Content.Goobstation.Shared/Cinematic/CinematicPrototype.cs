@@ -16,24 +16,83 @@ public sealed partial class CinematicPrototype : IPrototype
     public List<CinematicSegment> Segments = new();
 
     /// <summary>
-    /// While the focus player watches, every other sound source is lowered.
+    /// Components applied to the focus entity for the whole timeline.
+    /// A segment can add a component of the same type to replace it for that segment only.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry? AddComp;
+
+    #region Timing
+
+    /// <summary>
+    /// Seconds the cinematic takes to ease in.
+    /// </summary>
+    [DataField]
+    public float IntroTime = 0.35f;
+
+    /// <summary>
+    /// Seconds the cinematic takes to ease out.
+    /// </summary>
+    [DataField]
+    public float OutroTime = 1.1f;
+
+    [DataField]
+    public float EngageRate = 22f;
+
+    [DataField]
+    public float DisengageRate = 10f;
+
+    #endregion
+
+    #region Audio
+
+    /// <summary>
+    /// Makes all audio sources outside of ones added by the cinematic have lower volume.
     /// </summary>
     [DataField]
     public bool DuckAudio = true;
 
     /// <summary>
-    /// How many decibels everything else is pulled lowered.
+    /// How many decibels everything else is lowered by.
     /// </summary>
     [DataField]
     public float DuckDecibels = 24f;
 
+    #endregion
+
+    #region Camera
+
     /// <summary>
-    /// Components applied to the focus entity for the whole timeline.
-    /// Don't use this if you want to add the component for a specific segment.
-    /// It would remove it after the segment is over.
+    /// Pulls other nearby players cameras towards whoever has the cinematic playing on them.
     /// </summary>
     [DataField]
-    public ComponentRegistry? AddComp;
+    public bool PullsOtherCameras;
+
+    /// <summary>
+    /// How far away a player can be pulled into the cinematic. Line of sight is also required.
+    /// </summary>
+    [DataField]
+    public float ViewerRange = 14f;
+
+    /// <summary>
+    /// How far along the line from the viewer to the focus the camera travels (1 = all the way onto them).
+    /// </summary>
+    [DataField]
+    public float CameraPull = 1f;
+
+    /// <summary>
+    /// Safety cap on how far the camera may travel.
+    /// </summary>
+    [DataField]
+    public float MaxPanDistance = 12f;
+
+    /// <summary>
+    /// How fast the camera pan eases back.
+    /// </summary>
+    [DataField]
+    public float PanReturnRate = 8f;
+
+    #endregion
 }
 
 [DataDefinition]
@@ -46,7 +105,7 @@ public sealed partial class CinematicSegment
     public float Duration;
 
     /// <summary>
-    /// Played (for the focus player only) as the segment begins.
+    /// Played for everyone watching as the segment begins.
     /// </summary>
     [DataField]
     public SoundSpecifier? Sound;
@@ -59,7 +118,7 @@ public sealed partial class CinematicSegment
     public ComponentRegistry? AddComp;
 
     /// <summary>
-    /// Events raised for this segment.
+    /// Events raised on the focus entity as the segment begins.
     /// </summary>
     [DataField]
     public List<object> Events = new();

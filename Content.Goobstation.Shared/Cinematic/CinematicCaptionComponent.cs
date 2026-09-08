@@ -164,8 +164,6 @@ public sealed partial class CinematicCaptionComponent : Component
     [DataField]
     public float IgniteTime = 0.14f;
 
-    // Everything below is filled in as the caption runs.
-
     [DataField]
     public string Target = string.Empty;
 

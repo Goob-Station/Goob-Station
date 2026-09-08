@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Cinematic;
@@ -47,38 +48,49 @@ public sealed partial class SharedCinematicSystem
         if (!TryGetSegment(timeline, ent.Comp.ActiveSegment, out var segment))
             return;
 
-        LoadSegmentComponents(ent, segment);
-        LoadSegmentSound(ent, segment);
-        RaiseSegmentEvents(ent, segment);
+        AddSegmentComponents(ent, timeline, segment);
+
+        if (ent.Comp.Engaged)
+            PlaySegmentSound(ent, segment.Sound);
+
+        if (_net.IsServer || ent.Comp.Engaged)
+            RaiseSegmentEvents(ent, segment);
     }
 
     private void UnloadSegment(Entity<CinematicComponent> ent, CinematicPrototype timeline)
     {
-        if (!TryGetSegment(timeline, ent.Comp.ActiveSegment, out var segment))
+        if (TryGetSegment(timeline, ent.Comp.ActiveSegment, out var segment))
+            RemoveSegmentComponents(ent, segment);
+    }
+
+    private void AddSegmentComponents(Entity<CinematicComponent> ent, CinematicPrototype timeline, CinematicSegment segment)
+    {
+        if (segment.AddComp is not { } components)
             return;
 
-        UnloadSegmentComponents(ent, segment);
-        ent.Comp.ActiveSegment = -1;
+        if (timeline.AddComp is { } timelineComponents)
+            foreach (var name in components.Keys)
+                if (timelineComponents.TryGetValue(name, out var entry))
+                    (ent.Comp.Overridden ??= new())[name] = entry;
+
+        EntityManager.AddComponents(ent, components);
     }
 
-    private void LoadSegmentComponents(Entity<CinematicComponent> ent, CinematicSegment segment)
-    {
-        if (segment.AddComp is { } components)
-            EntityManager.AddComponents(ent, components);
-    }
-
-    private void UnloadSegmentComponents(Entity<CinematicComponent> ent, CinematicSegment segment)
+    private void RemoveSegmentComponents(Entity<CinematicComponent> ent, CinematicSegment segment)
     {
         if (segment.AddComp is { } components)
             EntityManager.RemoveComponents(ent, components);
-    }
 
-    private void LoadSegmentSound(Entity<CinematicComponent> ent, CinematicSegment segment)
-    {
-        if (segment.Sound == null || !IsWatching(ent))
+        if (ent.Comp.Overridden is not { } overridden)
             return;
 
-        if (_audio.PlayGlobal(segment.Sound, Filter.Local(), false)?.Entity is not { } stream)
+        EntityManager.AddComponents(ent, overridden);
+        overridden.Clear();
+    }
+
+    private void PlaySegmentSound(Entity<CinematicComponent> ent, SoundSpecifier? sound)
+    {
+        if (sound == null || _audio.PlayGlobal(sound, Filter.Local(), false)?.Entity is not { } stream)
             return;
 
         ent.Comp.SegmentSounds.Add(stream);
@@ -87,11 +99,8 @@ public sealed partial class SharedCinematicSystem
 
     private void RaiseSegmentEvents(Entity<CinematicComponent> ent, CinematicSegment segment)
     {
-        if (!_net.IsServer && !IsWatching(ent))
-            return;
-
         foreach (var ev in segment.Events)
-            RaiseLocalEvent(ent, ev, true);
+            RaiseLocalEvent(ent, _serialization.CreateCopy<object>(ev, notNullableOverride: true), true);
     }
 
     #endregion

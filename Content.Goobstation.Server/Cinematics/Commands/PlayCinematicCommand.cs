@@ -67,16 +67,19 @@ public sealed class PlayCinematicCommand : LocalizedEntityCommands
             return;
         }
 
-        if (!_cinematic.TryStartCinematic(target, cinematic))
+        var targetName = EntityManager.ToPrettyString(target);
+        var subject = EntityManager.GetComponent<MetaDataComponent>(target).EntityName;
+
+        if (!_cinematic.TryStartCinematic(target, cinematic, subject))
             return;
 
         _adminLog.Add(LogType.AdminCommands,
             LogImpact.Medium,
-            $"{player?.Name ?? "Server"} played cinematic {cinematic} on {EntityManager.ToPrettyString(target):target}");
+            $"{player?.Name ?? "Server"} played cinematic {cinematic} on {targetName:target}");
 
         shell.WriteLine(Loc.GetString("cmd-playcinematic-success",
             ("cinematic", cinematic),
-            ("target", EntityManager.ToPrettyString(target))));
+            ("target", targetName)));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

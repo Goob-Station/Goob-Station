@@ -48,4 +48,7 @@ public sealed partial class CinematicPressureComponent : Component
 
     [DataField]
     public float Shock = -1f;
+
+    [DataField]
+    public float Remaining;
 }

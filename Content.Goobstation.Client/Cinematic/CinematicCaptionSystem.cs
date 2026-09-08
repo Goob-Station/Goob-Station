@@ -9,6 +9,7 @@ namespace Content.Goobstation.Client.Cinematic;
 
 /// <summary>
 /// Writes out captions on a local players screen.
+/// This is explicitly not listening to the cvar because it can hold important information (Role intros and such)
 /// </summary>
 public sealed partial class CinematicCaptionSystem : EntitySystem
 {
@@ -32,13 +33,6 @@ public sealed partial class CinematicCaptionSystem : EntitySystem
         _overlay = new();
     }
 
-    public override void Shutdown()
-    {
-        base.Shutdown();
-
-        _overlayMan.RemoveOverlay(_overlay);
-        _overlay.Dispose();
-    }
 
     public override void FrameUpdate(float frameTime)
     {
@@ -91,7 +85,7 @@ public sealed partial class CinematicCaptionSystem : EntitySystem
         StopSound(component);
 
         if (uid == _playerManager.LocalEntity)
-            _overlayMan.RemoveOverlay(_overlay);
+            RemoveOverlay();
     }
 
     private void OnPlayerAttached(EntityUid uid, CinematicCaptionComponent component, LocalPlayerAttachedEvent args)
@@ -101,7 +95,13 @@ public sealed partial class CinematicCaptionSystem : EntitySystem
     }
 
     private void OnPlayerDetached(EntityUid uid, CinematicCaptionComponent component, LocalPlayerDetachedEvent args)
-        => _overlayMan.RemoveOverlay(_overlay);
+        => RemoveOverlay();
+
+    private void RemoveOverlay()
+    {
+        _overlayMan.RemoveOverlay(_overlay);
+        _overlay.ReleaseTargets();
+    }
 
     /// <summary>
     /// Resolves the captions text.
@@ -127,7 +127,10 @@ public sealed partial class CinematicCaptionSystem : EntitySystem
 
     private void StartSound(CinematicCaptionComponent component)
     {
-        if (component.TextSound == null || component.Stream != null)
+        if (component.TextSound == null)
+            return;
+
+        if (component.Stream is { } current && !TerminatingOrDeleted(current))
             return;
 
         component.Stream = _audio.PlayGlobal(component.TextSound, Filter.Local(), false)?.Entity;

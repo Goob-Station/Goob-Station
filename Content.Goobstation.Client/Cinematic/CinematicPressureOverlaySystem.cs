@@ -42,12 +42,22 @@ public sealed partial class CinematicPressureOverlaySystem : EntitySystem
         {
             var target = pressure.Strength * pressure.Intensity;
 
-            pressure.Current = pressure.Current < target
-                ? MathF.Min(target, pressure.Current + frameTime / MathF.Max(0.01f, pressure.FadeInTime))
-                : MathF.Max(target, pressure.Current - frameTime / MathF.Max(0.01f, pressure.FadeOutTime));
+            if (pressure.Current < target)
+                pressure.Current = MathF.Min(target, pressure.Current + frameTime / MathF.Max(0.01f, pressure.FadeInTime));
+            else
+                pressure.Current = MathF.Max(target, pressure.Current - frameTime * FadeOutRate(pressure));
 
             UpdateShockwave(pressure, frameTime);
         }
+    }
+
+    private static float FadeOutRate(CinematicPressureComponent pressure)
+    {
+        var rate = 1f / MathF.Max(0.01f, pressure.FadeOutTime);
+        if (pressure.Remaining > 0f)
+            rate = MathF.Max(rate, pressure.Current / pressure.Remaining);
+
+        return rate;
     }
 
     private static void UpdateShockwave(CinematicPressureComponent pressure, float frameTime)
@@ -63,8 +73,11 @@ public sealed partial class CinematicPressureOverlaySystem : EntitySystem
             pressure.Shock = progress;
     }
 
-    private void OnCinematicUpdated(EntityUid uid, CinematicPressureComponent component, ref CinematicUpdatedEvent args) =>
+    private void OnCinematicUpdated(EntityUid uid, CinematicPressureComponent component, ref CinematicUpdatedEvent args)
+    {
         component.Strength = args.Strength;
+        component.Remaining = args.Remaining;
+    }
 
     private void OnPressureInit(EntityUid uid, CinematicPressureComponent component, ComponentInit args)
     {

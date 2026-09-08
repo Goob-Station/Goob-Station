@@ -18,26 +18,20 @@ public sealed class CinematicShakeSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private bool _noVisionFilters;
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<EyeComponent, GetEyeOffsetEvent>(OnGetEyeOffset);
         SubscribeLocalEvent<CinematicShakeComponent, CinematicUpdatedEvent>(OnCinematicUpdated);
-
-        Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged, true);
     }
 
     private void OnCinematicUpdated(Entity<CinematicShakeComponent> ent, ref CinematicUpdatedEvent args) =>
         ent.Comp.Strength = args.Strength;
 
-    private void OnNoVisionFiltersChanged(bool enabled) => _noVisionFilters = enabled;
-
     private void OnGetEyeOffset(Entity<EyeComponent> ent, ref GetEyeOffsetEvent args)
     {
-        if (_noVisionFilters || ent.Owner != _player.LocalEntity)
+        if (ent.Owner != _player.LocalEntity || _cfg.GetCVar(DCCVars.NoVisionFilters))
             return;
 
         var query = EntityQueryEnumerator<CinematicShakeComponent>();
@@ -47,12 +41,13 @@ public sealed class CinematicShakeSystem : EntitySystem
             if (strength <= 0f)
                 continue;
 
-            var slice = (int) (_timing.CurTime.TotalSeconds * comp.KeyframeRate);
-            var rand = new Random(slice);
-            args.Offset += new Vector2(rand.NextSingle() - 0.5f, rand.NextSingle() - 0.5f)
-                * (comp.Amplitude * strength);
+            var slice = Slice(comp);
+            args.Offset += new Vector2(Jitter(slice, 0), Jitter(slice, 1)) * (comp.Amplitude * strength);
         }
     }
+
+    public float GetZoomJitter(CinematicShakeComponent shake) =>
+        1f + Jitter(Slice(shake), 2) * shake.ZoomJitter * shake.Strength;
 
     public float GetViewerFactor(EntityUid source, EntityUid viewer, float range)
     {
@@ -65,4 +60,10 @@ public sealed class CinematicShakeSystem : EntitySystem
         var delta = _transform.GetWorldPosition(source) - _transform.GetWorldPosition(viewer);
         return Math.Clamp(1f - delta.Length() / range, 0f, 1f);
     }
+
+    private int Slice(CinematicShakeComponent shake) =>
+        (int) (_timing.CurTime.TotalSeconds * shake.KeyframeRate);
+
+    private static float Jitter(int slice, int salt) =>
+        new Random(HashCode.Combine(slice, salt)).NextSingle() - 0.5f;
 }
