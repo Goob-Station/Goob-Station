@@ -139,7 +139,8 @@
     animatePanel: false
     openUnlitVisible: true
     # needed so that windoors will close regardless of whether there are people in it; it doesn't crush after all
-    safety: false
+    # goob edit: no because vehicles
+    safety: true
   - type: NavMapDoor
   - type: DoorBolt
   - type: Electrified
@@ -176,12 +177,14 @@
   - type: StaticPrice
     price: 150
   - type: PryUnpowered
-  - type: Penetratable # Goobstation - Better snipers
+  # <Goob>
+  - type: Penetratable
     penetrateDamage: 25
     damagePenalty: 0.1
-  - type: InteractionVerbs # EE: Interaction Verbs
+  - type: InteractionVerbs
     allowedVerbs:
     - KnockOn
+  # </Goob>
 
 - type: entity
   id: BaseSecureWindoor

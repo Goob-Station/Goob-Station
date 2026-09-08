@@ -49,10 +49,14 @@ public sealed partial class ChangeFactionStatusEffectSystem : EntitySystem
         var npc = EnsureComp<NpcFactionMemberComponent>(args.Target);
         ent.Comp.OldFactions = npc.Factions;
         SwapFactions((args.Target, npc), ent.Comp.NewFaction);
+        Dirty(ent);
     }
 
     private void OnStatusRemoved(Entity<ChangeFactionStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
+        if (ent.Comp.OldFactions == null) // Should not be possible but just in case
+            return;
+
         var npc = EnsureComp<NpcFactionMemberComponent>(args.Target);
         SwapFactions((args.Target, npc), ent.Comp.OldFactions);
     }

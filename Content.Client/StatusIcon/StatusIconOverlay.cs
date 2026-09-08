@@ -121,7 +121,7 @@ public sealed class StatusIconOverlay : Overlay
                     handle.UseShader(_unshadedShader);
 
                 var position = new Vector2(xOffset, yOffset);
-                handle.DrawTexture(texture, position);
+                handle.DrawTexture(texture, position, proto.Color); // Goobstation, added proto.color
             }
 
             handle.UseShader(null);

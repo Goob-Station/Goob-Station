@@ -1,0 +1,119 @@
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# gang clothes
+#tophats
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingNeckGangTophatBase
+  name: gang tophat
+  description: A stylish tophat. use a spray can to bare your gangs colors.
+  abstract: true
+  components:
+  - type: GangClothing
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.5"
+
+- type: entity
+  parent: ClothingNeckGangTophatBase
+  id: ClothingNeckGangTophat1
+  suffix: Gang
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_1.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_1.rsi
+
+- type: entity
+  parent: ClothingNeckGangTophatBase
+  id: ClothingNeckGangTophat2
+  suffix: Gang
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_2.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_2.rsi
+
+- type: entity
+  parent: ClothingNeckGangTophatBase
+  id: ClothingNeckGangTophat3
+  suffix: Gang
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_3.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_3.rsi
+
+- type: entity
+  parent: ClothingNeckGangTophatBase
+  id: ClothingNeckGangTophat4
+  suffix: Gang
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_4.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_4.rsi
+
+- type: entity # sprite needs fixing for this one
+  parent: ClothingNeckGangTophatBase
+  id: ClothingNeckGangTophat5
+  suffix: Gang
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_5.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_5.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.45"
+
+- type: entity
+  parent: ClothingNeckGangTophatBase
+  id: ClothingNeckGangTophat6
+  suffix: Gang
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_6.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Gangs/Clothing/Head/Hats/tophat_6.rsi
+
+# gang yakuza shoes
+- type: entity
+  parent: ClothingShoesDameDane
+  id: ClothingShoesGangDameDane
+  name: gang yakuza shoes
+  suffix: Gang
+  description: At last... your gang's colors are finally showing.
+  components:
+  - type: GangClothing
+
+# gang yakuza coat
+- type: entity
+  parent: ClothingOuterDameDane
+  id: ClothingOuterGangDameDane
+  name: gang yakuza coat
+  suffix: Gang
+  description: Friday... done in your gang's style.
+  components:
+  - type: GangClothing
+
+# gang yakuza outfit
+- type: entity
+  parent: ClothingUniformJumpsuitDameDane
+  id: ClothingUniformGangDameDane
+  name: gang yakuza outfit
+  suffix: Gang
+  description: Baka mitai... dressed in your gang's colors.
+  components:
+  - type: GangClothing

@@ -45,11 +45,15 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: SulfuricAcid
+        - ReagentId: FluorosulfuricAcid #Goob
           Quantity: 10
+        - ReagentId: GreyMatter #Goob
+          Quantity: 5 #Goob
       food:
-        maxVol: 5
+        maxVol: 10
         reagents:
+        - ReagentId: FluorosulfuricAcid #goob
+          Quantity: 5 #goob
         - ReagentId: GreyMatter
           Quantity: 5
 

@@ -13,15 +13,19 @@
     },
     {
       "name": "janitor_e",
-	  "directions": 4
+      "directions": 4
     },
     {
       "name": "janitor_e_r",
-	  "directions": 4
+      "directions": 4
     },
     {
       "name": "janitor_l",
-	  "directions": 4
+      "directions": 4
+    },
+    {
+      "name": "janitor_moving",
+      "directions": 4
     }
   ]
 }

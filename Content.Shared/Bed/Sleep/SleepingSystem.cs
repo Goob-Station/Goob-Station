@@ -1,5 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Goobstation - start
+using Content.Goobstation.Common.Sleeping; 
+using Content.Shared._Goobstation.Sleep;
+// Goobstation - end
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Buckle.Components;
@@ -154,7 +158,11 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnComponentRemoved(Entity<SleepingComponent> ent, ref ComponentRemove args)
     {
-        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.WakeAction);
+        if (!TryComp<ActionComponent>(ent.Comp.WakeAction, out var action)) // Goobstation - Xenobio
+            return;
+
+        if (action != null) // Goobstation - Xenobio.
+            _actionsSystem.RemoveAction(ent.Owner, ent.Comp.WakeAction);
 
         var ev = new SleepStateChangedEvent(false);
         RaiseLocalEvent(ent, ref ev);
@@ -254,6 +262,11 @@ public sealed partial class SleepingSystem : EntitySystem
         /* Shitmed Change Start - Surgery needs this, sorry! If the nocturine gamers get too feisty
         I'll probably just increase the threshold */
 
+        var ev = new WakeDamageOverrideEvent();
+        RaiseLocalEvent(ent.Owner, ref ev);
+
+        if (ev.Cancelled || ev.IgnoreDamage)
+            return;
 
         if (args.DamageDelta.GetTotal() >= ent.Comp.WakeThreshold
             && !_statusEffect.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent))
@@ -278,7 +291,7 @@ public sealed partial class SleepingSystem : EntitySystem
     /// </summary>
     private void OnMobStateChanged(Entity<SleepingComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.NewMobState == MobState.Dead || args.NewMobState == MobState.Critical) // Goobstation - xenobio
         {
             RemComp<SpamEmitSoundComponent>(ent);
             RemComp<SleepingComponent>(ent);
@@ -308,6 +321,15 @@ public sealed partial class SleepingSystem : EntitySystem
         RaiseLocalEvent(ent, ref tryingToSleepEvent);
         if (tryingToSleepEvent.Cancelled)
             return false;
+
+        // Goobstation - start
+        var ev = new SleepOverrideEvent();
+        RaiseLocalEvent(ent.Owner, ref ev);
+
+        if (ev.MobState != MobState.Alive)
+            return false;
+
+        // Goobstation - end
 
         EnsureComp<SleepingComponent>(ent);
         return true;

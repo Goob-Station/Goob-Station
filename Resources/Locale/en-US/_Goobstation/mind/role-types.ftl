@@ -10,4 +10,6 @@ role-subtype-slasher = The Slasher
 role-type-sentient-animal-name = Sentient Animal
 role-type-sentient-animal-color = #ffff00
 role-subtype-contractor = Contractor
+role-subtype-gang-leader = Gang Leader
+role-subtype-gang-member = Gang Member
 role-subtype-gemini = Gemini

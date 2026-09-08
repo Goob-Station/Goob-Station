@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "By Roudenn (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "stick_1"
+    },
+    {
+      "name": "stick_2"
+    },
+    {
+      "name": "stick_3"
+    },
+    {
+      "name": "stick-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "stick-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "ash_stick_1"
+    },
+    {
+      "name": "ash_stick_2"
+    },
+    {
+      "name": "ash_stick_3"
+    },
+    {
+      "name": "ash_stick-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "ash_stick-inhand-right",
+      "directions": 4
+    }
+  ]
+}
