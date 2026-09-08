@@ -16,5 +16,5 @@ public sealed partial class PredictNextLineComponent : Component
     public EntityUid? Target;
 
     [DataField]
-    public EntProtoId Action = new("ActionPredictNextLine");
+    public EntProtoId Action = "ActionPredictNextLine";
 }
