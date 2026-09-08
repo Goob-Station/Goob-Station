@@ -5,9 +5,10 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Shredder;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ShredderComponent : Component
 {
+    [AutoNetworkedField]
     public TimeSpan FinishedShreddingTime = TimeSpan.Zero;
 
     [DataField]
@@ -17,12 +18,11 @@ public sealed partial class ShredderComponent : Component
     public string ShreddingState = "shredding";
 
     [DataField]
-    public SoundPathSpecifier ShreddingSound = new ("/Audio/_Goobstation/Machines/Shredder/shredder.ogg");
+    public SoundSpecifier? ShreddingSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/Shredder/shredder.ogg");
 
-    [DataField]
     public ContainerSlot? Container;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? StoredEntity;
 }
 

@@ -27,9 +27,9 @@ public sealed class ShredderSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ShredderComponent, ActiveShredderComponent>();
+        var query = EntityQueryEnumerator<ActiveShredderComponent, ShredderComponent>();
 
-        while (query.MoveNext(out var uid, out var shredder, out  _))
+        while (query.MoveNext(out var uid, out _, out var shredder))
         {
             if (shredder.FinishedShreddingTime > _timing.CurTime)
                 continue;
