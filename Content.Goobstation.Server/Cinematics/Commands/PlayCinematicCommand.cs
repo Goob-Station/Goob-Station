@@ -67,11 +67,12 @@ public sealed class PlayCinematicCommand : LocalizedEntityCommands
             return;
         }
 
+        if (!_cinematic.TryStartCinematic(target, cinematic))
+            return;
+
         _adminLog.Add(LogType.AdminCommands,
             LogImpact.Medium,
             $"{player?.Name ?? "Server"} played cinematic {cinematic} on {EntityManager.ToPrettyString(target):target}");
-
-        _cinematic.StartCinematic(target, cinematic);
 
         shell.WriteLine(Loc.GetString("cmd-playcinematic-success",
             ("cinematic", cinematic),

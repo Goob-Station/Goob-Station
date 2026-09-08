@@ -276,17 +276,23 @@ public sealed class SharedCinematicSystem : EntitySystem
     #endregion
 
     /// <summary>
-    /// Starts (or restarts) a scripted cinematic from a prototype on the focus entity.
+    /// Starts a scripted cinematic from a prototype on the focus entity.
     /// </summary>
-    public CinematicComponent StartCinematic(EntityUid uid, ProtoId<CinematicPrototype> protoId, string? subject = null, string? station = null)
+    public bool TryStartCinematic(EntityUid uid, ProtoId<CinematicPrototype> protoId, string? subject = null, string? station = null)
     {
+        if (TryComp<CinematicComponent>(uid, out var existing))
+        {
+            Log.Warning($"Tried to start cinematic {protoId} on {ToPrettyString(uid)} but {existing.Timeline} is already playing on it.");
+            return false;
+        }
+
         var proto = _proto.Index(protoId);
 
         var total = 0f;
         foreach (var segment in proto.Segments)
             total += segment.Duration;
 
-        var comp = EnsureComp<CinematicComponent>(uid);
+        var comp = AddComp<CinematicComponent>(uid);
         comp.StartTime = _timing.CurTime;
         comp.EndTime = _timing.CurTime + TimeSpan.FromSeconds(total);
         comp.Timeline = protoId;
@@ -296,7 +302,7 @@ public sealed class SharedCinematicSystem : EntitySystem
         comp.RegistryApplied = false;
         Dirty(uid, comp);
 
-        return comp;
+        return true;
     }
 
     public void StopCinematic(EntityUid uid) =>

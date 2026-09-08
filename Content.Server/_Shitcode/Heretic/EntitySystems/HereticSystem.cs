@@ -513,7 +513,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
             if (session.AttachedEntity is not { } viewer || Transform(viewer).MapID != mapId)
                 continue;
 
-            _cinematic.StartCinematic(viewer, timeline, subject);
+            _cinematic.TryStartCinematic(viewer, timeline, subject);
         }
     }
 
