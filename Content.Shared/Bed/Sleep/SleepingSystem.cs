@@ -326,7 +326,7 @@ public sealed partial class SleepingSystem : EntitySystem
         var ev = new SleepOverrideEvent();
         RaiseLocalEvent(ent.Owner, ref ev);
 
-        // Omu - the only system that subscribes to this event at the time of writing is a xenobio system.
+        // the only system that subscribes to this event at the time of writing is a xenobio system.
         if (ev.MobState is MobState.Critical or MobState.Dead)
             return false;
 
