@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // Goobstation - start
-using Content.Goobstation.Common.Sleeping; 
+using Content.Goobstation.Common.Sleeping;
 using Content.Shared._Goobstation.Sleep;
 // Goobstation - end
 using Content.Shared.Actions;
@@ -326,7 +326,8 @@ public sealed partial class SleepingSystem : EntitySystem
         var ev = new SleepOverrideEvent();
         RaiseLocalEvent(ent.Owner, ref ev);
 
-        if (ev.MobState != MobState.Alive)
+        // Omu - the only system that subscribes to this event at the time of writing is a xenobio system.
+        if (ev.MobState is MobState.Critical or MobState.Dead)
             return false;
 
         // Goobstation - end
