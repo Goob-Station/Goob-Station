@@ -1719,6 +1719,24 @@
 - type: Tag
   id: WeaponRifleMP7 # custom Gun
 
+- type: Tag
+  id: 12GaugeShell # custom shotgun shell
+
+- type: Tag
+  id: 12GaugeBuckshot # custom shotgun shell
+
+- type: Tag
+  id: ammuniton12gaugebox # custom cartridge box
+
+- type: Tag
+  id: MagazineShotgunKSK # custom Magazine
+
+- type: Tag
+  id: ammuniton68SPC # custom Ammunition box
+
+- type: Tag
+  id: WeaponShotgunKSK # custom Shotgun
+
 ## Y ##
 ## Z ##
 # ALPHABETICAL

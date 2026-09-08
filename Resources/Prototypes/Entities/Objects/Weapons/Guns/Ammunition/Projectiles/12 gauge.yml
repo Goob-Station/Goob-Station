@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: PelletShotgun
+  id: 12GaugeBuckshotBall
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun
+    count: 8
+    spread: 11
+  damage:
+    types:
+      Piercing: 11
+      Slash: 6

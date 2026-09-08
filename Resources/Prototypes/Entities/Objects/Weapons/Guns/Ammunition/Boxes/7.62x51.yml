@@ -22,6 +22,7 @@
     whitelist:
       type: Tag
       tags:
+        - Cartridge762x51FMJ
         - ammuniton762x51Box
     proto: Cartridge762x51FMJ
     capacity: 70

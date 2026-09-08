@@ -1,0 +1,70 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: KS-K
+  parent: [BaseWeaponRifle, BaseGunWieldable]
+  id: WeaponShotgunKSK
+  description: KSK or called Saiga-12 made in space russia
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/KSK.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -5
+  - type: AmmoCounter
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    minAngle: 5
+    maxAngle: 19
+    angleIncrease: 6
+    angleDecay: 80
+    fireRate: 2.5
+    projectileSpeed: 35
+    availableModes:
+    - FullAuto
+    - SemiAuto
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/bigshotgun_fire.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/KSK.rsi
+  - type: Item
+    sprite: Objects/Weapons/Guns/Shotguns/KSK.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineShotgunKSK
+        insertSound: /Audio/Weapons/Guns/AK_545/uc_ak_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/AK_545/uc_ak_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShotgunKSK
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: 12GaugeBuckshot
+        priority: 1
+        whitelist:
+          tags:
+          - 12GaugeShell
+          - 12GaugeBuckshot
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+

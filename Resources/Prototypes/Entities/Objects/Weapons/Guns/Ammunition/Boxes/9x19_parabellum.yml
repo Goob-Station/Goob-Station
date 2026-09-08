@@ -22,6 +22,7 @@
     whitelist:
       type: Tag
       tags:
+        - Cartridge9x19parabellum
         - ammuniton9x19parabellumbox
     proto: Cartridge9x19parabellum
     capacity: 60

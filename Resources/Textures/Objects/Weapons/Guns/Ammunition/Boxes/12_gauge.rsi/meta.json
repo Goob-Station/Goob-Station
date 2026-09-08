@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from SS13 shiptest, modified by _starch_ (discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "lethal"
+    },
+    {
+      "name": "magnum-buckshot"
+    },
+    {
+      "name": "beanbag"
+    },
+    {
+      "name": "slug"
+    },
+    {
+      "name": "flechette"
+    },
+    {
+      "name": "slugAP"
+    },
+    {
+      "name": "slugRIP"
+    },
+    {
+      "name": "incendiary"
+    },
+    {
+      "name": "practice"
+    },
+    {
+      "name": "uranium"
+    },
+    {
+      "name": "flare"
+    },
+    {
+      "name": "tranquilizer"
+    }
+  ]
+}

@@ -22,6 +22,7 @@
     whitelist:
       type: Tag
       tags:
+        - Cartridge46x30FMJ
         - ammuniton4.6x30mmbox
     proto: Cartridge46x30FMJ
     capacity: 70
@@ -35,7 +36,7 @@
     state: base
   - type: MagazineVisuals
     magState: mag
-    steps: 2
+    steps: 3
     zeroVisible: false
   - type: Appearance
 
@@ -55,7 +56,7 @@
     - state: mag-1
       map: [ "enum.GunVisualLayers.Mag" ]
     - type: MagazineVisuals
-      magState: mag-2
-      steps: 2
+      magState: mag
+      steps: 3
       zeroVisible: false
     - type: Appearance

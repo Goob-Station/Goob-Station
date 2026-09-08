@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox68SPC
+  name: ammunition box (6.8 SPC)
+  components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  # Goobstation edit end
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      type: Tag
+      tags:
+        - Cartridge6.8SPC
+        - ammuniton68SPC
+    proto: Cartridge6.8SPC
+    capacity: 65
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/6.8_SPC
+    state: base
+  - type: Appearance
+
+# Boxes
+- type: entity
+  parent: BaseMagazineBox68SPC
+  id: ammuniton68SPC
+  name: ammunition box (6.8 SPC)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 65
+    proto: Cartridge6.8SPC
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Appearance

@@ -22,6 +22,7 @@
     whitelist:
       type: Tag
       tags:
+        - Cartridge556x45mmFMJ
         - ammuniton556x45mmBox
     proto: Cartridge556x45mmFMJ
     capacity: 60

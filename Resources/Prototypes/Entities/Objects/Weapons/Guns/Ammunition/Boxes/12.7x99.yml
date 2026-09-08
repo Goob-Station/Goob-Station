@@ -22,6 +22,7 @@
     whitelist:
       type: Tag
       tags:
+        - Cartridge127x99
         - ammunitonBox127x99
     proto: Cartridge127x99
     capacity: 60
@@ -52,6 +53,6 @@
       map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: magb
-    steps: 3
+    steps: 4
     zeroVisible: false
   - type: Appearance

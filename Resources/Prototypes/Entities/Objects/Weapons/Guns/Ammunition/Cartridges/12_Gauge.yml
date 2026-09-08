@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: BaseCartridge
+  id: base12gaugeshell
+  name: shell (12 Gauge) # Goobstation
+  description: you seen them you used them
+  components:
+  - type: Tag
+    tags:
+    - 12GaugeShell
+  - type: CartridgeAmmo
+    soundEject:
+      collection: ShellEject
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  parent: [ base12gaugeshell, BaseSecurityBartenderContraband ]
+  id: 12GaugeBuckshot
+  name: shell (12 Gauge Buckshot) # Goobstation
+  description: you seen them you used them
+  components:
+  - type: Tag
+    tags:
+    - ShellShotgun
+    - 12GaugeShell
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: 12GaugeBuckshotBall
+  - type: SpentAmmoVisuals
