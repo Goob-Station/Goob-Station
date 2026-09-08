@@ -4,6 +4,7 @@ using Content.Shared.Examine;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -16,6 +17,7 @@ namespace Content.Goobstation.Shared.Cinematic;
 public sealed class SharedCinematicSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
@@ -182,19 +184,33 @@ public sealed class SharedCinematicSystem : EntitySystem
             DuckOthers(comp, timeline.DuckDecibels);
     }
 
-    private void EnterSegment(CinematicComponent comp, CinematicPrototype timeline, int index)
+    private void EnterSegment(EntityUid uid, CinematicComponent comp, CinematicSegment segment)
     {
-        if (index < 0)
+        var watching = uid == _player.LocalEntity || comp.Engaged;
+
+        if (watching)
+            PlaySegmentSound(comp, segment);
+
+        if (watching || _net.IsServer)
+            RaiseSegmentEvents(uid, segment);
+    }
+
+    private void PlaySegmentSound(CinematicComponent comp, CinematicSegment segment)
+    {
+        if (segment.Sound == null)
             return;
 
-        var segment = timeline.Segments[index];
+        if (_audio.PlayGlobal(segment.Sound, Filter.Local(), false)?.Entity is not { } stream)
+            return;
 
-        if (segment.Sound != null
-            && _audio.PlayGlobal(segment.Sound, Filter.Local(), false)?.Entity is { } stream)
-        {
-            comp.SegmentSounds.Add(stream);
-            EnsureComp<CinematicSceneSoundComponent>(stream);
-        }
+        comp.SegmentSounds.Add(stream);
+        EnsureComp<CinematicSceneSoundComponent>(stream);
+    }
+
+    private void RaiseSegmentEvents(EntityUid uid, CinematicSegment segment)
+    {
+        foreach (var ev in segment.Events)
+            RaiseLocalEvent(uid, ev, true);
     }
 
     /// <summary>
@@ -252,8 +268,8 @@ public sealed class SharedCinematicSystem : EntitySystem
 
         comp.ActiveSegment = index;
 
-        if (uid == _player.LocalEntity || comp.Engaged)
-            EnterSegment(comp, proto, index);
+        if (index >= 0)
+            EnterSegment(uid, comp, proto.Segments[index]);
     }
 
     /// <summary>

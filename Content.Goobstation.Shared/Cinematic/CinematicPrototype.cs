@@ -57,4 +57,10 @@ public sealed partial class CinematicSegment
     /// </summary>
     [DataField]
     public ComponentRegistry? AddComp;
+
+    /// <summary>
+    /// Events raised for this segment.
+    /// </summary>
+    [DataField]
+    public List<object> Events = new();
 }
