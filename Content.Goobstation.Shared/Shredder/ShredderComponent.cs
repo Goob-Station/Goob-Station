@@ -8,7 +8,6 @@ namespace Content.Goobstation.Shared.Shredder;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ShredderComponent : Component
 {
-    [AutoNetworkedField]
     public TimeSpan FinishedShreddingTime = TimeSpan.Zero;
 
     [DataField]

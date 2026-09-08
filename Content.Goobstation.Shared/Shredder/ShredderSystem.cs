@@ -37,7 +37,6 @@ public sealed class ShredderSystem : EntitySystem
             _appearanceSystem.SetData(uid, ShredderVisuals.VisualState, ShredderVisualsState.Normal);
             shredder.FinishedShreddingTime = TimeSpan.Zero;
 
-
             if (shredder.StoredEntity is { } item)
             {
                 if (!HasComp<BodyComponent>(item))
@@ -81,5 +80,7 @@ public sealed class ShredderSystem : EntitySystem
             _containerSystem.Insert(args.Used, ent.Comp.Container);
 
         ent.Comp.StoredEntity = args.Used;
+
+        Dirty(ent);
     }
 }
