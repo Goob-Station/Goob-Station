@@ -43,7 +43,7 @@ public sealed class CinematicCaptionOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (_playerManager.LocalEntity is not { Valid: true } player
+        if (_playerManager.LocalEntity is not { } player
             || !_entityManager.HasComponent<CinematicCaptionComponent>(player))
             return false;
 
@@ -52,7 +52,7 @@ public sealed class CinematicCaptionOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (_playerManager.LocalEntity is not { Valid: true } player)
+        if (_playerManager.LocalEntity is not { } player)
             return;
 
         if (!_entityManager.TryGetComponent<CinematicCaptionComponent>(player, out var caption)
