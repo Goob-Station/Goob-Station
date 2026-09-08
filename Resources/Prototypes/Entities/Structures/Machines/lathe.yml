@@ -63,13 +63,13 @@
       - LathePrint
   - type: LatheAutomation # Goobstation
   - type: SpamEmitSound # Goobstation - random lathe sounds
-    minInterval: 300
-    maxInterval: 900
+    minInterval: 70
+    maxInterval: 150
     sound:
       collection: RandomLatheSounds
       params:
-        volume: -12 # Ambient
-        maxDistance: 10
+        volume: -9 # Ambient
+        maxDistance: 19
         variation: 0.05
   # Goobstation
   - type: SpamEmitSoundRequirePower
