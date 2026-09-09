@@ -2,6 +2,7 @@ using Content.Shared._DV.Carrying;
 using Content.Shared._Goobstation.Wizard.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;

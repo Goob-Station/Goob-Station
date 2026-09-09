@@ -5,6 +5,7 @@ using Content.Shared.Alert;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Network;
 using Robust.Shared.Random;

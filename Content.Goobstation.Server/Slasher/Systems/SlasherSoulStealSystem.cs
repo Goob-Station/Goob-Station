@@ -36,6 +36,7 @@ using Robust.Server.GameObjects;
 using Content.Shared.Inventory;
 using Content.Shared.Roles;
 using Content.Shared.Station;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 

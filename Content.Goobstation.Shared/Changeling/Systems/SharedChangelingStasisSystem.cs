@@ -11,6 +11,8 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -264,7 +266,7 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
         {
             // taken straight from damageable rejuvenate method
             _mob.SetAllowRevives(ent, true, threshComp);
-            _dmg.SetAllDamage(ent, dmgComp, 0);
+            _dmg.SetAllDamage((ent, dmgComp), 0);
             _mob.SetAllowRevives(ent, false, threshComp);
         }
 

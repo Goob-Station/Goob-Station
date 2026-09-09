@@ -16,7 +16,9 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Timing; // Shitmed Change
-using Content.Shared._Shitmed.Damage; // Shitmed Change
+using Content.Shared._Shitmed.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components; // Shitmed Change
 
 namespace Content.Goobstation.Shared.Religion;
 
