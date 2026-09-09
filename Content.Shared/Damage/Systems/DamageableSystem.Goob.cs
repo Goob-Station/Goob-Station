@@ -608,6 +608,6 @@ public sealed partial class DamageChangedEvent
 
 public sealed partial class DamageModifyEvent
 {
-    public readonly EntityUid Target; // Goob - need this for some bullshit i think
-    public readonly TargetBodyPart? TargetPart; // Goob - Shitmed
+    public readonly EntityUid Target = target; // Goob - need this for some bullshit i think
+    public readonly TargetBodyPart? TargetPart = targetPart; // Goob - Shitmed
 }

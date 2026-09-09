@@ -220,7 +220,7 @@ public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid?
 ///
 ///     For example, armor.
 /// </summary>
-public sealed partial class DamageModifyEvent(EntityUid Target, DamageSpecifier damage, EntityUid? Origin = null, TargetBodyPart? TargetPart = null) // Goob - made partial, add Target/TargetBodyPart
+public sealed partial class DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Goob - made partial, add Target/TargetBodyPart
     : EntityEventArgs, IInventoryRelayEvent
 {
     /// <inheritdoc/>
