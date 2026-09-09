@@ -10,9 +10,6 @@
 ### Interaction Messages
 
 # Shown when repairing something
-<<<<<<< HEAD
-comp-repairable-repair = You finish repairing {THE($target)} with {THE($tool)}
-=======
 comp-repairable-repair = You finish repairing {PROPER($target) ->
   [true] {""}
   *[false] the{" "}
@@ -20,4 +17,3 @@ comp-repairable-repair = You finish repairing {PROPER($target) ->
   [true] {""}
   *[false] the{" "}
 }{$tool}
->>>>>>> d53fe69b863 (Repairing borgs now takes multiple doafters (#41638))

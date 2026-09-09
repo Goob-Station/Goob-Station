@@ -1709,7 +1709,7 @@
         conditions:
         - !type:TemperatureCondition
           max: 213.0
-          scaleByTemperature: # Shitmed Change
+        scaleByTemperature: # Shitmed Change
           min: 100.0
           max: 213.0
           scale: 1.6
