@@ -2028,6 +2028,21 @@
     wilhelmProbability: 0.001
   # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
+  # Goobstation - laser eyes
+  - type: Gun
+    fireRate: 4
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_cannon_mouse.ogg
+      params:
+        pitch: 1.5
+        volume: 4
+  - type: BasicEntityAmmoProvider
+    proto: RedLaserMouseTwin
+  # Goobstation - end laser eyes
   - type: MeleeWeapon
     altDisarm: false # Sorry mouse shove lovers.
     soundHit:

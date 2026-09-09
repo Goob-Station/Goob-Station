@@ -29,3 +29,8 @@
   license: "CC-BY-4.0"
   copyright: "made by john john"
   source: "https://github.com/JohnJJohn"
+
+- files: ["laser_cannon_mouse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from laser_cannon.ogg then modified by Loltart."
+  source: "https://goida.zip"
