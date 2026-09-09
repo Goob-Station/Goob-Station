@@ -22,7 +22,7 @@ public sealed class MantisBladeVisualsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MantisBladeUserComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MantisBladeUserComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MantisBladeUserComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<MantisBladeUserComponent, AfterAutoHandleStateEvent>(OnHandleState);
     }
 
@@ -43,7 +43,7 @@ public sealed class MantisBladeVisualsSystem : EntitySystem
         UpdateLayers(ent, sprite);
     }
 
-    private void OnShutdown(Entity<MantisBladeUserComponent> ent, ref ComponentShutdown args)
+    private void OnRemove(Entity<MantisBladeUserComponent> ent, ref ComponentRemove args)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;

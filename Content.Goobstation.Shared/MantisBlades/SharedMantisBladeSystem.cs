@@ -30,13 +30,10 @@ public sealed class SharedMantisBladeSystem : EntitySystem
         SubscribeLocalEvent<MantisBladeArmComponent, ComponentRemove>(OnArmChanged);
         SubscribeLocalEvent<MantisBladeArmComponent, BodyPartAddedEvent>(OnArmChanged);
         SubscribeLocalEvent<MantisBladeArmComponent, BodyPartRemovedEvent>(OnArmChanged);
+        SubscribeLocalEvent<MantisBladeArmComponent, EmpDisabledRemovedEvent>(OnArmChanged);
 
         SubscribeLocalEvent<MantisBladeArmComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MantisBladeArmComponent, EmpPulseEvent>(OnEmpPulse);
-
-        SubscribeLocalEvent<EmpDisabledComponent, ComponentStartup>(OnEmpChanged);
-        SubscribeLocalEvent<EmpDisabledComponent, ComponentRemove>(OnEmpChanged);
-
 
         SubscribeLocalEvent<MantisBladeUserComponent, MapInitEvent>(OnUserMapInit);
         SubscribeLocalEvent<MantisBladeUserComponent, ComponentShutdown>(OnUserShutdown);
@@ -56,28 +53,24 @@ public sealed class SharedMantisBladeSystem : EntitySystem
     private void OnArmChanged<T>(Entity<MantisBladeArmComponent> ent, ref T args)
         => RefreshBody(ent);
 
-    private void OnEmpChanged<T>(Entity<EmpDisabledComponent> ent, ref T args)
-    {
-        if (HasComp<MantisBladeArmComponent>(ent))
-            RefreshBody(ent);
-    }
-
     private void OnEmpPulse(Entity<MantisBladeArmComponent> ent, ref EmpPulseEvent args)
     {
         args.Affected = true;
         args.Disabled = true;
+
+        RefreshBody(ent, disabling: ent);
     }
 
-    private void RefreshBody(EntityUid arm)
+    private void RefreshBody(EntityUid arm, EntityUid? disabling = null)
     {
         if (TryComp<BodyPartComponent>(arm, out var part) && part.Body is { } body)
-            Refresh(body);
+            Refresh(body, disabling);
     }
 
     /// <summary>
     /// adds and removes the <see cref="MantisBladeUserComponent"/>.
     /// </summary>
-    private void Refresh(EntityUid body)
+    private void Refresh(EntityUid body, EntityUid? disabling = null)
     {
         var hasArm = false;
         var blades = new List<EntityUid>();
@@ -88,7 +81,7 @@ public sealed class SharedMantisBladeSystem : EntitySystem
                 continue;
 
             hasArm = true;
-            if (!HasComp<EmpDisabledComponent>(arm.Id))
+            if (arm.Id != disabling && !HasComp<EmpDisabledComponent>(arm.Id))
                 blades.Add(arm.Id);
         }
 
