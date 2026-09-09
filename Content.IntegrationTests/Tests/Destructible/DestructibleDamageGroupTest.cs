@@ -3,11 +3,8 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
-<<<<<<< HEAD
 using Content.Goobstation.Maths.FixedPoint;
-=======
 using Content.Shared.Damage.Systems;
->>>>>>> cdbe92d37d6 (Update DamageableSystem to modern standards (#39417))
 using Content.Shared.Destructible.Thresholds.Triggers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;

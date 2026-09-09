@@ -4,12 +4,8 @@ using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
-<<<<<<< HEAD
 using Content.Goobstation.Maths.FixedPoint;
-=======
 using Content.Shared.Damage.Systems;
-using Content.Shared.FixedPoint;
->>>>>>> cdbe92d37d6 (Update DamageableSystem to modern standards (#39417))
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;

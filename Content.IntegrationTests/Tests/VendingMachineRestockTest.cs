@@ -9,10 +9,7 @@ using Content.Shared.Containers;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
-<<<<<<< HEAD
 using Content.Shared.EntityTable;
-=======
->>>>>>> cdbe92d37d6 (Update DamageableSystem to modern standards (#39417))
 using Content.Shared.Prototypes;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.VendingMachines;

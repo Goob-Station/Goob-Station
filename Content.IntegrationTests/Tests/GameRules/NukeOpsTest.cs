@@ -12,13 +12,9 @@ using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
-<<<<<<< HEAD
 using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
-=======
 using Content.Shared.Damage.Components;
-using Content.Shared.FixedPoint;
->>>>>>> cdbe92d37d6 (Update DamageableSystem to modern standards (#39417))
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
