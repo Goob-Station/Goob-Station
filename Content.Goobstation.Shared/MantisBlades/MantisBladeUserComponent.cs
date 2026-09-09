@@ -36,7 +36,7 @@ public sealed partial class MantisBladeUserComponent : Component
     /// This is applied when using another weapon while having the mantis blades out.
     /// </summary>
     [DataField]
-    public float ArmedMultiplier = 0.3f;
+    public float ArmedMultiplier = 0.5f;
 
     #endregion
 

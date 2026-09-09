@@ -6,10 +6,12 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.MantisBlades;
@@ -19,6 +21,9 @@ public sealed class SharedMantisBladeSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -26,8 +31,8 @@ public sealed class SharedMantisBladeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MantisBladeArmComponent, ComponentInit>(OnArmChanged);
-        SubscribeLocalEvent<MantisBladeArmComponent, ComponentRemove>(OnArmChanged);
+        SubscribeLocalEvent<MantisBladeArmComponent, MapInitEvent>(OnArmMapInit);
+        SubscribeLocalEvent<MantisBladeArmComponent, ComponentRemove>(OnArmRemove);
         SubscribeLocalEvent<MantisBladeArmComponent, BodyPartAddedEvent>(OnArmChanged);
         SubscribeLocalEvent<MantisBladeArmComponent, BodyPartRemovedEvent>(OnArmChanged);
         SubscribeLocalEvent<MantisBladeArmComponent, EmpDisabledRemovedEvent>(OnArmChanged);
@@ -38,8 +43,7 @@ public sealed class SharedMantisBladeSystem : EntitySystem
         SubscribeLocalEvent<MantisBladeUserComponent, MapInitEvent>(OnUserMapInit);
         SubscribeLocalEvent<MantisBladeUserComponent, ComponentShutdown>(OnUserShutdown);
         SubscribeLocalEvent<MantisBladeUserComponent, ToggleMantisBladesActionEvent>(OnToggle);
-        SubscribeLocalEvent<MantisBladeUserComponent, GetMeleeAttackRateEvent>(OnGetAttackRate);
-        SubscribeLocalEvent<MantisBladeUserComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<MantisBladeUserComponent, GetMeleeWeaponEvent>(OnGetMeleeWeapon);
         SubscribeLocalEvent<MantisBladeUserComponent, MultihitGetWeaponsEvent>(OnGetMultihitWeapons);
     }
 
@@ -52,6 +56,27 @@ public sealed class SharedMantisBladeSystem : EntitySystem
 
     private void OnArmChanged<T>(Entity<MantisBladeArmComponent> ent, ref T args)
         => RefreshBody(ent);
+
+    private void OnArmMapInit(Entity<MantisBladeArmComponent> ent, ref MapInitEvent args)
+    {
+        if (_net.IsServer && ent.Comp.Blade == null)
+        {
+            _container.EnsureContainer<ContainerSlot>(ent, MantisBladeArmComponent.BladeContainer);
+            ent.Comp.Blade = SpawnInContainerOrDrop(ent.Comp.BladeProto, ent, MantisBladeArmComponent.BladeContainer);
+            Dirty(ent);
+        }
+
+        RefreshBody(ent);
+    }
+
+    private void OnArmRemove(Entity<MantisBladeArmComponent> ent, ref ComponentRemove args)
+    {
+        if (_net.IsServer && ent.Comp.Blade is { } blade)
+            QueueDel(blade);
+
+        ent.Comp.Blade = null;
+        RefreshBody(ent);
+    }
 
     private void OnEmpPulse(Entity<MantisBladeArmComponent> ent, ref EmpPulseEvent args)
     {
@@ -77,12 +102,12 @@ public sealed class SharedMantisBladeSystem : EntitySystem
 
         foreach (var arm in _body.GetBodyChildrenOfType(body, BodyPartType.Arm))
         {
-            if (!HasComp<MantisBladeArmComponent>(arm.Id))
+            if (!TryComp<MantisBladeArmComponent>(arm.Id, out var bladeArm))
                 continue;
 
             hasArm = true;
-            if (arm.Id != disabling && !HasComp<EmpDisabledComponent>(arm.Id))
-                blades.Add(arm.Id);
+            if (arm.Id != disabling && !HasComp<EmpDisabledComponent>(arm.Id) && bladeArm.Blade is { } blade)
+                blades.Add(blade);
         }
 
         if (!hasArm)
@@ -139,31 +164,23 @@ public sealed class SharedMantisBladeSystem : EntitySystem
 
     #region Melee strikes
 
-    private void OnGetAttackRate(Entity<MantisBladeUserComponent> ent, ref GetMeleeAttackRateEvent args)
+    private void OnGetMeleeWeapon(Entity<MantisBladeUserComponent> ent, ref GetMeleeWeaponEvent args)
     {
-        if (args.Weapon != ent.Owner
-            || !ent.Comp.Extended
-            || ent.Comp.Blades.Count == 0
-            || !TryComp<MeleeWeaponComponent>(ent.Comp.Blades[0], out var lead))
+        if (args.Handled || !ent.Comp.Extended || ent.Comp.Blades.Count == 0)
             return;
 
-        args.Rate = lead.AttackRate;
-    }
-
-    private void OnMeleeHit(Entity<MantisBladeUserComponent> ent, ref MeleeHitEvent args)
-    {
-        if (!ent.Comp.Extended
-            || ent.Comp.Blades.Count == 0
-            || !TryComp<MeleeWeaponComponent>(ent.Comp.Blades[0], out var lead))
+        if (_hands.TryGetActiveItem(ent.Owner, out var held)
+            && TryComp<MeleeWeaponComponent>(held, out var melee)
+            && !melee.MustBeEquippedToUse)
             return;
 
-        args.BonusDamage += lead.Damage;
-        args.HitSoundOverride = lead.HitSound;
+        args.Weapon = ent.Comp.Blades[0];
+        args.Handled = true;
     }
 
     private void OnGetMultihitWeapons(Entity<MantisBladeUserComponent> ent, ref MultihitGetWeaponsEvent args)
     {
-        if (!ent.Comp.Extended || ent.Comp.Blades.Count == 0 || HasComp<MantisBladeArmComponent>(args.Weapon))
+        if (!ent.Comp.Extended || ent.Comp.Blades.Count == 0)
             return;
 
         if (TryComp<MultihitComponent>(ent.Comp.Blades[0], out var lead))
@@ -172,12 +189,12 @@ public sealed class SharedMantisBladeSystem : EntitySystem
             args.Delay = lead.MultihitDelay;
         }
 
-        var unarmed = args.Weapon == ent.Owner;
-        if (!unarmed)
+        if (!ent.Comp.Blades.Contains(args.Weapon))
             args.DamageMultiplier = ent.Comp.ArmedMultiplier;
 
-        for (var i = unarmed ? 1 : 0; i < ent.Comp.Blades.Count; i++)
-            args.Weapons.Add(ent.Comp.Blades[i]);
+        foreach (var blade in ent.Comp.Blades)
+            if (blade != args.Weapon)
+                args.Weapons.Add(blade);
     }
 
     #endregion

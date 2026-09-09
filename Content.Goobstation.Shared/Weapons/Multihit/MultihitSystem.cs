@@ -72,7 +72,8 @@ public sealed class MultihitSystem : EntitySystem
         if (HasComp<ActiveMultihitComponent>(args.Weapon))
             return;
 
-        if (TryComp<MultihitComponent>(args.Weapon, out var weaponMultihit))
+        if (TryComp<MultihitComponent>(args.Weapon, out var weaponMultihit)
+            && (args.Weapon == args.User || _hands.IsHolding(args.User, args.Weapon)))
             DoMultihit(args.Weapon, weaponMultihit, args);
 
         if (args.Weapon != args.User && TryComp<MultihitComponent>(args.User, out var userMultihit))

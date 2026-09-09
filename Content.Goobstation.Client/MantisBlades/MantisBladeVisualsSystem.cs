@@ -81,7 +81,7 @@ public sealed class MantisBladeVisualsSystem : EntitySystem
         if (ent.Comp.Extended)
             foreach (var blade in ent.Comp.Blades)
             {
-                if (!TryComp<BodyPartComponent>(blade, out var part))
+                if (!TryComp<BodyPartComponent>(Transform(blade).ParentUid, out var part))
                     continue;
 
                 if (part.Symmetry == BodyPartSymmetry.Left)

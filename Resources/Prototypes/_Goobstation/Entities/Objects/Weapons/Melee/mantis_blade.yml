@@ -1,6 +1,33 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  id: MantisBlade
+  name: mantis blade
+  description: A blade that snaps out of a cybernetic forearm.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    animation: MantisBladeArc
+    animationRotation: 120
+    wideAnimation: MantisBladeArcStatic
+    damage:
+      types:
+        Slash: 9
+        Piercing: 3
+        Structural: 7.5
+      woundSeverityMultipliers:
+        Slash: 2.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Multihit
+    damageMultiplier: 0.65
+    multihitDelay: 0.25
+
+- type: entity
   id: MantisBladeArc
   parent: WeaponArcThrust
   categories: [ HideSpawnMenu ]
