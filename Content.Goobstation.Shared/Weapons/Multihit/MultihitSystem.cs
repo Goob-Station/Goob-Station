@@ -30,7 +30,7 @@ public sealed class MultihitSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MultihitComponent, MeleeHitEvent>(OnHit);
+        SubscribeLocalEvent<MeleeHitEvent>(OnHit, before: new[] { typeof(ActiveMultihitSystem) });
 
         SubscribeLocalEvent<MultihitUserHereticEvent>(HereticCheck);
         SubscribeLocalEvent<MultihitUserWhitelistEvent>(WhitelistCheck);
@@ -52,12 +52,12 @@ public sealed class MultihitSystem : EntitySystem
                        heretic.PathStage >= args.MinPathStage;
     }
 
-    private void OnHit(EntityUid uid, MultihitComponent component, MeleeHitEvent args)
+    private void OnHit(MeleeHitEvent args)
     {
         if (_net.IsClient && _player.LocalEntity != args.User)
             return;
 
-        if (!_timing.IsFirstTimePredicted || !args.IsHit || args.Weapon == args.User)
+        if (!_timing.IsFirstTimePredicted || !args.IsHit)
             return;
 
         if (args.Direction == null)
@@ -69,19 +69,37 @@ public sealed class MultihitSystem : EntitySystem
                 return;
         }
 
-        if (HasComp<ActiveMultihitComponent>(uid))
+        if (HasComp<ActiveMultihitComponent>(args.Weapon))
             return;
 
+        if (TryComp<MultihitComponent>(args.Weapon, out var weaponMultihit))
+            DoMultihit(args.Weapon, weaponMultihit, args);
+
+        if (args.Weapon != args.User && TryComp<MultihitComponent>(args.User, out var userMultihit))
+            DoMultihit(args.User, userMultihit, args);
+    }
+
+    private void DoMultihit(EntityUid uid, MultihitComponent component, MeleeHitEvent args)
+    {
         if (!CheckConditions())
             return;
 
         var delay = component.MultihitDelay;
 
-        foreach (var held in _hands.EnumerateHeld(args.User))
+        if (uid == args.User)
         {
-            if (TryMultihitAttack(held))
-                delay += component.MultihitDelay;
+            var gather = new MultihitGetWeaponsEvent(args.User, args.Weapon, component.DamageMultiplier, component.MultihitDelay);
+            RaiseLocalEvent(args.User, ref gather);
+
+            delay = gather.Delay;
+            foreach (var weapon in gather.Weapons)
+                if (TryMultihitAttack(weapon, gather.DamageMultiplier, requireHeld: false))
+                    delay += gather.Delay;
         }
+        else
+            foreach (var held in _hands.EnumerateHeld(args.User))
+                if (TryMultihitAttack(held, component.DamageMultiplier, requireHeld: true))
+                    delay += component.MultihitDelay;
 
         return;
 
@@ -107,9 +125,19 @@ public sealed class MultihitSystem : EntitySystem
             return component.RequireAllConditions;
         }
 
-        bool TryMultihitAttack(EntityUid weapon)
+        bool StillValid(EntityUid weapon, bool requireHeld)
         {
-            if (weapon == uid)
+            if (requireHeld)
+                return _hands.IsHolding(args.User, weapon);
+
+            var gather = new MultihitGetWeaponsEvent(args.User, args.Weapon, component.DamageMultiplier, component.MultihitDelay);
+            RaiseLocalEvent(args.User, ref gather);
+            return gather.Weapons.Contains(weapon);
+        }
+
+        bool TryMultihitAttack(EntityUid weapon, float damageMultiplier, bool requireHeld)
+        {
+            if (weapon == args.Weapon)
                 return false;
 
             if (component.MultihitWhitelist != null && !_whitelist.IsValid(component.MultihitWhitelist, weapon))
@@ -118,7 +146,7 @@ public sealed class MultihitSystem : EntitySystem
             if (!TryComp(weapon, out MeleeWeaponComponent? melee))
                 return false;
 
-            EnsureComp<ActiveMultihitComponent>(weapon).DamageMultiplier *= component.DamageMultiplier;
+            EnsureComp<ActiveMultihitComponent>(weapon).DamageMultiplier *= damageMultiplier;
 
             if (args.Direction == null)
             {
@@ -131,8 +159,10 @@ public sealed class MultihitSystem : EntitySystem
 
                         var target = args.HitEntities[0];
 
-                        if (TerminatingOrDeleted(args.User) || TerminatingOrDeleted(target) ||
-                            !Resolve(weapon, ref melee, false) || !_hands.IsHolding(args.User, weapon))
+                        if (TerminatingOrDeleted(args.User)
+                        || TerminatingOrDeleted(target)
+                        || !Resolve(weapon, ref melee, false)
+                        || !StillValid(weapon, requireHeld))
                         {
                             RemComp(weapon, activeMultihit);
                             return;
@@ -158,9 +188,11 @@ public sealed class MultihitSystem : EntitySystem
                             !TryComp(weapon, out ActiveMultihitComponent? activeMultihit))
                             return;
 
-                        if (TerminatingOrDeleted(args.User) || TerminatingOrDeleted(weapon) ||
-                            !TryComp(args.User, out TransformComponent? xform) ||
-                            !Resolve(weapon, ref melee, false) || !_hands.IsHolding(args.User, weapon))
+                        if (TerminatingOrDeleted(args.User)
+                        || TerminatingOrDeleted(weapon)
+                        || !TryComp(args.User, out TransformComponent? xform)
+                        || !Resolve(weapon, ref melee, false)
+                        || !StillValid(weapon, requireHeld))
                         {
                             RemComp(weapon, activeMultihit);
                             return;
