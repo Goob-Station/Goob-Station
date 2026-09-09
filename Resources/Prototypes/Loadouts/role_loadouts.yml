@@ -176,7 +176,7 @@
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
-  - ChaplainBible
+  # - ChaplainBible ## Goobstation chaplain gets a bible through ChaplainUndeterminedBible
   - Glasses
   - Survival
   - Trinkets
