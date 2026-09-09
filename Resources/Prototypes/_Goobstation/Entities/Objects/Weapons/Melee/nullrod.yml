@@ -827,7 +827,7 @@
       types:
         Holy: 7
     soundHit:
-      path: /Audio/Weapons/punch3.ogg
+      path: /Audio/Weapons/firepunch3.ogg
   - type: IgniteOnMeleeHit
     fireStacks: 1
   - type: Tag
