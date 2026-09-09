@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs;
@@ -87,9 +85,6 @@ namespace Content.Shared.Damage
 
         [DataField]
         public FixedPoint2? HealthBarThreshold;
-
-        [ViewVariables]
-        public TimeSpan LastModifiedTime = TimeSpan.Zero;
     }
 
     [Serializable, NetSerializable]
