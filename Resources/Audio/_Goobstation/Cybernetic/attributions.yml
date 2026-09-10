@@ -1,0 +1,51 @@
+- files: ["cyberhack_intro.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by litupsubway"
+  source: "https://pixabay.com/sound-effects/film-special-effects-computer-noise-3-sfx-sound-design-518619/"
+
+- files: ["cyberhack_theme_1.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by Franzian-Deo"
+  source: "https://pixabay.com/music/electronic-cyber-futuristic-mechanical-476050/"
+
+- files: ["cyberhack_theme_2.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by Eden_Enterprises_Music"
+  source: "https://pixabay.com/music/upbeat-denial-of-service-sci-fi-hacker-instrumental-267766/"
+
+- files: ["cyberhack_theme_3.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by BoxCat Games"
+  source: "https://boxcat.bandcamp.com/track/cpu-talk"
+
+- files: ["cyberhack_theme_4.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by BoxCat Games"
+  source: "https://boxcat.bandcamp.com/track/battle-special"
+
+- files: ["cyberware_radar.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by avreference (Freesound)"
+  source: "https://pixabay.com/sound-effects/film-special-effects-radar-35955/"
+
+- files: ["ui_startup.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by Loltart using sounds from Pixabay, gohminghui88 (Freesound), and FNX_Sound"
+  source: ["https://pixabay.com/sound-effects/musical-startup-sound-variation-2-315893/",
+    "https://pixabay.com/sound-effects/musical-imminent2-80967/",
+    "https://pixabay.com/sound-effects/musical-wayki-x-fnxsound-synthgranular-reggaeton-espacial-amaj-100bpm-trifido-386912/"]
+
+- files: ["ui_click.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by Circlerun"
+  source: "https://opengameart.org/content/hi-tech-button-sound-pack-i-non-themed"
+
+- files: ["ui_hover.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by Lesiakower"
+  source: "https://pixabay.com/sound-effects/film-special-effects-minimalist-button-hover-sound-effect-399749/"
+
+- files: ["cyberhack_alert.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by Azadaea (Freesound)"
+  source: "https://pixabay.com/sound-effects/musical-futuristic-system-alarm-71403/"
