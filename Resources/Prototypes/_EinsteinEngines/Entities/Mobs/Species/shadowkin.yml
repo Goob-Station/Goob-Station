@@ -259,8 +259,8 @@
         - map: ["enum.HumanoidVisualLayers.LFoot"]
         - map: ["enum.HumanoidVisualLayers.RFoot"]
         - map: ["socks"]
-        - map: ["underpants"]
-        - map: ["undershirt"]
+        - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"] # goobstation
+        - map: ["enum.HumanoidVisualLayers.UndergarmentTop"] # goobstation
         - map: ["jumpsuit"]
         - map: ["enum.HumanoidVisualLayers.LHand"]
         - map: ["enum.HumanoidVisualLayers.RHand"]
