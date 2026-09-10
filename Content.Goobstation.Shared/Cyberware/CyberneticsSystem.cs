@@ -102,6 +102,30 @@ public sealed class CyberneticsSystem : EntitySystem
         return implants.Count > 0;
     }
 
+    /// <summary>
+    /// Used when you have multiple implants that can have varying clocks that also depend on each-other.
+    /// Think of things like smartlinks implants not getting an overclock buff if 1 of the 2 is not overclocked.
+    /// </summary>
+    public int LowestClock<T>(EntityUid body) where T : IComponent
+    {
+        if (!TryGetImplants(body, out var implants))
+            return 0;
+
+        var step = 0;
+        var found = false;
+
+        foreach (var implant in implants)
+        {
+            if (!HasComp<T>(implant))
+                continue;
+
+            step = found ? Math.Min(step, implant.Comp.ClockStep) : implant.Comp.ClockStep;
+            found = true;
+        }
+
+        return step;
+    }
+
     public bool TryGetBody(EntityUid implant, out EntityUid body)
     {
         body = EntityUid.Invalid;

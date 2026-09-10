@@ -40,8 +40,14 @@
   id: SmartlinkLeftHand
   parent: LeftHandCybernetic
   name: SmartLink left hand
-  description: A cybernetic left hand that allows its wearer to shoot "smart" bullets from any weapon.
+  description: A cybernetic left hand that allows its wearer to shoot "smart" bullets from any weapon. Only functions while the smartlink wiring in every hand is enabled.
   components:
+  - type: Cybernetics
+    canToggle: true
+    minClock: -1
+    maxClock: 1
+    overclockDesc: cyberware-breach-clk-up-smartlink-desc
+    underclockDesc: cyberware-breach-clk-dn-smartlink-desc
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
   - type: Icon
@@ -50,14 +56,20 @@
     color: White
     iD: MobCyberneticBishopLHand
     visLayers: LHand
-  - type: SmartLinkArm
+  - type: SmartLinkHand
 
 - type: entity
   id: SmartlinkRightHand
   parent: RightHandCybernetic
   name: SmartLink right hand
-  description: A cybernetic right hand that allows its wearer to shoot "smart" bullets from any weapon.
+  description: A cybernetic right hand that allows its wearer to shoot "smart" bullets from any weapon. Only functions while the smartlink wiring in every hand is enabled.
   components:
+  - type: Cybernetics
+    canToggle: true
+    minClock: -1
+    maxClock: 1
+    overclockDesc: cyberware-breach-clk-up-smartlink-desc
+    underclockDesc: cyberware-breach-clk-dn-smartlink-desc
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
   - type: Icon
@@ -66,7 +78,7 @@
     color: White
     iD: MobCyberneticBishopRHand
     visLayers: RHand
-  - type: SmartLinkArm
+  - type: SmartLinkHand
 
 - type: entity
   id: RecoilAbsorberLeftHand
