@@ -21,6 +21,7 @@
   description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
   components:
   - type: Cybernetics
+    canToggle: true
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi
     state: eyes
@@ -46,6 +47,8 @@
   name: cybernetic security eyes
   description: A pair of cybernetic eyes that enhance your vision, featuring an integrated SecHUD.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Sprite
     state: eyes-sechud
   - type: Organ
@@ -62,6 +65,8 @@
   name: cybernetic medhud eyes
   description: A pair of cybernetic eyes that enhance your vision, featuring an integrated MedHUD.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Sprite
     state: eyes-medhud
   - type: Organ
@@ -79,6 +84,8 @@
   name: cybernetic diagnostic eyes
   description: A pair of cybernetic eyes that enhance your vision, featuring an integrated diagnostic hud.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Sprite
     state: eyes-diagnostic
   - type: Organ
@@ -102,6 +109,8 @@
   name: cybernetic heart
   description: A precision-tuned heart that slows down medicine absorption while hastening the absorption of poisons and narcotics resulting in weakened effects.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Sprite
     state: heart-on
   - type: Heart
@@ -140,6 +149,8 @@
   name: upgraded cybernetic heart
   description: A next-gen circulatory core that slowly delivers medicine throughout the body providing much better healing while heavily accelerating and weakening toxins and narcotics.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Sprite
     state: heart-u-on
   - type: Organ
@@ -172,6 +183,8 @@
   name: cybernetic liver
   description: A high-efficiency synthetic liver that neutralizes all negative effects of alcohol while preserving the buzz.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Liver
   - type: Organ
     intCap: 145
@@ -204,6 +217,8 @@
   name: cybernetic lungs
   description: Advanced synthetic lungs that breathe oxygen and nitrogen, ignore CO2, and resist most other atmospheric hazards.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Sprite
     layers:
       - state: lung-l
@@ -246,6 +261,8 @@
   name: upgraded cybernetic lungs
   description: A self-contained respiratory system that eliminates the need to breathe entirely and grants increased stamina recovery.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Sprite
     layers:
       - state: lung-u-l
