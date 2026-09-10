@@ -99,6 +99,10 @@
     targetBodyPart: Arm
     targetBodyPartSymmetry: Right
     componentsToPart:
+    - type: Cybernetics
+      canToggle: true
+      name: cyberware-mantis-blade-name
+      description: cyberware-mantis-blade-desc
     - type: MantisBladeArm
       actionProto: ActionToggleRightMantisBlade
 
@@ -111,6 +115,10 @@
     targetBodyPart: Arm
     targetBodyPartSymmetry: Left
     componentsToPart:
+    - type: Cybernetics
+      canToggle: true
+      name: cyberware-mantis-blade-name
+      description: cyberware-mantis-blade-desc
     - type: MantisBladeArm
       actionProto: ActionToggleLeftMantisBlade
 
