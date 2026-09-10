@@ -25002,3 +25002,79 @@ Entries:
         when using a speedloader
   id: 2868
   time: '2026-09-06T17:27:04.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Add
+      message: Xenobio to core.
+    - type: Add
+      message: Shaft miners to core. (lavaland is public)
+    - type: Add
+      message: Radio host to core.
+    - type: Add
+      message: NTR/BSO room to core.
+    - type: Add
+      message: AI turrets to core.
+    - type: Add
+      message: Brigmed to core.
+    - type: Add
+      message: Holopads to core.
+    - type: Add
+      message: Some cameras where needed to core.
+    - type: Add
+      message: Cloning to core.
+  id: 2869
+  time: '2026-09-06T20:47:40.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: >-
+        Significantly decreased the chances of the Tunnel Clown, Singuloth
+        Knights, Mime Assassin, Dark Priest, and Vox Raiders midrounds spawning.
+  id: 2870
+  time: '2026-09-07T01:37:34.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed all xenobio extract. Sorry for the long wait
+    - type: Fix
+      message: Xenobio should (hopefully) be less laggy
+    - type: Fix
+      message: Xenobio slime now should prioritize monkey to eat rather than people!
+  id: 2871
+  time: '2026-09-07T01:38:24.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: xenoborgs are now able to spawn naturally roundstart.
+    - type: Tweak
+      message: Nocturine is back to it's former glory.
+    - type: Tweak
+      message: 'Test buff for xenoborgs: base health 125 -> 175'
+    - type: Tweak
+      message: 'Test buff for xenoborgs: heavy health 250 -> 350'
+    - type: Tweak
+      message: >-
+        Test buff for xenoborgs: now have 25% ion resist but take 4x shock
+        damage
+  id: 2872
+  time: '2026-09-07T01:39:57.0000000+00:00'
+- author: balt-dev
+  changes:
+    - type: Add
+      message: Added a vinyl for Space Asshole.
+  id: 2873
+  time: '2026-09-07T01:42:57.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed SM logging
+  id: 2874
+  time: '2026-09-07T19:07:08.0000000+00:00'
+- author: Firemix
+  changes:
+    - type: Add
+      message: >-
+        Added interaction to fulton with emag, after emagging you can fultoning
+        ALL mobs 
+  id: 2875
+  time: '2026-09-08T11:46:03.0000000+00:00'

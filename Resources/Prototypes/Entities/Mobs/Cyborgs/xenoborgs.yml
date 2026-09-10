@@ -93,7 +93,7 @@
   - type: MobThresholds # tankier
     thresholds:
       0: Alive
-      250: Critical
+      350: Critical # goob - balance larp
       750: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
     stateAlertDict:
       Alive: BorgHealth
@@ -105,7 +105,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 190
+        damage: 300 # goob
       behaviors:
       - !type:PlaySoundBehavior
         sound:
