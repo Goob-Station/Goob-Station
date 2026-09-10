@@ -62,8 +62,6 @@ namespace Content.Server._Imp.Drone
 
         private void OnMapInit(Entity<DroneComponent> ent, ref MapInitEvent args)
         {
-            //UpdateBatteryAlert(ent);
-
             if (!TryComp<MindContainerComponent>(ent.Owner, out var mind) || !mind.HasMind)
                 _powerCell.SetDrawEnabled(ent.Owner, false);
         }
