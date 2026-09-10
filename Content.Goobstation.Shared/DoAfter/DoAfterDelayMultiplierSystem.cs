@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.DoAfter;
-using Content.Shared._Shitmed.Cybernetics;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
@@ -22,9 +21,6 @@ public sealed class DoAfterDelayMultiplierSystem : EntitySystem
     private void OnGetBodyPartMultiplier(Entity<DoAfterDelayMultiplierComponent> ent,
         ref BodyPartRelayedEvent<GetDoAfterDelayMultiplierEvent> args)
     {
-        if (TryComp(ent, out CyberneticsComponent? cybernetics) && cybernetics.Disabled)
-            args.Args.Multiplier *= 10f;
-
         args.Args.Multiplier *= ent.Comp.Multiplier;
     }
 
