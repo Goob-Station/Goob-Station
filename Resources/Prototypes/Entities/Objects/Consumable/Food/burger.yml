@@ -1422,3 +1422,82 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/mothroach_burger.rsi
     state: cecropia_mothroach
+
+- type: entity
+  parent: FoodBurgerBase
+  id: FoodBurgerCold
+  name: five below burger
+  description: COLD! COLD! COLD!
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - cold
+      - minty
+  - type: Sprite
+    state: fivealarm
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: FrostOil
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  parent: FoodBurgerBase
+  id: FoodBurgerHotCold
+  name: hellfire burger
+  description: The unity of opposites... in burger form!
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - cold
+  - type: Sprite
+    state: fivealarm
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: FrostOil
+          Quantity: 5
+        - ReagentId: CapsaicinOil
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Meat
+
+# Tastes like bun, COLD.
