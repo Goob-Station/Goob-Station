@@ -13,3 +13,7 @@
   copyright: '"Cartoon Arrow 08.wav" by Debsound of Freesound.org. Mixed from stereo to mono, merged with pierce.ogg in Resources\Audio\Weapons.'
   source: "https://freesound.org/people/Debsound/sounds/319550/"
 
+- files: ["hamon.ogg"]
+  license: "CC0-1.0"
+  copyright: "Taken from SOUND Effects Public Domain (No Copyrights) on youtube"
+  source: "https://www.youtube.com/watch?v=zoffflNdKcM"
