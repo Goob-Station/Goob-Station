@@ -161,7 +161,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <Label Name="MiningPointsLabel" HorizontalExpand="True"/>
                     <Button Name="MiningPointsClaimButton" Text="{Loc 'lathe-menu-mining-points-claim-button'}"/>
                 </BoxContainer>
-                <RichTextLabel Name="MiningPointsNoConnectionWarning"></RichTextLabel>
+                <RichTextLabel Name="MiningPointsNoConnectionWarning"/>
             </BoxContainer>
             <!-- End DeltaV Additions: Mining points -->
             <Label Text="{Loc 'lathe-menu-materials-title'}" Margin="5 5 5 5" HorizontalAlignment="Center"/>
