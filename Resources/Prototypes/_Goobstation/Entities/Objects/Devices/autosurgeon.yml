@@ -173,10 +173,18 @@
     - targetBodyPart: Arm
       targetBodyPartSymmetry: Right
       componentsToPart:
+      - type: Cybernetics
+        canToggle: true
+        name: cyberware-recoil-absorber-name
+        description: cyberware-recoil-absorber-desc
       - type: RecoilAbsorberArm
     - targetBodyPart: Arm
       targetBodyPartSymmetry: Left
       componentsToPart:
+      - type: Cybernetics
+        canToggle: true
+        name: cyberware-recoil-absorber-name
+        description: cyberware-recoil-absorber-desc
       - type: RecoilAbsorberArm
 
 - type: entity
