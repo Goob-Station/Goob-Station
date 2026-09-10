@@ -48,9 +48,18 @@ public sealed partial class CyberSanityComponent : Component
 
     #endregion
 
+    /// <summary>
+    /// Do not change this unless you want a balancing nightmare.
+    /// </summary>
+    [DataField]
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+
     [DataField]
     public TimeSpan NextUpdate;
 
+    /// <summary>
+    /// Used by the UI / some other spots so we don't need to copy paste the math everywhere it's checked.
+    /// </summary>
     [DataField]
     public float Rate;
 

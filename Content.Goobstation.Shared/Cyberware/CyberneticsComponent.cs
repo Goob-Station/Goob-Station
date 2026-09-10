@@ -72,7 +72,7 @@ public sealed partial class CyberneticsComponent : Component
     public float? ActiveDrain;
 
     /// <summary>
-    /// Drain while overloaded.
+    /// Extra drain while overloaded.
     /// </summary>
     [DataField]
     public float? OverloadDrain;
