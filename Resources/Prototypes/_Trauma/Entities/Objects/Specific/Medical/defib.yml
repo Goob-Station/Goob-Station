@@ -1,0 +1,11 @@
+# Needed to get rid of PowerCellDraw and ToggleCellDraw
+- type: entity
+  parent: DefibrillatorSyndicate
+  id: DefibrillatorSyndicateUnpowered
+  suffix: Always Powered
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        startingItem: PowerCellMicroreactor
+        disableEject: true

@@ -19,6 +19,8 @@
 - type: speciesBaseSprites
   id: MobVoxSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
     Head: MobVoxHead
     Snout: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking

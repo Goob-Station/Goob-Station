@@ -45,6 +45,8 @@ public sealed class LinkAccountManager : IPostInjectInit
             : new SharedRMCPatronTier(
                 tier.ShowOnCredits,
                 tier.GhostColor,
+                tier.GhostCosmetics, // Goob - ghost cosmetics
+                tier.GhostParticles, // Goob - ghost cosmetics
                 tier.LobbyMessage,
                 tier.RoundEndShoutout,
                 tier.Name,
@@ -68,7 +70,13 @@ public sealed class LinkAccountManager : IPostInjectInit
             ghostColor = new Robust.Shared.Maths.Color(sysColor.R, sysColor.G, sysColor.B, sysColor.A);
         }
 
-        _connected[player.UserId] = new SharedRMCPatronFull(sharedTier, linked, ghostColor, lobbyMessage, shoutouts);
+        // Goob start - ghost cosmetics
+        SharedRMCGhostCosmetics? ghostCosmetics = null;
+        if (patron is { } p && (p.GhostParticles != null || p.GhostHat != null || p.GhostMask != null))
+            ghostCosmetics = new SharedRMCGhostCosmetics(p.GhostParticles, p.GhostHat, p.GhostMask);
+        // Goob end
+
+        _connected[player.UserId] = new SharedRMCPatronFull(sharedTier, linked, ghostColor, ghostCosmetics, lobbyMessage, shoutouts); // Goob - ghost cosmetics
     }
 
     private void FinishLoad(ICommonSession player)
@@ -166,6 +174,49 @@ public sealed class LinkAccountManager : IPostInjectInit
         }
     }
 
+    // Goob start
+
+    public void SetGhostCosmetics(NetUserId user, string? particles, string? hat, string? mask)
+    {
+        if (GetPatron(user)?.Tier is not { } tier ||
+            !tier.GhostCosmetics && !tier.GhostParticles)
+        {
+            return;
+        }
+
+        if (!tier.GhostParticles)
+            particles = null;
+
+        if (!tier.GhostCosmetics)
+        {
+            hat = null;
+            mask = null;
+        }
+
+        var cosmetics = particles == null && hat == null && mask == null
+            ? null
+            : new SharedRMCGhostCosmetics(particles, hat, mask);
+
+        _db.SetGhostCosmetics(user, particles, hat, mask);
+
+        if (_connected.TryGetValue(user, out var connected))
+        {
+            connected = connected with { GhostCosmetics = cosmetics };
+            _connected[user] = connected;
+            PatronUpdated?.Invoke((user, connected));
+        }
+    }
+
+    public async Task ReloadPatron(ICommonSession player)
+    {
+        await LoadData(player, CancellationToken.None);
+        SendPatronStatus(player);
+
+        if (_connected.TryGetValue(player.UserId, out var connected))
+            PatronUpdated?.Invoke((player.UserId, connected));
+    }
+    // Goob end
+
     public async Task RefreshAllPatrons()
     {
         var patrons = await _db.GetAllPatrons();
@@ -225,13 +276,17 @@ public sealed class LinkAccountManager : IPostInjectInit
         if (_fauxPatronAssignments.TryGetValue(userId, out var tierId) &&
             _fauxTiers.TryGetValue(tierId, out var tier))
         {
+            // Goob start
+            var connected = _connected.GetValueOrDefault(userId);
             return new SharedRMCPatronFull(
                 Tier: tier,
                 Linked: true,
-                GhostColor: null,
-                LobbyMessage: null,
-                RoundEndShoutout: null
+                GhostColor: connected?.GhostColor,
+                GhostCosmetics: connected?.GhostCosmetics,
+                LobbyMessage: connected?.LobbyMessage,
+                RoundEndShoutout: connected?.RoundEndShoutout
             );
+            // Goob end
         }
 
         return _connected.GetValueOrDefault(userId);

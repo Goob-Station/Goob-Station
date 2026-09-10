@@ -80,6 +80,7 @@
     - Sheet
     - Metal
     - Steel
+    - ConstructionMaterial # Goob
 
 - type: entity
   parent: SheetSteel

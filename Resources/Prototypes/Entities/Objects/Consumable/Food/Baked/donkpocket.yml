@@ -25,7 +25,7 @@
 
 # Donkpocket
 
-# Warm gives +5 nutriment.
+# Warm gives +5 nutriment. # Goobstation - no, they don't.
 # Warm ones contain a small amount of Omnizine.
 
 - type: entity
@@ -59,7 +59,7 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Omnizine
           Quantity: 2
 
@@ -97,7 +97,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Omnizine
           Quantity: 4
 
@@ -131,7 +131,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Omnizine
           Quantity: 2
   - type: Sprite
@@ -167,7 +167,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Omnizine
           Quantity: 2
 
@@ -188,7 +188,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # Goobstation - junk food less useful
   - type: Sprite
     state: pizza
 
@@ -209,7 +209,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Omnizine
           Quantity: 2
 
@@ -249,7 +249,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Honk
           Quantity: 1
         - ReagentId: Omnizine
@@ -289,7 +289,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Omnizine
           Quantity: 2
         - ReagentId: Sugar
@@ -328,7 +328,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Omnizine
           Quantity: 2
 
@@ -365,7 +365,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Omnizine
           Quantity: 2
 
@@ -427,7 +427,7 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5 # Goobstation - junk food less useful
         - ReagentId: Fiber
           Quantity: 5
         - ReagentId: Omnizine

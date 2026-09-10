@@ -38,9 +38,6 @@ public sealed partial class BleedInflicterComponent : Component
     public FixedPoint2 ScalingSpeed = FixedPoint2.New(1);
 
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public FixedPoint2 SeverityPenalty = FixedPoint2.New(1);
-
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public FixedPoint2 Scaling = FixedPoint2.New(1);
 
     [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]

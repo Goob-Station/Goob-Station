@@ -1,0 +1,22 @@
+- type: entity
+  parent: Kudzu
+  id: SyndicateKudzu
+  suffix: Syndicate
+  components:
+  - type: Kudzu
+    growthTickChance: 0.5
+    spreadChance: 0.66
+  - type: DamageContacts
+    damage:
+      types:
+        Piercing: 3
+        Poison: 1.3
+    ignoreWhitelist:
+      components:
+      - IgnoreKudzu
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.15
+    sprintSpeedModifier: 0.15
+    ignoreWhitelist:
+      components:
+      - IgnoreKudzu

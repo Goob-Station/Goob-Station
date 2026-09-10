@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Chemistry;
 using Content.Goobstation.Common.Slasher.Events;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using JetBrains.Annotations;
@@ -43,7 +41,6 @@ public sealed class ReactiveSystem : EntitySystem
             var relayEv = new ShitRelayEventFixMeReactionEntityEvent();
             RaiseLocalEvent(uid, ref relayEv);
         }
-
     }
 }
 

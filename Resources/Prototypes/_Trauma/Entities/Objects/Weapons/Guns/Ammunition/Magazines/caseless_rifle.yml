@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseMagazinePistolCaselessRifle
+  id: MagazinePistolCaselessRiflePoison
+  name: pistol magazine (.25 caseless toxin)
+  description: 10-round magazine for the Cobra pistol. Intended to hold poisonous ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRiflePoison
+  - type: Sprite
+    layers:
+    - state: poison
+      sprite: _Trauma/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazinePistolCaselessRifle
+  id: MagazinePistolCaselessRifleTranquilizer
+  name: pistol magazine (.25 caseless tranq)
+  description: 10-round magazine for the Cobra pistol. Intended to hold tranquilizer ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifleTranquilizer
+  - type: Sprite
+    layers:
+    - state: tranq
+      sprite: _Trauma/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

@@ -31,7 +31,7 @@ public sealed partial class NerveSystemComponent : Component
 
     // Don't change, OR I will break your knees, filled up upon initialization.
     [ViewVariables(VVAccess.ReadOnly)]
-    public Dictionary<EntityUid, NerveComponent> Nerves = new();
+    public HashSet<EntityUid> Nerves = new();
 
     // Don't add manually!! Use built-in functions.
     [ViewVariables(VVAccess.ReadOnly)]
@@ -66,6 +66,9 @@ public sealed partial class NerveSystemComponent : Component
     public TimeSpan UpdateTime;
     public TimeSpan ReactionUpdateTime;
     public TimeSpan NextCritScream;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextUpdate;
 
     [DataField("painShockStun")]
     public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(2f);
@@ -249,4 +252,9 @@ public sealed partial class NerveSystemComponent : Component
         // :troll:
         { PainThresholdTypes.PainShockAndAgony, 85 },
     };
+
+    /// <summary>
+    /// Pre-sorted version of <see cref="PainThresholds"/> in descending order by value.
+    /// </summary>
+    public KeyValuePair<PainThresholdTypes, FixedPoint2>[]? SortedPainThresholds;
 }

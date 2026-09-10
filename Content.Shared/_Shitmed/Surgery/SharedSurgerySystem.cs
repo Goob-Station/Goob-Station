@@ -8,6 +8,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Surgery;
 using Content.Shared.Buckle.Components;
@@ -102,6 +103,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         SubscribeLocalEvent<SurgeryOrganSlotConditionComponent, SurgeryValidEvent>(OnOrganSlotConditionValid);
         SubscribeLocalEvent<SurgeryPartPresentConditionComponent, SurgeryValidEvent>(OnPartPresentConditionValid);
         SubscribeLocalEvent<SurgeryTraumaPresentConditionComponent, SurgeryValidEvent>(OnTraumaPresentConditionValid);
+        SubscribeLocalEvent<SurgeryTraumaTreatableConditionComponent, SurgeryValidEvent>(OnTraumaTreatableConditionValid);
         SubscribeLocalEvent<SurgeryBleedsPresentConditionComponent, SurgeryValidEvent>(OnBleedsPresentConditionValid);
         SubscribeLocalEvent<SurgeryMarkingConditionComponent, SurgeryValidEvent>(OnMarkingPresentValid);
         SubscribeLocalEvent<SurgeryBodyComponentConditionComponent, SurgeryValidEvent>(OnBodyComponentConditionValid);
@@ -207,12 +209,14 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
     private void OnWoundedValid(Entity<SurgeryWoundedConditionComponent> ent, ref SurgeryValidEvent args)
     {
-        if (!TryComp(args.Part, out WoundableComponent? partWoundable)
-            || _wounds.GetWoundableSeverityPoint(
-                args.Part,
-                partWoundable,
-                ent.Comp.DamageGroup,
-                healable: true) <= 0)
+        if (!TryComp(args.Part, out WoundableComponent? partWoundable))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        if (_wounds.GetWoundableSeverityPoint(args.Part, partWoundable, ent.Comp.DamageGroup, healable: true) <= 0
+            && !HasComp<IncisionOpenComponent>(args.Part))
             args.Cancelled = true;
     }
 
@@ -374,6 +378,15 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             args.Cancelled = true;
     }
 
+    private void OnTraumaTreatableConditionValid(Entity<SurgeryTraumaTreatableConditionComponent> ent, ref SurgeryValidEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (_trauma.TryGetSurgicallyTreatableTraumas(args.Part, out _) == ent.Comp.Inverted)
+            args.Cancelled = true;
+    }
+
     private void OnBleedsPresentConditionValid(Entity<SurgeryBleedsPresentConditionComponent> ent, ref SurgeryValidEvent args)
     {
         if (!TryComp<WoundableComponent>(args.Part, out var woundable))
@@ -382,9 +395,26 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             return;
         }
 
-        if (ent.Comp.Inverted == woundable.Bleeds > 0
-            && !HasComp<BleedersClampedComponent>(args.Part))
-            args.Cancelled = true;
+        var bleeding = false;
+        foreach (var woundEnt in _wounds.GetWoundableWounds(args.Part, woundable))
+        {
+            if (TryComp<BleedInflicterComponent>(woundEnt, out var bleeds) && bleeds.IsBleeding)
+            {
+                bleeding = true;
+                break;
+            }
+        }
+
+        if (ent.Comp.Inverted)
+        {
+            if (bleeding && !HasComp<BleedersClampedComponent>(args.Part))
+                args.Cancelled = true;
+        }
+        else
+        {
+            if (!bleeding)
+                args.Cancelled = true;
+        }
     }
 
     private void OnMarkingPresentValid(Entity<SurgeryMarkingConditionComponent> ent, ref SurgeryValidEvent args)

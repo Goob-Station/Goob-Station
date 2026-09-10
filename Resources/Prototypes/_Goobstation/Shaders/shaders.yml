@@ -35,3 +35,8 @@
   path: "/Textures/_Goobstation/Shaders/sandevistan_glitch.swsl"
   params:
     intensity: 1.0
+
+- type: shader
+  id: AiMachineView
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/ai_machine_view.swsl"

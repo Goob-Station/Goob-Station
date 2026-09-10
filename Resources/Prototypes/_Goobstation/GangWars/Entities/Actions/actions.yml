@@ -1,0 +1,49 @@
+# Gang member action: toggle territory overlay
+- type: entity
+  id: ActionGangMemberToggleOverlay
+  name: Toggle Vision
+  description: Toggle your territory vision.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Gangs/actions.rsi, state: toggle_overlay }
+  - type: InstantAction
+    event: !type:GangMemberToggleOverlayEvent
+
+# Gang Leader action: summon / relocate personal gang locker
+- type: entity
+  id: ActionGangLeaderSummonLocker
+  name: Summon Locker
+  description: Summon your gang locker. If already placed, Relocate it instead.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 900 # 15 minutes
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Gangs/actions.rsi, state: set_base }
+  - type: InstantAction
+    event: !type:GangLeaderSummonLockerEvent
+
+- type: entity
+  id: ActionGangLeaderMemberOffer
+  name: Recruit
+  description: Offer someone a place in your gang. You can only recruit three members.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Gangs/actions.rsi, state: invite }
+  - type: TargetAction
+    range: 3.5
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    blacklist:
+      components:
+      - AntagImmune
+    event: !type:GangLeaderMemberOfferEvent

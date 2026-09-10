@@ -1,0 +1,12 @@
+phantom-pain-line-1 = Don't touch me. I have phantom pain.
+phantom-pain-line-2 = I'm going to call the admins if you hit me again, I have phantom pain.
+phantom-pain-line-3 = ow. ow. that actually hurts, i have phantom pain
+phantom-pain-line-4 = can you please stop, my phantom pain is acting up
+phantom-pain-line-5 = dude i literally have phantom pain in that arm
+phantom-pain-line-6 = ahelping this btw, phantom pain isn't a joke
+phantom-pain-line-7 = hey, OOC, do not hit me there. phantom pain. thanks.
+phantom-pain-line-8 = every time you hit me my phantom pain flares up, please stop
+phantom-pain-line-9 = i'm not metagaming, i just have phantom pain
+phantom-pain-line-10 = STOP. PHANTOM PAIN.
+phantom-pain-line-11 = i have a medical condition (phantom pain) please respect that
+phantom-pain-line-12 = that's the third time. i'm counting. phantom pain.
