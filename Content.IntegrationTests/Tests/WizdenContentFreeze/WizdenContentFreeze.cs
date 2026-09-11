@@ -24,7 +24,7 @@ public sealed class WizdenContentFreeze
         var protoMan = server.ProtoMan;
 
         var recipesCount = protoMan.Count<FoodRecipePrototype>();
-        var recipesLimit = 224; // Goobstation lmao?
+        var recipesLimit = 999; // I do not care about your recipe freeze, wizden
 
         if (recipesCount > recipesLimit)
         {
