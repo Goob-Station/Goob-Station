@@ -1,3 +1,5 @@
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
 namespace Content.Goobstation.Shared.Cyberpsychosis;
 
 /// <summary>
@@ -54,7 +56,7 @@ public sealed partial class CyberSanityComponent : Component
     [DataField]
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
 
-    [DataField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextUpdate;
 
     /// <summary>
