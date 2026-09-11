@@ -55,3 +55,77 @@
   group: Savory
   solids:
     HeadMoth: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCottonPizzaHot
+  name: flamin hot cotton pizza recipe
+  result: FoodPizzaCottonHot
+  time: 30
+  group: Moth
+  solids:
+    FoodDoughCottonFlat: 1
+    PyrottonBol: 4
+
+- type: microwaveMealRecipe
+  id: RecipeColdBurger
+  name: five below burger recipe
+  result: FoodBurgerCold
+  time: 10
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    FoodMeat: 1
+    FoodChillyPepper: 3
+
+- type: microwaveMealRecipe
+  id: RecipeHotColdBurger
+  name: five below burger recipe
+  result: FoodBurgerHotCold
+  time: 10
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    FoodMeat: 1
+    FoodChiliPepper: 2
+    FoodChillyPepper: 2
+
+- type: microwaveMealRecipe
+  id: RecipeColdChiliAlt
+  name: cold chili recipe
+  result: FoodSoupChiliCold
+  time: 20
+  group: Soup
+  solids:
+    FoodBowlBig: 1
+    FoodChillyPepper: 1
+    FoodMeatCutlet: 1
+    FoodOnionSlice: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeHotColdChili
+  name: hellfire chili recipe
+  result: FoodSoupChiliHotCold
+  time: 20
+  group: Soup
+  solids:
+    FoodBowlBig: 1
+    FoodChiliPepper: 1
+    FoodChillyPepper: 1
+    FoodMeatCutlet: 1
+    FoodOnionSlice: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeGappleTartAlt
+  name: golden apple streusel tart recipe
+  result: FoodTartGapple
+  time: 15
+  group: Pie
+  reagents:
+    Sugar: 5
+    Milk: 5
+  solids:
+    FoodDoughPie: 1
+    FoodGoldenApple: 2
+    FoodPlateTin: 1
