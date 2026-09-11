@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Cyberware.HackingMenu;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -147,12 +146,6 @@ public sealed partial class CyberneticsComponent : Component
     /// </summary>
     [DataField]
     public LocId? UnderclockDesc;
-
-    /// <summary>
-    /// Unique ops for each implant. This is for things like the sandevistans safety being turned off.
-    /// </summary>
-    [DataField]
-    public List<CyberwareBreachOpDef> UniqueOps = new();
 }
 
 /// <summary>
