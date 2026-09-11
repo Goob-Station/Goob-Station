@@ -184,7 +184,6 @@
   description: A high-efficiency synthetic liver that neutralizes all negative effects of alcohol while preserving the buzz.
   components:
   - type: Cybernetics
-    canToggle: true
   - type: Liver
   - type: Organ
     intCap: 145
@@ -218,7 +217,6 @@
   description: Advanced synthetic lungs that breathe oxygen and nitrogen, ignore CO2, and resist most other atmospheric hazards.
   components:
   - type: Cybernetics
-    canToggle: true
   - type: Sprite
     layers:
       - state: lung-l

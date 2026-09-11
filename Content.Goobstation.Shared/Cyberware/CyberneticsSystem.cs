@@ -7,6 +7,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Emp;
+using Content.Shared.Movement.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
@@ -168,8 +169,44 @@ public sealed class CyberneticsSystem : EntitySystem
             var changed = new CyberwareChangedEvent(body);
             RaiseLocalEvent(ent, ref changed);
 
+            SuspendMovement(ent, body, enabled);
             _partEffect.SetEffectsEnabled((ent, part), enabled);
         }
+    }
+
+    private void SuspendMovement(Entity<CyberneticsComponent> ent, EntityUid body, bool enabled)
+    {
+        if (!TryComp<MovementBodyPartComponent>(ent, out var movement))
+            return;
+
+        if (enabled)
+        {
+            if (!TryComp<SuspendedMovementComponent>(ent, out var authored))
+                return;
+
+            movement.WalkSpeed = authored.WalkSpeed;
+            movement.SprintSpeed = authored.SprintSpeed;
+            movement.Acceleration = authored.Acceleration;
+            RemCompDeferred<SuspendedMovementComponent>(ent);
+        }
+        else
+        {
+            if (HasComp<SuspendedMovementComponent>(ent))
+                return;
+
+            var authored = AddComp<SuspendedMovementComponent>(ent);
+            authored.WalkSpeed = movement.WalkSpeed;
+            authored.SprintSpeed = movement.SprintSpeed;
+            authored.Acceleration = movement.Acceleration;
+
+            movement.WalkSpeed = MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
+            movement.SprintSpeed = MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
+            movement.Acceleration = MovementSpeedModifierComponent.DefaultAcceleration;
+        }
+
+        Dirty(ent.Owner, movement);
+
+        _body.UpdateMovementSpeed(body);
     }
 
     public void SetClock(Entity<CyberneticsComponent> ent, int step)
