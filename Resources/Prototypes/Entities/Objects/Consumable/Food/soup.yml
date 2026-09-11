@@ -1276,7 +1276,7 @@
 
 ##Goobstation
 - type: entity
-  name: bowl of hellfire chili
+  name: hellfire chili
   parent: FoodBowlBase
   id: FoodSoupChiliHotCold
   description: Ever wondered what hellfire tastes like?
@@ -1286,9 +1286,10 @@
       - spicy
       - cold
   - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/chilly_pepper_food.rsi
     layers:
     - state: bowl
-    - state: chili-hot
+    - state: chili-hotcold
   - type: SolutionContainerManager
     solutions:
       food:

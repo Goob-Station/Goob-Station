@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by cwestkaemper",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "burger-cold"
+    },
+    {
+      "name": "burger-hotcold"
+    },
+    {
+      "name": "chili-hotcold"
+    },
+    {
+      "name": "bowl"
+    }
+  ]
+}

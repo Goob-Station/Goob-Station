@@ -1443,9 +1443,9 @@
     flavors:
       - meaty
       - cold
-      - minty
   - type: Sprite
-    state: fivealarm
+    sprite: _Goobstation/Objects/Consumable/Food/chilly_pepper_food.rsi
+    state: burger-cold
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1482,7 +1482,8 @@
       - meaty
       - cold
   - type: Sprite
-    state: fivealarm
+    sprite: _Goobstation/Objects/Consumable/Food/chilly_pepper_food.rsi
+    state: burger-hotcold
   - type: SolutionContainerManager
     solutions:
       food:

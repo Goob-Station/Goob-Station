@@ -773,8 +773,8 @@
     - bread
     - spicy
   - type: Sprite
-    layers:
-    - state: cotton-pizza
+    sprite: _Goobstation/Objects/Consumable/Food/cotton-pizza-hot.rsi
+    state: cotton-pizza-hot
   - type: Edible
     requiresSpecialDigestion: true
   - type: SliceableFood
@@ -801,7 +801,7 @@
   name: slice of flamin hot cotton pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaCottonHotSlice
-  description: A slice of cotton pizza. Cotton included.
+  description: A slice of hot cotton pizza. Extra spicy!
   components:
   - type: FlavorProfile
     flavors:
@@ -809,10 +809,10 @@
     - bread
     - spicy
   - type: Sprite
-    layers:
-    - state: cotton-slice
+    sprite: _Goobstation/Objects/Consumable/Food/cotton-pizza-hot.rsi
+    state: cotton-slice-hot
   - type: Item
-    heldPrefix: cotton-slice
+    heldPrefix: cotton-slice-hot
   - type: Tag
     tags:
     - ClothMade
