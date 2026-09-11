@@ -31,9 +31,9 @@
 - files: ["ui_startup.ogg"]
   license: "CC-BY-3.0"
   copyright: "Created by Loltart using sounds from Pixabay, gohminghui88 (Freesound), and FNX_Sound"
-  source: ["https://pixabay.com/sound-effects/musical-startup-sound-variation-2-315893/",
-    "https://pixabay.com/sound-effects/musical-imminent2-80967/",
-    "https://pixabay.com/sound-effects/musical-wayki-x-fnxsound-synthgranular-reggaeton-espacial-amaj-100bpm-trifido-386912/"]
+  source: ["https://pixabay.com/sound-effects/musical-startup-sound-variation-2-315893/"]
+#    "https://pixabay.com/sound-effects/musical-imminent2-80967/",
+#    "https://pixabay.com/sound-effects/musical-wayki-x-fnxsound-synthgranular-reggaeton-espacial-amaj-100bpm-trifido-386912/"]
 
 - files: ["ui_click.ogg"]
   license: "CC0-1.0"
