@@ -66,15 +66,11 @@ public sealed class SmartLinkSystem : EntitySystem
     private void OnShot(Entity<SmartLinkComponent> ent, ref AmmoShotUserEvent args)
     {
         var (uid, comp) = ent;
-        var clock = _cybernetics.LowestClock<SmartLinkHandComponent>(uid);
-
-        if (clock < 0)
-            return;
 
         if (!TryComp<GunComponent>(args.Gun, out var gun))
             return;
 
-        var overclocked = clock >= 1;
+        var overclocked = _cybernetics.LowestClock<SmartLinkHandComponent>(uid) >= 1;
         var target = gun.Target;
 
         if (overclocked && !IsLiving(target) && gun.ShootCoordinates is { } aim)

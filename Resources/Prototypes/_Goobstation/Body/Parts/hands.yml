@@ -44,10 +44,8 @@
   components:
   - type: Cybernetics
     canToggle: true
-    minClock: -1
     maxClock: 1
     overclockDesc: cyberware-breach-clk-up-smartlink-desc
-    underclockDesc: cyberware-breach-clk-dn-smartlink-desc
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
   - type: Icon
@@ -66,10 +64,8 @@
   components:
   - type: Cybernetics
     canToggle: true
-    minClock: -1
     maxClock: 1
     overclockDesc: cyberware-breach-clk-up-smartlink-desc
-    underclockDesc: cyberware-breach-clk-dn-smartlink-desc
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/morpheus/morpheus_main.rsi
   - type: Icon
