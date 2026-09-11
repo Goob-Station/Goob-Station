@@ -25078,3 +25078,13 @@ Entries:
         ALL mobs 
   id: 2875
   time: '2026-09-08T11:46:03.0000000+00:00'
+- author: ishkab, Jerulean, rivermyth
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the mass insomnia that's gripped the station. Falling asleep and
+        the many ways to snooze work again.
+    - type: Fix
+      message: Cleanades (and other smoke-spawning things) work again
+  id: 2876
+  time: '2026-09-11T01:07:18.0000000+00:00'
