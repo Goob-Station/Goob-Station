@@ -47,6 +47,9 @@ public sealed class CyberneticsSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        if (!_net.IsServer)
+            return;
+
         var query = EntityQueryEnumerator<CyberneticsComponent>();
         while (query.MoveNext(out var uid, out var ware))
         {
@@ -270,14 +273,9 @@ public sealed class CyberneticsSystem : EntitySystem
 
     private void ShockOwner(Entity<CyberneticsComponent> ent, BodyPartComponent part, EntityUid body)
     {
-        if (!TryComp<DamageableComponent>(ent, out var damageable))
-            return;
-
         _damageable.TryChangeDamage(body,
             ent.Comp.EmpDamage,
             ignoreResistances: true,
-            targetPart: _body.GetTargetBodyPart(part),
-            damageable: damageable);
-        Dirty(ent.Owner, damageable);
+            targetPart: _body.GetTargetBodyPart(part));
     }
 }
