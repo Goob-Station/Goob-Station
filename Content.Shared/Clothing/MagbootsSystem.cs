@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Gravity; // Goobstation
 using Content.Shared.Alert;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Electrocution;
@@ -12,7 +11,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared.Clothing;
 
-public sealed class SharedMagbootsSystem : EntitySystem
+public sealed partial class SharedMagbootsSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
@@ -28,16 +27,7 @@ public sealed class SharedMagbootsSystem : EntitySystem
         SubscribeLocalEvent<MagbootsComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<MagbootsComponent, IsWeightlessEvent>(OnIsWeightless);
         SubscribeLocalEvent<MagbootsComponent, InventoryRelayedEvent<IsWeightlessEvent>>(OnIsWeightless);
-        SubscribeLocalEvent<MagbootsComponent, ItemToggleActivateAttemptEvent>(OnToggleActivateAttempt); // Goobstation
-    }
-
-    private void OnToggleActivateAttempt(Entity<MagbootsComponent> ent, ref ItemToggleActivateAttemptEvent args)
-    {
-        if (TryComp<FlipGravityComponent>(args.User, out var flip))
-        {
-            _electro.TryDoElectrocution(args.User.Value, null, flip.Damage, flip.Duration, true, ignoreInsulation: true);
-            args.Cancelled = true;
-        }
+        SubscribeLocalEvent<MagbootsComponent, ItemToggleActivateAttemptEvent>(OnToggleActivateAttempt); // Goob
     }
 
     private void OnToggled(Entity<MagbootsComponent> ent, ref ItemToggledEvent args)

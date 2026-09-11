@@ -77,14 +77,6 @@ public sealed class VomitSystem : EntitySystem
     /// </summary>
     public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f, bool force = false, ProtoId<ReagentPrototype>? reagent = null) // Goobstation - Added reagent
     {
-        // goob start
-        var beforeEv = new BeforeVomitEvent();
-        RaiseLocalEvent(uid, ref beforeEv);
-
-        if (beforeEv.Cancelled)
-            return;
-        // goob end
-
         // Vomit only if entity is alive
         // Ignore condition if force was set to true
         if (!force && _mobState.IsDead(uid))
@@ -96,7 +88,7 @@ public sealed class VomitSystem : EntitySystem
         var ev = new TryVomitEvent(solution, force);
         RaiseLocalEvent(uid, ref ev);
 
-        if (!ev.Handled)
+        if (!ev.Handled || ev.Cancelled) // Goobstation - added Cancelled
             return;
 
         // Vomiting makes you hungrier and thirstier
@@ -158,4 +150,4 @@ public sealed class VomitSystem : EntitySystem
 }
 
 [ByRefEvent]
-public record struct TryVomitEvent(Solution Sol, bool Forced = false, bool Handled = false);
+public record struct TryVomitEvent(Solution Sol, bool Forced = false, bool Handled = false, bool Cancelled = false); // Goobstation - Added cancelled

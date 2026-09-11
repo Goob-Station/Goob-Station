@@ -24,8 +24,8 @@ public sealed class VomitChemEffectSystem : EntitySystem
         SubscribeLocalEvent<VomitChemComponent, ComponentInit>(OnInit);
 
         _allReagents = _proto.EnumeratePrototypes<ReagentPrototype>()
-        .Where(x => !x.Abstract)
-        .Select(x => new ProtoId<ReagentPrototype>(x.ID)).ToList();
+                        .Where(x => !x.Abstract)
+                        .Select(x => new ProtoId<ReagentPrototype>(x.ID)).ToList();
     }
 
     private void OnInit(Entity<VomitChemComponent> ent, ref ComponentInit args)
