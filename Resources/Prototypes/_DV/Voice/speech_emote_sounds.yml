@@ -10,11 +10,11 @@
     Laugh:
       collection: HarpyLaugh
     Sneeze:
-      collection: MaleSneezes
+      collection: FemaleSneezes # Goob - harpy emotes fix
     Cough:
-      collection: MaleCoughs
+      collection: FemaleCoughs # Goob - harpy emotes fix
     Sigh:
-      collection: MaleSigh
+      collection: HarpySigh # Goob - harpy emotes fix
     Crying:
       collection: HarpyCry
     Whistle:
@@ -39,8 +39,8 @@
       collection: HarpyBeeps
     Rev:
       collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
+    Click:
+      collection: HarpyClicks
     Chitter:
       collection: HarpyChitter
     Squeak:
@@ -85,6 +85,38 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+# Goobstation start
+    Mars:
+       collection: Mars 
+     Yawn:
+       collection: HarpyYawn 
+     Bagawk:
+       path: /Audio/_Mono/Voice/bagawk.ogg 
+     Flap: 
+       path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg 
+     Gnash: 
+       collection: FeroxiGnashes 
+     Hoot: 
+       path: /Audio/_Goobstation/Voice/Harpy/owl_hoot.ogg 
+     Chime: 
+       path: /Audio/Machines/chime.ogg 
+     Buzz: 
+       path: /Audio/Machines/buzz-sigh.ogg 
+     Buzz-Two: 
+       path: /Audio/Machines/buzz-two.ogg 
+     Ping: 
+       path: /Audio/Effects/Cargo/ping.ogg 
+     Boop: 
+       path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg 
+     Whirr: 
+       collection: IPCWhirrs 
+     Squish: 
+       collection: Squishes 
+     Bubble: 
+       collection: Bubbles 
+     Pop:
+       collection: Pops
+# Goobstation end 
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -100,7 +132,7 @@
     Cough:
       collection: MaleCoughs
     Sigh:
-      collection: MaleSigh
+      collection: HarpySigh # Goob - harpy emotes fix
     Crying:
       collection: HarpyCry
     Whistle:
@@ -125,8 +157,8 @@
       collection: HarpyBeeps
     Rev:
       collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
+    Click:
+      collection: HarpyClicks
     Chitter:
       collection: HarpyChitter
     Squeak:
@@ -173,6 +205,36 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+# Goobstation start
+    Yawn:
+       collection: HarpyYawn 
+     Bagawk:
+       path: /Audio/_Mono/Voice/bagawk.ogg 
+     Flap: 
+       path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg 
+     Gnash: 
+       collection: FeroxiGnashes 
+     Hoot: 
+       path: /Audio/_Goobstation/Voice/Harpy/owl_hoot.ogg 
+     Chime: 
+       path: /Audio/Machines/chime.ogg 
+     Buzz: 
+       path: /Audio/Machines/buzz-sigh.ogg 
+     Buzz-Two: 
+       path: /Audio/Machines/buzz-two.ogg 
+     Ping: 
+       path: /Audio/Effects/Cargo/ping.ogg 
+     Boop: 
+       path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg 
+     Whirr: 
+       collection: IPCWhirrs 
+     Squish: 
+       collection: Squishes 
+     Bubble: 
+       collection: Bubbles 
+     Pop:
+       collection: Pops
+# Goobstation End
 
 - type: emoteSounds
   id: FemaleVulpkanin
