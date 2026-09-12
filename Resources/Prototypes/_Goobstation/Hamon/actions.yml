@@ -1,0 +1,71 @@
+- type: entity
+  id: ActionPredictNextLine
+  name: Your next line is...
+  description: Predict the next line of your opponent.
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: ranged_tentacle
+  - type: TargetAction
+    range: 4
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event: !type:HamonNextLineEvent
+
+- type: entity
+  id: ActionInfuseHamon
+  name: Infuse hamon
+  description: Infuse a object with hamon.
+  components:
+  - type: Action
+    useDelay: 40
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: ranged_tentacle
+  - type: TargetAction
+    range: 4
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HamonInfuseable
+    event: !type:InfuseWithHamonEvent
+
+- type: entity
+  id: ActionHamonOverdrive
+  name: Overdrive
+  description: Infuse your fists with pure hamon energy.
+  components:
+  - type: Action
+    useDelay: 120
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: ranged_tentacle
+  - type: InstantAction
+    event: !type:OverdriveActivateEvent
+  - type: SpeakOnAction
+    sentence: action-speech-hamon-overdrive
+
+- type: entity
+  id: ActionAssPull
+  name: Ass pull
+  description: Pull something outta your ass.
+  components:
+  - type: Action
+    useDelay: 500
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Hastur/actions.rsi
+      state: ranged_tentacle
+  - type: InstantAction
+    event: !type:AssPullEvent

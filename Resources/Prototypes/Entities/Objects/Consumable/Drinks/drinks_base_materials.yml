@@ -7,6 +7,16 @@
   abstract: true
   id: DrinkBaseMaterialGlass
   components:
+  # <Goob>
+  - type: HamonInfuseable
+  - type: AddComponentsOnHamonInfused
+    components:
+    - type: Reflect
+      reflectProb: 0.95
+      reflects:
+      - Energy
+      - Magic # Vampire magic
+  # </Goob>
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyGlass
