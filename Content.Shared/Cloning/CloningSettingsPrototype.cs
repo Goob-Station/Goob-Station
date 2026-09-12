@@ -67,6 +67,13 @@ public sealed partial class CloningSettingsPrototype : IPrototype, IInheritingPr
     public bool CopyImplants = true;
 
     /// <summary>
+    ///     Goobstation
+    ///     Whether or not to copy knowledge.
+    /// </summary>
+    [DataField]
+    public bool CopyKnowledge = true;
+
+    /// <summary>
     ///     Should infinite status effects applied to an entity be copied or not?
     /// </summary>
     [DataField]
