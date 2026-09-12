@@ -100,7 +100,6 @@
     targetBodyPartSymmetry: Right
     componentsToPart:
     - type: MantisBladeArm
-      actionProto: ActionToggleRightMantisBlade
 
 - type: entity
   parent: BaseAutosurgeonSyndicateSingle
@@ -112,7 +111,6 @@
     targetBodyPartSymmetry: Left
     componentsToPart:
     - type: MantisBladeArm
-      actionProto: ActionToggleLeftMantisBlade
 
 - type: entity
   parent: BaseAutosurgeonSyndicateSingle

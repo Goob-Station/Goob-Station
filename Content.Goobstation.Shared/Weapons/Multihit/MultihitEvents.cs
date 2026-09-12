@@ -5,6 +5,17 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Weapons.Multihit;
 
+
+[ByRefEvent]
+public struct MultihitGetWeaponsEvent(EntityUid user, EntityUid weapon, float damageMultiplier, TimeSpan delay)
+{
+    public readonly EntityUid User = user;
+    public readonly EntityUid Weapon = weapon;
+    public float DamageMultiplier = damageMultiplier;
+    public TimeSpan Delay = delay;
+    public readonly List<EntityUid> Weapons = new();
+}
+
 [Serializable, NetSerializable, ImplicitDataDefinitionForInheritors]
 public abstract partial class BaseMultihitUserConditionEvent : HandledEntityEventArgs
 {
