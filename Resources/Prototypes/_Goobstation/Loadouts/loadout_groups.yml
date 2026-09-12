@@ -351,6 +351,15 @@
   loadouts:
   - AtmosEnvirogloves
 
+- type: loadoutGroup
+  id: AtmosphericTechnicianBelt
+  minLimit: 1
+  maxLimit: 1
+  name: loadout-group-atmospheric-technician-belt
+  loadouts:
+  - AtmosphericTechnicianUtilityBelt
+  - AtmosphericTechnicianAtmosBelt
+
 # Chief Engineer
 
 - type: loadoutGroup
