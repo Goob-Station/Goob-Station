@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterBase, AllowSuitStorageClothingGasTanks] # goob - QOL for vox players
   id: ClothingOuterWinterCoat
   name: winter coat
   description: A heavy jacket made from 'synthetic' animal furs.
