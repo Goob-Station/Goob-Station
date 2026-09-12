@@ -1,6 +1,8 @@
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using System.Collections.Frozen;
 using System.Text;
 
 namespace Content.Shared._EinsteinEngines.Language.Systems;
@@ -35,14 +37,21 @@ public abstract class SharedLanguageSystem : EntitySystem
     /// </summary>
     public static LanguagePrototype Universal { get; private set; } = default!;
 
+    /// <summary>
+    /// A cached instances of all <see cref="LanguagePrototype>"/>
+    /// </summary>
+    public static FrozenDictionary<string, LanguagePrototype>? AllLanguages;
+
     [Dependency] protected readonly IPrototypeManager _prototype = default!;
     [Dependency] protected readonly SharedGameTicker _ticker = default!;
+    [Dependency] protected readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
         Universal = _prototype.Index<LanguagePrototype>("Universal");
          // Initialize the Psychomantic prototype
         Psychomantic = _prototype.Index<LanguagePrototype>(PsychomanticPrototype);
+        _prototype.TryGetInstances<LanguagePrototype>(out AllLanguages);
     }
 
     public LanguagePrototype? GetLanguagePrototype(ProtoId<LanguagePrototype> id)

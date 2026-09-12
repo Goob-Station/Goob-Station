@@ -22,6 +22,8 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
+using Robust.Shared.Random;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Goobstation.Shared.Sandevistan;
 
@@ -35,6 +37,7 @@ public sealed class SandevistanSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private const string SlowfieldFixtureId = "sandevistan-slowfield";
 
@@ -146,7 +149,12 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnInit(Entity<SandevistanUserComponent> ent, ref ComponentInit args)
     {
-        _alerts.ShowAlert(ent.Owner, ent.Comp.LoadAlert);
+        if (ent.Comp.ShowAlert)
+            _alerts.ShowAlert(ent.Owner, ent.Comp.LoadAlert);
+
+        if (ent.Comp.RandomThreshold)
+            RandomizeThresholds(ent.AsNullable(), ent.Comp.Min, ent.Comp.Max);
+
         Dirty(ent);
     }
 
@@ -256,6 +264,28 @@ public sealed class SandevistanSystem : EntitySystem
 
         if (wasActive)
             Dirty(uid, comp);
+    }
+
+    private void RandomizeThresholds(Entity<SandevistanUserComponent?> ent, int min, int max)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
+            return;
+
+        if (ent.Comp.Thresholds.Count == 0)
+            return;
+
+        if (_netManager.IsServer)
+        {
+            var newThresholds = new Dictionary<SandevistanState, FixedPoint2>();
+
+            foreach (var state in ent.Comp.Thresholds.Keys)
+            {
+                newThresholds[state] = FixedPoint2.New(_random.Next(min, max));
+            }
+
+            ent.Comp.Thresholds = newThresholds;
+            Dirty(ent);
+        }
     }
 
     #region Afterimage Methods
