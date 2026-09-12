@@ -627,3 +627,25 @@
     state: control
   content:
   - ClothingModsuitResearchDirectorPowerCell
+
+# Brigmedic
+
+- type: selectableSet
+  id: VoidsuitSelectorBrigMedVoidsuit
+  name: selectable-set-research-director-voidsuit-name
+  description: selectable-set-research-director-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitBrigmedic
+
+- type: selectableSet
+  id: VoidsuitSelectorBrigMedHardsuit
+  name: selectable-set-research-director-modsuit-name
+  description: selectable-set-research-director-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/brigmed.rsi
+    state: control
+  content:
+  - ClothingModsuitBrigMedPowerCell
