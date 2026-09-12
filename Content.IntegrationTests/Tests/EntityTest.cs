@@ -59,7 +59,8 @@ namespace Content.IntegrationTests.Tests
             // Goobstation edit end
 
             // Goob start run this test in batches of 10k because fuck you. we got too much shit.
-            const int batchSize = 10000;
+            // Omu im preemptively lowering this again I see too many OOM's and i don't trust it
+            const int batchSize = 5000; // Bleak
 
             for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
@@ -254,7 +255,8 @@ namespace Content.IntegrationTests.Tests
                 .ToList();
 
             // Goob start run this test in batches of 10k because fuck you. we got too much shit.
-            const int batchSize = 10000;
+            // Omu im preemptively lowering this again I see too many OOM's and i don't trust it
+            const int batchSize = 5000; // Bleak
 
             for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
@@ -766,6 +768,12 @@ namespace Content.IntegrationTests.Tests
             {
                 await TestContext.Progress.WriteLineAsync(
                     $"Entering branch: #{subset.First().Index}-{subset.Last().Index} ({subset.Count})");
+
+                if (subset.Count <= 16)
+                {
+                    await TestContext.Progress.WriteLineAsync(
+                        $"Remaining prototypes: {string.Join(", ", subset.Select(p => $"#{p.Index} {p.Id}"))}");
+                }
 
                 if (subset.Count == 0)
                     return;
