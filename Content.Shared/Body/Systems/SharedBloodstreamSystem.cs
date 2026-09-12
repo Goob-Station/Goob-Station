@@ -38,7 +38,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     public static readonly EntProtoId Bloodloss = "StatusEffectBloodloss";
 
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
-    [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
+    [Dependency] public readonly SharedSolutionContainerSystem SolutionContainer = default!; // Goobstation: made from protected to public
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;

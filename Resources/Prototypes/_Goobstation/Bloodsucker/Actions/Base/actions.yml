@@ -1,0 +1,293 @@
+- type: entity
+  id: ActionBloodsuckerFeed
+  name: Feed
+  description: Draw the heartsblood of living victims in your grasp. You will break the Masquerade if seen feeding.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_feed
+  - type: TargetAction
+    range: 1
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:BloodsuckerFeedEvent
+
+- type: entity
+  id: ActionBloodsuckerBrawl
+  name: Brawn
+  description: Snap restraints, break lockers and doors, or deal terrible damage with your bare hands.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_strength
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: true
+    event: !type:BloodsuckerBrawlEvent
+
+- type: entity
+  id: ActionBloodsuckerHaste
+  name: Immortal Haste
+  description: Dash somewhere with supernatural speed. Those nearby may be knocked away, stunned, or left empty-handed.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_speed
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:BloodsuckerHasteEvent
+
+- type: entity
+  id: ActionBloodsuckerLunge
+  name: Predatory Lunge
+  description: Spring at your target to grapple them without warning, or tear the dead's heart out. Attacks from concealment or the rear may even knock them down if strong enough.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_lunge
+  - type: TargetAction
+    range: 8
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:BloodsuckerLungeEvent
+
+- type: entity
+  id: ActionBloodsuckerMesmerize
+  name: Mesmerize
+  description: Dominate the mind of a mortal who can see your eyes.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_mez
+  - type: TargetAction
+    range: 8
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:BloodsuckerMesmerizeEvent
+
+- type: entity
+  id: ActionBloodsuckerTrespass
+  name: Trespass
+  description: Become mist for a very short duration. Useful for skipping past doors and barricades.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_tres
+  - type: InstantAction
+    event: !type:BloodsuckerTrespassEvent
+
+- type: entity
+  id: ActionBloodsuckerVassalize
+  name: Vassalize
+  description: Convert the mind of a tortured soul into a loyal minion. Victim must be strapped to a persuasion rack.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_vassalize
+  - type: TargetAction
+    range: 1
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    event: !type:BloodsuckerVassalizeEvent
+
+- type: entity
+  id: ActionBloodsuckerOlfactionAcquire
+  name: Sanguine Olfaction
+  description: Click near a blood puddle to lock onto its owner.
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_olfac
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:BloodsuckerOlfactionEvent
+
+- type: entity
+  id: ActionBloodsuckerOlfactionStop
+  name: Lose the Scent
+  description: Stop tracking your current target.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_olfac_stop
+  - type: InstantAction
+    event: !type:BloodsuckerOlfactionStopEvent
+
+# Non-targetted
+
+- type: entity
+  id: ActionBloodsuckerClaim
+  name: Claim / Unclaim
+  description: Use on a coffin to claim it as your lair, allowing you to build new structures when near. Use it again on the same coffin, or on another coffin, to unclaim it.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_claim
+  - type: TargetAction
+    range: 4
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Coffin
+    canTargetSelf: false
+    event: !type:BloodsuckerClaimEvent
+
+- type: entity
+  id: ActionBloodsuckerMaterialize
+  name: Materialize rack
+  description: Sacrifices a considerable amount of blood to create a persuasion rack at your feet, which allows for the creation of vassals. Can only be done inside your lair.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_rack
+  - type: InstantAction
+    event: !type:BloodsuckerMaterializeEvent
+
+- type: entity
+  id: ActionBloodsuckerSense
+  name: Sense cycle
+  description: Informs you of the current time, whether it is day, or night, and how soon until it changes.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_sense
+  - type: InstantAction
+    event: !type:BloodsuckerSenseEvent
+
+- type: entity
+  id: ActionBloodsuckerCloak
+  name: Cloak of Darkness
+  description: Blend into the shadows and become invisible to the untrained and Artificial eye.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_cloak
+  - type: InstantAction
+    event: !type:BloodsuckerCloakEvent
+
+- type: entity
+  id: ActionBloodsuckerHelpVassal
+  name: Help Vassal
+  description: Bring an ex-Vassal back into the fold. Sacrifices some blood to create a blood bag if not holding onto an ex-vassal.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_torpor
+  - type: InstantAction
+    event: !type:BloodsuckerHelpVassalEvent
+
+- type: entity
+  id: ActionBloodsuckerFortitude
+  name: Fortitude
+  description: Withstand egregious physical wounds and walk away from attacks that would stun, pierce, and dismember lesser beings. Damages you if not used exclusively while walking.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_fortitude
+  - type: InstantAction
+    event: !type:BloodsuckerFortitudeEvent
+
+- type: entity
+  id: ActionBloodsuckerGoHome
+  name: Vanishing Act
+  description: Disperse into mist and return to your claimed coffin. You will drop ALL possessions if observed by mortals.
+  components:
+  - type: Action
+    useDelay: 10 # 100
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_gohome
+  - type: InstantAction
+    event: !type:BloodsuckerGoHomeEvent
+
+- type: entity
+  id: ActionBloodsuckerVeil
+  name: Veil of Many Faces
+  description: Disguise yourself in the illusion of another identity. Deactivate to revert.
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_veil
+  - type: InstantAction
+    event: !type:BloodsuckerVeilEvent
+
+- type: entity
+  id: ActionBloodsuckerMasquerade
+  name: Masquerade
+  description: Feign the vital signs of a mortal, hiding your vampiric nature from health scanners and casual examination.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
+      state: power_human
+  - type: InstantAction
+    event: !type:BloodsuckerMasqueradeEvent {}

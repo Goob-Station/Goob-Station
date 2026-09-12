@@ -1,0 +1,24 @@
+- files: ["heavy1.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Yogstation 13"
+  source: "https://github.com/yogstation13/Yogstation/blob/ae2886be95c234202212a3090ee7637173ea2c1d/sound/effects/footstep/heavy1.ogg"
+
+- files: ["heavy2.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Yogstation 13"
+  source: "https://github.com/yogstation13/Yogstation/blob/ae2886be95c234202212a3090ee7637173ea2c1d/sound/effects/footstep/heavy2.ogg"
+
+- files: ["sol_rise.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "VIRALAUDIO"
+  source: "https://pixabay.com/pt/sound-effects/filme-e-efeitos-especiais-descent-ping-a-new-day-d-cinematic-sound-effect-405928/"
+
+- files: ["sol_end.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "BryanSantosBreton"
+  source: "https://pixabay.com/sound-effects/film-special-effects-darkness-tonal-cymbal-roll-riser-braam-impact-184275/"
+
+- files: ["summon_karp.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Yogstation 13"
+  source: "https://github.com/yogstation13/Yogstation/blob/ae2886be95c234202212a3090ee7637173ea2c1d/sound/magic/summon_karp.ogg"
