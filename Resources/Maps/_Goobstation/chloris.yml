@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 05:07:48
-  entityCount: 47815
+  time: 06/27/2026 00:32:21
+  entityCount: 47816
 maps:
 - 1
 grids:
@@ -14116,6 +14116,15 @@ entities:
             13081: 125.083466,174.73074
             13083: 126.29181,174.66824
         - node:
+            angle: 5.585053606381854 rad
+            color: '#5D000092'
+            id: footprint
+          decals:
+            13824: 10.583328,104.56888
+            13825: 10.911453,104.72513
+            13826: 10.755203,105.03763
+            13827: 11.145828,105.10013
+        - node:
             color: '#FFFFFFFF'
             id: k
           decals:
@@ -14250,6 +14259,12 @@ entities:
             13697: 66.32615,112.65807
             13698: 67.6398,118.298294
             13699: 62.83175,129.23811
+        - node:
+            angle: 5.585053606381854 rad
+            color: '#5D000092'
+            id: splatter
+          decals:
+            13828: 10.020828,103.99075
         - node:
             cleanable: True
             color: '#93844E23'
@@ -22574,7 +22589,7 @@ entities:
       pos: 120.5,174.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5537.56
+      secondsUntilStateChange: -6804.2964
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23023,7 +23038,7 @@ entities:
       pos: 70.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -15623.106
+      secondsUntilStateChange: -16889.844
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23224,7 +23239,7 @@ entities:
       pos: 99.5,180.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7222.2817
+      secondsUntilStateChange: -8489.019
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23692,7 +23707,7 @@ entities:
       pos: 70.5,41.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -14806.308
+      secondsUntilStateChange: -16073.044
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23946,7 +23961,7 @@ entities:
       pos: 41.5,168.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5659.893
+      secondsUntilStateChange: -6926.6294
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23988,7 +24003,7 @@ entities:
       pos: 48.5,173.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7815.548
+      secondsUntilStateChange: -9082.284
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24577,7 +24592,7 @@ entities:
       pos: 78.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5989.3574
+      secondsUntilStateChange: -7256.0938
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24661,7 +24676,7 @@ entities:
       pos: 78.5,44.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5988.624
+      secondsUntilStateChange: -7255.3604
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24863,7 +24878,7 @@ entities:
       pos: 59.5,143.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25568.031
+      secondsUntilStateChange: -26834.768
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24972,7 +24987,7 @@ entities:
       pos: 83.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17949.94
+      secondsUntilStateChange: -19216.676
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26454,7 +26469,7 @@ entities:
       pos: 137.5,147.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23374.934
+      secondsUntilStateChange: -24641.67
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -116095,7 +116110,7 @@ entities:
       pos: 102.5,175.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8621.214
+      secondsUntilStateChange: -9887.95
       state: Closing
   - uid: 18576
     components:
@@ -133303,61 +133318,85 @@ entities:
     - type: Transform
       pos: 131.5,97.5
       parent: 2
+    - type: FaxMachine
+      name: Head of Security
   - uid: 21489
     components:
     - type: Transform
       pos: 63.5,101.5
       parent: 2
+    - type: FaxMachine
+      name: Research Director
   - uid: 21490
     components:
     - type: Transform
       pos: 87.5,180.5
       parent: 2
+    - type: FaxMachine
+      name: Bridge
   - uid: 21491
     components:
     - type: Transform
       pos: 92.5,89.5
       parent: 2
+    - type: FaxMachine
+      name: Library
   - uid: 21492
     components:
     - type: Transform
       pos: 139.5,120.5
       parent: 2
+    - type: FaxMachine
+      name: Warden's Office
   - uid: 21493
     components:
     - type: Transform
       pos: 78.5,153.5
       parent: 2
+    - type: FaxMachine
+      name: Head of Personnel
   - uid: 21494
     components:
     - type: Transform
       pos: 136.5,65.5
       parent: 2
+    - type: FaxMachine
+      name: Chief Engineer
   - uid: 21495
     components:
     - type: Transform
       pos: 137.5,135.5
       parent: 2
+    - type: FaxMachine
+      name: Law Office
   - uid: 21496
     components:
     - type: Transform
       pos: 28.5,123.5
       parent: 2
+    - type: FaxMachine
+      name: Chief Medical Officer
   - uid: 21497
     components:
     - type: Transform
       pos: 57.5,45.5
       parent: 2
+    - type: FaxMachine
+      name: Quartermaster
   - uid: 21498
     components:
     - type: Transform
       pos: 13.5,118.5
       parent: 2
+    - type: FaxMachine
+      name: Virology
   - uid: 21499
     components:
     - type: Transform
       pos: 129.5,107.5
       parent: 2
+    - type: FaxMachine
+      name: Security
 - proto: FaxMachineCaptain
   entities:
   - uid: 21500
@@ -136720,7 +136759,7 @@ entities:
       pos: 138.5,145.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23835.467
+      secondsUntilStateChange: -25102.203
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -238368,6 +238407,13 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: PlushieLizard
+  entities:
+  - uid: 30714
+    components:
+    - type: Transform
+      pos: 10.505203,104.53763
+      parent: 2
 - proto: PlushieMoth
   entities:
   - uid: 20276
@@ -251937,7 +251983,7 @@ entities:
       pos: 145.5,128.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22444.102
+      secondsUntilStateChange: -23710.838
       state: Opening
   - uid: 2562
     components:
@@ -278681,6 +278727,13 @@ entities:
     components:
     - type: Transform
       pos: 41.5,139.5
+      parent: 2
+- proto: VendingMachineMiningDrobe
+  entities:
+  - uid: 30713
+    components:
+    - type: Transform
+      pos: 57.5,38.5
       parent: 2
 - proto: VendingMachineNutri
   entities:
@@ -312642,11 +312695,6 @@ entities:
     - type: Transform
       pos: 58.5,38.5
       parent: 2
-  - uid: 50596
-    components:
-    - type: Transform
-      pos: 57.5,38.5
-      parent: 2
 - proto: WardrobeScienceFilled
   entities:
   - uid: 50597
@@ -314310,7 +314358,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16659.904
+      secondsUntilStateChange: -17926.64
       state: Opening
     - type: Airlock
       autoClose: False

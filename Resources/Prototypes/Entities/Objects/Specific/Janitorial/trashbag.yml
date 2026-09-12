@@ -23,6 +23,9 @@
     whitelist:
       tags:
         - Trash
+        - Organ #goob
+      components: #goob
+      - SpaceGarbage
   - type: UseDelay
     delay: 0.5
   - type: Tag

@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/27/2026 05:03:37
-  entityCount: 27699
+  time: 06/26/2026 23:48:41
+  entityCount: 27702
 maps:
 - 1
 grids:
@@ -10768,7 +10768,7 @@ entities:
       pos: 7.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -767.0555
+      secondsUntilStateChange: -1468.1915
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10951,7 +10951,7 @@ entities:
       pos: -11.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -442.7002
+      secondsUntilStateChange: -1143.8362
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11924,7 +11924,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -52163.87
+      secondsUntilStateChange: -52865.008
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -39479,6 +39479,21 @@ entities:
     components:
     - type: Transform
       pos: 54.5,-48.5
+      parent: 2
+  - uid: 27700
+    components:
+    - type: Transform
+      pos: -0.5,-27.5
+      parent: 2
+  - uid: 27701
+    components:
+    - type: Transform
+      pos: 57.5,-37.5
+      parent: 2
+  - uid: 27702
+    components:
+    - type: Transform
+      pos: 57.5,-36.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -83889,7 +83904,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -46352.41
+      secondsUntilStateChange: -47053.547
       state: Closing
   - uid: 13120
     components:
@@ -84377,7 +84392,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -38100.145
+      secondsUntilStateChange: -38801.28
       state: Closing
   - uid: 13217
     components:
@@ -143345,17 +143360,19 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 55.5,-45.5
       parent: 2
+- proto: SmartFridge
+  entities:
+  - uid: 12700
+    components:
+    - type: Transform
+      pos: 41.5,-4.5
+      parent: 2
 - proto: SmartFridgeMedical
   entities:
   - uid: 12699
     components:
     - type: Transform
       pos: 20.5,-23.5
-      parent: 2
-  - uid: 12700
-    components:
-    - type: Transform
-      pos: 41.5,-4.5
       parent: 2
   - uid: 12701
     components:
