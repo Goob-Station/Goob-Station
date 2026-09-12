@@ -98,7 +98,6 @@
   martialArtsForm: Capoeira
   attacks:
   - Disarm
-  - Disarm
   event: !type:KickUpPerformedEvent
     staminaToHeal: 0
   performOnSelf: true
