@@ -40,3 +40,9 @@ invalid-possession-target = You cannot possess this target!
 devil-power-level-increase-weak = Bits of flame flare out from your fingertips. Your connection with hell has strengthened.
 devil-power-level-increase-moderate = You feel your power surge. Your connection with hell has strengthened.
 devil-power-level-increase-powerful = You've almost completed your tasks here. Just a few more souls.
+
+prevent-buckling-message = Your contract prevents you from buckling to this object.
+
+jaunt-ascended-fail = You are unable to jaunt in your ascended form!
+
+devil-ascension-announcement = An infernal presence surges through the station. {$trueName} has shed their mortal guise and ascended back to their true form!

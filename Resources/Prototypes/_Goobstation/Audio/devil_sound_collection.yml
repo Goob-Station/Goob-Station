@@ -1,0 +1,22 @@
+- type: soundCollection
+  id: ArchLaugh
+  files:
+  - /Audio/_Goobstation/Devil/archlaugh1.ogg
+  - /Audio/_Goobstation/Devil/archlaugh2.ogg
+
+- type: soundCollection
+  id: ArchScream
+  files:
+  - /Audio/_Goobstation/Devil/archscream.ogg
+
+- type: soundCollection
+  id: DemonChant
+  files:
+  - /Audio/_Goobstation/Devil/demonchant1.ogg
+  - /Audio/_Goobstation/Devil/demonchant2.ogg
+  - /Audio/_Goobstation/Devil/demonchant3.ogg
+
+- type: soundCollection
+  id: LesserLaugh
+  files:
+  - /Audio/_Goobstation/Devil/lesserlaugh1.ogg

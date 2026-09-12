@@ -15,3 +15,7 @@ ghost-role-information-slaughter-demon-rules =
 
 ghost-role-information-laughter-demon-name = Laughter Demon
 ghost-role-information-laughter-demon-description = WHAT A TIME TO BE ALIVE! YOU BETTER HUG EVERYONE YOU SEE, AND SHOW THEM WHAT TRUE LOVE FEELS LIKE!
+
+
+ghost-role-information-timed-demon-name = Contracted Slaughter Demon
+ghost-role-information-timed-demon-description = A DEVIL HAS PULLED SOME STRINGS IN ORDER TO BRING ME FROM HELL TEMPORARILY! ENJOY THE KILLING WHILE I CAN, BECAUSE MY VISIT HERE IS ALL TOO SHORT!
