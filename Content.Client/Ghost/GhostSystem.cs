@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Client._Shitcode.Wizard.Systems;
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
@@ -19,7 +18,6 @@ namespace Content.Client.Ghost
         [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
         [Dependency] private readonly ContentEyeSystem _contentEye = default!;
         [Dependency] private readonly SpriteSystem _sprite = default!;
-        [Dependency] private readonly GhostVisibilitySystem _ghostVisSystem = default!; // Goobstation
 
         public int AvailableGhostRoleCount { get; private set; }
 
@@ -27,10 +25,10 @@ namespace Content.Client.Ghost
 
         private bool GhostVisibility
         {
-            get => _ghostVisSystem.GhostsVisible() || _ghostVisibility; // Goob edit
+            get => _ghostVisibility || AreGhostsForcedVisible(); // Goob edit
             set
             {
-                if (_ghostVisSystem.GhostsVisible()) // Goobstation
+                if (AreGhostsForcedVisible()) // Goobstation
                     value = true;
 
                 if (_ghostVisibility == value)
@@ -124,7 +122,7 @@ namespace Content.Client.Ghost
 
         private void OnToggleGhosts(EntityUid uid, EyeComponent component, ToggleGhostsActionEvent args) // Goob edit
         {
-            if (args.Handled || _ghostVisSystem.GhostsVisible()) // Goob edit
+            if (args.Handled || AreGhostsForcedVisible()) // Goob edit
                 return;
 
             var locId = GhostVisibility ? "ghost-gui-toggle-ghost-visibility-popup-off" : "ghost-gui-toggle-ghost-visibility-popup-on";

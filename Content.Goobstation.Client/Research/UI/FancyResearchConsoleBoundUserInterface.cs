@@ -14,7 +14,7 @@ namespace Content.Goobstation.Client.Research.UI;
 public sealed class FancyResearchConsoleBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
-    private FancyResearchConsoleMenu? _consoleMenu;  // Goobstation R&D Console rework - ResearchConsoleMenu -> FancyResearchConsoleMenu
+    private FancyResearchConsoleMenu? _consoleMenu;
 
     public FancyResearchConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -26,7 +26,7 @@ public sealed class FancyResearchConsoleBoundUserInterface : BoundUserInterface
 
         var owner = Owner;
 
-        _consoleMenu = this.CreateWindow<FancyResearchConsoleMenu>();   // Goobstation R&D Console rework - ResearchConsoleMenu -> FancyResearchConsoleMenu
+        _consoleMenu = this.CreateWindow<FancyResearchConsoleMenu>();
         _consoleMenu.SetEntity(owner);
         _consoleMenu.OnClose += () => _consoleMenu = null;
 
@@ -62,7 +62,6 @@ public sealed class FancyResearchConsoleBoundUserInterface : BoundUserInterface
         if (state is not ResearchConsoleBoundInterfaceState castState)
             return;
 
-        // Goobstation checks added
         // Thats for avoiding refresh spam when only points are updated
         if (_consoleMenu == null)
             return;

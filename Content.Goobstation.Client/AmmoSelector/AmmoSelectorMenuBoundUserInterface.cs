@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Goobstation.Common.Weapons.AmmoSelector;
+using Content.Goobstation.Shared.Weapons.AmmoSelector;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

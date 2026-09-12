@@ -20,7 +20,7 @@ public sealed partial class BlobSpeakComponent : Component
     /// Hide entity name
     /// </summary>
     [DataField]
-    public bool OverrideName = false; // Goob Edit, no overriding default name.
+    public bool OverrideName = false; // no overriding default name.
 
     [DataField]
     public LocId Name = "speak-vv-blob";

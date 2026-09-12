@@ -2,6 +2,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Wizard.Events;
 using Content.Goobstation.Shared.SecondSkin;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Spreader;

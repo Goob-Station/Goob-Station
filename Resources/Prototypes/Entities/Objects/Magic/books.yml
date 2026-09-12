@@ -169,7 +169,7 @@
         color: gold
     - type: Spellbook
       spellActions:
-        ActionBlinkSpell: null # Goob edit
+        ActionBlink: null
 
 - type: entity
   parent: BaseSpellbook

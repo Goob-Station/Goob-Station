@@ -1,12 +1,12 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Physics;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared._Shitmed.Damage;

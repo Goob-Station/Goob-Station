@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._Goobstation.Weapons.Misc;
+using Content.Goobstation.Common.Weapons.Misc;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;

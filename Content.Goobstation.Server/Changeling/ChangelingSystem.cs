@@ -37,7 +37,6 @@ using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
@@ -81,6 +80,7 @@ using Content.Goobstation.Common.Grab;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Zombies;
 using Content.Server.Ensnaring;
+using Content.Goobstation.Shared.Weapons.AmmoSelector;
 
 namespace Content.Goobstation.Server.Changeling;
 

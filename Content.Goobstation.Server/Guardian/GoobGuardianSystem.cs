@@ -15,7 +15,7 @@ namespace Content.Goobstation.Server.Guardian
         {
             base.Initialize();
 
-            SubscribeLocalEvent<GuardianComponent, GuardianToggleSelfActionEvent>(OnPerformSelfAction); // Goobstation
+            SubscribeLocalEvent<GuardianComponent, GuardianToggleSelfActionEvent>(OnPerformSelfAction);
         }
 
         private void OnPerformSelfAction(Entity<GuardianComponent> ent, ref GuardianToggleSelfActionEvent args)

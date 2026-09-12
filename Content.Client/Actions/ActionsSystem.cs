@@ -24,6 +24,7 @@ using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
+using Content.Goobstation.Common.Wizard.Components;
 
 namespace Content.Client.Actions
 {

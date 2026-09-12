@@ -1,0 +1,70 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Common.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.Systems;
+using Robust.Client.Animations;
+using Robust.Client.GameObjects;
+
+namespace Content.Goobstation.Client.Wizard.Systems;
+
+public sealed class FadingTimedDespawnSystem : SharedFadingTimedDespawnSystem
+{
+    [Dependency] private readonly AnimationPlayerSystem _animationSystem = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<FadingTimedDespawnComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnShutdown(Entity<FadingTimedDespawnComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        _animationSystem.Stop(ent.Owner, FadingTimedDespawnComponent.AnimationKey);
+
+        if (TryComp(ent, out SpriteComponent? sprite))
+            _sprite.SetColor((ent.Owner, sprite), sprite.Color.WithAlpha(1f));
+    }
+
+    protected override void FadeOut(Entity<FadingTimedDespawnComponent> ent)
+    {
+        base.FadeOut(ent);
+
+        var (uid, comp) = ent;
+
+        if (_animationSystem.HasRunningAnimation(uid, FadingTimedDespawnComponent.AnimationKey))
+            return;
+
+        if (!TryComp(uid, out SpriteComponent? sprite))
+            return;
+
+        var animation = new Animation
+        {
+            Length = TimeSpan.FromSeconds(comp.FadeOutTime),
+            AnimationTracks =
+            {
+                new AnimationTrackComponentProperty
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Color),
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(sprite.Color, 0f),
+                        new AnimationTrackProperty.KeyFrame(sprite.Color.WithAlpha(0f), comp.FadeOutTime),
+                    },
+                },
+            },
+        };
+
+        _animationSystem.Play(uid, animation, FadingTimedDespawnComponent.AnimationKey);
+    }
+
+    protected override bool CanDelete(EntityUid uid)
+    {
+        return IsClientSide(uid);
+    }
+}

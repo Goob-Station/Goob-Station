@@ -19,7 +19,6 @@ public sealed class GoobStackSystem : GoobSharedStackSystem
         base.Initialize();
     }
 
-    // Goobstation - Custom stack splitting dialog
     protected override void OnCustomSplitMessage(Entity<StackComponent> ent, ref StackCustomSplitAmountMessage message)
     {
         var (uid, comp) = ent;

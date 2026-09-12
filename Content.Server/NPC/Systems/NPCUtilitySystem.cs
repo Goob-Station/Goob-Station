@@ -31,21 +31,19 @@ using Robust.Shared.Utility;
 using Content.Shared.Atmos.Components;
 using System.Linq;
 using Content.Shared.Temperature.Components;
-using Content.Server._Goobstation.Wizard.NPC;
 using Content.Shared.Foldable;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
-using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Body.Systems;
-using Content.Goobstation.Maths.FixedPoint; // Goobstation start
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Body.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.EntityEffects.Effects.Body;
-using Content.Shared.EntityEffects.Effects.Solution; // Goobstation end
+using Content.Shared.EntityEffects.Effects.Solution;
+using Content.Server._Shitcode.Wizard.NPC;
 
 namespace Content.Server.NPC.Systems;
 

@@ -86,9 +86,6 @@ entities:
       bodyType: Dynamic
     - type: Fixtures
       fixtures: {}
-    - type: PassiveDampening
-      angularDampening: 0.01
-      linearDampening: 0.01
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle

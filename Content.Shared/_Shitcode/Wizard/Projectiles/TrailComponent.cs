@@ -8,6 +8,8 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Wizard.Projectiles;
 
+// TODO SHITCODE: this is referenced in SanguineStrikeSystem which in turn is referenced by heretic
+
 // Make more fields auto networked if you need to.
 // Changing Lifetime and Frequency may lead to unexpected results, especially if frequency is greater than lifetime
 [RegisterComponent,NetworkedComponent, AutoGenerateComponentState]

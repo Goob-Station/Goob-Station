@@ -2592,6 +2592,8 @@
     state: icon
 
 # Goobstation i think? Move me if you're reading me, upstreamer is lazy.
+# i am also lazy , this is removed upstream. we have this blow up the clown car cuz its funny and i dont see why remove
+# so probably move to goobmod i guess. not sure if recipes conflicting or anything tho. upstream replaced with IrishSlammer
 
 - type: entity
   parent: DrinkGlass

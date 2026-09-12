@@ -1023,32 +1023,6 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionBlinkSpell
-  name: Blink
-  description: Randomly teleport a short distance.
-  components:
-  - type: Action
-    raiseOnUser: true
-    checkCanInteract: false
-    useDelay: 3
-    itemIconStyle: BigAction
-    sound: !type:SoundPathSpecifier
-      path: /Audio/Magic/blink.ogg
-    icon:
-      sprite: _Goobstation/Wizard/actions.rsi
-      state: blink
-  - type: InstantAction
-    event: !type:BlinkSpellEvent
-  - type: Magic
-    requiresClothes: true
-    school: Translocation
-  - type: ActionUpgrade
-    effectedLevels:
-      2: ActionBlinkII
-      3: ActionBlinkIII
-
-- type: entity
-  parent: BaseAction
   id: ActionSummonStickmen
   name: Summon Stick Minions
   description: Allows you to summon faithful stickmen allies to aide you in battle.

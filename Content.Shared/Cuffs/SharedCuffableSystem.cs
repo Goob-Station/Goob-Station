@@ -61,7 +61,6 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
-        [Dependency] private readonly SharedHulkSystem _hulk = default!;
         [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
 
         public override void Initialize()
@@ -661,13 +660,6 @@ namespace Content.Shared.Cuffs
 
                 if (!_delay.TryResetDelay((cuff, useDelay), true))
                 {
-                    return;
-                }
-
-                if (TryComp(user, out HulkComponent? hulk)) // Goobstation
-                {
-                    _hulk.Roar((user, hulk));
-                    Uncuff(user, user, cuff);
                     return;
                 }
             }

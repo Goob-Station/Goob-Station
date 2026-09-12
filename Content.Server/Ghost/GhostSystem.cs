@@ -81,7 +81,6 @@ namespace Content.Server.Ghost
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
-        [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -213,7 +212,7 @@ namespace Content.Server.Ghost
             // Allow this entity to be seen by other ghosts.
             var visibility = EnsureComp<VisibilityComponent>(uid);
 
-            if (_gameTicker.RunLevel != GameRunLevel.PostRound && !_ghostVisibility.IsVisible(component))
+            if (_gameTicker.RunLevel != GameRunLevel.PostRound && !AreGhostsForcedVisible()) // Goobstation
             {
                 _visibilitySystem.AddLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
                 _visibilitySystem.RemoveLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
