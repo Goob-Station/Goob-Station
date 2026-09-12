@@ -1,0 +1,34 @@
+- type: entity
+  id: WallDecalGalaxy1
+  parent: BaseStructure
+  name: Starry gap
+  description: You can see the stars through it. Somehow, you feel as though it isn't safe to stand near this...
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/galaxy.rsi
+    state: galaxydecal1
+    drawdepth: WallMountedItems
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Purple
+  - type: RadiationSource
+    intensity: 1
+
+- type: entity
+  id: WallDecalGalaxy2
+  parent: WallDecalGalaxy1
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/galaxy.rsi
+    state: galaxydecal2
+    drawdepth: WallMountedItems
+
+- type: entity
+  id: WallDecalGalaxy3
+  parent: WallDecalGalaxy1
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/galaxy.rsi
+    state: galaxydecal3
+    drawdepth: WallMountedItems

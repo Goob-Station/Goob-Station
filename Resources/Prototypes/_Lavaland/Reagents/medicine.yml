@@ -107,3 +107,21 @@
         damage:
           groups:
             Airloss: 7
+
+- type: reagent
+  id: RadAway
+  name: reagent-name-radaway
+  group: Medicine
+  desc: reagent-desc-radaway
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: medicine
+  color: Orange
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -2
+            Cellular: -2

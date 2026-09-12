@@ -27,6 +27,7 @@
   <Project Path="Content.Client/Content.Client.csproj" />
   <Project Path="Content.IntegrationTests/Content.IntegrationTests.csproj" />
   <Project Path="Content.MapRenderer/Content.MapRenderer.csproj" />
+  <Project Path="Content.ModuleManager/Content.ModuleManager.csproj" />
   <Project Path="Content.Packaging/Content.Packaging.csproj" />
   <Project Path="Content.PatreonParser/Content.PatreonParser.csproj">
     <BuildType Solution="DebugOpt|*" Project="Debug" />
@@ -44,7 +45,6 @@
   <Project Path="Content.Goobstation.Common/Content.Goobstation.Common.csproj" />
   <Project Path="Content.Goobstation.Maths/Content.Goobstation.Maths.csproj" />
   <Project Path="Content.Goobstation.UIKit/Content.Goobstation.UIKit.csproj" />
-  <Project Path="Content.ModuleManager/Content.ModuleManager.csproj" />
   <!-- </Goob End> -->
   <Project Path="Content.Tests/Content.Tests.csproj" />
   <Project Path="Content.Tools/Content.Tools.csproj" />

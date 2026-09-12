@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by OnsenCapy (Github)",
+    "size": {
+        "x": 128,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "large_crystaltree"
+        },
+                {
+            "name": "large_crystaltree_seeds"
+        }
+    ]
+}
