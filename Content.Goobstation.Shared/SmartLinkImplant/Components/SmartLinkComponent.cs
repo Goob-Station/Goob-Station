@@ -7,4 +7,11 @@ public sealed partial class SmartLinkComponent : Component
 {
     [DataField, AutoNetworkedField]
     public float SpeedMultiplier = 0.5f;
+
+    /// <summary>
+    /// How far away in tiles to check for targets.
+    /// Only applies while overclocked.
+    /// </summary>
+    [DataField]
+    public float AcquisitionRange = 2.5f;
 }

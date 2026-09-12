@@ -183,6 +183,8 @@
   name: J.W.L left arm
   description: A cybernetic left arm with the ability to pry doors open.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: BodyPart
     onAdd:
     - type: Prying
@@ -197,6 +199,8 @@
   name: J.W.L right arm
   description: A cybernetic right arm with the ability to pry doors open.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: BodyPart
     onAdd:
     - type: Prying
@@ -211,6 +215,8 @@
   name: S.P.E.E.D left leg
   description: A cybernetic left leg that allows its wearer to run faster.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: MovementBodyPart
     walkSpeed: 3.125
     sprintSpeed: 5.175
@@ -221,6 +227,8 @@
   name: S.P.E.E.D right leg
   description: A cybernetic left leg that allows its wearer to run faster.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: MovementBodyPart
     walkSpeed: 3.125
     sprintSpeed: 5.175
@@ -231,6 +239,8 @@
   name: D.E.X left hand
   description: A cybernetic left hand that allows its wearer to interact faster.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: DoAfterDelayMultiplier
     multiplier: 0.9
 
@@ -240,5 +250,7 @@
   name: D.E.X right hand
   description: A cybernetic right hand that allows its wearer to interact faster.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: DoAfterDelayMultiplier
     multiplier: 0.9

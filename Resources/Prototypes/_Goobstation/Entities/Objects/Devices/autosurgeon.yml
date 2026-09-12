@@ -99,6 +99,10 @@
     targetBodyPart: Arm
     targetBodyPartSymmetry: Right
     componentsToPart:
+    - type: Cybernetics
+      canToggle: true
+      name: cyberware-mantis-blade-name
+      description: cyberware-mantis-blade-desc
     - type: MantisBladeArm
       actionProto: ActionToggleRightMantisBlade
 
@@ -111,6 +115,10 @@
     targetBodyPart: Arm
     targetBodyPartSymmetry: Left
     componentsToPart:
+    - type: Cybernetics
+      canToggle: true
+      name: cyberware-mantis-blade-name
+      description: cyberware-mantis-blade-desc
     - type: MantisBladeArm
       actionProto: ActionToggleLeftMantisBlade
 
@@ -137,7 +145,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicateMultiple
   id: AutosurgeonSmartLink
-  name: syndicate autosurgeon (smartlink arms)
+  name: syndicate autosurgeon (smartlink hands)
   components:
   - type: AutoSurgeonMultiple
     entries:
@@ -147,15 +155,6 @@
     - targetBodyPart: Arm
       targetBodyPartSymmetry: Left
       newPartProto: SmartlinkLeftHand
-
-    - targetBodyPart: Arm
-      targetBodyPartSymmetry: Right
-      componentsToPart:
-      - type: SmartLinkArm
-    - targetBodyPart: Arm
-      targetBodyPartSymmetry: Left
-      componentsToPart:
-      - type: SmartLinkArm
 
 - type: entity
   parent: BaseAutosurgeonSyndicateMultiple
@@ -174,10 +173,18 @@
     - targetBodyPart: Arm
       targetBodyPartSymmetry: Right
       componentsToPart:
+      - type: Cybernetics
+        canToggle: true
+        name: cyberware-recoil-absorber-name
+        description: cyberware-recoil-absorber-desc
       - type: RecoilAbsorberArm
     - targetBodyPart: Arm
       targetBodyPartSymmetry: Left
       componentsToPart:
+      - type: Cybernetics
+        canToggle: true
+        name: cyberware-recoil-absorber-name
+        description: cyberware-recoil-absorber-desc
       - type: RecoilAbsorberArm
 
 - type: entity

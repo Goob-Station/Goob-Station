@@ -7,6 +7,8 @@
   description: Illegal cyberware that replaces the user's heart and allows them to greatly increase their speed for the cost of the endurance.
   components:
   - type: Cybernetics
+    canToggle: true
+  - type: SandevistanOrgan
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/sandevistan.rsi
     state: icon
@@ -30,6 +32,8 @@
   description: A cybernetic heart implant that drastically improves the user's speed and reflexes for a short duration, at the cost of endurance. Once used by a certain mercenary.
   components:
   - type: Cybernetics
+    canToggle: true
+  - type: SandevistanOrgan
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/sandevistan.rsi
     layers:
@@ -57,6 +61,8 @@
   name: berserker heart
   description: A next-gen combat circulatory core that allows the user to enter a berserk state, greatly increasing their speed and reflexes for a short time at the cost of endurance and some pain resistance. Highly illegal.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/berserker_heart.rsi
     state: icon
@@ -71,6 +77,8 @@
   name: jumpstarter heart
   description: A next-gen combat circulatory core that injects a large amount of omnizine into the user's bloodstream when they are critically injured, saving them from death. Highly illegal.
   components:
+  - type: Cybernetics
+    canToggle: true
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi
     state: icon

@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Common.Weapons.Ranged;
+using Content.Goobstation.Shared.Cyberware;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 
@@ -8,23 +9,21 @@ namespace Content.Goobstation.Shared.RecoilAbsorber;
 public sealed class RecoilAbsorberSystem : EntitySystem
 {
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly CyberneticsSystem _cybernetics = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RecoilAbsorberArmComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<RecoilAbsorberArmComponent, BodyPartAddedEvent>(OnAttach);
-        SubscribeLocalEvent<RecoilAbsorberArmComponent, BodyPartRemovedEvent>(OnRemove);
+        SubscribeLocalEvent<RecoilAbsorberArmComponent, ComponentInit>(OnAbsorberChanged);
+        SubscribeLocalEvent<RecoilAbsorberArmComponent, BodyPartAddedEvent>(OnAbsorberChanged);
+        SubscribeLocalEvent<RecoilAbsorberArmComponent, BodyPartRemovedEvent>(OnAbsorberChanged);
+        SubscribeLocalEvent<RecoilAbsorberArmComponent, CyberwareChangedEvent>(OnAbsorberChanged);
 
         SubscribeLocalEvent<RecoilAbsorberComponent, GetRecoilModifiersEvent>(OnShot);
     }
 
-    private void OnInit(Entity<RecoilAbsorberArmComponent> ent, ref ComponentInit args) => UpdateComp(ent);
-
-    private void OnAttach(Entity<RecoilAbsorberArmComponent> ent, ref BodyPartAddedEvent args) => UpdateComp(ent);
-
-    private void OnRemove(Entity<RecoilAbsorberArmComponent> ent, ref BodyPartRemovedEvent args) => UpdateComp(ent);
+    private void OnAbsorberChanged<T>(Entity<RecoilAbsorberArmComponent> ent, ref T args) => UpdateComp(ent);
 
     private void UpdateComp(Entity<RecoilAbsorberArmComponent> ent)
     {
@@ -43,9 +42,12 @@ public sealed class RecoilAbsorberSystem : EntitySystem
         var modifiers = new List<float>();
         foreach (var arm in arms)
         {
-            if (!TryComp<RecoilAbsorberArmComponent>(arm.Id, out var absorber))
-                // If any arm is not an absorber arm, just return without the component
+            if (!TryComp<RecoilAbsorberArmComponent>(arm.Id, out var absorber)
+                || !_cybernetics.IsEnabled(arm.Id))
+            {
+                RemCompDeferred<RecoilAbsorberComponent>(part.Body.Value);
                 return;
+            }
 
             modifiers.Add(absorber.Modifier);
         }

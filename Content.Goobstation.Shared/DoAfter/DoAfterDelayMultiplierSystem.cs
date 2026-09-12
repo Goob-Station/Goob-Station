@@ -1,15 +1,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.DoAfter;
-using Content.Shared._Shitmed.Cybernetics;
+using Content.Goobstation.Shared.Cyberware;
 using Content.Shared._Shitmed.DoAfter;
-using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 
 namespace Content.Goobstation.Shared.DoAfter;
 
 public sealed class DoAfterDelayMultiplierSystem : EntitySystem
 {
+    [Dependency] private readonly CyberneticsSystem _cybernetics = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -22,8 +23,8 @@ public sealed class DoAfterDelayMultiplierSystem : EntitySystem
     private void OnGetBodyPartMultiplier(Entity<DoAfterDelayMultiplierComponent> ent,
         ref BodyPartRelayedEvent<GetDoAfterDelayMultiplierEvent> args)
     {
-        if (TryComp(ent, out CyberneticsComponent? cybernetics) && cybernetics.Disabled)
-            args.Args.Multiplier *= 10f;
+        if (!_cybernetics.IsEnabled(ent))
+            return;
 
         args.Args.Multiplier *= ent.Comp.Multiplier;
     }
