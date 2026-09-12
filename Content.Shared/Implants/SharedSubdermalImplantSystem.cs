@@ -3,6 +3,7 @@
 using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Implants.Components;
+using Content.Shared.Storage;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -49,7 +50,7 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
 
     private void OnRemoveAttempt(Entity<SubdermalImplantComponent> ent, ref ContainerGettingRemovedAttemptEvent args)
     {
-        if (ent.Comp.Permanent && ent.Comp.ImplantedEntity != null)
+        if (!_timing.ApplyingState && ent.Comp.Permanent && ent.Comp.ImplantedEntity != null) // Goob edit
             args.Cancel();
     }
 
@@ -128,12 +129,39 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
         if (!Resolve(implant, ref implant.Comp))
             return;
 
+        // Goob edit start - for permanent and storage implants.
+        if (_container.TryGetContainingContainer(implant.Owner, out var oldContainer))
+            DetachImplant(implant.Owner, oldContainer);
+        // Goob edit end
+
         //If the target doesn't have the implanted component, add it.
         var implantedComp = EnsureComp<ImplantedComponent>(target);
 
-        implant.Comp.ImplantedEntity = target;
-        _container.Insert(implant.Owner, implantedComp.ImplantContainer);
+        // Goob edit start
+        if (_container.Insert(implant.Owner, implantedComp.ImplantContainer))
+            implant.Comp.ImplantedEntity = target;
+        // Goob edit end
     }
+
+    // Goob edit start
+    /// <summary>
+    /// Force-removes an implant from <paramref name="oldContainer"/>, while countering
+    /// ImplantRemovedEvent losing the contents of storage implants.
+    /// </summary>
+    private void DetachImplant(EntityUid implant, BaseContainer oldContainer)
+    {
+        var hadStorage = _container.TryGetContainer(implant, StorageComponent.ContainerId, out var storage);
+        var items = hadStorage ? new List<EntityUid>(storage!.ContainedEntities) : null;
+
+        _container.Remove(implant, oldContainer, reparent: false, force: true);
+
+        if (items != null && _container.TryGetContainer(implant, StorageComponent.ContainerId, out storage))
+        {
+            foreach (var item in items)
+                _container.Insert(item, storage);
+        }
+    }
+    // Goob edit end
 
     /// <summary>
     /// Force remove a singular implant
