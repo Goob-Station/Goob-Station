@@ -68,8 +68,8 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: cube
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi # Goobstation - Different sprite
+      state: cubism
 - type: marking
   id: HumanHairPulato
   bodyPart: Hair

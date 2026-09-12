@@ -390,7 +390,7 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: shy
-      
+
 - type: marking
   id: HumanHairTwinTail
   bodyPart: Hair
@@ -398,3 +398,91 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: twintail
+
+- type: marking
+  id: HumanHairDeathKid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: deathkid
+
+- type: marking
+  id: HumanHairLongRoundedExtensions
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: longroundextensions
+
+- type: marking
+  id: HumanHairLongTuftTipped
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: longtufttipped
+
+- type: marking
+  id: HumanHairOrb
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: orb
+
+- type: marking
+  id: HumanHairPigtailsExtensions
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: pigtailextensions
+
+- type: marking
+  id: HumanHairShortCurvy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: shortandcurvy
+
+- type: marking
+  id: HumanHairShortRoundedExtensions
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: shortroundedextensions
+
+- type: marking
+  id: HumanHairShortTuftTipped
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: shorttufttipped
+
+- type: marking
+  id: HumanHairTriangulum
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: triangulum
+
+- type: marking
+  id: HumanHairWolfcutClean
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: wolfcutclean
+
+- type: marking
+  id: HumanHairWolfcutMeow
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: wolfcutmeow
