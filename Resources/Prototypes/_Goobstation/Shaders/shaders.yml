@@ -40,3 +40,34 @@
   id: AiMachineView
   kind: source
   path: "/Textures/_Goobstation/Shaders/ai_machine_view.swsl"
+
+- type: shader
+  id: SandevistanSlowdownVision
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/sandevistan_slowdown.swsl"
+
+- type: shader
+  id: SandevistanCounter
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/sandevistan_counter.swsl"
+
+- type: shader
+  id: SandevistanBuildup
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/sandevistan_buildup.swsl"
+
+- type: shader
+  id: SandevistanCounterTriggered
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/sandevistan_counter_trigger.swsl"
+
+- type: shader
+  id: SandevistanTimestopVision
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/sandevistan_timestop.swsl"
+
+
+- type: shader
+  id: SandevistanTimestopWorld
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/sandevistan_timestop_world.swsl"

@@ -1,0 +1,83 @@
+light_mode unshaded;
+
+uniform highp float progress;
+
+const highp vec3 CYAN    = vec3(0.00, 0.94, 1.00);
+const highp vec3 MAGENTA = vec3(1.00, 0.16, 0.62);
+const highp vec3 WHITE   = vec3(1.00, 1.00, 1.00);
+
+highp float hash(highp float n)
+{
+    return fract(sin(n) * 43758.5453);
+}
+
+highp float tapA(highp vec2 px, highp vec2 offset)
+{
+    return zTexture(UV + offset * px).a;
+}
+
+highp float dilate(highp vec2 px, highp float r)
+{
+    highp float d = r * 0.7071;
+    highp float acc = 0.0;
+    acc = max(acc, tapA(px, vec2( r, 0.0)));
+    acc = max(acc, tapA(px, vec2(-r, 0.0)));
+    acc = max(acc, tapA(px, vec2(0.0,  r)));
+    acc = max(acc, tapA(px, vec2(0.0, -r)));
+    acc = max(acc, tapA(px, vec2( d,  d)));
+    acc = max(acc, tapA(px, vec2( d, -d)));
+    acc = max(acc, tapA(px, vec2(-d,  d)));
+    acc = max(acc, tapA(px, vec2(-d, -d)));
+    return acc;
+}
+
+highp float band(highp vec2 px, highp float body, highp float inner, highp float outer)
+{
+    return clamp(dilate(px, outer) - max(body, dilate(px, max(inner, 0.0))), 0.0, 1.0);
+}
+
+highp float ghost(highp vec2 px, highp float body, highp vec2 offset)
+{
+    return clamp(tapA(px, offset) - body, 0.0, 1.0);
+}
+
+void fragment()
+{
+    highp vec2 px = TEXTURE_PIXEL_SIZE;
+    highp float t = TIME;
+    highp float p = clamp(progress, 0.0, 1.0);
+    highp float frame = floor(t * 12.0);
+    highp vec4 sprite = zTexture(UV);
+    highp float body = sprite.a;
+    highp float closing = smoothstep(0.66, 1.0, p);
+    highp float bpm = mix(1.6, 5.0, closing);
+    highp float beat = fract(t * bpm);
+    highp float beatRadius = 1.5 + beat * 3.0;
+    highp float beatRing = band(px, body, beatRadius - 0.75, beatRadius + 0.75);
+    highp float beatStrength = pow(1.0 - beat, 1.5) * step(0.12, 1.0 - beat);
+    highp float rim = band(px, body, 0.0, 1.0);
+    highp float blackout = step(0.55, hash(frame * 7.3)) * closing;
+    highp float rimStrength = mix(1.0, 0.15, blackout);
+    highp float drift = 2.5 + 1.5 * closing;
+    highp float jitterL = floor(hash(frame + 11.0) * 2.0);
+    highp float jitterR = floor(hash(frame + 29.0) * 2.0);
+    highp float ghostL = ghost(px, body, vec2(-drift - jitterL, 0.0)) * step(0.2, hash(frame + 3.0));
+    highp float ghostR = ghost(px, body, vec2( drift + jitterR, 0.0)) * step(0.2, hash(frame + 5.0));
+    highp float surge = step(0.86, fract(t * 0.7));
+    highp float surgeL = ghost(px, body, vec2(-5.0, 0.0)) * surge;
+    highp float surgeR = ghost(px, body, vec2( 5.0, 0.0)) * surge;
+    highp float scan = 0.92 + 0.08 * sin(UV.y * 80.0 - t * 30.0);
+    highp vec3 col = mix(sprite.rgb, CYAN, body * 0.18) * scan;
+    col = mix(col, WHITE, body * surge * 0.3);
+    highp float ghostA = max(max(ghostL, ghostR) * 0.8, max(surgeL, surgeR) * 0.9);
+    col += CYAN * max(ghostL, surgeL);
+    col += MAGENTA * max(ghostR, surgeR);
+    col += mix(CYAN, WHITE, 0.5) * beatRing;
+    col = mix(col, mix(CYAN, WHITE, 0.35), rim);
+    highp float alpha = body;
+    alpha = max(alpha, ghostA);
+    alpha = max(alpha, beatRing * beatStrength);
+    alpha = max(alpha, rim * rimStrength);
+
+    COLOR = vec4(col, alpha);
+}

@@ -32,3 +32,14 @@
   parent: ClothingShoesClown
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseMajorContraband]
+  id: ClothingShoesBootsBrandostyle
+  name: brandostyle boots
+  description: ZA WARU-
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Specific/brandostyle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Specific/brandostyle.rsi
