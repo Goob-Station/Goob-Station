@@ -11,6 +11,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -21,7 +22,6 @@ public sealed partial class DamageableSystem
 {
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly WoundSystem _wounds = default!;
-    [Dependency] private readonly IRobustRandom _LETSGOGAMBLINGEXCLAMATIONMARKEXCLAMATIONMARK = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     private EntityQuery<BodyComponent> _bodyQuery;
@@ -172,8 +172,8 @@ public sealed partial class DamageableSystem
             if (possibleTargets.Count == 0)
                 return null;
 
-            // madeline todo note: do NOT FUCKING TELL ME WE ARE JUST RUNNING ROBUST.RANDOM IN SHARED CODE
-            var chosenTarget = _LETSGOGAMBLINGEXCLAMATIONMARKEXCLAMATIONMARK.PickAndTake(possibleTargets);
+            var random = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(uid));
+            var chosenTarget = random.PickAndTake(possibleTargets);
 
             if (!_damageableQuery.TryComp(chosenTarget.Id, out var partDamageable))
                 return null;

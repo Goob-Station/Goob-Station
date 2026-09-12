@@ -508,9 +508,6 @@ public sealed partial class DamageableSystem
             ent.Comp.Damage.DamageDict[type] = newValue;
         }
 
-        if (ent.Comp is null)// GOOB TODO TODO BULLSHIT
-            return;
-
         SetAllDamageShitmed((ent, ent.Comp), newValue); // Goob - shitmed nonsense
 
         // Setting damage does not count as 'dealing' damage, even if it is set to a larger value, so we pass an
