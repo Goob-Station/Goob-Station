@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage.Components;
@@ -39,6 +37,7 @@ public sealed partial class DamageableSystem : EntitySystem
     public float UniversalMobDamageModifier { get; private set; } = 1f;
 
     /// <summary>
+    ///     [Woundmed Edited]
     ///     If the damage in a DamageableComponent was changed this function should be called.
     /// </summary>
     /// <remarks>
@@ -50,13 +49,13 @@ public sealed partial class DamageableSystem : EntitySystem
         DamageSpecifier? damageDelta = null,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
-        bool ignoreBlockers = false, // Goob - shitmed
-        DamageSpecifier? uncappedDamage = null // Goob - shitmed
+        bool ignoreBlockers = false, // Woundmed
+        DamageSpecifier? uncappedDamage = null // Woundmed
     )
     {
         ent.Comp.Damage.GetDamagePerGroup(_prototypeManager, ent.Comp.DamagePerGroup);
         ent.Comp.TotalDamage = ent.Comp.Damage.GetTotal();
-        ent.Comp.LastModifiedTime = _timing.CurTime; // Goob - shitmed
+        ent.Comp.LastModifiedTime = _timing.CurTime; // Woundmed
         Dirty(ent);
 
         if (damageDelta != null && _appearanceQuery.TryGetComponent(ent, out var appearance))
@@ -71,7 +70,8 @@ public sealed partial class DamageableSystem : EntitySystem
 
         // TODO DAMAGE
         // byref struct event.
-        RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, damageDelta, interruptsDoAfters, origin, ignoreBlockers, uncappedDamage)); // Goob - shitmed params
+        RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, damageDelta, interruptsDoAfters, origin,
+            ignoreBlockers, uncappedDamage)); // Woundmed
     }
 
     private void DamageableGetState(Entity<DamageableComponent> ent, ref ComponentGetState args)

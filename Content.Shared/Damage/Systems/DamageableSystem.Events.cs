@@ -23,8 +23,6 @@ public sealed partial class DamageableSystem
         _appearanceQuery = GetEntityQuery<AppearanceComponent>();
         _damageableQuery = GetEntityQuery<DamageableComponent>();
 
-        GoobInitialize();
-
         // Damage modifier CVars are updated and stored here to be queried in other systems.
         // Note that certain modifiers requires reloading the guidebook.
         Subs.CVar(
@@ -120,6 +118,8 @@ public sealed partial class DamageableSystem
             value => UniversalMobDamageModifier = value,
             true
         );
+
+        InitializeWoundmed(); // Woundmed
     }
 
     /// <summary>
