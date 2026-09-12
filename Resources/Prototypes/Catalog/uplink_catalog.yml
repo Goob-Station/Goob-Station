@@ -2,7 +2,9 @@
 # TODO: make more categories
 # Guns
 
-# goob edit - FUCK NEWSTORE
+# goob edit
+# - all costs are 5x before rebalancing
+# - discounts are removed as they are done procedurally
 
 - type: listing
   id: UplinkPistolViper
@@ -80,7 +82,6 @@
   productEntity: EnergySword
   cost:
     Telecrystal: 37 # goob - desword is 74
-  saleLimit: 2 # Goob - 2 eswords = desword
   categories:
   - UplinkWeaponry
   #Goobstation

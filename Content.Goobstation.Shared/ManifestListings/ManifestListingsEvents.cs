@@ -6,4 +6,4 @@ namespace Content.Goobstation.Shared.ManifestListings;
 public record struct PrependObjectivesSummaryTextEvent(string Text = "");
 
 [ByRefEvent]
-public readonly record struct ListingPurchasedEvent(EntityUid User, EntityUid Store, ListingData Data);
+public readonly record struct ListingPurchasedEvent(EntityUid User, EntityUid Store, ListingDataWithCostModifiers Data);

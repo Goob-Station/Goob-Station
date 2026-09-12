@@ -5,7 +5,10 @@
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
   icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi, state: icon }
-  productHereticKnowledge: ArmorerRitual
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - ArmorerRitual
   cost:
     KnowledgePoint: 1
   categories:
@@ -21,7 +24,10 @@
   name: knowledge-path-side-s3-flask-name
   description: knowledge-path-side-s3-flask-desc
   icon: { sprite: _Goobstation/Heretic/items.rsi, state: eldritch_flask }
-  productHereticKnowledge: PriestRitual
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - PriestRitual
   cost:
     KnowledgePoint: 1
   categories:
@@ -37,7 +43,10 @@
   name: knowledge-path-side-s3-ashen-eyes-name
   description: knowledge-path-side-s3-ashen-eyes-desc
   icon: { sprite: _Goobstation/Heretic/eldritch_medalion.rsi, state: icon }
-  productHereticKnowledge: AshenEyesRitual
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - AshenEyesRitual
   cost:
     KnowledgePoint: 1
   categories:
@@ -53,7 +62,10 @@
   name: knowledge-path-side-s3-void-cloak-name
   description: knowledge-path-side-s3-void-cloak-desc
   icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi, state: icon }
-  productHereticKnowledge: VoidCloak
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - VoidCloak
   cost:
     KnowledgePoint: 1
   categories:
@@ -69,7 +81,10 @@
   name: knowledge-path-side-s3-shark-name
   description: knowledge-path-side-s3-shark-desc
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: fire_shark_icon }
-  productHereticKnowledge: ScorchingShark
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - ScorchingShark
   cost:
     KnowledgePoint: 1
   categories:
@@ -80,28 +95,15 @@
   - !type:HereticPathCondition
     stage: 2
 
-#- type: listing
-#  id: HereticSidePathKnowledge
-#  name: knowledge-path-side-knowledge-name
-#  description: knowledge-path-side-knowledge-desc
-#  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon }
-#  productHereticKnowledge: RitualOfKnowledge
-#  cost:
-#    KnowledgePoint: 1
-#  categories:
-#  - HereticPathSide
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
-#  - !type:HereticPathCondition
-#    stage: 0
-
 - type: listing
   id: HereticSidePath6RustWalker
   name: knowledge-path-side-s6-rustwalker-name
   description: knowledge-path-side-s6-rustwalker-desc
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: rust_walker }
-  productHereticKnowledge: RustedRitual
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - RustedRitual
   cost:
     KnowledgePoint: 1
   categories:
@@ -117,7 +119,10 @@
   name: knowledge-path-side-s6-knife-name
   description: knowledge-path-side-s6-knife-desc
   icon: { sprite: _Goobstation/Heretic/items.rsi, state: rune_carver }
-  productHereticKnowledge: CarvingKnife
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - CarvingKnife
   cost:
     KnowledgePoint: 1
   categories:
@@ -133,7 +138,10 @@
   name: knowledge-path-side-s6-ice-spear-name
   description: knowledge-path-side-s6-ice-spear-desc
   icon: { sprite: _Goobstation/Heretic/Entities/ice_spear.rsi, state: spear }
-  productHereticKnowledge: MysteriesOfCreation
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MysteriesOfCreation
   cost:
     KnowledgePoint: 1
   categories:
@@ -149,7 +157,10 @@
   name: knowledge-path-side-s8-cleave-name
   description: knowledge-path-side-s8-cleave-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cleave }
-  productHereticKnowledge: Cleave
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - Cleave
   cost:
     KnowledgePoint: 1
   categories:

@@ -5,7 +5,10 @@
   name: knowledge-path-void-s1-name
   description: knowledge-path-void-s1-desc
   icon: { sprite: _Goobstation/Heretic/Blades/blade_void.rsi, state: icon }
-  productHereticKnowledge: GlimmerOfWinter
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - GlimmerOfWinter
   cost:
     KnowledgePoint: 1
   categories:
@@ -30,7 +33,10 @@
   name: knowledge-path-void-s2-name
   description: knowledge-path-void-s2-desc
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: GraspOfVoid
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - GraspOfVoid
   cost:
     KnowledgePoint: 1
   categories:
@@ -43,30 +49,15 @@
     whitelist:
     - Void
 
-#- type: listing
-#  id: HereticVoidPath3
-#  name: knowledge-path-void-s3-name
-#  description: knowledge-path-void-s3-desc
-#  icon: { sprite: Interface/Alerts/temperature.rsi, state: cold1 }
-#  productHereticKnowledge: AristocratWay
-#  cost:
-#    KnowledgePoint: 1
-#  categories:
-#  - HereticPathVoid
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
-#  - !type:HereticPathCondition
-#    stage: 2
-#    whitelist:
-#    - Void
-
 - type: listing
   id: HereticVoidPath3
   name: knowledge-path-void-s3-name
   description: knowledge-path-void-s3-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_phase }
-  productHereticKnowledge: VoidPhase
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - VoidPhase
   cost:
     KnowledgePoint: 1
   categories:
@@ -85,7 +76,10 @@
   name: knowledge-path-void-s4-name
   description: knowledge-path-void-s4-desc
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: MarkOfVoid
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MarkOfVoid
   cost:
     KnowledgePoint: 2
   categories:
@@ -98,30 +92,15 @@
     whitelist:
     - Void
 
-#- type: listing
-#  id: HereticVoidPath5
-#  name: knowledge-path-void-s5-name
-#  description: knowledge-path-void-s5-desc
-#  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_blast }
-#  productHereticKnowledge: VoidBlast
-#  cost:
-#    KnowledgePoint: 2
-#  categories:
-#  - HereticPathVoid
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
-#  - !type:HereticPathCondition
-#    stage: 4
-#    whitelist:
-#    - Void
-
 - type: listing
   id: HereticVoidPath5
   name: knowledge-path-void-s5-name
   description: knowledge-path-void-s5-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: voidball }
-  productHereticKnowledge: VoidPrison
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - VoidPrison
   cost:
     KnowledgePoint: 2
   categories:
@@ -139,7 +118,10 @@
   name: knowledge-path-void-s6-name
   description: knowledge-path-void-s6-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_pull }
-  productHereticKnowledge: VoidPull
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - VoidPull
   cost:
     KnowledgePoint: 1
   categories:
@@ -157,7 +139,10 @@
   name: knowledge-path-void-s7-name
   description: knowledge-path-void-s7-desc
   icon: { sprite: _Goobstation/Heretic/Blades/blade_void.rsi, state: icon }
-  productHereticKnowledge: SeekingBlade
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - SeekingBlade
   cost:
     KnowledgePoint: 2
   categories:
@@ -175,7 +160,10 @@
   name: knowledge-path-void-s8-name
   description: knowledge-path-void-s8-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_rift }
-  productHereticKnowledge: VoidConduit
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - VoidConduit
   cost:
     KnowledgePoint: 1
   categories:
@@ -193,7 +181,10 @@
   name: knowledge-path-void-s9-name
   description: knowledge-path-void-s9-desc
   icon: { sprite: Interface/Alerts/temperature.rsi, state: cold3 }
-  productHereticKnowledge: AscensionVoid
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - AscensionVoid
   cost:
     KnowledgePoint: 3
   categories:
