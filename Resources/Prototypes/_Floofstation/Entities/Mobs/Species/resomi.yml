@@ -50,8 +50,8 @@
     requiredLegs: 2
   - type: Speech
     speechVerb: Parrot
-    speechSounds: MaleAvali
-    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble'] #goob
+    speechSounds: MaleAvali # Omu
+    allowedEmotes: ['Chirp', 'Warble', 'Wurble', 'Scree', 'Call', 'Squawk', 'Hiss', 'Growl'] #goob # omu, add 'Scree', 'Call', 'Squawk' # omu again, added hiss and growl from avali in avali-resomi emote merge
   - type: Vocal
     sounds:
       Male: MaleAvaliEmote

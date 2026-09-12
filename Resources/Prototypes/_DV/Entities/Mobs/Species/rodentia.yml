@@ -23,7 +23,7 @@
   - type: Speech
     speechVerb: Rodentia
     speechSounds: Squeak
-    allowedEmotes: ['Squeak']
+    allowedEmotes: ['Squeak', 'Squee', 'Snort'] # Omu, added squeeing and snorting
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - TauCetiBasic
@@ -136,6 +136,13 @@
     spitDamageThreshold: 3
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
+  - type: Tag # Omu Start
+    tags:
+    - RodentiaEmotes
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost # Omu End
 
 - type: entity
   save: false
