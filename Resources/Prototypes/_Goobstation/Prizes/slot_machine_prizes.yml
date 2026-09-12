@@ -1,0 +1,111 @@
+- type: prize
+  id: Lose
+  weight: 0.8
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Machines/buzz-two.ogg
+
+- type: prize
+  id: MinorWin
+  weight: 0.6
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Effects/Cargo/ping.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineMinorWin
+  winMessage: slotmachine-win-minor
+
+- type: prize
+  id: SmallWin
+  weight: 0.2
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Effects/Cargo/ping.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineSmallWin
+  winMessage: slotmachine-win-small
+
+- type: prize
+  id: MediumWin
+  weight: 0.1
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Effects/Arcade/win.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineMediumWin
+  winMessage: slotmachine-win-medium
+
+- type: prize
+  id: LargeWin
+  weight: 0.01
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/_Goobstation/Machines/SlotMachine/slotmachine_bigwin.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineLargeWin
+  winMessage: slotmachine-win-large
+
+- type: prize
+  id: Jackpot
+  weight: 0.005
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/_Goobstation/Machines/SlotMachine/slotmachine_jackpotwin.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineJackpot
+  winMessage: slotmachine-win-jackpot
+
+- type: prize
+  id: GodPot
+  weight: 0.001
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/_Goobstation/Machines/SlotMachine/slotmachine_godpot.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineGodPot
+  winMessage: slotmachine-win-godpot
+
+- type: prize
+  id: QmMinor
+  weight: 0.5
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/_Goobstation/Machines/SlotMachine/slotmachine_bigwin.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineQmMinor
+  winMessage: slotmachine-win-qm-minor
+
+- type: prize
+  id: QmJackpot
+  weight: 0.1
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/_Goobstation/Machines/SlotMachine/slotmachine_jackpotwin.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineQmJackpot
+  winMessage: slotmachine-win-qm-jackpot
+
+- type: prize
+  id: QmThrongler
+  weight: 0.005
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/_Goobstation/Machines/SlotMachine/slotmachine_godpot.ogg
+  prizeTable: !type:NestedSelector
+    tableId: SlotMachineQmThrongler
+  winMessage: slotmachine-win-qm-throngler
+
+- type: prize
+  id: ClawLose
+  weight: 0.8
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Machines/buzz-two.ogg
+  winMessage: clawmachine-fail-generic
+  announceType: Popup
+
+- type: prize
+  id: ClawGame
+  weight: 0.5
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Effects/Arcade/win.ogg
+  prizeTable: !type:NestedSelector
+    tableId: Plushies
+
+- type: prize
+  id: ClawGameEvil
+  weight: 0.6
+  winSound: !type:SoundPathSpecifier
+    path: /Audio/Effects/Arcade/win.ogg
+  prizeTable: !type:NestedSelector
+    tableId: PlushiesEvil
+  winMessage: clawmachine-win-evil

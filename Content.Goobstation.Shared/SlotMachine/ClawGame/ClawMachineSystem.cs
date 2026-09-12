@@ -1,16 +1,11 @@
-using Content.Shared.Chat;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
+using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.SlotMachine.ClawGame;
 
@@ -19,13 +14,14 @@ namespace Content.Goobstation.Shared.SlotMachine.ClawGame;
 /// </summary>
 public sealed class ClawMachineSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly PrizeSystem _prize = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -35,43 +31,44 @@ public sealed class ClawMachineSystem : EntitySystem
         SubscribeLocalEvent<ClawMachineComponent, GotEmaggedEvent>(OnEmagged);
     }
 
-    private void OnEmagged(EntityUid uid, ClawMachineComponent comp, ref GotEmaggedEvent args)
+    private void OnEmagged(Entity<ClawMachineComponent> ent, ref GotEmaggedEvent args)
     {
-        if(comp.Emagged)
+        if (HasComp<EmaggedComponent>(ent.Owner))
             return;
 
-        args.Handled = true;
-        comp.Emagged = true;
+        EnsureComp<EmaggedComponent>(ent.Owner);
 
-        comp.Rewards = comp.EvilRewards; //My name is nhoj nhoj and I am EVIL
+        args.Handled = true;
+
+        ent.Comp.Prizes = ent.Comp.EvilPrizes; // My name is nhoj nhoj and I am EVIL
+        Dirty(ent);
     }
-    private void OnInteractHandEvent(EntityUid uid, ClawMachineComponent comp, ActivateInWorldEvent args)
+    private void OnInteractHandEvent(Entity<ClawMachineComponent> ent, ref ActivateInWorldEvent args)
     {
-        if (comp.IsSpinning || !_power.IsPowered(uid))
+        if (ent.Comp.IsSpinning || !_power.IsPowered(ent.Owner))
             return;
 
         var doAfter =
-         new DoAfterArgs(EntityManager, args.User, comp.DoAfterTime, new ClawGameDoAfterEvent(), uid)
+         new DoAfterArgs(EntityManager, args.User, ent.Comp.DoAfterTime, new ClawGameDoAfterEvent(), ent.Owner)
          {
              BreakOnMove = true,
              BreakOnDamage = true,
              MultiplyDelay = false,
          };
-        comp.IsSpinning = true;
+        ent.Comp.IsSpinning = true;
 
         if (_net.IsServer)
         {
-            _audio.PlayPvs(comp.PlaySound, uid);
+            _audio.PlayPvs(ent.Comp.PlaySound, ent.Owner);
             _doAfter.TryStartDoAfter(doAfter);
+            _appearance.SetData(ent.Owner, ClawMachineVisuals.Spinning, true);
+            _appearance.SetData(ent.Owner, ClawMachineVisuals.NormalSprite, false);
         }
-        if (TryComp<AppearanceComponent>(uid, out var appearance) && _net.IsServer)
-        {
-            _appearance.SetData(uid, ClawMachineVisuals.Spinning, true);
-            _appearance.SetData(uid, ClawMachineVisuals.NormalSprite, false);
-        }
+
+        Dirty(ent);
     }
 
-    private void OnSlotMachineDoAfter(EntityUid uid, ClawMachineComponent comp, ClawGameDoAfterEvent args)
+    private void OnSlotMachineDoAfter(Entity<ClawMachineComponent> ent, ref ClawGameDoAfterEvent args)
     {
         if (args.Handled)
             return;
@@ -82,40 +79,25 @@ public sealed class ClawMachineSystem : EntitySystem
         {
             var selfMsgFail = Loc.GetString("clawmachine-fail-self");
             var othersMsgFail = Loc.GetString("clawmachine-fail-other", ("user", args.User));
-            comp.IsSpinning = false;
-            _popupSystem.PopupPredicted(selfMsgFail, othersMsgFail, args.User, args.User, PopupType.Small);
-            if (TryComp<AppearanceComponent>(uid, out var _) && _net.IsServer)
-            {
-                _appearance.SetData(uid, ClawMachineVisuals.Spinning, false);
-                _appearance.SetData(uid, ClawMachineVisuals.NormalSprite, true);
-            }
-            Dirty(uid, comp);
+
+            ent.Comp.IsSpinning = false;
+            _popupSystem.PopupPredicted(selfMsgFail, othersMsgFail, args.User, args.User);
+
+            _appearance.SetData(ent, ClawMachineVisuals.Spinning, false);
+            _appearance.SetData(ent, ClawMachineVisuals.NormalSprite, true);
+
+            Dirty(ent);
             return;
         }
 
-        if (TryComp<AppearanceComponent>(uid, out var _) && _net.IsServer)
-        {
-            _appearance.SetData(uid, ClawMachineVisuals.Spinning, false);
-            _appearance.SetData(uid, ClawMachineVisuals.NormalSprite, true);
-        }
-        comp.IsSpinning = false;
-        Dirty(uid, comp);
-        if(!_net.IsServer)
-            return;
+        _appearance.SetData(ent.Owner, ClawMachineVisuals.Spinning, false);
+        _appearance.SetData(ent.Owner, ClawMachineVisuals.NormalSprite, true);
 
-        if (_random.Prob(comp.WinChance) && comp.Rewards != null)
-        {
-            _audio.PlayPvs(comp.WinSound, uid);
+        ent.Comp.IsSpinning = false;
 
-            var rewardToSpawn = _random.Pick(comp.Rewards);
+        Dirty(ent);
 
-            var coordinates = Transform(uid).Coordinates;
-            EntityManager.SpawnEntity(rewardToSpawn, coordinates);
-
-            return;
-        }
-
-        _popupSystem.PopupEntity(Loc.GetString("clawmachine-fail-generic"), uid);
-        _audio.PlayPvs(comp.LoseSound, uid);
+        if (_net.IsServer) // I have no fucking idea why this misperdicts on this only, when I try it on the slot machine its fine
+            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner);
     }
 }
