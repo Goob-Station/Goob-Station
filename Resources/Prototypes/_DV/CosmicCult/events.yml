@@ -5,7 +5,7 @@
   - type: GameRule # Goobstation, same as dragon?
     chaosScore: 600
   - type: StationEvent
-    weight: 4.5
+    weight: 3.5 # Goobstation - closer to dragon chances
     earliestStart: 30
     reoccurrenceDelay: 20
     minimumPlayers: 25

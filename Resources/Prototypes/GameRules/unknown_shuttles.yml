@@ -199,7 +199,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 900
+    chaosScore: 600 # used to be 900, now its the same cost as 3 traitors
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/instigator.yml
 
