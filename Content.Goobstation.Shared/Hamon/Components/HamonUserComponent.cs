@@ -11,7 +11,7 @@ namespace Content.Goobstation.Shared.Hamon.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HamonUserComponent : Component
 {
-    [DataField]
+    [DataField(required: true)]
     public ComponentRegistry Components;
 
     [DataField]
