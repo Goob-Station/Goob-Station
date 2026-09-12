@@ -8,7 +8,9 @@ using Content.Shared.Alert;
 using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Drunk;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Mobs;
@@ -161,7 +163,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         healSpec.DamageDict.Add("Cellular", ent.Comp.CellularHeal);
 
         // heal the damage
-        _dmg.TryChangeDamage(ent, healSpec, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
+        _dmg.TryChangeDamage(ent.Owner, healSpec, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
         HealEyes(ent);
     }
 

@@ -13,6 +13,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -109,7 +110,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     {
         var addedHunger = (float) ent.Comp.Damage.GetTotal();
 
-        _damageable.TryChangeDamage(ent, ent.Comp.Damage, ignoreResistances: true, targetPart: TargetBodyPart.All);
+        _damageable.TryChangeDamage(ent.Owner, ent.Comp.Damage, ignoreResistances: true, targetPart: TargetBodyPart.All);
 
         if (ent.Comp.SourceEntityUid is not { } source)
             return;

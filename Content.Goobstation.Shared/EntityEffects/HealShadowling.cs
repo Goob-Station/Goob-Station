@@ -9,6 +9,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.EntityEffects;
 

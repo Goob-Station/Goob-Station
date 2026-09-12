@@ -2,14 +2,13 @@
 
 using Content.Server.Body.Systems;
 using Content.Server.Destructible;
-using Content.Server.Examine;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared.Body.Components;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;

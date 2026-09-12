@@ -11,6 +11,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared._DV.Storage.EntitySystems;
 

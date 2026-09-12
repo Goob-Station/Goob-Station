@@ -9,6 +9,7 @@ using Content.Server.Administration.Systems;
 using Content.Server.Jittering;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Components;

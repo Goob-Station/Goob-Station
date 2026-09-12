@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;

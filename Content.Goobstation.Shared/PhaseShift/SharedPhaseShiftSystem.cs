@@ -20,6 +20,7 @@ using Content.Shared.Standing;
 using Content.Shared.StepTrigger.Systems;
 using Content.Goobstation.Common.Footprints;
 using Content.Shared.Chat;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.PhaseShift;
 

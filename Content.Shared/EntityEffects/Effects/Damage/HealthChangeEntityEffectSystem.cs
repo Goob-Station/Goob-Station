@@ -1,14 +1,17 @@
 ﻿using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.EntityEffects.Effects;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Localizations;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Systems;
 
-namespace Content.Shared.EntityEffects.Effects;
+namespace Content.Shared.EntityEffects.Effects.Damage;
 
 /// <summary>
 /// Adjust the damages on this entity by specified amounts.
@@ -33,16 +36,13 @@ public sealed partial class HealthChangeEntityEffectSystem : EntityEffectSystem<
 
             damageSpec *= scaleTemp.GetEfficiencyMultiplier(temp.CurrentTemperature, args.Scale, false);
         }
+        // Goob end
 
         _damageable.TryChangeDamage(
-                entity,
+                entity.AsNullable(),
                 damageSpec,
                 args.Effect.IgnoreResistances,
-                interruptsDoAfters: false,
-                targetPart: args.Effect.UseTargeting ? args.Effect.TargetPart : null,
-                ignoreBlockers: args.Effect.IgnoreBlockers,
-                splitDamage: args.Effect.SplitDamage);
-        // Goobstation End
+                interruptsDoAfters: false);
     }
 }
 
@@ -58,22 +58,7 @@ public sealed partial class HealthChange : EntityEffectBase<HealthChange>
     [DataField]
     public bool IgnoreResistances = true;
 
-    // Goobstation-start
-    [DataField]
-    public SplitDamageBehavior SplitDamage = SplitDamageBehavior.SplitEnsureAllOrganic;
-
-    [DataField]
-    public bool UseTargeting = true;
-
-    [DataField]
-    public TargetBodyPart TargetPart = TargetBodyPart.All;
-
-    // Respect wound heal-blockers/floors by default so a broken-bone limb can't be fully healed by chems
-    // Set true on a specific reagent to bypass.
-    [DataField]
-    public bool IgnoreBlockers;
-    // Goobstation-end
-
+    // Goob - shitmed slop
     [DataField]
     public TemperatureScaling? ScaleByTemperature;
 

@@ -27,6 +27,8 @@ using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.IntegrationTests.Tests._Shitmed.Body;
 

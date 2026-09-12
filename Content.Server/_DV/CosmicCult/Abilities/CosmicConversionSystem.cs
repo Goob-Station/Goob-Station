@@ -15,6 +15,7 @@ using Robust.Shared.Timing;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Administration.Systems;
 using Content.Shared.Administration.Systems;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 

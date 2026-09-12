@@ -2,6 +2,8 @@
 
 using Content.Shared._DV.Abilities;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -37,8 +39,8 @@ public sealed partial class ChitinidSystem : EntitySystem
                 || _mobState.IsDead(uid))
                 continue;
 
-            if (_damageable.TryChangeDamage(uid, comp.Healing, damageable: damageable) is not {} delta)
-                continue;
+            // goob i changed this a bit but who cares its not like we upstream chitinid
+            var delta = _damageable.ChangeDamage((uid, damageable), comp.Healing);
 
             // damage healed is subtracted, so the delta is negative.
             comp.AmountAbsorbed -= delta.GetTotal();
