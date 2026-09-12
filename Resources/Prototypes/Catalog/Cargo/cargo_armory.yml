@@ -73,7 +73,7 @@
 - type: cargoProduct
   id: ArmoryRifle
   icon:
-    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
+    sprite: _Pirate/Objects/Weapons/Guns/Rifles/lecter.rsi
     state: icon
   product: CrateArmoryRifle
   cost: 8000
