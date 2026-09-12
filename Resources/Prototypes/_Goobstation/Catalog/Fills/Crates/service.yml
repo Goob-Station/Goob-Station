@@ -167,8 +167,6 @@
       weight: 1
     - id: VinylDiskWhite
       weight: 1
-    - id: VinylDiskLightRed
-      weight: 1
     - id: VinylDiskDarkBlue
       weight: 1
     - id: VinylDiskPink
@@ -217,8 +215,114 @@
       weight: 1
     - id: VinylDiskWeAreNumberTwo
       weight: 1
+    - id: VinylDiskAdventure1
+      weight: 1
+    - id: VinylDiskAdventure2
+      weight: 1
+    - id: VinylDiskAdventure4
+      weight: 1
+    - id: VinylDiskAdventure5
+      weight: 1
+    - id: VinylDiskAdventure6
+      weight: 1
+    - id: VinylDiskAfterParty
+      weight: 1
+    - id: VinylDiskAnonymous
+      weight: 1
+    - id: VinylDiskApril
+      weight: 1
+    - id: VinylDiskAtmosphere
+      weight: 1
+    - id: VinylDiskAugust
+      weight: 1
+    - id: VinylDiskBanjo1
+      weight: 1
+    - id: VinylDiskBiodome
+      weight: 1
+    - id: VinylDiskBlackWing
+      weight: 1
+    - id: VinylDiskBumblebee
+      weight: 1
+    - id: VinylDiskChill1
+      weight: 1
+    - id: VinylDiskChill2
+      weight: 1
+    - id: VinylDiskChill3
+      weight: 1
+    - id: VinylDiskChill4
+      weight: 1
+    - id: VinylDiskCloudMan
+      weight: 1
+    - id: VinylDiskDecember
+      weight: 1
+    - id: VinylDiskEggShell
+      weight: 1
+    - id: VinylDiskFebruary
+      weight: 1
+    - id: VinylDiskFunkadelic
+      weight: 1
+    - id: VinylDiskGiga
+      weight: 1
+    - id: VinylDiskGraveyard
+      weight: 1
+    - id: VinylDiskTechnologicBeat
+      weight: 1
+    - id: VinylDiskItFeelsGood
+      weight: 1
+    - id: VinylDiskJanuary
+      weight: 1
+    - id: VinylDiskJuly
+      weight: 1
+    - id: VinylDiskJune
+      weight: 1
+    - id: VinylDiskLunch
+      weight: 1
+    - id: VinylDiskMarch
+      weight: 1
+    - id: VinylDiskMaxi
+      weight: 1
+    - id: VinylDiskMay
+      weight: 1
+    - id: VinylDiskMonkeyRiot
+      weight: 1
+    - id: VinylDiskNovember
+      weight: 1
+    - id: VinylDiskOctober
+      weight: 1
+    - id: VinylDiskEvilStar
+      weight: 1
+    - id: VinylDiskPlanets
+      weight: 1
+    - id: VinylDiskRepose
+      weight: 1
+    - id: VinylDiskRiverdancer
+      weight: 1
+    - id: VinylDiskSecondReality
+      weight: 1
+    - id: VinylDiskSeptember
+      weight: 1
+    - id: VinylDiskSpaceGardener
+      weight: 1
+    - id: VinylDiskSpaceUguu
+      weight: 1
+    - id: VinylDiskUpbeat1
+      weight: 1
+    - id: VinylDiskUpbeat2
+      weight: 1
+    - id: VinylDiskWarriorsHonk
+      weight: 1
+    - id: VinylDiskWayStations
+      weight: 1
     - id: VinylDiskSpaceAsshole
       weight: 0.8
+    - id: VinylDiskLightRed
+      weight: 0.1
+    - id: VinylDiskDiscoPoo
+      weight: 0.1
+    - id: VinylDiskButtris
+      weight: 0.1
+    - id: VinylDiskCoreOfPoo
+      weight: 0.1
 
 - type: entityTable
   id: RandomVinylSleeve
