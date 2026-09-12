@@ -11,27 +11,34 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Rodentia are a race of humanoid beings resembling rodents. Resourceful, evasive, sneaky, but fragile.
 
+  ## Unique Abilities
+
+  ### Rummaging
+
+  - Rodentia can rummage in disposal chutes, which can sometimes [color=#1e90ff]dig up food.[/color] Yum!
+
+  ### Rodent Storage
+
+  - Rodentia can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and they will drop all items in their mouth if attacked, stunned, or shoved.
+
+  ### Sneaking
+
+  - Due to their small stature and rodent instincts, Rodentia can [color=#1e90ff]sneak underneath tables.[/color] However, they are unable to sneak under doors.
+
   ## Diet
 
   - Can eat raw meat.
-  - Will get poisoned by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
+  - Will get [color=#FFA500]poisoned[/color] by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
 
   ## Benefits
 
-  - Uses their claws to do some Slashing and Blunt damage.
-  - Can fit in duffelbags.
-
-  ## Special
-
-  - Can Rummage in disposal chutes, which can sometimes dig up food.
-  - Can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and they will drop all items in their mouth if attacked, stunned, or shoved.
-  - Can "sneak" underneath tables, but not doors.
-  - Smaller than most other species.
+  - They can use their claws to do some [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Blunt[/color] damage.
+  - They can fit in duffelbags.
 
   ## Drawbacks
 
-  - Takes 15% more Blunt, Slash, and Piercing damage.
+  - Takes [color=#FFA500]15% more Blunt, Slash, and Piercing damage.[/color]
   - Always triggers mousetraps, regardless of whether or not they are wearing shoes.
-  - Gets hungry 33% faster.
+  - Gets [color=#FFA500]hungry 33% faster.[/color]
 
 </Document>

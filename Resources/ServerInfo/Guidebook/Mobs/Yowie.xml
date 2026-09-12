@@ -9,22 +9,33 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobYowie" Caption=""/>
   </Box>
 
-  Yowie are a once-thought urban myth, turned newly discovered mystical species of bipedal hairy creature.
-  Their body is larger than most other species in stature, with the downside of them [color=#AAFF00]not being able to fit into most Nanotrasen external wear or shoes[/color] (they can barely squeeze into softsuits), or [color=#AAFF00] being able to be carried by others[/color].
-  Their fur also allows them to take [color=#baf2ef]less cold damage[/color].
+  Yowie are a once-thought urban myth, turned newly discovered mystical species of bipedal hairy creature. 
+  From discussions had between our species, it seems historically they were living beside humanity during its existence on Earth in parts of Australia, lending them to develop a thick australian accent with slang included.
 
-  Their stature makes their unarmed punch deal [color=#ec3a3a]2x the damage[/color] of a human punch.
+  ## Unique Abilities
 
-  They are larger, making them easier to hit in combat, but they take 25% less Blunt, Slash and Piercing damage.
-  They also weigh more, allowing them to pull lighter species with ease.
-
-  ## Fuckin' skiz, mate
+  ### Fuckin' skiz, mate
   <Box>
     <GuideEntityEmbed Entity="Joint" Caption=""/>
   </Box>
+  
+  - They seem to have spent most of their time experimenting with some of the most dangerous and experimental drugs, and on review, they've built up a bigger tolerance to most chemicals. Uniquely, their liver carries out the task of metabolizing chemicals.
 
-  From discussions had between our species, it seems historically they were living beside humanity during its existence on Earth in parts of Australia, lending them to develop a thick australian accent with slang included.
-  They seem to have spent most of their time experimenting with some of the most dangerous and experimental drugs, and on review, they've built up a bigger tolerance to most chemicals. Uniquely, their liver carries out the task of metabolizing chemicals.
+  ## Diet
 
+  - Due to their resistance to most drugs and toxins, they are able to consume almost any edible items.
+
+  ## Benefits
+
+  - They take 25% less Blunt, Slash and Piercing damage.
+  - Their stature makes their unarmed punch deal [color=#ec3a3a]2x the damage[/color] of a human punch.
+  - Their fur allows them to take [color=#1e90ff]less cold damage[/color].
+  - They weigh more, allowing them to pull lighter species with ease.
+
+  ## Drawbacks
+
+  - Their body is larger than most other species in stature, with the downside of them [color=#ffa500]not being able to fit into most Nanotrasen external wear or shoes[/color] (they can barely squeeze into softsuits)
+  - They are unable to be carried by others.
+  - They are easier to hit due to their size.
 
 </Document>
