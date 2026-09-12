@@ -97,7 +97,7 @@ public abstract class SharedInternalResourcesSystem : EntitySystem
             return false;
 
         var currentAmount = data.CurrentAmount;
-        var newAmount = Math.Clamp(data.CurrentAmount + amount, 0f, data.MaxAmount);
+        var newAmount = Math.Clamp(data.CurrentAmount + amount, data.MinAmount, data.MaxAmount);
 
         data.CurrentAmount = newAmount;
 
@@ -229,13 +229,14 @@ public abstract class SharedInternalResourcesSystem : EntitySystem
 
         _protoMan.TryIndex(proto.ThresholdsProto, out var threshProto);
 
-        var startingAmount = Math.Clamp(proto.BaseStartingAmount, 0f, proto.BaseMaxAmount);
+        var startingAmount = Math.Clamp(proto.BaseStartingAmount, proto.BaseMinAmount, proto.BaseMaxAmount); // Trauma
         data = new InternalResourcesData(
             proto.BaseMaxAmount,
             proto.BaseRegenerationRate,
             startingAmount,
             threshProto?.Thresholds,
-            proto.ID);
+            proto.ID,
+            proto.BaseMinAmount); // Trauma
 
         resourcesComp.CurrentInternalResources.Add(data);
         Dirty(uid, resourcesComp);
@@ -285,45 +286,53 @@ public abstract class SharedInternalResourcesSystem : EntitySystem
 
         _systemNextUpdate += _systemUpdateRate;
 
+        var toUpdate = new List<(EntityUid uid, InternalResourcesData data, InternalResourcesComponent comp)>();
+
         var query = EntityQueryEnumerator<InternalResourcesComponent>();
         while (query.MoveNext(out var uid, out var resourcesComp))
         {
             foreach (var resourceData in resourcesComp.CurrentInternalResources)
             {
-                var modEv = new InternalResourcesRegenModifierEvent(
-                    uid,
-                    resourceData,
-                    resourceData.RegenerationRate);
-                RaiseLocalEvent(uid, ref modEv);
+                toUpdate.Add((uid, resourceData, resourcesComp));
+            }
+        }
 
-                TryUpdateResourcesAmount(uid, resourceData, modEv.Modifier, resourcesComp);
+        // Trauma - defer processing so raised events can't modify collections mid-enumeration
+        foreach (var (uid, resourceData, resourcesComp) in toUpdate)
+        {
+            var modEv = new InternalResourcesRegenModifierEvent(
+                uid,
+                resourceData,
+                resourceData.RegenerationRate);
+            RaiseLocalEvent(uid, ref modEv);
 
-                if (resourceData.Thresholds == null)
-                    continue;
+            TryUpdateResourcesAmount(uid, resourceData, modEv.Modifier, resourcesComp);
 
-                var thresholdsArray = resourceData.Thresholds.Keys.ToArray();
-                foreach (var key in thresholdsArray)
+            if (resourceData.Thresholds == null)
+                continue;
+
+            var thresholdsArray = resourceData.Thresholds.Keys.ToArray();
+            foreach (var key in thresholdsArray)
+            {
+                var threshold = resourceData.Thresholds[key];
+                // threshold.Item1 is the threshold percentage
+                // threshold.Item2 is the bool for the threshold having been met
+
+                var scaledAmount = resourceData.MaxAmount * threshold.Item1;
+
+                if (!threshold.Item2 // threshold needs to not have been met already
+                    && resourceData.CurrentAmount <= scaledAmount)
                 {
-                    var threshold = resourceData.Thresholds[key];
-                    // threshold.Item1 is the threshold percentage
-                    // threshold.Item2 is the bool for the threshold having been met
-
-                    var scaledAmount = resourceData.MaxAmount * threshold.Item1;
-
-                    if (!threshold.Item2 // threshold needs to not have been met already
-                        && resourceData.CurrentAmount <= scaledAmount)
-                    {
-                        var threshEv = new InternalResourcesThresholdMetEvent(uid, resourceData, key);
-                        RaiseLocalEvent(uid, ref threshEv);
-                    }
-
-                    threshold.Item2 = resourceData.CurrentAmount <= scaledAmount;
-
-                    resourceData.Thresholds[key] = threshold;
+                    var threshEv = new InternalResourcesThresholdMetEvent(uid, resourceData, key);
+                    RaiseLocalEvent(uid, ref threshEv);
                 }
 
-                Dirty(uid, resourcesComp);
+                threshold.Item2 = resourceData.CurrentAmount <= scaledAmount;
+
+                resourceData.Thresholds[key] = threshold;
             }
+
+            Dirty(uid, resourcesComp);
         }
     }
 }

@@ -1,0 +1,13 @@
+- files: ["shadowlaugh1.ogg",
+          "shadowlaugh2.ogg",
+          "shadowlaugh3.ogg",
+          "shadowscream1.ogg",
+          "shadowscream2.ogg",
+          "shadowscream3.ogg",
+          "shadowdemonask.ogg",
+          "shadowdemonexclaim.ogg",
+          "shadowdemonsay.ogg"
+          ]
+  license: "CC0-1.0"
+  copyright: "Sorth"
+  source: "https://opengameart.org/content/ghost-voice-pack"

@@ -169,12 +169,17 @@ public record struct IngestedEvent(EntityUid User, EntityUid Target, Solution Sp
 /// Raised directed at the food after finishing eating it and before it's deleted.
 /// </summary>
 [ByRefEvent]
-public readonly record struct FullyEatenEvent(EntityUid User)
+public readonly record struct FullyEatenEvent(EntityUid User, EntityUid Eater) // Trauma - Added eater
 {
     /// <summary>
-    /// The entity that ate the food.
+    /// The entity that started the doafter to eat the food e.g if force fed it'll be the entity who fed it, NOT the entity that ate it
     /// </summary>
     public readonly EntityUid User = User;
+
+    /// <summary>
+    /// Trauma - The entity that ate the food
+    /// </summary>
+    public readonly EntityUid Eater = Eater;
 }
 
 /// <summary>
@@ -220,3 +225,17 @@ public sealed class BeforeFullySlicedEvent : CancellableEntityEventArgs
     /// </summary>
     public EntityUid User;
 }
+
+// <Trauma>
+/// <summary>
+/// Raised directed at the eater when a portion of food is successfully transferred to their stomach.
+/// </summary>
+[ByRefEvent]
+public readonly record struct ConsumingFoodEvent(EntityUid Food, FixedPoint2 Volume);
+
+/// <summary>
+/// Raised directed at the eater after they finish fully eating a food.
+/// </summary>
+[ByRefEvent]
+public readonly record struct FullyAteEvent(EntityUid Food, EntityUid User);
+// </Trauma>

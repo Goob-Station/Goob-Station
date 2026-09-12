@@ -10,7 +10,7 @@ namespace Content.Shared.Chemistry.Components;
 /// Passively increases a solution's quantity of a reagent.
 /// </summary>
 [RegisterComponent, AutoGenerateComponentPause, AutoGenerateComponentState, NetworkedComponent]
-[Access(typeof(SolutionRegenerationSystem))]
+// [Access(typeof(SolutionRegenerationSystem))] - Trauma removed larp larp larp sahur
 public sealed partial class SolutionRegenerationComponent : Component
 {
     /// <summary>

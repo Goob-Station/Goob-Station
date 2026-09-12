@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: radioChannel
+  id: EggRadio
+  name: chat-radio-egg
+  keycode: 'p'
+  frequency: 577
+  color: "#f9f0c9"

@@ -1,0 +1,80 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: AppleSeeds
+  id: deliciousAppleSeeds
+  name: packet of delicious apple seeds
+  components:
+  - type: Seed
+    seedId: deliciousApple
+
+- type: entity
+  parent: AppleSeeds
+  id: MethAppleSeeds
+  name: packet of meth apple seeds
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
+  - type: Seed
+    seedId: MethApple
+
+- type: entity
+  parent: SeedBase
+  id: ClearCornSeeds
+  name: packet of clear corn seeds
+  components:
+  - type: Seed
+    seedId: ClearCorn
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/clear_corn.rsi
+
+- type: entity
+  parent: SeedBase
+  id: PeanutSeeds
+  name: packet of peanut seeds
+  components:
+  - type: Seed
+    seedId: Peanut
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/peanut.rsi
+
+- type: entity
+  parent: SeedBase
+  id: MagicMushroomSeeds
+  name: packet of magic mushroom seeds
+  components:
+  - type: Seed
+    seedId: MagicMushrooms
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/magicmushrooms.rsi
+
+- type: entity
+  parent: SeedBase
+  id: SynthMeatSeeds
+  name: packet of synth meat seeds
+  components:
+  - type: Seed
+    seedId: SynthMeat
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/synthmeat.rsi
+
+- type: entity
+  parent: WatermelonSeeds
+  id: BalloonMelonSeeds
+  name: packet of balloon melon seeds
+  components:
+  - type: Seed
+    seedId: BalloonWatermelon
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/balloon_mellon.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of steel wheat seeds
+  id: SteelWheatSeeds
+  components:
+  - type: Seed
+    seedId: SteelWheat
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/steel_wheat.rsi

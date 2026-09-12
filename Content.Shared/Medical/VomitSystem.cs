@@ -1,4 +1,5 @@
 using Content.Goobstation.Common.Medical;
+using Content.Goobstation.Common._Trauma.Medical.Vomiting; // Trauma
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
@@ -97,6 +98,11 @@ public sealed class VomitSystem : EntitySystem
         if (beforeEv.Cancelled)
             return;
         // goob end
+
+        // <Trauma>
+        var vomitEv = new VomitedEvent();
+        RaiseLocalEvent(uid, ref vomitEv);
+        // </Trauma>
 
         // Vomiting makes you hungrier and thirstier
         if (TryComp<HungerComponent>(uid, out var hunger))

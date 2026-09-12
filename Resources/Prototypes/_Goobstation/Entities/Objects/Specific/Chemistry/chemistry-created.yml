@@ -36,3 +36,8 @@
     entries:
       Burger: FSE_FoodMeatSynth # just in case you really want to
       Taco: FSE_FoodMeatSynth
+  # <Trauma>
+  - type: Tag
+    tags:
+    - SynthMeat
+  # </Trauma>

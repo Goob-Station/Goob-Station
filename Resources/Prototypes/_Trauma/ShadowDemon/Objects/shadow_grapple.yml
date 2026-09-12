@@ -1,0 +1,39 @@
+- type: entity
+  id: ShadowGrappleProjectile
+  name: shadow grapple
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3.0 # always delete after throw
+  - type: EmbeddableProjectile
+    deleteOnRemove: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    noRot: false
+    sprite: _Trauma/Mobs/ShadowDemon/shadow_hand.rsi
+    layers:
+    - state: shadow_hand
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - BulletImpassable
+  - type: ShadowGrappleProjectile
+    # stunTime: 2 #  | Stun applied to entities when they get hit
+    damageOnHit:  #  | Damage done to entities when they get hit
+      types:
+        Blunt: 50

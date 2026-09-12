@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from goonstation at https://github.com/goonstation/goonstation/blob/c4897287f50b4038ceab8c03822ad4bb1105d40d/icons/effects/160x160.dmi",
+  "size": {
+    "x": 160,
+    "y": 160
+  },
+  "states": [
+    {
+      "name": "thundercloud",
+      "delays": [
+        [
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035,
+          0.035
+        ]
+      ]
+    }
+  ]
+}

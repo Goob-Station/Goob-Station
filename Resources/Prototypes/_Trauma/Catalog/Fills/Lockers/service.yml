@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: LockerRancherFilled
+  suffix: Filled
+  parent: LockerBotanist
+  name: rancher's locker
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerRancher
+
+- type: entityTable
+  id: FillLockerRancher
+  table: !type:AllSelector
+    children:
+    - id: ChickenCarrier
+    - id: WhiteEgg
+    - id: WhiteEgg
+    - id: FoodContainerEgg
