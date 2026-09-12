@@ -1,0 +1,15 @@
+light_mode unshaded;
+blend_mode none;
+
+uniform highp vec2 axis;
+uniform highp float spread;
+
+void fragment() {
+    highp vec2 off = TEXTURE_PIXEL_SIZE * axis * spread;
+
+    highp float sum = zTexture(UV).a * 0.2270270270;
+    sum += (zTexture(UV + off * 1.3846153846).a + zTexture(UV - off * 1.3846153846).a) * 0.3162162162;
+    sum += (zTexture(UV + off * 3.2307692308).a + zTexture(UV - off * 3.2307692308).a) * 0.0702702703;
+
+    COLOR = vec4(1.0, 1.0, 1.0, sum);
+}
