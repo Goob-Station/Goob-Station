@@ -27,8 +27,6 @@ public partial class SharedInteractionSystem
 
         SubscribeLocalEvent<BlockMovementComponent, ComponentStartup>(OnBlockingStartup);
         SubscribeLocalEvent<BlockMovementComponent, ComponentShutdown>(OnBlockingShutdown);
-
-        SubscribeLocalEvent<BlockMovementComponent, ComponentRemove>(OnBlockingRemove);
     }
 
     private void CancelInteractEvent(Entity<BlockMovementComponent> ent, ref InteractionAttemptEvent args)
@@ -48,6 +46,13 @@ public partial class SharedInteractionSystem
         // If we're relaying then don't cancel.
         if (HasComp<RelayInputMoverComponent>(uid))
             return;
+
+        // Goob start - fix BlockMovementComponent
+        // GOOB TODO: upstream this fix
+        // https://github.com/space-wizards/space-station-14/issues/45956
+        if (component.LifeStage == ComponentLifeStage.Removing || component.Deleted)
+            return;
+        // Goob end
 
         args.Cancel(); // no more scurrying around
     }
@@ -72,14 +77,4 @@ public partial class SharedInteractionSystem
     {
         _actionBlockerSystem.UpdateCanMove(uid);
     }
-
-    // Goob start - fix BlockMovementComponent
-    // GOOB TODO: upstream this fix or make a bug report and have someone else do it :trolley:
-    // the above still has the comp on the ent along with subscription in this system,
-    // so it still updates CanMove to false
-    private void OnBlockingRemove(EntityUid uid, BlockMovementComponent component, ComponentRemove args)
-    {
-        _actionBlockerSystem.UpdateCanMove(uid);
-    }
-    // Goob end
 }
