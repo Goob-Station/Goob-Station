@@ -177,9 +177,15 @@ public sealed partial class DamageableSystem
 
             if (targettedParts.Count <= 0)
             {
+#if DEBUG
+                // There is some sort of i assume Pvs-related bug here. i don't know why it happens,
+                // but it's reproducible consistently when you walk towards the people in the
+                // dev map Weapons room. this is bad but the error message isn't that helpful and
+                // probably metagameable idk
                 Log.Error(
                     $"Couldn't find any body parts for Body {ToPrettyString(body)} when applying damage!"
                 );
+#endif
                 return null;
             }
 
@@ -264,10 +270,10 @@ public sealed partial class DamageableSystem
             // No body parts at all?
             if (possibleTargets.Count == 0)
             {
-                Log.Error(
+                throw new InvalidOperationException
+                (
                     $"Couldn't find any possible target body parts for Body {ToPrettyString(body)} when applying damage!"
                 );
-                return null;
             }
 
             var random = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(body));
