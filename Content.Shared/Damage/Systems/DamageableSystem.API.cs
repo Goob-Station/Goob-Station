@@ -239,7 +239,6 @@ public sealed partial class DamageableSystem
         // Check for integrity cap on body parts
         var isWoundable = _woundableQuery.TryComp(ent, out var woundable);
         var damageCap = isWoundable ? woundable!.IntegrityCap : FixedPoint2.MaxValue;
-        var remainingCap = damageCap - ent.Comp.TotalDamage;
         var damageDoneHypotheticalUncapped = new DamageSpecifier(damage.ArmorPenetration,
             damage.PartDamageVariation,
             damage.WoundSeverityMultipliers); // slop
@@ -265,6 +264,8 @@ public sealed partial class DamageableSystem
             //
             //dict[type] = newValue;
             //damageDone.DamageDict[type] = newValue - oldValue;
+
+            var remainingCap = damageCap - oldValue;
 
             // For positive damage, we need to check if we've hit the cap
             if (value > 0)
