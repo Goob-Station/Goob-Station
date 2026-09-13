@@ -8,7 +8,7 @@ namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem
 {
-    // Todo: we can remove this once entity queries can be declared with "default"!
+    // Todo: we can remove this once entity queries can be declared as dependencies!
     public void InitializeWoundmed()
     {
         _bodyQuery = GetEntityQuery<BodyComponent>();

@@ -326,7 +326,7 @@ public sealed partial class DamageableSystem
         //    UpdateComplexBodyDamage((ent, bodyComp, ent.Comp));
         // </Woundmed>
 
-        if (!damageDone.Empty) // Woundmed - made delta ig. Idk this is weird might be wrong but apparently this mostly effects
+        if (!damageDone.Empty)
             OnEntityDamageChanged((ent, ent.Comp), damageDone, interruptsDoAfters, origin,
                 uncappedDamage: damageDoneHypotheticalUncapped); // Woundmed
 
