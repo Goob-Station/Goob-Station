@@ -54,7 +54,7 @@ jobs:
       run: dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0
 
     - name: Run Content.IntegrationTests
-      timeout-minutes: 30
+      timeout-minutes: 25 # there is no excuse for exceeding this, max test time is 20 minutes
       shell: pwsh
       run: |
         $env:DOTNET_gcServer=1
