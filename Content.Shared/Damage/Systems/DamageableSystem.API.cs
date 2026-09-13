@@ -269,6 +269,9 @@ public sealed partial class DamageableSystem
             // For positive damage, we need to check if we've hit the cap
             if (value > 0)
             {
+                // we need the damage that Would have occured were it uncapped. slop
+                damageDoneHypotheticalUncapped.DamageDict[type] = value;
+
                 // If we're not a woundable or we don't have a cap, apply the damage normally
                 if (!isWoundable || remainingCap == FixedPoint2.MaxValue)
                 {
@@ -284,9 +287,6 @@ public sealed partial class DamageableSystem
                 // Calculate how much of this damage type we can apply
                 var damageToApply = FixedPoint2.Min(value, remainingCap);
                 var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + damageToApply);
-
-                // we need the damage that Would have occured were it uncapped
-                damageDoneHypotheticalUncapped.DamageDict[type] = damageToApply;
 
                 //  Dont care if the value didnt actually changed
                 if (newValue == oldValue)
@@ -316,16 +316,12 @@ public sealed partial class DamageableSystem
 
         // <Woundmed> This means that the damaged part was a woundable
         // which also means we send that shit to refresh the body.
-        // We don't have to do this if it isn't a complex body.
-        if (!damageDone.Empty && isWoundable && bodyComp != null)
-        {
-            UpdateWoundableBodyDamage(
-                (ent, bodyComp, ent.Comp),
-                interruptsDoAfters,
-                origin,
-                ignoreBlockers
-            );
-        }
+        // NOTE:
+        // Previously this ran regardlessly, but i THINK there will be no 
+        // issues if we only do it for complex bodies.
+        // if weird woundmed issues start happening with simple bodies, this is likely why
+        if (!damageDone.Empty && isWoundable && bodyComp != null && bodyComp.BodyType == BodyType.Complex)
+            UpdateComplexBodyDamage((ent, bodyComp, ent.Comp));
         // </Woundmed>
 
         if (!damageDone.Empty) // Woundmed - made delta ig. Idk this is weird might be wrong but apparently this mostly effects

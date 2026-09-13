@@ -64,15 +64,10 @@ public sealed partial class DamageableSystem
     /// <returns>
     ///     <see langword="true"/> if parent damage was updated, <see langword="false"/> otherwise.
     /// </returns>
-    private bool UpdateWoundableBodyDamage(
-        Entity<BodyComponent, DamageableComponent> body,
-        bool interruptsDoAfters,
-        EntityUid? origin,
-        bool ignoreBlockers = false)
+    private bool UpdateComplexBodyDamage(Entity<BodyComponent, DamageableComponent> body)
     {
-        // Reset the parent's damage values
-        foreach (var type in body.Comp2.Damage.DamageDict.Keys.ToList())
-            body.Comp2.Damage.DamageDict[type] = FixedPoint2.Zero;
+        // we are gonna rebuild this based on limb damages
+        body.Comp2.Damage.DamageDict.Clear();
 
         // Sum up damage from all body parts
         foreach (var (partId, _) in _body.GetBodyChildren(body))
@@ -90,10 +85,12 @@ public sealed partial class DamageableSystem
                 if (value == 0)
                     continue;
 
-                if (body.Comp2.Damage.DamageDict.TryGetValue(type, out var existing))
-                    body.Comp2.Damage.DamageDict[type] = existing + value;
+                body.Comp2.Damage.DamageDict.TryGetValue(type, out var existing);
+                body.Comp2.Damage.DamageDict[type] = existing + value;
             }
         }
+
+        OnEntityDamageChanged((body, body.Comp2));
 
         return true;
     }
@@ -367,12 +364,7 @@ public sealed partial class DamageableSystem
         }
         else
         {
-            UpdateWoundableBodyDamage(
-                (body, body.Comp, damageableComp),
-                interruptsDoAfters,
-                origin,
-                ignoreBlockers
-            );
+            UpdateComplexBodyDamage((body, body.Comp, damageableComp));
         }
 
         return totalDamage;
