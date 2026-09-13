@@ -58,7 +58,14 @@ jobs:
       shell: pwsh
       run: |
         $env:DOTNET_gcServer=1
-        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --filter "FullyQualifiedName!~Content.IntegrationTests.Tests.PostMapInitTest&FullyQualifiedName!~Content.IntegrationTests.Tests.EntityTest" -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+
+    - name: Run Mem-Heavy Content.IntegrationTests
+      shell: pwsh
+      run: |
+        $env:DOTNET_gcServer=1
+        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj --filter "FullyQualifiedName~Content.IntegrationTests.Tests.PostMapInitTest|FullyQualifiedName~Content.IntegrationTests.Tests.EntityTest" -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+  
   ci-success:
     name: Build & Test Debug
     needs:
