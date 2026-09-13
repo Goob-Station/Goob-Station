@@ -75,7 +75,7 @@
   - type: Woundable
     damageContainer: Inorganic
     integrity: 200
-    integrityCap: 650 # for some reason it doesnt seem to trigger when it reaches 600, but when it exceeds. Dont know, its fucked
+    integrityCap: 600
     thresholds:
       Minor: 180
       Moderate: 120
