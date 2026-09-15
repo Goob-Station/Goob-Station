@@ -49,7 +49,7 @@ public partial class SharedMartialArtsSystem
                 var random = new Random((int) _timing.CurTick.Value + (int) GetNetEntity(ent));
                 if (_random.Prob(0.20f))
                 {
-                    _movementMod.TryUpdateMovementSpeedModDuration(args.Target, MartsGenericSlow, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
+                    _movementMod.TryUpdateMovementSpeedModDuration(args.Target, MartsGenericSlow, TimeSpan.FromSeconds(2), 0.5f, 0.5f);
                     ComboPopup(ent, args.Target, "Silent punch");
                 }
                 break;
