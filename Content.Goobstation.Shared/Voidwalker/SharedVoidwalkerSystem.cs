@@ -32,6 +32,8 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
         SubscribeLocalEvent<VoidwalkerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
 
+
+
         SubscribeLocalEvent<VoidwalkerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerSpacedStatusChangedEvent>(OnSpacedStatusChanged);
 
@@ -93,7 +95,6 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     {
         var modifier = ent.Comp.IsInSpace ? 1f : ent.Comp.NonSpacedSpeedModifier;
         args.ModifySpeed(modifier, modifier);
-        Dirty(ent);
     }
 
     #region Helpers
@@ -184,6 +185,10 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
         RaiseLocalEvent(entity, ref ev);
     }
 
+    /// <summary>
+    /// Returns if the entity is currently in spaced, or on a spaced tile.
+    /// PLEASE tell me if you know a better way to do this. This sucks.
+    /// </summary>
     public bool CheckIfSpaced(EntityUid entity)
     {
         var ev = new VoidwalkerCheckTileSpacedStatusEvent();
