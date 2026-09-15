@@ -1,12 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Cyberware;
 using Content.Goobstation.Shared.MantisBlades;
-using Content.Server.Emp;
 using Content.Shared.Actions;
 using Content.Shared.Body.Part;
-using Content.Shared.Emp;
 using Content.Shared.Hands.Components;
-using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.PairedExtendable.Systems;
@@ -15,8 +13,9 @@ public sealed class MantisBladesSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly CyberneticsSystem _cybernetics = default!;
     [Dependency] private readonly PairedExtendableSystem _pairedExtendable = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -26,7 +25,7 @@ public sealed class MantisBladesSystem : EntitySystem
         SubscribeLocalEvent<MantisBladeArmComponent, ToggleMantisBladeEvent>(OnToggle);
         SubscribeLocalEvent<MantisBladeArmComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MantisBladeArmComponent, BodyPartRemovedEvent>(OnDetach);
-        SubscribeLocalEvent<MantisBladeArmComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<MantisBladeArmComponent, CyberwareChangedEvent>(OnCyberwareChanged);
     }
 
     private void OnInit(Entity<MantisBladeArmComponent> ent, ref ComponentInit args) => AddAction(ent);
@@ -35,7 +34,8 @@ public sealed class MantisBladesSystem : EntitySystem
 
     private void AddAction(Entity<MantisBladeArmComponent> ent)
     {
-        if (!TryComp<BodyPartComponent>(ent, out var part)
+        if (Exists(ent.Comp.ActionUid)
+            || !TryComp<BodyPartComponent>(ent, out var part)
             || part.Body == null)
             return;
 
@@ -48,11 +48,8 @@ public sealed class MantisBladesSystem : EntitySystem
         || part.Body == null)
             return;
 
-        if (HasComp<EmpDisabledComponent>(ent))
-        {
-            _popup.PopupEntity(Loc.GetString("mantis-blade-disabled-emp"), ent, part.Body.Value);
+        if (!_cybernetics.IsEnabled(ent))
             return;
-        }
 
         var handLocation = part.Symmetry switch
         {
@@ -68,8 +65,27 @@ public sealed class MantisBladesSystem : EntitySystem
             out ent.Comp.BladeUid,
             ent.Comp.BladeUid);
 
-        if (args.Handled)
-            _audio.PlayPvs(ent.Comp.BladeUid == null ? ent.Comp.RetractSound : ent.Comp.ExtendSound, ent);
+        if (!args.Handled)
+            return;
+
+        _audio.PlayPvs(ent.Comp.BladeUid == null ? ent.Comp.RetractSound : ent.Comp.ExtendSound, ent);
+        _cybernetics.SetActive(ent.Owner, ent.Comp.BladeUid != null);
+    }
+
+    private void OnCyberwareChanged(Entity<MantisBladeArmComponent> ent, ref CyberwareChangedEvent args)
+    {
+        var enabled = _cybernetics.IsEnabled(ent);
+
+        if (!enabled && ent.Comp.BladeUid != null)
+        {
+            Del(ent.Comp.BladeUid);
+            ent.Comp.BladeUid = null;
+            _audio.PlayPvs(ent.Comp.RetractSound, ent);
+            _cybernetics.SetActive(ent.Owner, false);
+        }
+
+        AddAction(ent);
+        _actions.SetEnabled(ent.Comp.ActionUid, enabled);
     }
 
     private void OnShutdown(Entity<MantisBladeArmComponent> ent, ref ComponentShutdown args)
@@ -82,12 +98,8 @@ public sealed class MantisBladesSystem : EntitySystem
     {
         Del(ent.Comp.BladeUid);
         Del(ent.Comp.ActionUid);
+        ent.Comp.BladeUid = null;
+        ent.Comp.ActionUid = null;
+        _cybernetics.SetActive(ent.Owner, false);
     }
-
-    private void OnEmpPulse(EntityUid uid, MantisBladeArmComponent comp, ref EmpPulseEvent args)
-    {
-        args.Affected = true;
-        args.Disabled = true;
-    }
-
 }

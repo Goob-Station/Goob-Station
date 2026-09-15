@@ -33,7 +33,8 @@ public sealed class SprintingSystem : SharedSprintingSystem
 
         if (!TryComp(otherUid, out SprinterComponent? otherSprinter)
             || !otherSprinter.IsSprinting
-            || !HasComp<ActiveSandevistanUserComponent>(otherUid))
+            || !TryComp<SandevistanUserComponent>(otherUid, out var sandevistan)
+            || !sandevistan.Active)
         {
             return;
         }
