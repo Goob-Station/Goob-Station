@@ -63,7 +63,7 @@
     exitJauntSound:
       path: /Audio/_Goobstation/Effects/Voidwalker/void_walk.ogg
     jaunt: VoidCrawlJaunt
-  - type: ExitNebulaCrawl
+  - type: NebulaCrawl
   - type: Visibility
     layer: 2
   - type: Spectral
