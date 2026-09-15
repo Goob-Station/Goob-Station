@@ -25172,3 +25172,13 @@ Entries:
       message: You can no longer deconstruct the gang crate.
   id: 2884
   time: '2026-09-15T19:18:01.0000000+00:00'
+- author: Sanyati
+  changes:
+    - type: Add
+      message: Reptilian Bone armor sprite.
+    - type: Add
+      message: Reptilian Cosmic Cultist armor sprites.
+    - type: Add
+      message: Reptilian Explorer armor sprites.
+  id: 2885
+  time: '2026-09-15T23:11:57.0000000+00:00'
