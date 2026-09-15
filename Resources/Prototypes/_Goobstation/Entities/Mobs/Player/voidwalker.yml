@@ -20,6 +20,9 @@
   - type: VoidwalkerKidnapping
     kidnapDoAfterDuration: 5
     kidnapDuration: 30
+  - type: VoidwalkerVoidWalk
+    distance: 4.65
+    speed: 9.65
   - type: GlassPasser
   - type: VoidWhisper
   - type: SpawnItemsOnGib

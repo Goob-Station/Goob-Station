@@ -43,16 +43,16 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
         if (!Resolve(kidnapper, ref kidnapping))
             return;
 
-        if (HasComp<ActorComponent>(target))
+        if (!HasComp<ActorComponent>(target))
         {
             var noActorPopup = Loc.GetString("voidwalker-no-actor", ("target", Name(target)));
-            _popup.PopupEntity(noActorPopup, target, kidnapper, PopupType.MediumCaution);
+            _popup.PopupClient(noActorPopup, target, kidnapper, PopupType.MediumCaution);
 
             return;
         }
 
         var kidnapBeginPopup = Loc.GetString("voidwalker-kidnap-begin", ("target", Name(target)), ("user", Name(kidnapper)));
-        _popup.PopupEntity(kidnapBeginPopup, target, PopupType.MediumCaution);
+        _popup.PopupPredicted(kidnapBeginPopup, target, target, PopupType.MediumCaution);
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,

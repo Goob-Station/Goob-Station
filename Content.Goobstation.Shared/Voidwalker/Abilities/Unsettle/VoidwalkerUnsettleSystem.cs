@@ -75,7 +75,7 @@ public sealed partial class VoidwalkerUnsettleSystem : EntitySystem
         entity.Comp.UnsettleDoAfterId = id.Value.Index;
 
         var popup = Loc.GetString("voidwalker-unsettle-begin", ("target", Name(target)));
-        _popup.PopupEntity(popup, entity, entity, PopupType.Medium);
+        _popup.PopupClient(popup, entity, entity, PopupType.Medium);
     }
 
     private void OnUnsettleDoAfter(Entity<VoidwalkerUnsettleComponent> entity, ref VoidwalkerUnsettleDoAfterEvent args)
@@ -97,7 +97,7 @@ public sealed partial class VoidwalkerUnsettleSystem : EntitySystem
         var popup = Loc.GetString("voidwalker-unsettle-victim");
         _popup.PopupClient(popup, target, target, PopupType.LargeCaution);
         _specialAnimation.PlayAnimationForEntity(entity.Comp.JumpscareSprite, target, entity.Comp.JumpscarePrototype);
-        _audio.PlayEntity(entity.Comp.JumpscareSound, target, target, AudioParams.Default);
+        _audio.PlayLocal(entity.Comp.JumpscareSound, target, target, AudioParams.Default);
     }
 
     private void OnExamined(Entity<VoidwalkerUnsettleComponent> entity, ref ExaminedEvent args)
