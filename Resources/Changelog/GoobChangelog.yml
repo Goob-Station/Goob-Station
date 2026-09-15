@@ -25120,3 +25120,29 @@ Entries:
       message: Added 12 new hairstyles! Pawsome!
   id: 2880
   time: '2026-09-15T18:43:31.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: >-
+        Species changes and transformations now transfer your inventory even
+        while stunned, asleep, or knocked down.
+    - type: Fix
+      message: Clothing hidden under a modsuit is no longer lost when polymoph.
+    - type: Fix
+      message: Modsuit parts no longer detach during inventory transfers.
+    - type: Fix
+      message: >-
+        Permanent implants (bluespace/redspace lifeline, shadowmind,
+        xeno-compatibility, etc.) now follow you through a polymorph like other
+        implants.
+    - type: Add
+      message: >-
+        Added a transferAppearance option to species changes, keeping your look
+        (skin, eyes, hair, sex, height) while dropping anything invalid for the
+        new species.
+    - type: Tweak
+      message: >-
+        Xenobio toxins (slime, human, felinid, banana, advanced mutation) now
+        keep the player's appearance.
+  id: 2881
+  time: '2026-09-15T18:44:56.0000000+00:00'
