@@ -1,6 +1,8 @@
 using System.Collections.Immutable;
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Server.Changeling;
+using Content.Goobstation.Server.SpecialAnimation;
+using Content.Goobstation.Shared.SpecialAnimation;
 using Content.Goobstation.Shared.Voidwalker;
 using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Goobstation.Shared.Voidwalker.GlassPasser;
@@ -28,6 +30,7 @@ using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Components;
@@ -38,6 +41,7 @@ using Robust.Shared.Utility;
 namespace Content.Goobstation.Server.Voidwalker;
 public sealed partial class VoidwalkerSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = null!;
     [Dependency] private readonly ChatSystem _chat = null!;
     [Dependency] private readonly DamageableSystem _damage = null!;
@@ -60,6 +64,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = null!;
     [Dependency] private readonly ThrowingSystem _throwing = null!;
     [Dependency] private readonly ChangelingSystem _changeling = null!; // easier than remaking the code of two lines lol
+    [Dependency] private readonly SharedSpecialAnimationSystem _specialAnim = null!;
 
     /// <summary>
     /// If the voidwalker is within this much of a passed object, don't count it as being in space.

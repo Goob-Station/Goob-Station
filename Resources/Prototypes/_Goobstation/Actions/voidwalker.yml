@@ -48,7 +48,7 @@
       sprite: _Goobstation/Actions/voidwalker.rsi
       state: voidwalk
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Effects/void_walk.ogg
+      path: /Audio/_Goobstation/Effects/Voidwalker/void_walk.ogg
   - type: TargetAction
     checkCanAccess: false
     range: 0

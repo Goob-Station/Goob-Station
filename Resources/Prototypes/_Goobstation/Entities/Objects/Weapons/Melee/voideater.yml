@@ -20,7 +20,7 @@
         Ion: 25
         Structural: 20
     soundHit:
-      path: /Audio/_Goobstation/Effects/void_slash.ogg
+      path: /Audio/_Goobstation/Effects/Voidwalker/void_slash.ogg
   - type: StaminaDamageOnHit
     damage: 40
   - type: Item

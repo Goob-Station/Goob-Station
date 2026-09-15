@@ -9,13 +9,3 @@
   license: "CC0-1.0"
   copyright: '"Retro, Drop 02.wav" by MATRIXXX_ of Freesound.org. Mixed from stereo to mono and reversed.'
   source: "https://freesound.org/people/MATRIXXX_/sounds/415990/"
-
-- files: ["void_slash.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Created by Delphine using a Pixabay sound effect as a base"
-  source: "https://pixabay.com/sound-effects/riser-void-285207/"
-
-- files: ["void_walk.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Created by Delphine using a Pixabay sound effect as a base"
-  source: "https://pixabay.com/sound-effects/riser-void-285207/"

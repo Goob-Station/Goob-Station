@@ -4,6 +4,7 @@ using Content.Goobstation.Server.Voidwalker.Kidnapping;
 using Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
 using Content.Goobstation.Server.Voidwalker.Objectives.Components;
 using Content.Goobstation.Shared.Dash;
+using Content.Goobstation.Shared.SpecialAnimation;
 using Content.Goobstation.Shared.Voidwalker;
 using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Shared.Chat.Prototypes;
@@ -13,6 +14,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Robust.Server.Toolshed.Commands.Players;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -98,6 +100,8 @@ public sealed partial class VoidwalkerSystem
 
         var popup = Loc.GetString("voidwalker-unsettle-victim");
         _popup.PopupEntity(popup, target, target, PopupType.LargeCaution);
+        _specialAnim.PlayAnimationForEntity(entity.Comp.JumpscareSprite, target, entity.Comp.JumpscarePrototype); // Set to self for testing
+        _audio.PlayEntity(entity.Comp.JumpscareSound, target, target, AudioParams.Default);
     }
 
     public void StartKidnap(EntityUid entity, EntityUid target)

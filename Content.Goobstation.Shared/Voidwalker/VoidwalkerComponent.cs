@@ -1,5 +1,7 @@
+using Content.Goobstation.Shared.SpecialAnimation;
 using Content.Shared.Damage;
 using Content.Shared.Tag;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -75,6 +77,15 @@ public sealed partial class VoidwalkerComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public ushort? UnsettleDoAfterId;
+
+    [DataField]
+    public SpriteSpecifier JumpscareSprite = new SpriteSpecifier.Rsi(new("_Goobstation/Mobs/Voidwalker/voidwalker.rsi"), "voidwalker");
+
+    [DataField]
+    public ProtoId<SpecialAnimationPrototype>? JumpscarePrototype;
+
+    [DataField]
+    public SoundSpecifier JumpscareSound;
 
     /// <summary>
     /// How long does it take to send ya?

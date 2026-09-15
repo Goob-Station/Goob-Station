@@ -5,6 +5,8 @@
   description: A glass-like entity from the void between stars. You probably shouldn't stare.
   components:
   - type: Voidwalker
+    jumpscarePrototype: VoidwalkerJumpscareAnimation
+    jumpscareSound: /Audio/_Goobstation/Effects/Voidwalker/dramatic_sting.ogg
     nonSpacedSpeedModifier: 0.6
     healingWhenSpaced:
       groups:
@@ -43,9 +45,9 @@
     targetReagent:
     - NebulaVomit
     enterJauntSound:
-      path: /Audio/_Goobstation/Effects/void_walk.ogg # Too lazy to make unique sounds lmfao
+      path: /Audio/_Goobstation/Effects/Voidwalker/void_walk.ogg # Too lazy to make unique sounds lmfao
     exitJauntSound:
-      path: /Audio/_Goobstation/Effects/void_walk.ogg
+      path: /Audio/_Goobstation/Effects/Voidwalker/void_walk.ogg
   - type: Sprite
     sprite: _Goobstation/Mobs/Voidwalker/voidwalker.rsi
     state: voidwalker
