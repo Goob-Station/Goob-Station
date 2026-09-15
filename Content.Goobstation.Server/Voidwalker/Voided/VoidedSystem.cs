@@ -1,4 +1,5 @@
 using Content.Goobstation.Server.Voidwalker.Kidnapping;
+using Content.Goobstation.Shared.Voidwalker;
 using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.Voided;
@@ -16,7 +17,7 @@ public sealed class VoidedSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
-    [Dependency] private readonly VoidwalkerSystem _voidwalker = null!;
+    [Dependency] private readonly SharedVoidwalkerSystem _voidwalker = null!;
     [Dependency] private readonly VoidwalkerKidnappedSystem _voidKidnapped = null!;
     [Dependency] private readonly VoidwalkerKidnappingSystem _voidKidnapping = null!;
     [Dependency] private readonly VomitSystem _vomit = null!;

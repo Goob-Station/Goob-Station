@@ -4,6 +4,7 @@ using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.GlassPasser;
 using Content.Shared.Actions;
+using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
@@ -11,20 +12,25 @@ using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Traits.Assorted;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Voidwalker;
 
-public partial class SharedVoidwalkerSystem : EntitySystem
+/// <summary>
+/// Handles like... everything else about Voidwalkers.
+/// </summary>
+public sealed partial class SharedVoidwalkerSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
-        base.Initialize();
-
+        SubscribeLocalEvent<VoidwalkerComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
 
         SubscribeLocalEvent<VoidwalkerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
@@ -32,6 +38,34 @@ public partial class SharedVoidwalkerSystem : EntitySystem
 
         SubscribeLocalEvent<VoidwalkerComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<VoidwalkerComponent, PullStoppedMessage>(OnPullStopped);
+    }
+
+    private void OnInit(Entity<VoidwalkerComponent> entity, ref MapInitEvent args)
+    {
+        UpdateSpacedStatus(entity);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var curTime = _timing.CurTime;
+
+        var query = EntityQueryEnumerator<VoidwalkerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (curTime > comp.NextSpacedCheck)
+            {
+                UpdateSpacedStatus((uid, comp));
+                comp.NextSpacedCheck = curTime + comp.SpacedCheckInterval;
+            }
+
+            if (curTime >= comp.NextHealingTick && comp is { IsInSpace: true, HealingWhenSpaced: { } healing })
+            {
+                _damageable.TryChangeDamage(uid, healing);
+                comp.NextHealingTick = curTime + comp.HealingTickInterval;
+            }
+
+        }
     }
 
     private void OnGridUidChanged(Entity<VoidwalkerComponent> entity, ref GridUidChangedEvent args) =>
@@ -172,7 +206,7 @@ public partial class SharedVoidwalkerSystem : EntitySystem
         var tileMixture = _atmos.GetTileMixture(gridUid, entityXform.MapUid, position);
 
         return tileMixture is null || tileMixture.Pressure <= 0;
-        */ // idk how to get this working on shared so hmu if u know
+        */ // This is gonna be janky to do, I can feel it.
 
         return false;
     }
