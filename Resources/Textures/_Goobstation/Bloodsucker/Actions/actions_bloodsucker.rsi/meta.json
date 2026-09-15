@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/Bubberstation/Bubberstation/blob/f9adfa69f00942a6f2c693bdb2abd7bcf79514bf/modular_zubbers/icons/mob/actions/bloodsucker.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "power_feed"
+    },
+    {
+      "name": "power_bleed"
+    },
+    {
+      "name": "power_torpor"
+    },
+    {
+      "name": "power_human"
+    },
+    {
+      "name": "power_recover"
+    },
+    {
+      "name": "power_strength"
+    },
+    {
+      "name": "power_fortitude"
+    },
+    {
+      "name": "power_speed"
+    },
+    {
+      "name": "power_veil"
+    },
+    {
+      "name": "power_distress"
+    },
+    {
+      "name": "power_lunge"
+    },
+    {
+      "name": "power_cloak"
+    },
+    {
+      "name": "power_hunter"
+    },
+    {
+      "name": "power_mez"
+    },
+    {
+      "name": "power_gohome"
+    },
+    {
+      "name": "power_tres"
+    },
+    {
+      "name": "power_olfac"
+    },
+    {
+      "name": "power_olfac_stop"
+    },
+    {
+      "name": "power_rack"
+    },
+    {
+      "name": "power_claim"
+    },
+    {
+      "name": "power_sense"
+    },
+    {
+      "name": "blood_display"
+    },
+    {
+      "name": "power_vassalize"
+    },
+    {
+      "name": "rank_up",
+      "delays": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "rank"
+    },
+    {
+      "name": "sunlight_night"
+    },
+    {
+      "name": "sunlight_90"
+    },
+    {
+      "name": "sunlight_60"
+    },
+    {
+      "name": "sunlight_30"
+    },
+    {
+      "name": "sunlight_day",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "sunlight_day2",
+      "delays": [
+        [
+          2,
+          0.1,
+          0.05,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "original_sun",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "sun2",
+      "delays": [
+        [
+          2,
+          0.1,
+          0.05,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "original_moon"
+    },
+    {
+      "name": "original_clock",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
