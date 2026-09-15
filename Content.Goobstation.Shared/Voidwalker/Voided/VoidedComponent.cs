@@ -16,7 +16,7 @@ public sealed partial class VoidedComponent : Component
     public TimeSpan NextSpacedCheck;
 
     [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
-    public TimeSpan SpacedCheckInterval = TimeSpan.FromSeconds(2);
+    public TimeSpan SpacedCheckInterval = TimeSpan.FromSeconds(0.75);
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextVomitTime;
