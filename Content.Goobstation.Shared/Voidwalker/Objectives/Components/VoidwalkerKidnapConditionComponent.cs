@@ -1,8 +1,10 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Goobstation.Shared.Voidwalker.Objectives.Components;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState, NetworkedComponent]
 public sealed partial class VoidwalkerKidnapConditionComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int Kidnapped;
 }

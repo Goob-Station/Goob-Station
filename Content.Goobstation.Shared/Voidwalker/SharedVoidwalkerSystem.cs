@@ -170,7 +170,7 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
 
         var componentName = typeof(T).FullName;
         if (componentName != null)
-            ent.Comp.AddedVoidwalkerComponents.Add(componentName);
+            ent.Comp.DraggingAddedComponents.Add(componentName);
 
         if (preconfigured != null)
         {
@@ -186,17 +186,17 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     /// </summary>
     private void RemoveTrackedComps(EntityUid uid, Entity<VoidwalkerComponent> ent)
     {
-        if (ent.Comp.AddedVoidwalkerComponents.Count == 0)
+        if (ent.Comp.DraggingAddedComponents.Count == 0)
             return;
 
         foreach (var component in EntityManager.GetComponents(uid))
         {
             var componentName = component.GetType().FullName;
-            if (componentName != null && ent.Comp.AddedVoidwalkerComponents.Contains(componentName))
+            if (componentName != null && ent.Comp.DraggingAddedComponents.Contains(componentName))
                 RemCompDeferred(uid, component.GetType());
         }
 
-        ent.Comp.AddedVoidwalkerComponents.Clear();
+        ent.Comp.DraggingAddedComponents.Clear();
     }
 
     #region Dragging

@@ -2,12 +2,14 @@ ghost-role-information-voidwalker-name = V??oid Walker
 ghost-role-information-voidwalker-description = Sho??w them the bea??uty of the void. Drag the??m into the cosmic aby??ss, then impa??rt the truth of the v??oid unto them.
 ghost-role-information-voidwalker-rules = The d??ead cannot kno??w what you k??now. R??ecover wha??t you have lo??st. Seek to en??lighte??n, not destroy. Bring your ch??ildren into the inky bla??ck and return the??m to your fl??ock!
 
+ghost-role-information-voidwalker-token = V??oid Walker (Token)
+
 roles-antag-voidwalker-name = V??oid Walker
 roles-antag-voidwalker-description = Sho??w them the bea??uty of the void. Drag the??m into the cosmic aby??ss, then impa??rt the truth of the v??oid unto them.
 
 voidwalker-round-end-agent-name = v??oidwalker
 voidwalker-role-briefing = Sho???w them the bea???uty of the ?vo??id.
-    Dra??g them into the cosmic abyss, the??n impart th??e trut???h of the v??oi?d unto them. The s???tatio?n is l???ocate?d {$direction}.
+    Dra??g them into the cosmic abyss, the??n impart th??e trut???h of the v??oi?d unto them.
     ????SH?AKE THE ?BARS????.
 
 objective-issuer-void = [color=#CCCCFF]The V??oid[/color]

@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Voidwalker.GlassPasser;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class GlassPasserComponent : Component
 {
     /// <summary>
@@ -22,7 +22,7 @@ public sealed partial class GlassPasserComponent : Component
     /// <summary>
     /// A dictionary containing each entity that has had components added to it, and when it expires.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public Dictionary<EntityUid, TimeSpan> EntitiesPassed = new();
 
     /// <summary>

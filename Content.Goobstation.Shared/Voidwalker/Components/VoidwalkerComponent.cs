@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -5,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Voidwalker.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class VoidwalkerComponent : Component
 {
     /// <summary>
@@ -25,16 +26,29 @@ public sealed partial class VoidwalkerComponent : Component
     /// How much to heal the voidwalker by when they're spaced.
     /// </summary>
     [DataField]
-    public DamageSpecifier? HealingWhenSpaced;
+    public DamageSpecifier HealingWhenSpaced = new()
+    {
+        DamageDict = new Dictionary<string, FixedPoint2>
+        {
+            { "Brute", -22.5},
+            { "Burn", -22.5},
+            { "Airloss", -10.5},
+            { "Heat", -7.5},
+            { "Shock", -7.5},
+        },
+    };
 
-    [ViewVariables]
-    public HashSet<string> AddedVoidwalkerComponents = [];
+    /// <summary>
+    /// Tracks components added while dragging another target.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public HashSet<string> DraggingAddedComponents = [];
 
     /// <summary>
     /// What to multiply the voidwalker's speed by when they're in a non-spaced area.
     /// </summary>
     [DataField]
-    public float NonSpacedSpeedModifier = 0.7f;
+    public float NonSpacedSpeedModifier = 0.6f;
 
     [DataField]
     public EntProtoId CosmicSkull = "CosmicSkull";

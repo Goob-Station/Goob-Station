@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap;
 using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap.Victim;
+using Content.Goobstation.Shared.Voidwalker.Voided;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffectNew;
@@ -31,7 +32,7 @@ public sealed class VoideaterSystem : EntitySystem
 
         foreach (var entity in args.HitEntities)
         {
-            if (HasComp<Voided.VoidedComponent>(entity))
+            if (HasComp<VoidedComponent>(entity))
             {
                 _status.TryAddStatusEffect(entity, voideater.Comp.SleepingEffectProto, out _, voideater.Comp.SleepDuration);
                 args.Handled = true;

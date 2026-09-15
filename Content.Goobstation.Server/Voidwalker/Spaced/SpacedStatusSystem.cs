@@ -43,6 +43,7 @@ public sealed partial class SpacedStatusSystem : EntitySystem
         entity.Comp.Changed = changed;
 
         entity.Comp.IsInSpace = spaced;
+        Dirty(entity);
         return (spaced, changed);
     }
 

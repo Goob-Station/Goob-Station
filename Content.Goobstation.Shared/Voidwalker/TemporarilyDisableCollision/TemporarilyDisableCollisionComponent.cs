@@ -1,11 +1,13 @@
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
 namespace Content.Goobstation.Shared.Voidwalker.TemporarilyDisableCollision;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class TemporarilyDisableCollisionComponent : Component
 {
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(5);
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan EndTime;
 }

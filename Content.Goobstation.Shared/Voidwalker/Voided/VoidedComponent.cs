@@ -3,7 +3,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Voidwalker.Voided;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class VoidedComponent : Component
 {
     /// <summary>
@@ -36,6 +36,6 @@ public sealed partial class VoidedComponent : Component
     [DataField]
     public string NebulaVomitProto = "NebulaVomit";
 
-    [ViewVariables]
+    [DataField, AutoNetworkedField]
     public HashSet<string> AddedComponents = [];
 }

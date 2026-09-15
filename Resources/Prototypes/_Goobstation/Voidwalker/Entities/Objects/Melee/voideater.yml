@@ -1,8 +1,10 @@
 - type: entity
   name: voideater
-  parent: BaseItem
+  parent: [BaseItem, BaseMagicalContraband]
   id: Voideater
   description: A malformed, writhing mass of tentacles.
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/voideater.rsi
@@ -20,7 +22,7 @@
         Ion: 25
         Structural: 20
     soundHit:
-      path: /Audio/_Goobstation/Effects/Voidwalker/void_slash.ogg
+      path: /Audio/_Goobstation/Voidwalker/Effects/void_slash.ogg
   - type: StaminaDamageOnHit
     damage: 40
   - type: Item

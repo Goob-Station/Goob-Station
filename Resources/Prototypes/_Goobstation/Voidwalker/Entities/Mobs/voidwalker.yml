@@ -5,24 +5,9 @@
   description: A glass-like entity from the void between stars. You probably shouldn't stare.
   components:
   - type: Voidwalker
-    nonSpacedSpeedModifier: 0.6
-    healingWhenSpaced:
-      groups:
-        Brute: -22.5
-        Burn: -22.5
-        Airloss: -10.5
-      types:
-        Heat: -7.5
-        Shock: -7.5
   - type: VoidwalkerUnsettle
-    jumpscarePrototype: VoidwalkerJumpscareAnimation
-    jumpscareSound: /Audio/_Goobstation/Effects/Voidwalker/dramatic_sting.ogg
   - type: VoidwalkerKidnapping
-    kidnapDoAfterDuration: 5
-    kidnapDuration: 30
   - type: VoidwalkerVoidWalk
-    distance: 4.65
-    speed: 9.65
   - type: VoidwalkerWallConversion
   - type: GlassPasser
   - type: VoidWhisper
@@ -48,9 +33,9 @@
     targetReagent:
     - NebulaVomit
     enterJauntSound:
-      path: /Audio/_Goobstation/Effects/Voidwalker/void_walk.ogg # Too lazy to make unique sounds lmfao
+      path: /Audio/_Goobstation/Voidwalker/Effects/void_walk.ogg
     exitJauntSound:
-      path: /Audio/_Goobstation/Effects/Voidwalker/void_walk.ogg
+      path: /Audio/_Goobstation/Voidwalker/Effects/void_walk.ogg
   - type: Sprite
     sprite: _Goobstation/Mobs/Voidwalker/voidwalker.rsi
     state: voidwalker
@@ -59,16 +44,30 @@
     baseCritThreshold: 150
   - type: NightVision
     color: "#CCCCFF"
-    activateSound: null
-    deactivateSound: null
+    toggleAction: ActionSlasherNightVision # todo: replace
+    activateSound: !type:SoundCollectionSpecifier
+      collection: EyeOpen
+    deactivateSound: !type:SoundCollectionSpecifier
+      collection: EyeClose
   - type: Insulated
-  - type: StatusEffects # Overwriting status effects
+  - type: StatusEffects
     allowed:
     - SlowedDown
     - RadiationProtection
     - Adrenaline
   - type: Loadout
     prototypes: [ VoidwalkerGear ]
+  - type: GhostRole
+    name: ghost-role-information-voidwalker-name
+    description: ghost-role-information-voidwalker-description
+    rules: ghost-role-information-voidwalker-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonistGoob
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 10h
   - type: GhostTakeoverAvailable
   - type: MobThresholds
     thresholds:
@@ -78,8 +77,8 @@
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:
-      path: /Audio/Effects/bite.ogg
-    animation: WeaponArcBite
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
+    animation: WeaponArcCosmic
     damage:
       types:
         Asphyxiation: 12
@@ -112,9 +111,9 @@
           radius: 0.35
         density: 600 # So they can PULL pull
         mask:
-        - MobMask
+        - FlyingMobMask
         layer:
-        - MobLayer
+        - FlyingMobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed: 4.4
     baseSprintSpeed: 4.4
@@ -162,6 +161,9 @@
     guides:
     - Voidwalker
   - type: GunBlocked
+  - type: NpcFactionMember
+    factions:
+    - Void
 
 - type: startingGear
   id: VoidwalkerGear

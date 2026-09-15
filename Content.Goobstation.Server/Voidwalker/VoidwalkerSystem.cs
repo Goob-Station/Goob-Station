@@ -1,9 +1,5 @@
-using Content.Goobstation.Shared.Voidwalker;
 using Content.Goobstation.Shared.Voidwalker.Components;
-using Content.Goobstation.Shared.Voidwalker.GlassPasser;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Body.Systems;
-using Content.Shared.Atmos;
 using Content.Shared.GameTicking;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
@@ -11,6 +7,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Voidwalker;
+
+// TODO : Station compass pointer.
 
 /// <summary>
 /// Handles loading and de-loading the void.

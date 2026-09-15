@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Goobstation.Shared.Voidwalker.Spaced;
 using Content.Shared.Actions;
 using Content.Shared.Polymorph;
@@ -37,7 +36,7 @@ public sealed partial class NebulaCrawlSystem : EntitySystem
             && !spaced.IsInSpace)
         {
             var popup = Loc.GetString("voidwalker-action-fail-require-in-space");
-            _popup.PopupEntity(popup, entity, entity);
+            _popup.PopupClient(popup, entity, entity);
 
             return;
         }

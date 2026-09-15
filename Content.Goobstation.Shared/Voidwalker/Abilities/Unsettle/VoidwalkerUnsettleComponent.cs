@@ -55,11 +55,11 @@ public sealed partial class VoidwalkerUnsettleComponent : Component
     /// The prototype of how the sprite is animated during the jumpscare.
     /// </summary>
     [DataField]
-    public ProtoId<SpecialAnimationPrototype>? JumpscarePrototype;
+    public ProtoId<SpecialAnimationPrototype> JumpscarePrototype = "VoidwalkerJumpscareAnimation";
 
     /// <summary>
     /// The sound played during a jumpscare for the target.
     /// </summary>
     [DataField]
-    public SoundSpecifier JumpscareSound;
+    public SoundSpecifier JumpscareSound = new SoundPathSpecifier("/Audio/_Goobstation/Voidwalker/Effects/dramatic_sting.ogg");
 }

@@ -1,8 +1,9 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Voidwalker.Spaced;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class SpacedStatusComponent : Component
 {
     [DataField]

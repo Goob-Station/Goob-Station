@@ -49,9 +49,6 @@ public sealed class VoidwalkerRuleSystem : GameRuleSystem<VoidwalkerRuleComponen
             return;
 
         _antag.SendBriefing(target, MakeBriefing(target), Color.DarkCyan, ent.Comp.BriefingSound);
-
-        _npcFaction.RemoveFaction(target, ent.Comp.NanotrasenFaction);
-        _npcFaction.AddFaction(target, ent.Comp.VoidFaction);
     }
 
     private string MakeBriefing(EntityUid voidwalker)
