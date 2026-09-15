@@ -2,7 +2,7 @@
   name: voideater
   parent: BaseItem
   id: Voideater
-  description: A deformed, writhing appendage, capable of ripping the breath right out of a creature.
+  description: A malformed, writhing mass of tentacles.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/voideater.rsi
@@ -32,6 +32,7 @@
       right:
       - state: inhand-right
   - type: GrabbingItem
+    canAttackWhileGrabbing: true
   - type: Voideater
 
 - type: entity

@@ -4,9 +4,8 @@
   name: voided spawn point
   components:
   - type: Sprite
-    sprite: Markers/cross.rsi
     layers:
-    - state: red
-    - sprite: Mobs/Species/Human/parts.rsi
-      state: full
+    - state: green
+    - state: full
+      sprite: Mobs/Species/Human/parts.rsi
   - type: VoidedSpawn

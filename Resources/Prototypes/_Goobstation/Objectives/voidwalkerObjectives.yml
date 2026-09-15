@@ -14,7 +14,7 @@
   - type: Objective
     icon:
       sprite: _Goobstation/Objects/Weapons/Melee/voideater.rsi
-      state: contract-written
+      state: icon
   - type: NumberObjective
     min: 5
     max: 8
@@ -30,5 +30,5 @@
   components:
   - type: Objective
     icon:
-      sprite: Objects/Misc/bureaucracy.rsi # Change this
-      state: contract-written
+      sprite: _Goobstation/Mobs/Voidwalker/voidwalker.rsi
+      state: voidwalker

@@ -213,6 +213,8 @@
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostVoidwalker
+  name: ghost role spawn point
+  suffix: Voidwalker
   components:
   - type: GhostRole
     name: ghost-role-information-voidwalker-name
@@ -223,5 +225,5 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: _Omu/Mobs/Voidwalker/voidwalker.rsi
+    - sprite: _Goobstation/Mobs/Voidwalker/voidwalker.rsi
       state: voidwalker

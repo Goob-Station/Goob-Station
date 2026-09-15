@@ -1,6 +1,9 @@
 using Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Server.Audio;
 
 namespace Content.Goobstation.Server.Voidwalker.Voideater;
 
@@ -10,6 +13,7 @@ namespace Content.Goobstation.Server.Voidwalker.Voideater;
 public sealed class VoideaterSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly VoidwalkerSystem _voidwalker = default!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -26,7 +30,21 @@ public sealed class VoideaterSystem : EntitySystem
             return;
 
         foreach (var entity in args.HitEntities)
+        {
             if (HasComp<VoidedComponent>(entity))
+            {
                 _status.TryAddStatusEffect(entity, voideater.Comp.SleepingEffectProto, out _, voideater.Comp.SleepDuration);
+                args.Handled = true;
+                return;
+            }
+
+            if (TryComp<MobStateComponent>(entity, out var mobState) && mobState.CurrentState == MobState.Critical)
+            {
+                args.Handled = true; // You're here to KIDNAP them, not MURDER them.
+                _voidwalker.StartKidnap(args.User, entity);
+            }
+        }
+
     }
+
 }

@@ -46,7 +46,7 @@
   parent: [ Incorporeal, BaseMob ]
   components:
   - type: Sprite
-    sprite: _Omu/Mobs/Voidwalker/voidwalker.rsi
+    sprite: _Goobstation/Mobs/Voidwalker/voidwalker.rsi
     state: stealthed
   - type: MovementSpeedModifier
     baseSprintSpeed: 12

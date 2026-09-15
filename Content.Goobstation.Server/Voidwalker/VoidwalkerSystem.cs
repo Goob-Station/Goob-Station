@@ -68,7 +68,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     /// </summary>
     private const float PassedObjectGraceRange = 1; //
 
-    private readonly ResPath _mapPath = new("Maps/_Omu/Nonstations/voidwalkervoid.yml");
+    private readonly ResPath _mapPath = new("Maps/_Goobstation/Nonstations/voidwalkervoid.yml");
     private static Entity<MapComponent>? _theVoid;
 
     /// <inheritdoc />
@@ -164,7 +164,6 @@ public sealed partial class VoidwalkerSystem : EntitySystem
             return;
 
         if (entity.Comp.IsInSpace
-            && _mobState.IsCritical(target)
             && _changeling.IsHardGrabbed(target))
         {
             InnateVerb kidnapVerb = new()
@@ -172,7 +171,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
                 Act = () => StartKidnap(entity, target),
                 Text = Loc.GetString("voidwalker-kidnap-verb"),
                 Message = Loc.GetString("voidwalker-kidnap-verb-text"),
-                Icon = new SpriteSpecifier.Rsi(new ResPath("_Omu/Actions/voidwalker.rsi"), "kidnap"),
+                Icon = new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Actions/voidwalker.rsi"), "kidnap"),
                 Priority = 1,
             };
 
@@ -184,10 +183,10 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         {
             InnateVerb convertWallVerb = new()
             {
-                Act = () => StartConvertWall(entity, target), // replace this with starting a doafter later
+                Act = () => StartConvertWall(entity, target),
                 Text = Loc.GetString("voidwalker-convert-wall-verb"),
                 Message = Loc.GetString("voidwalker-convert-wall-text"),
-                Icon = new SpriteSpecifier.Rsi(new ResPath("_Omu/Actions/voidwalker.rsi"), "kidnap"),
+                Icon = new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Actions/voidwalker.rsi"), "kidnap"),
                 Priority = 1,
             };
 

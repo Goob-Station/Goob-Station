@@ -29,6 +29,7 @@ voidwalker-kidnap-verb = S?IEZE
 voidwalker-kidnap-verb-text = E??NLIGHTE??N T??HEM
 
 voidwalker-kidnap-begin = {$user} begins to wrap their tentacles around {$target}...
+voidwalker-no-actor = You cannot kidnap an entity with no mind!
 
 voidwalker-kidnap-enter = Time and space warps around you...
 voidwalker-kidnap-return = Space warps around you as you return to reality!

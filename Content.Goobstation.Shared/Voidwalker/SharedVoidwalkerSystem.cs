@@ -21,7 +21,7 @@ public sealed class SharedVoidwalkerSystem : EntitySystem
         SubscribeLocalEvent<VoidwalkerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerSpacedStatusChangedEvent>(OnSpacedStatusChanged);
 
-        SubscribeLocalEvent<VoidwalkerComponent, ShotAttemptedEvent>(OnShotAttempted); // someone should rly genericize these lol
+        SubscribeLocalEvent<VoidwalkerComponent, ShotAttemptedEvent>(OnShotAttempted); // someone should rly genericize these lol but im not doing it
     }
 
     private void OnSpacedStatusChanged(Entity<VoidwalkerComponent> entity, ref VoidwalkerSpacedStatusChangedEvent args)

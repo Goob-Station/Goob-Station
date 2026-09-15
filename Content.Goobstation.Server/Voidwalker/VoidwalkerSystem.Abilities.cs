@@ -12,6 +12,8 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
+using Robust.Server.Toolshed.Commands.Players;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -98,15 +100,27 @@ public sealed partial class VoidwalkerSystem
         _popup.PopupEntity(popup, target, target, PopupType.LargeCaution);
     }
 
-    private void StartKidnap(Entity<VoidwalkerComponent> entity, EntityUid target)
+    public void StartKidnap(EntityUid entity, EntityUid target)
     {
-        var popup = Loc.GetString("voidwalker-kidnap-begin", ("target", Name(target)), ("user", Name(entity.Owner)));
-        _popup.PopupEntity(popup, target, PopupType.MediumCaution);
+        if (!TryComp<VoidwalkerComponent>(entity, out var voidwalkerComponent))
+            return;
+
+        if (HasComp<ActorComponent>(target))
+        {
+            var noActorPopup = Loc.GetString("voidwalker-no-actor", ("target", Name(target)));
+            _popup.PopupEntity(noActorPopup, target, entity, PopupType.MediumCaution);
+
+            return;
+        }
+
+
+        var kidnapBeginPopup = Loc.GetString("voidwalker-kidnap-begin", ("target", Name(target)), ("user", Name(entity)));
+        _popup.PopupEntity(kidnapBeginPopup, target, PopupType.MediumCaution);
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
             entity,
-            entity.Comp.KidnapDoAfterDuration,
+            voidwalkerComponent.KidnapDoAfterDuration,
             new VoidwalkerKidnapDoAfterEvent(),
             eventTarget: entity,
             target: target)

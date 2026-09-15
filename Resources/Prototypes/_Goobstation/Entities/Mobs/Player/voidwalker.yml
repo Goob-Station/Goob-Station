@@ -153,6 +153,9 @@
     stageChangeCooldown: 0.5
     grabThrowDamageModifier: 6.0
     throwingDistance: 30
+  - type: GuideHelp
+    guides:
+    - Voidwalker
 
 - type: startingGear
   id: VoidwalkerGear
