@@ -1,0 +1,17 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float activated;
+
+const highp float kDesaturate = 1.0;
+const highp float kDarken     = 0.25;
+
+highp float luma(highp vec3 c) {
+    return dot(c, vec3(0.299, 0.587, 0.114));
+}
+
+void fragment() {
+    highp vec4 base = zTextureSpec(SCREEN_TEXTURE, UV);
+    highp float grey = smoothstep(0.43, 0.5, activated) * kDesaturate;
+    highp vec3 col = mix(base.rgb, vec3(luma(base.rgb)), grey);
+    col *= mix(1.0, kDarken, grey / kDesaturate);
+    COLOR = vec4(col, base.a);
+}

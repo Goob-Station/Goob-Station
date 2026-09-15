@@ -1,0 +1,70 @@
+light_mode unshaded;
+
+uniform highp float progress;
+
+const highp vec3 CYAN    = vec3(0.00, 0.94, 1.00);
+const highp vec3 MAGENTA = vec3(1.00, 0.16, 0.62);
+const highp vec3 WHITE   = vec3(1.00, 1.00, 1.00);
+
+highp float tapA(highp vec2 px, highp vec2 offset)
+{
+    return zTexture(UV + offset * px).a;
+}
+
+highp float dilate(highp vec2 px, highp float r)
+{
+    highp float d = r * 0.7071;
+    highp float acc = 0.0;
+    acc = max(acc, tapA(px, vec2( r, 0.0)));
+    acc = max(acc, tapA(px, vec2(-r, 0.0)));
+    acc = max(acc, tapA(px, vec2(0.0,  r)));
+    acc = max(acc, tapA(px, vec2(0.0, -r)));
+    acc = max(acc, tapA(px, vec2( d,  d)));
+    acc = max(acc, tapA(px, vec2( d, -d)));
+    acc = max(acc, tapA(px, vec2(-d,  d)));
+    acc = max(acc, tapA(px, vec2(-d, -d)));
+    return acc;
+}
+
+highp float band(highp vec2 px, highp float body, highp float inner, highp float outer)
+{
+    return clamp(dilate(px, outer) - max(body, dilate(px, max(inner, 0.0))), 0.0, 1.0);
+}
+
+highp float ghost(highp vec2 px, highp float body, highp vec2 offset)
+{
+    return clamp(tapA(px, offset) - body, 0.0, 1.0);
+}
+
+void fragment()
+{
+    highp vec2 px = TEXTURE_PIXEL_SIZE;
+    highp float p = clamp(progress, 0.0, 1.0);
+
+    highp vec4 sprite = zTexture(UV);
+    highp float body = sprite.a;
+    highp float pop = 1.0 - smoothstep(0.08, 0.16, p);
+    highp float popHalo = band(px, body, 0.0, 3.0) * pop;
+    highp float burst = smoothstep(0.08, 1.0, p);
+    highp float spread = 1.0 - (1.0 - burst) * (1.0 - burst);
+    highp float fade = (1.0 - burst) * (1.0 - burst) * step(0.5, 1.0 - burst);
+    highp float throwDist = floor(1.0 + 5.0 * spread + 0.5);
+    highp float ghostL = ghost(px, body, vec2(-throwDist, 0.0));
+    highp float ghostR = ghost(px, body, vec2( throwDist, 0.0));
+    highp float ghostStrength = fade * 0.95;
+    highp float shockRadius = 1.0 + 4.0 * spread;
+    highp float shock = band(px, body, shockRadius - 0.75, shockRadius + 0.75);
+    highp float shockStrength = fade * 0.9;
+    highp vec3 col = mix(sprite.rgb, CYAN, body * 0.35 * fade);
+    col = mix(col, WHITE, body * pop);
+    col += CYAN * ghostL;
+    col += MAGENTA * ghostR;
+    col += mix(CYAN, WHITE, 0.5) * shock;
+    col = mix(col, WHITE, popHalo);
+    highp float alpha = body;
+    alpha = max(alpha, max(ghostL, ghostR) * ghostStrength);
+    alpha = max(alpha, shock * shockStrength);
+    alpha = max(alpha, popHalo);
+
+    COLOR = vec4(col, alpha);
+}
