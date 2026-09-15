@@ -78,7 +78,7 @@ public sealed class DamageOnInteractSystem : EntitySystem
             }
         }
 
-        // Shitmed Change Start
+        // Goob start - shitmed
         TargetBodyPart? targetPart = null;
         if (_hands.GetActiveHand(args.User) is { } handId
             && _hands.TryGetHand(args.User, handId, out var hand))
@@ -90,11 +90,11 @@ public sealed class DamageOnInteractSystem : EntitySystem
                 _ => null
             };
         }
+        // Goob end
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, origin: args.Target, targetPart: targetPart, canMiss: false);
-        // Shitmed Change End
+        totalDamage = _damageableSystem.ChangeDamage(args.User, totalDamage, origin: args.Target, targetPart: targetPart, canMiss: false); // Goob - shitmed change
 
-        if (totalDamage != null && totalDamage.AnyPositive())
+        if (totalDamage.AnyPositive())
         {
             // Record this interaction and determine when a user is allowed to interact with this entity again
             entity.Comp.LastInteraction = _gameTiming.CurTime;

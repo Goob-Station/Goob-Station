@@ -2,6 +2,7 @@
 
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Clothing.Systems

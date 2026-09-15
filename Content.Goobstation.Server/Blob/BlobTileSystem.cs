@@ -10,6 +10,7 @@ using Content.Server.Construction.Components;
 using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -142,7 +143,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
             healCore.DamageDict.TryAdd(keyValuePair.Key, keyValuePair.Value * 5);
         }
 
-        _damageableSystem.TryChangeDamage(ent, healCore);
+        _damageableSystem.TryChangeDamage(ent.Owner, healCore);
     }
 
     private bool CheckTile(

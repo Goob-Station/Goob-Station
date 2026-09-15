@@ -1,7 +1,8 @@
 ﻿using Content.Shared._Goobstation.Weapons.Ranged;
 using Content.Shared._Lavaland.ItemUpgrades.Components;
 using Content.Shared._Lavaland.Weapons.Ranged.Components;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Events;
@@ -87,10 +88,10 @@ public abstract class SharedGunUpgradesSystem : EntitySystem
 
     private void OnVampirismProjectileHit(Entity<ProjectileVampirismComponent> ent, ref ProjectileHitEvent args)
     {
-        if (!HasComp<MobStateComponent>(args.Target))
+        if (!HasComp<MobStateComponent>(args.Target) || !TryComp(args.Shooter, out DamageableComponent? d))
             return;
 
-        _damage.TryChangeDamage(args.Shooter, ent.Comp.DamageOnHit);
+        _damage.ChangeDamage((args.Shooter.Value, d), ent.Comp.DamageOnHit);
     }
 
     private void OnGetMeleeRelay(Entity<GunUpgradeBayonetComponent> ent, ref GetRelayMeleeWeaponEvent args)

@@ -239,10 +239,10 @@
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
-          scaleByTemperature: # Shitmed Change
-            min: 100.0
-            max: 213.0
-            scale: 1.6
+          #scaleByTemperature: # Shitmed Change # TODO SHITMED add properly for EvenHealthChange
+          #  min: 100.0
+          #  max: 213.0
+          #  scale: 1.6
           damage:
           # todo scale with temp like SS13
           # Goob - Cryo buff till temp scaling is implemented
@@ -1117,21 +1117,13 @@
       - !type:SuppressPain
         amount: 2
         time: 14
-      - !type:HealthChange # Goobstation - Make Omnizine great again!!!!!!!
-        damage:
-          types: # Goobstation change, Healthchange needs types or groups and groups fuck up the math for some reason and split the groups into types anyway
-            Heat: -3 # Goob change from group to types
-            Shock: -3 # Goob change from group to types
-            Cold: -3 # Goob change from group to types
-            Caustic: -3 # Goob change from group to types
-            Poison: -3 # Goob change from group to types
-            Radiation: -3 # Goob change from group to types
-            Asphyxiation: -3 # Goob change from group to types
-            Bloodloss: -3 # Goob change from group to types
-            Blunt: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
-            Slash: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
-            Piercing: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
-      - !type:ImmunityModifier #Goobstation
+      - !type:EvenHealthChange
+        damage:  # Goobstation - Make Omnizine great again!!!!!!!
+          Burn: -3 # Goob - was 2
+          Toxin: -3 # Goob - was 2
+          Airloss: -3 # Goob - was 2
+          Brute: -3 # Goob - was 2
+      - !type:ImmunityModifier # Goobstation
         gainRateModifier: 0.0011 #3x stronger than Immurin
         strengthModifier: 0.0088888888888 #Twice as strong
         statusLifetime: 3

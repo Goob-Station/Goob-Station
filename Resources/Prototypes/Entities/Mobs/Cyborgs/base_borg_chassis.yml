@@ -121,7 +121,9 @@
     canUseInCrit: true # Goobstation
   - type: ZombieImmune
   - type: Repairable
-    doAfterDelay: 10
+    damageValue: -10 # 10 seconds to repair from crit
+    doAfterDelay: 1
+    fuelCost: 0.5
     # allowSelfRepair: false # Goobstation
   - type: BorgChassis
   - type: LockingWhitelist
