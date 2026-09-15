@@ -5,7 +5,10 @@
   name: knowledge-path-rust-s1-name
   description: knowledge-path-rust-s1-desc
   icon: { sprite: _Goobstation/Heretic/Blades/blade_rust.rsi, state: icon }
-  productHereticKnowledge: BlacksmithTale
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - BlacksmithTale
   cost:
     KnowledgePoint: 1
   categories:
@@ -30,7 +33,10 @@
   name: knowledge-path-rust-s2-name
   description: knowledge-path-rust-s2-desc
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: GraspOfRust
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - GraspOfRust
   cost:
     KnowledgePoint: 1
   categories:
@@ -43,30 +49,15 @@
     whitelist:
     - Rust
 
-#- type: listing
-#  id: HereticRustPath3
-#  name: knowledge-path-rust-s3-name
-#  description: knowledge-path-rust-s3-desc
-#  icon: { sprite: _Goobstation/Heretic/tiles.rsi, state: plating_rust }
-#  productHereticKnowledge: LeechingWalk
-#  cost:
-#    KnowledgePoint: 1
-#  categories:
-#  - HereticPathRust
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
-#  - !type:HereticPathCondition
-#    stage: 2
-#    whitelist:
-#    - Rust
-
 - type: listing
   id: HereticRustPath3
   name: knowledge-path-rust-s3-name
   description: knowledge-path-rust-s3-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
-  productHereticKnowledge: AggressiveSpread
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - AggressiveSpread
   cost:
     KnowledgePoint: 1
   categories:
@@ -84,7 +75,10 @@
   name: knowledge-path-rust-s4-name
   description: knowledge-path-rust-s4-desc
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: MarkOfRust
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MarkOfRust
   cost:
     KnowledgePoint: 2
   categories:
@@ -102,7 +96,10 @@
   name: knowledge-path-rust-s5-name
   description: knowledge-path-rust-s5-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: construction }
-  productHereticKnowledge: RustConstruction
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - RustConstruction
   cost:
     KnowledgePoint: 2
   categories:
@@ -120,7 +117,10 @@
   name: knowledge-path-rust-s6-name
   description: knowledge-path-rust-s6-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: entropic_plume }
-  productHereticKnowledge: EntropicPlume
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - EntropicPlume
   cost:
     KnowledgePoint: 1
   categories:
@@ -138,7 +138,10 @@
   name: knowledge-path-rust-s7-name
   description: knowledge-path-rust-s7-desc
   icon: { sprite: _Goobstation/Heretic/Blades/blade_rust.rsi, state: icon }
-  productHereticKnowledge: ToxicBlade
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - ToxicBlade
   cost:
     KnowledgePoint: 2
   categories:
@@ -156,7 +159,10 @@
   name: knowledge-path-rust-s8-rust-charge-name
   description: knowledge-path-rust-s8-rust-charge-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: rust_charge }
-  productHereticKnowledge: RustCharge
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - RustCharge
   cost:
     KnowledgePoint: 1
   categories:
@@ -174,7 +180,10 @@
   name: knowledge-path-rust-s9-name
   description: knowledge-path-rust-s9-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ascension_rust }
-  productHereticKnowledge: AscensionRust
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - AscensionRust
   cost:
     KnowledgePoint: 3
   categories:
