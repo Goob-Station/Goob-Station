@@ -25182,3 +25182,37 @@ Entries:
       message: Reptilian Explorer armor sprites.
   id: 2885
   time: '2026-09-15T23:11:57.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: minervend to chloris salvage
+    - type: Fix
+      message: replaced weapons on pirate ship with pirate-appropriate weapons
+    - type: Fix
+      message: fixed some missing wires on box
+    - type: Fix
+      message: fixed pirate ship airlocks not having fans
+    - type: Fix
+      message: fixed chloris fax machines not having labels
+    - type: Fix
+      message: fixed the smartfridge in box kitchen having med access
+    - type: Fix
+      message: fixed tank harnesses not holding backpack water tanks
+    - type: Fix
+      message: fixed meteors not spawning on secret+
+    - type: Fix
+      message: fixed dimensional pot not being unbreakable
+    - type: Fix
+      message: fixed reptilians missing some markings
+    - type: Fix
+      message: fixed shadowkin black hole marking being unable to be recolored
+    - type: Fix
+      message: fixed trash bag not being able to pick up cigar butts
+    - type: Fix
+      message: fixed trash bag not being able to pick up certain types of garbage
+    - type: Tweak
+      message: trash bag can now pick up organs
+    - type: Tweak
+      message: nozzles and monkey cubes can now fit in the xenobiology pouch
+  id: 2886
+  time: '2026-09-15T23:14:31.0000000+00:00'
