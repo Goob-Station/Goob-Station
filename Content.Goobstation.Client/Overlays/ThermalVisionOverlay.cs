@@ -18,7 +18,7 @@ namespace Content.Goobstation.Client.Overlays;
 public sealed class ThermalVisionOverlay : Overlay
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
@@ -27,6 +27,10 @@ public sealed class ThermalVisionOverlay : Overlay
     private readonly SpriteSystem _sprite;
     private readonly ContainerSystem _container;
     private readonly SharedPointLightSystem _light;
+
+    private readonly EntityQuery<StealthComponent> _stealthQuery;
+    private readonly EntityQuery<SpriteComponent> _spriteQuery;
+    private readonly EntityQuery<TransformComponent> _xformQuery;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
@@ -43,10 +47,14 @@ public sealed class ThermalVisionOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
-        _container = _entity.System<ContainerSystem>();
-        _transform = _entity.System<TransformSystem>();
-        _sprite = _entity.System<SpriteSystem>();
-        _light = _entity.System<SharedPointLightSystem>();
+        _container = _entityManager.System<ContainerSystem>();
+        _transform = _entityManager.System<TransformSystem>();
+        _sprite = _entityManager.System<SpriteSystem>();
+        _light = _entityManager.System<SharedPointLightSystem>();
+
+        _stealthQuery = _entityManager.GetEntityQuery<StealthComponent>();
+        _spriteQuery = _entityManager.GetEntityQuery<SpriteComponent>();
+        _xformQuery = _entityManager.GetEntityQuery<TransformComponent>();
 
         ZIndex = -1;
     }
@@ -69,7 +77,7 @@ public sealed class ThermalVisionOverlay : Overlay
 
         var player = _player.LocalEntity;
 
-        if (!_entity.TryGetComponent(player, out TransformComponent? playerXform))
+        if (!_xformQuery.TryComp(player, out var playerXform))
             return;
 
         var accumulator = Math.Clamp(Comp.PulseAccumulator, 0f, Comp.PulseTime);
@@ -78,9 +86,10 @@ public sealed class ThermalVisionOverlay : Overlay
         // Thermal vision grants some night vision (clientside light)
         if (LightRadius > 0)
         {
-            _lightEntity ??= _entity.SpawnAttachedTo(null, playerXform.Coordinates);
+            _lightEntity ??= _entityManager.SpawnAttachedTo(null, playerXform.Coordinates);
             _transform.SetParent(_lightEntity.Value, player.Value);
-            var light = _entity.EnsureComponent<PointLightComponent>(_lightEntity.Value);
+
+            var light = _entityManager.EnsureComponent<PointLightComponent>(_lightEntity.Value);
             _light.SetRadius(_lightEntity.Value, LightRadius, light);
             _light.SetEnergy(_lightEntity.Value, alpha, light);
             _light.SetColor(_lightEntity.Value, Comp.Color, light);
@@ -92,7 +101,7 @@ public sealed class ThermalVisionOverlay : Overlay
         var eyeRot = eye.Rotation;
 
         _entries.Clear();
-        var entities = _entity.EntityQueryEnumerator<BodyComponent, SpriteComponent, TransformComponent>();
+        var entities = _entityManager.EntityQueryEnumerator<BodyComponent, SpriteComponent, TransformComponent>();
         while (entities.MoveNext(out var uid, out var body, out var sprite, out var xform))
         {
             if (!CanSee(uid, sprite) || !body.ThermalVisibility)
@@ -103,8 +112,8 @@ public sealed class ThermalVisionOverlay : Overlay
             if (_container.TryGetOuterContainer(uid, xform, out var container))
             {
                 var owner = container.Owner;
-                if (_entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
-                    && _entity.TryGetComponent<TransformComponent>(owner, out var ownerXform))
+                if (_spriteQuery.TryComp(owner, out var ownerSprite)
+                    && _xformQuery.TryComp(owner, out var ownerXform))
                 {
                     entity = owner;
                     sprite = ownerSprite;
@@ -179,8 +188,9 @@ public sealed class ThermalVisionOverlay : Overlay
 
     private bool CanSee(EntityUid uid, SpriteComponent sprite)
     {
-        return sprite.Visible && (!_entity.TryGetComponent(uid, out StealthComponent? stealth) ||
-                                  !stealth.ThermalsImmune); // Goobstation - thermals ability to see invisible entities
+        return sprite.Visible &&
+            (!_stealthQuery.TryComp(uid, out StealthComponent? stealth)
+            || !stealth.ThermalsImmune); // let it see invisible entities
     }
 
     public void ResetLight(bool checkFirstTimePredicted = true)
@@ -188,7 +198,7 @@ public sealed class ThermalVisionOverlay : Overlay
         if (_lightEntity == null || checkFirstTimePredicted && !_timing.IsFirstTimePredicted)
             return;
 
-        _entity.DeleteEntity(_lightEntity);
+        _entityManager.DeleteEntity(_lightEntity);
         _lightEntity = null;
     }
 }

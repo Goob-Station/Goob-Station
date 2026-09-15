@@ -6,12 +6,6 @@ using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Common.Magic;
 using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
-using Content.Shared._Shitmed.Damage;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Charges.Components;
@@ -20,7 +14,6 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Examine;
@@ -58,6 +51,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
+using Content.Goobstation.Common.Wizard.Events;
+using Content.Goobstation.Common.Wizard.Components;
 
 namespace Content.Shared.Magic;
 
@@ -198,16 +193,17 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
         }
 
-        var requiresSpeech = comp.RequiresSpeech;
-        var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
-        var requiredSlots = 2;
-        if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
-            HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
-        {
-            requiresSpeech = true;
-            flags = SlotFlags.OUTERCLOTHING;
-            requiredSlots = 1;
-        }
+        var ev = new ModifySpellRequirementsEvent(
+            (int) (SlotFlags.OUTERCLOTHING | SlotFlags.HEAD),
+            2,
+            comp.RequiresSpeech,
+            args.Performer
+        );
+        RaiseLocalEvent(args.Performer, ref ev);
+
+        var requiresSpeech = ev.RequiresSpeech;
+        var flags = (SlotFlags) ev.SlotFlags;
+        var requiredSlots = ev.RequiredSlots;
 
         var slots = 0;
         // Goobstation end
@@ -256,7 +252,7 @@ public abstract class SharedMagicSystem : EntitySystem
         // TODO: Pre-cast do after, either here or in SharedActionsSystem
     }
 
-    public bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer) // Goob edit
+    public bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer) // Goob - made public
     {
         var ev = new BeforeCastSpellEvent(performer);
         RaiseLocalEvent(spell, ref ev);
@@ -732,8 +728,8 @@ public abstract class SharedMagicSystem : EntitySystem
 
         var tarHasMind = _mind.TryGetMind(ev.Target, out var tarMind, out var tarMindComp);
 
-        _tag.AddTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
-        _tag.AddTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(ev.Performer, "IgnoreBindSoul"); // Goobstation // TODO make constant again
+        _tag.AddTag(ev.Target, "IgnoreBindSoul"); // Goobstation // TODO make constant again
 
         _mind.TransferTo(perMind, ev.Target);
 
@@ -767,8 +763,8 @@ public abstract class SharedMagicSystem : EntitySystem
         }
         // Goobstation end
 
-        _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
-        _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(ev.Performer, "IgnoreBindSoul"); // Goobstation // TODO make constant again
+        _tag.RemoveTag(ev.Target, "IgnoreBindSoul"); // Goobstation // TODO make constant again
 
         _stun.KnockdownOrStun(ev.Target, ev.TargetStunDuration, true); // Goob edit
         _stun.KnockdownOrStun(ev.Performer, ev.PerformerStunDuration, true); // Goob edit

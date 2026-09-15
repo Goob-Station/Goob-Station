@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Shared.Spellblade.Systems;
+using Content.Shared.Damage;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Shared.Spellblade.Components;
+
+[RegisterComponent, Access(typeof(SharedSpellbladeSystem))]
+public sealed partial class TemporalSlashComponent : Component
+{
+    [DataField]
+    public DamageSpecifier Damage = new();
+
+    [DataField]
+    public int HitsLeft = 2;
+
+    [DataField]
+    public float HitDelay = 0.5f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float Accumulator;
+
+    [DataField]
+    public EntProtoId Effect = "WeaponArcTempSlash";
+
+    [DataField]
+    public SoundSpecifier? HitSound = new SoundPathSpecifier("/Audio/Weapons/bladeslice.ogg");
+}

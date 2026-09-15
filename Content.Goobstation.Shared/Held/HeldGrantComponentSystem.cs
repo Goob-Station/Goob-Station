@@ -30,28 +30,21 @@ public sealed class HeldGrantComponentSystem : EntitySystem
             _serializationManager.CopyTo(data.Component, ref temp);
             EntityManager.AddComponent(args.User, (Component)temp!);
 
-            ent.Comp.Active[name] = true; // Goobstation
+            ent.Comp.Active[name] = true;
         }
     }
 
     private void OnCompUnequip(Entity<HeldGrantComponentComponent> ent, ref GotUnequippedHandEvent args)
     {
-        // Goobstation
-        //if (!component.IsActive) return;
-
         foreach (var (name, data) in ent.Comp.Components)
         {
-            // Goobstation
             if (!ent.Comp.Active.ContainsKey(name) || !ent.Comp.Active[name])
                 continue;
 
             var newComp = (Component) _componentFactory.GetComponent(name);
 
             RemComp(args.User, newComp.GetType());
-            ent.Comp.Active[name] = false; // Goobstation
+            ent.Comp.Active[name] = false;
         }
-
-        // Goobstation
-        //component.IsActive = false;
     }
 }

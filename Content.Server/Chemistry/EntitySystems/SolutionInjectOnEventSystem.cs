@@ -241,7 +241,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
                 anySuccess = true;
         }
         // Goobstation - Armor resisting syringe gun
-        // on upstream there would be code here but it migrates north in the goobstation season
+        // on upstream there would be code here but it migrates north in the goobstation season // ?????????????????
 
         // Huzzah!
         return anySuccess;
