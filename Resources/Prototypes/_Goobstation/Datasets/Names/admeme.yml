@@ -11,3 +11,9 @@
   values:
     prefix: names-conquest-dataset-
     count: 1
+
+- type: localizedDataset
+  id: NamesJoseph
+  values:
+    prefix: names-joseph-dataset-
+    count: 1

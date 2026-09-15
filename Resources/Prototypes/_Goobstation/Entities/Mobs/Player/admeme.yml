@@ -481,3 +481,37 @@
     allowed:
     - PressureImmunity
     - Adrenaline
+
+# Your next line is... I'm right, aren't I?
+
+- type: entity
+  id: JosephSpawner
+  name: Joseph Joestar
+  suffix: Admeme
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: RandomHumanoidSpawner
+    settings: JosephJoestar
+
+- type: randomHumanoidSettings
+  id: JosephJoestar
+  parent: EventHumanMindShielded
+  components:
+  - type: HamonUser
+    components:
+    - type: PredictNextLine
+    - type: Thieving
+    actions:
+    - ActionInfuseHamon
+    - ActionHamonOverdrive
+    - ActionAssPull
+    - ActionPredictNextLine
+  - type: Loadout
+    prototypes: [ JosephJoestarGear ]
+  - type: RandomMetadata
+    nameSegments: [ NamesJoseph ]
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+    hair: HumanHairJoestar
