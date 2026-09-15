@@ -165,6 +165,16 @@
   - type: ImplantGrantCollectiveMind
     collectiveMind: Shadowmind
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TelepathyImplant
+  name: telepathy implant
+  description: This implant allows the user to use telepathy.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionTelepathy
+
 # Admeme
 
 - type: entity
