@@ -112,7 +112,13 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         if (!Prototypes.Resolve(entity.Comp.SelectedBorgType, out var proto) || // GOOB
             !TryComp(entity, out BorgSwitchableSubtypeComponent? subtype) ||
             !Prototypes.Resolve(subtype.BorgSubtype, out var subtypeProto))
+        {
+            // <Goob>
+            if (proto is not null)
+                UpdateEntityAppearance(entity, proto);
+            // </Goob>
             return;
+        }
 
         UpdateEntityAppearance(entity, proto, subtypeProto);
     }
@@ -120,7 +126,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
     protected virtual void UpdateEntityAppearance(
         Entity<BorgSwitchableTypeComponent> entity,
         BorgTypePrototype prototype,
-        BorgSubtypePrototype subtypePrototype) // GOOB
+        BorgSubtypePrototype? subtypePrototype = null) // GOOB
     {
         if (TryComp(entity, out InteractionPopupComponent? popup))
         {

@@ -562,6 +562,17 @@
       path: /Audio/_Goobstation/RadioStation/music/peakasshole.ogg
 
 - type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskSpaceAsshole
+  name: "vinyl disk: Space Asshole"
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/Lobby/space_asshole.ogg
+
+- type: entity
   name: broken vinyl disk
   id: VinylDiskBroken
   parent: BaseItem

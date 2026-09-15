@@ -670,6 +670,11 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> GpsUpdateRate =
         CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
+    /// <summary>
+    /// Enables or disables flip dodging. Flip dodging makes you invincible during flip to projectiles.
+    /// </summary>
+    public static readonly CVarDef<bool> FlipDodgeEnabled =
+        CVarDef.Create("emotes.flip_dodge_enabled", false, CVar.SERVER | CVar.REPLICATED);
 
     #region Particles
 

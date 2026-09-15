@@ -191,7 +191,6 @@
     metabolizerTypes: [ Cybernetic ]
     groups:
     - id: Alcohol
-      rateModifier: 0.1
   - type: Tag
     tags:
     - Organ

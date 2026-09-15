@@ -6,6 +6,7 @@ using Content.Shared.Humanoid.Markings;
 using Content.Shared.Interaction;
 using Content.Shared.UserInterface;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.MagicMirror;
 
@@ -13,6 +14,7 @@ public abstract class SharedMagicMirrorSystem : EntitySystem
 {
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem UISystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -25,7 +27,7 @@ public abstract class SharedMagicMirrorSystem : EntitySystem
 
     private void OnMagicMirrorInteract(Entity<MagicMirrorComponent> mirror, ref AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Target == null)
+        if (!args.CanReach || args.Target == null || !_timing.IsFirstTimePredicted) // Goobstation - Added isFirstTimePredicted
             return;
 
         UpdateInterface(mirror, args.Target.Value, mirror);

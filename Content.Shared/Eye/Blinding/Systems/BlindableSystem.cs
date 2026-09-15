@@ -98,8 +98,12 @@ public sealed class BlindableSystem : EntitySystem
         // for now
         foreach (var eye in eyes)
         {
-            if (!_trauma.TryChangeOrganDamageModifier(eye.Owner, amount, blindable.Owner, "BlindableDamage", eye.Comp2))
-                _trauma.TryCreateOrganDamageModifier(eye.Owner, amount, blindable.Owner, "BlindableDamage", eye.Comp2);
+            // Omu start
+            // Scale the damage done to eye organs proportional to what the cap used to be.
+            var scaledDamage = amount * (eye.Comp2.IntegrityCap / 12);
+            if (!_trauma.TryChangeOrganDamageModifier(eye.Owner, scaledDamage, blindable.Owner, "BlindableDamage", eye.Comp2))
+                _trauma.TryCreateOrganDamageModifier(eye.Owner, scaledDamage, blindable.Owner, "BlindableDamage", eye.Comp2);
+            // Omu end
         }
     }
 

@@ -1087,6 +1087,66 @@
         Slash: 5
     biteSound:
       collection: VulpkaninSnarls
+      
+- type: entity
+  parent: BasePlushie
+  id: PlushieRouge
+  name: rouge plushie
+  description: A cute stuffed toy resembling the humble and always drunk CCO of CCO's. Its eyebrows seem glued to be permanently furrowed.
+  components:
+  - type: Sprite
+    scale: 0.8,0.8
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    layers:
+    - state: plushie_rouge_off
+    - state: plushie_rouge_on
+      visible: false
+      map: [ "Unsheathe" ]
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Items/unsheath.ogg
+    soundDeactivate:
+      path: /Audio/Items/sheath.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Effects/newplayerpingmono.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/alert.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Weapons/soup.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Weapons/Melee/swordpluck.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: SpeakOnCollide
+    pack: PlushieRouge
+  - type: ToggleableVisuals
+    spriteLayer: Unsheathe
+    inhandVisuals:
+      left:
+      - state: plushierouge-inhand-left-on
+        shader: unshaded
+      right:
+      - state: plushierouge-inhand-right-on
+        shader: unshaded
+  - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plushierouge-inhand-left-off
+        shader: unshaded
+      right:
+      - state: plushierouge-inhand-right-off
+        shader: unshaded
+  - type: ComponentToggler
+    components:
+    - type: EmbeddableProjectile
+      sound: /Audio/_Goobstation/Weapons/Melee/swordimpact.ogg
 
 - type: entity
   parent: PlushieLizard
@@ -1211,4 +1271,10 @@
   name: evil Irene plush
   parent: PlushieRedstonewolf
   id: EvilPlushieRedstonewolf
+  suffix: Evil
+  
+- type: entity
+  name: evil Rouge plush
+  parent: PlushieRouge
+  id: EvilPlushieRouge
   suffix: Evil

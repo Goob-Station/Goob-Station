@@ -116,7 +116,7 @@
     sprite: Objects/Specific/Medical/implanter.rsi
     state: implanter0
   product: CrateMindShieldImplants
-  cost: 3000
+  cost: 1500 # Goobstation - half cost, revslop
   category: cargoproduct-category-name-medical
   group: market
 

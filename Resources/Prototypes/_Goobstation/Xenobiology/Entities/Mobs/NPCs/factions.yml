@@ -1,0 +1,19 @@
+- type: npcFaction
+  id: XenobioSlime
+  hostile:
+  - Passive
+  - NanoTrasen
+  - Syndicate
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - AllHostile
+  - Xenoborg
+  - Heretic
+  - Blob
+  - PirateFaction
+  - Lavafauna
+  - Wizard
+  - Shadowling

@@ -341,6 +341,13 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  # Goobstation - start
+  - type: Sanitized
+  - type: SurgeryTarget
+  - type: SurgeryIgnoreClothing
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  # Goobstation - end
 
 - type: entity
   parent: BaseBorgChassisDerelict

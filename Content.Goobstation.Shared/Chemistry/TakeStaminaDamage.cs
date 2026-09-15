@@ -14,7 +14,7 @@ public sealed partial class TakeStaminaDamageSystem : EntityEffectSystem<Stamina
 
     protected override void Effect(Entity<StaminaComponent> entity, ref EntityEffectEvent<TakeStaminaDamage> args)
     {
-        _stamina.TakeStaminaDamage(entity.Owner, args.Effect.Amount, visual: false, immediate: args.Effect.Immediate);
+        _stamina.TakeStaminaDamage(entity.Owner, args.Effect.Amount, visual: false, immediate: args.Effect.Immediate, ignoreResist: true); // ignores armor resistances
     }
 }
 
