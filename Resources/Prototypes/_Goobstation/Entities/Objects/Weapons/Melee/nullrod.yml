@@ -812,22 +812,22 @@
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
-        Heat: 20
+        Heat: 40
     UntrainedUseString: nullrod-dragontail-untrained-usage-popup
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1
+    range: 2
+    attackRate: 1.5
     animationRotation: -135
     wideAnimationRotation: -135
+    angle: 20
     damage:
       types:
-        Holy: 5
-        Heat: 5
-        Blunt: 5
+        Holy: 7
     soundHit:
-      path: /Audio/Weapons/slash.ogg
+      path: /Audio/Weapons/firepunch3.ogg
   - type: IgniteOnMeleeHit
     fireStacks: 1
   - type: Tag
