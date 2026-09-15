@@ -25146,3 +25146,11 @@ Entries:
         keep the player's appearance.
   id: 2881
   time: '2026-09-15T18:44:56.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: >-
+        Moths and chitinids now have a chance to scream when pest spray is
+        sprayed on them.
+  id: 2882
+  time: '2026-09-15T18:46:33.0000000+00:00'
