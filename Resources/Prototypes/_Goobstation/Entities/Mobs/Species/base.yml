@@ -1,4 +1,4 @@
-# Just mob base that don't have perishable component so you don't have to copy paste a lot thing
+# Just mob base that don't have Pserishable and DiseaseCarrier component so you don't have to copy paste a lot thing
 - type: entity
   save: false
   parent:
@@ -80,11 +80,5 @@
   #  power: 0.6
   - type: FlightAffectedByScale # Goobstation: port EE height/width sliders.
   - type: StunVisuals
-  - type: DiseaseCarrier
-  - type: Immunity
-    affectedTypes:
-    - Viral
-    - Bacterial
-    - Parasite
   - type: ObraDinnBody # Goobstation
   # </Goobstation>

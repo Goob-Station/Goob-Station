@@ -1,0 +1,24 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+               Title="{Loc gang-admin-title}"
+               MinSize="850 420">
+    <BoxContainer Orientation="Horizontal" SeparationOverride="8" Margin="4" VerticalExpand="True">
+        <ScrollContainer HScrollEnabled="False" MinSize="200 0" VerticalExpand="True">
+            <BoxContainer Name="GangList" Orientation="Vertical" SeparationOverride="2" HorizontalExpand="True"/>
+        </ScrollContainer>
+        <BoxContainer Orientation="Vertical" SeparationOverride="6" HorizontalExpand="True" VerticalExpand="True">
+            <Label Name="DetailsTitle" Text="{Loc gang-admin-no-selection}" StyleClasses="LabelHeading"/>
+            <Label Text="{Loc gang-admin-members-header}"/>
+            <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
+                <BoxContainer Name="MemberList" Orientation="Vertical" SeparationOverride="2" HorizontalExpand="True"/>
+            </ScrollContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="4" HorizontalExpand="True">
+                <Button Name="ManualRenameButton" Text="{Loc gang-admin-manual-rename}" HorizontalExpand="True"/>
+                <controls:ConfirmButton Name="ForceRenameButton" Text="{Loc gang-admin-force-rename}" ConfirmationText="{Loc gang-admin-force-rename}" HorizontalExpand="True"/>
+                <Button Name="AddMemberButton" Text="{Loc gang-admin-add-member}" HorizontalExpand="True"/>
+                <controls:ConfirmButton Name="KickButton" Text="{Loc gang-admin-kick}" ConfirmationText="{Loc gang-admin-kick}" HorizontalExpand="True"/>
+                <controls:ConfirmButton Name="SetLeaderButton" Text="{Loc gang-admin-set-leader}" ConfirmationText="{Loc gang-admin-set-leader}" HorizontalExpand="True"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

@@ -43,7 +43,7 @@
     outerClothing: ClothingOuterHardsuitERTLeader
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilledERT # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
     pocket2: CombatKnife
     suitstorage: WeaponDisablerSMG
@@ -333,7 +333,7 @@
     outerClothing: ClothingOuterHardsuitERTSecurity
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilledERT # Goobstation
     pocket1: WeaponPulsePistol # Goobstation Death to Crew aligned Ballistics
     pocket2: CombatKnife
   storage:
