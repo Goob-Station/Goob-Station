@@ -1,0 +1,346 @@
+# ============================================
+# PISTOL & REVOLVER MAGAZINES
+# ============================================
+
+- type: entity
+  id: MagazineFiveSeven
+  parent: BaseItem
+  name: FN Five-seveN Magazine (5.7x28mm)
+  description: A 20-round double-stack magazine for the FN Five-seveN pistol.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: Cartridge57x28mm
+    capacity: 20
+  - type: Tag
+    tags:
+    - MagazineFiveSeven
+
+- type: entity
+  id: MagazineM1911
+  parent: BaseItem
+  name: Colt M1911 Magazine (.45 ACP)
+  description: A classic 7-round single-stack steel magazine.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: Cartridge45ACP
+    capacity: 7
+  - type: Tag
+    tags:
+    - MagazineM1911
+
+# ============================================
+# SUBMACHINE GUN
+# ============================================
+
+- type: entity
+  id: MagazineVector
+  parent: BaseItem
+  name: KRISS Vector Magazine (.45 ACP)
+  description: An extended 30-round magazine for the KRISS Vector SMG.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/vector.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: Cartridge45ACP
+    capacity: 30
+  - type: Tag
+    tags:
+    - MagazineVector
+
+- type: entity
+  id: MagazineP90
+  parent: BaseItem
+  name: FN P90 Magazine (5.7x28mm)
+  description: A translucent 50-round horizontal top-mounted magazine.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/p90.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Normal
+  - type: BallisticAmmoProvider
+    proto: Cartridge57x28mm
+    capacity: 50
+  - type: Tag
+    tags:
+    - MagazineP90
+
+- type: entity
+  id: MagazineUMP40
+  parent: BaseItem
+  name: H&K UMP40 Magazine (.40 S&W)
+  description: A 30-round polymer box magazine.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/UMP.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: Cartridge40SW
+    capacity: 30
+  - type: Tag
+    tags:
+    - MagazineUMP40
+
+- type: entity
+  id: MagazineMP7
+  parent: BaseItem
+  name: H&K MP7 Magazine (4.6x30mm)
+  description: An extended 40-round steel magazine for the MP7 PDW.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/mp7.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: Cartridge46x30mm
+    capacity: 40
+  - type: Tag
+    tags:
+    - MagazineMP7
+
+# ============================================
+# RIFLE & CARBINE MAGAZINES
+# ============================================
+
+- type: entity
+  id: MagazineSTANAG556
+  parent: BaseItem
+  name: STANAG Rifle Magazine (5.56x45mm)
+  description: Standard 30-round magazine used by AR-15, M16, Steyr AUG, and FN FS2000.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/stanag.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: Cartridge556x45mm
+    capacity: 30
+  - type: Tag
+    tags:
+    - MagazineSTANAG556
+
+- type: entity
+  id: MagazineScarH
+  parent: BaseItem
+  name: FN SCAR-H Magazine (7.62x51mm)
+  description: Heavy 20-round steel magazine for 7.62x51mm battle rifles and the M110 SASS DMR.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/scar_h.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Normal
+  - type: BallisticAmmoProvider
+    proto: Cartridge762x51mm
+    capacity: 20
+  - type: Tag
+    tags:
+    - MagazineScarH
+
+- type: entity
+  id: MagazineAK74
+  parent: BaseItem
+  name: AK-74 Magazine (5.45x39mm)
+  description: Standard 30-round polymer magazine for AK-74 rifles.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/ak.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: Cartridge545x39mm
+    capacity: 30
+  - type: Tag
+    tags:
+    - MagazineAK74
+
+- type: entity
+  id: MagazineAK104
+  parent: BaseItem
+  name: AK-104 Magazine (7.62x39mm)
+  description: Curved 30-round steel magazine for 7.62x39mm AK variants.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/ak104.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: Cartridge762x39mm
+    capacity: 30
+  - type: Tag
+    tags:
+    - MagazineAK104
+
+# ============================================
+# SHOTGUN MAGAZINES
+# ============================================
+
+# - type: entity
+#   id: MagazineSaiga12
+#   parent: BaseItem
+#   name: Saiga-12 Box Magazine (12-Gauge)
+#   description: A heavy 10-round detachable box magazine for the Saiga-12 shotgun.
+#   components:
+#   - type: Sprite
+#     sprite: _F14/objects/Weapons/Magazines/saiga12.rsi
+#     layers:
+#     - state: base
+#   - type: Item
+#     size: Normal
+#   - type: BallisticAmmoProvider
+#     proto: ShellShotgun
+#     capacity: 10
+#   - type: Tag
+#     tags:
+#     - MagazineSaiga12
+
+- type: entity
+  id: MagazineSRM1216
+  parent: BaseItem
+  name: SRM 1216 Rotary Magazine
+  description: A bulky 16-round 4-tube detachable rotary magazine.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/SRM.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Large
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 16
+    proto: ShellShotgun
+  - type: Tag
+    tags:
+    - MagazineSRM1216
+
+# ============================================
+# MACHINE GUN AMMO BOXES / BELTS
+# ============================================
+
+- type: entity
+  id: MagazineM249
+  parent: BaseItem
+  name: M249 SAW Belt Box (5.56x45mm)
+  description: A heavy polymer ammo box holding a 100-round belt of 5.56x45mm NATO.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/m249.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Large
+  - type: BallisticAmmoProvider
+    proto: Cartridge556x45mm
+    capacity: 100
+  - type: Tag
+    tags:
+    - MagazineM249
+
+# - type: entity
+#   id: MagazineM60
+#   parent: BaseItem
+#   name: M60 Ammo Box (7.62x51mm)
+#   description: A large ammo box containing a 100-round belt of 7.62x51mm.
+#   components:
+#   - type: Sprite
+#     sprite: _F14/objects/Weapons/Magazines/m60.rsi
+#     layers:
+#     - state: base
+#   - type: Item
+#     size: Large
+#   - type: BallisticAmmoProvider
+#     proto: Cartridge762x51mm
+#     capacity: 100
+#   - type: Tag
+#     tags:
+#     - MagazineM60
+
+# ============================================
+# M2 BROWNING AMMO BOX
+# ============================================
+
+- type: entity
+  id: MagazineM2Browning
+  parent: BaseItem
+  name: M2 Browning Ammo Can (.50 BMG)
+  description: A heavy steel ammo box containing a 50-round belt of devastating .50 BMG ammunition.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Magazines/m2_browning_can.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Large
+  - type: BallisticAmmoProvider
+    proto: SCPCartridge50BMG
+    capacity: 50
+  - type: Tag
+    tags:
+    - MagazineM2Browning
+
+# ============================================
+# TAG REGISTRY
+# ============================================
+
+- type: Tag
+  id: MagazineFiveSeven
+- type: Tag
+  id: MagazineM1911
+- type: Tag
+  id: MagazineVector
+- type: Tag
+  id: MagazineP90
+- type: Tag
+  id: MagazineUMP40
+- type: Tag
+  id: MagazineMP7
+- type: Tag
+  id: MagazineSTANAG556
+- type: Tag
+  id: MagazineScarH
+- type: Tag
+  id: MagazineAK74
+- type: Tag
+  id: MagazineAK104
+# - type: Tag
+#   id: MagazineSaiga12
+- type: Tag
+  id: MagazineSRM1216
+- type: Tag
+  id: MagazineM249
+- type: Tag
+  id: MagazineM60
+- type: Tag
+  id: MagazineM2Browning

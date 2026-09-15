@@ -1,0 +1,152 @@
+# ============================================
+# PISTOL & PDW CARTRIDGES
+# ============================================
+
+- type: entity
+  id: Cartridge45ACP
+  parent: BaseCartridgePistol
+  name: .45 ACP cartridge
+  description: A heavy, slow-moving pistol round.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: Bullet45ACP
+
+- type: entity
+  id: Cartridge57x28mm
+  parent: BaseCartridgePistol
+  name: 5.7x28mm cartridge
+  description: A high-velocity, armor-piercing compact cartridge.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: Bullet57x28mm
+
+- type: entity
+  id: Cartridge46x30mm
+  parent: BaseCartridgePistol
+  name: 4.6x30mm cartridge
+  description: High-velocity PDW cartridge designed to defeat light armor.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: Bullet46x30mm
+
+- type: entity
+  id: Cartridge40SW
+  parent: BaseCartridgePistol
+  name: .40 S&W cartridge
+  description: A balanced handgun cartridge with reliable stopping power.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: Bullet40SW
+
+# ============================================
+# RIFLE CARTRIDGES
+# ============================================
+
+- type: entity
+  id: Cartridge556x45mm
+  parent: BaseCartridgeRifle
+  name: 5.56x45mm NATO cartridge
+  description: Standard intermediate rifle cartridge.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: Bullet556x45mm
+
+- type: entity
+  id: Cartridge545x39mm
+  parent: BaseCartridgeRifle
+  name: 5.45x39mm cartridge
+  description: Lightweight high-velocity intermediate cartridge.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: Bullet545x39mm
+
+- type: entity
+  id: Cartridge762x39mm
+  parent: BaseCartridgeRifle
+  name: 7.62x39mm cartridge
+  description: Heavy intermediate round offering strong barrier penetration.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: Bullet762x39mm
+
+- type: entity
+  id: Cartridge762x51mm
+  parent: BaseCartridgeRifle
+  name: 7.62x51mm NATO cartridge
+  description: Full-power battle rifle round with impressive lethality.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: Bullet762x51mm
+
+# ============================================
+# HEAVY & SHOTGUN CARTRIDGES
+# ============================================
+
+- type: entity
+  id: SCPCartridge50BMG
+  parent: BaseCartridgeRifle
+  name: .50 BMG cartridge
+  description: A massive anti-materiel round used in heavy machine guns.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: SCPBullet50BMG
+
+- type: entity
+  id: ShellShotgunBuckshot
+  parent: BaseShellShotgun
+  name: 12-gauge buckshot shell
+  description: Contains multiple lead pellets for close-range devastation.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: CartridgeAmmo
+    proto: PelletShotgunBuckshot
+    count: 6 # 6 pellets per shot

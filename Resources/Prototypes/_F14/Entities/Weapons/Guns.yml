@@ -1,0 +1,1284 @@
+# ============================================
+# PISTOLS & REVOLVERS
+# ============================================
+
+- type: entity
+  id: SCPWeaponPistolFiveSeven
+  parent: BaseWeaponPistol
+  name: FN Five-seveN
+  description: A semi-automatic pistol chambered in the armor-piercing 5.7x28mm cartridge.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Pistols/Five-Seven.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    fireRate: 4
+    minAngle: 2
+    maxAngle: 7
+    angleIncrease: 1.5
+    angleDecay: 8
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/pistol_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineFiveSeven
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineFiveSeven
+
+- type: entity
+  id: SCPWeaponPistolM1911
+  parent: BaseWeaponPistol
+  name: Colt M1911
+  description: A classic single-action semi-automatic pistol chambered in .45 ACP.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Pistols/M1911.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    fireRate: 3
+    minAngle: 2.5
+    maxAngle: 8
+    angleIncrease: 2
+    angleDecay: 7
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/pistol_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineM1911
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineM1911
+
+- type: entity
+  id: SCPWeaponAnaconda
+  parent: BaseWeaponRevolver
+  name: Anaconda
+  description: A heavy revolver chambered in .44 Magnum. Delivers massive stopping power per shot.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Revolvers/Anaconda.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    fireRate: 1.5
+    minAngle: 1.5
+    maxAngle: 9
+    angleIncrease: 3.5
+    angleDecay: 6
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: RevolverAmmoProvider
+    capacity: 6
+    proto: CartridgeMagnum
+
+# ============================================
+# SUBMACHINE GUNS & PDWs
+# ============================================
+
+- type: entity
+  id: SCPWeaponGunVector
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  name: KRISS Vector
+  description: A submachine gun featuring the Super V recoil mitigation system and an extreme rate of fire.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/SMGs/Kriss_Vector.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    fireRate: 8.3
+    minAngle: 14
+    maxAngle: 26
+    angleIncrease: 1.5
+    angleDecay: 10
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+  - type: GunWieldBonus
+    minAngle: -12
+    maxAngle: -20
+  - type: HeldSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineVector
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineVector
+
+- type: entity
+  id: SCPWeaponGunP90
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  name: FN P90
+  description: A compact bullpup submachine gun with a top-mounted 50-round magazine chambered in 5.7x28mm.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/SMGs/p-90.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    fireRate: 7.5
+    minAngle: 15
+    maxAngle: 28
+    angleIncrease: 1.6
+    angleDecay: 9
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+  - type: GunWieldBonus
+    minAngle: -12.5
+    maxAngle: -21
+  - type: HeldSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineP90
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineP90
+
+- type: entity
+  id: SCPWeaponGunUMP40
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  name: H&K UMP40
+  description: A German submachine gun chambered in .40 S&W. Reliable and hard-hitting.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/SMGs/UMP.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    fireRate: 5
+    minAngle: 16
+    maxAngle: 28
+    angleIncrease: 2
+    angleDecay: 8
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: GunWieldBonus
+    minAngle: -13.5
+    maxAngle: -21
+  - type: HeldSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineUMP40
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineUMP40
+
+- type: entity
+  id: SCPWeaponGunMP7
+  parent: BaseWeaponSubMachineGun
+  name: H&K MP7
+  description: An ultra-compact Personal Defense Weapon (PDW) chambered in high-velocity 4.6x30mm.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/SMGs/MP-7.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    fireRate: 8
+    minAngle: 3
+    maxAngle: 8
+    angleIncrease: 1.2
+    angleDecay: 9
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: HeldSpeedModifier
+    walkModifier: 0.98
+    sprintModifier: 0.98
+  - type: ClothingSpeedModifier
+    walkModifier: 0.98
+    sprintModifier: 0.98
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMP7
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineMP7
+
+# ============================================
+# RIFLES & CARBINES
+# ============================================
+
+- type: entity
+  id: SCPWeaponGunAR15
+  parent: BaseWeaponRifle
+  name: M4A1
+  description: A versatile automatic rifle chambered in 5.56x45mm NATO.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Rifles/M4A1_x48.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _F14/objects/Weapons/Guns/Rifles/M4A1.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Rifles/M4A1.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 20
+    maxAngle: 35
+    angleIncrease: 2
+    angleDecay: 8
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: GunWieldBonus
+    minAngle: -18.5
+    maxAngle: -30
+  - type: HeldSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineSTANAG556
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineSTANAG556
+
+- type: entity
+  id: SCPWeaponGunM16
+  parent: BaseWeaponRifle
+  name: M16A4
+  description: A classic service rifle that has been modernized to meet today's standards.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Rifles/M16_x48.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _F14/objects/Weapons/Guns/Rifles/M16A4.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Rifles/M16A4.rsi
+  - type: Gun
+    fireRate: 5.5
+    minAngle: 18
+    maxAngle: 32
+    angleIncrease: 1.8
+    angleDecay: 9
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+  - type: GunWieldBonus
+    minAngle: -17
+    maxAngle: -28
+  - type: HeldSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineSTANAG556
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineSTANAG556
+
+- type: entity
+  id: SCPWeaponGunAUG
+  parent: BaseWeaponRifle
+  name: Steyr AUG
+  description: An Austrian bullpup assault rifle known for its modular design and balanced handling.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Rifles/AUG.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _F14/objects/Weapons/Guns/Rifles/AUG.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Rifles/AUG.rsi
+  - type: Gun
+    fireRate: 5.5
+    minAngle: 18
+    maxAngle: 34
+    angleIncrease: 2
+    angleDecay: 9
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: GunWieldBonus
+    minAngle: -16.5
+    maxAngle: -28.5
+  - type: HeldSpeedModifier
+    walkModifier: 0.92
+    sprintModifier: 0.92
+  - type: ClothingSpeedModifier
+    walkModifier: 0.92
+    sprintModifier: 0.92
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineSTANAG556
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineSTANAG556
+
+- type: entity
+  id: SCPWeaponGunFS2000
+  parent: BaseWeaponRifle
+  name: FN FS2000
+  description: A Belgian bullpup assault rifle featuring a unique forward casing-ejection system.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Rifles/FS2000.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _F14/objects/Weapons/Guns/Rifles/FS2000.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Rifles/FS2000.rsi
+  - type: Gun
+    fireRate: 5.5
+    minAngle: 19
+    maxAngle: 35
+    angleIncrease: 2.1
+    angleDecay: 8
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: GunWieldBonus
+    minAngle: -17.2
+    maxAngle: -29
+  - type: HeldSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineSTANAG556
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineSTANAG556
+
+- type: entity
+  id: SCPWeaponGunScarH
+  parent: BaseWeaponRifle
+  name: FN SCAR-H
+  description: A heavy battle rifle chambered in high-power 7.62x51mm NATO.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Rifles/SCAR-H_x48.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,5,0
+    sprite: _F14/objects/Weapons/Guns/Rifles/SCAR-H.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Rifles/SCAR-H.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 24
+    maxAngle: 42
+    angleIncrease: 3.5
+    angleDecay: 7
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: GunWieldBonus
+    minAngle: -22
+    maxAngle: -34
+  - type: HeldSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineScarH
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineScarH
+
+- type: entity
+  id: SCPWeaponGunAK74
+  parent: BaseWeaponRifle
+  name: AK-74
+  description: A reliable assault rifle chambered in 5.45x39mm.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Rifles/AK74_x48.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _F14/objects/Weapons/Guns/Rifles/AK74.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Rifles/AK74.rsi
+  - type: Gun
+    fireRate: 5
+    minAngle: 21
+    maxAngle: 36
+    angleIncrease: 2.2
+    angleDecay: 8
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: GunWieldBonus
+    minAngle: -19.2
+    maxAngle: -30
+  - type: HeldSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineAK74
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineAK74
+
+- type: entity
+  id: SCPWeaponGunAK104
+  parent: BaseWeaponRifle
+  name: AK-104
+  description: A compact carbine variant of the AK-100 series chambered in heavy 7.62x39mm.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Rifles/AK104_x48.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _F14/objects/Weapons/Guns/Rifles/AK104.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Rifles/AK104.rsi
+  - type: Gun
+    fireRate: 4.5
+    minAngle: 24
+    maxAngle: 40
+    angleIncrease: 2.8
+    angleDecay: 7.5
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: GunWieldBonus
+    minAngle: -21.5
+    maxAngle: -32
+  - type: HeldSpeedModifier
+    walkModifier: 0.92
+    sprintModifier: 0.92
+  - type: ClothingSpeedModifier
+    walkModifier: 0.92
+    sprintModifier: 0.92
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineAK104
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineAK104
+
+- type: entity
+  id: SCPWeaponGunM110
+  parent: [BaseItem, BaseGunWieldable]
+  name: M110 SASS
+  description: A semi-automatic designated marksman rifle chambered in 7.62x51mm. Features high optical magnification when wielded.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Snipers/M110_x64.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,5,0
+    sprite: _F14/objects/Weapons/Guns/Snipers/M110.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Snipers/M110.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 1.5
+    minAngle: 20
+    maxAngle: 35
+    angleIncrease: 4
+    angleDecay: 6
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -33
+  - type: GunRequiresWield
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 10
+    pvsIncrease: 0.5
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+    walkModifier: 0.80
+    sprintModifier: 0.80
+  - type: ClothingSpeedModifier
+    walkModifier: 0.80
+    sprintModifier: 0.80
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineScarH
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineScarH
+
+# ============================================
+# SHOTGUNS
+# ============================================
+
+- type: entity
+  id: SCPWeaponShotgunM4Tactical
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  name: Tactical Shotgun M4
+  description: A tactical semi-automatic shotgun with a 7-round internal tube magazine.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Shotguns/M4.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,5,0
+    sprite: _F14/objects/Weapons/Guns/Shotguns/M4.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Shotguns/M4.rsi
+  - type: Gun
+    fireRate: 2
+    minAngle: 16
+    maxAngle: 26
+    angleIncrease: 3
+    angleDecay: 7
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: GunWieldBonus
+    minAngle: -12.5
+    maxAngle: -18
+  - type: HeldSpeedModifier
+    walkModifier: 0.88
+    sprintModifier: 0.88
+  - type: ClothingSpeedModifier
+    walkModifier: 0.88
+    sprintModifier: 0.88
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: ShellShotgun
+    capacity: 7
+  - type: ContainerContainer
+    containers:
+      ballistic_unspawned: !type:Container {}
+
+- type: entity
+  id: SCPWeaponShotgunSPAS
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  name: SPAS-12
+  description: A tactical semi-automatic shotgun with an 8-round internal tube magazine.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Shotguns/SPAS.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,5,0
+    sprite: _F14/objects/Weapons/Guns/Shotguns/SPAS.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Shotguns/SPAS.rsi
+  - type: Gun
+    fireRate: 2
+    minAngle: 18
+    maxAngle: 28
+    angleIncrease: 3.5
+    angleDecay: 6.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: GunWieldBonus
+    minAngle: -14
+    maxAngle: -19
+  - type: HeldSpeedModifier
+    walkModifier: 0.88
+    sprintModifier: 0.88
+  - type: ClothingSpeedModifier
+    walkModifier: 0.88
+    sprintModifier: 0.88
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: ShellShotgun
+    capacity: 8
+  - type: ContainerContainer
+    containers:
+      ballistic_unspawned: !type:Container {}
+
+- type: entity
+  id: SCPWeaponShotgunKSG
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  name: KEL-TEC KSG
+  description: A bullpup shotgun with dual feed tubes of 7 rounds each.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Shotguns/KELTEC_x48.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,5,0
+    sprite: _F14/objects/Weapons/Guns/Shotguns/KELTEC.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Shotguns/KELTEC.rsi
+  - type: Gun
+    fireRate: 1.5
+    minAngle: 17
+    maxAngle: 27
+    angleIncrease: 3.2
+    angleDecay: 7
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: GunWieldBonus
+    minAngle: -13.5
+    maxAngle: -19
+  - type: HeldSpeedModifier
+    walkModifier: 0.88
+    sprintModifier: 0.88
+  - type: ClothingSpeedModifier
+    walkModifier: 0.88
+    sprintModifier: 0.88
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: ShellShotgun
+    capacity: 14
+  - type: ContainerContainer
+    containers:
+      ballistic_unspawned: !type:Container {}
+
+# - type: entity
+#   id: SCPWeaponShotgunSaiga12
+#   parent: BaseWeaponShotgun
+
+- type: entity
+  id: SCPWeaponShotgunSRM1216
+  parent: [BaseItem, BaseGunWieldable]
+  name: SRM Arms Model 1216
+  description: A semi-automatic shotgun with a detachable 16-round 4-tube rotary magazine.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Shotguns/SRM_x48.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,5,0
+    sprite: _F14/objects/Weapons/Guns/Shotguns/SRM.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/Shotguns/SRM.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 3
+    minAngle: 18
+    maxAngle: 30
+    angleIncrease: 3
+    angleDecay: 7
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: GunWieldBonus
+    minAngle: -14.5
+    maxAngle: -21
+  - type: HeldSpeedModifier
+    walkModifier: 0.82
+    sprintModifier: 0.82
+  - type: ClothingSpeedModifier
+    walkModifier: 0.82
+    sprintModifier: 0.82
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/_Mono/Weapons/Guns/Cock/shotgun_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Rotary Magazine
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineSRM1216
+
+# ============================================
+# MACHINE GUNS & HEAVY WEAPONS
+# ============================================
+
+- type: entity
+  id: SCPWeaponGunM249
+  parent: BaseWeaponRifle
+  name: M249 SAW
+  description: A squad automatic weapon chambered in 5.56x45mm NATO.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/LMGs/M249_x48.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,0
+    sprite: _F14/objects/Weapons/Guns/LMGs/M249.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/LMGs/M249.rsi
+  - type: Gun
+    fireRate: 6.5
+    minAngle: 25
+    maxAngle: 45
+    angleIncrease: 2
+    angleDecay: 6
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+  - type: GunWieldBonus
+    minAngle: -21
+    maxAngle: -33
+  - type: HeldSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Belt Box
+        startingItem: MagazineM249
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineM249
+
+# - type: entity
+#   id: SCPWeaponGunM60
+#   parent: BaseWeaponRifle
+
+- type: entity
+  id: SCPWeaponGunM2Browning
+  parent: BaseWeaponLightMachineGun
+  name: M2 Browning .50
+  description: A massive heavy machine gun chambered in devastating .50 BMG. Tears targets to pieces.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/HMG/m2_inhands_x64.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,0
+    sprite: _F14/objects/Weapons/Guns/HMG/m2_inhands_x64.rsi
+  - type: Clothing
+    sprite: _F14/objects/Weapons/Guns/HMG/m2.rsi
+  - type: Gun
+    fireRate: 3.5
+    minAngle: 10
+    maxAngle: 28
+    angleIncrease: 3.5
+    angleDecay: 5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: HeldSpeedModifier
+    walkModifier: 0.60
+    sprintModifier: 0.60
+  - type: ClothingSpeedModifier
+    walkModifier: 0.60
+    sprintModifier: 0.60
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Ammo Can
+        startingItem: MagazineM2Browning
+        insertSound:
+          path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineM2Browning
+
+# ============================================
+# SPECIAL
+# ============================================
+
+- type: entity
+  id: SCPWeaponFlamethrowerF14
+  parent: BaseItem
+  name: Flamethrower
+  description: A heavy tactical flamethrower. High fuel weight reduces movement speed significantly.
+  components:
+  - type: Sprite
+    sprite: _F14/objects/Weapons/Guns/Special/flamethrower.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,0
+  - type: HeldSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: SolutionContainerManager

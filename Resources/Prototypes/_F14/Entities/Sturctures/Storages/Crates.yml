@@ -1,0 +1,24 @@
+- type: entity
+  parent: CrateBaseWeldable
+  id: SCPCrateGenericSteel
+  name: crate
+  components:
+  - type: Icon
+    sprite: _F14/Structures/Storage/SCPCrate.rsi
+  - type: Sprite
+    sprite: _F14/Structures/Storage/SCPCrate.rsi
+  - type: Reflect
+    reflects:
+    - Energy
+    reflectProb: 0.2
+    spread: 90
+  - type: Paintable
+    group: CrateSteel
+  - type: RadiationBlockingContainer
+    # Goobstation Start - Radiation Overhaul
+    # resistance: 2.5
+    decay: 2.5
+    # Goobstation End - Radiation Overhaul
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 125

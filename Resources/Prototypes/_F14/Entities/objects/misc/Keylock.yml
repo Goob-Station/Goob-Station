@@ -1,13 +1,14 @@
 - type: entity
   name: Keylock Panel
   id: KeylockPanel
-  description: A digital keylock panel. Swipe a card or enter a code.
+  description: A digital keylock panel. Enter a code if you want to enter.
   components:
   - type: Transform
   - type: Sprite
+    drawdepth: WallMountedItems
     sprite: _F14/Structures/keylock.rsi
     state: panel_locked
-  - type: WallMount 
+  - type: WallMount
     arc: 160
   - type: Clickable
   - type: InteractionOutline
@@ -17,14 +18,14 @@
     code: "0000"
     maxAttempts: 5
     codeLength: 4
-    lockoutDuration: 100 
+    lockoutDuration: 100
   - type: Physics
     bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
         shape: !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.4" 
+          bounds: "-0.4,-0.4,0.4,0.4"
         hard: false
         mask: []
   - type: UserInterface

@@ -1,0 +1,118 @@
+# ============================================
+# PISTOL & PDW PROJECTILES
+# ============================================
+
+- type: entity
+  id: Bullet45ACP
+  parent: BaseBullet
+  name: .45 ACP bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 24
+        Blunt: 3
+      armorPenetration: 0.10
+
+- type: entity
+  id: Bullet57x28mm
+  parent: BaseBullet
+  name: 5.7x28mm bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 21
+      armorPenetration: 0.30
+
+- type: entity
+  id: Bullet46x30mm
+  parent: BaseBullet
+  name: 4.6x30mm bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 22
+      armorPenetration: 0.35
+
+- type: entity
+  id: Bullet40SW
+  parent: BaseBullet
+  name: .40 S&W bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+        Blunt: 2
+      armorPenetration: 0.12
+
+# ============================================
+# RIFLE PROJECTILES
+# ============================================
+
+- type: entity
+  id: Bullet556x45mm
+  parent: BaseBullet
+  name: 5.56x45mm bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 31
+      armorPenetration: 0.20
+
+- type: entity
+  id: Bullet545x39mm
+  parent: BaseBullet
+  name: 5.45x39mm bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+      armorPenetration: 0.20
+
+- type: entity
+  id: Bullet762x39mm
+  parent: BaseBullet
+  name: 7.62x39mm bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 33
+        Blunt: 3
+      armorPenetration: 0.18
+
+- type: entity
+  id: Bullet762x51mm
+  parent: BaseBullet
+  name: 7.62x51mm bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 36
+        Blunt: 4
+      armorPenetration: 0.30
+
+# ============================================
+# HEAVY & SHOTGUN PROJECTILES
+# ============================================
+
+- type: entity
+  id: SCPBullet50BMG
+  parent: BaseBullet
+  name: .50 BMG bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 60
+        Structural: 50
+      armorPenetration: 0.40
+    penetrationThreshold: 100
+  - type: StaminaDamageOnCollide
+    damage: 80

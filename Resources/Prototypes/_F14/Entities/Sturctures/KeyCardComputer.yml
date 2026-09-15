@@ -1,25 +1,25 @@
 - type: entity
-  parent: ComputerId 
+  parent: ComputerId
   id: ComputerIdSCPTabletop
-  name: Desktop Computer 
+  name: Desktop Computer
   description: Great computer that has most advanced parts! You still can see sticker "Intel Pentium" on a side panel. It has slot for id cards
   components:
-  
+
   - type: Sprite
     sprite: _F14/Structures/IDComputer.rsi
     layers:
     - state: base
-          
+
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.25" 
-        
+          bounds: "-0.25,-0.25,0.25,0.25"
+
   - type: IdCardConsole
     accessLevels:
-    # Administration 
+    # Administration
     - O5
     - Admin5
     - Admin4
@@ -29,7 +29,7 @@
     - Admin
     - Command
     - Unrestricted
-    # Science 
+    # Science
     - Science5
     - Science4
     - Science3
@@ -38,7 +38,7 @@
     - Science
     - Research
     - Lab
-    # Security 
+    # Security
     - Security5
     - Security4
     - Security3
@@ -47,7 +47,7 @@
     - Security
     - Containment
     - LowSecurity
-    # Civilian / Class-D 
+    # Civilian / Class-D
     - ClassD
     - Botany
     - Kitchen
@@ -55,30 +55,46 @@
     - Medical
     - Mining
 
-
-
 - type: entity
-  parent: ComputerId 
-  id: ComputerIDSCPCITabletop
-  name: CI Desktop Computer
-  description: Great computer that has most advanced parts! You still can see sticker "Intel Pentium" on a side panel. 
+  parent: ComputerIdSCPTabletop
+  id: ComputerIdSCPTabletopAIO
+  name: AIO Computer
+  description: Great computer that has most advanced parts! You still can see sticker "Intel Pentium" on a side panel. It has slot for id cards on the back.
   components:
-  
   - type: Sprite
-    sprite: _F14/Structures/IDComputer.rsi
+    sprite: _F14/Structures/AIOComputer.rsi
     layers:
     - state: base
-          
+
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.25" 
-        
+          bounds: "-0.25,-0.25,0.25,0.25"
+
+- type: entity
+  parent: ComputerId
+  id: ComputerIDSCPCITabletop
+  name: CI Desktop Computer
+  description: Great computer that has most advanced parts! You still can see sticker "Intel Pentium" on a side panel.
+  components:
+
+  - type: Sprite
+    sprite: _F14/Structures/IDComputer.rsi
+    layers:
+    - state: base
+
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+
   - type: IdCardConsole
     accessLevels:
-    # Chaos Insurgency 
+    # Chaos Insurgency
     - CI
     - ChaosInsurgency
     - CILeader
@@ -86,15 +102,4 @@
     - LimitedAccess
     - HighAccess
 
-- type: entity
-  parent: ComputerId 
-  id: ComputerSCPTabletop
-  name: Desktop Computer
-  description: Great computer that has most advanced parts! You still can see sticker "Intel Pentium" on a side panel.
-  components:
-  
-  - type: Sprite
-    sprite: _F14/Structures/IDComputer.rsi
-    layers:
-    - state: base
-  #todo: add UI
+
