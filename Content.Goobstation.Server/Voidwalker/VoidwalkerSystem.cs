@@ -2,6 +2,8 @@ using Content.Goobstation.Shared.Voidwalker;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.GlassPasser;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Body.Systems;
+using Content.Shared.Atmos;
 using Content.Shared.GameTicking;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
@@ -58,8 +60,6 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
     public void CheckTileSpaced(EntityUid entity, ref VoidwalkerCheckTileSpacedStatusEvent args)
     {
-        var entityXform = Transform(entity);
-
         // Check if the voidwalker is standing inside a passed object.
         // is this hacky? Yes. Very.
         if (TryComp<GlassPasserComponent>(entity, out var glassPasser)
@@ -68,19 +68,12 @@ public sealed partial class VoidwalkerSystem : EntitySystem
                 if (_transform.InRange(entity, entityPassed, voidwalker.PassedObjectGraceRange))
                     args.Spaced = true;
 
-        // If the voidwalker is not on a grid, it is in space.
-        if (entityXform.GridUid is not { } gridUid)
-        {
-            args.Spaced = true;
+        var gas = _atmos.GetContainingMixture(entity);
+        if (gas != null && gas.Pressure > 0.1)
             return;
-        }
 
-        // If the voidwalker *is* on a grid, but the grid has no atmosphere; it is in space.
-        var position = _transform.GetGridOrMapTilePosition(entity);
-        var tileMixture = _atmos.GetTileMixture(gridUid, entityXform.MapUid, position);
+        args.Spaced = true;
 
-        if (tileMixture is null || tileMixture.Pressure <= 0)
-            args.Spaced = true;
     }
 
 }

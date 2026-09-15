@@ -22,7 +22,7 @@ public sealed partial class VoidwalkerComponent : Component
     public float PassedObjectGraceRange = 1.0f; //
 
     [DataField]
-    public TimeSpan SpacedCheckInterval = TimeSpan.FromSeconds(2);
+    public TimeSpan SpacedCheckInterval = TimeSpan.FromSeconds(0.25);
 
     [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan NextHealingTick;

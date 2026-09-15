@@ -23,7 +23,7 @@ public sealed partial class VoidwalkerWallConversionSystem : EntitySystem
     private void StartConvertWall(Entity<VoidwalkerWallConversionComponent> entity, EntityUid target)
     {
         var popup = Loc.GetString("voidwalker-convert-wall-begin", ("user", Name(entity.Owner)));
-        _popup.PopupEntity(popup, target, PopupType.SmallCaution);
+        _popup.PopupClient(popup, target, PopupType.SmallCaution);
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
