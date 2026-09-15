@@ -78,7 +78,7 @@ public sealed class VoidedSystem : EntitySystem
         {
             if (_timing.CurTime >= comp.NextSpacedCheck)
             {
-                if (_voidwalker.CheckInSpace(uid))
+                if (_voidwalker.CheckIfSpaced(uid))
                 {
                     var map = _map.GetMap(Transform(uid).MapID);
                     if (!_voidKidnapped.TryTeleportToRandomPartOfStation(uid, map))

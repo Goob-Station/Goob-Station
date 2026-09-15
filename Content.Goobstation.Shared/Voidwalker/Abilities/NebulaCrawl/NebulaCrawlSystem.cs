@@ -18,7 +18,7 @@ public sealed partial class NebulaCrawlSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!_voidwalker.CheckInSpace(entity))
+        if (!_voidwalker.CheckIfSpaced(entity.Owner))
         {
             var popup = Loc.GetString("voidwalker-action-fail-require-in-space");
             _popup.PopupEntity(popup, entity, entity);

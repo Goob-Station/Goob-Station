@@ -24,7 +24,6 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
@@ -178,38 +177,20 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     #region Updating Spaced Status
     public void UpdateSpacedStatus(Entity<VoidwalkerComponent> entity)
     {
-        var isInSpace = CheckInSpace(entity.Owner, entity.Comp);
-        entity.Comp.IsInSpace = isInSpace;
+        var spaced = CheckIfSpaced(entity);
+        entity.Comp.IsInSpace = spaced;
 
-        var ev = new VoidwalkerSpacedStatusChangedEvent(isInSpace);
+        var ev = new VoidwalkerSpacedStatusChangedEvent(spaced);
         RaiseLocalEvent(entity, ref ev);
     }
-    public bool CheckInSpace(EntityUid uid, VoidwalkerComponent? voidwalker = null)
+
+    public bool CheckIfSpaced(EntityUid entity)
     {
-        var entityXform = Transform(uid);
-
-        // Check if the voidwalker is standing inside a passed object.
-        // is this hacky? Yes. Very.
-        if (voidwalker is not null
-            && TryComp<GlassPasserComponent>(uid, out var glassPasser))
-            foreach (var (entityPassed, _) in glassPasser.EntitiesPassed)
-                if (_transform.InRange(uid, entityPassed, voidwalker.PassedObjectGraceRange))
-                    return false;
-
-        // If the voidwalker is not on a grid, it is in space.
-        if (entityXform.GridUid is not { } gridUid)
-            return true;
-
-        /*
-        // If the voidwalker *is* on a grid, but the grid has no atmosphere; it is in space.
-        var position = _transform.GetGridOrMapTilePosition(uid);
-        var tileMixture = _atmos.GetTileMixture(gridUid, entityXform.MapUid, position);
-
-        return tileMixture is null || tileMixture.Pressure <= 0;
-        */ // This is gonna be janky to do, I can feel it.
-
-        return false;
+        var ev = new VoidwalkerCheckTileSpacedStatusEvent();
+        RaiseLocalEvent(entity, ref ev);
+        return ev.Spaced;
     }
+
 
     #endregion
 

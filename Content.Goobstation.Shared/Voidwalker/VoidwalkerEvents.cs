@@ -7,6 +7,9 @@ namespace Content.Goobstation.Shared.Voidwalker;
 [ByRefEvent]
 public record struct VoidwalkerSpacedStatusChangedEvent(bool Spaced);
 
+[ByRefEvent]
+public record struct VoidwalkerCheckTileSpacedStatusEvent(bool Spaced);
+
 public sealed partial class VoidwalkerUnsettleEvent : EntityTargetActionEvent;
 
 public sealed partial class VoidWhisperEvent : EntityTargetActionEvent;
