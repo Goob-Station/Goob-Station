@@ -25088,3 +25088,15 @@ Entries:
       message: Cleanades (and other smoke-spawning things) work again
   id: 2876
   time: '2026-09-11T01:07:18.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Add
+      message: Chefs can now cook Flamin Hot Cotton Pizza
+    - type: Add
+      message: Chefs can cook new Cold Foods with Chilly Peppers
+    - type: Tweak
+      message: Chefs now cook cold chili with Chilly Peppers
+    - type: Tweak
+      message: Chefs now cook Golden Apple Tarts with Golden Apples
+  id: 2877
+  time: '2026-09-11T23:51:08.0000000+00:00'
