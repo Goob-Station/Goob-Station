@@ -2,6 +2,7 @@ using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.Temperature.Components;
 using Content.Goobstation.Common.VoidedVisualizer;
+using Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
 using Content.Goobstation.Shared.Voidwalker;
 using Content.Goobstation.Shared.Voidwalker.CosmicSkull;
 using Content.Goobstation.Shared.Voidwalker.GlassPasser;
@@ -72,6 +73,7 @@ public sealed partial class CosmicSkullSystem : EntitySystem
         if (skull.Comp.Uses <= 0)
             QueueDel(skull);
 
+        RemComp<VoidedComponent>(args.User);
         EnsureComp<SpecialPressureImmunityComponent>(args.User);
         EnsureComp<SpecialBreathingImmunityComponent>(args.User);
         EnsureComp<SpecialLowTempImmunityComponent>(args.User);
