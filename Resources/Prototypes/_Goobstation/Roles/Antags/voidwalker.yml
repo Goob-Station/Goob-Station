@@ -1,0 +1,7 @@
+- type: antag
+  id: Voidwalker
+  name: roles-antag-voidwalker-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-voidwalker-description
+  guides: [ Voidwalker ]

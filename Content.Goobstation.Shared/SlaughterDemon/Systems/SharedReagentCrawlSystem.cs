@@ -12,18 +12,17 @@ namespace Content.Goobstation.Shared.SlaughterDemon.Systems;
 
 
 /// <summary>
-/// This handles the blood crawl system.
-/// Blood Crawl allows you to jaunt, as long as you activate it in a pool of blood.
-/// To exit the jaunt, you must also stand on a poll of blood.
+/// This handles the reagent crawling system.
+/// Reagent Crawling allows you to jaunt, as long as you activate it in a pool of the target reagent.
+/// To exit the jaunt, you must also stand on the reagent.
 /// </summary>
-public abstract class SharedBloodCrawlSystem : EntitySystem
+public abstract class SharedReagentCrawlSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
 
     private EntityQuery<ActionsComponent> _actionQuery;
     private EntityQuery<PuddleComponent> _puddleQuery;
@@ -35,12 +34,12 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
         _actionQuery = GetEntityQuery<ActionsComponent>();
         _puddleQuery = GetEntityQuery<PuddleComponent>();
 
-        SubscribeLocalEvent<BloodCrawlComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ReagentCrawlComponent, ComponentStartup>(OnStartup);
 
-        SubscribeLocalEvent<BloodCrawlComponent, BloodCrawlEvent>(OnBloodCrawl);
+        SubscribeLocalEvent<ReagentCrawlComponent, ReagentCrawlEvent>(OnBloodCrawl);
     }
 
-    private void OnStartup(EntityUid uid, BloodCrawlComponent component, ComponentStartup args)
+    private void OnStartup(EntityUid uid, ReagentCrawlComponent  component, ComponentStartup args)
     {
         if (!_actionQuery.TryGetComponent(uid, out var actions))
             return;
@@ -48,11 +47,11 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
         _actions.AddAction(uid, component.ActionId, component: actions);
     }
 
-    private void OnBloodCrawl(EntityUid uid, BloodCrawlComponent component, BloodCrawlEvent args)
+    private void OnReagentCrawl(EntityUid uid, ReagentCrawlComponent  component, ReagentCrawlComponent  args)
     {
-        if (!IsStandingOnBlood((uid, component)))
+        if (!IsStandingOnTargetReagent((uid, component)))
         {
-            _popup.PopupPredicted(Loc.GetString("slaughter-blood-jaunt-fail"), uid, uid);
+            _popup.PopupPredicted(Loc.GetString(component.EnterJauntFailMessage), uid, uid);
             _actions.SetCooldown(args.Action.Owner, component.ActionCooldown);
             return;
         }
@@ -63,7 +62,7 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
         if (!CheckAlreadyCrawling((uid, component)))
             return;
 
-        var evAttempt = new BloodCrawlAttemptEvent();
+        var evAttempt = new ReagentCrawlAttemptEvent();
         RaiseLocalEvent(uid, ref evAttempt);
 
         if (evAttempt.Cancelled)
@@ -71,7 +70,7 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
 
         _audio.PlayPredicted(component.EnterJauntSound, Transform(uid).Coordinates, uid);
 
-        PolymorphDemon(uid, component.Jaunt);
+        PolymorphEntity(uid, component.Jaunt);
 
         args.Handled = true;
     }
@@ -81,7 +80,7 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
     /// <summary>
     /// Detects if an entity is standing on blood, or not.
     /// </summary>
-    public bool IsStandingOnBlood(Entity<BloodCrawlComponent> ent)
+    public bool IsStandingOnTargetReagent(Entity<ReagentCrawlComponent> ent)
     {
         var ents = _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange);
         foreach (var entity in ents)
@@ -94,7 +93,7 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
 
             foreach (var reagent in solution.Contents)
             {
-                if (ent.Comp.Blood.Contains(reagent.Reagent.Prototype)
+                if (ent.Comp.TargetReagent.Contains(reagent.Reagent.Prototype)
                     && reagent.Quantity >= ent.Comp.RequiredReagentAmount)
                     return true;
             }
@@ -102,12 +101,12 @@ public abstract class SharedBloodCrawlSystem : EntitySystem
         return false;
     }
 
-    protected virtual bool CheckAlreadyCrawling(Entity<BloodCrawlComponent> ent)
+    protected virtual bool CheckAlreadyCrawling(Entity<ReagentCrawlComponent> ent)
     {
         return false;
     }
 
-    protected virtual void PolymorphDemon(EntityUid user, ProtoId<PolymorphPrototype> polymorph) {}
+    protected virtual void PolymorphEntity(EntityUid user, ProtoId<PolymorphPrototype> polymorph) {}
 
     #endregion
 }

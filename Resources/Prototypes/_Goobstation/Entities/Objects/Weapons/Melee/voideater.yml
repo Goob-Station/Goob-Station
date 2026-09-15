@@ -1,0 +1,42 @@
+- type: entity
+  name: voideater
+  parent: BaseItem
+  id: Voideater
+  description: A deformed, writhing appendage, capable of ripping the breath right out of a creature.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/voideater.rsi
+    state: icon
+  - type: MeleeWeapon
+    canWideSwing: false
+    resistanceBypass: true
+    angle: 0
+    animation: WeaponArcBite
+    attackRate: 0.8
+    damage:
+      types:
+        Cold: 10
+        Asphyxiation: 20
+        Ion: 25
+        Structural: 20
+    soundHit:
+      path: /Audio/_Goobstation/Effects/void_slash.ogg
+  - type: StaminaDamageOnHit
+    damage: 40
+  - type: Item
+    size: Large
+    sprite: _Goobstation/Objects/Weapons/Melee/voideater-inhands.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: GrabbingItem
+  - type: Voideater
+
+- type: entity
+  parent: Voideater
+  id: VoideaterUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

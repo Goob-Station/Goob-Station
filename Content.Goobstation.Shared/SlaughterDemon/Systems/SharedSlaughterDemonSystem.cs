@@ -43,8 +43,8 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         SubscribeLocalEvent<SlaughterDemonComponent, RefreshMovementSpeedModifiersEvent>(RefreshMovement);
 
         // blood crawl
-        SubscribeLocalEvent<SlaughterDemonComponent, BloodCrawlExitEvent>(OnBloodCrawlExit);
-        SubscribeLocalEvent<SlaughterDemonComponent, BloodCrawlAttemptEvent>(OnBloodCrawlAttempt);
+        SubscribeLocalEvent<SlaughterDemonComponent, ReagentCrawlExitEvent>(OnBloodCrawlExit);
+        SubscribeLocalEvent<SlaughterDemonComponent, ReagentCrawlAttemptEvent>(OnBloodCrawlAttempt);
 
         // devouring
         SubscribeLocalEvent<SlaughterDevourEvent>(OnSlaughterDevour);

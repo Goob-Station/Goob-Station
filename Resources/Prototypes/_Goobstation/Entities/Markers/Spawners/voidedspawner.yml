@@ -1,0 +1,12 @@
+- type: entity
+  id: Voidedspawner
+  parent: MarkerBase
+  name: voided spawn point
+  components:
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    layers:
+    - state: red
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: VoidedSpawn

@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseItem
+  id: CosmicSkull
+  name: cosmic skull
+  description: You can see and feel the surrounding space pulsing through it...
+  components:
+  - type: CosmicSkull
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/cosmic_skull.rsi
+    state: icon

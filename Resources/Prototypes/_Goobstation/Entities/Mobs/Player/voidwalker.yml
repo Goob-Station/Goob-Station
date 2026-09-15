@@ -1,0 +1,160 @@
+- type: entity
+  parent: [BaseMob, MobDamageable]
+  id: BaseMobVoidWalker
+  name: voidwalker
+  description: A glass-like entity from the void between stars. You probably shouldn't stare.
+  components:
+  - type: Voidwalker
+    nonSpacedSpeedModifier: 0.6
+    healingWhenSpaced:
+      groups:
+        Brute: -22.5
+        Burn: -22.5
+        Airloss: -10.5
+      types:
+        Heat: -7.5
+        Shock: -7.5
+  - type: GlassPasser
+  - type: VoidWhisper
+  - type: SpawnItemsOnGib
+    itemsToSpawn:
+      CosmicSkull: 1
+      ShardGlassPlasma: 5
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageGroupTrigger
+        damageGroup: Brute
+        damage: 150
+      behaviors:
+      - !type:GibBehavior { }
+  - type: ActionGrant
+    actions:
+    - ActionUnsettle
+    - ActionVoidwalkerVoidWalk
+    - VoidwalkerVoidWhisperAction
+  - type: ReagentCrawl
+    actionId: VoidwalkerNebulaCrawlAction
+    enterJauntFailMessage: voidwalker-nebula-jaunt-fail
+    jaunt: VoidCrawlJaunt
+    targetReagent:
+    - NebulaVomit
+    enterJauntSound:
+      path: /Audio/_Goobstation/Effects/void_walk.ogg # Too lazy to make unique sounds lmfao
+    exitJauntSound:
+      path: /Audio/_Goobstation/Effects/void_walk.ogg
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Voidwalker/voidwalker.rsi
+    state: voidwalker
+  - type: ComplexInteraction
+  - type: Stamina
+    baseCritThreshold: 150
+  - type: NightVision
+    color: "#CCCCFF"
+    activateSound: null
+    deactivateSound: null
+  - type: Insulated
+  - type: StatusEffects # Overwriting status effects
+    allowed:
+    - SlowedDown
+    - RadiationProtection
+    - Adrenaline
+  - type: Loadout
+    prototypes: [ VoidwalkerGear ]
+  - type: GhostTakeoverAvailable
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      145: Dead
+  - type: Examiner
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    animation: WeaponArcBite
+    damage:
+      types:
+        Asphyxiation: 12
+        Cold: 8
+  - type: StaminaDamageOnHit
+    damage: 32
+  - type: Puller
+    needsHands: false
+  - type: Targeting
+  - type: Speech
+    speechVerb: Ghost
+    speechSounds: Alto
+  - type: VoidAccent
+  - type: TypingIndicator
+    proto: alien
+  - type: Gibbable
+  - type: NoSlip
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Body
+    prototype: Voidwalker
+  - type: StandingState
+  - type: OwnInteractionVerbs # So you can stare
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 600 # So they can PULL pull
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.4
+    baseSprintSpeed: 4.4
+    weightlessAcceleration: 2
+    weightlessFriction: 1
+    weightlessModifier: 1
+  - type: Hands # Maybe limit this to just one? Dunno.
+  - type: PressureImmunity
+  - type: ZombieImmune
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Entropy
+        Quantity: 100
+    bleedReductionAmount: 5
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+        Heat: -2
+  - type: RandomMetadata
+    nameSegments:
+    - NamesVoidwalkerTitle
+    - NamesVoidwalker
+    nameFormat: name-format-slasher # If it works, it works.
+  - type: Temperature
+  - type: MovementIgnoreGravity # Put the walk in voidwalk
+  - type: Stealth
+    hadOutline: true
+    thermalsImmune: true
+  - type: StealthOnMove
+    passiveVisibilityRate: -0.3
+    movementVisibilityRate: 0.1
+  - type: UniversalLanguageSpeaker
+  - type: Tag
+    tags:
+    - DoAfterIgnoreObstructionPrediction
+  - type: GrabIntent
+    stageChangeCooldown: 0.5
+    grabThrowDamageModifier: 6.0
+    throwingDistance: 30
+
+- type: startingGear
+  id: VoidwalkerGear
+  inhand:
+  - VoideaterUnremoveable

@@ -1,0 +1,115 @@
+<Document>
+  #  THE V??OID WALKE??R
+  <Box>
+    <GuideEntityEmbed Entity="BaseMobVoidWalker" Caption=""/>
+  </Box>
+
+  [color=purple]"He who fights with monsters should see to it that in the process he does not become a monster.
+  And if you gaze long into an abyss, the abyss also gazes into you" - Friedrich Nietzsche[/color]
+
+  Not much is known about the origins of these creatures, known as void-walkers.
+  Some theories say they come from a distant civilization, billions of light-years away.
+  Others say they used to be just like us, but they were... corrupted somehow.
+
+  [italic]Perhaps this is what awaits on the other side of a singularity?[/italic]
+
+  ## So you're a Void-Walker, what now?
+
+  A void-walker's main goal is to subdue and enlighten as many creatures as it can.
+  Though this is usually viewed as antagonistic, a void-walker is a free agent and is not forced to cause issues for the crew.
+
+  [bold]You are a free agent. This does not mean you are crew aligned.[/bold]
+  It is not within a void-walker's interests to harm anything any more than they need to disable and E??NLIGHTE?N a creature.
+
+  ### The Void-Eater and you
+
+  <Box>
+    <GuideEntityEmbed Entity="Voideater" Caption=""/>
+  </Box>
+
+  Upon arriving at the station, you'll quickly realize that one of your hands is covered in a writhing mass of tentacles and glass.
+  Worry not, this is perfectly natural!
+
+  A void-walkers main form of defense and offense is it's void-eater. It's powerful blows [color=red]ignore all resistances[/color] and deal high amounts of both asphyxiation and cold damage.
+  The majority of damage dealt by a void-eater is asphyxiation damage, so it can be quickly healed if the victim is allowed to recover or given CPR.
+
+  When you strike a target with the weapon, it will automatically grab them to allow for ease of abduction and subsequent enlightenment.
+  Though it is attached to your hand, if you manage to lose it somehow, your normal hands function as weapons as well.
+
+  ### How do you catch your targets?
+
+  A void-walkers typical strategy is that of an ambush predator.
+
+  While you are in space, you may move at breakneck paces as if you were walking on normal terrain.
+  Additionally, you are nearly invisible when moving at slower speeds in the void of space, and heal rapidly.
+
+  This comes at the drawback of being slower in environments with an atmosphere, and sticking out like a sore thumb with how much light you absorb.
+
+  When you come into contact with a window or a grille as a void-walker, your unique physiology allows you to pass through them as if they were not there.
+  The object will be intangible for a brief moment after, allowing you to drag targets through or others to follow you.
+
+  Your main stunning ability to capture targets is known as [color=pink]unsettle[/color].
+  Using it on a target will briefly reveal you, and if they do not move out of your line of sight or inspect you quick enough, they will scream and become stunned briefly.
+
+  Try to use this ability while watching a target from outside!
+
+  ### I've caught someone! Now what?
+
+  Once you've subdued a target, the important part comes in.
+
+  Drag the creature into space while they are unconscious, hard grab them, then right click them and select the "Seize" button to begin the capturing process.
+  Once finished, they will be teleported to the void and become [color=purple]E??NLIGHTE??NED[/color].
+
+  A creature teleported to the void will be healed fully and sent back to the station after a certain period of time.
+
+  ### What else can I do?
+
+  When standing upon the vomit spewed by a voided individual, you may use it as a vector to traverse dimensions and temporarily enter your original plane of existence.
+  You can return to the material plane by either springing out of another puddle of puke, or returning to space and exiting there.
+
+  Additionally, you may void-walk towards any tile while in space to regain your invisibility instantly, and move a fair distance away.
+  Perhaps you can stalk people, then dash away to mess with them? :)
+
+  ## So you're being hunted by a void-walker, what now?
+
+  ### The Hunt
+
+  A void-walker's hunting grounds is space and the areas closest to space, such as windows and docking ports.
+
+  If you know that there is a void-walker on station, or that one is hunting you, you should try your best to stay away from windows and space in general.
+  If going near windows cannot be avoided due to circumstances, one should keep an eye out for the void-walker using its unsettle ability.
+
+  Quickly shift+click on the entity when it's staring at you to examine it, which will cancel any ability it's channeling onto you or anyone nearby.
+  It can be a good strategy to stay in groups of two or more, as two sets of eyes is often better than one.
+
+  ### If it bleeds, we can kill it
+
+  Despite it's terrifying visage, a void-walker is quite capable of being killed.
+
+  Unlike other creatures aboard the space station, it has no fancy gimmicks preventing it from being slain permanently.
+  No revives, no teleports, no intangibility.
+
+  If you simply swarm it with baseball bats or firearms, it will shatter quickly.
+
+  Keep in mind that it is made of glass, and takes damage similar to how a window would.
+  Blunt is very effective, whereas cold, heat, and sharp are not so much.
+
+  ### I've been E??NLIGHTE??NED against my will, now what?
+
+  Once you've been thoroughly informed of the secrets of the multiverse, you will suffer an effect known as being [color=purple]voided[/color].
+
+  A voided creature will appear purple and wonky in nature, cannot attack, and speaks strangely.
+  If one of these creatures ever sets foot in space, they will be instantly teleported back to a random spot on the station.
+
+  Additionally, they will periodically spew a sort of nebulous vomit which the void-walker may use as a transportation method.
+
+  If you encounter the void-walker who previously abducted you again, do not attempt to interfere with it.
+  If it strikes you, [bold]you will fall asleep instantly.[/bold]
+
+  ### I've slain the beast! What do I get?
+
+  When a void-walker sustains a total of one-hundred and fifty points of brute damage, they will shatter into glass and drop their skull on the ground.
+
+  Using this skull while it is held in your hands will imbue you with the latent power of the voidwalker, enabling you to pass through glass and survive in space unharmed.
+  Beware, however, you may find yourself weaker to blunt objects!
+</Document>

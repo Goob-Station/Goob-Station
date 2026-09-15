@@ -117,6 +117,7 @@
     exclusiveAntag: false
     subtype: role-subtype-gang-member
   - type: GangRole
+
 # Gemini
 
 - type: entity
@@ -131,6 +132,20 @@
     roleType: Familiar
     subtype: role-subtype-gemini
   - type: GeminiRole
+
+# Voidwalker
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleVoidwalker
+  name: Voidwalker Role
+  components:
+  - type: MindRole
+    antagPrototype: Voidwalker
+    roleType: FreeAgent # Maybe this should be solo antag?
+    subtype: role-subtype-voidwalker
+    exclusiveAntag: true
+  - type: VoidwalkerRole
 
 # Other shit but idc this codebase is dying.
 

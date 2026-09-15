@@ -208,3 +208,20 @@
     - sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
       state: icon
   - type: MaintsSpawnLocation
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostVoidwalker
+  components:
+  - type: GhostRole
+    name: ghost-role-information-voidwalker-name
+    description: ghost-role-information-voidwalker-description
+    rules: ghost-role-information-voidwalker-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Omu/Mobs/Voidwalker/voidwalker.rsi
+      state: voidwalker
