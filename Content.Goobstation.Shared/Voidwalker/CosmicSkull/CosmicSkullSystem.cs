@@ -1,23 +1,23 @@
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.Temperature.Components;
-using Content.Goobstation.Common.VoidedVisualizer;
-using Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
-using Content.Goobstation.Shared.Voidwalker;
-using Content.Goobstation.Shared.Voidwalker.CosmicSkull;
+using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.GlassPasser;
+using Content.Goobstation.Shared.Voidwalker.Voided;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 
-namespace Content.Goobstation.Server.Voidwalker.CosmicSkull;
+namespace Content.Goobstation.Shared.Voidwalker.CosmicSkull;
 
 public sealed partial class CosmicSkullSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
+    [Dependency] private readonly SharedChargesSystem _charges = null!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -31,19 +31,20 @@ public sealed partial class CosmicSkullSystem : EntitySystem
     private void OnCosmicSkullUsed(Entity<CosmicSkullComponent> skull, ref UseInHandEvent args)
     {
         if (args.Handled
-            || skull.Comp.Uses <= 0)
+            || !_charges.HasCharges(skull.Owner, 1))
             return;
+
 
         if (HasComp<VoidwalkerComponent>(args.User))
         {
             var voidwalkerFailPopup = Loc.GetString("cosmic-skull-use-voidwalker");
-            _popupSystem.PopupEntity(voidwalkerFailPopup, args.User, args.User, PopupType.LargeCaution);
+            _popupSystem.PopupClient(voidwalkerFailPopup, args.User, args.User, PopupType.LargeCaution);
 
             return;
         }
 
         var startPopup = Loc.GetString("cosmic-skull-use-start", ("object", Name(skull)));
-        _popupSystem.PopupEntity(startPopup, args.User, args.User);
+        _popupSystem.PopupClient(startPopup, args.User, args.User);
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
@@ -64,14 +65,8 @@ public sealed partial class CosmicSkullSystem : EntitySystem
     private void OnCosmicSkullDoAfter(Entity<CosmicSkullComponent> skull, ref CosmicSkullDoAfterEvent args)
     {
         if (args.Handled
-            || args.Cancelled
-            || skull.Comp.Uses <= 0)
+            || args.Cancelled)
             return;
-
-        skull.Comp.Uses--;
-
-        if (skull.Comp.Uses <= 0)
-            QueueDel(skull);
 
         RemComp<VoidedComponent>(args.User);
         EnsureComp<SpecialPressureImmunityComponent>(args.User);
@@ -84,6 +79,8 @@ public sealed partial class CosmicSkullSystem : EntitySystem
         _damageable.SetDamageModifierSetId(args.User, skull.Comp.GlassModifierSet);
 
         var popup = Loc.GetString("cosmic-skull-use-finish");
-        _popupSystem.PopupEntity(popup, args.User, args.User);
+        _popupSystem.PopupClient(popup, args.User, args.User);
+
+        _charges.TryUseCharge(skull.Owner);
     }
 }

@@ -1,6 +1,4 @@
-using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Voidwalker.GameTicking.Rules;
 
@@ -15,7 +13,4 @@ public sealed partial class VoidwalkerRuleComponent : Component
 
     [DataField]
     public string NanotrasenFaction = "NanoTrasen";
-
-    [DataField]
-    public EntProtoId VoidwalkerMindRole = "MindRoleVoidwalker";
 }

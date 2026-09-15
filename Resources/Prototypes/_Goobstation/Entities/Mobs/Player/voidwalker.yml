@@ -5,8 +5,6 @@
   description: A glass-like entity from the void between stars. You probably shouldn't stare.
   components:
   - type: Voidwalker
-    jumpscarePrototype: VoidwalkerJumpscareAnimation
-    jumpscareSound: /Audio/_Goobstation/Effects/Voidwalker/dramatic_sting.ogg
     nonSpacedSpeedModifier: 0.6
     healingWhenSpaced:
       groups:
@@ -16,6 +14,12 @@
       types:
         Heat: -7.5
         Shock: -7.5
+  - type: VoidwalkerUnsettleComponent
+    jumpscarePrototype: VoidwalkerJumpscareAnimation
+    jumpscareSound: /Audio/_Goobstation/Effects/Voidwalker/dramatic_sting.ogg
+  - type: VoidwalkerKidnappingComponent
+    kidnapDoAfterDuration: 5
+    kidnapDuration: 30
   - type: GlassPasser
   - type: VoidWhisper
   - type: SpawnItemsOnGib
@@ -158,6 +162,7 @@
   - type: GuideHelp
     guides:
     - Voidwalker
+  - type: GunBlocked
 
 - type: startingGear
   id: VoidwalkerGear

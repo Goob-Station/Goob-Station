@@ -8,3 +8,5 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/cosmic_skull.rsi
     state: icon
+  - type: LimitedCharges
+    maxCharges: 1

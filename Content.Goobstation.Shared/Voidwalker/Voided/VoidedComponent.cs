@@ -1,20 +1,21 @@
-using Content.Goobstation.Shared.Voidwalker;
+using Content.Goobstation.Shared.Voidwalker.Components;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
+namespace Content.Goobstation.Shared.Voidwalker.Voided;
 
 [RegisterComponent]
 public sealed partial class VoidedComponent : Component
 {
     /// <summary>
-    /// The voidwalker that kidnapped this entity.
+    /// The creature that kidnapped this entity.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public Entity<VoidwalkerComponent>? Voidwalker;
+    public EntityUid? Kidnapper;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextSpacedCheck;
 
-    [DataField]
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan SpacedCheckInterval = TimeSpan.FromSeconds(2);
 
     [ViewVariables(VVAccess.ReadOnly)]
@@ -34,4 +35,7 @@ public sealed partial class VoidedComponent : Component
 
     [DataField]
     public string NebulaVomitProto = "NebulaVomit";
+
+    [DataField]
+    public bool WasPacified;
 }

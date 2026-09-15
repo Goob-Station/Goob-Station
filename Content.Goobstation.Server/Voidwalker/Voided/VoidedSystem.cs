@@ -1,16 +1,15 @@
-using Content.Goobstation.Common.Speech;
-using Content.Goobstation.Common.VoidedVisualizer;
-using Content.Goobstation.Shared.Voidwalker;
-using Content.Server.Gibbing.Systems;
-using Content.Shared.Medical;
+using Content.Goobstation.Server.Voidwalker.Kidnapping;
+using Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
+using Content.Goobstation.Shared.Voidwalker.Components;
+using Content.Goobstation.Shared.Voidwalker.Voided;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.GameTicking;
+using Content.Shared.Medical;
 using Content.Shared.Popups;
-using Content.Shared.Speech.Muting;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
+namespace Content.Goobstation.Server.Voidwalker.Voided;
 
 public sealed class VoidedSystem : EntitySystem
 {
@@ -36,7 +35,6 @@ public sealed class VoidedSystem : EntitySystem
     /// <summary>
     ///  Everyone gets to play in the void!!!
     /// </summary>
-    /// <param name="args"></param>
     private void OnRoundEnd(RoundEndMessageEvent args)
     {
         var voidedQuery = EntityQueryEnumerator<VoidedComponent>();
@@ -52,6 +50,10 @@ public sealed class VoidedSystem : EntitySystem
     {
         EnsureComp<VoidedVisualsComponent>(entity);
         EnsureComp<VoidAccentComponent>(entity); // This was muted in ss13, but I think this accent is cooler.
+
+        if (HasComp<PacifiedComponent>(entity))
+            entity.Comp.WasPacified = true;
+
         EnsureComp<PacifiedComponent>(entity);
 
         SetNextVomitTime(entity);
@@ -61,7 +63,9 @@ public sealed class VoidedSystem : EntitySystem
     {
         RemComp<VoidedVisualsComponent>(entity);
         RemComp<VoidAccentComponent>(entity);
-        RemComp<PacifiedComponent>(entity);
+
+        if (!entity.Comp.WasPacified)
+            RemComp<PacifiedComponent>(entity);
     }
 
     private void SetNextVomitTime(Entity<VoidedComponent> voided) =>

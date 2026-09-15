@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Common.VoidedVisualizer;
+namespace Content.Goobstation.Shared.Voidwalker.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class VoidedVisualsComponent : Component;

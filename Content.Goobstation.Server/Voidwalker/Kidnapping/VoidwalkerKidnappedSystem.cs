@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap.Victim;
 using Content.Server.Respawn;
 using Content.Shared.Station.Components;
 using Content.Server.Station.Systems;

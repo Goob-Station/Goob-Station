@@ -13,10 +13,10 @@ public sealed partial class VoidwalkerObjectiveSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VoidwalkerKidnapConditionComponent, ObjectiveGetProgressEvent>(OnKidnapGetProgress);
+        SubscribeLocalEvent<Shared.Voidwalker.Objectives.Components.VoidwalkerKidnapConditionComponent, ObjectiveGetProgressEvent>(OnKidnapGetProgress);
     }
 
-    private void OnKidnapGetProgress(EntityUid uid, VoidwalkerKidnapConditionComponent comp, ref ObjectiveGetProgressEvent args)
+    private void OnKidnapGetProgress(EntityUid uid, Shared.Voidwalker.Objectives.Components.VoidwalkerKidnapConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
         var target = _NumberObjectiveSystem.GetTarget(uid);
         args.Progress = target != 0 ? MathF.Min((float) comp.Kidnapped / target, 1f) : 1f; // idek man

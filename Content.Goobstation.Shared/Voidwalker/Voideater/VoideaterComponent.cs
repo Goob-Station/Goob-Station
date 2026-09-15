@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Voidwalker.Voideater;
+namespace Content.Goobstation.Shared.Voidwalker.Voideater;
 
 [RegisterComponent]
 public sealed partial class VoideaterComponent : Component

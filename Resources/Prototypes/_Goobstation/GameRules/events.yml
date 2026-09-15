@@ -93,3 +93,6 @@
       pickPlayer: false
       mindRoles:
       - MindRoleVoidwalker
+      #briefing: // Briefing is done via C# because we need to be able to check where the station is and point them towards it.
+      #  color: CadetBlue
+      #  sound: /Audio/_Goobstation/Ambience/Antag/voidwalker_start.ogg

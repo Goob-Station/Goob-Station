@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Goobstation.Server.Voidwalker.Kidnapping;
+namespace Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap.Victim;
 
 /// <summary>
 /// do not apply this manually
@@ -9,7 +9,7 @@ namespace Content.Goobstation.Server.Voidwalker.Kidnapping;
 public sealed partial class VoidwalkerKidnappedComponent : Component
 {
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan ExitVoidTime = TimeSpan.Zero;
+    public TimeSpan ExitVoidTime;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid OriginalMap;

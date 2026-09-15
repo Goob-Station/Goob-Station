@@ -1,10 +1,10 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.SpawnItemOnGib;
+namespace Content.Goobstation.Shared.SpawnItemOnGib;
 
 [RegisterComponent]
 public sealed partial class SpawnItemsOnGibComponent : Component
 {
-    [DataField(required: true)]
+    [DataField(required: true), AutoNetworkedField]
     public Dictionary<EntProtoId, int> ItemsToSpawn;
 }

@@ -1,25 +1,18 @@
-using System.Collections.Immutable;
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Server.Changeling;
-using Content.Goobstation.Server.SpecialAnimation;
 using Content.Goobstation.Shared.SpecialAnimation;
 using Content.Goobstation.Shared.Voidwalker;
-using Content.Goobstation.Shared.Voidwalker.Actions;
-using Content.Goobstation.Shared.Voidwalker.GlassPasser;
 using Content.Shared.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Polymorph.Systems;
-using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
-using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
@@ -28,7 +21,6 @@ using Content.Shared.Stealth;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
-using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.EntitySerialization;
@@ -39,39 +31,17 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Voidwalker;
-public sealed partial class VoidwalkerSystem : EntitySystem
+public sealed partial class VoidwalkerSystem : SharedVoidwalkerSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = null!;
-    [Dependency] private readonly ChatSystem _chat = null!;
     [Dependency] private readonly DamageableSystem _damage = null!;
     [Dependency] private readonly DoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedMapSystem _map = null!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = null!;
     [Dependency] private readonly MetaDataSystem _meta = null!;
-    [Dependency] private readonly SharedMindSystem _mind = null!;
-    [Dependency] private readonly MobStateSystem _mobState = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
-    [Dependency] private readonly IRobustRandom _random = null!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = null!;
-    [Dependency] private readonly SharedSlurredSystem _slurred = null!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = null!;
-    [Dependency] private readonly SharedStunSystem _stun = null!;
-    [Dependency] private readonly PolymorphSystem _polymorph = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
-    [Dependency] private readonly SharedTransformSystem _transform = null!;
-    [Dependency] private readonly SharedStealthSystem _stealth = null!;
     [Dependency] private readonly TagSystem _tag = null!;
-    [Dependency] private readonly ThrowingSystem _throwing = null!;
     [Dependency] private readonly ChangelingSystem _changeling = null!; // easier than remaking the code of two lines lol
-    [Dependency] private readonly SharedSpecialAnimationSystem _specialAnim = null!;
-
-    /// <summary>
-    /// If the voidwalker is within this much of a passed object, don't count it as being in space.
-    /// This is to prevent being able to stand inside a passed object, since they have no atmosphere inside.
-    /// If you can think of a better way to handle this, do tell me - delph
-    /// </summary>
-    private const float PassedObjectGraceRange = 1; //
 
     private readonly ResPath _mapPath = new("Maps/_Goobstation/Nonstations/voidwalkervoid.yml");
     private static Entity<MapComponent>? _theVoid;
@@ -81,15 +51,15 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VoidwalkerComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<Shared.Voidwalker.Components.VoidwalkerComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
 
-        SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
-        SubscribeLocalEvent<VoidwalkerComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<VoidwalkerComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<Shared.Voidwalker.Components.VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
+        SubscribeLocalEvent<Shared.Voidwalker.Components.VoidwalkerComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<Shared.Voidwalker.Components.VoidwalkerComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
 
-        SubscribeLocalEvent<VoidwalkerComponent, PullStartedMessage>(OnPullStarted);
-        SubscribeLocalEvent<VoidwalkerComponent, PullStoppedMessage>(OnPullStopped);
+        SubscribeLocalEvent<Shared.Voidwalker.Components.VoidwalkerComponent, PullStartedMessage>(OnPullStarted);
+        SubscribeLocalEvent<Shared.Voidwalker.Components.VoidwalkerComponent, PullStoppedMessage>(OnPullStopped);
 
         SubscribeAbilities();
     }
@@ -99,7 +69,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         base.Update(frameTime);
         var curTime = _timing.CurTime;
 
-        var query = EntityQueryEnumerator<VoidwalkerComponent>();
+        var query = EntityQueryEnumerator<Shared.Voidwalker.Components.VoidwalkerComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             // Check if spaced.
@@ -123,7 +93,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
     #region Event Handlers
 
-    private void OnInit(Entity<VoidwalkerComponent> entity, ref MapInitEvent args)
+    private void OnInit(Entity<Shared.Voidwalker.Components.VoidwalkerComponent> entity, ref MapInitEvent args)
     {
         // Load THE VOID map if not already loaded
         if (_theVoid == null
@@ -145,10 +115,10 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         _theVoid = null;
     }
 
-    private void OnGridUidChanged(Entity<VoidwalkerComponent> entity, ref GridUidChangedEvent args) =>
+    private void OnGridUidChanged(Entity<Shared.Voidwalker.Components.VoidwalkerComponent> entity, ref GridUidChangedEvent args) =>
         UpdateSpacedStatus(entity);
 
-    private void OnExamined(Entity<VoidwalkerComponent> entity, ref ExaminedEvent args)
+    private void OnExamined(Entity<Shared.Voidwalker.Components.VoidwalkerComponent> entity, ref ExaminedEvent args)
     {
         if (entity.Comp.UnsettleDoAfterId is not { } doAfterId)
             return;
@@ -160,7 +130,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
         _popup.PopupEntity(popup, entity, entity, PopupType.MediumCaution);
     }
 
-    private void OnGetVerbs(Entity<VoidwalkerComponent> entity, ref GetVerbsEvent<InnateVerb> args)
+    private void OnGetVerbs(Entity<Shared.Voidwalker.Components.VoidwalkerComponent> entity, ref GetVerbsEvent<InnateVerb> args)
     {
         var target = args.Target;
 
@@ -205,7 +175,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     /// We apply pressure immunity to a target being dragged by a voidwalker so they have time to kidnap them
     /// without them dying to pressure.
     /// </summary>
-    private void OnPullStarted(Entity<VoidwalkerComponent> entity, ref PullStartedMessage args)
+    private void OnPullStarted(Entity<Shared.Voidwalker.Components.VoidwalkerComponent> entity, ref PullStartedMessage args)
     {
         entity.Comp.EntityPulledWasSpaceImmune = HasComp<SpecialPressureImmunityComponent>(args.PulledUid);
 
@@ -213,7 +183,7 @@ public sealed partial class VoidwalkerSystem : EntitySystem
             EnsureComp<SpecialPressureImmunityComponent>(args.PulledUid);
     }
 
-    private void OnPullStopped(Entity<VoidwalkerComponent> entity, ref PullStoppedMessage args)
+    private void OnPullStopped(Entity<Shared.Voidwalker.Components.VoidwalkerComponent> entity, ref PullStoppedMessage args)
     {
         if (!entity.Comp.EntityPulledWasSpaceImmune)
             RemComp<SpecialPressureImmunityComponent>(args.PulledUid);
@@ -221,109 +191,5 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 
     #endregion
 
-    #region Updating Spaced Status
-
-    public void UpdateSpacedStatus(Entity<VoidwalkerComponent> entity)
-    {
-        var isInSpace = CheckInSpace(entity.Owner, entity.Comp);
-        entity.Comp.IsInSpace = isInSpace;
-
-        var ev = new VoidwalkerSpacedStatusChangedEvent(isInSpace);
-        RaiseLocalEvent(entity, ref ev);
-    }
-
-    public bool CheckInSpace(EntityUid uid, VoidwalkerComponent? voidwalker = null)
-    {
-        var entityXform = Transform(uid);
-
-        // Check if the voidwalker is standing inside a passed object.
-        // is this hacky? Yes. Very.
-        if (voidwalker is not null
-            && TryComp<GlassPasserComponent>(uid, out var glassPasser))
-            foreach (var (entityPassed, _) in glassPasser.EntitiesPassed)
-                if (_transform.InRange(uid, entityPassed, PassedObjectGraceRange))
-                    return false;
-
-        // If the voidwalker is not on a grid, it is in space.
-        if (entityXform.GridUid is not { } gridUid)
-            return true;
-
-        // If the voidwalker *is* on a grid, but the grid has no atmosphere; it is in space.
-        var position = _transform.GetGridOrMapTilePosition(uid);
-        var tileMixture = _atmos.GetTileMixture(gridUid, entityXform.MapUid, position);
-
-        return tileMixture is null || tileMixture.Pressure <= 0;
-    }
-
-    #endregion
-
-
-    #region Helpers
-
-    public bool CanSeeVoidwalker(EntityUid target)
-    {
-        if (HasComp<PermanentBlindnessComponent>(target)
-            || HasComp<TemporaryBlindnessComponent>(target))
-            return false;
-
-        return !TryComp<BlindableComponent>(target, out var blindable)
-               || blindable.EyeDamage < blindable.MaxDamage;
-    }
-
-    public bool TryUseAbility(Entity<VoidwalkerComponent> voidwalker, BaseActionEvent action)
-    {
-        if (action.Handled)
-            return false;
-
-        UpdateSpacedStatus(voidwalker);
-
-        if (!TryComp<VoidwalkerActionComponent>(action.Action, out var voidwalkerAction))
-            return false;
-
-        if (voidwalkerAction.RequireInSpace
-            && !voidwalker.Comp.IsInSpace)
-        {
-            var popup = Loc.GetString("voidwalker-action-fail-require-in-space");
-            _popup.PopupEntity(popup, voidwalker, voidwalker);
-
-            return false;
-        }
-
-        action.Handled = true;
-
-        return true;
-    }
-
-    public bool TrySendToShadowRealm(EntityUid target)
-    {
-        var popup = Loc.GetString("voidwalker-kidnap-enter");
-        _popup.PopupEntity(popup, target, target, PopupType.SmallCaution);
-
-        if (!TryComp<MindContainerComponent>(target, out var targetMindContainer)
-            || !targetMindContainer.HasMind)
-            return false;
-
-        var targetMind = Comp<MindComponent>(targetMindContainer.Mind.Value);
-        targetMind.PreventGhosting = true;
-
-        var spawnPoints = EntityManager
-            .GetAllComponents(typeof(VoidedSpawnComponent))
-            .ToImmutableList();
-
-        if (spawnPoints.IsEmpty)
-            return false;
-
-        var newSpawn = _random.Pick(spawnPoints);
-        var spawnTarget = Transform(newSpawn.Uid).Coordinates;
-
-        _transform.SetCoordinates(target, spawnTarget);
-        _rejuvenate.PerformRejuvenate(target);
-        _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(5), true);
-        // need more sfx here later
-
-        return true;
-    }
-
-    #endregion
 
 }

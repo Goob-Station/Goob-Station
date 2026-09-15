@@ -1,10 +1,9 @@
 using Content.Shared.Body.Events;
 
-namespace Content.Goobstation.Server.SpawnItemOnGib;
+namespace Content.Goobstation.Shared.SpawnItemOnGib;
 
 public sealed partial class SpawnItemOnGibSystem : EntitySystem
 {
-    /// <inheritdoc />
     public override void Initialize()
     {
         base.Initialize();
@@ -16,6 +15,7 @@ public sealed partial class SpawnItemOnGibSystem : EntitySystem
     {
         foreach (var (item, quantity) in entity.Comp.ItemsToSpawn)
             for (var i = quantity - 1; i >= 0; i--)
-                SpawnAtPosition(item, Transform(entity).Coordinates);
+                PredictedSpawnAtPosition(item, Transform(entity).Coordinates);
+
     }
 }

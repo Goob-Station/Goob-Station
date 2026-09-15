@@ -10,14 +10,7 @@ public sealed partial class VoidWhisperEvent : EntityTargetActionEvent;
 
 public sealed partial class ExitNebulaCrawlEvent : InstantActionEvent;
 
-public sealed partial class VoidwalkerVoidWalkEvent : WorldTargetActionEvent
-{
-    [DataField]
-    public float Distance = 4.65f;
-
-    [DataField]
-    public float Speed = 9.65f;
-}
+public sealed partial class VoidwalkerVoidWalkEvent : WorldTargetActionEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class VoidwalkerUnsettleDoAfterEvent : SimpleDoAfterEvent;
