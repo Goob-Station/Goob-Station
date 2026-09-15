@@ -25160,3 +25160,15 @@ Entries:
       message: Xenobiology consoles now offer 10 bounties at a time instead of 6.
   id: 2883
   time: '2026-09-15T18:50:27.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: (temporarily) Blacklisted mindshield users from joining gangs.
+    - type: Tweak
+      message: Gang spray cans are now marked as minor contraband
+    - type: Tweak
+      message: Gang signs health has been reduced 40 => 20
+    - type: Fix
+      message: You can no longer deconstruct the gang crate.
+  id: 2884
+  time: '2026-09-15T19:18:01.0000000+00:00'
