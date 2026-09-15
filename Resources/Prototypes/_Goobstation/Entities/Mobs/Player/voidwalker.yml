@@ -14,10 +14,10 @@
       types:
         Heat: -7.5
         Shock: -7.5
-  - type: VoidwalkerUnsettleComponent
+  - type: VoidwalkerUnsettle
     jumpscarePrototype: VoidwalkerJumpscareAnimation
     jumpscareSound: /Audio/_Goobstation/Effects/Voidwalker/dramatic_sting.ogg
-  - type: VoidwalkerKidnappingComponent
+  - type: VoidwalkerKidnapping
     kidnapDoAfterDuration: 5
     kidnapDuration: 30
   - type: GlassPasser
