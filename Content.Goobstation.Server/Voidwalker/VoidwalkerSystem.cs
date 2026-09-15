@@ -1,6 +1,9 @@
 using System.Collections.Immutable;
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Server.Changeling;
+using Content.Goobstation.Shared.Voidwalker;
+using Content.Goobstation.Shared.Voidwalker.Actions;
+using Content.Goobstation.Shared.Voidwalker.GlassPasser;
 using Content.Shared.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;

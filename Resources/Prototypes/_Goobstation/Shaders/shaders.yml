@@ -44,4 +44,4 @@
 - type: shader
   id: VoidedShader
   kind: source
-  path: "/Textures/_Omu/Shaders/voided.swsl"
+  path: "/Textures/_Goobstation/Shaders/voided.swsl"

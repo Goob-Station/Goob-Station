@@ -1,3 +1,6 @@
+using Content.Goobstation.Common.Speech;
+using Content.Goobstation.Common.VoidedVisualizer;
+using Content.Goobstation.Shared.Voidwalker;
 using Content.Server.Gibbing.Systems;
 using Content.Shared.Medical;
 using Content.Shared.CombatMode.Pacification;

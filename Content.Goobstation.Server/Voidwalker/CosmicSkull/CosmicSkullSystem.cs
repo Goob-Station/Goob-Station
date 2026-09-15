@@ -1,6 +1,10 @@
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.Temperature.Components;
+using Content.Goobstation.Common.VoidedVisualizer;
+using Content.Goobstation.Shared.Voidwalker;
+using Content.Goobstation.Shared.Voidwalker.CosmicSkull;
+using Content.Goobstation.Shared.Voidwalker.GlassPasser;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;

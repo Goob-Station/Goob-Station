@@ -1,3 +1,5 @@
+using Content.Goobstation.Shared.Voidwalker;
+
 namespace Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
 
 [RegisterComponent]

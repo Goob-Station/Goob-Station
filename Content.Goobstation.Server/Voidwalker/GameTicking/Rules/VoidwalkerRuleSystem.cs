@@ -1,3 +1,4 @@
+using Content.Goobstation.Server.Voidwalker.Roles;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;

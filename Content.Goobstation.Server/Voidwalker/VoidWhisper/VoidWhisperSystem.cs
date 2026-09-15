@@ -1,4 +1,5 @@
 using Content.Goobstation.Server.Speech;
+using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Server.Administration;
 using Content.Shared.IdentityManagement;
 using Content.Server.Popups;

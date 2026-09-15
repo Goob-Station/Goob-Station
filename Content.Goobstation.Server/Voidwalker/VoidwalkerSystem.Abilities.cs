@@ -1,5 +1,11 @@
 using System.Collections.Immutable;
+using Content.Goobstation.Common.VoidedVisualizer;
+using Content.Goobstation.Server.Voidwalker.Kidnapping;
+using Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
+using Content.Goobstation.Server.Voidwalker.Objectives.Components;
 using Content.Goobstation.Shared.Dash;
+using Content.Goobstation.Shared.Voidwalker;
+using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.Mind;
