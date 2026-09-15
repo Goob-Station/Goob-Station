@@ -245,6 +245,11 @@
   components:
   - type: Sprite
     state: cookie-sugar
+  # <Trauma>
+  - type: Tag
+    tags:
+    - Sugar
+  # </Trauma>
 
 # Nuggets
 
