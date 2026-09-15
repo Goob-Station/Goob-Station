@@ -3,8 +3,25 @@
 - type: soundCollection
   id: ResomiChirp
   files:
-    - /Audio/_Starlight/Voice/Resomi/resomi_chirp1.ogg
-    - /Audio/_Starlight/Voice/Resomi/resomi_chirp2.ogg
-    - /Audio/_Starlight/Voice/Resomi/resomi_chirp3.ogg
-    - /Audio/_Starlight/Voice/Resomi/resomi_chirp4.ogg
-    - /Audio/_Starlight/Voice/Resomi/resomi_chirp5.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_chirp1.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_chirp2.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_chirp3.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_chirp4.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_chirp5.ogg
+
+- type: soundCollection
+  id: ResomiScrees
+  files:
+  - /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+
+- type: soundCollection
+  id: ResomiCalls
+  files:
+  - /Audio/_Starlight/Voice/Resomi/resomi_call_1.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_call_2.ogg
+
+- type: soundCollection
+  id: ResomiSquawk
+  files:
+  - /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
