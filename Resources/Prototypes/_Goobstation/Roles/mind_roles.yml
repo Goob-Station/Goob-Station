@@ -142,7 +142,7 @@
   components:
   - type: MindRole
     antagPrototype: Voidwalker
-    roleType: FreeAgent # Maybe this should be solo antag?
+    roleType: SoloAntagonist
     subtype: role-subtype-voidwalker
     exclusiveAntag: true
   - type: VoidwalkerRole
