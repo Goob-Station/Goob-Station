@@ -25100,3 +25100,9 @@ Entries:
       message: Chefs now cook Golden Apple Tarts with Golden Apples
   id: 2877
   time: '2026-09-11T23:51:08.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Add
+      message: Chaplains can now choose a custom name. Hallelujah!
+  id: 2878
+  time: '2026-09-15T18:37:50.0000000+00:00'
