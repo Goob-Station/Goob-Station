@@ -25154,3 +25154,9 @@ Entries:
         sprayed on them.
   id: 2882
   time: '2026-09-15T18:46:33.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Tweak
+      message: Xenobiology consoles now offer 10 bounties at a time instead of 6.
+  id: 2883
+  time: '2026-09-15T18:50:27.0000000+00:00'
