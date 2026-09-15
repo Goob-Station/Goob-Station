@@ -25106,3 +25106,11 @@ Entries:
       message: Chaplains can now choose a custom name. Hallelujah!
   id: 2878
   time: '2026-09-15T18:37:50.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: >-
+        You can now use intellicards on man-machine interfaces, go give that
+        clanker flesh and blood!
+  id: 2879
+  time: '2026-09-15T18:42:59.0000000+00:00'
