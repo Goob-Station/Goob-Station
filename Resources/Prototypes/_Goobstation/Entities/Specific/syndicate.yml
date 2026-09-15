@@ -57,3 +57,22 @@
   - type: GuideHelp
     guides:
     - Capoeira
+    
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: MimejutsuManual
+  name: Mimejutsu manual
+  description: A thin, unassuming manual. Its pages contain intricate diagrams of precise gestures and somatic forms.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/martial_arts.rsi
+    layers:
+    - state: mimejutsu
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 3000
+  - type: GrantMimejutsu
+  - type: GuideHelp
+    guides:
+    - Mimejutsu
