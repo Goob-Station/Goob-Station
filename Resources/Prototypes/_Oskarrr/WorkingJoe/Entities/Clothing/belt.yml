@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingBeltUtility
+  id: ClothingBeltUtilityWorkingJoeFilled
+  name: Working Joe utility belt
+  description: Tool belt issued to Working Joe units.
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: WorkingJoeSynthResetKey
+    - id: Screwdriver
+    - id: Wirecutter
+    - id: Welder
+    - id: Multitool

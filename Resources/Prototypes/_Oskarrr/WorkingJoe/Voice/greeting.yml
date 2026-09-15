@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAhYoureStillHere
+  category: Greeting
+  name: emote-name-workingjoe-ah-youre-still-here
+  soundCollection: AU14WorkingJoeAhYoureStillHere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeGoodDay
+  category: Greeting
+  name: emote-name-workingjoe-good-day
+  soundCollection: AU14WorkingJoeGoodDay
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeHello
+  category: Greeting
+  name: emote-name-workingjoe-hello
+  soundCollection: AU14WorkingJoeHello
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeHowAreYou
+  category: Greeting
+  name: emote-name-workingjoe-how-are-you
+  soundCollection: AU14WorkingJoeHowAreYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeHowCanIHelpYou
+  category: Greeting
+  name: emote-name-workingjoe-how-can-i-help-you
+  soundCollection: AU14WorkingJoeHowCanIHelpYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIDontBelieveIveHadThePleasure
+  category: Greeting
+  name: emote-name-workingjoe-i-dont-believe-ive-had-the-pleasure
+  soundCollection: AU14WorkingJoeIDontBelieveIveHadThePleasure
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIWillBeWithYouShortly
+  category: Greeting
+  name: emote-name-workingjoe-i-will-be-with-you-shortly
+  soundCollection: AU14WorkingJoeIWillBeWithYouShortly
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatDoYouNeedToKnowToday
+  category: Greeting
+  name: emote-name-workingjoe-what-do-you-need-to-know-today
+  soundCollection: AU14WorkingJoeWhatDoYouNeedToKnowToday
+

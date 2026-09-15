@@ -16,6 +16,8 @@
   - type: Xenomorph
     caste: Queen
   - type: XenomorphQueen
+  - type: XenomorphMachineUser
+  - type: ComplexInteraction
   - type: TailLash
     tailDamage:
       groups:
@@ -86,6 +88,12 @@
   parent: BaseMobXenomorphQueen
   id: MobXenomorphQueen
   components:
+  - type: XenomorphEvolution
+    evolutionActionId: ActionEvolutionEmpress
+    max: 1800 # 30 minutes at 1 point/sec
+    pointsPerSecond: 1
+    evolvesTo:
+    - prototype: MobXenomorphEmpress
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -98,6 +106,17 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
 
 - type: entity
   parent: [BaseMobXenomorphDungeon, BaseMobXenomorphQueen]

@@ -1,0 +1,332 @@
+﻿# Yautja furniture — real seat/bed/table behaviour (station-quality), Yautja sprites.
+
+# --- Chairs / seats ---
+- type: entity
+  parent: ChairBase
+  id: GoobYautjaStructureYautjaMachinesChair
+  name: яутжа стілець
+  description: Стародавнє мисливське крісло. Сідай — або тебе посадять.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: chair
+    noRot: true
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,-0.05"
+
+- type: entity
+  parent: ChairBase
+  id: GoobYautjaStructureYautjaMachinesComfychair
+  name: яутжа зручний стілець
+  description: Виглядає підозріло зручно для жорстокої раси мисливців.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: comfychair
+    noRot: true
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,-0.05"
+
+- type: entity
+  parent: ChairBase
+  id: GoobYautjaStructureN32x32HunterPropsBoneThrone
+  name: кістяний трон Яутжа
+  description: Трон з кісток здобичі. Важко, але сидіти можна.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+    state: bone_throne
+    noRot: true
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,-0.1"
+
+# Decorative top piece for the throne (not a seat).
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsBoneThroneTop
+  name: верх кістяного трону Яутжа
+  description: Декоративна верхівка трону.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+    drawdepth: Objects
+    layers:
+    - state: bone_throne_top
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+    state: bone_throne_top
+
+# Buckle overlay prop (mapper decoration / layer reference).
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesChairBuckledOverlay
+  name: яутжа стілець пристебнутий шар
+  description: Візуальний шар для стільця. Не сидіння.
+  suffix: Yautja
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    drawdepth: Objects
+    layers:
+    - state: chair_buckled_overlay
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: chair_buckled_overlay
+
+# --- Beds ---
+- type: entity
+  parent: Bed
+  id: GoobYautjaStructureYautjaMachinesBed
+  name: яутжа ліжко
+  description: Лежати, спати або пристебнутись. Повільне лікування як на станційному ліжку.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: bed
+    noRot: true
+  - type: Construction
+    graph: bed
+    node: bed
+
+- type: entity
+  parent: MedicalBed
+  id: GoobYautjaStructureYautjaMachinesAbed
+  name: яутжа медичне ліжко
+  description: Мисливське ліжко для відновлення. Лікує краще за звичайне.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: abed
+    noRot: true
+
+# --- Tables (no IconSmooth — single-frame Yautja sprites) ---
+- type: entity
+  parent: BaseStructure
+  id: GoobYautjaTableBase
+  abstract: true
+  suffix: Yautja
+  components:
+  - type: Animateable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: PlaceableSurface
+  - type: Climbable
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Blunt: 4
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+        - BulletImpassable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Table
+    - ForceFixRotations
+  - type: RequireProjectileTarget
+    ignoreThrow: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHull
+
+- type: entity
+  parent: GoobYautjaTableBase
+  id: GoobYautjaStructureYautjaMachinesTable1
+  name: яутжа стіл
+  description: Міцний мисливський стіл. Можна класти речі й перелазити.
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: table1
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: table1
+
+- type: entity
+  parent: GoobYautjaTableBase
+  id: GoobYautjaStructureYautjaMachinesTable2Idle
+  categories: [ HideSpawnMenu ]
+  name: яутжа стіл (простій)
+  description: Мисливський стіл у спокійному режимі.
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: table2-idle
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: table2-idle
+
+- type: entity
+  parent: GoobYautjaTableBase
+  id: GoobYautjaStructureYautjaMachinesTable2Active
+  categories: [ HideSpawnMenu ]
+  name: яутжа стіл (активний)
+  description: Мисливський стіл у активному вигляді. Функціонально той самий стіл.
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: table2-active
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: table2-active
+
+# --- Canister ---
+- type: entity
+  parent: StorageCanister
+  id: GoobYautjaStructureYautjaMachinesBlue
+  name: яутжа каністра
+  description: Мисливська каністра для газів. Підключається до порту гайковим ключем.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    noRot: true
+    layers:
+    - state: blue
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: blue
+  # Single-frame sprite — strip stock canister overlay state swaps.
+  - type: GenericVisualizer
+    visuals: {}
+  - type: AccessReader
+    access: []
+  - type: Lock
+    locked: false
+
+# --- Lockers / closets (open+closed sprite pairs) ---
+- type: entity
+  parent: ClosetBase
+  id: GoobYautjaStructureYautjaMachinesClosed
+  name: яутжа шафа
+  description: Стародавня шафа мисливців. Відкривається й тримає речі.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    layers:
+    - state: closed
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: closed
+      map: [ "enum.StorageVisualLayers.Door" ]
+      visible: false
+  - type: EntityStorageVisuals
+    stateBaseClosed: closed
+    stateBaseOpen: open
+    stateDoorClosed: closed
+    stateDoorOpen: open
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: closed
+
+- type: entity
+  parent: ClosetBase
+  id: GoobYautjaStructureN32x32HunterPropsClosed
+  name: яутжа шафа (кістки)
+  description: Кістяна шафа з мисливських угідь. Відкривається.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+    layers:
+    - state: closed
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: closed
+      map: [ "enum.StorageVisualLayers.Door" ]
+      visible: false
+  - type: EntityStorageVisuals
+    stateBaseClosed: closed
+    stateBaseOpen: open
+    stateDoorClosed: closed
+    stateDoorOpen: open
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+    state: closed
+
+- type: entity
+  parent: ClosetBase
+  id: GoobYautjaStructureYautjaMachinesFridge
+  name: яутжа холодильник
+  description: Холодильник мисливців. Відкривається як шафа.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    layers:
+    - state: fridge
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: fridge
+      map: [ "enum.StorageVisualLayers.Door" ]
+      visible: false
+  - type: EntityStorageVisuals
+    stateBaseClosed: fridge
+    stateBaseOpen: fridgeopen
+    stateDoorClosed: fridge
+    stateDoorOpen: fridgeopen
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: fridge
+
+- type: entity
+  parent: ClosetBase
+  id: GoobYautjaStructureYautjaMachinesFreezer
+  name: яутжа морозильник
+  description: Морозильник мисливців. Триває холод і речі.
+  suffix: Yautja
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    layers:
+    - state: freezer
+      map: [ "enum.StorageVisualLayers.Base" ]
+    - state: freezer
+      map: [ "enum.StorageVisualLayers.Door" ]
+      visible: false
+  - type: EntityStorageVisuals
+    stateBaseClosed: freezer
+    stateBaseOpen: freezer_1
+    stateDoorClosed: freezer
+    stateDoorOpen: freezer_1
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    state: freezer

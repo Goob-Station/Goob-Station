@@ -1,0 +1,53 @@
+﻿- type: entity
+  parent: Welder # Змінено з CMWelder на стандартний Welder з Goob/WizDen
+  id: GoobYautjaWelder
+  name: "прибулецький хімічний зварник"
+  description: "Складний хімічний зварювальний пристрій. Тримайте подалі від молодих."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    layers:
+    - state: welder
+    - state: welder_on
+      visible: false
+      shader: unshaded
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: Item
+    size: Small
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1000
+        maxVol: 1000
+  - type: SolutionRegeneration
+    solution: Welder
+    generated:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 10
+
+- type: entity
+  parent: ClothingBeltUtility # Змінено з CMBeltUtility на стандартний для Goob
+  id: GoobYautjaToolbelt
+  name: "прибулецький пояс інструментів"
+  description: "Модульний прибулецький утилітарний пояс із кліпсами для польових інструментів."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/utility.rsi # Стандартний шлях для Goob
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Belt/utility.rsi
+    clothingVisuals:
+      belt:
+      - state: equipped
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,19,1

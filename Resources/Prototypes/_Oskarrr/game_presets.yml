@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Wild Lands lobby mode — no Wizard, Nukeops, Revs, Dragon, Rat King, or Abductors.
+
+- type: gamePreset
+  id: Oskar
+  alias:
+  - oskar
+  - оскар
+  - wildlands
+  - badlands
+  name: oskar-title
+  description: oskar-description
+  showInVote: true
+  rules:
+  - SecretPlusOskar
+  - DummyNonAntagChance

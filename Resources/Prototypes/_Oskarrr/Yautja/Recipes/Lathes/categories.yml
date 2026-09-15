@@ -1,0 +1,11 @@
+- type: latheCategory
+  id: YautjaWeapons
+  name: lathe-category-yautja-weapons
+
+- type: latheCategory
+  id: YautjaMasks
+  name: lathe-category-yautja-masks
+
+- type: latheCategory
+  id: YautjaGear
+  name: lathe-category-yautja-gear

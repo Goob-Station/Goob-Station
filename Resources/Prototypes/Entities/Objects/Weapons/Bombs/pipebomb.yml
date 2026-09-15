@@ -35,6 +35,9 @@
   - type: Construction
     graph: PipeBomb
     node: pipebomb
+  - type: Tag
+    tags:
+    - Pipebomb
 
 - type: entity
   parent: [ BaseItem, BaseMinorContraband ]

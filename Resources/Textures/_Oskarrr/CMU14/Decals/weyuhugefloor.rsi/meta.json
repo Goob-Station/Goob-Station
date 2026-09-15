@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/789a362bc55d2d6331bc89699bb4f9f792695853/icons/effects/WY_huge_logo.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "wy_huge_logo_lines1"
+    },
+    {
+      "name": "wy_huge_logo_lines2"
+    },
+    {
+      "name": "wy_huge_logo_lines3"
+    },
+    {
+      "name": "wy_huge_logo_lines4"
+    },
+    {
+      "name": "wy_huge_logo_lines5"
+    },
+    {
+      "name": "wy_huge_logo_lines6"
+    },
+    {
+      "name": "wy_huge_logo_lines7"
+    },
+    {
+      "name": "wy_huge_logo_lines8"
+    },
+    {
+      "name": "wy_huge_logo1"
+    },
+    {
+      "name": "wy_huge_logo2"
+    },
+    {
+      "name": "wy_huge_logo3"
+    },
+    {
+      "name": "wy_huge_logo4"
+    },
+    {
+      "name": "wy_huge_logo5"
+    },
+    {
+      "name": "wy_huge_logo6"
+    },
+    {
+      "name": "wy_huge_logo7"
+    },
+    {
+      "name": "wy_huge_logo8"
+    }
+  ]
+}

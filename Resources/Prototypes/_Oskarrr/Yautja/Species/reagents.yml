@@ -1,0 +1,10 @@
+- type: reagent
+  parent: Blood
+  id: GoobYautjaBlood
+  name: goob-reagent-name-yautja-blood
+  group: Biological
+  desc: goob-reagent-desc-yautja-blood
+  flavor: metallic
+  color: "#39FF14"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-ferrous

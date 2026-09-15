@@ -1,0 +1,198 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Shared base for Wild Lands aborigine ghost roles (CM-style tribal)
+
+- type: randomHumanoidSettings
+  id: WildLandsAborigineBase
+  parent: EventHumanoid
+  components:
+  - type: GhostTakeoverAvailable
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: Tag
+    tags:
+    - WildLandsAborigine
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    rules: ghost-role-information-aborigine-rules
+    raffle:
+      settings: default
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    reregister: false
+
+# 1) Chieftain — no psi, high HP, War Cry
+- type: randomHumanoidSettings
+  id: AborigineChieftain
+  parent: WildLandsAborigineBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-aborigine-chieftain-name
+    description: ghost-role-information-aborigine-chieftain-description
+    rules: ghost-role-information-aborigine-rules
+    raffle:
+      settings: default
+    reregister: false
+  - type: Loadout
+    prototypes: [ AborigineChieftainGear ]
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      350: Dead
+  - type: WarCry
+  - type: ActionGrant
+    actions:
+    - ActionAborigineWarCry
+
+- type: entity
+  id: RandomHumanoidSpawnerAborigineChieftain
+  name: Wild Lands Chieftain
+  suffix: Ghost Role
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/gladiator.rsi
+    state: icon
+  - type: RandomHumanoidSpawner
+    settings: AborigineChieftain
+
+# 2) Medic — psi heal, moss regen
+- type: randomHumanoidSettings
+  id: AborigineMedic
+  parent: WildLandsAborigineBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-aborigine-medic-name
+    description: ghost-role-information-aborigine-medic-description
+    rules: ghost-role-information-aborigine-rules
+    raffle:
+      settings: default
+    reregister: false
+  - type: Loadout
+    prototypes: [ AborigineMedicGear ]
+  - type: TribePsi
+    healDamage:
+      types:
+        Blunt: -15
+        Slash: -15
+        Piercing: -15
+        Heat: -10
+        Cold: -10
+        Poison: -10
+        Bloodloss: -10
+    regenDamage:
+      types:
+        Blunt: -4
+        Slash: -4
+        Piercing: -4
+        Heat: -2
+        Cold: -2
+        Poison: -2
+        Bloodloss: -3
+    resurrectHeal:
+      types:
+        Blunt: -80
+        Slash: -80
+        Piercing: -80
+        Heat: -40
+        Cold: -40
+        Poison: -40
+        Bloodloss: -60
+        Asphyxiation: -100
+  - type: ActionGrant
+    actions:
+    - ActionAboriginePsiHeal
+    - ActionAboriginePsiRegen
+    - ActionAboriginePsiResurrect
+
+- type: entity
+  id: RandomHumanoidSpawnerAborigineMedic
+  name: Wild Lands Medic
+  suffix: Ghost Role
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: brutekit
+  - type: RandomHumanoidSpawner
+    settings: AborigineMedic
+
+# 3) Stalker — cover stealth, poison ranged
+- type: randomHumanoidSettings
+  id: AborigineStalker
+  parent: WildLandsAborigineBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-aborigine-stalker-name
+    description: ghost-role-information-aborigine-stalker-description
+    rules: ghost-role-information-aborigine-rules
+    raffle:
+      settings: default
+    reregister: false
+  - type: Loadout
+    prototypes: [ AborigineStalkerGear ]
+  - type: StalkerCover
+
+- type: entity
+  id: RandomHumanoidSpawnerAborigineStalker
+  name: Wild Lands Stalker
+  suffix: Ghost Role
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Bow/bow.rsi
+    state: unwielded
+  - type: RandomHumanoidSpawner
+    settings: AborigineStalker
+
+# 4) Warrior — terrain speed, bush immunity
+- type: randomHumanoidSettings
+  id: AborigineWarrior
+  parent: WildLandsAborigineBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-aborigine-warrior-name
+    description: ghost-role-information-aborigine-warrior-description
+    rules: ghost-role-information-aborigine-rules
+    raffle:
+      settings: default
+    reregister: false
+  - type: Loadout
+    prototypes: [ AborigineWarriorGear ]
+  - type: WarriorTerrain
+  - type: Tag
+    tags:
+    - WildLandsAborigine
+    - WildLandsWarrior
+
+- type: entity
+  id: RandomHumanoidSpawnerAborigineWarrior
+  name: Wild Lands Warrior
+  suffix: Ghost Role
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/bone_spear.rsi
+    state: spear
+  - type: RandomHumanoidSpawner
+    settings: AborigineWarrior
+
+# One-shot camp: spawns all 4 roles then deletes
+- type: entity
+  parent: MarkerBase
+  id: SpawnerWildLandsTribeCamp
+  name: Wild Lands tribe camp
+  suffix: One-shot ghost roles
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Clothing/Uniforms/Jumpsuit/gladiator.rsi
+      state: icon
+  - type: WildLandsTribeCampSpawner
+    offset: 1.5
+    prototypes:
+    - RandomHumanoidSpawnerAborigineChieftain
+    - RandomHumanoidSpawnerAborigineMedic
+    - RandomHumanoidSpawnerAborigineStalker
+    - RandomHumanoidSpawnerAborigineWarrior

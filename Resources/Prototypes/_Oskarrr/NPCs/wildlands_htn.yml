@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Compact HTN for Wild Lands boss / merc-threat humanoids (melee → escape → idle).
+
+- type: htnCompound
+  id: WildLandsBossCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: MeleeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: EscapeCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: WildLandsHumanoidHostileCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: RangedCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: MeleeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: EscapeCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound

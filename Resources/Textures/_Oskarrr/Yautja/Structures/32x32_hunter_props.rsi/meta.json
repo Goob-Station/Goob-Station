@@ -1,0 +1,149 @@
+{
+    "version":  1,
+    "size":  {
+                 "x":  32,
+                 "y":  32
+             },
+    "states":  [
+                   {
+                       "name":  "border_stairs",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "border_stair_cut",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "border_stairs_rune",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "border_stair_rune_cut",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "hunter_feed",
+                       "directions":  8
+                   },
+                   {
+                       "name":  "hunter_armor_prop"
+                   },
+                   {
+                       "name":  "hunter_armor_prop_2"
+                   },
+                   {
+                       "name":  "hunter_armor_prop_3"
+                   },
+                   {
+                       "name":  "hunter_armor_prop_4"
+                   },
+                   {
+                       "name":  "pred_trophy_vendor_bottom_left",
+                       "delays":  [
+                                      [
+                                          0.1,
+                                          0.1,
+                                          0.2,
+                                          0.2,
+                                          0.5
+                                      ]
+                                  ]
+                   },
+                   {
+                       "name":  "pred_trophy_vendor_top_left",
+                       "delays":  [
+                                      [
+                                          0.1,
+                                          0.1,
+                                          0.2,
+                                          0.2,
+                                          0.5
+                                      ]
+                                  ]
+                   },
+                   {
+                       "name":  "pred_trophy_vendor_center",
+                       "delays":  [
+                                      [
+                                          0.1,
+                                          0.1,
+                                          0.2,
+                                          0.2,
+                                          0.5
+                                      ]
+                                  ]
+                   },
+                   {
+                       "name":  "pred_trophy_vendor_top_center",
+                       "delays":  [
+                                      [
+                                          0.1,
+                                          0.1,
+                                          0.2,
+                                          0.2,
+                                          0.5
+                                      ]
+                                  ]
+                   },
+                   {
+                       "name":  "pred_trophy_vendor_bottom_right",
+                       "delays":  [
+                                      [
+                                          0.1,
+                                          0.1,
+                                          0.2,
+                                          0.2,
+                                          0.5
+                                      ]
+                                  ]
+                   },
+                   {
+                       "name":  "pred_trophy_vendor_top_right",
+                       "delays":  [
+                                      [
+                                          0.1,
+                                          0.1,
+                                          0.2,
+                                          0.2,
+                                          0.5
+                                      ]
+                                  ]
+                   },
+                   {
+                       "name":  "bone_throne"
+                   },
+                   {
+                       "name":  "bone_throne_top"
+                   },
+                   {
+                       "name":  "closed"
+                   },
+                   {
+                       "name":  "open"
+                   },
+                   {
+                       "name":  "hoe"
+                   },
+                   {
+                       "name":  "spade"
+                   },
+                   {
+                       "name":  "hydro"
+                   },
+                   {
+                       "name":  "fountain_head_static"
+                   },
+                   {
+                       "name":  "fountain_head_flowing",
+                       "delays":  [
+                                      [
+                                          0.1,
+                                          0.1,
+                                          0.1
+                                      ]
+                                  ]
+                   }
+               ],
+    "license":  "CC-BY-SA-3.0",
+    "copyright":  "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/obj/structures/props/32x32_hunter_props.dmi. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+}

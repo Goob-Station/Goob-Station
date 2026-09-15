@@ -1,0 +1,312 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/obj/items/hunter/pred_gear.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/obj/items/weapons/melee/shields.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/mob/humans/onmob/hunter/items_lefthand.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/mob/humans/onmob/hunter/items_righthand.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/mob/humans/onmob/inhands/weapons/melee/shields_lefthand.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/mob/humans/onmob/inhands/weapons/melee/shields_righthand.dmi. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "harpoon"
+    },
+    {
+      "name": "chainwhip"
+    },
+    {
+      "name": "clan_sword"
+    },
+    {
+      "name": "rending_sword"
+    },
+    {
+      "name": "piercing_sword"
+    },
+    {
+      "name": "severing_sword"
+    },
+    {
+      "name": "dual_war_scythe"
+    },
+    {
+      "name": "double_war_scythe"
+    },
+    {
+      "name": "cruel_staff"
+    },
+    {
+      "name": "combistick"
+    },
+    {
+      "name": "combistick_folded"
+    },
+    {
+      "name": "war_axe"
+    },
+    {
+      "name": "ceremonial_dagger"
+    },
+    {
+      "name": "clan_shield"
+    },
+    {
+      "name": "clan_shield_ready"
+    },
+    {
+      "name": "ancient_shield"
+    },
+    {
+      "name": "ancient_shield_ready"
+    },
+    {
+      "name": "ancient_shield_alt"
+    },
+    {
+      "name": "ancient_shield_alt_ready"
+    },
+    {
+      "name": "ancient_shield_temple"
+    },
+    {
+      "name": "ancient_shield_temple_ready"
+    },
+    {
+      "name": "hunter_spear"
+    },
+    {
+      "name": "war_glaive"
+    },
+    {
+      "name": "cleaving_glaive"
+    },
+    {
+      "name": "cleaving_glaive_skull"
+    },
+    {
+      "name": "ancient_war_glaive"
+    },
+    {
+      "name": "longaxe"
+    },
+    {
+      "name": "duelling_blade"
+    },
+    {
+      "name": "duelling_club"
+    },
+    {
+      "name": "duelling_hatchet"
+    },
+    {
+      "name": "duelling_knife"
+    },
+    {
+      "name": "harpoon-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "harpoon-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "chainwhip-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "chainwhip-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "clan_sword-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "clan_sword-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "rending_sword-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "rending_sword-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "piercing_sword-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "piercing_sword-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "severing_sword-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "severing_sword-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "dual_war_scythe-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "dual_war_scythe-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "double_war_scythe-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "double_war_scythe-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "cruel_staff-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "cruel_staff-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "combistick-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "combistick-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "combistick_folded-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "combistick_folded-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "war_axe-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "war_axe-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "ceremonial_dagger-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "ceremonial_dagger-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "clan_shield-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "clan_shield-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "ancient_shield-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "ancient_shield-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "ancient_shield_alt-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "ancient_shield_alt-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "ancient_shield_temple-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "ancient_shield_temple-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "hunter_spear-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "hunter_spear-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "war_glaive-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "war_glaive-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "cleaving_glaive-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "cleaving_glaive-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "ancient_war_glaive-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "ancient_war_glaive-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "longaxe-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "longaxe-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "duelling_blade-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "duelling_blade-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "duelling_club-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "duelling_club-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "duelling_hatchet-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "duelling_hatchet-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "duelling_knife-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "duelling_knife-inhand-right",
+      "directions": 4
+    }
+  ]
+}

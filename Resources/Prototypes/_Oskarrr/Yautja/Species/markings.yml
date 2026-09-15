@@ -1,0 +1,8 @@
+﻿- type: marking
+  id: GoobYautjaDreadlocksStandard
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [ Yautja ] # Змінили обмеження з Human на Yautja
+  sprites:
+  - sprite: _Oskarrr/Yautja/hair.rsi
+    state: standard

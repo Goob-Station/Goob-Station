@@ -1,0 +1,308 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Ported from Trauma-Station — Sharpening replaced with Slicing (no whetstone/skills)
+
+# NailBoard
+
+- type: constructionGraph
+  id: NailBoard
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: incompleteBoard
+          steps:
+          - material: WoodPlank
+            amount: 1
+
+    - node: incompleteBoard
+      entity: NailBoardUnfinished
+      edges:
+        - to: finish
+          steps:
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.1
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.1
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.1
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.1
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.1
+
+    - node: finish
+      entity: NailBoardWeapon
+
+# Spear bomb
+
+- type: constructionGraph
+  id: IEDSpear
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finish
+      steps:
+      - tag: Spear
+        name: construction-graph-tag-any-spear
+        icon:
+          sprite: Objects/Weapons/Melee/spear.rsi
+          state: spear
+      - material: Cable
+        amount: 5
+        doAfter: 3
+      - tag: Firebomb
+        name: construction-graph-tag-firebomb
+        icon:
+          sprite: Objects/Weapons/Bombs/ied.rsi
+          state: base
+  - node: finish
+    entity: SpearIED
+
+- type: constructionGraph
+  id: PipebombSpear
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finish
+      steps:
+      - tag: Spear
+        name: construction-graph-tag-any-spear
+        icon:
+          sprite: Objects/Weapons/Melee/spear.rsi
+          state: spear
+      - material: Cable
+        amount: 5
+        doAfter: 3
+      - tag: Pipebomb
+        name: construction-graph-tag-pipebomb
+        icon:
+          sprite: Objects/Weapons/Bombs/pipebomb.rsi
+          state: base
+  - node: finish
+    entity: SpearPipebomb
+
+# Pipe Shank
+
+- type: constructionGraph
+  id: PipeShank
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: unfinished
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: construction-graph-tag-pipe
+        doAfter: 1
+
+  - node: unfinished
+    entity: PipeSpearUnfinished
+    edges:
+    - to: finish
+      steps:
+      - tool: Slicing
+        doAfter: 3
+
+  - node: finish
+    entity: PipeSpear
+
+# Wooden Sword
+
+- type: constructionGraph
+  id: WoodenSword
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: uncarved
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 4
+  - node: uncarved
+    entity: IncompleteWoodenSword
+    edges:
+    - to: finish
+      steps:
+      - tool: Slicing
+        doAfter: 4
+  - node: finish
+    entity: SwordWood
+
+- type: constructionGraph
+  id: NailSword
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: unfinished
+      steps:
+      - tag: WoodenSword
+        name: construction-graph-tag-woodensword
+        icon:
+          sprite: _Trauma/Objects/Weapons/Melee/sword_wooden.rsi
+          state: icon
+
+  - node: unfinished
+    entity: SwordNailUnfinished
+    edges:
+    - to: finish
+      steps:
+      - tag: Nail
+        name: construction-graph-tag-nail
+        icon:
+          sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+          state: icon
+      - tool: Hammering
+        doAfter: 0.5
+      - tag: Nail
+        name: construction-graph-tag-nail
+        icon:
+          sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+          state: icon
+      - tool: Hammering
+        doAfter: 0.5
+      - tag: Nail
+        name: construction-graph-tag-nail
+        icon:
+          sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+          state: icon
+      - tool: Hammering
+        doAfter: 0.5
+      - tag: Nail
+        name: construction-graph-tag-nail
+        icon:
+          sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+          state: icon
+      - tool: Hammering
+        doAfter: 0.5
+      - tag: Nail
+        name: construction-graph-tag-nail
+        icon:
+          sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+          state: icon
+      - tool: Hammering
+        doAfter: 0.5
+
+  - node: finish
+    entity: SwordNail
+
+- type: constructionGraph
+  id: ScrapSword
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: unfinished
+      steps:
+      - tag: WoodenSword
+        name: construction-graph-tag-woodensword
+        icon:
+          sprite: _Trauma/Objects/Weapons/Melee/sword_wooden.rsi
+          state: icon
+
+  - node: unfinished
+    entity: SwordScrapUnfinished
+    edges:
+    - to: finish
+      steps:
+      - material: Steel
+      - tool: Hammering
+        doAfter: 1
+      - material: HexNut
+      - material: Screw
+      - tool: Slicing
+        doAfter: 3
+      - material: Steel
+      - tool: Hammering
+        doAfter: 1
+      - material: HexNut
+      - material: Screw
+      - tool: Slicing
+        doAfter: 3
+      - material: Steel
+      - tool: Hammering
+        doAfter: 1
+      - material: HexNut
+      - material: Screw
+      - tool: Slicing
+        doAfter: 3
+
+  - node: finish
+    entity: SwordScrap
+
+# Welded Sword
+
+- type: constructionGraph
+  id: WeldedSword
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: unfinished
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 4
+
+  - node: unfinished
+    entity: SwordWeldedUnfinished
+    edges:
+    - to: finish
+      steps:
+      - tool: Welding
+        doAfter: 5
+      - tool: Welding
+        doAfter: 5
+      - tool: Slicing
+        doAfter: 5
+
+  - node: finish
+    entity: SwordWelded
+
+# Barbcuffs
+
+- type: constructionGraph
+  id: BarbCuffs
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finish
+      steps:
+      - material: BarbedWire
+        amount: 2
+        doAfter: 3
+
+  - node: finish
+    entity: BarbHandcuffs

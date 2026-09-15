@@ -7,16 +7,17 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 thief-role-greeting-human =
-    You are criminal scum, a kleptomaniac previously arrested and on parole for petty theft. You need to add more to your collection.
-    You were forcibly given a pacifism implant after your last arrest, but that can't stop you from getting your fix by any means necessary.
+    You are a black-market thief on a Weyland-Yutani frontier site.
+    Corporate cargo, Xenomorph samples, and mercenary weapons fetch a fortune off-world.
+    You were fitted with a pacifism implant after your last bust — steal smart, stay quiet.
 
 thief-role-greeting-animal =
-    You are a kleptomaniac animal.
-    Steal things that you like.
+    You are a thieving animal.
+    Steal shiny corporate junk you like.
 
 thief-role-greeting-equipment =
-    You have a satchel of thieves' tools and possess the innate ability to steal without notice. Choose your starting equipment, and do your work stealthily.
+    You have a satchel of thieves' tools and can lift gear unnoticed. Pick your kit and work in the shadows.
 
-objective-issuer-thief = [color=#746694]Criminal[/color]
+objective-issuer-thief = [color=#746694]Black Market[/color]
 
-thief-round-end-agent-name = a thief
+thief-round-end-agent-name = a black-market thief

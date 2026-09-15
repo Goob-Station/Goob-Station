@@ -72,6 +72,7 @@
   alertViewEntity: AlertQueenFinderSpriteView
   name: alerts-queen-finder-name
   description: alerts-queen-finder-desc
+  clickEvent: !type:CycleQueenFinderAlertEvent
 
 - type: entity
   id: AlertQueenFinderSpriteView

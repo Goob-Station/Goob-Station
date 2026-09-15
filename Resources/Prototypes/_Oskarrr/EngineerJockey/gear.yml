@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Engineer Jockey: hazmat suit + shoes + special jack on back.
+
+- type: startingGear
+  id: EngineerJockeyGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitWorkingJoeHazmat
+    shoes: ClothingShoesWorkingJoeCBRN
+    back: WorkingJoeMaintenanceJackSpecial

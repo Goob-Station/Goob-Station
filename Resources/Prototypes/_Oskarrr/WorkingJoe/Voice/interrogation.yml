@@ -1,0 +1,93 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAreWePlayingAGame
+  category: Interrogation
+  name: emote-name-workingjoe-are-we-playing-a-game
+  soundCollection: AU14WorkingJoeAreWePlayingAGame
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAreYouAuthorisedAlarm
+  category: Interrogation
+  name: emote-name-workingjoe-are-you-authorised-alarm
+  soundCollection: AU14WorkingJoeAreYouAuthorisedAlarm
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAreYouPlayingAGameWithMe
+  category: Interrogation
+  name: emote-name-workingjoe-are-you-playing-a-game-with-me
+  soundCollection: AU14WorkingJoeAreYouPlayingAGameWithMe
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAreYouQuiteFinished
+  category: Interrogation
+  name: emote-name-workingjoe-are-you-quite-finished
+  soundCollection: AU14WorkingJoeAreYouQuiteFinished
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeHaveYouBeenMisbehaving
+  category: Interrogation
+  name: emote-name-workingjoe-have-you-been-misbehaving
+  soundCollection: AU14WorkingJoeHaveYouBeenMisbehaving
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIHopeThatsNotWhatIThinkItIs
+  category: Interrogation
+  name: emote-name-workingjoe-i-hope-thats-not-what-i-think-it-is
+  soundCollection: AU14WorkingJoeIHopeThatsNotWhatIThinkItIs
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIsSomeonePlayingAGameWithMe
+  category: Interrogation
+  name: emote-name-workingjoe-is-someone-playing-a-game-with-me
+  soundCollection: AU14WorkingJoeIsSomeonePlayingAGameWithMe
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWasThatYou
+  category: Interrogation
+  name: emote-name-workingjoe-was-that-you
+  soundCollection: AU14WorkingJoeWasThatYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatAreYouDoing
+  category: Interrogation
+  name: emote-name-workingjoe-what-are-you-doing
+  soundCollection: AU14WorkingJoeWhatAreYouDoing
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatAreYouDoingHere
+  category: Interrogation
+  name: emote-name-workingjoe-what-are-you-doing-here
+  soundCollection: AU14WorkingJoeWhatAreYouDoingHere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatAreYouPlayingAt
+  category: Interrogation
+  name: emote-name-workingjoe-what-are-you-playing-at
+  soundCollection: AU14WorkingJoeWhatAreYouPlayingAt
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhereAreYouGoing
+  category: Interrogation
+  name: emote-name-workingjoe-where-are-you-going
+  soundCollection: AU14WorkingJoeWhereAreYouGoing
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhosResponsibleForThis
+  category: Interrogation
+  name: emote-name-workingjoe-whos-responsible-for-this
+  soundCollection: AU14WorkingJoeWhosResponsibleForThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhyWouldYouDoThis
+  category: Interrogation
+  name: emote-name-workingjoe-why-would-you-do-this
+  soundCollection: AU14WorkingJoeWhyWouldYouDoThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWouldYouLikeToTellMeWhereThisCameFrom
+  category: Interrogation
+  name: emote-name-workingjoe-would-you-like-to-tell-me-where-this-came-from
+  soundCollection: AU14WorkingJoeWouldYouLikeToTellMeWhereThisCameFrom
+

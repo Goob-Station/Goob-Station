@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesWorkingJoeCBRN
+  name: Working Joe CBRN gloves
+  description: Sealed insulated gloves for hazardous synthetic work.

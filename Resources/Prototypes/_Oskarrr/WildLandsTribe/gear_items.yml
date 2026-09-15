@@ -1,0 +1,100 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Poison dart / arrow that slows targets (mercs, xenos, etc.)
+- type: entity
+  parent: ArrowRegular
+  id: ArrowAboriginePoison
+  name: poisoned arrow
+  description: A tribal arrow tipped with jungle toxin. Slows whatever it hits.
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Poison: 8
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 5
+        reagents:
+        - ReagentId: Mechanotoxin
+          Quantity: 5
+  - type: SolutionInjectOnEmbed
+    transferAmount: 5
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 5
+    solution: ammo
+
+- type: entity
+  parent: ThrowingKnife
+  id: DartAboriginePoison
+  name: poisoned dart
+  description: A light dart coated in slowing venom.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/throwing_knife.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 8
+        Poison: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 12
+        Poison: 8
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 5
+        reagents:
+        - ReagentId: Mechanotoxin
+          Quantity: 5
+  - type: SolutionInjectOnEmbed
+    transferAmount: 5
+    solution: ammo
+
+# Dense thicket — slows everyone except WildLandsWarrior
+- type: entity
+  id: FloraWildLandsThicket
+  name: thicket
+  description: Dense brush that snags boots and claws alike.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/Misc/bush.rsi
+    state: bush1
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 10
+        hard: false
+        layer:
+        - MidImpassable
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.55
+    sprintSpeedModifier: 0.55
+    ignoreWhitelist:
+      tags:
+      - WildLandsWarrior
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

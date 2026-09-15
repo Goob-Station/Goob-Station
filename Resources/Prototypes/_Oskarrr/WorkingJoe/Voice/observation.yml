@@ -1,0 +1,105 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeADisturbance
+  category: Observation
+  name: emote-name-workingjoe-a-disturbance
+  soundCollection: AU14WorkingJoeADisturbance
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAnUnauthorizedUseOfLightingEquipment
+  category: Observation
+  name: emote-name-workingjoe-an-unauthorized-use-of-lighting-equipment
+  soundCollection: AU14WorkingJoeAnUnauthorizedUseOfLightingEquipment
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAnotherProblem
+  category: Observation
+  name: emote-name-workingjoe-another-problem
+  soundCollection: AU14WorkingJoeAnotherProblem
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeCurious
+  category: Observation
+  name: emote-name-workingjoe-curious
+  soundCollection: AU14WorkingJoeCurious
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeHmm
+  category: Observation
+  name: emote-name-workingjoe-hmm
+  soundCollection: AU14WorkingJoeHmm
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeOutOfPlace
+  category: Observation
+  name: emote-name-workingjoe-out-of-place
+  soundCollection: AU14WorkingJoeOutOfPlace
+
+- type: workingJoeVoiceLine
+  id: WorkingJoePyrotechnicLightingIShouldInvestigate
+  category: Observation
+  name: emote-name-workingjoe-pyrotechnic-lighting-i-should-investigate
+  soundCollection: AU14WorkingJoePyrotechnicLightingIShouldInvestigate
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeSomeonesBeenHere
+  category: Observation
+  name: emote-name-workingjoe-someones-been-here
+  soundCollection: AU14WorkingJoeSomeonesBeenHere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeSomethingAmiss
+  category: Observation
+  name: emote-name-workingjoe-something-amiss
+  soundCollection: AU14WorkingJoeSomethingAmiss
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeStrange
+  category: Observation
+  name: emote-name-workingjoe-strange
+  soundCollection: AU14WorkingJoeStrange
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThatsOdd
+  category: Observation
+  name: emote-name-workingjoe-thats-odd
+  soundCollection: AU14WorkingJoeThatsOdd
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeTheresStillSomethingAmissHere
+  category: Observation
+  name: emote-name-workingjoe-theres-still-something-amiss-here
+  soundCollection: AU14WorkingJoeTheresStillSomethingAmissHere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisDoesntUsuallyHappen
+  category: Observation
+  name: emote-name-workingjoe-this-doesnt-usually-happen
+  soundCollection: AU14WorkingJoeThisDoesntUsuallyHappen
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisSeemsSomewhatIrregular
+  category: Observation
+  name: emote-name-workingjoe-this-seems-somewhat-irregular
+  soundCollection: AU14WorkingJoeThisSeemsSomewhatIrregular
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisShouldntBeHere
+  category: Observation
+  name: emote-name-workingjoe-this-shouldnt-be-here
+  soundCollection: AU14WorkingJoeThisShouldntBeHere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeUnidentifiedSpecies
+  category: Observation
+  name: emote-name-workingjoe-unidentified-species
+  soundCollection: AU14WorkingJoeUnidentifiedSpecies
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatAnAwfulMess
+  category: Observation
+  name: emote-name-workingjoe-what-an-awful-mess
+  soundCollection: AU14WorkingJoeWhatAnAwfulMess
+

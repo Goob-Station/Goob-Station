@@ -1,0 +1,81 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAllVisitingCorporateRepresentativesMustReportToTheirNearestSynthetic
+  category: Propaganda
+  name: emote-name-workingjoe-all-visiting-corporate-representatives-must-report-to-their-nearest-synthetic
+  soundCollection: AU14WorkingJoeAllVisitingCorporateRepresentativesMustReportToTheirNearestSynthetic
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIAmBuiltToWithstandTemperaturesOfUpTo1210Degrees
+  category: Propaganda
+  name: emote-name-workingjoe-i-am-built-to-withstand-temperatures-of-up-to-1210-degrees
+  soundCollection: AU14WorkingJoeIAmBuiltToWithstandTemperaturesOfUpTo1210Degrees
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIAmInexpensiveIAmReliableYouKnowMyFaceTheWorkingJoe
+  category: Propaganda
+  name: emote-name-workingjoe-i-am-inexpensive-i-am-reliable-you-know-my-face-the-working-joe
+  soundCollection: AU14WorkingJoeIAmInexpensiveIAmReliableYouKnowMyFaceTheWorkingJoe
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIfMyServicesDoNotMeetSeegsonStandardsPleaseLogAComplaint
+  category: Propaganda
+  name: emote-name-workingjoe-if-my-services-do-not-meet-seegson-standards-please-log-a-complaint
+  soundCollection: AU14WorkingJoeIfMyServicesDoNotMeetSeegsonStandardsPleaseLogAComplaint
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIfYouFindThisFacilityThatIsntToYourLikingPleaseLetMeKnow
+  category: Propaganda
+  name: emote-name-workingjoe-if-you-find-this-facility-that-isnt-to-your-liking-please-let-me-know
+  soundCollection: AU14WorkingJoeIfYouFindThisFacilityThatIsntToYourLikingPleaseLetMeKnow
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeInterestedInOurWorkingJoeAndroidRangeTalkToSeegson
+  category: Propaganda
+  name: emote-name-workingjoe-interested-in-our-working-joe-android-range-talk-to-seegson
+  soundCollection: AU14WorkingJoeInterestedInOurWorkingJoeAndroidRangeTalkToSeegson
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeSeegsonRelentlessInThePursuitOfAffordableQuality
+  category: Propaganda
+  name: emote-name-workingjoe-seegson-relentless-in-the-pursuit-of-affordable-quality
+  soundCollection: AU14WorkingJoeSeegsonRelentlessInThePursuitOfAffordableQuality
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeSeegsonTomorrowTogether
+  category: Propaganda
+  name: emote-name-workingjoe-seegson-tomorrow-together
+  soundCollection: AU14WorkingJoeSeegsonTomorrowTogether
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisIsASeegsonAssistedInstallation
+  category: Propaganda
+  name: emote-name-workingjoe-this-is-a-seegson-assisted-installation
+  soundCollection: AU14WorkingJoeThisIsASeegsonAssistedInstallation
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWeDontForgetTheLittleDetailsWhenSeeingTheBigPicture
+  category: Propaganda
+  name: emote-name-workingjoe-we-dont-forget-the-little-details-when-seeing-the-big-picture
+  soundCollection: AU14WorkingJoeWeDontForgetTheLittleDetailsWhenSeeingTheBigPicture
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWeHopeYoullJoinUsForTheJourney
+  category: Propaganda
+  name: emote-name-workingjoe-we-hope-youll-join-us-for-the-journey
+  soundCollection: AU14WorkingJoeWeHopeYoullJoinUsForTheJourney
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWithSeegsonTheresSomeoneBehindYouHelpingYouEverySingleStepOfTheWay
+  category: Propaganda
+  name: emote-name-workingjoe-with-seegson-theres-someone-behind-you-helping-you-every-single-step-of-the-way
+  soundCollection: AU14WorkingJoeWithSeegsonTheresSomeoneBehindYouHelpingYouEverySingleStepOfTheWay
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYouAlwaysKnowAWorkingJoe
+  category: Propaganda
+  name: emote-name-workingjoe-you-always-know-a-working-joe
+  soundCollection: AU14WorkingJoeYouAlwaysKnowAWorkingJoe
+

@@ -16,5 +16,8 @@ ghost-role-information-xenomorph-praetorian-description = You're a xenomorph pra
 ghost-role-information-xenomorph-queen-name = xenomorph queen
 ghost-role-information-xenomorph-queen-description = You're a xenomorph queen. Produce offspring and manage the hive, and most importantly DON'T DIE.
 
+ghost-role-information-xenomorph-empress-name = xenomorph empress
+ghost-role-information-xenomorph-empress-description = You're a xenomorph empress. Root yourself to mass-produce eggs, announce to the hive, and don't die.
+
 ghost-role-information-xenomorph-sentinel-name = xenomorph sentinel
 ghost-role-information-xenomorph-sentinel-description = You're a xenomorph sentinel. Help the praetorian defend the hive and attack the humanoids if necessary.

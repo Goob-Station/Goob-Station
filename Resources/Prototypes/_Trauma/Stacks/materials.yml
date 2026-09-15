@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: stack
+  parent: BaseMediumStack
+  id: BarbedWire
+  name: stack-barbwire
+  icon: { sprite: /Textures/_Trauma/Objects/Materials/barbwire.rsi, state: icon }
+  spawn: BarbedWire1

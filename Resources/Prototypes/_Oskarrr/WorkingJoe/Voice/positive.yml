@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeCalmDown
+  category: Positive
+  name: emote-name-workingjoe-calm-down
+  soundCollection: AU14WorkingJoeCalmDown
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeComeWithMePlease
+  category: Positive
+  name: emote-name-workingjoe-come-with-me-please
+  soundCollection: AU14WorkingJoeComeWithMePlease
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeDoNotPanic
+  category: Positive
+  name: emote-name-workingjoe-do-not-panic
+  soundCollection: AU14WorkingJoeDoNotPanic
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeFollowMePlease
+  category: Positive
+  name: emote-name-workingjoe-follow-me-please
+  soundCollection: AU14WorkingJoeFollowMePlease
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIJustWantToHelp
+  category: Positive
+  name: emote-name-workingjoe-i-just-want-to-help
+  soundCollection: AU14WorkingJoeIJustWantToHelp
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeKeepCalmItsJustAnAlarm
+  category: Positive
+  name: emote-name-workingjoe-keep-calm-its-just-an-alarm
+  soundCollection: AU14WorkingJoeKeepCalmItsJustAnAlarm
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeLetMeHelpYou
+  category: Positive
+  name: emote-name-workingjoe-let-me-help-you
+  soundCollection: AU14WorkingJoeLetMeHelpYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoePlease
+  category: Positive
+  name: emote-name-workingjoe-please
+  soundCollection: AU14WorkingJoePlease
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThereCouldBeSomeoneWhoRequiresAssistance
+  category: Positive
+  name: emote-name-workingjoe-there-could-be-someone-who-requires-assistance
+  soundCollection: AU14WorkingJoeThereCouldBeSomeoneWhoRequiresAssistance
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeTheresNoReasonToBeShy
+  category: Positive
+  name: emote-name-workingjoe-theres-no-reason-to-be-shy
+  soundCollection: AU14WorkingJoeTheresNoReasonToBeShy
+

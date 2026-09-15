@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/obj/items/hunter/pred_shoes.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/mob/humans/onmob/hunter/pred_shoes.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-FEET",
+      "directions": 4
+    }
+  ]
+}

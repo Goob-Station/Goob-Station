@@ -9,6 +9,16 @@
     Poison: 0
 
 - type: damageModifierSet
+  id: XenomorphEmpress
+  coefficients:
+    Blunt: 0.80
+    Slash: 0.80
+    Piercing: 0.80
+    Cold: 0
+    Heat: 0
+    Poison: 0
+
+- type: damageModifierSet
   id: XenomorphDungeon
   coefficients:
     Blunt: 1

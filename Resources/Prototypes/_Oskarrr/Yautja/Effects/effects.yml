@@ -1,0 +1,14 @@
+﻿- type: entity
+  id: GoobYautjaCleanserAcid
+  name: "синій розчиняючий гель"
+  description: "Яскравий синій розчиняючий гель Хижака, що з'їдає польове обладнання."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 8
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    drawdepth: WallMountedItems
+    layers:
+    - state: dissolving_gel
+      color: "#4fdcff"

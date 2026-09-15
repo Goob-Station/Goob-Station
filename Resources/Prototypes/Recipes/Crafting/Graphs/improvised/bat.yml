@@ -35,3 +35,54 @@
 
     - node: bat
       entity: BaseBallBat
+      # Trauma improv upgrades
+      edges:
+        - to: barbedwire
+          steps:
+          - material: BarbedWire
+            amount: 3
+            doAfter: 5
+
+        - to: nail
+          steps:
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.5
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.5
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.5
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.5
+          - tag: Nail
+            name: construction-graph-tag-nail
+            icon:
+              sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+              state: icon
+          - tool: Hammering
+            doAfter: 0.5
+
+    - node: barbedwire
+      entity: BaseBallBatBarb
+
+    - node: nail
+      entity: BaseBallBatNail

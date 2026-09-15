@@ -1,0 +1,100 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# Arsenal branch: Wild Lands planetary defense ballistics.
+# Researched by science (НВ), printed on SecurityTechFab.
+
+- type: technology
+  id: WildLandsPatrolFirearms
+  name: research-technology-wildlands-patrol-firearms
+  icon:
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 12000
+  recipeUnlocks:
+  - WeaponSubMachineGunC20r
+  - WeaponRifleM90
+  - WeaponSniperMosin
+  technologyPrerequisites:
+  - AdvancedRiotControl
+  position: 7,3
+
+- type: technology
+  id: WildLandsSpecialFirearms
+  name: research-technology-wildlands-special-firearms
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponSubMachineGunM7S
+  - WeaponRifleWSPR
+  - WeaponShotgunBulldog
+  - WeaponShotgunCombat
+  - ToolboxElectricalTurretFilled
+  technologyPrerequisites:
+  - WildLandsPatrolFirearms
+  position: 8,3
+
+- type: technology
+  id: WildLandsHeavyOrdnance
+  name: research-technology-wildlands-heavy-ordnance
+  icon:
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 25000
+  recipeUnlocks:
+  - WeaponLightMachineGunL6
+  - WeaponShotgunHeavy
+  - WeaponRifleBurner
+  - ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  - BriefcaseSyndieSniperBundleFilled
+  technologyPrerequisites:
+  - WildLandsSpecialFirearms
+  - ExplosiveTechnology
+  position: 9,3
+
+- type: technology
+  id: WildLandsEnergyMelee
+  name: research-technology-wildlands-energy-melee
+  icon:
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - EnergySword
+  - EnergyShield
+  technologyPrerequisites:
+  - WildLandsSpecialFirearms
+  - PortableMicrofusionWeaponry
+  position: 8,2
+
+- type: technology
+  id: WildLandsCybernetics
+  name: research-technology-wildlands-cybernetics
+  icon:
+    sprite: _Goobstation/Objects/Devices/autosurgeon.rsi
+    state: icon-syndie
+  discipline: Arsenal
+  tier: 3
+  cost: 22000
+  recipeUnlocks:
+  - AutosurgeonSandevistan
+  - AutosurgeonStatvekaSandevistan
+  - AutosurgeonRightMantisBlade
+  - AutosurgeonLeftMantisBlade
+  - AutosurgeonBerserker
+  - AutosurgeonRecoilAbsorber
+  - AutosurgeonSmartLink
+  - AutosurgeonJumpstarter
+  - NutrimentImplanter
+  technologyPrerequisites:
+  - WildLandsSpecialFirearms
+  position: 9,2

@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/5e81a4fe2c8a740e965315c5414d340ea76c4ad0/icons/turf/faction_flags.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "wy_left"
+    },
+    {
+      "name": "wy_mid"
+    },
+    {
+      "name": "wy_right"
+    }
+  ]
+}

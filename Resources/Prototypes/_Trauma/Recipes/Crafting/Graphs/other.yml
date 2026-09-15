@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: BarbedWireMaterial
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: BarbedWire
+      completed:
+      - !type:SetStackCount
+        amount: 1
+      steps:
+      - material: Cable
+        amount: 30
+        doAfter: 3
+
+    - to: BarbedWire0
+      completed:
+      - !type:SetStackCount
+        amount: 1
+      steps:
+      - material: CableMV
+        amount: 20
+        doAfter: 3
+
+    - to: BarbedWire1
+      completed:
+      - !type:SetStackCount
+        amount: 1
+      steps:
+      - material: CableHV
+        amount: 10
+        doAfter: 3
+
+  - node: BarbedWire
+    entity: BarbedWire
+
+  - node: BarbedWire0
+    entity: BarbedWire
+
+  - node: BarbedWire1
+    entity: BarbedWire

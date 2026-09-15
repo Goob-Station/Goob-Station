@@ -1,0 +1,204 @@
+﻿- type: soundCollection
+  id: GoobYautjaSpeechClicks
+  files:
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click01.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click02.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click03.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click04.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click05.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click06.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click07.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click08.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click09.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Clicks/pred_click10.wav
+
+- type: soundCollection
+  id: GoobYautjaCloakWarning
+  files:
+  - /Audio/_Oskarrr/Yautja/Equipment/predator_cloak_warning_01.wav
+  - /Audio/_Oskarrr/Yautja/Equipment/predator_cloak_warning_02.wav
+  - /Audio/_Oskarrr/Yautja/Equipment/predator_cloak_warning_03.wav
+
+- type: soundCollection
+  id: GoobYautjaHealthShardPainScream
+  files:
+  - /Audio/_Oskarrr/Yautja/Equipment/HealthShard/prd_health_pain_scream_01.wav
+  - /Audio/_Oskarrr/Yautja/Equipment/HealthShard/prd_health_pain_scream_02.wav
+  - /Audio/_Oskarrr/Yautja/Equipment/HealthShard/prd_health_pain_scream_03.wav
+
+- type: soundCollection
+  id: GoobYautjaTranslator
+  files:
+  - /Audio/_Oskarrr/Yautja/Equipment/pred_translator.ogg
+
+- type: soundCollection
+  id: GoobYautjaRoars
+  files:
+  - /Audio/_Oskarrr/Yautja/Voice/Roars/pred_roar1.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Roars/pred_roar2.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Roars/pred_roar3.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Roars/pred_roar4.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Roars/pred_roar5.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Roars/pred_roar6.wav
+
+- type: soundCollection
+  id: GoobYautjaLaughs
+  files:
+  - /Audio/_Oskarrr/Yautja/Voice/Laughs/pred_laugh1.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Laughs/pred_laugh2.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Laughs/pred_laugh3.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Laughs/pred_laugh4.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Laughs/pred_laugh5.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Laughs/pred_laugh6.wav
+
+- type: soundCollection
+  id: GoobYautjaPain
+  files:
+  - /Audio/_Oskarrr/Yautja/Voice/Pain/pred_pain1.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Pain/pred_pain2.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Pain/pred_pain3.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Pain/pred_pain4.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Pain/pred_pain5.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Pain/pred_pain_rare1.wav
+
+- type: soundCollection
+  id: GoobYautjaDeath
+  files:
+  - /Audio/_Oskarrr/Yautja/Voice/Death/pred_death_scream_01.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Death/pred_death_scream_02.wav
+
+- type: soundCollection
+  id: GoobYautjaDeathCries
+  files:
+  - /Audio/_Oskarrr/Yautja/Voice/Death/pred_death1.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Death/pred_death2.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Death/pred_death_scream_01.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Death/pred_death_scream_02.wav
+
+- type: soundCollection
+  id: GoobYautjaDistract
+  files:
+  - /Audio/_Oskarrr/Yautja/Voice/Distract/pred_distract_01.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Distract/pred_distract_02.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Distract/pred_distract_03.wav
+  - /Audio/_Oskarrr/Yautja/Voice/Distract/pred_distract_04.wav
+
+- type: soundCollection
+  id: GoobYautjaWristBladesHit
+  files:
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_hit_01.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_hit_02.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_hit_03.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_hit_04.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_hit_05.wav
+
+- type: soundCollection
+  id: GoobYautjaWristBladesMiss
+  files:
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_swipe_01.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_swipe_02.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_swipe_03.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_swipe_04.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/prd_wrist_blades_swipe_05.wav
+
+- type: soundCollection
+  id: GoobYautjaWristBladesHitDirt
+  files:
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/wrist_blades_hit_dirt_01.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/wrist_blades_hit_dirt_02.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/wrist_blades_hit_dirt_03.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/wrist_blades_hit_dirt_04.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/WristBlades/wrist_blades_hit_dirt_05.wav
+
+- type: soundCollection
+  id: GoobYautjaSwordHitDirt
+  files:
+  - /Audio/_Oskarrr/Yautja/Weapons/Sword/sword_impact_dirt_01.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/Sword/sword_impact_dirt_02.wav
+
+- type: soundCollection
+  id: GoobYautjaSwordHit
+  files:
+  - /Audio/_Oskarrr/Yautja/Weapons/Sword/prd_sword_impact_01.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/Sword/prd_sword_impact_02.wav
+
+- type: soundCollection
+  id: GoobYautjaSwordMiss
+  files:
+  - /Audio/_Oskarrr/Yautja/Weapons/Sword/prd_sword_miss_01.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/Sword/prd_sword_miss_02.wav
+
+- type: soundCollection
+  id: GoobYautjaChainGauntletHit
+  files:
+  - /Audio/Weapons/punch1.ogg
+  - /Audio/Weapons/punch2.ogg
+  - /Audio/Weapons/punch3.ogg
+  - /Audio/Weapons/punch4.ogg
+  - /Audio/Effects/hit_kick.ogg
+  - /Audio/_Oskarrr/Yautja/Weapons/ChainGauntlet/hit_punch.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/ChainGauntlet/chain_whip.wav
+
+- type: soundCollection
+  id: GoobYautjaClanSwordHit
+  files:
+  - /Audio/_Oskarrr/Yautja/Weapons/Melee/clan_sword_hit_1.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/Melee/clan_sword_hit_2.wav
+
+- type: soundCollection
+  id: GoobYautjaChainWhipHit
+  files:
+  - /Audio/_Oskarrr/Yautja/Weapons/ChainGauntlet/chain_whip.wav
+
+- type: soundCollection
+  id: GoobYautjaSlam
+  files:
+  - /Audio/_Oskarrr/Yautja/Weapons/ChainGauntlet/slam1.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/ChainGauntlet/slam2.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/ChainGauntlet/slam3.wav
+  - /Audio/_Oskarrr/Yautja/Weapons/ChainGauntlet/slam_rare_1.wav
+
+- type: speechSounds
+  id: GoobYautjaSpeech
+  saySound:
+    collection: GoobYautjaSpeechClicks
+  askSound:
+    collection: GoobYautjaSpeechClicks
+  exclaimSound:
+    collection: GoobYautjaSpeechClicks
+
+- type: emoteSounds
+  id: GoobBaseYautja
+  sounds:
+    GoobYautjaClick:
+      collection: GoobYautjaSpeechClicks
+    GoobYautjaRoar:
+      collection: GoobYautjaRoars
+    GoobYautjaLaugh:
+      collection: GoobYautjaLaughs
+    GoobYautjaGrowl:
+      path: /Audio/_Oskarrr/Yautja/Voice/Roars/predgrowl.wav
+    GoobYautjaPain:
+      collection: GoobYautjaPain
+    GoobYautjaDeathCry:
+      collection: GoobYautjaDeathCries
+    GoobYautjaDeathLaugh:
+      path: /Audio/_Oskarrr/Yautja/Voice/Death/pred_deathlaugh.wav
+    GoobYautjaDistract:
+      collection: GoobYautjaDistract
+    Scream:
+      collection: GoobYautjaRoars
+    Laugh:
+      collection: GoobYautjaLaughs
+    Growl:
+      path: /Audio/_Oskarrr/Yautja/Voice/Roars/predgrowl.wav
+    DefaultDeathgasp:
+      collection: GoobYautjaDeath
+
+- type: emoteSounds
+  parent: GoobBaseYautja
+  id: GoobMaleYautja
+
+- type: emoteSounds
+  parent: GoobBaseYautja
+  id: GoobFemaleYautja

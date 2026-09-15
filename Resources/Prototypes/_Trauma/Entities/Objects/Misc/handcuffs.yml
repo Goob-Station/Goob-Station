@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ BaseMinorContraband, Handcuffs ]
+  id: BarbHandcuffs
+  name: barbed wire handcuffs
+  description: Used to detain people you intend to kill.
+  components:
+  - type: Handcuff
+    cuffedRSI: _Trauma/Objects/Misc/cuffs_barbwire.rsi
+    bodyIconState: body-overlay
+  - type: Sprite
+    sprite: _Trauma/Objects/Misc/cuffs_barbwire.rsi
+    state: icon
+  - type: UseDelay
+    delay: 3
+  - type: Construction
+    graph: BarbCuffs
+    node: finish

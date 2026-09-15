@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Hive plating — weather: false so Lavaland ash storms do not affect entities on it (like station plating).
+- type: tile
+  id: FloorXenoHive
+  name: tiles-xeno-hive-floor
+  sprite: /Textures/_White/Structures/Furniture/resin_weed.rsi/full.png
+  baseTurf: FloorBasaltLavaland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepResin
+  heatCapacity: 10000
+  weather: false
+  indestructible: true
+  sturdy: true
+  baseWhitelist:
+  - FloorBasaltLavaland
+  - FloorPlanetAsh
+  - FloorPlanetGrassLight
+  - Plating
+  - PlatingAsteroid
+  - PlatingRCD
+  - FloorHullReinforced
+  - FloorDirt
+  - FloorDesert
+  - FloorLowDesert
+  - FloorPlanetDirt
+  - FloorPlanetGrass
+  - FloorSnow
+  - FloorAsteroidSand
+  - FloorAsteroidSandBorderless
+  - FloorAsteroidIronsand
+  - FloorAsteroidIronsandBorderless
+  - FloorAsteroidSandRedBorderless

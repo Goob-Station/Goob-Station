@@ -1,0 +1,159 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Human-looking synthetic: no food/charge, atmosphere-proof, welder+cable repair,
+# bleeds but regenerates fast, high thresholds, survives without limbs (except head).
+- type: entity
+  parent:
+  - MobBloodstream
+  - MobFlammable
+  - BaseMobSpecies
+  id: BaseMobSynthetic
+  name: Urist McSynthetic
+  abstract: true
+  components:
+  - type: Synthetic
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: HumanoidAppearance
+    species: Synthetic
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Body
+    prototype: Human
+    requiredLegs: 0
+  - type: Damageable
+    damageContainer: Synthetic
+    damageModifierSet: Synthetic
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Critical
+      400: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      200: 0.85
+      300: 0.65
+  - type: Bloodstream
+    bleedReductionAmount: 4.0
+    bloodRefreshAmount: 8.0
+    maxBleedAmount: 10.0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: SyntheticBlood
+        Quantity: 300
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.25
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -2
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 80
+    damage:
+      types:
+        Bloodloss: -1.5
+        Heat: -0.05
+      groups:
+        Brute: -0.1
+  - type: PressureImmunity
+  - type: BreathingImmunity
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 450
+    coldDamageThreshold: 200
+    coldDamage:
+      types:
+        Cold: 0.05
+    heatDamage:
+      types:
+        Heat: 0.5
+  - type: Repairable
+    fuelCost: 3
+    doAfterDelay: 2
+    selfRepairPenalty: 1.5
+    allowSelfRepair: true
+    damage:
+      types:
+        Blunt: -20
+        Slash: -20
+        Piercing: -20
+        Heat: -10
+        Shock: -10
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.0
+    baseSprintSpeed: 5.0
+  - type: Sprinter
+    staminaDrainRate: 6
+    sprintSpeedMultiplier: 1.25
+  - type: Consciousness
+    cap: 250
+    threshold: 60
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: SheetSteel1
+      amount: 3
+    - id: CableApcStack1
+      amount: 2
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - SyntheticMob
+    - Wey-Yu
+  - type: ZombieImmune
+  - type: FacehuggerImmune
+  - type: DiseaseCarrier
+  - type: Immunity
+    affectedTypes:
+    - Viral
+    - Bacterial
+    - Parasite
+  - type: Fingerprint
+  - type: Blindable
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: MaleHuman
+
+- type: entity
+  parent: BaseMobSynthetic
+  id: MobSynthetic
+  name: Urist McSynthetic
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobSyntheticDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Synthetic
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

@@ -390,7 +390,12 @@ namespace Content.Shared.Interaction
             // This is intended to allow items to be picked up in combat mode,
             // but to also allow items to force attacks anyway (like mobs which are items, e.g. mice)
             if (!_itemQuery.HasComp(target))
-                return false;
+            {
+                // Allow subscribers (e.g. xenomorph queens) to hand-interact with non-items like consoles.
+                var nonItemEv = new CombatModeCanInteractNonItemEvent(target.Value);
+                RaiseLocalEvent(user, ref nonItemEv);
+                return nonItemEv.CanInteract;
+            }
 
             var combatEv = new CombatModeShouldHandInteractEvent();
             RaiseLocalEvent(target.Value, ref combatEv);
@@ -1591,6 +1596,13 @@ namespace Content.Shared.Interaction
     /// <param name="Cancelled">Whether the hand interaction should be cancelled.</param>
     [ByRefEvent]
     public record struct CombatModeShouldHandInteractEvent(bool Cancelled = false);
+
+    /// <summary>
+    ///     Raised directed by-ref on the user when combat-mode clicking a non-item target.
+    ///     Defaults to attacking. Set <see cref="CanInteract"/> to allow hand interaction (e.g. consoles).
+    /// </summary>
+    [ByRefEvent]
+    public record struct CombatModeCanInteractNonItemEvent(EntityUid Target, bool CanInteract = false);
 
     /// <summary>
     /// Override event raised directed on the user to say the target is accessible.

@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Wild Lands custom moss undergrowth (jungle biome).
+- type: tile
+  id: FloorOskarrrMoss
+  parent: BaseFloorPlanet
+  name: tiles-oskarrr-moss-floor
+  sprite: /Textures/Tiles/grassdark.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: FloorPlanetDirt
+  footstepSounds:
+    collection: FootstepGrass
+
+# Dry yellow savanna grass.
+- type: tile
+  id: FloorOskarrrDryGrass
+  parent: BaseFloorPlanet
+  name: tiles-oskarrr-dry-grass-floor
+  sprite: /Textures/Tiles/grasslight.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: FloorPlanetDirt
+  footstepSounds:
+    collection: FootstepGrass

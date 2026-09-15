@@ -23,7 +23,11 @@ public sealed class LavalandMapOptimizationSystem : EntitySystem
 
     private void OnMapInit(Entity<BiomeOptimizeComponent> ent, ref MapInitEvent args)
     {
-        var enumerator = new ChunkIndicesEnumerator(ent.Comp.LoadArea, SharedBiomeSystem.ChunkSize);
+        // Only pin the outpost — do not mark the whole planet as loaded (that forced RAM/CPU at roundstart).
+        if (ent.Comp.PinnedArea.Equals(default) || ent.Comp.PinnedArea.IsEmpty())
+            return;
+
+        var enumerator = new ChunkIndicesEnumerator(ent.Comp.PinnedArea, SharedBiomeSystem.ChunkSize);
 
         while (enumerator.MoveNext(out var chunk))
         {
@@ -34,14 +38,14 @@ public sealed class LavalandMapOptimizationSystem : EntitySystem
 
     private void OnChunkUnLoaded(Entity<BiomeOptimizeComponent> ent, ref UnLoadChunkEvent args)
     {
-        // We don't unload chunks in the preloaded area since it's expensive.
+        // Keep outpost chunks warm; everything else unloads when players leave (normal biome behaviour).
         if (ent.Comp.LoadedChunks.Contains(args.Chunk))
             args.Cancelled = true;
     }
 
     private void OnChunkLoad(Entity<BiomeOptimizeComponent> ent, ref BeforeLoadChunkEvent args)
     {
-        // We load only specified area around the origin.
+        // Hard border of the planet — same as RestrictedRange.
         if (!ent.Comp.LoadArea.Contains(args.Chunk))
             args.Cancelled = true;
     }

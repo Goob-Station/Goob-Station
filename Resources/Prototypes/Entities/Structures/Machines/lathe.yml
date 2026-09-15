@@ -511,6 +511,8 @@
     # - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
+    - WildLandsSecurityBallistics
+    - WildLandsSecurityCybernetics
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SyndicateAmmoStatic

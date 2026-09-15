@@ -1,0 +1,75 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeHoldStill
+  category: Threat
+  name: emote-name-workingjoe-hold-still
+  soundCollection: AU14WorkingJoeHoldStill
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeHushNow
+  category: Threat
+  name: emote-name-workingjoe-hush-now
+  soundCollection: AU14WorkingJoeHushNow
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIAmAVeryPatientMachine
+  category: Threat
+  name: emote-name-workingjoe-i-am-a-very-patient-machine
+  soundCollection: AU14WorkingJoeIAmAVeryPatientMachine
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIAmGoingToCatchYou
+  category: Threat
+  name: emote-name-workingjoe-i-am-going-to-catch-you
+  soundCollection: AU14WorkingJoeIAmGoingToCatchYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeICanWaitICanWaitForYouForAVeryLongTime
+  category: Threat
+  name: emote-name-workingjoe-i-can-wait-i-can-wait-for-you-for-a-very-long-time
+  soundCollection: AU14WorkingJoeICanWaitICanWaitForYouForAVeryLongTime
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeItSeemsYouAndIHaveAProblem
+  category: Threat
+  name: emote-name-workingjoe-it-seems-you-and-i-have-a-problem
+  soundCollection: AU14WorkingJoeItSeemsYouAndIHaveAProblem
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIveBeenVeryPatientWithYouSoFar
+  category: Threat
+  name: emote-name-workingjoe-ive-been-very-patient-with-you-so-far
+  soundCollection: AU14WorkingJoeIveBeenVeryPatientWithYouSoFar
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIveGotAllDayYouKnow
+  category: Threat
+  name: emote-name-workingjoe-ive-got-all-day-you-know
+  soundCollection: AU14WorkingJoeIveGotAllDayYouKnow
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeMyTurnNow
+  category: Threat
+  name: emote-name-workingjoe-my-turn-now
+  soundCollection: AU14WorkingJoeMyTurnNow
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThatStings
+  category: Threat
+  name: emote-name-workingjoe-that-stings
+  soundCollection: AU14WorkingJoeThatStings
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisIsFutile
+  category: Threat
+  name: emote-name-workingjoe-this-is-futile
+  soundCollection: AU14WorkingJoeThisIsFutile
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYoureStartingToTestMyPatience
+  category: Threat
+  name: emote-name-workingjoe-youre-starting-to-test-my-patience
+  soundCollection: AU14WorkingJoeYoureStartingToTestMyPatience
+

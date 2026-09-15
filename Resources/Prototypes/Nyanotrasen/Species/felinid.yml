@@ -3,7 +3,7 @@
 - type: species
   id: Felinid
   name: species-name-felinid
-  roundStart: false # Goobstation change
+  roundStart: true # Goobstation: enabled for Wild Lands / Badlands
   prototype: MobFelinid
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits

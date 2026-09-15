@@ -1,0 +1,646 @@
+- type: entity
+  parent: BaseSword
+  id: GoobYautjaWeaponBase
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Yautja
+  - type: YautjaResinBreaker
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: clan_sword
+  - type: Item
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    size: Large
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: Clothing
+    slots:
+    - SuitStorage
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaHarpoon
+  name: "великий гарпун"
+  description: "Зважений гарпун Яутжа, призначений для жорстоких кидків і ближнього бою."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: harpoon
+  - type: Item
+    heldPrefix: harpoon
+    size: Large
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 28
+        Slash: 6
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: LandAtCursor
+  - type: ThrowingAngle
+    angle: 225
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaChainwhip
+  name: "ланцюжковий батіг"
+  description: "Колюче ланцюжкова зброя для викачування крові і утримання здобичі на небезпечній відстані."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: chainwhip
+  - type: Item
+    heldPrefix: chainwhip
+    size: Large
+  - type: MeleeWeapon
+    attackRate: 0.85
+    damage:
+      types:
+        Slash: 31
+        Blunt: 5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaClanSword
+  name: "клановий меч"
+  description: "Важкий клановий клинок Яутжа з широким ріжучим лезом."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: clan_sword
+  - type: Item
+    heldPrefix: clan_sword
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      types:
+        Slash: 38
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  parent: GoobYautjaClanSword
+  id: GoobYautjaRendingSword
+  name: "розтерзаючий меч"
+  description: "Гачковий меч Яутжа, збалансований для розтерзаючих ударів."
+  components:
+  - type: Sprite
+    state: rending_sword
+  - type: Item
+    heldPrefix: rending_sword
+
+- type: entity
+  parent: GoobYautjaClanSword
+  id: GoobYautjaPiercingSword
+  name: "пробивний меч"
+  description: "Вузький меч Яутжа, збалансований для уколів."
+  components:
+  - type: Sprite
+    state: piercing_sword
+  - type: Item
+    heldPrefix: piercing_sword
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 27
+        Piercing: 12
+
+- type: entity
+  parent: GoobYautjaClanSword
+  id: GoobYautjaSeveringSword
+  name: "розсікаючий меч"
+  description: "Жорстокий меч Яутжа з рубаючим профілем."
+  components:
+  - type: Sprite
+    state: severing_sword
+  - type: Item
+    heldPrefix: severing_sword
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Slash: 44
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaDualWarScythe
+  name: "парна бойова коса"
+  description: "Парна косова зброя Яутжа для ритуального ближнього бою."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: dual_war_scythe
+  - type: Item
+    heldPrefix: dual_war_scythe
+    size: Huge
+  - type: MeleeWeapon
+    attackRate: 0.85
+    damage:
+      types:
+        Slash: 36
+        Piercing: 5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  parent: GoobYautjaDualWarScythe
+  id: GoobYautjaDoubleWarScythe
+  name: "подвійна бойова коса"
+  description: "Двоголова коса Яутжа з довшою вбивчою дугою."
+  components:
+  - type: Sprite
+    state: double_war_scythe
+  - type: Item
+    heldPrefix: double_war_scythe
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaCruelStaff
+  name: "жорстокий посох"
+  description: "Зважений посох Яутжа з підкріпленими ударними головами."
+  components:
+  - type: Sprite
+    state: cruel_staff
+  - type: Item
+    heldPrefix: cruel_staff
+    size: Huge
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      types:
+        Blunt: 35
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaCombistick
+  name: "комбі-палиця"
+  description: "Складний спис Яутжа з ланцюжковим держаком для повернення."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: combistick
+  - type: Item
+    heldPrefix: combistick
+    size: Huge
+  - type: MeleeWeapon
+    attackRate: 0.95
+    damage:
+      types:
+        Piercing: 33
+        Slash: 8
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: LandAtCursor
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaWarAxe
+  name: "бойова сокира"
+  description: "Швидка сокира Яутжа, призначена для роздирання та потрошіння здобичі, з ланцюжком, прикріпленим до руків'я."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: war_axe
+  - type: Item
+    heldPrefix: war_axe
+    size: Huge
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Slash: 35
+        Blunt: 6
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: LandAtCursor
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaCeremonialDagger
+  name: "церемоніальний кинджал"
+  description: "Компактний ніж Яутжа, що використовується для обрядів, трофеїв та ближніх убивств."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: ceremonial_dagger
+  - type: Item
+    heldPrefix: ceremonial_dagger
+    size: Small
+  - type: MeleeWeapon
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 25
+        Piercing: 5
+    soundHit:
+      path: /Audio/Weapons/slash.ogg
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaShieldBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: clan_shield
+  - type: Item
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    heldPrefix: clan_shield
+    size: Huge
+  - type: Blocking
+    blockSound:
+      path: /Audio/Weapons/smash.ogg
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.8
+        Heat: 0.8
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.65
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+  - type: Damageable
+    damageContainer: Shield
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 140
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: GoobYautjaShieldBase
+  id: GoobYautjaClanShield
+  name: "клановий щит"
+  description: "Важкий щит Яутжа, створений для ближніх полювань і ритуальної оборони."
+
+- type: entity
+  parent: GoobYautjaShieldBase
+  id: GoobYautjaAncientShield
+  name: "стародавній щит"
+  description: "Великий стародавній щит, викуваний з невідомого золотого сплаву."
+  components:
+  - type: Sprite
+    state: ancient_shield
+  - type: Item
+    heldPrefix: ancient_shield
+
+- type: entity
+  parent: GoobYautjaAncientShield
+  id: GoobYautjaAncientShieldAlt
+  name: "стародавній щит"
+  description: "Орнаментальний стародавній щит, на якому домінує металевий череп ксеноморфа."
+  components:
+  - type: Sprite
+    state: ancient_shield_alt
+  - type: Item
+    heldPrefix: ancient_shield_alt
+
+- type: entity
+  parent: GoobYautjaAncientShield
+  id: GoobYautjaAncientShieldTemple
+  name: "стародавній щит"
+  description: "Вивітрений стародавній щит із забутим церемоніальним візерунком."
+  components:
+  - type: Sprite
+    state: ancient_shield_temple
+  - type: Item
+    heldPrefix: ancient_shield_temple
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaHunterSpear
+  name: "мисливський спис"
+  description: "Спис вишуканого дизайну Яутжа, придатний для двохручних уколів. При кидку застрягає в цілі."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: hunter_spear
+  - type: Item
+    heldPrefix: hunter_spear
+    size: Ginormous
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 10
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+    wieldedInhandPrefix: hunter_spear
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 28
+        Slash: 6
+  - type: MeleeRequiresWield
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 120
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaWarGlaive
+  name: "бойова глеф"
+  description: "Дві величезні леза на металевому стрижні, вирізьблені таємничим написом."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: war_glaive
+  - type: Item
+    heldPrefix: war_glaive
+    size: Ginormous
+  - type: MeleeWeapon
+    attackRate: 0.65
+    damage:
+      types:
+        Slash: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+    wieldedInhandPrefix: war_glaive
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 31
+        Piercing: 5
+  - type: MeleeRequiresWield
+
+- type: entity
+  parent: GoobYautjaWarGlaive
+  id: GoobYautjaCleavingGlaive
+  name: "розрубальна глеф"
+  description: "Величезне однолезове древкове Яутжа."
+  components:
+  - type: Sprite
+    state: cleaving_glaive
+  - type: Item
+    heldPrefix: cleaving_glaive
+  - type: Wieldable
+    wieldedInhandPrefix: cleaving_glaive
+
+- type: entity
+  parent: GoobYautjaWarGlaive
+  id: GoobYautjaAncientWarGlaive
+  name: "стародавня бойова глеф"
+  description: "Стародавня бойова глеф з кислотними шрамами. Її лезо все ще небезпечне, але далеке від найкращих часів."
+  components:
+  - type: Sprite
+    state: ancient_war_glaive
+  - type: Item
+    heldPrefix: ancient_war_glaive
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 8
+        Blunt: 4
+  - type: Wieldable
+    wieldedInhandPrefix: ancient_war_glaive
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 24
+
+- type: entity
+  parent: GoobYautjaWarGlaive
+  id: GoobYautjaLongaxe
+  name: "довга сокира"
+  description: "Жахливо велика сокира Яутжа з вищербленим, кістко-руйнуючим лезом."
+  components:
+  - type: Sprite
+    state: longaxe
+  - type: Item
+    heldPrefix: longaxe
+  - type: Wieldable
+    wieldedInhandPrefix: longaxe
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaDuellingBlade
+  name: "дуельний клинок"
+  description: "Примітивний, але смертельний клинок Яутжа для ритуального бою. У двох руках працює як катана: блок і відбиття."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: duelling_blade
+  - type: Item
+    heldPrefix: duelling_blade
+    size: Normal
+  - type: MeleeWeapon
+    attackRate: 1.05
+    damage:
+      types:
+        Slash: 32
+      woundSeverityMultipliers:
+        Slash: 2.5
+      armorPenetration: 0.3
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+    wieldedInhandPrefix: duelling_blade
+  # TimedDeflectBlock is Pirate-only (katana deflect stack) — not in Badlands.
+  - type: DisarmMalus
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaDuellingClub
+  name: "дуельна палиця"
+  description: "Жорстока церемоніальна палиця для вирішення суперечок серед Яутжа."
+  components:
+  - type: Sprite
+    state: duelling_club
+  - type: Item
+    heldPrefix: duelling_club
+    size: Normal
+  - type: MeleeWeapon
+    attackRate: 0.95
+    damage:
+      types:
+        Blunt: 31
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaDuellingHatchet
+  name: "дуельна сокирка"
+  description: "Коротка церемоніальна сокирка з гострим лезом для ритуального бою."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: duelling_hatchet
+  - type: Item
+    heldPrefix: duelling_hatchet
+    size: Small
+  - type: MeleeWeapon
+    attackRate: 1.1
+    damage:
+      types:
+        Slash: 27
+        Blunt: 4
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: LandAtCursor
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaDuellingKnife
+  name: "дуельний ніж"
+  description: "Грубий ритуальний ніж, утиканий гостріми як бритва зубами."
+  components:
+  - type: Sharp
+  - type: Sprite
+    state: duelling_knife
+  - type: Item
+    heldPrefix: duelling_knife
+    size: Small
+  - type: MeleeWeapon
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 25
+        Piercing: 5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+- type: entity
+  parent: BaseBullet
+  id: GoobYautjaSpikeProjectile
+  name: "сплавний шип"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    layers:
+    - state: harpoon
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    damage:
+      types:
+        Piercing: 24
+        Slash: 6
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        # Як у звичайних куль — б'є в скло/решітки (GlassLayer ↔ BulletImpassable)
+        mask:
+        - Impassable
+        - BulletImpassable
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaSpikeLauncher
+  name: "пускова установка шипів"
+  description: "Компактний пристрій Яутжа у формі півмісяця, що швидко формує і випускає сплавні шипи. Регенерує заряд кожні 3 секунди."
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/guns.rsi
+    layers:
+    - state: spike_launcher
+  - type: Item
+    sprite: _Oskarrr/Yautja/gun_inhands.rsi
+    heldPrefix: spike_launcher
+    size: Normal
+  - type: AmmoCounter
+  - type: Gun
+    projectileSpeed: 28
+    fireRate: 1.2
+    minAngle: 10
+    maxAngle: 18
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
+  - type: BasicEntityAmmoProvider
+    proto: GoobYautjaSpikeProjectile
+    capacity: 12
+    count: 12
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 3
+    rechargeSound: null
+  # Одна рука; дві в руках — стріляють разом (як Dualetta), але не обов'язково.
+  - type: Multishot
+    missChance: 0
+    spreadMultiplier: 1
+    spreadAddition: 0
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Appearance
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaPlasmaRifle
+  name: "плазмова гвинтівка"
+  description: "Рідкісна енергетична гвинтівка Яутжа з внутрішнім самозарядним осередком."
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/guns.rsi
+    layers:
+    - state: plasma_rifle
+  - type: Item
+    sprite: _Oskarrr/Yautja/gun_inhands.rsi
+    heldPrefix: plasma_rifle
+    size: Huge
+  - type: AmmoCounter
+  - type: Gun
+    projectileSpeed: 30
+    fireRate: 0.75
+    minAngle: 8
+    maxAngle: 16
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: BatteryAmmoProvider
+    proto: GoobYautjaPlasmaRifleBolt
+    fireCost: 175
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  # Тимчасово закоментували автопідзарядку, щоб фабрика компонентів Goob не падала
+  # - type: BatterySelfRecharge
+  #   autoRecharge: true
+  #   autoRechargeRate: 35
+  # Об'єднали WieldDelay та Wieldable у правильний формат
+  - type: Wieldable
+    wieldedInhandPrefix: plasma_rifle
+  - type: GunRequiresWield
+  - type: Appearance

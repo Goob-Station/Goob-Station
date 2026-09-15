@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingBackpackSatchelEngineering
+  id: ClothingBackpackWorkingJoe
+  name: Working Joe IMP backpack
+  description: A durable synthetic maintenance pack. Tomorrow, Together.
+
+- type: entity
+  parent: ClothingBackpackWorkingJoe
+  id: ClothingBackpackWorkingJoeFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: WorkingJoeSprayCleanerExperimental
+    - id: WorkingJoeSynthResetKey
+    - id: Bucket
+    - id: MopItem
+    - id: WetFloorSign
+    - id: LightReplacer
+    - id: FireExtinguisher
+    - id: RubberStampWorkingJoe
+    - id: CableApcStack10
+    - id: SheetSteel10
+    - id: Multitool

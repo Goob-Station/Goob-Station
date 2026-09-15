@@ -3,7 +3,7 @@
 - type: species
   id: Vox
   name: species-name-vox
-  roundStart: true
+  roundStart: false # Wey-Yu atmosphere: disabled
   prototype: MobVox
   sprites: MobVoxSprites
   markingLimits: MobVoxMarkingLimits

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/3a67d45fa781bc4d9c632eca12069f0e8b165380/icons/obj/items/hunter/pred_mask.dmi, https://github.com/cmss13-devs/cmss13/blob/3a67d45fa781bc4d9c632eca12069f0e8b165380/icons/mob/humans/onmob/hunter/pred_mask.dmi. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-MASK",
+      "directions": 4
+    }
+  ]
+}

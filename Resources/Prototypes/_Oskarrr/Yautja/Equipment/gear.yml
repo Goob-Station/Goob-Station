@@ -1,0 +1,590 @@
+# Missing Yautja gear prototypes adapted for Goob Station.
+
+- type: entity
+  parent: ClothingUniformBase
+  id: GoobYautjaBodyMesh
+  name: "сітка тіла яутжа"
+  description: "Легка прибулецька сітка тіла для мисливських операцій."
+  suffix: Yautja
+  components:
+  - type: Tag
+    tags:
+    - Yautja
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: mesh_shirt
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: mesh_shirt
+
+- type: entity
+  parent: ClothingShoesBase
+  id: GoobYautjaClanGreavesBase
+  abstract: true
+  suffix: Yautja
+  components:
+  - type: Tag
+    tags:
+    - Yautja
+  - type: YautjaTrapProtection
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan.rsi
+    slots: [ feet ]
+
+- type: entity
+  parent: GoobYautjaClanGreavesBase
+  id: GoobYautjaClanGreaves
+  name: "кланові наголенники"
+
+- type: entity
+  parent: GoobYautjaClanGreavesBase
+  id: GoobYautjaClanGreaves2
+  name: "кланові наголенники"
+  suffix: Pattern 2
+
+- type: entity
+  parent: ClothingBackpack
+  id: GoobYautjaCloakPack
+  name: "плащ-пакунок яутжа"
+  description: "Складний прибулецький плащ з внутрішнім відділенням для мисливського спорядження."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/cape_full.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/cape_full.rsi
+  - type: Storage
+    grid:
+    - 0,0,10,7
+  - type: YautjaCloakPack
+
+- type: entity
+  parent: GoobYautjaCloakPack
+  id: GoobYautjaBadBloodCloakPack
+  name: "плащ-пакунок ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: GoobYautjaTrophyBelt
+  name: "пояс трофеїв"
+  description: "Пояс для закріплення мисливських трофеїв."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: bar
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    clothingVisuals:
+      belt:
+      - state: bar
+  - type: Storage
+    grid:
+    - 0,0,3,1
+
+- type: entity
+  parent: ClothingHeadset
+  id: GoobYautjaCommunicator
+  name: "прибулецький комунікатор"
+  description: "Вбудований мисливський комунікатор."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: synd_label
+
+- type: entity
+  parent: EncryptionKey
+  id: GoobYautjaEncryptionKey
+  name: "ключ шифрування яутжа"
+  suffix: Yautja
+  components:
+  - type: EncryptionKey
+    channels:
+    - Common
+    defaultChannel: Common
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: synd_label
+
+- type: entity
+  parent: GoobYautjaToolbelt
+  id: GoobYautjaToolbeltFilled
+  suffix: Filled, Yautja
+  components:
+  - type: StorageFill
+    contents:
+    - id: GoobYautjaWelder
+    - id: Crowbar
+    - id: Wirecutter
+    - id: Wrench
+    - id: Screwdriver
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaHuntingTrap
+  name: "мисливська пастка"
+  description: "Компактна пастка-міна яутжа. Постав і активуй — наступив: 50 Slash і відрубує стопу."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    drawdepth: Items
+    layers:
+    - state: yauttrap0
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: Item
+    size: Small
+  - type: YautjaHuntingTrap
+    triggerDamage:
+      types:
+        Slash: 50
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/click.ogg
+      params:
+        maxDistance: 1
+    popupActivate: yautja-hunting-trap-armed
+  - type: Armable
+    examineTextArmed: yautja-hunting-trap-examine-armed
+    examineTextNotArmed: yautja-hunting-trap-examine-unarmed
+  - type: UseDelay
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { state: yauttrap1 }
+          False: { state: yauttrap0 }
+  - type: StepTrigger
+    intersectRatio: 0.2
+    requiredTriggeredSpeed: 0
+    stepOn: true
+    triggerGroups:
+      types:
+      - Landmine
+  - type: TriggerOnStepTrigger
+  - type: EmitSoundOnTrigger
+    positional: true
+    sound:
+      path: /Audio/Items/snap.ogg
+  - type: Pullable
+  - type: Physics
+    bodyType: Dynamic
+  - type: CollisionWake
+    enabled: false
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - LowImpassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 30
+        mask:
+        - ItemMask
+  - type: Rotatable
+
+- type: entity
+  parent: [ BaseItem, BaseSetSelector ]
+  id: GoobYautjaHuntingPouch
+  name: "мисливська сумка"
+  description: "Блюспейс-сумка мисливця. Обери рівно 3 набори зброї Яутжа."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: beltbag
+  - type: Item
+    size: Small
+  - type: SetSelector
+    maxSelectedSets: 3
+    possibleSets:
+    - YautjaSetPlasmaRifle
+    - YautjaSetSpikeLauncher
+    - YautjaSetSmartDisc
+    - YautjaSetHarpoon
+    - YautjaSetClanSword
+    - YautjaSetRendingSword
+    - YautjaSetPiercingSword
+    - YautjaSetSeveringSword
+    - YautjaSetScimitar
+    - YautjaSetChainwhip
+    - YautjaSetDualWarScythe
+    - YautjaSetDoubleWarScythe
+    - YautjaSetCruelStaff
+    - YautjaSetCombistick
+    - YautjaSetWarAxe
+    - YautjaSetCeremonialDagger
+    - YautjaSetCombiknife
+    - YautjaSetHunterSpear
+    - YautjaSetWarGlaive
+    - YautjaSetCleavingGlaive
+    - YautjaSetAncientWarGlaive
+    - YautjaSetLongaxe
+    - YautjaSetDuellingBlade
+    - YautjaSetDuellingClub
+    - YautjaSetDuellingHatchet
+    - YautjaSetDuellingKnife
+    - YautjaSetChainGauntlet
+    - YautjaSetClanShield
+    - YautjaSetAncientShield
+    - YautjaSetAncientShieldAlt
+    - YautjaSetAncientShieldTemple
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaPolishingRag
+  name: "полірувальна ганчірка"
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: polishing_rag
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaCleanserGelVial
+  name: "флакон очищувального гелю"
+  description: "Нанесення 1 с. Потім 5 с гель розчиняє ціль у попіл. Не діє на структури й живих."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: dissolving_vial
+  - type: Item
+    size: Tiny
+  - type: YautjaCleanserGel
+    applyDelay: 1
+    dissolveDuration: 5
+    dissolveEffect: GoobYautjaHealingGel
+    consumeOnUse: false
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaRelayBeacon
+  name: "маяк ретрансляції"
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: teleporter
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaHoundObservationPad
+  name: "планшет спостереження"
+  description: "Створює псіонічну проєкцію для віддаленого спостереження. Скористайтеся дією повернення, щоб повернутися в тіло."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: houndpad
+  - type: Item
+    size: Small
+  - type: YautjaObservationPad
+  - type: ActionGrant
+    actions:
+    - ActionYautjaObservationProjection
+  - type: ItemActionGrant
+    actions:
+    - ActionYautjaObservationProjection
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaSmartDisc
+  name: "розумний диск"
+  description: "Прибулецький кинджальний диск: по Z летить до цілі, робить 10 обертів і повертається."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/smart_disc.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 20
+        Piercing: 10
+  - type: YautjaSmartDisc
+    range: 12
+    maxOrbits: 10
+    orbitPeriod: 0.4
+    orbitDamage:
+      types:
+        Slash: 10
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaMedicomp
+  name: "медкомп"
+  description: "Компактний прибулецький медичний ін'єктор."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: medicomp
+  - type: Item
+    size: Small
+  - type: Injector
+    solutionName: hypospray
+    currentTransferAmount: 15
+    activeModeProtoId: HyposprayInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+  - type: HyposprayBlockNonMobInjection
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 15
+        - ReagentId: Dermaline
+          Quantity: 15
+
+- type: entity
+  parent: GoobYautjaHealthShardHalf
+  id: GoobYautjaHealthShard
+  name: "цілющий уламок"
+  description: "Розділений цілющий уламок яутжа."
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/health_shard.rsi
+    state: shard_icon
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaAutoInjector
+  name: "автоін'єктор яутжа"
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: medicomp
+  - type: Item
+    size: Small
+  - type: Injector
+    solutionName: hypospray
+    currentTransferAmount: 10
+    activeModeProtoId: HyposprayInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+  - type: HyposprayBlockNonMobInjection
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 20
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 10
+        - ReagentId: TranexamicAcid
+          Quantity: 10
+
+- type: entity
+  id: GoobYautjaHealingGel
+  name: "цілющий гель"
+  description: "Накладений розчиняючий гель. Не можна підібрати."
+  categories: [ HideSpawnMenu ]
+  suffix: Yautja, Effect
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    drawdepth: Effects
+    layers:
+    - state: dissolving_gel
+      color: "#4fdcff"
+  - type: YautjaHealingGelEffect
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaStabilizerGel
+  name: "стабілізуючий гель"
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: brute_herbs
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaWristBlades
+  name: "зап'ясткові клинки"
+  description: "Висувні клинки, вбудовані в наручник. Знімаються лише через браслет."
+  categories: [ HideSpawnMenu ]
+  suffix: Yautja, Bracer
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/wrist_blades.rsi
+    state: icon
+  - type: Item
+    sprite: _Oskarrr/Yautja/wrist_blades.rsi
+    size: Small
+  - type: Sharp
+  - type: YautjaResinBreaker
+  - type: YautjaBracerClaws
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 30
+        Piercing: 8
+    soundHit:
+      collection: GoobYautjaWristBladesHit
+    soundSwing:
+      collection: GoobYautjaWristBladesMiss
+    animation: WeaponArcClaw
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaScimitar
+  name: "ятаган"
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/scimitar.rsi
+    state: icon
+  - type: Item
+    sprite: _Oskarrr/Yautja/scimitar.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 34
+
+- type: entity
+  parent: GoobYautjaShieldBase
+  id: GoobYautjaBracerShield
+  name: "наручниковий щит"
+  description: "Висувний щит, вбудований в наручник. Знімається лише через браслет."
+  categories: [ HideSpawnMenu ]
+  suffix: Yautja, Bracer
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/bracer_shield.rsi
+    state: icon
+  - type: Item
+    sprite: _Oskarrr/Yautja/bracer_shield.rsi
+    size: Normal
+  - type: YautjaBracerShield
+
+- type: entity
+  parent: GoobYautjaWeaponBase
+  id: GoobYautjaChainGauntlet
+  name: "ланцюжкова рукавиця"
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/chain_gauntlet.rsi
+    state: icon
+  - type: Item
+    sprite: _Oskarrr/Yautja/chain_gauntlet.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 25
+        Slash: 10
+
+- type: entity
+  parent: GoobYautjaPlasmaRifle
+  id: GoobYautjaBadBloodPlasmaCaster
+  name: "плазмовий кастер ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaBadBloodArmorCommandoAlt
+  name: "обладунок командо ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaBadBloodArmorScavengerAlt
+  name: "обладунок сміттяра ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaBadBloodArmorLunatic
+  name: "обладунок божевільного ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaBadBloodArmorBane
+  name: "обладунок прокляття ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: GoobYautjaClanGreavesBase
+  id: GoobYautjaBadBloodGreavesCommandoAlt
+  name: "наголенники командо ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: GoobYautjaClanGreavesBase
+  id: GoobYautjaBadBloodGreavesScavengerAlt
+  name: "наголенники сміттяра ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: GoobYautjaClanGreavesBase
+  id: GoobYautjaBadBloodGreavesLunatic
+  name: "наголенники божевільного ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: GoobYautjaClanGreavesBase
+  id: GoobYautjaBadBloodGreavesBane
+  name: "наголенники прокляття ренегата"
+  suffix: Bad Blood
+
+- type: entity
+  parent: BookBase
+  id: GoobYautjaHonorCodex
+  name: "Кодекс Честі"
+  description: "Обов'язковий кодекс честі Яутжа. Текст не змінюється."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#ab1515"
+    - state: decor_wingette
+      color: "#e05334"
+    - state: icon_stunbaton
+  - type: Paper
+    content: book-text-yautja-honor-codex
+    contentSize: 20000
+    editingDisabled: true
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0

@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: SprayBottleSpaceCleaner
+  id: WorkingJoeSprayCleanerExperimental
+  name: experimental cleaner spray
+  description: Experimental cleaner bottle that slowly regenerates solution from ambient volatiles.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 300
+        reagents:
+        - ReagentId: SpaceCleaner
+          Quantity: 300
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 1
+  - type: Label
+    currentLabel: experimental cleaner

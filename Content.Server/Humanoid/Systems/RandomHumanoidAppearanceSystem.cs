@@ -31,6 +31,9 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         if(component.Hair != null)
             profile = profile.WithCharacterAppearance(profile.Appearance.WithHairStyleName(component.Hair));
 
+        if (component.SkinColor is { } skin)
+            profile = profile.WithCharacterAppearance(profile.Appearance.WithSkinColor(skin));
+
         _humanoid.LoadProfile(uid, profile, humanoid);
 
         if (component.RandomizeName)

@@ -28,3 +28,8 @@
   id: Queen
   name: xenomorph-caste-queen
   maxCount: 1
+
+- type: xenomorphCaste
+  id: Empress
+  name: xenomorph-caste-empress
+  maxCount: 1

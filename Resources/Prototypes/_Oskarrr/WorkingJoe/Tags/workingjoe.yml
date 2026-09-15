@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: Tag
+  id: WorkingJoe
+
+- type: Tag
+  id: MaintenanceJack
+
+- type: Tag
+  id: Jockey

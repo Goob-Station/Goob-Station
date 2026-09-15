@@ -1,0 +1,245 @@
+{
+    "version":  1,
+    "size":  {
+                 "x":  32,
+                 "y":  32
+             },
+    "states":  [
+                   {
+                       "name":  "leftengine"
+                   },
+                   {
+                       "name":  "leftengine_1"
+                   },
+                   {
+                       "name":  "leftengine_2"
+                   },
+                   {
+                       "name":  "leftengine_3"
+                   },
+                   {
+                       "name":  "leftengine_4"
+                   },
+                   {
+                       "name":  "leftengine_5"
+                   },
+                   {
+                       "name":  "leftengine_6"
+                   },
+                   {
+                       "name":  "leftengine_7"
+                   },
+                   {
+                       "name":  "leftengine_8"
+                   },
+                   {
+                       "name":  "leftengine_9"
+                   },
+                   {
+                       "name":  "stan_leftengine"
+                   },
+                   {
+                       "name":  "rightengine"
+                   },
+                   {
+                       "name":  "rightengine_1"
+                   },
+                   {
+                       "name":  "rightengine_2"
+                   },
+                   {
+                       "name":  "rightengine_3"
+                   },
+                   {
+                       "name":  "rightengine_4"
+                   },
+                   {
+                       "name":  "rightengine_5"
+                   },
+                   {
+                       "name":  "rightengine_6"
+                   },
+                   {
+                       "name":  "rightengine_7"
+                   },
+                   {
+                       "name":  "rightengine_8"
+                   },
+                   {
+                       "name":  "rightengine_9"
+                   },
+                   {
+                       "name":  "stan_rightengine"
+                   },
+                   {
+                       "name":  "middle"
+                   },
+                   {
+                       "name":  "hunter1"
+                   },
+                   {
+                       "name":  "hunter2"
+                   },
+                   {
+                       "name":  "hunter3"
+                   },
+                   {
+                       "name":  "hunter_l_w"
+                   },
+                   {
+                       "name":  "hunter_r_w"
+                   },
+                   {
+                       "name":  "hunter4"
+                   },
+                   {
+                       "name":  "hunter_inner_w_2"
+                   },
+                   {
+                       "name":  "hunter5"
+                   },
+                   {
+                       "name":  "inside"
+                   },
+                   {
+                       "name":  "hunter6"
+                   },
+                   {
+                       "name":  "hunter7"
+                   },
+                   {
+                       "name":  "hunter8"
+                   },
+                   {
+                       "name":  "hunter9"
+                   },
+                   {
+                       "name":  "hunter10"
+                   },
+                   {
+                       "name":  "hunter11"
+                   },
+                   {
+                       "name":  "hunter12"
+                   },
+                   {
+                       "name":  "hunter13"
+                   },
+                   {
+                       "name":  "hunter14"
+                   },
+                   {
+                       "name":  "hunter15"
+                   },
+                   {
+                       "name":  "hunter16"
+                   },
+                   {
+                       "name":  "left_front"
+                   },
+                   {
+                       "name":  "hunter17"
+                   },
+                   {
+                       "name":  "hunter18"
+                   },
+                   {
+                       "name":  "hunter19"
+                   },
+                   {
+                       "name":  "hunter20"
+                   },
+                   {
+                       "name":  "hunter21"
+                   },
+                   {
+                       "name":  "hunter22"
+                   },
+                   {
+                       "name":  "right_front"
+                   },
+                   {
+                       "name":  "hunter23"
+                   },
+                   {
+                       "name":  "hunter24"
+                   },
+                   {
+                       "name":  "hunter25"
+                   },
+                   {
+                       "name":  "hunter26"
+                   },
+                   {
+                       "name":  "hunter27"
+                   },
+                   {
+                       "name":  "hunter28"
+                   },
+                   {
+                       "name":  "front_middle_window"
+                   },
+                   {
+                       "name":  "hunterw_1"
+                   },
+                   {
+                       "name":  "hunterw_2"
+                   },
+                   {
+                       "name":  "hunterw_3"
+                   },
+                   {
+                       "name":  "hunterw_4"
+                   },
+                   {
+                       "name":  "hunterw_5"
+                   },
+                   {
+                       "name":  "hunterw_6"
+                   },
+                   {
+                       "name":  "hunterw_7"
+                   },
+                   {
+                       "name":  "hunterw_8"
+                   },
+                   {
+                       "name":  "left_window"
+                   },
+                   {
+                       "name":  "hunterw_9"
+                   },
+                   {
+                       "name":  "hunterw_10"
+                   },
+                   {
+                       "name":  "hunterw_11"
+                   },
+                   {
+                       "name":  "right_window"
+                   },
+                   {
+                       "name":  "hunterw_12"
+                   },
+                   {
+                       "name":  "hunterw_13"
+                   },
+                   {
+                       "name":  "hunterw_14"
+                   },
+                   {
+                       "name":  "bottom_window"
+                   },
+                   {
+                       "name":  "hunterw_15"
+                   },
+                   {
+                       "name":  "hunterw_16"
+                   },
+                   {
+                       "name":  "hunterw_17"
+                   }
+               ],
+    "license":  "CC-BY-SA-3.0",
+    "copyright":  "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/turf/walls/hunter_shuttle.dmi. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+}

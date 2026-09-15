@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: MaterialBase
+  id: BarbedWire
+  name: barbed wire
+  suffix: Full
+  description: Some wire with barbs cut into it.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Materials/barbwire.rsi
+    state: icon
+  - type: Appearance
+  - type: Stack
+    stackType: BarbedWire
+    count: 30
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      BarbedWire: 100
+  - type: Item
+    heldPrefix: wire
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Trauma/Footsteps/barbedwire.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Trauma/Footsteps/barbedwire.ogg
+      params:
+        volume: -4
+  - type: Construction
+    graph: BarbedWireMaterial
+    node: BarbedWire
+
+- type: entity
+  parent: BarbedWire
+  id: BarbedWire1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

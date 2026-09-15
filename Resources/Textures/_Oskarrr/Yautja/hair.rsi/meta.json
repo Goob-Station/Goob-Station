@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/mob/humans/yaut_hair.dmi. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "standard",
+      "directions": 4
+    },
+    {
+      "name": "short_thick",
+      "directions": 4
+    },
+    {
+      "name": "straight_thin",
+      "directions": 4
+    },
+    {
+      "name": "long_tied",
+      "directions": 4
+    },
+    {
+      "name": "short_thin",
+      "directions": 4
+    },
+    {
+      "name": "long_curved",
+      "directions": 4
+    },
+    {
+      "name": "long_straight",
+      "directions": 4
+    },
+    {
+      "name": "long_wide",
+      "directions": 4
+    },
+    {
+      "name": "short_wide",
+      "directions": 4
+    }
+  ]
+}

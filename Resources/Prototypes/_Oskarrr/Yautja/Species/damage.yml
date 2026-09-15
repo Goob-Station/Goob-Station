@@ -1,0 +1,13 @@
+- type: damageModifierSet
+  id: GoobYautjaDamageModifier
+  coefficients:
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.8
+    Heat: 0.8
+    Shock: 0.75
+    Cold: 0.75
+    Caustic: 0.75
+    Poison: 0
+    Radiation: 0.5
+    Asphyxiation: 0

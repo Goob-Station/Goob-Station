@@ -1,0 +1,163 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# Wild Lands / Wey-Yu ballistic weapons printable on SecurityTechFab
+# after Arsenal research unlocks (science researches → SB prints).
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineGunC20r
+  result: WeaponSubMachineGunC20r
+  materials:
+    Steel: 2500
+    Plastic: 800
+    Plasteel: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleM90
+  result: WeaponRifleM90
+  materials:
+    Steel: 2800
+    Plastic: 900
+    Plasteel: 600
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineGunM7S
+  result: WeaponSubMachineGunM7S
+  materials:
+    Steel: 2200
+    Plastic: 1000
+    Plasteel: 800
+    Silver: 300
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleWSPR
+  result: WeaponRifleWSPR
+  materials:
+    Steel: 2600
+    Plastic: 1100
+    Plasteel: 900
+    Silver: 400
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSniperMosin
+  result: WeaponSniperMosin
+  materials:
+    Steel: 1800
+    Plastic: 500
+    Plasteel: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: BriefcaseSyndieSniperBundleFilled
+  result: BriefcaseSyndieSniperBundleFilled
+  completetime: 12
+  materials:
+    Steel: 3500
+    Plasteel: 1500
+    Plastic: 800
+    Glass: 400
+    Silver: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponShotgunBulldog
+  result: WeaponShotgunBulldog
+  materials:
+    Steel: 3000
+    Plastic: 700
+    Plasteel: 1200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponShotgunCombat
+  result: WeaponShotgunCombat
+  materials:
+    Steel: 2800
+    Plastic: 600
+    Plasteel: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponShotgunHeavy
+  result: WeaponShotgunHeavy
+  completetime: 10
+  materials:
+    Steel: 4000
+    Plasteel: 3500
+    Plastic: 1000
+    Plasma: 800
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLightMachineGunL6
+  result: WeaponLightMachineGunL6
+  completetime: 15
+  materials:
+    Steel: 5000
+    Plasteel: 10000
+    Plastic: 1500
+    Silver: 800
+    Gold: 400
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleBurner
+  result: WeaponRifleBurner
+  materials:
+    Steel: 2500
+    Plasteel: 1500
+    Plasma: 3500
+    Glass: 600
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  result: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  completetime: 14
+  materials:
+    Steel: 4500
+    Plasteel: 5000
+    Plastic: 1200
+    Plasma: 2000
+    Uranium: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: ToolboxElectricalTurretFilled
+  result: ToolboxElectricalTurretFilled
+  materials:
+    Steel: 3500
+    Plasteel: 2000
+    Plastic: 800
+    Glass: 500
+    Silver: 400
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeMelee
+  id: EnergySword
+  result: EnergySword
+  completetime: 10
+  materials:
+    Steel: 1500
+    Plasteel: 2000
+    Plasma: 4000
+    Uranium: 2500
+    Silver: 800
+    Gold: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeMelee
+  id: EnergyShield
+  result: EnergyShield
+  completetime: 8
+  materials:
+    Steel: 1200
+    Plasteel: 1800
+    Plasma: 3000
+    Uranium: 1500
+    Glass: 1000
+    Silver: 600

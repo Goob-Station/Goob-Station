@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Empress ovipositor sprites provided for SpaceStationUA / Goob-Station",
+  "size": { "x": 96, "y": 96 },
+  "states": [
+    {
+      "name": "xenomorph",
+      "delays": [[0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15, 0.15]]
+    }
+  ]
+}

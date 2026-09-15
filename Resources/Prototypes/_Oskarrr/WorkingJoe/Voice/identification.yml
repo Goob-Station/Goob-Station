@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeDidThatBelongToYou
+  category: Identification
+  name: emote-name-workingjoe-did-that-belong-to-you
+  soundCollection: AU14WorkingJoeDidThatBelongToYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeDoesThisBelongToYou
+  category: Identification
+  name: emote-name-workingjoe-does-this-belong-to-you
+  soundCollection: AU14WorkingJoeDoesThisBelongToYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIsAnybodyThere
+  category: Identification
+  name: emote-name-workingjoe-is-anybody-there
+  soundCollection: AU14WorkingJoeIsAnybodyThere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIsSomeoneThere
+  category: Identification
+  name: emote-name-workingjoe-is-someone-there
+  soundCollection: AU14WorkingJoeIsSomeoneThere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatAreYou
+  category: Identification
+  name: emote-name-workingjoe-what-are-you
+  soundCollection: AU14WorkingJoeWhatAreYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhosThere
+  category: Identification
+  name: emote-name-workingjoe-whos-there
+  soundCollection: AU14WorkingJoeWhosThere
+

@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Ported from SpaceStationUA/ColonialMarinesUniverse (CMJumpsuitAverageJoe / AU14JoeHazmat).
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWorkingJoe
+  name: Working Joe uniform
+  description: A cheap utilitarian uniform made for the Working Joe synthetic line.
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/WorkingJoe/Uniforms/joe.rsi
+  - type: Clothing
+    sprite: _Oskarrr/WorkingJoe/Uniforms/joe.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWorkingJoeHazmat
+  name: Working Joe hazardous uniform
+  description: A reinforced uniform for synthetic labor in hazardous areas. Tomorrow, Together.
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/WorkingJoe/Uniforms/joehazmat.rsi
+  - type: Clothing
+    sprite: _Oskarrr/WorkingJoe/Uniforms/joehazmat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.85
+        Caustic: 0.8
+        Radiation: 0.7

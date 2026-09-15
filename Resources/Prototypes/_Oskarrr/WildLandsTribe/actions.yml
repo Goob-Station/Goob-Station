@@ -1,0 +1,69 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ActionAborigineWarCry
+  name: War Cry
+  description: Rally nearby tribe members and break stuns.
+  components:
+  - type: Action
+    useDelay: 45
+    icon:
+      sprite: Objects/Weapons/Melee/cultbreaker.rsi
+      state: icon
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/chime.ogg
+  - type: InstantAction
+    event: !type:AborigineWarCryEvent
+
+- type: entity
+  id: ActionAboriginePsiHeal
+  name: Psi-Heal
+  description: Heal nearby tribe members with shamanic aura. Costs psi energy.
+  components:
+  - type: Action
+    useDelay: 8
+    icon:
+      sprite: Objects/Specific/Chemistry/jugs.rsi
+      state: jug
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Lightning/lightningbolt.ogg
+  - type: InstantAction
+    event: !type:AboriginePsiHealEvent
+
+- type: entity
+  id: ActionAboriginePsiRegen
+  name: Psi-Regen
+  description: Grant sustained regeneration to nearby tribe members. Costs psi energy.
+  components:
+  - type: Action
+    useDelay: 30
+    icon:
+      sprite: Objects/Specific/Medical/firstaidkits.rsi
+      state: o2kit
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Lightning/lightningbolt.ogg
+  - type: InstantAction
+    event: !type:AboriginePsiRegenEvent
+
+- type: entity
+  id: ActionAboriginePsiResurrect
+  name: Psi-Resurrect
+  description: Pull a dead tribe member back from death. Costs a lot of psi energy.
+  components:
+  - type: Action
+    useDelay: 90
+    icon:
+      sprite: Objects/Specific/Medical/defib.rsi
+      state: icon
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/Defib/defib_zap.ogg
+  - type: TargetAction
+    range: 2.5
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+      - Body
+    event: !type:AboriginePsiResurrectEvent

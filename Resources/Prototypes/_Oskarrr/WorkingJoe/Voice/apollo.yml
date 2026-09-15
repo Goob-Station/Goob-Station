@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeApolloWillRequireADetailedReport
+  category: APOLLO
+  name: emote-name-workingjoe-apollo-will-require-a-detailed-report
+  soundCollection: AU14WorkingJoeApolloWillRequireADetailedReport
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeFacilityNowClearApolloInformed
+  category: APOLLO
+  name: emote-name-workingjoe-facility-now-clear-apollo-informed
+  soundCollection: AU14WorkingJoeFacilityNowClearApolloInformed
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIAmRequiredByApolloAbortingSearch
+  category: APOLLO
+  name: emote-name-workingjoe-i-am-required-by-apollo-aborting-search
+  soundCollection: AU14WorkingJoeIAmRequiredByApolloAbortingSearch
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIWillInformApolloOnYourBehalf
+  category: APOLLO
+  name: emote-name-workingjoe-i-will-inform-apollo-on-your-behalf
+  soundCollection: AU14WorkingJoeIWillInformApolloOnYourBehalf
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIllHaveToReportThis
+  category: APOLLO
+  name: emote-name-workingjoe-ill-have-to-report-this
+  soundCollection: AU14WorkingJoeIllHaveToReportThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeLoggingReportToApollo
+  category: APOLLO
+  name: emote-name-workingjoe-logging-report-to-apollo
+  soundCollection: AU14WorkingJoeLoggingReportToApollo
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeServiceSupportTicketRemovedFromQueue
+  category: APOLLO
+  name: emote-name-workingjoe-service-support-ticket-removed-from-queue
+  soundCollection: AU14WorkingJoeServiceSupportTicketRemovedFromQueue
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYouUnderstandIllHaveToReportYouForThis
+  category: APOLLO
+  name: emote-name-workingjoe-you-understand-ill-have-to-report-you-for-this
+  soundCollection: AU14WorkingJoeYouUnderstandIllHaveToReportYouForThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYourFailedSupportRequestHasBeenLoggedWithApollo
+  category: APOLLO
+  name: emote-name-workingjoe-your-failed-support-request-has-been-logged-with-apollo
+  soundCollection: AU14WorkingJoeYourFailedSupportRequestHasBeenLoggedWithApollo
+

@@ -4,8 +4,10 @@ REM
 REM SPDX-License-Identifier: AGPL-3.0-or-later
 
 @echo off
-cd ../../
+cd /d "%~dp0..\.."
 
-call dotnet run --project Content.Server --no-build %*
+REM Goobstation entry + local config (status bind, lobby, lavaland).
+REM Drop --no-build so Lavaland/Oskarrr changes actually compile in.
+call dotnet run --project Content.Goobstation.Server -- --config-file "%CD%\server_config_local.toml" %*
 
 pause

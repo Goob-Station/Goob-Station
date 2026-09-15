@@ -23,15 +23,15 @@
 ## Traitor
 
 traitor-round-end-codewords = The codewords were: [color=White]{$codewords}[/color]
-traitor-round-end-agent-name = a traitor
+traitor-round-end-agent-name = a corporate spy
 
-objective-issuer-syndicate = [color=crimson]The Syndicate[/color]
+objective-issuer-syndicate = [color=orange]Rival Corporation[/color]
 objective-issuer-unknown = Unknown
 
 # Shown at the end of a round of Traitor
 
-traitor-title = Traitor
-traitor-description = There are traitors among us...
+traitor-title = Corporate Spies
+traitor-description = Rival corporate agents are embedded among the expedition.
 traitor-not-enough-ready-players = Not enough players readied up for the game! There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed. Can't start Traitor.
 traitor-no-one-ready = No players readied up! Can't start Traitor.
 
@@ -46,13 +46,14 @@ traitor-death-match-end-round-description-entry = {$originalName}'s PDA, with {$
 
 # TraitorRole
 traitor-role-greeting =
-    You are an agent sent by [color = darkred]The Syndicate[/color] on behalf of {$corporation}.
-    Your objectives and codewords are listed in the character menu. Use your uplink to buy the tools you'll need for this mission.
-    Death to Nanotrasen!
+    You are a [color=orange]Corporate Spy[/color] working for {$corporation} — a rival to Weyland-Yutani (Seegson, pre-merger Yutani, or similar).
+    Your handlers want Xenomorph specimens, hive data, or Engineer Jockey technology from this Wild Lands site.
+    Objectives and codewords are in the character menu. Use your uplink for mission gear.
+    Do not let Wey-Yu security identify you.
 traitor-role-codewords =
-    The codewords are: [color = lightgray]
+    Recognition phrases: [color=lightgray]
     {$codewords}.[/color]
-    Codewords can be used in regular conversation to identify yourself discreetly to other traitors.
+    Use them carefully with other spies.
 traitor-role-uplink-code =
     Set your ringtone to the notes [color = lightgray]{$code}[/color] to lock or unlock your uplink.
     Remember to lock it after, or the station's crew will easily open it too!

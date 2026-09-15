@@ -1,0 +1,58 @@
+# Spoken by Yautja (Predators).
+- type: language
+  id: Yautja
+  isVisibleLanguage: true
+  speech:
+    color: "#2cf274"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - klik
+    - klak
+    - thwi
+    - thwa
+    - n'dthi
+    - dtei
+    - ra'ka
+    - s'yith
+    - mwa
+    - mrr
+    - grah
+    - h'kai
+    - n'dei
+    - thrak
+    - s'kui
+    - yaut
+    - ja
+    - dhi
+    - kwa
+    - n'dja
+    - tcha
+    - hrak
+    - ssei
+    - u'ka
+    - mei'thi
+    - gkei
+    - n'rao
+    - thill
+    - dchak
+    - s'yau
+    - klik'
+    - rrak
+    - hsss
+    - n'gai
+    - d'tei
+    - omai
+    - thwei
+    - s'kath
+    - n'dchu
+    - bua
+    - a'yte
+    - pan'te
+    - ban'ti
+    - ve'thi
+    - a'kah
+    - dach
+    - ande

@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Custom ghosts for Wild Lands / Oskarrr players.
+
+- type: customGhost
+  id: Oskarrr-ghost
+  ckey: Oskarrr
+  sprite:
+  - _Oskarrr/Ghosts/Oskarrr.rsi
+  alpha: 1
+  ghostName: Рішучість
+  ghostDescription: вирішив піти проти системи й робити свій затешний куточок
+
+- type: customGhost
+  id: localhost@Oskarrr-ghost
+  ckey: localhost@Oskarrr
+  sprite:
+  - _Oskarrr/Ghosts/Oskarrr.rsi
+  alpha: 1
+  ghostName: Рішучість
+  ghostDescription: вирішив піти проти системи й робити свій затешний куточок

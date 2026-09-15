@@ -1,0 +1,4568 @@
+- type: entity
+  parent: BaseStructure
+  id: GoobYautjaStructureBase
+  abstract: true
+  suffix: Yautja
+  components:
+    - type: Tag
+      tags:
+      - Yautja
+    - type: InteractionOutline
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.35,-0.35,0.35,0.35"
+          density: 55
+          mask:
+          - TableMask
+          layer:
+          - MidImpassable
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: StrongMetallic
+
+- type: entity
+  id: GoobYautjaFloorOverlayBase
+  abstract: true
+  suffix: Yautja
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Tag
+      tags:
+      - Yautja
+    - type: Transform
+      anchored: true
+    - type: Clickable
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsBorderStairs
+  name: "граничні сходи Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "border_stairs"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "border_stairs"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsBorderStairCut
+  name: "розрізана гранична сходинка Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "border_stair_cut"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "border_stair_cut"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsBorderStairsRune
+  name: "руни граничних сходів Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "border_stairs_rune"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "border_stairs_rune"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsBorderStairRuneCut
+  name: "розрізана руна граничної сходинки Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "border_stair_rune_cut"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "border_stair_rune_cut"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsHunterFeed
+  name: "годівниця мисливця Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+    drawdepth: Objects
+    layers:
+    - state: "hunter_feed"
+  - type: Icon
+    sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+    state: "hunter_feed"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsHunterArmorProp
+  name: "реквізит броні мисливця Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "hunter_armor_prop"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "hunter_armor_prop"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsHunterArmorProp2
+  name: "реквізит броні мисливця Яутжа 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "hunter_armor_prop_2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "hunter_armor_prop_2"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsHunterArmorProp3
+  name: "реквізит броні мисливця Яутжа 3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "hunter_armor_prop_3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "hunter_armor_prop_3"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsHunterArmorProp4
+  name: "реквізит броні мисливця Яутжа 4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "hunter_armor_prop_4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "hunter_armor_prop_4"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsPredTrophyVendorBottomLeft
+  name: "торгівельний автомат трофеїв хижака Яутжа знизу зліва"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "pred_trophy_vendor_bottom_left"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "pred_trophy_vendor_bottom_left"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsPredTrophyVendorTopLeft
+  name: "торгівельний автомат трофеїв хижака Яутжа зверху зліва"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "pred_trophy_vendor_top_left"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "pred_trophy_vendor_top_left"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsPredTrophyVendorCenter
+  name: "торгівельний автомат трофеїв хижака Яутжа центр"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "pred_trophy_vendor_center"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "pred_trophy_vendor_center"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsPredTrophyVendorTopCenter
+  name: "торгівельний автомат трофеїв хижака Яутжа зверху центр"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "pred_trophy_vendor_top_center"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "pred_trophy_vendor_top_center"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsPredTrophyVendorBottomRight
+  name: "торгівельний автомат трофеїв хижака Яутжа знизу справа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "pred_trophy_vendor_bottom_right"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "pred_trophy_vendor_bottom_right"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsPredTrophyVendorTopRight
+  name: "торгівельний автомат трофеїв хижака Яутжа зверху справа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "pred_trophy_vendor_top_right"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "pred_trophy_vendor_top_right"
+
+# Furniture moved to furniture.yml (real chairs/beds/tables).
+# - GoobYautjaStructureN32x32HunterPropsBoneThrone
+# - GoobYautjaStructureN32x32HunterPropsBoneThroneTop
+# Locker: GoobYautjaStructureN32x32HunterPropsClosed → furniture.yml
+# Open visual only (not spawnable):
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsOpen
+  categories: [ HideSpawnMenu ]
+  name: "яутжа шафа відкрита (шар)"
+  description: "Відкритий вигляд шафи. Не окремий об'єкт."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "open"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsHoe
+  name: "мотига Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "hoe"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "hoe"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsSpade
+  name: "лопата Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "spade"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "spade"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsHydro
+  name: "гідро Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "hydro"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "hydro"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsFountainHeadStatic
+  name: "статична голова фонтана Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "fountain_head_static"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "fountain_head_static"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureN32x32HunterPropsFountainHeadFlowing
+  name: "текуча голова фонтана Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      drawdepth: Objects
+      layers:
+        - state: "fountain_head_flowing"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/32x32_hunter_props.rsi
+      state: "fountain_head_flowing"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureAncientsmallstatueSmallStatueBase
+  name: "стародавня статуя Яутжа — мала підставка"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      drawdepth: Objects
+      layers:
+        - state: "small_statue_base"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      state: "small_statue_base"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureAncientsmallstatueSmallStatueBaseColorable
+  name: "стародавня статуя Яутжа — мала підставка колорна"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      drawdepth: Objects
+      layers:
+        - state: "small_statue_base_colorable"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      state: "small_statue_base_colorable"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureAncientsmallstatueStatueAncient
+  name: "стародавня статуя Яутжа — стародавня"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      drawdepth: Objects
+      layers:
+        - state: "statue_ancient"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      state: "statue_ancient"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureAncientsmallstatueStatueGrey
+  name: "стародавня статуя Яутжа — сіра"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      drawdepth: Objects
+      layers:
+        - state: "statue_grey"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      state: "statue_grey"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureAncientsmallstatueStatueSandstone
+  name: "стародавня статуя Яутжа — пісковикова"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      drawdepth: Objects
+      layers:
+        - state: "statue_sandstone"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/ancientsmallstatue.rsi
+      state: "statue_sandstone"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureConsolesEngineerconsole
+  name: engineer console
+  description: Ancient control console linked to Engineer cryopods. Initiating awakening is extremely dangerous.
+  components:
+    - type: Tag
+      tags:
+      - Yautja
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/consoles.rsi
+      drawdepth: Objects
+      layers:
+        - state: "engineerconsole"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/consoles.rsi
+      state: "engineerconsole"
+    - type: EngineerConsole
+    - type: InteractionOutline
+    - type: ActivatableUI
+      key: enum.EngineerConsoleUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.EngineerConsoleUiKey.Key:
+          type: EngineerConsoleBoundUserInterface
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2Cell
+  name: "кріокамера Яутжа — камера"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "cell"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "cell"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2CellOffEmpty
+  name: "кріокамера Яутжа — камера вимкнена порожня"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "cell-off-empty"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "cell-off-empty"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2CellOffOccupied
+  name: "кріокамера Яутжа — камера вимкнена зайнята"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "cell-off-occupied"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "cell-off-occupied"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2CellOnEmpty
+  name: "кріокамера Яутжа — камера ввімкнена порожня"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "cell-on-empty"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "cell-on-empty"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2CellOnOccupied
+  name: engineer cryocell (occupied)
+  description: An occupied cryogenic cell. Awakening whoever is inside is an extreme risk.
+  components:
+    - type: Tag
+      tags:
+      - Yautja
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "cell-on-occupied"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "cell-on-occupied"
+    - type: EngineerCryopod
+      occupied: true
+      spawnPrototype: MobEngineerJockey
+      brokenPrototype: GoobYautjaStructureCryogenics2CellOnEmpty
+      awakenDelay: 8
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2PredCell
+  name: "кріокамера Яутжа — хижа камера"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "pred_cell"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "pred_cell"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2PredCellOffEmpty
+  name: "кріокамера Яутжа — хижа камера вимкнена порожня"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "pred_cell-off-empty"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "pred_cell-off-empty"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2PredCellOffOccupied
+  name: "кріокамера Яутжа — хижа камера вимкнена зайнята"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "pred_cell-off-occupied"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "pred_cell-off-occupied"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2PredCellOnEmpty
+  name: "кріокамера Яутжа — хижа камера ввімкнена порожня"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "pred_cell-on-empty"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "pred_cell-on-empty"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureCryogenics2PredCellOnOccupied
+  name: engineer predator cryocell (occupied)
+  description: An occupied predator-pattern cryogenic cell. Awakening is an extreme risk.
+  components:
+    - type: Tag
+      tags:
+      - Yautja
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "pred_cell-on-occupied"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/cryogenics2.rsi
+      state: "pred_cell-on-occupied"
+    - type: EngineerCryopod
+      occupied: true
+      spawnPrototype: MobEngineerJockey
+      brokenPrototype: GoobYautjaStructureCryogenics2PredCellOnEmpty
+      awakenDelay: 8
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureEngineerJockeySpacejockey
+  name: "інженер-джокей космо-джокей"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Tag
+      tags:
+      - Yautja
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/engineerJockey.rsi
+      drawdepth: Overdoors
+      layers:
+        - state: "spacejockey"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/engineerJockey.rsi
+      state: "spacejockey"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureEngineerPodPodBroken
+  name: "інженерна капсула — зламана"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Tag
+      tags:
+      - Yautja
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/engineerPod.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "pod_broken"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/engineerPod.rsi
+      state: "pod_broken"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureEngineerPodPod
+  name: engineer hypersleep pod
+  description: Sealed hypersleep capsule holding an Engineer. Awakening it may doom everyone nearby.
+  components:
+    - type: Tag
+      tags:
+      - Yautja
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/engineerPod.rsi
+      drawdepth: Mobs
+      layers:
+        - state: "pod"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/engineerPod.rsi
+      state: "pod"
+    - type: EngineerCryopod
+      occupied: true
+      spawnPrototype: MobEngineerJockey
+      brokenPrototype: GoobYautjaStructureEngineerPodPodBroken
+      awakenDelay: 8
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsFloor
+  name: "підлога Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "floor"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "floor"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterTile1
+  name: "плитка мисливця Яутжа 1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_tile_1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_tile_1"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterTile2
+  name: "плитка мисливця Яутжа 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_tile_2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_tile_2"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterTile3
+  name: "плитка мисливця Яутжа 3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_tile_3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_tile_3"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterTile4
+  name: "плитка мисливця Яутжа 4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_tile_4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_tile_4"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterTile5
+  name: "плитка мисливця Яутжа 5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_tile_5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_tile_5"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterTile6
+  name: "плитка мисливця Яутжа 6"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_tile_6"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_tile_6"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsOuterhull
+  name: "зовнішній корпус Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "outerhull"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "outerhull"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsDamaged1
+  name: "пошкоджена підлога Яутжа 1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "damaged1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "damaged1"
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsDamaged2
+  name: "пошкоджена підлога Яутжа 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "damaged2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "damaged2"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsDamaged3
+  name: "пошкоджена підлога Яутжа 3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "damaged3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "damaged3"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsDamaged4
+  name: "пошкоджена підлога Яутжа 4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "damaged4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "damaged4"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsDamaged5
+  name: "пошкоджена підлога Яутжа 5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "damaged5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "damaged5"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsOuterhullDir
+  name: "зовнішній корпус Яутжа dir"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "outerhull_dir"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "outerhull_dir"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsOuterhullAlt
+  name: "зовнішній корпус Яутжа альт"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "outerhull_alt"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "outerhull_alt"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsOuterhullAltDir
+  name: "зовнішній корпус Яутжа альт dir"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "outerhull_alt_dir"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "outerhull_alt_dir"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterGlow
+  name: "сяючий мисливець Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_glow"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_glow"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterBridge
+  name: "міст мисливця Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_bridge"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_bridge"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterCatwalkAlpha
+  name: "катвок мисливця Яутжа альфа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_catwalk_alpha"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_catwalk_alpha"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterCatwalk
+  name: "катвок мисливця Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_catwalk"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_catwalk"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterCatwalkAltAlpha
+  name: "катвок мисливця Яутжа альт альфа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_catwalk_alt_alpha"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_catwalk_alt_alpha"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterCatwalkAlt
+  name: "катвок мисливця Яутжа альт"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_catwalk_alt"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_catwalk_alt"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterCatwalkNewAlpha
+  name: "новий катвок мисливця Яутжа альфа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_catwalk_new_alpha"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_catwalk_new_alpha"
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterCatwalkNew
+  name: "новий катвок мисливця Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_catwalk_new"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_catwalk_new"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterGrille
+  name: "ґрати мисливця Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_grille"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_grille"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterGrilleAlpha
+  name: "ґрати мисливця Яутжа альфа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_grille_alpha"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_grille_alpha"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterGrate
+  name: "ґрати мисливця Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_grate"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_grate"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterGrateAlpha
+  name: "ґрати мисливця Яутжа альфа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_grate_alpha"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_grate_alpha"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN115
+  name: "підлога Яутжа 11,5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "11,5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "11,5"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN66
+  name: "підлога Яутжа 6,6"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "6,6"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "6,6"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN1715
+  name: "підлога Яутжа 17,15"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "17,15"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "17,15"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN611
+  name: "підлога Яутжа 6,11"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "6,11"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "6,11"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN612
+  name: "підлога Яутжа 6,12"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "6,12"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "6,12"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsCorner1
+  name: "кутова підлога Яутжа 1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "corner_1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "corner_1"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsCorner2
+  name: "кутова підлога Яутжа 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "corner_2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "corner_2"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsCorner3
+  name: "кутова підлога Яутжа 3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "corner_3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "corner_3"
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsCorner4
+  name: "кутова підлога Яутжа 4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "corner_4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "corner_4"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsCorner5
+  name: "кутова підлога Яутжа 5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "corner_5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "corner_5"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsCorner6
+  name: "кутова підлога Яутжа 6"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "corner_6"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "corner_6"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsCorner7
+  name: "кутова підлога Яутжа 7"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "corner_7"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "corner_7"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsCorner8
+  name: "кутова підлога Яутжа 8"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "corner_8"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "corner_8"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsCorner9
+  name: "кутова підлога Яутжа 9"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "corner_9"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "corner_9"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN22
+  name: "підлога Яутжа 2,2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "2,2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "2,2"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN32
+  name: "підлога Яутжа 3,2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "3,2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "3,2"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN204
+  name: "підлога Яутжа 20,4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "20,4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "20,4"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN214
+  name: "підлога Яутжа 21,4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "21,4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "21,4"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN216
+  name: "підлога Яутжа 21,6"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "21,6"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "21,6"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsN203
+  name: "підлога Яутжа 20,3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "20,3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "20,3"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterRed
+  name: "червоний мисливець Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_red"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_red"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterRed2
+  name: "червоний мисливець Яутжа 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_red_2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_red_2"
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterRed3
+  name: "червоний мисливець Яутжа 3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_red_3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_red_3"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterRed4
+  name: "червоний мисливець Яутжа 4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_red_4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_red_4"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterRed5
+  name: "червоний мисливець Яутжа 5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_red_5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_red_5"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsHunterRed6
+  name: "червоний мисливець Яутжа 6"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "hunter_red_6"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "hunter_red_6"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsBorderlessV
+  name: "безмежна підлога Яутжа в"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "borderless_v"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "borderless_v"
+
+- type: entity
+  parent: GoobYautjaFloorOverlayBase
+  id: GoobYautjaStructureHunterFloorsBorderlessH
+  name: "безмежна підлога Яутжа г"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      drawdepth: FloorTiles
+      layers:
+        - state: "borderless_h"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_floors.rsi
+      state: "borderless_h"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine
+  name: "лівий двигун шатла Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine1
+  name: "лівий двигун шатла Яутжа 1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine_1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine_1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine2
+  name: "лівий двигун шатла Яутжа 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine_2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine_2"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine3
+  name: "лівий двигун шатла Яутжа 3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine_3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine_3"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine4
+  name: "лівий двигун шатла Яутжа 4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine_4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine_4"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine5
+  name: "лівий двигун шатла Яутжа 5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine_5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine_5"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine6
+  name: "лівий двигун шатла Яутжа 6"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine_6"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine_6"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine7
+  name: "лівий двигун шатла Яутжа 7"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine_7"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine_7"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine8
+  name: "лівий двигун шатла Яутжа 8"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine_8"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine_8"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftengine9
+  name: "лівий двигун шатла Яутжа 9"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "leftengine_9"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "leftengine_9"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleStanLeftengine
+  name: "стандартний лівий двигун шатла Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "stan_leftengine"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "stan_leftengine"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine
+  name: "правий двигун шатла Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine1
+  name: "правий двигун шатла Яутжа 1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine_1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine_1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine2
+  name: "правий двигун шатла Яутжа 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine_2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine_2"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine3
+  name: "правий двигун шатла Яутжа 3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine_3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine_3"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine4
+  name: "правий двигун шатла Яутжа 4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine_4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine_4"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine5
+  name: "правий двигун шатла Яутжа 5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine_5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine_5"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine6
+  name: "правий двигун шатла Яутжа 6"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine_6"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine_6"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine7
+  name: "правий двигун шатла Яутжа 7"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine_7"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine_7"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine8
+  name: "правий двигун шатла Яутжа 8"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine_8"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine_8"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightengine9
+  name: "правий двигун шатла Яутжа 9"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "rightengine_9"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "rightengine_9"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleStanRightengine
+  name: "яутжа шатл станд. rightдвигун"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "stan_rightengine"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "stan_rightengine"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleMiddle
+  name: "яутжа шатл середина"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "middle"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "middle"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter1
+  name: "яутжа шатл мисливець1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter2
+  name: "яутжа шатл мисливець2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter2"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter3
+  name: "яутжа шатл мисливець3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter3"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterLW
+  name: "яутжа шатл мисливець l w"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter_l_w"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter_l_w"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterRW
+  name: "яутжа шатл мисливець r w"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter_r_w"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter_r_w"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter4
+  name: "яутжа шатл мисливець4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter4"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterInnerW2
+  name: "яутжа шатл мисливець внутр в 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter_inner_w_2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter_inner_w_2"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter5
+  name: "яутжа шатл мисливець5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter5"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleInside
+  name: "яутжа шатл усередині"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "inside"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "inside"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter6
+  name: "яутжа шатл мисливець6"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter6"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter6"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter7
+  name: "яутжа шатл мисливець7"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter7"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter7"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter8
+  name: "яутжа шатл мисливець8"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter8"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter8"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter9
+  name: "яутжа шатл мисливець9"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter9"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter9"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter10
+  name: "яутжа шатл мисливець10"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter10"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter10"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter11
+  name: "яутжа шатл мисливець11"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter11"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter11"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter12
+  name: "яутжа шатл мисливець12"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter12"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter12"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter13
+  name: "яутжа шатл мисливець13"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter13"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter13"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter14
+  name: "яутжа шатл мисливець14"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter14"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter14"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter15
+  name: "яутжа шатл мисливець15"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter15"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter15"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter16
+  name: "яутжа шатл мисливець16"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter16"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter16"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftFront
+  name: "яутжа шатл лівий перед"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "left_front"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "left_front"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter17
+  name: "яутжа шатл мисливець17"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter17"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter17"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter18
+  name: "яутжа шатл мисливець18"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter18"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter18"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter19
+  name: "яутжа шатл мисливець19"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter19"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter19"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter20
+  name: "яутжа шатл мисливець20"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter20"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter20"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter21
+  name: "яутжа шатл мисливець21"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter21"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter21"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter22
+  name: "яутжа шатл мисливець22"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter22"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter22"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightFront
+  name: "яутжа шатл правий перед"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "right_front"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "right_front"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter23
+  name: "яутжа шатл мисливець23"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter23"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter23"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter24
+  name: "яутжа шатл мисливець24"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter24"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter24"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter25
+  name: "яутжа шатл мисливець25"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter25"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter25"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter26
+  name: "яутжа шатл мисливець26"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter26"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter26"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter27
+  name: "яутжа шатл мисливець27"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter27"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter27"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunter28
+  name: "яутжа шатл мисливець28"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunter28"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunter28"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleFrontMiddleWindow
+  name: "яутжа шатл front середина window"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "front_middle_window"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "front_middle_window"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw1
+  name: "яутжа шатл мисливецьw 1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw2
+  name: "яутжа шатл мисливецьw 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_2"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw3
+  name: "яутжа шатл мисливецьw 3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_3"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw4
+  name: "яутжа шатл мисливецьw 4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_4"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw5
+  name: "яутжа шатл мисливецьw 5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_5"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw6
+  name: "яутжа шатл мисливецьw 6"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_6"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_6"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw7
+  name: "яутжа шатл мисливецьw 7"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_7"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_7"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw8
+  name: "яутжа шатл мисливецьw 8"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_8"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_8"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleLeftWindow
+  name: "яутжа шатл ліве вікно"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "left_window"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "left_window"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw9
+  name: "яутжа шатл мисливецьw 9"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_9"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_9"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw10
+  name: "яутжа шатл мисливецьw 10"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_10"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_10"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw11
+  name: "яутжа шатл мисливецьw 11"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_11"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_11"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleRightWindow
+  name: "яутжа шатл праве вікно"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "right_window"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "right_window"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw12
+  name: "яутжа шатл мисливецьw 12"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_12"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_12"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw13
+  name: "яутжа шатл мисливецьw 13"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_13"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_13"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw14
+  name: "яутжа шатл мисливецьw 14"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_14"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_14"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleBottomWindow
+  name: "яутжа шатл нижнє вікно"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "bottom_window"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "bottom_window"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw15
+  name: "яутжа шатл мисливецьw 15"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_15"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_15"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw16
+  name: "яутжа шатл мисливецьw 16"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_16"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_16"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureHunterShuttleHunterw17
+  name: "яутжа шатл мисливецьw 17"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      drawdepth: Walls
+      layers:
+        - state: "hunterw_17"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/hunter_shuttle.rsi
+      state: "hunterw_17"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusSarcophagus0
+  name: "яутжа саркофаг саркофаг0"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "sarcophagus0"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "sarcophagus0"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusSarcophagus1
+  name: "яутжа саркофаг саркофаг1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "sarcophagus1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "sarcophagus1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusSarcophagus2
+  name: "яутжа саркофаг саркофаг2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "sarcophagus2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "sarcophagus2"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusSarcomat
+  name: "яутжа саркофаг саркомат"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "sarcomat"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "sarcomat"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusAncientCoffin
+  name: "яутжа саркофаг стародавня труна"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_coffin"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "ancient_coffin"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusAncientCoffinDeco
+  name: "яутжа саркофаг стародавня труна деко"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_coffin_deco"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "ancient_coffin_deco"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusAncientCoffinMumifiedOpen
+  name: "яутжа саркофаг стародавня труна муміфікована open"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_coffin_mumified_open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "ancient_coffin_mumified_open"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusAncientCoffinMumifiedDecoOpen
+  name: "яутжа саркофаг стародавня труна муміфікована деко відкр"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_coffin_mumified_deco_open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "ancient_coffin_mumified_deco_open"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusAncientCoffinMumifiedDecoAltOpen
+  name: "яутжа саркофаг стародавня труна муміфікована деко альт відкр"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_coffin_mumified_deco_alt_open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "ancient_coffin_mumified_deco_alt_open"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusAncientCoffinEmptyOpen
+  name: "яутжа саркофаг стародавня труна порожня відкр"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_coffin_empty_open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "ancient_coffin_empty_open"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusAncientCoffinEmptyDecoOpen
+  name: "яутжа саркофаг стародавня труна empty деко відкр"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_coffin_empty_deco_open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "ancient_coffin_empty_deco_open"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusAncientCoffinBase
+  name: "яутжа саркофаг стародавня труна база"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_coffin_base"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "ancient_coffin_base"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureSarcophagusAncientCoffinBaseDeco
+  name: "яутжа саркофаг стародавня труна база деко"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_coffin_base_deco"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/sarcophagus.rsi
+      state: "ancient_coffin_base_deco"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsBallisticshield
+  name: "яутжа дисплей щита балістичний щит"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ballisticshield"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "ballisticshield"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsBallisticshieldReady
+  name: "яутжа дисплей щита балістичний щит готовий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ballisticshield_ready"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "ballisticshield_ready"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsRiotmetal
+  name: "яутжа дисплей щита металевий протиштурмовий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "riotmetal"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "riotmetal"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsRiotmetalReady
+  name: "яутжа дисплей щита металевий протиштурмовий готовий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "riotmetal_ready"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "riotmetal_ready"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsRiot
+  name: "яутжа дисплей щита протиштурмовий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "riot"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "riot"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsRiotReady
+  name: "яутжа дисплей щита протиштурмовий готовий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "riot_ready"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "riot_ready"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsAncientShield
+  name: "яутжа дисплей щита стародавній щит"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_shield"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "ancient_shield"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsAncientShieldReady
+  name: "яутжа river дисплей щита стародавній щит готовий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_shield_ready"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "ancient_shield_ready"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsAncientShieldAlt
+  name: "яутжа дисплей щита стародавній щит альт"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_shield_alt"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "ancient_shield_alt"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsAncientShieldAltReady
+  name: "яутжа дисплей щита стародавній щит альт готовий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_shield_alt_ready"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "ancient_shield_alt_ready"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsRomanShield
+  name: "яутжа дисплей щита римський щит"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "roman_shield"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "roman_shield"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsRomanShieldReady
+  name: "яутжа дисплей щита римський щит готовий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "roman_shield_ready"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "roman_shield_ready"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsAncientShieldTemple
+  name: "яутжа дисплей щита стародавній храмовий щит"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_shield_temple"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "ancient_shield_temple"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsAncientShieldTempleReady
+  name: "яутжа дисплей щита стародавній храмовий щит готовий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ancient_shield_temple_ready"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "ancient_shield_temple_ready"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsLegacyBay
+  name: "яутжа дисплей щита спадкова бухта"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "legacy_bay"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "legacy_bay"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsEshield0
+  name: "яутжа дисплей щита е-щит0"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "eshield0"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "eshield0"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureShieldsEshield1
+  name: "яутжа дисплей щита е-щит1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      drawdepth: Objects
+      layers:
+        - state: "eshield1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/shields.rsi
+      state: "eshield1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesGlobe
+  name: "яутжа глобус"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "globe"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "globe"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesAutolatheR
+  name: "яутжа автотокар r"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "autolathe_r"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "autolathe_r"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesAutolatheO
+  name: "яутжа автотокар o"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "autolathe_o"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "autolathe_o"
+
+# Функціональний техфаб Яутжа (рецепты зброї / масок / наручника / плащів).
+# Літерні варіанти R/O/T/N лишаються декоративними пропами.
+- type: entity
+  parent: GoobYautjaTechFab
+  id: GoobYautjaStructureYautjaMachinesAutolathe
+  name: "яутжа автотокар"
+  description: "Стародавній мисливський фабрикатор: ритуальна зброя, маски, наручники та плащі."
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesAutolatheT
+  name: "яутжа автотокар t"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "autolathe_t"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "autolathe_t"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesAutolatheN
+  name: "яутжа автотокар n"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "autolathe_n"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "autolathe_n"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesVat
+  name: "яутжа чан"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "vat"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "vat"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesVatBoiling
+  name: "яутжа чан кипить"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "vat_boiling"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "vat_boiling"
+
+# Furniture moved to furniture.yml
+# - GoobYautjaStructureYautjaMachinesChair
+# - GoobYautjaStructureYautjaMachinesChairBuckledOverlay
+# - GoobYautjaStructureYautjaMachinesComfychair
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesJuicer0
+  name: "яутжа соковижималка0"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "juicer0"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "juicer0"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesJuicer1
+  name: "яутжа соковижималка1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "juicer1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "juicer1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMw
+  name: "яутжа мв"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mw"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mw"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMwo
+  name: "яутжа мво"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mwo"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mwo"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMw1
+  name: "яутжа мв1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mw1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mw1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMw0
+  name: "яутжа мв0"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mw0"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mw0"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMwb
+  name: "яутжа мвб"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mwb"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mwb"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMwbloody
+  categories: [ HideSpawnMenu ]
+  name: "яутжа мв кривавий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mwbloody"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mwbloody"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMwbloodyo
+  name: "яутжа мв кривавий о"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mwbloodyo"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mwbloodyo"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMwbloody1
+  categories: [ HideSpawnMenu ]
+  name: "яутжа мв кривавий 1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mwbloody1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mwbloody1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMwbloody0
+  categories: [ HideSpawnMenu ]
+  name: "яутжа мв кривавий 0"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mwbloody0"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mwbloody0"
+# Fridge / freezer → furniture.yml (ClosetBase). Animation / open frames:
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesFridge1
+  categories: [ HideSpawnMenu ]
+  name: "яутжа холодильник (кадр)"
+  description: "Кадр анімації холодильника."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "fridge1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "fridge1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesFridgebroken
+  categories: [ HideSpawnMenu ]
+  name: "яутжа зламаний холодильник"
+  description: "Декор зламаного холодильника."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "fridgebroken"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "fridgebroken"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesFridgeopen
+  categories: [ HideSpawnMenu ]
+  name: "яутжа холодильник відкритий (шар)"
+  description: "Відкритий вигляд холодильника. Не окремий об'єкт."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "fridgeopen"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "fridgeopen"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesGrinder
+  name: "яутжа мясорубка"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "grinder"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "grinder"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesGrbloody
+  categories: [ HideSpawnMenu ]
+  name: "яутжа кривава мясорубка"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "grbloody"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "grbloody"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesGruse
+  name: "яутжа мясорубка вживана"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "gruse"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "gruse"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesGridle
+  name: "яутжа мясорубка холоста"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "gridle"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "gridle"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesGrjam
+  name: "яутжа мясорубка заїла"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "grjam"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "grjam"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesProcessor
+  name: "яутжа процесор"
+  description: "Стародавня structure мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "processor"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "processor"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDinnerware
+  name: "автомат посуду Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "dinnerware"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "dinnerware"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDinnerwareVend
+  categories: [ HideSpawnMenu ]
+  name: "яутжа видача посуду"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "dinnerware-vend"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "dinnerware-vend"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDinnerwareDeny
+  categories: [ HideSpawnMenu ]
+  name: "яутжа відмова посуду"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "dinnerware-deny"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "dinnerware-deny"
+
+# Canister → furniture.yml (StorageCanister)
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMixer0
+  name: "яутжа міксер 0"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mixer0"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mixer0"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMixer1
+  name: "яутжа міксер 1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mixer1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mixer1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMixer0Nopower
+  categories: [ HideSpawnMenu ]
+  name: "яутжа міксер 0 без живлення"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mixer0_nopower"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mixer0_nopower"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesMixer1Nopower
+  categories: [ HideSpawnMenu ]
+  name: "яутжа міксер 1 без живлення"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "mixer1_nopower"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "mixer1_nopower"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDispenser
+  name: "яутжа диспенсер"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "dispenser"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "dispenser"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesBeaker1
+  categories: [ HideSpawnMenu ]
+  name: "яутжа мензурка 1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "+beaker1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "+beaker1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesBeaker2
+  categories: [ HideSpawnMenu ]
+  name: "яутжа мензурка 2"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "+beaker2"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "+beaker2"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesBeaker3
+  categories: [ HideSpawnMenu ]
+  name: "яутжа мензурка 3"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "+beaker3"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "+beaker3"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesBeaker4
+  categories: [ HideSpawnMenu ]
+  name: "яутжа мензурка 4"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "+beaker4"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "+beaker4"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesBeaker5
+  categories: [ HideSpawnMenu ]
+  name: "яутжа мензурка 5"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "+beaker5"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "+beaker5"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesSodaDispenser
+  name: "яутжа диспенсер газованих напоїв"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "soda_dispenser"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "soda_dispenser"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesBoozeDispenser
+  name: "яутжа диспенсер алкоголю"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "booze_dispenser"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "booze_dispenser"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesTankHugger
+  name: "яутжа обнімач бака"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "tank_hugger"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "tank_hugger"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesTankBroken
+  name: "яутжа зламаний бак"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "tank_broken"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "tank_broken"
+
+# Freezer → furniture.yml. Animation frames:
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesFreezer0
+  categories: [ HideSpawnMenu ]
+  name: "яутжа морозильник (кадр 0)"
+  description: "Кадр анімації морозильника."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "freezer_0"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "freezer_0"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesFreezer1
+  categories: [ HideSpawnMenu ]
+  name: "яутжа морозильник (кадр 1)"
+  description: "Кадр анімації морозильника."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "freezer_1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "freezer_1"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesAutodocClosed
+  name: "яутжа автодок закритий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "autodoc_closed"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "autodoc_closed"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesAutodocOpen
+  name: "яутжа автодок відкритий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "autodoc_open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "autodoc_open"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesAutodocOperate
+  name: "яутжа автодок працює"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "autodoc_operate"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "autodoc_operate"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesSleeperOpen
+  name: "яутжа спальник відкритий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "sleeper_open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "sleeper_open"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesSleeper
+  name: "яутжа спальник"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "sleeper"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "sleeper"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesSleeperClosed
+  name: "яутжа спальник закритий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "sleeper_closed"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "sleeper_closed"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesBodyScanner
+  name: "яутжа сканер тіла"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "body_scanner"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "body_scanner"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesSleeperconsoleP
+  name: "яутжа консоль спальника p"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "sleeperconsole-p"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "sleeperconsole-p"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesSleeperconsole
+  name: "яутжа консоль спальника"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "sleeperconsole"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "sleeperconsole"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesCrew
+  name: "яутжа екіпаж"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "crew"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "crew"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesTerminal
+  name: "яутжа термінал"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "terminal"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "terminal"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesCmonitor
+  name: "яутжа cмонітор"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "cmonitor"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "cmonitor"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesCameras
+  name: "яутжа камери"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "cameras"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "cameras"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesOverwatch
+  name: "яутжа оглядач"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "overwatch"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "overwatch"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesSmallmonitor
+  name: "яутжа малий монітор"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "smallmonitor"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "smallmonitor"
+
+# Furniture moved to furniture.yml (Abed, Bed, Tables, Locker Closed)
+# Open visual only:
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesOpen
+  categories: [ HideSpawnMenu ]
+  name: "яутжа шафа відкрита (шар)"
+  description: "Відкритий вигляд шафи. Не окремий об'єкт."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "open"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesWeldtank
+  name: "яутжа зварювальний бак"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "weldtank"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "weldtank"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesWatertank
+  name: "яутжа водяний бак"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "watertank"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "watertank"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesBodyScannerOpen
+  name: "яутжа сканер тіла відкритий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "body_scanner_open"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "body_scanner_open"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesBodyScannerClosed
+  name: "яутжа сканер тіла закритий"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "body_scanner_closed"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "body_scanner_closed"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesSmes
+  name: "яутжа smes"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "smes"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "smes"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDoorctrl
+  name: "яутжа doorctrl"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "doorctrl"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "doorctrl"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDoorctrl0
+  name: "яутжа doorctrl0"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "doorctrl0"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "doorctrl0"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDoorctrl1
+  name: "яутжа doorctrl1"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "doorctrl1"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "doorctrl1"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDoorctrlDenied
+  categories: [ HideSpawnMenu ]
+  name: "яутжа doorctrl заборонено"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "doorctrl-denied"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "doorctrl-denied"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDoorctrlP
+  name: "яутжа doorctrl p"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "doorctrl-p"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "doorctrl-p"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesLadder10
+  name: "яутжа драбина 10"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ladder10"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "ladder10"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesLadder01
+  name: "яутжа драбина 01"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ladder01"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "ladder01"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesLadder11
+  name: "яутжа драбина 11"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ladder11"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "ladder11"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesLadderdown
+  name: "яутжа драбина вниз"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ladderdown"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "ladderdown"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesLadderup
+  name: "яутжа драбина вгору"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ladderup"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "ladderup"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesLadder00
+  name: "яутжа драбина 00"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "ladder00"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "ladder00"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesSeeds
+  name: "автомат насіння Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "seeds"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "seeds"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesNutri
+  name: "автомат добрив Яутжа"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "nutri"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "nutri"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesNutriDeny
+  categories: [ HideSpawnMenu ]
+  name: "яутжа поживні відмова"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "nutri_deny"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "nutri_deny"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesT20
+  name: "яутжа т 20"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_20"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_20"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesT40
+  name: "яутжа т 40"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_40"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_40"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesT60
+  name: "яутжа т 60"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_60"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_60"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesT80
+  name: "яутжа т 80"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_80"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_80"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesT100
+  name: "яутжа т 100"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_100"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_100"
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesTInactive
+  name: "яутжа т неактивний"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_inactive"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_inactive"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesTActive
+  name: "яутжа т активний"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_active"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_active"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesTBoom
+  name: "яутжа т бум"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_boom"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_boom"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesTSignaller
+  name: "яутжа т сигналізатор"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_signaller"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_signaller"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesTReinforced
+  name: "яутжа т підкріплений"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "t_reinforced"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "t_reinforced"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesDispensing
+  categories: [ HideSpawnMenu ]
+  name: "яутжа видача"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "dispensing"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "dispensing"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesFilling
+  categories: [ HideSpawnMenu ]
+  name: "яутжа наповнення"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "filling"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "filling"
+
+- type: entity
+  parent: GoobYautjaStructureBase
+  id: GoobYautjaStructureYautjaMachinesConsoleShuttle
+  name: "яутжа консоль шатла"
+  description: "Стародавня структура мисливських угідь Яутжа."
+  components:
+    - type: Sprite
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      drawdepth: Objects
+      layers:
+        - state: "console_shuttle"
+    - type: Icon
+      sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+      state: "console_shuttle"

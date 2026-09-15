@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: construction
+  id: BarbedWireMaterial
+  graph: BarbedWireMaterial
+  startNode: start
+  targetNode: BarbedWire
+  category: construction-category-materials
+  objectType: Item
+
+- type: construction
+  id: BarbedWireMaterialMV
+  graph: BarbedWireMaterial
+  startNode: start
+  targetNode: BarbedWire0
+  category: construction-category-materials
+  objectType: Item
+
+- type: construction
+  id: BarbedWireMaterialHV
+  graph: BarbedWireMaterial
+  startNode: start
+  targetNode: BarbedWire1
+  category: construction-category-materials
+  objectType: Item

@@ -117,11 +117,12 @@ public sealed partial class BlobCoreComponent : Component
     [ViewVariables]
     public readonly BlobChemColors ChemСolors = new()
     {
-        {BlobChemType.ReactiveSpines, Color.FromHex("#637b19")},
-        {BlobChemType.BlazingOil, Color.FromHex("#937000")},
-        {BlobChemType.RegenerativeMateria, Color.FromHex("#441e59")},
-        {BlobChemType.ExplosiveLattice, Color.FromHex("#6e1900")},
-        {BlobChemType.ElectromagneticWeb, Color.FromHex("#0d7777")},
+        // Wild Lands: xenomorph / acid-hive palette (was generic blob greens)
+        {BlobChemType.ReactiveSpines, Color.FromHex("#1a3d14")},
+        {BlobChemType.BlazingOil, Color.FromHex("#3d4a10")},
+        {BlobChemType.RegenerativeMateria, Color.FromHex("#2a1a40")},
+        {BlobChemType.ExplosiveLattice, Color.FromHex("#4a1808")},
+        {BlobChemType.ElectromagneticWeb, Color.FromHex("#0a3d3d")},
     };
 
     [DataField]

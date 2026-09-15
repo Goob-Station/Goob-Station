@@ -1,0 +1,29 @@
+{
+    "version":  1,
+    "size":  {
+                 "x":  32,
+                 "y":  32
+             },
+    "states":  [
+                   {
+                       "name":  "small_statue_base"
+                   },
+                   {
+                       "name":  "small_statue_base_colorable"
+                   },
+                   {
+                       "name":  "statue_ancient",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "statue_grey",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "statue_sandstone",
+                       "directions":  4
+                   }
+               ],
+    "license":  "CC-BY-SA-3.0",
+    "copyright":  "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/obj/structures/props/ancientsmallstatue.dmi. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+}

@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseBullet
+  id: BulletEngineerPlasma
+  name: engineer plasma bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - Yautja
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: spark
+      shader: unshaded
+  - type: Ammo
+  - type: Projectile
+    deleteOnCollide: true
+    damage:
+      types:
+        Heat: 35
+        Caustic: 15
+
+- type: entity
+  parent: BaseAction
+  id: ActionEngineerPlasmaBolt
+  name: plasma bolt
+  description: Fire an ancient plasma bolt at the clicked location.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 8
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: spark
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: TargetAction
+    range: 20
+    checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: BulletEngineerPlasma
+      speed: 25

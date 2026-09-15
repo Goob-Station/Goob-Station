@@ -1,0 +1,268 @@
+- type: startingGear
+  id: GoobYautjaHunterGear
+  equipment:
+    mask: GoobYautjaMask
+    gloves: GoobYautjaBracer
+    back: GoobYautjaCloakPack
+    outerClothing: GoobYautjaClanArmor
+    jumpsuit: GoobYautjaBodyMesh
+    shoes: GoobYautjaClanGreaves
+  storage:
+    back:
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - GoobYautjaHealthShard
+    - GoobYautjaHealthShard
+    - GoobYautjaHealthShard
+    - GoobYautjaHealthShard
+    - GoobYautjaHealthShard
+    - GoobYautjaHuntingTrap
+    - GoobYautjaHuntingTrap
+    - GoobYautjaHuntingTrap
+    - GoobYautjaHuntingTrap
+    - GoobYautjaHuntingTrap
+    - GoobYautjaToolbeltFilled
+    - GoobYautjaHoundObservationPad
+    - GoobYautjaCleanserGelVial
+    - GoobYautjaHuntingPouch
+    - GoobYautjaHonorCodex
+
+- type: startingGear
+  parent: GoobYautjaHunterGear
+  id: GoobYautjaHunterGearBronze
+  equipment:
+    outerClothing: GoobYautjaClanArmorBronze
+
+- type: startingGear
+  parent: GoobYautjaHunterGear
+  id: GoobYautjaHunterGearSilver
+  equipment:
+    outerClothing: GoobYautjaClanArmorSilver
+
+- type: startingGear
+  parent: GoobYautjaHunterGear
+  id: GoobYautjaHunterGearCrimson
+  equipment:
+    outerClothing: GoobYautjaClanArmorCrimson
+
+- type: startingGear
+  parent: GoobYautjaHunterGear
+  id: GoobYautjaHunterGearBone
+  equipment:
+    outerClothing: GoobYautjaClanArmorBone
+
+- type: startingGear
+  id: GoobYautjaBadBloodGearBase
+  equipment:
+    gloves: GoobYautjaBadBloodBracer
+    back: GoobYautjaCloakPack
+    outerClothing: GoobYautjaClanArmor
+    jumpsuit: GoobYautjaBodyMesh
+    shoes: GoobYautjaClanGreaves
+    mask: GoobYautjaMaskAncient
+    belt: GoobYautjaTrophyBelt
+    pocket1: GoobYautjaHealthShard
+    pocket2: GoobYautjaMedicomp
+  storage:
+    back:
+    - GoobYautjaHuntingTrap
+    - GoobYautjaHuntingTrap
+    - GoobYautjaPolishingRag
+    - GoobYautjaCleanserGelVial
+    - GoobYautjaRelayBeacon
+    - GoobYautjaHuntingPouch
+    - GoobYautjaToolbeltFilled
+    - GoobYautjaHoundObservationPad
+    - GoobYautjaHonorCodex
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear01
+  equipment:
+    mask: GoobYautjaMaskBadBloodCommando
+    outerClothing: GoobYautjaBadBloodArmorCommandoAlt
+    shoes: GoobYautjaBadBloodGreavesCommandoAlt
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear02
+  equipment:
+    mask: GoobYautjaMaskBadBloodCommando
+    outerClothing: GoobYautjaBadBloodArmorScavengerAlt
+    shoes: GoobYautjaBadBloodGreavesScavengerAlt
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear03
+  equipment:
+    mask: GoobYautjaMaskBadBloodCommando
+    outerClothing: GoobYautjaBadBloodArmorLunatic
+    shoes: GoobYautjaBadBloodGreavesLunatic
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear04
+  equipment:
+    mask: GoobYautjaMaskBadBloodCommando
+    outerClothing: GoobYautjaBadBloodArmorBane
+    shoes: GoobYautjaBadBloodGreavesBane
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear05
+  equipment:
+    mask: GoobYautjaMaskBadBloodCommandoAlt
+    outerClothing: GoobYautjaBadBloodArmorCommandoAlt
+    shoes: GoobYautjaBadBloodGreavesCommandoAlt
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear06
+  equipment:
+    mask: GoobYautjaMaskBadBloodCommandoAlt
+    outerClothing: GoobYautjaBadBloodArmorScavengerAlt
+    shoes: GoobYautjaBadBloodGreavesScavengerAlt
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear07
+  equipment:
+    mask: GoobYautjaMaskBadBloodCommandoAlt
+    outerClothing: GoobYautjaBadBloodArmorLunatic
+    shoes: GoobYautjaBadBloodGreavesLunatic
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear08
+  equipment:
+    mask: GoobYautjaMaskBadBloodCommandoAlt
+    outerClothing: GoobYautjaBadBloodArmorBane
+    shoes: GoobYautjaBadBloodGreavesBane
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear09
+  equipment:
+    mask: GoobYautjaMaskBadBloodLunatic
+    outerClothing: GoobYautjaBadBloodArmorCommandoAlt
+    shoes: GoobYautjaBadBloodGreavesCommandoAlt
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear10
+  equipment:
+    mask: GoobYautjaMaskBadBloodLunatic
+    outerClothing: GoobYautjaBadBloodArmorScavengerAlt
+    shoes: GoobYautjaBadBloodGreavesScavengerAlt
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear11
+  equipment:
+    mask: GoobYautjaMaskBadBloodLunatic
+    outerClothing: GoobYautjaBadBloodArmorLunatic
+    shoes: GoobYautjaBadBloodGreavesLunatic
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear12
+  equipment:
+    mask: GoobYautjaMaskBadBloodLunatic
+    outerClothing: GoobYautjaBadBloodArmorBane
+    shoes: GoobYautjaBadBloodGreavesBane
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear13
+  equipment:
+    mask: GoobYautjaMaskBadBloodVenator
+    outerClothing: GoobYautjaBadBloodArmorCommandoAlt
+    shoes: GoobYautjaBadBloodGreavesCommandoAlt
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear14
+  equipment:
+    mask: GoobYautjaMaskBadBloodVenator
+    outerClothing: GoobYautjaBadBloodArmorScavengerAlt
+    shoes: GoobYautjaBadBloodGreavesScavengerAlt
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear15
+  equipment:
+    mask: GoobYautjaMaskBadBloodVenator
+    outerClothing: GoobYautjaBadBloodArmorLunatic
+    shoes: GoobYautjaBadBloodGreavesLunatic
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodLeaderGear16
+  equipment:
+    mask: GoobYautjaMaskBadBloodVenator
+    outerClothing: GoobYautjaBadBloodArmorBane
+    shoes: GoobYautjaBadBloodGreavesBane
+    back: GoobYautjaBadBloodCloakPack
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodGruntGear01
+  equipment:
+    mask: GoobYautjaMaskBadBloodBane
+    outerClothing: GoobYautjaBadBloodArmorScavengerAlt
+    shoes: GoobYautjaBadBloodGreavesScavengerAlt
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodGruntGear02
+  equipment:
+    mask: GoobYautjaMaskPred01Crimson
+    outerClothing: GoobYautjaBadBloodArmorLunatic
+    shoes: GoobYautjaBadBloodGreavesLunatic
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodGruntGear03
+  equipment:
+    mask: GoobYautjaMaskPred02Crimson
+    outerClothing: GoobYautjaBadBloodArmorBane
+    shoes: GoobYautjaBadBloodGreavesBane
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodGruntGear04
+  equipment:
+    mask: GoobYautjaMaskPred03Crimson
+    outerClothing: GoobYautjaClanArmor
+    shoes: GoobYautjaClanGreaves
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodGruntGear05
+  equipment:
+    mask: GoobYautjaMaskPred04Crimson
+    outerClothing: GoobYautjaClanArmor2
+    shoes: GoobYautjaClanGreaves2
+
+- type: startingGear
+  parent: GoobYautjaBadBloodGearBase
+  id: GoobYautjaBadBloodGruntGear06
+  equipment:
+    mask: GoobYautjaMaskPred05Crimson
+    outerClothing: GoobYautjaClanArmor
+    shoes: GoobYautjaClanGreaves

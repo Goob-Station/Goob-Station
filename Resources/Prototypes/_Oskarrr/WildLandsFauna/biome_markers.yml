@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Extra fauna density via marker layers (on top of biome entity layers).
+
+- type: biomeMarkerLayer
+  id: WildLandsForestFauna
+  prototype: MobWildLandsBoar
+  radius: 48
+  maxCount: 40
+  minGroupSize: 1
+  maxGroupSize: 2
+  size: 160
+
+- type: biomeMarkerLayer
+  id: WildLandsDesertFauna
+  prototype: MobWildLandsDesertLizard
+  radius: 56
+  maxCount: 28
+  minGroupSize: 1
+  maxGroupSize: 2
+  size: 180
+
+- type: biomeMarkerLayer
+  id: WildLandsSavannaFauna
+  prototype: MobWildLandsSavannaCow
+  radius: 48
+  maxCount: 36
+  minGroupSize: 1
+  maxGroupSize: 3
+  size: 160

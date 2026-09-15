@@ -1,0 +1,114 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Secret+ scheduler for Oskar / Wild Lands.
+# Banned: Wizard, Nukeops/Honkops/LoneOps, Revs, Dragon, Rat King, Abductors.
+
+- type: weightedRandom
+  id: OskarPrimary
+  weights:
+    # Core Wild Lands roster (rebranded flavour)
+    Traitor: 0.32
+    CosmicCult: 0.14
+    BlobGameMode: 0.12
+    Thief: 0.12
+    CorporateAgent: 0.08
+    XenomorphsInfestationRoundstart: 0.08
+    Changeling: 0.06
+    Heretic: 0.04
+    Zombie: 0.02
+    Xenoborgs: 0.02
+
+- type: weightedRandom
+  id: OskarSecondary
+  weights:
+    Thief: 0.30
+    Traitor: 0.28
+    CosmicCult: 0.12
+    CorporateAgent: 0.10
+    XenomorphsInfestationRoundstart: 0.08
+    Changeling: 0.06
+    Heretic: 0.04
+    BlobGameMode: 0.02
+
+- type: entityTable
+  id: OskarAntagEventsTable
+  table: !type:AllSelector
+    children:
+    - id: ClosetSkeleton
+    - !type:NestedSelector
+      tableId: DerelictBorgEventTable
+
+- type: entityTable
+  id: OskarModerateAntagEventsTable
+  table: !type:AllSelector
+    children:
+    - id: ColossusSpawn
+    - id: NinjaSpawn
+    - id: ParadoxCloneSpawn
+    - id: SleeperAgents
+    - id: ZombieOutbreak
+    - id: BlobSpawn
+    - id: BingleSpawn
+    - id: SlaughterDemonMidround
+    - id: XenomorphsInfestation
+    - id: SlasherSpawn
+    - id: SpacePirates
+    - id: SingulothKnightsMidround
+    - id: MimeAssassinMidround
+    - id: DarkPriestMidround
+    - id: VoxRaidersMidround
+    - id: TunnelClownMidround
+    - !type:NestedSelector
+      tableId: DerelictBorgEventTable
+
+- type: entityTable
+  id: OskarSpicyPestEventsTable
+  table: !type:AllSelector
+    children:
+    - id: SnailMigration
+
+- type: entityTable
+  id: OskarGameRulesTable
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: BasicCalmEventsTable
+    - !type:NestedSelector
+      tableId: OskarAntagEventsTable
+    - !type:NestedSelector
+      tableId: OskarModerateAntagEventsTable
+    - !type:NestedSelector
+      tableId: CargoGiftsTable
+    - !type:NestedSelector
+      tableId: CalmPestEventsTable
+    - !type:NestedSelector
+      tableId: OskarSpicyPestEventsTable
+
+- type: entityTable
+  id: OskarSecretPlusTable
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: SpaceTrafficControlTable
+    - !type:NestedSelector
+      tableId: OskarGameRulesTable
+
+- type: entity
+  id: SecretPlusOskar
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SecretPlus
+    minStartingChaos: 11
+    maxStartingChaos: 22
+    livingChaosChange: -0.018
+    deadChaosChange: 0.020
+    chaosChangeVariationMin: 0.65
+    chaosChangeVariationMax: 1.3
+    eventIntervalMin: 90
+    eventIntervalMax: 400
+    primaryAntagsWeightTable: OskarPrimary
+    roundStartAntagsWeightTable: OskarSecondary
+  - type: SelectedGameRules
+    scheduledGameRules: !type:NestedSelector
+      tableId: OskarSecretPlusTable

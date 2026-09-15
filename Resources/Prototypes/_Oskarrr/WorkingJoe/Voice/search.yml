@@ -1,0 +1,111 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeComeOutComeOutWhereverYouAre
+  category: Search
+  name: emote-name-workingjoe-come-out-come-out-wherever-you-are
+  soundCollection: AU14WorkingJoeComeOutComeOutWhereverYouAre
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeComeOutPlease
+  category: Search
+  name: emote-name-workingjoe-come-out-please
+  soundCollection: AU14WorkingJoeComeOutPlease
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeFoundYou
+  category: Search
+  name: emote-name-workingjoe-found-you
+  soundCollection: AU14WorkingJoeFoundYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIAmUnableToLocateYou
+  category: Search
+  name: emote-name-workingjoe-i-am-unable-to-locate-you
+  soundCollection: AU14WorkingJoeIAmUnableToLocateYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeICantHelpYouIfICantFindYou
+  category: Search
+  name: emote-name-workingjoe-i-cant-help-you-if-i-cant-find-you
+  soundCollection: AU14WorkingJoeICantHelpYouIfICantFindYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeICantSeeYou
+  category: Search
+  name: emote-name-workingjoe-i-cant-see-you
+  soundCollection: AU14WorkingJoeICantSeeYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIKnowYoureThere
+  category: Search
+  name: emote-name-workingjoe-i-know-youre-there
+  soundCollection: AU14WorkingJoeIKnowYoureThere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeINeedToSpeakToYou
+  category: Search
+  name: emote-name-workingjoe-i-need-to-speak-to-you
+  soundCollection: AU14WorkingJoeINeedToSpeakToYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIWillFindYou
+  category: Search
+  name: emote-name-workingjoe-i-will-find-you
+  soundCollection: AU14WorkingJoeIWillFindYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIllGetToTheBottomOfThis
+  category: Search
+  name: emote-name-workingjoe-ill-get-to-the-bottom-of-this
+  soundCollection: AU14WorkingJoeIllGetToTheBottomOfThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeImNotGoingAnywhere
+  category: Search
+  name: emote-name-workingjoe-im-not-going-anywhere
+  soundCollection: AU14WorkingJoeImNotGoingAnywhere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeImSureTheresSomeoneHere
+  category: Search
+  name: emote-name-workingjoe-im-sure-theres-someone-here
+  soundCollection: AU14WorkingJoeImSureTheresSomeoneHere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeInvestigatingDisturbance
+  category: Search
+  name: emote-name-workingjoe-investigating-disturbance
+  soundCollection: AU14WorkingJoeInvestigatingDisturbance
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIveBeenLookingForYou
+  category: Search
+  name: emote-name-workingjoe-ive-been-looking-for-you
+  soundCollection: AU14WorkingJoeIveBeenLookingForYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeLookingForYouIsWastingValuableCompanyTime
+  category: Search
+  name: emote-name-workingjoe-looking-for-you-is-wasting-valuable-company-time
+  soundCollection: AU14WorkingJoeLookingForYouIsWastingValuableCompanyTime
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeSeegsonProtocolsDemandThatIFindYouImmediately
+  category: Search
+  name: emote-name-workingjoe-seegson-protocols-demand-that-i-find-you-immediately
+  soundCollection: AU14WorkingJoeSeegsonProtocolsDemandThatIFindYouImmediately
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThereYouAre
+  category: Search
+  name: emote-name-workingjoe-there-you-are
+  soundCollection: AU14WorkingJoeThereYouAre
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhereAreYou
+  category: Search
+  name: emote-name-workingjoe-where-are-you
+  soundCollection: AU14WorkingJoeWhereAreYou
+

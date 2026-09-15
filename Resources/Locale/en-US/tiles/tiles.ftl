@@ -168,6 +168,7 @@ tiles-xeno-floor = xeno floor
 tiles-xeno-steel = xeno steel tile
 tiles-xeno-steel-corner = xeno steel corner tile
 tiles-xeno-maint = xeno techmaint
+tiles-xeno-hive-floor = hive plating
 tiles-xenoborg-floor = xenoborg tile
 tiles-dark-squiggly = dark steel squiggly tile
 tiles-white-marble = white marble tile

@@ -1,0 +1,14 @@
+{
+    "version":  1,
+    "size":  {
+                 "x":  192,
+                 "y":  192
+             },
+    "states":  [
+                   {
+                       "name":  "spacejockey"
+                   }
+               ],
+    "license":  "CC-BY-SA-3.0",
+    "copyright":  "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/obj/structures/props/engineerJockey.dmi. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+}

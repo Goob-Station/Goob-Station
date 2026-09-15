@@ -1,0 +1,141 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeBeCarefulWithThat
+  category: Warning
+  name: emote-name-workingjoe-be-careful-with-that
+  soundCollection: AU14WorkingJoeBeCarefulWithThat
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeDoNotDamageSeegsonProperty
+  category: Warning
+  name: emote-name-workingjoe-do-not-damage-seegson-property
+  soundCollection: AU14WorkingJoeDoNotDamageSeegsonProperty
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeDontRun
+  category: Warning
+  name: emote-name-workingjoe-dont-run
+  soundCollection: AU14WorkingJoeDontRun
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeFirearmsCanCauseSeriousInjuryLetMeAssistYou
+  category: Warning
+  name: emote-name-workingjoe-firearms-can-cause-serious-injury-let-me-assist-you
+  soundCollection: AU14WorkingJoeFirearmsCanCauseSeriousInjuryLetMeAssistYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIAssumeYouHaveAPermitForThatWeapon
+  category: Warning
+  name: emote-name-workingjoe-i-assume-you-have-a-permit-for-that-weapon
+  soundCollection: AU14WorkingJoeIAssumeYouHaveAPermitForThatWeapon
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIDoHopeThatWeaponIsRegistered
+  category: Warning
+  name: emote-name-workingjoe-i-do-hope-that-weapon-is-registered
+  soundCollection: AU14WorkingJoeIDoHopeThatWeaponIsRegistered
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIHopeThatWeaponIsRegistered
+  category: Warning
+  name: emote-name-workingjoe-i-hope-that-weapon-is-registered
+  soundCollection: AU14WorkingJoeIHopeThatWeaponIsRegistered
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeInvestigateWeapon
+  category: Warning
+  name: emote-name-workingjoe-investigate-weapon
+  soundCollection: AU14WorkingJoeInvestigateWeapon
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeMostConcerning
+  category: Warning
+  name: emote-name-workingjoe-most-concerning
+  soundCollection: AU14WorkingJoeMostConcerning
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeOnlyWildAnimalsFearFire
+  category: Warning
+  name: emote-name-workingjoe-only-wild-animals-fear-fire
+  soundCollection: AU14WorkingJoeOnlyWildAnimalsFearFire
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeRunningCausesAccidents
+  category: Warning
+  name: emote-name-workingjoe-running-causes-accidents
+  soundCollection: AU14WorkingJoeRunningCausesAccidents
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeSomeoneMightGetHurt
+  category: Warning
+  name: emote-name-workingjoe-someone-might-get-hurt
+  soundCollection: AU14WorkingJoeSomeoneMightGetHurt
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThatWasVeryDangerous
+  category: Warning
+  name: emote-name-workingjoe-that-was-very-dangerous
+  soundCollection: AU14WorkingJoeThatWasVeryDangerous
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThatsForMeNotForYou
+  category: Warning
+  name: emote-name-workingjoe-thats-for-me-not-for-you
+  soundCollection: AU14WorkingJoeThatsForMeNotForYou
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThatsNotAToy
+  category: Warning
+  name: emote-name-workingjoe-thats-not-a-toy
+  soundCollection: AU14WorkingJoeThatsNotAToy
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeTheseItemsCarryNotableHealthRisksWhenAlightAndInhaled
+  category: Warning
+  name: emote-name-workingjoe-these-items-carry-notable-health-risks-when-alight-and-inhaled
+  soundCollection: AU14WorkingJoeTheseItemsCarryNotableHealthRisksWhenAlightAndInhaled
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeUnprotectedFlamesAreExtremelyDangerousAndEntirelyUnadvisable
+  category: Warning
+  name: emote-name-workingjoe-unprotected-flames-are-extremely-dangerous-and-entirely-unadvisable
+  soundCollection: AU14WorkingJoeUnprotectedFlamesAreExtremelyDangerousAndEntirelyUnadvisable
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYouAndIAreGoingToHaveATalkAboutSafety
+  category: Warning
+  name: emote-name-workingjoe-you-and-i-are-going-to-have-a-talk-about-safety
+  soundCollection: AU14WorkingJoeYouAndIAreGoingToHaveATalkAboutSafety
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYouAreCarryingSomeVeryDangerousItems
+  category: Warning
+  name: emote-name-workingjoe-you-are-carrying-some-very-dangerous-items
+  soundCollection: AU14WorkingJoeYouAreCarryingSomeVeryDangerousItems
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYouCouldveHurtSomeone
+  category: Warning
+  name: emote-name-workingjoe-you-couldve-hurt-someone
+  soundCollection: AU14WorkingJoeYouCouldveHurtSomeone
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYoureBecomingHysterical
+  category: Warning
+  name: emote-name-workingjoe-youre-becoming-hysterical
+  soundCollection: AU14WorkingJoeYoureBecomingHysterical
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYoureGoingToHaveToBeMoreCareful
+  category: Warning
+  name: emote-name-workingjoe-youre-going-to-have-to-be-more-careful
+  soundCollection: AU14WorkingJoeYoureGoingToHaveToBeMoreCareful
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYoureGoingToHurtYourself
+  category: Warning
+  name: emote-name-workingjoe-youre-going-to-hurt-yourself
+  soundCollection: AU14WorkingJoeYoureGoingToHurtYourself
+

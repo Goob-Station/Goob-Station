@@ -1,0 +1,133 @@
+﻿- type: species
+  id: Yautja
+  name: species-name-yautja
+  roundStart: false
+  prototype: GoobMobYautja
+  sprites: GoobMobYautjaSprites
+  maleFirstNames: GoobNamesYautjaFirst
+  femaleFirstNames: GoobNamesYautjaFirst
+  lastNames: GoobNamesYautjaLast
+  naming: FirstLast
+  defaultSkinTone: "#ffffff"
+  markingLimits: GoobMobYautjaMarkingLimits
+  dollPrototype: MobHumanDummy
+  skinColoration: Hues
+  knowledge: Human
+  sexes:
+  - Male
+  - Female
+  minAge: 100
+  youngAge: 200
+  oldAge: 600
+  maxAge: 1200
+
+- type: speciesBaseSprites
+  id: GoobMobYautjaSprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    Head: GoobMobYautjaHead
+    Chest: GoobMobYautjaTorso
+    Groin: MobHumanGroin
+    Eyes: MobHumanoidEyes
+    LArm: GoobMobYautjaLArm
+    RArm: GoobMobYautjaRArm
+    LHand: GoobMobYautjaLHand
+    RHand: GoobMobYautjaRHand
+    LLeg: GoobMobYautjaLLeg
+    RLeg: GoobMobYautjaRLeg
+    LFoot: GoobMobYautjaLFoot
+    RFoot: GoobMobYautjaRFoot
+
+- type: markingPoints
+  id: GoobMobYautjaMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: true
+      onlyWhitelisted: true
+      defaultMarkings: [ GoobYautjaDreadlocksStandard ]
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaHead
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaHeadMale
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaHeadFemale
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaTorso
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaTorsoMale
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaTorsoFemale
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaLArm
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaRArm
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaLHand
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaRHand
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaLLeg
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaRLeg
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaLFoot
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: GoobMobYautjaRFoot
+  baseSprite:
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: r_foot

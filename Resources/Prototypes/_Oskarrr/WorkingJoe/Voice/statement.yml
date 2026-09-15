@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAWildGooseChaseAsSuspected
+  category: Statement
+  name: emote-name-workingjoe-a-wild-goose-chase-as-suspected
+  soundCollection: AU14WorkingJoeAWildGooseChaseAsSuspected
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAsIThoughtUnfortunate
+  category: Statement
+  name: emote-name-workingjoe-as-i-thought-unfortunate
+  soundCollection: AU14WorkingJoeAsIThoughtUnfortunate
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeCleanUpRequired
+  category: Statement
+  name: emote-name-workingjoe-clean-up-required
+  soundCollection: AU14WorkingJoeCleanUpRequired
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeFarBeyondRepair
+  category: Statement
+  name: emote-name-workingjoe-far-beyond-repair
+  soundCollection: AU14WorkingJoeFarBeyondRepair
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThere
+  category: Statement
+  name: emote-name-workingjoe-there
+  soundCollection: AU14WorkingJoeThere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisCouldRequireMyAttention
+  category: Statement
+  name: emote-name-workingjoe-this-could-require-my-attention
+  soundCollection: AU14WorkingJoeThisCouldRequireMyAttention
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisIsGoingToBeAProblem
+  category: Statement
+  name: emote-name-workingjoe-this-is-going-to-be-a-problem
+  soundCollection: AU14WorkingJoeThisIsGoingToBeAProblem
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeUnexplainedDisturbancesAreMostTroubling
+  category: Statement
+  name: emote-name-workingjoe-unexplained-disturbances-are-most-troubling
+  soundCollection: AU14WorkingJoeUnexplainedDisturbancesAreMostTroubling
+

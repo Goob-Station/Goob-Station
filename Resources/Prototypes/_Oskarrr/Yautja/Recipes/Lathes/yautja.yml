@@ -1,0 +1,399 @@
+# Abstract bases
+- type: latheRecipe
+  abstract: true
+  id: BaseYautjaWeaponRecipe
+  categories:
+  - YautjaWeapons
+  completetime: 3
+  materials:
+    Steel: 400
+    Plasteel: 150
+    Plasma: 50
+
+- type: latheRecipe
+  abstract: true
+  id: BaseYautjaKnifeRecipe
+  parent: BaseYautjaWeaponRecipe
+  completetime: 2
+  materials:
+    Steel: 250
+    Plasteel: 100
+    Plasma: 30
+
+- type: latheRecipe
+  abstract: true
+  id: BaseYautjaHeavyWeaponRecipe
+  parent: BaseYautjaWeaponRecipe
+  completetime: 5
+  materials:
+    Steel: 700
+    Plasteel: 300
+    Plasma: 100
+
+- type: latheRecipe
+  abstract: true
+  id: BaseYautjaMaskRecipe
+  categories:
+  - YautjaMasks
+  completetime: 3
+  materials:
+    Steel: 200
+    Glass: 100
+    Plastic: 50
+    Plasma: 40
+
+- type: latheRecipe
+  abstract: true
+  id: BaseYautjaGearRecipe
+  categories:
+  - YautjaGear
+  completetime: 4
+
+# --- Weapons / ritual blades ---
+- type: latheRecipe
+  parent: BaseYautjaKnifeRecipe
+  id: GoobYautjaCeremonialDagger
+  result: GoobYautjaCeremonialDagger
+
+- type: latheRecipe
+  parent: BaseYautjaKnifeRecipe
+  id: GoobYautjaCombiknife
+  result: GoobYautjaCombiknife
+
+- type: latheRecipe
+  parent: BaseYautjaKnifeRecipe
+  id: GoobYautjaDuellingKnife
+  result: GoobYautjaDuellingKnife
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaDuellingBlade
+  result: GoobYautjaDuellingBlade
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaDuellingHatchet
+  result: GoobYautjaDuellingHatchet
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaDuellingClub
+  result: GoobYautjaDuellingClub
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaClanSword
+  result: GoobYautjaClanSword
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaRendingSword
+  result: GoobYautjaRendingSword
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaPiercingSword
+  result: GoobYautjaPiercingSword
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaSeveringSword
+  result: GoobYautjaSeveringSword
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaScimitar
+  result: GoobYautjaScimitar
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaWarAxe
+  result: GoobYautjaWarAxe
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaHarpoon
+  result: GoobYautjaHarpoon
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaChainwhip
+  result: GoobYautjaChainwhip
+
+- type: latheRecipe
+  parent: BaseYautjaHeavyWeaponRecipe
+  id: GoobYautjaDualWarScythe
+  result: GoobYautjaDualWarScythe
+
+- type: latheRecipe
+  parent: BaseYautjaHeavyWeaponRecipe
+  id: GoobYautjaDoubleWarScythe
+  result: GoobYautjaDoubleWarScythe
+
+- type: latheRecipe
+  parent: BaseYautjaHeavyWeaponRecipe
+  id: GoobYautjaCruelStaff
+  result: GoobYautjaCruelStaff
+
+- type: latheRecipe
+  parent: BaseYautjaHeavyWeaponRecipe
+  id: GoobYautjaCombistick
+  result: GoobYautjaCombistick
+
+- type: latheRecipe
+  parent: BaseYautjaHeavyWeaponRecipe
+  id: GoobYautjaHunterSpear
+  result: GoobYautjaHunterSpear
+
+- type: latheRecipe
+  parent: BaseYautjaHeavyWeaponRecipe
+  id: GoobYautjaWarGlaive
+  result: GoobYautjaWarGlaive
+
+- type: latheRecipe
+  parent: BaseYautjaHeavyWeaponRecipe
+  id: GoobYautjaCleavingGlaive
+  result: GoobYautjaCleavingGlaive
+
+- type: latheRecipe
+  parent: BaseYautjaHeavyWeaponRecipe
+  id: GoobYautjaAncientWarGlaive
+  result: GoobYautjaAncientWarGlaive
+
+- type: latheRecipe
+  parent: BaseYautjaHeavyWeaponRecipe
+  id: GoobYautjaLongaxe
+  result: GoobYautjaLongaxe
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaChainGauntlet
+  result: GoobYautjaChainGauntlet
+  materials:
+    Steel: 450
+    Plasteel: 200
+    Plasma: 80
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaClanShield
+  result: GoobYautjaClanShield
+  categories:
+  - YautjaWeapons
+  materials:
+    Steel: 500
+    Plasteel: 200
+    Plasma: 50
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaAncientShield
+  result: GoobYautjaAncientShield
+  materials:
+    Steel: 500
+    Plasteel: 200
+    Plasma: 50
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaAncientShieldAlt
+  result: GoobYautjaAncientShieldAlt
+  materials:
+    Steel: 500
+    Plasteel: 200
+    Plasma: 50
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaAncientShieldTemple
+  result: GoobYautjaAncientShieldTemple
+  materials:
+    Steel: 500
+    Plasteel: 200
+    Plasma: 50
+
+- type: latheRecipe
+  parent: BaseYautjaWeaponRecipe
+  id: GoobYautjaBracerShield
+  result: GoobYautjaBracerShield
+  materials:
+    Steel: 400
+    Plasteel: 150
+    Plasma: 40
+
+# --- Gear: bracer + cloaks ---
+- type: latheRecipe
+  parent: BaseYautjaGearRecipe
+  id: GoobYautjaBracer
+  result: GoobYautjaBracer
+  completetime: 6
+  materials:
+    Steel: 600
+    Plasteel: 400
+    Plasma: 250
+    Glass: 150
+    Gold: 50
+
+- type: latheRecipe
+  parent: BaseYautjaGearRecipe
+  id: GoobYautjaCloakPack
+  result: GoobYautjaCloakPack
+  materials:
+    Cloth: 600
+    Durathread: 300
+    Plasma: 50
+
+- type: latheRecipe
+  parent: BaseYautjaGearRecipe
+  id: GoobYautjaBadBloodCloakPack
+  result: GoobYautjaBadBloodCloakPack
+  materials:
+    Cloth: 600
+    Durathread: 300
+    Plasma: 50
+
+# --- Masks (core + distinctive) ---
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMask
+  result: GoobYautjaMask
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskAncient
+  result: GoobYautjaMaskAncient
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskAncientRedGlow
+  result: GoobYautjaMaskAncientRedGlow
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskAncientWhite
+  result: GoobYautjaMaskAncientWhite
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskEliteCleopatra
+  result: GoobYautjaMaskEliteCleopatra
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskElitePlated
+  result: GoobYautjaMaskElitePlated
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskLegacyCollector
+  result: GoobYautjaMaskLegacyCollector
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskLegacyDragon
+  result: GoobYautjaMaskLegacyDragon
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskLegacyEnforcer
+  result: GoobYautjaMaskLegacyEnforcer
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskLegacySwamp
+  result: GoobYautjaMaskLegacySwamp
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodBane
+  result: GoobYautjaMaskBadBloodBane
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodCommando
+  result: GoobYautjaMaskBadBloodCommando
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodCommandoAlt
+  result: GoobYautjaMaskBadBloodCommandoAlt
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodEmissaryClassic
+  result: GoobYautjaMaskBadBloodEmissaryClassic
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodEmissaryDesert
+  result: GoobYautjaMaskBadBloodEmissaryDesert
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodEmissaryJungle
+  result: GoobYautjaMaskBadBloodEmissaryJungle
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodEmissarySnow
+  result: GoobYautjaMaskBadBloodEmissarySnow
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodEmissaryUrban
+  result: GoobYautjaMaskBadBloodEmissaryUrban
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodLunatic
+  result: GoobYautjaMaskBadBloodLunatic
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodPatchwork
+  result: GoobYautjaMaskBadBloodPatchwork
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodPatchworkAlt
+  result: GoobYautjaMaskBadBloodPatchworkAlt
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodScav
+  result: GoobYautjaMaskBadBloodScav
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodScavAlt
+  result: GoobYautjaMaskBadBloodScavAlt
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskBadBloodVenator
+  result: GoobYautjaMaskBadBloodVenator
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskThrallBone
+  result: GoobYautjaMaskThrallBone
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskThrallCrimson
+  result: GoobYautjaMaskThrallCrimson
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskThrallEbony
+  result: GoobYautjaMaskThrallEbony
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskThrallGold
+  result: GoobYautjaMaskThrallGold
+
+- type: latheRecipe
+  parent: BaseYautjaMaskRecipe
+  id: GoobYautjaMaskThrallSilver
+  result: GoobYautjaMaskThrallSilver

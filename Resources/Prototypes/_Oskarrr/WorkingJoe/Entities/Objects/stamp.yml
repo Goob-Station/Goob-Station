@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: RubberStampBase
+  id: RubberStampWorkingJoe
+  name: Working Joe rubber stamp
+  description: Official Seegson Working Joe paperwork stamp.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-workingjoe
+    stampedColor: "#000000"
+    stampState: paper_stamp-generic
+  - type: Sprite
+    sprite: Objects/Misc/stamps.rsi
+    state: stamp-mime

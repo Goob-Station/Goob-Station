@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: startingGear
+  id: AborigineChieftainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator
+    outerClothing: ClothingOuterArmorBone
+    head: ClothingHeadHelmetBone
+    shoes: ClothingShoesCult
+  inhand:
+  - Machete
+  - FireAxe
+
+- type: startingGear
+  id: AborigineMedicGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator
+    shoes: ClothingShoesCult
+    back: ClothingBackpackSatchel
+  inhand:
+  - SurvivalKnife
+  - KitchenKnife
+  storage:
+    back:
+    - MedkitCombatFilled
+
+- type: startingGear
+  id: AborigineStalkerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator
+    shoes: ClothingShoesCult
+    back: ClothingBackpackSatchel
+    belt: BowImprovised
+  inhand:
+  - ArrowAboriginePoison
+  storage:
+    back:
+    - ArrowAboriginePoison
+    - ArrowAboriginePoison
+    - ArrowAboriginePoison
+    - ArrowAboriginePoison
+    - DartAboriginePoison
+    - DartAboriginePoison
+
+- type: startingGear
+  id: AborigineWarriorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator
+    shoes: ClothingShoesCult
+    back: SpearBone
+  inhand:
+  - BaseBallBat

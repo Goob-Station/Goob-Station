@@ -34,19 +34,19 @@ ent-StrongBlobTile = Strong Blob Tile
 ent-ReflectiveBlobTile = Blob Reflective Tiles
     .desc = It reflects lasers, but does not protect against brute damage as well.
     .desc = { "" }
-objective-issuer-blob = Blob
+objective-issuer-blob = Bio-Hive
 
 
-ghost-role-information-blobbernaut-name = Blobbernaut
-ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend the blob core. Use + or +e in chat to talk in the Blobmind.
+ghost-role-information-blobbernaut-name = Hive Guardian
+ghost-role-information-blobbernaut-description = You are a bio-hive guardian. Defend the core. Use + or +e to speak in the hive-mind.
 
-ghost-role-information-blob-name = Blob
-ghost-role-information-blob-description = You are the Blob Infection. Consume the station.
+ghost-role-information-blob-name = Bio-Hive
+ghost-role-information-blob-description = You are an unknown planetary biomass — a xenomorphic hive-growth consuming the Wild Lands base.
 
-roles-antag-blob-name = Blob
-roles-antag-blob-objective = Reach critical mass.
+roles-antag-blob-name = Bio-Hive Infestation
+roles-antag-blob-objective = Spread the planetary biomass until the base is consumed.
 
-guide-entry-blob = Blob
+guide-entry-blob = Bio-Hive Infestation
 
 # Popups
 blob-target-normal-blob-invalid = Wrong blob type, select a normal blob.

@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingHeadsetEngineering
+  id: ClothingHeadsetWorkingJoe
+  name: Working Joe headset
+  description: A plain headset used by Working Joe units.

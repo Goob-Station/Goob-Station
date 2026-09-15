@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: material
+  id: BarbedWire
+  stackEntity: BarbedWire1
+  name: materials-barbedwire
+  unit: materials-unit-roll
+  icon: { sprite: /Textures/_Trauma/Objects/Materials/barbwire.rsi, state: icon }
+  color: "#929292"
+  price: 0.1

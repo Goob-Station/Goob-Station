@@ -1,0 +1,81 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Awakened Prometheus Engineer: dedicated jockey mesh, human-scale.
+- type: entity
+  parent: [ MobWorkingJoe, MobCombat ]
+  id: MobEngineerJockey
+  name: Engineer Jockey
+  description: A pale construct from a forgotten age. It hates humanity and Weyland-Yutani.
+  suffix: Ghost Role, Hostile
+  components:
+  - type: Icon
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: full
+  - type: HumanoidAppearance
+    species: EngineerJockey
+    sex: Unsexed
+    gender: Neuter
+    hideLayersOnEquip:
+    - UndergarmentTop
+    - HeadTop
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+    hair: HairBald
+    skinColor: "#FFFFFF"
+  # 200% melee damage with fists or held weapons
+  - type: BonusMeleeDamage
+    damageModifierSet:
+      coefficients:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Cold: 2
+        Shock: 2
+        Caustic: 2
+        Structural: 2
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-engineer-jockey-name
+    description: ghost-role-information-engineer-jockey-description
+    rules: ghost-role-information-antagonist-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes:
+    - EngineerJockeyGear
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: WildLandsBossCompound
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/genhit1.ogg
+      params:
+        variation: 0.15
+        volume: 2
+    angle: 40
+    animation: WeaponArcFist
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 45
+        Heat: 25
+        Caustic: 15
+        Structural: 40
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - SyntheticMob
+    - WorkingJoe
+    - Jockey
+    - Yautja

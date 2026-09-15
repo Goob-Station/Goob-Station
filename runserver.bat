@@ -8,5 +8,6 @@ REM
 REM SPDX-License-Identifier: AGPL-3.0-or-later
 
 @echo off
-dotnet run --project Content.Goobstation.Server
+REM Always use repo-root local config (bin/server_config.toml is overwritten on build).
+dotnet run --project Content.Goobstation.Server -- --config-file "%~dp0server_config_local.toml"
 pause

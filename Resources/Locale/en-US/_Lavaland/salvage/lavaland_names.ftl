@@ -6,10 +6,13 @@
 
 lavaland-planet-name-unknown = Unknown Planet
 lavaland-planet-name-lavaland = Lavaland Planet
+lavaland-planet-name-wildlands = Wild Lands
 lavaland-planet-name-icemoon = IceMoon
 
 # GPS Signals
 lavaland-planet-outpost = Main Outpost
+
+lavaland-ruin-jockey-shuttle = Crashed jockey shuttle
 
 lavaland-ruin-unknown = Unknown
 lavaland-ruin-cargo = Cargo debris

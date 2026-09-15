@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# White synthetic coolant / "blood" — puddles and bleed use this color.
+- type: reagent
+  parent: Blood
+  id: SyntheticBlood
+  name: reagent-name-synthetic-blood
+  group: Biological
+  desc: reagent-desc-synthetic-blood
+  flavor: oily
+  color: "#F5F5F5"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-opaque
+  slippery: false

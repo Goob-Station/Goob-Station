@@ -1,0 +1,99 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# CM hypersleep capsules — enter / exit only (no cryostorage exit-from-round).
+
+- type: entity
+  parent: BaseStructure
+  id: HyperSleepChamber
+  name: hypersleep chamber
+  description: A large automated capsule with LED displays designed to put whoever enters it into hypersleep — a form of non-cryogenic stasis used on most ships.
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Oskarrr/Structures/Machines/hypersleep.rsi
+    noRot: true
+    layers:
+    - state: open
+      map: ["base"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: DragInsertContainer
+    containerId: storage
+    entryDelay: 2
+  - type: ExitContainerOnMove
+    containerId: storage
+  - type: ContainerContainer
+    containers:
+      storage: !type:ContainerSlot
+  - type: HyperSleepChamber
+  - type: Tag
+    tags:
+    - Wey-Yu
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.HyperSleepChamberVisuals.Occupied:
+        base:
+          True: { state: closed }
+          False: { state: open }
+  - type: PointLight
+    color: "#75bdf0"
+    radius: 1.5
+    energy: 0.8
+    castShadows: false
+
+- type: entity
+  parent: HyperSleepChamber
+  id: RMCHyperSleepChamberPVE
+  suffix: PVE, East
+  components:
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#75bdf0"
+  - type: Sprite
+    sprite: _Oskarrr/Structures/Machines/hypersleep_pve.rsi
+    offset: 0.25, 0.25
+    noRot: true
+    layers:
+    - state: open
+      map: ["base"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.55"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: RMCHyperSleepChamberPVE
+  id: RMCHyperSleepChamberPVEWest
+  suffix: PVE, West
+  components:
+  - type: Sprite
+    offset: -0.25, 0.25
+
+- type: entity
+  parent: RMCHyperSleepChamberPVE
+  id: RMCHyperSleepChamberPVEAltRot
+  suffix: PVE, North/South
+  components:
+  - type: Sprite
+    offset: 0, 0.25

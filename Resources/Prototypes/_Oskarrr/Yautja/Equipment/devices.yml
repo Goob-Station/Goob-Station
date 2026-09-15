@@ -1,0 +1,290 @@
+﻿- type: entity
+  parent: ClothingHandsGlovesLeather
+  id: GoobYautjaBracer
+  name: "мисливський наручник"
+  description: "Важкий наручний комп'ютер, наповнений прибулецькими мисливськими інструментами."
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/bracer.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/bracer.rsi
+  - type: Insulated
+  - type: YautjaBracer
+  - type: ContainerContainer
+    containers:
+      yautja-bracer-claws: !type:Container
+      yautja-bracer-shield: !type:Container
+  - type: ActionGrant
+    actions:
+    - ActionYautjaToggleClaws
+    - ActionYautjaToggleShield
+    - ActionYautjaToggleCloak
+    - ActionYautjaSelfDestruct
+  - type: ItemActionGrant
+    actions:
+    - ActionYautjaToggleClaws
+    - ActionYautjaToggleShield
+    - ActionYautjaToggleCloak
+    - ActionYautjaSelfDestruct
+    activeIfWorn: true
+    restrictedSlots:
+    - GLOVES
+  - type: Item
+    sprite: _Oskarrr/Yautja/bracer.rsi
+    size: Small
+#  - type: YautjaBracer
+#    charge: 3000
+#    maxCharge: 3000
+#    regen: 2
+#    stabilisingCrystalCost: 250
+#    humanStabilisingCrystalCost: 250
+#    stabilisingCrystalCooldown: 60
+#    huntingTrapCost: 200
+#    huntingTrapCooldown: 60
+#  - type: YautjaGearContainer
+#  - type: UserInterface
+#    interfaces:
+#      enum.YautjaBracerUIKey.Key:
+#        type: YautjaBracerBui
+#      enum.YautjaMarkUIKey.Key:
+#        type: YautjaMarkBui
+#      enum.YautjaThrallMessageUIKey.Key:
+#        type: YautjaThrallMessageBui
+#      enum.YautjaTranslatorUIKey.Key:
+#        type: YautjaTranslatorBui
+#      enum.DialogUiKey.Key:
+#        type: DialogBui
+#  - type: TranslatorDevice
+#    spokenLanguages: [ English, SignLanguage, TacticalSignLanguage, Primitive, Binary, Legalese, Spanish, Portuguese, French, German, Russian, Japanese, Mandarin, Yautja, Arcturian, Korean, Turkish, Swahili, Arabic, Afrikaans, Latin, Ukrainian, Polish, Czech, Italian, Irish, Finnish, Hungarian, Albanian, Serbian, Lithuanian, Dutch, Persian, Hindi, Vietnamese, Indonesian, Filipino, Urdu, Yoruba, Esperanto, Swedish, Brazilian, Slovak, Romanian ]
+#    understoodLanguages: [ English, SignLanguage, TacticalSignLanguage, Primitive, Binary, Legalese, Spanish, Portuguese, French, German, Russian, Japanese, Mandarin, Yautja, Arcturian, Korean, Turkish, Swahili, Arabic, Afrikaans, Latin, Ukrainian, Polish, Czech, Italian, Irish, Finnish, Hungarian, Albanian, Serbian, Lithuanian, Dutch, Persian, Hindi, Vietnamese, Indonesian, Filipino, Urdu, Yoruba, Esperanto, Swedish, Brazilian, Slovak, Romanian ]
+
+- type: entity
+  parent: GoobYautjaBracer
+  id: GoobYautjaBadBloodBracer
+  name: "поношений мисливський браслет"
+  description: "Зношений мисливський браслет, грубо підтримуваний у робочому стані. Його відсік зброї пошкоджений. Комунікатор напряму підключено до браслета."
+  components:
+#  - type: YautjaBadBloodGearChoice
+#  - type: YautjaBracer
+#    enableRecall: false
+#    cloakDuration: 20
+#    cloakCooldown: 20
+#    cloakWarningBefore: 5
+#    cloakWarningSound:
+#      collection: GoobYautjaCloakWarning
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - GoobYautjaEncryptionKey
+  - type: Headset
+    requiredSlot: GLOVES
+  - type: EncryptionKeyHolder
+    keySlots: 1
+#  - type: YautjaGearContainer
+#    gearPrototypes:
+#      Caster: GoobYautjaBadBloodPlasmaCaster
+#      WristBlades: GoobYautjaWristBlades
+#      Scimitar: GoobYautjaScimitar
+#      Shield: GoobYautjaBracerShield
+#      ChainGauntlet: GoobYautjaChainGauntlet
+#  - type: UserInterface
+#    interfaces:
+#      enum.YautjaBracerUIKey.Key:
+#        type: YautjaBracerBui
+#      enum.YautjaMarkUIKey.Key:
+#        type: YautjaMarkBui
+#      enum.YautjaThrallMessageUIKey.Key:
+#        type: YautjaThrallMessageBui
+#      enum.YautjaTranslatorUIKey.Key:
+#        type: YautjaTranslatorBui
+#      enum.DialogUiKey.Key:
+#        type: DialogBui
+#      enum.YautjaBadBloodWeaponChoiceUI.Key:
+#        type: YautjaBadBloodWeaponChoiceBui
+
+- type: entity
+  parent: ClothingHandsGlovesLeather
+  id: GoobYautjaThrallBracer
+  name: "рабський наручник"
+  description: "Спрощений прибулецький наручник, що зв'язує раба з мисливцем Яутжа."
+  suffix: Yautja, Thrall
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/bracer.rsi
+    state: icon
+    color: "#b85440"
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/bracer.rsi
+#  - type: YautjaThrallBracer
+#  - type: UserInterface
+#    interfaces:
+#      enum.YautjaThrallMessageUIKey.Key:
+#        type: YautjaThrallMessageBui
+
+- type: entity
+  parent: GoobYautjaBracer
+  id: GoobYautjaBloodedThrallBracer
+  name: "кров'яний рабський наручник"
+  description: "Повний мисливський наручник, довірений кров'яному рабу."
+  suffix: Yautja, Thrall, Blooded
+  components:
+#  - type: YautjaThrallBracer
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/bracer.rsi
+    state: icon
+- type: entity
+  parent: BaseStorageItem
+  id: GoobYautjaThrallGearBox
+  name: "прибулецький футляр для наручника"
+  description: "Маленький футляр, що містить рабський наручник і екстрене медичне забезпечення Яутжа."
+  suffix: Yautja, Thrall, Filled
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/boxes.rsi
+    layers:
+    - state: box
+  - type: Item
+    size: Normal
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+  - type: StorageFill
+    contents:
+    - id: GoobYautjaThrallBracer
+    - id: GoobYautjaAutoInjector
+    - id: GoobYautjaCleanserGelVial
+    - id: GoobYautjaStabilizerGel
+
+- type: entity
+  parent: ClothingMaskGas
+  id: GoobYautjaMaskBase
+  abstract: true
+  suffix: Yautja, Abstract
+  components:
+  - type: IngestionBlocker
+    blockSmokeIngestion: true
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 20
+  - type: NightVision
+    isEquipment: true
+    color: white
+    drawOverlay: false
+    strength: 0
+    noise: 0
+    tint: 3, 3, 3
+    activateSound:
+      path: /Audio/_Oskarrr/Yautja/Equipment/pred_vision.wav
+    deactivateSound: null
+  - type: ThermalVision
+    isEquipment: true
+    toggleAction: ToggleThermalVisionXenomorph
+    color: white
+    drawOverlay: false
+    lightRadius: 10
+    strength: 0
+    noise: 0
+    tint: 3, 3, 3
+    activateSound:
+      path: /Audio/_Oskarrr/Yautja/Equipment/pred_vision.wav
+    deactivateSound: null
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    understood:
+    - TauCetiBasic
+    requires:
+    - Yautja
+    enabled: true
+    toggleOnInteract: false
+    setLanguageOnInteract: false
+    showInfoOnExamine: false
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: SpeciesPressureProtection
+    species:
+    - Yautja
+
+- type: entity
+  parent: GoobYautjaMaskBase
+  id: GoobYautjaMask
+  name: "біомаска"
+  description: "Прибулецька мисливська маска з вбудованим тактичним візором і перекладачем Tau-Ceti Basic."
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/mask.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/mask.rsi
+    slots:
+    - Mask
+    - SuitStorage
+  - type: Item
+    size: Small
+  - type: Mask
+- type: entity
+  parent: IDCardStandard
+  id: GoobYautjaBracerIdChip
+  name: "вбудований ID-чип наручника"
+  description: "Компактний ідентифікаційний планшет, розгорнутий з наручника Яутжа."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: silver
+  - type: IdCard
+    jobTitle: job-name-yautja
+    jobIcon: JobIconUnknown
+  - type: Access
+    groups:
+    - AllAccess
+- type: entity
+  parent: BaseItem
+  id: GoobYautjaHealthShardHalf
+  name: "половина цілющого уламка"
+  description: "Одна половина розділеного цілющого уламка. Використайте на собі, щоб встромити її й отримати негайне лікування та хімічне підсилення."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/health_shard.rsi
+    state: shard_icon
+  - type: Item
+    sprite: _Oskarrr/Yautja/health_shard.rsi
+    size: Small
+  - type: UseDelay
+    delay: 1.0
+  - type: Injector
+    solutionName: hypospray
+    currentTransferAmount: 10
+    activeModeProtoId: HyposprayInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+  - type: HyposprayBlockNonMobInjection
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 10
+
+- type: entity
+  id: GoobYautjaBracerSelfDestructBurst
+  name: yautja bracer self destruct burst
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 3500
+    intensitySlope: 15
+    maxIntensity: 70
+    canCreateVacuum: true

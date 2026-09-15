@@ -1,0 +1,133 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Ported from SpaceStationUA/ColonialMarinesUniverse (AU14 K92 Maintenance Jack).
+
+- type: entity
+  parent: BaseItem
+  id: WorkingJoeMaintenanceJack
+  name: K92 maintenance jack
+  description: A hefty crowbar-wrench hybrid for vehicle work and door jacks. Also a solid bludgeon in emergencies.
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/WorkingJoe/Tools/maintenance_jack.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _Oskarrr/WorkingJoe/Tools/maintenance_jack.rsi
+  - type: Clothing
+    sprite: _Oskarrr/WorkingJoe/Tools/maintenance_jack.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - Belt
+  - type: Tag
+    tags:
+    - Crowbar
+    - Wrench
+    - MaintenanceJack
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/crowbar_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+  - type: ToolTileCompatible
+    delay: 0.5
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Prying
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
+  - type: UseDelay
+    delay: 1
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+    - behavior: Prying
+      sprite:
+        sprite: _Oskarrr/WorkingJoe/Tools/maintenance_jack.rsi
+        state: icon
+      useSound: /Audio/Items/crowbar.ogg
+      changeSound: /Audio/Items/change_jaws.ogg
+    - behavior: Anchoring
+      sprite:
+        sprite: _Oskarrr/WorkingJoe/Tools/maintenance_jack.rsi
+        state: wrench
+      useSound: /Audio/Items/ratchet.ogg
+      changeSound: /Audio/Items/change_jaws.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 0.87
+    damage:
+      types:
+        Blunt: 27
+        Structural: 36
+    soundHit:
+      collection: MetalThud
+
+# Synth / Engineer Jockey special — heavier, powered pry, screwdriver mode.
+- type: entity
+  parent: WorkingJoeMaintenanceJack
+  id: WorkingJoeMaintenanceJackSpecial
+  name: K92-S special maintenance jack
+  description: A very heavy crowbar, wrench, and screwdriver hybrid. Built for Working Joe synthetics. Devastating in a fight.
+  suffix: Special
+  components:
+  - type: Tag
+    tags:
+    - Crowbar
+    - Wrench
+    - Screwdriver
+    - MaintenanceJack
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 4
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+    - behavior: Prying
+      sprite:
+        sprite: _Oskarrr/WorkingJoe/Tools/maintenance_jack.rsi
+        state: icon
+      useSound: /Audio/Items/crowbar.ogg
+      changeSound: /Audio/Items/change_jaws.ogg
+    - behavior: Anchoring
+      sprite:
+        sprite: _Oskarrr/WorkingJoe/Tools/maintenance_jack.rsi
+        state: wrench
+      useSound: /Audio/Items/ratchet.ogg
+      changeSound: /Audio/Items/change_jaws.ogg
+    - behavior: Screwing
+      sprite:
+        sprite: _Oskarrr/WorkingJoe/Tools/maintenance_jack.rsi
+        state: wrench
+      useSound:
+        collection: Screwdriver
+      changeSound: /Audio/Items/change_jaws.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 0.87
+    damage:
+      types:
+        Blunt: 40
+        Structural: 50
+    soundHit:
+      collection: MetalThud

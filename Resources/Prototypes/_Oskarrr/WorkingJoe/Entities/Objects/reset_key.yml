@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: WorkingJoeSynthResetKey
+  name: Seegson synth reset key
+  description: A Seegson-issued key used to reboot Working Joe units after critical faults.
+  components:
+  - type: WorkingJoeSynthResetKey
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: crypt_gray
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - WorkingJoe

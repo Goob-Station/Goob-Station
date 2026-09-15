@@ -1,0 +1,450 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/obj/items/hunter/pred_gear.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/obj/items/hunter/prey_items.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/obj/items/skeleton.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/mob/humans/onmob/hunter/items_lefthand.dmi, https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/mob/humans/onmob/hunter/items_righthand.dmi. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "full"
+    },
+    {
+      "name": "half"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "mesh_shirt"
+    },
+    {
+      "name": "beltbag"
+    },
+    {
+      "name": "beltbag_w",
+      "directions": 4
+    },
+    {
+      "name": "yauttrap0"
+    },
+    {
+      "name": "yauttrap1"
+    },
+    {
+      "name": "yauttrapgrass"
+    },
+    {
+      "name": "yauttrapdirt"
+    },
+    {
+      "name": "teleporter",
+      "delays": [
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "dissolving_vial"
+    },
+    {
+      "name": "dissolving_gel",
+      "delays": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "thwei_1",
+      "delays": [
+        [
+          6,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "burn_herbs"
+    },
+    {
+      "name": "brute_herbs"
+    },
+    {
+      "name": "metal_chain"
+    },
+    {
+      "name": "houndpad",
+      "delays": [
+        [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "polishing_rag"
+    },
+    {
+      "name": "medicomp"
+    },
+    {
+      "name": "medicomp_open"
+    },
+    {
+      "name": "emitter-xeno",
+      "delays": [
+        [
+          10,
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "name": "wirescutter"
+    },
+    {
+      "name": "wrench"
+    },
+    {
+      "name": "welder"
+    },
+    {
+      "name": "welder_on",
+      "delays": [
+        [
+          1.8,
+          1.8
+        ]
+      ]
+    },
+    {
+      "name": "screwdriver"
+    },
+    {
+      "name": "multitool"
+    },
+    {
+      "name": "bar"
+    },
+    {
+      "name": "scalp_1"
+    },
+    {
+      "name": "scalp_1_blood"
+    },
+    {
+      "name": "scalp_2"
+    },
+    {
+      "name": "scalp_2_blood"
+    },
+    {
+      "name": "scalp_3"
+    },
+    {
+      "name": "scalp_3_blood"
+    },
+    {
+      "name": "scalp_4"
+    },
+    {
+      "name": "scalp_4_blood"
+    },
+    {
+      "name": "equipped-BELT-hunting_pouch",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BELT-utilitybelt_pred",
+      "directions": 4
+    },
+    {
+      "name": "scalp-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "scalp-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "multitool-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "multitool-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "welder-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "welder-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "welder_on-inhand-left",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "welder_on-inhand-right",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "bar-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "bar-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "screwdriver-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "screwdriver-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "wirescutter-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "wirescutter-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "wrench-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "wrench-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "queen_skull"
+    },
+    {
+      "name": "king_skull"
+    },
+    {
+      "name": "crusher_skull"
+    },
+    {
+      "name": "praetorian_skull"
+    },
+    {
+      "name": "corroder_skull"
+    },
+    {
+      "name": "despoiler_skull"
+    },
+    {
+      "name": "deacon_skull"
+    },
+    {
+      "name": "ravager_skull"
+    },
+    {
+      "name": "boiler_skull"
+    },
+    {
+      "name": "defender_skull"
+    },
+    {
+      "name": "warrior_skull"
+    },
+    {
+      "name": "carrier_skull"
+    },
+    {
+      "name": "hivelord_skull"
+    },
+    {
+      "name": "burrower_skull"
+    },
+    {
+      "name": "hunter_skull"
+    },
+    {
+      "name": "lurker_skull"
+    },
+    {
+      "name": "sentinel_skull"
+    },
+    {
+      "name": "spitter_skull"
+    },
+    {
+      "name": "runner_skull"
+    },
+    {
+      "name": "drone_skull"
+    },
+    {
+      "name": "queen_pelt"
+    },
+    {
+      "name": "king_pelt"
+    },
+    {
+      "name": "crusher_pelt"
+    },
+    {
+      "name": "praetorian_pelt"
+    },
+    {
+      "name": "ravager_pelt"
+    },
+    {
+      "name": "boiler_pelt"
+    },
+    {
+      "name": "defender_pelt"
+    },
+    {
+      "name": "warrior_pelt"
+    },
+    {
+      "name": "carrier_pelt"
+    },
+    {
+      "name": "hivelord_pelt"
+    },
+    {
+      "name": "burrower_pelt"
+    },
+    {
+      "name": "lurker_pelt"
+    },
+    {
+      "name": "sentinel_pelt"
+    },
+    {
+      "name": "spitter_pelt"
+    },
+    {
+      "name": "runner_pelt"
+    },
+    {
+      "name": "drone_pelt"
+    },
+    {
+      "name": "larva_pelt"
+    },
+    {
+      "name": "hunter_pelt"
+    },
+    {
+      "name": "deacon_pelt"
+    },
+    {
+      "name": "corroder_pelt"
+    },
+    {
+      "name": "despoiler_pelt"
+    },
+    {
+      "name": "r_arm"
+    },
+    {
+      "name": "l_arm"
+    },
+    {
+      "name": "r_hand"
+    },
+    {
+      "name": "l_hand"
+    },
+    {
+      "name": "r_leg"
+    },
+    {
+      "name": "l_leg"
+    },
+    {
+      "name": "r_foot"
+    },
+    {
+      "name": "l_foot"
+    },
+    {
+      "name": "torso"
+    },
+    {
+      "name": "skull2"
+    },
+    {
+      "name": "spine"
+    }
+  ]
+}

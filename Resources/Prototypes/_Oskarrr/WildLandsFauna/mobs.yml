@@ -1,0 +1,251 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# Wild Lands fauna — graze grass tiles, drop MaterialBones for tribal bone armor/helmets.
+
+- type: entity
+  abstract: true
+  id: MobWildLandsFaunaBase
+  components:
+  - type: GrassGrazer
+  - type: NpcFactionMember
+    factions:
+    - Passive
+
+# Forest
+
+- type: entity
+  parent: [ MobPig, MobWildLandsFaunaBase ]
+  id: MobWildLandsBoar
+  name: wild boar
+  description: A thick-skinned forest hog. Bones make fine tribal helms.
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+    - id: MaterialBones1
+      amount: 3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatBulletImpact
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBones1:
+            min: 2
+            max: 4
+          FoodMeat:
+            min: 1
+            max: 2
+      - !type:GibBehavior
+        recursive: false
+
+- type: entity
+  parent: [ MobGoat, MobWildLandsFaunaBase ]
+  id: MobWildLandsForestGoat
+  name: forest goat
+  description: Wiry goat of the jungle undergrowth. Good for bonecraft.
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+    - id: MaterialBones1
+      amount: 3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 140
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatBulletImpact
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBones1:
+            min: 2
+            max: 4
+      - !type:GibBehavior
+        recursive: false
+
+- type: entity
+  parent: [ MobFox, MobWildLandsFaunaBase ]
+  id: MobWildLandsFox
+  name: wild fox
+  description: A lean forest fox. Small, but still has usable bones.
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+    - id: MaterialBones1
+      amount: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBones1:
+            min: 1
+            max: 3
+      - !type:GibBehavior
+        recursive: false
+
+# Desert
+
+- type: entity
+  parent: [ MobLizard, MobWildLandsFaunaBase ]
+  id: MobWildLandsDesertLizard
+  name: desert lizard
+  description: Sun-baked reptile of the Savage Badlands.
+  components:
+  - type: GrassGrazer
+    edibleTiles:
+    - FloorOskarrrDryGrass
+    - FloorPlanetGrass
+    - FloorGrass
+    replaceTile: FloorLowDesert
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+    - id: MaterialBones1
+      amount: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 110
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBones1:
+            min: 1
+            max: 3
+      - !type:GibBehavior
+        recursive: false
+
+- type: entity
+  parent: [ MobKangaroo, MobWildLandsFaunaBase ]
+  id: MobWildLandsDesertHopper
+  name: desert hopper
+  description: A lanky marsupial adapted to the dunes. Dense bones.
+  components:
+  - type: GrassGrazer
+    edibleTiles:
+    - FloorOskarrrDryGrass
+    - FloorPlanetGrass
+    replaceTile: FloorLowDesert
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+    - id: MaterialBones1
+      amount: 4
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 160
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBones1:
+            min: 2
+            max: 5
+      - !type:GibBehavior
+        recursive: false
+
+# Savanna
+
+- type: entity
+  parent: [ MobCow, MobWildLandsFaunaBase ]
+  id: MobWildLandsSavannaCow
+  name: savanna cattle
+  description: Open-range cattle. Plenty of bone for armor and helmets.
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 5
+    - id: MaterialBones1
+      amount: 4
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 180
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBones1:
+            min: 3
+            max: 5
+          FoodMeat:
+            min: 1
+            max: 3
+      - !type:GibBehavior
+        recursive: false
+
+- type: entity
+  parent: [ MobGoat, MobWildLandsFaunaBase ]
+  id: MobWildLandsSavannaGoat
+  name: savanna goat
+  description: Tough plains goat that strips dry grass bare.
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+    - id: MaterialBones1
+      amount: 3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 140
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBones1:
+            min: 2
+            max: 4
+      - !type:GibBehavior
+        recursive: false
+
+# All biomes
+
+- type: entity
+  parent: [ MobChicken, MobWildLandsFaunaBase ]
+  id: MobWildLandsChicken
+  name: wild chicken
+  description: A scrappy feral chicken. Small bones, still usable.
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatChicken
+      amount: 1
+    - id: MaterialBones1
+      amount: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialBones1:
+            min: 1
+            max: 2
+      - !type:GibBehavior
+        recursive: false

@@ -5,3 +5,4 @@ xenomorph-caste-sentinel = Sentinel
 xenomorph-caste-maid = Maid
 xenomorph-caste-praetorian = Praetorian
 xenomorph-caste-queen = Queen
+xenomorph-caste-empress = Empress

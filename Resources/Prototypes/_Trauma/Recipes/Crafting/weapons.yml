@@ -1,0 +1,90 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Ported from Trauma-Station without theory/practical/qualityPrototype
+
+- type: construction
+  id: barbedbat
+  graph: WoodenBat
+  startNode: start
+  targetNode: barbedwire
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: nailbat
+  graph: WoodenBat
+  startNode: start
+  targetNode: nail
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: nailboard
+  graph: NailBoard
+  startNode: start
+  targetNode: finish
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: IEDSpear
+  graph: IEDSpear
+  startNode: start
+  targetNode: finish
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: PipebombSpear
+  graph: PipebombSpear
+  startNode: start
+  targetNode: finish
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: PipeShank
+  graph: PipeShank
+  startNode: start
+  targetNode: finish
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: WoodenSword
+  graph: WoodenSword
+  startNode: start
+  targetNode: finish
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: NailSword
+  graph: NailSword
+  startNode: start
+  targetNode: finish
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ScrapSword
+  graph: ScrapSword
+  startNode: start
+  targetNode: finish
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: WeldedSword
+  graph: WeldedSword
+  startNode: start
+  targetNode: finish
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: BarbCuffs
+  graph: BarbCuffs
+  startNode: start
+  targetNode: finish
+  category: construction-category-weapons
+  objectType: Item

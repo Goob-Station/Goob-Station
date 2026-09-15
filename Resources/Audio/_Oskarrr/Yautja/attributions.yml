@@ -1,0 +1,34 @@
+- files: ["pred_cloakon.wav", "pred_cloakoff.wav", "pred_vision.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Converted to mono PCM WAV from CMSS13 source audio. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+  source: "https://github.com/cmss13-devs/cmss13/tree/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/sound/effects"
+
+- files: ["pred_translator.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from CMSS13 source audio. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+  source: "https://github.com/cmss13-devs/cmss13/blob/d631df8846269b31210eb346ebe9483fc8205b4b/sound/items/pred_crystal_inject.ogg"
+
+- files: ["pred_countdown.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from CMSS13 source audio. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+  source: "https://github.com/cmss13-devs/cmss13/blob/e97c5f08fdcfd60743481011e30ccdccc7fd7c88/sound/effects/pred_countdown.ogg"
+
+- files: ["pred_attach.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Converted to mono PCM WAV from CMSS13 source audio. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+  source: "https://github.com/cmss13-devs/cmss13/tree/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/sound/weapons"
+
+- files: ["pred_click1.wav", "pred_click2.wav", "pred_click3.wav", "pred_click4.wav", "pred_click5.wav", "pred_roar1.wav", "pred_roar2.wav", "pred_roar3.wav", "pred_roar4.wav", "pred_roar5.wav", "pred_roar6.wav", "predgrowl.wav", "pred_pain1.wav", "pred_pain2.wav", "pred_pain3.wav", "pred_pain4.wav", "pred_pain5.wav", "pred_pain_rare1.wav", "pred_death1.wav", "pred_death2.wav", "pred_deathlaugh.wav", "pred_laugh1.wav", "pred_laugh2.wav", "pred_laugh3.wav", "pred_laugh4.wav", "pred_laugh5.wav", "pred_laugh6.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Converted to mono PCM WAV from CMSS13 source audio. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+  source: "https://github.com/cmss13-devs/cmss13/tree/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/sound/voice"
+
+- files: ["chain_whip.wav", "clan_sword_hit_1.wav", "clan_sword_hit_2.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Converted to mono PCM WAV from CMSS13 source audio. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+  source: "https://github.com/cmss13-devs/cmss13/tree/3a67d45fa781bc4d9c632eca12069f0e8b165380/sound/weapons"
+
+- files: ["hit_punch.wav", "slam1.wav", "slam2.wav", "slam3.wav", "slam_rare_1.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Converted to mono PCM WAV from CMSS13 source audio. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+  source: "https://github.com/cmss13-devs/cmss13/tree/3a67d45fa781bc4d9c632eca12069f0e8b165380/sound/effects"

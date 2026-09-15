@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseAction
+  id: ActionWorkingJoeVoice
+  name: action-name-workingjoe-voice
+  description: action-desc-workingjoe-voice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: Interface/Actions/voice-mask.rsi
+      state: icon
+    itemIconStyle: NoItem
+  - type: InstantAction
+    event: !type:WorkingJoeVoiceActionEvent {}

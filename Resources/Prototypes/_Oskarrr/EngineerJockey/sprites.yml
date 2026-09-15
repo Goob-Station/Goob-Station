@@ -1,0 +1,130 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Engineer Jockey body mesh (id: jockey) — separate from WorkingJoe giants.
+
+- type: speciesBaseSprites
+  id: MobJockeySprites
+  sprites:
+    Head: MobJockeyHead
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobJockeyTorso
+    Groin: MobHumanGroin
+    Eyes: MobHumanoidEyes
+    LArm: MobJockeyLArm
+    RArm: MobJockeyRArm
+    LHand: MobJockeyLHand
+    RHand: MobJockeyRHand
+    LLeg: MobJockeyLLeg
+    RLeg: MobJockeyRLeg
+    LFoot: MobJockeyLFoot
+    RFoot: MobJockeyRFoot
+
+- type: humanoidBaseSprite
+  id: MobJockeyHead
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobJockeyHeadMale
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobJockeyHeadFemale
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobJockeyTorso
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobJockeyTorsoMale
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobJockeyTorsoFemale
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobJockeyLLeg
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobJockeyLHand
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobJockeyLArm
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobJockeyLFoot
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobJockeyRLeg
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobJockeyRHand
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobJockeyRArm
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobJockeyRFoot
+  matchSkin: false
+  baseSprite:
+    sprite: _Oskarrr/Mobs/Jockey/parts.rsi
+    state: r_foot
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobJockeyDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: EngineerJockey
+    sex: Unsexed
+    gender: Neuter

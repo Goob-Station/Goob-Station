@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: species
+  id: Synthetic
+  name: species-name-synthetic
+  roundStart: true
+  prototype: MobSynthetic
+  sprites: MobHumanSprites
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: MobSyntheticDummy
+  skinColoration: HumanToned
+  knowledge: Human
+  maleFirstNames: NamesFirstMale
+  femaleFirstNames: NamesFirstFemale
+  lastNames: NamesLast
+  sexes:
+  - Male
+  - Female
+  minHeight: 0.95
+  defaultHeight: 1.05
+  maxHeight: 1.20
+  minWidth: 0.90
+  defaultWidth: 1
+  maxWidth: 1.10

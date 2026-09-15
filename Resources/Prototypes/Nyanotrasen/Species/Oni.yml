@@ -3,7 +3,7 @@
 - type: species
   id: Oni
   name: species-name-oni
-  roundStart: true
+  roundStart: false # Wey-Yu atmosphere: disabled
   prototype: MobOni
   dollPrototype: MobOniDummy
   markingLimits: MobOniMarkingLimits

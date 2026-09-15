@@ -1,0 +1,181 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Working Joe (Seegson) — CMU AU14 stats, not roundstart-selectable.
+# From CMU: slowdown 1.25, punch Blunt 60, crit 299 / dead 300, AU14WorkingJoe resists.
+- type: entity
+  parent:
+  - MobBloodstream
+  - MobFlammable
+  - BaseMobSpecies
+  id: BaseMobWorkingJoe
+  name: Working Joe
+  abstract: true
+  components:
+  - type: Synthetic
+  - type: Icon
+    sprite: _Oskarrr/Mobs/WorkingJoe/parts.rsi
+    state: full
+  - type: HumanoidAppearance
+    species: WorkingJoe
+    sex: Unsexed
+    gender: Neuter
+    hideLayersOnEquip:
+    - UndergarmentTop
+    - HeadTop
+  - type: Body
+    prototype: Human
+    requiredLegs: 0
+  - type: Damageable
+    damageContainer: Synthetic
+    damageModifierSet: WorkingJoe
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      299: Critical
+      300: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      200: 0.85
+      250: 0.65
+  # RMCInnateSlowdown 1.25 → default 2.5/4.5 divided by 1.25
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 3.6
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/genhit1.ogg
+      params:
+        variation: 0.15
+        volume: -1
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 60
+  - type: Bloodstream
+    bleedReductionAmount: 4.0
+    bloodRefreshAmount: 8.0
+    maxBleedAmount: 10.0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: SyntheticBlood
+        Quantity: 300
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.25
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -2
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 80
+    damage:
+      types:
+        Bloodloss: -1.5
+        Heat: -0.05
+      groups:
+        Brute: -0.1
+  # Atmosphere like Yautja: no breathing need, resist vacuum/pressure, extreme cold tolerance.
+  - type: AtmosExposed
+  - type: PressureImmunity
+  - type: BreathingImmunity
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.25
+        Heat: 0.05
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 2
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 380
+    coldDamageThreshold: 10
+    coldDamage:
+      types:
+        Cold: 0.05
+    heatDamage:
+      types:
+        Heat: 0.5
+  - type: Repairable
+    fuelCost: 3
+    doAfterDelay: 2
+    selfRepairPenalty: 1.5
+    allowSelfRepair: true
+    damage:
+      types:
+        Blunt: -20
+        Slash: -20
+        Piercing: -20
+        Heat: -10
+        Shock: -10
+  - type: Consciousness
+    cap: 300
+    threshold: 60
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: SheetSteel1
+      amount: 3
+    - id: CableApcStack1
+      amount: 2
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - SyntheticMob
+    - WorkingJoe
+    - Wey-Yu
+  - type: ZombieImmune
+  - type: FacehuggerImmune
+  - type: DiseaseCarrier
+  - type: Immunity
+    affectedTypes:
+    - Viral
+    - Bacterial
+    - Parasite
+  - type: Fingerprint
+  - type: Blindable
+  - type: WorkingJoeVoice
+  - type: Speech
+    speechVerb: WorkingJoe
+    speechSounds: Alto
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: MaleHuman
+
+- type: entity
+  parent: BaseMobWorkingJoe
+  id: MobWorkingJoe
+  name: Working Joe
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobWorkingJoeDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: WorkingJoe
+    sex: Unsexed
+    gender: Neuter

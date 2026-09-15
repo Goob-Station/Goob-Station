@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/BeagleGaming1/cmss13/blob/b3f915f7667f625330d8d6b580186d2cf9d015b8/icons/obj/items/items.dmi, https://github.com/BeagleGaming1/cmss13/blob/b3f915f7667f625330d8d6b580186d2cf9d015b8/icons/mob/humans/onmob/items_righthand_0.dmi, https://github.com/BeagleGaming1/cmss13/blob/b3f915f7667f625330d8d6b580186d2cf9d015b8/icons/mob/humans/onmob/items_lefthand_0.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "wrench"
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseMobXenomorphQueen
+  id: BaseMobXenomorphEmpress
+  name: xenomorph empress
+  description: An evolved queen of immense bulk and fertility. She anchors herself to lay eggs for the Hive.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Aliens/Xenomorphs/empress.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: xenomorph
+      offset: 0, 0.6
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+  - type: Xenomorph
+    caste: Empress
+  - type: XenomorphQueen
+  - type: XenomorphMachineUser
+  - type: ComplexInteraction
+  - type: XenomorphScreech
+    range: 12
+    stunTime: 5
+  - type: XenomorphOvipositor
+    layEggCooldown: 3
+    attachDelay: 5
+    detachDelay: 5
+  - type: Appearance
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: XenomorphEmpress
+  # Dead/crit must stay within PartXenomorph integrity (750) or AllMobsCanDie
+  # (and one-shot lethal hits on the root part) never reach the dead threshold.
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      735: Critical
+      750: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      600: 0.9
+      645: 0.7
+      690: 0.6
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      types:
+        Heat: -1
+      groups:
+        Brute: -1
+
+- type: entity
+  parent: BaseMobXenomorphEmpress
+  id: MobXenomorphEmpress
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xenomorph-empress-name
+    description: ghost-role-information-xenomorph-empress-description
+    rules: ghost-role-information-rules-default-xeno
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI

@@ -1,0 +1,502 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# Wild Lands surface biomes (Badlands / Oskar).
+# Meta template mixes forest, desert, and savanna.
+
+- type: biomeTemplate
+  id: WildLands
+  layers:
+  - !type:BiomeMetaLayer
+    template: WildLandsDesert
+    threshold: -1
+    noise:
+      seed: 21
+      frequency: 0.015
+      gain: 0.4
+      noiseType: OpenSimplex2
+      fractalType: FBm
+  - !type:BiomeMetaLayer
+    template: WildLandsSavanna
+    threshold: -0.25
+    noise:
+      seed: 21
+      frequency: 0.015
+      gain: 0.35
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 2
+      lacunarity: 2
+  - !type:BiomeMetaLayer
+    template: WildLandsForest
+    threshold: 0.2
+    noise:
+      seed: 21
+      frequency: 0.015
+      gain: 0.4
+      noiseType: OpenSimplex2
+      fractalType: FBm
+
+# 1) Forest / Badlands jungle — dense cover for Xenomorphs
+- type: biomeTemplate
+  id: WildLandsForest
+  layers:
+  # Dense tree canopy / thickets
+  - !type:BiomeEntityLayer
+    threshold: 0.35
+    noise:
+      seed: 7
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      frequency: 1.6
+    allowedTiles:
+    - FloorPlanetGrass
+    - FloorGrassJungle
+    - FloorOskarrrMoss
+    entities:
+    - FloraTree
+    - FloraTreeLarge
+    - ShadowTree
+  # Impenetrable bush thickets
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorPlanetGrass
+    - FloorGrassJungle
+    - FloorOskarrrMoss
+    divisions: 1
+    threshold: -0.2
+    noise:
+      seed: 11
+      noiseType: Cellular
+      frequency: 0.25
+      fractalType: FBm
+      octaves: 4
+      lacunarity: 2
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+    decals:
+    - BushAOne
+    - BushATwo
+    - BushAThree
+    - BushCOne
+    - BushCTwo
+    - BushCThree
+    - BushDOne
+    - BushDTwo
+    - BushDThree
+  # Underbrush
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorPlanetGrass
+    - FloorGrassJungle
+    - FloorOskarrrMoss
+    divisions: 2
+    threshold: -0.4
+    noise:
+      seed: 12
+      noiseType: OpenSimplex2
+      frequency: 1.2
+    decals:
+    - Grassa1
+    - Grassa2
+    - Grassa3
+    - Grassb1
+    - Grassb2
+    - Busha1
+    - Busha2
+    - Busha3
+  # Moss carpets
+  - !type:BiomeEntityLayer
+    threshold: 0.55
+    noise:
+      seed: 13
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+      frequency: 1.4
+    allowedTiles:
+    - FloorPlanetGrass
+    - FloorGrassJungle
+    - FloorOskarrrMoss
+    - FloorPlanetDirt
+    entities:
+    - FloraMossPale
+  # Slowing thickets (warriors ignore)
+  - !type:BiomeEntityLayer
+    threshold: 0.45
+    noise:
+      seed: 19
+      noiseType: OpenSimplex2
+      frequency: 1.1
+    allowedTiles:
+    - FloorPlanetGrass
+    - FloorGrassJungle
+    - FloorOskarrrMoss
+    entities:
+    - FloraWildLandsThicket
+  # Sparse wildlife (graze grass, drop MaterialBones)
+  - !type:BiomeEntityLayer
+    threshold: 0.93
+    noise:
+      seed: 71
+      noiseType: OpenSimplex2
+      frequency: 0.9
+    allowedTiles:
+    - FloorPlanetGrass
+    - FloorGrassJungle
+    - FloorOskarrrMoss
+    - FloorPlanetDirt
+    entities:
+    - MobWildLandsBoar
+    - MobWildLandsForestGoat
+    - MobWildLandsFox
+    - MobWildLandsChicken
+  # Sparse mother kudzu (spreads ≤3 tiles)
+  - !type:BiomeEntityLayer
+    threshold: 0.96
+    noise:
+      seed: 81
+      noiseType: OpenSimplex2
+      frequency: 0.7
+    allowedTiles:
+    - FloorPlanetGrass
+    - FloorGrassJungle
+    - FloorOskarrrMoss
+    entities:
+    - WildLandsKudzuMother
+  # Occasional rocks
+  - !type:BiomeEntityLayer
+    threshold: 0.9
+    noise:
+      seed: 14
+      noiseType: OpenSimplex2
+      frequency: 2
+    allowedTiles:
+    - FloorPlanetGrass
+    - FloorPlanetDirt
+    - FloorOskarrrMoss
+    entities:
+    - FloraRockSolid
+  # Rock / canyon walls
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorPlanetGrass
+    - FloorPlanetDirt
+    - FloorOskarrrMoss
+    - FloorGrassJungle
+    threshold: -0.35
+    noise:
+      seed: 15
+      noiseType: Cellular
+      frequency: 0.045
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 5
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+    entities:
+    - WallRock
+  - !type:BiomeDummyLayer
+    id: Loot
+  # Tile fill: dirt base → grass → jungle → moss patches
+  - !type:BiomeTileLayer
+    threshold: -1.0
+    tile: FloorPlanetDirt
+  - !type:BiomeTileLayer
+    threshold: -0.85
+    tile: FloorPlanetGrass
+    noise:
+      seed: 16
+      frequency: 0.03
+      fractalType: None
+  - !type:BiomeTileLayer
+    threshold: -0.2
+    tile: FloorGrassJungle
+    noise:
+      seed: 17
+      frequency: 0.04
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      gain: 0.5
+  - !type:BiomeTileLayer
+    threshold: 0.35
+    tile: FloorOskarrrMoss
+    noise:
+      seed: 18
+      frequency: 0.05
+      noiseType: OpenSimplex2
+      fractalType: FBm
+  - !type:BiomeTileLayer
+    tile: FloorPlanetDirt
+    threshold: -0.35
+    noise:
+      seed: 15
+      noiseType: Cellular
+      frequency: 0.045
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 5
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+
+# 2) Desert / Savage Badlands — jockey crash country
+- type: biomeTemplate
+  id: WildLandsDesert
+  layers:
+  # Cacti
+  - !type:BiomeEntityLayer
+    threshold: 0.72
+    noise:
+      seed: 31
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+      frequency: 1.5
+    allowedTiles:
+    - FloorDesert
+    - FloorLowDesert
+    - FloorAsteroidSand
+    entities:
+    - FruitCactus
+  # Scattered rocks
+  - !type:BiomeEntityLayer
+    threshold: 0.85
+    noise:
+      seed: 32
+      noiseType: OpenSimplex2
+      frequency: 2
+    allowedTiles:
+    - FloorDesert
+    - FloorLowDesert
+    - FloorAsteroidSand
+    entities:
+    - FloraRockSolid
+  # Dried logs / stumps
+  - !type:BiomeEntityLayer
+    threshold: 0.88
+    noise:
+      seed: 33
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      frequency: 1.8
+    allowedTiles:
+    - FloorDesert
+    - FloorLowDesert
+    entities:
+    - FloraTreeStump
+    - FloraTreeStumpConifer
+  # Sparse desert fauna
+  - !type:BiomeEntityLayer
+    threshold: 0.94
+    noise:
+      seed: 72
+      noiseType: OpenSimplex2
+      frequency: 0.85
+    allowedTiles:
+    - FloorDesert
+    - FloorLowDesert
+    - FloorAsteroidSand
+    entities:
+    - MobWildLandsDesertLizard
+    - MobWildLandsDesertHopper
+    - MobWildLandsChicken
+  # Canyon / rock walls
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorDesert
+    - FloorLowDesert
+    - FloorAsteroidSand
+    threshold: -0.22
+    noise:
+      seed: 34
+      noiseType: Cellular
+      frequency: 0.04
+      fractalType: FBm
+      octaves: 5
+      lacunarity: 2
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+    entities:
+    - WallRockSand
+  - !type:BiomeDummyLayer
+    id: Loot
+  # Sandy dirt / sand fills
+  - !type:BiomeTileLayer
+    threshold: -1
+    tile: FloorAsteroidSand
+  - !type:BiomeTileLayer
+    threshold: -0.6
+    tile: FloorLowDesert
+    noise:
+      seed: 35
+      frequency: 0.025
+      noiseType: OpenSimplex2
+      fractalType: FBm
+  - !type:BiomeTileLayer
+    threshold: 0.1
+    tile: FloorDesert
+    noise:
+      seed: 36
+      frequency: 0.03
+      noiseType: OpenSimplex2
+      fractalType: FBm
+  - !type:BiomeTileLayer
+    tile: FloorAsteroidSand
+    threshold: -0.22
+    noise:
+      seed: 34
+      noiseType: Cellular
+      frequency: 0.04
+      fractalType: FBm
+      octaves: 5
+      lacunarity: 2
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+
+# 3) Savanna — open firefight ground for corporate spies
+- type: biomeTemplate
+  id: WildLandsSavanna
+  layers:
+  # Tall grass cover (player hide)
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorOskarrrDryGrass
+    - FloorPlanetGrass
+    - FloorLowDesert
+    divisions: 2
+    threshold: -0.35
+    noise:
+      seed: 41
+      noiseType: OpenSimplex2
+      frequency: 1.1
+    decals:
+    - Grassa1
+    - Grassa2
+    - Grassa3
+    - Grassa4
+    - Grassa5
+    - Grassb1
+    - Grassb2
+    - Grassb3
+    - Grassc1
+    - Grassc2
+    - Grassd1
+    - Grassd2
+    - Grasse1
+    - Grasse2
+  # Sparse dry trees
+  - !type:BiomeEntityLayer
+    threshold: 0.78
+    noise:
+      seed: 42
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      frequency: 1.2
+    allowedTiles:
+    - FloorOskarrrDryGrass
+    - FloorPlanetGrass
+    - FloorLowDesert
+    entities:
+    - FloraTree
+    - FloraTreeStump
+  # Occasional bushes
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorOskarrrDryGrass
+    - FloorPlanetGrass
+    divisions: 1
+    threshold: 0.65
+    noise:
+      seed: 43
+      noiseType: OpenSimplex2
+      frequency: 1
+    decals:
+    - BushDOne
+    - BushDTwo
+    - BushDThree
+  # Sparse rocks
+  - !type:BiomeEntityLayer
+    threshold: 0.92
+    noise:
+      seed: 44
+      noiseType: OpenSimplex2
+      frequency: 2
+    allowedTiles:
+    - FloorOskarrrDryGrass
+    - FloorLowDesert
+    - FloorDesert
+    entities:
+    - FloraRockSolid
+  # Sparse savanna herds
+  - !type:BiomeEntityLayer
+    threshold: 0.92
+    noise:
+      seed: 73
+      noiseType: OpenSimplex2
+      frequency: 0.8
+    allowedTiles:
+    - FloorOskarrrDryGrass
+    - FloorPlanetGrass
+    - FloorLowDesert
+    entities:
+    - MobWildLandsSavannaCow
+    - MobWildLandsSavannaGoat
+    - MobWildLandsBoar
+    - MobWildLandsChicken
+  # Light rock outcrops (not as dense as desert canyons)
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorOskarrrDryGrass
+    - FloorLowDesert
+    - FloorPlanetGrass
+    threshold: -0.45
+    noise:
+      seed: 45
+      noiseType: Cellular
+      frequency: 0.035
+      fractalType: FBm
+      octaves: 4
+      lacunarity: 2
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+    entities:
+    - WallRock
+  - !type:BiomeDummyLayer
+    id: Loot
+  # Open mixed dry grass + sand
+  - !type:BiomeTileLayer
+    threshold: -1
+    tile: FloorLowDesert
+  - !type:BiomeTileLayer
+    threshold: -0.55
+    tile: FloorOskarrrDryGrass
+    noise:
+      seed: 46
+      frequency: 0.02
+      noiseType: OpenSimplex2
+      fractalType: FBm
+  - !type:BiomeTileLayer
+    threshold: 0.25
+    tile: FloorPlanetGrass
+    noise:
+      seed: 47
+      frequency: 0.035
+      noiseType: OpenSimplex2
+      fractalType: FBm
+  - !type:BiomeTileLayer
+    threshold: 0.55
+    tile: FloorDesert
+    noise:
+      seed: 48
+      frequency: 0.04
+      noiseType: OpenSimplex2
+      fractalType: None
+  - !type:BiomeTileLayer
+    tile: FloorLowDesert
+    threshold: -0.45
+    noise:
+      seed: 45
+      noiseType: Cellular
+      frequency: 0.035
+      fractalType: FBm
+      octaves: 4
+      lacunarity: 2
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2

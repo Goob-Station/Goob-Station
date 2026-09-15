@@ -1,0 +1,46 @@
+- type: entity
+  id: GoobYautjaTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: "плата техфабу Яутжа"
+  description: "Друкована плата техфабу мисливців Яутжа."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: GoobYautjaTechFab
+    stackRequirements:
+      Manipulator: 4
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: GoobYautjaTechFab
+  parent: BaseLatheLube
+  name: "техфаб Яутжа"
+  description: "Стародавній мисливський фабрикатор: ритуальна зброя, маски, наручники та плащі."
+  suffix: Yautja
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/Structures/yautja_machines.rsi
+    snapCardinals: true
+    layers:
+    - state: autolathe
+      map: ["enum.LatheVisualLayers.IsRunning"]
+  - type: Machine
+    board: GoobYautjaTechFabCircuitboard
+  - type: Lathe
+    idleState: autolathe
+    runningState: autolathe
+    staticPacks:
+    - YautjaWeaponsStatic
+    - YautjaGearStatic
+    - YautjaMasksStatic
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot

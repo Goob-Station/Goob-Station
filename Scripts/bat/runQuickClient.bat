@@ -4,8 +4,8 @@ REM
 REM SPDX-License-Identifier: AGPL-3.0-or-later
 
 @echo off
-cd ../../
+cd /d "%~dp0..\.."
 
-call dotnet run --project Content.Client --no-build %*
+call dotnet run --project Content.Goobstation.Client -- %*
 
 pause

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Ovipositor burst effect provided for SpaceStationUA / Goob-Station",
+  "size": { "x": 96, "y": 96 },
+  "states": [
+    {
+      "name": "explosion",
+      "delays": [[0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08]]
+    }
+  ]
+}

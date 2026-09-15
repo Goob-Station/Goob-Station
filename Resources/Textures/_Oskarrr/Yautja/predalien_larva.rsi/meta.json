@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/e97c5f08fdcfd60743481011e30ccdccc7fd7c88/icons/mob/xenos/castes/tier_0/predalien_larva.dmi. Authorship follows CMSS13 asset metadata/commit history where available.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "alive",
+      "directions": 4
+    },
+    {
+      "name": "running",
+      "directions": 4
+    },
+    {
+      "name": "cuff"
+    },
+    {
+      "name": "sleeping",
+      "delays": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "crit"
+    },
+    {
+      "name": "dead"
+    },
+    {
+      "name": "gibbed",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "gibbed_corpse"
+    }
+  ]
+}

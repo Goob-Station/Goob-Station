@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Wey-Yu mercenary lockers + field butchery tools for Wild Lands bone armor.
+
+- type: entity
+  parent: [ BaseKnife, BaseSecurityContraband ]
+  id: ItemKnifeBoneCutting
+  name: bone-cutting knife
+  description: Wey-Yu field blade for stripping bone from carcasses on the ground.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/combat_knife.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Melee/combat_knife.rsi
+  - type: MeleeWeapon
+    attackRate: 1.4
+    damage:
+      types:
+        Slash: 11
+  - type: Sharp
+    butcherDelayModifier: 0.45
+  - type: Tag
+    tags:
+    - Knife
+    - CombatKnife
+
+- type: entity
+  parent: MaterialBones1
+  id: ItemBone
+  name: bone
+  description: Salvaged animal bone. Used for Wild Lands bone armor.
+
+- type: entity
+  parent: LockerSecurity
+  id: LockerEmergencyMercenary
+  name: Wey-Yu mercenary locker
+  description: Emergency kit for Weyland-Yutani security contractors on Wild Lands.
+  components:
+  - type: AccessReader
+    access: [["Security"]]
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterArmorBasic
+        - id: ClothingHeadHelmetBasic
+        - id: ClothingBeltSecurityFilled
+        - id: ClothingEyesGlassesSecurity
+        - id: ClothingHandsGlovesCombat
+        - id: ClothingShoesBootsJack
+        - id: FlashlightSeclite
+        - id: Flash
+        - id: WeaponPistolMk58
+        - id: MagazinePistol
+        - id: ItemKnifeBoneCutting
+        - id: ItemBone
+          amount: 2

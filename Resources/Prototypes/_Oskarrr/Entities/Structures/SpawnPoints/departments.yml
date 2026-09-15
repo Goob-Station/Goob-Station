@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Wild Lands Wey-Yu outpost job spawn markers (compact, map-only).
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointHeadOfPersonnelWildlands
+  name: head of personnel
+  suffix: Wildlands, Outpost Admin
+  components:
+  - type: SpawnPoint
+    job_id: HeadOfPersonnel
+  - type: Sprite
+    layers:
+    - state: green
+    - state: hop
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointWardenWildlands
+  name: warden
+  suffix: Wildlands, Armory
+  components:
+  - type: SpawnPoint
+    job_id: Warden
+  - type: Sprite
+    layers:
+    - state: green
+    - state: warden
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointSecurityOfficerWildlands
+  name: security officer
+  suffix: Wildlands, Wey-Yu Merc
+  components:
+  - type: SpawnPoint
+    job_id: SecurityOfficer
+  - type: Sprite
+    layers:
+    - state: green
+    - state: security_officer

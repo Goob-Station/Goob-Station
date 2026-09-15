@@ -16,15 +16,15 @@
         Toxin: -5
         Airloss: -10
         Brute: -4
+  - type: QueenFinder
   - type: Pinpointer
-    whitelist:
-      components:
-      - XenomorphQueen
+    # Targets are filled by QueenFinderSystem (Empress → Queen → egg-sack → Praetorian).
     alert: QueenFinder
     isActive: true
     canToggle: false
     canEmag: false
     canExamine: false
+    canTargetMultiple: true
   - type: ThermalVision
     toggleAction: ToggleThermalVisionXenomorph
     color: white
@@ -97,7 +97,7 @@
         Bloodloss: -1
     bleedReductionAmount: 5  #goob
   - type: MeleeWeapon
-    altDisarm: true
+    altDisarm: false # RMB = heavy claw like classic/ancient xenos, not disarm
     angle: 0
     soundHit:
       collection: AlienClaw
@@ -164,7 +164,7 @@
   - type: Prying #Switched from Tools component to this
     speedModifier: 1.5
     pryPowered: true
-  - type: ComplexInteraction
+  # ComplexInteraction only on Queen/Empress (consoles/machines) — see XenomorphMachineUser
   - type: Hands
   - type: ShowHealthIcons
   - type: Puller
@@ -183,6 +183,8 @@
         requireInputValidation: false
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90

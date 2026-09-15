@@ -50,8 +50,56 @@
   components:
   - type: Action
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_queen }
+  - type: PlasmaCostAction
+    plasmaCost: 500
+
+- type: entity
+  id: ActionEvolutionEmpress
+  parent: ActionEvolution
+  name: Evolve to empress (500)
+  description: Evolve into an empress. Costs 500 plasma. Requires 720 seconds of evolution points.
+  components:
+  - type: Action
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_queen }
+  - type: PlasmaCostAction
+    plasmaCost: 500
 
 # Structures actions
+- type: entity
+  id: ActionXenomorphChooseStructure
+  parent: BaseAction
+  name: Choose resin structure
+  description: Select which resin structure to secrete.
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true
+    itemIconStyle: BigAction
+    useDelay: 0.5
+    icon: { sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi, state: resin }
+  - type: InstantAction
+    event: !type:XenomorphChooseStructureEvent
+
+- type: entity
+  id: ActionXenomorphSecrete
+  parent: BaseAction
+  name: Secrete resin
+  description: Build the selected resin structure.
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true
+    itemIconStyle: BigAction
+    useDelay: 1
+    icon: { sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi, state: resin }
+  - type: TargetAction
+    range: 2
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:XenomorphSecreteEvent
+  - type: PlasmaCostAction
+    plasmaCost: 50
+
 - type: entity
   id: ActionSpawnResinWeedNode
   parent: BaseAction
@@ -118,6 +166,25 @@
       - WallLayer
   - type: PlasmaCostAction
     plasmaCost: 50 # Goobstation
+
+- type: entity
+  id: ActionSpawnHiveFloor
+  parent: BaseAction
+  name: Build hive floor (50)
+  description: Secrete durable hive plating that blocks planetary storms.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite: _White/Structures/Furniture/resin_weed.rsi, state: full }
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:PlaceTileEntityEvent
+      tileId: FloorXenoHive
+      length: 1
+  - type: PlasmaCostAction
+    plasmaCost: 50
 
 # TODO: delete it # Goobstation - removed
 #- type: entity
@@ -191,6 +258,30 @@
   - type: PlasmaCostAction
     plasmaCost: 50 # Goobstation
 
+- type: entity
+  id: ActionSpawnXenoWallNest
+  parent: BaseAction
+  name: Nest to wall (50)
+  description: Secrete resin onto a wall to hang prey in place.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi, state: nest_overlay }
+  - type: TargetAction
+    range: 2
+  - type: WorldTargetAction
+    event: !type:PlaceTileEntityEvent
+      entity: XenoNest
+      length: 2
+      blockedCollisionMask:
+      - TableMask
+      blockedCollisionLayer:
+      - TableLayer
+      - BulletImpassable
+  - type: PlasmaCostAction
+    plasmaCost: 50
+
 # Tail lash action
 - type: entity
   id: ActionTailLash
@@ -207,26 +298,94 @@
   - type: WorldTargetAction
     event: !type:TailLashActionEvent
 
-# Acid action - Goob Commented out until future fix
-#- type: entity
-#  id: ActionAcid
-#  parent: BaseAction
-#  name: Corrosive acid (200)
-#  description: Drench an object in acid, destroying it over time.
-#  components:
-#  - type: Action
-#    useDelay: 11
-#    itemIconStyle: BigAction # Goobstation
-#    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid } # Goobstation
-#  - type: TargetAction
-#    interactOnMiss: false
-#    range: 2
-#    targetingIndicator: true # Goobstation
-#    checkCanAccess: true # Goobstation
-#  - type: EntityTargetAction
-#    event: !type:AcidActionEvent
-#  - type: PlasmaCostAction
-#    plasmaCost: 200
+# Spit (neurotoxin / chemical) — aim with action icon (not RMB)
+- type: entity
+  id: ActionNeurotoxinSpit
+  parent: BaseAction
+  name: Spit (55)
+  description: Spit toward a point. Click the icon, then click where to fire. Mode switches with spit mode.
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true # PlasmaAmmoProvider / Gun are on the body
+    useDelay: 0.75
+    itemIconStyle: BigAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid }
+  - type: TargetAction
+    range: 20
+    checkCanAccess: false
+  - type: WorldTargetAction
+    rotateOnUse: true
+    event: !type:NeurotoxinSpitActionEvent
+
+- type: entity
+  id: ActionAcid
+  parent: BaseAction
+  name: Corrosive acid (200)
+  description: Drench a structure or object in acid. Walls and machines melt over time; items dissolve into ash.
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true # organ-granted; XenomorphAcid is on the body
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid }
+  - type: TargetAction
+    interactOnMiss: false
+    range: 2
+    targetingIndicator: true
+    checkCanAccess: true
+  - type: EntityTargetAction
+    event: !type:AcidActionEvent
+  - type: PlasmaCostAction
+    plasmaCost: 200
+
+# Toggle spit: neurotoxin (default) <-> chemical heat 21 (armor applies). Needs acid gland + spit gun.
+- type: entity
+  id: ActionXenomorphSpitMode
+  parent: BaseAction
+  name: Toggle spit mode
+  description: Switch between neurotoxin spit and chemical heat spit (21 Heat, armor applies).
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true # organ-granted; XenomorphSpitMode is on the body
+    useDelay: 0.5
+    itemIconStyle: BigAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: harm }
+    iconOn: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid }
+  - type: InstantAction
+    event: !type:XenomorphSpitModeToggleEvent
+
+- type: entity
+  id: ActionXenomorphScreech
+  parent: BaseAction
+  name: Empress screech
+  description: Deafening xenomorph roar. Paralyzes all nearby creatures except xenomorphs.
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true
+    itemIconStyle: BigAction
+    useDelay: 120
+    icon: { sprite: _Oskarrr/RMC14/Effects/xeno_screech.rsi, state: screech }
+  - type: InstantAction
+    event: !type:XenomorphScreechActionEvent
+
+- type: entity
+  id: ActionXenomorphHiveAnnounce
+  parent: BaseAction
+  name: Hive announce
+  description: Project a psychic message to everyone who has a hive node.
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true
+    itemIconStyle: BigAction
+    useDelay: 30
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: plasma_transfer_on }
+  - type: InstantAction
+    event: !type:XenomorphHiveAnnounceActionEvent
 
 # Jump action
 - type: entity
@@ -261,6 +420,51 @@
     range: 2
   - type: EntityTargetAction
     event: !type:TransferPlasmaActionEvent
+
+- type: entity
+  id: ActionXenomorphOvipositorAttach
+  parent: BaseAction
+  name: Attach ovipositor (5s)
+  description: Root yourself in place to begin laying eggs.
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true
+    itemIconStyle: BigAction
+    useDelay: 1
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: egg }
+  - type: InstantAction
+    event: !type:XenomorphOvipositorAttachEvent
+
+- type: entity
+  id: ActionXenomorphOvipositorDetach
+  parent: BaseAction
+  name: Detach ovipositor (5s)
+  description: Withdraw the ovipositor and move freely again.
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true
+    itemIconStyle: BigAction
+    useDelay: 1
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve }
+  - type: InstantAction
+    event: !type:XenomorphOvipositorDetachEvent
+
+- type: entity
+  id: ActionXenomorphOvipositorLayEgg
+  parent: BaseAction
+  name: Lay egg (3s)
+  description: Produce a plantable xenomorph egg. One egg every 3 seconds.
+  components:
+  - type: Action
+    checkCanInteract: false
+    raiseOnUser: true
+    itemIconStyle: BigAction
+    useDelay: 3
+    icon: { sprite: _White/Objects/Specific/Xenomorphs/empress_egg.rsi, state: icon }
+  - type: InstantAction
+    event: !type:XenomorphOvipositorLayEggEvent
 
 # Promotion action
 - type: entity

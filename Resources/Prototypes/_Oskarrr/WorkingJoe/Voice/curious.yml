@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeNowWheresThatComeFrom
+  category: Curious
+  name: emote-name-workingjoe-now-wheres-that-come-from
+  soundCollection: AU14WorkingJoeNowWheresThatComeFrom
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeReally
+  category: Curious
+  name: emote-name-workingjoe-really
+  soundCollection: AU14WorkingJoeReally
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatHaveWeHere
+  category: Curious
+  name: emote-name-workingjoe-what-have-we-here
+  soundCollection: AU14WorkingJoeWhatHaveWeHere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatIsThis
+  category: Curious
+  name: emote-name-workingjoe-what-is-this
+  soundCollection: AU14WorkingJoeWhatIsThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatWasThat
+  category: Curious
+  name: emote-name-workingjoe-what-was-that
+  soundCollection: AU14WorkingJoeWhatWasThat
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatWasThatSound
+  category: Curious
+  name: emote-name-workingjoe-what-was-that-sound
+  soundCollection: AU14WorkingJoeWhatWasThatSound
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatsGoingOnHere
+  category: Curious
+  name: emote-name-workingjoe-whats-going-on-here
+  soundCollection: AU14WorkingJoeWhatsGoingOnHere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatsThis
+  category: Curious
+  name: emote-name-workingjoe-whats-this
+  soundCollection: AU14WorkingJoeWhatsThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhereDidThatComeFrom
+  category: Curious
+  name: emote-name-workingjoe-where-did-that-come-from
+  soundCollection: AU14WorkingJoeWhereDidThatComeFrom
+

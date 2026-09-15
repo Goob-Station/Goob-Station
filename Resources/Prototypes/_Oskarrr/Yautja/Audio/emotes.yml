@@ -1,0 +1,88 @@
+﻿- type: emote
+  id: GoobYautjaClick
+  name: Клацання Яутжа
+  category: Vocal
+  icon: Interface/Emotes/click.png
+  available: false
+  chatMessages: ["клацає."]
+  chatTriggers:
+  - yautjaclick
+  - predclick
+
+- type: emote
+  id: GoobYautjaRoar
+  name: Рев Яутжа
+  category: Vocal
+  icon: Interface/Actions/scream.png
+  available: false
+  chatMessages: ["Реве!"]
+  chatTriggers:
+  - yautjaroar
+  - predroar
+
+- type: emote
+  id: GoobYautjaLaugh
+  name: Сміх Яутжа
+  category: Vocal
+  icon: Interface/Emotes/laugh.png
+  available: false
+  chatMessages: ["сміється"]
+  chatTriggers:
+  - yautjalaugh
+  - predlaugh
+
+- type: emote
+  id: GoobYautjaGrowl
+  name: Ричання Яутжа
+  category: Vocal
+  icon: Interface/Emotes/chitter.png
+  available: false
+  chatMessages: ["Ричить."]
+  chatTriggers:
+  - yautjagrowl
+  - predgrowl
+
+- type: emote
+  id: GoobYautjaPain
+  name: Сквік болю Яутжа
+  category: Vocal
+  icon: Interface/Emotes/cry.png
+  available: false
+  chatMessages: ["Ричить від болю."]
+  chatTriggers:
+  - yautjapain
+  - predpain
+
+- type: emote
+  id: GoobYautjaDistract
+  name: Відволікаючий звук Яутжа
+  category: Vocal
+  icon: Interface/Emotes/click.png
+  available: false
+  chatMessages: ["Шипить"]
+  chatTriggers:
+  - yautjadistract
+  - preddistract
+  - distract
+
+- type: emote
+  id: GoobYautjaDeathCry
+  name: Передсмертний крик Яутжа
+  category: Vocal
+  icon: Interface/Emotes/deathgasp.png
+  available: false
+  chatMessages: ["видає свій останній хрипкий крик і падає!"]
+  chatTriggers:
+  - yautjadeathcry
+  - preddeathcry
+
+- type: emote
+  id: GoobYautjaDeathLaugh
+  name: Передсмертний сміх Яутжа
+  category: Vocal
+  icon: Interface/Emotes/deathgasp.png
+  available: false
+  chatMessages: ["активує таймер комп'ютера і зловісно регоче перед смертю!"]
+  chatTriggers:
+  - yautjadeathlaugh
+  - preddeathlaugh

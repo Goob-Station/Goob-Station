@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: speechVerb
+  id: WorkingJoe
+  name: chat-speech-verb-name-working-joe
+  speechVerbStrings:
+  - chat-speech-verb-working-joe-1
+  - chat-speech-verb-robotic-1
+  - chat-speech-verb-robotic-2

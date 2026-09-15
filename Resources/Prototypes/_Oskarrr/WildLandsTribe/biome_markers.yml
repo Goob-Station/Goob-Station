@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# DISABLED — camp spawn removed (was via WildLandsOpposingCampsSystem).
+# Marker kept commented so it is not re-added to planet markers by accident.
+
+# - type: biomeMarkerLayer
+#   id: WildLandsAborigineTribe
+#   prototype: SpawnerWildLandsTribeCamp
+#   radius: 128
+#   maxCount: 1
+#   minGroupSize: 1
+#   maxGroupSize: 1
+#   size: 256

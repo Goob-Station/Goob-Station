@@ -1,0 +1,14 @@
+# Yautja names sourced from CMSS13 commit e97c5f08fdcfd60743481011e30ccdccc7fd7c88:
+# code/_globalvars/lists/names.dm GLOB.pred_names and GLOB.pred_last_names.
+
+- type: localizedDataset
+  id: GoobNamesYautjaFirst
+  values:
+    prefix: goob-name-yautja-first-
+    count: 33
+
+- type: localizedDataset
+  id: GoobNamesYautjaLast
+  values:
+    prefix: goob-name-yautja-last-
+    count: 8

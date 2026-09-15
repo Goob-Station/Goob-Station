@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# From CMU AU14WorkingJoe — Blunt/Slash/Piercing 0.5, Heat/Shock/Cold 0.65
+- type: damageModifierSet
+  id: WorkingJoe
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 0.65
+    Shock: 0.65
+    Cold: 0.65
+    Caustic: 0.75
+    Bloodloss: 0.5
+    Radiation: 0
+    Poison: 0
+    Asphyxiation: 0
+    Cellular: 0
+  ignoreArmorPierceFlags: All

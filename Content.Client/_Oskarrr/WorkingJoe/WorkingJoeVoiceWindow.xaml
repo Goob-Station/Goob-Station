@@ -1,0 +1,19 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="Working Joe Voice Synthesizer"
+               MinSize="750 550"
+               SetSize="750 550">
+
+    <BoxContainer Orientation="Horizontal" VerticalExpand="True" Margin="8" SeparationOverride="8">
+        <ScrollContainer MinWidth="140" HScrollEnabled="False" VScrollEnabled="True">
+            <BoxContainer Name="CategoryList" Orientation="Vertical" SeparationOverride="3" />
+        </ScrollContainer>
+
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="6">
+            <LineEdit Name="SearchBar" PlaceHolder="Search voicelines..." HorizontalExpand="True" />
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Name="LineList" Orientation="Vertical" SeparationOverride="2" HorizontalExpand="True" />
+            </ScrollContainer>
+        </BoxContainer>
+    </BoxContainer>
+
+</DefaultWindow>

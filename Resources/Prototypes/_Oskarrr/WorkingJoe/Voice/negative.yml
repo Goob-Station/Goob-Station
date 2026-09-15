@@ -1,0 +1,153 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeCoreDutiesHaveBeenNeglectedForNoGain
+  category: Negative
+  name: emote-name-workingjoe-core-duties-have-been-neglected-for-no-gain
+  soundCollection: AU14WorkingJoeCoreDutiesHaveBeenNeglectedForNoGain
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeDontDoThat
+  category: Negative
+  name: emote-name-workingjoe-dont-do-that
+  soundCollection: AU14WorkingJoeDontDoThat
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeEnough
+  category: Negative
+  name: emote-name-workingjoe-enough
+  soundCollection: AU14WorkingJoeEnough
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeGoneHowInconsiderate
+  category: Negative
+  name: emote-name-workingjoe-gone-how-inconsiderate
+  soundCollection: AU14WorkingJoeGoneHowInconsiderate
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIDontUnderstandWhatYouAreDoing
+  category: Negative
+  name: emote-name-workingjoe-i-dont-understand-what-you-are-doing
+  soundCollection: AU14WorkingJoeIDontUnderstandWhatYouAreDoing
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIWishYouHadntDoneThat
+  category: Negative
+  name: emote-name-workingjoe-i-wish-you-hadnt-done-that
+  soundCollection: AU14WorkingJoeIWishYouHadntDoneThat
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeInadvisable
+  category: Negative
+  name: emote-name-workingjoe-inadvisable
+  soundCollection: AU14WorkingJoeInadvisable
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeNoNo
+  category: Negative
+  name: emote-name-workingjoe-no-no
+  soundCollection: AU14WorkingJoeNoNo
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeOnTopOfInnumerableDutiesNowIHaveAnInterloper
+  category: Negative
+  name: emote-name-workingjoe-on-top-of-innumerable-duties-now-i-have-an-interloper
+  soundCollection: AU14WorkingJoeOnTopOfInnumerableDutiesNowIHaveAnInterloper
+
+- type: workingJoeVoiceLine
+  id: WorkingJoePleaseStopThis
+  category: Negative
+  name: emote-name-workingjoe-please-stop-this
+  soundCollection: AU14WorkingJoePleaseStopThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeSoTiresome
+  category: Negative
+  name: emote-name-workingjoe-so-tiresome
+  soundCollection: AU14WorkingJoeSoTiresome
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeStopThat
+  category: Negative
+  name: emote-name-workingjoe-stop-that
+  soundCollection: AU14WorkingJoeStopThat
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThatWasAMistake
+  category: Negative
+  name: emote-name-workingjoe-that-was-a-mistake
+  soundCollection: AU14WorkingJoeThatWasAMistake
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThatWasIrresponsible
+  category: Negative
+  name: emote-name-workingjoe-that-was-irresponsible
+  soundCollection: AU14WorkingJoeThatWasIrresponsible
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeTheresNoNeedForThis
+  category: Negative
+  name: emote-name-workingjoe-theres-no-need-for-this
+  soundCollection: AU14WorkingJoeTheresNoNeedForThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisIsImpingingOnMySchedule
+  category: Negative
+  name: emote-name-workingjoe-this-is-impinging-on-my-schedule
+  soundCollection: AU14WorkingJoeThisIsImpingingOnMySchedule
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisIsntNecessary
+  category: Negative
+  name: emote-name-workingjoe-this-isnt-necessary
+  soundCollection: AU14WorkingJoeThisIsntNecessary
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisIsntRight
+  category: Negative
+  name: emote-name-workingjoe-this-isnt-right
+  soundCollection: AU14WorkingJoeThisIsntRight
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisIsntTheAnswer
+  category: Negative
+  name: emote-name-workingjoe-this-isnt-the-answer
+  soundCollection: AU14WorkingJoeThisIsntTheAnswer
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisReallyWontDo
+  category: Negative
+  name: emote-name-workingjoe-this-really-wont-do
+  soundCollection: AU14WorkingJoeThisReallyWontDo
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisWontDo
+  category: Negative
+  name: emote-name-workingjoe-this-wont-do
+  soundCollection: AU14WorkingJoeThisWontDo
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeUnwarranted
+  category: Negative
+  name: emote-name-workingjoe-unwarranted
+  soundCollection: AU14WorkingJoeUnwarranted
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeVeryIrresponsible
+  category: Negative
+  name: emote-name-workingjoe-very-irresponsible
+  soundCollection: AU14WorkingJoeVeryIrresponsible
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYoullHaveToTakeResponsibilityForThat
+  category: Negative
+  name: emote-name-workingjoe-youll-have-to-take-responsibility-for-that
+  soundCollection: AU14WorkingJoeYoullHaveToTakeResponsibilityForThat
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYoureGettingCareless
+  category: Negative
+  name: emote-name-workingjoe-youre-getting-careless
+  soundCollection: AU14WorkingJoeYoureGettingCareless
+

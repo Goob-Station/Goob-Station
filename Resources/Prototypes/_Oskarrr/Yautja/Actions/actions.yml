@@ -1,0 +1,89 @@
+- type: entity
+  parent: BaseAction
+  id: ActionYautjaToggleClaws
+  name: Extend Claws
+  description: Extend or retract the wrist blades built into your bracer.
+  components:
+  - type: Action
+    icon:
+      sprite: _Oskarrr/Yautja/wrist_blades.rsi
+      state: icon
+    iconOn:
+      sprite: _Oskarrr/Yautja/wrist_blades.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:ToggleYautjaClawsEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionYautjaToggleShield
+  name: Extend Shield
+  description: Extend or retract the wrist shield built into your bracer.
+  components:
+  - type: Action
+    icon:
+      sprite: _Oskarrr/Yautja/bracer_shield.rsi
+      state: icon
+    iconOn:
+      sprite: _Oskarrr/Yautja/bracer_shield.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:ToggleYautjaShieldEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionYautjaToggleCloak
+  name: Cloak
+  description: Toggles full cloaking. Stays invisible while moving or being hit. Requires a Yautja cloak in the backpack slot.
+  components:
+  - type: Action
+    useDelay: 3
+    icon:
+      sprite: _Oskarrr/Yautja/cape_full.rsi
+      state: icon
+    iconOn:
+      sprite: _Oskarrr/Yautja/cape_full.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:ToggleYautjaCloakEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionYautjaSelfDestruct
+  name: Self Destruct
+  description: Initiates the bracer self-destruct protocol. Detonates with macro-bomb force after the countdown.
+  components:
+  - type: Action
+    priority: -20
+    icon:
+      sprite: Actions/Implants/implants.rsi
+      state: explosive
+  - type: InstantAction
+    event: !type:YautjaBracerSelfDestructEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionYautjaObservationProjection
+  name: Psionic Projection
+  description: Leave your body as an incorporeal observer. Use the return action to return to your body.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: _EinsteinEngines/Interface/VerbIcons/telegnosis.png
+    useDelay: 1
+  - type: InstantAction
+    event: !type:YautjaObservationProjectionEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionYautjaObservationReturn
+  name: Return to Body
+  description: Return from the observation projection to your body.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: _EinsteinEngines/Interface/VerbIcons/mind_swap_return.png
+    useDelay: 3
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:YautjaObservationReturnEvent {}

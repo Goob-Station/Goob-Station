@@ -3,7 +3,7 @@
 - type: species
   id: Dwarf
   name: species-name-dwarf
-  roundStart: true
+  roundStart: false # Wey-Yu atmosphere: disabled
   prototype: MobDwarf
   sprites: MobHumanSprites
   markingLimits: MobHumanMarkingLimits

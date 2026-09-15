@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAreYouAwareOfTheCurrentHazardContainmentBreach
+  category: Concern
+  name: emote-name-workingjoe-are-you-aware-of-the-current-hazard-containment-breach
+  soundCollection: AU14WorkingJoeAreYouAwareOfTheCurrentHazardContainmentBreach
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAreYouLost
+  category: Concern
+  name: emote-name-workingjoe-are-you-lost
+  soundCollection: AU14WorkingJoeAreYouLost
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIsThereAProblem
+  category: Concern
+  name: emote-name-workingjoe-is-there-a-problem
+  soundCollection: AU14WorkingJoeIsThereAProblem
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIsThereSomeoneThereThatNeedsAssistance
+  category: Concern
+  name: emote-name-workingjoe-is-there-someone-there-that-needs-assistance
+  soundCollection: AU14WorkingJoeIsThereSomeoneThereThatNeedsAssistance
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeNowWhereDidYouGo
+  category: Concern
+  name: emote-name-workingjoe-now-where-did-you-go
+  soundCollection: AU14WorkingJoeNowWhereDidYouGo
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWhatHappenedToYou
+  category: Concern
+  name: emote-name-workingjoe-what-happened-to-you
+  soundCollection: AU14WorkingJoeWhatHappenedToYou
+

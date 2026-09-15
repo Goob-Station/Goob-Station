@@ -1,0 +1,304 @@
+﻿- type: body
+  id: GoobYautjaBody
+  name: "яутжа"
+  root: chest
+  slots:
+    head:
+      part: HeadYautja
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestYautja
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganHumanLungs
+    groin:
+      part: GroinYautja
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganHumanStomach
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmYautja
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmYautja
+      connections:
+      - left hand
+    right hand:
+      part: RightHandYautja
+    left hand:
+      part: LeftHandYautja
+    right leg:
+      part: RightLegYautja
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegYautja
+      connections:
+      - left foot
+    right foot:
+      part: RightFootYautja
+    left foot:
+      part: LeftFootYautja
+
+- type: entity
+  id: PartYautja
+  parent: [BaseItem, BasePart]
+  name: "yautja body part"
+  abstract: true
+  components:
+  - type: Icon
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: full
+  - type: BodyPart
+    species: Yautja
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: GoobYautjaBlood
+        Quantity: 10
+
+- type: entity
+  id: ChestYautja
+  name: "yautja chest"
+  parent: [PartYautja, BaseChest]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: torso_m
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: Chest
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: GoobYautjaBlood
+        Quantity: 20
+
+- type: entity
+  id: GroinYautja
+  name: "yautja groin"
+  parent: [PartYautja, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: groin_m
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: Groin
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: GoobYautjaBlood
+        Quantity: 20
+
+- type: entity
+  id: HeadYautja
+  name: "yautja head"
+  parent: [PartYautja, BaseHead]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: head_m
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: Head
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: GoobYautjaBlood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmYautja
+  name: "left yautja arm"
+  parent: [PartYautja, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: l_arm
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: LArm
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+
+- type: entity
+  id: RightArmYautja
+  name: "right yautja arm"
+  parent: [PartYautja, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: r_arm
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: RArm
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+
+- type: entity
+  id: LeftHandYautja
+  name: "left yautja hand"
+  parent: [PartYautja, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: l_hand
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: LHand
+    bleedingOverlay: null
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+
+- type: entity
+  id: RightHandYautja
+  name: "right yautja hand"
+  parent: [PartYautja, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: r_hand
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: RHand
+    bleedingOverlay: null
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+
+- type: entity
+  id: LeftLegYautja
+  name: "ліва нога яутжа"
+  parent: [PartYautja, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: l_leg
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: LLeg
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+
+- type: entity
+  id: RightLegYautja
+  name: "права нога яутжа"
+  parent: [PartYautja, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: r_leg
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: RLeg
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+
+- type: entity
+  id: LeftFootYautja
+  name: "left yautja foot"
+  parent: [PartYautja, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: l_foot
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: LFoot
+    bleedingOverlay: null
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+
+- type: entity
+  id: RightFootYautja
+  name: "right yautja foot"
+  parent: [PartYautja, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: r_foot
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: RFoot
+    bleedingOverlay: null
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#39FF14"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi

@@ -1,0 +1,290 @@
+﻿- type: entity
+  parent: MuzzleFlashEffect
+  id: GoobYautjaPlasmaMuzzleFlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.25, 0
+    scale: 1.45, 1.45
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Oskarrr/Yautja/plasma_projectiles.rsi
+      state: muzzle_flash_blue
+  - type: PointLight
+    enabled: true
+    color: "#4fdcff"
+    radius: 1.4
+    energy: 5.0
+
+- type: entity
+  id: GoobYautjaPlasmaImpactEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.55
+  - type: Sprite
+    drawdepth: Effects
+    scale: 1.45, 1.45
+    layers:
+    - shader: unshaded
+      sprite: _Oskarrr/Yautja/plasma_projectiles.rsi
+      state: muzzle_energy
+  - type: PointLight
+    enabled: true
+    color: "#4fdcff"
+    radius: 4.25
+    energy: 2.8
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: GoobYautjaPlasmaHeavyImpactEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.75
+  - type: Sprite
+    drawdepth: Effects
+    scale: 1.9, 1.9
+    layers:
+    - shader: unshaded
+      sprite: _Oskarrr/Yautja/plasma_projectiles.rsi
+      state: muzzle_energy
+  - type: PointLight
+    enabled: true
+    color: "#55c7ff"
+    radius: 5.5
+    energy: 3.6
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: GoobYautjaPlasmaEradicatorImpactEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.15
+  - type: Sprite
+    drawdepth: Effects
+    scale: 2.35, 2.35
+    layers:
+    - shader: unshaded
+      sprite: _Oskarrr/Yautja/plasma_projectiles.rsi
+      state: bluespace
+  - type: PointLight
+    enabled: true
+    color: "#2da4ff"
+    radius: 7
+    energy: 4.5
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: BaseBullet
+  id: GoobYautjaPlasmaBoltBase
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    noRot: false
+    sprite: _Oskarrr/Yautja/plasma_projectiles.rsi
+    scale: 1.15, 1.15
+    layers:
+    - state: ion
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: GoobYautjaPlasmaMuzzleFlash
+  - type: Projectile
+    impactEffect: GoobYautjaPlasmaImpactEffect
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+    damage:
+      types:
+        Heat: 0
+  - type: PointLight
+    enabled: true
+    color: "#50d9ff"
+    radius: 3.25
+    energy: 2.1
+  - type: TimedDespawn
+    lifetime: 4
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Opaque
+        layer:
+        - Opaque
+
+- type: entity
+  parent: GoobYautjaPlasmaBoltBase
+  id: GoobYautjaPlasmaPistolBolt
+  name: "плазмовий пістолетний болт"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: GoobYautjaPlasmaImpactEffect
+    damage:
+      types:
+        Heat: 15
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 30
+    intensitySlope: 3
+    maxIntensity: 5
+    maxTileBreak: 0
+    canCreateVacuum: false
+
+- type: entity
+  parent: GoobYautjaPlasmaBoltBase
+  id: GoobYautjaPlasmaRifleBolt
+  name: "плазмовий гвинтівковий болт"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: GoobYautjaPlasmaHeavyImpactEffect
+    damage:
+      types:
+        Heat: 32
+  - type: IgniteOnCollide
+    fireStacks: 1.5
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 80
+    intensitySlope: 3
+    maxIntensity: 8
+    maxTileBreak: 1
+    canCreateVacuum: false
+  - type: PointLight
+    color: "#55c7ff"
+    radius: 4.25
+    energy: 2.9
+
+- type: entity
+  parent: GoobYautjaPlasmaBoltBase
+  id: GoobYautjaCasterStunBolt
+  name: "оглушливий болт"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 105
+  - type: Projectile
+    impactEffect: GoobYautjaPlasmaImpactEffect
+    damage:
+      types:
+        Heat: 5
+
+- type: entity
+  parent: GoobYautjaPlasmaBoltBase
+  id: GoobYautjaCasterImmobilizerBolt
+  name: "плазмовий іммобілайзер"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/plasma_projectiles.rsi
+    layers:
+    - state: bluespace
+      shader: unshaded
+  - type: StaminaDamageOnCollide
+    damage: 142.5
+  - type: Projectile
+    impactEffect: GoobYautjaPlasmaEradicatorImpactEffect
+    damage:
+      types:
+        Heat: 10
+  - type: PointLight
+    color: "#2da4ff"
+    radius: 3
+    energy: 1.5
+
+- type: entity
+  parent: GoobYautjaPlasmaBoltBase
+  id: GoobYautjaCasterLethalBolt
+  name: "плазмовий болт"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/plasma_projectiles.rsi
+    layers:
+    - state: pulse1
+      shader: unshaded
+  - type: Projectile
+    impactEffect: GoobYautjaPlasmaHeavyImpactEffect
+    damage:
+      types:
+        Heat: 38
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 230
+    intensitySlope: 4
+    maxIntensity: 12
+    maxTileBreak: 2
+    canCreateVacuum: false
+  - type: PointLight
+    color: "#55b8ff"
+    radius: 4.75
+    energy: 3.2
+
+- type: entity
+  parent: GoobYautjaPlasmaBoltBase
+  id: GoobYautjaCasterEradicatorBolt
+  name: "плазмовий ерадикатор"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/plasma_projectiles.rsi
+    layers:
+    - state: bluespace
+      shader: unshaded
+  - type: Projectile
+    impactEffect: GoobYautjaPlasmaEradicatorImpactEffect
+    damage:
+      types:
+        Heat: 70
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 900
+    intensitySlope: 5
+    maxIntensity: 20
+    maxTileBreak: 2
+    canCreateVacuum: false
+  - type: PointLight
+    color: "#2da4ff"
+    radius: 6.5
+    energy: 4.2

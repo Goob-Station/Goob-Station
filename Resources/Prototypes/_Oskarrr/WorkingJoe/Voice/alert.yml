@@ -1,0 +1,135 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAPotentialHazard
+  category: Alert
+  name: emote-name-workingjoe-a-potential-hazard
+  soundCollection: AU14WorkingJoeAPotentialHazard
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAlarmActivatedInvestigationCommencing
+  category: Alert
+  name: emote-name-workingjoe-alarm-activated-investigation-commencing
+  soundCollection: AU14WorkingJoeAlarmActivatedInvestigationCommencing
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAlarmDetectedAreaWillBeExamined
+  category: Alert
+  name: emote-name-workingjoe-alarm-detected-area-will-be-examined
+  soundCollection: AU14WorkingJoeAlarmDetectedAreaWillBeExamined
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeEnergySurgeDetected
+  category: Alert
+  name: emote-name-workingjoe-energy-surge-detected
+  soundCollection: AU14WorkingJoeEnergySurgeDetected
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeFireDrill
+  category: Alert
+  name: emote-name-workingjoe-fire-drill
+  soundCollection: AU14WorkingJoeFireDrill
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeHazardContainmentBreachLogged
+  category: Alert
+  name: emote-name-workingjoe-hazard-containment-breach-logged
+  soundCollection: AU14WorkingJoeHazardContainmentBreachLogged
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeLevelOmegaPermissions
+  category: Alert
+  name: emote-name-workingjoe-level-omega-permissions
+  soundCollection: AU14WorkingJoeLevelOmegaPermissions
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeNoLaughingMatter
+  category: Alert
+  name: emote-name-workingjoe-no-laughing-matter
+  soundCollection: AU14WorkingJoeNoLaughingMatter
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeProtectedAreaCompromised
+  category: Alert
+  name: emote-name-workingjoe-protected-area-compromised
+  soundCollection: AU14WorkingJoeProtectedAreaCompromised
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeSafetyLogUpdated
+  category: Alert
+  name: emote-name-workingjoe-safety-log-updated
+  soundCollection: AU14WorkingJoeSafetyLogUpdated
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeSeegsonEmergencyAlarmProtocolBetaInOperation
+  category: Alert
+  name: emote-name-workingjoe-seegson-emergency-alarm-protocol-beta-in-operation
+  soundCollection: AU14WorkingJoeSeegsonEmergencyAlarmProtocolBetaInOperation
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThatIsntAuthorizedInThisFacility
+  category: Alert
+  name: emote-name-workingjoe-that-isnt-authorized-in-this-facility
+  soundCollection: AU14WorkingJoeThatIsntAuthorizedInThisFacility
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisAreaIsRestricted
+  category: Alert
+  name: emote-name-workingjoe-this-area-is-restricted
+  soundCollection: AU14WorkingJoeThisAreaIsRestricted
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisIsABreachOfMultipleSafetyDirectives
+  category: Alert
+  name: emote-name-workingjoe-this-is-a-breach-of-multiple-safety-directives
+  soundCollection: AU14WorkingJoeThisIsABreachOfMultipleSafetyDirectives
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThisIsASafetyBreachAndWillNotBeTolerated
+  category: Alert
+  name: emote-name-workingjoe-this-is-a-safety-breach-and-will-not-be-tolerated
+  soundCollection: AU14WorkingJoeThisIsASafetyBreachAndWillNotBeTolerated
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeTodaysHazardContainmentAlertCurrentlyStandsAtOmega
+  category: Alert
+  name: emote-name-workingjoe-todays-hazard-containment-alert-currently-stands-at-omega
+  soundCollection: AU14WorkingJoeTodaysHazardContainmentAlertCurrentlyStandsAtOmega
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeWeAreExperiencingAHeightenedContainmentHazardLevelToday
+  category: Alert
+  name: emote-name-workingjoe-we-are-experiencing-a-heightened-containment-hazard-level-today
+  soundCollection: AU14WorkingJoeWeAreExperiencingAHeightenedContainmentHazardLevelToday
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYouAreNotAllowedInThere
+  category: Alert
+  name: emote-name-workingjoe-you-are-not-allowed-in-there
+  soundCollection: AU14WorkingJoeYouAreNotAllowedInThere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYouAreTrespassing
+  category: Alert
+  name: emote-name-workingjoe-you-are-trespassing
+  soundCollection: AU14WorkingJoeYouAreTrespassing
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYouReallyShouldntBeHere
+  category: Alert
+  name: emote-name-workingjoe-you-really-shouldnt-be-here
+  soundCollection: AU14WorkingJoeYouReallyShouldntBeHere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYoureNotAllowedInThere
+  category: Alert
+  name: emote-name-workingjoe-youre-not-allowed-in-there
+  soundCollection: AU14WorkingJoeYoureNotAllowedInThere
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeYourPresenceHasBeenLogged
+  category: Alert
+  name: emote-name-workingjoe-your-presence-has-been-logged
+  soundCollection: AU14WorkingJoeYourPresenceHasBeenLogged
+

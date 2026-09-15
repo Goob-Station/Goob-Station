@@ -1,0 +1,34 @@
+﻿# Bad Blood Clan — dishonored Yautja hunters. Distress Signal only.
+# Base: 3 at 40 players. Scales at 1:20 (one hunter per 20 players above 40).
+#- type: threat
+#  id: badBloodClanThreat
+#  lorePrimer: AU14PrimerThreatBadBlood
+#  roundstartspawns: badBloodClanParty
+#  whitelistedgamemodes:
+#  - DistressSignal
+#  blacklistedgamemodes:
+#  - ColonyFall
+#  winconditions:
+#  - KillAllGovforRule
+#  - KillAllYautjaRule
+#  minplayers: 0
+
+#- type: partySpawn
+#  id: badBloodClanParty
+#  leadersToSpawn:
+#    GoobMobYautjaBadBloodLeader: 1
+#  gruntsToSpawn:
+#    GoobMobYautjaBadBloodGrunt: 2
+#  scaling:
+#    GoobMobYautjaBadBloodGrunt:
+#      scale: 0.05
+#      whenToBeginScaling: 40
+#  spawnTogether: true
+#
+#- type: lorePrimer
+#  id: AU14PrimerThreatBadBlood
+#  threattext: "You are a Bad Blood — a dishonored Yautja cast out from your clan. You are no longer bound by the code. Hunt everything."
+#  KnowledgeLevelsGovforThreat:
+#    "Threat Unknown": 1
+#    "Anomalous cloaked contacts detected. Something is hunting us.": 2
+#    "Yautja confirmed in AO. Expect plasma casters, cloaking technology, and wrist blades.": 3

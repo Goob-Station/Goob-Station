@@ -7,3 +7,6 @@ xenomorphs-queen-promotion-invalid-target = Can only target other xenomorphs for
 xenomorphs-queen-already-praetorian = This xenomorph is already a Praetorian!
 xenomorphs-queen-promotion-success = Promoted { $target } to Praetorian!
 
+xenomorphs-queen-finder-cycle = Tracking { $target }.
+xenomorphs-queen-finder-none = No hive leaders to track.
+

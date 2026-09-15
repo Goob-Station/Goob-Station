@@ -1,0 +1,135 @@
+- type: entity
+  save: false
+  parent: MobHuman
+  id: GoobMobYautja
+  name: "мисливець Яутжа"
+  suffix: Yautja, Event, DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: Loadout
+    prototypes:
+    - GoobYautjaHunterGear
+  - type: HumanoidAppearance
+    species: Yautja
+    hideLayersOnEquip:
+    - Hair
+  - type: Icon
+    sprite: _Oskarrr/Yautja/body.rsi
+    state: full # admin spawn menu
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    angle: 0
+    animation: WeaponArcFist
+    attackRate: 1.15
+    damage:
+      types:
+        Blunt: 15
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.4
+    baseSprintSpeed: 8.4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Stamina
+    baseCritThreshold: 300
+  - type: TemperatureDamage
+    coldDamageThreshold: 10
+    heatDamageThreshold: 380
+  - type: Damageable
+    damageModifierSet: GoobYautjaDamageModifier
+  - type: Body
+    prototype: GoobYautjaBody
+    requiredLegs: 2
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GoobYautjaBlood
+        Quantity: 300
+  - type: Speech
+    speechSounds: GoobYautjaSpeech
+  - type: Vocal
+    sounds:
+      Male: GoobMaleYautja
+      Female: GoobFemaleYautja
+      Unsexed: GoobMaleYautja
+  - type: LanguageKnowledge
+    speaks:
+    - Yautja
+    understands:
+    - Yautja
+  - type: BreathingImmunity
+  - type: DiseaseImmune
+  - type: Hunger
+    baseDecayRate: 0
+    startingHunger: 150
+  - type: Thirst
+    baseDecayRate: 0
+    startingThirst: 450
+  - type: Barotrauma
+    # Яутжа носять біомаску (mask), не шолом (head)
+    protectionSlots:
+    - mask
+    - outerClothing
+    damage:
+      types:
+        Blunt: 0.25
+        Heat: 0.05
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 2
+  - type: Tag
+    tags:
+    - Yautja
+
+- type: entity
+  parent: [ Incorporeal, BaseMob ]
+  id: GoobYautjaObservationProjection
+  name: "невидима проєкція спостереження"
+  description: "Безтілесна проєкція планшета спостереження."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Ghosts/telegnostic_observer.rsi
+    layers:
+    - state: animated
+      visible: false
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - Ghost
+  - type: Examiner
+  - type: MindContainer
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 8
+    baseWalkSpeed: 5
+  - type: Stealth
+    lastVisibility: -1.5
+  - type: YautjaObservationProjection
+  - type: NightVision
+    isActive: false
+    isEquipment: false
+    color: white
+    drawOverlay: false
+    strength: 0
+    noise: 0
+    tint: 3, 3, 3
+    activateSound:
+      path: /Audio/_Oskarrr/Yautja/Equipment/pred_vision.wav
+    deactivateSound: null
+  - type: ThermalVision
+    isActive: false
+    isEquipment: false
+    toggleAction: ToggleThermalVisionXenomorph
+    color: white
+    drawOverlay: false
+    lightRadius: 10
+    strength: 0
+    noise: 0
+    tint: 3, 3, 3
+    activateSound:
+      path: /Audio/_Oskarrr/Yautja/Equipment/pred_vision.wav
+    deactivateSound: null

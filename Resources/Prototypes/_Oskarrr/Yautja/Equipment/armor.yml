@@ -1,0 +1,359 @@
+﻿- type: entity
+  parent: ClothingOuterArmorBase # Стандартна база для бронежилетів та верхнього одягу в Goob
+  id: GoobYautjaArmorBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan.rsi
+    equipDelay: 1
+    unequipDelay: 1
+    slots: [ outerClothing ] # Прописуємо слот верхнього одягу
+  # Переписуємо захист під стандарти Goob (Еквівалент крутої тактичної броні)
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65       # Поглинає 35% тупої шкоди
+        Slash: 0.60       # Поглинає 40% ріжучої шкоди
+        Piercing: 0.60    # Поглинає 40% проникаючої шкоди (кулі)
+        Heat: 0.55        # Поглинає 45% термічної шкоди
+        Structural: 0.60  # Поглинає 40% шкоди від вибухів/руйнувань
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: SpeciesPressureProtection
+    species:
+    - Yautja
+
+- type: entity
+  parent: GoobYautjaArmorBase
+  id: GoobYautjaAncientAlienArmor
+  name: "стародавня прибулецька броня"
+  description: "Стародавня броня з дивного сплаву. Вона холодна на дотик з прибулецькою вагою."
+
+- type: entity
+  parent: GoobYautjaArmorBase # Виправлено батька, оскільки HeavyClanArmor відсутній
+  id: GoobYautjaStoneArmor
+  name: "прибулецька кам'яна броня"
+  description: "Костюм броні, повністю зроблений з каменю. Виглядає неймовірно важким."
+  suffix: Yautja, Flavor
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_heavy_clan.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_heavy_clan.rsi
+  # Кам'яна броня трохи міцніша, але сповільнюватиме (баланс Goob)
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.50       # 50% захисту від порізів
+        Piercing: 0.60
+        Heat: 0.50        # 50% захисту від вогню
+        Structural: 0.55  # 45% захисту від вибухів
+
+- type: entity
+  parent: GoobYautjaArmorBase
+  id: GoobYautjaClanArmor
+  name: "клановий обладунок"
+  description: "Костюм броні з легким набивкою. Виглядає старим, але функціональним."
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorBronze
+  suffix: Bronze
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_bronze.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_bronze.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorSilver
+  suffix: Silver
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_silver.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_silver.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorCrimson
+  suffix: Crimson
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_crimson.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_crimson.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorBone
+  suffix: Bone
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_bone.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_bone.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmor2
+  suffix: Ebony, Pattern 2
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_2.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_2.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmor3
+  suffix: Ebony, Pattern 3
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_3.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_3.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmor4
+  suffix: Ebony, Pattern 4
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_4.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_4.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmor5
+  suffix: Ebony, Pattern 5
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_5.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_5.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmor6
+  suffix: Ebony, Pattern 6
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_6.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_6.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmor7
+  suffix: Ebony, Pattern 7
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_7.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_7.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmor8
+  suffix: Ebony, Pattern 8
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_8.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_8.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorBronze2
+  suffix: Bronze, Pattern 2
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_2.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_2.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorBronze3
+  suffix: Bronze, Pattern 3
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_3.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_3.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorBronze4
+  suffix: Bronze, Pattern 4
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_4.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_4.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorBronze5
+  suffix: Bronze, Pattern 5
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_5.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_5.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorBronze6
+  suffix: Bronze, Pattern 6
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_6.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_6.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorBronze7
+  suffix: Bronze, Pattern 7
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_7.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_7.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorBronze8
+  suffix: Bronze, Pattern 8
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_8.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_bronze_8.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorSilver2
+  suffix: Silver, Pattern 2
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_silver_2.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_silver_2.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorSilver3
+  suffix: Silver, Pattern 3
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_silver_3.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_silver_3.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorSilver4
+  suffix: Silver, Pattern 4
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_silver_4.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_silver_4.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorSilver5
+  suffix: Silver, Pattern 5
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_silver_5.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_silver_5.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorSilver6
+  suffix: Silver, Pattern 6
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_silver_6.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_silver_6.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorSilver7
+  suffix: Silver, Pattern 7
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_silver_7.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_silver_7.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorSilver8
+  suffix: Silver, Pattern 8
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_silver_8.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_silver_8.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorCrimson2
+  suffix: Crimson, Pattern 2
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_crimson_2.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_crimson_2.rsi
+
+- type: entity
+  parent: GoobYautjaClanArmor
+  id: GoobYautjaClanArmorCrimson3
+  suffix: Crimson, Pattern 3
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/Yautja/armor_clan_crimson_3.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/Yautja/armor_clan_crimson_3.rsi

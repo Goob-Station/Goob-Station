@@ -1,0 +1,319 @@
+﻿# SPDX-License-Identifier: AGPL-3.0-or-later
+# Набори зброї для мисливської сумки Яутжа (SetSelector, max 2)
+
+# --- Дальній бій ---
+
+- type: selectableSet
+  id: YautjaSetPlasmaRifle
+  name: Плазмова гвинтівка
+  description: Рідкісна енергетична гвинтівка з самозарядним осередком.
+  sprite:
+    sprite: _Oskarrr/Yautja/guns.rsi
+    state: plasma_rifle
+  content:
+  - GoobYautjaPlasmaRifle
+
+- type: selectableSet
+  id: YautjaSetSpikeLauncher
+  name: Пускова установка шипів
+  description: Компактна установка, що формує і випускає сплавні шипи. Дає дві установки.
+  sprite:
+    sprite: _Oskarrr/Yautja/guns.rsi
+    state: spike_launcher
+  content:
+  - GoobYautjaSpikeLauncher
+  - GoobYautjaSpikeLauncher
+
+- type: selectableSet
+  id: YautjaSetSmartDisc
+  name: Розумний диск
+  description: Кидальний диск, що кружляє навколо цілі і повертається.
+  sprite:
+    sprite: _Oskarrr/Yautja/smart_disc.rsi
+    state: icon
+  content:
+  - GoobYautjaSmartDisc
+
+- type: selectableSet
+  id: YautjaSetHarpoon
+  name: Великий гарпун
+  description: Зважений гарпун для кидків і ближнього бою.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: harpoon
+  content:
+  - GoobYautjaHarpoon
+
+# --- Холодна зброя ---
+
+- type: selectableSet
+  id: YautjaSetClanSword
+  name: Клановий меч
+  description: Важкий клановий клинок з широким лезом.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: clan_sword
+  content:
+  - GoobYautjaClanSword
+
+- type: selectableSet
+  id: YautjaSetRendingSword
+  name: Розтерзаючий меч
+  description: Гачковий меч для розтерзаючих ударів.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: rending_sword
+  content:
+  - GoobYautjaRendingSword
+
+- type: selectableSet
+  id: YautjaSetPiercingSword
+  name: Колючий меч
+  description: Клинок, збалансований для пробиваючих ударів.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: piercing_sword
+  content:
+  - GoobYautjaPiercingSword
+
+- type: selectableSet
+  id: YautjaSetSeveringSword
+  name: Відсікаючий меч
+  description: Меч для важких відсікаючих ударів.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: severing_sword
+  content:
+  - GoobYautjaSeveringSword
+
+- type: selectableSet
+  id: YautjaSetScimitar
+  name: Ятаган
+  description: Вигнутий мисливський клинок.
+  sprite:
+    sprite: _Oskarrr/Yautja/scimitar.rsi
+    state: icon
+  content:
+  - GoobYautjaScimitar
+
+- type: selectableSet
+  id: YautjaSetChainwhip
+  name: Ланцюжковий батіг
+  description: Колюча ланцюгова зброя для утримання здобичі.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: chainwhip
+  content:
+  - GoobYautjaChainwhip
+
+- type: selectableSet
+  id: YautjaSetDualWarScythe
+  name: Подвійна бойова коса
+  description: Парна бойова коса Яутжа.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: dual_war_scythe
+  content:
+  - GoobYautjaDualWarScythe
+
+- type: selectableSet
+  id: YautjaSetDoubleWarScythe
+  name: Подвійна коса
+  description: Велика подвійна бойова коса.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: double_war_scythe
+  content:
+  - GoobYautjaDoubleWarScythe
+
+- type: selectableSet
+  id: YautjaSetCruelStaff
+  name: Жорстокий посох
+  description: Важкий посох для ближніх боїв.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: cruel_staff
+  content:
+  - GoobYautjaCruelStaff
+
+- type: selectableSet
+  id: YautjaSetCombistick
+  name: Комбістік
+  description: Телескопічний спис Яутжа.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: combistick
+  content:
+  - GoobYautjaCombistick
+
+- type: selectableSet
+  id: YautjaSetWarAxe
+  name: Бойова сокира
+  description: Важка бойова сокира мисливця.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: war_axe
+  content:
+  - GoobYautjaWarAxe
+
+- type: selectableSet
+  id: YautjaSetCeremonialDagger
+  name: Церемоніальний кинджал
+  description: Ритуальний кинджал полювання.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: ceremonial_dagger
+  content:
+  - GoobYautjaCeremonialDagger
+
+- type: selectableSet
+  id: YautjaSetCombiknife
+  name: Мисливський бойовий ніж
+  description: Зубчастий ніж для польової роботи.
+  sprite:
+    sprite: _Oskarrr/Yautja/yautja_items.rsi
+    state: wirescutter
+  content:
+  - GoobYautjaCombiknife
+
+- type: selectableSet
+  id: YautjaSetHunterSpear
+  name: Мисливський спис
+  description: Спис для полювання і ближнього бою.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: hunter_spear
+  content:
+  - GoobYautjaHunterSpear
+
+- type: selectableSet
+  id: YautjaSetWarGlaive
+  name: Бойова глефа
+  description: Довга глефа Яутжа.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: war_glaive
+  content:
+  - GoobYautjaWarGlaive
+
+- type: selectableSet
+  id: YautjaSetCleavingGlaive
+  name: Розсікаюча глефа
+  description: Глефа для широких розсікаючих ударів.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: cleaving_glaive
+  content:
+  - GoobYautjaCleavingGlaive
+
+- type: selectableSet
+  id: YautjaSetAncientWarGlaive
+  name: Стародавня бойова глефа
+  description: Стародавня важка глефа.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: ancient_war_glaive
+  content:
+  - GoobYautjaAncientWarGlaive
+
+- type: selectableSet
+  id: YautjaSetLongaxe
+  name: Довга сокира
+  description: Довгорукий бойовий топір.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: longaxe
+  content:
+  - GoobYautjaLongaxe
+
+- type: selectableSet
+  id: YautjaSetDuellingBlade
+  name: Дуельне лезо
+  description: Легке дуельне лезо.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: duelling_blade
+  content:
+  - GoobYautjaDuellingBlade
+
+- type: selectableSet
+  id: YautjaSetDuellingClub
+  name: Дуельна булава
+  description: Компактна дуельна булава.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: duelling_club
+  content:
+  - GoobYautjaDuellingClub
+
+- type: selectableSet
+  id: YautjaSetDuellingHatchet
+  name: Дуельна сокирка
+  description: Дуельна сокирка.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: duelling_hatchet
+  content:
+  - GoobYautjaDuellingHatchet
+
+- type: selectableSet
+  id: YautjaSetDuellingKnife
+  name: Дуельний ніж
+  description: Короткий дуельний ніж.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: duelling_knife
+  content:
+  - GoobYautjaDuellingKnife
+
+- type: selectableSet
+  id: YautjaSetChainGauntlet
+  name: Ланцюжкова рукавиця
+  description: Ближня зброя на руку.
+  sprite:
+    sprite: _Oskarrr/Yautja/chain_gauntlet.rsi
+    state: icon
+  content:
+  - GoobYautjaChainGauntlet
+
+# --- Щити ---
+
+- type: selectableSet
+  id: YautjaSetClanShield
+  name: Клановий щит
+  description: Важкий щит для ближніх полювань.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: clan_shield
+  content:
+  - GoobYautjaClanShield
+
+- type: selectableSet
+  id: YautjaSetAncientShield
+  name: Стародавній щит
+  description: Великий стародавній щит із золотого сплаву.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: ancient_shield
+  content:
+  - GoobYautjaAncientShield
+
+- type: selectableSet
+  id: YautjaSetAncientShieldAlt
+  name: Стародавній щит (альт)
+  description: Орнаментальний стародавній щит.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: ancient_shield_alt
+  content:
+  - GoobYautjaAncientShieldAlt
+
+- type: selectableSet
+  id: YautjaSetAncientShieldTemple
+  name: Стародавній храмовий щит
+  description: Вивітрений церемоніальний щит.
+  sprite:
+    sprite: _Oskarrr/Yautja/weapons.rsi
+    state: ancient_shield_temple
+  content:
+  - GoobYautjaAncientShieldTemple

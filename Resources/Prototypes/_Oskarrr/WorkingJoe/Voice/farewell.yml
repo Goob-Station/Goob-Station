@@ -1,0 +1,87 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Converted from CMU Working Joe voice emotes.
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAPityICouldntBeOfService
+  category: Farewell
+  name: emote-name-workingjoe-a-pity-i-couldnt-be-of-service
+  soundCollection: AU14WorkingJoeAPityICouldntBeOfService
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeASyntheticsDayIsNeverDone
+  category: Farewell
+  name: emote-name-workingjoe-a-synthetics-day-is-never-done
+  soundCollection: AU14WorkingJoeASyntheticsDayIsNeverDone
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAWasteOfBothOurTime
+  category: Farewell
+  name: emote-name-workingjoe-a-waste-of-both-our-time
+  soundCollection: AU14WorkingJoeAWasteOfBothOurTime
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAbandoningSearchRoutines
+  category: Farewell
+  name: emote-name-workingjoe-abandoning-search-routines
+  soundCollection: AU14WorkingJoeAbandoningSearchRoutines
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeAnotherClearWasteOfSeegsonsTime
+  category: Farewell
+  name: emote-name-workingjoe-another-clear-waste-of-seegsons-time
+  soundCollection: AU14WorkingJoeAnotherClearWasteOfSeegsonsTime
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeBackToWork
+  category: Farewell
+  name: emote-name-workingjoe-back-to-work
+  soundCollection: AU14WorkingJoeBackToWork
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeExistingTasksHaveAHigherPriority
+  category: Farewell
+  name: emote-name-workingjoe-existing-tasks-have-a-higher-priority
+  soundCollection: AU14WorkingJoeExistingTasksHaveAHigherPriority
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeHmmTimeWastedYetAgain
+  category: Farewell
+  name: emote-name-workingjoe-hmm-time-wasted-yet-again
+  soundCollection: AU14WorkingJoeHmmTimeWastedYetAgain
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeIHaveOtherConcerns
+  category: Farewell
+  name: emote-name-workingjoe-i-have-other-concerns
+  soundCollection: AU14WorkingJoeIHaveOtherConcerns
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeImGladWeResolvedThis
+  category: Farewell
+  name: emote-name-workingjoe-im-glad-we-resolved-this
+  soundCollection: AU14WorkingJoeImGladWeResolvedThis
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeNowWhereWasI
+  category: Farewell
+  name: emote-name-workingjoe-now-where-was-i
+  soundCollection: AU14WorkingJoeNowWhereWasI
+
+- type: workingJoeVoiceLine
+  id: WorkingJoePleaseCallIfYouNeedFurtherAssistance
+  category: Farewell
+  name: emote-name-workingjoe-please-call-if-you-need-further-assistance
+  soundCollection: AU14WorkingJoePleaseCallIfYouNeedFurtherAssistance
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeReturningToAssignedTasks
+  category: Farewell
+  name: emote-name-workingjoe-returning-to-assigned-tasks
+  soundCollection: AU14WorkingJoeReturningToAssignedTasks
+
+- type: workingJoeVoiceLine
+  id: WorkingJoeThereAreMorePressingMatters
+  category: Farewell
+  name: emote-name-workingjoe-there-are-more-pressing-matters
+  soundCollection: AU14WorkingJoeThereAreMorePressingMatters
+

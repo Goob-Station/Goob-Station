@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Ported / adapted from SpaceStationUA ColonialMarinesUniverse Working Joe loadout.
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesWorkingJoe
+  name: Working Joe boots
+  description: Plain black synthetic duty boots. Don't remove the shrapnel yourself.
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/WorkingJoe/Shoes/black.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/WorkingJoe/Shoes/black.rsi
+
+- type: entity
+  parent: ClothingShoesWorkingJoe
+  id: ClothingShoesWorkingJoeCBRN
+  name: Working Joe CBRN boots
+  description: Sealed hazardous-environment boots for synthetic labor in contaminated zones.
+  components:
+  - type: Sprite
+    sprite: _Oskarrr/WorkingJoe/Shoes/cbrn.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Oskarrr/WorkingJoe/Shoes/cbrn.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.7
+        Radiation: 0.6
+        Heat: 0.85

@@ -450,6 +450,9 @@ public sealed partial class WoundSystem
             return false;
 
         var holdingWoundable = comp.HoldingWoundable;
+        // Orphaned wounds (e.g. synthetic PassiveDamage heal before HoldingWoundable is wired) must not crash.
+        if (!holdingWoundable.IsValid() || !TryComp(holdingWoundable, out WoundableComponent? holdingComp))
+            return false;
 
         var ev = new WoundHealAttemptOnWoundableEvent((wound, comp));
         RaiseLocalEvent(holdingWoundable, ref ev);
@@ -457,7 +460,7 @@ public sealed partial class WoundSystem
         if (ev.Cancelled)
             return false;
 
-        var ev1 = new WoundHealAttemptEvent((holdingWoundable, Comp<WoundableComponent>(holdingWoundable)), ignoreBlockers);
+        var ev1 = new WoundHealAttemptEvent((holdingWoundable, holdingComp), ignoreBlockers);
         RaiseLocalEvent(wound, ref ev1);
 
         severityFloor = ev1.SeverityFloor;

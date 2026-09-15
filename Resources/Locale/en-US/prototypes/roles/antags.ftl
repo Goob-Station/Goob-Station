@@ -18,8 +18,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-## goob edited
-roles-antag-syndicate-agent-name = Traitor
+## Wild Lands / Oskar rebrand
+roles-antag-syndicate-agent-name = Corporate Spy
 
 roles-antag-generic-solo-antagonist-name = Solo Antagonist
 
@@ -29,10 +29,10 @@ roles-antag-generic-team-antagonist-name = Team Antagonist
 
 roles-antag-generic-silicon-antagonist-name = Silicon Antagonist
 
-roles-antag-syndicate-agent-objective = Complete your objectives without being caught.
+roles-antag-syndicate-agent-objective = Steal Weyland-Yutani research on Xenomorphs or Engineer Jockey tech without being exposed.
 
-roles-antag-syndicate-agent-sleeper-name = Syndicate sleeper agent
-roles-antag-syndicate-agent-sleeper-objective = A form of traitor that can activate at any point in the middle of the shift.
+roles-antag-syndicate-agent-sleeper-name = Corporate sleeper agent
+roles-antag-syndicate-agent-sleeper-objective = A deep-cover corporate spy who can activate mid-operation.
 
 roles-antag-initial-infected-name = Initial Infected
 roles-antag-initial-infected-objective = Once you turn, infect as many other crew members as possible.
@@ -58,8 +58,8 @@ roles-antag-space-ninja-objective = Use your stealth to sabotage the station, no
 roles-antag-paradox-clone-name = Paradox Clone
 roles-antag-paradox-clone-objective = A freak space-time anomaly has teleported you into another reality! Now you have to find your counterpart and kill and replace them.
 
-roles-antag-thief-name = Thief
-roles-antag-thief-objective = Add some NT property to your personal collection without using violence.
+roles-antag-thief-name = Black-Market Thief
+roles-antag-thief-objective = Lift valuable Wey-Yu cargo, samples, or mercenary gear for the black market — without open violence.
 
 roles-antag-dragon-name = Space Dragon
 roles-antag-dragon-objective = Create a carp army to take over this quadrant.

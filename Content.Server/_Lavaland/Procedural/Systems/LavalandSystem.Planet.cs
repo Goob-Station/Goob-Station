@@ -59,13 +59,18 @@ public sealed partial class LavalandSystem
 
         SetupLayout(lavalandMap, lavalandMapId, layout, out mapComp.SpawnedGrids);
 
+        // Full planet bounds — chunks outside this never load.
         var loadBox = Box2.CentredAroundZero(new Vector2(prototype.RestrictedRange * 2, prototype.RestrictedRange * 2));
+        // Only force-generate / pin a small outpost around origin; the rest loads as players walk (like other biomes).
+        var outpostPreload = Box2.CentredAroundZero(new Vector2(OutpostPreloadSize, OutpostPreloadSize));
 
         mapComp.Seed = seed.Value;
         mapComp.PrototypeId = lavalandPrototypeId;
         mapComp.LoadArea = loadBox;
 
-        EnsureComp<BiomeOptimizeComponent>(lavalandMap).LoadArea = loadBox;
+        var optimize = EnsureComp<BiomeOptimizeComponent>(lavalandMap);
+        optimize.LoadArea = loadBox;
+        optimize.PinnedArea = outpostPreload;
 
         SetupRuins(pool, lavaland.Value, preloader.Value);
 
@@ -87,11 +92,16 @@ public sealed partial class LavalandSystem
         if (prototype.AddComponents != null)
             EntityManager.AddComponents(lavalandMap, prototype.AddComponents);
 
-        // Preload here to prevent biome entities from overlaying with everything else
-        _biome.Preload(lavalandMap, Comp<BiomeComponent>(lavalandMap), loadBox);
+        // Preload only the outpost so ruin grids aren't overlaid; world biomes stream in with players.
+        _biome.Preload(lavalandMap, Comp<BiomeComponent>(lavalandMap), outpostPreload);
 
         return true;
     }
+
+    /// <summary>
+    /// World-units square around origin that is preloaded/pinned at planet setup.
+    /// </summary>
+    private const float OutpostPreloadSize = 128f;
 
     private void PlanetBasicSetup(EntityUid lavalandMap, LavalandPlanetPrototype prototype, int seed)
     {

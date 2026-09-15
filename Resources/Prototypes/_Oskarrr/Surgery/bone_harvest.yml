@@ -1,0 +1,81 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Knife-only bone harvest — works on every body part that still has bones.
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepExtractBones
+  name: Extract bones with a knife
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Scalpel
+    add:
+    - type: Boneless
+    - type: BonesHarvested
+    duration: 6
+  - type: SurgeryStepExtractBonesEffect
+    prototype: MaterialBones1
+    minAmount: 1
+    maxAmount: 3
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  - type: SurgeryDamageChangeEffect
+    damage:
+      types:
+        Slash: 15
+        Bloodloss: 12
+    sleepModifier: 0.5
+  - type: SurgeryStepPainInflicter
+    painDuration: 45
+    painType: TraumaticPain
+    amount: 40
+    sleepModifier: 0.1
+  - type: SurgeryStepEmoteEffect
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRegrowBones
+  name: Stimulate bone growth
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: BoneGel
+    remove:
+    - type: Boneless
+    - type: BonesHarvested
+    duration: 8
+  - type: SurgeryStepRegrowBonesEffect
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
+    state: bone-gel
+  - type: SurgeryStepPainInflicter
+    painDuration: 20
+    painType: TraumaticPain
+    amount: 15
+    sleepModifier: 0
+
+- type: entity
+  parent: BasePartSurgery
+  id: SurgeryExtractBones
+  name: Extract Bones
+  components:
+  - type: Surgery
+    priority: 2
+    steps:
+    - SurgeryStepExtractBones
+  - type: SurgeryBonesPresentCondition
+
+- type: entity
+  parent: BasePartSurgery
+  id: SurgeryRegrowBones
+  name: Regrow Bones
+  components:
+  - type: Surgery
+    priority: 2
+    steps:
+    - SurgeryStepRegrowBones
+  - type: SurgeryPartComponentCondition
+    components:
+    - type: BonesHarvested

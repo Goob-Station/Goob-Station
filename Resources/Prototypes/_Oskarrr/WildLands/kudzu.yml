@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# Jungle kudzu: one mother tile, spreads at most MaxRadius (3) tiles from origin.
+
+- type: entity
+  parent: Kudzu
+  id: WildLandsKudzu
+  name: jungle kudzu
+  description: Thick jungle vines. Spreads only a short way from its mother root.
+  components:
+  - type: BoundedKudzu
+    maxRadius: 3
+  - type: Kudzu
+    growthTickChance: 0.35
+    spreadChance: 0.4
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.35
+    sprintSpeedModifier: 0.35
+    ignoreWhitelist:
+      components:
+      - IgnoreKudzu
+      tags:
+      - WildLandsAborigine
+
+- type: entity
+  parent: WildLandsKudzu
+  id: WildLandsKudzuMother
+  name: jungle kudzu mother
+  description: The root mass of a jungle kudzu patch. New vines only grow a few tiles from here.
+  suffix: Mother
+  components:
+  - type: BoundedKudzu
+    maxRadius: 3
+    spreadAs: WildLandsKudzu
+  - type: Kudzu
+    growthTickChance: 0.45
+    spreadChance: 0.55

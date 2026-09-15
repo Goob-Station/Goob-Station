@@ -39,3 +39,48 @@
       drawdepth: Effects
     - type: PointLight
       color: "#008DFE"
+
+- type: entity
+  id: EffectXenomorphScreech
+  categories: [ HideSpawnMenu ]
+  name: xenomorph screech
+  components:
+  - type: TimedDespawn
+    lifetime: 1.6
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _Oskarrr/RMC14/Effects/xeno_screech.rsi
+    state: screech
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#4CAF50"
+    radius: 12
+    energy: 6
+  - type: LightFade
+    duration: 1.2
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: EffectXenomorphOvipositorBurst
+  categories: [ HideSpawnMenu ]
+  name: ovipositor burst
+  components:
+  - type: TimedDespawn
+    lifetime: 1.41
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _White/Effects/ovipositor_explosion.rsi
+    state: explosion
+    offset: 0, 0.6
+    netsync: false
+    drawdepth: Effects
+  - type: Tag
+    tags:
+    - HideContextMenu

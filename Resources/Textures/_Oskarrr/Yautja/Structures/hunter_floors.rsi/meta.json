@@ -1,0 +1,201 @@
+{
+    "version":  1,
+    "size":  {
+                 "x":  32,
+                 "y":  32
+             },
+    "rsic":  false,
+    "states":  [
+                   {
+                       "name":  "floor"
+                   },
+                   {
+                       "name":  "hunter_tile_1",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "hunter_tile_2",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "hunter_tile_3",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "hunter_tile_4",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "hunter_tile_5",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "hunter_tile_6",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "outerhull"
+                   },
+                   {
+                       "name":  "damaged1"
+                   },
+                   {
+                       "name":  "damaged2"
+                   },
+                   {
+                       "name":  "damaged3"
+                   },
+                   {
+                       "name":  "damaged4"
+                   },
+                   {
+                       "name":  "damaged5"
+                   },
+                   {
+                       "name":  "outerhull_dir",
+                       "directions":  8
+                   },
+                   {
+                       "name":  "outerhull_alt"
+                   },
+                   {
+                       "name":  "outerhull_alt_dir",
+                       "directions":  8
+                   },
+                   {
+                       "name":  "hunter_glow"
+                   },
+                   {
+                       "name":  "hunter_bridge"
+                   },
+                   {
+                       "name":  "hunter_catwalk_alpha"
+                   },
+                   {
+                       "name":  "hunter_catwalk"
+                   },
+                   {
+                       "name":  "hunter_catwalk_alt_alpha"
+                   },
+                   {
+                       "name":  "hunter_catwalk_alt"
+                   },
+                   {
+                       "name":  "hunter_catwalk_new_alpha"
+                   },
+                   {
+                       "name":  "hunter_catwalk_new"
+                   },
+                   {
+                       "name":  "hunter_grille"
+                   },
+                   {
+                       "name":  "hunter_grille_alpha"
+                   },
+                   {
+                       "name":  "hunter_grate",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "hunter_grate_alpha",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "11,5",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "6,6",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "17,15",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "6,11"
+                   },
+                   {
+                       "name":  "6,12"
+                   },
+                   {
+                       "name":  "corner_1"
+                   },
+                   {
+                       "name":  "corner_2"
+                   },
+                   {
+                       "name":  "corner_3"
+                   },
+                   {
+                       "name":  "corner_4"
+                   },
+                   {
+                       "name":  "corner_5",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "corner_6"
+                   },
+                   {
+                       "name":  "corner_7"
+                   },
+                   {
+                       "name":  "corner_8"
+                   },
+                   {
+                       "name":  "corner_9",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "2,2",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "3,2",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "20,4",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "21,4",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "21,6",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "20,3",
+                       "directions":  4
+                   },
+                   {
+                       "name":  "hunter_red"
+                   },
+                   {
+                       "name":  "hunter_red_2"
+                   },
+                   {
+                       "name":  "hunter_red_3"
+                   },
+                   {
+                       "name":  "hunter_red_4"
+                   },
+                   {
+                       "name":  "hunter_red_5"
+                   },
+                   {
+                       "name":  "hunter_red_6"
+                   },
+                   {
+                       "name":  "borderless_v"
+                   },
+                   {
+                       "name":  "borderless_h"
+                   }
+               ],
+    "license":  "CC-BY-SA-3.0",
+    "copyright":  "Taken from CMSS13 at https://github.com/cmss13-devs/cmss13/blob/b3a7ffe2813a31ddcf429a5a864b4048851d66b0/icons/turf/floors/hunter_floors.dmi. License and authorship per CMSS13 README: assets are CC BY-SA 3.0 unless otherwise indicated; authorship defined as the active CMSS13 development team unless stated by commit/file metadata."
+}

@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: XenomorphEmpressEgg
+  name: xenomorph egg
+  description: A mottled resin egg. Plant it on the ground to let it grow.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/Xenomorphs/empress_egg.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: XenomorphPlantableEgg
+    plantedPrototype: XenomorphEgg
+  - type: TimedDespawn
+    lifetime: 90
+  - type: Tag
+    tags:
+    - XenomorphItem
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: blood
