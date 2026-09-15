@@ -23,6 +23,7 @@
   - type: VoidwalkerVoidWalk
     distance: 4.65
     speed: 9.65
+  - type: VoidwalkerWallConversion
   - type: GlassPasser
   - type: VoidWhisper
   - type: SpawnItemsOnGib
