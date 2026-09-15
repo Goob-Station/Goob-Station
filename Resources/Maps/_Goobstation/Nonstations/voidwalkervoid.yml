@@ -1,0 +1,1932 @@
+meta:
+  format: 7
+  category: Map
+  engineVersion: 264.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 12/30/2025 02:44:11
+  entityCount: 173
+maps:
+- 1
+grids:
+- 2
+orphans: []
+nullspace: []
+tilemap:
+  1: Space
+  0: FloorPlanetAsh
+entities:
+- proto: ""
+  entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
+  - uid: 2
+    components:
+    - type: MetaData
+      name: grid
+    - type: Transform
+      pos: -0.682382,-0.06500918
+      parent: 1
+    - type: MapGrid
+      chunks:
+        0,0:
+          ind: 0,0
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+        -1,0:
+          ind: -1,0
+          tiles: AQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+        -1,-1:
+          ind: -1,-1
+          tiles: AQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          version: 7
+        0,-1:
+          ind: 0,-1
+          tiles: AQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+    - type: Broadphase
+    - type: Physics
+      bodyStatus: InAir
+      fixedRotation: False
+      bodyType: Dynamic
+    - type: Fixtures
+      fixtures: {}
+    - type: OccluderTree
+    - type: SpreaderGrid
+      updateAccumulator: 0.030459255
+    - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
+      dampingModifier: 0.25
+    - type: ImplicitRoof
+    - type: FTLDrive
+    - type: GridPathfinding
+    - type: Gravity
+      gravityShakeSound: !type:SoundPathSpecifier
+        path: /Audio/Effects/alert.ogg
+    - type: DecalGrid
+      chunkCollection:
+        version: 2
+        nodes: []
+    - type: GridAtmosphere
+      version: 2
+      data:
+        tiles:
+          0,0:
+            0: 32767
+          0,-1:
+            1: 4096
+            0: 61439
+          -1,0:
+            0: 36095
+          0,1:
+            0: 65280
+          -1,1:
+            0: 65296
+          1,0:
+            0: 33043
+          1,1:
+            0: 65516
+          1,-1:
+            0: 13107
+          2,0:
+            0: 30583
+          2,1:
+            0: 30583
+          2,-1:
+            0: 30583
+          -3,0:
+            0: 52428
+          -3,-1:
+            0: 52428
+          -3,1:
+            0: 52428
+          -2,0:
+            0: 4497
+          -2,1:
+            0: 65535
+          -2,-1:
+            0: 4915
+          -1,-1:
+            0: 65518
+          -3,-3:
+            0: 52416
+          -3,-2:
+            0: 52428
+          -2,-3:
+            0: 65520
+          -2,-2:
+            0: 30719
+          -1,-3:
+            0: 39216
+          -1,-2:
+            0: 49161
+          0,-3:
+            0: 13184
+          0,-2:
+            0: 65027
+          1,-3:
+            0: 61424
+          1,-2:
+            0: 13056
+          2,-3:
+            0: 30576
+          2,-2:
+            0: 30583
+        uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 1400.0662
+          - 5266.916
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        chunkSize: 4
+    - type: GasTileOverlay
+  - uid: 120
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 119
+    - type: Solution
+      solution:
+        maxVol: 5
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Vitamin
+          Quantity: 3
+    - type: ContainedSolution
+      containerName: food
+      container: 119
+  - uid: 122
+    components:
+    - type: MetaData
+      name: solution - food
+    - type: Transform
+      parent: 121
+    - type: Solution
+      solution:
+        maxVol: 5
+        name: food
+        reagents:
+        - data: []
+          ReagentId: Vitamin
+          Quantity: 3
+    - type: ContainedSolution
+      containerName: food
+      container: 121
+  - uid: 131
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 130
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 20
+    - type: ContainedSolution
+      containerName: puddle
+      container: 130
+  - uid: 133
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 132
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 20
+    - type: ContainedSolution
+      containerName: puddle
+      container: 132
+  - uid: 135
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 134
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 20
+    - type: ContainedSolution
+      containerName: puddle
+      container: 134
+  - uid: 137
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 136
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 20.01
+    - type: ContainedSolution
+      containerName: puddle
+      container: 136
+  - uid: 139
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 138
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 20
+    - type: ContainedSolution
+      containerName: puddle
+      container: 138
+  - uid: 141
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 140
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 20
+    - type: ContainedSolution
+      containerName: puddle
+      container: 140
+  - uid: 143
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 142
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 20
+    - type: ContainedSolution
+      containerName: puddle
+      container: 142
+  - uid: 148
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 147
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 3.33
+    - type: ContainedSolution
+      containerName: puddle
+      container: 147
+  - uid: 150
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 149
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 3.33
+    - type: ContainedSolution
+      containerName: puddle
+      container: 149
+  - uid: 152
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 151
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 3.33
+    - type: ContainedSolution
+      containerName: puddle
+      container: 151
+  - uid: 154
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 153
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: puddle
+      container: 153
+  - uid: 156
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 155
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 5
+    - type: ContainedSolution
+      containerName: puddle
+      container: 155
+  - uid: 158
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 157
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 5
+    - type: ContainedSolution
+      containerName: puddle
+      container: 157
+  - uid: 160
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 159
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 5
+    - type: ContainedSolution
+      containerName: puddle
+      container: 159
+  - uid: 162
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 161
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 5
+    - type: ContainedSolution
+      containerName: puddle
+      container: 161
+  - uid: 164
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 163
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: puddle
+      container: 163
+  - uid: 166
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 165
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 9.99
+    - type: ContainedSolution
+      containerName: puddle
+      container: 165
+  - uid: 168
+    components:
+    - type: MetaData
+      name: solution - puddle
+    - type: Transform
+      parent: 167
+    - type: Solution
+      solution:
+        maxVol: 1000
+        name: puddle
+        reagents:
+        - data: []
+          ReagentId: Blood
+          Quantity: 10
+    - type: ContainedSolution
+      containerName: puddle
+      container: 167
+- proto: ActionScream
+  entities:
+  - uid: 129
+    components:
+    - type: Transform
+      parent: 127
+    - type: Action
+      container: 127
+      originalIconColor: '#FFFFFFFF'
+      attachedEntity: 127
+- proto: AtmosFixAirMarker
+  entities:
+  - uid: 51
+    components:
+    - type: Transform
+      pos: 0.5,-0.5
+      parent: 2
+- proto: BoneNeck
+  entities:
+  - uid: 128
+    components:
+    - type: Transform
+      parent: 127
+    - type: Physics
+      canCollide: False
+- proto: BoneNeckWeak
+  entities:
+  - uid: 118
+    components:
+    - type: Transform
+      pos: -2.2738886,1.3340559
+      parent: 2
+    - type: Physics
+      canCollide: False
+- proto: CassetteTape
+  entities:
+  - uid: 146
+    components:
+    - type: MetaData
+      desc: A small, orange cartridge with an even smaller golden V on the front. It appears to have a message on it.
+      name: distress signal
+    - type: Transform
+      pos: 4.834944,0.5549363
+      parent: 2
+    - type: TapeCassette
+      recordedData:
+      - message: Hello, If you've found this recording, perhaps it's not over yet.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 3.9999962
+      - message: My name is Ophelia Lockhart Voltaire, I am a Central Commander working with Internal Affairs with the investigation of the NT-286 Atlas Station.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 9.666634
+      - message: Don't bother looking for any records of this station on the records, I couldn't find any either.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 17.666512
+      - message: That should've been the first thing to tip me off; I should've ran and never looked back.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 23.866417
+      - message: Look.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 31.33297
+      - message: There's a lot of things I wish I could've done differently, but I can't change the past even if I wish I could.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 32.39962
+      - message: Regardless, contact Central Command and tell them to stay AWAY from the singularities, to halt all research immediately.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 48.066048
+      - message: What's on the other end of these vortexes doesn't want to be found.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 55.699265
+      - message: To my sister, if you hear this, I'm sorry. I love you, I always did.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 69.53239
+      - message: I know I didn't always show it, but I really really did.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 76.43228
+      - message: I'm sorry Samantha.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 81.432205
+      - message: I'll see you on the other side.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 88.79876
+      - message: This is Miss. V, signing off.
+        verb: HolierThanThou
+        name: Miss. V
+        timestamp: 92.93203
+    - type: RandomSprite
+      selected:
+        enum.DamageStateVisualLayers.Base:
+        - tape_greyscale
+        - '#D58C18FF'
+    - type: Forensics
+      residues: []
+      dNAs: []
+      fibers: []
+      fingerprints:
+      - 8858AE21D69890DA7B553E06D387A322
+- proto: ChessBoard
+  entities:
+  - uid: 172
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.4970307,-4.3485465
+      parent: 2
+- proto: CosmicLamp
+  entities:
+  - uid: 3
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,3.5
+      parent: 2
+  - uid: 169
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,-1.5
+      parent: 2
+  - uid: 170
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-0.5
+      parent: 2
+  - uid: 171
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,-5.5
+      parent: 2
+- proto: HeadSkeleton
+  entities:
+  - uid: 127
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.3298316,0.5923268
+      parent: 2
+    - type: Actions
+      actions:
+      - 129
+    - type: Vocal
+      screamActionEntity: 129
+    - type: ContainerContainer
+      containers:
+        bodypart: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        Wounds: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        Bone: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 128
+        actions: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 129
+        body_organ_slot_brain: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        body_organ_slot_eyes: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+    - type: Physics
+      canCollide: False
+    - type: ActionsContainer
+- proto: MaterialBones1
+  entities:
+  - uid: 119
+    components:
+    - type: Transform
+      pos: -3.475823,1.3340559
+      parent: 2
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 120
+    - type: UserInterface
+      actors: {}
+      interfaces:
+        enum.StackCustomSplitUiKey.Key:
+          type: StackCustomSplitBoundUserInterface
+  - uid: 121
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.9859238,1.0838819
+      parent: 2
+    - type: SolutionContainerManager
+      solutions: null
+      containers:
+      - food
+    - type: Physics
+      canCollide: False
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot
+          ent: 122
+    - type: UserInterface
+      actors: {}
+      interfaces:
+        enum.StackCustomSplitUiKey.Key:
+          type: StackCustomSplitBoundUserInterface
+- proto: Puddle
+  entities:
+  - uid: 147
+    components:
+    - type: Transform
+      pos: 3.5,0.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 148
+    - type: TileFrictionModifier
+      modifier: 1
+    missingComponents:
+    - ActiveEdgeSpreader
+  - uid: 149
+    components:
+    - type: Transform
+      pos: 4.5,1.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 150
+    - type: TileFrictionModifier
+      modifier: 1
+  - uid: 151
+    components:
+    - type: Transform
+      pos: 4.5,-0.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 152
+    - type: TileFrictionModifier
+      modifier: 1
+    missingComponents:
+    - ActiveEdgeSpreader
+  - uid: 153
+    components:
+    - type: Transform
+      pos: 5.5,-0.5
+      parent: 2
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.5
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.5
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 154
+    - type: TileFrictionModifier
+      modifier: 1
+  - uid: 155
+    components:
+    - type: Transform
+      pos: -2.5,-3.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 156
+    - type: TileFrictionModifier
+      modifier: 1
+  - uid: 157
+    components:
+    - type: Transform
+      pos: -1.5,-2.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 158
+    - type: TileFrictionModifier
+      modifier: 1
+    missingComponents:
+    - ActiveEdgeSpreader
+  - uid: 159
+    components:
+    - type: Transform
+      pos: -2.5,-0.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 160
+    - type: TileFrictionModifier
+      modifier: 1
+    missingComponents:
+    - ActiveEdgeSpreader
+  - uid: 161
+    components:
+    - type: Transform
+      pos: -1.5,-1.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 162
+    - type: TileFrictionModifier
+      modifier: 1
+    missingComponents:
+    - ActiveEdgeSpreader
+  - uid: 163
+    components:
+    - type: Transform
+      pos: -3.5,0.5
+      parent: 2
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.5
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.5
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 164
+    - type: TileFrictionModifier
+      modifier: 1
+  - uid: 165
+    components:
+    - type: Transform
+      pos: -2.5,1.5
+      parent: 2
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.49
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.49
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 166
+    - type: TileFrictionModifier
+      modifier: 1
+  - uid: 167
+    components:
+    - type: Transform
+      pos: -3.5,-0.5
+      parent: 2
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.5
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.5
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 168
+    - type: TileFrictionModifier
+      modifier: 1
+- proto: PuddleBlood
+  entities:
+  - uid: 130
+    components:
+    - type: Transform
+      pos: -3.5,-1.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.5
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.5
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 131
+    - type: TileFrictionModifier
+      modifier: 1
+  - uid: 132
+    components:
+    - type: Transform
+      pos: -2.5,-1.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.5
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.5
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 133
+    - type: TileFrictionModifier
+      modifier: 1
+    missingComponents:
+    - ActiveEdgeSpreader
+  - uid: 134
+    components:
+    - type: Transform
+      pos: -2.5,-2.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.5
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.5
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 135
+    - type: TileFrictionModifier
+      modifier: 1
+  - uid: 136
+    components:
+    - type: Transform
+      pos: -4.5,1.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.49
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.49
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 137
+    - type: TileFrictionModifier
+      modifier: 1
+  - uid: 138
+    components:
+    - type: Transform
+      pos: -3.5,1.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.5
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.5
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 139
+    - type: TileFrictionModifier
+      modifier: 1
+  - uid: 140
+    components:
+    - type: Transform
+      pos: 4.5,0.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.5
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.5
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 141
+    - type: TileFrictionModifier
+      modifier: 1
+    missingComponents:
+    - ActiveEdgeSpreader
+  - uid: 142
+    components:
+    - type: Transform
+      pos: 5.5,0.5
+      parent: 2
+    - type: SolutionContainerManager
+      solutions:
+        puddle:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: puddle
+          reagents: []
+      containers:
+      - puddle
+    - type: Slippery
+      slipData:
+        slipFriction: 1
+        slipOnStep: True
+        superSlippery: False
+        requiredSlipSpeed: 5.5
+        launchForwardsMultiplier: 1.5
+        paralyzeTime: 1.5
+    - type: StepTrigger
+      requiredTriggeredSpeed: 5.5
+      active: False
+    - type: ContainerContainer
+      containers:
+        solution@puddle: !type:ContainerSlot
+          ent: 143
+    - type: TileFrictionModifier
+      modifier: 1
+- proto: SingularityToy
+  entities:
+  - uid: 126
+    components:
+    - type: MetaData
+      desc: Hail Lord Singuloth! Hail! Hail! Hail!
+      name: lord singuloth
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.0203255,2.9150238
+      parent: 2
+    - type: Physics
+      canCollide: False
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.5,-0.5
+            - 0.5,-0.5
+            - 0.5,0.5
+            - -0.5,0.5
+          mask:
+          - Impassable
+          - HighImpassable
+          layer: []
+          density: 20
+          hard: True
+          restitution: 0.3
+          friction: 0.2
+    - type: ScaleVisuals
+    - type: Appearance
+    missingComponents:
+    - Item
+- proto: StationAnchorIndestructible
+  entities:
+  - uid: 50
+    components:
+    - type: Transform
+      pos: 0.5,-8.5
+      parent: 2
+- proto: TableFancyBlack
+  entities:
+  - uid: 145
+    components:
+    - type: Transform
+      pos: 5.5,-4.5
+      parent: 2
+- proto: Voidedspawner
+  entities:
+  - uid: 123
+    components:
+    - type: Transform
+      pos: -0.5,-2.5
+      parent: 2
+  - uid: 124
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
+      parent: 2
+  - uid: 125
+    components:
+    - type: Transform
+      pos: 1.5,-2.5
+      parent: 2
+  - uid: 144
+    components:
+    - type: Transform
+      pos: 0.5,-3.5
+      parent: 2
+- proto: WallRockChromite
+  entities:
+  - uid: 4
+    components:
+    - type: Transform
+      pos: 0.5,-6.5
+      parent: 2
+  - uid: 5
+    components:
+    - type: Transform
+      pos: 1.5,-6.5
+      parent: 2
+  - uid: 6
+    components:
+    - type: Transform
+      pos: 2.5,-6.5
+      parent: 2
+  - uid: 7
+    components:
+    - type: Transform
+      pos: 3.5,-6.5
+      parent: 2
+  - uid: 8
+    components:
+    - type: Transform
+      pos: 4.5,-6.5
+      parent: 2
+  - uid: 9
+    components:
+    - type: Transform
+      pos: 5.5,-6.5
+      parent: 2
+  - uid: 10
+    components:
+    - type: Transform
+      pos: 6.5,-6.5
+      parent: 2
+  - uid: 11
+    components:
+    - type: Transform
+      pos: 6.5,-5.5
+      parent: 2
+  - uid: 12
+    components:
+    - type: Transform
+      pos: 6.5,-4.5
+      parent: 2
+  - uid: 13
+    components:
+    - type: Transform
+      pos: 6.5,-3.5
+      parent: 2
+  - uid: 14
+    components:
+    - type: Transform
+      pos: 6.5,-2.5
+      parent: 2
+  - uid: 15
+    components:
+    - type: Transform
+      pos: 6.5,-1.5
+      parent: 2
+  - uid: 16
+    components:
+    - type: Transform
+      pos: 6.5,-0.5
+      parent: 2
+  - uid: 17
+    components:
+    - type: Transform
+      pos: 6.5,0.5
+      parent: 2
+  - uid: 18
+    components:
+    - type: Transform
+      pos: 6.5,1.5
+      parent: 2
+  - uid: 19
+    components:
+    - type: Transform
+      pos: 5.5,1.5
+      parent: 2
+  - uid: 20
+    components:
+    - type: Transform
+      pos: 5.5,2.5
+      parent: 2
+  - uid: 21
+    components:
+    - type: Transform
+      pos: 5.5,3.5
+      parent: 2
+  - uid: 22
+    components:
+    - type: Transform
+      pos: 4.5,3.5
+      parent: 2
+  - uid: 23
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 2
+  - uid: 24
+    components:
+    - type: Transform
+      pos: 3.5,4.5
+      parent: 2
+  - uid: 25
+    components:
+    - type: Transform
+      pos: 2.5,4.5
+      parent: 2
+  - uid: 26
+    components:
+    - type: Transform
+      pos: 1.5,4.5
+      parent: 2
+  - uid: 27
+    components:
+    - type: Transform
+      pos: 0.5,4.5
+      parent: 2
+  - uid: 28
+    components:
+    - type: Transform
+      pos: -0.5,4.5
+      parent: 2
+  - uid: 29
+    components:
+    - type: Transform
+      pos: -1.5,4.5
+      parent: 2
+  - uid: 30
+    components:
+    - type: Transform
+      pos: -1.5,3.5
+      parent: 2
+  - uid: 31
+    components:
+    - type: Transform
+      pos: -2.5,3.5
+      parent: 2
+  - uid: 32
+    components:
+    - type: Transform
+      pos: -2.5,2.5
+      parent: 2
+  - uid: 33
+    components:
+    - type: Transform
+      pos: -3.5,2.5
+      parent: 2
+  - uid: 34
+    components:
+    - type: Transform
+      pos: -4.5,2.5
+      parent: 2
+  - uid: 35
+    components:
+    - type: Transform
+      pos: -5.5,2.5
+      parent: 2
+  - uid: 36
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 2
+  - uid: 37
+    components:
+    - type: Transform
+      pos: -5.5,0.5
+      parent: 2
+  - uid: 38
+    components:
+    - type: Transform
+      pos: -4.5,0.5
+      parent: 2
+  - uid: 39
+    components:
+    - type: Transform
+      pos: -4.5,-0.5
+      parent: 2
+  - uid: 40
+    components:
+    - type: Transform
+      pos: -4.5,-1.5
+      parent: 2
+  - uid: 41
+    components:
+    - type: Transform
+      pos: -4.5,-2.5
+      parent: 2
+  - uid: 42
+    components:
+    - type: Transform
+      pos: -3.5,-2.5
+      parent: 2
+  - uid: 43
+    components:
+    - type: Transform
+      pos: -3.5,-3.5
+      parent: 2
+  - uid: 44
+    components:
+    - type: Transform
+      pos: -3.5,-4.5
+      parent: 2
+  - uid: 45
+    components:
+    - type: Transform
+      pos: -1.5,-5.5
+      parent: 2
+  - uid: 46
+    components:
+    - type: Transform
+      pos: -0.5,-5.5
+      parent: 2
+  - uid: 47
+    components:
+    - type: Transform
+      pos: -2.5,-5.5
+      parent: 2
+  - uid: 48
+    components:
+    - type: Transform
+      pos: -2.5,-4.5
+      parent: 2
+  - uid: 49
+    components:
+    - type: Transform
+      pos: 0.5,-5.5
+      parent: 2
+  - uid: 52
+    components:
+    - type: Transform
+      pos: -0.5,-6.5
+      parent: 2
+  - uid: 53
+    components:
+    - type: Transform
+      pos: -1.5,-6.5
+      parent: 2
+  - uid: 54
+    components:
+    - type: Transform
+      pos: -2.5,-6.5
+      parent: 2
+  - uid: 55
+    components:
+    - type: Transform
+      pos: -3.5,-6.5
+      parent: 2
+  - uid: 56
+    components:
+    - type: Transform
+      pos: -3.5,-5.5
+      parent: 2
+  - uid: 57
+    components:
+    - type: Transform
+      pos: -4.5,-5.5
+      parent: 2
+  - uid: 58
+    components:
+    - type: Transform
+      pos: -4.5,-4.5
+      parent: 2
+  - uid: 59
+    components:
+    - type: Transform
+      pos: -4.5,-3.5
+      parent: 2
+  - uid: 60
+    components:
+    - type: Transform
+      pos: -5.5,-3.5
+      parent: 2
+  - uid: 61
+    components:
+    - type: Transform
+      pos: -5.5,-2.5
+      parent: 2
+  - uid: 62
+    components:
+    - type: Transform
+      pos: -5.5,-1.5
+      parent: 2
+  - uid: 63
+    components:
+    - type: Transform
+      pos: -5.5,-0.5
+      parent: 2
+  - uid: 64
+    components:
+    - type: Transform
+      pos: -6.5,-0.5
+      parent: 2
+  - uid: 65
+    components:
+    - type: Transform
+      pos: -6.5,0.5
+      parent: 2
+  - uid: 66
+    components:
+    - type: Transform
+      pos: -6.5,1.5
+      parent: 2
+  - uid: 67
+    components:
+    - type: Transform
+      pos: -6.5,2.5
+      parent: 2
+  - uid: 68
+    components:
+    - type: Transform
+      pos: -6.5,3.5
+      parent: 2
+  - uid: 69
+    components:
+    - type: Transform
+      pos: -5.5,3.5
+      parent: 2
+  - uid: 70
+    components:
+    - type: Transform
+      pos: -4.5,3.5
+      parent: 2
+  - uid: 71
+    components:
+    - type: Transform
+      pos: -3.5,3.5
+      parent: 2
+  - uid: 72
+    components:
+    - type: Transform
+      pos: -3.5,4.5
+      parent: 2
+  - uid: 73
+    components:
+    - type: Transform
+      pos: -2.5,4.5
+      parent: 2
+  - uid: 74
+    components:
+    - type: Transform
+      pos: -2.5,5.5
+      parent: 2
+  - uid: 75
+    components:
+    - type: Transform
+      pos: -1.5,5.5
+      parent: 2
+  - uid: 76
+    components:
+    - type: Transform
+      pos: -0.5,5.5
+      parent: 2
+  - uid: 77
+    components:
+    - type: Transform
+      pos: 0.5,5.5
+      parent: 2
+  - uid: 78
+    components:
+    - type: Transform
+      pos: 1.5,5.5
+      parent: 2
+  - uid: 79
+    components:
+    - type: Transform
+      pos: 2.5,5.5
+      parent: 2
+  - uid: 80
+    components:
+    - type: Transform
+      pos: 3.5,5.5
+      parent: 2
+  - uid: 81
+    components:
+    - type: Transform
+      pos: 4.5,4.5
+      parent: 2
+  - uid: 82
+    components:
+    - type: Transform
+      pos: 4.5,5.5
+      parent: 2
+  - uid: 83
+    components:
+    - type: Transform
+      pos: 5.5,4.5
+      parent: 2
+  - uid: 84
+    components:
+    - type: Transform
+      pos: 6.5,3.5
+      parent: 2
+  - uid: 85
+    components:
+    - type: Transform
+      pos: 6.5,2.5
+      parent: 2
+  - uid: 86
+    components:
+    - type: Transform
+      pos: 7.5,2.5
+      parent: 2
+  - uid: 87
+    components:
+    - type: Transform
+      pos: 7.5,1.5
+      parent: 2
+  - uid: 88
+    components:
+    - type: Transform
+      pos: 7.5,0.5
+      parent: 2
+  - uid: 89
+    components:
+    - type: Transform
+      pos: 7.5,-0.5
+      parent: 2
+  - uid: 90
+    components:
+    - type: Transform
+      pos: 7.5,-1.5
+      parent: 2
+  - uid: 91
+    components:
+    - type: Transform
+      pos: 7.5,-2.5
+      parent: 2
+  - uid: 92
+    components:
+    - type: Transform
+      pos: 7.5,-3.5
+      parent: 2
+  - uid: 93
+    components:
+    - type: Transform
+      pos: 7.5,-4.5
+      parent: 2
+  - uid: 94
+    components:
+    - type: Transform
+      pos: 7.5,-5.5
+      parent: 2
+  - uid: 95
+    components:
+    - type: Transform
+      pos: 7.5,-6.5
+      parent: 2
+  - uid: 96
+    components:
+    - type: Transform
+      pos: 7.5,-7.5
+      parent: 2
+  - uid: 97
+    components:
+    - type: Transform
+      pos: 6.5,-7.5
+      parent: 2
+  - uid: 98
+    components:
+    - type: Transform
+      pos: 5.5,-7.5
+      parent: 2
+  - uid: 99
+    components:
+    - type: Transform
+      pos: 4.5,-7.5
+      parent: 2
+  - uid: 100
+    components:
+    - type: Transform
+      pos: 3.5,-7.5
+      parent: 2
+  - uid: 101
+    components:
+    - type: Transform
+      pos: 2.5,-7.5
+      parent: 2
+  - uid: 102
+    components:
+    - type: Transform
+      pos: -1.5,-7.5
+      parent: 2
+  - uid: 103
+    components:
+    - type: Transform
+      pos: -1.5,-8.5
+      parent: 2
+  - uid: 104
+    components:
+    - type: Transform
+      pos: -1.5,-9.5
+      parent: 2
+  - uid: 105
+    components:
+    - type: Transform
+      pos: -1.5,-10.5
+      parent: 2
+  - uid: 106
+    components:
+    - type: Transform
+      pos: -0.5,-10.5
+      parent: 2
+  - uid: 107
+    components:
+    - type: Transform
+      pos: 0.5,-10.5
+      parent: 2
+  - uid: 108
+    components:
+    - type: Transform
+      pos: 1.5,-10.5
+      parent: 2
+  - uid: 109
+    components:
+    - type: Transform
+      pos: 2.5,-10.5
+      parent: 2
+  - uid: 110
+    components:
+    - type: Transform
+      pos: 2.5,-8.5
+      parent: 2
+  - uid: 111
+    components:
+    - type: Transform
+      pos: 2.5,-9.5
+      parent: 2
+  - uid: 112
+    components:
+    - type: Transform
+      pos: 3.5,-8.5
+      parent: 2
+  - uid: 113
+    components:
+    - type: Transform
+      pos: 4.5,-8.5
+      parent: 2
+  - uid: 114
+    components:
+    - type: Transform
+      pos: 3.5,-9.5
+      parent: 2
+  - uid: 115
+    components:
+    - type: Transform
+      pos: -2.5,-7.5
+      parent: 2
+  - uid: 116
+    components:
+    - type: Transform
+      pos: -2.5,-8.5
+      parent: 2
+  - uid: 117
+    components:
+    - type: Transform
+      pos: -2.5,-9.5
+      parent: 2
+- proto: WarpPoint
+  entities:
+  - uid: 173
+    components:
+    - type: Transform
+      pos: 0.5,-2.5
+      parent: 2
+    - type: WarpPoint
+      location: TH?E V??OID
+...

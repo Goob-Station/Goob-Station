@@ -32,6 +32,12 @@ public sealed partial class ReagentCrawlComponent : Component
     public EntProtoId ActionId = "BloodCrawlAction";
 
     /// <summary>
+    /// This is the entity of the abilities action.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid ActionEntity = EntityUid.Invalid;
+
+    /// <summary>
     /// This is the polymorph this ability uses.
     /// </summary>
     [DataField]

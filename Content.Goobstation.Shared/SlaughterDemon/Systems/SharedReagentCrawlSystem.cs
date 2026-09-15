@@ -36,7 +36,7 @@ public abstract class SharedReagentCrawlSystem : EntitySystem
 
         SubscribeLocalEvent<ReagentCrawlComponent, ComponentStartup>(OnStartup);
 
-        SubscribeLocalEvent<ReagentCrawlComponent, ReagentCrawlEvent>(OnBloodCrawl);
+        SubscribeLocalEvent<ReagentCrawlComponent, ReagentCrawlEvent>(OnReagentCrawl);
     }
 
     private void OnStartup(EntityUid uid, ReagentCrawlComponent  component, ComponentStartup args)
@@ -47,7 +47,7 @@ public abstract class SharedReagentCrawlSystem : EntitySystem
         _actions.AddAction(uid, component.ActionId, component: actions);
     }
 
-    private void OnReagentCrawl(EntityUid uid, ReagentCrawlComponent  component, ReagentCrawlComponent  args)
+    private void OnReagentCrawl(EntityUid uid, ReagentCrawlComponent  component, ReagentCrawlEvent args)
     {
         if (!IsStandingOnTargetReagent((uid, component)))
         {
