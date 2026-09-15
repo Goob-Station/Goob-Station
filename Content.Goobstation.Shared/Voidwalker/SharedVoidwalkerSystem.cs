@@ -30,7 +30,7 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<VoidwalkerComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<VoidwalkerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
 
         SubscribeLocalEvent<VoidwalkerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
@@ -40,7 +40,7 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
         SubscribeLocalEvent<VoidwalkerComponent, PullStoppedMessage>(OnPullStopped);
     }
 
-    private void OnInit(Entity<VoidwalkerComponent> entity, ref MapInitEvent args)
+    private void OnStartup(Entity<VoidwalkerComponent> entity, ref ComponentStartup args)
     {
         UpdateSpacedStatus(entity);
     }
