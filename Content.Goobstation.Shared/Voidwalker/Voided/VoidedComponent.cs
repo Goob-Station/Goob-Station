@@ -36,6 +36,6 @@ public sealed partial class VoidedComponent : Component
     [DataField]
     public string NebulaVomitProto = "NebulaVomit";
 
-    [DataField]
-    public bool WasPacified;
+    [ViewVariables]
+    public HashSet<string> AddedComponents = [];
 }

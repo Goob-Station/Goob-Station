@@ -1,5 +1,5 @@
 using Content.Goobstation.Server.Voidwalker.Kidnapping;
-using Content.Goobstation.Server.Voidwalker.Kidnapping.Voided;
+using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.Voided;
 using Content.Shared.CombatMode.Pacification;
@@ -18,6 +18,7 @@ public sealed class VoidedSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly VoidwalkerSystem _voidwalker = null!;
     [Dependency] private readonly VoidwalkerKidnappedSystem _voidKidnapped = null!;
+    [Dependency] private readonly VoidwalkerKidnappingSystem _voidKidnapping = null!;
     [Dependency] private readonly VomitSystem _vomit = null!;
     [Dependency] private readonly SharedMapSystem _map = null!;
 
@@ -39,22 +40,18 @@ public sealed class VoidedSystem : EntitySystem
     {
         var voidedQuery = EntityQueryEnumerator<VoidedComponent>();
         while (voidedQuery.MoveNext(out var uid, out _))
-            _voidwalker.TrySendToShadowRealm(uid);
+            _voidKidnapping.TrySendToShadowRealm(uid);
 
         var voidwalkerQuery = EntityQueryEnumerator<VoidwalkerComponent>();
         while (voidwalkerQuery.MoveNext(out var uid, out _))
-            _voidwalker.TrySendToShadowRealm(uid);
+            _voidKidnapping.TrySendToShadowRealm(uid);
     }
 
     private void OnStartup(Entity<VoidedComponent> entity, ref ComponentStartup args)
     {
         EnsureComp<VoidedVisualsComponent>(entity);
         EnsureComp<VoidAccentComponent>(entity); // This was muted in ss13, but I think this accent is cooler.
-
-        if (HasComp<PacifiedComponent>(entity))
-            entity.Comp.WasPacified = true;
-
-        EnsureComp<PacifiedComponent>(entity);
+        EnsureTrackedComp<PacifiedComponent>(entity, entity);
 
         SetNextVomitTime(entity);
     }
@@ -64,8 +61,7 @@ public sealed class VoidedSystem : EntitySystem
         RemComp<VoidedVisualsComponent>(entity);
         RemComp<VoidAccentComponent>(entity);
 
-        if (!entity.Comp.WasPacified)
-            RemComp<PacifiedComponent>(entity);
+        RemoveTrackedComps(entity, entity);
     }
 
     private void SetNextVomitTime(Entity<VoidedComponent> voided) =>
@@ -102,4 +98,45 @@ public sealed class VoidedSystem : EntitySystem
 
         }
     }
+
+    #region Helpers
+
+    // ok there's probably a better way to do this but it is currently like two AM and I no no wanna so
+    private T EnsureTrackedComp<T>(EntityUid uid, Entity<VoidedComponent> ent, T? preconfigured = null) where T : Component, new()
+    {
+        if (TryComp<T>(uid, out var existing))
+            return existing;
+
+        var componentName = typeof(T).FullName;
+        if (componentName != null)
+            ent.Comp.AddedComponents.Add(componentName);
+
+        if (preconfigured != null)
+        {
+            AddComp(uid, preconfigured);
+            return preconfigured;
+        }
+
+        return EnsureComp<T>(uid);
+    }
+
+    /// <summary>
+    /// Removes tracked components.
+    /// </summary>
+    private void RemoveTrackedComps(EntityUid uid, Entity<VoidedComponent> ent)
+    {
+        if (ent.Comp.AddedComponents.Count == 0)
+            return;
+
+        foreach (var component in EntityManager.GetComponents(uid))
+        {
+            var componentName = component.GetType().FullName;
+            if (componentName != null && ent.Comp.AddedComponents.Contains(componentName))
+                RemCompDeferred(uid, component.GetType());
+        }
+
+        ent.Comp.AddedComponents.Clear();
+    }
+
+    #endregion
 }

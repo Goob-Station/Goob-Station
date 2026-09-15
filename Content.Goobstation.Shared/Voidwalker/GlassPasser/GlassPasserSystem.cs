@@ -1,4 +1,4 @@
-using Content.Goobstation.Common.VoidedVisualizer;
+using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.TemporarilyDisableCollision;
 using Content.Shared.Tag;
 using Robust.Shared.Physics.Events;

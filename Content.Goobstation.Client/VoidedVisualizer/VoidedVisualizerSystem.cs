@@ -1,4 +1,4 @@
-using Content.Goobstation.Common.VoidedVisualizer;
+using Content.Goobstation.Shared.Voidwalker.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;

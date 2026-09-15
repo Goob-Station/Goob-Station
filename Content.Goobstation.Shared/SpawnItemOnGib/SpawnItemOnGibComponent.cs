@@ -5,6 +5,6 @@ namespace Content.Goobstation.Shared.SpawnItemOnGib;
 [RegisterComponent]
 public sealed partial class SpawnItemsOnGibComponent : Component
 {
-    [DataField(required: true), AutoNetworkedField]
+    [DataField(required: true)]
     public Dictionary<EntProtoId, int> ItemsToSpawn;
 }

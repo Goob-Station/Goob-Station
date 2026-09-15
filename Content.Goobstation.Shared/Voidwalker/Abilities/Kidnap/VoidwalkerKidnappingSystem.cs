@@ -131,7 +131,7 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
     public bool TrySendToShadowRealm(EntityUid target)
     {
         var popup = Loc.GetString("voidwalker-kidnap-enter");
-        _popup.PopupEntity(popup, target, target, PopupType.SmallCaution);
+        _popup.PopupClient(popup, target, target, PopupType.SmallCaution);
 
         if (!TryComp<MindContainerComponent>(target, out var targetMindContainer)
             || !targetMindContainer.HasMind)

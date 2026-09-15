@@ -1,7 +1,4 @@
 using Content.Goobstation.Common.Atmos;
-using Content.Goobstation.Common.Grab;
-using Content.Goobstation.Shared.Changeling.Systems;
-using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.Voidwalker.Abilities.Unsettle;
 using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Goobstation.Shared.Voidwalker.Components;
@@ -14,8 +11,6 @@ using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Traits.Assorted;
-using Content.Shared.Verbs;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Voidwalker;
 
@@ -25,7 +20,6 @@ public partial class SharedVoidwalkerSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-
 
     public override void Initialize()
     {
@@ -109,6 +103,42 @@ public partial class SharedVoidwalkerSystem : EntitySystem
     }
 
 
+    private T EnsureTrackedComp<T>(EntityUid uid, Entity<VoidwalkerComponent> ent, T? preconfigured = null) where T : Component, new()
+    {
+        if (TryComp<T>(uid, out var existing))
+            return existing;
+
+        var componentName = typeof(T).FullName;
+        if (componentName != null)
+            ent.Comp.AddedVoidwalkerComponents.Add(componentName);
+
+        if (preconfigured != null)
+        {
+            AddComp(uid, preconfigured);
+            return preconfigured;
+        }
+
+        return EnsureComp<T>(uid);
+    }
+
+    /// <summary>
+    /// Removes tracked components.
+    /// </summary>
+    private void RemoveTrackedComps(EntityUid uid, Entity<VoidwalkerComponent> ent)
+    {
+        if (ent.Comp.AddedVoidwalkerComponents.Count == 0)
+            return;
+
+        foreach (var component in EntityManager.GetComponents(uid))
+        {
+            var componentName = component.GetType().FullName;
+            if (componentName != null && ent.Comp.AddedVoidwalkerComponents.Contains(componentName))
+                RemCompDeferred(uid, component.GetType());
+        }
+
+        ent.Comp.AddedVoidwalkerComponents.Clear();
+    }
+
     #endregion
 
     #region Updating Spaced Status
@@ -157,14 +187,12 @@ public partial class SharedVoidwalkerSystem : EntitySystem
     /// </summary>
     private void OnPullStarted(Entity<VoidwalkerComponent> entity, ref PullStartedMessage args)
     {
-        entity.Comp.EntityPulledWasSpaceImmune = HasComp<SpecialPressureImmunityComponent>(args.PulledUid);
-        EnsureComp<SpecialPressureImmunityComponent>(args.PulledUid);
+        EnsureTrackedComp<SpecialPressureImmunityComponent>(args.PulledUid, entity);
     }
 
     private void OnPullStopped(Entity<VoidwalkerComponent> entity, ref PullStoppedMessage args)
     {
-        if (!entity.Comp.EntityPulledWasSpaceImmune)
-            RemComp<SpecialPressureImmunityComponent>(args.PulledUid);
+        RemoveTrackedComps(args.PulledUid, entity);
     }
 
     #endregion

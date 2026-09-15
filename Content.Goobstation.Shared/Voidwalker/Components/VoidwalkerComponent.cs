@@ -1,10 +1,7 @@
-using Content.Goobstation.Shared.SpecialAnimation;
 using Content.Shared.Damage;
-using Content.Shared.Tag;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Voidwalker.Components;
 
@@ -14,7 +11,7 @@ public sealed partial class VoidwalkerComponent : Component
     [DataField]
     public bool IsInSpace;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan NextSpacedCheck;
 
     /// <summary>
@@ -27,7 +24,7 @@ public sealed partial class VoidwalkerComponent : Component
     [DataField]
     public TimeSpan SpacedCheckInterval = TimeSpan.FromSeconds(2);
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan NextHealingTick;
 
     [DataField]
@@ -39,11 +36,8 @@ public sealed partial class VoidwalkerComponent : Component
     [DataField]
     public DamageSpecifier? HealingWhenSpaced;
 
-    /// <summary>
-    /// If the entity being pulled is space immune, this will be true so we don't remove it accidentally.
-    /// </summary>
-    [DataField]
-    public bool EntityPulledWasSpaceImmune;
+    [ViewVariables]
+    public HashSet<string> AddedVoidwalkerComponents = [];
 
     /// <summary>
     /// What to multiply the voidwalker's speed by when they're in a non-spaced area.
