@@ -5,6 +5,7 @@ using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap.Victim;
 using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.Objectives.Components;
+using Content.Goobstation.Shared.Voidwalker.Spaced;
 using Content.Goobstation.Shared.Voidwalker.Voided;
 using Content.Shared.Administration.Systems;
 using Content.Shared.DoAfter;
@@ -13,6 +14,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -31,6 +33,7 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -108,8 +111,8 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
             || !args.CanAccess)
             return;
 
-        if (TryComp<VoidwalkerComponent>(entity.Owner, out var voidwalker)
-            && !voidwalker.IsInSpace)
+        if (TryComp<SpacedStatusComponent>(entity, out var spaced)
+            && !spaced.IsInSpace)
             return;
 
         if (!TryComp<GrabbableComponent>(target, out var grabbable) || grabbable.GrabStage <= GrabStage.Soft)
@@ -128,7 +131,7 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
 
     }
 
-    public bool TrySendToShadowRealm(EntityUid target)
+    public bool TrySendToShadowRealm(EntityUid target, Entity<VoidwalkerKidnappingComponent>? sender = null)
     {
         var popup = Loc.GetString("voidwalker-kidnap-enter");
         _popup.PopupClient(popup, target, target, PopupType.SmallCaution);
@@ -147,13 +150,26 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
         if (spawnPoints.IsEmpty)
             return false;
 
-        var newSpawn = _random.Pick(spawnPoints);
-        var spawnTarget = Transform(newSpawn.Uid).Coordinates;
 
-        _transform.SetCoordinates(target, spawnTarget);
-        _rejuvenate.PerformRejuvenate(target);
-        _stun.KnockdownOrStun(target, TimeSpan.FromSeconds(5), true);
-        // need more sfx here later
+        if (_net.IsServer)
+        {
+            var newSpawn = _random.Pick(spawnPoints);
+            var spawnTarget = Transform(newSpawn.Uid).Coordinates;
+
+            _transform.SetCoordinates(target, spawnTarget);
+            _rejuvenate.PerformRejuvenate(target);
+
+            var stunDuration = TimeSpan.FromSeconds(5);
+            if (sender is { } kidnapper)
+                stunDuration = kidnapper.Comp.KidnapStunDuration;
+
+            _stun.KnockdownOrStun(target, stunDuration);
+
+            // need more sfx here later
+        }
+
+
+
 
         return true;
     }

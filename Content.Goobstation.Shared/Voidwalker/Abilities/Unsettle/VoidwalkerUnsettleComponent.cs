@@ -6,9 +6,15 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Voidwalker.Abilities.Unsettle;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class VoidwalkerUnsettleComponent : Component
 {
+    [DataField]
+    public EntProtoId UnsettleAction = "ActionVoidwalkerUnsettle";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? UnsettleActionEntity;
+
     /// <summary>
     /// The ID of the scream prototype.
     /// </summary>

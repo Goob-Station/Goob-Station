@@ -1,8 +1,10 @@
 using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Shared.Voidwalker.Abilities.Unsettle;
 using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.GlassPasser;
+using Content.Goobstation.Shared.Voidwalker.Spaced;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
@@ -11,6 +13,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Throwing;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Timing;
 
@@ -26,16 +29,15 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<VoidwalkerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
 
-
-
+        SubscribeLocalEvent<VoidwalkerComponent, ThrowEvent>(OnThrow);
         SubscribeLocalEvent<VoidwalkerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
-        SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerSpacedStatusChangedEvent>(OnSpacedStatusChanged);
 
         SubscribeLocalEvent<VoidwalkerComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<VoidwalkerComponent, PullStoppedMessage>(OnPullStopped);
@@ -43,6 +45,10 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
 
     private void OnStartup(Entity<VoidwalkerComponent> entity, ref ComponentStartup args)
     {
+        var spaced = EnsureComp<SpacedStatusComponent>(entity);
+        spaced.IsInSpace = false;
+        HandleSpaceStatus(entity, false);
+
         UpdateSpacedStatus(entity);
     }
 
@@ -51,41 +57,60 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
         base.Update(frameTime);
         var curTime = _timing.CurTime;
 
-        var query = EntityQueryEnumerator<VoidwalkerComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<VoidwalkerComponent, SpacedStatusComponent>();
+        while (query.MoveNext(out var uid, out var voidwalker, out var spaced))
         {
-            if (curTime > comp.NextSpacedCheck)
+            if (spaced.Changed)
             {
-                UpdateSpacedStatus((uid, comp));
-                comp.NextSpacedCheck = curTime + comp.SpacedCheckInterval;
+                HandleSpaceStatus((uid, voidwalker), spaced.IsInSpace);
+                spaced.Changed = false;
             }
 
-            if (curTime >= comp.NextHealingTick && comp is { IsInSpace: true, HealingWhenSpaced: { } healing })
-            {
-                _damageable.TryChangeDamage(uid, healing);
-                comp.NextHealingTick = curTime + comp.HealingTickInterval;
-            }
+            if (curTime < voidwalker.NextHealingTick
+                || !spaced.IsInSpace
+                || voidwalker.HealingWhenSpaced is not { } healing)
+                continue;
 
+            _damageable.TryChangeDamage(uid, healing);
+            voidwalker.NextHealingTick = curTime + voidwalker.HealingTickInterval;
         }
     }
 
     private void OnGridUidChanged(Entity<VoidwalkerComponent> entity, ref GridUidChangedEvent args) =>
         UpdateSpacedStatus(entity);
 
-    private void OnSpacedStatusChanged(Entity<VoidwalkerComponent> entity, ref VoidwalkerSpacedStatusChangedEvent args)
+    // we update the speed modifiers on throw otherwise it fucks our modifier for some reason
+    private void OnThrow(Entity<VoidwalkerComponent> entity, ref ThrowEvent args) =>
+        _movement.RefreshMovementSpeedModifiers(entity);
+
+    public void UpdateSpacedStatus(Entity<VoidwalkerComponent> entity)
+    {
+        var ev = new CheckSpacedStatusEvent();
+        RaiseLocalEvent(entity, ref ev);
+
+        // Check if the voidwalker is standing inside a passed object.
+        if (TryComp<GlassPasserComponent>(entity, out var glassPasser))
+        {
+            foreach (var (entityPassed, _) in glassPasser.EntitiesPassed)
+            {
+                if (_transform.InRange(entity.Owner, entityPassed, entity.Comp.PassedObjectGraceRange))
+                {
+                    ev.Spaced = true;
+                    ev.Changed = true;
+                }
+            }
+        }
+
+        if (ev.Changed)
+            HandleSpaceStatus(entity, ev.Spaced);
+    }
+    private void HandleSpaceStatus(Entity<VoidwalkerComponent> entity, bool spaced)
     {
         if (TerminatingOrDeleted(entity))
             return;
 
-        if (args.Spaced
-            && TryComp<VoidwalkerUnsettleComponent>(entity, out var unsettle)
-            && unsettle.UnsettleDoAfterId == null) // if spaced and not currently performing unsettle, go invis
-        {
-            EnsureComp<StealthComponent>(entity); // Okay, this is a weird way to do this, but stealth literally doesn't work if you enable/disable it so IDK :shrug:
-           _stealth.SetThermalsImmune(entity, args.Spaced); // tell me if you find a better way to fix this - delph
-        }
-        else
-            RemComp<StealthComponent>(entity);
+        _stealth.SetEnabled(entity, spaced);
+        _stealth.SetThermalsImmune(entity, spaced);
 
         _movement.RefreshMovementSpeedModifiers(entity);
         Dirty(entity);
@@ -93,12 +118,12 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
 
     private void OnRefreshMoveSpeed(Entity<VoidwalkerComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        var modifier = ent.Comp.IsInSpace ? 1f : ent.Comp.NonSpacedSpeedModifier;
+        if (!TryComp<SpacedStatusComponent>(ent, out var spaced))
+            return;
+
+        var modifier = spaced.IsInSpace ? 1f : ent.Comp.NonSpacedSpeedModifier;
         args.ModifySpeed(modifier, modifier);
     }
-
-    #region Helpers
-
     public bool TryUseAbility(EntityUid entity, BaseActionEvent action, VoidwalkerComponent? voidwalker = null)
     {
         if (action.Handled)
@@ -113,7 +138,8 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
             return false;
 
         if (voidwalkerAction.RequireInSpace
-            && !voidwalker.IsInSpace)
+            && TryComp<SpacedStatusComponent>(entity, out var spaced)
+            && !spaced.IsInSpace)
         {
             var popup = Loc.GetString("voidwalker-action-fail-require-in-space");
             _popup.PopupClient(popup, entity, entity);
@@ -172,32 +198,6 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
 
         ent.Comp.AddedVoidwalkerComponents.Clear();
     }
-
-    #endregion
-
-    #region Updating Spaced Status
-    public void UpdateSpacedStatus(Entity<VoidwalkerComponent> entity)
-    {
-        var spaced = CheckIfSpaced(entity);
-        entity.Comp.IsInSpace = spaced;
-
-        var ev = new VoidwalkerSpacedStatusChangedEvent(spaced);
-        RaiseLocalEvent(entity, ref ev);
-    }
-
-    /// <summary>
-    /// Returns if the entity is currently in spaced, or on a spaced tile.
-    /// PLEASE tell me if you know a better way to do this. This sucks.
-    /// </summary>
-    public bool CheckIfSpaced(EntityUid entity)
-    {
-        var ev = new VoidwalkerCheckTileSpacedStatusEvent();
-        RaiseLocalEvent(entity, ref ev);
-        return ev.Spaced;
-    }
-
-
-    #endregion
 
     #region Dragging
 

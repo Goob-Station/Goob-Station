@@ -8,21 +8,12 @@ namespace Content.Goobstation.Shared.Voidwalker.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class VoidwalkerComponent : Component
 {
-    [DataField]
-    public bool IsInSpace;
-
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
-    public TimeSpan NextSpacedCheck;
-
     /// <summary>
     /// If the voidwalker is within this much of a passed object, don't count it as being in space.
     /// This is to prevent being able to stand inside a passed object, since they have no atmosphere inside.
     /// If you can think of a better way to handle this, do tell me - delph
     /// </summary>
     public float PassedObjectGraceRange = 1.0f; //
-
-    [DataField]
-    public TimeSpan SpacedCheckInterval = TimeSpan.FromSeconds(0.25);
 
     [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan NextHealingTick;

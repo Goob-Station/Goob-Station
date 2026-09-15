@@ -1,7 +1,5 @@
 using Content.Goobstation.Shared.SpecialAnimation;
-using Content.Goobstation.Shared.Voidwalker;
-using Content.Goobstation.Shared.Voidwalker.Abilities.Unsettle;
-using Content.Goobstation.Shared.Voidwalker.Actions;
+using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -9,12 +7,16 @@ using Content.Shared.Examine;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
+using Content.Shared.Stealth;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
+namespace Content.Goobstation.Shared.Voidwalker.Abilities.Unsettle;
+
 public sealed partial class VoidwalkerUnsettleSystem : EntitySystem
 {
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedVoidwalkerSystem _voidwalker = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -25,15 +27,28 @@ public sealed partial class VoidwalkerUnsettleSystem : EntitySystem
     [Dependency] private readonly SharedSlurredSystem _slurred = default!;
     [Dependency] private readonly SharedSpecialAnimationSystem _specialAnimation = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedStealthSystem _stealth = default!;
 
     public override void Initialize()
     {
+        SubscribeLocalEvent<VoidwalkerUnsettleComponent, ComponentStartup>(OnUnsettleStartup);
+        SubscribeLocalEvent<VoidwalkerUnsettleComponent, ComponentShutdown>(OnUnsettleShutdown);
+
         SubscribeLocalEvent<VoidwalkerUnsettleComponent, VoidwalkerUnsettleEvent>(OnUnsettle);
         SubscribeLocalEvent<VoidwalkerUnsettleComponent, VoidwalkerUnsettleDoAfterEvent>(OnUnsettleDoAfter);
 
         SubscribeLocalEvent<VoidwalkerUnsettleComponent, ExaminedEvent>(OnExamined);
     }
 
+    private void OnUnsettleStartup(Entity<VoidwalkerUnsettleComponent> entity, ref ComponentStartup args)
+    {
+        _actions.AddAction(entity, ref entity.Comp.UnsettleActionEntity, entity.Comp.UnsettleAction);
+    }
+
+    private void OnUnsettleShutdown(Entity<VoidwalkerUnsettleComponent> entity, ref ComponentShutdown args)
+    {
+        _actions.RemoveAction(entity.Owner, entity.Comp.UnsettleActionEntity);
+    }
     private void OnUnsettle(Entity<VoidwalkerUnsettleComponent> entity, ref VoidwalkerUnsettleEvent args)
     {
         var target = args.Target;
@@ -52,6 +67,8 @@ public sealed partial class VoidwalkerUnsettleSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("voidwalker-unsettle-fail-blind"), target, entity);
             return;
         }
+
+        _stealth.SetVisibility(entity, 1); // Make visible
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,

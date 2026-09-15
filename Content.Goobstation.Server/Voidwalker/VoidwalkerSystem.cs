@@ -30,8 +30,6 @@ public sealed partial class VoidwalkerSystem : EntitySystem
     {
         SubscribeLocalEvent<VoidwalkerComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
-
-        SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerCheckTileSpacedStatusEvent>(CheckVoidwalkerSpaced);
     }
 
     private void OnInit(Entity<VoidwalkerComponent> entity, ref MapInitEvent args)
@@ -53,27 +51,6 @@ public sealed partial class VoidwalkerSystem : EntitySystem
             QueueDel(_theVoid);
 
         _theVoid = null;
-    }
-
-    public void CheckVoidwalkerSpaced(Entity<VoidwalkerComponent> entity, ref VoidwalkerCheckTileSpacedStatusEvent args) =>
-        CheckTileSpaced(entity, ref args);
-
-    public void CheckTileSpaced(EntityUid entity, ref VoidwalkerCheckTileSpacedStatusEvent args)
-    {
-        // Check if the voidwalker is standing inside a passed object.
-        // is this hacky? Yes. Very.
-        if (TryComp<GlassPasserComponent>(entity, out var glassPasser)
-            && TryComp<VoidwalkerComponent>(entity, out var voidwalker))
-            foreach (var (entityPassed, _) in glassPasser.EntitiesPassed)
-                if (_transform.InRange(entity, entityPassed, voidwalker.PassedObjectGraceRange))
-                    args.Spaced = true;
-
-        var gas = _atmos.GetContainingMixture(entity);
-        if (gas != null && gas.Pressure > 0.1)
-            return;
-
-        args.Spaced = true;
-
     }
 
 }

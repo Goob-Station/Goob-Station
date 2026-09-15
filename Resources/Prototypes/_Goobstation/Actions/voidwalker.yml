@@ -12,7 +12,7 @@
 
 - type: entity
   parent: BaseVoidwalkerAction
-  id: ActionUnsettle
+  id: ActionVoidwalkerUnsettle
   name: Unsettle
   description: L??ET THE A??BYSS GAZ??E BACK
   components:
@@ -57,7 +57,7 @@
 
 - type: entity
   parent: BaseVoidwalkerAction
-  id: VoidwalkerNebulaCrawlAction
+  id: ActionVoidwalkerNebulaCrawl
   name: Nebula Crawl
   description: C??RAWL BETWEE??N P?LANES??
   components:
@@ -72,7 +72,7 @@
 
 - type: entity
   parent: BaseVoidwalkerAction
-  id: VoidwalkerNebulaCrawlExitAction
+  id: ActionVoidwalkerNebulaCrawlExit
   name: Exit Nebula Crawl
   description: R??ETURN TO T??HEIR P??LANE
   components:
@@ -85,7 +85,7 @@
     event: !type:ExitNebulaCrawlEvent
 
 - type: entity
-  id: VoidwalkerVoidWhisperAction
+  id: ActionVoidwalkerVoidWhisper
   name: Void Whisper
   description: S??UBLIMINAL M??ESSAGIN??G
   categories: [ HideSpawnMenu ]

@@ -1,7 +1,7 @@
 using Content.Goobstation.Server.Voidwalker.Kidnapping;
-using Content.Goobstation.Shared.Voidwalker;
 using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap;
 using Content.Goobstation.Shared.Voidwalker.Components;
+using Content.Goobstation.Shared.Voidwalker.Spaced;
 using Content.Goobstation.Shared.Voidwalker.Voided;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.GameTicking;
@@ -17,7 +17,6 @@ public sealed class VoidedSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
-    [Dependency] private readonly SharedVoidwalkerSystem _voidwalker = null!;
     [Dependency] private readonly VoidwalkerKidnappedSystem _voidKidnapped = null!;
     [Dependency] private readonly VoidwalkerKidnappingSystem _voidKidnapping = null!;
     [Dependency] private readonly VomitSystem _vomit = null!;
@@ -50,18 +49,17 @@ public sealed class VoidedSystem : EntitySystem
 
     private void OnStartup(Entity<VoidedComponent> entity, ref ComponentStartup args)
     {
-        EnsureComp<VoidedVisualsComponent>(entity);
-        EnsureComp<VoidAccentComponent>(entity); // This was muted in ss13, but I think this accent is cooler.
+        EnsureTrackedComp<VoidedVisualsComponent>(entity, entity);
+        EnsureTrackedComp<VoidAccentComponent>(entity, entity); // This was muted in ss13, but I think this accent is cooler.
         EnsureTrackedComp<PacifiedComponent>(entity, entity);
+        var spaced = EnsureTrackedComp<SpacedStatusComponent>(entity, entity);
+        spaced.CheckOnInterval = false; // we can do it ourselves
 
         SetNextVomitTime(entity);
     }
 
     private void OnShutdown(Entity<VoidedComponent> entity, ref ComponentShutdown args)
     {
-        RemComp<VoidedVisualsComponent>(entity);
-        RemComp<VoidAccentComponent>(entity);
-
         RemoveTrackedComps(entity, entity);
     }
 
@@ -74,11 +72,14 @@ public sealed class VoidedSystem : EntitySystem
 
         // Check every X amount of seconds. Just in case.
         var query = EntityQueryEnumerator<VoidedComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var uid, out var voided))
         {
-            if (_timing.CurTime >= comp.NextSpacedCheck)
+            if (_timing.CurTime >= voided.NextSpacedCheck)
             {
-                if (_voidwalker.CheckIfSpaced(uid))
+                var ev = new CheckSpacedStatusEvent();
+                RaiseLocalEvent(uid, ref ev);
+
+                if (ev.Spaced)
                 {
                     var map = _map.GetMap(Transform(uid).MapID);
                     if (!_voidKidnapped.TryTeleportToRandomPartOfStation(uid, map))
@@ -88,13 +89,13 @@ public sealed class VoidedSystem : EntitySystem
                     _popup.PopupEntity(popup, uid, uid, PopupType.MediumCaution);
                 }
 
-                comp.NextSpacedCheck = _timing.CurTime + comp.SpacedCheckInterval;
+                voided.NextSpacedCheck = _timing.CurTime + voided.SpacedCheckInterval;
             }
 
-            if (_timing.CurTime >= comp.NextVomitTime)
+            if (_timing.CurTime >= voided.NextVomitTime)
             {
-                _vomit.Vomit(uid, comp.ThirstLost, comp.HungerLost, true, comp.NebulaVomitProto);
-                SetNextVomitTime((uid, comp));
+                _vomit.Vomit(uid, voided.ThirstLost, voided.HungerLost, true, voided.NebulaVomitProto);
+                SetNextVomitTime((uid, voided));
             }
 
         }

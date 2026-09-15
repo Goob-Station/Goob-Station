@@ -56,7 +56,7 @@
   - type: NoSlip
   - type: ReagentCrawl
     isCrawling: true
-    actionId: VoidwalkerNebulaCrawlAction
+    actionId: ActionVoidwalkerNebulaCrawl
     targetReagent:
     - NebulaVomit
     enterJauntFailMessage: voidwalker-nebula-jaunt-fail
@@ -73,10 +73,6 @@
     - Normal
     - Ghost
   - type: MindContainer
-  - type: ActionGrant
-    actions:
-    - VoidwalkerVoidWhisperAction
-    - VoidwalkerNebulaCrawlExitAction
   - type: VoidWhisper
   - type: Muted
   - type: IsDeadIC

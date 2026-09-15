@@ -14,4 +14,10 @@ public sealed partial class VoidwalkerKidnappingComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan KidnapDuration = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// How long are we stunnin' ya fer?
+    /// </summary>
+    [DataField]
+    public TimeSpan KidnapStunDuration = TimeSpan.FromSeconds(3);
 }

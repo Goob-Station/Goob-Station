@@ -41,13 +41,8 @@
         damage: 150
       behaviors:
       - !type:GibBehavior { }
-  - type: ActionGrant
-    actions:
-    - ActionUnsettle
-    - ActionVoidwalkerVoidWalk
-    - VoidwalkerVoidWhisperAction
   - type: ReagentCrawl
-    actionId: VoidwalkerNebulaCrawlAction
+    actionId: ActionVoidwalkerNebulaCrawl
     enterJauntFailMessage: voidwalker-nebula-jaunt-fail
     jaunt: VoidCrawlJaunt
     targetReagent:

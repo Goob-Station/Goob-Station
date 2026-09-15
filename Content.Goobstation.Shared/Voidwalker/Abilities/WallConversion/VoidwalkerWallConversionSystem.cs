@@ -51,7 +51,7 @@ public sealed partial class VoidwalkerWallConversionSystem : EntitySystem
         args.Handled = true;
 
         EnsureComp<VoidedVisualsComponent>(target);
-        _tag.AddTag(target, entity.Comp.VoidedStructureTag); // TODO: Replace this with component later so it can be repaired by chaplain.
+        _tag.AddTag(target, entity.Comp.VoidedStructureTag); // TODO: Replace this with component later so it can auto remove itself
     }
 
     private void OnGetVerbs(Entity<VoidwalkerWallConversionComponent> entity, ref GetVerbsEvent<InnateVerb> args)
