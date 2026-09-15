@@ -23,7 +23,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/viper.rsi #GoobStation Resprite
     quickEquip: false
     slots:
     - suitStorage
@@ -109,7 +109,7 @@
   description: A sleek machine pistol designed by the Waffle Corporation. Boasting a selector switch that toggles between semi-auto and rock & roll, the Viper punches high above its weight class given its bulk and concealability. Feeds from .35 Auto pistol magazines. # Goobstation
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/viper.rsi #GoobStation Resprite
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -179,14 +179,14 @@
   description: An integrally suppressed, semi-automatic pistol that leaves no trace. Being subsonic, the rounds are near silent at the cost of damage. Feeds from 9.5mm pistol magazines. # Goobstation
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/cobra.rsi #GoobStation Resprite
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/cobra.rsi #GoobStation Resprite
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
@@ -230,14 +230,14 @@
   description: A bog standard semi-automatic pistol chambered in thirty-five. Slim, simple, and accurate in the right hands, it's one of NanoTrasen Small Arms' crown jewels and the most common sidearm in the free world. Feeds from .35 Auto pistol magazines. # Goobstation
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/mk58.rsi #GoobStation Resprite
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/mk58.rsi #GoobStation Resprite
   - type: Item
     storedOffset: 0,-2
   - type: Gun
@@ -256,14 +256,14 @@
   description: A ridiculously overengineered hand cannon that fires a revolver cartridge. While the firerate is measured in malfunctions per second, it's become a sort of status symbol among the NanoTrasen elite due to its sheer power and gaudy price tag. Feeds from .45 Magnum pistol magazines. # Goobstation
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/N1984.rsi #GoobStation Resprite
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/N1984.rsi #GoobStation Resprite
   - type: Gun
     minAngle: 1
     # Goob edit start
