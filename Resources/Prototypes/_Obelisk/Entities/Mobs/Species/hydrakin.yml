@@ -72,7 +72,7 @@
     ignoreHeatResistance: true
   - type: PressureProtection
     lowPressureMultiplier: 1.2
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - TauCetiBasic
     - Hydraspeak
@@ -130,7 +130,7 @@
   - type: HumanoidAppearance
     species: Hydrakin
   - type: Inventory
-    speciesId: hydrakin 
+    speciesId: hydrakin
     templateId: hydrakin
     displacements:
       jumpsuit:

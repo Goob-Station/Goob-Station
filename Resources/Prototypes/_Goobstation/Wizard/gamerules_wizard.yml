@@ -31,7 +31,7 @@
       components:
       - type: Wizard
       - type: CanEnchant
-      - type: LanguageKnowledge
+      - type: LanguageGrant
         speaks: []
         understands: []
       - type: UniversalLanguageSpeaker
@@ -94,7 +94,7 @@
       - type: Wizard
       - type: RandomMetadata
       - type: CanEnchant
-      - type: LanguageKnowledge
+      - type: LanguageGrant
         speaks: []
         understands: []
       - type: UniversalLanguageSpeaker
@@ -131,7 +131,7 @@
       components:
       - type: Apprentice
       - type: CanEnchant
-      - type: LanguageKnowledge
+      - type: LanguageGrant
         speaks: []
         understands: []
       - type: UniversalLanguageSpeaker
