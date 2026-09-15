@@ -197,5 +197,43 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         Dirty(ent);
     }
 
+    /// <summary>
+    /// Randomize entity language if called.
+    /// </summary>
+    /// <param name="ent">The speaker entity</param>
+    public bool RandomizeEntityLanguage(Entity<LanguageSpeakerComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, false) || AllLanguages == null)
+            return false;
+
+        if (ent.Comp.SpokenLanguages.Count == 0
+            || ent.Comp.UnderstoodLanguages.Count == 0)
+            return false;
+
+        // Don't randomize if entity has all languages
+        if (ent.Comp.SpokenLanguages.Count >= AllLanguages.Count
+            || ent.Comp.UnderstoodLanguages.Count >= AllLanguages.Count)
+            return false;
+
+        var languagesList = AllLanguages.Keys.ToList();
+
+        var count = Math.Max(ent.Comp.SpokenLanguages.Count, ent.Comp.UnderstoodLanguages.Count);
+
+        ent.Comp.SpokenLanguages.Clear();
+        ent.Comp.UnderstoodLanguages.Clear();
+        for (var i = 0; i < count; i++)
+        {
+            var random = languagesList[_random.Next(languagesList.Count)];
+            ent.Comp.SpokenLanguages.Add(random);
+            ent.Comp.UnderstoodLanguages.Add(random);
+        }
+
+        ent.Comp.CurrentLanguage = ent.Comp.SpokenLanguages.FirstOrDefault(FallbackLanguagePrototype);
+
+        // Don't call UpdateEntityLanguage here because dont want known language to be added
+        Dirty(ent);
+        return true;
+    }
+
     #endregion
 }

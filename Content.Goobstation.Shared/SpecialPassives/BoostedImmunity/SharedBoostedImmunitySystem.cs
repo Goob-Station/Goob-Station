@@ -1,5 +1,4 @@
 using Content.Goobstation.Common.Atmos;
-using Content.Goobstation.Common.Medical;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 using Content.Shared._Shitmed.Damage;
@@ -11,6 +10,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Drunk;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Medical;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffect;
@@ -47,7 +47,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         SubscribeLocalEvent<BoostedImmunityComponent, ComponentRemove>(OnRemoved);
 
         SubscribeLocalEvent<BoostedImmunityComponent, MobStateChangedEvent>(OnMobStateChange);
-        SubscribeLocalEvent<BoostedImmunityComponent, BeforeVomitEvent>(OnBeforeVomitEvent);
+        SubscribeLocalEvent<BoostedImmunityComponent, TryVomitEvent>(OnBeforeVomitEvent);
     }
 
     private void OnMapInit(Entity<BoostedImmunityComponent> ent, ref MapInitEvent args)
@@ -128,7 +128,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         ent.Comp.Mobstate = args.NewMobState;
     }
 
-    private void OnBeforeVomitEvent(Entity<BoostedImmunityComponent> ent, ref BeforeVomitEvent args)
+    private void OnBeforeVomitEvent(Entity<BoostedImmunityComponent> ent, ref TryVomitEvent args)
     {
         args.Cancelled = ent.Comp.ResistNausea;
     }

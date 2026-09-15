@@ -2,23 +2,22 @@
 
 using Content.Shared.Alert;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Electrocution;
 using Content.Shared.Gravity;
 using Content.Shared.Inventory;
-using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.Clothing;
 
-public sealed class SharedMagbootsSystem : EntitySystem
+public sealed partial class SharedMagbootsSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
-
+    [Dependency] private readonly SharedElectrocutionSystem _electro = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -28,6 +27,7 @@ public sealed class SharedMagbootsSystem : EntitySystem
         SubscribeLocalEvent<MagbootsComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<MagbootsComponent, IsWeightlessEvent>(OnIsWeightless);
         SubscribeLocalEvent<MagbootsComponent, InventoryRelayedEvent<IsWeightlessEvent>>(OnIsWeightless);
+        SubscribeLocalEvent<MagbootsComponent, ItemToggleActivateAttemptEvent>(OnToggleActivateAttempt); // Goob
     }
 
     private void OnToggled(Entity<MagbootsComponent> ent, ref ItemToggledEvent args)
