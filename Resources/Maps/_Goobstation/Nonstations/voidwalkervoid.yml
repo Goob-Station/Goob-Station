@@ -565,65 +565,53 @@ entities:
   - uid: 146
     components:
     - type: MetaData
-      desc: A small, orange cartridge with an even smaller golden V on the front. It appears to have a message on it.
+      desc: A small, orange cartridge. It appears to have a message on it.
       name: distress signal
     - type: Transform
       pos: 4.834944,0.5549363
       parent: 2
     - type: TapeCassette
       recordedData:
-      - message: Hello, If you've found this recording, perhaps it's not over yet.
+      - message: Hell?o. If you've found t??his recording, per??haps it's not ov??er? ?yet.
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 3.9999962
-      - message: My name is Ophelia Lockhart Voltaire, I am a Central Commander working with Internal Affairs with the investigation of the NT-286 Atlas Station.
+      - message: My n??ame is ??Prof?essor? M?c?kin??ley, I am a N???anotr???asen? s???cientist? wo???rking to ???invest?igate the?? NT-286 Atl??as Stat??ion.
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 9.666634
-      - message: Don't bother looking for any records of this station on the records, I couldn't find any either.
+      - message: Don't b??other look??ing for? an??y rec???ords of? t?his stat???ion on t?he ?recor??ds, I cou??ldn't fi?nd any? eith??er.
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 17.666512
-      - message: That should've been the first thing to tip me off; I should've ran and never looked back.
+      - message: That sho??uld've bee??n the fi??rst th?ing? to ti?p me o?ff??; I sh??ould've ran a?nd never lo??oked ?ba???ck.
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 23.866417
-      - message: Look.
+      - message: Lo?ok.
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 31.33297
-      - message: There's a lot of things I wish I could've done differently, but I can't change the past even if I wish I could.
+      - message: I c??an ?feel wh??at ?thi?s ???thi??ng ??ha?s ?d?one ?t?o me ?g?ett???ing w?o?rs??e.
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 32.39962
-      - message: Regardless, contact Central Command and tell them to stay AWAY from the singularities, to halt all research immediately.
+      - message: P???lease. Co??ntact Central? C???ommand an?d tell th???em to st?ay A?WA?Y?? f?rom the sing???ular?it?ies, to hal\-?t al?l r?ese??arch im?mediat??ely.
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 48.066048
-      - message: What's on the other end of these vortexes doesn't want to be found.
+      - message: Wh-?\at's on t\?[he ot?2her en?d of th??!ese v?|-ort??'/exes d?oesn't wa?\nt t??o be?| foun??-d.
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 55.699265
-      - message: To my sister, if you hear this, I'm sorry. I love you, I always did.
+      - message: I'??m so??rry Sa?manth???a. I l??ov?e y?o???u.
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 69.53239
-      - message: I know I didn't always show it, but I really really did.
+      - message: I'l??l s\]??!ee y???o\-u o???n t?h???e ot?h\-???er si?de???\-
         verb: HolierThanThou
-        name: Miss. V
+        name: unknown
         timestamp: 76.43228
-      - message: I'm sorry Samantha.
-        verb: HolierThanThou
-        name: Miss. V
-        timestamp: 81.432205
-      - message: I'll see you on the other side.
-        verb: HolierThanThou
-        name: Miss. V
-        timestamp: 88.79876
-      - message: This is Miss. V, signing off.
-        verb: HolierThanThou
-        name: Miss. V
-        timestamp: 92.93203
     - type: RandomSprite
       selected:
         enum.DamageStateVisualLayers.Base:
