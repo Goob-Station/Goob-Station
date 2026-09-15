@@ -1,14 +1,21 @@
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Grab;
+using Content.Goobstation.Shared.Changeling.Systems;
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.Voidwalker.Abilities.Unsettle;
 using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.GlassPasser;
 using Content.Shared.Actions;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Traits.Assorted;
+using Content.Shared.Verbs;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Voidwalker;
 
@@ -19,13 +26,22 @@ public partial class SharedVoidwalkerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
+
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
+
         SubscribeLocalEvent<VoidwalkerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<VoidwalkerComponent, VoidwalkerSpacedStatusChangedEvent>(OnSpacedStatusChanged);
+
+        SubscribeLocalEvent<VoidwalkerComponent, PullStartedMessage>(OnPullStarted);
+        SubscribeLocalEvent<VoidwalkerComponent, PullStoppedMessage>(OnPullStopped);
     }
+
+    private void OnGridUidChanged(Entity<VoidwalkerComponent> entity, ref GridUidChangedEvent args) =>
+        UpdateSpacedStatus(entity);
 
     private void OnSpacedStatusChanged(Entity<VoidwalkerComponent> entity, ref VoidwalkerSpacedStatusChangedEvent args)
     {
@@ -129,6 +145,26 @@ public partial class SharedVoidwalkerSystem : EntitySystem
         */ // idk how to get this working on shared so hmu if u know
 
         return false;
+    }
+
+    #endregion
+
+    #region Dragging
+
+    /// <summary>
+    /// We apply pressure immunity to a target being dragged by a voidwalker so they have time to kidnap them
+    /// without them dying to pressure.
+    /// </summary>
+    private void OnPullStarted(Entity<VoidwalkerComponent> entity, ref PullStartedMessage args)
+    {
+        entity.Comp.EntityPulledWasSpaceImmune = HasComp<SpecialPressureImmunityComponent>(args.PulledUid);
+        EnsureComp<SpecialPressureImmunityComponent>(args.PulledUid);
+    }
+
+    private void OnPullStopped(Entity<VoidwalkerComponent> entity, ref PullStoppedMessage args)
+    {
+        if (!entity.Comp.EntityPulledWasSpaceImmune)
+            RemComp<SpecialPressureImmunityComponent>(args.PulledUid);
     }
 
     #endregion

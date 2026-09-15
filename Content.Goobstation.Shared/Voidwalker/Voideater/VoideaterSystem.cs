@@ -1,3 +1,5 @@
+using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap;
+using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap.Victim;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffectNew;
@@ -11,6 +13,7 @@ namespace Content.Goobstation.Shared.Voidwalker.Voideater;
 public sealed class VoideaterSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly VoidwalkerKidnappingSystem _voidKidnapping = default!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -36,7 +39,11 @@ public sealed class VoideaterSystem : EntitySystem
             }
 
             if (TryComp<MobStateComponent>(entity, out var mobState) && mobState.CurrentState == MobState.Critical)
+            {
                 args.Handled = true; // You're here to KIDNAP them, not MURDER them.
+                _voidKidnapping.StartKidnap(args.User, entity);
+            }
+
         }
 
     }

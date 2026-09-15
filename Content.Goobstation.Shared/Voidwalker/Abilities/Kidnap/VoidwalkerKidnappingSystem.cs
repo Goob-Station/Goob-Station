@@ -1,6 +1,9 @@
 using System.Collections.Immutable;
+using Content.Goobstation.Common.Grab;
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap.Victim;
 using Content.Goobstation.Shared.Voidwalker.Actions;
+using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.Objectives.Components;
 using Content.Goobstation.Shared.Voidwalker.Voided;
 using Content.Shared.Administration.Systems;
@@ -9,9 +12,11 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap;
 
@@ -30,27 +35,31 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<VoidwalkerKidnappingComponent, VoidwalkerKidnapDoAfterEvent>(OnVoidwalkerKidnapDoAfter);
+        SubscribeLocalEvent<VoidwalkerKidnappingComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
     }
 
-    public void StartKidnap(Entity<VoidwalkerKidnappingComponent> entity, EntityUid target)
+    public void StartKidnap(EntityUid kidnapper, EntityUid target, VoidwalkerKidnappingComponent? kidnapping = null)
     {
+        if (!Resolve(kidnapper, ref kidnapping))
+            return;
+
         if (HasComp<ActorComponent>(target))
         {
             var noActorPopup = Loc.GetString("voidwalker-no-actor", ("target", Name(target)));
-            _popup.PopupEntity(noActorPopup, target, entity, PopupType.MediumCaution);
+            _popup.PopupEntity(noActorPopup, target, kidnapper, PopupType.MediumCaution);
 
             return;
         }
 
-        var kidnapBeginPopup = Loc.GetString("voidwalker-kidnap-begin", ("target", Name(target)), ("user", Name(entity)));
+        var kidnapBeginPopup = Loc.GetString("voidwalker-kidnap-begin", ("target", Name(target)), ("user", Name(kidnapper)));
         _popup.PopupEntity(kidnapBeginPopup, target, PopupType.MediumCaution);
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
-            entity,
-            entity.Comp.KidnapDoAfterDuration,
+            kidnapper,
+            kidnapping.KidnapDoAfterDuration,
             new VoidwalkerKidnapDoAfterEvent(),
-            eventTarget: entity,
+            eventTarget: kidnapper,
             target: target)
         {
             BreakOnDamage = true,
@@ -91,6 +100,34 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
         TrySendToShadowRealm(target);
     }
 
+    private void OnGetVerbs(Entity<VoidwalkerKidnappingComponent> entity, ref GetVerbsEvent<InnateVerb> args)
+    {
+        var target = args.Target;
+
+        if (!args.CanInteract
+            || !args.CanAccess)
+            return;
+
+        if (TryComp<VoidwalkerComponent>(entity.Owner, out var voidwalker)
+            && !voidwalker.IsInSpace)
+            return;
+
+        if (!TryComp<GrabbableComponent>(target, out var grabbable) || grabbable.GrabStage <= GrabStage.Soft)
+            return;
+
+        InnateVerb kidnapVerb = new()
+        {
+            Act = () => StartKidnap(entity, target),
+            Text = Loc.GetString("voidwalker-kidnap-verb"),
+            Message = Loc.GetString("voidwalker-kidnap-verb-text"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Actions/voidwalker.rsi"), "kidnap"),
+            Priority = 1,
+        };
+
+        args.Verbs.Add(kidnapVerb);
+
+    }
+
     public bool TrySendToShadowRealm(EntityUid target)
     {
         var popup = Loc.GetString("voidwalker-kidnap-enter");
@@ -120,4 +157,6 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
 
         return true;
     }
+
+
 }

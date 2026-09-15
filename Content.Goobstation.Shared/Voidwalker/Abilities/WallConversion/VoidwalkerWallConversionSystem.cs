@@ -3,6 +3,8 @@ using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Verbs;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Voidwalker.Abilities.WallConversion;
 
@@ -15,6 +17,7 @@ public sealed partial class VoidwalkerWallConversionSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<VoidwalkerWallConversionComponent, VoidwalkerConvertWallDoAfterEvent>(OnConvertWallDoAfter);
+        SubscribeLocalEvent<VoidwalkerWallConversionComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
     }
 
     private void StartConvertWall(Entity<VoidwalkerWallConversionComponent> entity, EntityUid target)
@@ -49,5 +52,30 @@ public sealed partial class VoidwalkerWallConversionSystem : EntitySystem
 
         EnsureComp<VoidedVisualsComponent>(target);
         _tag.AddTag(target, entity.Comp.VoidedStructureTag); // TODO: Replace this with component later so it can be repaired by chaplain.
+    }
+
+    private void OnGetVerbs(Entity<VoidwalkerWallConversionComponent> entity, ref GetVerbsEvent<InnateVerb> args)
+    {
+        var target = args.Target;
+
+        if (!args.CanInteract
+            || !args.CanAccess)
+            return;
+
+        if (!_tag.HasTag(target, entity.Comp.WallTag)
+            || _tag.HasTag(target, entity.Comp.VoidedStructureTag))
+            return;
+
+        InnateVerb convertWallVerb = new()
+        {
+            Act = () => StartConvertWall(entity, target),
+            Text = Loc.GetString("voidwalker-convert-wall-verb"),
+            Message = Loc.GetString("voidwalker-convert-wall-text"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Actions/voidwalker.rsi"), "kidnap"),
+            Priority = 1,
+        };
+
+        args.Verbs.Add(convertWallVerb);
+
     }
 }

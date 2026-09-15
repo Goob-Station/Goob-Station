@@ -5,6 +5,7 @@ using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
@@ -29,6 +30,8 @@ public sealed partial class VoidwalkerUnsettleSystem : EntitySystem
     {
         SubscribeLocalEvent<VoidwalkerUnsettleComponent, VoidwalkerUnsettleEvent>(OnUnsettle);
         SubscribeLocalEvent<VoidwalkerUnsettleComponent, VoidwalkerUnsettleDoAfterEvent>(OnUnsettleDoAfter);
+
+        SubscribeLocalEvent<VoidwalkerUnsettleComponent, ExaminedEvent>(OnExamined);
     }
 
     private void OnUnsettle(Entity<VoidwalkerUnsettleComponent> entity, ref VoidwalkerUnsettleEvent args)
@@ -46,7 +49,7 @@ public sealed partial class VoidwalkerUnsettleSystem : EntitySystem
 
         if (!_voidwalker.CanSeeVoidwalker(target))
         {
-            _popup.PopupEntity(Loc.GetString("voidwalker-unsettle-fail-blind"), target, entity);
+            _popup.PopupClient(Loc.GetString("voidwalker-unsettle-fail-blind"), target, entity);
             return;
         }
 
@@ -92,8 +95,20 @@ public sealed partial class VoidwalkerUnsettleSystem : EntitySystem
         _slurred.DoSlur(target, entity.Comp.UnsettleStunDuration * 2);
 
         var popup = Loc.GetString("voidwalker-unsettle-victim");
-        _popup.PopupEntity(popup, target, target, PopupType.LargeCaution);
-        _specialAnimation.PlayAnimationForEntity(entity.Comp.JumpscareSprite, target, entity.Comp.JumpscarePrototype); // Set to self for testing
+        _popup.PopupClient(popup, target, target, PopupType.LargeCaution);
+        _specialAnimation.PlayAnimationForEntity(entity.Comp.JumpscareSprite, target, entity.Comp.JumpscarePrototype);
         _audio.PlayEntity(entity.Comp.JumpscareSound, target, target, AudioParams.Default);
+    }
+
+    private void OnExamined(Entity<VoidwalkerUnsettleComponent> entity, ref ExaminedEvent args)
+    {
+        if (entity.Comp.UnsettleDoAfterId is not { } doAfterId)
+            return;
+
+        _doAfter.Cancel(entity, doAfterId);
+        entity.Comp.UnsettleDoAfterId = null;
+
+        var popup = Loc.GetString("voidwalker-unsettle-fail-looked-at");
+        _popup.PopupClient(popup, entity, entity, PopupType.MediumCaution);
     }
 }
