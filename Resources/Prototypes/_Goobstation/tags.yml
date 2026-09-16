@@ -609,9 +609,6 @@
   id: VulpEmotes
 
 - type: Tag
-  id: VoidedStructure
-
-- type: Tag
   id: Vial
 
 - type: Tag

@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Voidwalker.Abilities.WallConversion;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.TemporarilyDisableCollision;
 using Content.Shared.Tag;
@@ -33,12 +34,12 @@ public sealed partial class GlassPasserSystem : EntitySystem
     private void OnPreventCollide(Entity<GlassPasserComponent> entity, ref PreventCollideEvent args)
     {
         if (!_tag.HasAnyTag(args.OtherEntity, entity.Comp.PassableTags)
-            && !_tag.HasTag(args.OtherEntity, entity.Comp.VoidedStructureTag))
+            && !HasComp<VoidedStructureComponent>(args.OtherEntity))
             return;
 
         args.Cancelled = true;
 
-        if (_tag.HasTag(args.OtherEntity, entity.Comp.VoidedStructureTag))
+        if (HasComp<VoidedStructureComponent>(args.OtherEntity))
             return;
 
         EnsureComp<TemporarilyDisableCollisionComponent>(args.OtherEntity);

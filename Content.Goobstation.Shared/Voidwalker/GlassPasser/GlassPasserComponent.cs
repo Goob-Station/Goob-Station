@@ -14,12 +14,6 @@ public sealed partial class GlassPasserComponent : Component
         [ "Window", "Grille" ];
 
     /// <summary>
-    /// The tag for a structure that has been voided and therefore rendered passable.
-    /// </summary>
-    [DataField]
-    public ProtoId<TagPrototype> VoidedStructureTag = "VoidedStructure";
-
-    /// <summary>
     /// A dictionary containing each entity that has had components added to it, and when it expires.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]

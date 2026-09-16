@@ -13,12 +13,6 @@ public sealed partial class VoidwalkerWallConversionComponent : Component
     public ProtoId<TagPrototype> WallTag = "Wall";
 
     /// <summary>
-    /// Structures that are converted are granted this tag.
-    /// </summary>
-    [DataField]
-    public ProtoId<TagPrototype> VoidedStructureTag = "VoidedStructure";
-
-    /// <summary>
     /// How long does it take to convert a wall?
     /// </summary>
     [DataField]
