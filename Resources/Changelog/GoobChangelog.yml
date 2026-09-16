@@ -25216,3 +25216,45 @@ Entries:
       message: nozzles and monkey cubes can now fit in the xenobiology pouch
   id: 2886
   time: '2026-09-15T23:14:31.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added 54 new vinyls for the radio host
+    - type: Tweak
+      message: the "joke" vinyl disks spawn less commonly now
+  id: 2887
+  time: '2026-09-16T12:16:50.0000000+00:00'
+- author: PhosphateWithManyOs, LizardHater
+  changes:
+    - type: Add
+      message: Added some emotes to Lizard!
+  id: 2888
+  time: '2026-09-16T20:10:42.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: Slot machine win rates have been adjusted
+    - type: Tweak
+      message: Slot machine emag effect is slighty different now
+  id: 2889
+  time: '2026-09-16T20:11:32.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: >-
+        Pizzabomb now detonates when opened via the E key. No more awkward
+        botched assassinations!
+  id: 2890
+  time: '2026-09-16T20:11:58.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to recall some of the nullrod
+  id: 2891
+  time: '2026-09-16T20:12:25.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: 'New HECU gamerule. Functions as weaker ERT. '
+  id: 2892
+  time: '2026-09-16T20:13:01.0000000+00:00'
