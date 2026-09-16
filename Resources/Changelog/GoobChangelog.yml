@@ -25230,3 +25230,11 @@ Entries:
       message: Added some emotes to Lizard!
   id: 2888
   time: '2026-09-16T20:10:42.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: Slot machine win rates have been adjusted
+    - type: Tweak
+      message: Slot machine emag effect is slighty different now
+  id: 2889
+  time: '2026-09-16T20:11:32.0000000+00:00'
