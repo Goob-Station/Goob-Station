@@ -95,7 +95,7 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
             {
                 if (_transform.InRange(entity.Owner, entityPassed, entity.Comp.PassedObjectGraceRange))
                 {
-                    ev.Spaced = true;
+                    ev.Spaced = false;
                     ev.Changed = true;
                 }
             }
