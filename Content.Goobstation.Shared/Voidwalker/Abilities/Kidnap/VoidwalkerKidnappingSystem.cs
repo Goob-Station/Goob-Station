@@ -82,10 +82,6 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
 
         args.Handled = true;
 
-        if (_mind.TryGetMind(entity, out var voidwalkerMindId, out var voidwalkerMind)
-            && _mind.TryGetObjectiveComp<VoidwalkerKidnapConditionComponent>(voidwalkerMindId, out var objective, voidwalkerMind))
-            objective.Kidnapped += 1;
-
         if (!TryComp<MindContainerComponent>(target, out var targetMindContainer)
             || !targetMindContainer.HasMind)
             return;
@@ -151,26 +147,26 @@ public sealed partial class VoidwalkerKidnappingSystem : EntitySystem
             return false;
 
 
+        var newSpawn = spawnPoints[0];
         if (_net.IsServer)
+            newSpawn = _random.Pick(spawnPoints);
+
+        var spawnTarget = Transform(newSpawn.Uid).Coordinates;
+
+        _transform.SetCoordinates(target, spawnTarget);
+        _rejuvenate.PerformRejuvenate(target);
+
+        var stunDuration = TimeSpan.FromSeconds(5);
+        if (sender is { } kidnapper)
         {
-            var newSpawn = _random.Pick(spawnPoints);
-            var spawnTarget = Transform(newSpawn.Uid).Coordinates;
+            stunDuration = kidnapper.Comp.KidnapStunDuration;
 
-            _transform.SetCoordinates(target, spawnTarget);
-            _rejuvenate.PerformRejuvenate(target);
-
-            var stunDuration = TimeSpan.FromSeconds(5);
-            if (sender is { } kidnapper)
-                stunDuration = kidnapper.Comp.KidnapStunDuration;
-
-            _stun.KnockdownOrStun(target, stunDuration);
-
-            // need more sfx here later
+            if (_mind.TryGetMind(kidnapper, out var voidwalkerMindId, out var voidwalkerMind)
+                && _mind.TryGetObjectiveComp<VoidwalkerKidnapConditionComponent>(voidwalkerMindId, out var objective, voidwalkerMind))
+                objective.Kidnapped += 1;
         }
 
-
-
-
+        _stun.KnockdownOrStun(target, stunDuration);
         return true;
     }
 

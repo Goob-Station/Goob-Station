@@ -9,6 +9,7 @@ public sealed partial class NebulaCrawlSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<NebulaCrawlComponent, ComponentStartup>(OnNebulaCrawlStartup);

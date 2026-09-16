@@ -49,6 +49,7 @@ public sealed partial class VoidwalkerUnsettleSystem : EntitySystem
     {
         _actions.RemoveAction(entity.Owner, entity.Comp.UnsettleActionEntity);
     }
+
     private void OnUnsettle(Entity<VoidwalkerUnsettleComponent> entity, ref VoidwalkerUnsettleEvent args)
     {
         var target = args.Target;

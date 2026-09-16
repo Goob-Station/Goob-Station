@@ -8,8 +8,6 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Voidwalker;
 
-// TODO : Station compass pointer.
-
 /// <summary>
 /// Handles loading and de-loading the void.
 /// </summary>

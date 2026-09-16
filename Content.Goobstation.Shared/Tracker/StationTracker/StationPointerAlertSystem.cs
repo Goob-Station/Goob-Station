@@ -21,16 +21,23 @@ public sealed partial class StationPointerAlertSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<StationPointerAlertComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<StationPointerAlertComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     private void OnMapInit(Entity<StationPointerAlertComponent> entity, ref MapInitEvent args)
     {
         entity.Comp.Station = TryGetStation(entity);
+        Dirty(entity);
+        UpdateDirection(entity);
     }
 
-    private void UpdateDirection(Entity<StationPointerAlertComponent> entity, MapCoordinates? coordinates)
+    private void OnComponentShutdown(Entity<StationPointerAlertComponent> entity, ref ComponentShutdown args)
     {
         _alert.ClearAlert(entity.Owner, entity.Comp.TrackerAlertProto);
+    }
+
+    private void UpdateDirection(Entity<StationPointerAlertComponent> entity, MapCoordinates? coordinates = null)
+    {
         _proto.TryIndex(entity.Comp.TrackerAlertProto, out var alertProto);
         if (alertProto == null)
             return;
