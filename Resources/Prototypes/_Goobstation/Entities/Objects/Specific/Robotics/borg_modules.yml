@@ -115,3 +115,86 @@
           - Organ
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
+
+# S.E.C. cyborg modules (Goobstation)
+- type: entity
+  id: BaseSECborgModule
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  abstract: true
+  components:
+  - type: BorgModule
+    borgFitTypes:
+    - borg-type-sec
+  - type: Tag
+    tags:
+    - BorgModuleSEC
+
+- type: entity
+  id: BorgModuleSECNonLethal
+  parent: BaseSECborgModule
+  name: S.E.C. non-lethal module
+  description: The standard-issue compliance module for the S.E.C. cyborg. Comes with a stun baton, a disabler and a combat knife, as well as storage slots for bolas and restraints.
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-tools
+  - type: ItemBorgModule
+    hands:
+    - item: Stunbaton
+    - item: WeaponDisabler
+    - item: CombatKnife
+    - hand:
+        emptyLabel: borg-slot-BolaEnergy-empty-goob
+        emptyRepresentative: BolaEnergy
+        whitelist:
+          components:
+          - Ensnaring
+    - hand:
+        emptyLabel: borg-slot-Handcuffs-empty-goob
+        emptyRepresentative: Handcuffs
+        whitelist:
+          tags:
+          - Handcuffs
+  - type: BorgModuleIcon
+    icon: { sprite: Objects/Weapons/Melee/stunbaton.rsi, state: stunbaton_off }
+
+- type: entity
+  id: BorgModuleSECLethal
+  parent: BaseSECborgModule
+  name: S.E.C. lethal module
+  description: The lethal-response module for the S.E.C. cyborg. Its slots accept either a Lecter or its ammunition, to be provided by security.
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - hand:
+        emptyLabel: borg-slot-WeaponRifleLecter-empty-goob
+        emptyRepresentative: WeaponRifleLecter
+        whitelist:
+          tags:
+          - WeaponRifleLecter
+    - hand:
+        emptyLabel: borg-slot-magazine-rifle-empty-goob
+        emptyRepresentative: MagazineRifle
+        whitelist:
+          tags:
+          - WeaponRifleLecter
+          - MagazineRifle
+    - hand:
+        emptyLabel: borg-slot-magazine-rifle-empty-goob
+        emptyRepresentative: MagazineRifle
+        whitelist:
+          tags:
+          - MagazineRifle
+    - hand:
+        emptyLabel: borg-slot-magazine-rifle-empty-goob
+        emptyRepresentative: MagazineRifle
+        whitelist:
+          tags:
+          - MagazineRifle
+  - type: BorgModuleIcon
+    icon: { sprite: Objects/Weapons/Guns/Rifles/lecter.rsi, state: base }
