@@ -114,7 +114,6 @@
   - type: GhostTakeoverAvailable
 
 # S.E.C. cyborg (Goobstation)
-# Placeholder sprite: _Goobstation/Mobs/Silicon/sec_chassis.rsi uses dead-space sec_e/sec_e_r/sec_l + peace placeholder for sec base.
 - type: entity
   id: BorgChassisSEC
   parent: BaseBorgChassisNT
