@@ -25246,3 +25246,9 @@ Entries:
         botched assassinations!
   id: 2890
   time: '2026-09-16T20:11:58.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to recall some of the nullrod
+  id: 2891
+  time: '2026-09-16T20:12:25.0000000+00:00'
