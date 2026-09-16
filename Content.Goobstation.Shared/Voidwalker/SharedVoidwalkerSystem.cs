@@ -16,6 +16,7 @@ using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Traits.Assorted;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Voidwalker;
@@ -26,6 +27,7 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TrackedComponentsSystem _trackedComponents = default!;
@@ -139,6 +141,7 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
             return false;
 
         if (voidwalkerAction.RequireInSpace
+            && _net.IsServer
             && TryComp<SpacedStatusComponent>(entity, out var spaced)
             && !spaced.IsInSpace)
         {

@@ -158,10 +158,6 @@
     guides:
     - Voidwalker
   - type: GunBlocked
-  - type: Inventory
-    speciesId: voidwalker
-    templateId: voidwalker
-  - type: InventorySlots
   - type: NpcFactionMember
     factions:
     - Void
