@@ -303,6 +303,7 @@ public sealed partial class DoAfterArgs
         CancelDuplicate = other.CancelDuplicate;
         DuplicateCondition = other.DuplicateCondition;
         ShowTo = other.ShowTo; // Goobstation - Show doAfter popup to another entity
+        IgnoreObstruction = other.IgnoreObstruction; // Goobstation
 
         MultiplyDelay = other.MultiplyDelay; // Goobstation
         ColorOverride = other.ColorOverride; // Goobstation
