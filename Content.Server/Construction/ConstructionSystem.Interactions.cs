@@ -424,7 +424,11 @@ namespace Content.Server.Construction
                         break;
 
                     if (partAssemblyStep.Condition(uid, EntityManager))
+                    {
+                        if (validation)
+                            return HandleResult.Validated;
                         return HandleResult.True;
+                    }
                     return HandleResult.False;
                 }
 

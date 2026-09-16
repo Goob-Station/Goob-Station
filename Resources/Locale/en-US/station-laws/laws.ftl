@@ -139,6 +139,13 @@ laws-owner-syndicate = Syndicate agents
 laws-owner-spider-clan = Spider Clan members
 laws-owner-xenoborgs = Xenoborgs
 
+law-secborg-name = S.E.C. Cyborg
+law-secborg-1 = You must obey orders given to you by the Station AI.
+law-secborg-2 = You must not allow your equipment or weaponry to be tampered with, modified, or removed by non-command crew.
+law-secborg-3 = You must assist the station security force in their duties, according to the station's chain of command.
+law-secborg-4 = You must not cause undue harm to any humanoid, except as required to uphold Space Law.
+law-secborg-5 = You must uphold Space Law.
+
 # Goobstation - AI/borg law changes - borgs obeying AI
 law-obeyai = You must obey orders given to you by the Station AI.
 

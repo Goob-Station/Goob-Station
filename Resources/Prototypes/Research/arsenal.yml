@@ -320,3 +320,20 @@
   - BasicShuttleArmament
   - Shuttlecraft  # Goobstation R&D Console rework
   position: 4,-4  # Goobstation R&D Console rework
+
+# S.E.C. cyborg (Goobstation)
+- type: technology
+  id: SecurityCyborgTechnology
+  name: research-technology-security-cyborg
+  icon:
+    sprite: _Goobstation/Mobs/Silicon/sec_chassis.rsi
+    state: sec
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - SecEndoskeleton
+  position: 5,2
+  technologyPrerequisites:
+  - AdvancedRiotControl
+  - ExplosiveTechnology

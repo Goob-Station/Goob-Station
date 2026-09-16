@@ -54,6 +54,18 @@
   materials:
     Steel: 1500
 
+  # S.E.C. cyborg (Goobstation)
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: SecEndoskeleton
+  result: CyborgEndoskeletonSEC
+  completetime: 4
+  materials:
+    Steel: 1500
+    Gold: 200
+    Silver: 200
+    Uranium: 100
+
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
   id: LeftArmBorg

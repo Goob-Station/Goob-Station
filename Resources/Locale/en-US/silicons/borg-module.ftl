@@ -11,6 +11,13 @@ borg-type-service = [color= #508242]service cyborgs[/color]
 borg-type-syndicate = [color= #962023]syndicate cyborgs[/color]
 borg-type-syndicate-assault = [color= #680a0d]syndicate assault cyborgs[/color]
 
+borg-type-sec = [color= #326496]S.E.C. cyborgs[/color]
+
+borg-slot-BolaEnergy-empty-goob = The module has a slot for an energy bola.
+borg-slot-Handcuffs-empty-goob = The module has a slot for restraints.
+borg-slot-WeaponRifleLecter-empty-goob = The module has a slot for a Lecter.
+borg-slot-magazine-rifle-empty-goob = The module has a slot for a .20 rifle magazine.
+
 xenoborg-type-all = [color= #3d94ff]any xenoborg[/color]
 xenoborg-type-engi = [color= #edd45b]engi xenoborgs[/color]
 xenoborg-type-heavy = [color= #d62020]heavy xenoborgs[/color]

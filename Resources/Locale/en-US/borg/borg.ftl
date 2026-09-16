@@ -38,6 +38,9 @@ borg-transponder-destroying-popup = The self destruct of {$name} starts beeping!
 borg-transponder-emagged-disabled-popup = Your transponder's lights go out!
 borg-transponder-emagged-destroyed-popup = Your transponder's fuse blows!
 
+# S.E.C. cyborg (Goobstation)
+sec-borg-self-destruct-popup = The self destruct of the S.E.C. cyborg detonates!
+
 ## Borg type selection UI.
 borg-select-type-menu-title = Select Chassis Type
 borg-select-type-menu-bottom-text = Chassis selection is irreversible

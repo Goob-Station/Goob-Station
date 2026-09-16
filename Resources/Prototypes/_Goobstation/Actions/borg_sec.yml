@@ -1,0 +1,18 @@
+# S.E.C. cyborg (Goobstation)
+- type: entity
+  parent: BaseAction
+  id: ActionSECBorgSelfDestruct
+  name: Self-Destruct Chassis
+  description: Detonate your chassis, ejecting your brain clear of the blast. There is no coming back from this.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_borg.rsi
+      state: syndicate-martyr-module
+    useDelay: 1
+  - type: InstantAction
+    event: !type:SECBorgSelfDestructEvent
