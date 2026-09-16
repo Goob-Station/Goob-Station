@@ -25238,3 +25238,11 @@ Entries:
       message: Slot machine emag effect is slighty different now
   id: 2889
   time: '2026-09-16T20:11:32.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: >-
+        Pizzabomb now detonates when opened via the E key. No more awkward
+        botched assassinations!
+  id: 2890
+  time: '2026-09-16T20:11:58.0000000+00:00'
