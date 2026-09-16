@@ -36,17 +36,23 @@ public sealed partial class StationPointerAlertSystem : EntitySystem
         _alert.ClearAlert(entity.Owner, entity.Comp.TrackerAlertProto);
     }
 
-    private void UpdateDirection(Entity<StationPointerAlertComponent> entity, MapCoordinates? coordinates = null)
+    private void UpdateDirection(Entity<StationPointerAlertComponent> entity, EntityUid? station = null)
     {
-        _proto.TryIndex(entity.Comp.TrackerAlertProto, out var alertProto);
-        if (alertProto == null)
+        if (!_proto.TryIndex(entity.Comp.TrackerAlertProto, out var alertProto))
             return;
 
         var severity = TrackerSystem.CenterSeverity;
-        if (coordinates != null)
-            severity = _tracker.GetAlertSeverity(entity.Owner, coordinates.Value);
 
-        _alert.ShowAlert(entity.Owner, entity.Comp.TrackerAlertProto, severity);
+        if (station is { } stationUid)
+        {
+            if (_transform.GetGrid(entity.Owner) != stationUid)
+            {
+                var coordinates = _transform.GetMapCoordinates(stationUid);
+                severity = _tracker.GetAlertSeverity(entity.Owner, coordinates);
+            }
+        }
+
+        _alert.ShowAlert(entity.Owner, alertProto, severity);
     }
     public override void Update(float frameTime)
     {
@@ -61,10 +67,9 @@ public sealed partial class StationPointerAlertSystem : EntitySystem
                 continue;
 
             tracker.Station = TryGetStation((uid, tracker));
-
             if (tracker.Station != null)
             {
-                UpdateDirection((uid, tracker), _transform.GetMapCoordinates(tracker.Station.Value));
+                UpdateDirection((uid, tracker), tracker.Station);
                 continue;
             }
 
