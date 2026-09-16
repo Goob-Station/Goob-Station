@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Voidwalker.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class VoidwalkerComponent : Component
 {
     /// <summary>
@@ -38,11 +38,8 @@ public sealed partial class VoidwalkerComponent : Component
         },
     };
 
-    /// <summary>
-    /// Tracks components added while dragging another target.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public HashSet<string> DraggingAddedComponents = [];
+    [DataField]
+    public string TrackedComponentsIdentifier = "Voidwalker";
 
     /// <summary>
     /// What to multiply the voidwalker's speed by when they're in a non-spaced area.

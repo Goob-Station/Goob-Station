@@ -1,6 +1,6 @@
 using Content.Goobstation.Common.Atmos;
-using Content.Goobstation.Common.Grab;
-using Content.Goobstation.Shared.Voidwalker.Abilities.Unsettle;
+using Content.Goobstation.Common.Body.Components;
+using Content.Goobstation.Shared.TrackedComponents;
 using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.GlassPasser;
@@ -12,7 +12,6 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
-using Content.Shared.Stealth.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Timing;
@@ -30,6 +29,7 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TrackedComponentsSystem _trackedComponents = default!;
 
     public override void Initialize()
     {
@@ -158,43 +158,6 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
                || blindable.EyeDamage < blindable.MaxDamage;
     }
 
-
-    private T EnsureTrackedComp<T>(EntityUid uid, Entity<VoidwalkerComponent> ent, T? preconfigured = null) where T : Component, new()
-    {
-        if (TryComp<T>(uid, out var existing))
-            return existing;
-
-        var componentName = typeof(T).FullName;
-        if (componentName != null)
-            ent.Comp.DraggingAddedComponents.Add(componentName);
-
-        if (preconfigured != null)
-        {
-            AddComp(uid, preconfigured);
-            return preconfigured;
-        }
-
-        return EnsureComp<T>(uid);
-    }
-
-    /// <summary>
-    /// Removes tracked components.
-    /// </summary>
-    private void RemoveTrackedComps(EntityUid uid, Entity<VoidwalkerComponent> ent)
-    {
-        if (ent.Comp.DraggingAddedComponents.Count == 0)
-            return;
-
-        foreach (var component in EntityManager.GetComponents(uid))
-        {
-            var componentName = component.GetType().FullName;
-            if (componentName != null && ent.Comp.DraggingAddedComponents.Contains(componentName))
-                RemCompDeferred(uid, component.GetType());
-        }
-
-        ent.Comp.DraggingAddedComponents.Clear();
-    }
-
     #region Dragging
 
     /// <summary>
@@ -204,15 +167,16 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     private void OnPullStarted(Entity<VoidwalkerComponent> entity, ref PullStartedMessage args)
     {
         _movement.RefreshMovementSpeedModifiers(entity);
-        Dirty(entity);
-        EnsureTrackedComp<SpecialPressureImmunityComponent>(args.PulledUid, entity);
+        _trackedComponents.EnsureTrackedComp<SpecialPressureImmunityComponent>(args.PulledUid, entity.Comp.TrackedComponentsIdentifier);
+        _trackedComponents.EnsureTrackedComp<SpecialBreathingImmunityComponent>(args.PulledUid, entity.Comp.TrackedComponentsIdentifier);
+        Dirty(entity); // these special comps can probably be axed with the comp tracking system, but I'm not getting paid for that
     }
 
     private void OnPullStopped(Entity<VoidwalkerComponent> entity, ref PullStoppedMessage args)
     {
         _movement.RefreshMovementSpeedModifiers(entity);
+        _trackedComponents.RemoveTrackedComps(args.PulledUid, entity.Comp.TrackedComponentsIdentifier);
         Dirty(entity);
-        RemoveTrackedComps(args.PulledUid, entity);
     }
 
     #endregion

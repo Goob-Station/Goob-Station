@@ -1,4 +1,5 @@
 using Content.Goobstation.Server.Voidwalker.Kidnapping;
+using Content.Goobstation.Shared.TrackedComponents;
 using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.Spaced;
@@ -21,6 +22,7 @@ public sealed class VoidedSystem : EntitySystem
     [Dependency] private readonly VoidwalkerKidnappingSystem _voidKidnapping = null!;
     [Dependency] private readonly VomitSystem _vomit = null!;
     [Dependency] private readonly SharedMapSystem _map = null!;
+    [Dependency] private readonly TrackedComponentsSystem _trackedComponents = null!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -49,10 +51,10 @@ public sealed class VoidedSystem : EntitySystem
 
     private void OnStartup(Entity<VoidedComponent> entity, ref ComponentStartup args)
     {
-        EnsureTrackedComp<VoidedVisualsComponent>(entity, entity);
-        EnsureTrackedComp<VoidAccentComponent>(entity, entity); // This was muted in ss13, but I think this accent is cooler.
-        EnsureTrackedComp<PacifiedComponent>(entity, entity);
-        var spaced = EnsureTrackedComp<SpacedStatusComponent>(entity, entity);
+        _trackedComponents.EnsureTrackedComp<VoidedVisualsComponent>(entity, entity.Comp.TrackedComponentsIdentifier);
+        _trackedComponents.EnsureTrackedComp<VoidAccentComponent>(entity, entity.Comp.TrackedComponentsIdentifier); // This was muted in ss13, but I think this accent is cooler.
+        _trackedComponents.EnsureTrackedComp<PacifiedComponent>(entity, entity.Comp.TrackedComponentsIdentifier);
+        var spaced = _trackedComponents.EnsureTrackedComp<SpacedStatusComponent>(entity, entity.Comp.TrackedComponentsIdentifier);
         spaced.CheckOnInterval = false; // we can do it ourselves
 
         SetNextVomitTime(entity);
@@ -60,7 +62,7 @@ public sealed class VoidedSystem : EntitySystem
 
     private void OnShutdown(Entity<VoidedComponent> entity, ref ComponentShutdown args)
     {
-        RemoveTrackedComps(entity, entity);
+        _trackedComponents.RemoveTrackedComps(entity, entity.Comp.TrackedComponentsIdentifier);
     }
 
     private void SetNextVomitTime(Entity<VoidedComponent> voided) =>
@@ -101,44 +103,4 @@ public sealed class VoidedSystem : EntitySystem
         }
     }
 
-    #region Helpers
-
-    // ok there's probably a better way to do this but it is currently like two AM and I no no wanna so
-    private T EnsureTrackedComp<T>(EntityUid uid, Entity<VoidedComponent> ent, T? preconfigured = null) where T : Component, new()
-    {
-        if (TryComp<T>(uid, out var existing))
-            return existing;
-
-        var componentName = typeof(T).FullName;
-        if (componentName != null)
-            ent.Comp.AddedComponents.Add(componentName);
-
-        if (preconfigured != null)
-        {
-            AddComp(uid, preconfigured);
-            return preconfigured;
-        }
-
-        return EnsureComp<T>(uid);
-    }
-
-    /// <summary>
-    /// Removes tracked components.
-    /// </summary>
-    private void RemoveTrackedComps(EntityUid uid, Entity<VoidedComponent> ent)
-    {
-        if (ent.Comp.AddedComponents.Count == 0)
-            return;
-
-        foreach (var component in EntityManager.GetComponents(uid))
-        {
-            var componentName = component.GetType().FullName;
-            if (componentName != null && ent.Comp.AddedComponents.Contains(componentName))
-                RemCompDeferred(uid, component.GetType());
-        }
-
-        ent.Comp.AddedComponents.Clear();
-    }
-
-    #endregion
 }
