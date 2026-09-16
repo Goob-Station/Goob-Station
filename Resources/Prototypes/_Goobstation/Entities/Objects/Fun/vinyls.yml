@@ -567,10 +567,582 @@
   name: "vinyl disk: Space Asshole"
   components:
   - type: Sprite
-    state: red-vinyl-disk
+    state: orange-vinyl-disk
   - type: Vinyl
     song:
       path: /Audio/Lobby/space_asshole.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskAdventure1
+  name: "vinyl disk: adventure 1"
+  components:
+  - type: Sprite
+    state: purple-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/adventure_1.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskAdventure2
+  name: "vinyl disk: adventure 2"
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/adventure_2.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskAdventure4
+  name: "vinyl disk: adventure 4"
+  components:
+  - type: Sprite
+    state: cyan-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/adventure_4.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskAdventure5
+  name: "vinyl disk: adventure 5"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/adventure_5.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskAdventure6
+  name: "vinyl disk: adventure 6"
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/adventure_6.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskAfterParty
+  name: "vinyl disk: after party"
+  components:
+  - type: Sprite
+    state: lightishred-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/after_party.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskAnonymous
+  name: "vinyl disk: anonymous"
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/anonymous.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskApril
+  name: "vinyl disk: april"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/april.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskAtmosphere
+  name: "vinyl disk: atmosphere"
+  components:
+  - type: Sprite
+    state: yellow-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/atmosphere.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskAugust
+  name: "vinyl disk: august"
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/august.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskBanjo1
+  name: "vinyl disk: Banjo 1"
+  components:
+  - type: Sprite
+    state: pink-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/Banjo1.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskBiodome
+  name: "vinyl disk: biodome"
+  components:
+  - type: Sprite
+    state: green-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/biodome.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskBlackWing
+  name: "vinyl disk: black wing interface"
+  components:
+  - type: Sprite
+    state: lime-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/black_wing_interface.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskBumblebee
+  name: "vinyl disk: bumblebee"
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/bumblebee.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskButtris
+  name: "vinyl disk: buttris"
+  components:
+  - type: Sprite
+    state: carrot-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/buttris.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskChill1
+  name: "vinyl disk: chill 1"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/chill_1.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskChill2
+  name: "vinyl disk: chill 2"
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/chill_2.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskChill3
+  name: "vinyl disk: chill 3"
+  components:
+  - type: Sprite
+    state: darkblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/chill_3.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskChill4
+  name: "vinyl disk: chill 4"
+  components:
+  - type: Sprite
+    state: cyan-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/chill_4.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskCloudMan
+  name: "vinyl disk: cloud sky man guy"
+  components:
+  - type: Sprite
+    state: yellow-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/cloudskymanguy.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskCoreOfPoo
+  name: "vinyl disk: core of poo"
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/core_of_poo.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskDecember
+  name: "vinyl disk: December"
+  components:
+  - type: Sprite
+    state: green-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/december.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskDiscoPoo
+  name: "vinyl disk: disco poo"
+  components:
+  - type: Sprite
+    state: earth-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/disco_poo.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskEggShell
+  name: "vinyl disk: eggshell"
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/eggshell.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskFebruary
+  name: "vinyl disk: February"
+  components:
+  - type: Sprite
+    state: greenish-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/february.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskFunkadelic
+  name: "vinyl disk: Funkadelic"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/funkadelic.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskGiga
+  name: "vinyl disk: Giga"
+  components:
+  - type: Sprite
+    state: lightblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/giga.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskGraveyard
+  name: "vinyl disk: Graveyard"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/graveyard.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskTechnologicBeat
+  name: "vinyl disk: high technologic beat"
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/high_technologic_beat.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskItFeelsGood
+  name: "vinyl disk: it feels good to be alive too"
+  components:
+  - type: Sprite
+    state: lime-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/it_feels_good_to_be_alive_too.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskJanuary
+  name: "vinyl disk: january"
+  components:
+  - type: Sprite
+    state: cyan-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/january.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskJuly
+  name: "vinyl disk: july"
+  components:
+  - type: Sprite
+    state: green-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/july.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskJune
+  name: "vinyl disk: june"
+  components:
+  - type: Sprite
+    state: lime-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/june.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskLunch
+  name: "vinyl disk: lunch"
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/lunch.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskMarch
+  name: "vinyl disk: march"
+  components:
+  - type: Sprite
+    state: greenish-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/march.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskMaxi
+  name: "vinyl disk: maxi"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/maxi.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskMay
+  name: "vinyl disk: may"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/may.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskMonkeyRiot
+  name: "vinyl disk: monkey riot"
+  components:
+  - type: Sprite
+    state: darkblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/monkey_riot.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskNovember
+  name: "vinyl disk: November"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/november.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskOctober
+  name: "vinyl disk: October"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/october.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskEvilStar
+  name: "vinyl disk: oh no evil star"
+  components:
+  - type: Sprite
+    state: lime-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/oh_no_evil_star.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskPlanets
+  name: "vinyl disk: planets"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/planets.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskRepose
+  name: "vinyl disk: repose"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/repose.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskRiverdancer
+  name: "vinyl disk: river dancer"
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/riverdancer.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskSecondReality
+  name: "vinyl disk: second reality"
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/second_reality.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskSeptember
+  name: "vinyl disk: September"
+  components:
+  - type: Sprite
+    state: earth-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/september.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskSpaceGardener
+  name: "vinyl disk: Space Gardener"
+  components:
+  - type: Sprite
+    state: floaty-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/space_gardener.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskSpaceUguu
+  name: "vinyl disk: uguu"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/uguu.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskUpbeat1
+  name: "vinyl disk: upbeat 1"
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/upbeat_1.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskUpbeat2
+  name: "vinyl disk: upbeat 2"
+  components:
+  - type: Sprite
+    state: white-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/upbeat_2.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskWarriorsHonk
+  name: "vinyl disk: warriors honk"
+  components:
+  - type: Sprite
+    state: yellow-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/warriors_honk.ogg
+
+- type: entity
+  parent: BaseVinylDisk
+  id: VinylDiskWayStations
+  name: "vinyl disk: waystations"
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Goobstation/RadioStation/music/goonstation/waystations.ogg
 
 - type: entity
   name: broken vinyl disk
