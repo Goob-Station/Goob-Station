@@ -13,6 +13,7 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
+using Content.Shared.Stealth.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Timing;
@@ -42,7 +43,9 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
 
     private void OnStartup(Entity<VoidwalkerComponent> entity, ref ComponentStartup args)
     {
-        EnsureComp<StationPointerAlertComponent>(entity);
+        _trackedComponents.EnsureTrackedComp<StationPointerAlertComponent>(entity, entity.Comp.TrackedComponentsIdentifier);
+        _trackedComponents.EnsureTrackedComp<StealthComponent>(entity, entity.Comp.TrackedComponentsIdentifier);
+
         var spaced = EnsureComp<SpacedStatusComponent>(entity);
         spaced.IsInSpace = false;
         HandleSpaceStatus(entity, false);
@@ -104,8 +107,11 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
         if (TerminatingOrDeleted(entity))
             return;
 
-        _stealth.SetEnabled(entity, spaced);
-        _stealth.SetThermalsImmune(entity, spaced);
+        if (HasComp<StealthComponent>(entity))
+        {
+            _stealth.SetEnabled(entity, spaced);
+            _stealth.SetThermalsImmune(entity, spaced);
+        }
 
         _movement.RefreshMovementSpeedModifiers(entity);
         Dirty(entity);
