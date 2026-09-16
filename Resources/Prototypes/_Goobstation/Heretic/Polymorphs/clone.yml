@@ -43,6 +43,7 @@
   # Einstein Engines - Language begin
   - LanguageSpeaker
   - LanguageKnowledge
+  - ForeignerTrait
   # Einstein Engines - Language end
   blacklist:
     components:

@@ -137,7 +137,7 @@
       Male: Xenomorph
       Female: Xenomorph
       Unsexed: Xenomorph
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - Xeno
 #    - XenoHivemind # Goobstation - collective mind
