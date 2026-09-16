@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Voidwalker.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class VoidwalkerComponent : Component
 {
     /// <summary>
@@ -14,9 +14,10 @@ public sealed partial class VoidwalkerComponent : Component
     /// This is to prevent being able to stand inside a passed object, since they have no atmosphere inside.
     /// If you can think of a better way to handle this, do tell me - delph
     /// </summary>
+    [DataField]
     public float PassedObjectGraceRange = 1.0f; //
 
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextHealingTick;
 
     [DataField]
@@ -44,7 +45,7 @@ public sealed partial class VoidwalkerComponent : Component
     /// <summary>
     /// What to multiply the voidwalker's speed by when they're in a non-spaced area.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float NonSpacedSpeedModifier = 0.6f;
 
     [DataField]

@@ -3,19 +3,19 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Voidwalker.Spaced;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class SpacedStatusComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IsInSpace;
 
     [DataField]
     public bool CheckOnInterval = true;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Changed = true;
 
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan NextSpacedCheck;
 
     [DataField]
