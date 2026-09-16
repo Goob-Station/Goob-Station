@@ -17,9 +17,6 @@ public sealed partial class VoidwalkerSystem : EntitySystem
 {
     [Dependency] private readonly SharedMapSystem _map = null!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = null!;
-    [Dependency] private readonly MetaDataSystem _meta = null!;
-    [Dependency] private readonly SharedTransformSystem _transform = null!;
-    [Dependency] private readonly AtmosphereSystem _atmos = null!;
 
     private readonly ResPath _mapPath = new("Maps/_Goobstation/Nonstations/voidwalkervoid.yml");
     private static Entity<MapComponent>? _theVoid;
@@ -39,8 +36,6 @@ public sealed partial class VoidwalkerSystem : EntitySystem
                 out _,
                 new DeserializationOptions { InitializeMaps = true }))
             _map.SetPaused(_theVoid.Value.Comp.MapId, false);
-
-        _meta.AddFlag(entity, MetaDataFlags.ExtraTransformEvents);
     }
 
     private void OnCleanup(RoundRestartCleanupEvent args)

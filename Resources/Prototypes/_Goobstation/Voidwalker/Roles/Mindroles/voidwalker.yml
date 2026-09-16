@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleVoidwalker
+  name: Voidwalker Role
+  components:
+  - type: MindRole
+    antagPrototype: Voidwalker
+    roleType: SoloAntagonist
+    subtype: role-subtype-voidwalker
+    exclusiveAntag: true

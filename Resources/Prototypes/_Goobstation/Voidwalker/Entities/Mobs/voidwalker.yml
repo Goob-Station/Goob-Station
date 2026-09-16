@@ -65,9 +65,6 @@
     - MindRoleGhostRoleSoloAntagonistGoob
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 10h
   - type: GhostTakeoverAvailable
   - type: MobThresholds
     thresholds:
@@ -161,11 +158,17 @@
     guides:
     - Voidwalker
   - type: GunBlocked
+  - type: Inventory
+    speciesId: voidwalker
+    templateId: voidwalker
+  - type: InventorySlots
   - type: NpcFactionMember
     factions:
     - Void
 
 - type: startingGear
   id: VoidwalkerGear
+  equipment:
+    pocket1: PinpointerStationUnremoveable # Make evil fucked up pinpointer for vwalker.
   inhand:
   - VoideaterUnremoveable

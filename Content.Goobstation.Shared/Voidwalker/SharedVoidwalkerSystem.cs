@@ -34,7 +34,6 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<VoidwalkerComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<VoidwalkerComponent, GridUidChangedEvent>(OnGridUidChanged);
 
         SubscribeLocalEvent<VoidwalkerComponent, ThrowEvent>(OnThrow);
         SubscribeLocalEvent<VoidwalkerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
@@ -75,9 +74,6 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
             voidwalker.NextHealingTick = curTime + voidwalker.HealingTickInterval;
         }
     }
-
-    private void OnGridUidChanged(Entity<VoidwalkerComponent> entity, ref GridUidChangedEvent args) =>
-        UpdateSpacedStatus(entity);
 
     // we update the speed modifiers on throw otherwise it fucks our modifier for some reason
     private void OnThrow(Entity<VoidwalkerComponent> entity, ref ThrowEvent args) =>
@@ -207,11 +203,15 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
     /// </summary>
     private void OnPullStarted(Entity<VoidwalkerComponent> entity, ref PullStartedMessage args)
     {
+        _movement.RefreshMovementSpeedModifiers(entity);
+        Dirty(entity);
         EnsureTrackedComp<SpecialPressureImmunityComponent>(args.PulledUid, entity);
     }
 
     private void OnPullStopped(Entity<VoidwalkerComponent> entity, ref PullStoppedMessage args)
     {
+        _movement.RefreshMovementSpeedModifiers(entity);
+        Dirty(entity);
         RemoveTrackedComps(args.PulledUid, entity);
     }
 
