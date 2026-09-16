@@ -41,8 +41,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         DoAfterComponent comp,
         TimeSpan time,
         EntityQuery<TransformComponent> xformQuery,
-        EntityQuery<HandsComponent> handsQuery,
-        bool ignoreObstruction = false) // Goobstation - Ignore Obstruction
+        EntityQuery<HandsComponent> handsQuery)
     {
         var dirty = false;
 
@@ -75,7 +74,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
                 continue;
             }
 
-            if (ShouldCancel(doAfter, xformQuery, handsQuery, ignoreObstruction)) // Goobstation - Ignore Obstruction
+            if (ShouldCancel(doAfter, xformQuery, handsQuery))
             {
                 InternalCancel(doAfter, comp);
                 dirty = true;
