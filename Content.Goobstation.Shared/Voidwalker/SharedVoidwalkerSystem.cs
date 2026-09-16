@@ -1,6 +1,7 @@
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Shared.TrackedComponents;
+using Content.Goobstation.Shared.Tracker.StationTracker;
 using Content.Goobstation.Shared.Voidwalker.Actions;
 using Content.Goobstation.Shared.Voidwalker.Components;
 using Content.Goobstation.Shared.Voidwalker.GlassPasser;
@@ -18,9 +19,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Voidwalker;
 
-/// <summary>
-/// Handles like... everything else about Voidwalkers.
-/// </summary>
 public sealed partial class SharedVoidwalkerSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
@@ -44,6 +42,7 @@ public sealed partial class SharedVoidwalkerSystem : EntitySystem
 
     private void OnStartup(Entity<VoidwalkerComponent> entity, ref ComponentStartup args)
     {
+        EnsureComp<StationPointerAlertComponent>(entity);
         var spaced = EnsureComp<SpacedStatusComponent>(entity);
         spaced.IsInSpace = false;
         HandleSpaceStatus(entity, false);

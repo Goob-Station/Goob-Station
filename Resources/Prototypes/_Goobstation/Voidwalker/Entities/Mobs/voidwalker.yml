@@ -168,7 +168,5 @@
 
 - type: startingGear
   id: VoidwalkerGear
-  equipment:
-    pocket1: PinpointerStationUnremoveable # Make evil fucked up pinpointer for vwalker.
   inhand:
   - VoideaterUnremoveable
