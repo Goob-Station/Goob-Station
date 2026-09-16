@@ -35,7 +35,7 @@ public sealed partial class ReagentCrawlComponent : Component
     /// This is the entity of the abilities action.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid ActionEntity = EntityUid.Invalid;
+    public EntityUid? ActionEntity = EntityUid.Invalid;
 
     /// <summary>
     /// This is the polymorph this ability uses.
