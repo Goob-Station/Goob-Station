@@ -87,3 +87,6 @@ public sealed partial class GangDuffelBagUntrapDoAfterEvent : SimpleDoAfterEvent
 
 [DataDefinition]
 public sealed partial class GangTipOffEvent : EntityEventArgs;
+
+[ByRefEvent]
+public record struct GangInviteServerCheckEvent(EntityUid Leader, EntityUid Target, bool Cancelled = false);
