@@ -34,12 +34,12 @@ public abstract class SharedReagentCrawlSystem : EntitySystem
         _actionQuery = GetEntityQuery<ActionsComponent>();
         _puddleQuery = GetEntityQuery<PuddleComponent>();
 
-        SubscribeLocalEvent<ReagentCrawlComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ReagentCrawlComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<ReagentCrawlComponent, ReagentCrawlEvent>(OnReagentCrawl);
     }
 
-    private void OnStartup(EntityUid uid, ReagentCrawlComponent  component, ComponentStartup args)
+    private void OnMapInit(EntityUid uid, ReagentCrawlComponent  component, MapInitEvent args)
     {
         if (!_actionQuery.TryGetComponent(uid, out var actions))
             return;
