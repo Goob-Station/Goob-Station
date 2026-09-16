@@ -3,7 +3,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
-using Content.Shared.Tag;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
