@@ -25252,3 +25252,9 @@ Entries:
       message: Fixed being unable to recall some of the nullrod
   id: 2891
   time: '2026-09-16T20:12:25.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: 'New HECU gamerule. Functions as weaker ERT. '
+  id: 2892
+  time: '2026-09-16T20:13:01.0000000+00:00'
