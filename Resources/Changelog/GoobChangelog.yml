@@ -25216,3 +25216,11 @@ Entries:
       message: nozzles and monkey cubes can now fit in the xenobiology pouch
   id: 2886
   time: '2026-09-15T23:14:31.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added 54 new vinyls for the radio host
+    - type: Tweak
+      message: the "joke" vinyl disks spawn less commonly now
+  id: 2887
+  time: '2026-09-16T12:16:50.0000000+00:00'
