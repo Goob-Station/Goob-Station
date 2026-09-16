@@ -164,6 +164,13 @@ public sealed partial class DoAfterArgs
     /// </summary>
     [DataField]
     public bool RequireCanInteract = true;
+
+    /// <summary>
+    /// Whether or not the do-after should ignore objects like windows in between the target and the user.
+    /// Goobstation
+    /// </summary>
+    [DataField]
+    public bool IgnoreObstruction = false;
     #endregion
 
     #region Duplicates

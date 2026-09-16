@@ -117,6 +117,7 @@
     exclusiveAntag: false
     subtype: role-subtype-gang-member
   - type: GangRole
+
 # Gemini
 
 - type: entity

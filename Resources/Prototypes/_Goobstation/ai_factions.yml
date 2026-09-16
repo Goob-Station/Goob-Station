@@ -29,3 +29,14 @@
   - Lavafauna
   - AllHostile
   - Xenoborg
+
+- type: npcFaction
+  id: Void
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Zombie
+  - Revolutionary
+  - Heretic
+  - Wizard
+  - Blob

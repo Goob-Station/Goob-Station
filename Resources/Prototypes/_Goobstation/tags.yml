@@ -137,6 +137,9 @@
   id: DurandTargetingControlModule
 
 - type: Tag
+  id: DoAfterIgnoreObstructionPrediction
+
+- type: Tag
   id: EmergencyMedipen
 
 - type: Tag
@@ -234,6 +237,9 @@
 
 - type: Tag
   id: GygaxTargetingControlModule
+
+- type: Tag
+  id: Grille
 
 - type: Tag
   id: GunCanAimShooter
@@ -601,6 +607,9 @@
 
 - type: Tag
   id: VulpEmotes
+
+- type: Tag
+  id: VoidedStructure
 
 - type: Tag
   id: Vial
