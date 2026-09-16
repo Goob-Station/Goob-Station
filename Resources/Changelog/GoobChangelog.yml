@@ -25224,3 +25224,9 @@ Entries:
       message: the "joke" vinyl disks spawn less commonly now
   id: 2887
   time: '2026-09-16T12:16:50.0000000+00:00'
+- author: PhosphateWithManyOs, LizardHater
+  changes:
+    - type: Add
+      message: Added some emotes to Lizard!
+  id: 2888
+  time: '2026-09-16T20:10:42.0000000+00:00'
