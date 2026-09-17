@@ -25,6 +25,7 @@
   - type: BorgBrain
   - type: BlockMovement
   - type: Examiner
+  - type: IntellicardableMind # Goobstation - we can finally turn clankers into humans
   - type: IntrinsicRadioReceiver
   #- type: IntrinsicRadioTransmitter
   #  channels:

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Explosion;
 using Content.Shared.Inventory;
 
@@ -7,6 +8,8 @@ namespace Content.Server.Inventory
 {
     public sealed class ServerInventorySystem : InventorySystem
     {
+        [Dependency] private readonly ToggleableClothingSystem _toggleableClothing = default!; // Goob edit
+
         public override void Initialize()
         {
             base.Initialize();
@@ -30,17 +33,25 @@ namespace Content.Server.Inventory
             if (!Resolve(source.Owner, ref source.Comp) || !Resolve(target.Owner, ref target.Comp))
                 return;
 
-            var enumerator = new InventorySlotEnumerator(source.Comp);
             // Goob edit start
-            List<(EntityUid, SlotDefinition)> items = new();
-            while (enumerator.NextItem(out var item, out var slot))
+            _toggleableClothing.SetInventoryTransferring(source, true);
+            try
             {
-                items.Add((item, slot));
+                var enumerator = new InventorySlotEnumerator(source.Comp);
+                List<(EntityUid, SlotDefinition)> items = new();
+                while (enumerator.NextItem(out var item, out var slot))
+                {
+                    items.Add((item, slot));
+                }
+                foreach (var (item, slot) in items)
+                {
+                    TryUnequip(source, slot.Name, true, force, inventory: source.Comp, triggerHandContact: true);
+                    TryEquip(target, item, slot.Name, true, force, inventory: target.Comp, triggerHandContact: true);
+                }
             }
-            foreach (var (item, slot) in items)
+            finally
             {
-                TryUnequip(source, slot.Name, true, force, inventory: source.Comp, triggerHandContact: true);
-                TryEquip(target, item, slot.Name , true, force, inventory: target.Comp, triggerHandContact: true);
+                _toggleableClothing.SetInventoryTransferring(source, false);
             }
             // Goob edit end
         }
