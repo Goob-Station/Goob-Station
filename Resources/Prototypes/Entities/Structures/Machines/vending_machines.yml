@@ -87,10 +87,10 @@
   - type: IntrinsicRadioReceiver
   #- type: IntrinsicRadioTransmitter
   #  channels:
-  #  - Binary # Goobstation - removed
+  #  - Binary # Goobstation
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - removed
+    # - Binary # Goobstation
     - Common
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter

@@ -55,7 +55,7 @@
     weight: 0.125
   - type: StaticPrice
     price: 100
-  - type: IntellicardableMind # Goobstation - intellicard on more AIs
+  - type: IntellicardableMind
   - type: Vocalizer
     minVocalizeInterval: 8m
     maxVocalizeInterval: 10m

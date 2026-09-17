@@ -29,10 +29,10 @@
   - type: IntrinsicRadioReceiver
   #- type: IntrinsicRadioTransmitter
   #  channels:
-  #  - Binary # Goobstation - removed
+  #  - Binary # Goobstation
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - removed
+    # - Binary # Goobstation
     - Common
   - type: NameIdentifier
     group: MMI
@@ -115,10 +115,10 @@
     - type: IntrinsicRadioReceiver
     #- type: IntrinsicRadioTransmitter
     #  channels:
-    #  - Binary # Goobstation - removed
+    #  - Binary # Goobstation
     - type: ActiveRadio
       channels:
-      # - Binary # Goobstation - removed
+      # - Binary # Goobstation
       - Common
     - type: NameIdentifier
       group: PositronicBrain
