@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Sleeping;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Buckle.Components;
@@ -251,15 +252,19 @@ public sealed partial class SleepingSystem : EntitySystem
         if (!args.DamageIncreased || args.DamageDelta == null)
             return;
 
-        /* Shitmed Change Start - Surgery needs this, sorry! If the nocturine gamers get too feisty
-        I'll probably just increase the threshold */
+        // Shitmed start - Surgery needs this, sorry! If the nocturine gamers get too feisty
+        // TODO: i dont know what the fuck that above comment means.
+        // anyways this is currently used for xenobiology. replace this with ForcedSleepingStatusEffect later
+        var ev = new WakeDamageOverrideEvent();
+        RaiseLocalEvent(ent.Owner, ref ev);
 
+        if (ev.Cancelled || ev.IgnoreDamage)
+            return;
+        // Shitmed end
 
         if (args.DamageDelta.GetTotal() >= ent.Comp.WakeThreshold
-            && !_statusEffect.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent))
+            && !_statusEffect.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent)) // Shitmed
             TryWaking((ent, ent.Comp));
-
-        // Shitmed Change End
     }
 
     /// <summary>
@@ -278,7 +283,7 @@ public sealed partial class SleepingSystem : EntitySystem
     /// </summary>
     private void OnMobStateChanged(Entity<SleepingComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.NewMobState == MobState.Dead || args.NewMobState == MobState.Critical) // Goobstation - xenobio
         {
             RemComp<SpamEmitSoundComponent>(ent);
             RemComp<SleepingComponent>(ent);

@@ -1,0 +1,27 @@
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  icon: _Goobstation/Structures/Machines/Icons/Computers/solar.png
+  id: PowerComputerCircuitboard
+  result: PowerComputerCircuitboard
+  completetime: 4
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  icon: _Goobstation/Structures/Machines/Icons/Computers/solar.png
+  id: AlertsComputerCircuitboard
+  result: AlertsComputerCircuitboard
+  completetime: 4
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  icon: _Goobstation/Structures/Machines/Icons/Computers/solar.png
+  id: AtmosMonitoringComputerCircuitboard
+  result: AtmosMonitoringComputerCircuitboard
+  completetime: 4
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon: _Goobstation/Structures/Machines/Icons/Computers/solar.png
+  id: SupermatterComputerCircuitboard
+  result: SupermatterComputerCircuitboard
+  completetime: 4

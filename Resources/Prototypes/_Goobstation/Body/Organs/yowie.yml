@@ -38,7 +38,6 @@
     - id: Narcotic
       rateModifier: 1
     - id: Alcohol # Same as parent
-      rateModifier: 0.1
     maxPoisonsProcessable: 3 # For proper processing of chems instead of heart
 
 - type: entity

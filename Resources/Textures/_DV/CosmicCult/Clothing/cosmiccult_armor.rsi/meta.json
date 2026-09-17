@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "A custom item by AftrLite (Github), sprites for vulps feroxis and harpies made by HTMLSystem (AftrLite edited the harpy one too)",
+    "copyright": "A custom item by AftrLite (Github), sprites for vulps feroxis and harpies made by HTMLSystem (AftrLite edited the harpy one too), Reptilian sprites by Sanyati",
     "size": {
         "x": 32,
         "y": 32
@@ -30,6 +30,14 @@
         },
         {
             "name": "equipped-OUTERCLOTHING-harpy",
+            "directions": 4
+        },
+		{
+            "name": "equipped-OUTERCLOTHING-reptilian",
+            "directions": 4
+        },
+		{
+            "name": "equipped-HELMET-reptilian",
             "directions": 4
         },
         {
