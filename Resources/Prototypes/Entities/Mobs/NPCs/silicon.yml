@@ -89,16 +89,11 @@
   - type: IntrinsicRadioReceiver
   #- type: IntrinsicRadioTransmitter
   #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
+  #  - Binary # Goobstation - removed
   - type: ActiveRadio
     channels:
     - Common
-    # - Binary # Goobstation - replaced with collective mind
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+    # - Binary # Goobstation - removed
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: HealthExaminable
     examinableTypes:

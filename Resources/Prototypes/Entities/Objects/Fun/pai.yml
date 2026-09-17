@@ -56,16 +56,11 @@
   - type: IntrinsicRadioReceiver
   #- type: IntrinsicRadioTransmitter
   #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
+  #  - Binary # Goobstation - removed
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    # - Binary # Goobstation - removed
     - Common
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter
   - type: Actions

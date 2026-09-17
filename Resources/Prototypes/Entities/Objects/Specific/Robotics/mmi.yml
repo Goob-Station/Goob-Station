@@ -28,16 +28,11 @@
   - type: IntrinsicRadioReceiver
   #- type: IntrinsicRadioTransmitter
   #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
+  #  - Binary # Goobstation - removed
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    # - Binary # Goobstation - removed
     - Common
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: NameIdentifier
     group: MMI
   - type: DoAfter
@@ -119,16 +114,11 @@
     - type: IntrinsicRadioReceiver
     #- type: IntrinsicRadioTransmitter
     #  channels:
-    #  - Binary # Goobstation - replaced with collective mind
+    #  - Binary # Goobstation - removed
     - type: ActiveRadio
       channels:
-      # - Binary # Goobstation - replaced with collective mind
+      # - Binary # Goobstation - removed
       - Common
-    # Goobstation
-    - type: CollectiveMind
-      defaultChannel: Binary
-      channels:
-      - Binary
     - type: NameIdentifier
       group: PositronicBrain
     - type: DoAfter

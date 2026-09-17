@@ -87,11 +87,6 @@
     # - Binary # Goobstation - replaced with collective mind
     - Common
     - Supply
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: InteractionPopup
     interactSuccessString: petting-success-minebot
     interactFailureString: petting-failure-minebot
