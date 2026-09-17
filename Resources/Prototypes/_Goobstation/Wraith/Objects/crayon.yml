@@ -14,9 +14,14 @@
     heldPrefix: bloody
   - type: Crayon
     selectedState: heart
+    deleteEmpty: false
     color: '#a70000'
+  - type: LimitedCharges
+    maxCharges: 20
+  - type: AutoRecharge
+    rechargeDuration: 10
   - type: BloodCrayon
-    wpConsume: -5
+    wpConsume: 0
   - type: Tag
     tags:
     - Write
