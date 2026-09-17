@@ -22,14 +22,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     icon:
       sprite: _Goobstation/SlaughterDemon/abilities.rsi
       state: whisper
-    itemIconStyle: NoItem
-  - type: TargetAction
-    interactOnMiss: false
-    range: 15
   - type: EntityTargetAction
     canTargetSelf: true
     event: !type:TelepathyWhisperEvent
