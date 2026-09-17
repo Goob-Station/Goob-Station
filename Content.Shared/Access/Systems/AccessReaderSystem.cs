@@ -56,6 +56,9 @@ public sealed class AccessReaderSystem : EntitySystem
 
     private void OnExamined(Entity<AccessReaderComponent> ent, ref ExaminedEvent args)
     {
+        if (!ent.Comp.ShouldShowExaminationText) // Goobstation - Wanted Menu
+            return;
+
         if (!GetMainAccessReader(ent, out var mainAccessReader))
             return;
 

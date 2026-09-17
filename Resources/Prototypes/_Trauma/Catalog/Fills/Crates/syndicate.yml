@@ -1,0 +1,17 @@
+- type: entity
+  parent: CrateSyndicate
+  id: CrateSyndicateShuttleBundle
+  name: shuttle bundle crate
+  description: The bare necessities for a shuttle.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: GyroscopeFlatpack
+        - id: ThrusterFlatpack
+          amount: 4
+        - id: WallmountSubstationElectronics
+        - id: APCElectronics
+        - id: WallmountGeneratorAPUElectronics
+          amount: 2

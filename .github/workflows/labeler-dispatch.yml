@@ -1,0 +1,20 @@
+# This thing basically exists due to limitations of pull_request_review
+# basically:
+# "With the exception of GITHUB_TOKEN, secrets are not passed to the runner when a workflow is triggered from a forked repository.
+# The GITHUB_TOKEN has read-only permissions in pull requests from forked repositories. For more information, see Use GITHUB_TOKEN for authentication in workflows."
+#
+# ^ and yeah, that also means you cannot give any more permissions to this either.
+# so i'm having this run and running a diff workflow when this finishes. Worst that could happen is someone fucks with labels
+
+name: "Review Trigger"
+
+on:
+  pull_request_review:
+    types: [submitted, edited, dismissed]
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dummy step
+        run: echo "This is so incredibly fucking stupid"

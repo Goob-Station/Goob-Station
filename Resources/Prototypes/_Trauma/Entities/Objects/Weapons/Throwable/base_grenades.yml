@@ -1,0 +1,25 @@
+# TODO: delete this once upstream happens
+- type: entity # Starts fuse after taking 10 damage.
+  abstract: true
+  parent: GrenadeBase
+  id: TimerGrenadeBase
+  components:
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 3
+  - type: Destructible
+    thresholds:
+    - trigger: # Start fuse
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:TriggerBehavior
+        keyOut: timer
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }

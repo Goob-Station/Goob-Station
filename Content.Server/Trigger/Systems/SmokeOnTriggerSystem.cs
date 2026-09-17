@@ -40,29 +40,40 @@ public sealed class SmokeOnTriggerSystem : EntitySystem
             return;
 
         // TODO: move all of this into an API function in SmokeSystem
-        var xform = Transform(target.Value);
-        var mapCoords = _transform.GetMapCoordinates(target.Value, xform);
+
+        args.Handled = true;
+    }
+
+    /// Trauma - Moved it to helper function
+    /// <summary>
+    /// Spawn smoke
+    /// TODO This should have moved to <see cref="SmokeSystem"/>
+    /// </summary>
+    /// <returns></returns>
+    public bool SpawnSmoke(EntityUid target, string prototype, Solution solution, TimeSpan duration, int spreadAmount)
+    {
+        var xform = Transform(target);
+        var mapCoords = _transform.GetMapCoordinates(target, xform);
         if (!_mapMan.TryFindGridAt(mapCoords, out var gridUid, out var gridComp) ||
             !_map.TryGetTileRef(gridUid, gridComp, xform.Coordinates, out var tileRef) ||
             tileRef.Tile.IsEmpty)
         {
-            return;
+            return false;
         }
 
-        if (_spreader.RequiresFloorToSpread(ent.Comp.SmokePrototype.ToString()) && _turf.IsSpace(tileRef))
-            return;
+        if (_spreader.RequiresFloorToSpread(prototype) && _turf.IsSpace(tileRef))
+            return false;
 
         var coords = _map.MapToGrid(gridUid, mapCoords);
-        var smoke = Spawn(ent.Comp.SmokePrototype, coords.SnapToGrid());
+        var smoke = Spawn(prototype, coords.SnapToGrid());
         if (!TryComp<SmokeComponent>(smoke, out var smokeComp))
         {
-            Log.Error($"Smoke prototype {ent.Comp.SmokePrototype} was missing SmokeComponent");
+            Log.Error($"Smoke prototype {prototype} was missing SmokeComponent");
             Del(smoke);
-            return;
+            return false;
         }
 
-        _smoke.StartSmoke(smoke, ent.Comp.Solution, (float)ent.Comp.Duration.TotalSeconds, ent.Comp.SpreadAmount, smokeComp);
-
-        args.Handled = true;
+        _smoke.StartSmoke(smoke, solution, (float) duration.TotalSeconds, spreadAmount, smokeComp);
+        return true;
     }
 }

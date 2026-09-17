@@ -38,6 +38,9 @@ public partial class ConsciousnessSystem
         if (!TryComp<ConsciousnessComponent>(body, out var consciousness))
             return false;
 
+        if (consciousness.NerveSystem.Comp is null || TerminatingOrDeleted(consciousness.NerveSystem.Owner))
+            return false;
+
         nerveSys = consciousness.NerveSystem;
         return true;
     }
@@ -113,9 +116,9 @@ public partial class ConsciousnessSystem
         if (!Resolve(uid, ref consciousness))
             return;
 
-        var totalDamage
-            = consciousness.Modifiers.Aggregate(FixedPoint2.Zero,
-                (current, modifier) => current + modifier.Value.Change * consciousness.Multiplier);
+        var totalDamage = FixedPoint2.Zero;
+        foreach (var modifier in consciousness.Modifiers)
+            totalDamage += modifier.Value.Change;
 
         consciousness.RawConsciousness = consciousness.Cap + totalDamage;
 

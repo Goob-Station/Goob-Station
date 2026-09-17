@@ -1,0 +1,166 @@
+
+- type: particleEffect
+  id: GhostParticlesSparkles
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: cross
+  shader: unshaded
+  colorOverLifetime:
+    - time: 0.0
+      color: "#FFFFFFFF"
+    - time: 0.5
+      color: "#FFE9A0FF"
+    - time: 1.0
+      color: "#FFE9A000"
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.0
+    - time: 0.2
+      value: 1.0
+    - time: 1.0
+      value: 0.0
+  lifetime: 1.2
+  lifetimeVariance: 0.4
+  speed: 0.3
+  speedVariance: 0.2
+  particleSize: 0.3
+  sizeVariance: 0.1
+  emissionRate: 5
+  maxCount: 10
+  gravity: -0.2
+  noiseStrength: 0.1
+  noiseFrequency: 0.8
+  startRotationVariance: 180
+  rotationSpeedVariance: 60
+  shape:
+    type: CircleFill
+    radius: 0.3
+
+- type: particleEffect
+  id: GhostParticlesEmbers
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: dot
+  shader: unshaded
+  colorOverLifetime:
+    - time: 0.0
+      color: "#FCE6B6FF"
+    - time: 0.4
+      color: "#FBAF4DFF"
+    - time: 0.8
+      color: "#FD6B1C88"
+    - time: 1.0
+      color: "#CC220000"
+  lifetime: 1.4
+  lifetimeVariance: 0.4
+  speed: 0.5
+  speedVariance: 0.3
+  particleSize: 0.6
+  sizeVariance: 0.4
+  emissionRate: 7
+  maxCount: 14
+  gravity: -0.5
+  drag: 0.2
+  noiseStrength: 0.15
+  noiseFrequency: 0.8
+  spreadAngle: 90
+  shape:
+    type: CircleFill
+    radius: 0.25
+
+- type: particleEffect
+  id: GhostParticlesEctoplasm
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: drop
+  shader: unshaded
+  colorOverLifetime:
+    - time: 0.0
+      color: "#8CFF9EDD"
+    - time: 0.6
+      color: "#48C86CAA"
+    - time: 1.0
+      color: "#2E8B5700"
+  lifetime: 1.1
+  lifetimeVariance: 0.3
+  speed: 0.2
+  speedVariance: 0.1
+  particleSize: 0.45
+  sizeVariance: 0.3
+  emissionRate: 5
+  maxCount: 10
+  gravity: 0.6
+  drag: 0.1
+  spreadAngle: 120
+  emitAngle: 180
+  shape:
+    type: CircleFill
+    radius: 0.25
+
+- type: particleEffect
+  id: GhostParticlesFrost
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: soft_dot
+  shader: unshaded
+  colorOverLifetime:
+    - time: 0.0
+      color: "#DFF6FFEE"
+    - time: 0.5
+      color: "#9BDBFFCC"
+    - time: 1.0
+      color: "#6EB6FF00"
+  lifetime: 1.6
+  lifetimeVariance: 0.5
+  speed: 0.25
+  speedVariance: 0.15
+  particleSize: 0.3
+  sizeVariance: 0.3
+  emissionRate: 6
+  maxCount: 14
+  gravity: 0.25
+  drag: 0.3
+  noiseStrength: 0.25
+  noiseFrequency: 0.5
+  startRotationVariance: 180
+  rotationSpeedVariance: 90
+  shape:
+    type: CircleFill
+    radius: 0.35
+
+- type: particleEffect
+  id: GhostParticlesGloom
+  sprite:
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+  startColor: "#4B2D6BAA"
+  endColor: "#1A0F2E00"
+  sizeOverLifetime:
+    - time: 0.0
+      value: 0.4
+    - time: 1.0
+      value: 1.3
+  alphaOverLifetime:
+    - time: 0.0
+      value: 0.0
+    - time: 0.15
+      value: 1.0
+    - time: 1.0
+      value: 0.0
+  lifetime: 1.8
+  lifetimeVariance: 0.5
+  speed: 0.2
+  speedVariance: 0.1
+  particleSize: 0.3
+  sizeVariance: 0.3
+  emissionRate: 5
+  maxCount: 12
+  gravity: -0.15
+  drag: 0.4
+  noiseStrength: 0.1
+  noiseFrequency: 0.5
+  startRotationVariance: 180
+  rotationSpeedVariance: 30
+  shape:
+    type: CircleFill
+    radius: 0.35

@@ -1,0 +1,17 @@
+# Literally the first base
+- type: breed
+  parent: BaseMutation
+  id: GreyMutation
+  breedName: grey slime
+  producedExtract: GreySlimeExtract
+  components:
+  - type: Slime
+    breed: GreyMutation
+    slimeColor: "#828282"
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - OrangeMutation
+    - PurpleMutation
+    - BlueMutation
+    - MetalMutation

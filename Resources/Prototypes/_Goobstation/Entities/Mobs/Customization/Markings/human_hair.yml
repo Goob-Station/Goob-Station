@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Goobstation TODO: this should be in a goobstation folder
 - type: marking
   id: HumanHairBraidedExtension
   bodyPart: Hair
@@ -327,3 +326,75 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: nikooneshot
+
+- type: marking
+  id: HumanHairCotton
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: cotton
+
+- type: marking
+  id: HumanHairImpish
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: impish
+      
+- type: marking
+  id: HumanHairGloomyLonger
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: gloomyLonger
+      
+- type: marking
+  id: HumanHairLila
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: lila
+      
+- type: marking
+  id: HumanHairLongTails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: longTails
+      
+- type: marking
+  id: HumanHairStrictLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: strictLong
+      
+- type: marking
+  id: HumanHairMermaid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: mermaid
+      
+- type: marking
+  id: HumanHairShy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: shy
+      
+- type: marking
+  id: HumanHairTwinTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: twintail

@@ -202,8 +202,10 @@
             Blunt: -5
             Slash: -5
             Piercing: -5
-      - !type:ModifyBleed
-            amount: 3
+      - !type:ModifyBleed # Stop dragons from killing themselves from devouring people.
+        amount: -3
+      - !type:ModifyBloodLevel
+        amount: 12
       # Goob end
   # Just in case you REALLY  REALLY want to water your plants
   plantMetabolism:

@@ -51,7 +51,9 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
 
     private void OnSummonVoidCreatureSelected(Entity<ChooseVoidCreatureComponent> ent, ref RadialSelectorSelectedMessage args)
     {
-        if (args.SelectedItem is not { } proto || !_proto.TryIndex(proto, out _)
+        if (args.SelectedItem is not { } proto
+            || !IsAvailableSummon(ent.Comp.AvailableSummons, proto)
+            || !_proto.TryIndex(proto, out _)
             || !_mind.TryGetMind(ent.Owner, out var mindUid, out var mind))
             return;
 
@@ -66,5 +68,19 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
 
         _ui.CloseUi(ent.Owner, RadialSelectorUiKey.Key, args.Actor);
         Del(ent.Owner);
+    }
+
+    private static bool IsAvailableSummon(List<RadialSelectorEntry> entries, string proto)
+    {
+        foreach (var entry in entries)
+        {
+            if (entry.Prototype == proto)
+                return true;
+
+            if (entry.Category != null && IsAvailableSummon(entry.Category.Entries, proto))
+                return true;
+        }
+
+        return false;
     }
 }

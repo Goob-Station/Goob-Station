@@ -24,12 +24,6 @@
 
   - type: TraumaInflicter
     severityThreshold: 12
-    allowedTraumas:
-    - Dismemberment
-    - OrganDamage
-    - BoneDamage
-    - VeinsDamage
-    - NerveDamage
     allowArmourDeduction:
     - Dismemberment
     - OrganDamage
@@ -37,7 +31,7 @@
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -2
+      Dismemberment: -0.4
       OrganDamage: 0.17
       BoneDamage: 0.8
       VeinsDamage: 0
@@ -61,13 +55,7 @@
     scarWound: PiercingScar
     mangleSeverity: Severe
   - type: TraumaInflicter
-    severityThreshold: 12
-    allowedTraumas:
-    - Dismemberment
-    - OrganDamage
-    - BoneDamage
-    - VeinsDamage
-    - NerveDamage
+    severityThreshold: 9
     allowArmourDeduction:
     - Dismemberment
     - OrganDamage
@@ -75,9 +63,9 @@
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -2
+      Dismemberment: 0
       OrganDamage: 0.08
-      BoneDamage: 0.14
+      BoneDamage: -0.1
       VeinsDamage: -0.4 # goes through rather easy.
       NerveDamage: -0.4
     mangledMultipliers:
@@ -100,19 +88,15 @@
   - type: TraumaInflicter
     severityThreshold: 6
     allowArmourDeduction:
-    - OrganDamage
-    - BoneDamage
-    - VeinsDamage
-    - NerveDamage
-    allowedTraumas:
+    - Dismemberment
     - OrganDamage
     - BoneDamage
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -1.8 # Bullets go THROUGH people
+      Dismemberment: -0.4 # Bullets go THROUGH people
       OrganDamage: 0.24
-      BoneDamage: 0.24
+      BoneDamage: -0.1
       VeinsDamage: -0.4
       NerveDamage: -0.4
   - type: PainInflicter
@@ -133,10 +117,6 @@
     mangleSeverity: Severe
   - type: TraumaInflicter
     severityThreshold: 9
-    allowedTraumas:
-    - Dismemberment
-    - VeinsDamage
-    - NerveDamage
     allowArmourDeduction:
     - Dismemberment # seems rather reasonable. Wear armour, guys
     - VeinsDamage
@@ -165,11 +145,6 @@
     scarWound: BurnScar
   - type: TraumaInflicter
     severityThreshold: 17
-    allowedTraumas:
-    - OrganDamage
-    - BoneDamage
-    - VeinsDamage
-    - NerveDamage
     allowArmourDeduction:
     - OrganDamage
     - BoneDamage
@@ -198,11 +173,6 @@
     scarWound: BurnScar
   - type: TraumaInflicter
     severityThreshold: 17
-    allowedTraumas:
-#    - OrganDamage
-#    - BoneDamage
-    - VeinsDamage
-    - NerveDamage
     allowArmourDeduction:
     - OrganDamage # No matter what ultrasuperduper cool armour you have, while getting fucking boiled alive - YOUR VEINS AND NERVES WILL HURT.
     - BoneDamage
@@ -228,9 +198,6 @@
     scarWound: BurnScar
   - type: TraumaInflicter
     severityThreshold: 12
-    allowedTraumas:
-    - VeinsDamage
-    - NerveDamage
     traumasChances:
       Dismemberment: 0
       OrganDamage: 0
@@ -250,8 +217,6 @@
     woundVisibility: AdvancedScanner
   - type: TraumaInflicter
     severityThreshold: 0
-    allowedTraumas:
-    - NerveDamage
     traumasChances:
       Dismemberment: 0
       OrganDamage: 0
@@ -272,10 +237,6 @@
     scarWound: BurnScar
   - type: TraumaInflicter
     severityThreshold: 9
-    allowedTraumas:
-    - OrganDamage
-    - VeinsDamage
-    - NerveDamage
     traumasChances:
       Dismemberment: 0
       OrganDamage: 0
@@ -297,11 +258,6 @@
     selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 0
-    allowedTraumas:
-    - OrganDamage
-    - BoneDamage
-    - VeinsDamage
-    - NerveDamage
     traumasChances:
       Dismemberment: 0
       OrganDamage: 0
@@ -323,9 +279,6 @@
     scarWound: BurnScar
   - type: TraumaInflicter
     severityThreshold: 12
-    allowedTraumas:
-    - VeinsDamage
-    - NerveDamage
     traumasChances:
       Dismemberment: 0
       OrganDamage: 0
@@ -348,10 +301,6 @@
     selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 11
-    allowedTraumas:
-    - OrganDamage
-    - VeinsDamage
-    - NerveDamage
     allowArmourDeduction:
     - OrganDamage
     traumasChances:
@@ -374,10 +323,6 @@
     woundVisibility: HandScanner
   - type: TraumaInflicter
     severityThreshold: 7
-    allowedTraumas:
-    - OrganDamage
-    - VeinsDamage
-    - NerveDamage
     traumasChances:
       Dismemberment: 0
       OrganDamage: -0.34
@@ -417,3 +362,18 @@
   components:
   - type: Trauma
     traumaType: Dismemberment
+
+- type: entity
+  id: TraumaShrapnel
+  components:
+  - type: Trauma
+    traumaType: Shrapnel
+  - type: TraumaBloodloss
+    amount: 0.8
+
+- type: entity
+  id: TraumaBraindeath
+  components:
+  - type: Trauma
+    traumaType: Braindeath
+  - type: Braindeath

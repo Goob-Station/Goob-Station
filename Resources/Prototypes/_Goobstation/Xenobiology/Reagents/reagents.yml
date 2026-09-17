@@ -76,7 +76,6 @@
         time: 2
         type: Add
 
-
 - type: reagent
   parent: BaseXenobioReagent
   id: XenobioJellyPurple

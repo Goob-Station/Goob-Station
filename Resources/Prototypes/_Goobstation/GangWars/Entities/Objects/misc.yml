@@ -1,0 +1,166 @@
+- type: entity
+  id: CigarGoldenGang
+  parent: CigarGold
+  name: golden cigar
+  suffix: Gang
+  description: A luxurious gold-leafed cigar laced with a soothing medicinal blend. Only the finest from the boss.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 35
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 15
+          - ReagentId: Omnizine
+            Quantity: 10
+
+- type: entity
+  parent: EmergencyMedipen
+  id: OmnizineMedipen
+  name: omnizine medipen
+  suffix: Gang
+  description: A syringe of omnizine. Heals most damage types quickly.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 15
+
+- type: entity
+  id: GangBeginnerBundle
+  name: gang beginner bundle
+  suffix: Gang
+  description: A duffel bag packed with everything a new gang member needs to get started.
+  parent: ClothingBackpackDuffel
+  components:
+  - type: StorageFill
+    contents:
+    - id: GangSprayCan
+      amount: 5
+    - id: EncryptionKeyGang
+    - id: ClothingShoesGangDameDane
+    - id: ClothingOuterGangDameDane
+    - id: ClothingUniformGangDameDane
+    - id: ClothingNeckGangTophat1
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat2
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat3
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat4
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat5
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat6
+      orGroup: GangTophat
+
+- type: entity
+  id: GangClothesBundle
+  name: gang clothes bundle
+  suffix: Gang
+  description: A duffel bag containing a fresh set of gang threads. Rep your colors.
+  parent: ClothingBackpackDuffel
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingShoesGangDameDane
+    - id: ClothingOuterGangDameDane
+    - id: ClothingUniformGangDameDane
+    - id: ClothingNeckGangTophat1
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat2
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat3
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat4
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat5
+      orGroup: GangTophat
+    - id: ClothingNeckGangTophat6
+      orGroup: GangTophat
+
+- type: entity
+  id: GangGL06Bundle
+  parent: ClothingBackpackSatchel
+  name: GL-06 RGL kit
+  suffix: Gang
+  description: A satchel bag containing a GL-06 riot grenade launcher pre-loaded with two flash grenade shells.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherNonLethal
+    - id: GrenadeFlash
+      amount: 2
+
+- type: entity
+  parent: [BaseItem, BaseMajorContraband]
+  id: Quickhack
+  name: quickhack
+  description: A covert device that fakes AI 'open' signals to unlock unbolted doors. Comes charged for 5 uses.
+  components:
+  - type: Quickhack
+  - type: UseDelay
+    delay: 1
+  - type: LimitedCharges
+    maxCharges: 5
+  - type: Sprite
+    sprite: _Goobstation/Gangs/quickhack.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Gangs/quickhack.rsi
+  - type: Appearance
+  - type: StaticPrice
+    price: 800
+
+- type: entity
+  parent: [EncryptionKey, BaseMajorContraband]
+  id: EncryptionKeyGang
+  name: gang encryption key
+  suffix: Gang
+  description: An encryption key used to communicate with gangs.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Gang
+    defaultChannel: Gang
+  - type: Sprite
+    layers:
+    - state: crypt_red
+    - state: synd_label
+
+- type: entity
+  id: GangSprayCan
+  name: gang spray can
+  suffix: Gang
+  description: A spray can used to mark territory for your gang. Only works if you belong to a gang.
+  parent: [BaseItem, BaseMajorContraband]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Gangs/spray_cans.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: _Goobstation/Gangs/spray_cans.rsi
+    size: Small
+  - type: Appearance
+  - type: GangSprayCan
+  - type: LimitedCharges
+    maxCharges: 5
+
+- type: entity
+  name: gang machete
+  suffix: Gang
+  parent: Machete
+  id: GangMachete
+  description: A large, vicious looking blade.
+  components:
+  - type: SlasherMassacreMachete
+    baseDamagePenalty: 12
+    limbSeverHits: 6
+    decapitateHit: 20 # makes it impossible
+    speedBonusPerHit: 0
+    healAmountPerHit: 0

@@ -43,6 +43,12 @@ public sealed class RMCPatronTier
 
     public bool GhostColor { get; set; }
 
+    // Goob - ghost cosmetics
+    public bool GhostCosmetics { get; set; }
+
+    // Goob - ghost cosmetics
+    public bool GhostParticles { get; set; }
+
     public bool LobbyMessage { get; set; }
 
     public bool RoundEndShoutout { get; set; }
@@ -71,6 +77,11 @@ public sealed class RMCPatron
 
     public RMCPatronTier Tier { get; set; } = default!;
     public int? GhostColor { get; set; } = default!;
+    // Goob start - ghost cosmetics: selected cosmetic prototype ids
+    public string? GhostParticles { get; set; }
+    public string? GhostHat { get; set; }
+    public string? GhostMask { get; set; }
+    // Goob end
     public RMCPatronLobbyMessage? LobbyMessage { get; set; } = default!;
     public RMCPatronRoundEndNTShoutout? RoundEndNTShoutout { get; set; } = default!;
 }

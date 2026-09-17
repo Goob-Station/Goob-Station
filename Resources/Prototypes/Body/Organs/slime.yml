@@ -11,11 +11,11 @@
       state: brain-slime
     - type: Stomach
     - type: Organ
-      intCap: 60 # to prevent slimes from getting oneshot
-      integrity: 60
+      intCap: 120 # to prevent slimes from getting oneshot
+      integrity: 120
       integrityThresholds:
-        Normal: 60
-        Damaged: 27
+        Normal: 120
+        Damaged: 60
         Destroyed: 0
       slotId: core
     - type: Metabolizer
@@ -35,17 +35,21 @@
         stomach:
           maxVol: 50.0
         food:
-          maxVol: 10 # goob edit
+          maxVol: 15 # goob edit
           reagents:
             - ReagentId: GreyMatter
               Quantity: 5
             - ReagentId: Cognizine # goob edit
               Quantity: 5 # goob edit
+            - ReagentId: Slime #goob edit
+              Quantity: 5 #goob edit
         organ:
           reagents:
             - ReagentId: Slime
               Quantity: 10
             - ReagentId: Cognizine # goob edit
+              Quantity: 5 # goob edit
+            - ReagentId: GreyMatter #goob edit
               Quantity: 5 # goob edit
     - type: Item
       size: Small
@@ -64,11 +68,11 @@
       - state: lung-l-slime
       - state: lung-r-slime
   - type: Organ # Shitmed
-    intCap: 21 #
-    integrity: 21
+    intCap: 105 #
+    integrity: 105
     integrityThresholds:
-      Normal: 21
-      Damaged: 14
+      Normal: 105
+      Damaged: 70
       Destroyed: 0
     slotId: lungs
   - type: Lung

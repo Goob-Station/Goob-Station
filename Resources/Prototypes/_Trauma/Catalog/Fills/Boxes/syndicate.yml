@@ -1,0 +1,28 @@
+- type: entity
+  parent: [ BoxCardboard, BaseSyndicateContraband ]
+  id: ObservationKitSyndie
+  name: observation kit
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SyndiCrewMonitorEmpty
+        - id: PowerCellMicroreactor
+        - id: ClothingEyesGlassesHiddenSecurity
+        - id: CameraBug
+
+- type: entity
+  parent: [ BoxCardboard, BaseSyndicateContraband ]
+  id: BombCollarKit
+  name: bomb collar kit
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingNeckBombCollar
+        - id: RemoteSignallerAdvanced
+        - id: Multitool

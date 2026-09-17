@@ -137,6 +137,7 @@
       - Plunger
       - GoldenPlunger
       - WireBrush
+      - Keyring #Goobstation
       components:
       - LightReplacer
       - SmokeOnTrigger
@@ -395,6 +396,10 @@
       - CombatKnife
       - Truncheon
       - HandGrenade
+      - MilitaryPowerCellSMG # Goob edit start
+      - MilitaryPowerCellSniper
+      - MilitaryPowerCellRevolver
+      - EnergyMagAmmo # Goob edit end
       components:
       - Stunbaton
       - FlashOnTrigger

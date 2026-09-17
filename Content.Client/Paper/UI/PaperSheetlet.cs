@@ -41,7 +41,7 @@ public sealed class PaperSheetlet : Sheetlet<NanotrasenStylesheet>
             E<TextEdit>()
                 .Class("PaperLineEdit")
                 .Prop(LineEdit.StylePropertyStyleBox, new StyleBoxEmpty())
-                .Prop("font-color", new Color(25, 25, 25)),
+                .Prop("font-color", new Color(25, 25, 25)).Prop(TextEdit.StylePropertyCursorColor, new Color(25, 25, 25)), // Goob now it black , not white :/
         ];
     }
 }

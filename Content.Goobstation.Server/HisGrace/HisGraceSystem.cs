@@ -20,6 +20,7 @@ using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Jittering;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -495,12 +496,12 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
     {
         if (enabled)
         {
-            // hisGrace.Comp.PreventDrop = true; - Disabled until someone fixes it :P
+            EnsureComp<UnremoveableComponent>(hisGrace);
             EnsureComp<JitteringComponent>(hisGrace);
         }
         else
         {
-            // hisGrace.Comp.PreventDrop = false;
+            RemComp<UnremoveableComponent>(hisGrace);
             RemComp<JitteringComponent>(hisGrace);
         }
     }

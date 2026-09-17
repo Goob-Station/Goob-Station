@@ -6,7 +6,8 @@
 - type: lavalandRuinPool
   id: LavalandRuins
   ruinDistance: 14
-  maxDistance: 172
+  minDistance: 60
+  maxDistance: 256
   gridRuins:
     SyndicateBase: 1
     HierophantArena: 1

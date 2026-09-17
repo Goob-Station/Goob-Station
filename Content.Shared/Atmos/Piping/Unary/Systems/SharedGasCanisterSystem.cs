@@ -118,6 +118,7 @@ public abstract class SharedGasCanisterSystem : EntitySystem
         {
             args.Cancelled = true;
         }
+        AdminLogger.Add(LogType.CanisterTankInserted, LogImpact.Medium, $"Player {ToPrettyString(args.User):player} inserted tank {ToPrettyString(args.Item):tank} into {ToPrettyString(uid):canister}"); // Goobstation
     }
 
     protected abstract void DirtyUI(EntityUid uid, GasCanisterComponent? component = null, NodeContainerComponent? nodes = null);

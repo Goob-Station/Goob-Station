@@ -35,14 +35,14 @@ public sealed partial class ZombieComponent : Component
     /// The baseline infection chance you have if you have no protective gear
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float BaseZombieInfectionChance = 1.00f; ///Goobchange
+    public float BaseZombieInfectionChance = 0.9f; ///Goobchange
 
     /// <summary>
     /// The minimum infection chance possible. This is simply to prevent
     /// being overly protected by bundling up.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinZombieInfectionChance = 0.05f;
+    public float MinZombieInfectionChance = 0.01f;
 
     /// <summary>
     /// How effective each resistance type on a piece of armor is. Using a damage specifier for this seems illegal.
@@ -51,9 +51,9 @@ public sealed partial class ZombieComponent : Component
     {
         DamageDict = new ()
         {
-            {"Slash", 0.5},
-            {"Piercing", 0.3},
-            {"Blunt", 0.1},
+            {"Slash", 1.0}, // Goobstation change
+            {"Piercing", 0.5}, // Goobstation change
+            {"Blunt", 0.2}, // Goobstation change
         }
     };
 

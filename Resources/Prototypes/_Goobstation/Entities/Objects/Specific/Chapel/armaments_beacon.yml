@@ -22,43 +22,43 @@
     - prototype: SpawnArmamentsCursader
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/templar.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsStudent
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/student.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsAncient
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/ancient.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsWitchhunter
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/witchhunter.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsAdept
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/adept.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsClock
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/clock.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsMonk
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsBishop
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsDraconic
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/dragonsuit.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsInquisitor
       icon:
-        sprite: _ShitChap/Clothing/Neck/Misc/inquisitor.rsi
-        state: icon
+        sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
+        state: full
     - prototype: SpawnSchemaMonk
       icon:
         sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi

@@ -41,7 +41,7 @@ public sealed partial class ApcComponent : BaseApcNetComponent
     /// timer, which after enough overloading causes the APC to "trip" off.
     /// </summary>
     [DataField]
-    public float MaxLoad = 20e3f;
+    public float MaxLoad = 50e3f; // goob, same as a portable generator, sci and medical use like 40 KW, wizden adding nothingburgers
 
     /// <summary>
     /// Time that the APC can be continuously overloaded before tripping off.
