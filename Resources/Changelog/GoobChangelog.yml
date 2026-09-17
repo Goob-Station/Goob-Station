@@ -25258,3 +25258,9 @@ Entries:
       message: 'New HECU gamerule. Functions as weaker ERT. '
   id: 2892
   time: '2026-09-16T20:13:01.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: Mk58 can recieve flashlight upgrades
+  id: 2893
+  time: '2026-09-17T14:03:06.0000000+00:00'
