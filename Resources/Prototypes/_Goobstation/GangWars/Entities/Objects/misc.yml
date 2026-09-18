@@ -137,7 +137,7 @@
   name: gang spray can
   suffix: Gang
   description: A spray can used to mark territory for your gang. Only works if you belong to a gang.
-  parent: [BaseItem, BaseMajorContraband]
+  parent: [BaseItem, BaseMinorContraband]
   components:
   - type: Sprite
     sprite: _Goobstation/Gangs/spray_cans.rsi

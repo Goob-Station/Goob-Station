@@ -24,6 +24,7 @@ gang-leader-member-denied = Your gang invitation was denied.
 gang-invite-target-already-member = That person is already in a gang.
 gang-invite-sent = {$name} has been invited! Awaiting their response.
 gang-invite-already-outgoing = You already have an outgoing invitation!
+gang-invite-target-invalid = This person cannot join a gang!
 
 gang-invite-window-title = Gang Invitation
 gang-invite-window-prompt = {$leader} wants you to join the [color=#{$color}]{$gangName}[/color]!
