@@ -92,6 +92,7 @@
     tags:
     - FelinidEmotes
     - HarpyEmotes
+    - ReptilianEmotes # Omu
   blacklist:
     components:
     - BorgChassis
