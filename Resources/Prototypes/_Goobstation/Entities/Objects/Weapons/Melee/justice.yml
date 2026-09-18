@@ -43,7 +43,6 @@
       path: /Audio/Weapons/bladeslice.ogg
     angle: 60
     animation: WeaponArcThrust
-
   - type: IntellicardableMind
   - type: DoAfter
   - type: Actions
@@ -60,7 +59,6 @@
   - type: RadarConsole
     maxRange: 256
     followEntity: true
-
   - type: GhostRole
     name: justice-role-name
     description: justice-role-description
@@ -89,7 +87,6 @@
         type: StationMapBoundUserInterface
         requireInputValidation: false
   - type: StationMap
-
   - type: TypingIndicator
     proto: robot
   - type: Speech
