@@ -25100,3 +25100,167 @@ Entries:
       message: Chefs now cook Golden Apple Tarts with Golden Apples
   id: 2877
   time: '2026-09-11T23:51:08.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Add
+      message: Chaplains can now choose a custom name. Hallelujah!
+  id: 2878
+  time: '2026-09-15T18:37:50.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: >-
+        You can now use intellicards on man-machine interfaces, go give that
+        clanker flesh and blood!
+  id: 2879
+  time: '2026-09-15T18:42:59.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added 12 new hairstyles! Pawsome!
+  id: 2880
+  time: '2026-09-15T18:43:31.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: >-
+        Species changes and transformations now transfer your inventory even
+        while stunned, asleep, or knocked down.
+    - type: Fix
+      message: Clothing hidden under a modsuit is no longer lost when polymoph.
+    - type: Fix
+      message: Modsuit parts no longer detach during inventory transfers.
+    - type: Fix
+      message: >-
+        Permanent implants (bluespace/redspace lifeline, shadowmind,
+        xeno-compatibility, etc.) now follow you through a polymorph like other
+        implants.
+    - type: Add
+      message: >-
+        Added a transferAppearance option to species changes, keeping your look
+        (skin, eyes, hair, sex, height) while dropping anything invalid for the
+        new species.
+    - type: Tweak
+      message: >-
+        Xenobio toxins (slime, human, felinid, banana, advanced mutation) now
+        keep the player's appearance.
+  id: 2881
+  time: '2026-09-15T18:44:56.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: >-
+        Moths and chitinids now have a chance to scream when pest spray is
+        sprayed on them.
+  id: 2882
+  time: '2026-09-15T18:46:33.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Tweak
+      message: Xenobiology consoles now offer 10 bounties at a time instead of 6.
+  id: 2883
+  time: '2026-09-15T18:50:27.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: (temporarily) Blacklisted mindshield users from joining gangs.
+    - type: Tweak
+      message: Gang spray cans are now marked as minor contraband
+    - type: Tweak
+      message: Gang signs health has been reduced 40 => 20
+    - type: Fix
+      message: You can no longer deconstruct the gang crate.
+  id: 2884
+  time: '2026-09-15T19:18:01.0000000+00:00'
+- author: Sanyati
+  changes:
+    - type: Add
+      message: Reptilian Bone armor sprite.
+    - type: Add
+      message: Reptilian Cosmic Cultist armor sprites.
+    - type: Add
+      message: Reptilian Explorer armor sprites.
+  id: 2885
+  time: '2026-09-15T23:11:57.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: minervend to chloris salvage
+    - type: Fix
+      message: replaced weapons on pirate ship with pirate-appropriate weapons
+    - type: Fix
+      message: fixed some missing wires on box
+    - type: Fix
+      message: fixed pirate ship airlocks not having fans
+    - type: Fix
+      message: fixed chloris fax machines not having labels
+    - type: Fix
+      message: fixed the smartfridge in box kitchen having med access
+    - type: Fix
+      message: fixed tank harnesses not holding backpack water tanks
+    - type: Fix
+      message: fixed meteors not spawning on secret+
+    - type: Fix
+      message: fixed dimensional pot not being unbreakable
+    - type: Fix
+      message: fixed reptilians missing some markings
+    - type: Fix
+      message: fixed shadowkin black hole marking being unable to be recolored
+    - type: Fix
+      message: fixed trash bag not being able to pick up cigar butts
+    - type: Fix
+      message: fixed trash bag not being able to pick up certain types of garbage
+    - type: Tweak
+      message: trash bag can now pick up organs
+    - type: Tweak
+      message: nozzles and monkey cubes can now fit in the xenobiology pouch
+  id: 2886
+  time: '2026-09-15T23:14:31.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added 54 new vinyls for the radio host
+    - type: Tweak
+      message: the "joke" vinyl disks spawn less commonly now
+  id: 2887
+  time: '2026-09-16T12:16:50.0000000+00:00'
+- author: PhosphateWithManyOs, LizardHater
+  changes:
+    - type: Add
+      message: Added some emotes to Lizard!
+  id: 2888
+  time: '2026-09-16T20:10:42.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: Slot machine win rates have been adjusted
+    - type: Tweak
+      message: Slot machine emag effect is slighty different now
+  id: 2889
+  time: '2026-09-16T20:11:32.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: >-
+        Pizzabomb now detonates when opened via the E key. No more awkward
+        botched assassinations!
+  id: 2890
+  time: '2026-09-16T20:11:58.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to recall some of the nullrod
+  id: 2891
+  time: '2026-09-16T20:12:25.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: 'New HECU gamerule. Functions as weaker ERT. '
+  id: 2892
+  time: '2026-09-16T20:13:01.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: Mk58 can recieve flashlight upgrades
+  id: 2893
+  time: '2026-09-17T14:03:06.0000000+00:00'
