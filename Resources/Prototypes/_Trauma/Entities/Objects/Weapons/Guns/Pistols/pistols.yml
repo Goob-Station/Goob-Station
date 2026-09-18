@@ -1,0 +1,15 @@
+- type: entity
+  parent: [ AppraisalTool, WeaponPistolViper ]
+  id: WeaponPistolViperAppraisal
+  name: appraisal tool
+  description: A beancounter's best friend, with a quantum connection to the galactic market and the ability to appraise even the toughest items. It will also tell you if a crate contains a completed bounty.
+  suffix: Gun
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Weapons/Guns/Pistols/appraisal-gun.rsi
+  - type: Gun
+    showExamineText: false
+    soundGunshot:
+      path: /Audio/Items/appraiser.ogg
+  - type: UseDelay
+    delay: 1

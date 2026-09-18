@@ -10,44 +10,34 @@
       color: "#f0f8ff"
       shader: XenoBluespace
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
       - !type:SpawnEntity
-        entity: FloorTileItemBluespace
-        number: 30
-        shouldScale: false
+        entity: FloorTileItemBluespace30
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
       - !type:SpawnEntity
         entity: MaterialBSCrystal1
         number: 5
-        shouldScale: false
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:RandomTeleportNearby
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
+      - !type:RelayNearby
+        compName: MobState
+        blacklist:
+          components:
+          - BorgBrain # no teleporting MMIs
+        range: 7
+        effect: !type:RandomTeleport
   - type: Tag
     tags:
     - XenobiologyBluespaceExtract

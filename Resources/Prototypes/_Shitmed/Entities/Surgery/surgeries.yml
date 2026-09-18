@@ -198,6 +198,37 @@
   - type: SurgeryTraumaPresentCondition
     trauma: OrganDamage
 
+- type: entity
+  parent: BasePartSurgery
+  id: SurgeryExtractForeignBody
+  name: Extract Foreign Body
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepExtractForeignBody
+  - type: SurgeryBleedsPresentCondition
+    inverted: true
+  - type: SurgeryTraumaTreatableCondition
+
+- type: entity
+  parent: BasePartSurgery
+  id: SurgeryRepairBrainDamage
+  name: Repair Brain Damage
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRepairBrain
+  - type: SurgeryPartCondition
+    parts: [ Head ]
+  - type: SurgeryBleedsPresentCondition
+    inverted: true
+  - type: SurgeryTraumaPresentCondition
+    trauma: Braindeath
+
 # I fucking hate hardcoding all of this shit to accomodate for surgery BUI.
 # If anyone can give me pointers on how to make it better I'd be incredibly grateful.
 

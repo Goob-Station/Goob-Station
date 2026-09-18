@@ -10,9 +10,7 @@ slime-latch-fail-max-entities = You cannot consume the {$ent}, you are full!
 
 slime-eat-corpse-success = {THE($eater)} is trying to tear something away from {THE($target)}!
 
-slime-eat-corpse-fail-not-eatable = {THE($target)} don't look eatable.
-
-slime-eat-corpse-fail-not-dead = {THE($target)} should be dead!
+slime-eat-corpse-fail = We can't eat this {THE($target)}!
 
 slime-examined-stomach = [color=red]You can see something moving inside of it![/color]
 

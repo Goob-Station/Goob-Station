@@ -23,6 +23,8 @@ Small fixes/refactors are exempt. Media may be used in SS14 progress reports wit
 - [ ] I have added media to this PR or it does not require an in-game showcase.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
 
+<!-- As Goobstation is moving to Goob Reforged, we'll be changing licenses. Checking this makes it easier on maints and we won't have to ask every contrib one by one. -->
+- [ ] I allow my code and changes to be relicensed to [`GAG v1.0`](https://github.com/Goob-Station/Goob-Reforged/blob/master/LICENSE.MD), upon them being ported to [GoobStation Reforged](https://github.com/Goob-Station/Goob-Reforged) in the near future.
 ## Breaking changes
 <!-- List any breaking changes, including namespaces, public class/method/field changes, prototype renames; and provide instructions for fixing them.
 This will be posted in #codebase-changes. -->

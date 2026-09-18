@@ -101,34 +101,7 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
         if (Resolve(uid, ref consciousness, false))
         {
             if (consciousness.NerveSystem != default)
-            {
-                foreach (var painModifier in consciousness.NerveSystem.Comp.Modifiers)
-                {
-                    _pain.TryRemovePainModifier(consciousness.NerveSystem.Owner,
-                        painModifier.Key.Item1,
-                        painModifier.Key.Item2,
-                        consciousness.NerveSystem.Comp);
-                }
-
-                foreach (var painMultiplier in consciousness.NerveSystem.Comp.Multipliers)
-                {
-                    _pain.TryRemovePainMultiplier(consciousness.NerveSystem.Owner,
-                        painMultiplier.Key,
-                        consciousness.NerveSystem.Comp);
-                }
-
-
-                foreach (var nerve in consciousness.NerveSystem.Comp.Nerves)
-                {
-                    foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
-                    {
-                        _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
-                            painFeelsModifier.Key.Item2,
-                            nerve.Key,
-                            nerve.Value);
-                    }
-                }
-            }
+                _pain.RemoveAllPainEffects(consciousness.NerveSystem);
 
             foreach (var multiplier in
                      consciousness.Multipliers.Where(multiplier => multiplier.Value.Type == ConsciousnessModType.Pain))

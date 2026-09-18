@@ -8,12 +8,13 @@ using Content.Shared._Shitmed.Weapons.Ranged.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
-using Robust.Shared.Random;
 using System.Linq;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -75,7 +76,7 @@ public partial class TraumaSystem
             if (bodyComp.PartType == BodyPartType.Hand)
                 _virtual.DeleteInHandsMatching(bodyComp.Body.Value, bone);
 
-            if (TryGetWoundableTrauma(bone.Comp.BoneWoundable.Value, out var traumas, TraumaType.BoneDamage))
+            if (TryGetWoundableTrauma(bone.Comp.BoneWoundable.Value, out var traumas, BoneDamage))
                 foreach (var trauma in traumas.Where(trauma => trauma.Comp.TraumaTarget == bone))
                     RemoveTrauma(trauma);
         }
@@ -94,9 +95,9 @@ public partial class TraumaSystem
     {
         args.Multiplier *= bone.Comp.BoneSeverity switch
         {
-            BoneSeverity.Damaged => 0.92f,
-            BoneSeverity.Cracked => 0.84f,
-            BoneSeverity.Broken => 0.75f,
+            BoneSeverity.Damaged => 1.09f,
+            BoneSeverity.Cracked => 1.19f,
+            BoneSeverity.Broken => 1.33f,
             _ => 1f,
         };
     }
@@ -117,7 +118,7 @@ public partial class TraumaSystem
             || bodyPart.Body is not { } body)
             return;
 
-        if (TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, odds))
+        if (_wound.TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, odds))
         {
             args.Handled = true;
             args.Cancel();
@@ -140,7 +141,7 @@ public partial class TraumaSystem
             || bodyPart.Body is not { } body)
             return;
 
-        if (TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, odds))
+        if (_wound.TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, odds))
             args.Handled = true;
     }
 
@@ -179,7 +180,7 @@ public partial class TraumaSystem
             return false;
 
         if (_net.IsServer)
-            AddTrauma(boneEnt, woundable, inflicter, TraumaType.BoneDamage, inflicterSeverity);
+            AddTrauma(boneEnt, woundable, inflicter, BoneDamage, inflicterSeverity);
 
         ApplyDamageToBone(boneEnt, inflicterSeverity, boneComp);
 
@@ -215,7 +216,7 @@ public partial class TraumaSystem
 
         bool hasBrokenBones = false;
 
-        var rootPart = bodyComp.RootContainer.ContainedEntity;
+        var rootPart = bodyComp.RootContainer?.ContainedEntity;
         if (rootPart.HasValue)
         {
             foreach (var (_, woundable) in _wound.GetAllWoundableChildren(rootPart.Value))
@@ -255,7 +256,7 @@ public partial class TraumaSystem
     {
         var nearestSeverity = boneComp.BoneSeverity;
 
-        foreach (var (severity, value) in _boneThresholds.OrderByDescending(kv => kv.Value))
+        foreach (var (severity, value) in BoneThresholds)
         {
             if (boneComp.BoneIntegrity < value)
                 continue;
@@ -282,7 +283,7 @@ public partial class TraumaSystem
 
     private void ProcessLegsState(EntityUid body, BodyComponent? bodyComp = null)
     {
-        if (!Resolve(body, ref bodyComp))
+        if (!Resolve(body, ref bodyComp) || bodyComp.RequiredLegs <= 0)
             return;
 
         var rawWalkSpeed = 0f; // just used to compare to actual speed values
@@ -299,10 +300,8 @@ public partial class TraumaSystem
             var partSprintSpeed = movement.SprintSpeed;
             var partAcceleration = movement.Acceleration;
 
-            if (!TryComp<WoundableComponent>(legEntity, out var legWoundable))
-                continue;
-
-            if (!TryComp<BoneComponent>(legWoundable.Bone.ContainedEntities.First(), out var boneComp))
+            if (!TryComp<WoundableComponent>(legEntity, out var legWoundable)
+                || !TryComp<BoneComponent>(legWoundable.Bone.ContainedEntities.FirstOrNull(), out var boneComp))
                 continue;
 
             // Get the foot penalty
@@ -315,7 +314,8 @@ public partial class TraumaSystem
 
             if (footEnt != null)
             {
-                if (TryComp<BoneComponent>(legWoundable.Bone.ContainedEntities.FirstOrNull(), out var footBone))
+                if (TryComp<WoundableComponent>(footEnt.Value.Id, out var footWoundable)
+                    && TryComp<BoneComponent>(footWoundable.Bone.ContainedEntities.FirstOrNull(), out var footBone))
                 {
                     penalty = footBone.BoneSeverity switch
                     {
@@ -368,20 +368,11 @@ public partial class TraumaSystem
 
         if (walkSpeed < rawWalkSpeed / 3.4)
             _standing.Down(body);
-    }
-
-    private bool TryFumble(string message, SoundPathSpecifier sound, EntityUid body, float odds)
-    {
-        var rand = new System.Random((int) _timing.CurTick.Value);
-        if (rand.NextFloat() < odds)
-        {
-            _popup.PopupClient(Loc.GetString(message), body, PopupType.Medium);
-            var ev = new DropHandItemsEvent();
-            RaiseLocalEvent(body, ref ev, false);
-            _audio.PlayPredicted(sound, body, body);
-            return true;
-        }
-        return false;
+        else if (_standing.IsDown(body)
+            && !HasComp<KnockedDownComponent>(body)
+            && !HasComp<SleepingComponent>(body)
+            && !_mobState.IsIncapacitated(body))
+            _standing.Stand(body);
     }
 
     #endregion

@@ -41,6 +41,11 @@
     {
       "name": "equipped-OUTERCLOTHING-feroxi",
       "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-hydrakin",
+      "directions": 4
     }
+      
   ]
 }

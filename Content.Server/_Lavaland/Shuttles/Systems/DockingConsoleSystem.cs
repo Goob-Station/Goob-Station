@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
@@ -22,6 +21,7 @@ using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Shared.Station.Components;
 using Content.Server.Cargo.Components;
+using Content.Shared._Lavaland.Procedural.Components;
 using Content.Shared.Cargo.Components;
 
 namespace Content.Server._Lavaland.Shuttles.Systems;

@@ -262,6 +262,12 @@
     - Leg
     - Foot
     - Tail
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5 # Solo Ontag
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -465,7 +471,7 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/clock.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
+  parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorMonk
   name: monk's habit
   description: A few steps above rended sackcloth.
@@ -474,10 +480,6 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
-  - type: ToggleableClothing
-    stripDelay: null
-    clothingPrototypes:
-      head: ClothingHeadHatHelmetMonk
 
 - type: entity
   parent: ClothingOuterArmorTemplar
@@ -491,7 +493,7 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
+  parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorDragon
   name: dragon suit
   description: The scales were ethically sourced, promise.
@@ -500,10 +502,6 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/dragonsuit.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/OuterClothing/Misc/dragonsuit.rsi
-  - type: ToggleableClothing
-    stripDelay: null
-    clothingPrototypes:
-      head: ClothingHeadHatHelmetDragon
 
 - type: entity
   parent: ClothingOuterArmorTemplar

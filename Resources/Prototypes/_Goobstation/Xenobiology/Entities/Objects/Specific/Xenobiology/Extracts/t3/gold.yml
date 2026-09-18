@@ -10,56 +10,40 @@
       color: "#e8b923"
       shader: XenoMetallic
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractEvil
       - !type:Jitter
         time: 3
         frequency: 20
       - !type:SpawnEntity
         entity: RPassiveMobSpawner
         number: 5
-        shouldScale: false
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractEvil
       - !type:Jitter
         time: 3
         frequency: 20
       - !type:SpawnEntity
         entity: RHostileMobSpawner
         number: 5
-        shouldScale: false
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractEvil
       - !type:Jitter
         time: 3
         frequency: 20
       - !type:SpawnEntity
         entity: RNeutralMobSpawner
         number: 5
-        shouldScale: false
   - type: Tag
     tags:
     - XenobiologyGoldExtract

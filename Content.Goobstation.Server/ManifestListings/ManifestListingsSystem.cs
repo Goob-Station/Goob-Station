@@ -1,7 +1,9 @@
 using System.Linq;
 using System.Text;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Server.Store.Conditions;
 using Content.Goobstation.Shared.ManifestListings;
+using Content.Goobstation.Shared.Store;
 using Content.Shared.Actions.Components;
 using Content.Shared.Mind;
 using Content.Shared.Store;
@@ -36,6 +38,17 @@ public sealed class ManifestListingsSystem : EntitySystem
         var data = args.Data;
         list.RemoveAll(x => x.ID == data.ID);
         list.Add(data);
+
+        RecordPerBuyerPurchase(ent, data);
+    }
+
+    private void RecordPerBuyerPurchase(EntityUid mind, ListingData data)
+    {
+        if (data.Conditions == null || !data.Conditions.Any(c => c is ListingLimitedStockPerBuyerCondition))
+            return;
+
+        var record = EnsureComp<StorePurchaseRecordComponent>(mind);
+        record.Purchases[data.ID] = record.Purchases.GetValueOrDefault(data.ID) + 1;
     }
 
     private void OnPrepend(Entity<MindListingsComponent> ent, ref PrependObjectivesSummaryTextEvent args)

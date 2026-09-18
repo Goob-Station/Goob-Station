@@ -30,6 +30,25 @@ public sealed class StealthSystem : SharedStealthSystem
         SubscribeLocalEvent<StealthComponent, BeforePostShaderRenderEvent>(OnShaderRender);
     }
 
+    public override void Update(float frameTime) // for stealth to return to harpy after flight ends
+    // used for any system that forces a different shader on something while also having stealth from cobra gland
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<StealthComponent, SpriteComponent>();
+        while (query.MoveNext(out var uid, out var stealth, out var sprite))
+        {
+            if (stealth.Enabled && (sprite.PostShader == null || !sprite.RaiseShaderEvent))
+            {
+                SetShader(uid, true, stealth, sprite); // force the stealth shader
+            }
+            else if (!stealth.Enabled && sprite.PostShader == _shader)
+            {
+                SetShader(uid, false, stealth, sprite); // clean up
+            }
+        }
+    }
+
     public override void SetEnabled(EntityUid uid, bool value, StealthComponent? component = null)
     {
         if (!Resolve(uid, ref component) || component.Enabled == value)

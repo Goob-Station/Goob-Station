@@ -168,6 +168,7 @@
 
 - type: roleLoadout
   id: JobChaplain
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - ChaplainHead

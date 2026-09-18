@@ -1,0 +1,11 @@
+- type: entity
+  parent: DehydratedSpaceCarp
+  id: DehydratedMagicCarp
+  name: dehydrated magic carp
+  description: Looks like a plush toy magic carp, but just add water and it becomes a real-life magic carp!
+  components:
+  - type: Sprite
+    state: magicplush
+  - type: Rehydratable
+    possibleSpawns:
+    - MobCarpMagic

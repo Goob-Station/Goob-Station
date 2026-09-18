@@ -16,7 +16,6 @@
     - id: AstroNavCartridge
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
-    - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
     - id: CargoMegaphone # goob - loudspeaker
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
 
@@ -175,7 +174,6 @@
     - id: RubberStampCE
     - id: MetalFoamGrenade
     # Goobstation V
-    - id: SupermatterComputerCircuitboard
     - id: BaseHandheldStationMapSupermatterCe
     - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard
@@ -184,6 +182,7 @@
     - id: WeaponLauncherSingularityBuster
     - id: MachinePowerTransmissionLaserFlatpack
     - id: RCDRechargingCE
+    - id: MaterialSiloFlatpack # Goob
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -243,6 +242,9 @@
     - id: RubberStampCMO
     # Goobstation Start
     - id: ChemistryHotplateFlatPack
+    - id: CloningpodFlatpack
+    - id: MedicalScannerFlatpack
+    - id: ComputerCloningConsoleFlatpack
     - id: BiomassReclaimerFlatpack
     - id: Multitool
     - id: MedTekCartridge
@@ -250,6 +252,7 @@
     - id: BoxSyringePax
     - id: ClothingBeltMilitaryWebbingCMOFilled
     - id: ClothingBackpackDuffelSurgeryFilled
+    - id: MaterialSiloFlatpack
     # Shitmed
     - id: MedicalBiofabricatorFlatpack
     # Virology
@@ -307,13 +310,13 @@
     - id: HandTeleporter
     - id: ComputerCargoRequestScienceFlatpack # Goobstation
     - id: RubberStampRd
+    - id: MaterialSiloFlatpack # Goob
     # - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you. # Goobstation - WYCI + malf ai major
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
-    - id: XenobiologyBountyComputerCircuitboard # Goobstation
     - id: MMI # Goobstation
 
 # Hardsuit table, used for suit storage as well
@@ -357,7 +360,7 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyMagnum
+   # - id: WeaponEnergyMagnum # Goobstation - Remove Energy Magnum
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -378,6 +381,7 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
+    - id: MaterialSiloFlatpack # Goob
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

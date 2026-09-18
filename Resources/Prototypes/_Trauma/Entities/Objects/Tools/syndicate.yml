@@ -1,0 +1,88 @@
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: AccessConfiguratorSyndicate
+  name: syndicate access configurator
+  description: A Cybersun-branded access configurator, compatible with all non-NanoTrasen IDs. Now with quick-swap functionality!
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/multitool_drop.ogg
+  - type: Sprite
+    sprite: _Trauma/Objects/Tools/syndie_access_configurator.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: _Trauma/Objects/Tools/syndie_access_configurator.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: AccessOverrider
+    accessLevels:
+    - SyndicateAgent
+    - NuclearOperative
+    - Wizard
+    - Xenoborg
+    - Xenomorph
+    privilegedIdSlot:
+      name: id-card-console-privileged-id
+      startingItem: SyndicateIDCard
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+      ejectOnBreak: true
+      swap: true
+      whitelist:
+        components:
+        - IdCard
+    denialSound:
+      path: /Audio/Machines/custom_deny.ogg
+    doAfter: 0.3
+  - type: UserInterface
+    interfaces:
+      enum.AccessOverriderUiKey.Key:
+        type: AccessOverriderBoundUserInterface
+  - type: ActivatableUI
+    key: enum.AccessOverriderUiKey.Key
+    requiresComplex: true
+    requireActiveHand: false
+    singleUser: true
+    inHandsOnly: true
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      AccessOverrider-privilegedId: !type:ContainerSlot
+
+- type: entity
+  parent: [ NetworkConfigurator, RemoteSignallerAdvanced ]
+  id: NetworkConfiguratorSignallerAdvanced
+  suffix: Signaller
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/network_configurator.rsi
+    layers:
+    - state: icon
+    - state: mode-link
+      map: ["enum.NetworkConfiguratorLayers.ModeLight"]
+      shader: unshaded
+    - state: signaller
+      sprite: Objects/Devices/signaller.rsi
+      visible: false
+    - state: advanced
+      sprite: Objects/Devices/signaller.rsi
+      visible: false
+    - state: advanced-inhand-left
+      sprite: Objects/Devices/signaller.rsi
+      visible: false
+    - state: advanced-inhand-right
+      sprite: Objects/Devices/signaller.rsi
+      visible: false
+  - type: Item
+    sprite: Objects/Tools/network_configurator.rsi
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        sprite: Objects/Tools/network_configurator.rsi
+      right:
+      - state: inhand-right
+        sprite: Objects/Tools/network_configurator.rsi

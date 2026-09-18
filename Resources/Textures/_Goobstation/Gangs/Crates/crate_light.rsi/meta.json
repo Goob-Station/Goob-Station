@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprite taken from Goonstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "blink",
+            "delays": [
+                [0.2, 0.115]
+            ]
+        },
+        {
+            "name": "low_light"
+        },
+        {
+            "name": "half_light"
+        },
+        {
+            "name": "full_light"
+        }
+    ]
+}

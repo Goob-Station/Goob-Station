@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Goobstation - start
+using Content.Goobstation.Common.Kitchen;
+// Goobstation - end
 using Content.Server.Body.Systems;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Components;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
@@ -131,6 +133,13 @@ public sealed class SharpSystem : EntitySystem
             ? PopupType.LargeCaution
             : PopupType.Small;
 
+        // Goobstation - start
+        var target = args.Args.Target.Value;
+
+        var ev = new BeforeBeingButcheredEvent(uid);
+        RaiseLocalEvent(target, ref ev);
+
+        // Goobstation - end
         _popupSystem.PopupEntity(Loc.GetString("butcherable-knife-butchered-success", ("target", args.Args.Target.Value), ("knife", Identity.Entity(uid, EntityManager))),
             popupEnt,
             args.Args.User,

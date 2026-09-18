@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy, plushie_mnwaar by ShieldAcrados based on the Einstein Engines shadowkin plushie, plushiemnwaar-inhand-left and plushiemnwaar-inhand-right by MarkerWicker, plushie_brizby and plushie_baldzby by Zethine, plushie_boggle and plushie_lehmin by KipperSkipp, plushie xeve by Yonsim, plushie holy by SDPowerStroke, TwoFish by Yero, Leo Malone by Yero",
+    "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy, plushie_mnwaar by ShieldAcrados based on the Einstein Engines shadowkin plushie, plushiemnwaar-inhand-left and plushiemnwaar-inhand-right by MarkerWicker, plushie_brizby and plushie_baldzby by Zethine, plushie_boggle and plushie_lehmin by KipperSkipp, plushie xeve by Yonsim, plushie holy by SDPowerStroke, TwoFish by Yero, Leo Malone by Yero, Irene by Redstonewolf, Rouge by pistos2225",
     "size": {
         "x": 32,
         "y": 32
@@ -31,6 +31,12 @@
         {
             "name": "plushie_holy"
         },
+		{
+			"name": "plushie_rouge_off"
+		},
+		{
+			"name": "plushie_rouge_on"
+		},
         {
             "name": "plushieholy-equipped-HELMET",
             "directions": 4
@@ -205,6 +211,41 @@
         },
         {
             "name": "plushieleomalone-inhand-right",
+            "directions": 4
+        },
+		{
+			"name": "plushierouge-inhand-left-off",
+			"directions": 4
+		},
+		{
+			"name": "plushierouge-inhand-left-on",
+			"directions": 4
+		},
+		{
+			"name": "plushierouge-inhand-right-off",
+			"directions": 4
+		},
+		{
+			"name": "plushierouge-inhand-right-on",
+			"directions": 4
+		},
+        {
+            "name": "plushie_redstonewolf"
+        },
+        {
+            "name": "plushieredstonewolf-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "plushieredstonewolf-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "plushieredstonewolf-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushieredstonewolf-inhand-right",
             "directions": 4
         }
     ]
