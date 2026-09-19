@@ -546,6 +546,19 @@
     sprite: Clothing/Mask/swat.rsi
   - type: Clothing
     sprite: Clothing/Mask/swat.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-MASK
+      head-vox:
+      - state: equipped-MASK-vox
+      head-reptilian:
+      - state: equipped-MASK-reptilian
+      head-feroxi:
+      - state: equipped-MASK-feroxi
+      head-hydrakin:
+      - state: equipped-MASK-hydrakin
+      head-vulpkanin:
+      - state: equipped-MASK-vulpkanin
   - type: Tag
     tags:
     - WhitelistChameleon

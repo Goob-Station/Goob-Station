@@ -31,6 +31,9 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      head-reptilian:
+      - state: equipped-head-light-reptilian
+        shader: unshaded
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
@@ -43,6 +46,10 @@
       head-vox:
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-reptilian:
+      - state: equipped-head-reptilian
+      - state: equipped-head-unshaded-reptilian
         shader: unshaded
       head-dog:
       - state: equipped-head-dog
@@ -127,6 +134,18 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      head-reptilian:
+      - state: equipped-head-light-reptilian
+        shader: unshaded
+      head-feroxi:
+      - state: equipped-head-light-feroxi
+        shader: unshaded
+      head-hydrakin:
+      - state: equipped-head-light-hydrakin
+        shader: unshaded
+      head-vulpkanin:
+      - state: equipped-head-light-vulpkanin
+        shader: unshaded
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
@@ -140,12 +159,24 @@
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
         shader: unshaded
+      head-reptilian:
+      - state: equipped-head-reptilian
+      - state: equipped-head-unshaded-reptilian
+        shader: unshaded
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
+      head-feroxi:
+      - state: equipped-head-feroxi
+      - state: equipped-head-unshaded-feroxi
+        shader: unshaded
       head-hydrakin:
       - state: equipped-head-hydrakin
       - state: equipped-head-unshaded-hydrakin
+        shader: unshaded
+      head-vulpkanin:
+      - state: equipped-head-vulpkanin
+      - state: equipped-head-unshaded-vulpkanin
         shader: unshaded
   - type: PointLight
     radius: 6
@@ -380,6 +411,33 @@
     sprite: Clothing/Head/Hardsuits/security-warden.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      head-vox:
+      - state: off-equipped-HELMET-vox
+      head-reptilian:
+      - state: off-equipped-HELMET-reptilian
+      head-vulpkanin:
+      - state: off-equipped-HELMET-vulpkanin
+      head-feroxi:
+      - state: off-equipped-HELMET-feroxi
+      head-hydrakin:
+      - state: off-equipped-HELMET-hydrakin
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+      head-vox:
+      - state: on-equipped-HELMET-vox
+      head-reptilian:
+      - state: on-equipped-HELMET-reptilian
+      head-vulpkanin:
+      - state: on-equipped-HELMET-vulpkanin
+      head-feroxi:
+      - state: on-equipped-HELMET-feroxi
+      head-hydrakin:
+      - state: on-equipped-HELMET-hydrakin
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -513,6 +571,37 @@
     sprite: Clothing/Head/Hardsuits/rd.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/rd.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      head-vox:
+      - state: off-equipped-HELMET-vox
+      head-reptilian:
+      - state: off-equipped-HELMET-reptilian
+      head-dog:
+      - state: off-equipped-HELMET-dog
+      head-vulpkanin:
+      - state: off-equipped-HELMET-vulpkanin
+      head-feroxi:
+      - state: off-equipped-HELMET-feroxi
+      head-hydrakin:
+      - state: off-equipped-HELMET-hydrakin
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+      head-vox:
+      - state: on-equipped-HELMET-vox
+      head-reptilian:
+      - state: on-equipped-HELMET-reptilian
+      head-dog:
+      - state: on-equipped-HELMET-dog
+      head-vulpkanin:
+      - state: on-equipped-HELMET-vulpkanin
+      head-feroxi:
+      - state: on-equipped-HELMET-feroxi
+      head-hydrakin:
+      - state: on-equipped-HELMET-hydrakin
   - type: PointLight
     color: "#d6adff"
   - type: PressureProtection
@@ -1028,6 +1117,10 @@
       head-vox: # Goobstation
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
+        shader: unshaded
+      head-reptilian: # Goobstation
+      - state: equipped-head-reptilian
+      - state: equipped-head-unshaded-reptilian
         shader: unshaded
       head-hydrakin:
       - state: equipped-head-hydrakin
