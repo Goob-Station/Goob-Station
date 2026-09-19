@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseMachinePowered
+  name: paper shredder
+  id: Shredder
+  description: Used for shredding paper, DON'T stick your hand in it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/shredder.rsi
+    layers:
+    - state: icon
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
+  - type: Shredder
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      shredder_container: !type:ContainerSlot
