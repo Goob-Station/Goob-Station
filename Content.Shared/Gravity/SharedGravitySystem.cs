@@ -75,10 +75,10 @@ public abstract partial class SharedGravitySystem : EntitySystem
 
         // Goob start
         if (TryComp<FlightComponent>(entity, out var flying) && flying.On) // Goobstation
-                return true;
+            return true;
 
         if (TryComp<MovementIgnoreGravityComponent>(entity, out var ignoreGravityComponent))
-                return ignoreGravityComponent.Weightless;
+            return ignoreGravityComponent.Weightless;
         // Goob end
 
         // Check if something other than the grid or map is overriding our gravity
