@@ -1,0 +1,37 @@
+- type: entity
+  id: MobBloodsuckerMist
+  name: mist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: Effects/emp.rsi
+        state: emp_disable
+  - type: Physics
+    bodyType: KinematicController
+  - type: InputMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+  - type: MobMover
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+
+- type: polymorph
+  id: BloodsuckerMist
+  configuration:
+    entity: MobBloodsuckerMist
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 2
