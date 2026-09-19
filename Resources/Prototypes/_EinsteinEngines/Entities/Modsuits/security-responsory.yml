@@ -51,7 +51,7 @@
         gloves-vox:
         - state: equipped-HAND-sealed-vox
         - state: equipped-HAND-sealed-unshaded-vox
-          shader: unshaded          
+          shader: unshaded
     - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
 
 - type: entity
@@ -102,6 +102,10 @@
         head-vox:
         - state: equipped-HEAD-sealed-vox
         - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
+        head-reptilian:
+        - state: equipped-HEAD-sealed-reptilian
+        - state: equipped-HEAD-sealed-unshaded-reptilian
           shader: unshaded
 - type: entity
   parent: ClothingModsuitChestplateStandard

@@ -46,6 +46,17 @@
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      head-vox:
+      - state: equipped-HELMET-vox
+      head-reptilian:
+      - state: equipped-HELMET-reptilian
+      head-resomi:
+      - state: equipped-HELMET-resomi
+      head-vulpkanin:
+      - state: equipped-HELMET-vulpkanin
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.2
@@ -322,7 +333,7 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     layers: {}
-    
+
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHoodSchemaMonk
