@@ -40,3 +40,32 @@
   id: AiMachineView
   kind: source
   path: "/Textures/_Goobstation/Shaders/ai_machine_view.swsl"
+
+- type: shader
+  id: HereticBlur
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/heretic_blur.swsl"
+  params:
+    spread: 1.0
+
+- type: shader
+  id: HereticCaption
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/heretic_caption.swsl"
+  params:
+    glyphSize: 48.0
+    strength: 1.0
+    scrimAmount: 0.85
+    sweepPhase: 0.0
+    waveSpeed: 1.0
+    maskEdge: 0.5
+    animTime: 0.0
+
+- type: shader
+  id: HereticPressure
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/heretic_pressure.swsl"
+  params:
+    strength: 0.0
+    flowSpeed: 1.0
+    shock: -1.0
