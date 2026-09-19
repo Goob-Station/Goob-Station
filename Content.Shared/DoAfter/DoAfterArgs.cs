@@ -164,6 +164,13 @@ public sealed partial class DoAfterArgs
     /// </summary>
     [DataField]
     public bool RequireCanInteract = true;
+
+    /// <summary>
+    /// Whether or not the do-after should ignore objects like windows in between the target and the user.
+    /// Goobstation
+    /// </summary>
+    [DataField]
+    public bool IgnoreObstruction = false;
     #endregion
 
     #region Duplicates
@@ -296,6 +303,7 @@ public sealed partial class DoAfterArgs
         CancelDuplicate = other.CancelDuplicate;
         DuplicateCondition = other.DuplicateCondition;
         ShowTo = other.ShowTo; // Goobstation - Show doAfter popup to another entity
+        IgnoreObstruction = other.IgnoreObstruction; // Goobstation
 
         MultiplyDelay = other.MultiplyDelay; // Goobstation
         ColorOverride = other.ColorOverride; // Goobstation

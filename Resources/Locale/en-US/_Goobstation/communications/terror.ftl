@@ -7,3 +7,4 @@ terror-blob = Attention crew, it appears that someone on your station has made a
 terror-grey-tide = Attention crew, it appears that someone on your station has made an unexpected communication with a very robust individual in nearby space.
 terror-wizard = Attention crew, it appears that someone on your station has made an unexpected communication with a mentally unstable person in nearby space.
 terror-sleeper-agent = Attention crew, it appears that an unexpected communication has had adverse effects to crew members around the station.
+terror-voidwalker = A??TTENTIO?N C??REW?, IT A??PPEARS ??THAT SOMEON??E ON? YOUR S??TATI?ON HAS M?ADE AN UN??EXPECTE??D C??OMMUNICAT??ION W??ITH T??HE V??OID??

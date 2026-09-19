@@ -1,0 +1,53 @@
+- type: entity
+  id: PartVoidwalker
+  parent: BasePart
+  name: voidwalker body part
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Voidwalker/parts.rsi
+  - type: Icon
+    sprite: _Goobstation/Mobs/Voidwalker/parts.rsi
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: Glass
+
+- type: entity
+  id: ChestVoidwalker
+  name: voidwalker chest
+  parent: [PartVoidwalker, BaseChest]
+
+- type: entity
+  id: HeadVoidwalker
+  name: voidwalker head
+  parent: [PartVoidwalker, BaseHead]
+
+- type: entity
+  id: LeftArmVoidwalker
+  name: left voidwalker arm
+  parent: [PartVoidwalker, BaseLeftArm]
+
+- type: entity
+  id: RightArmVoidwalker
+  name: right voidwalker arm
+  parent: [PartVoidwalker, BaseRightArm]
+
+- type: entity
+  id: LeftHandVoidwalker
+  name: left voidwalker hand
+  parent: [PartVoidwalker, BaseLeftHand]
+
+- type: entity
+  id: RightHandVoidwalker
+  name: right voidwalker hand
+  parent: [PartVoidwalker, BaseRightHand]
+
+- type: entity
+  id: LeftLegVoidwalker
+  name: left voidwalker leg
+  parent: [PartVoidwalker, BaseLeftLeg]
+
+- type: entity
+  id: RightLegVoidwalker
+  name: right voidwalker leg
+  parent: [PartVoidwalker, BaseRightLeg]

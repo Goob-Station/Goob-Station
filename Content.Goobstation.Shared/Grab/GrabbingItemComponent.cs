@@ -17,4 +17,7 @@ public sealed partial class GrabbingItemComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? ActivelyGrabbingEntity;
+
+    [DataField]
+    public bool CanAttackWhileGrabbing = false;
 }

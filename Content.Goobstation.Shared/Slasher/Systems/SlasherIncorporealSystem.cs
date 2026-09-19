@@ -41,6 +41,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Triggers;
 using Content.Goobstation.Common.Materials;
+using Content.Goobstation.Shared.TrackedComponents;
 using Content.Goobstation.Shared.Xenomorph;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.StepTrigger.Systems;
@@ -65,6 +66,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
     [Dependency] private readonly SlasherObserverCheckSystem _observerCheck = default!;
+    [Dependency] private readonly TrackedComponentsSystem _trackedComponents = default!;
 
     private const string FootstepSoundTag = "FootstepSound";
 
@@ -217,11 +219,12 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         FreezeCooldowns((uid, ent.Comp));
 
         RemCompDeferred<KnockedDownComponent>(uid);
-        ent.Comp.AddedIncorporealComponents.Clear();
 
-        EnsureTrackedComp<FacehuggerImmuneComponent>(uid, ent);
+        _trackedComponents.EnsureTrackedComp<FacehuggerImmuneComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
 
-        var phase = EnsureTrackedComp<PhaseShiftedComponent>(uid, ent, new PhaseShiftedComponent
+        var phase = _trackedComponents.EnsureTrackedComp(uid,
+            ent.Comp.TrackedComponentsIdentifier,
+            new PhaseShiftedComponent
         {
             SpawnEffects = true,
             MovementSpeedBuff = 5.5f,
@@ -235,7 +238,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _movement.RefreshMovementSpeedModifiers(uid);
 
         // don't wanna let people see them obviously.
-        EnsureTrackedComp<StealthComponent>(uid, ent);
+        _trackedComponents.EnsureTrackedComp<StealthComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
         var stealth = EnsureComp<StealthComponent>(uid);
         _stealth.SetVisibility(uid, stealth.MinVisibility, stealth);
         _stealth.SetThermalsImmune(uid, true, stealth);
@@ -252,23 +255,23 @@ public sealed class SlasherIncorporealSystem : EntitySystem
             _tags.RemoveTag(uid, FootstepSoundTag);
 
         // Mute and block vocal emotes.
-        EnsureTrackedComp<MutedComponent>(uid, ent);
+        _trackedComponents.EnsureTrackedComp<MutedComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
 
         // Disable FOV for full vision while incorporeal.
         _eye.SetDrawFov(uid, false);
 
         // Space immunity
-        EnsureTrackedComp<MovementIgnoreGravityComponent>(uid, ent);
-        EnsureTrackedComp<SpecialPressureImmunityComponent>(uid, ent);
-        EnsureTrackedComp<SpecialBreathingImmunityComponent>(uid, ent);
-        EnsureTrackedComp<SpecialLowTempImmunityComponent>(uid, ent);
-        EnsureTrackedComp<SpecialHighTempImmunityComponent>(uid, ent);
+        _trackedComponents.EnsureTrackedComp<MovementIgnoreGravityComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
+        _trackedComponents.EnsureTrackedComp<SpecialPressureImmunityComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
+        _trackedComponents.EnsureTrackedComp<SpecialBreathingImmunityComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
+        _trackedComponents.EnsureTrackedComp<SpecialLowTempImmunityComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
+        _trackedComponents.EnsureTrackedComp<SpecialHighTempImmunityComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
 
         // Supermatter immunity
-        EnsureTrackedComp<SupermatterImmuneComponent>(uid, ent);
+        _trackedComponents.EnsureTrackedComp<SupermatterImmuneComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
 
         // Recycler immunity
-        EnsureTrackedComp<MaterialReclaimerImmuneComponent>(uid, ent);
+        _trackedComponents.EnsureTrackedComp<MaterialReclaimerImmuneComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
 
         // Raise event for server systems to handle additional logic (like disabling lights)
         var enteredEv = new SlasherIncorporealEnteredEvent();
@@ -285,7 +288,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         ent.Comp.IncorporealStartTime = null;
 
-        RemoveTrackedCompsDeferred(uid, ent);
+        _trackedComponents.RemoveTrackedComps(uid, ent.Comp.TrackedComponentsIdentifier);
 
         _actions.SetEnabled(ent.Comp.IncorporealizeActionEnt, true);
         _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, false);
@@ -295,47 +298,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         // Restore FOV
         _eye.SetDrawFov(uid, true);
-    }
-
-    /// <summary>
-    /// EnsureComp but it checks if they already had the Component.
-    /// If they didn't it adds it to a list then removes it when they
-    /// corporealize.
-    /// </summary>
-    private T EnsureTrackedComp<T>(EntityUid uid, Entity<SlasherIncorporealComponent> ent, T? preconfigured = null) where T : Component, new()
-    {
-        if (TryComp<T>(uid, out var existing))
-            return existing;
-
-        var componentName = typeof(T).FullName;
-        if (componentName != null)
-            ent.Comp.AddedIncorporealComponents.Add(componentName);
-
-        if (preconfigured != null)
-        {
-            AddComp(uid, preconfigured);
-            return preconfigured;
-        }
-
-        return EnsureComp<T>(uid);
-    }
-
-    /// <summary>
-    /// Removes tracked components.
-    /// </summary>
-    private void RemoveTrackedCompsDeferred(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
-    {
-        if (ent.Comp.AddedIncorporealComponents.Count == 0)
-            return;
-
-        foreach (var component in EntityManager.GetComponents(uid))
-        {
-            var componentName = component.GetType().FullName;
-            if (componentName != null && ent.Comp.AddedIncorporealComponents.Contains(componentName))
-                RemCompDeferred(uid, component.GetType());
-        }
-
-        ent.Comp.AddedIncorporealComponents.Clear();
     }
 
     // Goida as shit.. I couldn't find a better way stop cooldowns
