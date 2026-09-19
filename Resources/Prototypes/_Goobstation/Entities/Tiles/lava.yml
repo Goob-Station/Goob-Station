@@ -1,0 +1,10 @@
+- type: entity
+  parent: FloorLavaEntity
+  id: FloorLavaEntityTemporary
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn
+    lifetime: 3  

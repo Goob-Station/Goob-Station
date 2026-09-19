@@ -1,0 +1,154 @@
+- type: listing
+  id: Pitchfork
+  name: Summon pitchfork
+  description:  devil-pitchfork-desc
+  productAction: ActionDevilSummonPitchfork
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilHellfire
+  name: Hellfire
+  description:  devil-hellfire-desc
+  productAction: ActionHellFire
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilGrip
+  name: Devil grip
+  description: devil-grip-desc
+  productAction: ActionDevilGrip
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilGripUpgrade1
+  name: Cursed Grip
+  description: devil-grip-2-desc
+  productEvent: !type:DevilGripCurseRotPurchasedEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: _Goobstation/Actions/devil.rsi
+    state: griprot
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilGripUpgrade2
+  name: Twisted Grip
+  description: devil-grip-3-desc
+  productEvent: !type:DevilGripEnhancedPurchasedEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: _Goobstation/Actions/devil.rsi
+    state: gripstun
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: DevilFireImmunity
+  name: Ignis Immunitas
+  description: devil-fire-immune-desc
+  productEvent: !type:DevilFireImmuneEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: _Goobstation/Actions/devil.rsi
+    state: fireimmune
+  cost:
+    SoulsStored: 2
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: Hellstep
+  name: Hellstep
+  description: devil-hellstep-desc
+  productAction: ActionDevilHellstep
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: Heresy
+  name: Heresy
+  description: devil-heresy-desc
+  productAction: ActionDevilHeresy
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: CheatDeath
+  name: Cheat death
+  description:  devil-cheatdeath-desc
+  productAction: ActionCheatDeath
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 99
+
+- type: listing
+  id: Authority
+  name: Authority
+  description: devil-authority-desc
+  productAction: ActionDevilAuthority
+  cost:
+    SoulsStored: 1
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SmallFavor
+  name: Small favor
+  description: devil-small-favor-desc
+  productAction: ActionSmallFavor
+  cost:
+    SoulsStored: 3
+  categories:
+  - DevilAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
