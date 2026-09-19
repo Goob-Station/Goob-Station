@@ -1,0 +1,24 @@
+- type: soundCollection
+  id: CrystalStep
+  files:
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass1.ogg
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass2.ogg
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass3.ogg
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass4.ogg
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass5.ogg
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass6.ogg
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass7.ogg
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass8.ogg
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass9.ogg
+
+- type: soundCollection
+  id: MercuryBeam
+  files:
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/beam1.ogg
+  - /Audio/_Lavaland/Mobs/Bosses/Mercury/beam2.ogg
+
+- type: soundCollection
+  id: ThunderStrike
+  files:
+  - /Audio/_Goobstation/Effects/thunder_clap.ogg
+  - /Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg

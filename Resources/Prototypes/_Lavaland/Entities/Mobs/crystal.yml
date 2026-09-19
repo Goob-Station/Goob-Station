@@ -1,0 +1,234 @@
+- type: entity
+  id: BaseLavalandMobCrystal
+  parent: LavalandMobBase
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: NpcFactionMember
+    factions:
+    - Lavafauna
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/crystal.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: crystalseed
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PlasmaOre1Unprocessed:
+            min: 1
+            max: 8 # Supposed to be an insanely good way of farming plasma ore.
+  - type: StaticPrice
+    price: 1500
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: MercurySpider
+  - type: PointLight
+    radius: 2
+    energy: 1.5
+    color: cyan
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
+  - type: RadiationSource
+    intensity: 1
+
+- type: entity
+  name: Crystal seed
+  id: LavalandMobCrystalSeed
+  parent: BaseLavalandMobCrystal
+  description: Will one day be a tree.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.5,0.2,0.5"
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+  - type: BatteryAmmoProvider
+    proto: BulletFlock
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 5
+    fireRate: 0.2 
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/_Goobstation/Weapons/Guns/Gunshots/TaserGoon.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PlasmaOre1Unprocessed:
+            min: 1
+            max: 8 # Supposed to be an insanely good way of farming plasma ore.
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
+
+- type: entity
+  name: Crystal ring
+  id: LavalandMobCrystalRing
+  parent: BaseLavalandMobCrystal
+  description: Seems reflective!
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PlasmaOre1Unprocessed:
+            min: 2
+            max: 8 # Supposed to be an insanely good way of farming plasma ore.
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/crystal.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: crystalring
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass1.ogg"
+    angle: 0
+    attackRate: 0.35 # Slow
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 8
+  - type: SpriteRotater
+    increaseOvertime: false
+    rotationSpeed: 60
+  - type: Reflect
+    reflectProb: 0.95
+    reflects:
+      - Energy
+      - NonEnergy
+  - type: CombatPower # Goobstation
+    factor: 0.6 # times more dangerous than a crew-member
+
+- type: entity
+  name: Crystal crab
+  id: LavalandMobCrystalCrab
+  parent: BaseLavalandMobCrystal
+  description: Spiky. Tough to shatter.
+  categories: [ Spawner ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PlasmaOre1Unprocessed:
+            min: 5
+            max: 8 # Supposed to be an insanely good way of farming plasma ore.
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: crystalcrab
+      sprite: _Lavaland/Mobs/crystal.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: Wcrystalcrab
+    noMovementLayers:
+      movement:
+        state: crystalcrab
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/_Lavaland/Mobs/Bosses/Mercury/breaking_glass1.ogg"
+    angle: 0
+    attackRate: 0.75
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
+  - type: VicinitySpawner
+    numberToSpawn: 1
+    offsetForSpawn: 3
+    prototype:
+    - CrystalSpikeEmerging
+  - type: CombatPower # Goobstation
+    factor: 1.2 # times more dangerous than a crew-member
