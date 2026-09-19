@@ -422,7 +422,8 @@ uplink-cluster-banana-peel-name = Cluster Banana
 uplink-cluster-banana-peel-desc = Splits into 6 explosive banana peels after being thrown, the peels detonate automatically after 20 seconds if nobody slips on them.
 
 uplink-cane-blade-name = Cane Blade
-uplink-cane-blade-desc = A cane that has a hidden, strange blade that can be unsheathed. Stolen from a curator's personal museum. Lights people on fire via an ancient enchantment.
+# Goobstation Cane blade Rework
+uplink-cane-blade-desc = A cane that has a hidden, strange blade that can be unsheathed. Stolen from a curator's personal museum. Able to dash through the air, hitting your enemies on the way.
 # Armor
 uplink-chameleon-name = Chameleon Kit
 uplink-chameleon-desc = A backpack full of items that contain chameleon technology allowing you to disguise as pretty much anything on the station, and more!

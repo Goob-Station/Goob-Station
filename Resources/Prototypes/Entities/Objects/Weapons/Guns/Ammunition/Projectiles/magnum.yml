@@ -31,8 +31,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 7 # Goobstation
-        Heat: 7 # Goobstation
+        Piercing: 15 # Goobstation
+        Heat: 9 # Goobstation
 
 - type: entity
   parent: BaseBullet # Goobstation edit

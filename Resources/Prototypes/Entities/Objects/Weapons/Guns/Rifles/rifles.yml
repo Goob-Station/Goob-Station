@@ -281,7 +281,8 @@
     selectedMode: Burst
     availableModes:
     - Burst
-    burstFireRate: 10 # Goob
+    burstFireRate: 15 # Goob
+    burstCooldown: 0.1 # Goob
   - type: GunWieldBonus
     minAngle: -30 # Goob
     maxAngle: -40 # Goob
