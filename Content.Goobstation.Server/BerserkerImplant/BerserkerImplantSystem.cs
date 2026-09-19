@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.BerserkerImplant;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Server.BerserkerImplant;
 

@@ -8,7 +8,8 @@ using Content.Shared.Ninja.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Throwing;
-using Content.Goobstation.Shared.Slasher.Components; // For SlasherIncorporealComponent
+using Content.Goobstation.Shared.Slasher.Components;
+using Content.Shared.Damage.Systems; // For SlasherIncorporealComponent
 
 namespace Content.Goobstation.Shared.Stealth;
 

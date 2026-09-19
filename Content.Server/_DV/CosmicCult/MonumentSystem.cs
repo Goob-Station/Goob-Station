@@ -27,7 +27,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage.Systems; // Shitmed Change
 
 namespace Content.Server._DV.CosmicCult;
 

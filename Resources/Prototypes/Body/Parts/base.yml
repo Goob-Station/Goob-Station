@@ -75,7 +75,7 @@
   - type: Woundable
     damageContainer: Inorganic
     integrity: 200
-    integrityCap: 200
+    integrityCap: 600
     thresholds:
       Minor: 180
       Moderate: 120

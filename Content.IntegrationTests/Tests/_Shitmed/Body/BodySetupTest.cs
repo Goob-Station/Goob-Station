@@ -27,6 +27,8 @@ using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.IntegrationTests.Tests._Shitmed.Body;
 
@@ -52,8 +54,11 @@ public sealed class BodySetupTest
         "Skeleton",
     };
 
+    private readonly ProtoId<DamageTypePrototype> _dieTestDamageType = "Blunt";
+    private readonly ProtoId<DamageTypePrototype> _gibTestDamageType = "Blunt";
+
     // This test is kinda useless for us since the only place where we use InnateToolComponent is fuckin behonkers lmao.
-    /*[Test]
+    [Test, Explicit]
     public async Task InnateToolTest()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -105,7 +110,44 @@ public sealed class BodySetupTest
 
 
         await pair.CleanReturnAsync();
-    }*/
+    }
+
+    [Test]
+    public async Task UristCanGib()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+        var (server, client) = (pair.Server, pair.Client);
+        var map = await pair.CreateTestMap();
+
+        var protoMan = server.ResolveDependency<IPrototypeManager>();
+        var damageableSystem = server.EntMan.System<DamageableSystem>();
+        var bodySys = server.EntMan.System<BodySystem>();
+
+        EntityUid target = default;
+
+        await server.WaitAssertion(() => target = server.EntMan.Spawn("MobHuman", map.MapCoords));
+        await pair.WaitCommand($"setoutfit {server.EntMan.GetNetEntity(target)} CaptainGear");
+
+        await pair.RunTicksSync(5);
+        var nuid = pair.ToClientUid(target);
+        Assert.That(client.EntMan.EntityExists(nuid));
+
+        var uhoh = 20000;
+        var damageSpecifier = new DamageSpecifier(protoMan.Index(_gibTestDamageType), uhoh);
+
+        await server.WaitAssertion(() => damageableSystem.TryChangeDamage(target, damageSpecifier, targetPart: TargetBodyPart.Chest));
+
+        await pair.RunTicksSync(5);
+        await pair.WaitCommand("dirty");
+        await pair.RunTicksSync(5);
+
+        Assert.That(
+            !client.EntMan.EntityExists(nuid),
+            $"Urist took {uhoh} {_gibTestDamageType} to chest and didnt gib!"
+        );
+
+        await pair.CleanReturnAsync();
+    }
 
     [Test]
     public async Task AllSpeciesHaveLegs()
@@ -385,7 +427,7 @@ public sealed class BodySetupTest
 
                 // Apply lethal damage
                 var lethalDamage = deadThreshold.Value + FixedPoint2.New(10);
-                var damageSpecifier = new DamageSpecifier(protoMan.Index<DamageTypePrototype>("Blunt"), lethalDamage);
+                var damageSpecifier = new DamageSpecifier(protoMan.Index(_dieTestDamageType), lethalDamage);
                 if (entMan.TryGetComponent<BodyComponent>(entity, out var body)
                     && body.BodyType == BodyType.Complex)
                 {
@@ -403,7 +445,7 @@ public sealed class BodySetupTest
                 }
 
                 Assert.That(mobStateSystem.IsDead(entity, mobState),
-                    $"Entity {entityProto.ID} should be dead after taking lethal damage ({lethalDamage}), but isn't.");
+                    $"Entity {entityProto.ID} should be dead after taking lethal damage ({lethalDamage} ${_dieTestDamageType}), but isn't.");
             }
         });
 

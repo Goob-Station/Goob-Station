@@ -1,15 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos.Rotting;
-using Content.Shared.Damage;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Overlays;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
-using System.Linq;
-using Content.Shared.Hands; // Goobstation
 using Content.Shared.Damage.Components;
 
 namespace Content.Client.Overlays;
@@ -17,7 +14,7 @@ namespace Content.Client.Overlays;
 /// <summary>
 /// Shows a healthy icon on mobs.
 /// </summary>
-public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsComponent>
+public sealed partial class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsComponent> // Goob - made partial
 {
     [Dependency] private readonly IPrototypeManager _prototypeMan = default!;
 
@@ -96,13 +93,5 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
         }
 
         return result;
-    }
-
-    // Goobstation
-    protected override void OnRefreshEquipmentHud(Entity<ShowHealthIconsComponent> ent,
-        ref HeldRelayedEvent<RefreshEquipmentHudEvent<ShowHealthIconsComponent>> args)
-    {
-        if (ent.Comp.WorksInHands)
-            base.OnRefreshEquipmentHud(ent, ref args);
     }
 }

@@ -22,6 +22,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Examine;
 using Content.Shared.Localizations;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared.Weapons.Reflect;
 
@@ -140,7 +141,7 @@ public sealed class ReflectSystem : EntitySystem
             // WD EDIT START
             if (reflector.Comp.DamageOnReflectModifier != 0)
             {
-                _damageable.TryChangeDamage(reflector, projectile.Comp.Damage * reflector.Comp.DamageOnReflectModifier,
+                _damageable.TryChangeDamage(reflector.Owner, projectile.Comp.Damage * reflector.Comp.DamageOnReflectModifier,
                     projectile.Comp.IgnoreResistances, origin: projectile.Comp.Shooter);
             }
             // WD EDIT END
@@ -183,7 +184,7 @@ public sealed class ReflectSystem : EntitySystem
 
         // WD EDIT START
         if (reflector.Comp.DamageOnReflectModifier != 0 && damage != null)
-            _damageable.TryChangeDamage(reflector, damage * reflector.Comp.DamageOnReflectModifier, origin: shooter);
+            _damageable.TryChangeDamage(reflector.Owner, damage * reflector.Comp.DamageOnReflectModifier, origin: shooter);
         // WD EDIT END
 
         var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);

@@ -47,6 +47,13 @@ public partial class SharedInteractionSystem
         if (HasComp<RelayInputMoverComponent>(uid))
             return;
 
+        // Goob start - fix BlockMovementComponent
+        // GOOB TODO: upstream this fix
+        // https://github.com/space-wizards/space-station-14/issues/45956
+        if (component.LifeStage == ComponentLifeStage.Removing || component.Deleted)
+            return;
+        // Goob end
+
         args.Cancel(); // no more scurrying around
     }
 
