@@ -43,6 +43,22 @@
       path: /Audio/Weapons/bladeslice.ogg
     angle: 60
     animation: WeaponArcThrust
+  - type: IntellicardableMind
+  - type: DoAfter
+  - type: Actions
+  - type: ActionGrant
+    actions:
+    - ActionPAIOpenShop
+  - type: Store
+    categories:
+    - PAIAbilities
+    currencyWhitelist:
+    - SiliconMemory
+    balance:
+      SiliconMemory: 30
+  - type: RadarConsole
+    maxRange: 256
+    followEntity: true
   - type: GhostRole
     name: justice-role-name
     description: justice-role-description
@@ -50,6 +66,27 @@
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: GhostTakeoverAvailable
+  - type: Examiner
+  - type: Instrument # LET THE JUSTICE PLAY EPIC BATTLE MUSIC!!!!!!
+    allowPercussion: false
+    handheld: false
+    program: 2
+    bank: 100
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+        requireInputValidation: false
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+        requireInputValidation: false
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+        requireInputValidation: false
+  - type: StationMap
   - type: TypingIndicator
     proto: robot
   - type: Speech
