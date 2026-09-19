@@ -352,7 +352,7 @@
       Death: 300
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 800
+    chaosScore: 400 # from 800, this was higher than ninja, dragon, colossus and midround traitors...
   - type: AntagSpawner
     prototype: MobVoxRaider
   - type: RuleGrids
@@ -398,7 +398,7 @@
   id: SlasherSpawn
   components:
   - type: StationEvent
-    weight: 3
+    weight: 2
     duration: null
     earliestStart: 30
     minimumPlayers: 30
@@ -408,7 +408,7 @@
       Death: 40
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 600
+    chaosScore: 350 # slightly less than midround TOTs. down from 600
   - type: AntagLockerSpawn
   - type: AntagLoadProfileRule
     speciesOverride: Human
