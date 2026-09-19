@@ -10,3 +10,11 @@
   color: "#4B076D"
   recognizable: true
   physicalDesc: reagent-physical-desc-alien
+
+- type: reagent
+  parent: Vomit
+  id: NebulaVomit
+  name: reagent-name-nebula-vomit
+  group: Biological
+  desc: reagent-desc-nebula-vomit
+  color: "#CCCCFF"

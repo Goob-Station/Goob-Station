@@ -1,0 +1,45 @@
+- type: entity
+  name: voideater
+  parent: [BaseItem, BaseMagicalContraband]
+  id: Voideater
+  description: A malformed, writhing mass of tentacles.
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/voideater.rsi
+    state: icon
+  - type: MeleeWeapon
+    canWideSwing: false
+    resistanceBypass: true
+    angle: 0
+    animation: WeaponArcBite
+    attackRate: 0.8
+    damage:
+      types:
+        Cold: 10
+        Asphyxiation: 20
+        Ion: 25
+        Structural: 20
+    soundHit:
+      path: /Audio/_Goobstation/Voidwalker/Effects/void_slash.ogg
+  - type: StaminaDamageOnHit
+    damage: 40
+  - type: Item
+    size: Large
+    sprite: _Goobstation/Objects/Weapons/Melee/voideater-inhands.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: GrabbingItem
+    canAttackWhileGrabbing: true
+  - type: Voideater
+
+- type: entity
+  parent: Voideater
+  id: VoideaterUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

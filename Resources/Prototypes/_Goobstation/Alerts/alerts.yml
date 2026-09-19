@@ -173,3 +173,31 @@
       sprite: /Textures/Interface/Alerts/essence_counter.rsi
       state: "0"
       offset: 0.375, 0
+
+- type: alert
+  id: AlertStationTracker
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackoff
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackon-center
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackon-south
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackon-southeast
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackon-east
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackon-northeast
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackon-north
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackon-northwest
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackon-west
+  - sprite: /Textures/_Goobstation/Interface/Alerts/tracker.rsi
+    state: trackon-southwest
+  name: Station Tracker
+  description: Tracks the station.
+  minSeverity: 0
+  maxSeverity: 10

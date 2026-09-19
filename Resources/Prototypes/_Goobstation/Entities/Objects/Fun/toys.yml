@@ -356,7 +356,7 @@
     icNames:
     - Samantha Withers
     ocNames:
-    - SolsticeOfTheWinter
+    - angeltern
   - type: Extractable
     juiceSolution:
       reagents:
@@ -1087,7 +1087,7 @@
         Slash: 5
     biteSound:
       collection: VulpkaninSnarls
-      
+
 - type: entity
   parent: BasePlushie
   id: PlushieRouge
@@ -1272,7 +1272,7 @@
   parent: PlushieRedstonewolf
   id: EvilPlushieRedstonewolf
   suffix: Evil
-  
+
 - type: entity
   name: evil Rouge plush
   parent: PlushieRouge

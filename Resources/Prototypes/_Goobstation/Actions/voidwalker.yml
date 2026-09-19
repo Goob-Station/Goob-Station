@@ -1,0 +1,104 @@
+- type: entity
+  parent: BaseAction
+  id: BaseVoidwalkerAction
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VoidwalkerAction
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/voidwalker.rsi
+      state: base
+
+- type: entity
+  parent: BaseVoidwalkerAction
+  id: ActionVoidwalkerUnsettle
+  name: Unsettle
+  description: L??ET THE A??BYSS GAZ??E BACK
+  components:
+  - type: Action
+    useDelay: 12
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/voidwalker.rsi
+      state: unsettle
+  - type: TargetAction
+    interactOnMiss: false
+    checkCanAccess: false
+    range: 15
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Blindable
+    canTargetSelf: false
+    event: !type:VoidwalkerUnsettleEvent {}
+  - type: VoidwalkerAction
+    requireInSpace: false
+
+- type: entity
+  parent: BaseVoidwalkerAction
+  id: ActionVoidwalkerVoidWalk
+  name: Void Walk
+  description: E??SCAPE THEI??R ?GAZES
+  components:
+  - type: Action
+    useDelay: 8
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/voidwalker.rsi
+      state: voidwalk
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Voidwalker/Effects/void_walk.ogg
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:VoidwalkerVoidWalkEvent
+
+- type: entity
+  parent: BaseVoidwalkerAction
+  id: ActionVoidwalkerNebulaCrawl
+  name: Nebula Crawl
+  description: C??RAWL BETWEE??N P?LANES??
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/voidwalker.rsi
+      state: crawl
+    useDelay: 4
+  - type: InstantAction
+    event: !type:ReagentCrawlEvent
+
+- type: entity
+  parent: BaseVoidwalkerAction
+  id: ActionVoidwalkerNebulaCrawlExit
+  name: Exit Nebula Crawl
+  description: R??ETURN TO T??HEIR P??LANE
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/voidwalker.rsi
+      state: base
+  - type: InstantAction
+    event: !type:ExitNebulaCrawlEvent
+
+- type: entity
+  id: ActionVoidwalkerVoidWhisper
+  name: Void Whisper
+  description: S??UBLIMINAL M??ESSAGIN??G
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: _Goobstation/Actions/voidwalker.rsi
+      state: whisper
+    itemIconStyle: NoItem
+  - type: TargetAction
+    interactOnMiss: false
+    range: 15
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:VoidWhisperEvent
