@@ -348,9 +348,6 @@
   id: MagazineSmart
 
 - type: Tag
-  id: MantisBlade
-
-- type: Tag
   id: Mask
 
 - type: Tag
