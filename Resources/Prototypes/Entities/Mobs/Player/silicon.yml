@@ -102,7 +102,6 @@
     channels:
     - Binary
     - Common
-    canUseInCrit: true # Goobstation
   - type: ActionGrant
     actions:
     - ActionAIViewLaws
