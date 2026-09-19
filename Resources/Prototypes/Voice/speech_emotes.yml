@@ -166,8 +166,9 @@
   available: false
   icon: Interface/Emotes/squeak.png
   whitelist:
-    tags: 
+    tags:
     - HarpyEmotes # Omu, allow harpy to squeak
+    - RodentiaEmotes # Omu
     components:
       - Vocal
   blacklist:
@@ -438,6 +439,7 @@
     - Silicon
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to buzz
   chatTriggers:
     - buzzing
     - buzz
@@ -452,6 +454,7 @@
   chatMessages: ["chat-emote-msg-weh"]
   whitelist:
     tags:
+    - HarpyEmotes # Omu, allow harpy to weh
     - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   blacklist:
     tags:
@@ -468,9 +471,10 @@
   chatMessages: ["chat-emote-msg-hew"]
   whitelist:
     tags:
-      - HarpyEmotes # Omu, allow harpy to hew
+    - HarpyEmotes # Omu, allow harpy to hew
+    - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   chatTriggers: # Omu, allow harpy to hew
-    - hew 
+    - hew
     - hews
 
 - type: emote
@@ -486,6 +490,8 @@
   blacklist:
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to chirp
+    - FeroxiEmotes # Omu
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
     - chirp
@@ -506,6 +512,7 @@
     - Explosive
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to beep
   chatTriggers:
     - beep
     - beeps
@@ -523,6 +530,7 @@
     - Silicon
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to chime
   chatTriggers:
     - chime
     - chimes
@@ -540,6 +548,7 @@
     - Silicon
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to buzztwo
   chatTriggers:
     - buzztwice
     - buzzstwice
@@ -563,8 +572,23 @@
     - Silicon
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to ping
   chatTriggers:
     - ping
     - pings
     - pinged
     - pinging
+
+- type: emote # Omu
+  id: Rattle
+  name: chat-emote-name-rattle
+  category: Vocal
+  icon: Interface/Emotes/weh.png
+  chatMessages: ["chat-emote-msg-reptile-rattle"]
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  chatTriggers:
+    - rattles
+    - rattle
+    - rattled
