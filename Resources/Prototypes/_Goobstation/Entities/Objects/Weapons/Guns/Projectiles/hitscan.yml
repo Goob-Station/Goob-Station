@@ -448,3 +448,27 @@
     impactFlash:
       sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
       state: impact_beam_light
+
+- type: entity
+  parent: BasicHitscan
+  id: RedLaserMouseTwin
+  name: twin red laser ray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanMultiBeam
+    beams: 2
+    spacing: 0.2
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 0.1
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light
+    travelFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light
+    impactFlash:
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light
