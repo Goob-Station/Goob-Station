@@ -17,6 +17,8 @@ using Robust.Shared.Prototypes;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Throwing;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.GameTicking;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Physics;
@@ -53,7 +55,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
-
+    [Dependency] private readonly GameTicker _gameTicker = default!;
     private HashSet<EntityUid> _entities = new();
     private EntityQuery<PhysicsComponent> _physQuery;
     public override void Initialize()
@@ -348,21 +350,18 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         }
     }
 
-    private void OnMobDeath(
-        EntityUid uid,
-        BlueSpaceStormPortalComponent component,
-        ref PortalMobsAllDeathEvent args)
+    private void OnMobDeath(EntityUid uid, BlueSpaceStormPortalComponent component, ref PortalMobsAllDeathEvent args)
     {
-        var ruleQuery = EntityQueryEnumerator<BlueSpaceRuleComponent>();
-
-        while (ruleQuery.MoveNext(out _, out var rule))
+        var query = EntityQueryEnumerator<BlueSpaceRuleComponent, ActiveGameRuleComponent, GameRuleComponent>();
+        EntityUid ruleUID;
+        while (query.MoveNext(out ruleUID, out var rule, out _, out _))
         {
-            if (rule.PortalsRemaining > 0)
-                rule.PortalsRemaining--;
-
+            rule.PortalsRemaining = Math.Max(0, rule.PortalsRemaining - 1);
+            if(rule.PortalsRemaining < 1){
+                _gameTicker.EndGameRule(ruleUID);
+            }
             break;
         }
-
         _entityManager.DeleteEntity(uid);
     }
 
