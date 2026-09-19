@@ -36,7 +36,6 @@
   - ProximitySensor
   - Drone
   - AiRemoteBrain
-  - SecEndoskeleton # Goobstation - S.E.C. cyborg
 
 - type: latheRecipePack
   id: BorgModules

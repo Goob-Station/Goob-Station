@@ -1,4 +1,4 @@
-# S.E.C. cyborg (Goobstation)
+# S.E.C. cyborg
 - type: entity
   parent: BaseAction
   id: ActionSECBorgSelfDestruct

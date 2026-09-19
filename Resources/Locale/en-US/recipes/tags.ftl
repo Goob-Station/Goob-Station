@@ -157,8 +157,3 @@ construction-graph-tag-backpack = backpack
 
 # chemistry
 construction-graph-tag-centrifuge-compatible = centrifugable container
-
-# S.E.C. cyborg (Goobstation)
-construction-graph-tag-stunbaton = a stun baton
-construction-graph-tag-disabler = a disabler
-construction-graph-tag-combat-knife = a combat knife

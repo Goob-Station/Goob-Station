@@ -113,7 +113,7 @@
     job: Borg
   - type: GhostTakeoverAvailable
 
-# S.E.C. cyborg (Goobstation)
+# S.E.C. cyborg
 - type: entity
   id: BorgChassisSEC
   parent: BaseBorgChassisNT
@@ -166,9 +166,11 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
   - type: SecurityCyborg
+  - type: Explosive
+    explosionType: Default
     totalIntensity: 30
-    slope: 20
-    maxTileIntensity: 20
+    intensitySlope: 20
+    maxIntensity: 20
 
 # Mining
 - type: entity

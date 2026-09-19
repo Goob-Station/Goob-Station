@@ -116,7 +116,7 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }
 
-# S.E.C. cyborg modules (Goobstation)
+# S.E.C. cyborg modules
 - type: entity
   id: BaseSECborgModule
   parent: [ BaseBorgModule, BaseProviderBorgModule ]

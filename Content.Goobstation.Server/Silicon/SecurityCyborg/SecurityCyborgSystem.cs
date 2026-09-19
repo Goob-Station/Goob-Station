@@ -34,17 +34,8 @@ public sealed class SecurityCyborgSystem : EntitySystem
             _throwing.TryThrow(brain, _random.NextVector2() * 5, 5f);
         }
 
-        var comp = ent.Comp;
-        _explosion.QueueExplosion(
-            ent,
-            comp.ExplosionType,
-            comp.TotalIntensity,
-            comp.Slope,
-            comp.MaxTileIntensity,
-            canCreateVacuum: false);
-
         _popup.PopupEntity(Loc.GetString("sec-borg-self-destruct-popup", ("chassis", Name(ent))), ent, PopupType.LargeCaution);
 
-        QueueDel(ent);
+        _explosion.TriggerExplosive(ent);
     }
 }
