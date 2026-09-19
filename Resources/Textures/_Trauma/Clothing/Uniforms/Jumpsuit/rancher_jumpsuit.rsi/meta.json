@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from goonstation at https://github.com/goonstation/goonstation/blob/fa74190dc5fb3e39bd613ae3dd5e2898c4801815/icons/obj/clothing/jumpsuits/item_js_rank.dmi, https://github.com/goonstation/goonstation/blob/fa74190dc5fb3e39bd613ae3dd5e2898c4801815/icons/mob/clothing/jumpsuits/worn_js_rank.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    }
+  ]
+}

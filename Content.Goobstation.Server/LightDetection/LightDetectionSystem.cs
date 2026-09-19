@@ -2,6 +2,7 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.LightDetection.Components;
 using Content.Goobstation.Shared.LightDetection.Systems;
 using Content.Server.Disposal.Unit;
+using Content.Shared.Ghost;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
@@ -34,9 +35,13 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
     private HandleLightJob _job;
     private TimeSpan _nextUpdate = TimeSpan.Zero;
 
+    private EntityQuery<GhostComponent> _ghostQuery;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        _ghostQuery = GetEntityQuery<GhostComponent>();
 
         _job = new()
         {
@@ -82,10 +87,11 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
         {
             var (uid, comp, xform) = UpdateEnts[index];
 
-            //ignore lights while travelling through disposals
-            if (LightSys.HasComp<BeingDisposedComponent>(uid))
+            //ignore lights while travelling through disposals and personal lights from ghosts
+            if (LightSys.HasComp<BeingDisposedComponent>(uid) || LightSys._ghostQuery.HasComp(uid))
             {
                 comp.CurrentLightLevel = 0f;
+                LightSys.Dirty(uid, comp);
                 return;
             }
 
@@ -147,7 +153,11 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
                 totalLightLevel += pointLight.Energy * (1f - t * t);
             }
 
+            var ev = new LightLevelUpdated(totalLightLevel, comp.CurrentLightLevel);
+            LightSys.RaiseLocalEvent(uid, ref ev);
+
             comp.CurrentLightLevel = totalLightLevel;
+            LightSys.Dirty(uid, comp);
         }
     }
 }

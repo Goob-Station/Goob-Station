@@ -25,4 +25,14 @@
       chemicalComposition:
         Silicon: 20
     - type: Circuitboard
+    # <Trauma>
+    - type: Extractable
+      grindableSolutionName: processor
+    - type: SolutionContainerManager
+      solutions:
+        processor:
+          reagents:
+          - ReagentId: NanoProcessor
+            Quantity: 15
+    # </Trauma>
 

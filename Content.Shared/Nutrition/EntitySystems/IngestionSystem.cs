@@ -378,7 +378,14 @@ public sealed partial class IngestionSystem : EntitySystem
         var afterEv = new IngestedEvent(args.User, entity, split, forceFed);
         RaiseLocalEvent(food, ref afterEv);
 
-        _stomach.TryTransferSolution(stomachToUse.Value.Owner, split, stomachToUse);
+        // <Trauma> - raise event on the target entity if the food is consumed
+        var volume = split.Volume;
+        if (_stomach.TryTransferSolution(stomachToUse.Value.Owner, split, stomachToUse))
+        {
+            var consumingEv = new ConsumingFoodEvent(food, volume);
+            RaiseLocalEvent(entity, ref consumingEv);
+        }
+        // </Trauma>
 
         if (!afterEv.Destroy)
         {
@@ -392,8 +399,12 @@ public sealed partial class IngestionSystem : EntitySystem
             return;
 
         // Tell the food that it's time to die.
-        var finishedEv = new FullyEatenEvent(args.User);
+        var finishedEv = new FullyEatenEvent(args.User, entity); // Trauma Added entity
         RaiseLocalEvent(food, ref finishedEv);
+        // <Trauma>
+        var ateEv = new FullyAteEvent(food, args.User);
+        RaiseLocalEvent(entity, ref ateEv);
+        // </Trauma>
 
         var afterEatingEv = new AfterEatingEvent(food);// goob moth eating
         RaiseLocalEvent(entity.Owner, ref afterEatingEv);// goob moth eating

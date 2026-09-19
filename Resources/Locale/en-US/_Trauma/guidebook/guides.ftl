@@ -1,0 +1,2 @@
+guide-entry-ranching = Ranching
+
