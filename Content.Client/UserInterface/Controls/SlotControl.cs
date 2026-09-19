@@ -108,8 +108,25 @@ namespace Content.Client.UserInterface.Controls
             set
             {
                 _highlightTexturePath = value;
-                HighlightRect.Texture = Theme.ResolveTextureOrNull(_highlightTexturePath)?.Texture;
+                UpdateHighlightTexture();
             }
+        }
+
+        private string? _highlightTextureFallbackPath;
+        public string? HighlightTextureFallbackPath
+        {
+            get => _highlightTextureFallbackPath;
+            set
+            {
+                _highlightTextureFallbackPath = value;
+                UpdateHighlightTexture();
+            }
+        }
+
+        private void UpdateHighlightTexture()
+        {
+            HighlightRect.Texture = Theme.ResolveTextureOrNull(_highlightTexturePath)?.Texture
+                ?? Theme.ResolveTextureOrNull(_highlightTextureFallbackPath)?.Texture;
         }
 
         public event Action<GUIBoundKeyEventArgs, SlotControl>? Pressed;
@@ -291,7 +308,7 @@ namespace Content.Client.UserInterface.Controls
             base.OnThemeUpdated();
 
             StorageButton.TextureNormal = Theme.ResolveTextureOrNull(_storageTexturePath)?.Texture;
-            HighlightRect.Texture = Theme.ResolveTextureOrNull(_highlightTexturePath)?.Texture;
+            UpdateHighlightTexture();
             UpdateButtonTexture();
         }
 
