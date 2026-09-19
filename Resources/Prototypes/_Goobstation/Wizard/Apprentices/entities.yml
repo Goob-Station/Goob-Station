@@ -66,7 +66,7 @@
     guaranteedActions:
     - ActionLesserSummonGuns
     - ActionSmoke
-    - ActionBlinkSpell
+    - ActionSpell
 
 - type: entity
   parent: MobHumanApprenticeBase

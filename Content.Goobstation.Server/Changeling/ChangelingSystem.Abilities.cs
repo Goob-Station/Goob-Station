@@ -14,7 +14,6 @@ using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared.Chemistry.Components;
@@ -48,6 +47,7 @@ using Content.Goobstation.Shared.Devour.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Shared.Light.Components;
+using Content.Goobstation.Common.Weapons.AmmoSelector;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -720,7 +720,6 @@ public sealed partial class ChangelingSystem
             QueueDel(bola);
         }
 
-        // Goobstation start unwelds containers containing changelling.
         var parent = Transform(uid).ParentUid;
 
         if (parent != null && TryComp<WeldableComponent>(parent, out var weldable))
@@ -730,7 +729,6 @@ public sealed partial class ChangelingSystem
                 _weldable.SetWeldedState(parent, false);
             }
         }
-        // Goobstation end
 
         var soln = new Solution();
         soln.AddReagent("PolytrinicAcid", 10f);

@@ -3,14 +3,12 @@
 using System.Linq;
 using Content.Goobstation.Shared.NTR;
 using Content.Goobstation.Shared.NTR.Events;
-using Content.Server._Goobstation.Wizard.Store;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
-using Content.Shared._Goobstation.Wizard.Refund; // Goob
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
@@ -27,7 +25,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing; // Goob
+using Robust.Shared.Timing;
+using Content.Goobstation.Common.Store;
+using Content.Goobstation.Common.Wizard.Refund; // Goob
 
 namespace Content.Server.Store.Systems;
 
@@ -225,9 +225,10 @@ public sealed partial class StoreSystem
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
             _hands.PickupOrDrop(buyer, product);
 
+            // Goobstation start
             RaiseLocalEvent(product, new ItemPurchasedEvent(buyer));
-
-            HandleRefundComp(uid, component, product, listing.Cost, listing); // Goob edit
+            HandleRefundComp(uid, component, product, listing.Cost, listing);
+            // Goobstation end
 
             var xForm = Transform(product);
 

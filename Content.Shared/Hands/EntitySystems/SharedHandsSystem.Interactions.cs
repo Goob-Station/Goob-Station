@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Goobstation.Wizard.ArcaneBarrage;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -126,10 +126,10 @@ public abstract partial class SharedHandsSystem : EntitySystem
             && session.AttachedEntity != null
             && TryGetActiveItem(session.AttachedEntity.Value, out var activeItem))
         {
-            // Goobstation start
-            if (_net.IsServer && HasComp<DeleteOnDropAttemptComponent>(activeItem))
+            // Goobstation start // TODO SHITCODE
+            if (HasComp<DeleteOnDropAttemptComponent>(activeItem))
             {
-                QueueDel(activeItem);
+                PredictedQueueDel(activeItem);
                 return false;
             }
 
