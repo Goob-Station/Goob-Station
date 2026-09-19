@@ -226,7 +226,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 damageOvertime *= component.LightAttackOvertimeDamageMultiplier;
             }
 
-            TakeStaminaDamage(ent, damageImmediate / toHit.Count, comp, source: args.User, with: args.Weapon, sound: component.Sound, immediate: true);
+            TakeStaminaDamage(ent, damageImmediate / toHit.Count, comp, source: args.User, with: args.Weapon, sound: component.Sound, immediate: true, ignoreResist: true); // Goob: IgnoreResist: true, we already calculated resists
             TakeOvertimeStaminaDamage(ent, damageOvertime);
         }
     }
@@ -271,7 +271,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         damage *= hitEvent.Value;
         overtime *= hitEvent.Value;
 
-        TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
+        TakeStaminaDamage(target, damage, source: uid, sound: component.Sound, ignoreResist: true); // Goob: Ignore resists, we calculated this already.
         TakeOvertimeStaminaDamage(target, overtime); // Goobstation
     }
 
