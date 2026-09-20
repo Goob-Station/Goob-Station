@@ -173504,6 +173504,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,35.5
       parent: 2
+    - type: DeviceList
+      devices:
+      - 27273
 - proto: WeaponLaserCarbinePractice
   entities:
   - uid: 27275
