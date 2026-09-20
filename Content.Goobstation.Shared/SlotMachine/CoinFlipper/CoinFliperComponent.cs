@@ -15,6 +15,9 @@ public sealed partial class CoinFliperComponent : Component
     [DataField]
     public SoundSpecifier LoseSound = new SoundPathSpecifier("/Audio/Machines/buzz-two.ogg");
 
+    [DataField]
+    public SoundSpecifier WinSound = new SoundPathSpecifier("/Audio/Effects/Arcade/win.ogg");
+
     [DataField, AutoNetworkedField]
     public float DoAfterTime = 3.8f;
 
@@ -23,7 +26,4 @@ public sealed partial class CoinFliperComponent : Component
 
     [DataField, AutoNetworkedField]
     public int PrizeAmount;
-
-    [DataField]
-    public SoundSpecifier WinSound = new SoundPathSpecifier("/Audio/Effects/Arcade/win.ogg");
 }
