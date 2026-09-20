@@ -8,7 +8,12 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
-  goobcoins: 20 #Goob content
+  goobcoins: 0 #Goob content
+  special:
+  - !type:PlaytimeDegrade # MisandryBox - tider main syndrome - Cosmic: I'm so fucking sorry
+    since: 600
+    until: 24600
+    disarmMalus: true
   access:
   - Maintenance
   special: # Goobstation
