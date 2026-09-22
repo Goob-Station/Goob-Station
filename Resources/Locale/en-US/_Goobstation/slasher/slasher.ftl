@@ -9,6 +9,13 @@ slasher-kit-select-title = Choose Your Kit
 slasher-kit-select-header = Choose a kit. Each one comes with a unique song and a unique look.
 slasher-kit-select-button = Select
 slasher-kit-guide-button = This variant plays differently - open its guidebook page.
+slasher-kit-select-confirm-button = Confirm?
+slasher-kit-play-music-button = Play Music
+slasher-kit-stop-music-button = Stop Music
+slasher-kit-locked-button = Locked
+slasher-kit-locked-requirement = Ascend as { $required } to unlock.
+slasher-kit-tab-normal = Normal
+slasher-kit-tab-prestige = Prestige
 
 slasher-kit-butcher = Butcher
 slasher-kit-butcher-desc = The classic. A welding mask and apron for a no nonsense killing machine.
