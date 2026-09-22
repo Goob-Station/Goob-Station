@@ -74,6 +74,9 @@ public sealed class GrabbingItemSystem : EntitySystem
             grabIntent.GrabStage < GrabStage.Suffocate))
             return;
 
+        if (ent.Comp.CanAttackWhileGrabbing)
+            return;
+
         args.Cancelled = true;
         args.Message = Loc.GetString("grabbing-item-attack-fail",
             ("item", Identity.Entity(ent.Owner, EntityManager)),

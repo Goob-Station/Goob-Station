@@ -89,6 +89,10 @@
     - type: AnimationPlayer
     - type: Penetratable # Goobstation - Better snipers
       penetrateDamage: 10
+    - type: Tag # Goobstation - Grille tag for voidwalkers.
+      tags:
+      - Structure
+      - Grille
 
 - type: entity
   id: ClockworkGrille

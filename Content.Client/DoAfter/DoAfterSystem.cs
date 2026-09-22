@@ -3,6 +3,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
+using Content.Shared.Tag;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
@@ -19,6 +20,9 @@ public sealed class DoAfterSystem : SharedDoAfterSystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Goob
+
+    private static ProtoId<TagPrototype> _ignoreObstructionsTag = "DoAfterIgnoreObstructionPrediction"; // Goob - I'm so sorry.
 
     public override void Initialize()
     {
@@ -50,11 +54,19 @@ public sealed class DoAfterSystem : SharedDoAfterSystem
         if (_metadata.EntityPaused(playerEntity.Value))
             return;
 
+        // this is genuinely awful and hacky, but it works, and it took me three hours and a headache
+        // before resorting to this.
+        // the client wasn't getting the ignore obstructions flag  even if it was set in the dargs and caused really weird
+        // flickering with the progress bar
+        // if you have a better solution, dm me at @angeltern and explain it to me so this can be rightfully taken out back and shot
+        // i suck at networking, i'm sorry for my sins.
+        var ignoreObstructions = _tag.HasTag(playerEntity.Value, _ignoreObstructionsTag); // Goob
+
         var time = GameTiming.CurTime;
         var comp = Comp<DoAfterComponent>(playerEntity.Value);
         var xformQuery = GetEntityQuery<TransformComponent>();
         var handsQuery = GetEntityQuery<HandsComponent>();
-        Update(playerEntity.Value, active, comp, time, xformQuery, handsQuery);
+        Update(playerEntity.Value, active, comp, time, xformQuery, handsQuery, ignoreObstructions); // Ignore Obstructions # Goobstation
     }
 
     /// <summary>

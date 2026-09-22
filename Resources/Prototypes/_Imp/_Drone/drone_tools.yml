@@ -61,7 +61,8 @@
   id: StartingGearDroneTools
   equipment:
     pocket1: trayScannerUnremoveable
-    pocket2: PinpointerStationUnremoveable
+    pocket2: ClothingMaskClownUnremoveable # Goobstation - Placeholder until someone else puts something cooler here.
+    #pocket2: PinpointerStationUnremoveable - Goob : Station tracker on UI.
     back: DroneSatchelUnremovable
   inhand:
   - OmnitoolUnremoveable

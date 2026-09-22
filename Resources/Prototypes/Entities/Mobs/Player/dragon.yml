@@ -207,6 +207,7 @@
     understands:
     - TauCetiBasic
     - Carptongue
+  - type: StationPointerAlert # Goobstation
 
 - type: entity
   parent: BaseMobDragon
