@@ -21,7 +21,7 @@
           state: icon
         machetePrototype: SlasherMacheteSpring
         bloodTrailMusic:
-          path: /Audio/_Goobstation/Music/fnaf_bonnies_lullaby.ogg
+          path: /Audio/_Goobstation/Slasher/Music/fnaf_bonnies_lullaby.ogg
           params:
             volume: -4
             loop: true
@@ -33,7 +33,7 @@
           state: icon
         machetePrototype: SlasherCrowbar
         bloodTrailMusic:
-          path: /Audio/_Goobstation/Music/that_handsome_devil_midi.ogg
+          path: /Audio/_Goobstation/Slasher/Music/that_handsome_devil_midi.ogg
           params:
             volume: -7
             loop: true
@@ -45,7 +45,7 @@
           state: icon
         machetePrototype: SlasherEldritchBlade
         bloodTrailMusic:
-          path: /Audio/_Goobstation/Music/cultist_chant.ogg
+          path: /Audio/_Goobstation/Slasher/Music/cultist_chant.ogg
           params:
             loop: true
       slasher-kit-maintenance:
@@ -56,7 +56,7 @@
           state: icon
         machetePrototype: SlasherButchCleaver
         bloodTrailMusic:
-          path: /Audio/_Goobstation/Music/scared_to_bits.ogg
+          path: /Audio/_Goobstation/Slasher/Music/scared_to_bits.ogg
           params:
             loop: true
       slasher-kit-cannibal:
@@ -67,7 +67,7 @@
           state: icon
         machetePrototype: SlasherButchCleaver
         bloodTrailMusic:
-          path: /Audio/_Goobstation/Music/horror_violin_string.ogg
+          path: /Audio/_Goobstation/Slasher/Music/horror_violin_string.ogg
           params:
             volume: -7
             loop: true
@@ -79,7 +79,7 @@
           state: icon
         machetePrototype: SlasherOffsetCaneClown
         bloodTrailMusic:
-          path: /Audio/_Goobstation/Music/naktigonis_catwhisker.ogg
+          path: /Audio/_Goobstation/Slasher/Music/naktigonis_catwhisker.ogg
           params:
             volume: -7
             loop: true
@@ -101,7 +101,7 @@
           state: icon
         machetePrototype: SlasherButchCleaver
         bloodTrailMusic:
-          path: /Audio/_Goobstation/Music/padtext_horror.ogg
+          path: /Audio/_Goobstation/Slasher/Music/padtext_horror.ogg
           params:
             volume: -7
             loop: true
@@ -112,7 +112,7 @@
           sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
           state: icon
         bloodTrailMusic:
-          path: /Audio/_Goobstation/Music/horror_synthwave.ogg
+          path: /Audio/_Goobstation/Slasher/Music/horror_synthwave.ogg
           params:
             volume: -7
             loop: true
