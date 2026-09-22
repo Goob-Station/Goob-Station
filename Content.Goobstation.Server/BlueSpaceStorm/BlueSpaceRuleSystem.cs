@@ -11,6 +11,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.GameObjects;
 using System;
+using Content.Shared.Maps;
+using Content.Shared.Physics;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -19,7 +21,7 @@ public sealed partial class BlueSpaceStormRuleSystem :
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
+    [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IMapManager _map = default!;
     [Dependency] private readonly SharedMapSystem _mapsys = default!;
@@ -38,7 +40,7 @@ public sealed partial class BlueSpaceStormRuleSystem :
             true);
 
         _chat.DispatchGlobalAnnouncement(
-            "Warning. Possible Bluespace phenomena detected, please alert security of any unusual activity.",
+            "Warning. Possible Bluespace phenomena detected, please alert the science team of any breaches in spacetime. Security team should prepare for potential threats..",
             colorOverride: Color.Cyan,
             playSound: false);
 
@@ -63,14 +65,20 @@ public sealed partial class BlueSpaceStormRuleSystem :
 
         var portalPositions = new List<Vector2i>();
 
+        //Portals will spawn if:
+        //Non-spaced 3x3 area, with no impassable or high impassable tiles
+        //No power infrastructure nearby (only checks for SMES and Substations)
+        //No chemmasters nearby (Portals are destructive enough that would make chemistry useless for the rest of the shift)
+        //Max portals: 4 with no dupes, can spawn less than 4 if no valid locations are found
+
         foreach (EntProtoId entityPrototype in component.AvailablePortals)
         {
             for (var i = 0; i < 100; i++)
             {
                 if (!TryFindRandomTile(
                         out var tilePos,
-                        out var grid,
                         out _,
+                        out var grid,
                         out var coords))
                 {
                     continue;
@@ -83,7 +91,7 @@ public sealed partial class BlueSpaceStormRuleSystem :
                     || IsPowerInfrastructureNearby(coords))
                     continue;
 
-                if (!HasOpenPortalArea(grid.Value, tilePos))
+                if (!HasOpenPortalArea(grid, tilePos))
                     continue;
 
                 var tooClose = false;
@@ -104,6 +112,7 @@ public sealed partial class BlueSpaceStormRuleSystem :
 
                 Spawn(entityPrototype, coords);
                 portalPositions.Add(tilePos);
+                component.PortalsRemaining++;
                 break;
             }
         }
@@ -142,6 +151,8 @@ public sealed partial class BlueSpaceStormRuleSystem :
                     center.Y + y));
 
                 if (tile.Tile.IsEmpty)
+                    return false;
+                if (_turf.IsTileBlocked(tile, CollisionGroup.Impassable) || _turf.IsTileBlocked(tile, CollisionGroup.HighImpassable))
                     return false;
             }
         }

@@ -13,5 +13,5 @@ public sealed partial class BlueSpaceRuleComponent : Component
     public List<EntProtoId> AvailablePortals = ["LavalandBluespacePortal", "PlantBluespacePortal", "FleshBluespacePortal", "SlimeBluespacePortal"];
 
     [DataField]
-    public int PortalsRemaining = 4;
+    public int PortalsRemaining = 0;
 }
