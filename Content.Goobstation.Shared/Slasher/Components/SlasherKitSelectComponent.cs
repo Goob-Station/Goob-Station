@@ -52,17 +52,24 @@ public sealed partial class SlasherKit
 
     /// <summary>
     /// Optional music override for the blood trail sound on this kit.
-    /// If null, the default sound on SlasherBloodTrailComponent is kept.
+    /// If null, the default sound on SlasherFearComponent is kept.
     /// </summary>
     [DataField]
     public SoundSpecifier? BloodTrailMusic;
 
     /// <summary>
     /// Optional jumpscare sound override for the blood trail sound on this kit.
-    /// If null, the default sounds on SlasherBloodTrailComponent are kept.
+    /// If null, the default sounds on SlasherFearComponent are kept.
     /// </summary>
     [DataField]
     public SoundSpecifier? JumpscareSound;
+
+    /// <summary>
+    /// Optional extra component added alongside the fear status effect.
+    /// If null, nothing gets added.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry FearStyle = new();
 
     /// <summary>
     /// Optional meat spike prototype override for this kit.
@@ -73,7 +80,7 @@ public sealed partial class SlasherKit
 
     /// <summary>
     /// Optional reagent override for the blood trail on this kit.
-    /// If null, the default reagent on SlasherBloodTrailComponent is kept.
+    /// If null, the default reagent on SlasherFearComponent is kept.
     /// </summary>
     [DataField]
     public string? BloodTrailReagent;
