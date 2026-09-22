@@ -56,7 +56,8 @@ public sealed class SlasherKitSelectSystem : EntitySystem
                 kit.Gear,
                 Loc.GetString(nameKey),
                 string.IsNullOrEmpty(kit.Description) ? string.Empty : Loc.GetString(kit.Description),
-                kit.Sprite));
+                kit.Sprite,
+                kit.Guide));
         }
 
         _ui.SetUiState(ent.Owner, SlasherKitSelectUiKey.Key, new SlasherKitSelectBoundUserInterfaceState(kitInfos));
@@ -89,6 +90,13 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         var selectedKit = ent.Comp.Kits.Values.ElementAt(args.Index);
 
         EntityManager.AddComponents(ent.Owner, ent.Comp.PostSelectionComponents);
+
+        if (selectedKit.Components.Count > 0)
+            EntityManager.AddComponents(ent.Owner, selectedKit.Components);
+
+        foreach (var compName in selectedKit.RemoveComponents)
+            if (Factory.TryGetRegistration(compName, out var registration))
+                RemComp(ent.Owner, registration.Type);
 
         _stationSpawning.EquipStartingGear(ent.Owner, selectedKit.Gear);
 
