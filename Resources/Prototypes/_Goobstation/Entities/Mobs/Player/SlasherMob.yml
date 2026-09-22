@@ -8,6 +8,7 @@
   - type: SlasherKitSelect
     kits:
       slasher-kit-butcher:
+        ascensionId: Butcher
         gear: SlasherGear
         description: slasher-kit-butcher-desc
         sprite:
@@ -26,6 +27,7 @@
             volume: -4
             loop: true
       slasher-kit-billy:
+        ascensionId: Billy
         gear: SlasherGearBilly
         description: slasher-kit-billy-desc
         sprite:
