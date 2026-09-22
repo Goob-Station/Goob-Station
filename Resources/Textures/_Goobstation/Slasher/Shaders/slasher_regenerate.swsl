@@ -1,0 +1,96 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float progress;
+uniform highp float grainAmount;
+uniform highp float scratchAmount;
+uniform highp float weaveAmount;
+uniform highp float vignetteStrength;
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float hash1(highp float x)
+{
+    return fract(sin(x * 127.1) * 43758.5453);
+}
+
+highp vec2 gateWeave(highp float t)
+{
+    highp float tick = floor(t * 16.0);
+    return vec2(hash1(tick + 2.0) - 0.5, hash1(tick + 9.0) - 0.5);
+}
+
+highp float scratches(highp float x, highp float t)
+{
+    highp float seg = floor(t * 5.0);
+    highp float s = 0.0;
+
+    highp float xa = hash1(seg + 1.3);
+    s += smoothstep(0.0035, 0.0, abs(x - xa)) * step(0.55, hash1(seg + 4.7));
+
+    highp float xb = hash1(seg + 8.1);
+    s -= smoothstep(0.0020, 0.0, abs(x - xb)) * 0.7 * step(0.70, hash1(seg + 2.2));
+
+    highp float xc = hash1(seg * 1.7 + 5.0);
+    s += smoothstep(0.0025, 0.0, abs(x - xc)) * 0.8 * step(0.75, hash1(seg + 6.6));
+
+    return s;
+}
+
+highp float specks(highp vec2 uv, highp float t)
+{
+    highp vec2 g1 = floor(uv * vec2(70.0, 55.0) + floor(t * 24.0) * vec2(7.0, 3.0));
+    highp float d = step(0.991, hash(g1));
+
+    highp vec2 g2 = floor(uv * vec2(160.0, 120.0) + floor(t * 32.0) * vec2(3.0, 11.0));
+    d += step(0.995, hash(g2)) * 0.7;
+
+    return d;
+}
+
+void fragment()
+{
+    highp float t = TIME;
+    highp float p = clamp(progress, 0.0, 1.0);
+
+    highp float filmAmount = smoothstep(0.0, 0.05, p) * (1.0 - smoothstep(0.75, 1.0, p));
+    highp float flare      = smoothstep(0.0, 0.12, p) * (1.0 - smoothstep(0.55, 0.92, p));
+
+    highp vec2 uv = UV + gateWeave(t) * weaveAmount * filmAmount;
+
+    highp vec2 toC = uv - 0.5;
+    highp float ca = 0.0025 * dot(toC, toC) * filmAmount;
+    highp vec3 scene;
+    scene.r = texture2D(SCREEN_TEXTURE, uv + toC * ca).r;
+    scene.g = texture2D(SCREEN_TEXTURE, uv).g;
+    scene.b = texture2D(SCREEN_TEXTURE, uv - toC * ca).b;
+
+    highp float luma = dot(scene, vec3(0.299, 0.587, 0.114));
+    highp vec3 film = mix(scene, vec3(luma), 0.7);
+    film = pow(clamp(film, 0.0, 1.0), vec3(1.35));
+    film *= mix(vec3(0.78, 0.73, 0.63), vec3(1.02, 0.88, 0.62), smoothstep(0.15, 0.85, luma));
+    film += smoothstep(0.6, 1.0, luma) * vec3(0.12, 0.06, 0.02) * filmAmount; // faint warm halation
+
+    highp float fl = 0.74 + 0.18 * hash1(floor(t * 18.0));
+    fl *= 0.94 + 0.06 * sin(t * 90.0);
+    film *= fl;
+
+    film += scratches(uv.x, t) * scratchAmount * filmAmount;
+    film += specks(uv, t) * filmAmount;
+    highp float g = hash(FRAGCOORD.xy + fract(t) * vec2(311.0, 257.0)) - 0.5;
+    film += g * grainAmount * (0.6 + 0.8 * (1.0 - luma)) * filmAmount;
+
+    highp float vg = uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y) * 16.0;
+    vg = pow(clamp(vg, 0.0, 1.0), vignetteStrength);
+    film *= mix(1.0, vg, filmAmount);
+
+    highp vec2 bc = vec2(0.5 + 0.20 * sin(t * 1.7), 0.5 + 0.20 * cos(t * 1.3));
+    highp float burnField = smoothstep(0.75, 0.0, distance(uv, bc)) * (0.7 + 0.3 * hash1(floor(t * 30.0)));
+    highp vec3 burnCol = mix(vec3(0.85, 0.32, 0.07), vec3(1.0, 0.80, 0.50), burnField);
+    film = mix(film, burnCol, clamp(flare * burnField, 0.0, 1.0));
+    film += flare * 0.10;
+
+    highp vec3 clean = texture2D(SCREEN_TEXTURE, UV).rgb;
+    COLOR = vec4(mix(clean, clamp(film, 0.0, 1.0), filmAmount), 1.0);
+}
