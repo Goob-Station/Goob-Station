@@ -1,0 +1,6 @@
+- type: shader
+  id: SlasherFear
+  kind: source
+  path: "/Textures/_Goobstation/Slasher/Shaders/slasher_fear.swsl"
+  params:
+    intensity: 0.0
