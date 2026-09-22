@@ -12,6 +12,12 @@ public sealed partial class SlasherToggleFearMusicAlertEvent : BaseAlertEvent;
 [ByRefEvent]
 public sealed partial class SlasherRegenerateEvent : InstantActionEvent;
 
+/// <summary>
+/// Raised on the slasher when Regenerate brings them back from death.
+/// </summary>
+[ByRefEvent]
+public sealed class SlasherRevivedFromDeathEvent : EntityEventArgs;
+
 [ByRefEvent]
 public sealed partial class SlasherMassacreEvent : InstantActionEvent;
 
