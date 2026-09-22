@@ -559,7 +559,7 @@
           - type: SlasherStaggerArea
           - type: SlasherRelentlessGrab
           - type: SlasherRegenerate
-          - type: SlasherBloodTrail
+          - type: SlasherFear
           - type: SlasherIncorporeal
           - type: SlasherSoulSteal
           - type: SlasherSummonMeatSpike

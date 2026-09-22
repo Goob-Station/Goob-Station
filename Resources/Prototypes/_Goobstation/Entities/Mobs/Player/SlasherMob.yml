@@ -124,7 +124,7 @@
     - type: SlasherStaggerArea
     - type: SlasherRelentlessGrab
     - type: SlasherRegenerate
-    - type: SlasherBloodTrail
+    - type: SlasherFear
     - type: SlasherSoulSteal
     - type: SlasherSummonMeatSpike
     - type: NightVision
