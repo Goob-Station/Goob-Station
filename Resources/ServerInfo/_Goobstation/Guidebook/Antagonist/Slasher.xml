@@ -22,6 +22,17 @@ The Slasher is a relentless horror that stalks isolated crew, harvesting their s
 
   4. Once you reach 15 souls, an announcement warns the crew of your ascendance.
 
+  ## Fear
+
+Fear is the Slashers power meter, shown by the [bold]Fear[/bold] alert.
+
+  - [bold]Building it.[/bold] Your fear rises while the living have you in sight, and jumps each time you jumpscare a fresh victim. It slowly decays once no one has seen you for a while.
+  - [bold]Speed.[/bold] At full fear you move faster. a rising panic that makes you harder to escape.
+  - [bold]Presence.[/bold] When you build up your fear your theme song starts playing, and at a certain point, you start trailing blood.
+  - [bold]Dread.[/bold] Anyone you are actively hunting builds up fear of their own. At high fear they are (45)slowed and begin to take (90)damage.
+
+Stay seen to build your power and terror.
+
   ## Abilities
 
 <Box>
@@ -91,17 +102,6 @@ An incredibly powerful attack mode tied to your machete. Activating this makes i
 An incredibly robust source of healing. Instantly rejuvenates you, removes all restraints, and cures all wounds. After every use you must recharge it by stealing another soul. Can be used while dead.
 
 [italic]Cooldown: 75 seconds.[/italic]
-  </Box>
-</Box>
-
-<Box>
-  [tex path="_Goobstation/Actions/slashericons.rsi" state="BloodTrail" scale="2"/]
-  <Box Orientation="Vertical">
-    ## Blood Trail
-
-Toggle to leave a trail of blood in your wake while playing some funky music. Spooky!
-
-[italic]No cooldown (toggle).[/italic]
   </Box>
 </Box>
 
