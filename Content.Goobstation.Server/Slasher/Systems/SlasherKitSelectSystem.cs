@@ -6,7 +6,7 @@ using Content.Shared.Actions;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Station;
-using Robust.Shared.Audio;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
@@ -18,6 +18,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SlasherIncorporealSystem _incorporeal = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SlasherPrestigeManager _prestige = default!;
 
     public override void Initialize()
     {
@@ -43,29 +44,47 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         incorporealComp.IncorporealizeActionEnt = null;
         incorporealComp.CorporealizeActionEnt = null;
 
-        var uid = ent.Owner;
-        _ui.OpenUi(uid, SlasherKitSelectUiKey.Key, args.Player);
+        _ui.OpenUi(ent.Owner, SlasherKitSelectUiKey.Key, args.Player);
     }
 
     private void OnUIOpened(Entity<SlasherKitSelectComponent> ent, ref BoundUIOpenedEvent args)
     {
+        if (!TryComp<ActorComponent>(args.Actor, out var actor))
+            return;
+
+        var defaultMusic = ent.Comp.PostSelectionComponents.Values
+            .Select(entry => entry.Component)
+            .OfType<SlasherFearComponent>()
+            .FirstOrDefault()?.BloodTrailMusic;
+
+        var userId = actor.PlayerSession.UserId;
         var kitInfos = new List<SlasherKitInfo>();
-        foreach (var (nameKey, kit) in ent.Comp.Kits)
+        foreach (var (id, kit) in ent.Comp.Kits)
         {
             kitInfos.Add(new SlasherKitInfo(
-                kit.Gear,
-                Loc.GetString(nameKey),
+                id,
+                Loc.GetString(id),
                 string.IsNullOrEmpty(kit.Description) ? string.Empty : Loc.GetString(kit.Description),
                 kit.Sprite,
+                kit.BloodTrailMusic ?? defaultMusic,
+                kit.AscensionId,
+                kit.RequiredAscension,
+                IsKitUnlocked(kit, userId),
                 kit.Guide));
         }
 
         _ui.SetUiState(ent.Owner, SlasherKitSelectUiKey.Key, new SlasherKitSelectBoundUserInterfaceState(kitInfos));
     }
 
+    private bool IsKitUnlocked(SlasherKit kit, NetUserId userId)
+        => kit.RequiredAscension == null || _prestige.HasAscension(userId, kit.RequiredAscension);
+
     private void OnKitSelected(Entity<SlasherKitSelectComponent> ent, ref SlasherKitSelectedMessage args)
     {
-        if (ent.Comp.KitSelected)
+        if (ent.Comp.KitSelected
+            || !ent.Comp.Kits.TryGetValue(args.KitId, out var selectedKit)
+            || !TryComp<ActorComponent>(args.Actor, out var actor)
+            || !IsKitUnlocked(selectedKit, actor.PlayerSession.UserId))
             return;
 
         ent.Comp.KitSelected = true;
@@ -83,11 +102,6 @@ public sealed class SlasherKitSelectSystem : EntitySystem
             MovementSpeedModifierComponent.DefaultBaseSprintSpeed,
             MovementSpeedModifierComponent.DefaultAcceleration);
         _movement.RefreshMovementSpeedModifiers(ent.Owner);
-
-        if (args.Index < 0 || args.Index >= ent.Comp.Kits.Count)
-            return;
-
-        var selectedKit = ent.Comp.Kits.Values.ElementAt(args.Index);
 
         EntityManager.AddComponents(ent.Owner, ent.Comp.PostSelectionComponents);
 
@@ -134,6 +148,8 @@ public sealed class SlasherKitSelectSystem : EntitySystem
 
         if (TryComp<SlasherSoulStealComponent>(ent.Owner, out var soulSteal))
         {
+            soulSteal.AscensionId = selectedKit.AscensionId;
+
             if (selectedKit.AscensionGear is { } ascensionGear)
                 soulSteal.AscensionGear = ascensionGear;
 
