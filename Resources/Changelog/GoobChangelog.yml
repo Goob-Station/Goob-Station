@@ -25376,3 +25376,9 @@ Entries:
       message: Fixed being unable to scram inside a locker.
   id: 2908
   time: '2026-09-23T19:53:27.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Fixed the hydrakin liver incorrectly using the kidney texture.
+  id: 2909
+  time: '2026-09-23T20:07:27.0000000+00:00'
