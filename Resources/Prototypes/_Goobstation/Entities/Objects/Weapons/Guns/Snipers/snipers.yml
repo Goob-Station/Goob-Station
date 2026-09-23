@@ -24,7 +24,7 @@
     shape:
       - 0,0,8,2 # Comically large
   - type: Gun
-    fireRate: 0.3
+    fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
     soundEmpty:
