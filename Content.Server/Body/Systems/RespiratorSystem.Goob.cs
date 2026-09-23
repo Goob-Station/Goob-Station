@@ -13,8 +13,6 @@ namespace Content.Server.Body.Systems;
 
 public sealed partial class RespiratorSystem
 {
-    private EntityQuery<BodyComponent> _bodyQuery;
-
     private bool GoobHasBreathingImmunity(EntityUid uid)
         => HasComp<BreathingImmunityComponent>(uid) || HasComp<SpecialBreathingImmunityComponent>(uid);
 
