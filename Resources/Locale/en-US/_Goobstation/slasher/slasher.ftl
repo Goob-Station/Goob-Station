@@ -5,17 +5,35 @@ ghost-role-information-slasher-description = Slaughter and terrorize the living 
 
 slasher-round-end-agent-name = Slasher
 
-slasher-kit-select-title = Choose Your Kit
-slasher-kit-select-header = Choose a kit. Each one comes with a unique song and a unique look.
-slasher-kit-select-button = Select
-slasher-kit-guide-button = This variant plays differently - open its guidebook page.
-slasher-kit-select-confirm-button = Confirm?
-slasher-kit-play-music-button = Play Music
-slasher-kit-stop-music-button = Stop Music
-slasher-kit-locked-button = Locked
-slasher-kit-locked-requirement = Ascend as { $required } to unlock.
-slasher-kit-tab-normal = Normal
-slasher-kit-tab-prestige = Prestige
+slasher-kit-store-sign = BLOOD VIDEO
+slasher-kit-store-sign-accent = VIDEO
+slasher-kit-store-part = PART { $part }
+slasher-kit-store-originals = ORIGINALS
+
+# clown should get rated C but I'm not doing that right now
+
+slasher-kit-store-rated = R
+slasher-kit-store-sticker = OUT OF STOCK
+slasher-kit-store-original = Original
+slasher-kit-store-original-sequels = Original + { $count ->
+    [one] 1 sequel in the back
+   *[other] { $count } sequels in the back
+}
+slasher-kit-store-sequel-to = Part { $part }. sequel to { $kit }
+slasher-kit-store-plays-differently = plays differently
+slasher-kit-store-need = OUT OF STOCK. ASCEND AS { $kit } TO RESTOCK
+slasher-kit-store-now-playing = NOW PLAYING
+slasher-kit-store-trailer-tag = TRAILER
+slasher-kit-store-tape-not-found = TAPE NOT FOUND
+slasher-kit-store-trailer = PLAY TRAILER
+slasher-kit-store-trailer-stop = STOP TRAILER
+slasher-kit-store-guide = READ THE GUIDEBOOK
+slasher-kit-store-sequels = SEQUELS ({ $count }) >
+slasher-kit-store-prequel = < PREQUEL
+slasher-kit-store-no-sequels = NO SEQUELS
+slasher-kit-store-rent = RENT
+slasher-kit-store-rent-confirm = ARE YOU SURE?
+slasher-kit-store-unavailable = OUT OF STOCK
 
 slasher-kit-butcher = Butcher
 slasher-kit-butcher-desc = The classic. A welding mask and apron for a no nonsense killing machine.
