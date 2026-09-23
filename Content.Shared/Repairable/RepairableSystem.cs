@@ -34,8 +34,9 @@ public sealed partial class RepairableSystem : EntitySystem
             return;
 
         var ipcSaysMoreRepairies = false; // Goob
-        if (HasComp<BodyComponent>(ent)) // Goob
-            GoobTryRepairIPC(ent, args.User);
+        var isBody = HasComp<BodyComponent>(ent); // Goob
+        if (isBody) // Goob
+            ipcSaysMoreRepairies = GoobTryRepairIPC(ent, args.User);
         else if (ent.Comp.DamageValue != null)
             RepairSomeDamage((ent, damageable), ent.Comp.DamageValue.Value, args.User);
         else if (ent.Comp.Damage != null)
@@ -43,7 +44,7 @@ public sealed partial class RepairableSystem : EntitySystem
         else
             RepairAllDamage((ent, damageable), args.User);
 
-        args.Repeat = (ent.Comp.AutoDoAfter && damageable.TotalDamage > 0) || ipcSaysMoreRepairies; // Goob
+        args.Repeat = ent.Comp.AutoDoAfter && (isBody ? ipcSaysMoreRepairies : damageable.TotalDamage > 0); // Goob
         args.Args.Event.Repeat = args.Repeat;
         args.Handled = true;
 
