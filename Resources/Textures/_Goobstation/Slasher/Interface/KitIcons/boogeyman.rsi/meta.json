@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created using Mobs/Species/Human/parts.rsi, Mobs/Customization/eyes.rsi, Clothing/Shoes/Misc/leather.rsi, _Goobstation/Objects/Specific/Slasher/boogeyman/outfit.rsi, _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    }
+  ]
+}
