@@ -25404,3 +25404,9 @@ Entries:
       message: Cow tools now fit in utility belts. They're still terrible!
   id: 2912
   time: '2026-09-23T21:12:12.0000000+00:00'
+- author: IvanKuvalda
+  changes:
+    - type: Add
+      message: New secborg technology at t2 arsenal for 10000 points
+  id: 2913
+  time: '2026-09-23T21:26:30.0000000+00:00'
