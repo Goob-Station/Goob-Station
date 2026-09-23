@@ -167,4 +167,10 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// </summary>
     [DataField]
     public int MaxLightsToFlicker = 3;
+
+    /// <summary>
+    /// This is set by the kit selection in yaml. Do not set manually.
+    /// </summary>
+    [DataField]
+    public string? AscensionId;
 }

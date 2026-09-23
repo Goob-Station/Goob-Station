@@ -1,20 +1,22 @@
+using Content.Shared.Roles;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Shared.Roles;
 
 namespace Content.Goobstation.Shared.Slasher.Components;
 
 /// <summary>
 /// Allows the Slasher to choose their kit (starting gear) when they first spawn.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class SlasherKitSelectComponent : Component
 {
     [DataField]
     public bool KitSelected;
 
+    /// <summary>
+    /// The kits on offer, keyed by the locale key of the kit's name.
+    /// </summary>
     [DataField(required: true)]
     public Dictionary<string, SlasherKit> Kits = [];
 
@@ -112,6 +114,18 @@ public sealed partial class SlasherKit
     /// </summary>
     [DataField]
     public SoundSpecifier? AscendanceSound;
+
+    /// <summary>
+    /// Optional marker that saves to the users profile for prestiges.
+    /// </summary>
+    [DataField]
+    public string? AscensionId;
+
+    /// <summary>
+    /// Is this kit a prestige? If so what ascension ID does it require?
+    /// </summary>
+    [DataField]
+    public string? RequiredAscension;
 
     /// <summary>
     /// Extra components added to the Slasher when this kit is selected. Used for kit-specific
