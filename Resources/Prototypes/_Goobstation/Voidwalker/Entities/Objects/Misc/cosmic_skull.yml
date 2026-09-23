@@ -1,0 +1,14 @@
+- type: entity
+  parent: [BaseItem, BaseMagicalContraband]
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+  id: CosmicSkull
+  name: cosmic skull
+  description: You can see and feel the surrounding space pulsing through it...
+  components:
+  - type: CosmicSkull
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/cosmic_skull.rsi
+    state: icon
+  - type: LimitedCharges
+    maxCharges: 1
