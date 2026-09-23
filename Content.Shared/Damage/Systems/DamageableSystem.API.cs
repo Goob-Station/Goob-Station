@@ -304,6 +304,7 @@ public sealed partial class DamageableSystem
             }
             else
             {
+                damageDoneHypotheticalUncapped.DamageDict[type] = value;
                 // For negative damage (healing), apply normally
                 var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
                 if (newValue != oldValue)
