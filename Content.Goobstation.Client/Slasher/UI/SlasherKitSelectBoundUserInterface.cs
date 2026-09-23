@@ -14,9 +14,9 @@ public sealed class SlasherKitSelectBoundUserInterface(EntityUid owner, Enum uiK
         base.Open();
 
         _window = this.CreateWindow<SlasherKitSelectMenu>();
-        _window.OnKitSelected += index =>
+        _window.OnKitSelected += kitId =>
         {
-            SendMessage(new SlasherKitSelectedMessage(index));
+            SendMessage(new SlasherKitSelectedMessage(kitId));
             _window.ForceClose();
         };
     }
