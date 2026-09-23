@@ -15,13 +15,13 @@ public sealed partial class RespiratorSystem
 {
     private EntityQuery<BodyComponent> _bodyQuery;
 
+    private bool GoobHasBreathingImmunity(EntityUid uid)
+        => HasComp<BreathingImmunityComponent>(uid) || HasComp<SpecialBreathingImmunityComponent>(uid);
+
     // Can breathe check for grab or if they need air
     private bool GoobCanBreathe(EntityUid uid, RespiratorComponent respirator)
     {
-        var airEv = new CheckNeedsAirEvent();
-        RaiseLocalEvent(uid, ref airEv);
-
-        if (HasComp<BreathingImmunityComponent>(uid) || HasComp<SpecialBreathingImmunityComponent>(uid))
+        if (GoobHasBreathingImmunity(uid))
             return true;
 
         // DeltaV: Cosmic Cult - One line change but a refactor would be better. this is kinda cringe.
@@ -30,6 +30,9 @@ public sealed partial class RespiratorSystem
             && !cultComponent.Respiration
             && !_mobState.IsIncapacitated(uid))
             return true;
+
+        var airEv = new CheckNeedsAirEvent();
+        RaiseLocalEvent(uid, ref airEv);
 
         if (airEv.Cancelled)
             return true;

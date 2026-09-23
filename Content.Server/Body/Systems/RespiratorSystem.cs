@@ -87,7 +87,7 @@ public sealed partial class RespiratorSystem : EntitySystem // Goob - made parti
 
             respirator.NextUpdate += respirator.AdjustedUpdateInterval;
 
-            if (_mobState.IsDead(uid))
+            if (_mobState.IsDead(uid) || GoobHasBreathingImmunity(uid)) // Goob - Shitmed breathing immunity
                 continue;
 
             var multiplier = ShitmedGetSaturationLossMultiplier((uid, respirator));
