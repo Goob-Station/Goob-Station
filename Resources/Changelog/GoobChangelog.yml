@@ -25292,3 +25292,9 @@ Entries:
       message: Removed Barratry from map rotation,
   id: 2897
   time: '2026-09-23T19:17:57.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Increased HE1S firerate from 0.3 to 0.5
+  id: 2898
+  time: '2026-09-23T19:18:49.0000000+00:00'
