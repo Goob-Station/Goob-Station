@@ -334,13 +334,13 @@
             gear: SlasherGear
             description: slasher-kit-butcher-desc
             sprite:
-              sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/butcher.rsi
               state: icon
           slasher-kit-spring:
             gear: SlasherGearSpring
             description: slasher-kit-spring-desc
             sprite:
-              sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/spring.rsi
               state: icon
             machetePrototype: SlasherMacheteSpring
             bloodTrailMusic:
@@ -353,7 +353,7 @@
             gear: SlasherGearBilly
             description: slasher-kit-billy-desc
             sprite:
-              sprite: Objects/Tools/crowbar.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/billy.rsi
               state: icon
             machetePrototype: SlasherCrowbar
             bloodTrailMusic:
@@ -365,7 +365,7 @@
             gear: SlasherGearCult
             description: slasher-kit-cult-desc
             sprite:
-              sprite: Clothing/Head/Hoods/cult.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/cult.rsi
               state: icon
             machetePrototype: SlasherEldritchBlade
             bloodTrailMusic:
@@ -376,7 +376,7 @@
             gear: SlasherGearMaintenance
             description: slasher-kit-maintenance-desc
             sprite:
-              sprite: Clothing/Head/Hats/papersacksmile.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/maintenance.rsi
               state: icon
             machetePrototype: SlasherButchCleaver
             bloodTrailMusic:
@@ -387,7 +387,7 @@
             gear: SlasherGearCannibal
             description: slasher-kit-cannibal-desc
             sprite:
-              sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/cannibal.rsi
               state: icon
             machetePrototype: SlasherButchCleaver
             bloodTrailMusic:
@@ -399,7 +399,7 @@
             gear: SlasherGearClown
             description: slasher-kit-clown-desc
             sprite:
-              sprite: Clothing/Mask/clown.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/clown.rsi
               state: icon
             machetePrototype: SlasherOffsetCaneClown
             bloodTrailMusic:
@@ -423,7 +423,7 @@
             gear: SlasherGearGlutton
             description: slasher-kit-glutton-desc
             sprite:
-              sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/glutton.rsi
               state: icon
             machetePrototype: SlasherButchCleaver
             bloodTrailMusic:
@@ -435,7 +435,7 @@
             gear: SlasherGearHockey
             description: slasher-kit-hockey-desc
             sprite:
-              sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/hockey.rsi
               state: icon
             bloodTrailMusic:
               path: /Audio/_Goobstation/Slasher/Music/horror_synthwave.ogg
@@ -449,7 +449,7 @@
             description: slasher-kit-boogeyman-desc
             guide: SlasherBoogeyman
             sprite:
-              sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/boogeyman.rsi
               state: icon
             machetePrototype: SlasherKitchenKnife
             removeComponents:
