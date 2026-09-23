@@ -694,12 +694,16 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
         modifiedDamage = DamageSpecifier.ApplyModifierSets(modifiedDamage, attackedEvent.ModifiersList); // Goobstation
 
+        // Goob - this is moved to hit variable so we do event after damage but before everything else
+        var hit = Damageable.TryChangeDamage(
+            target.Value, modifiedDamage, out var damageResult, origin:user,
+            ignoreResistances: resistanceBypass, partMultiplier: component.ClickPartDamageMultiplier); // Goob - Shitmed Change
         // Goob start - Martial Arts
         var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Harm);
         RaiseLocalEvent(user, comboEv);
         // Goob end
 
-        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass, partMultiplier: component.ClickPartDamageMultiplier)) // Goob - Shitmed Change
+        if (hit)
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
