@@ -25324,3 +25324,9 @@ Entries:
         the chat input box.
   id: 2901
   time: '2026-09-23T19:27:47.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: Fixed a error from wraith's blood writing.
+  id: 2902
+  time: '2026-09-23T19:28:43.0000000+00:00'
