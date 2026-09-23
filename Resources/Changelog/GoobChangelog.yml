@@ -25382,3 +25382,9 @@ Entries:
       message: Fixed the hydrakin liver incorrectly using the kidney texture.
   id: 2909
   time: '2026-09-23T20:07:27.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Fix
+      message: Fixed multiple narcotics healing everyone but Yowie.
+  id: 2910
+  time: '2026-09-23T21:02:27.0000000+00:00'
