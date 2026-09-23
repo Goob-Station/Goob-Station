@@ -335,7 +335,17 @@ public sealed partial class DamageableSystem
         // regularDamage for damage that can be regularly applied to the target part
         foreach (var (type, value) in damage.DamageDict)
         {
-            if (VitalOnlyDamageTypes.Contains(type))
+            var isVital = false;
+            foreach (var group in VitalOnlyDamageTypes)
+            {
+                if (!_prototypeManager.Index(group).DamageTypes.Contains(type))
+                    continue;
+
+                isVital = true;
+                break;
+            }
+
+            if (isVital)
                 vitalDamage.DamageDict[type] = value;
             else
                 regularDamage.DamageDict[type] = value;
