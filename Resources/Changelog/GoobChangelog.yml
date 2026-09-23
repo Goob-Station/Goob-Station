@@ -25364,3 +25364,9 @@ Entries:
       message: Fixed the ore processor mining points warning not appearing.
   id: 2906
   time: '2026-09-23T19:44:59.0000000+00:00'
+- author: charcuteriesampler
+  changes:
+    - type: Add
+      message: Spaceshrooms can now be cultivated by hydroponics.
+  id: 2907
+  time: '2026-09-23T19:47:19.0000000+00:00'
