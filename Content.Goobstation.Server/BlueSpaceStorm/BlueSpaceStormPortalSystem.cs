@@ -358,6 +358,10 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         {
             rule.PortalsRemaining = Math.Max(0, rule.PortalsRemaining - 1);
             if(rule.PortalsRemaining < 1){
+                _chat.DispatchGlobalAnnouncement(
+                "The spacetime phenomena has subsided, please return to your stations.",
+                colorOverride: Color.Green,
+                playSound: false);
                 _gameTicker.EndGameRule(ruleUID);
             }
             break;
