@@ -22,7 +22,7 @@ public sealed partial class GhostSystem
 
     private bool GoobIsSuicideAllowedIC(EntityUid playerEntity)
     {
-        return HasComp<XenomorphPreventSuicideComponent>(playerEntity);
+        return !HasComp<XenomorphPreventSuicideComponent>(playerEntity);
     }
 
     private ProtoId<DamageTypePrototype> GoobGetSuicideDamageType(EntityUid playerEntity)
