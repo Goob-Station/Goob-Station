@@ -49,7 +49,6 @@ namespace Content.Server.Bible
             SubscribeLocalEvent<SummonableComponent, SummonActionEvent>(OnSummon);
             SubscribeLocalEvent<FamiliarComponent, MobStateChangedEvent>(OnFamiliarDeath);
             SubscribeLocalEvent<FamiliarComponent, GhostRoleSpawnerUsedEvent>(OnSpawned);
-
         }
 
         private readonly Queue<EntityUid> _addQueue = new();
@@ -126,6 +125,9 @@ namespace Content.Server.Bible
             RaiseLocalEvent(args.Target.Value, ref ev);
             // Goob end
 
+            var userEnt = Identity.Entity(args.User, EntityManager);
+            var targetEnt = Identity.Entity(args.Target.Value, EntityManager);
+
             // This only has a chance to fail if the target is not wearing anything on their head and is not a familiar.
             if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out _) && !HasComp<FamiliarComponent>(args.Target.Value))
             {
@@ -144,24 +146,26 @@ namespace Content.Server.Bible
                 }
             }
 
-            if (_damageableSystem.TryChangeDamage(args.Target.Value, component.Damage, true, origin: uid, targetPart: TargetBodyPart.All, ignoreBlockers: true, splitDamage: SplitDamageBehavior.SplitEnsureAll)) // Goob - shitmed targeting args and such
-            {
-                var othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-none-others", ("user", Identity.Entity(args.User, EntityManager)), ("target", Identity.Entity(args.Target.Value, EntityManager)), ("bible", uid));
-                _popupSystem.PopupEntity(othersMessage, args.User, Filter.PvsExcept(args.User), true, PopupType.Medium);
+            string othersMessage;
+            string selfMessage;
 
-                var selfMessage = Loc.GetString(component.LocPrefix + "-heal-success-none-self", ("target", Identity.Entity(args.Target.Value, EntityManager)), ("bible", uid));
-                _popupSystem.PopupEntity(selfMessage, args.User, args.User, PopupType.Large);
-            }
-            else
+            if (_damageableSystem.TryChangeDamage(args.Target.Value, component.Damage, true, origin: uid,
+                targetPart: TargetBodyPart.All, ignoreBlockers: true, splitDamage: SplitDamageBehavior.SplitEnsureAll)) // Woundmed
             {
-                var othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-others", ("user", Identity.Entity(args.User, EntityManager)), ("target", Identity.Entity(args.Target.Value, EntityManager)), ("bible", uid));
-                _popupSystem.PopupEntity(othersMessage, args.User, Filter.PvsExcept(args.User), true, PopupType.Medium);
+                othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-others", ("user", userEnt), ("target", targetEnt), ("bible", uid));
+                selfMessage = Loc.GetString(component.LocPrefix + "-heal-success-self", ("target", targetEnt), ("bible", uid));
 
-                var selfMessage = Loc.GetString(component.LocPrefix + "-heal-success-self", ("target", Identity.Entity(args.Target.Value, EntityManager)), ("bible", uid));
-                _popupSystem.PopupEntity(selfMessage, args.User, args.User, PopupType.Large);
                 _audio.PlayPvs(component.HealSoundPath, args.User);
                 _delay.TryResetDelay((uid, useDelay));
             }
+            else
+            {
+                othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-none-others", ("user", userEnt), ("target", targetEnt), ("bible", uid));
+                selfMessage = Loc.GetString(component.LocPrefix + "-heal-success-none-self", ("target", targetEnt), ("bible", uid));
+            }
+
+            _popupSystem.PopupEntity(othersMessage, args.User, Filter.PvsExcept(args.User), true, PopupType.Medium);
+            _popupSystem.PopupEntity(selfMessage, args.User, args.User, PopupType.Large);
         }
 
         private void AddSummonVerb(EntityUid uid, SummonableComponent component, GetVerbsEvent<AlternativeVerb> args)
