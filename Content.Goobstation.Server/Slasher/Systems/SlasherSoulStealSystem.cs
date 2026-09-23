@@ -1,4 +1,5 @@
 using Content.Goobstation.Server.Devil.Contract;
+using Content.Goobstation.Server.Slasher;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher;
 using Content.Goobstation.Shared.Slasher.Objectives;
@@ -25,6 +26,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weather;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -68,6 +70,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     [Dependency] private SlasherRegenerateSystem _regenerate = default!;
     [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private SharedStationSpawningSystem _spawning = default!;
+    [Dependency] private SlasherPrestigeManager _prestige = default!;
 
     public override void Initialize()
     {
@@ -238,6 +241,9 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
             && totalSouls >= comp.AscendanceSoulThreshold)
         {
             comp.HasAscended = true;
+
+            if (comp.AscensionId != null && TryComp<ActorComponent>(user, out var actor))
+                _prestige.GrantAscension(actor.PlayerSession.UserId, comp.AscensionId);
 
             RaiseLocalEvent(new SlasherAscendedEvent(user));
 
