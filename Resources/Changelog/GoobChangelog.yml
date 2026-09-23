@@ -25270,3 +25270,11 @@ Entries:
       message: milk now actually heals skeletons when splashed on them
   id: 2894
   time: '2026-09-19T14:39:18.0000000+00:00'
+- author: madeline-celeste
+  changes:
+    - type: Tweak
+      message: >-
+        Windoors now close automatically while you're on the same tile as them
+        again
+  id: 2895
+  time: '2026-09-23T19:16:02.0000000+00:00'
