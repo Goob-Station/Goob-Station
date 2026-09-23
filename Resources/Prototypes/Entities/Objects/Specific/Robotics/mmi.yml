@@ -27,18 +27,13 @@
   - type: Examiner
   - type: IntellicardableMind # Goobstation - we can finally turn clankers into humans
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
-  #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
-  - type: ActiveRadio
-    channels:
-    # - Binary # Goobstation - replaced with collective mind
-    - Common
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
+  - type: IntrinsicRadioTransmitter
     channels:
     - Binary
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
   - type: NameIdentifier
     group: MMI
   - type: DoAfter
@@ -118,18 +113,13 @@
     - type: BorgBrain
     - type: IntellicardableMind # Goobstation - intellicard on more AIs
     - type: IntrinsicRadioReceiver
-    #- type: IntrinsicRadioTransmitter
-    #  channels:
-    #  - Binary # Goobstation - replaced with collective mind
-    - type: ActiveRadio
-      channels:
-      # - Binary # Goobstation - replaced with collective mind
-      - Common
-    # Goobstation
-    - type: CollectiveMind
-      defaultChannel: Binary
+    - type: IntrinsicRadioTransmitter
       channels:
       - Binary
+    - type: ActiveRadio
+      channels:
+      - Binary
+      - Common
     - type: NameIdentifier
       group: PositronicBrain
     - type: DoAfter
