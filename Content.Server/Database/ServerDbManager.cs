@@ -163,6 +163,9 @@ namespace Content.Server.Database
 
         Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to); // Goobstation
         Task<TimeSpan> GetLastRolledAntag(NetUserId userId); // Goobstation
+
+        Task<List<string>> GetSlasherAscensionsAsync(NetUserId userId); // Goobstation
+        Task AddSlasherAscensionAsync(NetUserId userId, string ascensionId); // Goobstation
         #endregion
 
         #region Connection Logs
@@ -668,6 +671,18 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.SetLastRolledAntag(userId, to));
+        }
+
+        public Task<List<string>> GetSlasherAscensionsAsync(NetUserId userId) // Goobstation
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetSlasherAscensionsAsync(userId));
+        }
+
+        public Task AddSlasherAscensionAsync(NetUserId userId, string ascensionId) // Goobstation
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddSlasherAscensionAsync(userId, ascensionId));
         }
 
         public Task<int> AddConnectionLogAsync(
