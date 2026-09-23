@@ -735,6 +735,34 @@ namespace Content.Server.Database
             return true;
         }
 
+        // Goobstation start - Slasher prestige ascensions
+        public async Task<List<string>> GetSlasherAscensionsAsync(NetUserId userId)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.SlasherAscensions
+                .Where(a => a.PlayerUserId == userId.UserId)
+                .Select(a => a.AscensionId)
+                .ToListAsync();
+        }
+
+        public async Task AddSlasherAscensionAsync(NetUserId userId, string ascensionId)
+        {
+            await using var db = await GetDb();
+
+            var existing = await db.DbContext.SlasherAscensions
+                .AnyAsync(a => a.PlayerUserId == userId.UserId && a.AscensionId == ascensionId);
+
+            if (existing)
+                return;
+
+            db.DbContext.SlasherAscensions.Add(new SlasherAscension
+            {
+                PlayerUserId = userId.UserId,
+                AscensionId = ascensionId,
+            });
+            await db.DbContext.SaveChangesAsync();
+        }
+        // Goobstation end
         #endregion
 
         #region Connection Logs
