@@ -25298,3 +25298,9 @@ Entries:
       message: Increased HE1S firerate from 0.3 to 0.5
   id: 2898
   time: '2026-09-23T19:18:49.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: Monkeys now have much better speech sounds
+  id: 2899
+  time: '2026-09-23T19:21:39.0000000+00:00'
