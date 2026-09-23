@@ -40,7 +40,7 @@ public sealed partial class BlueSpaceStormRuleSystem :
             true);
 
         _chat.DispatchGlobalAnnouncement(
-            "Warning. Possible Bluespace phenomena detected, please alert the science team of any breaches in spacetime. Security team should prepare for potential threats..",
+            "Warning. Possible Bluespace phenomena detected, please be wary of any tears in spacetime. Security team should prepare for potential threats.",
             colorOverride: Color.Cyan,
             playSound: false);
 

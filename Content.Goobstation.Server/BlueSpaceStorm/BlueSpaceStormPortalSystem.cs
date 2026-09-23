@@ -197,7 +197,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
                         Spawn("BulletLaser", origin, null, _random.NextAngle());
                     }
                 }
-                else if (rollResult < 80)
+                else if (rollResult < 90)
                 {
                     for (int i = 0; i < 2; i++)
                     {
@@ -259,11 +259,11 @@ public sealed class BlueSpaceStormSystem : EntitySystem
                         _physics.ApplyLinearImpulse(ent, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
                     }
                 }
-                if (rollResult >= 40 && rollResult < 60)
+                if (rollResult >= 40 && rollResult < 50)
                 {
                     Spawn("FleshKudzu", origin);
                 }
-                if (rollResult >= 60)
+                if (rollResult >= 50)
                 {
                     var tiles = GetSpawningPoints(uid, 5, 1);
                     if (tiles != null)
@@ -357,7 +357,8 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         while (query.MoveNext(out ruleUID, out var rule, out _, out _))
         {
             rule.PortalsRemaining = Math.Max(0, rule.PortalsRemaining - 1);
-            if(rule.PortalsRemaining < 1){
+            if(rule.PortalsRemaining < 1)
+            {
                 _chat.DispatchGlobalAnnouncement(
                 "The spacetime phenomena has subsided, please return to your stations.",
                 colorOverride: Color.Green,
