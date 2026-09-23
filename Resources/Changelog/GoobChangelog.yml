@@ -25398,3 +25398,9 @@ Entries:
       message: small pump and enforcer inhand sprite tweaks
   id: 2911
   time: '2026-09-23T21:03:05.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Tweak
+      message: Cow tools now fit in utility belts. They're still terrible!
+  id: 2912
+  time: '2026-09-23T21:12:12.0000000+00:00'
