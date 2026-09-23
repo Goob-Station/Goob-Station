@@ -25286,3 +25286,9 @@ Entries:
         experimental law board time runs out.
   id: 2896
   time: '2026-09-23T19:16:55.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Removed Barratry from map rotation,
+  id: 2897
+  time: '2026-09-23T19:17:57.0000000+00:00'
