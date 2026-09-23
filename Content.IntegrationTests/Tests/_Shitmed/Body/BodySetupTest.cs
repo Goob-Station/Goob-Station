@@ -445,7 +445,7 @@ public sealed class BodySetupTest
                 }
 
                 Assert.That(mobStateSystem.IsDead(entity, mobState),
-                    $"Entity {entityProto.ID} should be dead after taking lethal damage ({lethalDamage} ${_dieTestDamageType}), but isn't.");
+                    $"Entity {entityProto.ID} should be dead after taking lethal damage ({lethalDamage} {_dieTestDamageType}), but isn't.");
             }
         });
 
