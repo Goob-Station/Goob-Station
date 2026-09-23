@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Bloodstream;
-using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.Body.Part;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -12,7 +10,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Heretic.Components.PathSpecific;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Damage.Components; // Shitmed Change
+using Content.Shared.Damage.Components;
 namespace Content.Shared.Heretic.EntitySystems.PathSpecific;
 
 public sealed class ChampionStanceSystem : EntitySystem

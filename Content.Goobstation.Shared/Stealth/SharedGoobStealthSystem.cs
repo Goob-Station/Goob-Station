@@ -2,14 +2,13 @@
 
 using Content.Shared.Stealth.Components;
 using Content.Shared.Stealth;
-using Content.Shared.Damage;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Throwing;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Shared.Damage.Systems; // For SlasherIncorporealComponent
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.Stealth;
 

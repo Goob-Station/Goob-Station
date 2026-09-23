@@ -5,7 +5,8 @@ using Robust.Shared.Timing;
 using Content.Shared.Damage;
 using Robust.Shared.Random;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage.Systems; // Shitmed Change
+using Content.Shared.Damage.Systems;
+
 namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 /// <summary>

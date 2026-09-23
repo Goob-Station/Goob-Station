@@ -9,7 +9,6 @@ using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
-
 using Content.Shared.Medical.CPR;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -23,7 +22,7 @@ using Content.Shared.Traits.Assorted;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Damage.Components; // Shitmed Change
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.Medical.CPR;
 

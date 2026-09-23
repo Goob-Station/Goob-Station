@@ -3,7 +3,7 @@
 using System.Linq;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server._DV.CosmicCult.EntitySystems;
-using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
+using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
@@ -26,9 +26,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage.Systems; // Shitmed Change
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._DV.CosmicCult;
 
