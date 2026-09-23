@@ -293,15 +293,11 @@ public sealed partial class DamageableSystem
                 if (newValue == oldValue)
                     continue;
 
-                dict[type] = newValue;
-
                 var applied = newValue - oldValue;
                 dict[type] = newValue;
                 damageDone.DamageDict[type] = applied;
-
-                // Update remaining cap
-                remainingCap -= applied;
             }
+            else
             else
             {
                 damageDoneHypotheticalUncapped.DamageDict[type] = value;
@@ -390,7 +386,7 @@ public sealed partial class DamageableSystem
 
         // Get our total damage, or heal if we're below a certain amount.
         if (!TryGetDamageGreaterThan((ent, ent.Comp), -amount, out var damage, group))
-            return ChangeDamage(ent, -damage, true, false, origin);
+            return ChangeDamage(ent, -damage, true, false, origin, targetPart: targetPart, splitDamage: damageSplit); // Woundmed
 
         // make sure damageChange has the same damage types as damage
         damageChange.DamageDict.EnsureCapacity(damage.DamageDict.Count);
@@ -463,7 +459,9 @@ public sealed partial class DamageableSystem
 
         // Get our total damage, or heal if we're below a certain amount.
         if (!TryGetDamageGreaterThan((ent, ent.Comp), -amount, out var damage, group))
-            return ChangeDamage(ent, -damage, true, false, origin);
+            return ChangeDamage(ent, -damage, true, false, origin,
+                targetPart: TargetBodyPart.All, // Woundmed
+                splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic); // Woundmed
 
         // make sure damageChange has the same damage types as damageEntity
         damageChange.DamageDict.EnsureCapacity(damage.DamageDict.Count);
@@ -475,7 +473,9 @@ public sealed partial class DamageableSystem
             damageChange.DamageDict.Add(type, value / total * amount);
         }
 
-        return ChangeDamage(ent, damageChange, true, false, origin);
+        return ChangeDamage(ent, damageChange, true, false, origin,
+            targetPart: TargetBodyPart.All, // Woundmed
+            splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic); // Woundmed
     }
 
     /// <summary>

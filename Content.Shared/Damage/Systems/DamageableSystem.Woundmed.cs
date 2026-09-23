@@ -212,7 +212,8 @@ public sealed partial class DamageableSystem
                     ignoreResistances,
                     interruptsDoAfters,
                     origin,
-                    ignoreGlobalModifiers: false
+                    ignoreGlobalModifiers: false,
+                    ignoreBlockers: ignoreBlockers
                 );
 
                 if (partDamageResult != null && !partDamageResult.Empty)
@@ -333,6 +334,16 @@ public sealed partial class DamageableSystem
         // separate the vital damage so we have
         // vitalDamage for damage that must be applied to vital body parts (TargetBodyPart.Vital) &
         // regularDamage for damage that can be regularly applied to the target part
+        foreach (var (type, value) in damage.DamageDict)
+        {
+            var isVital = false;
+            foreach (var group in VitalOnlyDamageTypes)
+            {
+                if (!_prototypeManager.Index(group).DamageTypes.Contains(type))
+                    continue;
+
+                isVital = true;
+                break;
         foreach (var (type, value) in damage.DamageDict)
         {
             var isVital = false;
