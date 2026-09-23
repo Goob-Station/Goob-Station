@@ -2,14 +2,10 @@
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Shitmed.EntityEffects.Effects;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Damage;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Localizations;
-using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Shared.EntityEffects.Effects.Damage;
 
@@ -28,7 +24,7 @@ public sealed partial class HealthChangeEntityEffectSystem : EntityEffectSystem<
 
         damageSpec *= args.Scale;
 
-        // Goobstation Start
+        // <Woundmed> Temperature scaling
         if (args.Effect.ScaleByTemperature is {} scaleTemp)
         {
             if (!TryComp<TemperatureComponent>(entity, out var temp))
@@ -36,13 +32,16 @@ public sealed partial class HealthChangeEntityEffectSystem : EntityEffectSystem<
 
             damageSpec *= scaleTemp.GetEfficiencyMultiplier(temp.CurrentTemperature, args.Scale, false);
         }
-        // Goob end
+        // </Woundmed>
 
         _damageable.TryChangeDamage(
                 entity.AsNullable(),
                 damageSpec,
                 args.Effect.IgnoreResistances,
-                interruptsDoAfters: false);
+                interruptsDoAfters: false,
+                splitDamage: args.Effect.SplitDamage,
+                targetPart: args.Effect.TargetPart,
+                ignoreBlockers: args.Effect.IgnoreBlockers); // Woundmed - Extra args
     }
 }
 
@@ -57,10 +56,6 @@ public sealed partial class HealthChange : EntityEffectBase<HealthChange>
 
     [DataField]
     public bool IgnoreResistances = true;
-
-    // Goob - shitmed slop
-    [DataField]
-    public TemperatureScaling? ScaleByTemperature;
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         {
