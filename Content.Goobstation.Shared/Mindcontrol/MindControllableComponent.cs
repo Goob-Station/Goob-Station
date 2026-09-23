@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Goobstation.Shared.Mindcontrol;
 
 /// <summary>
-/// Goobstation - Component that should be used for all mobs that can be mindcontrolled (by mind control implant, revolution or enslaving)
+/// Component that should be used for all mobs that can be mindcontrolled (by mind control implant, revolution or enslaving)
 ///
 /// Right now this component is fast fix for shadowling thrall. This should have it's own system with events-based checks.
 /// </summary>

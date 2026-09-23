@@ -525,23 +525,6 @@
   - type: Action
     useDelay: 5
 
-# Blink
-- type: entity
-  parent: ActionBlinkSpell
-  id: ActionBlinkII
-  name: Blink II
-  components:
-  - type: Action
-    useDelay: 2
-
-- type: entity
-  parent: ActionBlinkSpell
-  id: ActionBlinkIII
-  name: Blink III
-  components:
-  - type: Action
-    useDelay: 1
-
 # Force Wall
 - type: entity
   parent: ActionForceWall

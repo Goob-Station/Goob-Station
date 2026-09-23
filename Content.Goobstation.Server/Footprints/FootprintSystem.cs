@@ -169,11 +169,9 @@ public sealed class FootprintSystem : EntitySystem
 
         if (volume < entity.Comp.MinFootprintVolume)
         {
-            // Goobstation start
             // after footprints stop, some of the solution remains forever which causes some unexpected behavior
             // removing all solution once footprints stop helps resolve this issue, the amount of reagent lost is negligible
             _solution.RemoveAllSolution(solution.Value);
-            // Goobstation end
             return;
         }
 

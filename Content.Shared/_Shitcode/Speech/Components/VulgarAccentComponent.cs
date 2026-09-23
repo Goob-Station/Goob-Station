@@ -8,7 +8,7 @@ using Robust.Shared.GameStates;
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Speech.Components;
+namespace Content.Shared._Shitcode.Speech.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class VulgarAccentComponent : Component

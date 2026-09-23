@@ -124,7 +124,7 @@ namespace Content.Goobstation.Client.ServerCurrency.UI
             UpdatePlayerBalance();
         }
 
-        private void UpdatePlayerBalance() // Goobstation - Goob Coin
+        private void UpdatePlayerBalance() // Goob Coin
         {
             var balance = _serverCur.GetBalance();
             Header.Text = _serverCur.Stringify(balance);

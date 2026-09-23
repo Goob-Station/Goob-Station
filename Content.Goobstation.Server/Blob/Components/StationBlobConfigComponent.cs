@@ -19,6 +19,6 @@ public sealed partial class StationBlobConfigComponent : Component
     [DataField]
     public int StageTheEnd { get; set; } = DefaultStageEnd;
 
-    /*[DataField("specForceTeam")]  //Goobstation - Disabled automatic ERT
-    public ProtoId<SpecForceTeamPrototype> SpecForceTeam { get; set; } = "RXBZZBlobDefault";*/
+    //[DataField] //TODO
+    //public ProtoId<SpecForceTeamPrototype> SpecForceTeam { get; set; } = "RXBZZBlobDefault";
 }
