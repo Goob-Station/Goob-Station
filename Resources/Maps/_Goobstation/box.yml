@@ -173494,8 +173494,8 @@ entities:
       pos: 4.5,37.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      deviceLists:
+      - 27274
 - proto: WeaponEnergyTurretSecurityControlPanel
   entities:
   - uid: 27274
@@ -173504,6 +173504,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,35.5
       parent: 2
+    - type: DeviceList
+      devices:
+      - 27273
 - proto: WeaponLaserCarbinePractice
   entities:
   - uid: 27275

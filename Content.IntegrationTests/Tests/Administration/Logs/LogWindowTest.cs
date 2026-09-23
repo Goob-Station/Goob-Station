@@ -22,6 +22,7 @@ public sealed class LogWindowTest : InteractionTest
         var log = Server.Resolve<IAdminLogManager>();
         var guid = Guid.NewGuid();
         await Server.WaitPost(() => log.Add(LogType.Unknown, $"{SPlayer} test log 1: {guid}"));
+        await RunTicks(10); // Omu wait for log to be added. Bleak.
 
         // Click the admin button in the menu bar
         await ClickWidgetControl<GameTopMenuBar, MenuButton>(nameof(GameTopMenuBar.AdminButton));
@@ -32,10 +33,14 @@ public sealed class LogWindowTest : InteractionTest
         await ClickControl(btn!);
         var logWindow = GetWindow<AdminLogsWindow>();
 
+        await RunTicks(10); // Omu heisenfail fixes?
+
         // Find the log search field and refresh buttons
         var search = logWindow.Logs.LogSearch;
         var refresh = logWindow.Logs.RefreshButton;
         var cont = logWindow.Logs.LogsContainer;
+
+        logWindow.Logs.IncludeNonPlayerLogs = true; // Omu heisenfail fixes?
 
         // Search for the log we added earlier.
         await Client.WaitPost(() => search.Text = guid.ToString());
@@ -48,6 +53,7 @@ public sealed class LogWindowTest : InteractionTest
         // Add a new log
         guid = Guid.NewGuid();
         await Server.WaitPost(() => log.Add(LogType.Unknown, $"{SPlayer} test log 2: {guid}"));
+        await RunTicks(10); // Omu wait for log to be added. Bleak.
 
         // Update the search and refresh
         await Client.WaitPost(() => search.Text = guid.ToString());

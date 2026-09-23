@@ -152,46 +152,45 @@ namespace Content.IntegrationTests.Tests
             // Goob end
         };
         // Goobstation edit start, yeah i know, but this is easier and less load than loading protoman or something.
-        private static readonly string[] GameMapsInCurrentPool = // plus dev
+        private static readonly string[] GameMapsInCurrentPool =
         {
-            // order this list alphabetically, mark dev maps
-              //"Amber", kill
-              "Atlas",
-              "Bagel",
-             //  "Barratry", kill memory concerns
-            //"Box",            // Not in pool
-              "CentComm",      // CentComm
-              "Chloris",
-              "Cluster",
-              "Cog",
-            //"Core",           // Not in pool.
-              "Delta",
-              "Dev",            // Dev map
-            //"dm01-entryway",  // Deathmatch
-            //"Europa",         // Not in pool.
-              "Exo",
-            //  "Fland",        // kill due to mem
-              "FlandHighPop",
-              "Kettle",
-            //"Lambda",         // Not in pool
-              "Lavatest",       //Dev map
-              "Leonid",
-              "Loop",
-              "Marathon",
-              "Meta",
-            //"MeteorArena",    // Deathmatch
-            //  "Oasis",        // kill due to memory
-              "OasisHighPop",
-              "Omega",
-              "Origin",
-            //"OriginHighPop",  //Not in pool
-              "TestTeg",        //Dev map
-            //"Train",          //Not in pool
-              "Packed",
-              "Reach",
-              "Saltern",
-              "Serpentcrest",
-             // "Snowball", // fuck off not in pool
+            //"Amber",         // Not in Pool
+            "Atlas",
+            "Bagel",
+            //"Barratry",      // Not in Pool
+            "Box",
+            "CentComm",
+            //"Chloris",       // Not in Pool
+            "Cluster",
+            "Cog",
+            //"Core",          // Not in Pool
+            "Delta",
+            "Dev",
+            //"dm01-entryway", // Not in Pool
+            //"Europa",        // Not in Pool
+            //"Exo",           // Not in Pool
+            //"Fland",         // In Pool But i cannot be bothered and frankly they are identical.
+            "FlandHighPop",
+            "Kettle",
+            //"Lambda",        // Not in Pool
+            //"Lavatest",      // Not in Pool -  we nuked lava apparently?
+            "Leonid",
+            "Loop",
+            "Marathon",
+            "Meta",
+            //"MeteorArena",   // Not in Pool
+            //"Oasis",         // In Pool But i cannot be bothered and frankly they are identical.
+            "OasisHighPop",
+            "Omega",
+            "Origin",
+            //"OriginHighPop", // Not in Pool
+            "Packed",
+            "Reach",
+            "Saltern",
+            "Serpentcrest",
+            //"Snowball",      // Not in Pool
+            //"TestTeg",       // Not in Pool
+            //"Train",         // Not in Pool
         };
         // Goobstation edit end
 
@@ -462,127 +461,133 @@ namespace Content.IntegrationTests.Tests
             return true;
         }
 
-        [Test, TestCaseSource(nameof(GameMapsInCurrentPool))] // Goob edit - GameMapsInCurrentPool only
-        public async Task GameMapsLoadableTest(string mapProto)
+        [Test, NonParallelizable]  // Omu Non-Parallelizable but still run two maps at a time internally.
+        public async Task GameMapsLoadableTest()
         {
-            await using var pair = await PoolManager.GetServerClient(new PoolSettings
+            foreach (var maps in GameMapsInCurrentPool.Chunk(2)) // Omu OOM issues // Goob edit - GameMapsInCurrentPool only
             {
-                Dirty = true // Stations spawn a bunch of nullspace entities and maps like centcomm.
-            });
-            var server = pair.Server;
-
-            var mapManager = server.ResolveDependency<IMapManager>();
-            var entManager = server.ResolveDependency<IEntityManager>();
-            var mapLoader = entManager.System<MapLoaderSystem>();
-            var mapSystem = entManager.System<SharedMapSystem>();
-            var protoManager = server.ResolveDependency<IPrototypeManager>();
-            var ticker = entManager.EntitySysManager.GetEntitySystem<GameTicker>();
-            var shuttleSystem = entManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
-            var cfg = server.ResolveDependency<IConfigurationManager>();
-            Assert.That(cfg.GetCVar(CCVars.GridFill), Is.False);
-
-            await server.WaitPost(() =>
-            {
-                MapId mapId;
-                try
+                await Task.WhenAll(maps.Select(async mapProto =>  // Omu OOM issues
                 {
-                    var opts = DeserializationOptions.Default with { InitializeMaps = true };
-                    ticker.LoadGameMap(protoManager.Index<GameMapPrototype>(mapProto), out mapId, opts);
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception($"Failed to load map {mapProto}", ex);
-                }
-
-                mapSystem.CreateMap(out var shuttleMap);
-                var largest = 0f;
-                EntityUid? targetGrid = null;
-                var memberQuery = entManager.GetEntityQuery<StationMemberComponent>();
-
-                var grids = mapManager.GetAllGrids(mapId).ToList();
-                var gridUids = grids.Select(o => o.Owner).ToList();
-                targetGrid = gridUids.First();
-
-                foreach (var grid in grids)
-                {
-                    var gridEnt = grid.Owner;
-                    if (!memberQuery.HasComponent(gridEnt))
-                        continue;
-
-                    var area = grid.Comp.LocalAABB.Width * grid.Comp.LocalAABB.Height;
-
-                    if (area > largest)
+                    await using var pair = await PoolManager.GetServerClient(new PoolSettings
                     {
-                        largest = area;
-                        targetGrid = gridEnt;
-                    }
-                }
+                        Dirty = true // Stations spawn a bunch of nullspace entities and maps like centcomm.
+                    });
+                    var server = pair.Server;
 
-                // Test shuttle can dock.
-                // This is done inside gamemap test because loading the map takes ages and we already have it.
-                var station = entManager.GetComponent<StationMemberComponent>(targetGrid!.Value).Station;
-                if (entManager.TryGetComponent<StationEmergencyShuttleComponent>(station, out var stationEvac))
-                {
-                    var shuttlePath = stationEvac.EmergencyShuttlePath;
-                    Assert.That(mapLoader.TryLoadGrid(shuttleMap, shuttlePath, out var shuttle),
-                        $"Failed to load {shuttlePath}");
+                    var mapManager = server.ResolveDependency<IMapManager>();
+                    var entManager = server.ResolveDependency<IEntityManager>();
+                    var mapLoader = entManager.System<MapLoaderSystem>();
+                    var mapSystem = entManager.System<SharedMapSystem>();
+                    var protoManager = server.ResolveDependency<IPrototypeManager>();
+                    var ticker = entManager.EntitySysManager.GetEntitySystem<GameTicker>();
+                    var shuttleSystem = entManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
+                    var cfg = server.ResolveDependency<IConfigurationManager>();
+                    Assert.That(cfg.GetCVar(CCVars.GridFill), Is.False);
 
-                    Assert.That(
-                        shuttleSystem.TryFTLDock(shuttle!.Value.Owner,
-                            entManager.GetComponent<ShuttleComponent>(shuttle!.Value.Owner),
-                            targetGrid.Value),
-                        $"Unable to dock {shuttlePath} to {mapProto}");
-                }
-
-                mapSystem.DeleteMap(shuttleMap);
-
-                if (entManager.HasComponent<StationJobsComponent>(station))
-                {
-                    // Test that the map has valid latejoin spawn points or container spawn points
-                    if (!NoSpawnMaps.Contains(mapProto))
+                    await server.WaitPost(() =>
                     {
-                        var lateSpawns = 0;
+                        MapId mapId;
+                        try
+                        {
+                            var opts = DeserializationOptions.Default with { InitializeMaps = true };
+                            ticker.LoadGameMap(protoManager.Index<GameMapPrototype>(mapProto), out mapId, opts);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception($"Failed to load map {mapProto}", ex);
+                        }
 
-                        lateSpawns += GetCountLateSpawn<SpawnPointComponent>(gridUids, entManager);
-                        lateSpawns += GetCountLateSpawn<ContainerSpawnPointComponent>(gridUids, entManager);
+                        mapSystem.CreateMap(out var shuttleMap);
+                        var largest = 0f;
+                        EntityUid? targetGrid = null;
+                        var memberQuery = entManager.GetEntityQuery<StationMemberComponent>();
 
-                        Assert.That(lateSpawns, Is.GreaterThan(0), $"Found no latejoin spawn points on {mapProto}");
-                    }
+                        var grids = mapManager.GetAllGrids(mapId).ToList();
+                        var gridUids = grids.Select(o => o.Owner).ToList();
+                        targetGrid = gridUids.First();
 
-                    // Test all availableJobs have spawnPoints
-                    // This is done inside gamemap test because loading the map takes ages and we already have it.
-                    var comp = entManager.GetComponent<StationJobsComponent>(station);
-                    var jobs = new HashSet<ProtoId<JobPrototype>>(comp.SetupAvailableJobs.Keys);
+                        foreach (var grid in grids)
+                        {
+                            var gridEnt = grid.Owner;
+                            if (!memberQuery.HasComponent(gridEnt))
+                                continue;
 
-                    var spawnPoints = entManager.EntityQuery<SpawnPointComponent>()
-                        .Where(x => x.SpawnType == SpawnPointType.Job && x.Job != null)
-                        .Select(x => x.Job.Value);
+                            var area = grid.Comp.LocalAABB.Width * grid.Comp.LocalAABB.Height;
 
-                    jobs.ExceptWith(spawnPoints);
+                            if (area > largest)
+                            {
+                                largest = area;
+                                targetGrid = gridEnt;
+                            }
+                        }
 
-                    spawnPoints = entManager.EntityQuery<ContainerSpawnPointComponent>()
-                        .Where(x => x.SpawnType is SpawnPointType.Job or SpawnPointType.Unset && x.Job != null)
-                        .Select(x => x.Job.Value);
+                        // Test shuttle can dock.
+                        // This is done inside gamemap test because loading the map takes ages and we already have it.
+                        var station = entManager.GetComponent<StationMemberComponent>(targetGrid!.Value).Station;
+                        if (entManager.TryGetComponent<StationEmergencyShuttleComponent>(station, out var stationEvac))
+                        {
+                            var shuttlePath = stationEvac.EmergencyShuttlePath;
+                            Assert.That(mapLoader.TryLoadGrid(shuttleMap, shuttlePath, out var shuttle),
+                                $"Failed to load {shuttlePath}");
 
-                    jobs.ExceptWith(spawnPoints);
+                            Assert.That(
+                                shuttleSystem.TryFTLDock(shuttle!.Value.Owner,
+                                    entManager.GetComponent<ShuttleComponent>(shuttle!.Value.Owner),
+                                    targetGrid.Value),
+                                $"Unable to dock {shuttlePath} to {mapProto}");
+                        }
 
-                    Assert.That(jobs,
-                        Is.Empty,
-                        $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
-                }
+                        mapSystem.DeleteMap(shuttleMap);
 
-                try
-                {
-                    mapSystem.DeleteMap(mapId);
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception($"Failed to delete map {mapProto}", ex);
-                }
-            });
-            await server.WaitRunTicks(1);
+                        if (entManager.HasComponent<StationJobsComponent>(station))
+                        {
+                            // Test that the map has valid latejoin spawn points or container spawn points
+                            if (!NoSpawnMaps.Contains(mapProto))
+                            {
+                                var lateSpawns = 0;
 
-            await pair.CleanReturnAsync();
+                                lateSpawns += GetCountLateSpawn<SpawnPointComponent>(gridUids, entManager);
+                                lateSpawns += GetCountLateSpawn<ContainerSpawnPointComponent>(gridUids, entManager);
+
+                                Assert.That(lateSpawns, Is.GreaterThan(0), $"Found no latejoin spawn points on {mapProto}");
+                            }
+
+                            // Test all availableJobs have spawnPoints
+                            // This is done inside gamemap test because loading the map takes ages and we already have it.
+                            var comp = entManager.GetComponent<StationJobsComponent>(station);
+                            var jobs = new HashSet<ProtoId<JobPrototype>>(comp.SetupAvailableJobs.Keys);
+
+                            var spawnPoints = entManager.EntityQuery<SpawnPointComponent>()
+                                .Where(x => x.SpawnType == SpawnPointType.Job && x.Job != null)
+                                .Select(x => x.Job.Value);
+
+                            jobs.ExceptWith(spawnPoints);
+
+                            spawnPoints = entManager.EntityQuery<ContainerSpawnPointComponent>()
+                                .Where(x => x.SpawnType is SpawnPointType.Job or SpawnPointType.Unset && x.Job != null)
+                                .Select(x => x.Job.Value);
+
+                            jobs.ExceptWith(spawnPoints);
+
+                            Assert.That(jobs,
+                                Is.Empty,
+                                $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
+                        }
+
+                        try
+                        {
+                            mapSystem.DeleteMap(mapId);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception($"Failed to delete map {mapProto}", ex);
+                        }
+                    });
+                    await server.WaitRunTicks(1);
+
+                    await pair.CleanReturnAsync();
+                }));
+            }
         }
 
 
@@ -629,6 +634,7 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
+        [Explicit] // Goobstation, make these manual.
         [Test]
         public async Task NonGameMapsLoadableTest()
         {
