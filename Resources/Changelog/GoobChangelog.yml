@@ -25278,3 +25278,11 @@ Entries:
         again
   id: 2895
   time: '2026-09-23T19:16:02.0000000+00:00'
+- author: madeline-celeste
+  changes:
+    - type: Fix
+      message: >-
+        Fix the Station AI being set to Crewsimov instead of NTDefault after the
+        experimental law board time runs out.
+  id: 2896
+  time: '2026-09-23T19:16:55.0000000+00:00'
