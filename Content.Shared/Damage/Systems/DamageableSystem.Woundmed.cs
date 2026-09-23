@@ -31,7 +31,7 @@ public sealed partial class DamageableSystem
     private EntityQuery<WoundableComponent> _woundableQuery;
 
     /// <summary>
-    /// These damages are always only dealt to vital body parts.
+    /// These damages are always ensured to override targetting and be dealt to the vital body parts.
     /// Todo: This should not be here!
     /// </summary>
     private static readonly ProtoId<DamageGroupPrototype>[] VitalOnlyDamageTypes = [
@@ -52,29 +52,27 @@ public sealed partial class DamageableSystem
     ///     [Woundmed]
     ///     Updates the parent entity's damage values by summing damage from all body parts.
     ///     Should be called after damage is applied to any body part.
+    ///     Will raise OnEntityDamageChanged afterwards if delta damage is not empty.
     /// </summary>
-    /// <param name="bodyPartUid">
-    ///     The <see cref="Entity{BodyPartComponent}"/>  that receives damage
-    /// </param>
-    /// <param name="appliedDamage">
-    ///     The <see cref="DamageSpecifier?"/> to apply to the body part
-    /// </param>
-    /// <param name="interruptsDoAfters">
-    ///     Whether this damage change interrupts do-afters
-    /// </param>
-    /// <param name="origin">
-    ///     The <see cref="EntityUid?"=> that caused the damage
-    /// </param>
-    /// <param name="ignoreBlockers">
-    /// Whether to ignore damage blockers
-    /// </param>
     /// <returns>
     ///     <see langword="true"/> if parent damage was updated, <see langword="false"/> otherwise.
     /// </returns>
-    private bool UpdateComplexBodyDamage(Entity<BodyComponent, DamageableComponent> body)
+    private bool UpdateComplexBodyDamage(
+        Entity<BodyComponent, DamageableComponent> body,
+        bool interruptsDoAfters,
+        EntityUid? origin,
+        bool ignoreBlockers)
     {
+        // for comparing to get delta
+        var oldDamage = body.Comp2.Damage.DamageDict.ShallowClone();
+
         // we are gonna rebuild this based on limb damages
-        body.Comp2.Damage.DamageDict.Clear();
+        foreach (var type in body.Comp2.Damage.DamageDict.Keys)
+        {
+            body.Comp2.Damage.DamageDict[type] = FixedPoint2.Zero;
+        }
+
+        var delta = new DamageSpecifier();
 
         // Sum up damage from all body parts
         foreach (var (partId, _) in _body.GetBodyChildren(body))
@@ -94,10 +92,16 @@ public sealed partial class DamageableSystem
 
                 body.Comp2.Damage.DamageDict.TryGetValue(type, out var existing);
                 body.Comp2.Damage.DamageDict[type] = existing + value;
+                delta.DamageDict[type] = value - existing;
             }
         }
 
-        OnEntityDamageChanged((body, body.Comp2));
+        body.Comp2.Damage.TrimZeros();
+        delta.TrimZeros();
+
+        // raises DamageChangedEvent through here
+        if (!delta.Empty)
+            OnEntityDamageChanged((body, body.Comp2), delta, interruptsDoAfters, origin, ignoreBlockers);
 
         return true;
     }
@@ -380,7 +384,7 @@ public sealed partial class DamageableSystem
         }
         else
         {
-            UpdateComplexBodyDamage((body, body.Comp, damageableComp));
+            UpdateComplexBodyDamage((body, body.Comp, damageableComp), interruptsDoAfters, origin, ignoreBlockers);
         }
 
         return totalDamage;
