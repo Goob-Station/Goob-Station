@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -16,22 +17,19 @@ public sealed class SlasherKitSelectBoundUserInterfaceState(List<SlasherKitInfo>
 }
 
 [Serializable, NetSerializable]
-public sealed class SlasherKitSelectedMessage(int index) : BoundUserInterfaceMessage
+public sealed class SlasherKitSelectedMessage(string kitId) : BoundUserInterfaceMessage
 {
-    public readonly int Index = index;
+    public readonly string KitId = kitId;
 }
 
 [Serializable, NetSerializable]
-public sealed class SlasherKitInfo(
-    string id,
-    string name,
-    string description,
-    SpriteSpecifier sprite,
-    string? guide)
-{
-    public string Id = id;
-    public string Name = name;
-    public string Description = description;
-    public SpriteSpecifier Sprite = sprite;
-    public string? Guide = guide;
-}
+public sealed record SlasherKitInfo(
+    string Id,
+    string Name,
+    string Description,
+    SpriteSpecifier Sprite,
+    SoundSpecifier? ThemeSong,
+    string? AscensionId,
+    string? RequiredAscension,
+    bool Unlocked,
+    string? Guide);
