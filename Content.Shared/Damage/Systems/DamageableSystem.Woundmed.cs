@@ -42,6 +42,13 @@ public sealed partial class DamageableSystem
     ];
 
     /// <summary>
+    /// Get only the primitive flags (powers of 2) - these are the actual individual body parts
+    /// </summary>
+    private static readonly TargetBodyPart[] PrimitiveTargetBodyParts = Enum.GetValues<TargetBodyPart>()
+        .Where(flag => flag != 0 && (flag ^ (flag - 1)) == 0) // Power of 2 check
+        .ToArray();
+
+    /// <summary>
     ///     [Woundmed]
     ///     Updates the parent entity's damage values by summing damage from all body parts.
     ///     Should be called after damage is applied to any body part.
@@ -108,12 +115,7 @@ public sealed partial class DamageableSystem
         // Extract only the body parts that are targeted in the bitmask
         var extracted = new List<Entity<BodyPartComponent, DamageableComponent>>();
 
-        // Get only the primitive flags (powers of 2) - these are the actual individual body parts
-        var primitiveFlags = Enum.GetValues<TargetBodyPart>()
-            .Where(flag => flag != 0 && (flag & (flag - 1)) == 0) // Power of 2 check
-            .ToList();
-
-        foreach (var flag in primitiveFlags)
+        foreach (var flag in PrimitiveTargetBodyParts)
         {
             // Check if this specific flag is set in our targetPart bitmask
             if (mask.HasFlag(flag))
