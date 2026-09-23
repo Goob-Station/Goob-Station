@@ -84,3 +84,46 @@
   - type: IngestionBlocker
   - type: StaticPrice
     price: 5000
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskGoldenCursedJumpscare # goob
+  name: golden mask (real)
+  description: Previously used in strange pantomimes, after one of the actors went mad on stage- OH GOD WHY IS IT MOVING
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/goldenmask.rsi
+    layers:
+    - state: icon
+      map: [ "mask" ]
+  - type: Clothing
+    sprite: Clothing/Mask/goldenmask.rsi
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CursedMaskVisuals.State:
+        mask:
+          Neutral: { state: icon }
+          Despair: { state: icon-despair }
+          Joy: { state: icon-joy }
+          Anger: { state: icon-anger }
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: FaceHugger
+    knockdownTime: 0
+    infectionPrototype: null
+    damageOnImpact:
+      types:
+        Blunt: 2
+  - type: CursedMask
+    despairDamageModifier:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: IngestionBlocker
+  - type: StaticPrice
+    price: 5000
