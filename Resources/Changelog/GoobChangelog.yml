@@ -25304,3 +25304,15 @@ Entries:
       message: Monkeys now have much better speech sounds
   id: 2899
   time: '2026-09-23T19:21:39.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: Chaplain Dragon's tail resprite
+    - type: Tweak
+      message: >-
+        dragon's tail - it is now a whip with an attack radius of 2 tiles and an
+        area of effect of 20 degrees, increased attack speed, and the whip now
+        deals only 7 holy damage. The main damage of the whip is fire stacks,
+        each strike of the whip deals 1 stack of burning.
+  id: 2900
+  time: '2026-09-23T19:26:25.0000000+00:00'
