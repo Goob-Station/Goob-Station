@@ -25370,3 +25370,9 @@ Entries:
       message: Spaceshrooms can now be cultivated by hydroponics.
   id: 2907
   time: '2026-09-23T19:47:19.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to scram inside a locker.
+  id: 2908
+  time: '2026-09-23T19:53:27.0000000+00:00'
