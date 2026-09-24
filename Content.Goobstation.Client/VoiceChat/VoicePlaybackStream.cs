@@ -11,7 +11,9 @@ public readonly record struct VoicePlaybackParams(
     float Occlusion,
     float ReferenceDistance,
     float MaxDistance,
-    float Boost);
+    float Boost,
+    bool Global,
+    float Audibility);
 
 public sealed class VoicePlaybackStream : IDisposable
 {
@@ -29,12 +31,23 @@ public sealed class VoicePlaybackStream : IDisposable
     private const int ConcealAfterFrames = 3;
     private const int MaxSequenceJump = 50;
 
+    private const float ActivityRelease = 0.3f;
+    private const float OpenCutoff = 7000f;
+    private const float MinCutoff = 350f;
+    private const float CutoffFalloff = 1.2f;
+    private const float MuffleSmoothing = 0.35f;
+
+    private static readonly TimeSpan ContributorTimeout = TimeSpan.FromMilliseconds(250);
+
     private static readonly TimeSpan StartWait = TimeSpan.FromMilliseconds(60);
     private static readonly TimeSpan SequenceResetAfter = TimeSpan.FromSeconds(1);
 
     private readonly IAudioManager _audioManager;
     private readonly Dictionary<ushort, short[]> _pending = new();
     private readonly List<Chunk> _playing = new();
+    private readonly VoiceLevelMeter _meter = new();
+    private readonly Dictionary<ushort, VoiceContributorState> _contributors = new();
+    private readonly List<ushort> _expiredContributors = new();
 
     private short[] _pcm = new short[SampleRate];
     private short[] _chunkBuffer = new short[SampleRate];
@@ -48,9 +61,26 @@ public sealed class VoicePlaybackStream : IDisposable
     private TimeSpan _lastReceived;
     private Chunk? _current;
     private VoicePlaybackParams _params;
+    private float _muffle;
+    private float _lowFirst;
+    private float _lowSecond;
 
+    public ushort Speaker;
     public NetEntity Source;
+    public VoiceRoute Route;
+    public bool Global;
+    public float Range;
     public TimeSpan LastActivity;
+    public VoiceLevels Levels;
+    public float Activity;
+    public float Muffle;
+    public float Obstruction;
+    public TimeSpan NextObstructionCheck;
+    public readonly VoiceDecoder Decoder = new();
+
+    public IReadOnlyDictionary<ushort, VoiceContributorState> Contributors => _contributors;
+
+    public bool IsMix => _contributors.Count > 0;
 
     public VoicePlaybackStream(IAudioManager audioManager)
     {
@@ -60,6 +90,66 @@ public sealed class VoicePlaybackStream : IDisposable
     private long PcmEnd => _pcmStart + _pcmLength;
 
     public bool IsIdle => _playing.Count == 0 && PcmEnd <= _scheduledUntil && _pending.Count == 0;
+
+    public bool Playing => _current is { Disposed: false } current && current.Source.Playing;
+
+    public float Audibility => _params.Audibility;
+
+    public void UpdateContributors(List<VoiceContributor>? contributors, TimeSpan now)
+    {
+        if (contributors == null)
+            return;
+
+        foreach (var contributor in contributors)
+        {
+            if (!_contributors.TryGetValue(contributor.Speaker, out var state))
+            {
+                state = new VoiceContributorState();
+                _contributors[contributor.Speaker] = state;
+            }
+
+            state.Target = contributor.Level / 255f;
+            state.LastSeen = now;
+        }
+    }
+
+    public void UpdateContributorLevels(TimeSpan now, float frameTime)
+    {
+        _expiredContributors.Clear();
+        foreach (var (speaker, state) in _contributors)
+        {
+            var active = now - state.LastSeen < ContributorTimeout;
+            var target = active ? state.Target : 0f;
+            var rate = target > state.Level ? 0.025f : 0.15f;
+            state.Level += (target - state.Level) * (1f - MathF.Exp(-frameTime / rate));
+            state.Active = active;
+
+            if (!active && state.Level < 0.01f && now - state.LastSeen > ContributorTimeout * 8)
+                _expiredContributors.Add(speaker);
+        }
+
+        foreach (var speaker in _expiredContributors)
+        {
+            _contributors.Remove(speaker);
+        }
+    }
+
+    public void UpdateLevels(float frameTime)
+    {
+        var target = default(VoiceLevels);
+        var playing = false;
+        if (_current is { Disposed: false } current && current.Source.Playing)
+        {
+            playing = true;
+            target = _meter.Get(current.Start + (long) (current.Source.PlaybackPosition * SampleRate));
+        }
+
+        VoiceLevelSmoothing.Apply(ref Levels, target, frameTime);
+
+        Activity = playing
+            ? 1f
+            : MathF.Max(0f, Activity - frameTime / ActivityRelease);
+    }
 
     public void AddFrame(ushort sequence, byte flags, short[] pcm, TimeSpan now)
     {
@@ -227,6 +317,7 @@ public sealed class VoicePlaybackStream : IDisposable
 
     private void Apply(IAudioSource source)
     {
+        source.Global = _params.Global;
         source.Position = _params.Position;
         source.Gain = _params.Gain;
         source.Occlusion = _params.Occlusion;
@@ -285,6 +376,7 @@ public sealed class VoicePlaybackStream : IDisposable
             Array.Resize(ref _pcm, Math.Max(_pcmLength + FrameSamples, _pcm.Length * 2));
 
         Array.Copy(frame, 0, _pcm, _pcmLength, FrameSamples);
+        ApplyMuffle(_pcmLength);
 
         if (_fadeInNext)
         {
@@ -296,8 +388,27 @@ public sealed class VoicePlaybackStream : IDisposable
             _fadeInNext = false;
         }
 
+        _meter.Analyze(_pcm, _pcmLength, FrameSamples, PcmEnd);
         _pcmLength += FrameSamples;
         _lastFrame = frame;
+    }
+
+    private void ApplyMuffle(int start)
+    {
+        _muffle += (Muffle - _muffle) * MuffleSmoothing;
+        var coefficient = 1f;
+        if (_muffle >= 0.01f)
+        {
+            var cutoff = MathF.Max(MinCutoff, OpenCutoff * MathF.Exp(-_muffle * CutoffFalloff));
+            coefficient = 1f - MathF.Exp(-2f * MathF.PI * cutoff / SampleRate);
+        }
+
+        for (var i = start; i < start + FrameSamples; i++)
+        {
+            _lowFirst += (_pcm[i] - _lowFirst) * coefficient;
+            _lowSecond += (_lowFirst - _lowSecond) * coefficient;
+            _pcm[i] = (short) Math.Clamp(_lowSecond, short.MinValue, short.MaxValue);
+        }
     }
 
     private void Trim()
@@ -342,4 +453,12 @@ public sealed class VoicePlaybackStream : IDisposable
             Stream.Dispose();
         }
     }
+}
+
+public sealed class VoiceContributorState
+{
+    public float Target;
+    public float Level;
+    public bool Active;
+    public TimeSpan LastSeen;
 }

@@ -6,6 +6,8 @@
   name: man-machine interface
   description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents.
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Robot
   - type: Sprite
     sprite: Objects/Specific/Robotics/mmi.rsi
     layers:
@@ -83,6 +85,8 @@
   name: positronic brain
   description: An artificial brain capable of spontaneous neural activity.
   components:
+    - type: VoiceChatEffect # Goobstation - Voice chat
+      effect: Robot
     - type: Sprite
       sprite: Objects/Specific/Robotics/mmi.rsi
       layers:

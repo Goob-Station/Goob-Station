@@ -16,6 +16,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Import Project="../MSBuild/Content.props" />
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+    <PackageReference Include="NWaves" />
   </ItemGroup>
 
   <Import Project="..\RobustToolbox\Imports\Shared.props" />
