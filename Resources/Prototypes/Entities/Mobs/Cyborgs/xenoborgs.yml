@@ -86,14 +86,14 @@
       - XenoborgModuleGeneric
       - XenoborgModuleHeavy
   - type: MovementSpeedModifier # slower
-    baseWalkSpeed : 1.2
+    baseWalkSpeed : 1.5
     baseSprintSpeed : 2.2
   - type: MovementAlwaysTouching # it flies in space by pure will power
   - type: FlashImmunity
   - type: MobThresholds # tankier
     thresholds:
       0: Alive
-      350: Critical # goob - balance larp
+      300: Critical # goob - balance larp
       750: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
     stateAlertDict:
       Alive: BorgHealth
