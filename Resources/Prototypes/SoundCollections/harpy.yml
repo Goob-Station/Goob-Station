@@ -127,6 +127,7 @@
   files:
     - /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
     - /Audio/Mecha/sound_mecha_hydraulic.ogg
+    - /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg # Goob - more harpy emotes
 
 - type: soundCollection
   id: HarpyRings

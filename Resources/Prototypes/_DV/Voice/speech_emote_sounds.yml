@@ -116,6 +116,8 @@
       collection: Bubbles 
     Pop:
       collection: Pops
+    Hew:
+      collection: Hew
 # Goobstation end 
 
 - type: emoteSounds
@@ -234,6 +236,8 @@
       collection: Bubbles 
     Pop:
       collection: Pops
+    Hew:
+      collection: Hew
 # Goobstation End
 
 - type: emoteSounds
