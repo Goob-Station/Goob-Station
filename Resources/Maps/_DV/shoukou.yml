@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 09/24/2026 07:59:08
+  time: 09/24/2026 08:01:04
   entityCount: 15017
 maps:
 - 1
@@ -71275,6 +71275,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -37.5,-49.5
       parent: 2
+  - uid: 10018
+    components:
+    - type: Transform
+      pos: 8.5,-3.5
+      parent: 2
   - uid: 10770
     components:
     - type: Transform
@@ -72810,13 +72815,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 22.5,4.5
-      parent: 2
-    - type: ApcPowerReceiver
-      powerLoad: 0
-  - uid: 10018
-    components:
-    - type: Transform
-      pos: 8.5,-3.5
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
