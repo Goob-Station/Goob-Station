@@ -1,4 +1,5 @@
 <ui:SlasherKitSelectMenu xmlns="https://spacestation14.io"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:ui="clr-namespace:Content.Goobstation.Client.Slasher.UI"
                          xmlns:store="clr-namespace:Content.Goobstation.Client.Slasher.UI.VideoStore"
                          Resizable="False"
@@ -11,8 +12,8 @@
                      MouseFilter="Ignore" />
         <store:SpinnerRack Name="Rack" />
         <store:Layers Name="Layers" />
-        <TextureButton Name="LeftArrow" StyleClasses="StoreArrowLeft" />
-        <TextureButton Name="RightArrow" StyleClasses="StoreArrowRight" />
+        <TextureButton Name="LeftArrow" StyleClasses="{x:Static store:StoreButtonStyles.ArrowLeft}" />
+        <TextureButton Name="RightArrow" StyleClasses="{x:Static store:StoreButtonStyles.ArrowRight}" />
         <store:KitCard Name="Card" />
         <TextureRect Name="Scanlines"
                      TexturePath="/Textures/_Goobstation/Slasher/Interface/VideoStore/scanlines.png"
