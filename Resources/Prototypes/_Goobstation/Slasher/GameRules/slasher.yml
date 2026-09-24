@@ -23,6 +23,7 @@
     - Diona
     - Harpy
     - Plasmaman
+    - Hydrakin
     forceMaxSize: true
   - type: AntagObjectives
     objectives:

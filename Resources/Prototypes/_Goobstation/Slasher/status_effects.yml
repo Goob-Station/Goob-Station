@@ -9,3 +9,8 @@
   - type: GrantComponentsStatusEffect
     components:
     - type: Feared
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: SlasherSlowdownStatusEffect
+  name: slasher slowdown

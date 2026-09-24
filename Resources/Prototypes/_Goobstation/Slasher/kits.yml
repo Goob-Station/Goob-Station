@@ -124,6 +124,10 @@
         sprite: _Goobstation/Slasher/Interface/KitIcons/boogeyman.rsi
         state: icon
       machetePrototype: SlasherKitchenKnife
+      bloodTrailMusic:
+        path: /Audio/_Goobstation/Slasher/Music/halloween.ogg
+        params:
+          loop: true
       removeComponents:
       - SlasherIncorporeal
       fearStyle:
