@@ -71,8 +71,12 @@
   kind: source
   path: "/Textures/_Goobstation/Shaders/sandevistan_timestop.swsl"
 
-
 - type: shader
   id: SandevistanTimestopWorld
   kind: source
   path: "/Textures/_Goobstation/Shaders/sandevistan_timestop_world.swsl"
+  
+- type: shader
+  id: VoiceCanadian
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voice_canadian.swsl"

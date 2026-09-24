@@ -8,6 +8,8 @@
   save: false
   abstract: true
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Robot
   - type: Reactive
     groups:
       Acidic: [Touch]
