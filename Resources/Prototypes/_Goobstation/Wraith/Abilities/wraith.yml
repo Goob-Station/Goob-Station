@@ -29,7 +29,6 @@
       types:
         Slash: 25
         Blunt: 25
-  - type: DemonicWhisper
   - type: PossessObject
   - type: SpookMark
   #- type: WraithCommand
@@ -57,7 +56,7 @@
     - ActionDecay
    # - ActionCommand
    # - ActionAnimateObject
-    - ActionWhisper
+    - ActionWraithWhisper
     - ActionBloodWriting
     - ActionSpook
     - ActionToggleGhosts

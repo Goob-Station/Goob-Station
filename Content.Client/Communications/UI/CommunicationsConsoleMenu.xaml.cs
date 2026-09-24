@@ -8,6 +8,9 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Goobstation.Common.CCVar; // Goobstation - Voice chat
+using Content.Goobstation.Shared.VoiceChat; // Goobstation - Voice chat
+using Robust.Client.Player; // Goobstation - Voice chat
 
 namespace Content.Client.Communications.UI
 {
@@ -17,6 +20,8 @@ namespace Content.Client.Communications.UI
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly ILocalizationManager _loc = default!;
+        [Dependency] private readonly IEntityManager _entManager = default!; // Goobstation - Voice chat
+        [Dependency] private readonly IPlayerManager _player = default!; // Goobstation - Voice chat
 
         public bool CanAnnounce;
         public bool CanBroadcast;
@@ -30,6 +35,8 @@ namespace Content.Client.Communications.UI
         public event Action<string>? OnAlertLevel;
         public event Action<string>? OnAnnounce;
         public event Action<string>? OnBroadcast;
+        public event Action? OnVoiceBroadcast; // Goobstation - Voice chat
+        public EntityUid Console; // Goobstation - Voice chat
 
         public CommunicationsConsoleMenu()
         {
@@ -59,6 +66,7 @@ namespace Content.Client.Communications.UI
 
             BroadcastButton.OnPressed += _ => OnBroadcast?.Invoke(Rope.Collapse(MessageInput.TextRope));
             BroadcastButton.Disabled = !CanBroadcast;
+            VoiceBroadcastButton.OnPressed += _ => OnVoiceBroadcast?.Invoke(); // Goobstation - Voice chat
 
             AlertLevelButton.OnItemSelected += args =>
             {
@@ -80,6 +88,49 @@ namespace Content.Client.Communications.UI
         {
             base.FrameUpdate(args);
             UpdateCountdown();
+            UpdateVoiceBroadcast(); // Goobstation - Voice chat
+        }
+
+        // Goobstation - Voice chat
+        private void UpdateVoiceBroadcast()
+        {
+            if (!_cfg.GetCVar(GoobCVars.VoiceChatEnabled) ||
+                !_entManager.TryGetComponent<VoiceBroadcastConsoleComponent>(Console, out var broadcast))
+            {
+                VoiceBroadcastButton.Visible = false;
+                return;
+            }
+
+            VoiceBroadcastButton.Visible = true;
+            var now = _timing.CurTime;
+            string text;
+            bool disabled;
+
+            if (broadcast.Broadcaster is { } broadcaster)
+            {
+                var mine = broadcaster == _player.LocalEntity;
+                var seconds = (int) Math.Ceiling(Math.Max(0, (broadcast.EndTime - now).TotalSeconds));
+                text = mine
+                    ? Loc.GetString("comms-console-menu-voice-broadcast-stop", ("seconds", seconds))
+                    : Loc.GetString("comms-console-menu-voice-broadcast-busy");
+                disabled = !mine;
+            }
+            else if (now < broadcast.NextBroadcast)
+            {
+                var seconds = (int) Math.Ceiling((broadcast.NextBroadcast - now).TotalSeconds);
+                text = Loc.GetString("comms-console-menu-voice-broadcast-cooldown", ("seconds", seconds));
+                disabled = true;
+            }
+            else
+            {
+                text = Loc.GetString("comms-console-menu-voice-broadcast-button");
+                disabled = false;
+            }
+
+            if (VoiceBroadcastButton.Text != text)
+                VoiceBroadcastButton.Text = text;
+
+            VoiceBroadcastButton.Disabled = disabled;
         }
 
         // The current alert could make levels unselectable, so we need to ensure that the UI reacts properly.
