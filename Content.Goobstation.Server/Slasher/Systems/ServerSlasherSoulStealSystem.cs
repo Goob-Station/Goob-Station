@@ -153,18 +153,22 @@ public sealed class ServerSlasherSoulStealSystem : EntitySystem
         if (comp.AscensionId != null && TryComp<ActorComponent>(ent, out var actor))
             _prestige.GrantAscension(actor.PlayerSession.UserId, comp.AscensionId);
 
-        RaiseLocalEvent(new SlasherAscendedEvent());
-
         comp.NextLightFlicker = _timing.CurTime + comp.LightFlickerInterval;
-
-        if (_stationSystem.GetOwningStation(ent) is not { } station)
-            return;
-
-        _alertLevel.SetLevel(station, "red", playSound: true, announce: false, force: true);
-        _weather.SetWeather(Transform(ent).MapID, _protoMan.Index(AscensionWeather), null);
 
         if (comp.AscensionGear != null)
             ApplyAscensionGear(ent, comp.AscensionGear.Value);
+
+        if (_stationSystem.GetOwningStation(ent) is { } station)
+            WarnStation(ent, station);
+
+        RaiseLocalEvent(new SlasherAscendedEvent(ent));
+    }
+
+    private void WarnStation(Entity<SlasherSoulStealComponent> ent, EntityUid station)
+    {
+        var comp = ent.Comp;
+        _alertLevel.SetLevel(station, "red", playSound: true, announce: false, force: true);
+        _weather.SetWeather(Transform(ent).MapID, _protoMan.Index(AscensionWeather), null);
 
         _chatSystem.DispatchStationAnnouncement(
             station,
