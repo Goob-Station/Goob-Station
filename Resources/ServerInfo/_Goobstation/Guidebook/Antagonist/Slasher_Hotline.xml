@@ -1,0 +1,20 @@
+<Document>
+# Slasher: Chicken Mask
+
+[color=#ac3a0d]"Do you like hurting other people?"[/color]
+
+The Chicken Mask is a prestige kit - ascend (reach 15 souls) as the [bold]Butcher[/bold] to unlock it.
+
+<Box>
+  <GuideEntityEmbed Entity="ClothingHeadHatSlasherMaskChicken" Caption="Richard Mask"/>
+  <GuideEntityEmbed Entity="SlasherBat" Caption="Bat"/>
+</Box>
+
+  ## What's different
+
+  - [bold]Hotline vision.[/bold] Everything outside your field of view and all of space gets a neon overlay.
+
+  - [bold]Shared dread.[/bold] Victims you hunt see the same neon overlay as well.
+
+  [textlink="Back to the Slasher guide" link="Slasher"]
+</Document>
