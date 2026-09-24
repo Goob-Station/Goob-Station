@@ -2,13 +2,17 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
+using Content.Shared.Doors.Components;
 using Content.Shared.GameTicking;
+using Content.Shared.Physics;
 using Content.Shared.Radio;
 using Content.Shared.Verbs;
 using Robust.Client.Audio;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -37,6 +41,7 @@ public sealed class VoiceChatSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     private static readonly TimeSpan IdleTimeout = TimeSpan.FromSeconds(10);
     private static readonly float[] VolumeLevels = { 0.25f, 0.5f, 1f, 1.5f, 2f };
@@ -49,9 +54,16 @@ public sealed class VoiceChatSystem : EntitySystem
     private static readonly Color BroadcastColor = Color.FromHex("#FFC844");
     private static readonly Color RadioColor = Color.FromHex("#2CDB2C");
     private static readonly Color BlockedColor = Color.FromHex("#E04545");
+    private static readonly Color ShoutColor = Color.FromHex("#FF9F43");
+    private static readonly Color WhisperColor = Color.FromHex("#A7B6D6");
     private static readonly TimeSpan SelfTimeout = TimeSpan.FromMilliseconds(150);
 
-    private const float OcclusionVisibility = 0.35f;
+    private const float ObstructionVisibility = 0.5f;
+    private const float ObstructionGain = 0.3f;
+    private const float AirlockWeight = 1.6f;
+    private const float WallWeight = 1f;
+    private const float WindowWeight = 0.5f;
+    private static readonly TimeSpan ObstructionInterval = TimeSpan.FromMilliseconds(100);
     private const float SelfActivityRelease = 0.3f;
 
     private readonly Dictionary<ushort, VoicePlaybackStream> _streams = new();
@@ -60,6 +72,7 @@ public sealed class VoiceChatSystem : EntitySystem
     private readonly Dictionary<ushort, VoiceSpeakerInfo> _speakerInfo = new();
     private readonly HashSet<ushort> _muted = new();
     private readonly Dictionary<ushort, float> _speakerVolume = new();
+    private readonly HashSet<EntityUid> _obstructions = new();
 
     private float _range;
     private float _volume;
@@ -121,6 +134,7 @@ public sealed class VoiceChatSystem : EntitySystem
         {
             stream.Update(now, GetParams(stream, listener));
             stream.UpdateLevels(frameTime);
+            stream.UpdateContributorLevels(now, frameTime);
 
             if (stream.IsIdle && now - stream.LastActivity > IdleTimeout)
                 _removeQueue.Add(id);
@@ -151,6 +165,12 @@ public sealed class VoiceChatSystem : EntitySystem
         if ((Self.Flags & VoiceSelfFlags.Radio) != 0)
             return TryGetRadioChannel(Self.Speaker, out var channel) ? channel.Color : RadioColor;
 
+        if ((Self.Flags & (VoiceSelfFlags.Shout | VoiceSelfFlags.Megaphone)) != 0)
+            return ShoutColor;
+
+        if ((Self.Flags & VoiceSelfFlags.Whisper) != 0)
+            return WhisperColor;
+
         return Color.White;
     }
 
@@ -169,6 +189,15 @@ public sealed class VoiceChatSystem : EntitySystem
                 : Loc.GetString("voice-route-radio");
         }
 
+        if ((Self.Flags & VoiceSelfFlags.Megaphone) != 0)
+            return Loc.GetString("voice-loudness-megaphone");
+
+        if ((Self.Flags & VoiceSelfFlags.Shout) != 0)
+            return Loc.GetString("voice-loudness-shout");
+
+        if ((Self.Flags & VoiceSelfFlags.Whisper) != 0)
+            return Loc.GetString("voice-loudness-whisper");
+
         return null;
     }
 
@@ -186,7 +215,12 @@ public sealed class VoiceChatSystem : EntitySystem
             VoiceRoute.Holopad => HolopadColor,
             VoiceRoute.Camera => CameraColor,
             VoiceRoute.Broadcast => BroadcastColor,
-            _ => Color.White,
+            _ => GetLoudness(stream) switch
+            {
+                > 0 => ShoutColor,
+                < 0 => WhisperColor,
+                _ => Color.White,
+            },
         };
     }
 
@@ -201,8 +235,21 @@ public sealed class VoiceChatSystem : EntitySystem
             VoiceRoute.Holopad => Loc.GetString("voice-route-holopad"),
             VoiceRoute.Camera => Loc.GetString("voice-route-camera"),
             VoiceRoute.Broadcast => Loc.GetString("voice-route-broadcast"),
-            _ => null,
+            _ => GetLoudness(stream) switch
+            {
+                > 0 => Loc.GetString("voice-loudness-shout"),
+                < 0 => Loc.GetString("voice-loudness-whisper"),
+                _ => null,
+            },
         };
+    }
+
+    private int GetLoudness(VoicePlaybackStream stream)
+    {
+        if (stream.Range > _range + 0.01f)
+            return 1;
+
+        return stream.Range < _range - 0.01f ? -1 : 0;
     }
 
     private bool TryGetRadioChannel(ushort speaker, [NotNullWhen(true)] out RadioChannelPrototype? channel)
@@ -262,10 +309,12 @@ public sealed class VoiceChatSystem : EntitySystem
         if (!muted)
         {
             _muted.Remove(speaker);
+            _manager.SetMutedSpeakers(_muted);
             return;
         }
 
         _muted.Add(speaker);
+        _manager.SetMutedSpeakers(_muted);
         if (_streams.Remove(speaker, out var stream))
             stream.Dispose();
     }
@@ -312,15 +361,17 @@ public sealed class VoiceChatSystem : EntitySystem
         if (_muted.Contains(message.Speaker))
             return;
 
-        var pcm = new short[VoiceCodec.FrameSamples];
-        if (!VoiceCodec.Decode(message.Payload, pcm))
-            return;
-
         if (!_streams.TryGetValue(message.Speaker, out var stream))
         {
             stream = new VoicePlaybackStream(_audioManager);
             _streams[message.Speaker] = stream;
         }
+
+        var pcm = new short[VoiceCodec.FrameSamples];
+        if (!stream.Decoder.Decode(message.Payload, message.Format, pcm))
+            return;
+
+        stream.UpdateContributors(message.Contributors, _timing.RealTime);
 
         if (message.Route is VoiceRoute.Direct or VoiceRoute.Camera && TryGetEntity(message.Source, out var source))
             _knownSpeakers[source.Value] = message.Speaker;
@@ -345,6 +396,7 @@ public sealed class VoiceChatSystem : EntitySystem
         var gain = MathF.Min(volume, 1f);
         var boost = MathF.Max(volume, 1f);
 
+        stream.Muffle = 0f;
         if (stream.Global)
             return new VoicePlaybackParams(Vector2.Zero, gain, 0f, referenceDistance, maxDistance, boost, true, 1f);
 
@@ -361,18 +413,51 @@ public sealed class VoiceChatSystem : EntitySystem
         if (audioDistance > maxDistance)
             return new VoicePlaybackParams(coordinates.Position, 0f, 0f, referenceDistance, maxDistance, boost, false, 0f);
 
-        var occlusion = distance > 0.1f ? _audio.GetOcclusion(listener, delta, distance, uid.Value) : 0f;
-        var audibility = GetAudibility(audioDistance, referenceDistance, maxDistance, occlusion);
-        return new VoicePlaybackParams(coordinates.Position, gain, occlusion, referenceDistance, maxDistance, boost, false, audibility);
+        var obstruction = GetObstruction(stream, listener, delta, distance, uid.Value);
+        stream.Muffle = obstruction;
+
+        var audibility = GetAudibility(audioDistance, referenceDistance, maxDistance, obstruction);
+        var obstructedGain = gain * MathF.Exp(-obstruction * ObstructionGain);
+        return new VoicePlaybackParams(coordinates.Position, obstructedGain, 0f, referenceDistance, maxDistance, boost, false, audibility);
     }
 
-    private static float GetAudibility(float distance, float referenceDistance, float maxDistance, float occlusion)
+    private float GetObstruction(VoicePlaybackStream stream, MapCoordinates listener, Vector2 delta, float distance, EntityUid source)
+    {
+        var now = _timing.RealTime;
+        if (now < stream.NextObstructionCheck)
+            return stream.Obstruction;
+
+        stream.NextObstructionCheck = now + ObstructionInterval;
+        if (distance < 0.1f)
+            return stream.Obstruction = 0f;
+
+        var ray = new CollisionRay(listener.Position, delta / distance, (int) CollisionGroup.HighImpassable);
+        var total = 0f;
+        _obstructions.Clear();
+        foreach (var hit in _physics.IntersectRay(listener.MapId, ray, distance, source, false))
+        {
+            if (_obstructions.Add(hit.HitEntity))
+                total += GetObstructionWeight(hit.HitEntity);
+        }
+
+        return stream.Obstruction = total;
+    }
+
+    private float GetObstructionWeight(EntityUid uid)
+    {
+        if (HasComp<DoorComponent>(uid))
+            return AirlockWeight;
+
+        return TryComp<OccluderComponent>(uid, out var occluder) && occluder.Enabled ? WallWeight : WindowWeight;
+    }
+
+    private static float GetAudibility(float distance, float referenceDistance, float maxDistance, float obstruction)
     {
         var attenuation = maxDistance > referenceDistance
             ? 1f - (Math.Clamp(distance, referenceDistance, maxDistance) - referenceDistance) / (maxDistance - referenceDistance)
             : 1f;
 
-        return attenuation * MathF.Exp(-occlusion * OcclusionVisibility);
+        return attenuation * MathF.Exp(-obstruction * ObstructionVisibility);
     }
 
     private void ClearStreams()

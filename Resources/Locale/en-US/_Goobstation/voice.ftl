@@ -53,3 +53,7 @@ voice-radio-popup-talk = Talk
 voice-radio-popup-hear = Hear
 voice-radio-popup-volume = Volume
 voice-radio-popup-volume-value = {$percent}%
+
+voice-loudness-shout = Shouting
+voice-loudness-whisper = Whispering
+voice-loudness-megaphone = Megaphone
