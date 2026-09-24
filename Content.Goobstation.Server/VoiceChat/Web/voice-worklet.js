@@ -174,11 +174,18 @@ class VoiceCaptureProcessor extends AudioWorkletProcessor {
         this.muted = false;
         this.allowed = false;
         this.pushToTalk = false;
+        this.net = null;
         this.emit = this.emit.bind(this);
         this.port.onmessage = event => this.configure(event.data);
     }
 
     configure(message) {
+        if (message.type === "net-port") {
+            this.net = message.port;
+            this.net.onmessage = event => this.configure(event.data);
+            return;
+        }
+
         if (message.type !== "config")
             return;
 
@@ -265,7 +272,8 @@ class VoiceCaptureProcessor extends AudioWorkletProcessor {
     }
 
     send(payload, flags) {
-        this.port.postMessage({ type: "frame", flags, payload: payload.buffer }, [payload.buffer]);
+        if (this.net)
+            this.net.postMessage({ flags, payload: payload.buffer }, [payload.buffer]);
     }
 
     process(inputs) {

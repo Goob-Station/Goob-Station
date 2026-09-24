@@ -5,8 +5,6 @@ const TOKEN_KEY = "voice-token";
 const SETTINGS_KEY = "voice-settings";
 const CLOSE_INVALID_TOKEN = 4001;
 const CLOSE_REPLACED = 4002;
-const MAX_BUFFERED_BYTES = 64 * 1024;
-const RECONNECT_DELAYS = [1000, 2000, 5000, 10000];
 const METER_FLOOR_DB = -70;
 
 const DEFAULT_SETTINGS = {
@@ -14,6 +12,7 @@ const DEFAULT_SETTINGS = {
     threshold: -45,
     gain: 1,
     muted: false,
+    effect: "none",
     deviceId: "",
     noiseSuppression: true,
     echoCancellation: true,
@@ -39,6 +38,8 @@ const ui = {
     gainValue: el("gain-value"),
     mute: el("mute"),
     device: el("device"),
+    effectRow: el("effect-row"),
+    effect: el("effect"),
     noiseSuppression: el("noise-suppression"),
     echoCancellation: el("echo-cancellation"),
     autoGainControl: el("auto-gain-control"),
@@ -47,14 +48,10 @@ const ui = {
 const settings = loadSettings();
 const token = takeToken();
 
-let socket = null;
+let worker = null;
 let socketReady = false;
-let candidateIndex = 0;
-let preferredCandidate = -1;
-let reconnectAttempt = 0;
-let reconnectTimer = 0;
+let retrying = false;
 let stopped = false;
-let sequence = 0;
 let serverState = null;
 let audio = null;
 let lastLevel = { db: -100, transmitting: false, voice: false };
@@ -87,7 +84,7 @@ function takeToken() {
     const fromHash = decodeURIComponent(location.hash.slice(1));
     if (fromHash) {
         try {
-            sessionStorage.setItem(TOKEN_KEY, fromHash);
+            localStorage.setItem(TOKEN_KEY, fromHash);
         } catch {
         }
         history.replaceState(null, "", location.pathname + location.search);
@@ -95,9 +92,16 @@ function takeToken() {
     }
 
     try {
-        return sessionStorage.getItem(TOKEN_KEY) || "";
+        return localStorage.getItem(TOKEN_KEY) || "";
     } catch {
         return "";
+    }
+}
+
+function forgetToken() {
+    try {
+        localStorage.removeItem(TOKEN_KEY);
+    } catch {
     }
 }
 
@@ -123,117 +127,52 @@ function socketCandidates() {
     return list;
 }
 
-function connect() {
-    clearTimeout(reconnectTimer);
-    reconnectTimer = 0;
-    if (stopped)
-        return;
+function startConnection() {
+    stopped = false;
+    retrying = false;
+    worker.postMessage({ type: "start", candidates: socketCandidates(), token });
+}
 
-    const candidates = socketCandidates();
-    if (preferredCandidate >= 0)
-        candidateIndex = preferredCandidate;
-
-    const index = candidateIndex;
-    let opened = false;
-    const ws = new WebSocket(candidates[index]);
-    ws.binaryType = "arraybuffer";
-    socket = ws;
-    socketReady = false;
-
-    ws.onopen = () => {
-        opened = true;
-        ws.send(JSON.stringify({ t: "auth", token }));
-    };
-
-    ws.onmessage = event => {
-        if (typeof event.data !== "string")
-            return;
-
-        let message;
-        try {
-            message = JSON.parse(event.data);
-        } catch {
-            return;
-        }
-
-        if (message.t === "auth_ok") {
+function onWorkerMessage(event) {
+    const message = event.data;
+    switch (message.type) {
+        case "connecting":
+            socketReady = false;
+            break;
+        case "ready":
             socketReady = true;
-            preferredCandidate = index;
-            reconnectAttempt = 0;
-            pushConfig();
-            render();
-        } else if (message.t === "state") {
-            serverState = message;
-            pushConfig();
-            render();
-        }
-    };
-
-    ws.onclose = event => {
-        if (socket !== ws)
+            retrying = false;
+            sendEffect();
+            break;
+        case "state":
+            serverState = message.state;
+            break;
+        case "retrying":
+            socketReady = false;
+            serverState = null;
+            retrying = true;
+            setStatus("Can't reach the voice server.", `Retrying in ${Math.round(message.delay / 1000)}s.`, "error");
             return;
-
-        socket = null;
-        socketReady = false;
-        serverState = null;
-        pushConfig();
-
-        if (event.code === CLOSE_INVALID_TOKEN) {
-            stop("Link expired.", "Get a new one in game: Esc, Voice Chat.");
+        case "stopped":
+            socketReady = false;
+            serverState = null;
+            stopped = true;
+            if (message.code === CLOSE_INVALID_TOKEN) {
+                forgetToken();
+                setStatus("Link expired.", "Get a new one in game: Esc, Voice Chat.", "error");
+            }
+            else if (message.code === CLOSE_REPLACED)
+                setStatus("Opened in another tab.", "", "error");
+            ui.retry.hidden = message.code !== CLOSE_REPLACED;
             return;
-        }
-
-        if (event.code === CLOSE_REPLACED) {
-            stop("Opened in another tab.", "", true);
-            return;
-        }
-
-        if (!opened && preferredCandidate < 0 && index + 1 < candidates.length) {
-            candidateIndex = index + 1;
-            connect();
-            return;
-        }
-
-        if (!opened && preferredCandidate < 0)
-            candidateIndex = 0;
-
-        const delay = RECONNECT_DELAYS[Math.min(reconnectAttempt, RECONNECT_DELAYS.length - 1)];
-        reconnectAttempt++;
-        setStatus("Can't reach the voice server.", `Retrying in ${Math.round(delay / 1000)}s.`, "error");
-        reconnectTimer = setTimeout(connect, delay);
-    };
-}
-
-function stop(text, detail, canRetry) {
-    stopped = true;
-    clearTimeout(reconnectTimer);
-    if (socket) {
-        const ws = socket;
-        socket = null;
-        ws.close();
     }
-    socketReady = false;
-    serverState = null;
-    pushConfig();
-    setStatus(text, detail, "error");
-    ui.retry.hidden = !canRetry;
+
+    render();
 }
 
-function sendFrame(flags, payload) {
-    if (!socket || !socketReady || socket.bufferedAmount > MAX_BUFFERED_BYTES)
-        return;
-
-    const bytes = new Uint8Array(3 + payload.byteLength);
-    bytes[0] = sequence & 0xff;
-    bytes[1] = (sequence >> 8) & 0xff;
-    bytes[2] = flags;
-    bytes.set(new Uint8Array(payload), 3);
-    sequence = (sequence + 1) & 0xffff;
-    socket.send(bytes.buffer);
-}
-
-function transmitAllowed() {
-    return socketReady && !!serverState && serverState.inGame && !serverState.muted;
+function sendEffect() {
+    if (worker && socketReady)
+        worker.postMessage({ type: "send", text: JSON.stringify({ t: "effect", effect: settings.effect }) });
 }
 
 function pushConfig() {
@@ -246,8 +185,6 @@ function pushConfig() {
         threshold: settings.threshold,
         gain: settings.gain,
         muted: settings.muted,
-        allowed: transmitAllowed(),
-        pushToTalk: !!(serverState && serverState.pushToTalk),
     });
 }
 
@@ -296,14 +233,15 @@ async function startAudio() {
         sink.gain.value = 0;
         node.connect(sink).connect(context.destination);
         node.port.onmessage = event => {
-            const message = event.data;
-            if (message.type === "frame") {
-                sendFrame(message.flags, message.payload);
-            } else if (message.type === "level") {
-                lastLevel = message;
+            if (event.data.type === "level") {
+                lastLevel = event.data;
                 renderLevel();
             }
         };
+
+        const channel = new MessageChannel();
+        node.port.postMessage({ type: "net-port", port: channel.port1 }, [channel.port1]);
+        worker.postMessage({ type: "audio-port", port: channel.port2 }, [channel.port2]);
     }
 
     source.connect(node);
@@ -375,6 +313,7 @@ function render() {
     const transmitting = !!lastLevel.transmitting;
     document.body.classList.toggle("transmitting", transmitting);
     ui.thresholdRow.hidden = settings.mode !== "vad";
+    ui.effectRow.hidden = !(serverState && serverState.voiceChanger);
     ui.meterThreshold.hidden = settings.mode !== "vad";
     setText(ui.mute, settings.muted ? "Unmute" : "Mute");
     ui.mute.classList.toggle("negative", settings.muted);
@@ -395,7 +334,7 @@ function render() {
         return;
 
     if (!socketReady) {
-        if (!reconnectTimer)
+        if (!retrying)
             setStatus("Connecting…", "", "neutral");
         return;
     }
@@ -410,6 +349,10 @@ function render() {
         setStatus(name, "Join the round to talk.", "neutral");
     else if (!state.canSpeak)
         setStatus(name, "Your character can't speak right now.", "warn");
+    else if (state.broadcasting)
+        setStatus(name, "Broadcasting to the whole station.", "warn");
+    else if (state.radio)
+        setStatus(name, `Also speaking on ${state.radio} radio.`, "neutral");
     else
         setStatus(name, "", "neutral");
 }
@@ -460,6 +403,13 @@ function bindControls() {
         render();
     });
 
+    ui.effect.value = settings.effect;
+    ui.effect.addEventListener("change", () => {
+        settings.effect = ui.effect.value;
+        saveSettings();
+        sendEffect();
+    });
+
     ui.device.addEventListener("change", () => {
         settings.deviceId = ui.device.value;
         saveSettings();
@@ -489,15 +439,13 @@ function bindControls() {
         }
 
         ui.controls.hidden = false;
-        connect();
+        startConnection();
         render();
     });
 
     ui.retry.addEventListener("click", () => {
         ui.retry.hidden = true;
-        stopped = false;
-        reconnectAttempt = 0;
-        connect();
+        startConnection();
         render();
     });
 
@@ -521,6 +469,8 @@ function init() {
         return;
     }
 
+    worker = new Worker("voice-worker.js");
+    worker.onmessage = onWorkerMessage;
     setStatus("Ready", "", "neutral");
 }
 

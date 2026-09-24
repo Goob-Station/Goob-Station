@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.WebSockets;
@@ -21,6 +22,8 @@ public sealed record VoiceWebConnectionChanged(NetUserId User) : VoiceWebEvent(U
 
 public sealed record VoiceWebFrame(NetUserId User, ushort Sequence, byte Flags, byte[] Payload) : VoiceWebEvent(User);
 
+public sealed record VoiceWebEffectSelected(NetUserId User, VoiceEffect Effect) : VoiceWebEvent(User);
+
 public sealed class VoiceWebServer : IDisposable
 {
     public const WebSocketCloseStatus CloseInvalidToken = (WebSocketCloseStatus) 4001;
@@ -31,7 +34,6 @@ public sealed class VoiceWebServer : IDisposable
     private const int MaxHeaderBytes = 8192;
     private const int MaxMessageBytes = 4096;
     private const int MaxConnections = 1024;
-    private const int MaxConnectionsPerAddress = 6;
     private const int MaxQueuedFrames = 4096;
     private const double FrameBurst = 30;
     private const double FramesPerSecond = 55;
@@ -47,11 +49,14 @@ public sealed class VoiceWebServer : IDisposable
     private readonly CancellationTokenSource _cts = new();
     private readonly ConcurrentDictionary<NetUserId, Connection> _connections = new();
     private readonly ConcurrentQueue<VoiceWebEvent> _events = new();
+    private readonly ConcurrentDictionary<NetUserId, VoiceEffectSettings> _userEffects = new();
     private readonly Dictionary<IPAddress, int> _addressCounts = new();
     private readonly object _addressLock = new();
     private int _connectionCount;
     private int _queuedFrames;
     private volatile bool _disposed;
+    private volatile int _maxConnectionsPerAddress = 6;
+    private volatile HashSet<IPAddress> _trustedProxies = new();
 
     public VoiceWebServer(IPEndPoint endpoint, Func<string, NetUserId?> validateToken, ISawmill sawmill)
     {
@@ -61,6 +66,16 @@ public sealed class VoiceWebServer : IDisposable
     }
 
     public IPEndPoint LocalEndpoint => (IPEndPoint) _listener.LocalEndpoint;
+
+    public int MaxConnectionsPerAddress
+    {
+        set => _maxConnectionsPerAddress = Math.Max(1, value);
+    }
+
+    public void SetTrustedProxies(IEnumerable<IPAddress> proxies)
+    {
+        _trustedProxies = new HashSet<IPAddress>(proxies.Select(Normalize));
+    }
 
     public void Start()
     {
@@ -82,6 +97,14 @@ public sealed class VoiceWebServer : IDisposable
     public bool IsConnected(NetUserId user)
     {
         return _connections.ContainsKey(user);
+    }
+
+    public void SetEffect(NetUserId user, VoiceEffectSettings settings)
+    {
+        if (settings == default)
+            _userEffects.TryRemove(user, out _);
+        else
+            _userEffects[user] = settings;
     }
 
     public void Send(NetUserId user, string json)
@@ -299,6 +322,9 @@ public sealed class VoiceWebServer : IDisposable
                 case WebSocketMessageType.Binary:
                     HandleFrame(connection, buffer.AsSpan(0, count));
                     break;
+                case WebSocketMessageType.Text:
+                    HandleText(connection, buffer, count);
+                    break;
             }
         }
     }
@@ -318,8 +344,33 @@ public sealed class VoiceWebServer : IDisposable
             return;
         }
 
+        var effect = _userEffects.GetValueOrDefault(connection.User);
+        var data = connection.ApplyEffect(payload, effect);
+
         var sequence = (ushort) (message[0] | (message[1] << 8));
-        _events.Enqueue(new VoiceWebFrame(connection.User, sequence, message[2], payload.ToArray()));
+        _events.Enqueue(new VoiceWebFrame(connection.User, sequence, message[2], data));
+    }
+
+    private void HandleText(Connection connection, byte[] buffer, int count)
+    {
+        try
+        {
+            using var doc = JsonDocument.Parse(buffer.AsMemory(0, count));
+            var root = doc.RootElement;
+            if (root.ValueKind != JsonValueKind.Object ||
+                !root.TryGetProperty("t", out var kind) || kind.GetString() != "effect" ||
+                !root.TryGetProperty("effect", out var value) ||
+                !Enum.TryParse<VoiceEffect>(value.GetString(), true, out var effect) ||
+                !Enum.IsDefined(effect))
+            {
+                return;
+            }
+
+            _events.Enqueue(new VoiceWebEffectSelected(connection.User, effect));
+        }
+        catch (JsonException)
+        {
+        }
     }
 
     private static async Task SendLoopAsync(Connection connection)
@@ -440,7 +491,7 @@ public sealed class VoiceWebServer : IDisposable
         await stream.WriteAsync(bodyBytes);
     }
 
-    private static IPAddress ResolveAddress(IPAddress remote, Dictionary<string, string> headers)
+    private IPAddress ResolveAddress(IPAddress remote, Dictionary<string, string> headers)
     {
         if (!IsTrustedProxy(remote))
             return remote;
@@ -458,12 +509,16 @@ public sealed class VoiceWebServer : IDisposable
         return remote;
     }
 
-    private static bool IsTrustedProxy(IPAddress address)
+    private static IPAddress Normalize(IPAddress address)
     {
-        if (address.IsIPv4MappedToIPv6)
-            address = address.MapToIPv4();
+        return address.IsIPv4MappedToIPv6 ? address.MapToIPv4() : address;
+    }
 
-        if (IPAddress.IsLoopback(address))
+    private bool IsTrustedProxy(IPAddress address)
+    {
+        address = Normalize(address);
+
+        if (IPAddress.IsLoopback(address) || _trustedProxies.Contains(address))
             return true;
 
         if (address.AddressFamily == AddressFamily.InterNetworkV6)
@@ -481,7 +536,7 @@ public sealed class VoiceWebServer : IDisposable
         lock (_addressLock)
         {
             _addressCounts.TryGetValue(address, out var count);
-            if (count >= MaxConnectionsPerAddress)
+            if (count >= _maxConnectionsPerAddress)
                 return false;
 
             _addressCounts[address] = count + 1;
@@ -517,6 +572,11 @@ public sealed class VoiceWebServer : IDisposable
         public NetUserId User;
 
         private readonly CancellationTokenSource _cts;
+        private readonly VoiceEffectProcessor _effects = new();
+        private readonly short[] _pcm = new short[VoiceCodec.FrameSamples];
+        private VoiceEffectSettings _lastEffect;
+        private int _predictor;
+        private int _index;
         private double _frameBudget = FrameBurst;
         private long _lastRefill = Stopwatch.GetTimestamp();
 
@@ -559,6 +619,25 @@ public sealed class VoiceWebServer : IDisposable
             catch (ObjectDisposedException)
             {
             }
+        }
+
+        public byte[] ApplyEffect(ReadOnlySpan<byte> payload, VoiceEffectSettings effect)
+        {
+            if (effect != _lastEffect)
+            {
+                _lastEffect = effect;
+                _predictor = 0;
+                _index = 0;
+            }
+
+            if (effect == default || !VoiceCodec.Decode(payload, _pcm))
+                return payload.ToArray();
+
+            _effects.Process(_pcm, 0, _pcm.Length, effect);
+
+            var output = new byte[VoiceCodec.FrameBytes];
+            VoiceCodec.Encode(_pcm, ref _predictor, ref _index, output);
+            return output;
         }
 
         public bool TryConsumeFrame()
