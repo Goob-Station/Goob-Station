@@ -30,6 +30,11 @@
     progress: 0.0
 
 - type: shader
+  id: SpeedLines
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/speed_lines.swsl"
+
+- type: shader
   id: SandevistanGlitch
   kind: source
   path: "/Textures/_Goobstation/Shaders/sandevistan_glitch.swsl"
@@ -69,3 +74,8 @@
     strength: 0.0
     flowSpeed: 1.0
     shock: -1.0
+    
+- type: shader
+  id: VoiceCanadian
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voice_canadian.swsl"

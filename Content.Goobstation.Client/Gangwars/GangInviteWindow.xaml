@@ -1,0 +1,14 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="{Loc gang-invite-window-title}"
+               MinSize="300 130">
+    <BoxContainer Orientation="Vertical" SeparationOverride="8">
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+            <RichTextLabel Name="PromptLabel" HorizontalAlignment="Center"/>
+        </BoxContainer>
+        <Label Name="TimerLabel" HorizontalAlignment="Center"/>
+        <BoxContainer Orientation="Horizontal" Align="Center" SeparationOverride="8">
+            <Button Name="AcceptButton" Text="{Loc gang-invite-window-accept}"/>
+            <Button Name="DenyButton" Text="{Loc gang-invite-window-deny}"/>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

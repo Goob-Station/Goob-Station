@@ -75,4 +75,9 @@ public sealed partial class BinglePitComponent : Component
     /// </summary>
     [DataField]
     public int StartingBingles = 3;
+
+    /// <summary>
+    /// Bunch of available bingle ghost role
+    /// </summary>
+    public HashSet<EntityUid?> BingleGhostRoles = [];
 }

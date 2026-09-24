@@ -16,9 +16,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
-using Content.Shared.EntityEffects.Effects;
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Drunk;
 using Content.Shared.EntityEffects.Effects.Solution;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
@@ -33,8 +30,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System.Linq;
-using Content.Shared.EntityEffects.Effects;
 
 namespace Content.Shared.Body.Systems;
 // todo marty clean up this warzone.
@@ -502,8 +497,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             return false;
 
         referenceFactor = Math.Clamp(referenceFactor, 0f, ent.Comp.MaxVolumeModifier);
-        var ratio = amount / ent.Comp.BloodReferenceSolution.Volume;
-
+        var ratio = (float) amount / (float) ent.Comp.BloodReferenceSolution.Volume; // Goobstation - added float so 1/300 is not 0..
         foreach (var (referenceReagent, referenceQuantity) in ent.Comp.BloodReferenceSolution)
         {
             var error = referenceQuantity * referenceFactor - bloodSolution.GetTotalPrototypeQuantity(referenceReagent.Prototype);
@@ -665,6 +659,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
     /// <summary>
     /// Change what someone's blood is made of, on the fly.
+    /// Goob: this will set their max blood level according to their current species's BloodReferenceSolution.
     /// </summary>
     public void ChangeBloodReagents(Entity<BloodstreamComponent?> ent, Solution reagents)
     {
@@ -686,13 +681,21 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             currentVolume += bloodSolution.RemoveReagent(reagent.Reagent, quantity: bloodSolution.Volume, ignoreReagentData: true);
         }
 
-        ent.Comp.BloodReferenceSolution = reagents.Clone();
+        // ent.Comp.BloodReferenceSolution = reagents.Clone(); // Goob, scaling max according to original volume; see below
+
+        // Goob start: appropriately scale the target's BloodReferenceSolution according to their previous max volume
+        var referenceSolution = reagents.Clone();
+        referenceSolution.ScaleSolution(ent.Comp.BloodReferenceSolution.MaxVolume / referenceSolution.Volume); // Using the old max to scale the reference solution up/down
+        referenceSolution.MaxVolume = ent.Comp.BloodReferenceSolution.MaxVolume; // This doesn't actually affect blood regeneration, but it'd be slopcode if I didn't set this
+        ent.Comp.BloodReferenceSolution = referenceSolution;
+        // Goob end
         DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BloodReferenceSolution));
+
 
         if (currentVolume == FixedPoint2.Zero)
             return;
 
-        var solution = ent.Comp.BloodReferenceSolution.Clone();
+        var solution = reagents.Clone(); // Goob, adjusted due to above fixes; this acts the same otherwise
         solution.ScaleSolution(currentVolume / solution.Volume);
         SolutionContainer.AddSolution(ent.Comp.BloodSolution.Value, solution);
     }

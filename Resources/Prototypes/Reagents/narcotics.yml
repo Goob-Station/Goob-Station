@@ -111,7 +111,6 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
-          inverted: true
         damage:
           groups:
             Brute: -1
@@ -202,7 +201,6 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
-          inverted: true
         damage:
           groups:
             Brute: -1
@@ -394,7 +392,6 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
-          inverted: true
         damage:
           groups:
             Brute: -1
@@ -466,7 +463,6 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
-          inverted: true
         damage:
           groups:
             Brute: -1
@@ -501,13 +497,13 @@
         conditions:
         - !type:ReagentCondition
           reagent: Nocturine
-          min: 8
+          min: 4
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
           inverted: true
         effectProto: StatusEffectForcedSleeping
-        time: 6
-        delay: 5
+        time: 8
+        delay: 1
 
 - type: reagent
   id: MuteToxin
@@ -659,7 +655,6 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
-          inverted: true
         damage:
           groups:
             Brute: -1
