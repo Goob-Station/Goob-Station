@@ -8,6 +8,7 @@ public static class VoiceCodec
     public const int FrameBytes = HeaderBytes + FrameSamples / 2;
 
     public const byte FlagTransmissionStart = 1;
+    public const int StepCount = 89;
 
     private static readonly int[] IndexTable =
     {
@@ -27,6 +28,11 @@ public static class VoiceCodec
         5894, 6484, 7132, 7845, 8630, 9493, 10442, 11487, 12635, 13899,
         15289, 16818, 18500, 20350, 22385, 24623, 27086, 29794, 32767,
     };
+
+    public static int Step(int index)
+    {
+        return StepTable[index];
+    }
 
     public static bool IsValidFrame(ReadOnlySpan<byte> frame)
     {

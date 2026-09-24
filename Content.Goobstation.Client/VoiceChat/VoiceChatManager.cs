@@ -15,6 +15,8 @@ public sealed class VoiceChatManager
     [Dependency] private readonly IUriOpener _uriOpener = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
 
+    private readonly List<ushort> _mutedSpeakers = new();
+
     private ISawmill _sawmill = default!;
     private bool _receiveDisabled;
 
@@ -64,6 +66,13 @@ public sealed class VoiceChatManager
         return channels;
     }
 
+    public void SetMutedSpeakers(IEnumerable<ushort> speakers)
+    {
+        _mutedSpeakers.Clear();
+        _mutedSpeakers.AddRange(speakers);
+        SendSettings();
+    }
+
     public bool RequestLink()
     {
         if (!_net.IsConnected || !_cfg.GetCVar(GoobCVars.VoiceChatEnabled))
@@ -75,6 +84,7 @@ public sealed class VoiceChatManager
 
     private void OnConnected(object? sender, NetChannelArgs args)
     {
+        _mutedSpeakers.Clear();
         SetWebConnected(false);
         SendSettings();
     }
@@ -120,6 +130,7 @@ public sealed class VoiceChatManager
             HearSelf = _cfg.GetCVar(GoobCVars.VoiceChatHearSelf),
             Receive = !_receiveDisabled,
             MutedChannels = new List<string>(ParseMutedChannels(_cfg.GetCVar(GoobCVars.VoiceChatRadioMuted))),
+            MutedSpeakers = new List<ushort>(_mutedSpeakers),
         });
     }
 
