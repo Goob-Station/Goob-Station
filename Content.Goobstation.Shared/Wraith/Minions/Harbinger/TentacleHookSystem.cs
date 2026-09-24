@@ -1,16 +1,14 @@
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Body.Components;
-using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Timing;
 using System.Numerics;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Stunnable;
+using Content.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
@@ -21,9 +19,8 @@ public sealed class TentacleHookSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
@@ -39,7 +36,6 @@ public sealed class TentacleHookSystem : EntitySystem
 
         SubscribeLocalEvent<TentacleHookProjectileComponent, ProjectileHitEvent>(OnTentacleHit);
         SubscribeLocalEvent<TentacleHookProjectileComponent, JointRemovedEvent>(OnJointRemoved);
-        SubscribeLocalEvent<TentacleHookProjectileComponent, ProjectileEmbedEvent>(OnTentacleEmbed);
         SubscribeLocalEvent<TentacleHookProjectileComponent, TimedDespawnEvent>(OnDespawn);
     }
 
@@ -72,14 +68,23 @@ public sealed class TentacleHookSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnTentacleEmbed(Entity<TentacleHookProjectileComponent> ent, ref ProjectileEmbedEvent args)
+    private void OnTentacleHit(Entity<TentacleHookProjectileComponent> ent, ref ProjectileHitEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (ent.Comp.Target != null)
             return;
 
-        if (args.Shooter is not {} shooter
-            || !HasComp<BodyComponent>(args.Embedded))
+        if (args.Shooter is not { } shooter || !HasComp<BodyComponent>(args.Target))
+        {
+            PredictedDel(ent.Owner);
             return;
+        }
+
+        ent.Comp.Target = args.Target;
+
+        var xform = Transform(ent.Owner);
+        _physics.SetLinearVelocity(ent.Owner, Vector2.Zero);
+        _physics.SetBodyType(ent.Owner, BodyType.Static);
+        _transform.SetParent(ent.Owner, xform, args.Target);
 
         EnsureComp<JointComponent>(ent.Owner);
         var joint = _joints.CreateDistanceJoint(ent.Owner, shooter, anchorA: new Vector2(0f, 0.5f), id: TentacleJoint);
@@ -87,22 +92,11 @@ public sealed class TentacleHookSystem : EntitySystem
         joint.Stiffness = 1f;
         joint.MinLength = 0.35f;
         Dirty(ent);
-    }
 
-    private void OnTentacleHit(Entity<TentacleHookProjectileComponent> ent, ref ProjectileHitEvent args)
-    {
-        if (!HasComp<BodyComponent>(args.Target))
-        {
-            PredictedDel(ent.Owner);
-            return;
-        }
-
-        ent.Comp.Target = args.Target;
-        Dirty(ent);
         _movementMod.TryUpdateMovementSpeedModDuration(args.Target, EffectId, ent.Comp.DurationSlow, ent.Comp.SlowMultiplier, ent.Comp.SlowMultiplier);
 
         var tentacle = EnsureComp<TentacleHookedComponent>(args.Target);
-        tentacle.ThrowTowards = args.Shooter;
+        tentacle.ThrowTowards = shooter;
         tentacle.Projectile = ent.Owner;
         Dirty(args.Target, tentacle);
     }
