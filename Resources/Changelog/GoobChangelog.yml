@@ -25270,3 +25270,151 @@ Entries:
       message: milk now actually heals skeletons when splashed on them
   id: 2894
   time: '2026-09-19T14:39:18.0000000+00:00'
+- author: madeline-celeste
+  changes:
+    - type: Tweak
+      message: >-
+        Windoors now close automatically while you're on the same tile as them
+        again
+  id: 2895
+  time: '2026-09-23T19:16:02.0000000+00:00'
+- author: madeline-celeste
+  changes:
+    - type: Fix
+      message: >-
+        Fix the Station AI being set to Crewsimov instead of NTDefault after the
+        experimental law board time runs out.
+  id: 2896
+  time: '2026-09-23T19:16:55.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Removed Barratry from map rotation,
+  id: 2897
+  time: '2026-09-23T19:17:57.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Increased HE1S firerate from 0.3 to 0.5
+  id: 2898
+  time: '2026-09-23T19:18:49.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: Monkeys now have much better speech sounds
+  id: 2899
+  time: '2026-09-23T19:21:39.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: Chaplain Dragon's tail resprite
+    - type: Tweak
+      message: >-
+        dragon's tail - it is now a whip with an attack radius of 2 tiles and an
+        area of effect of 20 degrees, increased attack speed, and the whip now
+        deals only 7 holy damage. The main damage of the whip is fire stacks,
+        each strike of the whip deals 1 stack of burning.
+  id: 2900
+  time: '2026-09-23T19:26:25.0000000+00:00'
+- author: Pok27
+  changes:
+    - type: Fix
+      message: >-
+        Radial menus no longer prevent sending to chat, or deleting text from
+        the chat input box.
+  id: 2901
+  time: '2026-09-23T19:27:47.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: Fixed a error from wraith's blood writing.
+  id: 2902
+  time: '2026-09-23T19:28:43.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Shadowling hypnosis no longer ignores mindshields.
+    - type: Tweak
+      message: >-
+        Shadowling will now automatically end the round 3 minutes after
+        ascension.
+    - type: Fix
+      message: >-
+        Fixed Cosmic Cult star mark not being properly applied for conversions
+        during the Finale stage.
+  id: 2903
+  time: '2026-09-23T19:29:46.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Fix
+      message: >-
+        undergarments will no longer be worn as overgarments by rodentia, vulps,
+        chitinids, harpies, and shadowkin
+  id: 2904
+  time: '2026-09-23T19:30:57.0000000+00:00'
+- author: nlaky
+  changes:
+    - type: Fix
+      message: Fixed improper vulpkanin gas mask sprites
+  id: 2905
+  time: '2026-09-23T19:34:05.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed the ore processor mining points warning not appearing.
+  id: 2906
+  time: '2026-09-23T19:44:59.0000000+00:00'
+- author: charcuteriesampler
+  changes:
+    - type: Add
+      message: Spaceshrooms can now be cultivated by hydroponics.
+  id: 2907
+  time: '2026-09-23T19:47:19.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to scram inside a locker.
+  id: 2908
+  time: '2026-09-23T19:53:27.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Fixed the hydrakin liver incorrectly using the kidney texture.
+  id: 2909
+  time: '2026-09-23T20:07:27.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Fix
+      message: Fixed multiple narcotics healing everyone but Yowie.
+  id: 2910
+  time: '2026-09-23T21:02:27.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        anaconda, cobra, Dualetta, mk58, N1984, viper, deckard, inspector,
+        mateba, pirate revolver, python - resprited
+    - type: Tweak
+      message: small pump and enforcer inhand sprite tweaks
+  id: 2911
+  time: '2026-09-23T21:03:05.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Tweak
+      message: Cow tools now fit in utility belts. They're still terrible!
+  id: 2912
+  time: '2026-09-23T21:12:12.0000000+00:00'
+- author: IvanKuvalda
+  changes:
+    - type: Add
+      message: New secborg technology at t2 arsenal for 10000 points
+  id: 2913
+  time: '2026-09-23T21:26:30.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Tweak
+      message: Max flesh prophets 2 -> 5.
+    - type: Tweak
+      message: Max voiceless dead 2 -> 5.
+  id: 2914
+  time: '2026-09-23T21:38:19.0000000+00:00'
