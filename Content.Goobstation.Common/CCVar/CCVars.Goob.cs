@@ -443,56 +443,26 @@ public sealed partial class GoobCVars
 
     #region Voicechat
 
-    /// <summary>
-    /// Controls whether the Lidgren voice chat server is enabled and running.
-    /// </summary>
     public static readonly CVarDef<bool> VoiceChatEnabled =
-        CVarDef.Create("voice.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Is the voice chat server enabled?");
+        CVarDef.Create("voice.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether proximity voice chat is enabled.");
 
-    /// <summary>
-    /// The UDP port the Lidgren voice chat server will listen on.
-    /// </summary>
-    public static readonly CVarDef<int> VoiceChatPort =
-        CVarDef.Create("voice.vc_server_port", 1213, CVar.SERVER | CVar.REPLICATED, "Port for the voice chat server.");
+    public static readonly CVarDef<float> VoiceChatRange =
+        CVarDef.Create("voice.range", 10f, CVar.SERVER | CVar.REPLICATED, "Distance in tiles at which voice chat fades out completely.");
+
+    public static readonly CVarDef<string> VoiceChatWebSocketBind =
+        CVarDef.Create("voice.ws_bind", "127.0.0.1:1213", CVar.SERVERONLY, "Address and port the voice chat WebSocket listens on. Expose it through the reverse proxy in front of the status port at /voice/ws.");
+
+    public static readonly CVarDef<string> VoiceChatPublicUrl =
+        CVarDef.Create("voice.public_url", "", CVar.SERVERONLY, "Public URL of the voice chat page, e.g. https://example.com/voice/. Derived from hub.server_url when empty.");
+
+    public static readonly CVarDef<string> VoiceChatWebSocketUrl =
+        CVarDef.Create("voice.ws_url", "", CVar.SERVERONLY, "WebSocket URL the voice chat page connects to. Auto-detected by the page when empty.");
 
     public static readonly CVarDef<float> VoiceChatVolume =
-        CVarDef.Create("voice.volume", 5f, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("voice.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE, "Voice chat playback volume, 0 to 2.");
 
-    /// <summary>
-    /// Multiplier for the adaptive buffer target size calculation.
-    /// </summary>
-    public static readonly CVarDef<float> VoiceChatBufferTargetMultiplier =
-        CVarDef.Create("voice.buffer_target_multiplier", 1.0f, CVar.CLIENTONLY | CVar.ARCHIVE, "Multiplier for adaptive buffer target size calculation.");
-
-    /// <summary>
-    /// Minimum buffer size for voice chat, regardless of network conditions.
-    /// </summary>
-    public static readonly CVarDef<int> VoiceChatMinBufferSize =
-        CVarDef.Create("voice.min_buffer_size", 10, CVar.CLIENTONLY | CVar.ARCHIVE, "Minimum buffer size for voice chat.");
-
-    /// <summary>
-    /// Maximum buffer size for voice chat to prevent excessive memory usage.
-    /// </summary>
-    public static readonly CVarDef<int> VoiceChatMaxBufferSize =
-        CVarDef.Create("voice.max_buffer_size", 50, CVar.CLIENTONLY | CVar.ARCHIVE, "Maximum buffer size for voice chat.");
-
-    /// <summary>
-    /// Enable advanced time-stretching algorithms for better audio quality.
-    /// </summary>
-    public static readonly CVarDef<bool> VoiceChatAdvancedTimeStretch =
-        CVarDef.Create("voice.advanced_time_stretch", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Enable advanced time-stretching for voice chat.");
-
-    /// <summary>
-    /// Enable debug logging for voice chat buffer management.
-    /// </summary>
-    public static readonly CVarDef<bool> VoiceChatDebugLogging =
-        CVarDef.Create("voice.debug_logging", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Enable debug logging for voice chat buffer management.");
-
-    /// <summary>
-    /// Whether to hear audio from your own entity (useful for testing).
-    /// </summary>
     public static readonly CVarDef<bool> VoiceChatHearSelf =
-        CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Whether to hear audio from your own entity.");
+        CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Play your own voice back to you in game.");
 
     #endregion
 

@@ -1,3 +1,8 @@
 [game]
 hostname = "Goob Sigma ᴇᴜ-ᴡ"
 desc = "😱"
+
+[voice]
+enabled = true
+ws_bind = "127.0.0.1:25590"
+public_url = "https://sigma.goobstation.com/voice/"

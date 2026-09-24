@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <title>Voice Chat</title>
+    <script id="voice-config" type="application/json">/*VOICE_CONFIG*/</script>
+    <style>
+        @font-face {
+            font-family: "Noto Sans SS14";
+            src: url("noto-sans-regular.woff2") format("woff2");
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Noto Sans SS14";
+            src: url("noto-sans-bold.woff2") format("woff2");
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Boxfont Round";
+            src: url("boxfont-round.woff2") format("woff2");
+            font-display: swap;
+        }
+
+        :root {
+            color-scheme: dark;
+            --page: #101014;
+            --window: #252631;
+            --header: #1f1f23;
+            --divider: #434451;
+            --text: #e5e5e5;
+            --text-disabled: #e5e5e581;
+            --subtext: #a9a9a9;
+            --gold: #a88b5e;
+            --button: #424565;
+            --button-hover: #4f5275;
+            --button-pressed: #126128;
+            --button-disabled: #2a2c40;
+            --negative: #991b1c;
+            --negative-hover: #b52424;
+            --slider-back: #171722;
+            --slider-outline: #494949;
+            --slider-grab: #303030;
+            --slider-fill: #287339;
+            --checkbox: #3d4059;
+            --bar-back: #404040;
+            --bar-fill: #408040;
+            --bar-idle: #6a6a6a;
+            --status-bad: #df6b6b;
+            --status-warn: #c18e36;
+            --live: #54b263;
+            --focus: #8ab4f8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 48px 16px;
+            background: var(--page);
+            color: var(--text);
+            font: 16px/1.35 "Noto Sans SS14", "Noto Sans", system-ui, sans-serif;
+        }
+
+        .chamfer {
+            clip-path: polygon(0 0, calc(100% - var(--c)) 0, 100% var(--c), 100% 100%, var(--c) 100%, 0 calc(100% - var(--c)));
+        }
+
+        .window {
+            --c: 10px;
+            width: 100%;
+            max-width: 440px;
+            background: var(--window);
+        }
+
+        .window-header {
+            --c: 10px;
+            background: var(--header);
+            padding: 4px 8px 3px;
+            clip-path: polygon(0 0, calc(100% - var(--c)) 0, 100% var(--c), 100% 100%, 0 100%);
+        }
+
+        .window-title {
+            margin: 0;
+            font: 17px/1.4 "Boxfont Round", "Noto Sans SS14", sans-serif;
+            color: var(--gold);
+        }
+
+        .divider {
+            height: 2px;
+            background: var(--divider);
+        }
+
+        .window-body {
+            padding: 12px 12px 4px;
+        }
+
+        .window-footer {
+            margin: 0;
+            padding: 8px 12px 12px;
+            font-size: 12px;
+            color: #9a9a9a;
+        }
+
+        .status {
+            margin: 0;
+        }
+
+        .status-detail {
+            margin: 2px 0 0;
+            color: var(--subtext);
+            font-size: 14px;
+        }
+
+        .status-detail:empty {
+            display: none;
+        }
+
+        body[data-tone="error"] .status { color: var(--status-bad); }
+        body[data-tone="warn"] .status { color: var(--status-warn); }
+
+        button, select, input {
+            font: inherit;
+            color: inherit;
+        }
+
+        .btn {
+            --c: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 30px;
+            padding: 2px 14px;
+            border: 0;
+            background: var(--button);
+            color: var(--text);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .btn:hover { background: var(--button-hover); }
+        .btn:active, .btn:has(input:checked) { background: var(--button-pressed); }
+        .btn:disabled { background: var(--button-disabled); color: var(--text-disabled); cursor: default; }
+
+        .btn.negative { background: var(--negative); }
+        .btn.negative:hover { background: var(--negative-hover); }
+
+        .btn.big {
+            width: 100%;
+            min-height: 40px;
+            margin-top: 12px;
+            font-size: 20px;
+        }
+
+        .btn.open-right {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, var(--c) 100%, 0 calc(100% - var(--c)));
+        }
+
+        .btn.open-left {
+            clip-path: polygon(0 0, calc(100% - var(--c)) 0, 100% var(--c), 100% 100%, 0 100%);
+        }
+
+        .btn input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .btn:focus-visible, .btn:has(input:focus-visible), .select:has(select:focus-visible), .slider:has(input:focus-visible) {
+            outline: 2px solid var(--focus);
+            outline-offset: 2px;
+        }
+
+        .live-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .bar {
+            position: relative;
+            flex: 1;
+            height: 14px;
+            background: var(--bar-back);
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            position: absolute;
+            inset: 0;
+            background: var(--bar-idle);
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        body.transmitting .bar-fill {
+            background: var(--bar-fill);
+        }
+
+        .bar-threshold {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gold);
+        }
+
+        .live-label {
+            margin: 4px 0 0;
+            color: var(--subtext);
+            font-size: 14px;
+        }
+
+        body.transmitting .live-label {
+            color: var(--live);
+            font-weight: 700;
+        }
+
+        .heading {
+            position: relative;
+            display: inline-block;
+            margin: 20px 0 10px;
+            padding: 2px 22px 5px 10px;
+            color: var(--gold);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .heading::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 14px;
+            bottom: 0;
+            border-bottom: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+        }
+
+        .heading::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M7 0.5 L15 8.5 V16' fill='none' stroke='%23a88b5e' stroke-width='2'/%3E%3C/svg%3E") no-repeat;
+        }
+
+        .field {
+            display: grid;
+            grid-template-columns: 7.5em 1fr;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .field.with-value {
+            grid-template-columns: 7.5em 1fr 3.5em;
+        }
+
+        .field-label {
+            color: var(--text);
+        }
+
+        .field output {
+            text-align: right;
+            color: var(--subtext);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .toggle-group {
+            display: flex;
+            gap: 2px;
+        }
+
+        .toggle-group .btn {
+            flex: 1;
+            position: relative;
+            padding: 2px 8px;
+        }
+
+        .slider {
+            position: relative;
+            height: 24px;
+            --value: 0;
+        }
+
+        .slider-track {
+            --c: 8px;
+            position: absolute;
+            inset: 0;
+            background: var(--slider-outline);
+        }
+
+        .slider-inner {
+            --c: 7px;
+            position: absolute;
+            inset: 2px;
+            background: var(--slider-back);
+            overflow: hidden;
+        }
+
+        .slider-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: calc(var(--value) * 100%);
+            background: var(--slider-fill);
+        }
+
+        .slider-grab {
+            --c: 6px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 16px;
+            left: calc(var(--value) * (100% - 16px));
+            background: var(--slider-outline);
+        }
+
+        .slider-grab::after {
+            --c: 5px;
+            content: "";
+            position: absolute;
+            inset: 2px;
+            background: var(--slider-grab);
+            clip-path: polygon(0 0, calc(100% - var(--c)) 0, 100% var(--c), 100% 100%, var(--c) 100%, 0 calc(100% - var(--c)));
+        }
+
+        .slider input {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            opacity: 0;
+            cursor: pointer;
+            appearance: none;
+        }
+
+        .slider input::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 24px;
+        }
+
+        .slider input::-moz-range-thumb {
+            width: 16px;
+            height: 24px;
+            border: 0;
+        }
+
+        .select {
+            --c: 10px;
+            position: relative;
+            min-width: 0;
+            background: var(--button);
+        }
+
+        .select:hover {
+            background: var(--button-hover);
+        }
+
+        .select::after {
+            content: "";
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            width: 12px;
+            height: 7px;
+            margin-top: -3px;
+            background: var(--text);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            pointer-events: none;
+        }
+
+        .select select {
+            appearance: none;
+            width: 100%;
+            min-height: 30px;
+            padding: 2px 32px 2px 14px;
+            border: 0;
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+            text-overflow: ellipsis;
+        }
+
+        .select option {
+            background: #292c44;
+            color: var(--text);
+        }
+
+        .checks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            margin-top: 12px;
+        }
+
+        .check {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .check input {
+            appearance: none;
+            flex: none;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            border-radius: 3px;
+            box-shadow: inset 0 0 0 3px var(--checkbox);
+            cursor: pointer;
+        }
+
+        .check input:checked {
+            background: var(--checkbox) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M4.5 10.5 L8 14 L15.5 6' fill='none' stroke='%23a88b5e' stroke-width='2.2'/%3E%3C/svg%3E") no-repeat;
+        }
+
+        .check input:focus-visible {
+            outline: 2px solid var(--focus);
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 440px) {
+            body {
+                padding-top: 16px;
+            }
+
+            .field {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                margin-top: 12px;
+            }
+
+            .field.with-value {
+                grid-template-columns: 1fr 3.5em;
+            }
+
+            .field.with-value .field-label {
+                grid-column: 1 / -1;
+            }
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+    </style>
+</head>
+<body data-tone="neutral">
+<main class="window chamfer">
+    <header class="window-header">
+        <h1 class="window-title">Voice Chat</h1>
+    </header>
+    <div class="divider"></div>
+
+    <div class="window-body">
+        <p class="status" id="status" role="status" aria-live="polite">Loading…</p>
+        <p class="status-detail" id="status-detail"></p>
+
+        <button class="btn big chamfer" id="start" type="button">Start</button>
+        <button class="btn big chamfer" id="retry" type="button" hidden>Reconnect here</button>
+
+        <section id="controls" hidden aria-label="Microphone">
+            <div class="live-row">
+                <div class="bar" aria-hidden="true">
+                    <div class="bar-fill" id="meter-fill"></div>
+                    <div class="bar-threshold" id="meter-threshold" hidden></div>
+                </div>
+                <button class="btn chamfer" id="mute" type="button" aria-pressed="false">Mute</button>
+            </div>
+            <p class="live-label" id="indicator-label">Microphone off</p>
+
+            <h2 class="heading">Settings</h2>
+
+            <div class="field">
+                <span class="field-label" id="mode-label">Mode</span>
+                <div class="toggle-group" role="radiogroup" aria-labelledby="mode-label">
+                    <label class="btn open-right"><input type="radio" name="mode" id="mode-ptt" value="ptt">Push to talk</label>
+                    <label class="btn open-left"><input type="radio" name="mode" id="mode-vad" value="vad">Voice activation</label>
+                </div>
+            </div>
+
+            <div class="field with-value" id="threshold-row" hidden>
+                <label class="field-label" for="threshold">Threshold</label>
+                <div class="slider">
+                    <div class="slider-track chamfer"><div class="slider-inner chamfer"><div class="slider-fill"></div></div></div>
+                    <div class="slider-grab chamfer"></div>
+                    <input type="range" id="threshold" min="-70" max="-10" step="1">
+                </div>
+                <output id="threshold-value" for="threshold"></output>
+            </div>
+
+            <div class="field">
+                <label class="field-label" for="device">Microphone</label>
+                <div class="select chamfer"><select id="device"></select></div>
+            </div>
+
+            <div class="field with-value">
+                <label class="field-label" for="gain">Input volume</label>
+                <div class="slider">
+                    <div class="slider-track chamfer"><div class="slider-inner chamfer"><div class="slider-fill"></div></div></div>
+                    <div class="slider-grab chamfer"></div>
+                    <input type="range" id="gain" min="0" max="300" step="5">
+                </div>
+                <output id="gain-value" for="gain"></output>
+            </div>
+
+            <div class="checks">
+                <label class="check"><input type="checkbox" id="noise-suppression">Noise suppression</label>
+                <label class="check"><input type="checkbox" id="echo-cancellation">Echo cancellation</label>
+                <label class="check"><input type="checkbox" id="auto-gain-control">Auto gain</label>
+            </div>
+        </section>
+    </div>
+
+    <p class="window-footer">Keep this tab open while you play.</p>
+</main>
+<script src="voice.js"></script>
+</body>
+</html>

@@ -15,11 +15,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </PropertyGroup>
   <Import Project="../MSBuild/Content.props" />
   <ItemGroup>
-    <PackageReference Include="Concentus" />
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
 
   <Import Project="..\RobustToolbox\Imports\Shared.props" />
+
+  <ItemGroup>
+    <EmbeddedResource Include="VoiceChat\Web\**" LogicalName="VoiceChat.Web.%(Filename)%(Extension)" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Content.Goobstation.Maths\Content.Goobstation.Maths.csproj" />
