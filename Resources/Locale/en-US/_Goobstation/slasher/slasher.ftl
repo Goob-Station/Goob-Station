@@ -68,6 +68,18 @@ slasher-kit-hockey-desc = A hockey mask and a machete. What more could you want?
 slasher-kit-boogeyman = Boogeyman
 slasher-kit-boogeyman-desc = "I wonder, if perhaps.. The Boogeyman is able to actually move through shadows.."
 
+slasher-kit-chickenmask = Chicken Mask
+slasher-kit-chickenmask-desc = Do you like hurting other people?
+
+slasher-kit-monsieur = Monsieur Charcutier
+slasher-kit-monsieur-desc = Comes with a tentacle arm. "Fucking Diabolical"
+
+slasher-kit-falseidol = False Idol
+slasher-kit-falseidol-desc = A radiant idol craving worship it has not yet earned. Devotion, demanded at wandpoint.
+
+slasher-kit-idol = Idol
+slasher-kit-idol-desc = Make the station fall in love! The worship is real now. A resplendent idol whose adoration is paid in blood.
+
 slasher-machete-no-hands = You have no hands!
 slasher-machete-hands-full = Your hands are full!
 slasher-machete-already-holding = You're already holding your machete!
@@ -76,6 +88,28 @@ slasher-summon-meatspike-popup = A gruesome meat spike erupts from the ground!
 
 slasher-staggerarea-victim = A horrifying chill runs down your spine!
 slasher-staggerarea-popup = You unleash a wave of terror.
+
+slasher-lovestruck-victim = Your heart flutters uncontrollably... you would do anything for {THE($idol)}!
+slasher-lovestruck-apology-1 = I'm so sorry!!!
+slasher-lovestruck-apology-2 = Forgive me, {$name}!!! Please!!!
+slasher-lovestruck-apology-3 = No no no, I didn't mean it!!!
+slasher-lovestruck-apology-4 = My hand slipped, I swear!!!
+slasher-lovestruck-apology-5 = I could never really hurt you, {$name}!!!
+slasher-lovestruck-cheer-1 = Go {$name}!!! We love you!!!
+slasher-lovestruck-cheer-2 = You're the best, {$name}!!!
+slasher-lovestruck-cheer-3 = {$name}!!! Look over here!!! Please notice me!!!
+slasher-lovestruck-cheer-4 = I'd do ANYTHING for you, {$name}!!!
+slasher-lovestruck-cheer-5 = There's no one like {$name}!!! No one!!!
+slasher-lovestruck-cheer-6 = KYAAAA!!! {$name} looked at me!!! They LOOKED at me!!!
+slasher-lovestruck-cheer-7 = {$name}!!! {$name}!!! {$name}!!!
+slasher-lovestruck-cheer-8 = I would die for you, {$name}!!! I mean it!!!
+slasher-lovestruck-cheer-9 = Your smile lights up the whole station, {$name}!!!
+slasher-lovestruck-cheer-10 = Did you see that?! {$name} is SO cool!!!
+slasher-lovestruck-cheer-11 = Sing for me, {$name}!!! Please!!!
+slasher-lovestruck-cheer-12 = I know everything about you, {$name}!!! EVERYTHING!!!
+slasher-lovestruck-cheer-13 = Don't listen to the haters, {$name}!!! They just don't understand!!!
+slasher-lovestruck-cheer-14 = We're so lucky to breathe the same air as {$name}!!!
+slasher-lovestruck-cheer-15 = Sing for us, {$name}!!! Just one more song!!!
 
 slasher-regenerate-no-soul = You need a stolen soul to regenerate!
 
@@ -90,6 +124,7 @@ slasher-soulsteal-fail-no-limb-loss = Your target needs to be missing a limb bef
 slasher-soulsteal-unlock-possession = Your power grows. You can now possess the living!
 slasher-soulsteal-ascendance = CRITICAL ALERT: Massive psychic disturbance detected. An entity of unprecedented malevolent power has achieved critical mass. All personnel are advised to arm themselves and travel in groups.
 slasher-soulsteal-ascendance-clown = CRITICAL ALERT: Unprecedented HONK power detected. All personnel are advised that something deeply unhinged is on board. Brace for impact. HONK.
+slasher-soulsteal-ascendance-idol = CRITICAL ALERT: Station-wide psychogenic infatuation event detected. An entity of overwhelming charm has achieved critical mass. Do NOT meet its gaze. Do NOT listen to its song. Personnel heard cheering are already lost.
 
 slasher-massacre-start = A surge of energy fills the air!
 slasher-massacre-end = The atmosphere returns to normal.
@@ -126,3 +161,6 @@ alerts-slasher-fear-desc = The dread you have spread. The higher it climbs, the 
 
 alerts-slasher-fear-victim-name = Fear
 alerts-slasher-fear-victim-desc = The terror clawing at your mind as the slasher hunts you. The higher it climbs, the more it slows and wounds you. Break their line of sight to let it fade.
+
+alerts-slasher-lovestruck-name = Lovestruck
+alerts-slasher-lovestruck-desc = You are charmed by the Idol and can barely bring yourself to hurt them. The feeling fades once this wears off.
