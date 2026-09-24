@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Systems;
 using Content.Goobstation.Shared.Slasher.UI;
@@ -52,21 +51,16 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         if (!TryComp<ActorComponent>(args.Actor, out var actor))
             return;
 
-        var defaultMusic = ent.Comp.PostSelectionComponents.Values
-            .Select(entry => entry.Component)
-            .OfType<SlasherFearComponent>()
-            .FirstOrDefault()?.BloodTrailMusic;
-
         var userId = actor.PlayerSession.UserId;
         var kitInfos = new List<SlasherKitInfo>();
         foreach (var (id, kit) in ent.Comp.Kits)
         {
             kitInfos.Add(new SlasherKitInfo(
                 id,
-                Loc.GetString(id),
-                string.IsNullOrEmpty(kit.Description) ? string.Empty : Loc.GetString(kit.Description),
+                new LocId(id),
+                kit.Description,
                 kit.Sprite,
-                kit.BloodTrailMusic ?? defaultMusic,
+                kit.BloodTrailMusic ?? ent.Comp.DefaultThemeSong,
                 kit.AscensionId,
                 kit.RequiredAscension,
                 IsKitUnlocked(kit, userId),
@@ -104,9 +98,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         _movement.RefreshMovementSpeedModifiers(ent.Owner);
 
         EntityManager.AddComponents(ent.Owner, ent.Comp.PostSelectionComponents);
-
-        if (selectedKit.Components.Count > 0)
-            EntityManager.AddComponents(ent.Owner, selectedKit.Components);
+        EntityManager.AddComponents(ent.Owner, selectedKit.Components);
 
         foreach (var compName in selectedKit.RemoveComponents)
             if (Factory.TryGetRegistration(compName, out var registration))
@@ -129,10 +121,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
                 fearComp.BloodTrailMusic = bloodMusic;
 
             if (selectedKit.JumpscareSound is { } jumpscareSound)
-                fearComp.JumpscareSounds = new()
-                {
-                    jumpscareSound
-                };
+                fearComp.JumpscareSounds = new() { jumpscareSound };
 
             if (selectedKit.BloodTrailReagent is { } bloodReagent)
                 fearComp.BloodTrailReagent = bloodReagent;

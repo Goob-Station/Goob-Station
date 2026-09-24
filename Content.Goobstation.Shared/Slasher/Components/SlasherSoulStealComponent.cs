@@ -171,6 +171,6 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// <summary>
     /// This is set by the kit selection in yaml. Do not set manually.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public string? AscensionId;
 }

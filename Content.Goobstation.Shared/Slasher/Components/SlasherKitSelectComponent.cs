@@ -1,3 +1,5 @@
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Guidebook;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -20,6 +22,13 @@ public sealed partial class SlasherKitSelectComponent : Component
     [DataField(required: true)]
     public Dictionary<string, SlasherKit> Kits = [];
 
+    /// <summary>
+    /// Default song for the trailer music.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier DefaultThemeSong = new SoundPathSpecifier(
+        "/Audio/_Goobstation/Slasher/Music/slasher_serial_killer_murder_frenzy_insane_horror_soundtrack.ogg");
+
     [DataField]
     public ComponentRegistry PostSelectionComponents = [];
 }
@@ -34,10 +43,10 @@ public sealed partial class SlasherKit
     public ProtoId<StartingGearPrototype> Gear;
 
     /// <summary>
-    /// Localization key for the kit description shown in the UI.
+    /// The kit description shown in the UI.
     /// </summary>
     [DataField]
-    public string Description = string.Empty;
+    public LocId? Description;
 
     /// <summary>
     /// Icon sprite shown in the kit selection UI.
@@ -85,7 +94,7 @@ public sealed partial class SlasherKit
     /// If null, the default reagent on SlasherFearComponent is kept.
     /// </summary>
     [DataField]
-    public string? BloodTrailReagent;
+    public ProtoId<ReagentPrototype>? BloodTrailReagent;
 
     /// <summary>
     /// Optional override for the soulsteal sound on this kit.
@@ -102,11 +111,11 @@ public sealed partial class SlasherKit
     public ProtoId<StartingGearPrototype>? AscensionGear;
 
     /// <summary>
-    /// Optional override for the station announcement text key on ascension.
+    /// Optional override for the station announcement on ascension.
     /// If null, the default slasher-soulsteal-ascendance string is used.
     /// </summary>
     [DataField]
-    public string? AscendanceAnnouncementKey;
+    public LocId? AscendanceAnnouncementKey;
 
     /// <summary>
     /// Optional override for the global sound played on ascension.
@@ -142,10 +151,9 @@ public sealed partial class SlasherKit
     public HashSet<string> RemoveComponents = new();
 
     /// <summary>
-    /// Guidebook entry id for this kit. Set on kits whose gameplay differs from the default slasher;
-    /// the kit-select card shows a "?" that opens the guidebook to this page.
+    /// Guidebook entry for this kit. Set on kits whose gameplay differs from the default slasher;
+    /// the kit-select card gets a button that opens the guidebook to this page.
     /// </summary>
     [DataField]
-    public string? Guide;
+    public ProtoId<GuideEntryPrototype>? Guide;
 }
-

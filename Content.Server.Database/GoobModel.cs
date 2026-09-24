@@ -84,21 +84,6 @@ public sealed class PollSeen
     public DateTime SeenAt { get; set; }
 }
 
-[Table("slasher_ascensions")]
-public sealed class SlasherAscension
-{
-    [Key]
-    public int Id { get; set; }
-
-    [Required, ForeignKey("Player")]
-    public Guid PlayerUserId { get; set; }
-
-    public Player Player { get; set; } = default!;
-
-    [Required, StringLength(100)]
-    public string AscensionId { get; set; } = default!;
-}
-
 [Table("poll_votes")]
 [Index(nameof(PollId))]
 [Index(nameof(PlayerUserId))]
@@ -125,4 +110,19 @@ public sealed class PollVote
 
     [Required]
     public DateTime VotedAt { get; set; }
+}
+
+[Table("slasher_ascensions")]
+public sealed class SlasherAscension
+{
+    [Key]
+    public int Id { get; set; }
+
+    [Required, ForeignKey("Player")]
+    public Guid PlayerUserId { get; set; }
+
+    public Player Player { get; set; } = default!;
+
+    [Required, StringLength(100)]
+    public string AscensionId { get; set; } = default!;
 }

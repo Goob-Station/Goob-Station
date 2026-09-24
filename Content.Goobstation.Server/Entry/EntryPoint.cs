@@ -14,6 +14,7 @@ public sealed class EntryPoint : GameServer
     private IVoiceChatServerManager _voiceManager = default!;
     private ICommonCurrencyManager _curr = default!;
     private IJoinQueueManager _joinQueue = default!;
+    private SlasherPrestigeManager _prestige = default!;
 
     public override void Init()
     {
@@ -31,7 +32,7 @@ public sealed class EntryPoint : GameServer
         _curr = IoCManager.Resolve<ICommonCurrencyManager>();
         _curr.Initialize();
 
-        IoCManager.Resolve<SlasherPrestigeManager>().Initialize();
+        _prestige = IoCManager.Resolve<SlasherPrestigeManager>();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
@@ -52,6 +53,7 @@ public sealed class EntryPoint : GameServer
         base.Dispose(disposing);
 
         _curr.Shutdown();
+        _prestige.Shutdown();
         _voiceManager.Shutdown();
     }
 }
