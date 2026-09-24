@@ -86,6 +86,7 @@ slasher-soulsteal-fail-no-mind = Your target has no soul to steal.
 slasher-soulsteal-start-victim = You feel your soul being drained...
 slasher-soulsteal-success-victim = You feel a piece of your soul dissipate.
 slasher-soulsteal-fail-not-valid = This is not a valid target!
+slasher-soulsteal-fail-no-limb-loss = Your target needs to be missing a limb before you can steal their soul.
 slasher-soulsteal-unlock-possession = Your power grows. You can now possess the living!
 slasher-soulsteal-ascendance = CRITICAL ALERT: Massive psychic disturbance detected. An entity of unprecedented malevolent power has achieved critical mass. All personnel are advised to arm themselves and travel in groups.
 slasher-soulsteal-ascendance-clown = CRITICAL ALERT: Unprecedented HONK power detected. All personnel are advised that something deeply unhinged is on board. Brace for impact. HONK.
