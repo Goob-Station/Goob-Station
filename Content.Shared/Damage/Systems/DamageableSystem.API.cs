@@ -298,7 +298,6 @@ public sealed partial class DamageableSystem
                 damageDone.DamageDict[type] = applied;
             }
             else
-            else
             {
                 damageDoneHypotheticalUncapped.DamageDict[type] = value;
                 // For negative damage (healing), apply normally

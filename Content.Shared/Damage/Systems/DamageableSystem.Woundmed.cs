@@ -344,16 +344,6 @@ public sealed partial class DamageableSystem
 
                 isVital = true;
                 break;
-        foreach (var (type, value) in damage.DamageDict)
-        {
-            var isVital = false;
-            foreach (var group in VitalOnlyDamageTypes)
-            {
-                if (!_prototypeManager.Index(group).DamageTypes.Contains(type))
-                    continue;
-
-                isVital = true;
-                break;
             }
 
             if (isVital)
