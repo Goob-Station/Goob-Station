@@ -87,13 +87,13 @@
     tags:
     - BasicSilicon
   - type: IntrinsicRadioReceiver
-  # - type: IntrinsicRadioTransmitter # Goobstation - Remove binary from certain silicons
-  #   channels:
-  #   - Binary
+  #- type: IntrinsicRadioTransmitter # Goobstation - Remove binary from certain silicons
+  #  channels:
+  #  - Binary
   - type: ActiveRadio
     channels:
     - Common
-    # - Binary # Goobstation
+    #- Binary # Goobstation
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: HealthExaminable
     examinableTypes:

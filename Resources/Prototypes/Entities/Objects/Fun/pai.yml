@@ -61,7 +61,7 @@
   #  - Binary
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation
+    #- Binary # Goobstation
     - Common
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter
