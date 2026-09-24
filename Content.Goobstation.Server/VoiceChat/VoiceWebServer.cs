@@ -442,7 +442,7 @@ public sealed class VoiceWebServer : IDisposable
 
     private static IPAddress ResolveAddress(IPAddress remote, Dictionary<string, string> headers)
     {
-        if (!IPAddress.IsLoopback(remote))
+        if (!IsTrustedProxy(remote))
             return remote;
 
         if (headers.TryGetValue("X-Real-IP", out var real) && IPAddress.TryParse(real.Trim(), out var realParsed))
@@ -456,6 +456,24 @@ public sealed class VoiceWebServer : IDisposable
         }
 
         return remote;
+    }
+
+    private static bool IsTrustedProxy(IPAddress address)
+    {
+        if (address.IsIPv4MappedToIPv6)
+            address = address.MapToIPv4();
+
+        if (IPAddress.IsLoopback(address))
+            return true;
+
+        if (address.AddressFamily == AddressFamily.InterNetworkV6)
+            return address.IsIPv6LinkLocal || address.IsIPv6UniqueLocal;
+
+        var bytes = address.GetAddressBytes();
+        return bytes[0] == 10 ||
+               bytes[0] == 172 && (bytes[1] & 0xF0) == 16 ||
+               bytes[0] == 192 && bytes[1] == 168 ||
+               bytes[0] == 169 && bytes[1] == 254;
     }
 
     private bool TryReserveAddress(IPAddress address)
