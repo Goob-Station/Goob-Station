@@ -12,10 +12,10 @@
   id: Xenoborg 
   coefficients:
     Ion: 0.75
-    Heat: 0.85
-    Blunt: 0.85
-    Slash: 0.85
-    Piercing: 0.85
+    Heat: 0.9
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 0.9
     Shock: 5 # my shaft miners shall validhunt with the LL syndie defib
 
 - type: damageModifierSet
