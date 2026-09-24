@@ -5,7 +5,7 @@
     difficulty: 2
     issuer: objective-issuer-slasher
     icon:
-      sprite: _Goobstation/Actions/slashericons.rsi
+      sprite: _Goobstation/Slasher/Actions/slashericons.rsi
       state: SoulSteal
   - type: NumberObjective
     min: 15
@@ -23,6 +23,6 @@
     difficulty: 1
     issuer: objective-issuer-slasher
     icon:
-      sprite: _Goobstation/Actions/slashericons.rsi
+      sprite: _Goobstation/Slasher/Actions/slashericons.rsi
       state: SoulSteal
   - type: SurviveCondition

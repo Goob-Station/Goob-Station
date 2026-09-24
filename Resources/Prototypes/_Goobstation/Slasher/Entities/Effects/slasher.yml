@@ -10,7 +10,7 @@
     layers:
     - shader: unshaded
       map: [ "enum.EffectLayers.Unshaded" ]
-      sprite: _Goobstation/Effects/slasher_jaunt.rsi
+      sprite: _Goobstation/Slasher/Effects/slasher_jaunt.rsi
       state: SlasherJauntDissapear
       autoAnimated: false
   - type: EffectVisuals
@@ -31,7 +31,7 @@
     layers:
     - shader: unshaded
       map: [ "enum.EffectLayers.Unshaded" ]
-      sprite: _Goobstation/Effects/slasher_jaunt.rsi
+      sprite: _Goobstation/Slasher/Effects/slasher_jaunt.rsi
       state: SlasherJauntAppear
       autoAnimated: false
   - type: EffectVisuals

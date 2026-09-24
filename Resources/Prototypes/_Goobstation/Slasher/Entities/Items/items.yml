@@ -12,7 +12,7 @@
     tags:
     - Machete
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
+    sprite: _Goobstation/Slasher/Objects/machete.rsi
     state: icon
   - type: MeleeWeapon
     animationRotation: -45
@@ -21,7 +21,7 @@
       types:
         Slash: 15
     soundHit:
-      path: /Audio/_Goobstation/Weapons/Melee/slashermachetehit.ogg
+      path: /Audio/_Goobstation/Slasher/Weapons/slashermachetehit.ogg
       params:
         volume: -6
   - type: DamageOtherOnHit
@@ -32,7 +32,7 @@
     size: Large
     storedSprite:
       state: storage
-      sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
+      sprite: _Goobstation/Slasher/Objects/machete.rsi
     shape:
     - 0,0,0,2
   - type: Tool
@@ -40,6 +40,11 @@
     - Slicing
   - type: DisarmMalus
   - type: SlasherMassacreMachete
+  - type: Reflect
+    reflectProb: 0
+  - type: ThrowableBlocker
+    blockSound:
+      path: /Audio/_Goobstation/Slasher/Weapons/slashermachetehit.ogg
   - type: Prying
     pryPowered: True
     speedModifier: 1.5
@@ -53,9 +58,9 @@
   description: A head-mounted face cover designed to protect the wearer completely from space-arc eye.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+    sprite: _Goobstation/Slasher/Objects/mask.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+    sprite: _Goobstation/Slasher/Objects/mask.rsi
     clothingVisuals:
       head:
       - state: equipped-HELMET
@@ -93,9 +98,9 @@
   description: A fancy apron for a stylish person.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/apron.rsi
+    sprite: _Goobstation/Slasher/Objects/apron.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/apron.rsi
+    sprite: _Goobstation/Slasher/Objects/apron.rsi
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
@@ -182,9 +187,9 @@
   description: A face-covering mask. You can't smell the fear through it, but you can cause it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+    sprite: _Goobstation/Slasher/Objects/mask.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+    sprite: _Goobstation/Slasher/Objects/mask.rsi
     clothingVisuals:
       mask:
       - state: equipped-MASK
@@ -201,7 +206,7 @@
   description: A large, purple, vicious looking blade.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/spring_machete.rsi
+    sprite: _Goobstation/Slasher/Objects/spring_machete.rsi
 
 - type: entity
   name: spring mask
@@ -210,9 +215,9 @@
   description: A deeply unsettling and mechanical looking mask.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+    sprite: _Goobstation/Slasher/Objects/spring_mask.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+    sprite: _Goobstation/Slasher/Objects/spring_mask.rsi
     clothingVisuals:
       head:
       - state: equipped-HELMET
@@ -220,7 +225,7 @@
   - type: SpringlockClothing
     lockedClothingVisuals:
       head:
-      - sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+      - sprite: _Goobstation/Slasher/Objects/spring_mask.rsi
         state: locked-equipped-HELMET
 
 - type: entity
@@ -230,9 +235,9 @@
   description: A suit with intricate springs all around the insides, as if it was made to move by itself. Better not let any liquids near it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/spring_apron.rsi
+    sprite: _Goobstation/Slasher/Objects/spring_apron.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/spring_apron.rsi
+    sprite: _Goobstation/Slasher/Objects/spring_apron.rsi
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
@@ -240,7 +245,7 @@
   - type: SpringlockClothing
     lockedClothingVisuals:
       outerClothing:
-      - sprite: _Goobstation/Objects/Specific/Slasher/spring_apron.rsi
+      - sprite: _Goobstation/Slasher/Objects/spring_apron.rsi
         state: locked-equipped-OUTERCLOTHING
 
 # Billy Kit
@@ -522,9 +527,9 @@
   description: An apron drenched in something you'd rather not think about.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/blood_apron.rsi
+    sprite: _Goobstation/Slasher/Objects/blood_apron.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/blood_apron.rsi
+    sprite: _Goobstation/Slasher/Objects/blood_apron.rsi
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
@@ -724,9 +729,9 @@
   description: A white hockey mask, worn and cracked. The kind you see right before the lights go out.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
+    sprite: _Goobstation/Slasher/Objects/hockymask/hockey_mask.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
+    sprite: _Goobstation/Slasher/Objects/hockymask/hockey_mask.rsi
     clothingVisuals:
       head:
       - state: equipped-MASK
@@ -738,9 +743,9 @@
   description: A tattered, muddied jumpsuit. Smells like a forest after rain. And blood.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_outfit.rsi
+    sprite: _Goobstation/Slasher/Objects/hockymask/hocky_outfit.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_outfit.rsi
+    sprite: _Goobstation/Slasher/Objects/hockymask/hocky_outfit.rsi
     clothingVisuals:
       innerClothing:
       - state: equipped-INNERCLOTHING
@@ -752,9 +757,9 @@
   description: A heavy, weathered coat. Something dark stains the collar, and the stitching looks rough, like it was done in the dark.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_coat.rsi
+    sprite: _Goobstation/Slasher/Objects/hockymask/hocky_coat.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_coat.rsi
+    sprite: _Goobstation/Slasher/Objects/hockymask/hocky_coat.rsi
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
@@ -784,9 +789,9 @@
   description: A featureless mask worn by the thing that hides under the bed. It watches, and it waits.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
+    sprite: _Goobstation/Slasher/Objects/boogeyman/mask.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
+    sprite: _Goobstation/Slasher/Objects/boogeyman/mask.rsi
     clothingVisuals:
       head:
       - state: equipped-MASK
@@ -798,9 +803,9 @@
   description: A dark, ragged outfit that seems to drink the light around it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/outfit.rsi
+    sprite: _Goobstation/Slasher/Objects/boogeyman/outfit.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/outfit.rsi
+    sprite: _Goobstation/Slasher/Objects/boogeyman/outfit.rsi
     clothingVisuals:
       innerClothing:
       - state: equipped-INNERCLOTHING
