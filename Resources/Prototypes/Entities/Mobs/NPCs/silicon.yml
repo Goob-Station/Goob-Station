@@ -87,9 +87,9 @@
     tags:
     - BasicSilicon
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
-  #  channels:
-  #  - Binary # Goobstation
+  # - type: IntrinsicRadioTransmitter # Goobstation - Remove binary from certain silicons
+  #   channels:
+  #   - Binary
   - type: ActiveRadio
     channels:
     - Common
@@ -525,7 +525,7 @@
     - Unimplantable
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary
     - Common
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon

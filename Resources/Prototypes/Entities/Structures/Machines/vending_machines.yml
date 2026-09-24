@@ -85,12 +85,12 @@
     messageSet: SpookySpeakerMessagesGeneric
     speakChance: 0.2
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
-  #  channels:
-  #  - Binary # Goobstation
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation
+    - Binary
     - Common
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter

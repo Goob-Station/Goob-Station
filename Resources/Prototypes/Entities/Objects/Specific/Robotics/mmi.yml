@@ -6,6 +6,8 @@
   name: man-machine interface
   description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents.
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Robot
   - type: Sprite
     sprite: Objects/Specific/Robotics/mmi.rsi
     layers:
@@ -27,12 +29,12 @@
   - type: Examiner
   - type: IntellicardableMind # Goobstation - we can finally turn clankers into humans
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
+  #- type: IntrinsicRadioTransmitter # Goobstation - Remove binary from certain silicons
   #  channels:
-  #  - Binary # Goobstation
+  #  - Binary
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation
+  #  - Binary # Goobstation
     - Common
   - type: NameIdentifier
     group: MMI
@@ -83,6 +85,8 @@
   name: positronic brain
   description: An artificial brain capable of spontaneous neural activity.
   components:
+    - type: VoiceChatEffect # Goobstation - Voice chat
+      effect: Robot
     - type: Sprite
       sprite: Objects/Specific/Robotics/mmi.rsi
       layers:
@@ -113,12 +117,12 @@
     - type: BorgBrain
     - type: IntellicardableMind # Goobstation - intellicard on more AIs
     - type: IntrinsicRadioReceiver
-    #- type: IntrinsicRadioTransmitter
+    #- type: IntrinsicRadioTransmitter # Goobstation - Remove binary from certain silicons
     #  channels:
-    #  - Binary # Goobstation
+    #  - Binary
     - type: ActiveRadio
       channels:
-      # - Binary # Goobstation
+      #- Binary # Goobstation
       - Common
     - type: NameIdentifier
       group: PositronicBrain
