@@ -1,0 +1,26 @@
+<ui:SlasherKitSelectMenu xmlns="https://spacestation14.io"
+                         xmlns:ui="clr-namespace:Content.Goobstation.Client.Slasher.UI"
+                         xmlns:store="clr-namespace:Content.Goobstation.Client.Slasher.UI.VideoStore"
+                         Resizable="False"
+                         MinSize="1180 700"
+                         SetSize="1180 700">
+    <LayoutContainer Name="Stage" MouseFilter="Stop">
+        <TextureRect Name="Room"
+                     TexturePath="/Textures/_Goobstation/Slasher/Interface/VideoStore/room_front.png"
+                     Stretch="Keep"
+                     MouseFilter="Ignore" />
+        <store:SpinnerRack Name="Rack" />
+        <store:Layers Name="Layers" />
+        <TextureButton Name="LeftArrow" StyleClasses="StoreArrowLeft" />
+        <TextureButton Name="RightArrow" StyleClasses="StoreArrowRight" />
+        <store:KitCard Name="Card" />
+        <TextureRect Name="Scanlines"
+                     TexturePath="/Textures/_Goobstation/Slasher/Interface/VideoStore/scanlines.png"
+                     Stretch="Scale"
+                     MouseFilter="Ignore" />
+        <TextureRect Name="Vignette"
+                     TexturePath="/Textures/_Goobstation/Slasher/Interface/VideoStore/vignette.png"
+                     Stretch="Scale"
+                     MouseFilter="Ignore" />
+    </LayoutContainer>
+</ui:SlasherKitSelectMenu>
