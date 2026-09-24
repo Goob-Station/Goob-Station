@@ -19,6 +19,11 @@ public sealed class VoiceChatManager
     private bool _receiveDisabled;
 
     public event Action<MsgVoiceFrame>? FrameReceived;
+    public event Action<MsgVoiceSpeakerInfo>? SpeakerInfoReceived;
+    public event Action<MsgVoiceSelf>? SelfReceived;
+    public event Action<bool>? WebConnectedChanged;
+
+    public bool WebConnected { get; private set; }
 
     public void Initialize()
     {
@@ -28,10 +33,14 @@ public sealed class VoiceChatManager
         _net.RegisterNetMessage<MsgVoiceLinkRequest>();
         _net.RegisterNetMessage<MsgVoiceLink>(OnLink);
         _net.RegisterNetMessage<MsgVoiceSettings>();
+        _net.RegisterNetMessage<MsgVoiceStatus>(OnStatus);
+        _net.RegisterNetMessage<MsgVoiceSpeakerInfo>(message => SpeakerInfoReceived?.Invoke(message));
+        _net.RegisterNetMessage<MsgVoiceSelf>(message => SelfReceived?.Invoke(message));
 
         _net.Connected += OnConnected;
         _cfg.OnValueChanged(GoobCVars.VoiceChatHearSelf, OnHearSelfChanged);
         _cfg.OnValueChanged(GoobCVars.VoiceChatVolume, OnVolumeChanged);
+        _cfg.OnValueChanged(GoobCVars.VoiceChatRadioMuted, OnRadioMutedChanged);
     }
 
     public void Shutdown()
@@ -39,6 +48,20 @@ public sealed class VoiceChatManager
         _net.Connected -= OnConnected;
         _cfg.UnsubValueChanged(GoobCVars.VoiceChatHearSelf, OnHearSelfChanged);
         _cfg.UnsubValueChanged(GoobCVars.VoiceChatVolume, OnVolumeChanged);
+        _cfg.UnsubValueChanged(GoobCVars.VoiceChatRadioMuted, OnRadioMutedChanged);
+    }
+
+    public static HashSet<string> ParseMutedChannels(string value)
+    {
+        var channels = new HashSet<string>();
+        foreach (var part in value.Split(','))
+        {
+            var channel = part.Trim();
+            if (channel.Length > 0)
+                channels.Add(channel);
+        }
+
+        return channels;
     }
 
     public bool RequestLink()
@@ -52,10 +75,30 @@ public sealed class VoiceChatManager
 
     private void OnConnected(object? sender, NetChannelArgs args)
     {
+        SetWebConnected(false);
         SendSettings();
     }
 
+    private void OnStatus(MsgVoiceStatus message)
+    {
+        SetWebConnected(message.Connected);
+    }
+
+    private void SetWebConnected(bool connected)
+    {
+        if (WebConnected == connected)
+            return;
+
+        WebConnected = connected;
+        WebConnectedChanged?.Invoke(connected);
+    }
+
     private void OnHearSelfChanged(bool hearSelf)
+    {
+        SendSettings();
+    }
+
+    private void OnRadioMutedChanged(string muted)
     {
         SendSettings();
     }
@@ -76,6 +119,7 @@ public sealed class VoiceChatManager
         {
             HearSelf = _cfg.GetCVar(GoobCVars.VoiceChatHearSelf),
             Receive = !_receiveDisabled,
+            MutedChannels = new List<string>(ParseMutedChannels(_cfg.GetCVar(GoobCVars.VoiceChatRadioMuted))),
         });
     }
 

@@ -11,7 +11,9 @@ public readonly record struct VoicePlaybackParams(
     float Occlusion,
     float ReferenceDistance,
     float MaxDistance,
-    float Boost);
+    float Boost,
+    bool Global,
+    float Audibility);
 
 public sealed class VoicePlaybackStream : IDisposable
 {
@@ -29,12 +31,15 @@ public sealed class VoicePlaybackStream : IDisposable
     private const int ConcealAfterFrames = 3;
     private const int MaxSequenceJump = 50;
 
+    private const float ActivityRelease = 0.3f;
+
     private static readonly TimeSpan StartWait = TimeSpan.FromMilliseconds(60);
     private static readonly TimeSpan SequenceResetAfter = TimeSpan.FromSeconds(1);
 
     private readonly IAudioManager _audioManager;
     private readonly Dictionary<ushort, short[]> _pending = new();
     private readonly List<Chunk> _playing = new();
+    private readonly VoiceLevelMeter _meter = new();
 
     private short[] _pcm = new short[SampleRate];
     private short[] _chunkBuffer = new short[SampleRate];
@@ -49,8 +54,14 @@ public sealed class VoicePlaybackStream : IDisposable
     private Chunk? _current;
     private VoicePlaybackParams _params;
 
+    public ushort Speaker;
     public NetEntity Source;
+    public VoiceRoute Route;
+    public bool Global;
+    public float Range;
     public TimeSpan LastActivity;
+    public VoiceLevels Levels;
+    public float Activity;
 
     public VoicePlaybackStream(IAudioManager audioManager)
     {
@@ -60,6 +71,27 @@ public sealed class VoicePlaybackStream : IDisposable
     private long PcmEnd => _pcmStart + _pcmLength;
 
     public bool IsIdle => _playing.Count == 0 && PcmEnd <= _scheduledUntil && _pending.Count == 0;
+
+    public bool Playing => _current is { Disposed: false } current && current.Source.Playing;
+
+    public float Audibility => _params.Audibility;
+
+    public void UpdateLevels(float frameTime)
+    {
+        var target = default(VoiceLevels);
+        var playing = false;
+        if (_current is { Disposed: false } current && current.Source.Playing)
+        {
+            playing = true;
+            target = _meter.Get(current.Start + (long) (current.Source.PlaybackPosition * SampleRate));
+        }
+
+        VoiceLevelSmoothing.Apply(ref Levels, target, frameTime);
+
+        Activity = playing
+            ? 1f
+            : MathF.Max(0f, Activity - frameTime / ActivityRelease);
+    }
 
     public void AddFrame(ushort sequence, byte flags, short[] pcm, TimeSpan now)
     {
@@ -227,6 +259,7 @@ public sealed class VoicePlaybackStream : IDisposable
 
     private void Apply(IAudioSource source)
     {
+        source.Global = _params.Global;
         source.Position = _params.Position;
         source.Gain = _params.Gain;
         source.Occlusion = _params.Occlusion;
@@ -296,6 +329,7 @@ public sealed class VoicePlaybackStream : IDisposable
             _fadeInNext = false;
         }
 
+        _meter.Analyze(_pcm, _pcmLength, FrameSamples, PcmEnd);
         _pcmLength += FrameSamples;
         _lastFrame = frame;
     }

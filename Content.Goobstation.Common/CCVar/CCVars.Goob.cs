@@ -452,11 +452,35 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> VoiceChatWebSocketBind =
         CVarDef.Create("voice.ws_bind", "127.0.0.1:1213", CVar.SERVERONLY, "Address and port the voice chat WebSocket listens on. Expose it through the reverse proxy in front of the status port at /voice/ws.");
 
+    public static readonly CVarDef<string> VoiceChatTrustedProxies =
+        CVarDef.Create("voice.trusted_proxies", "", CVar.SERVERONLY, "Comma-separated proxy IPs whose X-Real-IP and X-Forwarded-For headers are trusted. Loopback and private addresses are always trusted.");
+
+    public static readonly CVarDef<int> VoiceChatMaxConnectionsPerIp =
+        CVarDef.Create("voice.max_connections_per_ip", 6, CVar.SERVERONLY, "Maximum simultaneous voice chat connections from one IP address.");
+
     public static readonly CVarDef<string> VoiceChatPublicUrl =
         CVarDef.Create("voice.public_url", "", CVar.SERVERONLY, "Public URL of the voice chat page, e.g. https://example.com/voice/. Derived from hub.server_url when empty.");
 
     public static readonly CVarDef<string> VoiceChatWebSocketUrl =
         CVarDef.Create("voice.ws_url", "", CVar.SERVERONLY, "WebSocket URL the voice chat page connects to. Auto-detected by the page when empty.");
+
+    public static readonly CVarDef<bool> VoiceChatRadioEnabled =
+        CVarDef.Create("voice.radio_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether players can speak over radio channels with voice chat.");
+
+    public static readonly CVarDef<bool> VoiceChatRadioCommon =
+        CVarDef.Create("voice.radio_common", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether voice chat is allowed on the Common radio channel.");
+
+    public static readonly CVarDef<bool> VoiceChatJoinPrompt =
+        CVarDef.Create("voice.join_prompt", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Offer to open voice chat when joining a server that has it.");
+
+    public static readonly CVarDef<bool> VoiceChatSpeakerList =
+        CVarDef.Create("voice.speaker_list", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Show the list of players you can currently hear on voice chat.");
+
+    public static readonly CVarDef<float> VoiceChatRadioVolume =
+        CVarDef.Create("voice.radio_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE, "Volume multiplier for voice heard over radio, 0 to 2.");
+
+    public static readonly CVarDef<string> VoiceChatRadioMuted =
+        CVarDef.Create("voice.radio_muted", "", CVar.CLIENTONLY | CVar.ARCHIVE, "Comma-separated radio channel IDs whose voice chat you don't want to hear.");
 
     public static readonly CVarDef<float> VoiceChatVolume =
         CVarDef.Create("voice.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE, "Voice chat playback volume, 0 to 2.");
