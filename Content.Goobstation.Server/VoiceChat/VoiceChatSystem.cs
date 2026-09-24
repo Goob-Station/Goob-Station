@@ -171,18 +171,28 @@ public sealed class VoiceChatSystem : EntitySystem
     {
         if (!_player.TryGetSessionById(frame.User, out var session) ||
             session.Status != SessionStatus.InGame ||
-            session.AttachedEntity is not { } uid ||
-            _adminMuted.Contains(frame.User))
+            session.AttachedEntity is not { } uid)
         {
             return;
         }
 
         var speaker = GetSpeaker(frame.User);
+        var levels = speaker.Measure(frame.Payload);
+
+        if (_adminMuted.Contains(frame.User))
+        {
+            SendSelf(session, speaker, levels, VoiceSelfFlags.Blocked);
+            return;
+        }
+
         var newTransmission = now - speaker.LastAttempt > TransmissionGap;
         speaker.LastAttempt = now;
 
         if (!CanTransmit(speaker, uid, now, newTransmission))
+        {
+            SendSelf(session, speaker, levels, VoiceSelfFlags.Blocked);
             return;
+        }
 
         if (newTransmission)
             speaker.InfoSent.Clear();
@@ -192,13 +202,21 @@ public sealed class VoiceChatSystem : EntitySystem
             route = BuildRoute(session, uid);
             _routes[frame.User] = route;
             UpdateEffect(frame.User);
-            SendSpeakerInfo(speaker, uid, route);
+            SendSpeakerInfo(speaker, uid, route, session.Channel);
 
             foreach (var telephone in route.Telephones)
             {
                 _telephone.KeepCallAlive(telephone);
             }
         }
+
+        var selfFlags = VoiceSelfFlags.None;
+        if (route.RadioChannel != null)
+            selfFlags |= VoiceSelfFlags.Radio;
+        if (route.Broadcasting)
+            selfFlags |= VoiceSelfFlags.Broadcast;
+
+        SendSelf(session, speaker, levels, selfFlags);
 
         byte[]? radioPayload = null;
         foreach (var group in route.Groups)
@@ -221,7 +239,17 @@ public sealed class VoiceChatSystem : EntitySystem
         }
     }
 
-    private void SendSpeakerInfo(Speaker speaker, EntityUid uid, Route route)
+    private void SendSelf(ICommonSession session, Speaker speaker, VoiceLevels levels, VoiceSelfFlags flags)
+    {
+        _net.ServerSendMessage(new MsgVoiceSelf
+        {
+            Speaker = speaker.Id,
+            Flags = flags,
+            Levels = levels,
+        }, session.Channel);
+    }
+
+    private void SendSpeakerInfo(Speaker speaker, EntityUid uid, Route route, INetChannel self)
     {
         var name = GetSpeakerName(uid);
         var channel = route.RadioChannel ?? string.Empty;
@@ -240,15 +268,23 @@ public sealed class VoiceChatSystem : EntitySystem
                 if (!speaker.InfoSent.Add(recipient))
                     continue;
 
-                message ??= new MsgVoiceSpeakerInfo
-                {
-                    Speaker = speaker.Id,
-                    Name = speaker.InfoName,
-                    Channel = speaker.InfoChannel,
-                };
+                message ??= CreateSpeakerInfo(speaker);
                 _net.ServerSendMessage(message, recipient);
             }
         }
+
+        if (speaker.InfoSent.Add(self))
+            _net.ServerSendMessage(message ?? CreateSpeakerInfo(speaker), self);
+    }
+
+    private static MsgVoiceSpeakerInfo CreateSpeakerInfo(Speaker speaker)
+    {
+        return new MsgVoiceSpeakerInfo
+        {
+            Speaker = speaker.Id,
+            Name = speaker.InfoName,
+            Channel = speaker.InfoChannel,
+        };
     }
 
     private string GetSpeakerName(EntityUid uid)
@@ -290,6 +326,7 @@ public sealed class VoiceChatSystem : EntitySystem
 
             if (_broadcast.TryGetBroadcastConsole(speakerUid, out var console))
             {
+                route.Broadcasting = true;
                 broadcastSource = GetNetEntity(console);
                 _broadcast.GetRecipients(console, _broadcastRecipients);
             }
@@ -328,17 +365,22 @@ public sealed class VoiceChatSystem : EntitySystem
             {
                 route.Add(broadcastSource, VoiceRoute.Broadcast, true, 0f, session.Channel);
             }
-            else if (_radioRecipients.Contains(session))
+            else if (_radioRecipients.Contains(session) && HearsRadio(session, route))
             {
                 route.Add(NetEntity.Invalid, VoiceRoute.Radio, true, 0f, session.Channel);
             }
-            else if (TryHearRelay(_radioRelays, primary, secondary, out relay, out global))
+            else if (HearsRadio(session, route) && TryHearRelay(_radioRelays, primary, secondary, out relay, out global))
             {
                 route.Add(GetNetEntity(relay.Emitter), VoiceRoute.RadioSpeaker, global, relay.Range, session.Channel);
             }
         }
 
         return route;
+    }
+
+    private bool HearsRadio(ICommonSession session, Route route)
+    {
+        return route.RadioChannel is { } channel && !_voice.IsRadioChannelMuted(session.UserId, channel);
     }
 
     private EntityUid? GetDirectEmitter(EntityUid speaker)
@@ -725,6 +767,7 @@ public sealed class VoiceChatSystem : EntitySystem
         public readonly List<RouteGroup> Groups = new();
         public readonly List<Entity<TelephoneComponent>> Telephones = new();
         public string? RadioChannel;
+        public bool Broadcasting;
 
         public void Add(NetEntity source, VoiceRoute voiceRoute, bool global, float range, INetChannel channel)
         {
@@ -768,10 +811,17 @@ public sealed class VoiceChatSystem : EntitySystem
         public string InfoChannel = string.Empty;
         public readonly HashSet<INetChannel> InfoSent = new();
 
+        private readonly VoiceLevelAnalyzer _levelAnalyzer = new();
+        private readonly short[] _levelPcm = new short[VoiceCodec.FrameSamples];
         private readonly VoiceEffectProcessor _radioEffects = new();
         private readonly short[] _radioPcm = new short[VoiceCodec.FrameSamples];
         private int _radioPredictor;
         private int _radioIndex;
+
+        public VoiceLevels Measure(byte[] payload)
+        {
+            return VoiceCodec.Decode(payload, _levelPcm) ? _levelAnalyzer.Analyze(_levelPcm) : default;
+        }
 
         public byte[] ApplyRadio(byte[] payload)
         {

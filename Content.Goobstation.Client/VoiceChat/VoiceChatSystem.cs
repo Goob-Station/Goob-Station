@@ -17,6 +17,16 @@ namespace Content.Goobstation.Client.VoiceChat;
 
 public readonly record struct VoiceSpeakerInfo(string Name, ProtoId<RadioChannelPrototype>? Channel);
 
+public sealed class VoiceSelfState
+{
+    public ushort Speaker;
+    public VoiceSelfFlags Flags;
+    public VoiceLevels Levels;
+    public VoiceLevels Target;
+    public float Activity;
+    public TimeSpan LastReceived;
+}
+
 public sealed class VoiceChatSystem : EntitySystem
 {
     [Dependency] private readonly VoiceChatManager _manager = default!;
@@ -38,8 +48,11 @@ public sealed class VoiceChatSystem : EntitySystem
     private static readonly Color CameraColor = Color.FromHex("#7FB2FF");
     private static readonly Color BroadcastColor = Color.FromHex("#FFC844");
     private static readonly Color RadioColor = Color.FromHex("#2CDB2C");
+    private static readonly Color BlockedColor = Color.FromHex("#E04545");
+    private static readonly TimeSpan SelfTimeout = TimeSpan.FromMilliseconds(150);
 
     private const float OcclusionVisibility = 0.35f;
+    private const float SelfActivityRelease = 0.3f;
 
     private readonly Dictionary<ushort, VoicePlaybackStream> _streams = new();
     private readonly List<ushort> _removeQueue = new();
@@ -50,8 +63,11 @@ public sealed class VoiceChatSystem : EntitySystem
 
     private float _range;
     private float _volume;
+    private float _radioVolume;
 
     public IReadOnlyDictionary<ushort, VoicePlaybackStream> Streams => _streams;
+
+    public VoiceSelfState Self { get; } = new();
 
     public override void Initialize()
     {
@@ -61,9 +77,11 @@ public sealed class VoiceChatSystem : EntitySystem
 
         _manager.FrameReceived += OnFrameReceived;
         _manager.SpeakerInfoReceived += OnSpeakerInfoReceived;
+        _manager.SelfReceived += OnSelfReceived;
 
         Subs.CVar(_cfg, GoobCVars.VoiceChatRange, value => _range = value, true);
         Subs.CVar(_cfg, GoobCVars.VoiceChatVolume, value => _volume = Math.Clamp(value, 0f, 2f), true);
+        Subs.CVar(_cfg, GoobCVars.VoiceChatRadioVolume, value => _radioVolume = Math.Clamp(value, 0f, 2f), true);
         Subs.CVar(_cfg, GoobCVars.VoiceChatEnabled, enabled =>
         {
             if (!enabled)
@@ -82,6 +100,7 @@ public sealed class VoiceChatSystem : EntitySystem
 
         _manager.FrameReceived -= OnFrameReceived;
         _manager.SpeakerInfoReceived -= OnSpeakerInfoReceived;
+        _manager.SelfReceived -= OnSelfReceived;
         _overlays.RemoveOverlay<VoiceSpeakingOverlay>();
         ClearStreams();
     }
@@ -90,10 +109,12 @@ public sealed class VoiceChatSystem : EntitySystem
     {
         base.FrameUpdate(frameTime);
 
+        var now = _timing.RealTime;
+        UpdateSelf(now, frameTime);
+
         if (_streams.Count == 0)
             return;
 
-        var now = _timing.RealTime;
         var listener = _audio.GetListenerCoordinates();
 
         foreach (var (id, stream) in _streams)
@@ -112,6 +133,43 @@ public sealed class VoiceChatSystem : EntitySystem
         }
 
         _removeQueue.Clear();
+    }
+
+    public bool IsSelf(ushort speaker)
+    {
+        return Self.Speaker != 0 && Self.Speaker == speaker;
+    }
+
+    public Color GetSelfColor()
+    {
+        if ((Self.Flags & VoiceSelfFlags.Blocked) != 0)
+            return BlockedColor;
+
+        if ((Self.Flags & VoiceSelfFlags.Broadcast) != 0)
+            return BroadcastColor;
+
+        if ((Self.Flags & VoiceSelfFlags.Radio) != 0)
+            return TryGetRadioChannel(Self.Speaker, out var channel) ? channel.Color : RadioColor;
+
+        return Color.White;
+    }
+
+    public string? GetSelfLabel()
+    {
+        if ((Self.Flags & VoiceSelfFlags.Blocked) != 0)
+            return Loc.GetString("voice-self-blocked");
+
+        if ((Self.Flags & VoiceSelfFlags.Broadcast) != 0)
+            return Loc.GetString("voice-route-broadcast");
+
+        if ((Self.Flags & VoiceSelfFlags.Radio) != 0)
+        {
+            return TryGetRadioChannel(Self.Speaker, out var channel)
+                ? channel.LocalizedName
+                : Loc.GetString("voice-route-radio");
+        }
+
+        return null;
     }
 
     public bool TryGetSpeakerInfo(ushort speaker, out VoiceSpeakerInfo info)
@@ -220,6 +278,26 @@ public sealed class VoiceChatSystem : EntitySystem
             _speakerVolume[speaker] = volume;
     }
 
+    private void OnSelfReceived(MsgVoiceSelf message)
+    {
+        Self.Speaker = message.Speaker;
+        Self.Flags = message.Flags;
+        Self.Target = message.Levels;
+        Self.LastReceived = _timing.RealTime;
+    }
+
+    private void UpdateSelf(TimeSpan now, float frameTime)
+    {
+        var active = Self.LastReceived != TimeSpan.Zero && now - Self.LastReceived < SelfTimeout;
+        if (!active)
+            Self.Target = default;
+
+        VoiceLevelSmoothing.Apply(ref Self.Levels, Self.Target, frameTime);
+        Self.Activity = active
+            ? 1f
+            : MathF.Max(0f, Self.Activity - frameTime / SelfActivityRelease);
+    }
+
     private void OnSpeakerInfoReceived(MsgVoiceSpeakerInfo message)
     {
         ProtoId<RadioChannelPrototype>? channel = null;
@@ -259,7 +337,11 @@ public sealed class VoiceChatSystem : EntitySystem
     {
         var referenceDistance = _audio.GetAudioDistance(1f);
         var maxDistance = _audio.GetAudioDistance(stream.Range);
-        var volume = Math.Clamp(_volume * _speakerVolume.GetValueOrDefault(stream.Speaker, 1f), 0f, 4f);
+        var volume = _volume * _speakerVolume.GetValueOrDefault(stream.Speaker, 1f);
+        if (stream.Route is VoiceRoute.Radio or VoiceRoute.RadioSpeaker)
+            volume *= _radioVolume;
+
+        volume = Math.Clamp(volume, 0f, 4f);
         var gain = MathF.Min(volume, 1f);
         var boost = MathF.Max(volume, 1f);
 

@@ -15,6 +15,9 @@ public sealed partial class VoiceRadioComponent : Component
 
     [AutoNetworkedField]
     public ProtoId<RadioChannelPrototype>? Active;
+
+    [AutoNetworkedField]
+    public List<ProtoId<RadioChannelPrototype>> Receive = new();
 }
 
 [Serializable, NetSerializable]

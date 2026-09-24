@@ -26,6 +26,7 @@ public sealed class VoiceRadioSystem : EntitySystem
     private static readonly TimeSpan RefreshInterval = TimeSpan.FromSeconds(1);
 
     private readonly List<ProtoId<RadioChannelPrototype>> _channels = new();
+    private readonly List<ProtoId<RadioChannelPrototype>> _receive = new();
     private readonly HashSet<EntityUid> _tracked = new();
     private readonly HashSet<EntityUid> _current = new();
     private bool _enabled;
@@ -106,10 +107,14 @@ public sealed class VoiceRadioSystem : EntitySystem
     private void RefreshEntity(EntityUid uid)
     {
         _channels.Clear();
+        _receive.Clear();
         if (_enabled)
+        {
             CollectChannels(uid);
+            CollectReceive(uid);
+        }
 
-        if (_channels.Count == 0)
+        if (_channels.Count == 0 && _receive.Count == 0)
         {
             RemComp<VoiceRadioComponent>(uid);
             return;
@@ -117,10 +122,15 @@ public sealed class VoiceRadioSystem : EntitySystem
 
         var voiceRadio = EnsureComp<VoiceRadioComponent>(uid);
         var active = voiceRadio.Active is { } current && _channels.Contains(current) ? current : (ProtoId<RadioChannelPrototype>?) null;
-        if (voiceRadio.Channels.SequenceEqual(_channels) && voiceRadio.Active == active)
+        if (voiceRadio.Channels.SequenceEqual(_channels) &&
+            voiceRadio.Receive.SequenceEqual(_receive) &&
+            voiceRadio.Active == active)
+        {
             return;
+        }
 
         voiceRadio.Channels = new List<ProtoId<RadioChannelPrototype>>(_channels);
+        voiceRadio.Receive = new List<ProtoId<RadioChannelPrototype>>(_receive);
         voiceRadio.Active = active;
         Dirty(uid, voiceRadio);
     }
@@ -156,6 +166,38 @@ public sealed class VoiceRadioSystem : EntitySystem
 
             if (!_channels.Contains(id))
                 _channels.Add(id);
+        }
+    }
+
+    private void CollectReceive(EntityUid uid)
+    {
+        if (TryComp<WearingHeadsetComponent>(uid, out var wearing) &&
+            TryComp<ActiveRadioComponent>(wearing.Headset, out var headsetRadio))
+        {
+            AddReceive(uid, headsetRadio.Channels);
+        }
+
+        if (TryComp<ActiveRadioComponent>(uid, out var intrinsic))
+            AddReceive(uid, intrinsic.Channels);
+
+        _receive.Sort((a, b) => string.CompareOrdinal(a.Id, b.Id));
+    }
+
+    private void AddReceive(EntityUid uid, IEnumerable<ProtoId<RadioChannelPrototype>> channels)
+    {
+        foreach (var id in channels)
+        {
+            if (!_common && id == SharedChatSystem.CommonChannel)
+                continue;
+
+            if (!_prototype.TryIndex(id, out var channel) ||
+                !_whitelist.IsWhitelistPassOrNull(channel.ReceiveWhitelist, uid))
+            {
+                continue;
+            }
+
+            if (!_receive.Contains(id))
+                _receive.Add(id);
         }
     }
 

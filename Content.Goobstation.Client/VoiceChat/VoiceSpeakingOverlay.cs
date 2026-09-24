@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Goobstation.Shared.VoiceChat;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Enums;
 
 namespace Content.Goobstation.Client.VoiceChat;
@@ -13,6 +14,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
     private static readonly Vector2 BoxSize = new Vector2(11f, 9f) * Pixel;
 
     private readonly IEntityManager _entityManager;
+    private readonly IPlayerManager _player;
     private readonly VoiceChatSystem _voice;
     private readonly SharedTransformSystem _transform;
 
@@ -21,6 +23,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
     public VoiceSpeakingOverlay(IEntityManager entityManager, VoiceChatSystem voice)
     {
         _entityManager = entityManager;
+        _player = IoCManager.Resolve<IPlayerManager>();
         _voice = voice;
         _transform = entityManager.System<SharedTransformSystem>();
     }
@@ -30,9 +33,19 @@ public sealed class VoiceSpeakingOverlay : Overlay
         var handle = args.WorldHandle;
         var rotation = Matrix3Helpers.CreateRotation(-(args.Viewport.Eye?.Rotation ?? Angle.Zero));
 
+        var self = _voice.Self;
+        if (self.Activity > 0f &&
+            _entityManager.TryGetComponent<TransformComponent>(_player.LocalEntity, out var selfXform) &&
+            selfXform.MapID == args.MapId)
+        {
+            var position = _transform.GetWorldPosition(selfXform);
+            if (args.WorldAABB.Contains(position))
+                DrawIndicator(handle, rotation, position, self.Levels, _voice.GetSelfColor().WithAlpha(self.Activity), self.Activity);
+        }
+
         foreach (var stream in _voice.Streams.Values)
         {
-            if (stream.Route == VoiceRoute.Radio || stream.Activity <= 0f)
+            if (stream.Route == VoiceRoute.Radio || stream.Activity <= 0f || _voice.IsSelf(stream.Speaker))
                 continue;
 
             var visibility = stream.Global ? 1f : stream.Audibility;
@@ -49,17 +62,19 @@ public sealed class VoiceSpeakingOverlay : Overlay
                 continue;
 
             var alpha = stream.Activity * (0.3f + 0.7f * visibility);
-            var color = _voice.GetRouteColor(stream).WithAlpha(alpha);
-            var levels = stream.Levels;
-
-            handle.SetTransform(Matrix3x2.Multiply(rotation, Matrix3Helpers.CreateTranslation(position)));
-            handle.DrawRect(new Box2(Origin, Origin + BoxSize), Color.Black.WithAlpha(0.6f * alpha));
-            DrawBar(handle, 0, levels.Low, color);
-            DrawBar(handle, 1, levels.Mid, color);
-            DrawBar(handle, 2, levels.High, color);
+            DrawIndicator(handle, rotation, position, stream.Levels, _voice.GetRouteColor(stream).WithAlpha(alpha), alpha);
         }
 
         handle.SetTransform(Matrix3x2.Identity);
+    }
+
+    private static void DrawIndicator(DrawingHandleWorld handle, Matrix3x2 rotation, Vector2 position, VoiceLevels levels, Color color, float alpha)
+    {
+        handle.SetTransform(Matrix3x2.Multiply(rotation, Matrix3Helpers.CreateTranslation(position)));
+        handle.DrawRect(new Box2(Origin, Origin + BoxSize), Color.Black.WithAlpha(0.6f * alpha));
+        DrawBar(handle, 0, levels.Low, color);
+        DrawBar(handle, 1, levels.Mid, color);
+        DrawBar(handle, 2, levels.High, color);
     }
 
     private static void DrawBar(DrawingHandleWorld handle, int index, float level, Color color)

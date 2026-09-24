@@ -476,6 +476,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> VoiceChatSpeakerList =
         CVarDef.Create("voice.speaker_list", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Show the list of players you can currently hear on voice chat.");
 
+    public static readonly CVarDef<float> VoiceChatRadioVolume =
+        CVarDef.Create("voice.radio_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE, "Volume multiplier for voice heard over radio, 0 to 2.");
+
+    public static readonly CVarDef<string> VoiceChatRadioMuted =
+        CVarDef.Create("voice.radio_muted", "", CVar.CLIENTONLY | CVar.ARCHIVE, "Comma-separated radio channel IDs whose voice chat you don't want to hear.");
+
     public static readonly CVarDef<float> VoiceChatVolume =
         CVarDef.Create("voice.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE, "Voice chat playback volume, 0 to 2.");
 
