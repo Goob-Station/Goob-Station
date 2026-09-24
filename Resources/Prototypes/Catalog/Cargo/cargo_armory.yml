@@ -63,7 +63,7 @@
 - type: cargoProduct
   id: ArmoryPistol
   icon:
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/mk58.rsi #GoobStation Resprite
     state: icon
   product: CrateArmoryPistols
   cost: 3200 # Goobstation # they're kinda bad compared to the other guns so should be cheap
