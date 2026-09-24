@@ -1,4 +1,6 @@
+using Content.Shared.Guidebook;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -25,11 +27,11 @@ public sealed class SlasherKitSelectedMessage(string kitId) : BoundUserInterface
 [Serializable, NetSerializable]
 public sealed record SlasherKitInfo(
     string Id,
-    string Name,
-    string Description,
+    LocId Name,
+    LocId? Description,
     SpriteSpecifier Sprite,
     SoundSpecifier? ThemeSong,
     string? AscensionId,
     string? RequiredAscension,
     bool Unlocked,
-    string? Guide);
+    ProtoId<GuideEntryPrototype>? Guide);

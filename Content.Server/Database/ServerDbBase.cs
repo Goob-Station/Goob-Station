@@ -736,16 +736,16 @@ namespace Content.Server.Database
         }
 
         // Goobstation start - Slasher prestige ascensions
-        public async Task<List<string>> GetSlasherAscensionsAsync(NetUserId userId)
+        public async Task<List<string>> GetSlasherAscensions(NetUserId userId, CancellationToken cancel)
         {
-            await using var db = await GetDb();
+            await using var db = await GetDb(cancel);
             return await db.DbContext.SlasherAscensions
                 .Where(a => a.PlayerUserId == userId.UserId)
                 .Select(a => a.AscensionId)
-                .ToListAsync();
+                .ToListAsync(cancellationToken: cancel);
         }
 
-        public async Task AddSlasherAscensionAsync(NetUserId userId, string ascensionId)
+        public async Task AddSlasherAscension(NetUserId userId, string ascensionId)
         {
             await using var db = await GetDb();
 
