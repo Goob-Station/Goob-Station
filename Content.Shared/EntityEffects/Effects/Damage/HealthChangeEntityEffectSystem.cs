@@ -40,7 +40,7 @@ public sealed partial class HealthChangeEntityEffectSystem : EntityEffectSystem<
                 args.Effect.IgnoreResistances,
                 interruptsDoAfters: false,
                 splitDamage: args.Effect.SplitDamage,
-                targetPart: args.Effect.TargetPart,
+                targetPart: args.Effect.UseTargeting ? args.Effect.TargetPart : null,
                 ignoreBlockers: args.Effect.IgnoreBlockers); // Woundmed - Extra args
     }
 }

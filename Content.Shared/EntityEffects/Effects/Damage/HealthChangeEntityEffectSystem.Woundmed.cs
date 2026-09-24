@@ -9,10 +9,9 @@ public sealed partial class HealthChange
     [DataField]
     public SplitDamageBehavior SplitDamage = SplitDamageBehavior.SplitEnsureAllOrganic;
 
-    /// <summary>
-    /// [Woundmed]
-    /// Nullable target part of the health change.
-    /// </summary>
+    [DataField]
+    public bool UseTargeting = true;
+
     [DataField]
     public TargetBodyPart? TargetPart = TargetBodyPart.All;
 
