@@ -8,6 +8,24 @@
       sprite:
         sprite: _Goobstation/Slasher/Interface/KitIcons/butcher.rsi
         state: icon
+    slasher-kit-chickenmask:
+      gear: SlasherGearChickenMask
+      description: slasher-kit-chickenmask-desc
+      guide: SlasherHotline
+      requiredAscension: Butcher
+      sprite:
+        sprite: _Goobstation/Slasher/Interface/KitIcons/chickenmask.rsi
+        state: icon
+      machetePrototype: SlasherBat
+      bloodTrailMusic:
+        path: /Audio/_Goobstation/Slasher/Music/fake_atomika.ogg
+        params:
+          volume: -4
+          loop: true
+      fearStyle:
+      - type: HotlineVision
+      components:
+      - type: HotlineVision
     slasher-kit-spring:
       gear: SlasherGearSpring
       description: slasher-kit-spring-desc
@@ -33,6 +51,26 @@
         params:
           volume: -7
           loop: true
+    slasher-kit-monsieur:
+      gear: SlasherGearBilly
+      description: slasher-kit-monsieur-desc
+      guide: SlasherMonsieur
+      ascensionId: Monsieur
+      requiredAscension: Billy
+      sprite:
+        sprite: _Goobstation/Slasher/Interface/KitIcons/monsieur.rsi
+        state: icon
+      machetePrototype: SlasherCrowbar
+      bloodTrailMusic:
+        path: /Audio/_Goobstation/Slasher/Music/excuse_me_tider.ogg
+        params:
+          volume: -7
+          loop: true
+      components:
+      - type: TentacleHook
+      - type: ActionGrant
+        actions:
+        - ActionTentacleHook
     slasher-kit-cult:
       gear: SlasherGearCult
       description: slasher-kit-cult-desc
@@ -138,6 +176,49 @@
       - type: Muted
       - type: MovementSpeedModifier
         baseSprintSpeed: 5.0
+    slasher-kit-falseidol:
+      gear: SlasherGearFalseIdol
+      description: slasher-kit-falseidol-desc
+      ascensionId: FalseIdol
+      sprite:
+        sprite: _Goobstation/Slasher/Interface/KitIcons/falseidol.rsi
+        state: icon
+      machetePrototype: SlasherMacheteFalseIdol
+      bloodTrailMusic:
+        path: /Audio/_Goobstation/Slasher/Music/retry_now_instrumental.ogg
+        params:
+          volume: -11
+          loop: true
+    slasher-kit-idol:
+      gear: SlasherGearIdol
+      description: slasher-kit-idol-desc
+      guide: SlasherIdol
+      requiredAscension: FalseIdol
+      sprite:
+        sprite: _Goobstation/Slasher/Interface/KitIcons/idol.rsi
+        state: icon
+      machetePrototype: SlasherMacheteIdol
+      bloodTrailMusic:
+        path: /Audio/_Goobstation/Slasher/Music/retry_now.ogg
+        params:
+          volume: -7
+          loop: true
+      ascendanceAnnouncementKey: slasher-soulsteal-ascendance-idol
+      fearStyle:
+      - type: SlasherValentineOverlay
+      components:
+      - type: SlasherIdol
+      - type: MagicalStarEyes
+      - type: SlasherSoulSteal
+        requireLimbLoss: false
+      - type: SlasherStaggerArea
+        shockwaveShader: SlasherStaggerValentine
+        ringColor: "#FF6B99"
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSlasherIdolTitle
+        - NamesSlasherIdol
+        nameFormat: name-format-slasher
   postSelectionComponents:
     - type: Slasher
     - type: SlasherSummonMachete
