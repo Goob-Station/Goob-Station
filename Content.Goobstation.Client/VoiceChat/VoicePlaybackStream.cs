@@ -31,8 +31,6 @@ public sealed class VoicePlaybackStream : IDisposable
     private const int ConcealAfterFrames = 3;
     private const int MaxSequenceJump = 50;
 
-    private const float AttackTime = 0.025f;
-    private const float ReleaseTime = 0.15f;
     private const float ActivityRelease = 0.3f;
 
     private static readonly TimeSpan StartWait = TimeSpan.FromMilliseconds(60);
@@ -88,21 +86,11 @@ public sealed class VoicePlaybackStream : IDisposable
             target = _meter.Get(current.Start + (long) (current.Source.PlaybackPosition * SampleRate));
         }
 
-        var attack = 1f - MathF.Exp(-frameTime / AttackTime);
-        var release = 1f - MathF.Exp(-frameTime / ReleaseTime);
-        Levels.Low = Smooth(Levels.Low, target.Low, attack, release);
-        Levels.Mid = Smooth(Levels.Mid, target.Mid, attack, release);
-        Levels.High = Smooth(Levels.High, target.High, attack, release);
-        Levels.Overall = Smooth(Levels.Overall, target.Overall, attack, release);
+        VoiceLevelSmoothing.Apply(ref Levels, target, frameTime);
 
         Activity = playing
             ? 1f
             : MathF.Max(0f, Activity - frameTime / ActivityRelease);
-    }
-
-    private static float Smooth(float current, float target, float attack, float release)
-    {
-        return current + (target - current) * (target > current ? attack : release);
     }
 
     public void AddFrame(ushort sequence, byte flags, short[] pcm, TimeSpan now)

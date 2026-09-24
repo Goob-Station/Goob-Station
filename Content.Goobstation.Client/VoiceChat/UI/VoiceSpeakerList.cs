@@ -13,6 +13,7 @@ public sealed class VoiceSpeakerList : Control
     private readonly BoxContainer _entries;
     private readonly Dictionary<ushort, VoiceSpeakerEntry> _bySpeaker = new();
     private readonly List<VoiceSpeakerEntry> _expired = new();
+    private VoiceSpeakerEntry? _self;
 
     public VoiceSpeakerList()
     {
@@ -29,12 +30,14 @@ public sealed class VoiceSpeakerList : Control
 
     public void Update(float frameTime, VoiceChatSystem voice)
     {
+        var added = false;
         foreach (var (id, stream) in voice.Streams)
         {
             if (_bySpeaker.Count >= MaxEntries)
                 break;
 
             if (_bySpeaker.ContainsKey(id) ||
+                voice.IsSelf(id) ||
                 !stream.Playing ||
                 !stream.Global && stream.Audibility < MinVisibility)
             {
@@ -44,21 +47,26 @@ public sealed class VoiceSpeakerList : Control
             var entry = new VoiceSpeakerEntry(id);
             _bySpeaker[id] = entry;
             _entries.AddChild(entry);
+            added = true;
         }
 
         foreach (var entry in _bySpeaker.Values)
         {
-            if (!voice.Streams.TryGetValue(entry.Speaker, out var stream))
-                stream = null;
-
             var name = voice.TryGetSpeakerInfo(entry.Speaker, out var info)
                 ? info.Name
                 : Loc.GetString("voice-speaker-unknown");
 
-            if (stream == null)
-                entry.Update(frameTime, null, name, null, Color.White);
+            if (!voice.IsSelf(entry.Speaker) && voice.Streams.TryGetValue(entry.Speaker, out var stream))
+            {
+                var visibility = stream.Global ? 1f : stream.Audibility;
+                var active = stream.Activity > 0f && visibility >= MinVisibility;
+                var level = stream.Levels.Overall * (0.25f + 0.75f * visibility);
+                entry.Update(frameTime, active, level, name, voice.GetRouteLabel(stream), voice.GetRouteColor(stream));
+            }
             else
-                entry.Update(frameTime, stream, name, voice.GetRouteLabel(stream), voice.GetRouteColor(stream));
+            {
+                entry.Update(frameTime, false, 0f, name, null, Color.White);
+            }
 
             if (entry.Expired)
                 _expired.Add(entry);
@@ -71,12 +79,45 @@ public sealed class VoiceSpeakerList : Control
         }
 
         _expired.Clear();
+        UpdateSelf(frameTime, voice, added);
     }
 
     public void Clear()
     {
         _bySpeaker.Clear();
+        _self = null;
         _entries.RemoveAllChildren();
+    }
+
+    private void UpdateSelf(float frameTime, VoiceChatSystem voice, bool reorder)
+    {
+        var self = voice.Self;
+        if (_self == null)
+        {
+            if (self.Activity <= 0f)
+                return;
+
+            _self = new VoiceSpeakerEntry(self.Speaker);
+            _entries.AddChild(_self);
+        }
+        else if (reorder)
+        {
+            _self.SetPositionLast();
+        }
+
+        _self.Update(
+            frameTime,
+            self.Activity > 0f,
+            self.Levels.Overall,
+            Loc.GetString("voice-speaker-self"),
+            voice.GetSelfLabel(),
+            voice.GetSelfColor());
+
+        if (!_self.Expired)
+            return;
+
+        _self.Orphan();
+        _self = null;
     }
 }
 
@@ -133,12 +174,9 @@ public sealed class VoiceSpeakerEntry : Control
         AddChild(row);
     }
 
-    public void Update(float frameTime, VoicePlaybackStream? stream, string name, string? route, Color color)
+    public void Update(float frameTime, bool active, float level, string name, string? route, Color color)
     {
-        var visibility = stream == null ? 0f : stream.Global ? 1f : stream.Audibility;
-        var active = stream is { Activity: > 0f } && visibility >= MinVisibility;
-
-        _level = active ? stream!.Levels.Overall * (0.25f + 0.75f * visibility) : 0f;
+        _level = active ? level : 0f;
         _silentFor = active ? 0f : _silentFor + frameTime;
         _color = color;
 

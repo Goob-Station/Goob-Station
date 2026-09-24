@@ -27,7 +27,7 @@ voice-broadcast-started = You're broadcasting to the whole station for {$seconds
 voice-broadcast-ended = Your voice broadcast has ended.
 
 voice-radio-button-off = Local
-voice-radio-button-tooltip = Voice chat radio channel. Local means proximity only.
+voice-radio-button-tooltip = Voice chat radio: pick the channel you talk on, which channels you hear, and radio volume.
 
 voice-verb-category = Voice chat
 voice-verb-mute = Mute
@@ -46,3 +46,10 @@ voice-route-telephone = Phone
 voice-route-holopad = Holopad
 voice-route-camera = Camera
 voice-route-broadcast = Broadcast
+voice-speaker-self = You
+voice-self-blocked = Can't speak
+
+voice-radio-popup-talk = Talk
+voice-radio-popup-hear = Hear
+voice-radio-popup-volume = Volume
+voice-radio-popup-volume-value = {$percent}%

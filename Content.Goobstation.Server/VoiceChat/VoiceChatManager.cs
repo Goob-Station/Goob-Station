@@ -35,6 +35,7 @@ public sealed class VoiceChatManager
     private readonly Dictionary<NetUserId, string> _userTokens = new();
     private readonly HashSet<NetUserId> _hearSelf = new();
     private readonly HashSet<NetUserId> _notReceiving = new();
+    private readonly Dictionary<NetUserId, HashSet<string>> _mutedChannels = new();
     private readonly Dictionary<string, (byte[] Data, string ContentType)> _files = new();
 
     private ISawmill _sawmill = default!;
@@ -54,6 +55,7 @@ public sealed class VoiceChatManager
         _net.RegisterNetMessage<MsgVoiceSettings>(OnSettings);
         _net.RegisterNetMessage<MsgVoiceStatus>();
         _net.RegisterNetMessage<MsgVoiceSpeakerInfo>();
+        _net.RegisterNetMessage<MsgVoiceSelf>();
         _net.Disconnect += OnDisconnect;
 
         LoadWebFiles();
@@ -95,6 +97,11 @@ public sealed class VoiceChatManager
     public bool Receives(NetUserId user)
     {
         return !_notReceiving.Contains(user);
+    }
+
+    public bool IsRadioChannelMuted(NetUserId user, string channel)
+    {
+        return _mutedChannels.TryGetValue(user, out var muted) && muted.Contains(channel);
     }
 
     public void SendState(NetUserId user, VoiceWebState state)
@@ -243,6 +250,11 @@ public sealed class VoiceChatManager
         else
             _notReceiving.Add(user);
 
+        if (message.MutedChannels.Count == 0)
+            _mutedChannels.Remove(user);
+        else
+            _mutedChannels[user] = new HashSet<string>(message.MutedChannels);
+
         SendStatus(message.MsgChannel);
     }
 
@@ -250,6 +262,7 @@ public sealed class VoiceChatManager
     {
         _hearSelf.Remove(args.Channel.UserId);
         _notReceiving.Remove(args.Channel.UserId);
+        _mutedChannels.Remove(args.Channel.UserId);
     }
 
     private string GetPublicUrl()
