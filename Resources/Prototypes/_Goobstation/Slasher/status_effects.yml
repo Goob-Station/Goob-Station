@@ -14,3 +14,19 @@
   parent: StatusEffectSlowdown
   id: SlasherSlowdownStatusEffect
   name: slasher slowdown
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectSlasherLovestruck
+  name: lovestruck
+  components:
+  - type: StatusEffectAlert
+    alert: SlasherLovestruck
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: HeartEyes
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: SlasherLovestruckStatusEffect
+  name: charmed slowdown

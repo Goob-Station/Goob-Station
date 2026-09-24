@@ -138,3 +138,26 @@
     - state: green
     - sprite: _Goobstation/Slasher/Objects/machete.rsi
       state: icon
+
+- type: startingGear
+  id: SlasherGearChickenMask
+  parent: SlasherGear
+  equipment:
+    head: ClothingHeadHatSlasherMaskChicken
+    outerClothing: ClothingOuterSlasherChicken
+
+- type: startingGear
+  id: SlasherGearFalseIdol
+  parent: SlasherGear
+  equipment:
+    head: ClothingHeadSlasherFalseIdol
+    outerClothing: ClothingOuterSlasherFalseIdol
+    shoes: ClothingShoesSlasherFalseIdol
+
+- type: startingGear
+  id: SlasherGearIdol
+  parent: SlasherGear
+  equipment:
+    head: ClothingHeadSlasherIdol
+    outerClothing: ClothingOuterSlasherIdol
+    shoes: ClothingShoesSlasherIdol

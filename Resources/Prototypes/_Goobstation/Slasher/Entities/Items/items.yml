@@ -52,6 +52,65 @@
     angle: 225
 
 - type: entity
+  id: SlasherMeatSpike
+  parent: BaseStructure
+  name: Ominous Meat Spike
+  description: You might want to run.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Structures/meat_spike.rsi
+    state: spike
+    layers:
+    - state: spike
+      map: ["base"]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -4
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+  - type: Anchorable
+  - type: Pullable
+  - type: Appearance
+  - type: BlockHandsOnBuckle
+  - type: Strap
+    position: Down
+    rotation: -180
+    buckleBreakOnDamage: false
+    selfUnBuckleDelay: 30
+    blacklist:
+      components:
+        - Slasher # no lmao
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: AntiRotOnBuckle
+  - type: Fixtures
+    fixtures:
+      spike:
+        shape: !type:PhysShapeAabb { bounds: "-0.25,-0.25,0.25,0.25" }
+        density: 5
+        mask: []
+        layer: []
+
+
+- type: entity
   parent: WeldingMaskBase
   id: ClothingHeadHatSlasherMask
   name: slasher mask
@@ -810,60 +869,187 @@
       innerClothing:
       - state: equipped-INNERCLOTHING
 
+# chicken mask kit
+
 - type: entity
-  id: SlasherMeatSpike
-  parent: BaseStructure
-  name: Ominous Meat Spike
-  description: You might want to run.
+  name: bat
+  parent: SlasherMachete
+  id: SlasherBat
+  categories: [ HideSpawnMenu ]
+  description: Didn't even wait for him to answer.
   components:
-  - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/meat_spike.rsi
-    state: spike
-    layers:
-    - state: spike
-      map: ["base"]
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-          params:
-            volume: -4
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 1
-  - type: Anchorable
-  - type: Pullable
-  - type: Appearance
-  - type: BlockHandsOnBuckle
-  - type: Strap
-    position: Down
-    rotation: -180
-    buckleBreakOnDamage: false
-    selfUnBuckleDelay: 30
-    blacklist:
-      components:
-        - Slasher # no lmao
-  - type: Transform
-    anchored: true
-    noRot: true
-  - type: AntiRotOnBuckle
-  - type: Fixtures
-    fixtures:
-      spike:
-        shape: !type:PhysShapeAabb { bounds: "-0.25,-0.25,0.25,0.25" }
-        density: 5
-        mask: []
-        layer: []
+    sprite: Objects/Weapons/Melee/baseball_bat.rsi
+    state: icon
+  - type: MeleeWeapon
+    animationRotation: -135
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 30
+  - type: Item
+    size: Large
+    storedRotation: 90
+    sprite: Objects/Weapons/Melee/baseball_bat.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/baseball_bat.rsi
+    shape:
+    - 0,0,0,3
+
+- type: entity
+  name: richard mask
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadHatSlasherMaskChicken
+  categories: [ HideSpawnMenu ]
+  description: Do you like hurting other people?
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Misc/richard.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/richard.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: IdentityBlocker
+
+- type: entity
+  name: bomber jacket
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherChicken
+  categories: [ HideSpawnMenu ]
+  description: A thick, well-worn leather bomber jacket. It has seen things.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/bomber.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/bomber.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+# false idol kit
+
+- type: entity
+  name: idol's wand
+  parent: SlasherMachete
+  id: SlasherMacheteFalseIdol
+  description: A radiant wand wielded by a false idol. Devotion has never been so sharp.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Slasher/Objects/Repure/p_1_wand.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Slasher/Objects/Repure/p_1_wand.rsi
+    storedSprite:
+      state: icon
+      sprite: _Goobstation/Slasher/Objects/Repure/p_1_wand.rsi
+
+- type: entity
+  name: idol's crown
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadSlasherFalseIdol
+  description: A delicate crown worn by one who craves worship.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Slasher/Objects/Repure/p_1_helmet.rsi
+  - type: Clothing
+    sprite: _Goobstation/Slasher/Objects/Repure/p_1_helmet.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+
+- type: entity
+  name: idol's dress
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherFalseIdol
+  description: An ornate dress, pristine despite the carnage.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Slasher/Objects/Repure/p_1_dress.rsi
+  - type: Clothing
+    sprite: _Goobstation/Slasher/Objects/Repure/p_1_dress.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  name: idol's shoes
+  parent: ClothingShoesSlasher
+  id: ClothingShoesSlasherFalseIdol
+  description: Elegant shoes that never seem to leave a footprint.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Slasher/Objects/Repure/p_1_shoes.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Slasher/Objects/Repure/p_1_shoes.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+
+# idol kit
+
+- type: entity
+  name: idol's wand
+  parent: SlasherMachete
+  id: SlasherMacheteIdol
+  description: A radiant wand wielded by a true idol. Devotion has never been so sharp.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Slasher/Objects/Repure/p_2_wand.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Slasher/Objects/Repure/p_2_wand.rsi
+    storedSprite:
+      state: icon
+      sprite: _Goobstation/Slasher/Objects/Repure/p_2_wand.rsi
+
+- type: entity
+  name: idol's crown
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadSlasherIdol
+  description: A radiant crown worn by one who has earned worship.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Slasher/Objects/Repure/p_2_helmet.rsi
+  - type: Clothing
+    sprite: _Goobstation/Slasher/Objects/Repure/p_2_helmet.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+
+- type: entity
+  name: idol's dress
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherIdol
+  description: A resplendent dress, pristine despite the carnage.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Slasher/Objects/Repure/p_2_dress.rsi
+  - type: Clothing
+    sprite: _Goobstation/Slasher/Objects/Repure/p_2_dress.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  name: idol's shoes
+  parent: ClothingShoesSlasher
+  id: ClothingShoesSlasherIdol
+  description: Resplendent shoes that never seem to leave a footprint.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Slasher/Objects/Repure/p_2_shoes.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Slasher/Objects/Repure/p_2_shoes.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET

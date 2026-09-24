@@ -48,3 +48,11 @@
       sprite: /Textures/Interface/Alerts/essence_counter.rsi
       state: "0"
       offset: 0.25, 0
+
+- type: alert
+  id: SlasherLovestruck
+  icons:
+  - sprite: /Textures/Effects/hearts.rsi
+    state: hearts
+  name: alerts-slasher-lovestruck-name
+  description: alerts-slasher-lovestruck-desc
