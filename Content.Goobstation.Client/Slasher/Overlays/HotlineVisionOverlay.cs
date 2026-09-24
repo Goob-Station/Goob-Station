@@ -1,0 +1,66 @@
+using Content.Goobstation.Shared.Slasher.Components;
+using Robust.Client.Graphics;
+using Robust.Client.Player;
+using Robust.Shared.Enums;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Client.Slasher.Overlays;
+
+/// <summary>
+/// Gives the user drunk cam / a rainbow esq fov look.
+/// </summary>
+public sealed class HotlineVisionOverlay : Overlay
+{
+    private static readonly ProtoId<ShaderPrototype> Shader = "SlasherHotline";
+
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
+
+    public override OverlaySpace Space => OverlaySpace.WorldSpace | OverlaySpace.WorldSpaceBelowWorld;
+
+    private readonly ShaderInstance _voidShader;
+    private readonly ShaderInstance _spaceShader;
+
+    public HotlineVisionOverlay()
+    {
+        IoCManager.InjectDependencies(this);
+
+        ZIndex = 1;
+
+        var phase = Random.Shared.NextSingle() * 1000f;
+
+        _voidShader = _proto.Index(Shader).InstanceUnique();
+        _voidShader.SetParameter("phase", phase);
+        _voidShader.Stencil = new StencilParameters
+        {
+            Enabled = true,
+            Ref = 1,
+            Func = StencilFunc.Equal,
+            Op = StencilOp.Keep,
+            WriteMask = 0,
+        };
+
+        _spaceShader = _proto.Index(Shader).InstanceUnique();
+        _spaceShader.SetParameter("phase", phase);
+    }
+
+    protected override bool BeforeDraw(in OverlayDrawArgs args)
+    {
+        if (_player.LocalEntity is not { } player
+            || !_entMan.HasComponent<HotlineVisionComponent>(player)
+            || !_entMan.TryGetComponent<EyeComponent>(player, out var eye)
+            || args.Viewport.Eye != eye.Eye)
+            return false;
+
+        return args.Space != OverlaySpace.WorldSpace || eye.DrawFov;
+    }
+
+    protected override void Draw(in OverlayDrawArgs args)
+    {
+        var handle = args.WorldHandle;
+        handle.UseShader(args.Space == OverlaySpace.WorldSpaceBelowWorld ? _spaceShader : _voidShader);
+        handle.DrawRect(args.WorldBounds, Color.White);
+        handle.UseShader(null);
+    }
+}
