@@ -1,0 +1,54 @@
+const highp vec3 WINE  = vec3(0.55, 0.02, 0.16);
+const highp vec3 ROSE  = vec3(1.00, 0.30, 0.50);
+const highp vec3 BLUSH = vec3(1.00, 0.62, 0.76);
+const highp vec3 GLINT = vec3(1.00, 0.88, 0.93);
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float dot2(highp vec2 v)
+{
+    return dot(v, v);
+}
+
+highp float sdHeart(highp vec2 p)
+{
+    p.x = abs(p.x);
+    if (p.y + p.x > 1.0)
+        return sqrt(dot2(p - vec2(0.25, 0.75))) - sqrt(2.0) / 4.0;
+    return sqrt(min(dot2(p - vec2(0.0, 1.0)),
+                    dot2(p - 0.5 * max(p.x + p.y, 0.0)))) * sign(p.x - p.y);
+}
+
+highp float sdStar5(highp vec2 p, highp float r, highp float rf)
+{
+    const highp vec2 k1 = vec2(0.809016994375, -0.587785252292);
+    const highp vec2 k2 = vec2(-k1.x, k1.y);
+    p.x = abs(p.x);
+    p -= 2.0 * max(dot(k1, p), 0.0) * k1;
+    p -= 2.0 * max(dot(k2, p), 0.0) * k2;
+    p.x = abs(p.x);
+    p.y -= r;
+    highp vec2 ba = rf * vec2(-k1.y, k1.x) - vec2(0.0, 1.0);
+    highp float h = clamp(dot(p, ba) / dot(ba, ba), 0.0, r);
+    return length(p - ba * h) * sign(p.y * ba.x - p.x * ba.y);
+}
+
+highp float heartbeat(highp float t)
+{
+    highp float x = fract(t);
+    highp float u = x * 9.0;
+    highp float v = (x - 0.16) * 9.0;
+    return exp(-(u * u)) + exp(-(v * v)) * 0.6;
+}
+
+highp vec4 splitGlyph(highp vec3 baseColor, highp float aR, highp float aG, highp float aB,
+                      highp vec2 p, highp float glowStrength)
+{
+    highp vec3 col = vec3(baseColor.r * aR, baseColor.g * aG, baseColor.b * aB);
+    highp float glow = exp(-length(p) * 4.0) * glowStrength;
+    col += baseColor * glow;
+    return vec4(col, clamp(max(aR, max(aG, aB)) + glow, 0.0, 1.0));
+}
