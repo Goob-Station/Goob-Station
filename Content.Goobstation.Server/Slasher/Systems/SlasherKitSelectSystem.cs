@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Slasher;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Systems;
 using Content.Goobstation.Shared.Slasher.UI;
@@ -7,6 +8,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Station;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -18,6 +20,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
     [Dependency] private readonly SlasherIncorporealSystem _incorporeal = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SlasherPrestigeManager _prestige = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -39,9 +42,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         var incorporealComp = EnsureComp<SlasherIncorporealComponent>(ent.Owner);
         _incorporeal.EnterIncorporeal(ent.Owner, (ent.Owner, incorporealComp));
         _actions.RemoveAction(ent.Owner, incorporealComp.IncorporealizeActionEnt);
-        _actions.RemoveAction(ent.Owner, incorporealComp.CorporealizeActionEnt);
         incorporealComp.IncorporealizeActionEnt = null;
-        incorporealComp.CorporealizeActionEnt = null;
 
         _ui.OpenUi(ent.Owner, SlasherKitSelectUiKey.Key, args.Player);
     }
@@ -53,7 +54,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
 
         var userId = actor.PlayerSession.UserId;
         var kitInfos = new List<SlasherKitInfo>();
-        foreach (var (id, kit) in ent.Comp.Kits)
+        foreach (var (id, kit) in _proto.Index(ent.Comp.KitList).Kits)
         {
             kitInfos.Add(new SlasherKitInfo(
                 id,
@@ -75,8 +76,9 @@ public sealed class SlasherKitSelectSystem : EntitySystem
 
     private void OnKitSelected(Entity<SlasherKitSelectComponent> ent, ref SlasherKitSelectedMessage args)
     {
+        var kitList = _proto.Index(ent.Comp.KitList);
         if (ent.Comp.KitSelected
-            || !ent.Comp.Kits.TryGetValue(args.KitId, out var selectedKit)
+            || !kitList.Kits.TryGetValue(args.KitId, out var selectedKit)
             || !TryComp<ActorComponent>(args.Actor, out var actor)
             || !IsKitUnlocked(selectedKit, actor.PlayerSession.UserId))
             return;
@@ -87,8 +89,6 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         {
             _incorporeal.ExitIncorporeal(ent.Owner, (ent.Owner, incorporealComp));
             _actions.AddAction(ent.Owner, ref incorporealComp.IncorporealizeActionEnt, incorporealComp.IncorporealizeActionId);
-            _actions.AddAction(ent.Owner, ref incorporealComp.CorporealizeActionEnt, incorporealComp.CorporealizeActionId);
-            _actions.SetEnabled(incorporealComp.CorporealizeActionEnt, false);
         }
 
         _movement.ChangeBaseSpeed(ent.Owner,
@@ -97,7 +97,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
             MovementSpeedModifierComponent.DefaultAcceleration);
         _movement.RefreshMovementSpeedModifiers(ent.Owner);
 
-        EntityManager.AddComponents(ent.Owner, ent.Comp.PostSelectionComponents);
+        EntityManager.AddComponents(ent.Owner, kitList.PostSelectionComponents);
         EntityManager.AddComponents(ent.Owner, selectedKit.Components);
 
         foreach (var compName in selectedKit.RemoveComponents)
