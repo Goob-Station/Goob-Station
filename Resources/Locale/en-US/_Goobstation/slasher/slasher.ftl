@@ -5,7 +5,7 @@ ghost-role-information-slasher-description = Slaughter and terrorize the living 
 
 slasher-round-end-agent-name = Slasher
 
-slasher-kit-store-sign = BLOOD VIDEO
+slasher-kit-store-sign = BLOOD
 slasher-kit-store-sign-accent = VIDEO
 slasher-kit-store-part = PART { $part }
 slasher-kit-store-originals = ORIGINALS
