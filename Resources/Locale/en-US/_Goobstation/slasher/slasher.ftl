@@ -14,13 +14,13 @@ slasher-kit-store-originals = ORIGINALS
 
 slasher-kit-store-rated = R
 slasher-kit-store-sticker = OUT OF STOCK
-slasher-kit-store-original = Original
-slasher-kit-store-original-sequels = Original + { $count ->
-    [one] 1 sequel in the back
-   *[other] { $count } sequels in the back
+slasher-kit-store-original = ORIGINAL
+slasher-kit-store-original-sequels = ORIGINAL + { $count ->
+    [one] 1 SEQUEL IN THE BACK
+   *[other] { $count } SEQUELS IN THE BACK
 }
-slasher-kit-store-sequel-to = Part { $part }. sequel to { $kit }
-slasher-kit-store-plays-differently = plays differently
+slasher-kit-store-sequel-to = PART { $part }. SEQUEL TO { $kit }
+slasher-kit-store-plays-differently = PLAYS DIFFERENTLY
 slasher-kit-store-need = OUT OF STOCK. ASCEND AS { $kit } TO RESTOCK
 slasher-kit-store-now-playing = NOW PLAYING
 slasher-kit-store-trailer-tag = TRAILER
@@ -28,8 +28,11 @@ slasher-kit-store-tape-not-found = TAPE NOT FOUND
 slasher-kit-store-trailer = PLAY TRAILER
 slasher-kit-store-trailer-stop = STOP TRAILER
 slasher-kit-store-guide = READ THE GUIDEBOOK
-slasher-kit-store-sequels = SEQUELS ({ $count }) >
-slasher-kit-store-prequel = < PREQUEL
+slasher-kit-store-sequels = { $count ->
+    [one] SEQUEL ({ $count })
+   *[other] SEQUELS ({ $count })
+}
+slasher-kit-store-prequel = PREQUEL
 slasher-kit-store-no-sequels = NO SEQUELS
 slasher-kit-store-rent = RENT
 slasher-kit-store-rent-confirm = ARE YOU SURE?
