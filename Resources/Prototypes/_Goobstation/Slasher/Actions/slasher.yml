@@ -7,7 +7,7 @@
     raiseOnUser: true
     useDelay: 20
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SummonMachete }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: SummonMachete }
   - type: InstantAction
     event: !type:SlasherSummonMacheteEvent
 
@@ -21,35 +21,23 @@
     useDelay: 15
     checkCanInteract: false
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Meatspike }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: Meatspike }
   - type: InstantAction
     event: !type:SlasherSummonMeatSpikeEvent
 
 - type: entity
   id: ActionSlasherIncorporealize
   name: Incorporealize
-  description: Become incorporeal, capable of moving through walls and being completely invisible, but unable to interact with the world. Can only be used when unseen.
+  description: Toggle your incorporeal form. While incorporeal you can move through walls and are completely invisible, but unable to interact with the world. Can only be toggled while unseen.
   components:
   - type: Action
     raiseOnUser: true
     useDelay: 1
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Incorporealize }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: Incorporealize }
+    iconOn: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: Corporealize }
   - type: InstantAction
-    event: !type:SlasherIncorporealizeEvent
-
-- type: entity
-  id: ActionSlasherCorporealize
-  name: Corporealize
-  description: Manifest your being from your incorporeal state. Can only be used when incorporeal.
-  components:
-  - type: Action
-    raiseOnUser: true
-    useDelay: 1
-    itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Corporealize }
-  - type: InstantAction
-    event: !type:SlasherCorporealizeEvent
+    event: !type:SlasherToggleIncorporealEvent
 
 - type: entity
   id: ActionSlasherPossession
@@ -61,7 +49,7 @@
     useDelay: 180
     checkCanInteract: false
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Possession }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: Possession }
   - type: TargetAction
     range: 3.5
     interactOnMiss: false
@@ -83,7 +71,7 @@
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: Regenerate }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: Regenerate }
   - type: InstantAction
     event: !type:SlasherRegenerateEvent
 
@@ -97,7 +85,7 @@
     useDelay: 20
     checkCanInteract: false
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: StaggerArea }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: StaggerArea }
   - type: InstantAction
     event: !type:SlasherStaggerAreaEvent
 
@@ -111,7 +99,7 @@
     useDelay: 20
     checkCanInteract: false
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SummonMachete }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: SummonMachete }
   - type: InstantAction
     event: !type:SlasherMassacreEvent
 
@@ -125,7 +113,7 @@
     useDelay: 2
     checkCanInteract: false
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SoulSteal }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: SoulSteal }
   - type: TargetAction
     range: 2.5
     interactOnMiss: false
@@ -146,7 +134,7 @@
     useDelay: 1
     checkCanInteract: false
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SlasherVision }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: SlasherVision }
   - type: InstantAction
     event: !type:ToggleNightVisionEvent
 
@@ -160,6 +148,6 @@
     useDelay: 15
     checkCanInteract: false
     itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: RelentlessGrab }
+    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: RelentlessGrab }
   - type: InstantAction
     event: !type:SlasherRelentlessGrabEvent

@@ -53,7 +53,7 @@ public sealed partial class SlasherFearComponent : Component
 
     [DataField]
     public SoundSpecifier JumpscareSound =
-        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Jumpscare1.ogg")
+        new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/Jumpscare1.ogg")
         {
             Params = AudioParams.Default.WithVolume(2f),
         };
@@ -152,10 +152,10 @@ public sealed partial class SlasherFearComponent : Component
     [DataField, AutoNetworkedField]
     public List<SoundSpecifier> JumpscareSounds = new()
     {
-        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Jumpscare1.ogg"),
-        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Jumpscare2.ogg"),
-        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Jumpscare3.ogg"),
-        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Jumpscare4.ogg")
+        new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/Jumpscare1.ogg"),
+        new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/Jumpscare2.ogg"),
+        new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/Jumpscare3.ogg"),
+        new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/Jumpscare4.ogg")
     };
 
     [DataField, AutoNetworkedField]
