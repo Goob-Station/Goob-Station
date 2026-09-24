@@ -1,4 +1,32 @@
-- files: ["room_front.png", "glow.png", "tape_body.png", "tape_overlay.png", "tape_r.png", "card.png", "tv.png", "tv_static.png", "btn_ghost.png", "btn_rent.png", "btn_sure.png", "btn_dark.png", "crumb.png", "crumb_on.png", "arrow_l.png", "arrow_r.png", "wheel_rim.png", "wheel_spokes.png", "hub.png", "hoop_mid.png", "rod_v.png", "rod_h.png", "mesh.png", "pole.png", "foot.png", "sign.png", "scanlines.png", "vignette.png"]
+- files:
+  - arrow_l.png
+  - arrow_r.png
+  - btn_dark.png
+  - btn_ghost.png
+  - btn_rent.png
+  - btn_sure.png
+  - card.png
+  - crumb.png
+  - crumb_on.png
+  - foot.png
+  - glow.png
+  - hoop_mid.png
+  - hub.png
+  - mesh.png
+  - pole.png
+  - rod_h.png
+  - rod_v.png
+  - room_front.png
+  - scanlines.png
+  - sign.png
+  - tape_body.png
+  - tape_overlay.png
+  - tape_r.png
+  - tv.png
+  - tv_static.png
+  - vignette.png
+  - wheel_rim.png
+  - wheel_spokes.png
   license: "CC-BY-SA-3.0"
   copyright: "Created by Loltart for the slasher kit select ui."
   source: "https://Goida.zip"
