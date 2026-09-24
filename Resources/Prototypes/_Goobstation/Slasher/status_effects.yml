@@ -17,16 +17,16 @@
 
 - type: entity
   parent: MobStatusEffectDebuff
-  id: StatusEffectSlasherLovestruck
-  name: lovestruck
+  id: StatusEffectSlasherCharmed
+  name: charmed
   components:
   - type: StatusEffectAlert
-    alert: SlasherLovestruck
+    alert: SlasherCharmed
   - type: GrantComponentsStatusEffect
     components:
     - type: HeartEyes
 
 - type: entity
   parent: StatusEffectSlowdown
-  id: SlasherLovestruckStatusEffect
+  id: SlasherCharmedStatusEffect
   name: charmed slowdown

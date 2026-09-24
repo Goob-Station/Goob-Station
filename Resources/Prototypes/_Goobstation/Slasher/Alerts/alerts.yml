@@ -50,9 +50,9 @@
       offset: 0.25, 0
 
 - type: alert
-  id: SlasherLovestruck
+  id: SlasherCharmed
   icons:
   - sprite: /Textures/Effects/hearts.rsi
     state: hearts
-  name: alerts-slasher-lovestruck-name
-  description: alerts-slasher-lovestruck-desc
+  name: alerts-slasher-charmed-name
+  description: alerts-slasher-charmed-desc
