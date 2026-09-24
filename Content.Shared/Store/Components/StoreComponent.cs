@@ -1,7 +1,5 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Shared._White.StoreDiscount;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -12,8 +10,6 @@ namespace Content.Shared.Store.Components;
 /// This component manages a store which players can use to purchase different listings
 /// through the ui. The currency, listings, and categories are defined in yaml.
 /// </summary>
-// goob edit - fuck newstore
-// do not touch unless you want to shoot yourself in the leg
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StoreComponent : Component
 {
@@ -49,16 +45,16 @@ public sealed partial class StoreComponent : Component
     public EntityUid? AccountOwner = null;
 
     /// <summary>
-    /// All listings, including those that aren't available to the buyer
+    /// Cached list of listings items with modifiers.
     /// </summary>
     [DataField]
-    public HashSet<ListingData> Listings = new();
+    public HashSet<ListingDataWithCostModifiers> FullListingsCatalog = new();
 
     /// <summary>
     /// All available listings from the last time that it was checked.
     /// </summary>
     [ViewVariables]
-    public HashSet<ListingData> LastAvailableListings = new();
+    public HashSet<ListingDataWithCostModifiers> LastAvailableListings = new();
 
     /// <summary>
     ///     All current entities bought from this shop. Useful for keeping track of refunds and upgrades.
@@ -90,10 +86,6 @@ public sealed partial class StoreComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? StartingMap;
-
-    // WD EDIT START
-    [DataField] public SalesSpecifier Sales { get; private set; } = new();
-    // WD EDIT END
 
     #region audio
     /// <summary>

@@ -2,6 +2,7 @@
 
 - type: entity
   id: ScentTrackEffect
+  categories: [ HideSpawnMenu ] #Goobstation - clean up spawn menu
   components:
   - type: TimedDespawn
     lifetime: 1

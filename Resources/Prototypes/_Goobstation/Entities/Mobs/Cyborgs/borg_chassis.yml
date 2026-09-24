@@ -113,6 +113,65 @@
     job: Borg
   - type: GhostTakeoverAvailable
 
+# S.E.C. cyborg
+- type: entity
+  id: BorgChassisSEC
+  parent: BaseBorgChassisNT
+  name: S.E.C. cyborg
+  description: A security enforcement cyborg, purpose-built to uphold Space Law.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Silicon/sec_chassis.rsi
+    layers:
+    - state: sec
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: sec_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: sec_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 5
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleSEC
+    hasMindState: sec_e
+    noMindState: sec_e_r
+  - type: BorgTransponder
+    sprite:
+      sprite: _Goobstation/Mobs/Silicon/sec_chassis.rsi
+      state: sec
+    name: S.E.C. cyborg
+  - type: SiliconLawProvider
+    laws: SECborgLawset
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+    - ActionSECBorgSelfDestruct
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTool
+      - BorgModuleSECNonLethal
+      - BorgModuleSECLethal
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+  - type: SecurityCyborg
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 30
+    intensitySlope: 20
+    maxIntensity: 20
+
 # Mining
 - type: entity
   id: BorgChassisMiningBasic
