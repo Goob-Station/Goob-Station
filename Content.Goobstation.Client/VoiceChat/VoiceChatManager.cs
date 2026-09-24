@@ -19,6 +19,10 @@ public sealed class VoiceChatManager
     private bool _receiveDisabled;
 
     public event Action<MsgVoiceFrame>? FrameReceived;
+    public event Action<MsgVoiceSpeakerInfo>? SpeakerInfoReceived;
+    public event Action<bool>? WebConnectedChanged;
+
+    public bool WebConnected { get; private set; }
 
     public void Initialize()
     {
@@ -28,6 +32,8 @@ public sealed class VoiceChatManager
         _net.RegisterNetMessage<MsgVoiceLinkRequest>();
         _net.RegisterNetMessage<MsgVoiceLink>(OnLink);
         _net.RegisterNetMessage<MsgVoiceSettings>();
+        _net.RegisterNetMessage<MsgVoiceStatus>(OnStatus);
+        _net.RegisterNetMessage<MsgVoiceSpeakerInfo>(message => SpeakerInfoReceived?.Invoke(message));
 
         _net.Connected += OnConnected;
         _cfg.OnValueChanged(GoobCVars.VoiceChatHearSelf, OnHearSelfChanged);
@@ -52,7 +58,22 @@ public sealed class VoiceChatManager
 
     private void OnConnected(object? sender, NetChannelArgs args)
     {
+        SetWebConnected(false);
         SendSettings();
+    }
+
+    private void OnStatus(MsgVoiceStatus message)
+    {
+        SetWebConnected(message.Connected);
+    }
+
+    private void SetWebConnected(bool connected)
+    {
+        if (WebConnected == connected)
+            return;
+
+        WebConnected = connected;
+        WebConnectedChanged?.Invoke(connected);
     }
 
     private void OnHearSelfChanged(bool hearSelf)

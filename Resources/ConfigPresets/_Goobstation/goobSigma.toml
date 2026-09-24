@@ -5,4 +5,7 @@ desc = "😱"
 [voice]
 enabled = true
 ws_bind = "0.0.0.0:25590"
+trusted_proxies = "136.243.32.120"
 public_url = "https://sigma.goobstation.com/voice/"
+radio_enabled = true
+radio_common = false

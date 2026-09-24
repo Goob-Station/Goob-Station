@@ -33,6 +33,58 @@ public static class VoiceCodec
         return frame.Length == FrameBytes && frame[2] < StepTable.Length;
     }
 
+    public static void Encode(ReadOnlySpan<short> samples, ref int predictor, ref int index, Span<byte> output)
+    {
+        output[0] = (byte) (predictor & 0xFF);
+        output[1] = (byte) ((predictor >> 8) & 0xFF);
+        output[2] = (byte) index;
+        for (var i = HeaderBytes; i < FrameBytes; i++)
+        {
+            output[i] = 0;
+        }
+
+        for (var i = 0; i < FrameSamples; i++)
+        {
+            var step = StepTable[index];
+            var diff = samples[i] - predictor;
+            var nibble = 0;
+            if (diff < 0)
+            {
+                nibble = 8;
+                diff = -diff;
+            }
+
+            var delta = step >> 3;
+            if (diff >= step)
+            {
+                nibble |= 4;
+                diff -= step;
+                delta += step;
+            }
+
+            step >>= 1;
+            if (diff >= step)
+            {
+                nibble |= 2;
+                diff -= step;
+                delta += step;
+            }
+
+            step >>= 1;
+            if (diff >= step)
+            {
+                nibble |= 1;
+                delta += step;
+            }
+
+            predictor = (nibble & 8) != 0 ? predictor - delta : predictor + delta;
+            predictor = Math.Clamp(predictor, short.MinValue, short.MaxValue);
+            index = Math.Clamp(index + IndexTable[nibble], 0, StepTable.Length - 1);
+
+            output[HeaderBytes + (i >> 1)] |= (byte) ((i & 1) == 0 ? nibble : nibble << 4);
+        }
+    }
+
     public static bool Decode(ReadOnlySpan<byte> frame, Span<short> output)
     {
         if (!IsValidFrame(frame) || output.Length < FrameSamples)

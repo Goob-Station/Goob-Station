@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
+using Robust.Server.Player;
 using Robust.Server.ServerStatus;
 using Robust.Shared;
 using Robust.Shared.Configuration;
@@ -15,12 +16,13 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.VoiceChat;
 
-public readonly record struct VoiceWebState(string Name, bool InGame, bool CanSpeak, bool Muted, bool PushToTalk);
+public readonly record struct VoiceWebState(string Name, bool InGame, bool CanSpeak, bool Muted, bool PushToTalk, bool Broadcasting, bool VoiceChanger, string? Radio);
 
 public sealed class VoiceChatManager
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerNetManager _net = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IStatusHost _statusHost = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
 
@@ -50,12 +52,16 @@ public sealed class VoiceChatManager
         _net.RegisterNetMessage<MsgVoiceLink>();
         _net.RegisterNetMessage<MsgVoiceLinkRequest>(OnLinkRequest);
         _net.RegisterNetMessage<MsgVoiceSettings>(OnSettings);
+        _net.RegisterNetMessage<MsgVoiceStatus>();
+        _net.RegisterNetMessage<MsgVoiceSpeakerInfo>();
         _net.Disconnect += OnDisconnect;
 
         LoadWebFiles();
         _statusHost.AddHandler(HandleHttpRequestAsync);
 
         _cfg.OnValueChanged(GoobCVars.VoiceChatWebSocketUrl, url => _webSocketUrl = url.Trim(), true);
+        _cfg.OnValueChanged(GoobCVars.VoiceChatTrustedProxies, _ => ApplyLimits());
+        _cfg.OnValueChanged(GoobCVars.VoiceChatMaxConnectionsPerIp, _ => ApplyLimits());
         _cfg.OnValueChanged(GoobCVars.VoiceChatWebSocketBind, _ => RestartServer());
         _cfg.OnValueChanged(GoobCVars.VoiceChatEnabled, OnEnabledChanged, true);
     }
@@ -101,7 +107,26 @@ public sealed class VoiceChatManager
             canSpeak = state.CanSpeak,
             muted = state.Muted,
             pushToTalk = state.PushToTalk,
+            broadcasting = state.Broadcasting,
+            voiceChanger = state.VoiceChanger,
+            radio = state.Radio,
         }, JsonOptions));
+    }
+
+    public void SendStatus(NetUserId user)
+    {
+        if (_player.TryGetSessionById(user, out var session))
+            SendStatus(session.Channel);
+    }
+
+    private void SendStatus(INetChannel channel)
+    {
+        _net.ServerSendMessage(new MsgVoiceStatus { Connected = IsWebConnected(channel.UserId) }, channel);
+    }
+
+    public void SetEffect(NetUserId user, VoiceEffectSettings settings)
+    {
+        _server?.SetEffect(user, settings);
     }
 
     private void OnEnabledChanged(bool enabled)
@@ -139,6 +164,7 @@ public sealed class VoiceChatManager
             var server = new VoiceWebServer(endpoint, ValidateToken, _sawmill);
             server.Start();
             _server = server;
+            ApplyLimits();
             _webSocketPort = server.LocalEndpoint.Port;
             _sawmill.Info($"Voice chat WebSocket listening on {server.LocalEndpoint}.");
         }
@@ -146,6 +172,25 @@ public sealed class VoiceChatManager
         {
             _sawmill.Error($"Failed to start voice chat WebSocket on {endpoint}: {e.Message}");
         }
+    }
+
+    private void ApplyLimits()
+    {
+        if (_server == null)
+            return;
+
+        _server.MaxConnectionsPerAddress = _cfg.GetCVar(GoobCVars.VoiceChatMaxConnectionsPerIp);
+
+        var proxies = new List<IPAddress>();
+        foreach (var entry in _cfg.GetCVar(GoobCVars.VoiceChatTrustedProxies).Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+        {
+            if (IPAddress.TryParse(entry, out var address))
+                proxies.Add(address);
+            else
+                _sawmill.Warning($"Ignoring invalid voice.trusted_proxies entry '{entry}'.");
+        }
+
+        _server.SetTrustedProxies(proxies);
     }
 
     private void StopServer()
@@ -197,6 +242,8 @@ public sealed class VoiceChatManager
             _notReceiving.Remove(user);
         else
             _notReceiving.Add(user);
+
+        SendStatus(message.MsgChannel);
     }
 
     private void OnDisconnect(object? sender, NetDisconnectedArgs args)
@@ -277,6 +324,7 @@ public sealed class VoiceChatManager
                      ("index.html", "text/html; charset=utf-8"),
                      ("voice.js", "text/javascript; charset=utf-8"),
                      ("voice-worklet.js", "text/javascript; charset=utf-8"),
+                     ("voice-worker.js", "text/javascript; charset=utf-8"),
                      ("noto-sans-regular.woff2", "font/woff2"),
                      ("noto-sans-bold.woff2", "font/woff2"),
                      ("boxfont-round.woff2", "font/woff2"),
