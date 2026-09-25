@@ -33,7 +33,7 @@ public abstract partial class SharedVoxAudioSystem : EntitySystem
     /// </summary>
     /// <param name="voiceSet">List of all voices used for validation and playback.</param>
     /// <returns></returns>
-    public List<string> GetValidWords(List<VoxVoicePrototype> voiceSet)
+    public static List<string> GetValidWords(List<VoxVoicePrototype> voiceSet)
         => voiceSet
             .SelectMany(voice => voice.Words)
             .Select(word => word.Word)
@@ -48,7 +48,7 @@ public abstract partial class SharedVoxAudioSystem : EntitySystem
     /// <param name="sWord"></param>
     /// <param name="vWord"></param>
     /// <returns></returns>
-    public VoxWordMatch VoxWordCheck(string sWord, VoxWord vWord)
+    private static VoxWordMatch VoxWordCheck(string sWord, VoxWord vWord)
     {
         var a = sWord;
         var b = vWord.Word;
@@ -72,13 +72,13 @@ public abstract partial class SharedVoxAudioSystem : EntitySystem
     /// <summary>
     /// returns a sequential list of all valid words for playback, using the provided voice set.
     /// not case sensitive
-    /// "Ten. feet! TWEnty,," => ["ten", "feet", "twenty"].
+    /// "Ten. foot! TWEnty,," => ["ten", "foot", "twenty"].
     /// order is relevant, so if there are duplicate word entries only the first found set's word is used.
     /// </summary>
     /// <param name="voiceSet"></param>
     /// <param name="sentence"></param>
     /// <returns></returns>
-    public List<VoxPlaybackWord> GetPlaybackWordChain(List<VoxVoicePrototype> voiceSet, string sentence)
+    public static List<VoxPlaybackWord> GetPlaybackWordChain(List<VoxVoicePrototype> voiceSet, string sentence)
         => sentence
             .Trim()
             .Split(" ", StringSplitOptions.RemoveEmptyEntries)
