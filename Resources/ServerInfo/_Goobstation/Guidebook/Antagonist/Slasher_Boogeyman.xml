@@ -5,7 +5,7 @@
 
   The Boogeyman is a Slasher kit that trades the usual traversal tricks for pure ambush pressure. It has every core Slasher ability except the incorporeal jaunt, and layers on a stealth package built around darkness.
 
-  <Box>
+<Box>
   <GuideEntityEmbed Entity="ClothingHeadHatSlasherMaskBoogeyman" Caption="Boogeyman Mask"/>
   <GuideEntityEmbed Entity="SlasherKitchenKnife" Caption="Kitchen Knife"/>
 </Box>
