@@ -50,6 +50,7 @@
     - ChameleonControllerImplant
     - VoiceMaskImplant
     # Goob implants
+    - SyndicateJaunterImplant
     - MindcontrolImplant
     - KravMagaImplant
     - NutrimentPumpImplant

@@ -723,6 +723,10 @@
   name: beanie
   description: Red, white and snug. It radiates a homely feeling, if your home happens to be chilly and filled with coffeehouses.
   components:
+  - type: ClothingGrantComponent # Goobstation - Voice chat
+    component:
+    - type: VoiceChatCanadian
+      sensitivity: 0.8
   - type: Sprite
     sprite: Clothing/Head/Hats/beanie.rsi
     layers:

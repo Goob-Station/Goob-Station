@@ -4,6 +4,7 @@ using Content.Client.Stylesheets;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing; // Goobstation - Voice chat
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 
@@ -17,6 +18,7 @@ public class ChatInputBox : PanelContainer
     public readonly ChannelSelectorButton ChannelSelector;
     public readonly HistoryLineEdit Input;
     public readonly ChannelFilterButton FilterButton;
+    public readonly VoiceRadioButton VoiceRadio; // Goobstation - Voice chat
     protected readonly BoxContainer Container;
     protected ChatChannel ActiveChannel { get; private set; } = ChatChannel.Local;
 
@@ -37,6 +39,11 @@ public class ChatInputBox : PanelContainer
             MinWidth = 75
         };
         Container.AddChild(ChannelSelector);
+        VoiceRadio = new VoiceRadioButton // Goobstation - Voice chat
+        {
+            StyleClasses = { ChannelSelectorItemButton.StyleClassChatSelectorOptionButton },
+        };
+        Container.AddChild(VoiceRadio); // Goobstation - Voice chat
         Input = new HistoryLineEdit
         {
             Name = "Input",
@@ -53,6 +60,12 @@ public class ChatInputBox : PanelContainer
         Container.AddChild(FilterButton);
         AddStyleClass(StyleClassChatPanel);
         ChannelSelector.OnChannelSelect += UpdateActiveChannel;
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args) // Goobstation - Voice chat
+    {
+        base.FrameUpdate(args);
+        VoiceRadio.UpdateState();
     }
 
     private void UpdateActiveChannel(ChatSelectChannel selectedChannel)

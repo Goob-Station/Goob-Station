@@ -20,8 +20,8 @@ laughter-role-greeting =
 
 # actions
 demonic-whisper-title = Demonic Whisper
-demonic-whisper-popup = Suddenly a strange, demonic voice resonates in your head...
-demonic-whisper-whisper = You whisper to {$name}: {$message}
+demonic-whisper-flavor = Suddenly, a strange, demonic voice resonates in your head...
+demonic-whisper-self = You whisper to {$name}: {$message}
 
 # metadata
 name-format-slaughter = {$part1}, the {$part0}
