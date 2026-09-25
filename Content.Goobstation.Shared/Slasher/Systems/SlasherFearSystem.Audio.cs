@@ -39,6 +39,19 @@ public sealed partial class SlasherFearSystem
         _audio.PlayGlobal(sound, filter, false);
     }
 
+    private void OnToggleMusic(Entity<SlasherFearComponent> ent, ref SlasherToggleFearMusicAlertEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        ent.Comp.MusicMuted = !ent.Comp.MusicMuted;
+        Dirty(ent);
+
+        var message = ent.Comp.MusicMuted ? "slasher-fear-music-muted" : "slasher-fear-music-unmuted";
+        _popup.PopupClient(Loc.GetString(message), ent, ent);
+        args.Handled = true;
+    }
+
     private void UpdateMusic(Entity<SlasherFearComponent> ent)
     {
         var (uid, comp) = ent;
@@ -53,7 +66,7 @@ public sealed partial class SlasherFearSystem
         if (!_timing.IsFirstTimePredicted || _player.LocalEntity != uid)
             return;
 
-        if (comp.MusicActive)
+        if (comp.MusicActive && !comp.MusicMuted)
             comp.MusicStream = StartOrResumeMusic(comp.MusicStream, comp.BloodTrailMusic);
         else if (comp.MusicStream is { } stream)
         {

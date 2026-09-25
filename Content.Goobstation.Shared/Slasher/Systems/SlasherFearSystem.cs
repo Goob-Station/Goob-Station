@@ -10,6 +10,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
+using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -39,6 +40,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
     [Dependency] private readonly MovementModStatusSystem _movemod = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _moveSpeed = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -48,6 +50,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
         SubscribeLocalEvent<SlasherFearComponent, ComponentStartup>(OnFearStartup);
         SubscribeLocalEvent<SlasherFearComponent, ComponentShutdown>(OnFearShutdown);
         SubscribeLocalEvent<SlasherFearComponent, LocalPlayerDetachedEvent>(OnFearDetached);
+        SubscribeLocalEvent<SlasherFearComponent, SlasherToggleFearMusicAlertEvent>(OnToggleMusic);
 
         SubscribeLocalEvent<FearedComponent, ComponentShutdown>(OnFearedShutdown);
         SubscribeLocalEvent<FearedComponent, LocalPlayerDetachedEvent>(OnFearedDetached);

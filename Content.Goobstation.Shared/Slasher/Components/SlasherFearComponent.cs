@@ -176,6 +176,9 @@ public sealed partial class SlasherFearComponent : Component
     [DataField, AutoNetworkedField]
     public bool MusicActive;
 
+    [DataField, AutoNetworkedField]
+    public bool MusicMuted;
+
     [ViewVariables]
     public EntityUid? MusicStream;
 }

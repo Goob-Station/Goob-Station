@@ -11,17 +11,23 @@
   maxSeverity: 1
 
 - type: alert
-  id: SlasherFear
+  id: BaseSlasherFear
+  abstract: true
   icons:
   - sprite: /Textures/_Goobstation/Slasher/Objects/fear_alert.rsi
     state: icon
   alertViewEntity: AlertSlasherFearSpriteView
+
+- type: alert
+  id: SlasherFear
+  parent: BaseSlasherFear
+  clickEvent: !type:SlasherToggleFearMusicAlertEvent
   name: alerts-slasher-fear-name
   description: alerts-slasher-fear-desc
 
 - type: alert
   id: SlasherFearVictim
-  parent: SlasherFear
+  parent: BaseSlasherFear
   name: alerts-slasher-fear-victim-name
   description: alerts-slasher-fear-victim-desc
 

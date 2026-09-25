@@ -1,10 +1,13 @@
 using Content.Shared.Actions;
+using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Slasher;
 
 public sealed class SlasherAscendedEvent : EntityEventArgs;
+
+public sealed partial class SlasherToggleFearMusicAlertEvent : BaseAlertEvent;
 
 [ByRefEvent]
 public sealed partial class SlasherRegenerateEvent : InstantActionEvent;
