@@ -6,11 +6,15 @@ namespace Content.Goobstation.Common.VoxAudio;
 [DataDefinition]
 public sealed partial class VoxWord
 {
+    /// <summary>
+    /// String of the actual human-readable word.
+    /// </summary>
     [DataField]
     public string Word { get; set; } = default!;
 
     /// <summary>
-    /// Override path. Used instead of appending BasePath and .ogg from a VoxVoicePrototype
+    /// Override audio path. If specified, used instead of automatically resolving via
+    /// <see cref="Word"/> and <see cref="VoxVoicePrototype.ID"/>.
     /// </summary>
     [DataField]
     public ResPath? Path { get; set; } = default!;
@@ -23,9 +27,17 @@ public sealed partial class VoxVoicePrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
+    /// <summary>
+    /// Base path for the <see cref="VoxWord"/> used to automatically resolve their path based on their
+    /// <see cref="VoxWord.Word"/>, to prevent YAML bloat. This is overridable by <see cref="VoxWord.Path"/>,
+    /// and such is optional if all members have explicitly defined paths.
+    /// </summary>
     [DataField]
     public string? BasePath = default!;
 
+    /// <summary>
+    /// List of all this voice's <see cref="VoxWord"/>s. 
+    /// </summary>
     [DataField]
     public List<VoxWord> Words = [];
 }
