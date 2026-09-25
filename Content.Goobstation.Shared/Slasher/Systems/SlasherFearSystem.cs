@@ -131,6 +131,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
                 continue;
 
             var isNewPerson = !comp.Observing.Contains(netOther);
+
             if (isNewPerson && now >= comp.NextJumpscare)
             {
                 comp.NextJumpscare = now + comp.JumpscareCooldown;
@@ -140,7 +141,9 @@ public sealed partial class SlasherFearSystem : EntitySystem
                 Jumpscare(uid, other, comp);
             }
             Dirty(other, victim);
+
         }
+
         var anySeen = seen.Count > 0;
         var dt = (float) comp.CheckInterval.TotalSeconds;
 
@@ -161,7 +164,9 @@ public sealed partial class SlasherFearSystem : EntitySystem
             comp.CurrentMeter = MathF.Min(comp.MaxMeter, comp.CurrentMeter + comp.MeterPassivePerSecond * dt);
         }
         else if (now - comp.LastSeenVictim >= comp.MeterGracePeriod)
+        {
             comp.CurrentMeter = MathF.Max(0f, comp.CurrentMeter - comp.MeterDecayPerSecond * dt);
+        }
 
         comp.Observing = seen;
         Dirty(uid, comp);
