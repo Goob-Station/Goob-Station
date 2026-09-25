@@ -2,7 +2,9 @@ using Content.Goobstation.Client.Slasher.Overlays;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared._DV.CCVars;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Slasher.Systems;
 
@@ -13,6 +15,8 @@ public sealed class SlasherStaggerOverlaySystem : EntitySystem
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private SlasherStaggerOverlay _overlay = default!;
 
@@ -30,6 +34,9 @@ public sealed class SlasherStaggerOverlaySystem : EntitySystem
 
     private void OnStaggerInit(EntityUid uid, SlasherStaggerOverlayComponent component, ComponentInit args)
     {
+        if (_player.LocalEntity != uid)
+            component.LocalStartTime = _timing.CurTime;
+
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }

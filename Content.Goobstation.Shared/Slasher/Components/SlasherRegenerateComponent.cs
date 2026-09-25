@@ -55,5 +55,3 @@ public sealed partial class SlasherRegenerateComponent : Component
     [DataField]
     public float RegenerateEffectRange = 10f;
 }
-
-

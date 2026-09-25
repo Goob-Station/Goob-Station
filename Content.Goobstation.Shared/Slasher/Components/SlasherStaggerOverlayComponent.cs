@@ -15,6 +15,9 @@ public sealed partial class SlasherStaggerOverlayComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan EndTime;
 
+    [ViewVariables]
+    public TimeSpan? LocalStartTime;
+
     [DataField]
     public float Range = 3.5f;
 

@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Slasher.Components;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
@@ -9,6 +10,7 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 public sealed class SharedSlasherStaggerOverlaySystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -25,6 +27,9 @@ public sealed class SharedSlasherStaggerOverlaySystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        if (_net.IsClient)
+            return;
+
         var query = EntityQueryEnumerator<SlasherStaggerOverlayComponent>();
         while (query.MoveNext(out var uid, out var overlay))
         {
