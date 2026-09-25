@@ -35,7 +35,7 @@ public sealed class SlasherStaggerOverlaySystem : EntitySystem
     private void OnStaggerInit(EntityUid uid, SlasherStaggerOverlayComponent component, ComponentInit args)
     {
         if (_player.LocalEntity != uid)
-            component.LocalStartTime = _timing.CurTime;
+            component.LocalStartTime = _timing.RealTime;
 
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);

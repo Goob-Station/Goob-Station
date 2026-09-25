@@ -41,8 +41,11 @@ public sealed class SlasherStaggerOverlay : Overlay
 
     private float GetProgress(SlasherStaggerOverlayComponent wave)
     {
-        var start = wave.LocalStartTime ?? wave.EndTime - wave.Duration;
-        return (float) ((_timing.CurTime - start).TotalSeconds / wave.Duration.TotalSeconds);
+        var elapsed = wave.LocalStartTime is { } localStart
+            ? _timing.RealTime - localStart
+            : _timing.CurTime - (wave.EndTime - wave.Duration);
+
+        return (float) (elapsed.TotalSeconds / wave.Duration.TotalSeconds);
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
