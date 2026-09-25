@@ -131,7 +131,7 @@
   name: selectable-set-syndicate-hitman-name
   description: selectable-set-syndicate-hitman-description
   sprite:
-    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/cobra.rsi
     state: icon
   content:
   - EncryptionKeySyndie

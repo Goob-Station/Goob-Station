@@ -15,7 +15,7 @@ public enum VoiceMuffle : byte
     Heavy,
 }
 
-public readonly record struct VoiceEffectSettings(VoiceEffect Effect, VoiceMuffle Muffle);
+public readonly record struct VoiceEffectSettings(VoiceEffect Effect, VoiceMuffle Muffle, bool Megaphone = false);
 
 public sealed class VoiceEffectProcessor
 {
@@ -25,7 +25,9 @@ public sealed class VoiceEffectProcessor
 
     private VoiceEffect _effect = VoiceEffect.None;
     private VoiceMuffle _muffle = VoiceMuffle.None;
+    private bool _megaphone;
     private IOnlineFilter? _voice;
+    private IOnlineFilter? _megaphoneFilter;
     private IOnlineFilter? _muffleFilter;
 
     public void Process(short[] buffer, int offset, int count, VoiceEffectSettings settings)
@@ -50,7 +52,13 @@ public sealed class VoiceEffectProcessor
             _muffleFilter = CreateMuffle(muffle);
         }
 
-        if (_voice == null && _muffleFilter == null)
+        if (settings.Megaphone != _megaphone)
+        {
+            _megaphone = settings.Megaphone;
+            _megaphoneFilter = _megaphone ? CreateMegaphone() : null;
+        }
+
+        if (_voice == null && _megaphoneFilter == null && _muffleFilter == null)
             return;
 
         for (var i = offset; i < offset + count; i++)
@@ -58,6 +66,8 @@ public sealed class VoiceEffectProcessor
             var sample = buffer[i] / 32768f;
             if (_voice != null)
                 sample = _voice.Process(sample);
+            if (_megaphoneFilter != null)
+                sample = _megaphoneFilter.Process(sample);
             if (_muffleFilter != null)
                 sample = _muffleFilter.Process(sample);
 
@@ -92,6 +102,15 @@ public sealed class VoiceEffectProcessor
                 new NoiseMixer(0.012f)),
             _ => null,
         };
+    }
+
+    private static IOnlineFilter CreateMegaphone()
+    {
+        return Chain(
+            new HighPassFilter(500.0 / SampleRate, 0.9),
+            new LowPassFilter(3600.0 / SampleRate, 0.9),
+            Mix(new DistortionEffect(DistortionMode.HardClipping, 12f, -8f), 1f),
+            new LowPassFilter(4200.0 / SampleRate, 0.707));
     }
 
     private static IOnlineFilter? CreateMuffle(VoiceMuffle muffle)

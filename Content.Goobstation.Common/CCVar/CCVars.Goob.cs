@@ -117,7 +117,7 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> DisablePathfinding =
         CVarDef.Create("goob.disable_pathfinding", false, CVar.SERVER | CVar.SERVERONLY);
 
-  
+
     #region Player Listener
 
     /// <summary>
@@ -469,6 +469,33 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<bool> VoiceChatRadioCommon =
         CVarDef.Create("voice.radio_common", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether voice chat is allowed on the Common radio channel.");
+
+    public static readonly CVarDef<int> VoiceChatBitrate =
+        CVarDef.Create("voice.bitrate", 64, CVar.SERVERONLY | CVar.ARCHIVE, "Voice bitrate sent to each client in kbps: 64 (16 kHz, best), 48, 32 (8 kHz), 24 or 16. Lower saves bandwidth at the cost of quality.");
+
+    public static readonly CVarDef<bool> VoiceLogEnabled =
+        CVarDef.Create("voice.log_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE, "Whether voice chat audio is recorded to disk for admin review.");
+
+    public static readonly CVarDef<int> VoiceLogRounds =
+        CVarDef.Create("voice.log_rounds", 3, CVar.SERVERONLY | CVar.ARCHIVE, "How many rounds of voice chat recordings to keep on disk.");
+
+    public static readonly CVarDef<bool> VoiceChatLobby =
+        CVarDef.Create("voice.lobby", true, CVar.SERVERONLY | CVar.ARCHIVE, "Whether players in the lobby can talk to everyone else in the lobby.");
+
+    public static readonly CVarDef<bool> VoiceChatDynamicRange =
+        CVarDef.Create("voice.dynamic_range", true, CVar.SERVERONLY | CVar.ARCHIVE, "Whether shouting carries further and whispering stays close, based on each speaker's own normal loudness.");
+
+    public static readonly CVarDef<float> VoiceChatShoutRange =
+        CVarDef.Create("voice.shout_range", 15f, CVar.SERVERONLY | CVar.ARCHIVE, "Distance in tiles that shouted voice carries.");
+
+    public static readonly CVarDef<float> VoiceChatWhisperRange =
+        CVarDef.Create("voice.whisper_range", 3f, CVar.SERVERONLY | CVar.ARCHIVE, "Distance in tiles that whispered voice carries.");
+
+    public static readonly CVarDef<float> VoiceChatShoutThreshold =
+        CVarDef.Create("voice.shout_threshold", 14f, CVar.SERVERONLY | CVar.ARCHIVE, "How many dB above a speaker's normal loudness counts as shouting.");
+
+    public static readonly CVarDef<float> VoiceChatWhisperThreshold =
+        CVarDef.Create("voice.whisper_threshold", 5f, CVar.SERVERONLY | CVar.ARCHIVE, "How many dB below a speaker's normal loudness counts as whispering.");
 
     public static readonly CVarDef<bool> VoiceChatJoinPrompt =
         CVarDef.Create("voice.join_prompt", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Offer to open voice chat when joining a server that has it.");
