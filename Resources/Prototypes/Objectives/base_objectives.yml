@@ -46,7 +46,7 @@
   - type: Objective
     unique: false
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/viper.rsi
       state: icon
   - type: ObjectiveBlacklistRequirement
     blacklist:
