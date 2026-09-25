@@ -65,7 +65,7 @@ public sealed partial class SlasherFearSystem
         {
             victim.Scarer = netUid;
             if (_net.IsServer)
-                ApplyFearStyle((other, victim), comp.FearStyle);
+                ApplyFearStyle((other, victim), comp.GrantedToVictimOnSight);
         }
 
         victim.LastObserved = now;

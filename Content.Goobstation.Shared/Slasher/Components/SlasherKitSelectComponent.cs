@@ -69,7 +69,7 @@ public sealed partial class SlasherKit
     /// If null, nothing gets added.
     /// </summary>
     [DataField]
-    public ComponentRegistry FearStyle = new();
+    public ComponentRegistry GrantedToVictimOnSight = new();
 
     /// <summary>
     /// Optional meat spike prototype override for this kit.

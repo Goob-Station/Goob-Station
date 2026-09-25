@@ -100,8 +100,8 @@ public sealed class SlasherKitSelectSystem : EntitySystem
 
         if (TryComp<SlasherFearComponent>(ent.Owner, out var fearComp))
         {
-            if (selectedKit.FearStyle.Count > 0)
-                fearComp.FearStyle = selectedKit.FearStyle;
+            if (selectedKit.GrantedToVictimOnSight.Count > 0)
+                fearComp.GrantedToVictimOnSight = selectedKit.GrantedToVictimOnSight;
 
             if (selectedKit.BloodTrailMusic is { } bloodMusic)
                 fearComp.BloodTrailMusic = bloodMusic;

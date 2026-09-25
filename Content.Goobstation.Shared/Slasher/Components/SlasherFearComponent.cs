@@ -141,7 +141,7 @@ public sealed partial class SlasherFearComponent : Component
     /// Kits can override this to change what being hunted does to a victim.
     /// </summary>
     [DataField]
-    public ComponentRegistry FearStyle = new();
+    public ComponentRegistry GrantedToVictimOnSight = new();
 
     /// <summary>
     /// The status effect applied to victims this slasher frightens.
@@ -158,7 +158,7 @@ public sealed partial class SlasherFearComponent : Component
         new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Jumpscare4.ogg")
     };
 
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan NextCheck;
 
     /// <summary>
