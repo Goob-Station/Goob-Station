@@ -16,7 +16,7 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.VoiceChat;
 
-public readonly record struct VoiceWebState(string Name, bool InGame, bool CanSpeak, bool Muted, bool PushToTalk, bool Broadcasting, bool VoiceChanger, string? Radio);
+public readonly record struct VoiceWebState(string Name, bool InGame, bool CanSpeak, bool Muted, bool PushToTalk, bool Broadcasting, bool VoiceChanger, string? Radio, bool Lobby = false);
 
 public sealed class VoiceChatManager
 {
@@ -36,6 +36,7 @@ public sealed class VoiceChatManager
     private readonly HashSet<NetUserId> _hearSelf = new();
     private readonly HashSet<NetUserId> _notReceiving = new();
     private readonly Dictionary<NetUserId, HashSet<string>> _mutedChannels = new();
+    private readonly Dictionary<NetUserId, HashSet<ushort>> _mutedSpeakers = new();
     private readonly Dictionary<string, (byte[] Data, string ContentType)> _files = new();
 
     private ISawmill _sawmill = default!;
@@ -44,6 +45,8 @@ public sealed class VoiceChatManager
     private volatile bool _enabled;
     private volatile string _webSocketUrl = string.Empty;
     private volatile int _webSocketPort;
+
+    public event Action<NetUserId, bool>? PushToTalkReceived;
 
     public void Initialize()
     {
@@ -56,6 +59,7 @@ public sealed class VoiceChatManager
         _net.RegisterNetMessage<MsgVoiceStatus>();
         _net.RegisterNetMessage<MsgVoiceSpeakerInfo>();
         _net.RegisterNetMessage<MsgVoiceSelf>();
+        _net.RegisterNetMessage<MsgVoicePushToTalk>(message => PushToTalkReceived?.Invoke(message.MsgChannel.UserId, message.Pressed));
         _net.Disconnect += OnDisconnect;
 
         LoadWebFiles();
@@ -104,6 +108,11 @@ public sealed class VoiceChatManager
         return _mutedChannels.TryGetValue(user, out var muted) && muted.Contains(channel);
     }
 
+    public bool IsSpeakerMuted(NetUserId listener, ushort speaker)
+    {
+        return _mutedSpeakers.TryGetValue(listener, out var muted) && muted.Contains(speaker);
+    }
+
     public void SendState(NetUserId user, VoiceWebState state)
     {
         _server?.Send(user, JsonSerializer.Serialize(new
@@ -117,6 +126,7 @@ public sealed class VoiceChatManager
             broadcasting = state.Broadcasting,
             voiceChanger = state.VoiceChanger,
             radio = state.Radio,
+            lobby = state.Lobby,
         }, JsonOptions));
     }
 
@@ -255,6 +265,11 @@ public sealed class VoiceChatManager
         else
             _mutedChannels[user] = new HashSet<string>(message.MutedChannels);
 
+        if (message.MutedSpeakers.Count == 0)
+            _mutedSpeakers.Remove(user);
+        else
+            _mutedSpeakers[user] = new HashSet<ushort>(message.MutedSpeakers);
+
         SendStatus(message.MsgChannel);
     }
 
@@ -263,6 +278,7 @@ public sealed class VoiceChatManager
         _hearSelf.Remove(args.Channel.UserId);
         _notReceiving.Remove(args.Channel.UserId);
         _mutedChannels.Remove(args.Channel.UserId);
+        _mutedSpeakers.Remove(args.Channel.UserId);
     }
 
     private string GetPublicUrl()
