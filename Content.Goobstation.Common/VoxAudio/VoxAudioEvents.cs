@@ -4,19 +4,11 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Common.VoxAudio;
 
 [Serializable, NetSerializable]
-public sealed class VoxPlayMessage : EntityEventArgs
+public sealed class VoxPlayMessage(string message, List<ProtoId<VoxVoicePrototype>> voiceSet, float? delay, NetEntity? nuid) : EntityEventArgs
 {
-    public readonly string Message;
-    public readonly List<ProtoId<VoxVoicePrototype>> VoiceSet;
-    public readonly float? Delay;
+    public readonly string Message = message;
+    public readonly List<ProtoId<VoxVoicePrototype>> VoiceSet = voiceSet;
+    public readonly float? Delay = delay;
     public readonly float? MaxRuntime;
-    public readonly NetEntity? TargetNuid;
-
-    public VoxPlayMessage(string message, List<ProtoId<VoxVoicePrototype>> voiceSet, float? delay, NetEntity? nuid)
-    {
-        Message = message;
-        VoiceSet = voiceSet;
-        Delay = delay;
-        TargetNuid = nuid;
-    }
+    public readonly NetEntity? TargetNuid = nuid;
 }
