@@ -17,7 +17,7 @@ public sealed partial class SlasherFearComponent : Component
     /// Current fear charge.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Meter;
+    public float CurrentMeter;
 
     [DataField]
     public float MaxMeter = 100f;
@@ -112,7 +112,6 @@ public sealed partial class SlasherFearComponent : Component
 
     [DataField, AutoNetworkedField]
     public string BloodTrailReagent = "Blood";
-
 
     [DataField, AutoNetworkedField]
     public SoundSpecifier BloodTrailMusic =

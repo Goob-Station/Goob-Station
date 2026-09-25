@@ -21,7 +21,7 @@ public sealed partial class SlasherVictimFearBuildupComponent : Component
     public ProtoId<AlertPrototype> Alert = "SlasherFearVictim";
 
     [ViewVariables, AutoNetworkedField]
-    public EntityUid? Scarer;
+    public NetEntity? Scarer;
 
     /// <summary>
     /// The status effect that granted this component.

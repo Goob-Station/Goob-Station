@@ -23,7 +23,7 @@ public sealed class SlasherFearAlertSystem : EntitySystem
         if (args.Handled || ent.Comp.Alert != args.Alert)
             return;
 
-        args.Amount = (int) MathF.Round(ent.Comp.Meter);
+        args.Amount = (int) MathF.Round(ent.Comp.CurrentMeter);
     }
 
     private void OnGetVictimCounter(Entity<SlasherVictimFearBuildupComponent> ent, ref GetGenericAlertCounterAmountEvent args)

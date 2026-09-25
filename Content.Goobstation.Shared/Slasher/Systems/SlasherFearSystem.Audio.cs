@@ -56,7 +56,7 @@ public sealed partial class SlasherFearSystem
     {
         var (uid, comp) = ent;
 
-        var active = comp.Meter > 0f && CanHunt(uid);
+        var active = comp.CurrentMeter > 0f && CanHunt(uid);
         if (comp.MusicActive != active)
         {
             comp.MusicActive = active;
@@ -94,7 +94,8 @@ public sealed partial class SlasherFearSystem
         if (!_timing.IsFirstTimePredicted || _player.LocalEntity != uid)
             return;
 
-        var handoff = comp.MusicScarer != comp.Scarer;
+        var scarer = GetEntity(comp.Scarer);
+        var handoff = comp.MusicScarer != scarer;
         if (handoff)
         {
             if (comp.MusicStream is { } previous && Exists(previous))
@@ -104,11 +105,11 @@ public sealed partial class SlasherFearSystem
             }
 
             comp.MusicStream = null;
-            comp.MusicScarer = comp.Scarer;
+            comp.MusicScarer = scarer;
         }
 
         if (!(comp.MusicStream is { } current && Exists(current))
-            && TryComp<SlasherFearComponent>(comp.Scarer, out var trail))
+            && TryComp<SlasherFearComponent>(scarer, out var trail))
             comp.MusicStream = StartOrResumeMusic(handoff ? null : FindVictimFade(uid), trail.BloodTrailMusic);
     }
 

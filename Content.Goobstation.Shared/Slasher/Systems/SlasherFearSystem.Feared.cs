@@ -51,17 +51,19 @@ public sealed partial class SlasherFearSystem
 
         victim.SourceEffect = comp.FearedEffect;
 
+        var netUid = GetNetEntity(uid);
+
         // This stops evil things from happening if there's more than 1 slasher.
-        if (victim.Scarer is { } owner
+        if (GetEntity(victim.Scarer) is { } owner
             && owner != uid
             && !TerminatingOrDeleted(owner)
             && HasComp<SlasherFearComponent>(owner)
             && now - victim.LastObserved < victim.OwnershipTimeout)
             return null;
 
-        if (victim.Scarer != uid)
+        if (victim.Scarer != netUid)
         {
-            victim.Scarer = uid;
+            victim.Scarer = netUid;
             if (_net.IsServer)
                 ApplyFearStyle((other, victim), comp.FearStyle);
         }
@@ -72,10 +74,11 @@ public sealed partial class SlasherFearSystem
 
     private void ReleaseVictims(EntityUid slasher)
     {
+        var netSlasher = GetNetEntity(slasher);
         var victims = EntityQueryEnumerator<SlasherVictimFearBuildupComponent>();
         while (victims.MoveNext(out var victimUid, out var victim))
         {
-            if (victim.Scarer != slasher)
+            if (victim.Scarer != netSlasher)
                 continue;
 
             victim.Scarer = null;

@@ -15,7 +15,7 @@ public sealed partial class SlasherFearSystem
     {
         var (uid, comp) = ent;
 
-        var bleeding = comp.Meter >= comp.BloodMeterThreshold;
+        var bleeding = comp.CurrentMeter >= comp.BloodMeterThreshold;
         if (comp.IsActive == bleeding)
             return;
 

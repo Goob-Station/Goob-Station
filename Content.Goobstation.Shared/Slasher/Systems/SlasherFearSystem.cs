@@ -133,7 +133,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
             if (isNewPerson && now >= comp.NextJumpscare)
             {
                 comp.NextJumpscare = now + comp.JumpscareCooldown;
-                comp.Meter = MathF.Min(comp.MaxMeter, comp.Meter + comp.MeterPerJumpscare);
+                comp.CurrentMeter = MathF.Min(comp.MaxMeter, comp.CurrentMeter + comp.MeterPerJumpscare);
                 victim.Fear = MathF.Min(1f, victim.Fear + comp.JumpscareFear);
 
                 Jumpscare(uid, other, comp);
@@ -148,7 +148,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
         if (!CanHunt(uid))
         {
             comp.Observing.Clear();
-            comp.Meter = MathF.Max(0f, comp.Meter - comp.MeterDecayPerSecond * dt);
+            comp.CurrentMeter = MathF.Max(0f, comp.CurrentMeter - comp.MeterDecayPerSecond * dt);
             Dirty(uid, comp);
             UpdateHuntEffects(ent);
             return;
@@ -157,10 +157,10 @@ public sealed partial class SlasherFearSystem : EntitySystem
         if (anySeen)
         {
             comp.LastSeenVictim = now;
-            comp.Meter = MathF.Min(comp.MaxMeter, comp.Meter + comp.MeterPassivePerSecond * dt);
+            comp.CurrentMeter = MathF.Min(comp.MaxMeter, comp.CurrentMeter + comp.MeterPassivePerSecond * dt);
         }
         else if (now - comp.LastSeenVictim >= comp.MeterGracePeriod)
-            comp.Meter = MathF.Max(0f, comp.Meter - comp.MeterDecayPerSecond * dt);
+            comp.CurrentMeter = MathF.Max(0f, comp.CurrentMeter - comp.MeterDecayPerSecond * dt);
 
         comp.Observing = seen;
         Dirty(uid, comp);
@@ -171,7 +171,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
     {
         var (uid, comp) = ent;
 
-        var boosted = comp.Meter >= comp.MaxMeter;
+        var boosted = comp.CurrentMeter >= comp.MaxMeter;
         if (comp.SpeedBoostActive != boosted)
         {
             comp.SpeedBoostActive = boosted;
@@ -179,7 +179,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
             _moveSpeed.RefreshMovementSpeedModifiers(uid);
         }
 
-        if (comp.Meter > 0f)
+        if (comp.CurrentMeter > 0f)
             _alerts.ShowAlert(uid, comp.Alert);
         else
             _alerts.ClearAlert(uid, comp.Alert);
