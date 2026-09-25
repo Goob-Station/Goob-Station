@@ -74,7 +74,7 @@ public sealed class SlasherFearOverlaySystem : EntitySystem
             return;
         }
 
-        var target = TryComp<FearedComponent>(_player.LocalEntity, out var feared)
+        var target = TryComp<SlasherVictimFearBuildupComponent>(_player.LocalEntity, out var feared)
             ? overlay.BaseIntensity + Math.Clamp(feared.Fear, 0f, 1f) * (1f - overlay.BaseIntensity)
             : 0f;
 
