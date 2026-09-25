@@ -132,7 +132,7 @@
             loop: true
         removeComponents:
         - SlasherIncorporeal
-        fearStyle:
+        grantedToVictimOnSight:
         - type: SprintDisabled
         components:
         - type: BoogeymanShadow
