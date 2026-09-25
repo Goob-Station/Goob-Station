@@ -46,6 +46,8 @@ public sealed class VoiceChatManager
     private volatile string _webSocketUrl = string.Empty;
     private volatile int _webSocketPort;
 
+    public event Action<NetUserId, bool>? PushToTalkReceived;
+
     public void Initialize()
     {
         _sawmill = _logManager.GetSawmill("voice");
@@ -57,6 +59,7 @@ public sealed class VoiceChatManager
         _net.RegisterNetMessage<MsgVoiceStatus>();
         _net.RegisterNetMessage<MsgVoiceSpeakerInfo>();
         _net.RegisterNetMessage<MsgVoiceSelf>();
+        _net.RegisterNetMessage<MsgVoicePushToTalk>(message => PushToTalkReceived?.Invoke(message.MsgChannel.UserId, message.Pressed));
         _net.Disconnect += OnDisconnect;
 
         LoadWebFiles();

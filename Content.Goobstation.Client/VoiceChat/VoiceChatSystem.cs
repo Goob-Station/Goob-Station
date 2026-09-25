@@ -4,12 +4,14 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
 using Content.Shared.Doors.Components;
 using Content.Shared.GameTicking;
+using Content.Shared.Input;
 using Content.Shared.Physics;
 using Content.Shared.Radio;
 using Content.Shared.Verbs;
 using Robust.Client.Audio;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
+using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
@@ -105,6 +107,14 @@ public sealed class VoiceChatSystem : EntitySystem
         SubscribeLocalEvent<GetVerbsEvent<Verb>>(OnGetVerbs);
 
         _overlays.AddOverlay(new VoiceSpeakingOverlay(EntityManager, this));
+
+        CommandBinds.Builder
+            .Bind(ContentKeyFunctions.VoicePushToTalk,
+                InputCmdHandler.FromDelegate(
+                    _ => _manager.SendPushToTalk(true),
+                    _ => _manager.SendPushToTalk(false),
+                    handle: false))
+            .Register<VoiceChatSystem>();
     }
 
     public override void Shutdown()
@@ -115,6 +125,7 @@ public sealed class VoiceChatSystem : EntitySystem
         _manager.SpeakerInfoReceived -= OnSpeakerInfoReceived;
         _manager.SelfReceived -= OnSelfReceived;
         _overlays.RemoveOverlay<VoiceSpeakingOverlay>();
+        CommandBinds.Unregister<VoiceChatSystem>();
         ClearStreams();
     }
 

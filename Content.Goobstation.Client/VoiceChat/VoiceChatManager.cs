@@ -38,6 +38,7 @@ public sealed class VoiceChatManager
         _net.RegisterNetMessage<MsgVoiceStatus>(OnStatus);
         _net.RegisterNetMessage<MsgVoiceSpeakerInfo>(message => SpeakerInfoReceived?.Invoke(message));
         _net.RegisterNetMessage<MsgVoiceSelf>(message => SelfReceived?.Invoke(message));
+        _net.RegisterNetMessage<MsgVoicePushToTalk>();
 
         _net.Connected += OnConnected;
         _cfg.OnValueChanged(GoobCVars.VoiceChatHearSelf, OnHearSelfChanged);
@@ -71,6 +72,12 @@ public sealed class VoiceChatManager
         _mutedSpeakers.Clear();
         _mutedSpeakers.AddRange(speakers);
         SendSettings();
+    }
+
+    public void SendPushToTalk(bool pressed)
+    {
+        if (_net.IsConnected)
+            _net.ClientSendMessage(new MsgVoicePushToTalk { Pressed = pressed });
     }
 
     public bool RequestLink()

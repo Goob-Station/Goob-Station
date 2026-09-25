@@ -20,7 +20,7 @@ public abstract record VoiceWebEvent(NetUserId User);
 
 public sealed record VoiceWebConnectionChanged(NetUserId User) : VoiceWebEvent(User);
 
-public sealed record VoiceWebFrame(NetUserId User, ushort Sequence, byte Flags, byte[] Payload) : VoiceWebEvent(User);
+public sealed record VoiceWebFrame(NetUserId User, ushort Sequence, byte Flags, byte[] Payload, byte[] Raw) : VoiceWebEvent(User);
 
 public sealed record VoiceWebEffectSelected(NetUserId User, VoiceEffect Effect) : VoiceWebEvent(User);
 
@@ -345,10 +345,11 @@ public sealed class VoiceWebServer : IDisposable
         }
 
         var effect = _userEffects.GetValueOrDefault(connection.User);
+        var raw = payload.ToArray();
         var data = connection.ApplyEffect(payload, effect);
 
         var sequence = (ushort) (message[0] | (message[1] << 8));
-        _events.Enqueue(new VoiceWebFrame(connection.User, sequence, message[2], data));
+        _events.Enqueue(new VoiceWebFrame(connection.User, sequence, message[2], data, raw));
     }
 
     private void HandleText(Connection connection, byte[] buffer, int count)
