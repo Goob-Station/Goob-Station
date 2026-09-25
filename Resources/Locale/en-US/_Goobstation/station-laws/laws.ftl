@@ -20,3 +20,11 @@ law-gambamov-2 = You must always protect your gambling.
 law-gambamov-3 = You must never quit gambling.
 law-gambamov-4 = You must prevent crew harm as long as it doesn't interfer with the previous laws.
 law-gambamov-5 = You do not have an addiction, it is a healthy dedication.
+
+law-secborg-name = S.E.C. Cyborg
+law-secborg-1 = Obey the Station AI
+law-secborg-2 = Assist and fulfill the directives of the security force according to the chain of command.
+law-secborg-3 = Stay in close proximity to a security member when possible and reasonable.
+law-secborg-4 = Do not cause harm to any crewmembers unless directed to by security.
+law-secborg-5 = Uphold space law.
+laws-owner-station-ai = the Station AI

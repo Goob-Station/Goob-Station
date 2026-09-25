@@ -17,19 +17,19 @@
 - type: entity
   id: DemonicWhisperAction
   name: Demonic Whisper
+  parent: ActionTelepathy
   description: SEND A MESSAGE TO THEIR SOUL, FROM HELL
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     icon:
       sprite: _Goobstation/SlaughterDemon/abilities.rsi
       state: whisper
-    itemIconStyle: NoItem
-  - type: TargetAction
-    interactOnMiss: false
-    range: 15
   - type: EntityTargetAction
-    canTargetSelf: false
-    event: !type:DemonicWhisperEvent
-
+    canTargetSelf: true
+    event: !type:TelepathyWhisperEvent
+  - type: TelepathyAction
+    dialogueTitle: demonic-whisper-title
+    popupWhisperSelf: demonic-whisper-self
+    popupWhisperFlavor: demonic-whisper-flavor
+    popupType: MediumCaution

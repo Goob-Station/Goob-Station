@@ -144,12 +144,12 @@
     channels:
     - Mothership
     - Xenoborg
-    #- Binary Goob
+    - Binary
   - type: ActiveRadio
     channels:
     - Mothership
     - Xenoborg
-    #- Binary Goob
+    - Binary
   - type: Xenoborg
     mindRole: MindRoleMothershipCore
     briefingText: mothership-welcome
@@ -236,10 +236,6 @@
   - type: ShowElectrocutionHUD
   - type: PowerMonitoringCableNetworks
   - type: RadarConsole
-  - type: CollectiveMind # Goobstation collectivemind binary
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: LanguageKnowledge # Einstein Engines - Languages. Xenoborgs understand every language so give this one to their core aswell
     speaks:
     - TauCetiBasic

@@ -1,7 +1,7 @@
 
 using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Slasher;
-using Content.Goobstation.Server.Voice;
+using Content.Goobstation.Server.VoiceChat;
 using Content.Goobstation.Common.JoinQueue;
 using Content.Goobstation.Common.ServerCurrency;
 using Robust.Shared.ContentPack;
@@ -11,7 +11,7 @@ namespace Content.Goobstation.Server.Entry;
 
 public sealed class EntryPoint : GameServer
 {
-    private IVoiceChatServerManager _voiceManager = default!;
+    private VoiceChatManager _voiceManager = default!;
     private ICommonCurrencyManager _curr = default!;
     private IJoinQueueManager _joinQueue = default!;
     private SlasherPrestigeManager _prestige = default!;
@@ -24,7 +24,8 @@ public sealed class EntryPoint : GameServer
 
         IoCManager.BuildGraph();
 
-        _voiceManager = IoCManager.Resolve<IVoiceChatServerManager>();
+        _voiceManager = IoCManager.Resolve<VoiceChatManager>();
+        _voiceManager.Initialize();
 
         _joinQueue = IoCManager.Resolve<IJoinQueueManager>();
         _joinQueue.Initialize();
@@ -42,7 +43,6 @@ public sealed class EntryPoint : GameServer
         switch (level)
         {
             case ModUpdateLevel.PreEngine:
-                _voiceManager.Update();
                 _joinQueue.Update(frameEventArgs.DeltaSeconds);
                 break;
         }
