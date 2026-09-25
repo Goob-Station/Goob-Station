@@ -58,7 +58,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
 
     private void OnRefreshSpeed(Entity<SlasherFearComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        if (!ent.Comp.SpeedBoostActive)
+        if (!ent.Comp.IsSpeedBoostActive)
             return;
 
         var mod = 1f + ent.Comp.MaxSpeedBonus;
@@ -106,7 +106,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
             Scan((uid, comp), now);
         }
 
-        UpdateFeared(now);
+        UpdateVictimFearBuildup(now);
         UpdateBloodTrails(now);
     }
 
@@ -127,7 +127,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
             if (!CanHunt(uid))
                 continue;
 
-            if (ObserveVictim(ent, other, now) is not { } victim)
+            if (!TryObserveVictim(ent, other, now, out var victim))
                 continue;
 
             var isNewPerson = !comp.Observing.Contains(netOther);
@@ -173,9 +173,9 @@ public sealed partial class SlasherFearSystem : EntitySystem
         var (uid, comp) = ent;
 
         var boosted = comp.CurrentMeter >= comp.MaxMeter;
-        if (comp.SpeedBoostActive != boosted)
+        if (comp.IsSpeedBoostActive != boosted)
         {
-            comp.SpeedBoostActive = boosted;
+            comp.IsSpeedBoostActive = boosted;
             Dirty(uid, comp);
             _movementSpeed.RefreshMovementSpeedModifiers(uid);
         }

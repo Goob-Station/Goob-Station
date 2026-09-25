@@ -44,10 +44,10 @@ public sealed partial class SlasherFearSystem
         if (args.Handled)
             return;
 
-        ent.Comp.MusicMuted = !ent.Comp.MusicMuted;
+        ent.Comp.IsMusicMuted = !ent.Comp.IsMusicMuted;
         Dirty(ent);
 
-        var message = ent.Comp.MusicMuted ? "slasher-fear-music-muted" : "slasher-fear-music-unmuted";
+        var message = ent.Comp.IsMusicMuted ? "slasher-fear-music-muted" : "slasher-fear-music-unmuted";
         _popup.PopupClient(Loc.GetString(message), ent, ent);
         args.Handled = true;
     }
@@ -57,16 +57,16 @@ public sealed partial class SlasherFearSystem
         var (uid, comp) = ent;
 
         var active = comp.CurrentMeter > 0f && CanHunt(uid);
-        if (comp.MusicActive != active)
+        if (comp.IsMusicActive != active)
         {
-            comp.MusicActive = active;
+            comp.IsMusicActive = active;
             Dirty(uid, comp);
         }
 
         if (!_timing.IsFirstTimePredicted || _player.LocalEntity != uid)
             return;
 
-        if (comp.MusicActive && !comp.MusicMuted)
+        if (comp.IsMusicActive && !comp.IsMusicMuted)
             comp.MusicStream = StartOrResumeMusic(comp.MusicStream, comp.BloodTrailMusic);
         else if (comp.MusicStream is { } stream)
         {
@@ -171,10 +171,13 @@ public sealed partial class SlasherFearSystem
 
         if (_observerStream is { } stream)
         {
-            if (Exists(stream) && TryComp<SlasherFearComponent>(Transform(stream).ParentUid, out var oldComp))
-                FadeOutMusic(stream, oldComp);
-            else if (Exists(stream))
-                QueueDel(stream);
+            if (Exists(stream))
+            {
+                if (TryComp<SlasherFearComponent>(Transform(stream).ParentUid, out var oldComp))
+                    FadeOutMusic(stream, oldComp);
+                else
+                    QueueDel(stream);
+            }
 
             _observerStream = null;
         }
@@ -187,7 +190,7 @@ public sealed partial class SlasherFearSystem
     {
         var query = EntityQueryEnumerator<SlasherFearComponent>();
         while (query.MoveNext(out var uid, out var comp))
-            if (comp.MusicActive)
+            if (comp.IsMusicActive)
                 return uid;
 
         return null;

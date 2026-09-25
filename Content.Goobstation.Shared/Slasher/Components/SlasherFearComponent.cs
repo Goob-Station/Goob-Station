@@ -96,7 +96,7 @@ public sealed partial class SlasherFearComponent : Component
     public bool IsActive;
 
     [DataField, AutoNetworkedField]
-    public bool SpeedBoostActive;
+    public bool IsSpeedBoostActive;
 
     /// <summary>
     /// Time between blood drops.
@@ -174,10 +174,10 @@ public sealed partial class SlasherFearComponent : Component
     public TimeSpan LastSeenVictim;
 
     [DataField, AutoNetworkedField]
-    public bool MusicActive;
+    public bool IsMusicActive;
 
     [DataField, AutoNetworkedField]
-    public bool MusicMuted;
+    public bool IsMusicMuted;
 
     [ViewVariables]
     public EntityUid? MusicStream;

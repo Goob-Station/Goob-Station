@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Shared.Slasher.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -22,7 +23,7 @@ public sealed partial class SlasherFearSystem
             ClearFearStyle(ent);
     }
 
-    private void UpdateFeared(TimeSpan now)
+    private void UpdateVictimFearBuildup(TimeSpan now)
     {
         var feared = EntityQueryEnumerator<SlasherVictimFearBuildupComponent>();
         while (feared.MoveNext(out var uid, out var comp))
@@ -38,38 +39,43 @@ public sealed partial class SlasherFearSystem
     /// <summary>
     /// Marks a victim as seen by a slasher.
     /// </summary>
-    /// <returns>The victim's component, or null if they have none or belong to another slasher.</returns>
-    private SlasherVictimFearBuildupComponent? ObserveVictim(Entity<SlasherFearComponent> slasher, EntityUid other, TimeSpan now)
+    /// <returns>False if the victim has no fear buildup component or belongs to another slasher.</returns>
+    private bool TryObserveVictim(Entity<SlasherFearComponent> slasher,
+        EntityUid other,
+        TimeSpan now,
+        [NotNullWhen(true)] out SlasherVictimFearBuildupComponent? victim)
     {
         var (uid, comp) = slasher;
+        victim = null;
 
         if (!_status.HasStatusEffect(other, comp.FearedEffect))
             _status.TryAddStatusEffect(other, comp.FearedEffect, out _, duration: null);
 
-        if (!TryComp<SlasherVictimFearBuildupComponent>(other, out var victim))
-            return null;
+        if (!TryComp<SlasherVictimFearBuildupComponent>(other, out var buildup))
+            return false;
 
-        victim.SourceEffect = comp.FearedEffect;
+        buildup.SourceEffect = comp.FearedEffect;
 
         var netUid = GetNetEntity(uid);
 
         // This stops evil things from happening if there's more than 1 slasher.
-        if (GetEntity(victim.Scarer) is { } owner
+        if (GetEntity(buildup.Scarer) is { } owner
             && owner != uid
             && !TerminatingOrDeleted(owner)
             && HasComp<SlasherFearComponent>(owner)
-            && now - victim.LastObserved < victim.OwnershipTimeout)
-            return null;
+            && now - buildup.LastObserved < buildup.OwnershipTimeout)
+            return false;
 
-        if (victim.Scarer != netUid)
+        if (buildup.Scarer != netUid)
         {
-            victim.Scarer = netUid;
+            buildup.Scarer = netUid;
             if (_net.IsServer)
-                ApplyFearStyle((other, victim), comp.GrantedToVictimOnSight);
+                ApplyFearStyle((other, buildup), comp.GrantedToVictimOnSight);
         }
 
-        victim.LastObserved = now;
-        return victim;
+        buildup.LastObserved = now;
+        victim = buildup;
+        return true;
     }
 
     private void ReleaseVictims(EntityUid slasher)
@@ -118,9 +124,6 @@ public sealed partial class SlasherFearSystem
     private void ApplyFearStyle(Entity<SlasherVictimFearBuildupComponent> victim, ComponentRegistry style)
     {
         ClearFearStyle(victim);
-
-        if (style.Count == 0)
-            return;
 
         EntityManager.AddComponents(victim.Owner, style);
         victim.Comp.AppliedStyle = style;
