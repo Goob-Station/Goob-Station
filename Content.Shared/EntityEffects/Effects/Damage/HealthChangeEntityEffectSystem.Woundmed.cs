@@ -13,7 +13,7 @@ public sealed partial class HealthChange
     public bool UseTargeting = true;
 
     [DataField]
-    public TargetBodyPart? TargetPart = TargetBodyPart.All;
+    public TargetBodyPart TargetPart = TargetBodyPart.All;
 
     [DataField]
     public bool IgnoreBlockers = false;
