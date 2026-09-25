@@ -164,8 +164,8 @@ public sealed partial class SlasherFearComponent : Component
     /// <summary>
     /// Victims that were in sight on the previous scan, to detect fresh entries.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public HashSet<EntityUid> Observing = new();
+    [ViewVariables, AutoNetworkedField]
+    public HashSet<NetEntity> Observing = new();
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan NextJumpscare;

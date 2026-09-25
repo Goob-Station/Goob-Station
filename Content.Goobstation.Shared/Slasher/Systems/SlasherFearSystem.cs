@@ -113,7 +113,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
     private void Scan(Entity<SlasherFearComponent> ent, TimeSpan now)
     {
         var (uid, comp) = ent;
-        var seen = new HashSet<EntityUid>();
+        var seen = new HashSet<NetEntity>();
 
         foreach (var other in _lookup.GetEntitiesInRange(uid, comp.Range))
         {
@@ -121,7 +121,8 @@ public sealed partial class SlasherFearSystem : EntitySystem
                 || !_interaction.InRangeUnobstructed(uid, other, comp.Range, CollisionGroup.Opaque))
                 continue;
 
-            seen.Add(other);
+            var netOther = GetNetEntity(other);
+            seen.Add(netOther);
 
             if (!CanHunt(uid))
                 continue;
@@ -129,7 +130,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
             if (ObserveVictim(ent, other, now) is not { } victim)
                 continue;
 
-            var isNewPerson = !comp.Observing.Contains(other);
+            var isNewPerson = !comp.Observing.Contains(netOther);
             if (isNewPerson && now >= comp.NextJumpscare)
             {
                 comp.NextJumpscare = now + comp.JumpscareCooldown;
