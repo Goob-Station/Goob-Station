@@ -20,6 +20,8 @@ public sealed class SlasherIncorporealOverlay : Overlay
     public override bool RequestScreenTexture => true;
 
     private readonly ShaderInstance _shader;
+    private readonly EntityQuery<SlasherIncorporealOverlayComponent> _overlayQuery;
+    private readonly EntityQuery<EyeComponent> _eyeQuery;
 
     public float Intensity;
 
@@ -27,12 +29,14 @@ public sealed class SlasherIncorporealOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
         _shader = _proto.Index(Shader).InstanceUnique();
+        _overlayQuery = _entMan.GetEntityQuery<SlasherIncorporealOverlayComponent>();
+        _eyeQuery = _entMan.GetEntityQuery<EyeComponent>();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (!_entMan.TryGetComponent(_player.LocalEntity, out SlasherIncorporealOverlayComponent? overlay)
-            || !_entMan.TryGetComponent(_player.LocalEntity, out EyeComponent? eyeComp)
+        if (!_overlayQuery.TryComp(_player.LocalEntity, out var overlay)
+            || !_eyeQuery.TryComp(_player.LocalEntity, out var eyeComp)
             || args.Viewport.Eye != eyeComp.Eye)
             return false;
 

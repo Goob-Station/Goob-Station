@@ -21,6 +21,8 @@ public sealed class SlasherFearOverlay : Overlay
     public override bool RequestScreenTexture => true;
 
     private readonly ShaderInstance _shader;
+    private readonly EntityQuery<SlasherFearOverlayComponent> _fearQuery;
+    private readonly EntityQuery<EyeComponent> _eyeQuery;
 
     public float Intensity;
 
@@ -29,14 +31,16 @@ public sealed class SlasherFearOverlay : Overlay
         IoCManager.InjectDependencies(this);
 
         _shader = _proto.Index(FearShader).InstanceUnique();
+        _fearQuery = _entMan.GetEntityQuery<SlasherFearOverlayComponent>();
+        _eyeQuery = _entMan.GetEntityQuery<EyeComponent>();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (ScreenTexture == null
             || Intensity <= 0.001f
-            || !_entMan.HasComponent<SlasherFearOverlayComponent>(_player.LocalEntity)
-            || !_entMan.TryGetComponent(_player.LocalEntity, out EyeComponent? eye)
+            || !_fearQuery.HasComp(_player.LocalEntity)
+            || !_eyeQuery.TryComp(_player.LocalEntity, out var eye)
             || args.Viewport.Eye != eye.Eye)
             return;
 

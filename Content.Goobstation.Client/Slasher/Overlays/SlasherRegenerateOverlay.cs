@@ -20,19 +20,23 @@ public sealed class SlasherRegenerateOverlay : Overlay
     public override bool RequestScreenTexture => true;
 
     private readonly ShaderInstance _shader;
+    private readonly EntityQuery<SlasherRegenerateOverlayComponent> _overlayQuery;
+    private readonly EntityQuery<EyeComponent> _eyeQuery;
 
     public SlasherRegenerateOverlay()
     {
         IoCManager.InjectDependencies(this);
 
         _shader = _proto.Index(RegenerateShader).InstanceUnique();
+        _overlayQuery = _entMan.GetEntityQuery<SlasherRegenerateOverlayComponent>();
+        _eyeQuery = _entMan.GetEntityQuery<EyeComponent>();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (ScreenTexture == null
-            || !_entMan.TryGetComponent(_player.LocalEntity, out SlasherRegenerateOverlayComponent? overlay)
-            || !_entMan.TryGetComponent(_player.LocalEntity, out EyeComponent? eye)
+            || !_overlayQuery.TryComp(_player.LocalEntity, out var overlay)
+            || !_eyeQuery.TryComp(_player.LocalEntity, out var eye)
             || args.Viewport.Eye != eye.Eye)
             return;
 
