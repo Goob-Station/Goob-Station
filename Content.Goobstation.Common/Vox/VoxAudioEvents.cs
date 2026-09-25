@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Common.VoxAudio;
+namespace Content.Goobstation.Common.Vox;
 
 [Serializable, NetSerializable]
 public sealed class VoxPlayMessage(string message, List<ProtoId<VoxVoicePrototype>> voiceSet, float? delay, NetEntity? nuid) : EntityEventArgs

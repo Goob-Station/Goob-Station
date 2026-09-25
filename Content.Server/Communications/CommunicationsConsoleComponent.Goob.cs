@@ -1,4 +1,4 @@
-using Content.Goobstation.Common.VoxAudio;
+using Content.Goobstation.Common.Vox;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Communications;

@@ -1,6 +1,6 @@
 using System.Linq;
-using Content.Goobstation.Common.VoxAudio;
-using Content.Goobstation.Shared.VoxAudio;
+using Content.Goobstation.Common.Vox;
+using Content.Goobstation.Shared.Vox;
 using Robust.Client.Audio;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
@@ -9,7 +9,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Client.VoxAudio;
+namespace Content.Goobstation.Client.Vox;
 
 public sealed class PlayingVoxClip
 {

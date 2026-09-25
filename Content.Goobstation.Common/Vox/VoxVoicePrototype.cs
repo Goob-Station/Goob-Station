@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Common.VoxAudio;
+namespace Content.Goobstation.Common.Vox;
 
 [DataDefinition]
 public sealed partial class VoxWord

@@ -1,10 +1,7 @@
 using System.Linq;
-using Content.Goobstation.Common.VoxAudio;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Chat;
 using Content.Shared.Database;
-using Content.Shared.Station.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
 namespace Content.Server.Chat.Systems;

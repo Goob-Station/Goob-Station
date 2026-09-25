@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.VoxAudio;
+using Content.Goobstation.Common.Vox;
 using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests._Goobstation.VoxAudio;

@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Goobstation.Common.VoxAudio;
+using Content.Goobstation.Common.Vox;
 using Content.Shared.Administration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
@@ -20,7 +20,7 @@ public sealed class VoxCommand : ToolshedCommand
     [CommandImplementation("validate")]
     public IEnumerable<string> VoxValidate(string toSay, ProtoId<VoxVoicePrototype> voiceProto)
     {
-        return Shared.VoxAudio.SharedVoxAudioSystem.GetPlaybackWordChain([_proto.Index(voiceProto)], toSay)
+        return Shared.Vox.SharedVoxAudioSystem.GetPlaybackWordChain([_proto.Index(voiceProto)], toSay)
             .Select(x => x.Word);
     }
 }

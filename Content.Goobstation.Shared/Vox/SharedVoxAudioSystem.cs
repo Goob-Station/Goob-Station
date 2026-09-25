@@ -1,10 +1,10 @@
 using System.Linq;
-using Content.Goobstation.Common.VoxAudio;
+using Content.Goobstation.Common.Vox;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.VoxAudio;
+namespace Content.Goobstation.Shared.Vox;
 
 /// <summary>
 /// Word with an absolute path, exists separately from voxword for basepath behavior

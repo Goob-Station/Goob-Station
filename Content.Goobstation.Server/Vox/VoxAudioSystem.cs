@@ -1,12 +1,12 @@
-using Content.Goobstation.Common.VoxAudio;
-using Content.Goobstation.Shared.VoxAudio;
+using Content.Goobstation.Common.Vox;
+using Content.Goobstation.Shared.Vox;
 using Content.Server.Communications;
 using Content.Server.Station.Systems;
 using Content.Shared.Station.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.VoxAudio;
+namespace Content.Goobstation.Server.Vox;
 
 public sealed partial class VoxAudioSystem : SharedVoxAudioSystem
 {
