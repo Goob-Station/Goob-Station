@@ -3,6 +3,7 @@ using Content.Shared.Alert;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Slasher.Components;
 
@@ -158,7 +159,7 @@ public sealed partial class SlasherFearComponent : Component
         new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/Jumpscare4.ogg")
     };
 
-    [DataField, AutoNetworkedField]
+    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan NextCheck;
 
     /// <summary>
@@ -167,10 +168,10 @@ public sealed partial class SlasherFearComponent : Component
     [DataField, AutoNetworkedField]
     public HashSet<EntityUid> Observing = new();
 
-    [DataField, AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan NextJumpscare;
 
-    [DataField, AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan LastSeenVictim;
 
     [DataField, AutoNetworkedField]

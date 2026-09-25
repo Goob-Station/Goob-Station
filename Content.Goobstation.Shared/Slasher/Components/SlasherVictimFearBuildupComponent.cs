@@ -3,6 +3,7 @@ using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Slasher.Components;
 
@@ -11,7 +12,7 @@ namespace Content.Goobstation.Shared.Slasher.Components;
 /// the Slasher can see them and decays once they break line of sight.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class FearedComponent : Component
+public sealed partial class SlasherVictimFearBuildupComponent : Component
 {
     [DataField, AutoNetworkedField]
     public float Fear;
@@ -98,7 +99,7 @@ public sealed partial class FearedComponent : Component
     /// <summary>
     /// Last time a Slasher had this victim in sight.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan LastObserved;
 
     /// <summary>
@@ -107,7 +108,7 @@ public sealed partial class FearedComponent : Component
     [DataField]
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
 
-    [DataField, AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan NextUpdate;
 
     [ViewVariables]

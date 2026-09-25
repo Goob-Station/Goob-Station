@@ -15,7 +15,7 @@ public sealed class SlasherFearAlertSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SlasherFearComponent, GetGenericAlertCounterAmountEvent>(OnGetCounter);
-        SubscribeLocalEvent<FearedComponent, GetGenericAlertCounterAmountEvent>(OnGetVictimCounter);
+        SubscribeLocalEvent<SlasherVictimFearBuildupComponent, GetGenericAlertCounterAmountEvent>(OnGetVictimCounter);
     }
 
     private void OnGetCounter(Entity<SlasherFearComponent> ent, ref GetGenericAlertCounterAmountEvent args)
@@ -26,7 +26,7 @@ public sealed class SlasherFearAlertSystem : EntitySystem
         args.Amount = (int) MathF.Round(ent.Comp.Meter);
     }
 
-    private void OnGetVictimCounter(Entity<FearedComponent> ent, ref GetGenericAlertCounterAmountEvent args)
+    private void OnGetVictimCounter(Entity<SlasherVictimFearBuildupComponent> ent, ref GetGenericAlertCounterAmountEvent args)
     {
         if (args.Handled || ent.Comp.Alert != args.Alert)
             return;

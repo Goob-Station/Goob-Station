@@ -52,8 +52,8 @@ public sealed partial class SlasherFearSystem : EntitySystem
         SubscribeLocalEvent<SlasherFearComponent, LocalPlayerDetachedEvent>(OnFearDetached);
         SubscribeLocalEvent<SlasherFearComponent, SlasherToggleFearMusicAlertEvent>(OnToggleMusic);
 
-        SubscribeLocalEvent<FearedComponent, ComponentShutdown>(OnFearedShutdown);
-        SubscribeLocalEvent<FearedComponent, LocalPlayerDetachedEvent>(OnFearedDetached);
+        SubscribeLocalEvent<SlasherVictimFearBuildupComponent, ComponentShutdown>(OnFearedShutdown);
+        SubscribeLocalEvent<SlasherVictimFearBuildupComponent, LocalPlayerDetachedEvent>(OnFearedDetached);
     }
 
     private void OnRefreshSpeed(Entity<SlasherFearComponent> ent, ref RefreshMovementSpeedModifiersEvent args)

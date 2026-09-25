@@ -87,7 +87,7 @@ public sealed partial class SlasherFearSystem
         ent.Comp.MusicStream = null;
     }
 
-    private void UpdateVictimMusic(Entity<FearedComponent> ent)
+    private void UpdateVictimMusic(Entity<SlasherVictimFearBuildupComponent> ent)
     {
         var (uid, comp) = ent;
 
@@ -115,7 +115,7 @@ public sealed partial class SlasherFearSystem
     /// <summary>
     /// Fades out the victim's copy of the hunt theme when they stop being feared or leave their body.
     /// </summary>
-    private void FadeVictimMusic(Entity<FearedComponent> ent)
+    private void FadeVictimMusic(Entity<SlasherVictimFearBuildupComponent> ent)
     {
         if (ent.Comp.MusicStream is { } stream)
         {

@@ -9,12 +9,12 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// </summary>
 public sealed partial class SlasherFearSystem
 {
-    private void OnFearedDetached(Entity<FearedComponent> ent, ref LocalPlayerDetachedEvent args)
+    private void OnFearedDetached(Entity<SlasherVictimFearBuildupComponent> ent, ref LocalPlayerDetachedEvent args)
     {
         FadeVictimMusic(ent);
     }
 
-    private void OnFearedShutdown(Entity<FearedComponent> ent, ref ComponentShutdown args)
+    private void OnFearedShutdown(Entity<SlasherVictimFearBuildupComponent> ent, ref ComponentShutdown args)
     {
         FadeVictimMusic(ent);
 
@@ -24,7 +24,7 @@ public sealed partial class SlasherFearSystem
 
     private void UpdateFeared(TimeSpan now)
     {
-        var feared = EntityQueryEnumerator<FearedComponent>();
+        var feared = EntityQueryEnumerator<SlasherVictimFearBuildupComponent>();
         while (feared.MoveNext(out var uid, out var comp))
         {
             if (now < comp.NextUpdate)
@@ -39,14 +39,14 @@ public sealed partial class SlasherFearSystem
     /// Marks a victim as seen by a slasher.
     /// </summary>
     /// <returns>The victim's component, or null if they have none or belong to another slasher.</returns>
-    private FearedComponent? ObserveVictim(Entity<SlasherFearComponent> slasher, EntityUid other, TimeSpan now)
+    private SlasherVictimFearBuildupComponent? ObserveVictim(Entity<SlasherFearComponent> slasher, EntityUid other, TimeSpan now)
     {
         var (uid, comp) = slasher;
 
         if (!_status.HasStatusEffect(other, comp.FearedEffect))
             _status.TryAddStatusEffect(other, comp.FearedEffect, out _, duration: null);
 
-        if (!TryComp<FearedComponent>(other, out var victim))
+        if (!TryComp<SlasherVictimFearBuildupComponent>(other, out var victim))
             return null;
 
         victim.SourceEffect = comp.FearedEffect;
@@ -72,7 +72,7 @@ public sealed partial class SlasherFearSystem
 
     private void ReleaseVictims(EntityUid slasher)
     {
-        var victims = EntityQueryEnumerator<FearedComponent>();
+        var victims = EntityQueryEnumerator<SlasherVictimFearBuildupComponent>();
         while (victims.MoveNext(out var victimUid, out var victim))
         {
             if (victim.Scarer != slasher)
@@ -83,7 +83,7 @@ public sealed partial class SlasherFearSystem
         }
     }
 
-    private void UpdateVictim(Entity<FearedComponent> ent, TimeSpan now)
+    private void UpdateVictim(Entity<SlasherVictimFearBuildupComponent> ent, TimeSpan now)
     {
         var (uid, comp) = ent;
 
@@ -113,7 +113,7 @@ public sealed partial class SlasherFearSystem
         UpdateVictimMusic(ent);
     }
 
-    private void ApplyFearStyle(Entity<FearedComponent> victim, ComponentRegistry style)
+    private void ApplyFearStyle(Entity<SlasherVictimFearBuildupComponent> victim, ComponentRegistry style)
     {
         ClearFearStyle(victim);
 
@@ -124,7 +124,7 @@ public sealed partial class SlasherFearSystem
         victim.Comp.AppliedStyle = style;
     }
 
-    private void ClearFearStyle(Entity<FearedComponent> victim)
+    private void ClearFearStyle(Entity<SlasherVictimFearBuildupComponent> victim)
     {
         if (victim.Comp.AppliedStyle is not { } style)
             return;

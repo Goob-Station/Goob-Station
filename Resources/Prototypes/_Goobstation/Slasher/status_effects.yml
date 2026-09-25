@@ -8,4 +8,4 @@
     showDuration: false
   - type: GrantComponentsStatusEffect
     components:
-    - type: Feared
+    - type: SlasherVictimFearBuildup
