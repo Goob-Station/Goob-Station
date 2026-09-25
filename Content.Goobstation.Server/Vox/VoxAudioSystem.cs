@@ -26,9 +26,9 @@ public sealed partial class VoxAudioSystem : SharedVoxAudioSystem
 
         // yay
         if (ev.Component.Global)
-            Play(ev.Text, ev.Component.VoxVoices, 2.0f, 30f);
+            Play(ev.Text, ev.Component.VoxVoices, delay: 2.0f, maxRuntime: 30f);
         else if (TryComp(_station.GetOwningStation(ev.Uid), out StationDataComponent? comp))
-            Play(ev.Text, ev.Component.VoxVoices, 2.0f, 30f, null, _station.GetInStation(comp));
+            Play(ev.Text, ev.Component.VoxVoices, delay: 2.0f, maxRuntime: 30f, filter: _station.GetInStation(comp));
         else
             // vv if communication consoles work without depending on
             // the station itself in the future will need to change this.
