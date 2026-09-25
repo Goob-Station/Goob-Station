@@ -91,12 +91,9 @@ public sealed class SlasherKitSelectSystem : EntitySystem
 
         EntityManager.AddComponents(ent.Owner, ent.Comp.PostSelectionComponents);
 
-        if (selectedKit.Components.Count > 0)
-            EntityManager.AddComponents(ent.Owner, selectedKit.Components);
+        EntityManager.AddComponents(ent.Owner, selectedKit.Components);
 
-        foreach (var compName in selectedKit.RemoveComponents)
-            if (Factory.TryGetRegistration(compName, out var registration))
-                RemComp(ent.Owner, registration.Type);
+        EntityManager.RemoveComponents(ent.Owner, selectedKit.RemoveComponents);
 
         _stationSpawning.EquipStartingGear(ent.Owner, selectedKit.Gear);
 

@@ -566,7 +566,7 @@
               params:
                 loop: true
             removeComponents:
-            - SlasherIncorporeal
+            - type: SlasherIncorporeal
             grantedToVictimOnSight:
             - type: SprintDisabled
             components:

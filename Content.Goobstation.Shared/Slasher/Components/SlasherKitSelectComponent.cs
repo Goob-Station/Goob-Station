@@ -125,7 +125,7 @@ public sealed partial class SlasherKit
     /// added. Used to strip shared abilities (like the incorporeal jaunt) from specific kits.
     /// </summary>
     [DataField]
-    public HashSet<string> RemoveComponents = new();
+    public ComponentRegistry RemoveComponents = new();
 
     /// <summary>
     /// Guidebook entry id for this kit. Set on kits whose gameplay differs from the default slasher;
