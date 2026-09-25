@@ -25,10 +25,10 @@ public sealed partial class SlasherStaggerAreaComponent : Component
     /// <summary>
     /// Shader the shockwave ring draws with.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public string ShockwaveShader = "SlasherStagger";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Color RingColor = new(0.22f, 0.02f, 0.34f);
 
     /// <summary>

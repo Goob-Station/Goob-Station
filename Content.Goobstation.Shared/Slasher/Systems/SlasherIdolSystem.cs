@@ -45,7 +45,7 @@ public abstract class SlasherIdolSystem : EntitySystem
             || !IsCharmed(fan, charmed))
             return;
 
-        args.Damage *= 1f - charmed.IdolDamageReduction;
+        args.Damage *= 1f - charmed.IdolDamageModifier;
 
         if (_net.IsClient || _timing.CurTime < charmed.NextApology)
             return;
