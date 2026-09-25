@@ -6,6 +6,7 @@
   suffix: Debug
   components:
   - type: SlasherKitSelect
+    ignoreAscensionLocks: true
   - type: UserInterface
     interfaces:
       enum.SlasherKitSelectUiKey.Key:

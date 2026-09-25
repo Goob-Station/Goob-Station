@@ -64,15 +64,19 @@ public sealed class SlasherKitSelectSystem : EntitySystem
                 kit.BloodTrailMusic ?? ent.Comp.DefaultThemeSong,
                 kit.AscensionId,
                 kit.RequiredAscension,
-                IsKitUnlocked(kit, userId),
+                IsKitUnlocked(ent.Comp, kit, userId),
                 kit.Guide));
         }
 
         _ui.SetUiState(ent.Owner, SlasherKitSelectUiKey.Key, new SlasherKitSelectBoundUserInterfaceState(kitInfos));
     }
 
-    private bool IsKitUnlocked(SlasherKit kit, NetUserId userId)
-        => kit.RequiredAscension == null || _prestige.HasAscension(userId, kit.RequiredAscension);
+    private bool IsKitUnlocked(SlasherKitSelectComponent comp, SlasherKit kit, NetUserId userId)
+    {
+        return comp.IgnoreAscensionLocks
+               || kit.RequiredAscension == null
+               || _prestige.HasAscension(userId, kit.RequiredAscension);
+    }
 
     private void OnKitSelected(Entity<SlasherKitSelectComponent> ent, ref SlasherKitSelectedMessage args)
     {
@@ -80,7 +84,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         if (ent.Comp.KitSelected
             || !kitList.Kits.TryGetValue(args.KitId, out var selectedKit)
             || !TryComp<ActorComponent>(args.Actor, out var actor)
-            || !IsKitUnlocked(selectedKit, actor.PlayerSession.UserId))
+            || !IsKitUnlocked(ent.Comp, selectedKit, actor.PlayerSession.UserId))
             return;
 
         ent.Comp.KitSelected = true;

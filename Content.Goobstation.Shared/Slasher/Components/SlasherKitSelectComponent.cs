@@ -19,6 +19,12 @@ public sealed partial class SlasherKitSelectComponent : Component
     public ProtoId<SlasherKitListPrototype> KitList = "SlasherKits";
 
     /// <summary>
+    /// Offers every kit regardless of the player's ascensions. For debug and admin slashers.
+    /// </summary>
+    [DataField]
+    public bool IgnoreAscensionLocks;
+
+    /// <summary>
     /// Default song for the trailer music.
     /// </summary>
     [DataField]
