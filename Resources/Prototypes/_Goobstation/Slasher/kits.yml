@@ -64,7 +64,6 @@
       bloodTrailMusic:
         path: /Audio/_Goobstation/Slasher/Music/excuse_me_tider.ogg
         params:
-          volume: -7
           loop: true
       components:
       - type: TentacleHook
