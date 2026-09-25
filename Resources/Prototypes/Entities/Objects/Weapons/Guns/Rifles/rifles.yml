@@ -186,6 +186,9 @@
   id: WeaponRifleLecter
   description: A military-grade assault rifle that's seen more wars than you can remember. The full-size package and steady recoil of the Lecter help it excel at one thing—pinpoint accuracy. Feeds from .20 Rifle magazines. # Goobstation
   components:
+  - type: Tag
+    tags:
+    - WeaponRifleLecter # Goobstation - S.E.C. cyborg lethal module
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
     layers:

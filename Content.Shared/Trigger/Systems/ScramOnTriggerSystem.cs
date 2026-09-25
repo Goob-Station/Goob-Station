@@ -8,6 +8,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Containers; // Goobstation
 
 namespace Content.Shared.Trigger.Systems;
 
@@ -19,6 +20,7 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly TurfSystem _turfSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // Goobstation
 
     protected override void OnTrigger(Entity<ScramOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
@@ -52,12 +54,24 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
     /// <remarks> Trends towards the outer radius. Compensates for small grids. </remarks>
     private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius, int tries = 40, PhysicsComponent? physicsComponent = null)
     {
+        if (!Resolve(uid, ref physicsComponent)) // Goobstation - Moved the resolve to top
+            return null;
+
         var userCoords = Transform(uid).Coordinates;
+
+        // Goobstation - start.
+        // Being in a locker any container set your coordinate to the locker with 0 x,y
+        // So get the outer container's coordinate in case if you are a rat inside a backpack 
+        if (_container.IsEntityOrParentInContainer(uid))
+        {
+            if (!_container.TryGetOuterContainer(uid, Transform(uid), out var container))
+                return null;
+
+            userCoords = Transform(container.Owner).Coordinates;
+        }
+        // Goobstation - end
+
         EntityCoordinates? targetCoords = null;
-
-        if (!Resolve(uid, ref physicsComponent))
-            return targetCoords;
-
 
         for (var i = 0; i < tries; i++)
         {
