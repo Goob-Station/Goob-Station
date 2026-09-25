@@ -5,12 +5,12 @@ namespace Content.Goobstation.Shared.Slasher.Components;
 /// <summary>
 /// Default slasher fear overlay.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class SlasherFearOverlayComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float FadeSpeed = 1.5f;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float BaseIntensity = 0.15f;
 }
