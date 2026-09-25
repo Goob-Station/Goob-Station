@@ -50,7 +50,7 @@ public sealed class SlasherStaggerOverlay : Overlay
         if (args.Viewport.Eye == null)
             return false;
 
-        var query = _entMan.AllEntityQueryEnumerator<SlasherStaggerOverlayComponent>();
+        var query = _entMan.EntityQueryEnumerator<SlasherStaggerOverlayComponent>();
         while (query.MoveNext(out _, out var wave))
         {
             if (GetProgress(wave) < 1f)
@@ -71,7 +71,7 @@ public sealed class SlasherStaggerOverlay : Overlay
         var handle = args.WorldHandle;
         var renderScale = args.Viewport.RenderScale * args.Viewport.Eye.Scale;
 
-        var query = _entMan.AllEntityQueryEnumerator<SlasherStaggerOverlayComponent, TransformComponent>();
+        var query = _entMan.EntityQueryEnumerator<SlasherStaggerOverlayComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var wave, out var xform))
         {
             if (xform.MapID != args.MapId)
