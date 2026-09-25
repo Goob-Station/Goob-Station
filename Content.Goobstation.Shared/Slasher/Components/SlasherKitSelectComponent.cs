@@ -112,6 +112,4 @@ public sealed partial class SlasherKit
     /// </summary>
     [DataField]
     public SoundSpecifier? AscendanceSound;
-
 }
-

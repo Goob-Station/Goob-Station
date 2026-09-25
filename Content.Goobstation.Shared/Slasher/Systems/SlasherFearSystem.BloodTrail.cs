@@ -57,7 +57,7 @@ public sealed partial class SlasherFearSystem
             var amount = FixedPoint2.Max(FixedPoint2.Zero, comp.VolumePerDrop);
             solution.AddReagent(comp.BloodTrailReagent, amount);
 
-            _puddles.TrySpillAt(uid, solution, out _, sound: false);
+            _puddle.TrySpillAt(uid, solution, out _, sound: false);
         }
     }
 }

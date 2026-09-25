@@ -34,11 +34,11 @@ public sealed partial class SlasherFearSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPuddleSystem _puddles = default!;
+    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementModStatusSystem _movemod = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _moveSpeed = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -177,7 +177,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
         {
             comp.SpeedBoostActive = boosted;
             Dirty(uid, comp);
-            _moveSpeed.RefreshMovementSpeedModifiers(uid);
+            _movementSpeed.RefreshMovementSpeedModifiers(uid);
         }
 
         if (comp.CurrentMeter > 0f)
