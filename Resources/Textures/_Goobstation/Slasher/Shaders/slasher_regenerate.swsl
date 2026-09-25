@@ -90,6 +90,7 @@ void fragment()
     highp vec3 burnCol = mix(vec3(0.85, 0.32, 0.07), vec3(1.0, 0.80, 0.50), burnField);
     film = mix(film, burnCol, clamp(flare * burnField, 0.0, 1.0));
     film += flare * 0.10;
+    film *= 0.5; // Controls darkness
 
     highp vec3 clean = texture2D(SCREEN_TEXTURE, UV).rgb;
     COLOR = vec4(mix(clean, clamp(film, 0.0, 1.0), filmAmount), 1.0);
