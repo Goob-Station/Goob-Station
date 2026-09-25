@@ -25,7 +25,8 @@ public sealed class SpinnerRack : Control
     private const float Radius = 330f;
     private const float FrameRadius = 342f;
     private const float Perspective = 1300f;
-    private const int MinSlots = 12;
+    private const int Pockets = 12;
+    private const float PocketStep = 360f / Pockets;
     private const float SpinSpeed = 7f;
     private const float SlideSpeed = 6f;
     private const float FadeTime = 0.25f;
@@ -101,7 +102,7 @@ public sealed class SpinnerRack : Control
 
     private readonly List<DrawVertexUV2D> _verts = new(FanSegments * 6);
     private readonly Vector2[] _quad = new Vector2[4];
-    private readonly List<(int Slot, float Angle, float Facing)> _placed = new();
+    private readonly List<(int Pocket, float Angle, float Facing)> _placed = new();
     private readonly List<(float Facing, Vector3 Foot)> _spokes = new();
 
     private Matrix3x2 _screen;
@@ -200,7 +201,7 @@ public sealed class SpinnerRack : Control
             return tier;
 
         tier.Selected = Math.Max(0, entries.FindIndex(e => e.Kit.Unlocked));
-        tier.Rotation = tier.Target = -tier.Selected * tier.Step;
+        tier.Position = tier.TargetPosition = tier.Selected;
         return tier;
     }
 
@@ -225,18 +226,18 @@ public sealed class SpinnerRack : Control
         if (index < 0 || index >= tier.Entries.Count)
             return;
 
-        tier.Target -= ShortestSlotDelta(tier, index) * tier.Step;
+        tier.TargetPosition += ShortestTapeDelta(tier, index);
         tier.Selected = index;
         OnSelected?.Invoke(_active, tier.Entries[index]);
     }
 
-    private static int ShortestSlotDelta(Tier tier, int index)
+    private static int ShortestTapeDelta(Tier tier, int index)
     {
         var delta = index - tier.Selected;
         if (delta < 0)
-            delta += tier.Slots;
-        if (delta * 2 > tier.Slots)
-            delta -= tier.Slots;
+            delta += tier.Period;
+        if (delta * 2 > tier.Period)
+            delta -= tier.Period;
 
         return delta;
     }
@@ -253,7 +254,7 @@ public sealed class SpinnerRack : Control
         foreach (var tier in _tiers)
         {
             tier.Fade = MathF.Min(1f, tier.Fade + dt / FadeTime);
-            tier.Rotation = EaseToward(tier.Rotation, tier.Target, dt * SpinSpeed);
+            tier.Position = EaseToward(tier.Position, tier.TargetPosition, dt * SpinSpeed, 0.05f / PocketStep);
         }
 
         _slide = EaseToward(_slide, -_active * TierHeight, dt * SlideSpeed);
@@ -261,10 +262,10 @@ public sealed class SpinnerRack : Control
         _neon.Update(dt);
     }
 
-    private static float EaseToward(float value, float target, float amount)
+    private static float EaseToward(float value, float target, float amount, float snap = 0.05f)
     {
         value = MathHelper.Lerp(value, target, MathF.Min(1f, amount));
-        return MathF.Abs(value - target) < 0.05f ? target : value;
+        return MathF.Abs(value - target) < snap ? target : value;
     }
 
     #endregion
@@ -613,10 +614,10 @@ public sealed class SpinnerRack : Control
         var hoopY = MidHoopY + t * TierHeight;
 
         _placed.Clear();
-        for (var i = 0; i < tier.Slots; i++)
+        for (var pocket = 0; pocket < Pockets; pocket++)
         {
-            var angle = MathHelper.DegreesToRadians(i * tier.Step + tier.Rotation);
-            _placed.Add((i, angle, MathF.Cos(angle)));
+            var angle = MathHelper.DegreesToRadians(pocket * PocketStep + tier.Rotation);
+            _placed.Add((pocket, angle, MathF.Cos(angle)));
         }
 
         _placed.Sort(static (a, b) => a.Facing.CompareTo(b.Facing));
@@ -631,7 +632,7 @@ public sealed class SpinnerRack : Control
 
         var wheelDrawn = false;
         var hoopDrawn = false;
-        foreach (var (slot, angle, facing) in _placed)
+        foreach (var (pocket, angle, facing) in _placed)
         {
             if (!wheelDrawn && facing >= 0f)
             {
@@ -646,8 +647,8 @@ public sealed class SpinnerRack : Control
             }
 
             var brightness = BrightnessForFacing(facing) * dim;
-            if (slot < tier.Entries.Count && facing > BackFace)
-                DrawTape(handle, t, slot, angle, brightness);
+            if (facing > BackFace && tier.TapeInPocket(pocket) is var tape and >= 0)
+                DrawTape(handle, t, tape, angle, brightness);
 
             if (facing > -0.15f)
                 DrawSlotFrame(handle, t, angle, brightness);
@@ -736,9 +737,9 @@ public sealed class SpinnerRack : Control
         var tier = _tiers[0];
 
         _spokes.Clear();
-        for (var i = 0; i < tier.Slots; i++)
+        for (var pocket = 0; pocket < Pockets; pocket++)
         {
-            var (sin, cos) = MathF.SinCos(MathHelper.DegreesToRadians(i * tier.Step + tier.Rotation));
+            var (sin, cos) = MathF.SinCos(MathHelper.DegreesToRadians(pocket * PocketStep + tier.Rotation));
             _spokes.Add((cos, new Vector3(footRadius * sin, CrownY - CrownRail + 2f, footRadius * cos)));
         }
 
@@ -764,18 +765,18 @@ public sealed class SpinnerRack : Control
 
     #region Tapes
 
-    private void DrawTape(DrawingHandleScreen handle, int t, int slot, float angle, float brightness)
+    private void DrawTape(DrawingHandleScreen handle, int t, int tape, float angle, float brightness)
     {
         const float hw = TapeWidth * 0.5f;
         const float hh = TapeHeight * 0.5f;
 
         var tier = _tiers[t];
         var active = t == _active;
-        var selected = active && slot == tier.Selected;
-        var hovered = active && slot == _hovered;
+        var selected = active && tape == tier.Selected;
+        var hovered = active && tape == _hovered;
         var alpha = tier.Fade;
 
-        var entry = tier.Entries[slot];
+        var entry = tier.Entries[tape];
         var locked = !entry.Kit.Unlocked;
         var tint = locked && !selected ? DesaturateLockedSpine(entry.Spine) : entry.Spine;
         if (hovered && !selected)
@@ -815,7 +816,7 @@ public sealed class SpinnerRack : Control
 
         handle.SetTransform(_stage);
         if (active)
-            _drawn.Add((slot, face));
+            _drawn.Add((tape, face));
     }
 
     private void DrawPartBand(DrawingHandleScreen handle, string text, float textScale, Color shade, Color ink)
@@ -895,12 +896,21 @@ public sealed class SpinnerRack : Control
     {
         public List<Entry> Entries = new();
         public int Selected = -1;
-        public float Rotation;
-        public float Target;
+
+        public float Position;
+        public float TargetPosition;
         public float Fade;
 
-        public int Slots => Math.Max(Entries.Count, MinSlots);
-        public float Step => 360f / Slots;
+        public int Period => Math.Max(Entries.Count, Pockets);
+
+        public float Rotation => -Position * PocketStep;
+
+        public int TapeInPocket(int pocket)
+        {
+            var nearest = pocket + Pockets * (int) MathF.Round((Position - pocket) / Pockets);
+            var tape = (nearest % Period + Period) % Period;
+            return tape < Entries.Count ? tape : -1;
+        }
     }
 
     #endregion
