@@ -246,3 +246,20 @@ public sealed class MsgVoiceSelf : NetMessage
         return (byte) Math.Clamp(MathF.Round(level * 255f), 0f, 255f);
     }
 }
+
+public sealed class MsgVoicePushToTalk : NetMessage
+{
+    public override MsgGroups MsgGroup => MsgGroups.Command;
+
+    public bool Pressed;
+
+    public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
+    {
+        Pressed = buffer.ReadBoolean();
+    }
+
+    public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
+    {
+        buffer.Write(Pressed);
+    }
+}

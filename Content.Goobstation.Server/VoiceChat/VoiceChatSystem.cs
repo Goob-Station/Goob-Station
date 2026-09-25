@@ -15,7 +15,6 @@ using Content.Shared.Ghost;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Holopad;
 using Content.Shared.Implants.Components;
-using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
@@ -34,7 +33,6 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Enums;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -65,6 +63,7 @@ public sealed class VoiceChatSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly VoiceRadioSystem _radioVoice = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly VoiceLogSystem _voiceLog = default!;
 
     private static readonly TimeSpan TransmissionGap = TimeSpan.FromMilliseconds(500);
     private static readonly TimeSpan PermissionRecheck = TimeSpan.FromSeconds(2);
@@ -126,20 +125,20 @@ public sealed class VoiceChatSystem : EntitySystem
         Subs.CVar(_cfg, GoobCVars.VoiceChatWhisperThreshold, value => _whisperThreshold = value, true);
         Subs.CVar(_cfg, GoobCVars.VoiceChatBitrate, value => _format = VoiceFormats.FromBitrate(value), true);
 
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.VoicePushToTalk,
-                InputCmdHandler.FromDelegate(
-                    session => SetPushToTalk(session, true),
-                    session => SetPushToTalk(session, false),
-                    handle: false))
-            .Register<VoiceChatSystem>();
+        _voice.PushToTalkReceived += OnPushToTalk;
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
 
-        CommandBinds.Unregister<VoiceChatSystem>();
+        _voice.PushToTalkReceived -= OnPushToTalk;
+    }
+
+    private void OnPushToTalk(NetUserId user, bool pressed)
+    {
+        if (_player.TryGetSessionById(user, out var session))
+            SetPushToTalk(session, pressed);
     }
 
     public override void Update(float frameTime)
@@ -216,6 +215,7 @@ public sealed class VoiceChatSystem : EntitySystem
         if (_adminMuted.Contains(frame.User))
         {
             SendSelf(session, speaker, levels, VoiceSelfFlags.Blocked);
+            _voiceLog.Record(session, frame, VoiceLogFlags.Blocked, Name(uid), string.Empty);
             return;
         }
 
@@ -225,6 +225,7 @@ public sealed class VoiceChatSystem : EntitySystem
         if (!CanTransmit(speaker, uid, now, newTransmission))
         {
             SendSelf(session, speaker, levels, VoiceSelfFlags.Blocked);
+            _voiceLog.Record(session, frame, VoiceLogFlags.Blocked, Name(uid), string.Empty);
             return;
         }
 
@@ -266,6 +267,7 @@ public sealed class VoiceChatSystem : EntitySystem
             selfFlags |= VoiceSelfFlags.Whisper;
 
         SendSelf(session, speaker, levels, selfFlags);
+        _voiceLog.Record(session, frame, ToLogFlags(selfFlags), Name(uid), route.RadioChannel ?? string.Empty);
 
         foreach (var transmission in route.Radio)
         {
@@ -352,6 +354,7 @@ public sealed class VoiceChatSystem : EntitySystem
         if (!_lobby || _adminMuted.Contains(frame.User))
         {
             SendSelf(session, speaker, levels, VoiceSelfFlags.Blocked);
+            _voiceLog.Record(session, frame, VoiceLogFlags.Lobby | VoiceLogFlags.Blocked, string.Empty, string.Empty);
             return;
         }
 
@@ -360,6 +363,7 @@ public sealed class VoiceChatSystem : EntitySystem
 
         speaker.LastAttempt = now;
         SendSelf(session, speaker, levels, VoiceSelfFlags.None);
+        _voiceLog.Record(session, frame, VoiceLogFlags.Lobby, string.Empty, string.Empty);
 
         CollectLobby();
         _lobbyChannels.Clear();
@@ -431,6 +435,22 @@ public sealed class VoiceChatSystem : EntitySystem
     {
         if (speaker.InfoSent.Add(recipient))
             _net.ServerSendMessage(CreateSpeakerInfo(speaker), recipient);
+    }
+
+    private static VoiceLogFlags ToLogFlags(VoiceSelfFlags flags)
+    {
+        var result = VoiceLogFlags.None;
+        if ((flags & VoiceSelfFlags.Radio) != 0)
+            result |= VoiceLogFlags.Radio;
+        if ((flags & VoiceSelfFlags.Broadcast) != 0)
+            result |= VoiceLogFlags.Broadcast;
+        if ((flags & VoiceSelfFlags.Megaphone) != 0)
+            result |= VoiceLogFlags.Megaphone;
+        if ((flags & VoiceSelfFlags.Shout) != 0)
+            result |= VoiceLogFlags.Shout;
+        if ((flags & VoiceSelfFlags.Whisper) != 0)
+            result |= VoiceLogFlags.Whisper;
+        return result;
     }
 
     private void SendSelf(ICommonSession session, Speaker speaker, VoiceLevels levels, VoiceSelfFlags flags)
