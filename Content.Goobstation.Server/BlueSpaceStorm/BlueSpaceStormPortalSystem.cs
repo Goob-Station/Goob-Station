@@ -217,14 +217,9 @@ public sealed class BlueSpaceStormSystem : EntitySystem
             case "FleshBluespacePortal":
                 if (rollResult < 20)
                 {
-                    var puddle = Spawn("Puddle", origin);
-
                     var solution = new Solution();
-                    solution.AddReagent(new ProtoId<ReagentPrototype>("Blood"), 400);
-                    if (_solutionContainerSystem.TryGetSolution(puddle, "Blood", out var bloodsolution, out _))
-                    {
-                        _solutionContainerSystem.TryAddSolution(bloodsolution.Value, solution);
-                    }
+                    solution.AddReagent(new string("Blood"), 300);
+                    _puddle.TrySpillAt(Transform(uid).Coordinates, solution, out _);
                 }
                 if (rollResult >= 20 && rollResult < 40)
                 {
