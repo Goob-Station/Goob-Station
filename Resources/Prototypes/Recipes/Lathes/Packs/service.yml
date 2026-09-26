@@ -2,6 +2,8 @@
 ## Static
 
 - type: latheRecipePack
+  parent:
+  - TraumaServiceStatic
   id: ServiceStatic
   recipes:
   - Bucket
@@ -20,7 +22,6 @@
   - FoodPlateTin
   - FoodPlateMuffinTin
   - FoodKebabSkewer
-  - LightReplacer
   - SprayBottle
   - TrashBag
   - LightReplacer
@@ -30,6 +31,8 @@
   - WireBrush
 
 - type: latheRecipePack
+  parent:
+  - TraumaServiceBoardsStatic # Trauma
   id: ServiceBoardsStatic
   recipes:
   - BiogeneratorMachineCircuitboard
@@ -58,6 +61,8 @@
   - PushHorn
 
 - type: latheRecipePack
+  parent:
+  - TraumaServiceBoards # Trauma
   id: ServiceBoards
   recipes:
   - BiofabricatorMachineCircuitboard
@@ -68,4 +73,3 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
-  - SheetifierMachineCircuitboard # Goobstation - Moved from ScienceBoards

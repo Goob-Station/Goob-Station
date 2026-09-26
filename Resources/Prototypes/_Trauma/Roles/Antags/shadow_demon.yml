@@ -1,0 +1,5 @@
+- type: antag
+  id: ShadowDemon
+  name: roles-antag-shadow-demon-name
+  antagonist: true
+  objective: roles-antag-shadow-demon-objective
