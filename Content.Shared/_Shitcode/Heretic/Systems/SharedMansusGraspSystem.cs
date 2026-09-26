@@ -7,7 +7,9 @@ using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Eye.Blinding.Systems;
@@ -105,125 +107,124 @@ public abstract class SharedMansusGraspSystem : EntitySystem
         switch (heretic.CurrentPath)
         {
             case "Ash":
-            {
-                var timeSpan = TimeSpan.FromSeconds(5f);
-                _statusEffect.TryAddStatusEffect(target,
-                    TemporaryBlindnessSystem.BlindingStatusEffect,
-                    timeSpan,
-                    false,
-                    TemporaryBlindnessSystem.BlindingStatusEffect);
-                break;
-            }
+                {
+                    var timeSpan = TimeSpan.FromSeconds(5f);
+                    _statusEffect.TryAddStatusEffect(target,
+                        TemporaryBlindnessSystem.BlindingStatusEffect,
+                        timeSpan,
+                        false,
+                        TemporaryBlindnessSystem.BlindingStatusEffect);
+                    break;
+                }
 
             case "Blade":
-            {
-                if (grasp != null && heretic.PathStage >= 7 && _tag.HasTag(target, "HereticBladeBlade"))
                 {
-                    // empowering blades and shit
-                    var infusion = EnsureComp<MansusInfusedComponent>(target);
-                    infusion.AvailableCharges = infusion.MaxCharges;
+                    if (grasp != null && heretic.PathStage >= 7 && _tag.HasTag(target, "HereticBladeBlade"))
+                    {
+                        // empowering blades and shit
+                        var infusion = EnsureComp<MansusInfusedComponent>(target);
+                        infusion.AvailableCharges = infusion.MaxCharges;
+                        break;
+                    }
+
+                    // small stun if the person is looking away or laying down
+                    if (_backstab.TryBackstab(target, performer, Angle.FromDegrees(45d)))
+                    {
+                        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(1.5f));
+                        _damage.ChangeDamage(target,
+                            new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
+                            ignoreResistances: true,
+                            origin: performer,
+                            targetPart: TargetBodyPart.Chest);
+                    }
+
                     break;
                 }
-
-                // small stun if the person is looking away or laying down
-                if (_backstab.TryBackstab(target, performer, Angle.FromDegrees(45d)))
-                {
-                    _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(1.5f));
-                    _damage.TryChangeDamage(target,
-                        new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
-                        ignoreResistances: true,
-                        origin: performer,
-                        targetPart: TargetBodyPart.Chest);
-                }
-
-                break;
-            }
 
             case "Lock":
-            {
-                if (!TryComp<DoorComponent>(target, out var door))
+                {
+                    if (!TryComp<DoorComponent>(target, out var door))
+                        break;
+
+                    if (TryComp<DoorBoltComponent>(target, out var doorBolt))
+                        _door.SetBoltsDown((target, doorBolt), false);
+
+                    _door.StartOpening(target, door);
+                    _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"),
+                        target,
+                        performer);
                     break;
-
-                if (TryComp<DoorBoltComponent>(target, out var doorBolt))
-                    _door.SetBoltsDown((target, doorBolt), false);
-
-                _door.StartOpening(target, door);
-                _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"),
-                    target,
-                    performer);
-                break;
-            }
+                }
 
             case "Flesh":
-            {
-                if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState != MobState.Alive &&
-                    !HasComp<BorgChassisComponent>(target))
                 {
-                    if (HasComp<GhoulComponent>(target))
+                    if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState != MobState.Alive &&
+                        !HasComp<BorgChassisComponent>(target))
                     {
-                        if (_net.IsServer)
-                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-ghoul"), performer, performer);
-                        break;
+                        if (HasComp<GhoulComponent>(target))
+                        {
+                            if (_net.IsServer)
+                                _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-ghoul"), performer, performer);
+                            break;
+                        }
+
+                        if (!_mind.TryGetMind(target, out _, out _))
+                        {
+                            if (_net.IsServer)
+                                _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-no-mind"), performer, performer);
+                            break;
+                        }
+
+                        EnsureComp<HereticMinionComponent>(target).BoundHeretic = performer;
+
+                        var ghoul = _compFactory.GetComponent<GhoulComponent>();
+                        ghoul.GiveBlade = true;
+
+                        AddComp(target, ghoul);
+                        applyMark = false;
+                        triggerGrasp = false;
                     }
 
-                    if (!_mind.TryGetMind(target, out _, out _))
-                    {
-                        if (_net.IsServer)
-                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-no-mind"), performer, performer);
-                        break;
-                    }
-
-                    EnsureComp<HereticMinionComponent>(target).BoundHeretic = performer;
-
-                    var ghoul = _compFactory.GetComponent<GhoulComponent>();
-                    ghoul.GiveBlade = true;
-
-                    AddComp(target, ghoul);
-                    applyMark = false;
-                    triggerGrasp = false;
+                    break;
                 }
-
-                break;
-            }
 
             case "Void":
-            {
-                _voidCurse.DoCurse(target, 2);
-                break;
-            }
-
-            case "Rust":
-            {
-                if (TryComp(target, out StationAiHolderComponent? aiHolder)) // Kill AI
-                    QueueDel(aiHolder.Slot.ContainerSlot?.ContainedEntity);
-                else if (HasComp<RustGraspComponent>(grasp) && _tag.HasAnyTag(target, "Wall", "Catwalk") ||
-                         HasComp<HereticRitualRuneComponent>(
-                             target)) // If we have rust grasp and targeting a wall (or a catwalk) - do nothing, let other methods handle that. Also don't damage transmutation rune.
-                    return false;
-                else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
-                         !_tag.HasTag(target, "Meat") && // Is it not organic body part or organ?
-                         !HasComp<ShadowCloakEntityComponent>(target) && // No instakilling shadow cloak heretics
-                         (!HasComp<MobStateComponent>(target) || HasComp<SiliconComponent>(target) ||
-                          HasComp<BorgChassisComponent>(target) ||
-                          _tag.HasTag(target, "Bot"))) // Check for ingorganic target
                 {
-                    _damage.TryChangeDamage(target,
-                        new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 500),
-                        ignoreResistances: true,
-                        damageable: damageable,
-                        origin: performer,
-                        targetPart: TargetBodyPart.Chest);
+                    _voidCurse.DoCurse(target, 2);
+                    break;
                 }
 
-                break;
-            }
+            case "Rust":
+                {
+                    if (TryComp(target, out StationAiHolderComponent? aiHolder)) // Kill AI
+                        QueueDel(aiHolder.Slot.ContainerSlot?.ContainedEntity);
+                    else if (HasComp<RustGraspComponent>(grasp) && _tag.HasAnyTag(target, "Wall", "Catwalk") ||
+                             HasComp<HereticRitualRuneComponent>(
+                                 target)) // If we have rust grasp and targeting a wall (or a catwalk) - do nothing, let other methods handle that. Also don't damage transmutation rune.
+                        return false;
+                    else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
+                             !_tag.HasTag(target, "Meat") && // Is it not organic body part or organ?
+                             !HasComp<ShadowCloakEntityComponent>(target) && // No instakilling shadow cloak heretics
+                             (!HasComp<MobStateComponent>(target) || HasComp<SiliconComponent>(target) ||
+                              HasComp<BorgChassisComponent>(target) ||
+                              _tag.HasTag(target, "Bot"))) // Check for ingorganic target
+                    {
+                        _damage.ChangeDamage(target,
+                            new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 500),
+                            ignoreResistances: true,
+                            origin: performer,
+                            targetPart: TargetBodyPart.Chest);
+                    }
+
+                    break;
+                }
 
             case "Cosmos":
-            {
-                if (_starMark.TryApplyStarMark(target))
-                    _starMark.SpawnCosmicField(Transform(performer).Coordinates, heretic.PathStage);
-                break;
-            }
+                {
+                    if (_starMark.TryApplyStarMark(target))
+                        _starMark.SpawnCosmicField(Transform(performer).Coordinates, heretic.PathStage);
+                    break;
+                }
             default:
                 return true;
         }

@@ -22,6 +22,7 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Robust.Server.Player;
 using Robust.Shared.Random;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 

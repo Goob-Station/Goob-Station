@@ -15,6 +15,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Repairable;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
@@ -73,11 +75,11 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
 
         if (botComp.IsEmagged)
         {
-            _damageableSystem.TryChangeDamage(target, -botComp.DamageAmount, true, false, damage);
+            _damageableSystem.ChangeDamage((target, damage), -botComp.DamageAmount, true, false);
         }
         else
         {
-            _repairableSystem.ApplyRepairs((target, repairComp), owner);
+            _repairableSystem.RepairAllDamage(target, owner);
         }
 
         _audio.PlayPvs(botComp.WeldSound, target);

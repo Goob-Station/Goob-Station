@@ -15,6 +15,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Resist;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Resist;
 

@@ -32,6 +32,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Slasher.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 

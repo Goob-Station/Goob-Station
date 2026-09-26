@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Wraith.Events;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Maps;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;

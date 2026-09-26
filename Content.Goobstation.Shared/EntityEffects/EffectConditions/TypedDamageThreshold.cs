@@ -2,12 +2,11 @@
 
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.EntityEffects;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.EntityConditions;
-using Content.Shared.EntityConditions.Conditions;
 using Content.Shared.Localizations;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Components;
 
 namespace Content.Goobstation.Shared.EntityEffects.EffectConditions;
 

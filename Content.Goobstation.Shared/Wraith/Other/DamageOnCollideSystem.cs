@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;

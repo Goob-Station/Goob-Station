@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.PlushieBite;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;

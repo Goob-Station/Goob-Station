@@ -110,7 +110,7 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
 
     private void AddWipeVerb(EntityUid uid, ToggleableGhostRoleComponent component, GetVerbsEvent<ActivationVerb> args)
     {
-        if (!args.CanAccess || !args.CanComplexInteract) // Goobstation - replace hands check with CanComplexInteract
+        if (!args.CanAccess || !args.CanComplexInteract || !component.CanBeWiped) // Goobstation - replace hands check with CanComplexInteract, add wipe prevention
             return;
 
         if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)

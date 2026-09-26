@@ -10,7 +10,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Bible;
 using Content.Shared.Bible.Components;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -49,7 +49,6 @@ namespace Content.Server.Bible
             SubscribeLocalEvent<SummonableComponent, SummonActionEvent>(OnSummon);
             SubscribeLocalEvent<FamiliarComponent, MobStateChangedEvent>(OnFamiliarDeath);
             SubscribeLocalEvent<FamiliarComponent, GhostRoleSpawnerUsedEvent>(OnSpawned);
-
         }
 
         private readonly Queue<EntityUid> _addQueue = new();
@@ -106,36 +105,38 @@ namespace Content.Server.Bible
                 return;
 
             if (args.Target == null || args.Target == args.User || !_mobStateSystem.IsAlive(args.Target.Value))
-                return; // STOP WITH USELESS BRACES!! - Goobstation
+            {
+                return;
+            }
 
             if (!HasComp<BibleUserComponent>(args.User))
             {
                 _popupSystem.PopupEntity(Loc.GetString("bible-sizzle"), args.User, args.User);
 
                 _audio.PlayPvs(component.SizzleSoundPath, args.User);
-                _damageableSystem.TryChangeDamage(args.User, component.DamageOnUntrainedUse, true, origin: uid, targetPart: TargetBodyPart.All, ignoreBlockers: true);
+                _damageableSystem.TryChangeDamage(args.User, component.DamageOnUntrainedUse, true, origin: uid, targetPart: TargetBodyPart.All, ignoreBlockers: true); // Goob - shitmed targeting
                 _delay.TryResetDelay((uid, useDelay));
 
                 return;
             }
 
-            var userEnt = Identity.Entity(args.User, EntityManager);
-            var targetEnt = Identity.Entity(args.Target.Value, EntityManager);
-
-            // Goobstation - Wraith - Start
+            // Goob start - Wraith
             var ev = new BibleSmiteUsed();
             RaiseLocalEvent(args.Target.Value, ref ev);
-            // Goobstation - Wraith - End
+            // Goob end
+
+            var userEnt = Identity.Entity(args.User, EntityManager);
+            var targetEnt = Identity.Entity(args.Target.Value, EntityManager);
 
             // This only has a chance to fail if the target is not wearing anything on their head and is not a familiar.
             if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out _) && !HasComp<FamiliarComponent>(args.Target.Value))
             {
                 if (_random.Prob(component.FailChance))
                 {
-                    var othersFailMessage = Loc.GetString(component.LocPrefix + "-heal-fail-others", ("user", userEnt), ("target", targetEnt), ("bible", uid));
+                    var othersFailMessage = Loc.GetString(component.LocPrefix + "-heal-fail-others", ("user", Identity.Entity(args.User, EntityManager)), ("target", Identity.Entity(args.Target.Value, EntityManager)), ("bible", uid));
                     _popupSystem.PopupEntity(othersFailMessage, args.User, Filter.PvsExcept(args.User), true, PopupType.SmallCaution);
 
-                    var selfFailMessage = Loc.GetString(component.LocPrefix + "-heal-fail-self", ("target", targetEnt), ("bible", uid));
+                    var selfFailMessage = Loc.GetString(component.LocPrefix + "-heal-fail-self", ("target", Identity.Entity(args.Target.Value, EntityManager)), ("bible", Identity.Entity(args.Target.Value, EntityManager)));
                     _popupSystem.PopupEntity(selfFailMessage, args.User, args.User, PopupType.MediumCaution);
 
                     _audio.PlayPvs(component.BibleHitSound, args.User);
@@ -147,16 +148,9 @@ namespace Content.Server.Bible
 
             string othersMessage;
             string selfMessage;
-            // Goob start damagesystem update required
-            var damage = _damageableSystem.TryChangeDamage(args.Target.Value,
-                component.Damage,
-                true,
-                origin: uid,
-                targetPart: TargetBodyPart.All,
-                ignoreBlockers: true,
-                splitDamage: SplitDamageBehavior.SplitEnsureAll);
 
-            if (damage == null || damage.Empty) // Goob end damagesystemupdate required
+            if (_damageableSystem.TryChangeDamage(args.Target.Value, component.Damage, true, origin: uid,
+                targetPart: TargetBodyPart.All, ignoreBlockers: true, splitDamage: SplitDamageBehavior.SplitEnsureAll)) // Woundmed
             {
                 othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-others", ("user", userEnt), ("target", targetEnt), ("bible", uid));
                 selfMessage = Loc.GetString(component.LocPrefix + "-heal-success-self", ("target", targetEnt), ("bible", uid));
