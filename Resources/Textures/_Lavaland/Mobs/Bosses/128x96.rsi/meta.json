@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-3.0",
+  "copyright": "Sprited by OnsenCapy (Github)",
+  "size": {
+    "x": 128,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "star_cell"
+    }
+  ]
+}
