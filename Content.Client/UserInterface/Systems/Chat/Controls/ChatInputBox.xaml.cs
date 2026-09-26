@@ -44,6 +44,11 @@ public class ChatInputBox : PanelContainer
             StyleClasses = { ChannelSelectorItemButton.StyleClassChatSelectorOptionButton },
         };
         Container.AddChild(VoiceRadio); // Goobstation - Voice chat
+        if (IoCManager.Instance is { } ioc && ioc.TryResolveType<IChatVoiceControls>(out var voiceControls)) // Goobstation - Voice chat
+        {
+            foreach (var control in voiceControls.CreateControls()) // Goobstation - Voice chat
+                Container.AddChild(control); // Goobstation - Voice chat
+        }
         Input = new HistoryLineEdit
         {
             Name = "Input",

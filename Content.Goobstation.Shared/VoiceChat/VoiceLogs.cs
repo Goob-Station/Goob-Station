@@ -14,6 +14,7 @@ public enum VoiceLogFlags : byte
     Shout = 1 << 4,
     Whisper = 1 << 5,
     Megaphone = 1 << 6,
+    God = 1 << 7,
 }
 
 [Serializable, NetSerializable]
