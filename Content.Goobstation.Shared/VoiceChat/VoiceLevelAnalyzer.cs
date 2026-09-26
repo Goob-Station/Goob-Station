@@ -21,10 +21,15 @@ public sealed class VoiceLevelAnalyzer
     private float _low;
     private float _mid;
 
+    public float LastDb { get; private set; } = float.NegativeInfinity;
+
     public VoiceLevels Analyze(ReadOnlySpan<short> samples)
     {
         if (samples.Length == 0)
+        {
+            LastDb = float.NegativeInfinity;
             return default;
+        }
 
         var low = 0f;
         var mid = 0f;
@@ -46,6 +51,7 @@ public sealed class VoiceLevelAnalyzer
             full += sample * sample;
         }
 
+        LastDb = ToDb(full, samples.Length);
         return new VoiceLevels
         {
             Low = ToLevel(low, samples.Length, BandOffsetDb),
@@ -57,7 +63,12 @@ public sealed class VoiceLevelAnalyzer
 
     private static float ToLevel(float energy, int count, float offsetDb)
     {
-        var db = 10f * MathF.Log10(energy / count + 1e-12f) + offsetDb;
+        var db = ToDb(energy, count) + offsetDb;
         return Math.Clamp((db - FloorDb) / RangeDb, 0f, 1f);
+    }
+
+    private static float ToDb(float energy, int count)
+    {
+        return 10f * MathF.Log10(energy / count + 1e-12f);
     }
 }

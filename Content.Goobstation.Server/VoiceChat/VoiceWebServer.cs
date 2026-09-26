@@ -20,7 +20,7 @@ public abstract record VoiceWebEvent(NetUserId User);
 
 public sealed record VoiceWebConnectionChanged(NetUserId User) : VoiceWebEvent(User);
 
-public sealed record VoiceWebFrame(NetUserId User, ushort Sequence, byte Flags, byte[] Payload) : VoiceWebEvent(User);
+public sealed record VoiceWebFrame(NetUserId User, ushort Sequence, byte Flags, byte[] Payload, byte[] Raw) : VoiceWebEvent(User);
 
 public sealed record VoiceWebEffectSelected(NetUserId User, VoiceEffect Effect) : VoiceWebEvent(User);
 
@@ -29,6 +29,8 @@ public sealed class VoiceWebServer : IDisposable
     public const WebSocketCloseStatus CloseInvalidToken = (WebSocketCloseStatus) 4001;
     public const WebSocketCloseStatus CloseReplaced = (WebSocketCloseStatus) 4002;
     public const WebSocketCloseStatus CloseShutdown = (WebSocketCloseStatus) 4003;
+    public const WebSocketCloseStatus CloseSessionEnded = (WebSocketCloseStatus) 4004;
+    public const WebSocketCloseStatus CloseTooManyAttempts = (WebSocketCloseStatus) 4005;
 
     private const int FrameMessageBytes = 3 + VoiceCodec.FrameBytes;
     private const int MaxHeaderBytes = 8192;
@@ -39,6 +41,8 @@ public sealed class VoiceWebServer : IDisposable
     private const double FramesPerSecond = 55;
 
     private static readonly TimeSpan HandshakeTimeout = TimeSpan.FromSeconds(10);
+    private static readonly TimeSpan AuthFailureWindow = TimeSpan.FromMinutes(5);
+    private const int MaxAuthFailures = 10;
     private static readonly TimeSpan KeepAliveInterval = TimeSpan.FromSeconds(15);
     private static readonly TimeSpan KeepAliveTimeout = TimeSpan.FromSeconds(30);
     private static readonly TimeSpan CloseGrace = TimeSpan.FromSeconds(3);
@@ -48,6 +52,7 @@ public sealed class VoiceWebServer : IDisposable
     private readonly TcpListener _listener;
     private readonly CancellationTokenSource _cts = new();
     private readonly ConcurrentDictionary<NetUserId, Connection> _connections = new();
+    private readonly ConcurrentDictionary<IPAddress, AuthFailures> _authFailures = new();
     private readonly ConcurrentQueue<VoiceWebEvent> _events = new();
     private readonly ConcurrentDictionary<NetUserId, VoiceEffectSettings> _userEffects = new();
     private readonly Dictionary<IPAddress, int> _addressCounts = new();
@@ -92,6 +97,12 @@ public sealed class VoiceWebServer : IDisposable
             Interlocked.Decrement(ref _queuedFrames);
 
         return true;
+    }
+
+    public void Disconnect(NetUserId user)
+    {
+        if (_connections.TryGetValue(user, out var connection))
+            connection.Close(CloseSessionEnded, "You left the game server.");
     }
 
     public bool IsConnected(NetUserId user)
@@ -210,7 +221,7 @@ public sealed class VoiceWebServer : IDisposable
                     KeepAliveTimeout = KeepAliveTimeout,
                 });
 
-                await RunConnectionAsync(socket);
+                await RunConnectionAsync(socket, address);
             }
             catch (Exception e) when (e is IOException or SocketException or WebSocketException or OperationCanceledException or ObjectDisposedException)
             {
@@ -229,10 +240,16 @@ public sealed class VoiceWebServer : IDisposable
         }
     }
 
-    private async Task RunConnectionAsync(WebSocket socket)
+    private async Task RunConnectionAsync(WebSocket socket, IPAddress address)
     {
         using var connection = new Connection(socket, _cts.Token);
         var buffer = new byte[MaxMessageBytes];
+
+        if (IsAuthLimited(address))
+        {
+            await CloseQuietlyAsync(socket, CloseTooManyAttempts, "Too many wrong codes. Try again in a few minutes.");
+            return;
+        }
 
         NetUserId? user;
         using (var authCts = CancellationTokenSource.CreateLinkedTokenSource(connection.Token))
@@ -243,7 +260,8 @@ public sealed class VoiceWebServer : IDisposable
 
         if (user == null)
         {
-            await CloseQuietlyAsync(socket, CloseInvalidToken, "This voice chat link is invalid or has expired.");
+            RecordAuthFailure(address);
+            await CloseQuietlyAsync(socket, CloseInvalidToken, "This voice chat code is invalid or has expired.");
             return;
         }
 
@@ -345,10 +363,11 @@ public sealed class VoiceWebServer : IDisposable
         }
 
         var effect = _userEffects.GetValueOrDefault(connection.User);
+        var raw = payload.ToArray();
         var data = connection.ApplyEffect(payload, effect);
 
         var sequence = (ushort) (message[0] | (message[1] << 8));
-        _events.Enqueue(new VoiceWebFrame(connection.User, sequence, message[2], data));
+        _events.Enqueue(new VoiceWebFrame(connection.User, sequence, message[2], data, raw));
     }
 
     private void HandleText(Connection connection, byte[] buffer, int count)
@@ -531,6 +550,36 @@ public sealed class VoiceWebServer : IDisposable
                bytes[0] == 169 && bytes[1] == 254;
     }
 
+    private bool IsAuthLimited(IPAddress address)
+    {
+        if (!_authFailures.TryGetValue(address, out var failures))
+            return false;
+
+        lock (failures)
+        {
+            if (DateTime.UtcNow - failures.WindowStart <= AuthFailureWindow)
+                return failures.Count >= MaxAuthFailures;
+        }
+
+        _authFailures.TryRemove(address, out _);
+        return false;
+    }
+
+    private void RecordAuthFailure(IPAddress address)
+    {
+        var failures = _authFailures.GetOrAdd(address, _ => new AuthFailures());
+        lock (failures)
+        {
+            if (DateTime.UtcNow - failures.WindowStart > AuthFailureWindow)
+            {
+                failures.WindowStart = DateTime.UtcNow;
+                failures.Count = 0;
+            }
+
+            failures.Count++;
+        }
+    }
+
     private bool TryReserveAddress(IPAddress address)
     {
         lock (_addressLock)
@@ -706,5 +755,11 @@ public sealed class VoiceWebServer : IDisposable
 
             return false;
         }
+    }
+
+    private sealed class AuthFailures
+    {
+        public DateTime WindowStart = DateTime.UtcNow;
+        public int Count;
     }
 }

@@ -45,3 +45,18 @@
   id: AiMachineView
   kind: source
   path: "/Textures/_Goobstation/Shaders/ai_machine_view.swsl"
+
+- type: shader
+  id: VoiceCanadian
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voice_canadian.swsl"
+
+- type: shader
+  id: VoiceGodGlow
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voice_god_glow.swsl"
+
+- type: shader
+  id: VoiceGodRays
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voice_god_rays.swsl"

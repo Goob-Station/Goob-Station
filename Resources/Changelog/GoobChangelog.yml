@@ -25418,3 +25418,19 @@ Entries:
       message: Max voiceless dead 2 -> 5.
   id: 2914
   time: '2026-09-23T21:38:19.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Fix
+      message: Fixed MK58 Sprite and Seclight Error
+    - type: Fix
+      message: Fixed icons display in cargo catalog
+  id: 2915
+  time: '2026-09-24T23:05:49.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: New slasher fear system.
+    - type: Remove
+      message: Removed the old bloodtrail action (replaced with fear)
+  id: 2916
+  time: '2026-09-26T10:48:39.0000000+00:00'
