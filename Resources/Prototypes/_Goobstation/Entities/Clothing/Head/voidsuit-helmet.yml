@@ -247,6 +247,8 @@
     clothingVisuals:
       head:
       - state: equipped-head
+      head-reptilian:
+      - state: equipped-head-reptilian
       head-resomi:
       - state: equipped-head-resomi
   - type: PointLight
@@ -339,7 +341,7 @@
     - HeadTop
     - HeadSide
     - FacialHair
-  
+
 # Detective's Hardsuit
 
 - type: entity

@@ -86,6 +86,18 @@
     {
       "name": "equipped-head-light-hydrakin",
       "directions": 4
+    },
+    {
+      "name": "equipped-head-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-light-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded-reptilian",
+      "directions": 4
     }
   ]
 }
