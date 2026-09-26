@@ -1,30 +1,24 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Actions;
-using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.MantisBlades;
 
-[RegisterComponent]
+/// <summary>
+/// An arm with a mantis blade built in. This will also be required later for the cyberware UI.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MantisBladeArmComponent : Component
 {
-    [DataField]
-    public string ActionProto;
+    public const string BladeContainer = "mantis-blade";
 
+    /// <summary>
+    /// The blade weapon spawned inside this arm.
+    /// </summary>
     [DataField]
-    public EntityUid? ActionUid;
+    public EntProtoId BladeProto = "MantisBlade";
 
-    [DataField]
-    public string BladeProto = "MantisBlade";
-
-    [DataField]
-    public EntityUid? BladeUid;
-
-    [DataField]
-    public SoundSpecifier? ExtendSound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/MantisBlades/mantis_extend.ogg");
-
-    [DataField]
-    public SoundSpecifier? RetractSound = new SoundCollectionSpecifier("MantisBladeRetract");
+    [DataField, AutoNetworkedField]
+    public EntityUid? Blade;
 }
-
-public sealed partial class ToggleMantisBladeEvent : InstantActionEvent;
