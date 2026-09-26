@@ -22,6 +22,17 @@ The Slasher is a relentless horror that stalks isolated crew, harvesting their s
 
   4. Once you reach 15 souls, an announcement warns the crew of your ascendance.
 
+  ## Fear
+
+Fear is the Slashers power meter, shown by the [bold]Fear[/bold] alert.
+
+  - [bold]Building it.[/bold] Your fear rises while the living have you in sight, and jumps each time you jumpscare a fresh victim. It slowly decays once no one has seen you for a while.
+  - [bold]Speed.[/bold] At full fear you move faster. a rising panic that makes you harder to escape.
+  - [bold]Presence.[/bold] When you build up your fear your theme song starts playing, and at a certain point, you start trailing blood.
+  - [bold]Dread.[/bold] Anyone you are actively hunting builds up fear of their own. At high fear they are (45)slowed and begin to take (90)damage.
+
+Stay seen to build your power and terror.
+
   ## Abilities
 
 <Box>
@@ -95,17 +106,6 @@ An incredibly robust source of healing. Instantly rejuvenates you, removes all r
 </Box>
 
 <Box>
-  [tex path="_Goobstation/Actions/slashericons.rsi" state="BloodTrail" scale="2"/]
-  <Box Orientation="Vertical">
-    ## Blood Trail
-
-Toggle to leave a trail of blood in your wake while playing some funky music. Spooky!
-
-[italic]No cooldown (toggle).[/italic]
-  </Box>
-</Box>
-
-<Box>
   <Box Orientation="Vertical">
     <Box>
       [tex path="_Goobstation/Actions/slashericons.rsi" state="Incorporealize" scale="2"/]
@@ -170,6 +170,16 @@ Toggleable night vision that allows you to see perfectly in darkness with a red 
 [italic]No cooldown (toggle).[/italic]
   </Box>
 </Box>
+
+  ## Kits and Variants
+
+When you first spawn you choose a [bold]kit[/bold]. Each comes with a unique outfit, theme song, and weapon skin. Most kits are purely cosmetic and play exactly like the Slasher described above.
+
+A few kits change how you play. Those are marked with a [bold]?[/bold] button in the kit-select menu that jumps straight to their guidebook page:
+
+  - [bold]Boogeyman[/bold] - gives up the incorporeal jaunt and sprinting for a faster walkspeed, invisibility in shadows, and a fear aura that prevents others from sprinting. [textlink="Boogeyman" link="SlasherBoogeyman"]
+
+Some kits unlock others through [bold]Prestige[/bold]: ascend (reach 15 souls) while playing a kit to permanently unlock the kits that list it as a requirement.
 
   ## Crew Tips
   [bold]Do not wander alone.[/bold]

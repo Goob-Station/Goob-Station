@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Goobstation.Shared.Slasher.Systems;
 using Content.Goobstation.Shared.Slasher.UI;
@@ -6,7 +5,7 @@ using Content.Shared.Actions;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Station;
-using Robust.Shared.Audio;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
@@ -18,6 +17,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SlasherIncorporealSystem _incorporeal = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SlasherPrestigeManager _prestige = default!;
 
     public override void Initialize()
     {
@@ -43,28 +43,42 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         incorporealComp.IncorporealizeActionEnt = null;
         incorporealComp.CorporealizeActionEnt = null;
 
-        var uid = ent.Owner;
-        _ui.OpenUi(uid, SlasherKitSelectUiKey.Key, args.Player);
+        _ui.OpenUi(ent.Owner, SlasherKitSelectUiKey.Key, args.Player);
     }
 
     private void OnUIOpened(Entity<SlasherKitSelectComponent> ent, ref BoundUIOpenedEvent args)
     {
+        if (!TryComp<ActorComponent>(args.Actor, out var actor))
+            return;
+
+        var userId = actor.PlayerSession.UserId;
         var kitInfos = new List<SlasherKitInfo>();
-        foreach (var (nameKey, kit) in ent.Comp.Kits)
+        foreach (var (id, kit) in ent.Comp.Kits)
         {
             kitInfos.Add(new SlasherKitInfo(
-                kit.Gear,
-                Loc.GetString(nameKey),
-                string.IsNullOrEmpty(kit.Description) ? string.Empty : Loc.GetString(kit.Description),
-                kit.Sprite));
+                id,
+                new LocId(id),
+                kit.Description,
+                kit.Sprite,
+                kit.BloodTrailMusic ?? ent.Comp.DefaultThemeSong,
+                kit.AscensionId,
+                kit.RequiredAscension,
+                IsKitUnlocked(kit, userId),
+                kit.Guide));
         }
 
         _ui.SetUiState(ent.Owner, SlasherKitSelectUiKey.Key, new SlasherKitSelectBoundUserInterfaceState(kitInfos));
     }
 
+    private bool IsKitUnlocked(SlasherKit kit, NetUserId userId)
+        => kit.RequiredAscension == null || _prestige.HasAscension(userId, kit.RequiredAscension);
+
     private void OnKitSelected(Entity<SlasherKitSelectComponent> ent, ref SlasherKitSelectedMessage args)
     {
-        if (ent.Comp.KitSelected)
+        if (ent.Comp.KitSelected
+            || !ent.Comp.Kits.TryGetValue(args.KitId, out var selectedKit)
+            || !TryComp<ActorComponent>(args.Actor, out var actor)
+            || !IsKitUnlocked(selectedKit, actor.PlayerSession.UserId))
             return;
 
         ent.Comp.KitSelected = true;
@@ -83,12 +97,12 @@ public sealed class SlasherKitSelectSystem : EntitySystem
             MovementSpeedModifierComponent.DefaultAcceleration);
         _movement.RefreshMovementSpeedModifiers(ent.Owner);
 
-        if (args.Index < 0 || args.Index >= ent.Comp.Kits.Count)
-            return;
-
-        var selectedKit = ent.Comp.Kits.Values.ElementAt(args.Index);
-
         EntityManager.AddComponents(ent.Owner, ent.Comp.PostSelectionComponents);
+        EntityManager.AddComponents(ent.Owner, selectedKit.Components);
+
+        foreach (var compName in selectedKit.RemoveComponents)
+            if (Factory.TryGetRegistration(compName, out var registration))
+                RemComp(ent.Owner, registration.Type);
 
         _stationSpawning.EquipStartingGear(ent.Owner, selectedKit.Gear);
 
@@ -98,19 +112,21 @@ public sealed class SlasherKitSelectSystem : EntitySystem
                 summonComp.MachetePrototype = macheteProto;
         }
 
-        if (TryComp<SlasherBloodTrailComponent>(ent.Owner, out var bloodTrail))
+        if (TryComp<SlasherFearComponent>(ent.Owner, out var fearComp))
         {
+            if (selectedKit.FearStyle.Count > 0)
+                fearComp.FearStyle = selectedKit.FearStyle;
+
             if (selectedKit.BloodTrailMusic is { } bloodMusic)
-                bloodTrail.BloodTrailMusic = bloodMusic;
+                fearComp.BloodTrailMusic = bloodMusic;
 
             if (selectedKit.JumpscareSound is { } jumpscareSound)
-                bloodTrail.JumpscareSounds = new()
-                {
-                    jumpscareSound
-                };
+                fearComp.JumpscareSounds = new() { jumpscareSound };
 
             if (selectedKit.BloodTrailReagent is { } bloodReagent)
-                bloodTrail.BloodTrailReagent = bloodReagent;
+                fearComp.BloodTrailReagent = bloodReagent;
+
+            Dirty(ent.Owner, fearComp);
         }
 
         if (TryComp<SlasherSummonMeatSpikeComponent>(ent.Owner, out var meatSpikeComp))
@@ -121,6 +137,8 @@ public sealed class SlasherKitSelectSystem : EntitySystem
 
         if (TryComp<SlasherSoulStealComponent>(ent.Owner, out var soulSteal))
         {
+            soulSteal.AscensionId = selectedKit.AscensionId;
+
             if (selectedKit.AscensionGear is { } ascensionGear)
                 soulSteal.AscensionGear = ascensionGear;
 

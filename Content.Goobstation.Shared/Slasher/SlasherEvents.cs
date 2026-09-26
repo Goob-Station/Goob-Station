@@ -16,12 +16,6 @@ public sealed partial class SlasherMassacreEvent : InstantActionEvent;
 public sealed partial class SlasherPossessionEvent : EntityTargetActionEvent;
 
 /// <summary>
-/// Toggle event for the blood trail action.
-/// </summary>
-[ByRefEvent]
-public sealed partial class ToggleBloodTrailEvent : InstantActionEvent;
-
-/// <summary>
 /// Soul steal targeted action event.
 /// </summary>
 [ByRefEvent]
