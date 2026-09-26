@@ -553,6 +553,28 @@
                 loop: true
             jumpscareSound:
               path: /Audio/_Goobstation/Effects/Slasher/JasonJumpscare.ogg
+          slasher-kit-boogeyman:
+            gear: SlasherGearBoogeyman
+            description: slasher-kit-boogeyman-desc
+            guide: SlasherBoogeyman
+            sprite:
+              sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
+              state: icon
+            machetePrototype: SlasherKitchenKnife
+            bloodTrailMusic:
+              path: /Audio/_Goobstation/Slasher/Music/halloween.ogg
+              params:
+                loop: true
+            removeComponents:
+            - type: SlasherIncorporeal
+            grantedToVictimOnSight:
+            - type: SprintDisabled
+            components:
+            - type: BoogeymanShadow
+            - type: SprintDisabled
+            - type: Muted
+            - type: MovementSpeedModifier
+              baseSprintSpeed: 5.0
         postSelectionComponents:
           - type: Slasher
           - type: SlasherSummonMachete
