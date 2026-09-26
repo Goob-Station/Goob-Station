@@ -1,0 +1,152 @@
+- type: entity
+  id: PortalGoliath
+  parent: MobGoliath
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalWatcherBase
+  parent: MobWatcherBase
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalLegion
+  parent: MobLegion
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalLivingLight
+  parent: MobLivingLight
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalLuminousObject
+  parent: MobLuminousObject
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalAngryBee
+  parent: MobAngryBee
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalRotHulk
+  parent: MobRotHulk
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalTomatoKiller
+  parent: MobTomatoKiller
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalFleshGolemSalvage
+  parent: MobFleshGolemSalvage
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalFleshLoverSalvage
+  parent: MobFleshLoverSalvage
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalFleshJaredSalvage
+  parent: MobFleshJaredSalvage
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalGhoulProphet
+  parent: MobGhoulProphet
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalBaseAdultSlime
+  parent: BaseMobAdultSlime
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalPlagueRatMedium
+  parent: MobPlagueRatMedium
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalPlagueRatSmall
+  parent: MobPlagueRatSmall
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalAncientLegsWraith
+  parent: MobAncientLegsWraith
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob
+
+- type: entity
+  id: PortalGunbot
+  parent: GunBot
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+    - type: BlueSpaceStormPortalMob

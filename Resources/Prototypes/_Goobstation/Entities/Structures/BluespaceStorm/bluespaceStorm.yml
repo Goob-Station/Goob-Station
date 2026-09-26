@@ -1,0 +1,107 @@
+- type: entity
+  id: LavalandBluespacePortal
+  name: lavaland bluespace portal
+  description: A portal leading to lavaland, too unstable for you to cross unscathed but not the same can be said for whatever's at the other side.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/BluespaceStorm/bluespace_portal.rsi
+    layers:
+    - state: lavaland_portal
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: BlueSpaceStormPortal
+    portalType: LavalandBluespacePortal
+  - type: RequireProjectileTarget
+  - type: AmbientSound
+    volume: 2
+    range: 20
+    sound:
+      path: /Audio/_Goobstation/Ambience/ominous_pulse.ogg
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Magic/ethereal_enter.ogg
+
+- type: entity
+  id: PlantBluespacePortal
+  name: plant bluespace portal
+  description: A portal leading to a vegetation-choked planet, too unstable for you to cross unscathed but not the same can be said for whatever's at the other side.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/BluespaceStorm/bluespace_portal.rsi
+    layers:
+    - state: plant_portal
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: BlueSpaceStormPortal
+    portalType: PlantBluespacePortal
+  - type: RequireProjectileTarget
+  - type: AmbientSound
+    volume: 2
+    range: 20
+    sound:
+      path: /Audio/_Goobstation/Ambience/ominous_pulse.ogg
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Magic/ethereal_enter.ogg
+
+- type: entity
+  id: FleshBluespacePortal
+  name: flesh bluespace portal
+  description: A portal leading to a disgusting, fleshy, superorganism, too unstable for you to cross unscathed but not the same can be said for whatever's at the other side.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/BluespaceStorm/bluespace_portal.rsi
+    layers:
+    - state: flesh_portal
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: BlueSpaceStormPortal
+    portalType: FleshBluespacePortal
+  - type: RequireProjectileTarget
+  - type: AmbientSound
+    volume: 2
+    range: 20
+    sound:
+      path: /Audio/_Goobstation/Ambience/ominous_pulse.ogg
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Magic/ethereal_enter.ogg
+
+- type: entity
+  id: SlimeBluespacePortal
+  name: slime bluespace portal
+  description: A portal leading to city ruins sunken in corrosive goop, too unstable for you to cross unscathed but not the same can be said for whatever's at the other side.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/BluespaceStorm/bluespace_portal.rsi
+    layers:
+    - state: slime_portal
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: BlueSpaceStormPortal
+    portalType: SlimeBluespacePortal
+  - type: RequireProjectileTarget
+  - type: AmbientSound
+    volume: 2
+    range: 20
+    sound:
+      path: /Audio/_Goobstation/Ambience/ominous_pulse.ogg
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Magic/ethereal_enter.ogg
