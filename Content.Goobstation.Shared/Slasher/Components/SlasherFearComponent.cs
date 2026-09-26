@@ -3,6 +3,7 @@ using Content.Shared.Alert;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Slasher.Components;
@@ -141,7 +142,10 @@ public sealed partial class SlasherFearComponent : Component
     /// Kits can override this to change what being hunted does to a victim.
     /// </summary>
     [DataField]
-    public ComponentRegistry GrantedToVictimOnSight = new();
+    public ComponentRegistry GrantedToVictimOnSight = new()
+    {
+        { "SlasherFearOverlay", new EntityPrototype.ComponentRegistryEntry(new SlasherFearOverlayComponent(), new MappingDataNode()) },
+    };
 
     /// <summary>
     /// The status effect applied to victims this slasher frightens.
