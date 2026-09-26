@@ -5,9 +5,38 @@ ghost-role-information-slasher-description = Slaughter and terrorize the living 
 
 slasher-round-end-agent-name = Slasher
 
-slasher-kit-select-title = Choose Your Kit
-slasher-kit-select-header = Choose a kit. Each one comes with a unique song and a unique look.
-slasher-kit-select-button = Select
+slasher-kit-store-sign = BLOOD
+slasher-kit-store-sign-accent = VIDEO
+slasher-kit-store-part = PART { $part }
+slasher-kit-store-originals = ORIGINALS
+
+# clown should get rated C but I'm not doing that right now
+
+slasher-kit-store-rated = R
+slasher-kit-store-sticker = OUT OF STOCK
+slasher-kit-store-original = ORIGINAL
+slasher-kit-store-original-sequels = ORIGINAL + { $count ->
+    [one] 1 SEQUEL IN THE BACK
+   *[other] { $count } SEQUELS IN THE BACK
+}
+slasher-kit-store-sequel-to = PART { $part }. SEQUEL TO { $kit }
+slasher-kit-store-plays-differently = PLAYS DIFFERENTLY
+slasher-kit-store-need = OUT OF STOCK. ASCEND AS { $kit } TO RESTOCK
+slasher-kit-store-now-playing = NOW PLAYING
+slasher-kit-store-trailer-tag = TRAILER
+slasher-kit-store-tape-not-found = TAPE NOT FOUND
+slasher-kit-store-trailer = PLAY TRAILER
+slasher-kit-store-trailer-stop = STOP TRAILER
+slasher-kit-store-guide = READ THE GUIDEBOOK
+slasher-kit-store-sequels = { $count ->
+    [one] SEQUEL ({ $count })
+   *[other] SEQUELS ({ $count })
+}
+slasher-kit-store-prequel = PREQUEL
+slasher-kit-store-no-sequels = NO SEQUELS
+slasher-kit-store-rent = RENT
+slasher-kit-store-rent-confirm = ARE YOU SURE?
+slasher-kit-store-unavailable = OUT OF STOCK
 
 slasher-kit-butcher = Butcher
 slasher-kit-butcher-desc = The classic. A welding mask and apron for a no nonsense killing machine.
@@ -36,6 +65,9 @@ slasher-kit-glutton-desc = Something hungry stalks the halls. It wears a skin th
 slasher-kit-hockey = Hockey Mask
 slasher-kit-hockey-desc = A hockey mask and a machete. What more could you want?
 
+slasher-kit-boogeyman = Boogeyman
+slasher-kit-boogeyman-desc = "I wonder, if perhaps.. The Boogeyman is able to actually move through shadows.."
+
 slasher-machete-no-hands = You have no hands!
 slasher-machete-hands-full = Your hands are full!
 slasher-machete-already-holding = You're already holding your machete!
@@ -54,6 +86,7 @@ slasher-soulsteal-fail-no-mind = Your target has no soul to steal.
 slasher-soulsteal-start-victim = You feel your soul being drained...
 slasher-soulsteal-success-victim = You feel a piece of your soul dissipate.
 slasher-soulsteal-fail-not-valid = This is not a valid target!
+slasher-soulsteal-fail-no-limb-loss = Your target needs to be missing a limb before you can steal their soul.
 slasher-soulsteal-unlock-possession = Your power grows. You can now possess the living!
 slasher-soulsteal-ascendance = CRITICAL ALERT: Massive psychic disturbance detected. An entity of unprecedented malevolent power has achieved critical mass. All personnel are advised to arm themselves and travel in groups.
 slasher-soulsteal-ascendance-clown = CRITICAL ALERT: Unprecedented HONK power detected. All personnel are advised that something deeply unhinged is on board. Brace for impact. HONK.
@@ -87,3 +120,9 @@ slasher-cannot-use-guns = Your otherworldly form rejects firearms.
 
 alerts-slasher-seen-name = Observer Status
 alerts-slasher-seen-desc = Shows whether you are currently being watched by someone. You cannot enter or exit incorporeal form while being observed.
+
+alerts-slasher-fear-name = Fear
+alerts-slasher-fear-desc = The dread you have spread. The higher it climbs, the stronger you become and the louder your presence grows.
+
+alerts-slasher-fear-victim-name = Fear
+alerts-slasher-fear-victim-desc = The terror clawing at your mind as the slasher hunts you. The higher it climbs, the more it slows and wounds you. Break their line of sight to let it fade.

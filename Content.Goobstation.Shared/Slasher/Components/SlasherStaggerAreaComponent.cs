@@ -39,7 +39,7 @@ public sealed partial class SlasherStaggerAreaComponent : Component
     /// Sound to play when the stagger area is activated.
     /// </summary>
     [DataField]
-    public SoundSpecifier StaggerSound = new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherStaggerArea.ogg")
+    public SoundSpecifier StaggerSound = new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/SlasherStaggerArea.ogg")
     {
         Params = AudioParams.Default
                        .WithMaxDistance(4f)

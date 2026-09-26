@@ -1,0 +1,16 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectFeared
+  name: feared
+  components:
+  - type: StatusEffectAlert
+    alert: SlasherFearVictim
+    showDuration: false
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: Feared
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: SlasherSlowdownStatusEffect
+  name: slasher slowdown

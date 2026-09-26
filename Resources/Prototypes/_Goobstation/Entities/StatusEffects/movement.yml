@@ -2,11 +2,6 @@
 
 - type: entity
   parent: StatusEffectSlowdown
-  id: SlasherSlowdownStatusEffect
-  name: slasher slowdown
-
-- type: entity
-  parent: StatusEffectSlowdown
   id: TentacleSlowdownStatusEffect
   name: tentacle slowdown
 

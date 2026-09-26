@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: Slasher
+  name: "Slasher"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Slasher.xml"
+  children:
+  - SlasherBoogeyman
+
+- type: guideEntry
+  id: SlasherBoogeyman
+  name: "Slasher: Boogeyman"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Slasher_Boogeyman.xml"

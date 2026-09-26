@@ -1,0 +1,7 @@
+- type: shader
+  id: SlasherBoogeyman
+  kind: source
+  path: "/Textures/_Goobstation/Slasher/Shaders/slasher_boogeyman.swsl"
+  params:
+    darkThreshold: 0.1
+    lightThreshold: 0.4
