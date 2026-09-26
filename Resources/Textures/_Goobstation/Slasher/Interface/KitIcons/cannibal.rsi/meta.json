@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Combined by Loltart from Mobs/Species/Human/parts.rsi, Mobs/Customization/eyes.rsi, Clothing/Shoes/Misc/leather.rsi, Clothing/Uniforms/Jumpsuit/chef.rsi, Clothing/Hands/Gloves/Color/black.rsi, _Goobstation/Slasher/Objects/blood_apron.rsi, _Goobstation/Wizard/Clothing/Mask/pig.rsi, Clothing/Head/Hats/chefhat.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+light_mode unshaded;
+
+#include "/Textures/_Goobstation/Slasher/Shaders/slasher_valentine_shared.swsl"
+
+uniform highp vec3 baseColor;
+uniform highp float aberration;
+uniform highp float shake;
+uniform highp float seed;
+uniform highp float opacity;
+
+highp float starAlpha(highp vec2 p, highp float radius)
+{
+    return 1.0 - smoothstep(0.0, 0.06, sdStar5(p, radius, 0.45));
+}
+
+void fragment()
+{
+    highp vec2 p = (UV - vec2(0.5)) * 2.0;
+
+    highp float t = TIME * 6.0 + seed;
+    p += vec2(sin(t * 1.7), cos(t * 2.3)) * shake;
+
+    highp float twinkle = 0.95 + 0.05 * sin(TIME * 7.0 + seed);
+    highp float radius = 0.72 * twinkle;
+
+    highp vec2 ca = vec2(aberration, 0.0);
+    highp vec4 glyph = splitGlyph(baseColor,
+        starAlpha(p + ca, radius),
+        starAlpha(p, radius),
+        starAlpha(p - ca, radius),
+        p,
+        0.5 * twinkle);
+
+    COLOR = vec4(glyph.rgb, glyph.a * opacity);
+}

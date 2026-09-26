@@ -1,0 +1,13 @@
+- type: entity
+  name: Urist McSlasher
+  parent: MobHuman
+  id: MobSlasher
+  description: Debug control to set variant.
+  suffix: Debug
+  components:
+  - type: SlasherKitSelect
+    ignoreAscensionLocks: true
+  - type: UserInterface
+    interfaces:
+      enum.SlasherKitSelectUiKey.Key:
+        type: SlasherKitSelectBoundUserInterface

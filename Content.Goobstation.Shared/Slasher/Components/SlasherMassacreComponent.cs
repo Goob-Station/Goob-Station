@@ -43,7 +43,7 @@ public sealed partial class SlasherMassacreUserComponent : Component
 
     [DataField]
     public SoundSpecifier MassacreIntro =
-         new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreIntro.ogg")
+         new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/MassacreIntro.ogg")
          {
              Params = AudioParams.Default
                  .WithVolume(-5f)
@@ -76,7 +76,7 @@ public sealed partial class SlasherMassacreVictimComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier MassacreFinale =
-             new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreEnd.ogg")
+             new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/MassacreEnd.ogg")
              {
                  Params = AudioParams.Default
                      .WithRolloffFactor(8f)
@@ -157,7 +157,7 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier MassacreIntro =
-             new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreIntro.ogg")
+             new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/MassacreIntro.ogg")
              {
                  Params = AudioParams.Default
                      .WithRolloffFactor(8f)
@@ -169,7 +169,7 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier MassacreSlash =
-             new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreSlash.ogg")
+             new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/MassacreSlash.ogg")
              {
                  Params = AudioParams.Default
                      .WithRolloffFactor(8f)
@@ -181,7 +181,7 @@ public sealed partial class SlasherMassacreMacheteComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier MassacreDelimb =
-             new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/MassacreDelimb.ogg")
+             new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/MassacreDelimb.ogg")
              {
                  Params = AudioParams.Default
                      .WithRolloffFactor(8f)

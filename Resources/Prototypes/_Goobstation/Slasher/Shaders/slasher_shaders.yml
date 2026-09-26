@@ -1,0 +1,48 @@
+- type: shader
+  id: SlasherBoogeyman
+  kind: source
+  path: "/Textures/_Goobstation/Slasher/Shaders/slasher_boogeyman.swsl"
+  params:
+    darkThreshold: 0.1
+    lightThreshold: 0.4
+
+- type: shader
+  id: SlasherStagger
+  kind: source
+  path: "/Textures/_Goobstation/Slasher/Shaders/slasher_stagger.swsl"
+  params:
+    ringWidth: 10.0
+    distortion: 16.0
+
+- type: shader
+  id: SlasherStaggerValentine
+  kind: source
+  path: "/Textures/_Goobstation/Slasher/Shaders/slasher_stagger_valentine.swsl"
+  params:
+    ringWidth: 10.0
+    distortion: 16.0
+
+- type: shader
+  id: SlasherFearValentine
+  kind: source
+  path: "/Textures/_Goobstation/Slasher/Shaders/slasher_fear_valentine.swsl"
+  params:
+    intensity: 0.0
+
+- type: shader
+  id: SlasherHeartEyes
+  kind: source
+  path: "/Textures/_Goobstation/Slasher/Shaders/slasher_heart_eyes.swsl"
+
+- type: shader
+  id: SlasherStarEyes
+  kind: source
+  path: "/Textures/_Goobstation/Slasher/Shaders/slasher_star_eyes.swsl"
+
+- type: shader
+  id: SlasherHotline
+  kind: source
+  path: "/Textures/_Goobstation/Slasher/Shaders/slasher_hotline.swsl"
+  params:
+    speed: 0.2
+    phase: 0.0

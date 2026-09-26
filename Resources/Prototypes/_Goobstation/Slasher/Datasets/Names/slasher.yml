@@ -1,0 +1,23 @@
+- type: localizedDataset
+  id: NamesSlasher
+  values:
+    prefix: names-slasher-dataset-
+    count: 33
+
+- type: localizedDataset
+  id: NamesSlasherTitle
+  values:
+    prefix: names-slasher-title-dataset-
+    count: 30
+
+- type: localizedDataset
+  id: NamesSlasherIdolTitle
+  values:
+    prefix: names-slasher-idol-title-dataset-
+    count: 12
+
+- type: localizedDataset
+  id: NamesSlasherIdol
+  values:
+    prefix: names-slasher-idol-dataset-
+    count: 12

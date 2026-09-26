@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Combined by Loltart from Mobs/Species/Human/parts.rsi, Mobs/Customization/eyes.rsi, _Goobstation/Slasher/Objects/Repure/p_1_shoes.rsi, _Goobstation/Clothing/Uniforms/Jumpsuit/color/grey.rsi, Clothing/Hands/Gloves/Color/black.rsi, _Goobstation/Slasher/Objects/Repure/p_1_dress.rsi, _Goobstation/Slasher/Objects/Repure/p_1_helmet.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    }
+  ]
+}

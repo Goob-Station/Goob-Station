@@ -8,10 +8,10 @@ namespace Content.Goobstation.Shared.Slasher.Components;
 /// <summary>
 /// Grants the Slasher the Soul Steal action and tracks cumulative bonuses.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlasherSoulStealComponent : Component
 {
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? ActionEntity;
 
     [DataField]
@@ -50,13 +50,19 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// <summary>
     /// Current total armor reduction (0-1).
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public float ArmorReduction;
+
+    /// <summary>
+    /// Whether the target has to be missing an arm, hand, leg or foot before their soul can be stolen.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RequireLimbLoss = true;
 
     /// <summary>
     /// How long it takes to perform soul steal.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int Soulstealdoafterduration = 15;
 
     /// <summary>
@@ -64,7 +70,7 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier SoulStealSound =
-               new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherSoulSteal.ogg")
+               new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/SlasherSoulSteal.ogg")
                {
                    Params = AudioParams.Default
                        .WithMaxDistance(10f)
@@ -75,7 +81,7 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier AscendanceSound =
-               new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherAscendance.ogg")
+               new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/SlasherAscendance.ogg")
                {
                    Params = AudioParams.Default
                        .WithVolume(-7f)
@@ -135,13 +141,13 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// <summary>
     /// Cached applied brute bonus so we can reapply if machete is resummoned.
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public float TotalAppliedBruteBonus;
 
     /// <summary>
     /// Last known machete entity to which we applied damage components.
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? LastMachete;
 
     /// <summary>
@@ -167,4 +173,10 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// </summary>
     [DataField]
     public int MaxLightsToFlicker = 3;
+
+    /// <summary>
+    /// This is set by the kit selection in yaml. Do not set manually.
+    /// </summary>
+    [ViewVariables]
+    public string? AscensionId;
 }
