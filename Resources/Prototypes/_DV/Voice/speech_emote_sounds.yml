@@ -73,8 +73,6 @@
       collection: FemaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Trill:
-      collection: Trill
     Yip:
       collection: Yip
     Warble:
@@ -83,6 +81,50 @@
       collection: Wurble
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Mars: # Omu, fix harpy emotes
+      collection: Mars
+    Yawn: # Omu, fix harpy emotes
+      collection: FemaleYawn
+    Boop: # Omu, give harpy more emotes
+      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+    Buzz: # Omu, give harpy more emotes
+      path: /Audio/Machines/buzz-sigh.ogg
+    Chime: # Omu, give harpy more emotes
+      path: /Audio/Effects/Cargo/ping.ogg
+    Buzz-Two: # Omu, give harpy more emotes
+      path: /Audio/Machines/buzz-two.ogg
+    Ping: # Omu, give harpy more emotes
+      path: /Audio/Effects/beep1.ogg
+      params: # to prevent it from being definitively read by players as "OH SHIT A GRENADE"
+        variation: 0.125
+    Whirr: # Omu, give harpy more emotes
+      collection: IPCWhirrs
+    Hew: # Omu, give harpy more emotes
+      collection: Hew
+    Flap: # Omu, give harpy more emotes
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
+    Scree: # Omu, give harpy more emotes
+      collection: ResomiScrees
+    Call: # Omu, give harpy more emotes
+      collection: ResomiCalls
+    Squawk: # Omu, give harpy more emotes
+      collection: ResomiSquawk
+    Squish: # Omu, give harpy more emotes
+      collection: Squishes
+    Bubble: # Omu, give harpy more emotes
+      collection: Bubbles
+    Pop: # Omu, give harpy more emotes
+      collection: Pops
+    Gnash: # Omu, give harpy more emotes
+      collection: FeroxiGnashes
+    Yap: # Omu
+      collection: VulpYaps
+    Squee: # Omu
+      collection: RodentiaSquees
+    Snort: # Omu
+      collection: RodentiaSnorts
+    Gekker: # Omu
+      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
     Belch: # Frontier
       collection: Belch # Frontier
 
@@ -159,8 +201,6 @@
       collection: MaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
-    Trill:
-      collection: Trill
     Yip:
       collection: Yip
     Warble:
@@ -171,6 +211,48 @@
       collection: Mars
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Yawn: # Omu, fix harpy emotes
+      collection: MaleYawn
+    Boop: # Omu, give harpy more emotes
+      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+    Buzz: # Omu, give harpy more emotes
+      path: /Audio/Machines/buzz-sigh.ogg
+    Chime: # Omu, give harpy more emotes
+      path: /Audio/Effects/Cargo/ping.ogg
+    Buzz-Two: # Omu, give harpy more emotes
+      path: /Audio/Machines/buzz-two.ogg
+    Ping: # Omu, give harpy more emotes
+      path: /Audio/Effects/beep1.ogg
+      params: # to prevent it from being definitively read by players as "OH SHIT A GRENADE"
+        variation: 0.125
+    Whirr: # Omu, give harpy more emotes
+      collection: IPCWhirrs
+    Hew: # Omu, give harpy more emotes
+      collection: Hew
+    Flap: # Omu, give harpy more emotes
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
+    Scree: # Omu, give harpy more emotes
+      collection: ResomiScrees
+    Call: # Omu, give harpy more emotes
+      collection: ResomiCalls
+    Squawk: # Omu, give harpy more emotes
+      collection: ResomiSquawk
+    Squish: # Omu, give harpy more emotes
+      collection: Squishes
+    Bubble: # Omu, give harpy more emotes
+      collection: Bubbles
+    Pop: # Omu, give harpy more emotes
+      collection: Pops
+    Gnash: # Omu, give harpy more emotes
+      collection: FeroxiGnashes
+    Yap: # Omu, big emote expansion
+      collection: VulpYaps
+    Squee: # Omu
+      collection: RodentiaSquees
+    Snort: # Omu
+      collection: RodentiaSnorts
+    Gekker: # Omu
+      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
     Belch: # Frontier
       collection: Belch # Frontier
 
@@ -199,8 +281,6 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
     Growl:
       collection: VulpkaninGrowls
     Snarl:
@@ -223,6 +303,12 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Yip: # Omu
+      collection: VulpYips
+    Yap: # Omu, big emote expansion
+      collection: VulpYaps
+    Gekker: # Omu
+      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
     Belch: # Frontier
       collection: Belch # Frontier
 
@@ -251,8 +337,6 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
     Growl:
       collection: VulpkaninGrowls
     Snarl:
@@ -275,6 +359,12 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Yip: # Omu
+      collection: VulpYips
+    Yap: # Omu, big emote expansion
+      collection: VulpYaps
+    Gekker: # Omu
+      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
     Belch: # Frontier
       collection: Belch # Frontier
 
@@ -321,8 +411,6 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
     CatMeow:
@@ -335,6 +423,10 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Squee: # Omu
+      collection: RodentiaSquees
+    Snort: # Omu
+      collection: RodentiaSnorts
     Belch: # Frontier
       collection: Belch # Frontier
 
@@ -363,8 +455,6 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
     CatMeow:
@@ -377,6 +467,10 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Squee: # Omu
+      collection: RodentiaSquees
+    Snort: # Omu
+      collection: RodentiaSnorts
     Belch: # Frontier
       collection: Belch # Frontier
 
@@ -396,25 +490,21 @@
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
     Crying:
-      collection: FemaleCry
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_cry.ogg # Omu
     Sneeze:
       collection: MaleSneezes
     Cough:
-      collection: MaleCoughs
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_cough.ogg # Omu
     Yawn:
-      collection: MaleYawn
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_yawn.ogg # Omu
     Hiss:
       path: /Audio/Animals/snake_hiss.ogg
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_gasp.ogg # Omu
     DefaultDeathgasp:
       collection: MothDeathGasp
     Sigh:
-      collection: MaleSigh
+      path: /Audio/_Starlight/Voice/Arachnid/arachnid_sigh.ogg # Omu
     Whistle:
       collection: Whistles
     Gulp: # Goob
@@ -430,7 +520,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: FemaleScreams
+      collection: FeroxiScream # Omu
     Laugh:
       collection: FemaleLaugh
     Sneeze:
@@ -446,13 +536,9 @@
     Sigh:
       collection: FemaleSigh
     Crying:
-      collection: FemaleCry
+      collection: FeroxiCry # Omu
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
     Hiss:
       path: /Audio/Animals/snake_hiss.ogg
     Gasp:
@@ -465,6 +551,12 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    # Omu Start
+    Chirp:
+      collection: FeroxiChirps
+    Squeak:
+      collection: FeroxiSqueak
+    # Omu End
     Belch: # Frontier
       collection: Belch # Frontier
 
@@ -474,7 +566,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: MaleScreams
+      collection: FeroxiScream # Omu
     Laugh:
       collection: MaleLaugh
     Sneeze:
@@ -490,13 +582,9 @@
     Sigh:
       collection: MaleSigh
     Crying:
-      collection: MaleCry
+      collection: FeroxiCry # Omu
     Whistle:
       collection: Whistles
-    Weh:
-      collection: Weh
-    Hew:
-      collection: Hew
     Hiss:
       path: /Audio/Animals/snake_hiss.ogg
     Gasp:
@@ -509,5 +597,11 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    # Omu Start
+    Chirp:
+      collection: FeroxiChirps
+    Squeak:
+      collection: FeroxiSqueak
+    # Omu End
     Belch: # Frontier
       collection: Belch # Frontier
