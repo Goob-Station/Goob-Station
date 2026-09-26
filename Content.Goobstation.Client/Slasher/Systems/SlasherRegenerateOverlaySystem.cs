@@ -31,25 +31,25 @@ public sealed class SlasherRegenerateOverlaySystem : EntitySystem
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
     }
 
-    private void OnRegenerateOverlayInit(EntityUid uid, SlasherRegenerateOverlayComponent component, ComponentInit args)
+    private void OnRegenerateOverlayInit(Entity<SlasherRegenerateOverlayComponent> ent, ref ComponentInit args)
     {
-        if (uid == _player.LocalEntity && !_cfg.GetCVar(DCCVars.NoVisionFilters))
+        if (ent.Owner == _player.LocalEntity && !_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnRegenerateOverlayShutdown(EntityUid uid, SlasherRegenerateOverlayComponent component, ComponentShutdown args)
+    private void OnRegenerateOverlayShutdown(Entity<SlasherRegenerateOverlayComponent> ent, ref ComponentShutdown args)
     {
-        if (uid == _player.LocalEntity)
+        if (ent.Owner == _player.LocalEntity)
             _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void OnPlayerAttached(EntityUid uid, SlasherRegenerateOverlayComponent component, LocalPlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<SlasherRegenerateOverlayComponent> ent, ref LocalPlayerAttachedEvent args)
     {
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(EntityUid uid, SlasherRegenerateOverlayComponent component, LocalPlayerDetachedEvent args)
+    private void OnPlayerDetached(Entity<SlasherRegenerateOverlayComponent> ent, ref LocalPlayerDetachedEvent args)
     {
         _overlayMan.RemoveOverlay(_overlay);
     }

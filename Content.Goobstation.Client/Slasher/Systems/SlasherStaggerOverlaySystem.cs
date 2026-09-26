@@ -30,16 +30,16 @@ public sealed class SlasherStaggerOverlaySystem : EntitySystem
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
     }
 
-    private void OnStaggerInit(EntityUid uid, SlasherStaggerOverlayComponent component, ComponentInit args)
+    private void OnStaggerInit(Entity<SlasherStaggerOverlayComponent> ent, ref ComponentInit args)
     {
-        if (_player.LocalEntity != uid)
-            component.LocalStartTime = _timing.RealTime;
+        if (_player.LocalEntity != ent.Owner)
+            ent.Comp.LocalStartTime = _timing.RealTime;
 
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnStaggerShutdown(EntityUid uid, SlasherStaggerOverlayComponent component, ComponentShutdown args)
+    private void OnStaggerShutdown(Entity<SlasherStaggerOverlayComponent> ent, ref ComponentShutdown args)
     {
         if (Count<SlasherStaggerOverlayComponent>() <= 1)
             _overlayMan.RemoveOverlay(_overlay);

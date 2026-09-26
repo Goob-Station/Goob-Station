@@ -31,25 +31,25 @@ public sealed class SlasherFearOverlaySystem : EntitySystem
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
     }
 
-    private void OnFearOverlayInit(EntityUid uid, SlasherFearOverlayComponent component, ComponentInit args)
+    private void OnFearOverlayInit(Entity<SlasherFearOverlayComponent> ent, ref ComponentInit args)
     {
-        if (uid == _player.LocalEntity && !_cfg.GetCVar(DCCVars.NoVisionFilters))
+        if (ent.Owner == _player.LocalEntity && !_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnFearOverlayShutdown(EntityUid uid, SlasherFearOverlayComponent component, ComponentShutdown args)
+    private void OnFearOverlayShutdown(Entity<SlasherFearOverlayComponent> ent, ref ComponentShutdown args)
     {
-        if (uid == _player.LocalEntity)
+        if (ent.Owner == _player.LocalEntity)
             _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void OnPlayerAttached(EntityUid uid, SlasherFearOverlayComponent component, LocalPlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<SlasherFearOverlayComponent> ent, ref LocalPlayerAttachedEvent args)
     {
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(EntityUid uid, SlasherFearOverlayComponent component, LocalPlayerDetachedEvent args)
+    private void OnPlayerDetached(Entity<SlasherFearOverlayComponent> ent, ref LocalPlayerDetachedEvent args)
     {
         _overlayMan.RemoveOverlay(_overlay);
     }
