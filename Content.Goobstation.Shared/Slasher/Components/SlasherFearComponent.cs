@@ -140,7 +140,7 @@ public sealed partial class SlasherFearComponent : Component
     /// Components granted to victims while this slasher is frightening them.
     /// Kits can override this to change what being hunted does to a victim.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public ComponentRegistry GrantedToVictimOnSight = new();
 
     /// <summary>
