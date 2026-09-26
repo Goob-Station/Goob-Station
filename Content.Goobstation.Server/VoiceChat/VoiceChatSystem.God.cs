@@ -74,15 +74,18 @@ public sealed partial class VoiceChatSystem
                god.Target.Player == target;
     }
 
-    public void StartGodVoice(ICommonSession admin, VoiceGodTarget target)
+    public void StartGodVoice(ICommonSession admin, VoiceGodTarget target, bool hearSelf = false)
     {
         _godVoices.Remove(admin.UserId);
-        _godVoices[admin.UserId] = new GodVoice(target, AllocateStreamId());
+        _godVoices[admin.UserId] = new GodVoice(admin.UserId, target, AllocateStreamId(), hearSelf);
 
         _adminLog.Add(LogType.AdminMessage, LogImpact.Low, $"{admin.Name} started speaking to {target.Description} as the voice of god");
 
         var message = _voice.IsWebConnected(admin.UserId) ? "voice-god-started" : "voice-god-started-offline";
         _chatManager.DispatchServerMessage(admin, Loc.GetString(message, ("target", target.Description)));
+
+        if (hearSelf)
+            _chatManager.DispatchServerMessage(admin, Loc.GetString("voice-god-hear-self"));
     }
 
     public void StopGodVoice(ICommonSession admin)
@@ -135,6 +138,9 @@ public sealed partial class VoiceChatSystem
     {
         god.Recipients.Clear();
 
+        if (god.HearSelf)
+            god.Recipients.Add(admin);
+
         if (god.Target.Mode == VoiceGodMode.Player)
         {
             if (!_player.TryGetSessionById(god.Target.Player, out var target) ||
@@ -143,7 +149,9 @@ public sealed partial class VoiceChatSystem
                 return false;
             }
 
-            god.Recipients.Add(target);
+            if (!god.Recipients.Contains(target))
+                god.Recipients.Add(target);
+
             return true;
         }
 
@@ -271,6 +279,8 @@ public sealed partial class VoiceChatSystem
             return;
 
         RaiseNetworkEvent(new VoiceGodCueEvent(), recipient);
+        if (recipient.UserId == god.Admin)
+            return;
 
         var message = Loc.GetString("voice-god-cue");
         var wrapped = $"[italic]{FormattedMessage.EscapeText(message)}[/italic]";
@@ -319,10 +329,12 @@ public sealed partial class VoiceChatSystem
         }
     }
 
-    private sealed class GodVoice(VoiceGodTarget target, ushort streamId)
+    private sealed class GodVoice(NetUserId admin, VoiceGodTarget target, ushort streamId, bool hearSelf)
     {
+        public readonly NetUserId Admin = admin;
         public readonly VoiceGodTarget Target = target;
         public readonly ushort StreamId = streamId;
+        public readonly bool HearSelf = hearSelf;
         public readonly VoiceGodEffect Effect = new();
         public readonly VoiceEncoder Encoder = new();
         public readonly List<ICommonSession> Recipients = new();

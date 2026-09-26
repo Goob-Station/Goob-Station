@@ -10,6 +10,7 @@ using Content.Shared.Radio;
 using Content.Shared.Verbs;
 using Robust.Client.Audio;
 using Robust.Client.Graphics;
+using Robust.Client.Input;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
@@ -39,6 +40,7 @@ public sealed class VoiceChatSystem : EntitySystem
     [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IOverlayManager _overlays = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -110,18 +112,14 @@ public sealed class VoiceChatSystem : EntitySystem
 
         _overlays.AddOverlay(new VoiceSpeakingOverlay(EntityManager, this));
 
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.VoicePushToTalk,
-                InputCmdHandler.FromDelegate(
-                    _ => _manager.SendPushToTalk(true, false),
-                    _ => _manager.SendPushToTalk(false, false),
-                    handle: false))
-            .Bind(ContentKeyFunctions.VoicePushToTalkRadio,
-                InputCmdHandler.FromDelegate(
-                    _ => _manager.SendPushToTalk(true, true),
-                    _ => _manager.SendPushToTalk(false, true),
-                    handle: false))
-            .Register<VoiceChatSystem>();
+        _input.SetInputCommand(ContentKeyFunctions.VoicePushToTalk,
+            InputCmdHandler.FromDelegate(
+                _ => _manager.SendPushToTalk(true, false),
+                _ => _manager.SendPushToTalk(false, false)));
+        _input.SetInputCommand(ContentKeyFunctions.VoicePushToTalkRadio,
+            InputCmdHandler.FromDelegate(
+                _ => _manager.SendPushToTalk(true, true),
+                _ => _manager.SendPushToTalk(false, true)));
     }
 
     public override void Shutdown()
@@ -133,7 +131,8 @@ public sealed class VoiceChatSystem : EntitySystem
         _manager.SelfReceived -= OnSelfReceived;
         _manager.DeafenedChanged -= OnDeafenedChanged;
         _overlays.RemoveOverlay<VoiceSpeakingOverlay>();
-        CommandBinds.Unregister<VoiceChatSystem>();
+        _input.SetInputCommand(ContentKeyFunctions.VoicePushToTalk, null);
+        _input.SetInputCommand(ContentKeyFunctions.VoicePushToTalkRadio, null);
         ClearStreams();
     }
 

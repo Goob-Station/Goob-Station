@@ -15,7 +15,7 @@ public sealed class VoiceGodEffect
     private const float DryLevel = 0.5f;
     private const float VoiceLevel = 0.8f;
     private const float ShimmerLevel = 0.17f;
-    private const float WetLevel = 0.5f;
+    private const float WetLevel = 0.36f;
     private const float LimiterKnee = 0.75f;
 
     private readonly PitchShiftVocoderEffect _pitchDown = new(SampleRate, 0.8, FftSize, HopSize);
@@ -68,7 +68,7 @@ public sealed class VoiceGodEffect
 
     private sealed class Reverb
     {
-        private const float Feedback = 0.88f;
+        private const float Feedback = 0.87f;
         private const float Damping = 0.42f;
         private const float AllPassFeedback = 0.5f;
         private const float InputGain = 0.02f;

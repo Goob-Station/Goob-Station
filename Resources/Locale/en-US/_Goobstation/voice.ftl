@@ -44,8 +44,6 @@ voice-guide-station =
     Phones and holopads pick up anyone nearby. Megaphones allow you to be heard from several tiles away. If you have access, a communications console lets you broadcast to the whole station.
 
     The AI hears and talks through its cameras. Ghosts can talk to each other, but living players can't hear them.
-
-    You can speak in the lobby ONLY if you have push to talk enabled. No hot micing in lobby :smile:
 voice-guide-controls-title = Controls
 voice-guide-controls =
     The mic and headphone icons next to the chat box mute your mic or deafen you. Right-click someone to mute them or turn them up or down.
@@ -132,16 +130,19 @@ voice-god-verb = Voice of God
 voice-god-verb-stop = Stop Voice of God
 voice-god-started = You are now speaking to {$target} as the Voice of God. Nobody else can hear you.
 voice-god-started-offline = You are now speaking to {$target} as the Voice of God, but your voice page isn't open. Open it from Esc > Voice Chat.
+voice-god-hear-self = You'll hear yourself as the voice too, with the same glow and light on your screen.
 voice-god-stopped = You are no longer speaking as the Voice of God.
 voice-god-name = A Voice
 voice-god-log-name = Voice of God to {$target}
 voice-route-god = Divine
 voice-self-god = Voice of God
 cmd-voiceofgod-desc = Speak as the Voice of God to one player, everyone nearby, a department, or the whole station. Run with no arguments to stop.
-cmd-voiceofgod-help = Usage: voiceofgod <username> | voiceofgod radius <tiles> | voiceofgod department <id> | voiceofgod station
+cmd-voiceofgod-help = Usage: voiceofgod <username> [hearSelf] | voiceofgod radius <tiles> [hearSelf] | voiceofgod department <id> [hearSelf] | voiceofgod station [hearSelf]
 cmd-voiceofgod-hint = <username> | radius | department | station
 cmd-voiceofgod-radius-hint = <tiles>
 cmd-voiceofgod-department-hint = <department>
+cmd-voiceofgod-hear-self-hint = [hearSelf]
+cmd-voiceofgod-bad-hear-self = hearSelf has to be true or false.
 cmd-voiceofgod-bad-radius = Give a radius in tiles between 1 and {$max}.
 cmd-voiceofgod-bad-department = That department doesn't exist.
 voice-god-target-radius = everyone within {$radius} tiles of you

@@ -48,7 +48,8 @@ public sealed class VoiceOfGodCommand : LocalizedEntityCommands
                     return;
                 }
 
-                _voiceChat.StartGodVoice(admin, _voiceChat.GodTargetRadius(radius));
+                if (TryReadHearSelf(shell, args, 2, out var radiusHearSelf))
+                    _voiceChat.StartGodVoice(admin, _voiceChat.GodTargetRadius(radius), radiusHearSelf);
                 return;
 
             case DepartmentMode:
@@ -58,11 +59,13 @@ public sealed class VoiceOfGodCommand : LocalizedEntityCommands
                     return;
                 }
 
-                _voiceChat.StartGodVoice(admin, _voiceChat.GodTargetDepartment(department));
+                if (TryReadHearSelf(shell, args, 2, out var departmentHearSelf))
+                    _voiceChat.StartGodVoice(admin, _voiceChat.GodTargetDepartment(department), departmentHearSelf);
                 return;
 
             case StationMode:
-                _voiceChat.StartGodVoice(admin, _voiceChat.GodTargetStation());
+                if (TryReadHearSelf(shell, args, 1, out var stationHearSelf))
+                    _voiceChat.StartGodVoice(admin, _voiceChat.GodTargetStation(), stationHearSelf);
                 return;
         }
 
@@ -72,7 +75,18 @@ public sealed class VoiceOfGodCommand : LocalizedEntityCommands
             return;
         }
 
-        _voiceChat.StartGodVoice(admin, _voiceChat.GodTargetPlayer(target));
+        if (TryReadHearSelf(shell, args, 1, out var hearSelf))
+            _voiceChat.StartGodVoice(admin, _voiceChat.GodTargetPlayer(target), hearSelf);
+    }
+
+    private bool TryReadHearSelf(IConsoleShell shell, string[] args, int index, out bool hearSelf)
+    {
+        hearSelf = false;
+        if (args.Length <= index || bool.TryParse(args[index], out hearSelf))
+            return true;
+
+        shell.WriteError(Loc.GetString("cmd-voiceofgod-bad-hear-self"));
+        return false;
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -94,6 +108,11 @@ public sealed class VoiceOfGodCommand : LocalizedEntityCommands
 
         if (args.Length == 2 && args[0].Equals(RadiusMode, StringComparison.OrdinalIgnoreCase))
             return CompletionResult.FromHint(Loc.GetString("cmd-voiceofgod-radius-hint"));
+
+        var takesTarget = args[0].Equals(RadiusMode, StringComparison.OrdinalIgnoreCase) ||
+                          args[0].Equals(DepartmentMode, StringComparison.OrdinalIgnoreCase);
+        if (args.Length == (takesTarget ? 3 : 2))
+            return CompletionResult.FromHintOptions(CompletionHelper.Booleans, Loc.GetString("cmd-voiceofgod-hear-self-hint"));
 
         return CompletionResult.Empty;
     }

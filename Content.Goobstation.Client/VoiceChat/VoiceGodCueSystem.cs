@@ -68,23 +68,25 @@ public sealed class VoiceGodCueOverlay : Overlay
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
-    private static readonly ProtoId<ShaderPrototype> Shader = "VoiceGodGlow";
+    private static readonly ProtoId<ShaderPrototype> GlowShader = "VoiceGodGlow";
+    private static readonly ProtoId<ShaderPrototype> RaysShader = "VoiceGodRays";
     private static readonly Color GlowColor = Color.FromHex("#FFE9A8");
     private const float GlowSize = 140f;
+    private const float RaysScale = 0.65f;
     private const float MinIntensity = 0.002f;
 
-    private readonly ShaderInstance _shader;
+    private readonly ShaderInstance _glow;
+    private readonly ShaderInstance _rays;
 
     public float Intensity;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
-    public override bool RequestScreenTexture => true;
-
     public VoiceGodCueOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _shader = _prototype.Index(Shader).InstanceUnique();
+        _glow = _prototype.Index(GlowShader).InstanceUnique();
+        _rays = _prototype.Index(RaysShader).InstanceUnique();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -94,12 +96,16 @@ public sealed class VoiceGodCueOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        _shader.SetParameter("glowColor", GlowColor);
-        _shader.SetParameter("intensity", Intensity);
-        _shader.SetParameter("glowSize", GlowSize);
+        _glow.SetParameter("glowColor", GlowColor);
+        _glow.SetParameter("intensity", Intensity);
+        _glow.SetParameter("glowSize", GlowSize);
+        _rays.SetParameter("rayColor", GlowColor);
+        _rays.SetParameter("intensity", Intensity * RaysScale);
 
         var handle = args.WorldHandle;
-        handle.UseShader(_shader);
+        handle.UseShader(_glow);
+        handle.DrawRect(args.WorldBounds, Color.White);
+        handle.UseShader(_rays);
         handle.DrawRect(args.WorldBounds, Color.White);
         handle.UseShader(null);
     }
