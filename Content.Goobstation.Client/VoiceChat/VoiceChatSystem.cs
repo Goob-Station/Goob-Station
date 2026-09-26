@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
+using Content.Shared.Construction;
 using Content.Shared.Doors.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Input;
@@ -65,9 +66,9 @@ public sealed class VoiceChatSystem : EntitySystem
 
     private const float ObstructionVisibility = 0.5f;
     private const float ObstructionGain = 0.3f;
-    private const float AirlockWeight = 1.6f;
+    private const float AirlockWeight = 0.8f;
     private const float WallWeight = 1f;
-    private const float WindowWeight = 0.5f;
+    private const float WindowWeight = 0.25f;
     private static readonly TimeSpan ObstructionInterval = TimeSpan.FromMilliseconds(100);
     private const float SelfActivityRelease = 0.3f;
 
@@ -480,6 +481,9 @@ public sealed class VoiceChatSystem : EntitySystem
 
     private float GetObstructionWeight(EntityUid uid)
     {
+        if (HasComp<SharedCanBuildWindowOnTopComponent>(uid))
+            return 0f;
+
         if (HasComp<DoorComponent>(uid))
             return AirlockWeight;
 
