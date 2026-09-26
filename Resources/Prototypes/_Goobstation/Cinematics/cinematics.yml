@@ -1,0 +1,12 @@
+# TODO: Sandevistan, Uncomment when cinematic system is merged
+#- type: cinematic
+#  id: SandevistanRushdown
+#  duckAudio: false
+#  addComp:
+#  - type: CinematicLetterbox
+#  - type: CinematicZoom
+#    zoomFactor: 0.7
+#  - type: CinematicShake
+#    amplitude: 0.05
+#  segments:
+#  - duration: 3.3

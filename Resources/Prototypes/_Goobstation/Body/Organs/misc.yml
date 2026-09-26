@@ -17,11 +17,13 @@
   - type: Organ
     onAdd:
     - type: SandevistanUser
+      visionComponents:
+      - type: SandevistanSlowdownVision
       thresholds:
-        Warning: 15
-        Shaking: 30
-        Damage: 45
-        Disable: 60
+        Warning: 10
+        Shaking: 15
+        Disable: 35
+        Death: 80
 
 - type: entity
   parent: [ OrganHumanHeart, BaseSyndicateContraband ]
@@ -38,6 +40,7 @@
   - type: OrganActions
     actions:
     - ActionToggleSandevistan
+    - ActionSandevistanCounter
   - type: Organ
     onAdd:
     - type: SandevistanUser
@@ -45,11 +48,67 @@
       attackSpeedModifier: 1
       doAfterModifier: 1
       slowfieldEnabled: true
+      trampleEnabled: true
+      hitDamageMultiplier: 3
+      hitDisables: true
+      hitKnockbackStrength: 6
+      visionComponents:
+      - type: SandevistanSlowdownVision
+      - type: AudioPitch
       thresholds:
-        Warning: 6
-        Shaking: 10
-        Damage: 20
-        Disable: 24
+        Shaking: 1
+        Warning: 2
+        Disable: 10
+
+- type: entity
+  parent: [ OrganHumanHeart, BaseSyndicateContraband ]
+  id: OrganHeartTimestopperSandevistan
+  name: mi13 timestopper sandevistan
+  description: A cybernetic heart implant. This one is an offshoot of the statveka. While having a stronger effect it's not as stable. Once used by a certain vampire..
+  components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/sandevistan.rsi
+    layers:
+    - state: icon
+    scale: 0.5, 0.5
+  - type: OrganActions
+    actions:
+    - ActionToggleSandevistan
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser
+      movementSpeedModifier: 1
+      attackSpeedModifier: 3
+      doAfterModifier: 1
+      slowfieldEnabled: true
+      slowThrownItems: true
+      hitDamageMultiplier: 0.25
+      hitKnockbackStrength: 2
+      hitKnockbackDelayed: true
+      afterimageColor: "#9a9a9a"
+      loadPerActivation: 0
+      mobSpeedMultiplier: 0.015
+      thrownItemSpeedMultiplier: 0.005
+      projectileSpeedMultiplier: 0.003
+      startSound:
+        path: /Audio/_Goobstation/Sandevistan/time_slow.ogg
+        params:
+          volume: 12
+      endSound:
+        path: /Audio/_Goobstation/Sandevistan/time_slow_reverse.ogg
+        params:
+          volume: 12
+      loopSound: null
+      visionComponents:
+      - type: SandevistanTimestopVision
+      - type: AudioReverb
+      activationComponents:
+      - type: SandevistanTimestopBurst
+      thresholds:
+        Warning: 2
+        Shaking: 3
+        DisableNoAnim: 8
 
 - type: entity
   parent: [OrganHumanHeart, BaseSyndicateContraband]
