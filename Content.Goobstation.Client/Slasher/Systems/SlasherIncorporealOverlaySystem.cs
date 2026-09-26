@@ -14,7 +14,7 @@ public sealed class SlasherIncorporealOverlaySystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    private SlasherIncorporealOverlay _overlay = default!;
+    private readonly SlasherIncorporealOverlay _overlay = new();
 
     public override void Initialize()
     {
@@ -26,8 +26,6 @@ public sealed class SlasherIncorporealOverlaySystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealOverlayComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new();
     }
 
     private void OnOverlayStartup(EntityUid uid, SlasherIncorporealOverlayComponent component, ComponentStartup args)

@@ -17,7 +17,7 @@ public sealed class SlasherFearOverlaySystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    private SlasherFearOverlay _overlay = default!;
+    private readonly SlasherFearOverlay _overlay = new();
 
     public override void Initialize()
     {
@@ -29,8 +29,6 @@ public sealed class SlasherFearOverlaySystem : EntitySystem
         SubscribeLocalEvent<SlasherFearOverlayComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new();
     }
 
     private void OnFearOverlayInit(EntityUid uid, SlasherFearOverlayComponent component, ComponentInit args)

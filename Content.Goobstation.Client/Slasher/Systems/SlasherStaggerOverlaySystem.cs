@@ -18,7 +18,7 @@ public sealed class SlasherStaggerOverlaySystem : EntitySystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private SlasherStaggerOverlay _overlay = default!;
+    private readonly SlasherStaggerOverlay _overlay = new();
 
     public override void Initialize()
     {
@@ -28,8 +28,6 @@ public sealed class SlasherStaggerOverlaySystem : EntitySystem
         SubscribeLocalEvent<SlasherStaggerOverlayComponent, ComponentShutdown>(OnStaggerShutdown);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new();
     }
 
     private void OnStaggerInit(EntityUid uid, SlasherStaggerOverlayComponent component, ComponentInit args)

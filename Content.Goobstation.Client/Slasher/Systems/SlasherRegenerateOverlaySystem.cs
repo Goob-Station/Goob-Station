@@ -17,7 +17,7 @@ public sealed class SlasherRegenerateOverlaySystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    private SlasherRegenerateOverlay _overlay = default!;
+    private readonly SlasherRegenerateOverlay _overlay = new();
 
     public override void Initialize()
     {
@@ -29,8 +29,6 @@ public sealed class SlasherRegenerateOverlaySystem : EntitySystem
         SubscribeLocalEvent<SlasherRegenerateOverlayComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new();
     }
 
     private void OnRegenerateOverlayInit(EntityUid uid, SlasherRegenerateOverlayComponent component, ComponentInit args)
