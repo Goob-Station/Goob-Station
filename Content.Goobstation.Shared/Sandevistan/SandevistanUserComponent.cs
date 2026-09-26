@@ -14,9 +14,6 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField, AutoNetworkedField]
     public bool Active;
 
-    [DataField, AutoNetworkedField]
-    public TimeSpan LastEnabled = TimeSpan.Zero;
-
     [DataField]
     public TimeSpan PopupDelay = TimeSpan.FromSeconds(3);
 

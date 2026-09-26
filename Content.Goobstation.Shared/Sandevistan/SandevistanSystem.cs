@@ -13,6 +13,8 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Goobstation.Common.Weapons.Ranged;
+using Content.Goobstation.Shared.Cyberware;
+using Content.Shared.Body.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
@@ -29,6 +31,8 @@ public sealed class SandevistanSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly CyberneticsSystem _cybernetics = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -50,14 +54,15 @@ public sealed class SandevistanSystem : EntitySystem
         SubscribeLocalEvent<SandevistanUserComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SandevistanUserComponent, GetDoAfterDelayMultiplierEvent>(OnModifyDoAfterDelay);
         SubscribeLocalEvent<SandevistanUserComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
+        SubscribeLocalEvent<SandevistanUserComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<SandevistanUserComponent, EndCollideEvent>(OnEndCollide);
+        SubscribeLocalEvent<SandevistanUserComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<SandevistanUserComponent, AmmoShotUserEvent>(OnAmmoShot);
+
+        SubscribeLocalEvent<SandevistanOrganComponent, CyberwareChangedEvent>(OnOrganChanged);
 
         SubscribeLocalEvent<SandevistanSlowedComponent, RemoveSandevistanSlowdownEvent>(OnRemoveSlowdown);
         SubscribeLocalEvent<SandevistanSlowedComponent, RefreshMovementSpeedModifiersEvent>(OnSlowedRefreshSpeed);
-
-        SubscribeLocalEvent<ActiveSandevistanUserComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<ActiveSandevistanUserComponent, EndCollideEvent>(OnEndCollide);
-        SubscribeLocalEvent<ActiveSandevistanUserComponent, PreventCollideEvent>(OnPreventCollide);
-        SubscribeLocalEvent<ActiveSandevistanUserComponent, AmmoShotUserEvent>(OnAmmoShot);
 
         SubscribeLocalEvent<PhysicsUpdateAfterSolveEvent>(OnPhysicsUpdateAfterSolve);
     }
@@ -83,22 +88,20 @@ public sealed class SandevistanSystem : EntitySystem
             }
         }
 
-        if (_netManager.IsServer)
+        var query = EntityQueryEnumerator<SandevistanUserComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            var inactiveQuery = EntityQueryEnumerator<SandevistanUserComponent>();
-            while (inactiveQuery.MoveNext(out var inactiveUid, out var inactiveComp))
+            if (!comp.Active)
             {
-                if (inactiveComp.Active || inactiveComp.CurrentLoad <= 0f)
-                    continue;
+                if (_netManager.IsServer && comp.CurrentLoad > 0f)
+                {
+                    comp.CurrentLoad = MathF.Max(0f, comp.CurrentLoad + comp.LoadPerInactiveSecond * frameTime);
+                    Dirty(uid, comp);
+                }
 
-                inactiveComp.CurrentLoad = MathF.Max(0f, inactiveComp.CurrentLoad + inactiveComp.LoadPerInactiveSecond * frameTime);
-                Dirty(inactiveUid, inactiveComp);
+                continue;
             }
-        }
 
-        var query = EntityQueryEnumerator<ActiveSandevistanUserComponent, SandevistanUserComponent>();
-        while (query.MoveNext(out var uid, out _, out var comp))
-        {
             UpdateAfterimages(uid, comp);
 
             if (_netManager.IsServer)
@@ -113,6 +116,7 @@ public sealed class SandevistanSystem : EntitySystem
                     filteredStates.Add((int) stateThreshold.Key);
 
             filteredStates.Sort((a, b) => b.CompareTo(a));
+
             foreach (var state in filteredStates)
             {
                 if (!comp.Effects.TryGetValue((SandevistanState) state, out var effects))
@@ -163,7 +167,7 @@ public sealed class SandevistanSystem : EntitySystem
         }
 
         ent.Comp.Active = true;
-        EnsureComp<ActiveSandevistanUserComponent>(ent);
+        SyncOrgans(ent, true, false);
 
         if (TryComp<SandevistanSlowedComponent>(ent, out var slowed))
         {
@@ -242,11 +246,10 @@ public sealed class SandevistanSystem : EntitySystem
                 }
             }
 
-            RemCompDeferred<ActiveSandevistanUserComponent>(uid);
             comp.Active = false;
+            SyncOrgans(uid, false, false);
         }
 
-        comp.LastEnabled = _timing.CurTime;
         comp.ColorAccumulator = 0;
         _speed.RefreshMovementSpeedModifiers(uid);
         DeleteAfterimages(uid);
@@ -256,6 +259,23 @@ public sealed class SandevistanSystem : EntitySystem
 
         if (wasActive)
             Dirty(uid, comp);
+    }
+
+    private void OnOrganChanged(Entity<SandevistanOrganComponent> ent, ref CyberwareChangedEvent args)
+    {
+        if (_cybernetics.IsEnabled(ent) || !TryComp<SandevistanUserComponent>(args.Body, out var user))
+            return;
+
+        Disable(args.Body, user);
+    }
+
+    private void SyncOrgans(EntityUid body, bool active, bool overloaded)
+    {
+        foreach (var organ in _body.GetBodyOrganEntityComps<SandevistanOrganComponent>(body))
+        {
+            _cybernetics.SetActive(organ.Owner, active);
+            _cybernetics.SetOverloaded(organ.Owner, overloaded);
+        }
     }
 
     #region Afterimage Methods
@@ -346,13 +366,13 @@ public sealed class SandevistanSystem : EntitySystem
 
     #region Slowfield Methods
 
-    private void OnAmmoShot(Entity<ActiveSandevistanUserComponent> ent, ref AmmoShotUserEvent args)
+    private void OnAmmoShot(Entity<SandevistanUserComponent> ent, ref AmmoShotUserEvent args)
     {
-        if (!TryComp<SandevistanUserComponent>(ent, out var comp) || !comp.SlowfieldEnabled)
+        if (!ent.Comp.Active || !ent.Comp.SlowfieldEnabled)
             return;
 
         foreach (var projectile in args.FiredProjectiles)
-            ApplySlowdown(ent, projectile, comp);
+            ApplySlowdown(ent, projectile, ent.Comp);
     }
 
     private void CreateSlowfieldFixture(EntityUid uid, SandevistanUserComponent comp)
@@ -380,9 +400,9 @@ public sealed class SandevistanSystem : EntitySystem
         _fixtures.DestroyFixture(uid, SlowfieldFixtureId, body: physics);
     }
 
-    private void OnStartCollide(Entity<ActiveSandevistanUserComponent> ent, ref StartCollideEvent args)
+    private void OnStartCollide(Entity<SandevistanUserComponent> ent, ref StartCollideEvent args)
     {
-        if (!TryComp<SandevistanUserComponent>(ent, out var comp) || !comp.SlowfieldEnabled)
+        if (!ent.Comp.Active || !ent.Comp.SlowfieldEnabled)
             return;
 
         var target = args.OtherEntity;
@@ -391,10 +411,10 @@ public sealed class SandevistanSystem : EntitySystem
             || target == ent.Owner)
             return;
 
-        ApplySlowdown(ent, target, comp);
+        ApplySlowdown(ent, target, ent.Comp);
     }
 
-    private void OnEndCollide(Entity<ActiveSandevistanUserComponent> ent, ref EndCollideEvent args)
+    private void OnEndCollide(Entity<SandevistanUserComponent> ent, ref EndCollideEvent args)
     {
         var target = args.OtherEntity;
 
@@ -409,7 +429,7 @@ public sealed class SandevistanSystem : EntitySystem
         RaiseLocalEvent(target, ref ev);
     }
 
-    private void OnPreventCollide(Entity<ActiveSandevistanUserComponent> ent, ref PreventCollideEvent args)
+    private void OnPreventCollide(Entity<SandevistanUserComponent> ent, ref PreventCollideEvent args)
     {
         if (!TryComp<FixturesComponent>(ent, out var fixtures)
             || !fixtures.Fixtures.TryGetValue(SlowfieldFixtureId, out var slowfieldFixture)
@@ -425,7 +445,7 @@ public sealed class SandevistanSystem : EntitySystem
         if (TryComp<SandevistanSlowedComponent>(target, out var existing) && existing.IsSlowed)
             return;
 
-        if (HasComp<ActiveSandevistanUserComponent>(target))
+        if (TryComp<SandevistanUserComponent>(target, out var other) && other.Active)
             return;
 
         var slowed = EnsureComp<SandevistanSlowedComponent>(target);
