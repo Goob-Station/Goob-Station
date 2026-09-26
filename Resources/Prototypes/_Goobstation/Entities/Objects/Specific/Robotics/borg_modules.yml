@@ -141,7 +141,7 @@
     - state: icon-tools
   - type: ItemBorgModule
     hands:
-    - item: Stunbaton
+    - item: StunbatonSEC
     - item: WeaponDisabler
     - item: CombatKnife
     - hand:
