@@ -41,7 +41,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.VoiceChat;
 
-public sealed class VoiceChatSystem : EntitySystem
+public sealed partial class VoiceChatSystem : EntitySystem
 {
     [Dependency] private readonly VoiceChatManager _voice = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -126,6 +126,8 @@ public sealed class VoiceChatSystem : EntitySystem
         Subs.CVar(_cfg, GoobCVars.VoiceChatBitrate, value => _format = VoiceFormats.FromBitrate(value), true);
 
         _voice.PushToTalkReceived += OnPushToTalk;
+        _voice.MicMuteReceived += OnMicMute;
+        InitializeGod();
     }
 
     public override void Shutdown()
@@ -133,12 +135,24 @@ public sealed class VoiceChatSystem : EntitySystem
         base.Shutdown();
 
         _voice.PushToTalkReceived -= OnPushToTalk;
+        _voice.MicMuteReceived -= OnMicMute;
+        ShutdownGod();
     }
 
-    private void OnPushToTalk(NetUserId user, bool pressed)
+    private void OnPushToTalk(NetUserId user, bool pressed, bool radio)
     {
         if (_player.TryGetSessionById(user, out var session))
-            SetPushToTalk(session, pressed);
+            SetPushToTalk(session, pressed, radio);
+    }
+
+    private void OnMicMute(NetUserId user, bool muted)
+    {
+        var speaker = GetSpeaker(user);
+        if (speaker.SelfMuted == muted)
+            return;
+
+        speaker.SelfMuted = muted;
+        SendState(user, false);
     }
 
     public override void Update(float frameTime)
@@ -170,6 +184,7 @@ public sealed class VoiceChatSystem : EntitySystem
         }
 
         ProcessMixers(now);
+        UpdateGod(now);
 
         if (now < _nextStateRefresh)
             return;
@@ -199,6 +214,12 @@ public sealed class VoiceChatSystem : EntitySystem
         {
             return;
         }
+
+        if (_speakers.TryGetValue(frame.User, out var existing) && existing.SelfMuted)
+            return;
+
+        if (TryHandleGodFrame(session, frame, now))
+            return;
 
         if (IsInLobby(session))
         {
@@ -243,7 +264,7 @@ public sealed class VoiceChatSystem : EntitySystem
 
         if (!_routes.TryGetValue(frame.User, out var route))
         {
-            route = BuildRoute(session, uid, speaker.Id, directRange);
+            route = BuildRoute(session, uid, speaker, directRange);
             _routes[frame.User] = route;
             UpdateEffect(frame.User);
             SendSpeakerInfo(speaker, uid, route, session.Channel);
@@ -517,7 +538,7 @@ public sealed class VoiceChatSystem : EntitySystem
         };
     }
 
-    private Route BuildRoute(ICommonSession speakerSession, EntityUid speakerUid, ushort speakerId, float directRange)
+    private Route BuildRoute(ICommonSession speakerSession, EntityUid speakerUid, Speaker speaker, float directRange)
     {
         var route = new Route();
         var ghostSpeaker = _ghostQuery.HasComp(speakerUid);
@@ -548,7 +569,7 @@ public sealed class VoiceChatSystem : EntitySystem
                 _broadcast.GetRecipients(console, _broadcastRecipients);
             }
 
-            CollectRadio(speakerUid, route);
+            CollectRadio(speakerUid, route, speaker);
         }
 
         _sessions ??= _player.Sessions;
@@ -565,7 +586,7 @@ public sealed class VoiceChatSystem : EntitySystem
                 continue;
 
             if (ghostSpeaker && !_ghostQuery.HasComp(listener) ||
-                _voice.IsSpeakerMuted(session.UserId, speakerId))
+                _voice.IsSpeakerMuted(session.UserId, speaker.Id))
             {
                 continue;
             }
@@ -721,12 +742,13 @@ public sealed class VoiceChatSystem : EntitySystem
         return telephone.Comp.Speaker?.Owner ?? telephone.Owner;
     }
 
-    private void CollectRadio(EntityUid speaker, Route route)
+    private void CollectRadio(EntityUid uid, Route route, Speaker speaker)
     {
-        if (_radioVoice.TryGetTransmission(speaker, out var channel, out var radioSource))
+        var localOnly = speaker.PushToTalk && !speaker.PushToTalkRadio;
+        if (!localOnly && _radioVoice.TryGetTransmission(uid, speaker.PushToTalkRadio, out var channel, out var radioSource))
             AddTransmission(route, channel, radioSource);
 
-        CollectMicrophones(speaker, route);
+        CollectMicrophones(uid, route);
         route.RadioChannel = route.Radio.Count > 0 ? route.Radio[0].Channel : null;
     }
 
@@ -971,16 +993,27 @@ public sealed class VoiceChatSystem : EntitySystem
         return _transform.GetMapCoordinates(listener);
     }
 
-    private void SetPushToTalk(ICommonSession? session, bool active)
+    private void SetPushToTalk(ICommonSession? session, bool active, bool radio)
     {
         if (session == null)
             return;
 
         var speaker = GetSpeaker(session.UserId);
-        if (speaker.PushToTalk == active)
-            return;
+        if (radio)
+        {
+            if (speaker.PushToTalkRadio == active)
+                return;
 
-        speaker.PushToTalk = active;
+            speaker.PushToTalkRadio = active;
+        }
+        else
+        {
+            if (speaker.PushToTalk == active)
+                return;
+
+            speaker.PushToTalk = active;
+        }
+
         SendState(session.UserId, false);
     }
 
@@ -990,7 +1023,11 @@ public sealed class VoiceChatSystem : EntitySystem
             return;
 
         var speaker = GetSpeaker(user);
-        var state = BuildState(user, speaker);
+        var state = BuildState(user, speaker) with
+        {
+            PushToTalk = speaker.PushToTalk || speaker.PushToTalkRadio,
+            SelfMuted = speaker.SelfMuted,
+        };
         if (!force && speaker.LastState == state)
             return;
 
@@ -1097,6 +1134,8 @@ public sealed class VoiceChatSystem : EntitySystem
         public readonly NetUserId User = user;
         public readonly ushort Id = id;
         public bool PushToTalk;
+        public bool PushToTalkRadio;
+        public bool SelfMuted;
         public bool Allowed;
         public EntityUid? CheckedEntity;
         public TimeSpan CheckedAt;
@@ -1113,6 +1152,8 @@ public sealed class VoiceChatSystem : EntitySystem
         private readonly short[] _levelPcm = new short[VoiceCodec.FrameSamples];
         private readonly VoiceEncoder _outgoing = new();
         private bool _decoded;
+
+        public bool Decoded => _decoded;
 
         public VoiceLevels Measure(byte[] payload, out float db)
         {

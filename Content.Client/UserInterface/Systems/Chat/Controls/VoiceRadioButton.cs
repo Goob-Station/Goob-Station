@@ -1,7 +1,9 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.Stylesheets;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
+using Content.Shared.Chat;
 using Content.Shared.Radio;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -126,6 +128,18 @@ public sealed class VoiceRadioPopup : Popup
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private const float LabelWidth = 48f;
+    private const int BulkThreshold = 3;
+    private const string CommandChannel = "Command";
+
+    private static readonly HashSet<string> DepartmentChannels = new()
+    {
+        "Engineering",
+        "Medical",
+        "Science",
+        "Security",
+        "Service",
+        "Supply",
+    };
     private const int TalkColumns = 5;
     private const int HearColumns = 4;
 
@@ -134,6 +148,7 @@ public sealed class VoiceRadioPopup : Popup
     private readonly GridContainer _talkItems;
     private readonly BoxContainer _hearRow;
     private readonly GridContainer _hearItems;
+    private readonly BoxContainer _hearBulk;
     private readonly Slider _volume;
     private readonly Label _volumeValue;
     private readonly List<ProtoId<RadioChannelPrototype>> _talkChannels = new();
@@ -158,7 +173,19 @@ public sealed class VoiceRadioPopup : Popup
         _talkRow = CreateRow("voice-radio-popup-talk", _talkItems);
 
         _hearItems = new GridContainer { Columns = HearColumns, HSeparationOverride = 8, VSeparationOverride = 2 };
-        _hearRow = CreateRow("voice-radio-popup-hear", _hearItems);
+
+        _hearBulk = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, SeparationOverride = 4 };
+        var muteAll = new Button { Text = Loc.GetString("voice-radio-popup-mute-all"), StyleClasses = { StyleClass.ButtonOpenRight } };
+        muteAll.OnPressed += _ => SetHearingAll(false);
+        var unmuteAll = new Button { Text = Loc.GetString("voice-radio-popup-unmute-all"), StyleClasses = { StyleClass.ButtonOpenLeft } };
+        unmuteAll.OnPressed += _ => SetHearingAll(true);
+        _hearBulk.AddChild(muteAll);
+        _hearBulk.AddChild(unmuteAll);
+
+        var hearColumn = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 4 };
+        hearColumn.AddChild(_hearItems);
+        hearColumn.AddChild(_hearBulk);
+        _hearRow = CreateRow("voice-radio-popup-hear", hearColumn);
 
         _volume = new Slider
         {
@@ -309,8 +336,9 @@ public sealed class VoiceRadioPopup : Popup
         _hearBoxes.Clear();
         _hearItems.RemoveAllChildren();
         _hearRow.Visible = channels.Count > 0;
+        _hearBulk.Visible = channels.Count >= BulkThreshold;
 
-        foreach (var id in channels)
+        foreach (var id in SortForDisplay(channels))
         {
             if (!_prototype.TryIndex(id, out var channel))
                 continue;
@@ -323,12 +351,62 @@ public sealed class VoiceRadioPopup : Popup
         }
     }
 
+    private List<ProtoId<RadioChannelPrototype>> SortForDisplay(List<ProtoId<RadioChannelPrototype>> channels)
+    {
+        var sorted = new List<ProtoId<RadioChannelPrototype>>(channels);
+        sorted.Sort((a, b) =>
+        {
+            var group = DisplayGroup(a).CompareTo(DisplayGroup(b));
+            return group != 0 ? group : string.Compare(DisplayName(a), DisplayName(b), StringComparison.CurrentCultureIgnoreCase);
+        });
+        return sorted;
+    }
+
+    private static int DisplayGroup(ProtoId<RadioChannelPrototype> channel)
+    {
+        if (channel == SharedChatSystem.CommonChannel)
+            return 0;
+
+        if (DepartmentChannels.Contains(channel.Id))
+            return 1;
+
+        return channel.Id == CommandChannel ? 2 : 3;
+    }
+
+    private string DisplayName(ProtoId<RadioChannelPrototype> channel)
+    {
+        return _prototype.TryIndex(channel, out var prototype) ? prototype.LocalizedName : channel.Id;
+    }
+
+    private void SetHearingAll(bool hearing)
+    {
+        foreach (var channel in _hearChannels)
+        {
+            if (hearing)
+                _muted.Remove(channel.Id);
+            else
+                _muted.Add(channel.Id);
+        }
+
+        foreach (var (id, box) in _hearBoxes)
+        {
+            box.Pressed = !_muted.Contains(id.Id);
+        }
+
+        SaveMuted();
+    }
+
     private void SetHearing(ProtoId<RadioChannelPrototype> channel, bool hearing)
     {
         var changed = hearing ? _muted.Remove(channel.Id) : _muted.Add(channel.Id);
         if (!changed)
             return;
 
+        SaveMuted();
+    }
+
+    private void SaveMuted()
+    {
         var ordered = _muted.ToList();
         ordered.Sort(string.CompareOrdinal);
         _mutedValue = string.Join(',', ordered);

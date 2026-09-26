@@ -87,3 +87,11 @@ slasher-cannot-use-guns = Your otherworldly form rejects firearms.
 
 alerts-slasher-seen-name = Observer Status
 alerts-slasher-seen-desc = Shows whether you are currently being watched by someone. You cannot enter or exit incorporeal form while being observed.
+
+alerts-slasher-fear-name = Fear
+alerts-slasher-fear-desc = The dread you have spread. The higher it climbs, the stronger you become and the louder your presence grows. Click to turn your theme music on or off.
+slasher-fear-music-muted = You silence your theme. Your victims still hear it.
+slasher-fear-music-unmuted = Your theme plays again.
+
+alerts-slasher-fear-victim-name = Fear
+alerts-slasher-fear-victim-desc = The terror clawing at your mind as the slasher hunts you. The higher it climbs, the more it slows and wounds you. Break their line of sight to let it fade.

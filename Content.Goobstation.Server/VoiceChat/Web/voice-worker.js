@@ -2,6 +2,9 @@
 
 const CLOSE_INVALID_TOKEN = 4001;
 const CLOSE_REPLACED = 4002;
+const CLOSE_SESSION_ENDED = 4004;
+const CLOSE_TOO_MANY_ATTEMPTS = 4005;
+const STOP_CODES = new Set([CLOSE_INVALID_TOKEN, CLOSE_REPLACED, CLOSE_SESSION_ENDED, CLOSE_TOO_MANY_ATTEMPTS]);
 const MAX_BUFFERED_BYTES = 64 * 1024;
 const RECONNECT_DELAYS = [1000, 2000, 5000, 10000];
 
@@ -42,7 +45,7 @@ function pushTransmit() {
 
     audioPort.postMessage({
         type: "config",
-        allowed: ready && !!state && (state.inGame || state.lobby) && !state.muted,
+        allowed: ready && !!state && (state.inGame || state.lobby) && !state.muted && !state.selfMuted,
         pushToTalk: !!(state && state.pushToTalk),
     });
 }
@@ -102,7 +105,7 @@ function connect() {
         state = null;
         pushTransmit();
 
-        if (event.code === CLOSE_INVALID_TOKEN || event.code === CLOSE_REPLACED) {
+        if (STOP_CODES.has(event.code)) {
             stopped = true;
             self.postMessage({ type: "stopped", code: event.code });
             return;
