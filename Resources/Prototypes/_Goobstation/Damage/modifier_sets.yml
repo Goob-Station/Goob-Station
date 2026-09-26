@@ -16,7 +16,7 @@
     Blunt: 0.9
     Slash: 0.9
     Piercing: 0.9
-    Shock: 5 # my shaft miners shall validhunt with the LL syndie defib
+    Shock: 4 # my shaft miners shall validhunt with the LL syndie defib
 
 - type: damageModifierSet
   id: SiliconProtected
