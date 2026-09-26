@@ -558,7 +558,7 @@
     - Xenoborg
     - Binary
   - type: Repairable
-    doAfterDelay: 13 # 25% more HP, so 30% more time to heal
+    doAfterDelay: 10 # goob - reduced to fit new values
   - type: BorgChassis
     maxModules: 0
     hasMindState: robot_e
