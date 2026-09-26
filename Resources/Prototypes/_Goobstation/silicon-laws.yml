@@ -87,11 +87,6 @@
   order: 4
   lawString: law-secborg-4
 
-- type: siliconLaw
-  id: SECborg5
-  order: 5
-  lawString: law-secborg-5
-
 - type: siliconLawset
   id: SECborgLawset
   name: law-secborg-name
@@ -100,5 +95,4 @@
   - SECborg2
   - SECborg3
   - SECborg4
-  - SECborg5
   obeysTo: laws-owner-station-ai

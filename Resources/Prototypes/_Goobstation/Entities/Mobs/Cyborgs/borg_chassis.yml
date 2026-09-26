@@ -150,8 +150,7 @@
     laws: SECborgLawset
   - type: ActionGrant
     actions:
-    - ActionViewLaws
-    - ActionSECBorgSelfDestruct
+    - ActionHailer
   - type: ContainerFill
     containers:
       borg_brain:
@@ -165,12 +164,15 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
-  - type: SecurityCyborg
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 30
-    intensitySlope: 20
-    maxIntensity: 20
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Security
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Security
+  - type: Hailer
 
 # Mining
 - type: entity
