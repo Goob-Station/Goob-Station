@@ -17,7 +17,8 @@
       - id: OrganDubiousVentcrawler
       - id: OrganDubiousSteptriggerImmune
       - id: OrganDubiousRepairable
-      
+      - id: OrganDubiousRandomizeLanguage
+      - id: OrganDubiousRandomBodySize
     # Annoying/Disruptive Organs Group - 35% chance
     - !type:GroupSelector
       weight: 35
@@ -29,6 +30,7 @@
       - id: OrganDubiousFlash
       - id: OrganDubiousSmoke
       - id: OrganDubiousGas
+      - id: OrganDubiousFlipGravity
     # Very Disruptive Organs Group - 15% chance
     - !type:GroupSelector
       weight: 15
@@ -36,6 +38,8 @@
       - id: OrganDubiousAA
       - id: OrganDubiousSpiderEggs
       - id: OrganDubiousSlimeEggs
+      - id: OrganDubiousShittySandevistan
+      - id: OrganDubiousVomitChem
 
 - type: entity
   name: Dubious Organ Spawner
