@@ -8,6 +8,8 @@
   save: false
   abstract: true
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Robot
   - type: Reactive
     groups:
       Acidic: [Touch]
@@ -105,20 +107,14 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary
     - Common
     - Science
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary
     - Common
     - Science
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
-    canUseInCrit: true # Goobstation
   - type: ZombieImmune
   - type: Repairable
     doAfterDelay: 10
@@ -430,11 +426,11 @@
     subverted: true
   - type: IntrinsicRadioTransmitter
     channels:
-    # - Binary  # Goobstation - replaced with collective mind
+    - Binary
     - Syndicate
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation collectivemind binary
+    - Binary
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -506,11 +502,11 @@
   - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
     channels:
     - Common # Goobstation i need this to not be null and if theyre derelict its whatever
-    #- Binary #1984 # Goobstation collectivemind binary
+    - Binary #1984
   - type: ActiveRadio
     channels:
     - Common # Goobstation i need this to not be null and if theyre derelict its whatever
-    #- Binary # Goobstation collectivemind binary
+    - Binary
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
@@ -523,10 +519,6 @@
     color: "#dd200b"
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
-  - type: CollectiveMind # Goobstation collectivemind binary
-    defaultChannel: Binary
-    channels:
-    - Binary
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
@@ -544,27 +536,27 @@
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: MobThresholds
-    thresholds: # slightly tankier than a normal borg
+    thresholds: # goob - tankier than a normal borg
       0: Alive
-      125: Critical
-      375: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
-  - type: EmagSiliconLaw # should xenoborgs be emagable?
-    stunTime: 5
+      175: Critical # goob - increased to match overall goob balance
+      400: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+#  - type: EmagSiliconLaw # should xenoborgs be emagable? # goob - No
+ #   stunTime: 5
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
     subverted: true
-  - type: IntrinsicRadioReceiver # Goob - moved binary to CM
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: Xenoborg # Goob - xenoborg buff
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
+    - Binary
   - type: ActiveRadio # but can hear the mothership channel
     channels:
     - Mothership
     - Xenoborg
+    - Binary
   - type: Repairable
     doAfterDelay: 13 # 25% more HP, so 30% more time to heal
   - type: BorgChassis
@@ -611,7 +603,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 90
+        damage: 150 # goob
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -620,7 +612,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 375
+        damage: 400 # goob
       behaviors:
       - !type:PlaySoundBehavior
         sound:

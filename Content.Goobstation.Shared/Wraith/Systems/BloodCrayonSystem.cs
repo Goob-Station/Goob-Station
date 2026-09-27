@@ -1,22 +1,16 @@
 using Content.Goobstation.Shared.Wraith.Components;
 using Content.Goobstation.Shared.Wraith.Events;
-using Content.Goobstation.Shared.Wraith.WraithPoints;
-using Content.Shared.Crayon;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Interaction;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 public sealed class BloodCrayonSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly WraithPointsSystem _wpSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<BloodCrayonComponent, AfterInteractEvent>(OnCrayonUse, before: [typeof(SharedCrayonSystem)]);
         SubscribeLocalEvent<BloodWritingComponent, BloodWritingEvent>(OnBloodWritingAction);
     }
 
@@ -43,13 +37,5 @@ public sealed class BloodCrayonSystem : EntitySystem
         Dirty(ent);
 
         args.Handled = true;
-    }
-
-    private void OnCrayonUse(Entity<BloodCrayonComponent> ent, ref AfterInteractEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        _wpSystem.AdjustWraithPoints(ent.Comp.WpConsume, args.User);
     }
 }

@@ -213,7 +213,7 @@ public partial class SharedBodySystem
         Entity<BodyComponent?> entity)
         where T : IComponent
     {
-        if (!Resolve(entity, ref entity.Comp))
+        if (!Resolve(entity, ref entity.Comp, false)) // Goobstation - added false
             return new List<Entity<T, OrganComponent>>();
 
         // Goobstation start

@@ -1,5 +1,6 @@
 using Content.Shared.Chat;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -33,77 +34,80 @@ public sealed class CoinFlipperMachineSystem : EntitySystem
         SubscribeLocalEvent<CoinFliperComponent, ActivateInWorldEvent>(OnInteractHandEvent);
         SubscribeLocalEvent<CoinFliperComponent, CoinFlipperDoAfterEvent>(OnSlotMachineDoAfter);
     }
-    private void OnInteractHandEvent(EntityUid uid, CoinFliperComponent comp, ActivateInWorldEvent args)
+
+    private void OnInteractHandEvent(Entity<CoinFliperComponent> ent, ref ActivateInWorldEvent args)
     {
-        if (comp.IsSpinning || !_power.IsPowered(uid))
+        if (ent.Comp.IsSpinning || !_power.IsPowered(ent.Owner))
             return;
 
-        if (!_itemSlots.TryGetSlot(uid, "money", out var slot)
-            || slot.Item == null
-            || !TryComp<StackComponent>(slot.Item.Value, out var stack))
+        if (!_itemSlots.TryGetSlot(ent.Owner, "money", out var slot)
+            || slot.Item is not { } item)
         {
-            _popupSystem.PopupPredicted(Loc.GetString("slotmachine-no-money"), uid, uid, PopupType.Small); // No Money
+            _popupSystem.PopupPredicted(Loc.GetString("slotmachine-no-money"), ent.Owner, args.User); // No Money
             return;
         }
 
-        comp.PrizeAmount = 0; //Reset prize amount just incase
+        ent.Comp.PrizeAmount = 0; //Reset prize amount just incase
         var doAfter =
-         new DoAfterArgs(EntityManager, uid, comp.DoAfterTime, new CoinFlipperDoAfterEvent(), uid)
+         new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DoAfterTime, new CoinFlipperDoAfterEvent(), ent.Owner)
          {
              BreakOnMove = false,
              BreakOnDamage = false,
              MultiplyDelay = false,
          };
-        comp.PrizeAmount = _stackSystem.GetCount(stack.Owner);
-        _stackSystem.SetCount(stack.Owner, 0, stack);
-        Dirty(stack.Owner, stack);
-        comp.IsSpinning = true;
+
+        if (TryComp<StackComponent>(item, out var stack))
+        {
+            ent.Comp.PrizeAmount = _stackSystem.GetCount(item);
+            PredictedDel(item);
+        }
+
+        ent.Comp.IsSpinning = true;
 
         if (_net.IsServer)
         {
-            _audio.PlayPvs(comp.SpinSound, uid);
+            _audio.PlayPvs(ent.Comp.SpinSound, ent.Owner);
             _doAfter.TryStartDoAfter(doAfter);
         }
     }
 
-    private void OnSlotMachineDoAfter(EntityUid uid, CoinFliperComponent comp, CoinFlipperDoAfterEvent args)
+    private void OnSlotMachineDoAfter(Entity<CoinFliperComponent> ent, ref CoinFlipperDoAfterEvent args)
     {
         if (args.Cancelled) // Almost no way for it to be canceled but just in case
         {
-            comp.IsSpinning = false;
-            Dirty(uid, comp);
+            ent.Comp.IsSpinning = false;
+            Dirty(ent);
             return;
         }
 
-        if (args.Handled || !_itemSlots.TryGetSlot(uid, "money", out var slot))
+        if (args.Handled || !_itemSlots.TryGetSlot(ent.Owner, "money", out var slot))
             return;
 
-        comp.IsSpinning = false;
-        Dirty(uid, comp);
+        ent.Comp.IsSpinning = false;
+        Dirty(ent);
 
         StackComponent? stack = null;
         if (slot.Item != null)
-            TryComp<StackComponent>(slot.Item.Value, out stack);
+            TryComp(slot.Item.Value, out stack);
 
-        if (_random.Prob(.5f))
+        if (_random.Prob(0.5f))
         {
-            _audio.PlayPredicted(comp.WinSound, uid, args.User);
+            _audio.PlayPredicted(ent.Comp.WinSound, ent, args.User);
             if (stack == null)
             {
-                var coordinates = Transform(uid).Coordinates;
-                var newStack = EntityManager.SpawnEntity("SpaceCash", coordinates);
+                var winAmount = ent.Comp.PrizeAmount * 2;
+                var newStack = PredictedSpawnAtPosition("SpaceCash", ent.Owner.ToCoordinates());
                 if (TryComp<StackComponent>(newStack, out var newStackComp))
                 {
-                    comp.PrizeAmount *= 2;
-                    _stackSystem.SetCount(newStack, comp.PrizeAmount, newStackComp);
+                    _stackSystem.SetCount((newStack, newStackComp), winAmount);
                     Dirty(newStack, newStackComp);
                 }
 
-                _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("coinflipper-win", ("amount", comp.PrizeAmount)), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
+                _chatSystem.TrySendInGameICMessage(ent.Owner, Loc.GetString("coinflipper-win", ("amount", winAmount)), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
                 return;
             }
         }
 
-        _audio.PlayPredicted(comp.LoseSound, uid, args.User); // If nothing then lose
+        _audio.PlayPredicted(ent.Comp.LoseSound, ent.Owner, args.User); // If nothing then lose
     }
 }

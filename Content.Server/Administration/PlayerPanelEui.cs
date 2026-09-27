@@ -36,6 +36,8 @@ public sealed class PlayerPanelEui : BaseEui
     private bool _frozen;
     private bool _canFreeze;
     private bool _canAhelp;
+    private float _trustScore;
+    private TimeSpan? _accountAge; //goob edit
     private FollowerSystem _follower;
 
     public PlayerPanelEui(LocatedPlayerData player)
@@ -69,7 +71,9 @@ public sealed class PlayerPanelEui : BaseEui
             _whitelisted,
             _canFreeze,
             _frozen,
-            _canAhelp);
+            _canAhelp,
+            _trustScore,
+            _accountAge); // goob edit
     }
 
     private void OnPermsChanged(AdminPermsChangedEventArgs args)
@@ -202,6 +206,10 @@ public sealed class PlayerPanelEui : BaseEui
         {
             _canFreeze = session.AttachedEntity != null;
             _frozen = _entity.HasComponent<AdminFrozenComponent>(session.AttachedEntity);
+
+            var userData = session.Channel.UserData;
+            _trustScore = userData.Trust;
+            _accountAge = DateTime.UtcNow - userData.CreatedTime; // goob edit
         }
         else
         {

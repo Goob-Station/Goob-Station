@@ -1,0 +1,10 @@
+- type: breed
+  id: BaseMutation
+  abstract: true
+  breedName: base mutation
+  components:
+  - type: Slime
+    breed: GreyMutation
+    whitelist:
+      tags:
+      - XenobioSlimeFavoriteFood

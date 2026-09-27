@@ -4,6 +4,8 @@ using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Shared.Actions;
 using Content.Shared.Humanoid;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.Ascension;
@@ -16,6 +18,7 @@ public sealed class ShadowlingHypnosisSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -40,6 +43,12 @@ public sealed class ShadowlingHypnosisSystem : EntitySystem
             || HasComp<ThrallComponent>(target)
             || HasComp<ShadowlingComponent>(target))
             return;
+
+        if (HasComp<MindShieldComponent>(target))
+        {
+            _popup.PopupPredicted(Loc.GetString("shadowling-enthrall-mindshield"), uid, uid, PopupType.SmallCaution);
+            return;
+        }
 
         var comps = _proto.Index(component.HypnosisComponents);
         EntityManager.AddComponents(target, comps);

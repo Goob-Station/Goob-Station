@@ -15,7 +15,7 @@ public sealed partial class SpeciesChangeSystem : EntityEffectSystem<HumanoidApp
 {
     protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<SpeciesChange> args)
     {
-        var ev = new SpeciesChange(args.Effect.NewSpecies);
+        var ev = new SpeciesChange(args.Effect.NewSpecies, args.Effect.TransferAppearance);
         EntityManager.EventBus.RaiseLocalEvent(entity.Owner, ev);
     }
 }
@@ -26,11 +26,18 @@ public sealed partial class SpeciesChange : EntityEffectBase<SpeciesChange>
     [DataField(required: true)]
     public ProtoId<SpeciesPrototype> NewSpecies;
 
+    /// <summary>
+    ///     Keep the original look (skin, eyes, hair, sex, height...) where the new species allows it.
+    /// </summary>
+    [DataField]
+    public bool TransferAppearance;
+
     public SpeciesChange() { }
 
-    public SpeciesChange(ProtoId<SpeciesPrototype> newspecies)
+    public SpeciesChange(ProtoId<SpeciesPrototype> newspecies, bool transferAppearance = false)
     {
         NewSpecies = newspecies;
+        TransferAppearance = transferAppearance;
     }
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)

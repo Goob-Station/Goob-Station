@@ -18,7 +18,7 @@ public sealed partial class StationXenobiologyBountyDatabaseComponent : Componen
     /// Maximum amount of bounties a station can have.
     /// </summary>
     [DataField]
-    public int MaxBounties = 6;
+    public int MaxBounties = 10;
 
     /// <summary>
     /// A list of all the bounties currently active for a station.

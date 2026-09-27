@@ -87,17 +87,12 @@
     tags:
     - BasicSilicon
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
-  #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
   - type: ActiveRadio
     channels:
     - Common
-    # - Binary # Goobstation - replaced with collective mind
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
     - Binary
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: HealthExaminable
@@ -530,7 +525,7 @@
     - Unimplantable
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary
     - Common
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon

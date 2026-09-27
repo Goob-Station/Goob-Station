@@ -94,6 +94,9 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.1
+      - !type:AdjustReagent # Goobstation: Caffeine
+        reagent: Caffeine
+        amount: 1.0
   fizziness: 0.4
 
 - type: reagent

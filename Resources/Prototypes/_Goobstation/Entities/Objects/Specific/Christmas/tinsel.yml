@@ -4,6 +4,8 @@
 # Pointlight masks were coded in hell and sent up to us ong
 - type: entity
   id: SpawnerChristmasTinselWhite
+  name: Christmas Tinsel Spawner
+  suffix: White
   parent: MarkerBase
   components:
   - type: Sprite
@@ -23,6 +25,8 @@
 
 - type: entity
   id: SpawnerChristmasTinselRed
+  name: Christmas Tinsel Spawner
+  suffix: Red
   parent: MarkerBase
   components:
   - type: Sprite
@@ -43,6 +47,8 @@
 
 - type: entity
   id: SpawnerChristmasTinselBlue
+  name: Christmas Tinsel Spawner
+  suffix: Blue
   parent: MarkerBase
   components:
   - type: Sprite
@@ -63,6 +69,7 @@
 
 - type: entity
   id: ChristmasTinselWhite1
+  name: white christmas tinsel
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -78,6 +85,7 @@
 
 - type: entity
   id: ChristmasTinselWhite2
+  name: white christmas tinsel
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -93,6 +101,7 @@
 
 - type: entity
   id: ChristmasTinselWhite3
+  name: white christmas tinsel
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -108,6 +117,7 @@
 
 - type: entity
   id: ChristmasTinselWhite4
+  name: white christmas tinsel
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -123,6 +133,7 @@
 
 - type: entity
   id: ChristmasTinselWhite5
+  name: white christmas tinsel
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -138,6 +149,7 @@
 
 - type: entity
   id: ChristmasTinselWhite6
+  name: white christmas tinsel
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -153,6 +165,7 @@
 
 - type: entity
   id: ChristmasTinselRed1
+  name: red christmas tinsel
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -169,6 +182,7 @@
 
 - type: entity
   id: ChristmasTinselRed2
+  name: red christmas tinsel
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -185,6 +199,7 @@
 
 - type: entity
   id: ChristmasTinselRed3
+  name: red christmas tinsel
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -201,6 +216,7 @@
 
 - type: entity
   id: ChristmasTinselRed4
+  name: red christmas tinsel
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -217,6 +233,7 @@
 
 - type: entity
   id: ChristmasTinselRed5
+  name: red christmas tinsel
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -233,6 +250,7 @@
 
 - type: entity
   id: ChristmasTinselRed6
+  name: red christmas tinsel
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -249,6 +267,7 @@
 
 - type: entity
   id: ChristmasTinselBlue1
+  name: blue christmas tinsel
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -265,6 +284,7 @@
 
 - type: entity
   id: ChristmasTinselBlue2
+  name: blue christmas tinsel
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -281,6 +301,7 @@
 
 - type: entity
   id: ChristmasTinselBlue3
+  name: blue christmas tinsel
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -297,6 +318,7 @@
 
 - type: entity
   id: ChristmasTinselBlue4
+  name: blue christmas tinsel
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -313,6 +335,7 @@
 
 - type: entity
   id: ChristmasTinselBlue5
+  name: blue christmas tinsel
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
@@ -329,6 +352,7 @@
 
 - type: entity
   id: ChristmasTinselBlue6
+  name: blue christmas tinsel
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite

@@ -13,6 +13,8 @@ public sealed partial class SlimeLatchOperator : HTNOperator
     [Dependency] private readonly IEntityManager _entManager = default!;
     private SlimeLatchSystem _slimeLatch = default!;
 
+    private EntityQuery<SlimeComponent> _slimeQuery = default!;
+
     [DataField]
     public string LatchKey = string.Empty;
 
@@ -20,6 +22,8 @@ public sealed partial class SlimeLatchOperator : HTNOperator
     {
         base.Initialize(sysManager);
         _slimeLatch = sysManager.GetEntitySystem<SlimeLatchSystem>();
+
+        _slimeQuery = _entManager.GetEntityQuery<SlimeComponent>();
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
@@ -29,7 +33,7 @@ public sealed partial class SlimeLatchOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var target = blackboard.GetValue<EntityUid>(LatchKey);
 
-        if (!_entManager.TryGetComponent<SlimeComponent>(owner, out var slime))
+        if (!_slimeQuery.TryComp(owner, out var slime))
             return HTNOperatorStatus.Failed;
 
         if (_slimeLatch.IsLatched((owner, slime), target))

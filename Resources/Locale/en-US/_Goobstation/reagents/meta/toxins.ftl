@@ -28,3 +28,9 @@ reagent-desc-nevcottapowder = A highly toxic powder created from grinding the ba
 
 reagent-name-microplastics = microplastics
 reagent-desc-microplastics = A mildly toxic pollutant found in a lot of everyday objects. Its toxic effects do not seem to affect Vox.
+
+reagent-name-caffeine = caffeine
+reagent-desc-caffeine = Increases movement speed in low doses, but causes jittering, chest pain and slowed movement if too much is present in the bloodstream.
+
+reagent-name-junk-food = junk food
+reagent-desc-junk-food = Makes you sluggish if you eat too much of it.

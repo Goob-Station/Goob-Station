@@ -1,0 +1,24 @@
+- files: [lizard_scream_2.ogg]
+  copyright: 'by n Beats on YT'
+  license: CC-BY-SA-3.0
+  source: youtube.com/watch?v=RQzI5ldSXkg
+
+- files: [lizard_scream_3.ogg]
+  copyright: 'by n Beats on YT'
+  license: CC-BY-SA-3.0
+  source: youtube.com/watch?v=RQzI5ldSXkg
+
+- files: [lizard_scream_4.ogg]
+  copyright: 'sihiL'
+  license: CC0
+  source: freesound.org/people/-sihiL/sounds/213842
+
+- files: [lizard_purr.ogg]
+  copyright: '"raptor_purr.ogg" by Citadel-Station-13'
+  license: CC-BY-SA-3.0
+  source: https://github.com/BlackMajor/Citadel-Station-13/blob/c2b09cf3ee949e9454a10d8f8fa40296bf435428/modular_citadel/sound/voice/raptor_purr.ogg
+
+- files: [lizard_rattle.ogg]
+  copyright: '"rattle.ogg" by Skyrat-SS13'
+  license: CC-BY-SA-3.0
+  source: https://github.com/Skyrat-SS13/Skyrat-tg/blob/c45bc517706f5708c107fdcb018115a4a6b7320b/modular_skyrat/modules/emotes/sound/voice/rattle.ogg

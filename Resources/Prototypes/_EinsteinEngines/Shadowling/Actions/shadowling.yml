@@ -295,7 +295,7 @@
   parent: BaseAction
   id: ActionHypnosis
   name: Hypnosis
-  description: Make anyone a Thrall, at a moment's notice.
+  description: Make anyone a Thrall, at a moment's notice. As long as they're not mindshielded.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ MobBloodstream, MobRespirator, MobAtmosStandard, MobFlammable, BaseMobSpecies, BaseMobDisgust ] # Goobstation - unperishable voxes
+  parent: [ BaseMobSpeciesNonPerishable ] # Goobstation - unperishable voxes
   id: BaseMobVox
   abstract: true
   components:
@@ -220,7 +220,6 @@
             state: outerClothing
   # Goobstation start - voxes are uncloneable but do not rot - all the stuff from BaseMobSpeciesOrganic
   - type: Uncloneable
-  - type: Absorbable # Goobstation - changelings
   - type: Barotrauma
     damage:
       types:
@@ -278,11 +277,6 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
-  - type: FootprintOwner # Corvax-Next-Footprints
-  - type: Carriable # Goobstation
-  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
-  - type: GrabIntent # wilted rose
-  - type: Grabbable
   # Goobstation end
   - type: Hands
     leftHandDisplacement:

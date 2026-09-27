@@ -108,7 +108,7 @@
         Steel: 25
     - type: FloorCleaner # Goobstation
       radius: 3
-      cleanDelay: 6
+      cleanDelay: 2
 
 - type: entity
   name: wet floor sign

@@ -3,6 +3,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.EntityEffects.Effects;
 using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Localizations;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
@@ -44,6 +45,7 @@ public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSys
                     spec,
                     ignoreResistances: args.Effect.IgnoreResistances,
                     interruptsDoAfters: false,
+                    targetPart: args.Effect.UseTargeting ? args.Effect.TargetPart : null, // Omu, needed for full body healing for cryo chems
                     splitDamage: args.Effect.SplitDamage); // Goob
             // </Goob>
         }
@@ -67,6 +69,12 @@ public sealed partial class EvenHealthChange : EntityEffectBase<EvenHealthChange
 
     [DataField]
     public SplitDamageBehavior SplitDamage = SplitDamageBehavior.SplitEnsureAllOrganic; // Goob , need for shitmed
+
+    [DataField]
+    public bool UseTargeting = true; // Omu, needed for full body healing for cryo chems
+
+    [DataField]
+    public TargetBodyPart TargetPart = TargetBodyPart.All; // Omu, needed for full body healing for cryo chems
 
     /// <summary>
     /// Shitmed - How to scale the effect based on the temperature of the target entity.

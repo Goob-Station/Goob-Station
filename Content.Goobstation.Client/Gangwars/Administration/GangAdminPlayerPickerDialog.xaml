@@ -1,0 +1,8 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="{Loc gang-admin-add-member-title}"
+               MinSize="360 400">
+    <BoxContainer Orientation="Vertical" SeparationOverride="6" Margin="8" VerticalExpand="True">
+        <ItemList Name="PlayerList" SelectMode="Single" VerticalExpand="True"/>
+        <Button Name="AddButton" Text="{Loc gang-admin-add-member}" HorizontalExpand="True" Disabled="True"/>
+    </BoxContainer>
+</DefaultWindow>

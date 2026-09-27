@@ -11,7 +11,6 @@
   recognizable: true
   metabolisms:
     Drink:
-      metabolismRate: 0.05 # Goobstation: Very slow metabolism
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -22,42 +21,9 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
-      - !type:Jitter # Goobstation: Coffee causes jitteriness and alters speed
-        conditions:
-        - !type:ReagentCondition
-          reagent: Coffee
-          min: 25
-      - !type:MovementSpeedModifier
-        walkSpeedModifier: 1.1
-        sprintSpeedModifier: 1.1
-        conditions:
-        - !type:ReagentCondition
-          reagent: Coffee
-          min: 25
-          max: 99
-      - !type:GenericStatusEffect
-        key: Stutter
-        component: StutteringAccent
-        conditions:
-        - !type:ReagentCondition
-          reagent: Coffee
-          min: 75
-      - !type:MovementSpeedModifier # Goobstation: Drinking too much causes chest pain and slows you down
-        walkSpeedModifier: 0.70
-        sprintSpeedModifier: 0.70
-        conditions:
-        - !type:ReagentCondition
-          reagent: Coffee
-          min: 100
-      - !type:PopupMessage
-        visualType: Medium
-        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
-        type: Local
-        probability: 0.1
-        conditions:
-        - !type:ReagentCondition
-          reagent: Coffee
-          min: 100
+      - !type:AdjustReagent # Goobstation: Caffeine
+        reagent: Caffeine
+        amount: 0.5
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty

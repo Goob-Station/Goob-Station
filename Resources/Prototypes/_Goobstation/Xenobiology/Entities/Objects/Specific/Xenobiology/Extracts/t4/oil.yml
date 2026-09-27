@@ -10,29 +10,23 @@
       color: "#383936"
       shader: XenoMetallic
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: SpaceLube
-        amount: 100
+      - !type:NestedEffect
+        proto: XenobioExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: SpaceLube
+          amount: 100
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-evil" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractEvil
       - !type:Jitter
         time: 5
         frequency: 20
@@ -44,12 +38,8 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-fail" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractFail
   - type: Tag
     tags:
     - XenobiologyOilExtract

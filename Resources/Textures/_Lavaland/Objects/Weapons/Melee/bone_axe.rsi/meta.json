@@ -11,6 +11,9 @@
         "name": "icon"
     },
     {
+        "name": "incomplete"
+    },
+    {
         "name": "inhand-left",
         "directions": 4
     },

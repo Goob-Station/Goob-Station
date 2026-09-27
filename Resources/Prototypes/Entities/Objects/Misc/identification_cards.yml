@@ -623,7 +623,7 @@
     tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
-  parent: [PassengerIDCard, BaseChameleon]
+  parent: [IDCardStandard, BaseChameleon] # Goobstation - IDCardStandard instead of PassengerIDCard, to get rid of PresetIDCard causing access overwrites based on a job
   id: AgentIDCard
   suffix: Agent
   components:

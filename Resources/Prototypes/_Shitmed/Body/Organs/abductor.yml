@@ -7,6 +7,19 @@
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi
     state: brain
+  - type: SolutionContainerManager #Goob
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Cognizine #telepathic species has big Thought.
+          Quantity: 10
+        - ReagentId: GreyMatter #get it? because they're grey?
+          Quantity: 15
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 15
 
 - type: entity
   id: OrganAbductorEyes

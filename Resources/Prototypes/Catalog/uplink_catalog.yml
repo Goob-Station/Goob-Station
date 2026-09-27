@@ -2,7 +2,9 @@
 # TODO: make more categories
 # Guns
 
-# goob edit - FUCK NEWSTORE
+# goob edit
+# - all costs are 5x before rebalancing
+# - discounts are removed as they are done procedurally
 
 - type: listing
   id: UplinkPistolViper
@@ -80,7 +82,6 @@
   productEntity: EnergySword
   cost:
     Telecrystal: 37 # goob - desword is 74
-  saleLimit: 2 # Goob - 2 eswords = desword
   categories:
   - UplinkWeaponry
   #Goobstation
@@ -211,7 +212,7 @@
   id: UplinkHushpup
   name: uplink-hushpup-name
   description: uplink-hushpup-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon } #GoobStation resprite
   productEntity: ClothingBackpackDuffelSyndicateFilledHushpup
   #discountCategory: rareDiscounts
   #discountDownTo:
@@ -259,7 +260,7 @@
   id: UplinkBulldog #goob
   name: uplink-buldog-name #goob
   description: uplink-buldog-desc #goob
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon } #GoobStation resprite
   productEntity: WeaponShotgunBulldog
   cost:
     Telecrystal: 60 # goob

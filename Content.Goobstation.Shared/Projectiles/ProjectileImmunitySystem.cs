@@ -96,7 +96,7 @@ public sealed class ProjectileImmunitySystem : EntitySystem
         args.Reflected = true;
 
         if (ent.Comp.StaminaCostPerDodge > 0)
-            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false);
+            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false, ignoreResist: true);
 
         if (ent.Comp.DodgeEffect != null)
             SpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero));
@@ -111,7 +111,7 @@ public sealed class ProjectileImmunitySystem : EntitySystem
             return;
 
         if (ent.Comp.StaminaCostPerDodge > 0)
-            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false);
+            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false, ignoreResist: true);
 
         if (ent.Comp.DodgeEffect != null)
             SpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero));

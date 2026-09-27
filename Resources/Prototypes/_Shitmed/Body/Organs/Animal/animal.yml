@@ -34,6 +34,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: GreyMatter #goob edit
+          Quantity: 5 #goob edit
       food:
         maxVol: 5
         reagents:

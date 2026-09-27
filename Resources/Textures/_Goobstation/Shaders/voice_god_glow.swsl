@@ -1,0 +1,12 @@
+light_mode unshaded;
+
+uniform highp vec4 glowColor;
+uniform highp float intensity;
+uniform highp float glowSize;
+
+void fragment() {
+    highp vec2 size = 1.0 / SCREEN_PIXEL_SIZE;
+    highp float edge = min(min(FRAGCOORD.x, FRAGCOORD.y), min(size.x - FRAGCOORD.x, size.y - FRAGCOORD.y));
+    highp float glow = clamp(1.0 - edge / glowSize, 0.0, 1.0);
+    COLOR = vec4(glowColor.rgb, glow * glow * intensity);
+}

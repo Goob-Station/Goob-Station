@@ -45,7 +45,16 @@
   - type: PocketDimension
   # no (easily) deleting items with it
   - type: Destructible
-    thresholds: []
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000000
   # nuh uh
   - type: CargoSellBlacklist
   - type: Portal

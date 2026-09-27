@@ -388,6 +388,7 @@
     - Modsuits
     - PowerCages
     - BorgModulesGoob
+    - SecBorgParts # Goob
     - BasicCybernetics
     - MedicalCybernetics
     - AdvancedCybernetics
@@ -609,6 +610,7 @@
     - MedicalMiscRestricted
     - MedicalVehiclesAdvanced
     - MedicalBoards
+    - MedicalBoardsGoob
     - Janitor
     - Genetics
     - MedicalCloning

@@ -10,49 +10,48 @@
       color: "#dcaa4f"
       shader: XenoMetallic
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ForceStealthNearbyEffect
-        radius: 12
-        duration: 60
-        chance: 0.5
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
+      - !type:RelayNearby
+        compName: StatusEffects
+        range: 12
+        effect: !type:ModifyStatusEffect
+          probability: 0.5
+          effectProto: ForcedStealthStatusEffect
+          type: Add
+          time: 60
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:DoSmokeEntityEffect
-        duration: 5
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
+      - !type:DoSmokeEffect
+        duration: 10
         spreadAmount: 75
         smokePrototype: Smoke
-      - !type:ForceStealthNearbyEffect
-        duration: 30
-        radius: 7
+      - !type:RelayNearby
+        compName: StatusEffects
+        range: 7
+        effect: !type:ModifyStatusEffect
+          effectProto: ForcedStealthStatusEffect
+          type: Add
+          time: 30
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:ForceStealthNearbyEffect
-        radius: 1.5
-        duration: 120
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
+      - !type:RelayNearby
+        compName: StatusEffects
+        range: 1.5
+        effect: !type:ModifyStatusEffect
+          effectProto: ForcedStealthStatusEffect
+          type: Add
+          time: 120
   - type: Tag
     tags:
     - XenobiologyPyriteExtract

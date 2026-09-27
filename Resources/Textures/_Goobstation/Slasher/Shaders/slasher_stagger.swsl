@@ -1,0 +1,79 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp vec2 renderScale;
+uniform highp vec2 center;
+uniform highp float progress;
+uniform highp float maxRadius;
+uniform highp float ringWidth;
+uniform highp float distortion;
+uniform highp vec3 ringColor;
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+void fragment()
+{
+    highp vec2 screenUV = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+
+    highp vec2 delta = (FRAGCOORD.xy - center) / renderScale;
+    highp float dist = length(delta);
+    highp float angle = atan(delta.y, delta.x);
+
+    highp float ease = 1.0 - pow(1.0 - progress, 3.0);
+    highp float radius = ease * maxRadius;
+
+    highp float life = 1.0 - progress;
+    highp float beat = sin(clamp(progress, 0.0, 1.0) * 3.14159);
+
+    highp float w = max(ringWidth, 0.001);
+
+    highp float tremble = sin(angle * 7.0 - progress * 11.0) * 0.5
+                        + sin(angle * 3.0 + progress * 5.0) * 0.5;
+    highp float frontR = radius + tremble * w * 0.7;
+
+    highp float eb = (dist - frontR) / w;
+    highp float wall = exp(-eb * eb);
+    highp float er = (dist - frontR) / (w * 0.35);
+    highp float rim = exp(-er * er);
+
+    highp float behind = frontR - dist;
+    highp float wake = clamp(behind / (w * 4.0), 0.0, 1.0)
+                     * exp(-behind / (w * 8.0));
+
+    highp float fear = clamp((wall * 0.9 + wake) * (0.5 + 0.5 * beat), 0.0, 1.0);
+
+    highp vec2 dir = dist > 0.001 ? delta / dist : vec2(0.0);
+    highp float jitter = (hash(vec2(angle * 38.0, floor(progress * 50.0))) - 0.5) * 0.6;
+    highp vec2 offset = dir * (wall * life * (1.0 + jitter) * distortion) * renderScale;
+    highp vec2 px = FRAGCOORD.xy + offset;
+    highp float ca = wall * life * distortion * 0.5 * renderScale.x;
+
+    highp vec3 color;
+    color.r = zTextureSpec(SCREEN_TEXTURE, (px + dir * ca) * SCREEN_PIXEL_SIZE).r;
+    color.g = zTextureSpec(SCREEN_TEXTURE, px * SCREEN_PIXEL_SIZE).g;
+    color.b = zTextureSpec(SCREEN_TEXTURE, (px - dir * ca) * SCREEN_PIXEL_SIZE).b;
+
+    highp float luma = dot(color, vec3(0.299, 0.587, 0.114));
+
+    highp float washA = beat * 0.35 + fear * 0.55;            // desaturation
+    color = mix(color, vec3(luma), clamp(washA, 0.0, 1.0));
+
+    highp float dim = beat * 0.18 + fear * 0.55;
+    color = clamp((color - 0.05 * dim) / max(1.0 - 0.05 * dim, 0.001), 0.0, 1.0);
+    color *= 1.0 - dim;
+
+    color = mix(color, color * vec3(0.72, 0.58, 0.95), clamp(washA, 0.0, 1.0));
+
+    color *= 1.0 - wall * life * 0.55;
+    color += ringColor * rim * life * (0.4 + 0.6 * beat);
+
+    highp float vd = length(screenUV - vec2(0.5)) * 1.42;     // 0 centre -> ~1 corner
+    highp float vig = 1.0 - smoothstep(0.30, 0.95, vd);       // 1 centre -> 0 edge
+    color *= mix(1.0, mix(0.15, 1.0, vig), beat * 0.85);
+
+    highp float grain = hash(FRAGCOORD.xy * 0.7 + floor(progress * 70.0)) - 0.5;
+    color += grain * (0.04 + 0.06 * beat);
+
+    COLOR = vec4(clamp(color, 0.0, 1.0), 1.0);
+}

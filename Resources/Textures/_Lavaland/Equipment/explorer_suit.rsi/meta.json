@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from /tg/station, reinforced sprites by thebiggestbruh on discord",
+  "copyright": "Taken from /tg/station, reinforced sprites by thebiggestbruh on discord, Reptilian sprites by Sanyati",
   "size": {
     "x": 32,
     "y": 32
@@ -93,6 +93,38 @@
     },
 	{
       "name": "reinforced3-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+	{
+      "name": "equipped-HELMET-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "reinforced1-equipped-HELMET-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "reinforced2-equipped-HELMET-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "reinforced3-equipped-HELMET-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "reinforced1-equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "reinforced2-equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "reinforced3-equipped-OUTERCLOTHING-reptilian",
       "directions": 4
     }
   ]

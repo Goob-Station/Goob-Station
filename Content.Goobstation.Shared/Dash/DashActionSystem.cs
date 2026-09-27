@@ -50,7 +50,7 @@ public sealed class DashActionSystem : EntitySystem
         _throwing.TryThrow(args.Performer, vec, speed, animated: false);
 
         if (args.StaminaDrain != null)
-            _stamina.TakeStaminaDamage(args.Performer, args.StaminaDrain.Value, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(args.Performer, args.StaminaDrain.Value, visual: false, immediate: false, ignoreResist: true);
 
         if (args.Emote != null && TryComp<AnimatedEmotesComponent>(args.Performer, out var emotes))
         {
