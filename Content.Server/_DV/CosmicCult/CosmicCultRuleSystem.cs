@@ -832,7 +832,15 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 3))
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
 
-            EnsureComp<CosmicSubtleMarkComponent>(uid);
+            // <Goob> wrap this in an if statement
+            // this is to fix subtle mark being applied after the star mark.
+            // which will cause OnCosmicSubtleMarkAdded to set the rsi state to subtle
+            // Fixes converted people not gaining a visible star mark during Finale conversions
+            if (!TryComp<CosmicFinaleComponent>(cult.Comp.MonumentInGame, out var c) || !c.FinaleActive)
+            {
+                EnsureComp<CosmicSubtleMarkComponent>(uid);
+            }
+            // </Goob>
             EnsureComp<PressureImmunityComponent>(uid);
             EnsureComp<TemperatureImmunityComponent>(uid);
         }

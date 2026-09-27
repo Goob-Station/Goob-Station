@@ -1592,7 +1592,7 @@
   - type: NameIdentifier
     group: Monkey
   - type: Speech
-    speechSounds: Monkey
+    speechSounds: GoobMonkey # GoobStation
     speechVerb: Monkey
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
