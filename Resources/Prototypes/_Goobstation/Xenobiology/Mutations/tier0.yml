@@ -15,3 +15,20 @@
     - PurpleMutation
     - BlueMutation
     - MetalMutation
+
+- type: breed
+  parent: BaseMutation
+  id: RainbowMutation
+  breedName: rainbow slime
+  producedExtract: RainbowSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#383936"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: RainbowMutation
+    maxOffspring: 1
+    mutationChance: 0
+    canBeModified: false # No purple slime abuse
+    potentialMutations:
+    - RainbowMutation

@@ -1,19 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Hands.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Security.Cryptography;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 

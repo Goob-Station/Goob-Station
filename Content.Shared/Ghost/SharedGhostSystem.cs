@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Magic; // Goobstation
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
@@ -28,6 +29,7 @@ namespace Content.Shared.Ghost
             SubscribeLocalEvent<GhostComponent, PickupAttemptEvent>(OnAttempt);
             // EE Interaction Verb Begin
             SubscribeLocalEvent<GhostComponent, InteractionVerbAttemptEvent>(OnAttempt);
+            SubscribeLocalEvent<GhostComponent, BeforeMindSwappedEvent>(OnBeforeMindSwapped); // putting it here cus why not
             // End
         }
 
@@ -41,6 +43,12 @@ namespace Content.Shared.Ghost
         {
             if (!component.CanGhostInteract)
                 args.Cancel();
+        }
+
+        private void OnBeforeMindSwapped(Entity<GhostComponent> ent, ref BeforeMindSwappedEvent args)
+        {
+            args.Message = ent.Comp.MindswapText;
+            args.Cancelled = true;
         }
 
         /// <summary>

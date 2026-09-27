@@ -39,3 +39,36 @@
   - type: Tag
     tags:
     - XenobiologyDarkPurpleExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, DarkPurpleSlimeExtract ]
+  id: FilledDarkPurpleSlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:SpawnEntity
+        entity: SheetPlastic10
+        number: 3
+        shouldScale: false
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:SpawnEntity
+        entity: SheetPlasma1
+        number: 3
+        shouldScale: false
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:CreateGas
+        gas: Plasma
+        moles: 55

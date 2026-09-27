@@ -165,3 +165,11 @@
   components:
   - type: PendingSlimeSpawn
     breed: AdamantineMutation
+
+- type: entity
+  parent: MobSlimeXenobioBabyPending
+  id: MobSlimeXenobioBabyRainbow
+  name: rainbow slime
+  components:
+  - type: PendingSlimeSpawn
+    breed: RainbowMutation
