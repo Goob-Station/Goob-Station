@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Magic;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode.Pacification;
@@ -47,6 +48,7 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
         SubscribeLocalEvent<MobStateComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<MobStateComponent, BeforeMindSwappedEvent>(OnBeforeMindSwapped); // Goobstation
 
         SubscribeLocalEvent<MobStateComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
     }
@@ -212,6 +214,15 @@ public partial class MobStateSystem
     private void OnDamageModify(Entity<MobStateComponent> ent, ref DamageModifyEvent args)
     {
         args.Damage *= _damageable.UniversalMobDamageModifier;
+    }
+
+    private void OnBeforeMindSwapped(Entity<MobStateComponent> ent, ref BeforeMindSwappedEvent args)
+    {
+        if (!IsIncapacitated(ent.Owner))
+            return;
+
+        args.Message = "dead"; // Goobstation - dont wanna add this to MobStateComponent
+        args.Cancelled = true;
     }
 
     #endregion

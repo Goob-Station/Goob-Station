@@ -11,6 +11,17 @@
 
 - type: entity
   parent: MarkerBase
+  id: MobSlimeXenobioBabyRainbowSpawner
+  name: rainbow slime spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: MobSlimeXenobioBabyRainbow
+
+- type: entity
+  parent: MarkerBase
   id: XenobioSlimeBabySpawner
   name: random T1 xenobio slime spawner
   components:
@@ -25,3 +36,178 @@
     - MobSlimeXenobioBabyGrey
     - MobSlimeXenobioBabyPurple
     - MobSlimeXenobioBabyBlue
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioAllSlimeBabySpawner
+  name: random all xenobio slime spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: XenobioAllSlimeBaby
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioAllSlimeBaby
+  name: random all xenobio slime 
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+      state: base
+  - type: RandomSpawner
+    prototypes:
+    - MobSlimeXenobioBabyGrey
+    - MobSlimeXenobioBabyOrange
+    - MobSlimeXenobioBabyPurple
+    - MobSlimeXenobioBabyBlue
+    - MobSlimeXenobioBabyMetal
+    - MobSlimeXenobioBabyYellow
+    - MobSlimeXenobioBabyDarkPurple
+    - MobSlimeXenobioBabyDarkBlue
+    - MobSlimeXenobioBabySilver
+    - MobSlimeXenobioBabyBluespace
+    - MobSlimeXenobioBabySepia
+    - MobSlimeXenobioBabyCerulean
+    - MobSlimeXenobioBabyPyrite
+    - MobSlimeXenobioBabyRed
+    - MobSlimeXenobioBabyGreen
+    - MobSlimeXenobioBabyPink
+    - MobSlimeXenobioBabyGold
+    - MobSlimeXenobioBabyOil
+    - MobSlimeXenobioBabyLightPink
+    - MobSlimeXenobioBabyBlack
+    - MobSlimeXenobioBabyAdamantine
+    offset: 0.5
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioAllSlimeExtractSpawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: XenobioAllSlimeExtract
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioAllSlimeExtractSpawnerInstant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0
+  - type: SpawnOnDespawn
+    prototype: XenobioAllSlimeExtract
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioAllSlimeExtract
+  name: random all xenobio extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#828282"
+  - type: RandomSpawner
+    prototypes:
+    - GreySlimeExtract
+    - RainbowSlimeExtract
+    - OrangeSlimeExtract
+    - PurpleSlimeExtract
+    - BlueSlimeExtract
+    - MetalSlimeExtract
+    - YellowSlimeExtract
+    - DarkPurpleSlimeExtract
+    - DarkBlueSlimeExtract
+    - SilverSlimeExtract
+    - BluespaceSlimeExtract
+    - SepiaSlimeExtract
+    - CeruleanSlimeExtract
+    - PyriteSlimeExtract
+    - RedSlimeExtract
+    - GreenSlimeExtract
+    - PinkSlimeExtract
+    - GoldSlimeExtract
+    - OilSlimeExtract
+    - LightPinkSlimeExtract
+    - BlackSlimeExtract
+    - AdamantineSlimeExtract
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioAllFilledSlimeExtractSpawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: XenobioAllFilledSlimeExtract
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioAllFilledSlimeExtractSpawnerInstant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0
+  - type: SpawnOnDespawn
+    prototype: XenobioAllFilledSlimeExtract
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioAllFilledSlimeExtract
+  name: random all filled xenobio extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#828282"
+  - type: RandomSpawner
+    prototypes:
+    - FilledGreySlimeExtract
+    - FilledOrangeSlimeExtract
+    - FilledPurpleSlimeExtract
+    - FilledBlueSlimeExtract
+    - FilledMetalSlimeExtract
+    - FilledYellowSlimeExtract
+    - FilledDarkPurpleSlimeExtract
+    - FilledDarkBlueSlimeExtract
+    - FilledSilverSlimeExtract
+    - FilledBluespaceSlimeExtract
+    - FilledSepiaSlimeExtract
+    - FilledCeruleanSlimeExtract
+    - FilledPyriteSlimeExtract
+    - FilledRedSlimeExtract
+    - FilledGreenSlimeExtract
+    - FilledPinkSlimeExtract
+    - FilledGoldSlimeExtract
+    - FilledOilSlimeExtract
+    - FilledLightPinkSlimeExtract
+    - FilledBlackSlimeExtract
+    - FilledAdamantineSlimeExtract
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioPermutazineSpawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: PermutazineChemistryVial
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioLevitaneSpawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: LevitaneChemistryVial

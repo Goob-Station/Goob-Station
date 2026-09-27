@@ -709,6 +709,9 @@
 - type: Tag
   id: XenobiologyAdamantineExtract
 
+- type: Tag
+  id: XenobiologyRainbowExtract
+
 # XENOBIO - END
 
 - type: Tag

@@ -301,3 +301,77 @@
         - !type:ReagentCondition
           reagent: XenobioGenderFluid
           min: 5
+
+- type: reagent
+  parent: BaseXenobioReagent
+  id: Rainbowine
+  name: xenobio-reagent-rainbow-jelly-name
+  desc: xenobio-reagent-rainbow-jelly-desc
+  color: "#FF4DD2"
+  metabolisms:
+    Food:
+        metabolismRate: 1
+        effects:
+        - !type:ModifySlimeComponent
+            conditions:
+            - !type:ReagentCondition
+            reagent: Rainbowine
+            min: 1
+            offspringBonus: 1
+            extractBonus: 1
+
+- type: reagent
+  id: Permutazine
+  name: reagent-name-permutazine
+  desc: reagent-desc-permutazine
+  group: Biological
+  flavor: sweet
+  physicalDesc: reagent-physical-desc-bubbling
+  color: "#7a1f2b"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AddAction
+        conditions:
+        - !type:ReagentCondition
+          reagent: Permutazine
+          min: 10
+        action: ActionMindTransfer
+      - !type:AdjustReagent
+        reagent: Permutazine
+        amount: -50.0
+        conditions:
+        - !type:ReagentCondition
+          reagent: Permutazine
+          min: 10
+
+- type: reagent
+  id: Levitane
+  name: reagent-name-levitane
+  desc: reagent-desc-levitane
+  group: Biological
+  flavor: sweet
+  physicalDesc: reagent-physical-desc-bubbling
+  color: "#B0E2FF"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AddAction
+        conditions:
+        - !type:ReagentCondition
+          reagent: Levitane
+          min: 10
+        action: ActionToggleFlight
+      - !type:AddComponents
+        components:
+        - type: Flight # Better harpy
+          staminaRegenMultiplier: 0.5
+          staminaDrainRate: 5
+          canFail: false
+      - !type:AdjustReagent
+        reagent: Levitane
+        amount: -50.0
+        conditions:
+        - !type:ReagentCondition
+          reagent: Levitane
+          min: 10

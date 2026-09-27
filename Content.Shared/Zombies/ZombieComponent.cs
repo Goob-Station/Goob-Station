@@ -195,4 +195,10 @@ public sealed partial class ZombieComponent : Component
 
     [DataField]
     public EntityUid? BeforeZombificationReferenceEnt; // Goob - reference clone of before zombified
+
+    /// <summary>
+    /// Goobstation - Only used for mindswapspell
+    /// </summary>
+    [DataField]
+    public string MindSwapText = "dead";
 }

@@ -192,6 +192,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         args.Message = ent.Comp.MindswapText;
         args.Cancelled = true;
+        Log.Debug("Changeling");
     }
 
     private void OnConversionAttempt(Entity<ChangelingComponent> ent, ref BeforeConversionEvent args)
