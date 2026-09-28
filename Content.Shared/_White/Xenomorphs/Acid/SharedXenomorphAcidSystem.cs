@@ -23,7 +23,7 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
         SubscribeLocalEvent<XenomorphAcidComponent, AcidActionEvent>(OnXenomorphAcidActionEvent);
     }
 
-    private void OnXenomorphAcidActionEvent(EntityUid uid, XenomorphAcidComponent component, AcidActionEvent args)
+    private void OnXenomorphAcidActionEvent(Entity<XenomorphAcidComponent> ent, ref AcidActionEvent args)
     {
         if (args.Handled)
             return;
@@ -34,41 +34,41 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
         var plasmaCostValue = plasmaCost?.PlasmaCost ?? FixedPoint2.Zero;
 
         // Check plasma cost before proceeding
-        if (plasmaCostValue > FixedPoint2.Zero && !_plasmaCost.HasEnoughPlasma(uid, plasmaCostValue))
+        if (plasmaCostValue > FixedPoint2.Zero && !_plasmaCost.HasEnoughPlasma(ent.Owner, plasmaCostValue))
         {
-            _popup.PopupClient(Loc.GetString("xenomorphs-acid-not-enough-plasma"), uid, uid, type: PopupType.SmallCaution);
+            _popup.PopupClient(Loc.GetString("xenomorphs-acid-not-enough-plasma"), ent.Owner, ent.Owner, type: PopupType.SmallCaution);
             return;
         }
 
         if (!HasComp<StructureComponent>(args.Target)) // TODO: This should check whether the target is a structure.
         {
-            _popup.PopupClient(Loc.GetString("xenomorphs-acid-not-corrodible", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
+            _popup.PopupClient(Loc.GetString("xenomorphs-acid-not-corrodible", ("target", args.Target)), ent.Owner, ent.Owner, type: PopupType.SmallCaution);
             return;
         }
 
         if (HasComp<AcidCorrodingComponent>(args.Target))
         {
-            _popup.PopupClient(Loc.GetString("xenomorphs-acid-already-corroding", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
+            _popup.PopupClient(Loc.GetString("xenomorphs-acid-already-corroding", ("target", args.Target)), ent.Owner, ent.Owner, type: PopupType.SmallCaution);
             return;
         }
 
         // Deduct the plasma cost after all checks pass
         if (plasmaCostValue > FixedPoint2.Zero)
-            _plasmaCost.DeductPlasma(uid, plasmaCostValue);
+            _plasmaCost.DeductPlasma(ent.Owner, plasmaCostValue);
 
         args.Handled = true;
-        _popup.PopupClient(Loc.GetString("xenomorphs-acid-apply", ("target", args.Target)), uid, uid, type: PopupType.Small);
+        _popup.PopupClient(Loc.GetString("xenomorphs-acid-apply", ("target", args.Target)), ent.Owner, ent.Owner, type: PopupType.Small);
         // Goobstation end
 
         if (_net.IsClient)
             return;
 
-        var acid = SpawnAttachedTo(component.AcidId, args.Target.ToCoordinates());
+        var acid = SpawnAttachedTo(ent.Comp.AcidId, args.Target.ToCoordinates());
         var acidCorroding = new AcidCorrodingComponent
         {
             Acid = acid,
-            AcidExpiresAt = Timing.CurTime + component.AcidLifeTime,
-            DamagePerSecond = component.DamagePerSecond
+            AcidExpiresAt = Timing.CurTime + ent.Comp.AcidLifeTime,
+            DamagePerSecond = ent.Comp.DamagePerSecond
         };
         AddComp(args.Target, acidCorroding);
     }

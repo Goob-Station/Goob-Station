@@ -24,22 +24,22 @@ public sealed class SharedFaceHuggerLeapSystem : EntitySystem
         SubscribeLocalEvent<FaceHuggerLeapComponent, FaceHuggerLeapActionEvent>(OnLeapAction);
     }
 
-    private void OnMapInit(EntityUid uid, FaceHuggerLeapComponent component, MapInitEvent args) =>
-        _actions.AddAction(uid, ref component.LeapActionEntity, component.LeapAction);
+    private void OnMapInit(Entity<FaceHuggerLeapComponent> ent, ref MapInitEvent args) =>
+        _actions.AddAction(ent.Owner, ref ent.Comp.LeapActionEntity, ent.Comp.LeapAction);
 
-    private void OnShutdown(EntityUid uid, FaceHuggerLeapComponent component, ComponentShutdown args) =>
-        _actions.RemoveAction(uid, component.LeapActionEntity);
+    private void OnShutdown(Entity<FaceHuggerLeapComponent> ent, ref ComponentShutdown args) =>
+        _actions.RemoveAction(ent.Owner, ent.Comp.LeapActionEntity);
 
-    private void OnLeapAction(EntityUid uid, FaceHuggerLeapComponent component, FaceHuggerLeapActionEvent args)
+    private void OnLeapAction(Entity<FaceHuggerLeapComponent> ent, ref FaceHuggerLeapActionEvent args)
     {
         if (args.Handled
-            || _container.IsEntityInContainer(uid))
+            || _container.IsEntityInContainer(ent.Owner))
             return;
 
-        component.IsLeaping = true;
+        ent.Comp.IsLeaping = true;
 
-        _throwing.TryThrow(uid, args.Target, component.LeapSpeed, uid, pushbackRatio: 0f, animated: false);
-        _audio.PlayPredicted(component.LeapSound, uid, uid);
+        _throwing.TryThrow(ent.Owner, args.Target, ent.Comp.LeapSpeed, ent.Owner, pushbackRatio: 0f, animated: false);
+        _audio.PlayPredicted(ent.Comp.LeapSound, ent.Owner, ent.Owner);
 
         args.Handled = true;
     }
