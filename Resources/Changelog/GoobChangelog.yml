@@ -25434,3 +25434,19 @@ Entries:
       message: Removed the old bloodtrail action (replaced with fear)
   id: 2916
   time: '2026-09-26T10:48:39.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: New overlays for slasher actions.
+    - type: Add
+      message: if you use regenerate while dead as a slasher it will teleport you away.
+  id: 2917
+  time: '2026-09-27T08:33:09.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: >-
+        Fixed some bullshit that let you do some bullshit with parcel wrap and
+        trevor.
+  id: 2918
+  time: '2026-09-28T22:16:19.0000000+00:00'
