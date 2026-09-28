@@ -3,19 +3,18 @@
   id: XenomorphsInfestation
   components:
   - type: StationEvent
-    weight: 1.5 # Goobstation - was 7.5
+    weight: 1
     duration: null
-    minimumPlayers: 50 # Goobstation - was 20
-    earliestStart: 30 # Goobstation
-    #reoccurrenceDelay: 50 # Goobstation - no longer needed
-    maxOccurrences: 1 # Goobstation
+    minimumPlayers: 50
+    earliestStart: 30
+    maxOccurrences: 1
     chaos:
       Hostile: 400
       Medical: 400
       Death: 400
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 400
+    chaosScore: 700
   - type: VentSpawnRule
   - type: AntagSpawner
     prototype: MobXenomorphLarva
