@@ -1,10 +1,9 @@
 using Content.Goobstation.Shared.Disease.Components;
-using Content.Server.GameTicking;
-using Content.Server.GameTicking.Events;
-using Content.Server.GameTicking.Rules;
 using Content.Goobstation.Shared.MisandryBox.Thunderdome;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
+using Content.Server.GameTicking.Rules;
+using Content.Shared.GameTicking.Components;
 
 namespace Content.Goobstation.Shared.Disease.Systems;
 
@@ -16,28 +15,6 @@ public sealed partial class DiseaseSelection : EntitySystem
     {
         base.Initialize();
 
-    }
-
-    private void OnMeleeHit(Entity<DiseaseOnHitComponent> ent, ref MeleeHitEvent args)
-    {
-        if (!args.IsHit)
-            return;
-
-        foreach (var target in args.HitEntities)
-        {
-            if (ent.Comp.Disease != null)
-            {
-                _disease.DoInfectionAttempt(target, ent.Comp.Disease.Value, ent.Comp.SpreadParams);
-            }
-            else
-            {
-                if (!TryComp<DiseaseCarrierComponent>(ent, out var carrier))
-                    return;
-
-                foreach (var disease in carrier.Diseases.ContainedEntities)
-                    _disease.DoInfectionAttempt(target, disease, ent.Comp.SpreadParams);
-            }
-        }
     }
     protected override void Started(EntityUid uid, DiseaseSelectionComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
