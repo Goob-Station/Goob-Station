@@ -238,10 +238,12 @@
   - type: Action
     priority: 0
     useDelay: 3
+    itemIconStyle: BigAction
     icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_off }
     iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_on }
   - type: TargetAction
-    range: 10
+    range: 15
+    checkCanAccess: false
   - type: WorldTargetAction
     event: !type:JumpActionEvent
 
@@ -285,3 +287,52 @@
     event: !type:PromotionActionEvent
   - type: PlasmaCostAction
     plasmaCost: 500
+
+# Toggleable acid spit action
+- type: entity
+  id: ActionAcidSpit
+  parent: BaseAction
+  name: Acid spit (20)
+  description: Toggle the ability to spit neurotoxin. When enabled, use (M2) to shoot.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: acid } # TODO: Custom sprite
+  - type: InstantAction
+    event: !type:ToggleAcidSpitEvent
+
+# Facehugger leap action
+- type: entity
+  id: ActionFaceHuggerLeap
+  parent: BaseAction
+  name: Leap
+  description: Leap onto a target's face to attach yourself.
+  components:
+  - type: Action
+    priority: 0
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_off }
+    iconOn: { sprite : _White/Interface/Actions/xenomorph.rsi, state: leap_on }
+  - type: TargetAction
+    range: 15
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:FaceHuggerLeapActionEvent
+
+# Queen roar action
+- type: entity
+  parent: BaseAction
+  id: ActionQueenroar
+  name: Roar
+  description: Roar loudly to stun all enemies around you.
+  components:
+  - type: Action
+    icon:
+      sprite: _White/Interface/Actions/xenomorph.rsi
+      state: screech
+    useDelay: 60
+    priority: 5
+  - type: InstantAction
+    event: !type:QueenRoarActionEvent

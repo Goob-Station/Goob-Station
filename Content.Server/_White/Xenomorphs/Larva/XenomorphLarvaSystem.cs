@@ -7,6 +7,7 @@ using Content.Shared._White.Xenomorphs;
 using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
@@ -29,8 +30,8 @@ public sealed class XenomorphLarvaSystem : EntitySystem
     {
         SubscribeLocalEvent<XenomorphLarvaComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<XenomorphLarvaComponent, EntGotRemovedFromContainerMessage>(OnGotRemovedFromContainer);
-        SubscribeLocalEvent<XenomorphLarvaComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
         SubscribeLocalEvent<XenomorphLarvaComponent, LarvaBurstDoAfterEvent>(OnLarvaBurstDoAfter);
+        SubscribeLocalEvent<XenomorphLarvaComponent, MindAddedMessage>(OnMindAdded);
     }
 
     private void OnShutdown(EntityUid uid, XenomorphLarvaComponent component, ComponentShutdown args)
@@ -45,9 +46,16 @@ public sealed class XenomorphLarvaSystem : EntitySystem
             RemComp<XenomorphLarvaVictimComponent>(component.Victim.Value);
     }
 
-    private void OnTakeGhostRole(EntityUid uid, XenomorphLarvaComponent component, TakeGhostRoleEvent args)
+    private void OnMindAdded(EntityUid uid, XenomorphLarvaComponent component, MindAddedMessage args)
     {
-        if (component.Victim is not {} victim)
+        if (component.Victim.HasValue
+            && _container.TryGetContainingContainer(uid, out _))
+            StartBurst(uid, component);
+    }
+
+    private void StartBurst(EntityUid uid, XenomorphLarvaComponent component)
+    {
+        if (component.Victim is not { } victim)
             return;
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, uid, component.BurstDelay, new LarvaBurstDoAfterEvent(), uid, target: component.Victim)
