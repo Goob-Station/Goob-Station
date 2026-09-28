@@ -166,11 +166,15 @@
         startingItem: PowerCellHigh
   - type: IntrinsicRadioTransmitter
     channels:
+    - Binary
     - Common
+    - Science
     - Security
   - type: ActiveRadio
     channels:
+    - Binary
     - Common
+    - Science
     - Security
   - type: Hailer
 
