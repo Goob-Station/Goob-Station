@@ -17,7 +17,14 @@ public sealed partial class VoidwalkerObjectiveSystem : EntitySystem
 
     private void OnKidnapGetProgress(EntityUid uid, VoidwalkerKidnapConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
-        var target = _numberObjectiveSystem.GetTarget(uid);
-        args.Progress = target != 0 ? MathF.Min((float) comp.Kidnapped / target, 1f) : 1f; // idek man
+        args.Progress = KidnapProgress(comp, _numberObjectiveSystem.GetTarget(uid));
+    }
+
+    private float KidnapProgress(VoidwalkerKidnapConditionComponent comp, int target)
+    {
+        if (target == 0)
+            return 1f;
+
+        return MathF.Min(comp.Kidnapped / (float) target, 1f);
     }
 }

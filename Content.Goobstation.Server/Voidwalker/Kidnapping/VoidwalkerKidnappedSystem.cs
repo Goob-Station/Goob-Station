@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Goobstation.Shared.Voidwalker.Abilities.Kidnap.Victim;
 using Content.Server.Respawn;
 using Content.Shared.Station.Components;
@@ -7,7 +6,6 @@ using Content.Shared.Gibbing.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
-using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Voidwalker.Kidnapping;
@@ -22,11 +20,8 @@ public sealed class VoidwalkerKidnappedSystem : EntitySystem
     [Dependency] private readonly SpecialRespawnSystem _respawn = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
-    private const int MaxTeleportAttempts = 100;
+    private const int MaxTeleportAttempts = 1000;
     private ISawmill _sawmill = null!;
-
-    private Dictionary<EntityUid, int> _teleportFailCount = new();
-    private const int MaxTeleportAttemptFails = 10;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -53,12 +48,9 @@ public sealed class VoidwalkerKidnappedSystem : EntitySystem
         }
     }
 
-    public bool TryTeleportToRandomPartOfStation(EntityUid uid, EntityUid originalMap)
+    private bool TryTeleportToRandomPartOfStation(EntityUid uid, EntityUid originalMap)
     {
         var xform = Transform(uid);
-        if (xform is null)
-            return false;
-
         var destinationMap = Transform(originalMap).MapID;
 
         if (_station.GetStationInMap(destinationMap) is not { } station)
@@ -73,29 +65,16 @@ public sealed class VoidwalkerKidnappedSystem : EntitySystem
             || xform.MapUid is null)
             return false;
 
-        if (_respawn.TryFindRandomTile(entityGridUid.Value, xform.MapUid.Value, MaxTeleportAttempts, out var randomPos))
-            _transform.SetCoordinates(uid, randomPos);
-        else
+        if (!_respawn.TryFindRandomTile(entityGridUid.Value, xform.MapUid.Value, MaxTeleportAttempts, out var randomPos))
         {
-            if (!_teleportFailCount.TryGetValue(uid, out var failCount))
-                failCount = 0;
-
-            failCount++;
-
-            _teleportFailCount[uid] = failCount;
-            if (failCount >= MaxTeleportAttemptFails)
-            {
-                _sawmill.Warning($"Could not find station to return {ToPrettyString(uid)} to within {MaxTeleportAttempts * MaxTeleportAttemptFails} attempts. Deleting.");
-                Del(uid);
-                return false;
-            }
-
-            var mapCoordinates = new MapCoordinates(new Vector2(0, 0), xform.MapID);
-            _transform.SetMapCoordinates(uid, mapCoordinates);
-            _sawmill.Warning($"Could not find station to return {ToPrettyString(uid)} to within {MaxTeleportAttempts}. Returning to default position.");
+            _sawmill.Warning($"Could not find station to return {ToPrettyString(uid)} to within {MaxTeleportAttempts} attempts. Deleting.");
+            Del(uid);
+            return false;
         }
 
-        _stun.KnockdownOrStun(uid, TimeSpan.FromSeconds(5), true); // whatever, go my magic number
+        _transform.SetCoordinates(uid, randomPos);
+
+        _stun.KnockdownOrStun(uid, TimeSpan.FromSeconds(5)); // whatever, go my magic number
         _popup.PopupEntity(Loc.GetString("voidwalker-kidnap-return"), uid, uid);
 
         return true;
