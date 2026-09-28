@@ -43,6 +43,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 4.5
+  - type: MovementAlwaysTouching
   - type: NpcFactionMember
     factions:
     - Xeno
