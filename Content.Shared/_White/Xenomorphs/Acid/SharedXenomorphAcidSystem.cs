@@ -36,19 +36,19 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
         // Check plasma cost before proceeding
         if (plasmaCostValue > FixedPoint2.Zero && !_plasmaCost.HasEnoughPlasma(uid, plasmaCostValue))
         {
-            _popup.PopupEntity(Loc.GetString("xenomorphs-acid-not-enough-plasma"), uid, uid, type: PopupType.SmallCaution);
+            _popup.PopupClient(Loc.GetString("xenomorphs-acid-not-enough-plasma"), uid, uid, type: PopupType.SmallCaution);
             return;
         }
 
         if (!HasComp<StructureComponent>(args.Target)) // TODO: This should check whether the target is a structure.
         {
-            _popup.PopupEntity(Loc.GetString("xenomorphs-acid-not-corrodible", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
+            _popup.PopupClient(Loc.GetString("xenomorphs-acid-not-corrodible", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
             return;
         }
 
         if (HasComp<AcidCorrodingComponent>(args.Target))
         {
-            _popup.PopupEntity(Loc.GetString("xenomorphs-acid-already-corroding", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
+            _popup.PopupClient(Loc.GetString("xenomorphs-acid-already-corroding", ("target", args.Target)), uid, uid, type: PopupType.SmallCaution);
             return;
         }
 
@@ -57,7 +57,7 @@ public abstract class SharedXenomorphAcidSystem : EntitySystem
             _plasmaCost.DeductPlasma(uid, plasmaCostValue);
 
         args.Handled = true;
-        _popup.PopupEntity(Loc.GetString("xenomorphs-acid-apply", ("target", args.Target)), uid, uid, type: PopupType.Small);
+        _popup.PopupClient(Loc.GetString("xenomorphs-acid-apply", ("target", args.Target)), uid, uid, type: PopupType.Small);
         // Goobstation end
 
         if (_net.IsClient)
