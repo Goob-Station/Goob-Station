@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.BlockHandsOnBuckle; // Goobstation
+using Content.Goobstation.Common.BlockHandsOnBuckle;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Alert;
