@@ -67,8 +67,9 @@
   components:
   - type: Sprite
     layers:
-    - state: kidney-l
-    - state: kidney-r
+     - state: liver # Goob
+#    - state: kidney-l # Goob
+#    - state: kidney-r # Goob
   - type: Item
     size: Small
     heldPrefix: liver

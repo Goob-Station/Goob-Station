@@ -67,6 +67,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly FixtureSystem _fixtures = default!;
     [Dependency] private readonly SlasherObserverCheckSystem _observerCheck = default!;
     [Dependency] private readonly TrackedComponentsSystem _trackedComponents = default!;
+    [Dependency] private readonly SlasherFearSystem _fear = default!;
 
     private const string FootstepSoundTag = "FootstepSound";
 
@@ -105,8 +106,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _actions.AddAction(ent.Owner, ref ent.Comp.IncorporealizeActionEnt, ent.Comp.IncorporealizeActionId);
         _actions.AddAction(ent.Owner, ref ent.Comp.CorporealizeActionEnt, ent.Comp.CorporealizeActionId);
         _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, false);
-
-        EnsureComp<SlasherObserverCheckComponent>(ent);
     }
 
     private void OnShutdown(Entity<SlasherIncorporealComponent> ent, ref ComponentShutdown args)
@@ -124,7 +123,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
             return;
 
         // Check if anyone can see them
-        if (_observerCheck.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
+        if (_fear.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
         {
             _popup.PopupPredicted(Loc.GetString("slasher-incorporealize-fail-seen"), ent.Owner, ent.Owner);
             args.Handled = true;
@@ -164,7 +163,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (_net.IsServer)
         {
             // Check if anyone can see them.
-            if (_observerCheck.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
+            if (_fear.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
             {
                 _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-nearby"), ent.Owner, ent.Owner);
                 args.Handled = true;
@@ -199,7 +198,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (args.Cancelled || args.Handled)
             return;
 
-        if (_observerCheck.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
+        if (_fear.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
         {
             _popup.PopupPredicted(Loc.GetString("slasher-incorporealize-fail-seen"), ent.Owner, ent.Owner);
             return;
@@ -221,6 +220,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         RemCompDeferred<KnockedDownComponent>(uid);
 
         _trackedComponents.EnsureTrackedComp<FacehuggerImmuneComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
+        _trackedComponents.EnsureTrackedComp<SlasherIncorporealOverlayComponent>(uid, ent.Comp.TrackedComponentsIdentifier);
 
         var phase = _trackedComponents.EnsureTrackedComp(uid,
             ent.Comp.TrackedComponentsIdentifier,
