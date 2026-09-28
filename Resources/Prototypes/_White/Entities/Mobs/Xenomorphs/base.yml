@@ -67,9 +67,8 @@
       Dead: XenomorphDead
   - type: SlowOnDamage
     speedModifierThresholds:
-      105: 0.9
-      125: 0.7
-      150: 0.6
+      125: 0.9
+      150: 0.8
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Xenomorph

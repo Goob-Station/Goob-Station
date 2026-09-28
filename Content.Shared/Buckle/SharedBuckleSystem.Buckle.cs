@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.BlockHandsOnBuckle; // Goobstation
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Alert;
@@ -73,6 +74,11 @@ public abstract partial class SharedBuckleSystem
     {
         // Prevent people pulling the chair they're on, etc.
         if (ent.Comp.BuckledTo == args.Pulled && !ent.Comp.PullStrap)
+            args.Cancel();
+
+        // Goobstation - Don't allow pulling if you're buckled to something that has the BlockHandsOnBuckleComponent.
+        if (ent.Comp.BuckledTo is { } buckled
+            && HasComp<BlockHandsOnBuckleComponent>(buckled))
             args.Cancel();
     }
 
