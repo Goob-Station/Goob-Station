@@ -77,6 +77,8 @@
     #- id: WizardSpawn # Goob. Unless?
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
+    - !type:NestedSelector
+      tableId: DiseaseEventTable # GoobStation - disease
 
 - type: entityTable
   id: DerelictBorgEventTable #For Derelict Borg spawns

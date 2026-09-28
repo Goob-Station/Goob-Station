@@ -1,0 +1,29 @@
+- type: entityTable
+  id: DiseaseEventTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector # Lite 
+      weight: 85
+      children:
+        - id: DerelictEngineerCyborgSpawn
+
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseaseFluEvent
+  components:
+  - type: GameRule
+    chaosScore: 20
+  - type: StationEvent
+    weight: 2.5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: DiseaseSelection
+    disease: DiseaseFlu
+    max: 5
+    spreadParams:
+      chance: 1
+      power: 1
+      spreadType: RandomEventDisease
