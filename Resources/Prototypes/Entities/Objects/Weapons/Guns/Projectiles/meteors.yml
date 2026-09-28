@@ -30,11 +30,19 @@
           radius: 0.4
         density: 100
         hard: false
+        # Goobstation start
         layer:
-        - LargeMobLayer
+        # - LargeMobLayer
+        - Opaque
+        - BulletImpassable
         mask:
         - Impassable
-        - BulletImpassable
+        # - BulletImpassable
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+        - BlobImpassable
+        # Goobstation end
   - type: Damageable
     damageContainer: Inorganic
   - type: Explosive
@@ -63,11 +71,19 @@
           radius: 0.45
         density: 100
         hard: false
+        # Goobstation start
         layer:
-        - LargeMobLayer
+        # - LargeMobLayer
+        - Opaque
+        - BulletImpassable
         mask:
         - Impassable
-        - BulletImpassable
+        # - BulletImpassable
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+        - BlobImpassable
+        # Goobstation end
   - type: Explosive
     totalIntensity: 25
   - type: Destructible
@@ -98,11 +114,19 @@
           radius: 0.25
         density: 100
         hard: false
+        # Goobstation start
         layer:
-        - LargeMobLayer
+        # - LargeMobLayer
+        - Opaque
+        - BulletImpassable
         mask:
         - Impassable
-        - BulletImpassable
+        # - BulletImpassable
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+        - BlobImpassable
+        # Goobstation end
   - type: Explosive
     totalIntensity: 50
   - type: Destructible
@@ -138,11 +162,19 @@
           radius: 0.3
         density: 100
         hard: false
+        # Goobstation start
         layer:
-        - LargeMobLayer
+        # - LargeMobLayer
+        - Opaque
+        - BulletImpassable
         mask:
         - Impassable
-        - BulletImpassable
+        # - BulletImpassable
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+        - BlobImpassable
+        # Goobstation end
   - type: Explosive
     totalIntensity: 100
   - type: Destructible
