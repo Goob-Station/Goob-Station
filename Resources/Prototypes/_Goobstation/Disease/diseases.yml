@@ -32,7 +32,114 @@
       DiseaseBehaviorFeelUnwell: 1
       DiseaseBehaviorHeadache: 0.8
       DiseaseBehaviorCough: 0.6
-      DiseaseBehaviorOwO: 1
+      DiseaseBehaviorSneeze: 0.2
+
+- type: entity
+  id: DiseaseCold
+  parent: DiseaseBase
+  name: cold
+  description: Classic.
+  components:
+  - type: Disease
+    diseaseType: Bacterial
+    infectionRate: 0.01 # 100 seconds
+    immunityGainRate: 1.5 # immunity speed
+    genotype: 1122
+    effects:
+      DiseaseBehaviorFeelUnwell: 1
+      DiseaseBehaviorHeadache: 0.5
+      DiseaseBehaviorCough: 1
+      DiseaseBehaviorWeakness: 1
+      DiseaseBehaviorDrowsiness: 0.8
+
+- type: entity
+  id: DiseasePlague
+  parent: DiseaseBase
+  name: Plague
+  description: Highly dangerous.
+  components:
+  - type: Disease
+    diseaseType: Viral
+    infectionRate: 0.005 # 200 seconds
+    genotype: 63251
+    effects:
+      DiseaseBehaviorPoison: 0.6
+      DiseaseBehaviorVomit: 1
+      DiseaseBehaviorHeadache: 0.6
+      DiseaseBehaviorTemperature: 1
+      DiseaseBehaviorApathy: 0.6
+      DiseaseBehaviorAbscesses: 1
+      DiseaseBehaviorAsthenia: 0.5
+      DiseaseBehaviorSluggish: 0.6
+
+- type: entity
+  id: DiseasePneumonia
+  parent: DiseaseBase
+  name: Pneumonia
+  description: A severe disease with moderate infection and dangerous.
+  components:
+  - type: Bacterial
+    diseaseType: Bacterial
+    genotype: 1255
+    effects:
+      DiseaseBehaviorPneumonia: 1
+      DiseaseBehaviorHeadache: 0.6
+      DiseaseBehaviorTemperature: 1
+      DiseaseBehaviorFeelUnwell: 0.8
+      DiseaseBehaviorBlunt: 0.5
+      DiseaseBehaviorCough: 1
+      DiseaseBehaviorWeakness: 1
+
+- type: entity
+  id: DiseaseCorgiPuppy
+  parent: DiseaseBase
+  name: Lycancoughy
+  description: Aww... we’re all going to die from corgis <3.
+  components:
+  - type: Disease
+    diseaseType: Parasite
+    infectionRate: 0.003
+    immunityGainRate: 0.5
+    genotype: 19845
+    effects:
+      DiseaseBehaviorFightImmunity: 0.6
+      DiseaseBehaviorEuphoria: 1
+      DiseaseBehaviorHyperactive: 1
+      DiseaseBehaviorLycancoughy: 1
+
+- type: entity
+  id: DiseaseMagnitis
+  parent: DiseaseBase
+  name: Magnitis
+  description: Nanobot disease that causes objects to go towards you.
+  components:
+  - type: Disease
+    diseaseType: Nanobot
+    immunityGainRate: 0.2 #Nanobots kill immunity
+    genotype: 9867
+    effects:
+      DiseaseBehaviorGravitosisB: 1
+      DiseaseBehaviorPainNumbness: 1
+      DiseaseBehaviorNecrosis: 1
+      DiseaseBehaviorSkinLesion: 1
+
+- type: entity
+  id: DiseaseBeesease
+  parent: DiseaseBase
+  name: Beesease
+  description: Bees for you.
+  components:
+  - type: Disease
+    diseaseType: Parasite
+    infectionRate: 0.003
+    immunityGainRate: 0.5
+    genotype: 656565
+    effects:
+      DiseaseBehaviorFeelUnwell: 1
+      DiseaseBehaviorInternalBleeding: 0.5
+      DiseaseBehaviorBeeKillMe: 1
+      DiseaseBehaviorBeeVomit: 1
+      DiseaseBehaviorCough: 1
 
 - type: entity
   id: DiseaseCancer

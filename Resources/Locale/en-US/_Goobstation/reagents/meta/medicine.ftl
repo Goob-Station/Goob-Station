@@ -105,3 +105,9 @@ reagent-desc-spaceacilin = Commonly used and effective anti-bacterial medicine. 
 
 reagent-name-devirate = devirate
 reagent-desc-devirate = Anti-viral medicine. Slightly toxic.
+
+reagent-name-devirate = nemozol
+reagent-desc-devirate = Anti-parasite medicine. Toxic.
+
+reagent-name-nanotetrazol = nanotetrazol
+reagent-desc-nanotetrazol = Anti-nanobot medicine. Deal stamina damage.

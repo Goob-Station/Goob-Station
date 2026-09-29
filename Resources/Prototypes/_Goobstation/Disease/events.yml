@@ -2,10 +2,22 @@
   id: DiseaseEventTable
   table: !type:GroupSelector
     children:
-    - !type:GroupSelector # Lite 
-      weight: 85
+    - !type:GroupSelector # Ez
+      weight: 55
       children:
-        - id: DerelictEngineerCyborgSpawn
+        - id: DiseaseFluEvent
+        - id: DiseasePneumoniaEvent
+        - id: DiseaseColdEvent
+    - !type:GroupSelector # Hard
+      weight: 35
+      children:
+        - id: DiseasePlagueEvent
+        - id: DiseaseCorgiPuppyEvent
+        - id: DiseaseMagnitisEvent
+    - !type:GroupSelector # Hell - pizdec
+      weight: 10
+      children:
+        - id: DiseaseBeeseaseEvent
 
 
 - type: entity
@@ -13,17 +25,156 @@
   id: DiseaseFluEvent
   components:
   - type: GameRule
-    chaosScore: 20
+    chaosScore: 60
+  - type: StationEvent
+    weight: 3
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 12
+    duration: null
+    chaos: # Goobstation
+      Medical: 20
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseaseFlu
+    min: 1
+    max: 5
+    spreadParams:
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseaseColdEvent
+  components:
+  - type: GameRule
+    chaosScore: 60
+  - type: StationEvent
+    weight: 3
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 12
+    duration: null
+    chaos: # Goobstation
+      Medical: 25
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseaseCold
+    min: 2
+    max: 7
+    spreadParams:
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseasePlagueEvent
+  components:
+  - type: GameRule
+    chaosScore: 100
+  - type: StationEvent
+    weight: 2
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 25
+    duration: null
+    chaos: # Goobstation
+      Medical: 50
+      Death: 50
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseasePlague
+    min: 4
+    max: 7
+    spreadParams:
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseasePneumoniaEvent
+  components:
+  - type: GameRule
+    chaosScore: 100
   - type: StationEvent
     weight: 2.5
     earliestStart: 15
     reoccurrenceDelay: 20
-    minimumPlayers: 4
+    minimumPlayers: 25
     duration: null
+    chaos: # Goobstation
+      Medical: 70
+      Death: 25
+    eventType: Chaotic
   - type: DiseaseSelection
-    disease: DiseaseFlu
+    disease: DiseasePneumonia
+    min: 6
+    max: 12
+    spreadParams:
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseaseCorgiPuppyEvent
+  components:
+  - type: GameRule
+    chaosScore: 100
+  - type: StationEvent
+    weight: 2
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 25
+    duration: null
+    chaos: # Goobstation
+      Medical: 70
+      Death: 50
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseaseCorgiPuppy
+    min: 1
     max: 5
     spreadParams:
-      chance: 1
-      power: 1
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseaseMagnitisEvent
+  components:
+  - type: GameRule
+    chaosScore: 100
+  - type: StationEvent
+    weight: 2
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 25
+    duration: null
+    chaos: # Goobstation
+      Medical: 70
+      Death: 50
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseaseMagnitis
+    min: 2
+    max: 5
+    spreadParams:
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseaseBeeseaseEvent
+  components:
+  - type: GameRule
+    chaosScore: 150
+  - type: StationEvent
+    weight: 2
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 35
+    duration: null
+    chaos: # Goobstation
+      Medical: 100
+      Death: 50
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseaseBeesease
+    min: 3
+    max: 10
+    spreadParams:
       spreadType: RandomEventDisease

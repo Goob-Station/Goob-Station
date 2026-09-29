@@ -17,6 +17,7 @@
     possibleTypes:
     - Bacterial
     - Viral
+    - Parasite
   - type: DiseaseOnHit
     spreadParams:
       chance: 0.33 # higher chance for plague mice

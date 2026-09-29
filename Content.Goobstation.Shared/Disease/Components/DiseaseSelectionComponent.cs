@@ -14,8 +14,8 @@ public sealed partial class DiseaseSelectionComponent : Component
     public DiseaseSpreadSpecifier SpreadParams = new(1f, 1f, "Debug");
 
     [DataField]
-    public int Min = 1f;
+    public int Min = 1;
 
     [DataField]
-    public int Max = 2f;
+    public int Max = 2;
 }

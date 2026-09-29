@@ -139,6 +139,64 @@
   - type: DiseaseProgressCondition
     minProgress: 1
 
+- type: entity
+  id: DiseaseBehaviorBeeVomit
+  parent: DiseaseBehaviorBase
+  name: Bee Vomiting
+  description: Makes you periodically vomit with bees.
+  components:
+  - type: DiseaseEffect
+    complexity: 30
+  - type: DiseaseReagentEffect
+    timeScale: false
+    effects:
+    - !type:Vomit
+    - !type:SpawnEntity
+      entity: MobAngryBee
+      amount: 3
+  - type: DiseaseSpreadEffect
+    arc: 360
+    range: 2
+    timeScale: true
+    spreadParams:
+      power: 0.8
+      chance: 0.6
+      spreadType: Aerial
+  - type: DiseasePeriodicCondition
+    delayMin: 10
+    delayMax: 45
+  - type: DiseaseProgressCondition
+    minProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorBeeKillMe
+  parent: DiseaseBehaviorBase
+  name: Bees parasites
+  description: Oh no...
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Poison: 2
+          Piercing: 2
+    - !type:PopupMessage
+      type: Local
+      visualType: Medium
+      messages:
+        - "buzzochloricbees-effect-licoxide-electrifying"
+        - "buzzochloricbees-effect-licoxide-shocked-by-bee-facts"
+        - "buzzochloricbees-effect-licoxide-buzzed"
+        - "buzzochloricbees-effect-licoxide-buzzes"
+      probability: 0.05
+  - type: DiseaseProgressCondition
+    minProgress: 0.5
+
+
 # this is broken and hits the owning entity but i'm leaving it here so someone can fix it
 - type: entity
   id: DiseaseBehaviorGunemia

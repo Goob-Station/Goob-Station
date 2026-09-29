@@ -472,6 +472,8 @@
         tableId: CalmPestEventsTable
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
+      - !type:NestedSelector
+        tableId: DiseaseEventTable # GoobStation - disease
 
 - type: entityTable
   id: DynamicGameRulesTable
@@ -487,6 +489,8 @@
       tableId: CalmPestEventsTable
     - !type:NestedSelector
       tableId: SpicyPestEventsTable
+    - !type:NestedSelector
+        tableId: DiseaseEventTable # GoobStation - disease
 
 - type: entityTable #Goobstation?
   id: BasicGameRulesTableNoAntag
@@ -500,6 +504,8 @@
         tableId: CalmPestEventsTable
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
+      - !type:NestedSelector
+        tableId: DiseaseEventTable # GoobStation - disease
 
 - type: entityTable #Goobstation?
   id: AllGameRulesTable

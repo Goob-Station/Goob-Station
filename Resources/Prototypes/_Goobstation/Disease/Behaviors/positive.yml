@@ -16,27 +16,20 @@
       key: Stutter
       component: StutteringAccent
     - !type:Jitter
+  - type: DiseaseProgressCondition
+    minProgress: 0.5
 
 - type: entity
-  id: DiseaseBehaviorHealing
+  id: DiseaseBehaviorEnhancedDetoxification
   parent: DiseaseBehaviorBase
-  name: Healing factor
-  description: Accelerates natural regeneration.
+  name: Enhanced detoxification
+  description: Accelerates natural detoxification.
   components:
   - type: DiseaseEffect
     complexity: -20
   - type: DiseaseReagentEffect
     effects:
-    # weaker trico
     - !type:HealthChange
       conditions:
-      - !type:TotalDamageCondition
-        max: 50
-      damage:
-        groups:
-          Brute: -0.4
         types:
-          Poison: -0.2
-          Heat: -0.2
-          Shock: -0.2
-          Cold: -0.2
+          Poison: -1

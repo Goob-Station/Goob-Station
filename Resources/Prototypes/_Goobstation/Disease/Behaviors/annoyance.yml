@@ -145,6 +145,7 @@
     - !type:ModifyStatusEffect
       effectProto: PainNumbnessTraitStatusEffect
       time: 20
+    - !type:SuppressPain
 
 - type: entity
   id: DiseaseBehaviorDeaf
@@ -243,3 +244,37 @@
       rangeMax: 2
   - type: DiseaseProgressCondition
     minProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorWeakness
+  parent: DiseaseBehaviorBase
+  name: Weakness
+  description: Symptom that gradually lowers stamina.
+  components:
+  - type: DiseaseEffect
+    complexity: 25
+  - type: DiseaseReagentEffect
+    timeScale: true
+    effects:
+    - !type:TakeStaminaDamage
+        amount: 5
+        probability: 0.33
+  - type: DiseaseProgressCondition
+    minProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorAsthenia
+  parent: DiseaseBehaviorBase
+  name: Asthenia
+  description: Symptom that drastically and severely reduces stamina.
+  components:
+  - type: DiseaseEffect
+    complexity: 30
+  - type: DiseaseReagentEffect
+    timeScale: true
+    effects:
+    - !type:TakeStaminaDamage
+        amount: 60
+        probability: 0.25
+  - type: DiseaseProgressCondition
+    minProgress: 0.7

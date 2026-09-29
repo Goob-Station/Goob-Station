@@ -19,7 +19,7 @@ public sealed partial class DiseaseSelectionSystem : GameRuleSystem<DiseaseSelec
             return;  
   
         List<EntityUid> aliveList = new();  
-        var query = EntityQueryEnumerator<DiseaseCarrierComponent, MobStateComponent>();  
+        var query = EntityQueryEnumerator<DiseaseCarrierComponent, MobStateComponent, HumanoidAppearanceComponent>();  
         while (query.MoveNext(out var target, out _, out var mobState))  
         {  
             if (!_mobState.IsDead(target, mobState))  

@@ -152,4 +152,37 @@
         types:
           Slash: 20
   - type: DiseaseProgressCondition
-    minProgress: 0.9
+    minProgress: 0.8
+
+- type: entity
+  id: DiseaseBehaviorLycancoughy
+  parent: DiseaseBehaviorBase
+  name: Lycan coughy
+  description: Makes you cough up corgis. Infective and VERY painful.
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseasePeriodicCondition
+    delayMin: 15
+    delayMax: 45
+  - type: DiseaseEmoteEffect
+    emote: Cough
+  - type: DiseaseSpreadEffect
+    arc: 360
+    range: 3
+    timeScale: false
+    spreadParams:
+      power: 1.5
+      chance: 0.75
+      spreadType: Aerial
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Slash: 25
+    - !type:SpawnEntity
+      entity: MobCorgiPuppy
+  - type: DiseaseProgressCondition
+    minProgress: 0.8

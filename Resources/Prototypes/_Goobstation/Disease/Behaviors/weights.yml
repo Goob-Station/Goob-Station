@@ -14,10 +14,9 @@
     DiseaseBehaviorHyperactive: 0.5
     DiseaseBehaviorHealing: 0.5
     DiseaseBehaviorRapidMutation: 0.5
-    # total of 0.05 for gravitosis 
-    # DiseaseBehaviorGravitosisA: 0.025
-    # DiseaseBehaviorGravitosisB: 0.0125
-    # DiseaseBehaviorGravitosisC: 0.0125
+    DiseaseBehaviorGravitosisA: 0.025
+    DiseaseBehaviorGravitosisB: 0.0125
+    DiseaseBehaviorGravitosisC: 0.0125
     DiseaseBehaviorHonk: 0.33
     DiseaseBehaviorOwO: 0.01
     DiseaseBehaviorBlindness: 0.33
@@ -36,3 +35,7 @@
     DiseaseBehaviorAbscesses: 0.1
     DiseaseBehaviorAnemia: 0.5
     DiseaseBehaviorOrganFailure: 0.05
+    DiseaseBehaviorWeakness: 0.5
+    DiseaseBehaviorAsthenia: 0.1
+    DiseaseBehaviorEnhancedDetoxification: 0.1
+    DiseaseBehaviorSluggish: 0.1
