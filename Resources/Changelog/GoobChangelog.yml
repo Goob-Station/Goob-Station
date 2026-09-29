@@ -25450,3 +25450,9 @@ Entries:
         trevor.
   id: 2918
   time: '2026-09-28T22:16:19.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: The Guide is back on the menu
+  id: 2919
+  time: '2026-09-29T15:45:45.0000000+00:00'
