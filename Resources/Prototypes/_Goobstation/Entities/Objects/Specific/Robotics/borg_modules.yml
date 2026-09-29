@@ -142,7 +142,7 @@
   - type: ItemBorgModule
     hands:
     - item: StunbatonSEC
-    - item: WeaponDisabler
+    - item: WeaponDisablerSEC
     - item: CombatKnife
     - hand:
         emptyLabel: borg-slot-BolaEnergy-empty-goob
