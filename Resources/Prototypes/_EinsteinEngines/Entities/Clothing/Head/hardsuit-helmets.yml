@@ -10,6 +10,25 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/standard.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/standard.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      head-vox:
+      - state: off-equipped-HELMET-vox
+      head-reptilian:
+      - state: off-equipped-HELMET-reptilian
+      head-vulpkanin:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+      head-vox:
+      - state: on-equipped-HELMET-vox
+      head-reptilian:
+      - state: on-equipped-HELMET-reptilian
+      head-vulpkanin:
+      - state: on-equipped-HELMET-vulpkanin
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -82,6 +101,25 @@
     sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      head-vox:
+      - state: off-equipped-HELMET-vox
+      head-reptilian:
+      - state: off-equipped-HELMET-reptilian
+      head-vulpkanin:
+      - state: off-equipped-HELMET-vulpkanin
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+      head-vox:
+      - state: on-equipped-HELMET-vox
+      head-reptilian:
+      - state: on-equipped-HELMET-reptilian
+      head-vulpkanin:
+      - state: on-equipped-HELMET-vulpkanin
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection

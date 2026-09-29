@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Slungomia https://github.com/, Androidonator https://github.com/Androidonator",
+    "copyright": "Slungomia https://github.com/, Androidonator https://github.com/Androidonator, vox sprites made by VilllL",
     "size": {
         "x": 32,
         "y": 32
@@ -27,6 +27,10 @@
         },
         {
             "name": "equipped-head-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-vox",
             "directions": 4
         }
     ]

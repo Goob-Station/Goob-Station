@@ -103,6 +103,10 @@
         - state: equipped-HEAD-sealed-vox
         - state: equipped-HEAD-sealed-unshaded-vox
           shader: unshaded
+        head-reptilian:
+        - state: equipped-HEAD-sealed-reptilian
+        - state: equipped-HEAD-sealed-unshaded-reptilian
+          shader: unshaded
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsoryEngineering
@@ -132,7 +136,7 @@
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
         outerClothing-vox:
-        - state: equipped-OUTERCLOTHING-sealed-vox    
+        - state: equipped-OUTERCLOTHING-sealed-vox
     - type: StaminaResistance
       damageCoefficient: 0.5 # 50%
     - type: FireProtection

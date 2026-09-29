@@ -101,6 +101,8 @@
       - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
+      head-reptilian:
+      - state: equipped-HEAD-sealed-reptilian
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
       head-feroxi:
@@ -304,6 +306,8 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
+      head-reptilian:
+      - state: equipped-HEAD-reptilian
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
       head-feroxi:
@@ -331,6 +335,8 @@
       - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
+      head-reptilian:
+      - state: equipped-HEAD-sealed-reptilian
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
       head-feroxi:
@@ -425,6 +431,8 @@
       - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
+      head-reptilian:
+      - state: equipped-HEAD-sealed-reptilian
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
       head-feroxi:
@@ -515,6 +523,8 @@
       - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
+      head-reptilian:
+      - state: equipped-HEAD-reptilian
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
       head-feroxi:
@@ -601,6 +611,8 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
+      head-reptilian:
+      - state: equipped-HEAD-reptilian
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
       head-feroxi:
@@ -619,6 +631,8 @@
       - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
+      head-reptilian:
+      - state: equipped-HEAD-sealed-reptilian
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
       head-feroxi:
@@ -723,6 +737,8 @@
       - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
+      head-reptilian:
+      - state: equipped-HEAD-sealed-reptilian
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
       head-feroxi:
@@ -799,6 +815,8 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
+      head-reptilian:
+      - state: equipped-HEAD-reptilian
       head-hydrakin:
       - state: equipped-HEAD-hydrakin
   - type: Sprite
@@ -823,6 +841,8 @@
       - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
+      head-reptilian:
+      - state: equipped-HEAD-sealed-reptilian
       head-vulpkanin:
       - state: equipped-HEAD-sealed-vulpkanin
       head-feroxi:

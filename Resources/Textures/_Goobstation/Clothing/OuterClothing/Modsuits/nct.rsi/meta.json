@@ -144,6 +144,18 @@
     {
       "name": "equipped-FEET-vox",
       "directions": 4
+    },
+	    {
+      "name": "equipped-HEAD-sealed-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-unshaded-reptilian",
+      "directions": 4
     }
   ]
 }
