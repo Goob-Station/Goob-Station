@@ -9,8 +9,6 @@ using Content.Server.Chemistry.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
-using Robust.Shared.GameObjects;
-using System;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 
@@ -27,11 +25,6 @@ public sealed partial class BlueSpaceStormRuleSystem :
     [Dependency] private readonly SharedMapSystem _mapsys = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     protected override void Started(EntityUid uid, BlueSpaceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         _audio.PlayGlobal(
@@ -40,7 +33,7 @@ public sealed partial class BlueSpaceStormRuleSystem :
             true);
 
         _chat.DispatchGlobalAnnouncement(
-            "Warning. Possible Bluespace phenomena detected, please be wary of any tears in spacetime. Security team should prepare for potential threats.",
+            Loc.GetString("bluespace-storm-start-announcement"),
             colorOverride: Color.Cyan,
             playSound: false);
 
@@ -116,6 +109,9 @@ public sealed partial class BlueSpaceStormRuleSystem :
                 break;
             }
         }
+
+        if (component.PortalsRemaining == 0)
+            ForceEndSelf(uid, gameRule);
     }
 
     private bool IsPowerInfrastructureNearby(EntityCoordinates coordinates)

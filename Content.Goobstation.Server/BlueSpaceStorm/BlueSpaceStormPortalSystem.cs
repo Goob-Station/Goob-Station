@@ -4,6 +4,8 @@ using Content.Server.Chat.Systems;
 using Content.Server.Pinpointer;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Maps;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Movement.Pulling.Systems;
@@ -27,19 +29,14 @@ using Robust.Shared.Physics.Components;
 using Content.Shared.Chemistry.Components;
 using System.Numerics;
 using System.Linq;
-using Content.Shared.Chemistry.Reagent;
 using Robust.Server.GameObjects;
 
+namespace Content.Goobstation.Server.BlueSpaceStorm;
 
 public sealed class BlueSpaceStormSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly StepTriggerSystem _step = default!;
@@ -51,13 +48,13 @@ public sealed class BlueSpaceStormSystem : EntitySystem
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    private HashSet<EntityUid> _entities = new();
-    private EntityQuery<PhysicsComponent> _physQuery;
+    [Dependency] private readonly GameTicker _gameTicker = default!; 
+
+    private HashSet<EntityUid> _entities = new(); 
+    private EntityQuery<PhysicsComponent> _physQuery; 
+
     public override void Initialize()
     {
         base.Initialize();
@@ -66,61 +63,66 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         SubscribeLocalEvent<BlueSpaceStormPortalComponent, ComponentStartup>(OnInit);
         SubscribeLocalEvent<BlueSpaceStormPortalComponent, PortalMobsAllDeathEvent>(OnMobDeath);
         SubscribeLocalEvent<BlueSpaceStormPortalComponent, PortalMobSpawnEvent>(OnMobSpawn);
+        _physQuery = GetEntityQuery<PhysicsComponent>();
 
     }
 
-    private void OnInit(EntityUid uid, BlueSpaceStormPortalComponent component, ref ComponentStartup args)
+    public override void Update(float frameTime)
     {
-        List<EntProtoId> mobsToSpawn = [];
-        List<string> possibleSpawns;
-        switch (component.PortalType)
+        base.Update(frameTime);
+
+        var now = _timing.CurTime;
+        var query = EntityQueryEnumerator<BlueSpaceStormPortalComponent>();
+        while (query.MoveNext(out var uid, out var component))
         {
-            case "LavalandBluespacePortal":
-                possibleSpawns = ["PortalGoliath", "PortalWatcherBase", "PortalLegion"];
-                for (int i = 0; i < 6; i++)
+            if (Paused(uid))
+                continue;
+
+            if (component.MobsSpawned && !component.MobsAllDeadEventRaised)
+            {
+                component.SpawnedMobs.RemoveAll(mob =>
+                    TerminatingOrDeleted(mob)
+                    || !TryComp<MobStateComponent>(mob, out var mobState)
+                    || mobState.CurrentState == MobState.Dead);
+                if (component.SpawnedMobs.Count == 0)
                 {
-                    mobsToSpawn.Add(_random.Pick(possibleSpawns));
+                    component.MobsAllDeadEventRaised = true;
+                    RaiseLocalEvent(uid, new PortalMobsAllDeathEvent());
+                    continue;
                 }
-                break;
-            case "PlantBluespacePortal":
-                possibleSpawns = ["PortalLivingLight", "PortalLuminousObject", "PortalAngryBee", "PortalTomatoKiller"];
-                for (int i = 0; i < 8; i++)
-                {
-                    mobsToSpawn.Add(_random.Pick(possibleSpawns));
-                }
-                break;
-            case "FleshBluespacePortal":
-                possibleSpawns = ["PortalRotHulk", "PortalFleshGolemSalvage", "PortalFleshLoverSalvage", "PortalFleshJaredSalvage", "PortalGhoulProphet"];
-                for (int i = 0; i < 7; i++)
-                {
-                    mobsToSpawn.Add(_random.Pick(possibleSpawns));
-                }
-                break;
-            case "SlimeBluespacePortal":
-                possibleSpawns = ["PortalBaseAdultSlime", "PortalPlagueRatMedium", "PortalPlagueRatSmall", "PortalRotHulk", "PortalAncientLegsWraith", "PortalGunbot"];
-                for (int i = 0; i < 8; i++)
-                {
-                    mobsToSpawn.Add(_random.Pick(possibleSpawns));
-                }
-                break;
+            }
+
+            if (component.NextMobSpawnTime != TimeSpan.Zero && now >= component.NextMobSpawnTime)
+            {
+                component.NextMobSpawnTime = TimeSpan.Zero;
+                RaiseLocalEvent(uid, new PortalMobSpawnEvent());
+            }
+
+            if (now >= component.NextPulseTime)
+            {
+                component.NextPulseTime = now + TimeSpan.FromSeconds(component.TimeForPulse);
+                RaiseLocalEvent(uid, new PortalPulseEvent());
+            }
+        }
+    }
+
+    private void OnInit(Entity<BlueSpaceStormPortalComponent> portalEnt, ref ComponentStartup args)
+    {
+        var component = portalEnt.Comp;
+        List<EntProtoId> mobsToSpawn = [];
+        for (var i = 0; i < component.MobSpawnCount && component.MobSpawnPool.Count > 0; i++)
+        {
+            mobsToSpawn.Add(_random.Pick(component.MobSpawnPool));
         }
         component.MobsToSpawn = mobsToSpawn;
-        Timer.Spawn((int) component.TimeForSpawn * 1000, () =>
-        {
-            if (!TryComp<BlueSpaceStormPortalComponent>(uid, out _))
-                return;
-            RaiseLocalEvent(uid, new PortalMobSpawnEvent());
-        });
-        Timer.Spawn((int) component.TimeForPulse * 1000, () =>
-        {
-            if (!TryComp<BlueSpaceStormPortalComponent>(uid, out _))
-                return;
-            RaiseLocalEvent(uid, new PortalPulseEvent());
-        });
+        component.NextMobSpawnTime = _timing.CurTime + TimeSpan.FromSeconds(component.TimeForSpawn);
+        component.NextPulseTime = _timing.CurTime + TimeSpan.FromSeconds(component.TimeForPulse);
     }
 
-    private void OnPortalPulse(EntityUid uid, BlueSpaceStormPortalComponent component, PortalPulseEvent args)
+    private void OnPortalPulse(Entity<BlueSpaceStormPortalComponent> portalEnt, ref PortalPulseEvent args)
     {
+        var uid = portalEnt.Owner;
+        var component = portalEnt.Comp;
         var origin = _transform.GetMapCoordinates(uid);
         var rollResult = 100;
         rollResult = _random.Next(0, 101);
@@ -197,7 +199,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
                         Spawn("BulletLaser", origin, null, _random.NextAngle());
                     }
                 }
-                else if (rollResult < 90)
+                else if (rollResult >= 90)
                 {
                     for (int i = 0; i < 2; i++)
                     {
@@ -320,32 +322,26 @@ public sealed class BlueSpaceStormSystem : EntitySystem
                 }
                 break;
         }
-        Timer.Spawn(component.TimeForPulse * 1000, () =>
-        {
-            if (!TryComp<BlueSpaceStormPortalComponent>(uid, out _))
-                return;
-            RaiseLocalEvent(uid, new PortalPulseEvent());
-        });
     }
 
-    private void OnMobSpawn(EntityUid uid, BlueSpaceStormPortalComponent component, ref PortalMobSpawnEvent args)
+    private void OnMobSpawn(Entity<BlueSpaceStormPortalComponent> portalEnt, ref PortalMobSpawnEvent args)
     {
+        var uid = portalEnt.Owner;
+        var component = portalEnt.Comp;
+        component.MobsSpawned = true;
         foreach (EntProtoId proto in component.MobsToSpawn)
         {
             var newSpawn = Spawn(proto, _transform.GetMapCoordinates(uid));
-            if(!TryComp<BlueSpaceStormPortalMobComponent>(newSpawn, out _))
+            if (!TryComp<BlueSpaceStormPortalMobComponent>(newSpawn, out _))
             {
                 continue;
             }
-            else
-            {
-                component.SpawnedMobs.Add(newSpawn);
-                Comp<BlueSpaceStormPortalMobComponent>(newSpawn).LinkedPortal = uid;
-            }
+            component.SpawnedMobs.Add(newSpawn);
+            Comp<BlueSpaceStormPortalMobComponent>(newSpawn).LinkedPortal = uid;
         }
     }
 
-    private void OnMobDeath(EntityUid uid, BlueSpaceStormPortalComponent component, ref PortalMobsAllDeathEvent args)
+    private void OnMobDeath(Entity<BlueSpaceStormPortalComponent> portalEnt, ref PortalMobsAllDeathEvent args)
     {
         var query = EntityQueryEnumerator<BlueSpaceRuleComponent, ActiveGameRuleComponent, GameRuleComponent>();
         EntityUid ruleUID;
@@ -362,7 +358,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
             }
             break;
         }
-        _entityManager.DeleteEntity(uid);
+        EntityManager.DeleteEntity(portalEnt.Owner);
     }
 
     public List<TileRef>? GetSpawningPoints(EntityUid uid, float severity, float powerModifier = 1f)
@@ -385,7 +381,6 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         if (tilerefs.Count == 0)
             return null;
 
-        var physQuery = GetEntityQuery<PhysicsComponent>();
         var resultList = new List<TileRef>();
         while (resultList.Count < amount)
         {

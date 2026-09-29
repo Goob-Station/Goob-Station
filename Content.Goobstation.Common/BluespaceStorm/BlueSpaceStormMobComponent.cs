@@ -9,5 +9,4 @@ public sealed partial class BlueSpaceStormPortalMobComponent : Component
     /// </summary>
     [DataField]
     public EntityUid LinkedPortal;
-
 }

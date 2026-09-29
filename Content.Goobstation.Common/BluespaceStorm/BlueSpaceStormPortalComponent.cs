@@ -1,9 +1,9 @@
 using Robust.Shared.Prototypes;
-
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Common.BlueSpaceStorm;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class BlueSpaceStormPortalComponent : Component
 {
     /// <summary>
@@ -24,14 +24,32 @@ public sealed partial class BlueSpaceStormPortalComponent : Component
     [DataField]
     public int TimeForPulse = 10;
 
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextMobSpawnTime;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextPulseTime;
+
     /// <summary>
-    /// Mobs to be spawned
+    /// Mob prototypes selected randomly when this portal opens
     /// </summary>
     [DataField]
+    public List<EntProtoId> MobSpawnPool = [];
+
+    /// <summary>
+    /// Number of mobs selected from the spawn pool
+    /// </summary>
+    [DataField]
+    public int MobSpawnCount = 0;
+
     public List<EntProtoId> MobsToSpawn = [];
 
     [DataField]
     public List<EntityUid> SpawnedMobs = [];
+
+    public bool MobsSpawned;
+
+    public bool MobsAllDeadEventRaised;
 
 
 }

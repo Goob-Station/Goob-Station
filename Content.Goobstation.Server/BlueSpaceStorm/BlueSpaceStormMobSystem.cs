@@ -3,8 +3,6 @@ using Content.Shared.Mobs;
 
 public sealed class BlueSpaceStormMobSystem : EntitySystem
 {
-
-    [Dependency] private readonly IEntityManager _entity = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -13,18 +11,21 @@ public sealed class BlueSpaceStormMobSystem : EntitySystem
 
     }
 
-    private void OnPortalMobDeath(EntityUid uid, BlueSpaceStormPortalMobComponent component, ref MobStateChangedEvent args)
+    private void OnPortalMobDeath(Entity<BlueSpaceStormPortalMobComponent> mob, ref MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Dead)
         {
             return;
         }
-        if (!TryComp<BlueSpaceStormPortalComponent>(component.LinkedPortal, out var portalComponent))
+        if (!TryComp<BlueSpaceStormPortalComponent>(mob.Comp.LinkedPortal, out var portalComponent))
             return;
-        portalComponent.SpawnedMobs.Remove(uid);
-        if (portalComponent.SpawnedMobs.Count < 1)
+        if (!portalComponent.SpawnedMobs.Remove(mob.Owner))
+            return;
+
+        if (portalComponent.SpawnedMobs.Count == 0 && !portalComponent.MobsAllDeadEventRaised)
         {
-            RaiseLocalEvent(component.LinkedPortal, new PortalMobsAllDeathEvent());
+            portalComponent.MobsAllDeadEventRaised = true;
+            RaiseLocalEvent(mob.Comp.LinkedPortal, new PortalMobsAllDeathEvent());
         }
     }
 }

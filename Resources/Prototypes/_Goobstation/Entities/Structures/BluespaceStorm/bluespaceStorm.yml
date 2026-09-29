@@ -15,6 +15,11 @@
     canCollide: false
   - type: BlueSpaceStormPortal
     portalType: LavalandBluespacePortal
+    mobSpawnPool:
+    - PortalGoliath
+    - PortalWatcherBase
+    - PortalLegion
+    mobSpawnCount: 6
   - type: RequireProjectileTarget
   - type: AmbientSound
     volume: 2
@@ -42,6 +47,12 @@
     canCollide: false
   - type: BlueSpaceStormPortal
     portalType: PlantBluespacePortal
+    mobSpawnPool:
+    - PortalLivingLight
+    - PortalLuminousObject
+    - PortalAngryBee
+    - PortalTomatoKiller
+    mobSpawnCount: 8
   - type: RequireProjectileTarget
   - type: AmbientSound
     volume: 2
@@ -69,6 +80,13 @@
     canCollide: false
   - type: BlueSpaceStormPortal
     portalType: FleshBluespacePortal
+    mobSpawnPool:
+    - PortalRotHulk
+    - PortalFleshGolemSalvage
+    - PortalFleshLoverSalvage
+    - PortalFleshJaredSalvage
+    - PortalGhoulProphet
+    mobSpawnCount: 7
   - type: RequireProjectileTarget
   - type: AmbientSound
     volume: 2
@@ -96,6 +114,13 @@
     canCollide: false
   - type: BlueSpaceStormPortal
     portalType: SlimeBluespacePortal
+    mobSpawnPool:
+    - PortalPlagueRatMedium
+    - PortalPlagueRatSmall
+    - PortalRotHulk
+    - PortalAncientLegsWraith
+    - PortalGunbot
+    mobSpawnCount: 8
   - type: RequireProjectileTarget
   - type: AmbientSound
     volume: 2
