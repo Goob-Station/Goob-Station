@@ -43,7 +43,7 @@ namespace Content.Goobstation.Shared.SlotMachine
         }
 
         /// <summary>
-        /// Spawns a random entity when emmaged
+        /// Spawns presents randomly from all pools, unsafe still possible
         /// </summary>
         private void OnEmagged(Entity<SlotMachineComponent> ent, ref GotEmaggedEvent args)
         {
@@ -53,8 +53,15 @@ namespace Content.Goobstation.Shared.SlotMachine
             args.Handled = true;
             EnsureComp<EmaggedComponent>(ent);
 
-            var entities = _proto.EnumeratePrototypes<EntityPrototype>().ToList();
-            ent.Comp.EmagSpawnEntity = _random.Pick(entities).ID;
+            var presents = new[]
+            {
+                "PresentRandomUnsafe",
+                "PresentRandom",
+                "PresentRandomCash",
+                "PresentRandomCoal"
+            };
+
+            ent.Comp.EmagSpawnEntity = _random.Pick(presents);
 
             var doAfter =
                 new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DoAfterTime, new SlotMachineEmagDoAfterEvent(), ent.Owner)
