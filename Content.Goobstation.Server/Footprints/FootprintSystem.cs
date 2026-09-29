@@ -18,6 +18,7 @@ using Content.Server.Gravity;
 using Content.Goobstation.Common.CCVar;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Configuration;
+using Content.Shared.Movement.Components;
 
 namespace Content.Goobstation.Server.Footprints;
 
@@ -213,6 +214,9 @@ public sealed class FootprintSystem : EntitySystem
         y -= MathF.Floor(y) + halfTileSize;
 
         footprint.Value.Comp.Footprints.Add(new(new(x, y), rotation, color, standing ? "foot" : "body"));
+
+        // Glue eater in shamble
+        RemComp<SpeedModifierContactsComponent>(footprint.Value.Owner);
 
         Dirty(footprint.Value);
 
