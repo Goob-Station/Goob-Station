@@ -28,7 +28,7 @@ public sealed partial class RandomTeleportOnUseComponent : RandomTeleportCompone
     /// Change this if you want less incident
     /// </summary>
     [DataField]
-    public float BodyPartTeleportChance = 1f;
+    public float BodyPartTeleportChance = 0.1f;
 
     /// <summary>
     /// Determine which body part is chosen, organ or limb.
