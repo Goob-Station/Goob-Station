@@ -2,7 +2,6 @@ using Content.Server.Chat.Systems;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Content.Shared.Station.Components;
 using Content.Server.Chemistry.Components;
@@ -20,8 +19,6 @@ public sealed partial class BlueSpaceStormRuleSystem :
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private IMapManager _map = default!;
     [Dependency] private readonly SharedMapSystem _mapsys = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 

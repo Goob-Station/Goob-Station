@@ -1,16 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Goobstation.Common.BlueSpaceStorm;
 using Content.Server.Chat.Systems;
-using Content.Server.Pinpointer;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
@@ -25,7 +20,6 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Physics;
-using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Physics.Components;
 using Content.Shared.Chemistry.Components;
 using System.Numerics;
