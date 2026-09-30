@@ -82,9 +82,3 @@
   name: collective-mind-xeno
   keycode: 'z'
   color: "#8c3986"
-
-- type: collectiveMind
-  id: Diseasemind
-  name: collective-mind-disease
-  keycode: 'v'
-  color: "#427832"

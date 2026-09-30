@@ -5,19 +5,19 @@
   description: Makes you feel hyper.
   components:
   - type: DiseaseEffect
-    complexity: -30
+    complexity: -50
   - type: DiseaseReagentEffect
     timeScale: false
     effects:
     - !type:MovementSpeedModifier
-      walkSpeedModifier: 1.2
-      sprintSpeedModifier: 1.2
+      walkSpeedModifier: 1.35
+      sprintSpeedModifier: 1.35
     - !type:GenericStatusEffect
       key: Stutter
       component: StutteringAccent
     - !type:Jitter
   - type: DiseaseProgressCondition
-    minProgress: 0.5
+    minProgress: 0.3
 
 - type: entity
   id: DiseaseBehaviorHealing
@@ -78,20 +78,6 @@
     minProgress: 0.4
 
 - type: entity
-  id: DiseaseBehaviorGlowing
-  parent: DiseaseBehaviorBase
-  name: Glowing
-  description: Symptom that make you glowing.
-  components:
-  - type: DiseaseEffect
-    complexity: -20
-  - type: DiseaseReagentEffect
-    effects:
-    - !type:GlowEntity 
-  - type: DiseaseProgressCondition
-    minProgress: 0.2
-
-- type: entity
   id: DiseaseBehaviorNightVision
   parent: DiseaseBehaviorBase
   name: Night Vision
@@ -102,26 +88,8 @@
   - type: DiseaseGrantComponentEffect
     components:
     - type: NightVision
-      color: "#808080"
-      activateSound: null
-      deactivateSound: null
   - type: DiseaseProgressCondition
     minProgress: 0.3
-
-- type: entity
-  id: DiseaseBehaviorCollectiveMind
-  parent: DiseaseBehaviorBase
-  name: Collective Mind
-  description: Symptom that allows speak in collective mind.
-  components:
-  - type: DiseaseEffect
-    complexity: -100
-  - type: DiseaseGrantComponentEffect
-    components:
-    - type: CollectiveMind
-      defaultChannel: Diseasemind
-      channels:
-      - Diseasemind
 
 - type: entity
   id: DiseaseBehaviorSerenity

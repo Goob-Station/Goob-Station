@@ -74,7 +74,7 @@
       BaseTangentialAcceleration: 2
       maxRange: 2
   - type: GravityWell
-    maxRange: 4
+    maxRange: 2
 
 - type: entity
   id: DiseaseBehaviorGravitosisB
@@ -93,7 +93,7 @@
       BaseRadialAcceleration: 2
       maxRange: 2
   - type: GravityWell
-    maxRange: 4
+    maxRange: 2
 
 - type: entity
   id: DiseaseBehaviorGravitosisC
@@ -112,7 +112,7 @@
       BaseRadialAcceleration: -2
       maxRange: 2
   - type: GravityWell
-    maxRange: 4
+    maxRange: 2
 
 - type: entity
   id: DiseaseBehaviorDelusion
@@ -288,24 +288,6 @@
     minProgress: 0.5
 
 - type: entity
-  id: DiseaseBehaviorBS
-  parent: DiseaseBehaviorBase
-  name: Bluespace Instability
-  description: Extremely rare symptom that causes you to teleport erratically.
-  components:
-  - type: DiseaseEffect
-    complexity: 40 #there is a chance of ending up in a wall or in space
-  - type: DiseaseGrantComponentEffect
-    components:
-    - type: ChaoticJump
-      jumpMinInterval: 0
-      jumpMaxInterval: 60
-      rangeMin: 0.2
-      rangeMax: 2
-  - type: DiseaseProgressCondition
-    minProgress: 0.5
-
-- type: entity
   id: DiseaseBehaviorWeakness
   parent: DiseaseBehaviorBase
   name: Weakness
@@ -318,9 +300,9 @@
     effects:
     - !type:TakeStaminaDamage
         amount: 5
-        probability: 0.2
+        probability: 0.1
   - type: DiseaseProgressCondition
-    minProgress: 0.5
+    minProgress: 0.8
 
 - type: entity
   id: DiseaseBehaviorAsthenia
@@ -335,7 +317,7 @@
     effects:
     - !type:TakeStaminaDamage
         amount: 50
-        probability: 0.1
+        probability: 0.05
   - type: DiseaseProgressCondition
     minProgress: 0.8
 
@@ -351,7 +333,7 @@
     timeScale: false
     effects:
     - !type:SatiateHunger
-      factor: -0.1
+      factor: -0.5
 
 - type: entity
   id: DiseaseBehaviorDisorientation
@@ -362,6 +344,8 @@
   - type: DiseaseEffect
     complexity: 40
   - type: DiseaseReagentEffect
+    timeScale: false  
+    progressScale: false 
     effects:
     - !type:MovespeedModifier
       walkSpeedModifier: -1

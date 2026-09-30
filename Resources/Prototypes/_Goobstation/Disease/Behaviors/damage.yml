@@ -188,7 +188,7 @@
     - !type:Flammable
       multiplier: 1
     - !type:Ignite
-      probability: 0.25
+      probability: 0.1
   - type: DiseaseProgressCondition
     minProgress: 0.98
 

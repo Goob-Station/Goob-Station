@@ -42,7 +42,7 @@
   components:
   - type: Disease
     diseaseType: Bacterial
-    infectionRate: 0.0111111 # 100 seconds
+    infectionRate: 0.0071111
     immunityGainRate: 1.5 # immunity speed
     genotype: 1122
     effects:
@@ -82,9 +82,8 @@
       DiseaseBehaviorCough: 1
       DiseaseBehaviorDrowsiness: 2
       DiseaseBehaviorAsthenia: 0.5
-      DiseaseBehaviorWeakness: 1
-      DiseaseBehaviorHeadache: 2
-      DiseaseBehaviorDisorientation: 0.5
+      DiseaseBehaviorHeadache: 0.5
+      DiseaseBehaviorDisorientation: 1
 
 - type: entity
   id: DiseasePlague
@@ -190,7 +189,6 @@
       DiseaseBehaviorEuphoria: 1
       DiseaseBehaviorOrganFailure: 1
       DiseaseBehaviorNightVision: 1
-      DiseaseBehaviorCollectiveMind: 1
       DiseaseBehaviorHealing: 1
       DiseaseBehaviorFightImmunity: 2
       DiseaseBehaviorHyperactive: 1

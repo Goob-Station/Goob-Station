@@ -20,7 +20,7 @@
       weight: 10
       children:
         - id: DiseaseBeeseaseEvent
-        - id: DiseaseMechanitesEvent
+        #- id: DiseaseMechanitesEvent Broken
         - id: DiseaseInquisitionFluEvent
 
 

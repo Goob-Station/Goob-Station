@@ -47,6 +47,6 @@
   - type: DiseaseOnHit
     disease: DiseaseBeesease
     spreadParams:
-      chance: 0.1
+      chance: 0.2
       power: 1
       spreadType: Blood

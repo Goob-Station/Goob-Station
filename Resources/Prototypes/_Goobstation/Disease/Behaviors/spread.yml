@@ -122,7 +122,7 @@
         types:
           Slash: 5
   - type: DiseaseProgressCondition
-    minProgress: 0.7
+    minProgress: 0.3
 
 
 - type: entity

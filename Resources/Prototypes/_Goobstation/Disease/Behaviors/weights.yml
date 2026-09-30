@@ -25,7 +25,6 @@
     DiseaseBehaviorAnxiety: 0.5
     DiseaseBehaviorDrowsiness: 0.5
     DiseaseBehaviorEuphoria: 0.5
-    DiseaseBehaviorBS: 0.05
     DiseaseBehaviorApathy: 0.33
     DiseaseBehaviorNecrosis: 0.1
     DiseaseBehaviorPulmonaryEdema: 1
@@ -40,11 +39,9 @@
     DiseaseBehaviorEnhancedDetoxification: 0.1
     DiseaseBehaviorSluggish: 0.5
     DiseaseBehaviorRapidRecovery: 0.1
-    DiseaseBehaviorGlowing: 0.3
     DiseaseBehaviorDisorientation: 0.05
     DiseaseBehaviorParasitism: 0.2
     DiseaseBehaviorNightVision: 0.05
-    DiseaseBehaviorCollectiveMind: 0.01
     DiseaseBehaviorSerenity: 0.2
     DiseaseBehaviorDelusion: 0.5
     DiseaseBehaviorClumsy: 0.5
