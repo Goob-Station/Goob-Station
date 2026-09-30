@@ -20,6 +20,7 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Throwing;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.GameTicking;
+using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos;
@@ -51,6 +52,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!; 
+    [Dependency] private readonly GunSystem _gun = default!;
 
     private HashSet<EntityUid> _entities = new(); 
     private EntityQuery<PhysicsComponent> _physQuery; 
@@ -137,7 +139,9 @@ public sealed class BlueSpaceStormSystem : EntitySystem
                 {
                     for (int i = 0; i < _random.Next(2, 5); i++)
                     {
-                        Spawn("ProjectileFireball", origin, null, _random.NextAngle());
+                        var angle = _random.NextAngle();
+                        var fireball = Spawn("ProjectileFireball", origin);
+                        _gun.ShootProjectile(fireball, angle.ToVec(), Vector2.Zero, uid);
                     }
 
                 }
