@@ -16,7 +16,7 @@ public sealed partial class BlueSpaceStormPortalComponent : Component
     /// Time until mobs spawn (seconds)
     /// </summary>
     [DataField]
-    public int TimeForSpawn = 60;
+    public int TimeForSpawn = 55;
 
     /// <summary>
     /// Time between pulses (seconds)
