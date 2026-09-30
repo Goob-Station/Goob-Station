@@ -37,7 +37,7 @@ public sealed class WeldingSparksSystem : EntitySystem
         var spawnLoc = GetSpawnLoc(ent, args.Target);
         if (spawnLoc is not { } loc)
             return;
-            
+
         SpawnEffect(ent, ref args, doAfterId, loc);
     }
 

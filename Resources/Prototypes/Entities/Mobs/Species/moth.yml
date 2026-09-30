@@ -90,6 +90,7 @@
     noRot: true
     drawdepth: Mobs
     layers:
+      - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
       - map: [ "enum.HumanoidVisualLayers.Groin" ]
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -119,7 +120,9 @@
       - map: [ "outerClothing" ]
       - map: [ "belt" ] #Goobedit - Belts over outerwear
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
+      - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
       - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
       - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.Face" ] # Goobstation?
       - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
@@ -204,6 +207,22 @@
         - MobLayer
   - type: DashAction # Goobstation - dark souls moths
     actionProto: ActionDashMoth
+  - type: Reactive # Goobstation - pest spray makes bugs scream
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion, Eyes]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPie
+    - reagents: [ PestKiller ]
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
   - type: CosmicMarkVisuals # DeltaV - cosmic cult
     subtleState: moth
 

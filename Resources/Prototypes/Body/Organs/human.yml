@@ -19,11 +19,11 @@
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
   - type: Organ
-    intCap: 15
-    integrity: 15
+    intCap: 120
+    integrity: 120
     integrityThresholds:
-      Normal: 15
-      Damaged: 6
+      Normal: 120
+      Damaged: 60
       Destroyed: 0
   - type: Edible
   - type: Extractable
@@ -77,6 +77,15 @@
     state: brain
   - type: Organ
     slotId: brain # Shitmed Change
+    intCap: 200
+    integrity: 200
+    integrityThresholds:
+      Normal: 200
+      Damaged: 100
+      Destroyed: 0
+    indestructible: true # A dead brain stays in the skull so it can be surgically repaired.
+  - type: OrganDeathTrauma
+    trauma: Braindeath # Reaching 0 integrity inflicts brain death rather than deleting the organ.
   - type: Input
     context: "ghost"
   - type: Brain
@@ -93,13 +102,17 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: UncookedAnimalProteins #Goob
           Quantity: 10
         - ReagentId: Cognizine # goob edit
           Quantity: 5 # goob edit
+        - ReagentId: GreyMatter # goob edit
+          Quantity: 5 # goob edit
       food:
-        maxVol: 10 # goob edit
+        maxVol: 15 # goob edit
         reagents:
+        - ReagentId: UncookedAnimalProteins #Goob
+          Quantity: 5 #Goob
         - ReagentId: GreyMatter
           Quantity: 5
         - ReagentId: Cognizine # goob edit
@@ -125,11 +138,11 @@
   description: "I see you!"
   components:
   - type: Organ # Shitmed Change
-    intCap: 12
-    integrity: 12
+    intCap: 60
+    integrity: 60
     integrityThresholds:
-      Normal: 12
-      Damaged: 4
+      Normal: 60
+      Damaged: 30
       Destroyed: 0
     slotId: eyes # Shitmed Change
   - type: Eyes # Shitmed Change
@@ -188,11 +201,11 @@
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
   - type: Organ # Shitmed Change
-    intCap: 17
-    integrity: 17
+    intCap: 120
+    integrity: 120
     integrityThresholds:
-      Normal: 17
-      Damaged: 9
+      Normal: 120
+      Damaged: 60
       Destroyed: 0
     slotId: lungs # Shitmed Change
   - type: Sprite
@@ -239,11 +252,11 @@
   components:
   - type: Heart # Shitmed Change
   - type: Organ # Shitmed Change
-    intCap: 17
-    integrity: 17
+    intCap: 120
+    integrity: 120
     integrityThresholds:
-      Normal: 17
-      Damaged: 9
+      Normal: 120
+      Damaged: 60
       Destroyed: 0
     slotId: heart # Shitmed Change
   - type: Sprite
@@ -274,11 +287,11 @@
   description: "Gross. This is hard to stomach."
   components:
   - type: Organ # Shitmed Change
-    intCap: 44 # consists of a lot of pieces, thus is incredibly hard to easily destroy
-    integrity: 44
+    intCap: 140 # consists of a lot of pieces, thus is incredibly hard to easily destroy
+    integrity: 140
     integrityThresholds:
-      Normal: 44
-      Damaged: 17
+      Normal: 140
+      Damaged: 70
       Destroyed: 0
     slotId: stomach # Shitmed Change
   - type: Sprite
@@ -320,11 +333,11 @@
   components:
   - type: Liver # Shitmed Change
   - type: Organ # Shitmed Change
-    intCap: 21
-    integrity: 21
+    intCap: 120
+    integrity: 120
     integrityThresholds:
-      Normal: 21
-      Damaged: 12
+      Normal: 120
+      Damaged: 60
       Destroyed: 0
     slotId: liver # Shitmed Change
   - type: Sprite
@@ -350,11 +363,11 @@
   description: "Filters toxins from the bloodstream."
   components:
   - type: Organ # Shitmed
-    intCap: 21
-    integrity: 21
+    intCap: 120
+    integrity: 120
     integrityThresholds:
-      Normal: 21
-      Damaged: 12
+      Normal: 120
+      Damaged: 60
       Destroyed: 0
     slotId: kidneys
   - type: Sprite

@@ -55,3 +55,123 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialAshwoodStick
+  name: ashwood stick
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Ashwood: 50
+  - type: Stack
+    stackType: AshwoodStick
+    baseLayer: base
+    layerStates:
+    - ash_stick_1
+    - ash_stick_2
+    - ash_stick_3
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/sticks.rsi
+    state: ash_stick_1
+    layers:
+    - state: ash_stick_1
+      map: ["base"]
+  - type: Appearance
+  - type: Item
+    heldPrefix: ash_stick
+  - type: Tag
+    tags:
+    - Wooden
+    - RawMaterial
+    - DroneUsable # Goobstation
+  - type: Extractable
+    grindableSolutionName: wood
+  - type: SolutionContainerManager
+    solutions:
+      wood:
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 2.5
+        - ReagentId: Ash
+          Quantity: 2.5
+  - type: Construction
+    graph: AshwoodStick
+    node: stick
+
+- type: entity
+  parent: MaterialAshwoodStick
+  id: MaterialAshwoodStick10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialAshwoodStick
+  id: MaterialAshwoodStick1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialWoodStick
+  name: wood stick
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 50
+  - type: Stack
+    stackType: WoodStick
+    baseLayer: base
+    layerStates:
+    - stick_1
+    - stick_2
+    - stick_3
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/sticks.rsi
+    state: stick_1
+    layers:
+    - state: stick_1
+      map: ["base"]
+  - type: Appearance
+  - type: Item
+    heldPrefix: stick
+  - type: Tag
+    tags:
+    - Wooden
+    - RawMaterial
+    - DroneUsable # Goobstation
+  - type: Extractable
+    grindableSolutionName: wood
+  - type: SolutionContainerManager
+    solutions:
+      wood:
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 5
+  - type: Construction
+    graph: WoodStick
+    node: stick
+
+- type: entity
+  parent: MaterialWoodStick
+  id: MaterialWoodStick10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialWoodStick
+  id: MaterialWoodStick1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

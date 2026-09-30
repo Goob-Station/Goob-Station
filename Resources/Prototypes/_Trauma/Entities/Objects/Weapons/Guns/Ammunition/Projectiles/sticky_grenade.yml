@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseBullet
+  id: BulletStickyGrenade
+  name: sticky grenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    layers:
+    - state: icon
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.45,0.15,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: EmbeddableProjectile
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 0
+  - type: TriggerOnEmbed
+  - type: TimerTrigger
+    delay: 3
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 8
+    intensitySlope: 3
+    totalIntensity: 90
+    canCreateVacuum: false

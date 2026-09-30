@@ -162,11 +162,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         var user = args.SenderSession.AttachedEntity;
 
         if (user == null ||
-            !_combatMode.IsInCombatMode(user) ||
-            !TryGetGun(user.Value, out var gun))
-        {
+            !_combatMode.IsInCombatMode(user))
             return;
-        }
+
+        // Goobstation - mechs
+        if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
+            user = mechPilot.Mech;
+
+        if (!TryGetGun(user.Value, out var gun) ||
+            HasComp<ItemComponent>(user)) // Goobstation - carryable entities (e.g. felinids) can't shoot while held
+            return;
 
         if (gun.Owner != GetEntity(msg.Gun))
             return;
@@ -184,14 +189,19 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         var gunUid = GetEntity(ev.Gun);
 
-        if (args.SenderSession.AttachedEntity == null ||
-            !TryComp<GunComponent>(gunUid, out var gun) ||
-            !TryGetGun(args.SenderSession.AttachedEntity.Value, out var userGun))
-        {
-            return;
-        }
+        var user = args.SenderSession.AttachedEntity;
 
-        if (userGun != (gunUid, gun))
+        if (user == null)
+            return;
+
+        // Goobstation - mechs
+        if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
+            user = mechPilot.Mech;
+
+        if (!TryGetGun(user.Value, out var userGun))
+            return;
+
+        if (userGun.Owner != gunUid)
             return;
 
         StopShooting(userGun);
@@ -214,6 +224,15 @@ public abstract partial class SharedGunSystem : EntitySystem
     public bool TryGetGun(EntityUid entity, out Entity<GunComponent> gun)
     {
         gun = default;
+
+        // Goobstation - mech equipment guns
+        if (TryComp<MechComponent>(entity, out var mech) &&
+            mech.CurrentSelectedEquipment.HasValue &&
+            TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
+        {
+            gun = (mech.CurrentSelectedEquipment.Value, mechGun);
+            return true;
+        }
 
         if (_hands.GetActiveItem(entity) is { } held &&
             TryComp(held, out GunComponent? gunComp))

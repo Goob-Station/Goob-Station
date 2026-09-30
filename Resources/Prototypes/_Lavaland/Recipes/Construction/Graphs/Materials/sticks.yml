@@ -1,0 +1,31 @@
+- type: constructionGraph
+  id: AshwoodStick
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: stick
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: AshwoodPlank
+        amount: 1
+  - node: stick
+    entity: MaterialAshwoodStick
+
+- type: constructionGraph
+  id: WoodStick
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: stick
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: WoodPlank
+        amount: 1
+  - node: stick
+    entity: MaterialWoodStick

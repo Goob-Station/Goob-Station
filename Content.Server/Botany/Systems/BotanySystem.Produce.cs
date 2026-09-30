@@ -22,6 +22,10 @@ public sealed partial class BotanySystem
                 _entityEffects.TryApplyEffect(uid, mutation.Effect);
         }
 
+        // GoobStation - growable spaceshrooms
+        if (seed.Chemicals.Count == 0)
+            return;
+
         if (!_solutionContainerSystem.EnsureSolution(uid,
                 produce.SolutionName,
                 out var solutionContainer,

@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/DeltaV-Station/Delta-v/tree/61aee79dc23109773e02b182e7093f99137cb018/Resources/Textures/_DV/Mobs/Animals/nukiemouse.rsi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "mouse-0",
+            "directions": 4
+        },
+        {
+            "name": "mouse-moving-0",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "dead-0"
+        },
+        {
+            "name": "splat-0"
+        },
+        {
+            "name": "equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

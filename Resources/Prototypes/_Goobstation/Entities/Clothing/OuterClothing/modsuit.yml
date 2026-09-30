@@ -56,7 +56,7 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
-      - state: equipped-OUTERCLOTHING-sealed-resomi   
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: Armor
@@ -128,6 +128,8 @@
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -169,7 +171,6 @@
   - type: FireProtection
     reduction: 0.5
 
-
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateHeadOfSecurity
@@ -204,7 +205,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -287,7 +290,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
@@ -364,7 +369,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: Armor
@@ -442,7 +449,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.45
   - type: Armor
@@ -518,7 +527,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Armor
@@ -598,7 +609,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
@@ -638,5 +651,81 @@
     knockdownTimeDelta: -3
   - type: StaminaResistance
     damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.5
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingModsuitChestplateBrigMed
+  name: trauma modsuit chestplate
+  description: A robust modular suit cover with white ceramic inserts for extra drip.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/brigmed.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ outerClothing ]
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-chestplate
+    sealDownPopup: sealable-clothing-seal-down-chestplate
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: ModifyDelayedKnockdown
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.6
+  - type: ComponentToggler
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5

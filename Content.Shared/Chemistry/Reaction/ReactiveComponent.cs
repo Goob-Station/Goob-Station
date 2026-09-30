@@ -26,9 +26,10 @@ public sealed partial class ReactiveComponent : Component
     public List<ReactiveReagentEffectEntry>? Reactions;
 
     /// <summary>
-    ///     Goobstation - should 15 units of whatchamacallit get clamped into one?
+    /// Trauma - Use this to override the scale quantity instead of using reagent quantity
     /// </summary>
-    [DataField] public bool OneUnitReaction = false;
+    [DataField]
+    public float? ScaleOverride;
 }
 
 [DataDefinition]
