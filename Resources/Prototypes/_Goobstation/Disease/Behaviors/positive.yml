@@ -72,10 +72,13 @@
     timeScale: true
     effects:
     - !type:TakeStaminaDamage
-        amount: -20
+        amount: -5
         probability: 0.1
   - type: DiseaseProgressCondition
     minProgress: 0.4
+  - type: DiseasePeriodicCondition
+    delayMin: 0
+    delayMax: 5
 
 - type: entity
   id: DiseaseBehaviorNightVision
@@ -116,3 +119,17 @@
   - type: DiseaseGrantComponentEffect
     components:
     - type: SpecialBreathingImmunity
+
+- type: entity
+  id: DiseaseBehaviorCyclicMetabolism
+  parent: DiseaseBehaviorBase
+  name: Cyclic metabolism
+  description: Symptom that passively restores hunger.
+  components:
+  - type: DiseaseEffect
+    complexity: -20
+  - type: DiseaseReagentEffect
+    timeScale: false
+    effects:
+    - !type:SatiateHunger
+      factor: 1

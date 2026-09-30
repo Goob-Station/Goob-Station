@@ -320,6 +320,9 @@
         probability: 0.05
   - type: DiseaseProgressCondition
     minProgress: 0.8
+  - type: DiseasePeriodicCondition
+    delayMin: 5
+    delayMax: 35
 
 - type: entity
   id: DiseaseBehaviorParasitism
@@ -328,7 +331,7 @@
   description: Symptom that accelerates hunger.
   components:
   - type: DiseaseEffect
-    complexity: 8
+    complexity: 20
   - type: DiseaseReagentEffect
     timeScale: false
     effects:
@@ -351,7 +354,6 @@
       walkSpeedModifier: -1
       sprintSpeedModifier: -1
       time: 5
-      probability: 0.5
   - type: DiseaseProgressCondition
     minProgress: 0.8
   - type: DiseasePeriodicCondition

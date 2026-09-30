@@ -49,3 +49,4 @@
     DiseaseBehaviorMute: 0.3
     DiseaseBehaviorSHC: 0.1
     DiseaseBehaviorSelfRespiration: 0.1
+    DiseaseBehaviorCyclicMetabolism: 0.1
