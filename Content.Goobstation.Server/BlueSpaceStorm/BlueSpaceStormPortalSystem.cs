@@ -207,7 +207,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
                 {
                     for (int i = 0; i < 2; i++)
                     {
-                        MapCoordinates newOrigin = new(origin.X + _random.NextFloat(-20, 20), origin.Y + _random.NextFloat(-20, 20), origin.MapId);
+                        MapCoordinates newOrigin = new(origin.X + _random.NextFloat(-10, 10), origin.Y + _random.NextFloat(-10, 10), origin.MapId);
                         Spawn("KudzuFlowerAngry", newOrigin);
                     }
                 }

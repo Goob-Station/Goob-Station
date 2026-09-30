@@ -98,15 +98,6 @@
     - type: BlueSpaceStormPortalMob
 
 - type: entity
-  id: PortalGhoulProphet
-  parent: MobGhoulProphet
-  components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
-    - type: BlueSpaceStormPortalMob
-
-- type: entity
   id: PortalBaseAdultSlime
   parent: BaseMobAdultSlime
   components:

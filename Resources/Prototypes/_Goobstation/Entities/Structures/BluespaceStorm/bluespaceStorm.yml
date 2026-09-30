@@ -85,7 +85,6 @@
     - PortalFleshGolemSalvage
     - PortalFleshLoverSalvage
     - PortalFleshJaredSalvage
-    - PortalGhoulProphet
     mobSpawnCount: 7
   - type: RequireProjectileTarget
   - type: AmbientSound
