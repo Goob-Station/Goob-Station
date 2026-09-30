@@ -25442,3 +25442,35 @@ Entries:
       message: if you use regenerate while dead as a slasher it will teleport you away.
   id: 2917
   time: '2026-09-27T08:33:09.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: >-
+        Fixed some bullshit that let you do some bullshit with parcel wrap and
+        trevor.
+  id: 2918
+  time: '2026-09-28T22:16:19.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: The Guide is back on the menu
+  id: 2919
+  time: '2026-09-29T15:45:45.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Tweak
+      message: Xorg heavy base movespeed has been buffed by 20%.
+    - type: Tweak
+      message: Xorg base brute/burn resists 20% -> 15%
+    - type: Tweak
+      message: Xorg heavy max health 350 -> 300
+    - type: Tweak
+      message: Xorg stealth hypo max capacity 12 -> 10
+  id: 2920
+  time: '2026-09-29T15:53:36.0000000+00:00'
+- author: DoremyZerg
+  changes:
+    - type: Add
+      message: More harpy emotes!
+  id: 2921
+  time: '2026-09-29T17:10:31.0000000+00:00'
