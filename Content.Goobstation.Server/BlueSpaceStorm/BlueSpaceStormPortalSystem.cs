@@ -140,8 +140,8 @@ public sealed class BlueSpaceStormSystem : EntitySystem
                     for (int i = 0; i < _random.Next(2, 5); i++)
                     {
                         var angle = _random.NextAngle();
-                        var fireball = Spawn("ProjectileFireball", origin);
-                        _gun.ShootProjectile(fireball, angle.ToVec(), Vector2.Zero, uid);
+                        var fireball = Spawn("ProjectileDragonsBreath", origin);
+                        _gun.ShootProjectile(fireball, angle.ToVec(), Vector2.Zero, uid, speed: 5f);
                     }
 
                 }
