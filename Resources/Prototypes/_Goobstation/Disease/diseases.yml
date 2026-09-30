@@ -78,7 +78,7 @@
   name: Pneumonia
   description: A severe disease with moderate infection and dangerous.
   components:
-  - type: Bacterial
+  - type: Disease
     diseaseType: Bacterial
     genotype: 1255
     effects:
