@@ -7,7 +7,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.GameTicking;  
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
-using Content.Shared.Roles
+using Content.Shared.Roles;
 
 namespace Content.Goobstation.Server.Disease;  
   
@@ -30,7 +30,7 @@ public sealed partial class DiseaseSelectionSystem : GameRuleSystem<DiseaseSelec
             if (!_mobState.IsDead(target, mobState))  
                 continue; 
 
-            if (!_mind.TryGetMind(...) || _role.MindIsAntagonist(mindId)) 
+            if (!_mind.TryGetMind(target) || _role.MindIsAntagonist(mindId)) 
                 continue;  
 
             targetList.Add(target);  
