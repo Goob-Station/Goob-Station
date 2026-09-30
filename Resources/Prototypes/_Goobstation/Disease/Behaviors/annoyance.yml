@@ -303,6 +303,9 @@
         probability: 0.1
   - type: DiseaseProgressCondition
     minProgress: 0.8
+  - type: DiseasePeriodicCondition
+    delayMin: 0
+    delayMax: 4
 
 - type: entity
   id: DiseaseBehaviorAsthenia
@@ -321,7 +324,7 @@
   - type: DiseaseProgressCondition
     minProgress: 0.8
   - type: DiseasePeriodicCondition
-    delayMin: 5
+    delayMin: 10
     delayMax: 35
 
 - type: entity
