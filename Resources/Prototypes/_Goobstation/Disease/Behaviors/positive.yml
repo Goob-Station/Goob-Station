@@ -20,6 +20,31 @@
     minProgress: 0.5
 
 - type: entity
+  id: DiseaseBehaviorHealing
+  parent: DiseaseBehaviorBase
+  name: Healing factor
+  description: Accelerates natural regeneration.
+  components:
+  - type: DiseaseEffect
+    complexity: -20
+  - type: DiseaseReagentEffect
+    effects:
+    # weaker trico
+    - !type:HealthChange
+      conditions:
+      - !type:TotalDamageCondition
+        max: 50
+      damage:
+        groups:
+          Brute: -0.4
+        types:
+          Poison: -0.2
+          Heat: -0.2
+          Shock: -0.2
+          Cold: -0.2
+
+
+- type: entity
   id: DiseaseBehaviorEnhancedDetoxification
   parent: DiseaseBehaviorBase
   name: Enhanced detoxification
@@ -34,3 +59,92 @@
       damage:
         types:
           Poison: -1
+
+- type: entity
+  id: DiseaseBehaviorRapidRecovery
+  parent: DiseaseBehaviorBase
+  name: Rapid recovery
+  description: Symptom that restores stamina.
+  components:
+  - type: DiseaseEffect
+    complexity: -50
+  - type: DiseaseReagentEffect
+    timeScale: true
+    effects:
+    - !type:TakeStaminaDamage
+        amount: -20
+        probability: 0.1
+  - type: DiseaseProgressCondition
+    minProgress: 0.4
+
+- type: entity
+  id: DiseaseBehaviorGlowing
+  parent: DiseaseBehaviorBase
+  name: Glowing
+  description: Symptom that make you glowing.
+  components:
+  - type: DiseaseEffect
+    complexity: -20
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:GlowEntity 
+  - type: DiseaseProgressCondition
+    minProgress: 0.2
+
+- type: entity
+  id: DiseaseBehaviorNightVision
+  parent: DiseaseBehaviorBase
+  name: Night Vision
+  description: Symptom that allows you to see in the dark.
+  components:
+  - type: DiseaseEffect
+    complexity: -60
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: NightVision
+      color: "#808080"
+      activateSound: null
+      deactivateSound: null
+  - type: DiseaseProgressCondition
+    minProgress: 0.3
+
+- type: entity
+  id: DiseaseBehaviorCollectiveMind
+  parent: DiseaseBehaviorBase
+  name: Collective Mind
+  description: Symptom that allows speak in collective mind.
+  components:
+  - type: DiseaseEffect
+    complexity: -100
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: CollectiveMind
+      defaultChannel: Diseasemind
+      channels:
+      - Diseasemind
+
+- type: entity
+  id: DiseaseBehaviorSerenity
+  parent: DiseaseBehaviorBase
+  name: Serenity
+  description: Symptom that... love you.
+  components:
+  - type: DiseaseEffect
+    complexity: -20
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: Pacified
+  - type: DiseaseProgressCondition
+    minProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorSelfRespiration
+  parent: DiseaseBehaviorBase
+  name: Self-Respiration
+  description: Symptom that allows you to breathe in space
+  components:
+  - type: DiseaseEffect
+    complexity: -100
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: SpecialBreathingImmunity

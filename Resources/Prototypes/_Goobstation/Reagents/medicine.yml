@@ -1579,6 +1579,7 @@
           types:
             Shock: 0.5
       - !type:TakeStaminaDamage
-        amount: -0.5
+        amount: -1
         immediate: true
+        probability: 0.2
 # </Viro>

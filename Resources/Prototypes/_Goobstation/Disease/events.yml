@@ -8,6 +8,8 @@
         - id: DiseaseFluEvent
         - id: DiseasePneumoniaEvent
         - id: DiseaseColdEvent
+        - id: DiseaseSleepEvent
+        - id: DiseaseGutWormsEvent
     - !type:GroupSelector # Hard
       weight: 35
       children:
@@ -18,6 +20,8 @@
       weight: 10
       children:
         - id: DiseaseBeeseaseEvent
+        - id: DiseaseMechanitesEvent
+        - id: DiseaseInquisitionFluEvent
 
 
 - type: entity
@@ -61,6 +65,51 @@
     disease: DiseaseCold
     min: 2
     max: 7
+    spreadParams:
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseaseGutWormsEvent
+  components:
+  - type: GameRule
+    chaosScore: 60
+  - type: StationEvent
+    weight: 3
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 12
+    duration: null
+    chaos: # Goobstation
+      Medical: 25
+      Hunger: 50
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseaseGutWorms
+    min: 2
+    max: 4
+    spreadParams:
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseaseSleepEvent
+  components:
+  - type: GameRule
+    chaosScore: 100
+  - type: StationEvent
+    weight: 2
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 12
+    duration: null
+    chaos: # Goobstation
+      Medical: 50
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseaseSleep
+    min: 2
+    max: 5
     spreadParams:
       spreadType: RandomEventDisease
 
@@ -176,5 +225,51 @@
     disease: DiseaseBeesease
     min: 3
     max: 10
+    spreadParams:
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseaseMechanitesEvent
+  components:
+  - type: GameRule
+    chaosScore: 100
+  - type: StationEvent
+    weight: 1
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 35
+    duration: null
+    chaos: # Goobstation
+      Medical: 50
+      Death: 50
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseaseMechanites
+    min: 2
+    max: 5
+    spreadParams:
+      spreadType: RandomEventDisease
+
+- type: entity
+  parent: BaseGameRule
+  id: DiseaseInquisitionFluEvent
+  components:
+  - type: GameRule
+    chaosScore: 150
+  - type: StationEvent
+    weight: 1
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 35
+    duration: null
+    chaos: # Goobstation
+      Medical: 100
+      Death: 100
+    eventType: Chaotic
+  - type: DiseaseSelection
+    disease: DiseaseInquisitionFlu
+    min: 6
+    max: 15
     spreadParams:
       spreadType: RandomEventDisease

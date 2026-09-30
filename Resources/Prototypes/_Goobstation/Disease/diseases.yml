@@ -19,7 +19,7 @@
 - type: entity
   id: DiseaseFlu
   parent: DiseaseBase
-  name: flu
+  name: Flu
   description: Highly annoying and mildly dangerous.
   components:
   - type: Disease
@@ -37,7 +37,7 @@
 - type: entity
   id: DiseaseCold
   parent: DiseaseBase
-  name: cold
+  name: Cold
   description: Classic.
   components:
   - type: Disease
@@ -51,6 +51,40 @@
       DiseaseBehaviorCough: 1
       DiseaseBehaviorWeakness: 1
       DiseaseBehaviorDrowsiness: 0.8
+
+- type: entity
+  id: DiseaseGutWorms
+  parent: DiseaseBase
+  name: Gut worms
+  description: Doubles hunger rate.
+  components:
+  - type: Disease
+    diseaseType: Parasite
+    infectionRate: 0.004
+    immunityGainRate: 0.5
+    genotype: 87888
+    effects:
+      DiseaseBehaviorParasitism: 1
+      DiseaseBehaviorVomit: 1
+      DiseaseBehaviorFeelUnwell: 0.5
+
+- type: entity
+  id: DiseaseSleep
+  parent: DiseaseBase
+  name: Sleeping sickness
+  description: Very slow-moving infection.
+  components:
+  - type: Disease
+    diseaseType: Viral
+    infectionRate: 0.0111111 # 100 seconds
+    genotype: 202012
+    effects:
+      DiseaseBehaviorCough: 1
+      DiseaseBehaviorDrowsiness: 2
+      DiseaseBehaviorAsthenia: 0.5
+      DiseaseBehaviorWeakness: 1
+      DiseaseBehaviorHeadache: 2
+      DiseaseBehaviorDisorientation: 0.5
 
 - type: entity
   id: DiseasePlague
@@ -98,7 +132,7 @@
   components:
   - type: Disease
     diseaseType: Parasite
-    infectionRate: 0.003
+    infectionRate: 0.004
     immunityGainRate: 0.5
     genotype: 19845
     effects:
@@ -131,7 +165,6 @@
   components:
   - type: Disease
     diseaseType: Parasite
-    infectionRate: 0.003
     immunityGainRate: 0.5
     genotype: 656565
     effects:
@@ -140,6 +173,46 @@
       DiseaseBehaviorBeeKillMe: 1
       DiseaseBehaviorBeeVomit: 1
       DiseaseBehaviorCough: 1
+
+- type: entity
+  id: DiseaseMechanites
+  parent: DiseaseBase
+  name: Mechanites
+  description: Become the best version of yourself.
+  components:
+  - type: Disease
+    diseaseType: Parasite
+    immunityGainRate: 0.5
+    genotype: 666666
+    effects:
+      DiseaseBehaviorOwO: 1
+      DiseaseBehaviorPainNumbness: 1
+      DiseaseBehaviorEuphoria: 1
+      DiseaseBehaviorOrganFailure: 1
+      DiseaseBehaviorNightVision: 1
+      DiseaseBehaviorCollectiveMind: 1
+      DiseaseBehaviorHealing: 1
+      DiseaseBehaviorFightImmunity: 2
+      DiseaseBehaviorHyperactive: 1
+      DiseaseBehaviorSerenity: 1
+
+- type: entity
+  id: DiseaseInquisitionFlu
+  parent: DiseaseBase
+  name: Inquisition Flu
+  description: Im hope you die in a fire.
+  components:
+  - type: Disease
+    diseaseType: Viral
+    infectionRate: 0.005
+    genotype: 11221122
+    effects:
+      DiseaseBehaviorVomit: 1
+      DiseaseBehaviorFeelUnwell: 2
+      DiseaseBehaviorHeadache: 0.7
+      DiseaseBehaviorCough: 1
+      DiseaseBehaviorSneeze: 0.5
+      DiseaseBehaviorSHC: 2
 
 - type: entity
   id: DiseaseCancer

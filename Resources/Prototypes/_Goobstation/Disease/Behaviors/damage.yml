@@ -58,7 +58,7 @@
       damage:
         types:
           Poison: 2
-          Bloodloss: 1.5
+          Bloodloss: 3
   - type: DiseaseProgressCondition
     minProgress: 0.8
 
@@ -157,7 +157,7 @@
     effects:
     - !type:Vomit
     - !type:SpawnEntity
-      entity: MobAngryBee
+      entity: MobDiseaseAngryBee
       amount: 3
   - type: DiseaseSpreadEffect
     arc: 360
@@ -172,6 +172,25 @@
     delayMax: 45
   - type: DiseaseProgressCondition
     minProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorSHC
+  parent: DiseaseBehaviorBase
+  name: Spontaneous Human Combustion
+  description: Makes you die in fire.
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect 
+    timeScale: false  
+    progressScale: false 
+    effects:
+    - !type:Flammable
+      multiplier: 1
+    - !type:Ignite
+      probability: 0.25
+  - type: DiseaseProgressCondition
+    minProgress: 0.98
 
 - type: entity
   id: DiseaseBehaviorBeeKillMe

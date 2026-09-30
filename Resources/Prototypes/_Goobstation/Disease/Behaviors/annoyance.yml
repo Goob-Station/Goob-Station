@@ -72,6 +72,7 @@
     component: GravityWell
     defaults:
       BaseTangentialAcceleration: 2
+      maxRange: 2
   - type: GravityWell
     maxRange: 4
 
@@ -90,6 +91,7 @@
     component: GravityWell
     defaults:
       BaseRadialAcceleration: 2
+      maxRange: 2
   - type: GravityWell
     maxRange: 4
 
@@ -108,8 +110,57 @@
     component: GravityWell
     defaults:
       BaseRadialAcceleration: -2
+      maxRange: 2
   - type: GravityWell
     maxRange: 4
+
+- type: entity
+  id: DiseaseBehaviorDelusion
+  parent: DiseaseBehaviorBase
+  name: Delusion
+  description: Symptom that makes you talk nonsense.
+  components:
+  - type: DiseaseEffect
+    complexity: 14
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: BackwardsAccent
+
+- type: entity
+  id: DiseaseBehaviorClumsy
+  parent: DiseaseBehaviorBase
+  name: Clumsy
+  description: Symptom that makes you clumsy.
+  components:
+  - type: DiseaseEffect
+    complexity: 10
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: Clumsy
+
+- type: entity
+  id: DiseaseBehaviorCursed
+  parent: DiseaseBehaviorBase
+  name: Curse
+  description: Symptom that... oh fuck...
+  components:
+  - type: DiseaseEffect
+    complexity: 15
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: TileMovement
+
+- type: entity
+  id: DiseaseBehaviorMute
+  parent: DiseaseBehaviorBase
+  name: Mute
+  description: ...
+  components:
+  - type: DiseaseEffect
+    complexity: 15
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: Muted
 
 - type: entity
   id: DiseaseBehaviorOwO
@@ -122,6 +173,7 @@
   - type: DiseaseGrantComponentEffect
     components:
     - type: OwOAccent
+
 
 - type: entity
   id: DiseaseBehaviorBlindness
@@ -265,8 +317,8 @@
     timeScale: true
     effects:
     - !type:TakeStaminaDamage
-        amount: 2
-        probability: 0.1
+        amount: 5
+        probability: 0.2
   - type: DiseaseProgressCondition
     minProgress: 0.5
 
@@ -282,10 +334,42 @@
     timeScale: true
     effects:
     - !type:TakeStaminaDamage
-        amount: 30
+        amount: 50
         probability: 0.1
   - type: DiseaseProgressCondition
-    minProgress: 0.7
+    minProgress: 0.8
+
+- type: entity
+  id: DiseaseBehaviorParasitism
+  parent: DiseaseBehaviorBase
+  name: Parasitism
+  description: Symptom that accelerates hunger.
+  components:
+  - type: DiseaseEffect
+    complexity: 8
+  - type: DiseaseReagentEffect
+    timeScale: false
+    effects:
+    - !type:SatiateHunger
+      factor: -0.1
+
+- type: entity
+  id: DiseaseBehaviorDisorientation
+  parent: DiseaseBehaviorBase
+  name: Disorientation
+  description: Symptom that... what?
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:MovespeedModifier
+      walkSpeedModifier: -1
+      sprintSpeedModifier: -1
+      time: 5
+      probability: 0.5
+  - type: DiseaseProgressCondition
+    minProgress: 0.8
   - type: DiseasePeriodicCondition
     delayMin: 2
-    delayMax: 15
+    delayMax: 25
