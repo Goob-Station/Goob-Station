@@ -158,7 +158,6 @@
     - !type:Vomit
     - !type:SpawnEntity
       entity: MobDiseaseAngryBee
-      amount: 3
   - type: DiseaseSpreadEffect
     arc: 360
     range: 2

@@ -352,8 +352,9 @@
   - type: DiseaseReagentEffect
     timeScale: false  
     progressScale: false 
+    timeScale: false
     effects:
-    - !type:MovespeedModifier
+    - !type:MovementSpeedModifier
       walkSpeedModifier: -1
       sprintSpeedModifier: -1
       time: 5
