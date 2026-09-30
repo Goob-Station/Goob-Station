@@ -21,6 +21,7 @@ internal static class ServerGoobContentIoC
         instance.Register<RedialManager>();
         instance.Register<PollManager>();
         instance.Register<VoiceChatManager>();
+        instance.Register<VoiceLogManager>();
         instance.Register<IJoinQueueManager, JoinQueueManager>();
         instance.Register<IFullScreenImageJumpscare, ServerFullScreenImageJumpscare>();
         instance.Register<ICommonCurrencyManager, ServerCurrencyManager>();

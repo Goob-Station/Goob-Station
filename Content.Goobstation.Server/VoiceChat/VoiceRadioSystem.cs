@@ -74,6 +74,20 @@ public sealed class VoiceRadioSystem : EntitySystem
         return true;
     }
 
+    public bool TryGetMicrophoneChannel(ProtoId<RadioChannelPrototype> id, out RadioChannelPrototype channel)
+    {
+        channel = default!;
+        if (!_enabled ||
+            !_common && id == SharedChatSystem.CommonChannel ||
+            !_prototype.TryIndex(id, out var prototype))
+        {
+            return false;
+        }
+
+        channel = prototype;
+        return true;
+    }
+
     public void GetReceivers(EntityUid radioSource, RadioChannelPrototype channel, List<EntityUid> receivers)
     {
         _radio.GetVoiceReceivers(radioSource, channel, receivers);

@@ -42,7 +42,7 @@ function pushTransmit() {
 
     audioPort.postMessage({
         type: "config",
-        allowed: ready && !!state && state.inGame && !state.muted,
+        allowed: ready && !!state && (state.inGame || state.lobby) && !state.muted,
         pushToTalk: !!(state && state.pushToTalk),
     });
 }

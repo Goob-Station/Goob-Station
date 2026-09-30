@@ -45,3 +45,8 @@
   id: AiMachineView
   kind: source
   path: "/Textures/_Goobstation/Shaders/ai_machine_view.swsl"
+
+- type: shader
+  id: VoiceCanadian
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voice_canadian.swsl"

@@ -345,6 +345,8 @@ function render() {
         setStatus(name, "", "neutral");
     else if (state.muted)
         setStatus("Muted by an admin.", "", "error");
+    else if (state.lobby)
+        setStatus(name, state.canSpeak ? "In the lobby. Everyone in the lobby hears you." : "Lobby voice is off.", "neutral");
     else if (!state.inGame)
         setStatus(name, "Join the round to talk.", "neutral");
     else if (!state.canSpeak)
