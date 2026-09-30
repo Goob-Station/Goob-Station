@@ -1556,9 +1556,9 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 2
+            Poison: 0.5
       - !type:Vomit
-        probability: 0.2
+        probability: 0.1
 
 - type: reagent
   id: Nanotetrazol
@@ -1577,8 +1577,8 @@
       - !type:HealthChange
         damage:
           types:
-            Shock: 1
+            Shock: 0.5
       - !type:TakeStaminaDamage
-        amount: -2
+        amount: -0.5
         immediate: true
 # </Viro>

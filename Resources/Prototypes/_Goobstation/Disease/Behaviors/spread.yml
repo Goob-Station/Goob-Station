@@ -105,7 +105,7 @@
     complexity: 20
   - type: DiseasePeriodicCondition
     delayMin: 4
-    delayMax: 60
+    delayMax: 30
   - type: DiseaseSpreadEffect
     arc: 360
     range: 2
@@ -134,8 +134,8 @@
   - type: DiseaseEffect
     complexity: 40
   - type: DiseasePeriodicCondition
-    delayMin: 20
-    delayMax: 180
+    delayMin: 10
+    delayMax: 60
   - type: DiseaseSpreadEffect
     arc: 360
     range: 3.5
@@ -163,8 +163,8 @@
   - type: DiseaseEffect
     complexity: 40
   - type: DiseasePeriodicCondition
-    delayMin: 15
-    delayMax: 45
+    delayMin: 5
+    delayMax: 30
   - type: DiseaseEmoteEffect
     emote: Cough
   - type: DiseaseSpreadEffect
@@ -175,7 +175,10 @@
       power: 1.5
       chance: 0.75
       spreadType: Aerial
-  - type: DiseaseReagentEffect
+  - type: DiseaseReagentEffect  
+    severityScale: false  
+    timeScale: false  
+    progressScale: false  
     effects:
     - !type:HealthChange
       useTargeting: false

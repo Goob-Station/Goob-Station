@@ -10,8 +10,8 @@
     timeScale: false
     effects:
     - !type:MovementSpeedModifier
-      walkSpeedModifier: 1.35
-      sprintSpeedModifier: 1.35
+      walkSpeedModifier: 1.2
+      sprintSpeedModifier: 1.2
     - !type:GenericStatusEffect
       key: Stutter
       component: StutteringAccent
@@ -30,6 +30,7 @@
   - type: DiseaseReagentEffect
     effects:
     - !type:HealthChange
-      conditions:
+      useTargeting: false
+      damage:
         types:
           Poison: -1

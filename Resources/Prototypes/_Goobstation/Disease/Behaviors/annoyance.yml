@@ -66,10 +66,12 @@
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying
   - type: DiseaseGenericEffect
-    timeScale: false
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     component: GravityWell
     defaults:
-      BaseTangentialAcceleration: 6
+      BaseTangentialAcceleration: 2
   - type: GravityWell
     maxRange: 4
 
@@ -82,10 +84,12 @@
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying
   - type: DiseaseGenericEffect
-    timeScale: false
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     component: GravityWell
     defaults:
-      BaseRadialAcceleration: 6
+      BaseRadialAcceleration: 2
   - type: GravityWell
     maxRange: 4
 
@@ -98,10 +102,12 @@
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying
   - type: DiseaseGenericEffect
-    timeScale: false
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     component: GravityWell
     defaults:
-      BaseRadialAcceleration: -6
+      BaseRadialAcceleration: -2
   - type: GravityWell
     maxRange: 4
 
@@ -202,7 +208,9 @@
   - type: DiseaseEffect
     complexity: 5
   - type: DiseaseReagentEffect
-    timeScale: false
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     effects:
     - !type:ModifyStatusEffect
       effectProto: StatusEffectSeeingRainbow
@@ -257,8 +265,8 @@
     timeScale: true
     effects:
     - !type:TakeStaminaDamage
-        amount: 5
-        probability: 0.33
+        amount: 2
+        probability: 0.1
   - type: DiseaseProgressCondition
     minProgress: 0.5
 
@@ -274,7 +282,10 @@
     timeScale: true
     effects:
     - !type:TakeStaminaDamage
-        amount: 60
-        probability: 0.25
+        amount: 30
+        probability: 0.1
   - type: DiseaseProgressCondition
     minProgress: 0.7
+  - type: DiseasePeriodicCondition
+    delayMin: 2
+    delayMax: 15

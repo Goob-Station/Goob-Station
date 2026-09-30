@@ -24,7 +24,7 @@
   components:
   - type: Disease
     diseaseType: Viral
-    infectionRate: 0.01 # 100 seconds
+    infectionRate: 0.0111111 # 100 seconds
     genotype: 1234
     effects:
       DiseaseBehaviorPoison: 0.4
@@ -42,7 +42,7 @@
   components:
   - type: Disease
     diseaseType: Bacterial
-    infectionRate: 0.01 # 100 seconds
+    infectionRate: 0.0111111 # 100 seconds
     immunityGainRate: 1.5 # immunity speed
     genotype: 1122
     effects:
@@ -104,7 +104,7 @@
     effects:
       DiseaseBehaviorFightImmunity: 0.6
       DiseaseBehaviorEuphoria: 1
-      DiseaseBehaviorHyperactive: 1
+      DiseaseBehaviorHyperactive: 0.6
       DiseaseBehaviorLycancoughy: 1
 
 - type: entity

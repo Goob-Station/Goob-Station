@@ -57,8 +57,8 @@
       useTargeting: false
       damage:
         types:
-          Poison: 1.5
-          Bloodloss: 5
+          Poison: 2
+          Bloodloss: 1.5
   - type: DiseaseProgressCondition
     minProgress: 0.8
 
@@ -76,7 +76,7 @@
       useTargeting: false
       damage:
         types:
-          Asphyxiation: 3
+          Asphyxiation: 2
   - type: DiseaseProgressCondition
     minProgress: 0.5
 
@@ -129,6 +129,9 @@
   - type: DiseaseEffect
     complexity: 40
   - type: DiseaseReagentEffect
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     effects:
     - !type:HealthChange
       useTargeting: false
@@ -137,7 +140,7 @@
         types:
           Bloodloss: 200
   - type: DiseaseProgressCondition
-    minProgress: 1
+    minProgress: 0.95
 
 - type: entity
   id: DiseaseBehaviorBeeVomit
@@ -148,7 +151,9 @@
   - type: DiseaseEffect
     complexity: 30
   - type: DiseaseReagentEffect
-    timeScale: false
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     effects:
     - !type:Vomit
     - !type:SpawnEntity
@@ -182,8 +187,8 @@
       useTargeting: false
       damage:
         types:
-          Poison: 2
-          Piercing: 2
+          Poison: 1
+          Piercing: 1
     - !type:PopupMessage
       type: Local
       visualType: Medium
