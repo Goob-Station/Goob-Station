@@ -27,11 +27,11 @@ public sealed partial class DiseaseSelectionSystem : GameRuleSystem<DiseaseSelec
         var query = EntityQueryEnumerator<DiseaseCarrierComponent, MobStateComponent, HumanoidAppearanceComponent>();  
         while (query.MoveNext(out var target, out _, out var mobState, out _))  
         {  
-            if (!_mobState.IsDead(target, mobState))  
-                continue; 
+            if (_mobState.IsDead(target, mobState))  
+                continue;
 
-            if (!_mind.TryGetMind(target) || _role.MindIsAntagonist(mindId)) 
-                continue;  
+            if (!_mind.TryGetMind(target, out var mindId, out _) || _role.MindIsAntagonist(mindId))  
+                continue;
 
             targetList.Add(target);  
         }  
