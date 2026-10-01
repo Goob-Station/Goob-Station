@@ -1,0 +1,140 @@
+- type: entity
+  parent: BaseGameRule
+  id: WizardFistFight
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LoadMapRule
+    gridPath: /Maps/_Goobstation/Nonstations/wizard_fistfight_arena.yml
+  - type: WizardFistFightRule
+
+- type: entity
+  id: SpawnPointGhostWizardChallenger
+  name: wizard challenger
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: Items
+    sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
+    state: icon
+  - type: Clickable
+  - type: InteractionOutline
+  - type: GhostRole
+    name: ghost-role-information-wizard-challenger-name
+    description: ghost-role-information-wizard-challenger-description
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleWizard
+    raffle:
+      settings: short
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanWizardChallenger
+
+- type: startingGear
+  id: WizardChallengerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+    head: ClothingHeadHatRedwizard
+    outerClothing: ClothingOuterWizardRed
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    gloves: ClothingHandsGlovesWizard
+    id: WizardPDA
+    pocket1: CrowbarWizard
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanWizardChallenger
+  name: wizard challenger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: RandomMetadata
+    nameSegments:
+    - WizardFirst
+    - WizardLast
+    nameFormat: name-format-standard
+  - type: Loadout
+    prototypes: [ WizardChallengerGear ]
+  - type: Wizard
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  - type: WizardFistFightChallenger
+
+# Arena
+
+- type: entity
+  id: WizardFistFightRingRope
+  name: ring ropes
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Tag
+    tags:
+    - Wall
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Structures/Walls/railing.rsi
+    state: side
+    color: "#e8d9c0"
+  - type: Icon
+    sprite: Structures/Walls/railing.rsi
+    state: side
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+
+- type: entity
+  parent: MarkerBase
+  id: WizardFistFightCornerRed
+  name: red corner
+  components:
+  - type: WizardFistFightCorner
+    corner: Red
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
+      state: icon
+
+- type: entity
+  parent: MarkerBase
+  id: WizardFistFightCornerBlue
+  name: blue corner
+  suffix: Wizard Fist Fight
+  components:
+  - type: WizardFistFightCorner
+    corner: Blue
+  - type: Sprite
+    layers:
+    - state: blue
+    - sprite: Clothing/Hands/Gloves/Boxing/boxingblue.rsi
+      state: icon
+
+- type: entity
+  parent: MarkerBase
+  id: WizardFistFightSpectatorSpawn
+  name: ringside spot
+  suffix: Wizard Fist Fight
+  components:
+  - type: WizardFistFightSpectatorSpawn
+  - type: Sprite
+    layers:
+    - state: pink
