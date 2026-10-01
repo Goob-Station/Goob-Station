@@ -9,6 +9,8 @@
   - type: FaceHugger
     knockdownTime: 0
     infectionPrototype: null
+    sleepChemAmount: 5
+    injectionInterval: 15
     damageOnImpact:
       types:
         Blunt: 2

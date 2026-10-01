@@ -252,3 +252,12 @@ selectable-set-research-director-modsuit-desc =
     A modular hardsuit armored perfectly to turn you into a research tank,
     not even the most dangerous of experiments will harm you in this,
     and the worst of assistants will think twice before breaking in sci.
+
+selectable-set-brigmed-modsuit-name = Brigmed 'Trauma' modsuit
+selectable-set-brigmed-modsuit-desc =
+    A modular hardsuit designed for medical personnel operating alongside security.
+    Perfectly fitted for those who want to heal commies in space.
+
+selectable-set-brigmed-voidsuit-name = Brigmed's hardsuit
+selectable-set-brigmed-voidsuit-desc =
+    A light hardsuit built for medic working in dangerous situation.
