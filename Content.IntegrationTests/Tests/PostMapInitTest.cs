@@ -125,6 +125,7 @@ namespace Content.IntegrationTests.Tests
             "Delta",
             "Dev",            // Dev map
             "dm01-entryway",  // Deathmatch
+			"Erstleben",
             "Europa",         // Not in pool.
             "Exo",          // okay fine fuck it.
             "Fland",
