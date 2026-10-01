@@ -978,6 +978,7 @@
   parent: BaseXenoArtifactEffect
   description: Create hostile fauna
   components:
+  - type: AlmanacBladeArtifactSpawner # Goobstation
   - type: XenoArtifactNode
     maxDurability: 4
     maxDurabilityCanDecreaseBy:
