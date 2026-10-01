@@ -181,7 +181,7 @@
     onlyHumanoid: false
   requiredTags:
     Muzzle: 1
-  limit: 2
+  limit: 5
 
 - type: hereticRitual
   id: RawRitual
@@ -198,7 +198,7 @@
     Stomach: 1
   output:
     MobGhoulProphet: 1
-  limit: 2
+  limit: 5
 
 - type: hereticRitual
   id: LonelyRitual

@@ -117,7 +117,7 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> DisablePathfinding =
         CVarDef.Create("goob.disable_pathfinding", false, CVar.SERVER | CVar.SERVERONLY);
 
-  
+
     #region Player Listener
 
     /// <summary>
@@ -443,56 +443,77 @@ public sealed partial class GoobCVars
 
     #region Voicechat
 
-    /// <summary>
-    /// Controls whether the Lidgren voice chat server is enabled and running.
-    /// </summary>
     public static readonly CVarDef<bool> VoiceChatEnabled =
-        CVarDef.Create("voice.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Is the voice chat server enabled?");
+        CVarDef.Create("voice.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether proximity voice chat is enabled.");
 
-    /// <summary>
-    /// The UDP port the Lidgren voice chat server will listen on.
-    /// </summary>
-    public static readonly CVarDef<int> VoiceChatPort =
-        CVarDef.Create("voice.vc_server_port", 1213, CVar.SERVER | CVar.REPLICATED, "Port for the voice chat server.");
+    public static readonly CVarDef<float> VoiceChatRange =
+        CVarDef.Create("voice.range", 10f, CVar.SERVER | CVar.REPLICATED, "Distance in tiles at which voice chat fades out completely.");
+
+    public static readonly CVarDef<string> VoiceChatWebSocketBind =
+        CVarDef.Create("voice.ws_bind", "127.0.0.1:1213", CVar.SERVERONLY, "Address and port the voice chat WebSocket listens on. Expose it through the reverse proxy in front of the status port at /voice/ws.");
+
+    public static readonly CVarDef<string> VoiceChatTrustedProxies =
+        CVarDef.Create("voice.trusted_proxies", "", CVar.SERVERONLY, "Comma-separated proxy IPs whose X-Real-IP and X-Forwarded-For headers are trusted. Loopback and private addresses are always trusted.");
+
+    public static readonly CVarDef<int> VoiceChatMaxConnectionsPerIp =
+        CVarDef.Create("voice.max_connections_per_ip", 6, CVar.SERVERONLY, "Maximum simultaneous voice chat connections from one IP address.");
+
+    public static readonly CVarDef<string> VoiceChatPublicUrl =
+        CVarDef.Create("voice.public_url", "", CVar.SERVERONLY, "Public URL of the voice chat page, e.g. https://example.com/voice/. Derived from hub.server_url when empty.");
+
+    public static readonly CVarDef<string> VoiceChatWebSocketUrl =
+        CVarDef.Create("voice.ws_url", "", CVar.SERVERONLY, "WebSocket URL the voice chat page connects to. Auto-detected by the page when empty.");
+
+    public static readonly CVarDef<bool> VoiceChatRadioEnabled =
+        CVarDef.Create("voice.radio_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether players can speak over radio channels with voice chat.");
+
+    public static readonly CVarDef<bool> VoiceChatRadioCommon =
+        CVarDef.Create("voice.radio_common", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Whether voice chat is allowed on the Common radio channel.");
+
+    public static readonly CVarDef<int> VoiceChatBitrate =
+        CVarDef.Create("voice.bitrate", 64, CVar.SERVERONLY | CVar.ARCHIVE, "Voice bitrate sent to each client in kbps: 64 (16 kHz, best), 48, 32 (8 kHz), 24 or 16. Lower saves bandwidth at the cost of quality.");
+
+    public static readonly CVarDef<bool> VoiceLogEnabled =
+        CVarDef.Create("voice.log_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE, "Whether voice chat audio is recorded to disk for admin review.");
+
+    public static readonly CVarDef<int> VoiceLogRounds =
+        CVarDef.Create("voice.log_rounds", 3, CVar.SERVERONLY | CVar.ARCHIVE, "How many rounds of voice chat recordings to keep on disk.");
+
+    public static readonly CVarDef<bool> VoiceChatLobby =
+        CVarDef.Create("voice.lobby", true, CVar.SERVERONLY | CVar.ARCHIVE, "Whether players in the lobby can talk to everyone else in the lobby.");
+
+    public static readonly CVarDef<bool> VoiceChatDynamicRange =
+        CVarDef.Create("voice.dynamic_range", true, CVar.SERVERONLY | CVar.ARCHIVE, "Whether shouting carries further and whispering stays close, based on each speaker's own normal loudness.");
+
+    public static readonly CVarDef<float> VoiceChatShoutRange =
+        CVarDef.Create("voice.shout_range", 15f, CVar.SERVERONLY | CVar.ARCHIVE, "Distance in tiles that shouted voice carries.");
+
+    public static readonly CVarDef<float> VoiceChatWhisperRange =
+        CVarDef.Create("voice.whisper_range", 3f, CVar.SERVERONLY | CVar.ARCHIVE, "Distance in tiles that whispered voice carries.");
+
+    public static readonly CVarDef<float> VoiceChatShoutThreshold =
+        CVarDef.Create("voice.shout_threshold", 14f, CVar.SERVERONLY | CVar.ARCHIVE, "How many dB above a speaker's normal loudness counts as shouting.");
+
+    public static readonly CVarDef<float> VoiceChatWhisperThreshold =
+        CVarDef.Create("voice.whisper_threshold", 5f, CVar.SERVERONLY | CVar.ARCHIVE, "How many dB below a speaker's normal loudness counts as whispering.");
+
+    public static readonly CVarDef<bool> VoiceChatJoinPrompt =
+        CVarDef.Create("voice.join_prompt", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Offer to open voice chat when joining a server that has it.");
+
+    public static readonly CVarDef<bool> VoiceChatSpeakerList =
+        CVarDef.Create("voice.speaker_list", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Show the list of players you can currently hear on voice chat.");
+
+    public static readonly CVarDef<float> VoiceChatRadioVolume =
+        CVarDef.Create("voice.radio_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE, "Volume multiplier for voice heard over radio, 0 to 2.");
+
+    public static readonly CVarDef<string> VoiceChatRadioMuted =
+        CVarDef.Create("voice.radio_muted", "", CVar.CLIENTONLY | CVar.ARCHIVE, "Comma-separated radio channel IDs whose voice chat you don't want to hear.");
 
     public static readonly CVarDef<float> VoiceChatVolume =
-        CVarDef.Create("voice.volume", 5f, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("voice.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE, "Voice chat playback volume, 0 to 2.");
 
-    /// <summary>
-    /// Multiplier for the adaptive buffer target size calculation.
-    /// </summary>
-    public static readonly CVarDef<float> VoiceChatBufferTargetMultiplier =
-        CVarDef.Create("voice.buffer_target_multiplier", 1.0f, CVar.CLIENTONLY | CVar.ARCHIVE, "Multiplier for adaptive buffer target size calculation.");
-
-    /// <summary>
-    /// Minimum buffer size for voice chat, regardless of network conditions.
-    /// </summary>
-    public static readonly CVarDef<int> VoiceChatMinBufferSize =
-        CVarDef.Create("voice.min_buffer_size", 10, CVar.CLIENTONLY | CVar.ARCHIVE, "Minimum buffer size for voice chat.");
-
-    /// <summary>
-    /// Maximum buffer size for voice chat to prevent excessive memory usage.
-    /// </summary>
-    public static readonly CVarDef<int> VoiceChatMaxBufferSize =
-        CVarDef.Create("voice.max_buffer_size", 50, CVar.CLIENTONLY | CVar.ARCHIVE, "Maximum buffer size for voice chat.");
-
-    /// <summary>
-    /// Enable advanced time-stretching algorithms for better audio quality.
-    /// </summary>
-    public static readonly CVarDef<bool> VoiceChatAdvancedTimeStretch =
-        CVarDef.Create("voice.advanced_time_stretch", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Enable advanced time-stretching for voice chat.");
-
-    /// <summary>
-    /// Enable debug logging for voice chat buffer management.
-    /// </summary>
-    public static readonly CVarDef<bool> VoiceChatDebugLogging =
-        CVarDef.Create("voice.debug_logging", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Enable debug logging for voice chat buffer management.");
-
-    /// <summary>
-    /// Whether to hear audio from your own entity (useful for testing).
-    /// </summary>
     public static readonly CVarDef<bool> VoiceChatHearSelf =
-        CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Whether to hear audio from your own entity.");
+        CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Play your own voice back to you in game.");
 
     #endregion
 

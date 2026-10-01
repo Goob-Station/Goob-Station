@@ -5,6 +5,8 @@
   abstract: true
   id: PlayerSiliconBase #for player controlled silicons. it's a shitty name, idk why they did it like that.
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Robot
   - type: Reactive
     groups:
       Acidic: [Touch]
@@ -70,18 +72,13 @@
   - type: Body
     prototype: Drone
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
-  #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
-  - type: ActiveRadio
-    channels:
-    # - Binary # Goobstation - replaced with collective mind
-    - Common
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
+  - type: IntrinsicRadioTransmitter
     channels:
     - Binary
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
   - type: DoAfter
   - type: Pullable
   - type: Examiner

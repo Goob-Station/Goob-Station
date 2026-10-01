@@ -23,7 +23,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryAtmospherics
 
-
 # Back
 - type: loadout
   id: AtmosphericTechnicianBackpack

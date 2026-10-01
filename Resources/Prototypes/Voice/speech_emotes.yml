@@ -456,6 +456,7 @@
     tags:
     - HarpyEmotes # Omu, allow harpy to weh
     - ReptilianEmotes # Goob - restrict wehs to the OG lizz
+    - HarpyEmotes # Goob - harpy can also weh
   blacklist:
     tags:
     - SiliconEmotes
@@ -512,7 +513,7 @@
     - Explosive
     tags:
     - SiliconEmotes
-    - HarpyEmotes # Omu, allow harpy to beep
+    - HarpyEmotes # Goob - more harpy emotes
   chatTriggers:
     - beep
     - beeps
@@ -530,7 +531,7 @@
     - Silicon
     tags:
     - SiliconEmotes
-    - HarpyEmotes # Omu, allow harpy to chime
+    - HarpyEmotes # Goob - more harpy emotes
   chatTriggers:
     - chime
     - chimes
@@ -548,7 +549,7 @@
     - Silicon
     tags:
     - SiliconEmotes
-    - HarpyEmotes # Omu, allow harpy to buzztwo
+    - HarpyEmotes # Goob - more harpy emotes
   chatTriggers:
     - buzztwice
     - buzzstwice
@@ -572,7 +573,7 @@
     - Silicon
     tags:
     - SiliconEmotes
-    - HarpyEmotes # Omu, allow harpy to ping
+    - HarpyEmotes # Goob - more harpy emotes
   chatTriggers:
     - ping
     - pings

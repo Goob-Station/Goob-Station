@@ -106,6 +106,7 @@
     - Security
   - type: MartialArtBlocked # Goobstation - Martial Arts
     form: CorporateJudo # Goobstation - Martial Arts
+    staminaDmgBlock: True # Goob
 
 - type: entity
   name: truncheon

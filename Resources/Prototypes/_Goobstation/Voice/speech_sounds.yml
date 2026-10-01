@@ -25,3 +25,12 @@
     path: /Audio/Items/brokenbikehorn.ogg
   exclaimSound:
     path: /Audio/Items/desk_bell_ring.ogg
+
+- type: speechSounds
+  id: GoobMonkey
+  saySound:
+    path: /Audio/_Goobstation/Animals/Monkey/monkey.ogg
+  askSound:
+    path: /Audio/_Goobstation/Animals/Monkey/monkey_ask.ogg
+  exclaimSound:
+    path: /Audio/Animals/monkey_scream.ogg
