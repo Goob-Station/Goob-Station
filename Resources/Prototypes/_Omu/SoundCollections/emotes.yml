@@ -3,9 +3,9 @@
   id: ReptilianScream
   files:
   - /Audio/Voice/Reptilian/reptilian_scream.ogg
-  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_2.ogg
-  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_3.ogg
-  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_4.ogg
+  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_2.ogg #rmc
+  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_3.ogg #rmc
+  - /Audio/_Omu/Voice/Reptilian/humanoid_lizard_scream_4.ogg #rmc
 
 # Vulp emotes
 - type: soundCollection
