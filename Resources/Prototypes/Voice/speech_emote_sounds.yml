@@ -189,9 +189,6 @@
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
     Rattle: #Omu
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
-    ReptilianScreech: #Omu
-      collection: ReptilianScreech
-
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -240,8 +237,6 @@
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_purr.ogg
     Rattle: #Omu
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
-    ReptilianScreech: #Omu
-      collection: ReptilianScreech
 
 - type: emoteSounds
   id: MaleSlime

@@ -73,6 +73,7 @@
     - gekkers
     - gekkering
     - gekkered
+
 - type: emote # Omu
   id: Rattle
   name: chat-emote-name-rattle
@@ -86,18 +87,3 @@
     - rattles
     - rattle
     - rattled
-
-- type: emote # Omu
-  id: ReptilianScreech
-  name: chat-emote-name-reptile-screech
-  category: Vocal
-  icon: _Goobstation/Interface/Emotes/scream.png
-  chatMessages: ["chat-emote-msg-reptile-screech"]
-  whitelist:
-    tags:
-    - ReptilianEmotes
-  chatTriggers:
-    - screech
-    - screeches
-    - screeching
-    - screeched
