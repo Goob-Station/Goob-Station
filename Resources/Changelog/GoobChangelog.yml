@@ -25480,3 +25480,9 @@ Entries:
       message: Hev, force gun and tether gun resprite
   id: 2922
   time: '2026-10-01T10:01:58.0000000+00:00'
+- author: DoremyZerg
+  changes:
+    - type: Add
+      message: 'Three new admin plushies of characters: Nyxoma, Aya and Harel.'
+  id: 2923
+  time: '2026-10-01T14:22:56.0000000+00:00'
