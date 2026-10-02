@@ -1,17 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Numerics;
 using Content.Goobstation.Shared.Hallucinations;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Shared.Database;
-using Content.Server.NPC.Systems;
-using Content.Server.Weapons.Melee;
 using Content.Shared.Chat;
 using Content.Shared.Eye;
 using Content.Shared.Humanoid;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.NPC;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffectNew.Components;
@@ -19,7 +14,6 @@ using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -38,15 +32,11 @@ public sealed class HallucinationSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NPCSteeringSystem _steering = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
 
     public override void Initialize()
@@ -78,10 +68,6 @@ public sealed class HallucinationSystem : EntitySystem
             if (victim is { } v)
                 UpdateHallucinating(v, comp, now);
         }
-
-        var phantoms = EntityQueryEnumerator<PhantomHallucinationComponent>();
-        while (phantoms.MoveNext(out var uid, out var phantom))
-            UpdatePhantom(uid, phantom, now);
     }
 
     private void UpdateVictim(Entity<HallucinatingComponent> ent, EntityUid? victim)
@@ -90,10 +76,7 @@ public sealed class HallucinationSystem : EntitySystem
             return;
 
         if (ent.Comp.CurrentVictim is { } old)
-        {
             SetHallucinationVisibility(old, false);
-            CleanupPhantoms(old);
-        }
 
         if (victim is { } fresh)
             SetHallucinationVisibility(fresh, true);
@@ -107,7 +90,6 @@ public sealed class HallucinationSystem : EntitySystem
             return;
 
         SetHallucinationVisibility(victim, false);
-        CleanupPhantoms(victim);
     }
 
     private void SetHallucinationVisibility(EntityUid victim, bool enabled)
@@ -119,16 +101,6 @@ public sealed class HallucinationSystem : EntitySystem
             ? eye.VisibilityMask | (int) VisibilityFlags.Hallucination
             : eye.VisibilityMask & ~(int) VisibilityFlags.Hallucination;
         _eye.SetVisibilityMask(victim, mask, eye);
-    }
-
-    private void CleanupPhantoms(EntityUid victim)
-    {
-        var query = EntityQueryEnumerator<PhantomHallucinationComponent>();
-        while (query.MoveNext(out var mob, out var phantom))
-        {
-            if (phantom.Victim == victim)
-                QueueDel(mob);
-        }
     }
 
     #region Timer
@@ -180,9 +152,6 @@ public sealed class HallucinationSystem : EntitySystem
     {
         switch (effect)
         {
-            case MobHallucinationEffect mob:
-                SpawnPhantoms(victim, mob);
-                break;
             case SoundHallucinationEffect sound:
                 PlayPhantomSound(victim, sound);
                 break;
@@ -255,36 +224,6 @@ public sealed class HallucinationSystem : EntitySystem
         _chatManager.ChatMessageToOne(ChatChannel.Local, message, wrapped, speaker, false, session.Channel);
     }
 
-    private void SpawnPhantoms(EntityUid victim, MobHallucinationEffect effect)
-    {
-        if (effect.Mobs.Count == 0)
-            return;
-
-        var xform = Transform(victim);
-        if (xform.GridUid == null)
-            return;
-
-        var count = _random.Next(effect.CountMin, effect.CountMax + 1);
-        for (var i = 0; i < count; i++)
-        {
-            var distance = _random.NextFloat(effect.RangeMin, effect.RangeMax);
-            var coords = xform.Coordinates.Offset(_random.NextAngle().ToVec() * distance);
-
-            var mob = Spawn(_random.Pick(effect.Mobs), coords);
-            MakeHallucination(mob, victim);
-
-            var phantom = EnsureComp<PhantomHallucinationComponent>(mob);
-            phantom.Victim = victim;
-            phantom.AttackSound = effect.AttackSound;
-            phantom.AttackRange = effect.AttackRange;
-            phantom.AttackDelayMin = effect.AttackDelayMin;
-            phantom.AttackDelayMax = effect.AttackDelayMax;
-
-            EnsureComp<ActiveNPCComponent>(mob);
-            _steering.Register(mob, new EntityCoordinates(victim, Vector2.Zero));
-        }
-    }
-
     private void PlayPhantomSound(EntityUid victim, SoundHallucinationEffect effect)
     {
         if (!_player.TryGetSessionByEntity(victim, out var session))
@@ -303,37 +242,6 @@ public sealed class HallucinationSystem : EntitySystem
             return;
 
         RaiseNetworkEvent(new SetHallucinationAppearanceMessage(effect.Prototypes, effect.States, effect.Sound), session);
-    }
-
-    #endregion
-
-    #region Phantoms
-
-    private void UpdatePhantom(EntityUid uid, PhantomHallucinationComponent phantom, TimeSpan now)
-    {
-        var victim = phantom.Victim;
-        if (TerminatingOrDeleted(victim) || _mobState.IsDead(victim))
-            return;
-
-        _steering.Register(uid, new EntityCoordinates(victim, Vector2.Zero));
-
-        if (now < phantom.NextAttack
-            || !Transform(uid).Coordinates.TryDistance(EntityManager, Transform(victim).Coordinates, out var distance)
-            || distance > phantom.AttackRange)
-            return;
-
-        phantom.NextAttack = now + TimeSpan.FromSeconds(_random.NextFloat(phantom.AttackDelayMin, phantom.AttackDelayMax));
-        Swing(uid, victim, phantom);
-    }
-
-    private void Swing(EntityUid uid, EntityUid victim, PhantomHallucinationComponent phantom)
-    {
-        var diff = _transform.GetWorldPosition(victim) - _transform.GetWorldPosition(uid);
-        if (diff.LengthSquared() > 0f)
-            _melee.DoLunge(uid, uid, new Angle(diff), Vector2.Normalize(diff) * 0.5f, null, Angle.Zero, false, predicted: false);
-
-        if (phantom.AttackSound != null && _player.TryGetSessionByEntity(victim, out var session))
-            _audio.PlayEntity(phantom.AttackSound, session, uid);
     }
 
     #endregion

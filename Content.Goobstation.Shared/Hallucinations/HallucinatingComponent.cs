@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Hallucinations;
 
 /// <summary>
-/// While this is present the entity starts hallucinating. Hallucinations include fake mobs, fake clothes / items on players, and fake sounds.
+/// While this is present the entity starts hallucinating. Hallucinations include fake clothes / items on players, fake sounds, fake speech and people looking like monsters.
 /// </summary>
 [RegisterComponent]
 public sealed partial class HallucinatingComponent : Component

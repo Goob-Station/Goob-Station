@@ -6,45 +6,6 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Hallucinations;
 
 /// <summary>
-/// Spawns phantom mobs near the victim.
-/// </summary>
-public sealed partial class MobHallucinationEffect : HallucinationEffect
-{
-    [DataField(required: true)]
-    public List<EntProtoId> Mobs = new();
-
-    [DataField]
-    public int CountMin = 1;
-
-    [DataField]
-    public int CountMax = 2;
-
-    /// <summary>
-    /// How far from the victim a phantom spawns.
-    /// </summary>
-    [DataField]
-    public float RangeMin = 3f;
-
-    [DataField]
-    public float RangeMax = 6f;
-
-    /// <summary>
-    /// How close a phantom must be to swing at the victim.
-    /// </summary>
-    [DataField]
-    public float AttackRange = 1.5f;
-
-    [DataField]
-    public float AttackDelayMin = 1.5f;
-
-    [DataField]
-    public float AttackDelayMax = 3f;
-
-    [DataField]
-    public SoundSpecifier? AttackSound = new SoundCollectionSpecifier("Punch");
-}
-
-/// <summary>
 /// Plays a sound from a random point near the victim.
 /// </summary>
 public sealed partial class SoundHallucinationEffect : HallucinationEffect

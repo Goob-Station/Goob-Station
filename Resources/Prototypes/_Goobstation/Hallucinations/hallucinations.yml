@@ -2,7 +2,6 @@
   id: HallucinationGroups
   weights:
     HallucinationGroupSounds: 3
-    HallucinationGroupMobs: 2
     HallucinationGroupMorphs: 2
     HallucinationGroupAppearances: 2
     HallucinationGroupSpeech: 1
@@ -34,17 +33,6 @@
     HallucinationBuzzing: 1.5
     HallucinationVentHiss: 1.5
     HallucinationAirlockCreak: 1.5
-
-- type: weightedRandom
-  id: HallucinationGroupMobs
-  weights:
-    HallucinationSpiders: 1.5
-    HallucinationClownSpiders: 1
-    HallucinationVermin: 1.5
-    HallucinationBeasts: 1
-    HallucinationXenos: 0.8
-    HallucinationSlimes: 1
-    HallucinationHorrors: 0.5
 
 - type: weightedRandom
   id: HallucinationGroupMorphs
@@ -248,79 +236,6 @@
     !type:SoundHallucinationEffect
     sound:
       path: /Audio/Machines/airlock_creaking.ogg
-
-# Mobs
-
-- type: hallucination
-  id: HallucinationSpiders
-  effect:
-    !type:MobHallucinationEffect
-    mobs:
-    - MobHallucinationSpider
-    countMin: 1
-    countMax: 2
-
-- type: hallucination
-  id: HallucinationClownSpiders
-  effect:
-    !type:MobHallucinationEffect
-    mobs:
-    - MobHallucinationClownSpider
-    countMin: 1
-    countMax: 3
-
-- type: hallucination
-  id: HallucinationVermin
-  effect:
-    !type:MobHallucinationEffect
-    mobs:
-    - MobHallucinationRat
-    - MobHallucinationCockroach
-    - MobHallucinationBat
-    - MobHallucinationSnake
-    countMin: 1
-    countMax: 3
-
-- type: hallucination
-  id: HallucinationBeasts
-  effect:
-    !type:MobHallucinationEffect
-    mobs:
-    - MobHallucinationBear
-    - MobHallucinationCarp
-    - MobHallucinationSharkminnow
-    countMin: 1
-    countMax: 2
-
-- type: hallucination
-  id: HallucinationXenos
-  effect:
-    !type:MobHallucinationEffect
-    mobs:
-    - MobHallucinationXeno
-    - MobHallucinationRunner
-    countMin: 1
-    countMax: 2
-
-- type: hallucination
-  id: HallucinationSlimes
-  effect:
-    !type:MobHallucinationEffect
-    mobs:
-    - MobHallucinationSlime
-    countMin: 1
-    countMax: 2
-
-- type: hallucination
-  id: HallucinationHorrors
-  effect:
-    !type:MobHallucinationEffect
-    mobs:
-    - MobHallucinationGoliath
-    - MobHallucinationHellspawn
-    - MobHallucinationFlesh
-    countMin: 1
-    countMax: 1
 
 # A person looks like one of the mobs (only the victim sees it)
 
