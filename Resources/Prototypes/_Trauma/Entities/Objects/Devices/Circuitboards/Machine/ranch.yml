@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: RanchIncubatorCircuitboard
+  name: incubator machine board
+  description: A machine printed circuit board for an incubator.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: RanchIncubator
+    stackRequirements:
+      Manipulator: 1
+      Steel: 2
+      Cable: 4

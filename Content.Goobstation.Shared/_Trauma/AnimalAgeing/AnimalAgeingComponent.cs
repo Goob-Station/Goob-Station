@@ -1,0 +1,53 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
+namespace Content.Goobstation.Shared._Trauma.AnimalAgeing;
+
+/// <summary>
+/// Animals with this component will age up a mob a "year" each ageing update
+/// </summary>
+[RegisterComponent, AutoGenerateComponentState, NetworkedComponent, AutoGenerateComponentPause]
+public sealed partial class AnimalAgeingComponent : Component
+{
+    [DataField]
+    public int AdultHoodYear = 15;
+
+    [DataField]
+    public int SeniorHoodYear = 30;
+
+    [DataField]
+    public int DeathYear = 35;
+
+    [DataField, AutoNetworkedField]
+    public int YearsOld;
+
+    /// <summary>
+    ///     Minimum age time used.
+    /// </summary>
+    [DataField]
+    public float AgeTimeMin = 15f;
+
+    /// <summary>
+    ///     Maximum age time used.
+    /// </summary>
+    [DataField]
+    public float AgeTimeMax = 30f;
+
+    [DataField]
+    public int YearsPerUpdate = 1;
+
+    [DataField, AutoNetworkedField]
+    public AnimalAgeState CurrentAgeState = AnimalAgeState.Baby;
+
+    [DataField, AutoPausedField]
+    public TimeSpan NextAgeTime = TimeSpan.Zero;
+}
+
+[Serializable, NetSerializable]
+public enum AnimalAgeState: byte
+{
+    Baby,
+    Adult,
+    Senior,
+}
