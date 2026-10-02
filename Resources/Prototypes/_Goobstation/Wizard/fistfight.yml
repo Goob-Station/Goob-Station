@@ -4,7 +4,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: LoadMapRule
-    gridPath: /Maps/_Goobstation/Nonstations/wizard_fistfight_arena.yml
+    mapPath: /Maps/_Goobstation/Nonstations/wizard_fistfight_arena.yml
   - type: WizardFistFightRule
 
 - type: entity
