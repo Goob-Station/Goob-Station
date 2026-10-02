@@ -48,16 +48,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      735: Critical
-      750: Dead
+      400: Critical
+      425: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      600: 0.9
-      645: 0.7
-      690: 0.6
+      375: 0.9
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2.5
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
   - type: MeleeWeapon
     damage:
       groups:
@@ -78,6 +76,9 @@
     - Hissing
     - Draconic
     - TauCetiBasic
+  - type: QueenRoar
+  - type: XenomorphShoveTracker
+    shoveThreshold: 1
   # - type: GuideHelp
   #   guides:
   #   - XenomorphQueen
@@ -107,6 +108,4 @@
     baseSprintSpeed: 3.8
   - type: SlowOnDamage
     speedModifierThresholds:
-      600: 0.7
-      645: 0.6
-      690: 0.5
+      375: 0.9
