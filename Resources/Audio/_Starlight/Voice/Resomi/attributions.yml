@@ -1,6 +1,16 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- files: [resomi_chirp1.ogg, resomi_chirp2.ogg, resomi_chirp3.ogg, resomi_chirp4.ogg, resomi_chirp5.ogg]
+- files: ["resomi_chirp1.ogg, resomi_chirp2.ogg, resomi_chirp3.ogg, resomi_chirp4.ogg, resomi_chirp5.ogg"]
   copyright: "Bird Chirps by whiskeyecho, Taken from https://freesound.org/"
   license: "CC0-1.0"
-  source: https://freesound.org/s/727256/
+  source: "https://freesound.org/s/727256/"
+
+- files: ["BirdChirp.ogg", "BirdGiggle.ogg","BirdSquawk.ogg", "BirdSting.ogg", "HighBirdCall.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from public wildlife sound library xeno-canto.org"
+  source: "https://xeno-canto.org"
+
+- files: ["resomi_deathgrasp.ogg"]
+  license: "CC0-1.0"
+  copyright: "Moluccan Cockatoo - Bird Call taken from freesound.org"
+  source: "https://freesound.org/people/Shark_Anthony/sounds/703552/"

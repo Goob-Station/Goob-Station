@@ -1,0 +1,19 @@
+- files: ["feroxi-scream1"]
+  license: "CC-BY-4.0" # original asset license is actually CC-BY-2.5, but the validator doesn't recognize that
+  copyright: "Modified from Humpback-Whale-Song-on-the-Southern-Ocean-Feeding-Grounds-Implications-for-Cultural-Transmission-pone, wikimedia"
+  source: "https://commons.wikimedia.org/w/index.php?curid=29947202"
+
+- files: ["feroxi-cry1", "feroxi-cry2", "feroxi-scream2"]
+  license: "CC0-1.0"
+  copyright: "Modified from Killer whale.ogg, wikimedia"
+  source: "https://commons.wikimedia.org/wiki/File:Killer_whale.ogg"
+
+- files: ["feroxi-chirp2", "feroxi-chirp3"]
+  license: "CC-BY-4.0"
+  copyright: "Modified from Size-does-matter-crocodile-mothers-react-more-to-the-voice-of-smaller-offspring-srep15547-s2, from wikimedia"
+  source: "https://commons.wikimedia.org/wiki/File:Size-does-matter-crocodile-mothers-react-more-to-the-voice-of-smaller-offspring-srep15547-s2.oga"
+
+- files: ["feroxi-squeak"]
+  license: "CC-BY-4.0"
+  copyright: "Modified from Planete Sauvage 20180608 02, wikimedia"
+  source: "https://commons.wikimedia.org/wiki/File:Planete_Sauvage_20180608_02.webm"
