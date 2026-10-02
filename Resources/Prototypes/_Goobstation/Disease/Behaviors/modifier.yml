@@ -22,6 +22,8 @@
     - !type:MovementSpeedModifier
       walkSpeedModifier: 0.65
       sprintSpeedModifier: 0.65
+  - type: DiseaseProgressCondition
+    minProgress: 0.2
 
 - type: entity
   id: DiseaseBehaviorTemperature
@@ -38,6 +40,8 @@
       - !type:TemperatureCondition
         max: 393.15 # stops at 100c
       amount: 8000
+  - type: DiseaseProgressCondition
+    minProgress: 0.3
 
 - type: entity
   id: DiseaseBehaviorCold

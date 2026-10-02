@@ -14,6 +14,8 @@
         tableId: CalmPestEventsTable
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
+      - !type:NestedSelector
+        tableId: DiseaseEventTable # GoobStation - disease
 
 - type: entityTable
   id: BasicAntagEventsTableLowpop
