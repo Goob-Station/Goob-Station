@@ -14,7 +14,6 @@ namespace Content.Goobstation.Shared.SlotMachine;
 /// </summary>
 public sealed partial class PrizeSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -26,7 +25,7 @@ public sealed partial class PrizeSystem : EntitySystem
     /// </summary>
     /// <param name="prizes">List of prize prototypes to pick from</param>
     /// <returns></returns>
-    public PrizePrototype GetRandomPrize(List<ProtoId<PrizePrototype>> prizes)
+    public PrizePrototype GetRandomPrize(List<ProtoId<PrizePrototype>> prizes, IRobustRandom random)
     {
         Dictionary<PrizePrototype, float> picks = new();
 
@@ -40,7 +39,7 @@ public sealed partial class PrizeSystem : EntitySystem
         var sum = picks.Values.Sum();
         var accumulated = 0f;
 
-        var rand = _random.NextFloat() * sum;
+        var rand = random.NextFloat() * sum;
 
         foreach (var (prize, weight) in picks)
         {
@@ -60,19 +59,24 @@ public sealed partial class PrizeSystem : EntitySystem
     /// </summary>
     /// <param name="prizes"></param>
     /// <param name="uid">Whatever entity is spawning the prize</param>
-    public void HandlePrize(List<ProtoId<PrizePrototype>> prizes, EntityUid uid)
+    public List<EntityUid> HandlePrize(List<ProtoId<PrizePrototype>> prizes, EntityUid uid, IRobustRandom random)
     {
-        var prize = GetRandomPrize(prizes);
+        var prize = GetRandomPrize(prizes, random);
 
         var win = _entityTable.GetSpawns(prize.PrizeTable);
 
+
+        List<EntityUid> won = [];
         foreach (var item in win)
         {
-            PredictedSpawnAtPosition(item, uid.ToCoordinates());
+            var p = PredictedSpawnAtPosition(item, uid.ToCoordinates());
+            won.Add(p);
         }
 
         HandleAnnouncement(prize, uid);
         _audio.PlayPredicted(prize.WinSound, uid, uid);
+
+        return won;
     }
 
     private void HandleAnnouncement(PrizePrototype prize, EntityUid uid)
@@ -83,9 +87,8 @@ public sealed partial class PrizeSystem : EntitySystem
         switch (prize.AnnounceType)
         {
             case AnnounceType.Speak:
-                _chatSystem.TrySendInGameICMessage(uid, Loc.GetString(prize.WinMessage), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
+                _chatSystem.TrySendInGameICMessage(uid, Loc.GetString(prize.WinMessage), InGameICChatType.Speak, hideChat: false, hideLog: false, checkRadioPrefix: false);
                 break;
-
             case AnnounceType.Popup:
                 _popupSystem.PopupPredicted(Loc.GetString(prize.WinMessage), uid, uid);
                 break;
