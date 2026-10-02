@@ -26,7 +26,6 @@ wizard-fistfight-no-magic = No magic in the ring!
 wizard-fistfight-unknown-fighter = an unknown wizard
 
 wizard-fistfight-announcer = Space Wizard Federation
-wizard-fistfight-begin = A challenger has stepped forward! {$caster} versus {$challenger}: WIZARD FIST FIGHT!
 wizard-fistfight-forfeit = The challenger {$winner} steps into the ring and finds nobody waiting. Victory by forfeit!
 
 wizard-fistfight-intro =
