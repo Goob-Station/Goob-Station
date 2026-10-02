@@ -6,6 +6,12 @@
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi
   - type: Organ
+    intCap: 10000 # goob - insane health so xenos effectively can't take organ damage
+    integrity: 10000
+    integrityThresholds:
+      Normal: 10000
+      Damaged: 1
+      Destroyed: 0
   - type: Edible
   - type: Extractable
     grindableSolutionName: organ
@@ -39,11 +45,15 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: SulfuricAcid
+        - ReagentId: FluorosulfuricAcid #Goob
           Quantity: 10
+        - ReagentId: GreyMatter #Goob
+          Quantity: 5 #Goob
       food:
-        maxVol: 5
+        maxVol: 10
         reagents:
+        - ReagentId: FluorosulfuricAcid #goob
+          Quantity: 5 #goob
         - ReagentId: GreyMatter
           Quantity: 5
 

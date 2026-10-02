@@ -497,4 +497,10 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
     {
         return this.IsPowered(entity, EntityManager);
     }
+
+    public void KeepCallAlive(Entity<TelephoneComponent> entity) // Goobstation - Voice chat
+    {
+        if (entity.Comp.CurrentState == TelephoneState.InCall)
+            entity.Comp.StateStartTime = _timing.CurTime;
+    }
 }

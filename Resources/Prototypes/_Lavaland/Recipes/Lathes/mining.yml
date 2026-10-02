@@ -1,0 +1,40 @@
+- type: latheRecipe
+  id: PickaxeDiamond
+  result: PickaxeDiamond
+  categories:
+  - Weapons
+  completetime: 6
+  materials:
+    Steel: 500
+    Diamond: 100
+    Wood: 250
+
+- type: latheRecipe
+  id: MiningDrillSuper
+  result: MiningDrillSuper
+  categories:
+  - Weapons
+  completetime: 10
+  materials:
+    Gold: 1000
+    Steel: 500
+    Plastic: 300
+    Silver: 200
+    Plasma: 200
+    BSCrystal: 200
+    Diamond: 100
+
+- type: latheRecipe
+  id: WeaponSuperPlasmaCutter
+  result: WeaponSuperPlasmaCutterEmpty
+  categories:
+  - Weapons
+  completetime: 9
+  materials:
+    Gold: 800
+    Steel: 400
+    Glass: 300
+    Plasma: 300
+    Silver: 200
+    BSCrystal: 200
+    Diamond: 100

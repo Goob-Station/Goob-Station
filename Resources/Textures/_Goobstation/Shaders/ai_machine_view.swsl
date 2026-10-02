@@ -1,0 +1,19 @@
+light_mode unshaded;
+
+// Remaps a sprite to a blue gradient based on luminance:
+void fragment() {
+    highp vec4 sprite = zTexture(UV);
+    if (sprite.a == 0.0) {
+        discard;
+    }
+
+    highp float lum = zGrayscale(sprite.rgb);
+
+    lum = clamp((lum - 0.5) * 1.8 + 0.5, 0.0, 1.0);
+    lum = lum * lum * (3.0 - 2.0 * lum);
+
+    highp vec3 darkBlue = vec3(0.0, 0.02, 0.25);
+    highp vec3 lightBlue = vec3(0.65, 0.95, 1.00);
+
+    COLOR = vec4(mix(darkBlue, lightBlue, lum), sprite.a);
+}

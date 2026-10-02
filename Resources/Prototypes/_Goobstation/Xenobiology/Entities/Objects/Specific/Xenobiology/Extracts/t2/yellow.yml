@@ -9,39 +9,25 @@
       state: core
       color: "#ffff1a"
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-fail" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractFail
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
       - !type:SpawnEntity
         entity: XenobioVolatileOrgan
         number: 1
-        shouldScale: false
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
       - !type:Emp
   - type: Tag
     tags:
