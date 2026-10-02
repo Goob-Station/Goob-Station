@@ -29,10 +29,11 @@ wizard-fistfight-announcer = Space Wizard Federation
 wizard-fistfight-begin = A challenger has stepped forward! {$caster} versus {$challenger}: WIZARD FIST FIGHT!
 wizard-fistfight-forfeit = The challenger {$winner} steps into the ring and finds nobody waiting. Victory by forfeit!
 
-wizard-fistfight-intro-welcome = Ladies, gentlemen, and assorted crew! Welcome to tonights main event! a bare-knuckle, no-magic, no-mercy WIZARD FIST FIGHT!
-wizard-fistfight-intro-red = In the red corner, the challenger, fighting for a special grimoire: {$red}!
-wizard-fistfight-intro-blue = In the blue corner, the wizard who started all this, fighting for 15 Wiz€oins™ and the right to keep breathing: {$blue}!
-wizard-fistfight-intro-rules = The rules: {$rounds} rounds. Gloves only. No spells, no wands, no tricks. A knockdown ends the round. The loser gets mopped up. Fighters, to your corners!
+wizard-fistfight-intro =
+    Ladies, gentlemen, and assorted crew! Welcome to tonights main event! a bare-knuckle, no-magic, no-mercy WIZARD FIST FIGHT!
+    In the red corner, the challenger, fighting for a special grimoire: {$red}!
+    In the blue corner, the wizard who started all this, fighting for 15 Wiz€oins™ and the right to keep breathing: {$blue}!
+    The rules: {$rounds} rounds. Gloves only. No spells, no wands, no tricks. A knockdown ends the round. The loser gets mopped up. Fighters, to your corners!
 
 wizard-fistfight-round-start = ROUND {$round}! FIGHT!
 wizard-fistfight-sudden-death-start = SUDDEN DEATH! First one down loses! FIGHT!
@@ -42,9 +43,11 @@ wizard-fistfight-round-knockdown = {$loser} goes DOWN! Round {$round} to {$winne
 wizard-fistfight-round-double-knockdown = Both fighters hit the mat at once! Round {$round} is a wash! Red {$red}: {$redScore}, Blue {$blue}: {$blueScore}.
 wizard-fistfight-round-decision = Time! {$winner} took the lesser beating and claims round {$round}! Red {$red}: {$redScore}, Blue {$blue}: {$blueScore}.
 wizard-fistfight-round-even = Time! Neither wizard gave an inch. Round {$round} is a draw! Red {$red}: {$redScore}, Blue {$blue}: {$blueScore}.
+wizard-fistfight-round-absent = {$loser} is standing there like a scarecrow! Round {$round} to {$winner} by default! Red {$red}: {$redScore}, Blue {$blue}: {$blueScore}.
 
 wizard-fistfight-reason-points = on points
 wizard-fistfight-reason-out = after their opponent failed to continue
-wizard-fistfight-reason-stamina = by the Federation's ruling, for being the last one still able to stand
 
 wizard-fistfight-verdict = IT'S OVER! Your winner, {$reason}: {$winner}! Say your goodbyes, {$loser}.
+wizard-fistfight-draw = IT'S OVER, AND IT'S A DRAW! The Federation does not pay for ties. {$red}, {$blue}: say your goodbyes to each other.
+wizard-fistfight-voided = Neither of these two is conscious enough to throw a punch. The Federation calls it off. Go home, all of you.
