@@ -163,8 +163,7 @@
         amount: -0.5
       - !type:ModifyBloodLevel
         amount: 3
-    Food:
-      effects:
+      # Adding it part of a food as well makes you metabolize it twice as fast. Moved SatiateHunger to Medicine to have it properly be metabolized.
       - !type:SatiateHunger
         factor: 1.5 # 50% less
 
