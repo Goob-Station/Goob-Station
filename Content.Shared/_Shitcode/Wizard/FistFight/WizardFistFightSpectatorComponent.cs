@@ -1,6 +1,6 @@
 using Robust.Shared.Map;
 
-namespace Content.Shared._Goobstation.Wizard.FistFight;
+namespace Content.Shared._Shitcode.Wizard.FistFight;
 
 [RegisterComponent]
 public sealed partial class WizardFistFightSpectatorComponent : Component

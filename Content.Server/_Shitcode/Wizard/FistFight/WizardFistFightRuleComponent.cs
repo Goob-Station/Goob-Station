@@ -4,7 +4,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.FistFight;
+namespace Content.Server._Shitcode.Wizard.FistFight;
 
 [RegisterComponent, Access(typeof(WizardFistFightSystem))]
 public sealed partial class WizardFistFightRuleComponent : Component
