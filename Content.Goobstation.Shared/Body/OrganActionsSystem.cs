@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Cyberware;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
@@ -10,6 +11,7 @@ namespace Content.Goobstation.Shared.Body;
 public sealed class OrganActionsSystem : EntitySystem
 {
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly CyberneticsSystem _cybernetics = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
 
@@ -26,6 +28,7 @@ public sealed class OrganActionsSystem : EntitySystem
         SubscribeLocalEvent<OrganActionsComponent, OrganEnabledEvent>(OnEnabled);
         SubscribeLocalEvent<OrganActionsComponent, OrganDisabledEvent>(OnDisabled);
         SubscribeLocalEvent<OrganActionsComponent, OrganRemovedEvent>(OnRemoved);
+        SubscribeLocalEvent<OrganActionsComponent, CyberwareChangedEvent>(OnCyberwareChanged);
     }
 
     private void OnMapInit(Entity<OrganActionsComponent> ent, ref MapInitEvent args)
@@ -60,6 +63,19 @@ public sealed class OrganActionsSystem : EntitySystem
     {
         if (args.Organ.Comp.Body is {} body)
             _actions.RemoveProvidedActions(body, ent.Owner);
+    }
+
+    /// <summary>
+    /// Exists to disable actions as the cybernetic is disabeld.
+    /// </summary>
+    private void OnCyberwareChanged(Entity<OrganActionsComponent> ent, ref CyberwareChangedEvent args)
+    {
+        if (_net.IsClient || !TryComp<ActionsContainerComponent>(ent, out var container))
+            return;
+
+        var enabled = _cybernetics.IsEnabled(ent);
+        foreach (var action in container.Container.ContainedEntities)
+            _actions.SetEnabled(action, enabled);
     }
 
     private void OnRemoved(Entity<OrganActionsComponent> ent, ref OrganRemovedEvent args)

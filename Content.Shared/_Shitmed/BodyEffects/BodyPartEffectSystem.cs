@@ -65,6 +65,31 @@ public sealed partial class BodyPartEffectSystem : EntitySystem
         Dirty(uid, part);
     }
 
+    /// <summary>
+    /// Essentially just exists so the update loop doesn't re-add the components while it's inactive.
+    /// </summary>
+    public void SetEffectsEnabled(Entity<BodyPartComponent> ent, bool enabled)
+    {
+        if (ent.Comp.Body is not { } body)
+            return;
+
+        if (ent.Comp.OnAdd != null)
+        {
+            if (enabled)
+                AddComponents(body, ent, ent.Comp.OnAdd);
+            else
+                RemoveComponents(body, ent, ent.Comp.OnAdd);
+        }
+        else if (ent.Comp.OnRemove != null)
+        {
+            if (enabled)
+                RemoveComponents(body, ent, ent.Comp.OnRemove);
+            else
+                AddComponents(body, ent, ent.Comp.OnRemove);
+        }
+
+        Dirty(ent);
+    }
     private void AddComponents(EntityUid body,
         EntityUid part,
         ComponentRegistry reg,
