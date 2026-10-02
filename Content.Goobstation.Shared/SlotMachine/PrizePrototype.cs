@@ -33,7 +33,7 @@ public sealed partial class PrizePrototype : IPrototype
     public AnnounceType AnnounceType = AnnounceType.Speak;
 
     [DataField]
-    public SoundPathSpecifier WinSound = new ("/Audio/Effects/Arcade/win.ogg");
+    public SoundPathSpecifier WinSound = new("/Audio/Effects/Arcade/win.ogg");
 }
 
 public enum AnnounceType : byte

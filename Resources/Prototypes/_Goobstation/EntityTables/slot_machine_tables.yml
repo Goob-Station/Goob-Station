@@ -42,6 +42,34 @@
     - id: WeaponShotgunHeavy
     - id: TeslaMiniEnergyBall
 
+## Emag
+
+- type: entityTable
+  id: SlotMachineEmagLose
+  table: !type:AllSelector
+    children:
+    - id: PresentRandomCoal
+
+- type: entityTable
+  id: SlotMachineEmagMediumWin
+  table: !type:AllSelector
+    children:
+    - id: PresentRandom
+
+- type: entityTable
+  id: SlotMachineEmagLargeWin
+  table: !type:AllSelector
+    children:
+    - id: PresentRandomUnsafe
+
+- type: entityTable
+  id: SlotMachineEmagJackpot
+  table: !type:AllSelector
+    children:
+    - id: MeleeDebugGib
+    - id: WeaponPistolDebug
+    - id: BoxFolderNuclearCodes
+
 # Qm Slot machine
 
 - type: entityTable
