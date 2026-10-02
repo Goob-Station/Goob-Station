@@ -23,6 +23,9 @@ public sealed partial class WizardFistFighterComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool WasPacified;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan? PacifiedUntil;
 }
 
 [Serializable, NetSerializable]
