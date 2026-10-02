@@ -76,7 +76,7 @@ public abstract partial class SharedBuckleSystem
         if (ent.Comp.BuckledTo == args.Pulled && !ent.Comp.PullStrap)
             args.Cancel();
 
-        // Goobstation - Don't allow pulling if you're buckled to something that has the BlockHandsOnBuckleComponent.
+        // Goobstation
         if (ent.Comp.BuckledTo is { } buckled
             && HasComp<BlockHandsOnBuckleComponent>(buckled))
             args.Cancel();

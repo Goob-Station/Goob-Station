@@ -29,10 +29,8 @@ public sealed class NeurotoxinGlandSystem : EntitySystem
             return;
 
         foreach (var gland in glands)
-        {
             if (gland.Comp1.Active)
                 return;
-        }
 
         args.Cancel();
     }

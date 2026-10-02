@@ -69,15 +69,11 @@ public sealed class FaceHuggerSystem : EntitySystem
         SubscribeLocalEvent<FaceHuggerComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<FaceHuggerComponent, BeingUnequippedAttemptEvent>(OnBeingUnequippedAttempt);
 
-        // Goobstation - Throwing behavior
         SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowEvent>(OnThrown);
         SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowDoHitEvent>(OnThrowDoHit);
         SubscribeLocalEvent<FaceHuggerLeapComponent, ThrowDoHitEvent>(OnLeapHit);
     }
 
-    /// <summary>
-    /// Checks if a facehugger is sentient.
-    /// </summary>
     private bool IsSentient(EntityUid uid)
     {
         return TryComp<MindContainerComponent>(uid, out var mindContainer)
@@ -241,7 +237,6 @@ public sealed class FaceHuggerSystem : EntitySystem
             return;
         }
 
-        // Transfer a sentient facehugger's mind into the embryo
         if (_mind.TryGetMind(uid, out var mindId, out var mindComp)
             && TryComp<XenomorphInfectionComponent>(organ, out var xenoInfection))
         {
