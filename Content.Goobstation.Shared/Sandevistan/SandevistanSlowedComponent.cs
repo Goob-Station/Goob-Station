@@ -26,5 +26,14 @@ public sealed partial class SandevistanSlowedComponent : Component
     public bool IsSlowed = true;
 
     [DataField, AutoNetworkedField]
-    public bool HadDogVision;
+    public EntityUid? SlowedWeapon;
+
+    [DataField, AutoNetworkedField]
+    public float SlowedWeaponOriginalAttackRate;
+
+    /// <summary>
+    /// Whether this entity is currently flying through the air from a sandevistan trample.
+    /// </summary>
+    [DataField]
+    public bool Trampled;
 }

@@ -1,0 +1,109 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp vec2 renderScale;
+uniform highp vec2 center;
+uniform highp float maxRadius;
+uniform highp float activated;
+
+const highp int   kBlurTaps   = 12;
+const highp vec3  kPurple     = vec3(0.70, 0.50, 0.95);
+const highp vec3  kWarmWhite  = vec3(0.78, 0.74, 0.70);
+const highp vec3  kPaleGold   = vec3(0.80, 0.74, 0.55);
+const highp float kDomeEnd    = 1.15;
+
+highp float luma(highp vec3 c) {
+    return dot(c, vec3(0.299, 0.587, 0.114));
+}
+
+highp vec3 hueRotate(highp vec3 c, highp float a) {
+    highp vec3 k = vec3(0.57735, 0.57735, 0.57735);
+    highp float cosA = cos(a);
+    return c * cosA + cross(k, c) * sin(a) + k * dot(k, c) * (1.0 - cosA);
+}
+
+highp vec3 hsv2rgb(highp vec3 c) {
+    highp vec3 p = abs(fract(c.xxx + vec3(0.0, 0.6666667, 0.3333333)) * 6.0 - 3.0);
+    return c.z * mix(vec3(1.0), clamp(p - 1.0, 0.0, 1.0), c.y);
+}
+
+highp float easeOut(highp float x) {
+    x = clamp(x, 0.0, 1.0);
+    return 1.0 - (1.0 - x) * (1.0 - x);
+}
+
+highp vec3 tex(highp vec2 u) {
+    return zTextureSpec(SCREEN_TEXTURE, (center + u * maxRadius * renderScale) * SCREEN_PIXEL_SIZE).rgb;
+}
+
+void fragment() {
+    highp vec2 u = (FRAGCOORD.xy - center) / (renderScale * maxRadius);
+    highp float dist = length(u);
+    highp vec2 dir = u / max(dist, 0.0001);
+    highp float t = activated;
+    highp float flash1 = smoothstep(0.08, 0.0, t);
+    highp float psych = smoothstep(0.12, 0.17, t) * smoothstep(0.48, 0.42, t);
+    highp float flash2 = smoothstep(0.41, 0.45, t) * smoothstep(0.52, 0.47, t);
+    highp float grey = smoothstep(0.43, 0.5, t);
+    highp float p1 = clamp((t - 0.03) / 0.13, 0.0, 1.0);
+    highp float dome1 = p1 > 0.0 && p1 < 1.0 ? 1.0 : 0.0;
+    highp float hump1 = 4.0 * p1 * (1.0 - p1);
+    highp float r1 = kDomeEnd * easeOut(p1);
+    highp float p2 = clamp((t - 0.33) / 0.14, 0.0, 1.0);
+    highp float dome2 = p2 > 0.0 && p2 < 1.0 ? 1.0 : 0.0;
+    highp float hump2 = 4.0 * p2 * (1.0 - p2);
+    highp float r2 = kDomeEnd * easeOut(p2);
+
+    highp vec3 sharp = tex(u);
+    highp float rim2 = exp(-(dist - r2) * (dist - r2) / 0.0006);
+    u -= dir * rim2 * dome2 * 0.03;
+    highp float swirl = psych * sin(t * 40.0) * 0.12 * smoothstep(0.0, 0.6, dist);
+    highp float cs = cos(swirl);
+    highp float sn = sin(swirl);
+    u = vec2(u.x * cs - u.y * sn, u.x * sn + u.y * cs);
+    highp float blur = 0.12 * smoothstep(0.19, 0.0, t) + 0.05 * psych + 0.06 * hump2;
+    highp vec3 base = vec3(0.0);
+    highp vec3 ray = vec3(0.0);
+    for (int i = 0; i < kBlurTaps; i++) {
+        highp float s = float(i) / float(kBlurTaps - 1);
+        highp vec3 tap = tex(u - dir * blur * s * dist);
+        base += tap;
+        ray = max(ray, tap * (1.0 - s * 0.5));
+    }
+    base /= float(kBlurTaps);
+    base = mix(base, max(base, ray), smoothstep(0.35, 0.9, luma(ray)) * min(blur * 6.0, 0.6));
+    highp vec3 col = base;
+    highp float cycle = clamp((t - 0.13) / 0.25, 0.0, 1.0);
+    highp float hue = 0.85 + 0.48 * smoothstep(0.35, 0.5, cycle) - 0.18 * smoothstep(0.7, 1.0, cycle);
+    highp vec3 wash = hsv2rgb(vec3(fract(hue), 0.8, 1.0));
+    highp vec3 wrong = hueRotate(base, (hue - 0.85) * 6.2831853);
+    highp float lw = luma(wrong);
+    highp vec3 tint = mix(vec3(1.0), wash, 0.7);
+    wrong = wrong * 0.55 + tint * pow(lw, 0.8) + smoothstep(0.55, 1.0, lw) * 0.4;
+    wrong = mix(vec3(luma(wrong)), wrong, 1.15);
+    wrong = (wrong - 0.5) * 1.25 + 0.5;
+    col = mix(col, wrong, psych);
+    highp float in1 = smoothstep(r1, r1 - 0.08, dist);
+    highp float out1 = max(dist - r1, 0.0);
+    highp float wall1 = exp(-(dist - r1) * (dist - r1) / 0.0012) * 0.012
+        + exp(-(dist - r1) * (dist - r1) / 0.00015) * 0.024
+        + exp(-out1 * out1 / 0.006) * 0.007;
+    col = mix(col, kWarmWhite, 0.1 * in1 * (1.0 - p1) * dome1);
+    col += wall1 * dome1 * 0.4 * kWarmWhite;
+
+    highp float in2 = smoothstep(r2, r2 - 0.08, dist);
+    highp float out2 = max(dist - r2, 0.0);
+    highp float wall2 = exp(-(dist - r2) * (dist - r2) / 0.00015) * 0.03
+        + exp(-out2 * out2 / 0.005) * 0.009;
+    col = mix(col, kPaleGold, 0.1 * in2 * (1.0 - p2) * dome2);
+    col = mix(col, col * kPurple, 0.65 * (1.0 - in2) * smoothstep(0.0, 0.2, p2) * dome2);
+    col += wall2 * dome2 * 0.2 * vec3(0.85, 0.8, 0.75);
+
+    highp float burst = max(max(hump1, psych), hump2);
+    col *= 1.0 - smoothstep(0.45, 0.95, dist) * 0.45 * burst;
+    highp float glow = exp(-dist * dist / 0.008);
+    col += glow * flash1 * vec3(0.9, 0.82, 0.6) * 0.7;
+    col += flash1 * 0.12;
+    col += glow * flash2 * 0.45;
+    col = mix(col, sharp, grey);
+
+    COLOR = vec4(clamp(col, 0.0, 1.0), 1.0);
+}
