@@ -984,7 +984,7 @@
         frequency: 15
       - !type:SpawnEntity
         entity: MobSlimeXenobioBabyRainbowSpawner
-        amount: 1
+        number: 1
       - !type:HealthChange
         damage:
           types:
