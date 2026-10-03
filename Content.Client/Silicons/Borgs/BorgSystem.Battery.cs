@@ -45,6 +45,7 @@ public sealed partial class BorgSystem
         if (!_powerCell.TryGetBatteryFromSlot((ent.Owner, ent.Comp2), out var battery))
         {
             _alerts.ShowAlert(ent.Owner, ent.Comp1.NoBatteryAlert);
+            _alerts.ClearAlert(ent.Owner, ent.Comp1.BatteryAlert);
             return;
         }
 
@@ -58,6 +59,7 @@ public sealed partial class BorgSystem
             chargeLevel = 1;
         }
 
+        _alerts.ClearAlert(ent.Owner, ent.Comp1.NoBatteryAlert); // this line might be redundant...
         _alerts.ShowAlert(ent.Owner, ent.Comp1.BatteryAlert, chargeLevel);
     }
 
