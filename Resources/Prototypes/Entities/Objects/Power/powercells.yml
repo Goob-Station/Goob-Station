@@ -369,6 +369,8 @@
   - type: Tag
     tags:
       - PowerCage
+  - type: PowerCageDecay # Goobstation
+    decayTime: 30
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8

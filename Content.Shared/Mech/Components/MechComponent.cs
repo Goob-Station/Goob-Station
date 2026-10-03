@@ -101,8 +101,13 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntityWhitelist? PilotWhitelist;
 
+    // Goobstation start
     [DataField]
-    public EntityWhitelist? PilotBlacklist; // Goobstation Change
+    public EntityWhitelist? PilotBlacklist;
+
+    [DataField]
+    public EntityWhitelist? BatteryWhitelist;
+    // Goobstation end
 
 
     /// <summary>
