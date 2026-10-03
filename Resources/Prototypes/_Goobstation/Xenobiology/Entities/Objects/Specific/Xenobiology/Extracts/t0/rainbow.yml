@@ -77,8 +77,6 @@
         proto: XenobioExtractReaction
       - !type:Explosion
         explosionType: Default
-        intensity: 5
-        radius: 1
       - !type:SpawnEntity
         entity: XenobioAllFilledSlimeExtractSpawnerInstant
         number: 5 # Increase with your own risk, above 10 crashed my pc..
@@ -100,7 +98,7 @@
             Uranium:
               min: 5
               max: 100
-            HolyWater:
+            Holywater:
               min: 5
               max: 100
         entity: XenobioLevitaneSpawner
@@ -113,7 +111,7 @@
             Uranium:
               min: 5
               max: 100
-            HolyWater:
+            Holywater:
               min: 5
               max: 100
         guidebookText: entity-effect-guidebook-remove-reactive
