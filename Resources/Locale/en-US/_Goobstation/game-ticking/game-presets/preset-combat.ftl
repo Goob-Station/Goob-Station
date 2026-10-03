@@ -3,5 +3,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-guide-title = The Guide
-guide-description = A mostly calm experience with a mix of both combat and peaceful events
+jester-title = The Jester
+jester-description = Chaos and combat all wrapped into one! Prepare for madness, mayham, and mald's all around!
