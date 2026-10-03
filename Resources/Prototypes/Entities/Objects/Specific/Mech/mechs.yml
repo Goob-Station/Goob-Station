@@ -6,6 +6,9 @@
   abstract: true
   components:
   - type: MobMover
+  - type: TileMovement # Goobstation
+  - type: NoRotateOnMove # Goobstation
+  - type: NoRotateOnInteract # Goobstation
   - type: Mech
     pilotBlacklist: # Goobstation Change
       components:
@@ -15,6 +18,8 @@
       tags:
       - PowerCage
   - type: MechPowerDrain # Goobstation mech rework start
+  - type: MechTurning
+  - type: MechFiringArc
   - type: RestrictFov
   # Goobstation - mech rework end
   - type: MechAir

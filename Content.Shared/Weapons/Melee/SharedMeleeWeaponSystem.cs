@@ -46,6 +46,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -548,7 +549,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.NextAttack));
 
         // Do this AFTER attack so it doesn't spam every tick
-        var ev = new AttemptMeleeEvent(user, weaponUid, weapon, attack is HeavyAttackEvent); // Goob edit
+        var ev = new AttemptMeleeEvent(user, weaponUid, weapon, attack is HeavyAttackEvent, Coordinates: GetCoordinates(attack.Coordinates)); // Goob edit, Coordinates
         RaiseLocalEvent(weaponUid, ref ev);
         RaiseLocalEvent(user, ref ev); // Shitmed Change
 
@@ -943,6 +944,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var resSet = new HashSet<EntityUid>();
 
+        // Goobstation - mech melee fix
+        var carriers = new HashSet<EntityUid>();
+        var carrier = Transform(ignore).ParentUid;
+        while (carrier.IsValid() && !HasComp<MapGridComponent>(carrier) && !HasComp<MapComponent>(carrier))
+        {
+            carriers.Add(carrier);
+            carrier = Transform(carrier).ParentUid;
+        }
+
         for (var i = 0; i < increments; i++)
         {
             var castAngle = new Angle(baseAngle + increment * i);
@@ -954,6 +964,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 ignore,
                 false)
                 .Where(x => !_tag.HasTag(x.HitEntity, "WideSwingIgnore")) // Goobstation
+                .Where(x => !carriers.Contains(x.HitEntity)) // Goobstation
                 .ToList();
 
             if (res.Count != 0)
@@ -1176,13 +1187,20 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!TryComp(user, out TransformComponent? userXform))
             return;
 
-        var invMatrix = TransformSystem.GetInvWorldMatrix(userXform);
-        var localPos = Vector2.Transform(coordinates.Position, invMatrix);
+        // Goobstation - Mech melee fix start
+        //var invMatrix = TransformSystem.GetInvWorldMatrix(userXform);
+        //var localPos = Vector2.Transform(coordinates.Position, invMatrix);
+
+
+        var moverCoords = TransformSystem.GetMoverCoordinates(user, userXform);
+        var frameRot = TransformSystem.GetWorldRotation(moverCoords.EntityId);
+        var localPos = (-frameRot).RotateVec(coordinates.Position - TransformSystem.GetWorldPosition(userXform));
+        // Goobstation end
 
         if (localPos.LengthSquared() <= 0f)
             return;
 
-        localPos = userXform.LocalRotation.RotateVec(localPos);
+        //localPos = userXform.LocalRotation.RotateVec(localPos); // Goobstatiom mech melee fix
 
         // We'll play the effect just short visually so it doesn't look like we should be hitting but actually aren't.
         const float bufferLength = 0.2f;

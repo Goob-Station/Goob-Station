@@ -11,7 +11,7 @@
     state: mecha_chainsword
   - type: MeleeWeapon
     autoAttack: true
-    angle: 0
+    angle: 90
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Weapons/chainsaw.ogg"
