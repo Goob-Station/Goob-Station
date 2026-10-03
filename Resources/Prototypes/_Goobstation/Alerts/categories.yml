@@ -5,3 +5,12 @@
 
 - type: alertCategory
   id: Ninjutsu
+
+- type: alertCategory
+  id: MechPower
+
+- type: alertCategory
+  id: MechIntegrity
+
+- type: alertCategory
+  id: MechCharging

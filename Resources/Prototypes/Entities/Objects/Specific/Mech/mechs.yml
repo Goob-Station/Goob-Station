@@ -18,6 +18,7 @@
       tags:
       - PowerCage
   - type: MechPowerDrain # Goobstation mech rework start
+  - type: MechPilotAlerts
   - type: MechTurning
   - type: MechFiringArc
   - type: RestrictFov
