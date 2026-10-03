@@ -4,4 +4,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 jester-title = The Jester
-jester-description = Chaos and combat all wrapped into one! Prepare for madness, mayham, and mald's all around!
+jester-description = Combat and chaos all wrapped into one! Prepare for madness, mayham, and mald's all around!
