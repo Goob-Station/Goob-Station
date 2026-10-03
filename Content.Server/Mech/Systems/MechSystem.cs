@@ -29,6 +29,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Emp;
+using Content.Shared.Lock;
 
 namespace Content.Server.Mech.Systems;
 
@@ -45,6 +46,7 @@ public sealed partial class MechSystem : SharedMechSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
 
     private static readonly ProtoId<ToolQualityPrototype> PryingQuality = "Prying";
 
@@ -227,6 +229,13 @@ public sealed partial class MechSystem : SharedMechSystem
                     if (args.User == uid || args.User == component.PilotSlot.ContainedEntity)
                     {
                         TryEject(uid, component);
+                        return;
+                    }
+
+                    // Goobstation
+                    if (_lock.IsLocked(uid))
+                    {
+                        _popup.PopupEntity(Loc.GetString("mech-eject-locked", ("item", uid)), uid, args.User);
                         return;
                     }
 

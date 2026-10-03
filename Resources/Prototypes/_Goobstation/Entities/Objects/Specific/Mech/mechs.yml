@@ -47,6 +47,10 @@
   name: Ripley APLU MK-II
   description: The "MK-II" has a pressurized cabin for space operations, but the added weight has slowed it down.
   components:
+  - type: MechLock
+    requiredAccess:
+    - Cargo
+    - Research
   - type: Sprite
     drawdepth: Mobs
     noRot: true
@@ -105,6 +109,10 @@
   name: Clarke
   description: A fast-moving mech for space travel. It has built-in trusts.
   components:
+  - type: MechLock
+    requiredAccess:
+    - Salvage
+    - Research
   - type: Sprite
     drawdepth: Mobs
     noRot: true
@@ -302,6 +310,9 @@
   name: Marauder
   description: Looks like we're all saved. # ERT mech
   components:
+  - type: MechLock
+    requiredAccess:
+    - CentralCommand
   - type: Sprite
     drawdepth: Mobs
     noRot: true
@@ -375,6 +386,9 @@
   name: Seraph
   description: That's the last thing you'll see. # Death Squad mech
   components:
+  - type: MechLock
+    requiredAccess:
+    - CentralCommand
   - type: Sprite
     drawdepth: Mobs
     noRot: true
@@ -451,6 +465,9 @@
   name: Dark Gygax
   description: A modified Gygax used for nefarious purposes. On the back of the armor plate there is an inscription "Cybersun Inc."
   components:
+  - type: MechLock
+    requiredAccess:
+    - SyndicateAgent
   - type: Sprite
     drawdepth: Mobs
     noRot: true
@@ -524,6 +541,9 @@
   name: Mauler
   description: A modified Marauder used by the Syndicate that's not as maneuverable as the Dark Gygax, but it makes up for that in armor and sheer firepower. On the back of the armor plate there is an inscription "Cybersun Inc."
   components:
+  - type: MechLock
+    requiredAccess:
+    - SyndicateAgent
   - type: Sprite
     drawdepth: Mobs
     noRot: true

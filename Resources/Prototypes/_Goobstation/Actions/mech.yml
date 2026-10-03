@@ -58,3 +58,19 @@
   - type: InstantAction
     event: !type:MechRamActionEvent
 
+- type: entity
+  parent: BaseMechAction
+  id: ActionMechToggleLock
+  name: Cabin Lock
+  description: Lock or unlock the cabin. Only people with your access can open a locked cabin from outside.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Goobstation/Interface/Actions/mech.rsi
+      state: mech_cabin_open
+    iconOn:
+      sprite: _Goobstation/Interface/Actions/mech.rsi
+      state: mech_cabin_closed
+  - type: InstantAction
+    event: !type:MechToggleLockActionEvent
