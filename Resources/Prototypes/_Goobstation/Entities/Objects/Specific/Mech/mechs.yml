@@ -96,7 +96,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageHigh
 
 # Clarke
 - type: entity
@@ -154,7 +154,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageHigh
 
 - type: entity
   parent: MechHonkerBattery
@@ -226,7 +226,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageHigh
 
 # Durand
 - type: entity
@@ -291,7 +291,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageHigh
 
 # Nanotrasen Combat Mechs
 
@@ -354,7 +354,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHyper
+      - PowerCageMilitary
 
 - type: entity
   id: MechMarauderFilled
@@ -427,7 +427,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellAntiqueProto
+      - PowerCageMilitary
 
 - type: entity
   id: MechSeraphFilled
@@ -503,7 +503,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHyper
+      - PowerCageMilitary
 
 - type: entity
   id: MechGygaxSyndieFilled
@@ -576,7 +576,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHyper
+      - PowerCageMilitary
 
 - type: entity
   id: MechMaulerSyndieFilled

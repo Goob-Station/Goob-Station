@@ -97,6 +97,13 @@ public sealed partial class MechSystem : SharedMechSystem
 
         if (component.BatterySlot.ContainedEntity == null && TryComp<BatteryComponent>(args.Used, out var battery))
         {
+            // Goobstation
+            if (_whitelistSystem.IsWhitelistFail(component.BatteryWhitelist, args.Used))
+            {
+                _popup.PopupEntity(Loc.GetString("mech-battery-whitelist-fail", ("item", args.Used)), uid, args.User);
+                return;
+            }
+
             InsertBattery(uid, args.Used, component, battery);
             _actionBlocker.UpdateCanMove(uid);
             return;
