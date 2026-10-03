@@ -1,0 +1,110 @@
+// This sucks bro. Why can't it just be "If want cool text do cooltext = true"
+
+light_mode unshaded;
+
+uniform sampler2D MID;
+uniform sampler2D FAR;
+
+uniform highp vec4 hotColor;
+uniform highp vec4 midColor;
+uniform highp vec4 deepColor;
+uniform highp vec4 fillColor;
+uniform highp float glyphSize;
+uniform highp float sigmaMid;
+uniform highp float sigmaFar;
+uniform highp float strength;
+uniform highp float scrimAmount;
+uniform highp float sweepPhase;
+uniform highp float waveSpeed;
+uniform highp float animTime;
+uniform highp vec2 texelSize;
+uniform highp float maskEdge;
+
+const highp float TAU = 6.28318530718;
+
+highp float hFbm(highp vec2 uv) {
+    highp float amp = 0.5;
+    highp float freq = 3.0;
+    highp float value = 0.0;
+
+    for (int i = 0; i < 4; i++) {
+        value += amp * zNoise(freq * uv);
+        amp *= 0.5;
+        freq *= 2.0;
+    }
+
+    return value;
+}
+
+highp float gatherRim(highp vec2 uv, highp vec2 radius) {
+    highp float sum = zTexture(uv).a * 0.22;
+    highp float arc = TAU / 12.0;
+
+    for (int i = 0; i < 12; i++) {
+        highp float a = float(i) * arc;
+        highp vec2 outer = vec2(cos(a), sin(a));
+        highp vec2 inner = vec2(cos(a + arc * 0.5), sin(a + arc * 0.5));
+
+        sum += zTexture(uv + inner * radius * 0.5).a * 0.04;
+        sum += zTexture(uv + outer * radius).a * 0.025;
+    }
+
+    return sum;
+}
+
+highp float unblur(highp float g, highp float sigma) {
+    return sigma * sqrt(-2.0 * log(clamp(g, 0.00001, 1.0)));
+}
+
+void fragment() {
+    highp float coverage = zTexture(UV).a;
+    highp float mask = smoothstep(0.5 - maskEdge, 0.5 + maskEdge, coverage);
+    highp float g2 = zTextureSpec(MID, UV).a;
+    highp float g3 = zTextureSpec(FAR, UV).a;
+
+    if (g3 <= 0.0008 && coverage <= 0.0) {
+        discard;
+    }
+
+    highp vec2 px = FRAGCOORD.xy;
+    highp float t = animTime * waveSpeed;
+    highp float g1 = gatherRim(UV, texelSize * (glyphSize * 0.06));
+    highp float d2 = unblur(g2, sigmaMid);
+    highp float d3 = unblur(g3, sigmaFar);
+    highp vec2 e = texelSize * (glyphSize * 0.25);
+    highp float gx = zTextureSpec(FAR, UV + vec2(e.x, 0.0)).a - zTextureSpec(FAR, UV - vec2(e.x, 0.0)).a;
+    highp float gy = zTextureSpec(FAR, UV + vec2(0.0, e.y)).a - zTextureSpec(FAR, UV - vec2(0.0, e.y)).a;
+    highp vec2 grad = vec2(gx, -gy);
+    highp vec2 outward = -grad / (length(grad) + 0.000001);
+    highp vec2 anchor = px - outward * min(d3, glyphSize * 2.5);
+    highp float kr = 1.0 / (glyphSize * 1.5);
+    highp float rays = smoothstep(0.30, 0.70, hFbm(vec2(anchor.x * kr + t * 0.03, anchor.y * kr - t * 0.09)));
+    highp float kt = 1.0 / (glyphSize * 3.2);
+    highp float torn = hFbm(vec2(px.x * kt - t * 0.02, px.y * kt - t * 0.10));
+    highp float ks = 1.0 / (glyphSize * 0.9);
+    highp float haze = hFbm(vec2(px.x * ks + t * 0.08, px.y * ks - t * 0.30));
+    highp float pulse = pow(0.5 + 0.5 * sin(d2 * (TAU / (glyphSize * 0.55)) - t * 5.0 + haze * 2.0), 2.5);
+    highp float swell = pow(0.5 + 0.5 * sin(d3 * (TAU / (glyphSize * 2.6)) - t * 1.8), 1.6);
+    highp float sweepWidth = glyphSize * texelSize.x * 2.6;
+    highp float sweepOff = (UV.x - sweepPhase) / sweepWidth;
+    highp float sweep = exp(-sweepOff * sweepOff);
+    highp float rim = pow(clamp(g1 * 2.6, 0.0, 1.0), 1.5) * (0.30 + 1.05 * haze + 0.90 * sweep);
+    highp float bloom = pow(clamp(g2 * 3.4, 0.0, 1.0), 1.15) * (0.35 + 0.95 * haze) * (0.68 + 0.50 * pulse);
+    highp float press = pow(clamp(g3 * 6.0, 0.0, 1.0), 1.1) * (0.28 + 0.95 * rays) * (0.45 + 0.75 * swell);
+    press *= 0.28 + 0.80 * smoothstep(0.32, 0.74, torn);
+    highp vec3 glow = hotColor.rgb * rim * 1.30
+                    + midColor.rgb * bloom * 1.30
+                    + deepColor.rgb * press * 2.20;
+    glow *= strength;
+    highp float scrim = pow(clamp(g3 * 7.0, 0.0, 1.0), 0.8) * scrimAmount * strength;
+    highp float lum = clamp(max(max(glow.r, glow.g), glow.b), 0.0, 1.0);
+    highp float alpha = clamp(scrim + lum, 0.0, 1.0);
+    highp vec3 col = glow / max(alpha, 0.001);
+    highp float inner = 1.0 - smoothstep(0.40, 0.92, g1);
+    highp vec3 fill = fillColor.rgb + hotColor.rgb * inner * 0.60;
+
+    col = mix(col, fill, mask);
+    alpha = mix(alpha, 1.0, mask * strength);
+
+    COLOR = vec4(col, alpha);
+}
