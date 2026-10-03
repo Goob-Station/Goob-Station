@@ -4,6 +4,7 @@ using Content.Server.NPC.Components;
 using Content.Server.NPC.Events; // Goobstation
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;

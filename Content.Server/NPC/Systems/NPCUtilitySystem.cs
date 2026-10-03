@@ -6,7 +6,6 @@ using Content.Server.NPC.Queries.Curves;
 using Content.Server.NPC.Queries.Queries;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Inventory;
@@ -30,6 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Atmos.Components;
 using System.Linq;
+using Content.Shared.Damage.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server._Goobstation.Wizard.NPC;
 using Content.Shared.Foldable;
@@ -45,7 +45,8 @@ using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.EntityEffects.Effects.Body;
-using Content.Shared.EntityEffects.Effects.Solution; // Goobstation end
+using Content.Shared.EntityEffects.Effects.Solution;
+using Content.Shared.EntityEffects.Effects.Damage; // Goobstation end
 
 namespace Content.Server.NPC.Systems;
 

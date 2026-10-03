@@ -1,21 +1,13 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Goobstation.Common.Atmos; // goob edit
-using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Stunnable;
 using Content.Server.Temperature.Systems;
 using Content.Server.Damage.Components;
-using Content.Goobstation.Common.CCVar;
-using Content.Shared._Goobstation.Wizard.Spellblade;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Body.Systems;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.IgnitionSource;
 using Content.Shared.Interaction;
@@ -29,21 +21,21 @@ using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Temperature.Components;
-using Content.Goobstation.Maths.FixedPoint;
 using Robust.Server.Audio;
-using Robust.Shared.Maths;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
-using Robust.Shared.Configuration;
 using Content.Goobstation.Common.Flammability;
+using Content.Shared._Goobstation.Wizard.Spellblade;
+using Content.Shared._Shitmed.Targeting;
 
 namespace Content.Server.Atmos.EntitySystems
 {
-    public sealed class FlammableSystem : EntitySystem
+    public sealed partial class FlammableSystem : EntitySystem // Goob - made partial
     {
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
         [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
@@ -60,9 +52,6 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
-        [Dependency] private readonly SharedBodySystem _body = default!; // Goobstation
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private EntityQuery<InventoryComponent> _inventoryQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -74,7 +63,6 @@ namespace Content.Server.Atmos.EntitySystems
 
         private readonly Dictionary<Entity<FlammableComponent>, float> _fireEvents = new();
 
-        private int _addHeatFirestack = 1500;
         public override void Initialize()
         {
             UpdatesAfter.Add(typeof(AtmosphereSystem));
@@ -91,11 +79,9 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<FlammableComponent, ResistFireAlertEvent>(OnResistFireAlert);
             Subs.SubscribeWithRelay<FlammableComponent, ExtinguishEvent>(OnExtinguishEvent);
 
-            SubscribeLocalEvent<FlammableComponent, GetFireStateEvent>(OnGetFireStateEvent); // goob edit - retrieve fire state
 
             SubscribeLocalEvent<IgniteOnCollideComponent, StartCollideEvent>(IgniteOnCollide);
             SubscribeLocalEvent<IgniteOnCollideComponent, LandEvent>(OnIgniteLand);
-            SubscribeLocalEvent<IgniteOnCollideComponent, ProjectileHitEvent>(OnProjectileHit); // Goobstation
 
             SubscribeLocalEvent<IgniteOnMeleeHitComponent, MeleeHitEvent>(OnMeleeHit);
 
@@ -103,7 +89,7 @@ namespace Content.Server.Atmos.EntitySystems
 
             SubscribeLocalEvent<IgniteOnHeatDamageComponent, DamageChangedEvent>(OnDamageChanged);
 
-            Subs.CVar(_cfg, GoobCVars.FireStackHeat, value => _addHeatFirestack = value, true);
+            InitializeGoob(); // Goob duh
         }
 
         private void OnExtinguishEvent(Entity<FlammableComponent> ent, ref ExtinguishEvent args)
@@ -132,25 +118,12 @@ namespace Content.Server.Atmos.EntitySystems
             RemCompDeferred<IgniteOnCollideComponent>(uid);
         }
 
-        private void OnProjectileHit(Entity<IgniteOnCollideComponent> ent, ref ProjectileHitEvent args) // Goobstation
-        {
-            var otherEnt = args.Target;
-
-            if (!TryComp(otherEnt, out FlammableComponent? flammable))
-                return;
-
-            flammable.FireStacks += ent.Comp.FireStacks;
-            Ignite(otherEnt, ent, flammable);
-            ent.Comp.Count--;
-
-            if (ent.Comp.Count == 0)
-                RemCompDeferred<IgniteOnCollideComponent>(ent);
-        }
-
         private void IgniteOnCollide(EntityUid uid, IgniteOnCollideComponent component, ref StartCollideEvent args)
         {
-            if (args.OurFixtureId == SharedProjectileSystem.ProjectileFixture) // Goobstation
+            // Goob start
+            if (args.OurFixtureId == SharedProjectileSystem.ProjectileFixture)
                 return;
+            // Goob end
 
             if (!args.OtherFixture.Hard || component.Count == 0)
                 return;
@@ -332,7 +305,7 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable))
                 return;
 
-            // Goob edit start
+            // Goob start
             if (stacks <= flammable.FireStacks)
                 fireProtectionPenetration = MathF.Max(flammable.FireProtectionPenetration, fireProtectionPenetration);
 
@@ -340,33 +313,40 @@ namespace Content.Server.Atmos.EntitySystems
                 fireProtectionPenetration = MathHelper.Lerp(flammable.FireProtectionPenetration, fireProtectionPenetration, 1f - flammable.FireStacks / stacks);
 
             fireProtectionPenetration = Math.Clamp(fireProtectionPenetration, 0f, 1f);
-            // Goob edite nd
-
             flammable.FireProtectionPenetration = fireProtectionPenetration;
+            // Goob end
+
             flammable.FireStacks = MathF.Min(MathF.Max(flammable.MinimumFireStacks, stacks), flammable.MaximumFireStacks);
 
-            // Goobstation modified - fix
             if (flammable.FireStacks <= 0)
+            {
                 Extinguish(uid, flammable);
-            else if (ignite)
+            }
+            else if (ignite) // Goob - fix ignite being ignored&unused
+            {
                 Ignite(uid, null, flammable);
+            }
+            else
+            {
+                flammable.OnFire |= ignite;
+                UpdateAppearance(uid, flammable);
+            }
         }
 
         public void Extinguish(EntityUid uid, FlammableComponent? flammable = null)
         {
-            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
-            if (!Resolve(uid, ref flammable) || !flammable.CanExtinguish)
+            if (!Resolve(uid, ref flammable))
                 return;
 
-            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
-            RemCompDeferred<OnFireComponent>(uid);
-            if (!flammable.OnFire)
+            RemCompDeferred<OnFireComponent>(uid); // Goob - EE https://github.com/Simple-Station/Einstein-Engines/pull/2462
+
+            if (!flammable.OnFire || !flammable.CanExtinguish)
                 return;
 
             _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):entity} stopped being on fire damage");
             flammable.OnFire = false;
             flammable.FireStacks = 0;
-            flammable.FireProtectionPenetration = 0f; // Goobstation
+            flammable.FireProtectionPenetration = 0f; // Goob - fire prot
 
             _ignitionSourceSystem.SetIgnited(uid, false);
 
@@ -374,7 +354,7 @@ namespace Content.Server.Atmos.EntitySystems
             RaiseLocalEvent(uid, ref extinguished);
 
             UpdateAppearance(uid, flammable);
-            _alertsSystem.ClearAlert(uid, flammable.FireAlert); // Goob Edit - Fix Fire Alert
+            _alertsSystem.ClearAlert(uid, flammable.FireAlert); // Goob - Fix Fire Alert
         }
 
         // Goobstation - now nullable
@@ -384,8 +364,7 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable, false)) // Lavaland Change: SHUT THE FUCK UP FLAMMABLE
                 return;
 
-            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
-            EnsureComp<OnFireComponent>(uid);
+            EnsureComp<OnFireComponent>(uid); // Goob - EE https://github.com/Simple-Station/Einstein-Engines/pull/2462
             if (flammable.AlwaysCombustible)
             {
                 flammable.FireStacks = Math.Max(flammable.FirestacksOnIgnite, flammable.FireStacks);
@@ -395,7 +374,7 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 if (ignitionSourceUser != null)
                     _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):target} set on fire by {ToPrettyString(ignitionSourceUser.Value):actor} with {ToPrettyString(ignitionSource):tool}");
-                else if (ignitionSource != null) // Goobstation
+                else if (ignitionSource != null) // Goob - nullable
                     _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):target} set on fire by {ToPrettyString(ignitionSource):actor}");
                 flammable.OnFire = true;
 
@@ -431,13 +410,6 @@ namespace Content.Server.Atmos.EntitySystems
 
         }
 
-        // goob start - retrieve fire state
-        private void OnGetFireStateEvent(Entity<FlammableComponent> ent, ref GetFireStateEvent args)
-        {
-            args.OnFire = ent.Comp.OnFire;
-        }
-        // goob end
-
         public void Resist(EntityUid uid,
             FlammableComponent? flammable = null)
         {
@@ -450,8 +422,8 @@ namespace Content.Server.Atmos.EntitySystems
             flammable.Resisting = true;
 
             _popup.PopupEntity(Loc.GetString("flammable-component-resist-message"), uid, uid);
-            //goob edit stunmeta or something
-            _stunSystem.KnockdownOrStun(uid, TimeSpan.FromSeconds(2f));
+            //_stunSystem.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(2f));
+            _stunSystem.KnockdownOrStun(uid, TimeSpan.FromSeconds(2f)); // goob - stunmeta or something
 
             // TODO FLAMMABLE: Make this not use TimerComponent...
             uid.SpawnTimer(2000, () =>
@@ -487,16 +459,16 @@ namespace Content.Server.Atmos.EntitySystems
             _timer -= UpdateTime;
 
             // TODO: This needs cleanup to take off the crust from TemperatureComponent and shit.
-            // <Goobstation> - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
-            var query = EntityQueryEnumerator<OnFireComponent>();
-            while (query.MoveNext(out var uid, out _))
+            var query = EntityQueryEnumerator<OnFireComponent>(); // Goob - EE https://github.com/Simple-Station/Einstein-Engines/pull/2462
+            while (query.MoveNext(out var uid, out _)) // Goob - above
             {
+                // <Goob> - EE https://github.com/Simple-Station/Einstein-Engines/pull/2462
                 if (!TryComp(uid, out FlammableComponent? flammable))
                 {
                     RemCompDeferred<OnFireComponent>(uid);
                     continue;
                 }
-                // </Goobstation>
+                // </Goob>
 
                 // Slowly dry ourselves off if wet.
                 if (flammable.FireStacks < 0)
@@ -507,17 +479,17 @@ namespace Content.Server.Atmos.EntitySystems
                 if (!flammable.OnFire)
                 {
                     _alertsSystem.ClearAlert(uid, flammable.FireAlert);
-                    // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
-                    RemCompDeferred<OnFireComponent>(uid);
+                    RemCompDeferred<OnFireComponent>(uid); // Goob - EE https://github.com/Simple-Station/Einstein-Engines/pull/2462
                     continue;
                 }
 
                 _alertsSystem.ShowAlert(uid, flammable.FireAlert);
 
-                // goob edit - fire immunity
+                // <Goob> - fire immunity
+                // TODO: use GetFireProtectionEvent
                 if (HasComp<FireImmunityComponent>(uid))
                     continue;
-                // goob edit end
+                // </Goob>
 
                 if (flammable.FireStacks > 0)
                 {
@@ -534,21 +506,22 @@ namespace Content.Server.Atmos.EntitySystems
                     _ignitionSourceSystem.SetIgnited((uid, source));
 
                     if (TryComp(uid, out TemperatureComponent? temp))
-                        _temperatureSystem.ChangeHeat(uid, _addHeatFirestack * flammable.FireStacks, false, temp); // goob edit: 12500 -> 1500
+                        _temperatureSystem.ChangeHeat(uid, _addHeatFirestack * flammable.FireStacks, false, temp); // Goob - 12500 -> 1500 cvar
 
-                    var multiplier = 1f; // EE Plasmamen Change
-                    var ev = new GetFireProtectionEvent(uid); // Goobstation
+                    var ev = new GetFireProtectionEvent(uid); // Goob - fire prot needs target bruh
                     // let the thing on fire handle it
                     RaiseLocalEvent(uid, ref ev);
                     // and whatever it's wearing
                     if (_inventoryQuery.TryComp(uid, out var inv))
                         _inventory.RelayEvent((uid, inv), ref ev);
 
-                    multiplier = Math.Clamp(ev.Multiplier + flammable.FireProtectionPenetration, 0f, 1f); // Goostation
-                    multiplier *= _body.GetVitalBodyPartRatio(uid); // Goobstation
+                    // <Goob>
+                    var multiplier = Math.Clamp(ev.Multiplier + flammable.FireProtectionPenetration, 0f, 1f);
+                    multiplier *= _body.GetVitalBodyPartRatio(uid);
+                    // </Goob>
 
-                    if (multiplier > 0f && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
-                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * multiplier, interruptsDoAfters: false, targetPart: TargetBodyPart.All, partMultiplier: 2f); // Lavaland: Nerf fire delimbing
+                    if (multiplier > 0f && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob check
+                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * multiplier, interruptsDoAfters: false, targetPart: TargetBodyPart.All, partMultiplier: 2f); // Goob - shitmed targeting, nerf fire delimbing cuz Lavaland
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
                 }

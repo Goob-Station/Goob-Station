@@ -17,7 +17,8 @@ using Content.Server.Station.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DoAfter;
@@ -150,10 +151,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
             _battery.SetCharge((ent, battery), battery.MaxCharge);
         }
 
-        if (TryComp<DamageableComponent>(ent, out var damageable))
-        {
-            _damageable.SetAllDamage(ent, damageable, 0);
-        }
+        _damageable.ClearAllDamage(ent.Owner);
     }
 
     protected override void OnAiInsert(Entity<StationAiCoreComponent> ent, ref EntInsertedIntoContainerMessage args)
