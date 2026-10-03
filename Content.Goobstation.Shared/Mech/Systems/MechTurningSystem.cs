@@ -12,10 +12,10 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
-public abstract partial class SharedMechTurningSystem : EntitySystem
+public sealed partial class MechTurningSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] protected readonly SharedTransformSystem Xform = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
@@ -73,16 +73,16 @@ public abstract partial class SharedMechTurningSystem : EntitySystem
         RequestFacing(mech, pilot, wish.ToWorldAngle());
     }
 
-    protected void RequestFacing(Entity<MechTurningComponent> mech, EntityUid pilot, Angle target)
+    private void RequestFacing(Entity<MechTurningComponent> mech, EntityUid pilot, Angle target)
     {
-        var offBy = Math.Abs(Angle.ShortestDistance(Xform.GetWorldRotation(mech), target).Degrees);
+        var offBy = Math.Abs(Angle.ShortestDistance(_xform.GetWorldRotation(mech), target).Degrees);
 
         if (offBy < mech.Comp.SnapArcDegrees)
         {
             if (mech.Comp.IsTurning)
                 CancelTurn(mech);
             else
-                Xform.SetWorldRotation(mech.Owner, target);
+                _xform.SetWorldRotation(mech.Owner, target);
             return;
         }
 
@@ -154,7 +154,7 @@ public abstract partial class SharedMechTurningSystem : EntitySystem
         mech.Comp.IsTurning = false;
 
         if (!args.Cancelled)
-            Xform.SetWorldRotation(mech.Owner, mech.Comp.TargetRotation);
+            _xform.SetWorldRotation(mech.Owner, mech.Comp.TargetRotation);
 
         Dirty(mech);
         _blocker.UpdateCanMove(mech);

@@ -16,7 +16,7 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
-public abstract class SharedMechStompSystem : EntitySystem
+public sealed class MechStompSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;

@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.Mech;
 using Content.Goobstation.Shared.Mech.Components;
-using Content.Goobstation.Shared.Mech.Systems;
 using Content.Shared.CombatMode;
 using Content.Shared.Mech.Components;
 using Robust.Client.Graphics;
@@ -10,12 +9,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Mech;
 
-public sealed class MechTurningSystem : SharedMechTurningSystem
+public sealed class MechCombatFacingSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     public override void FrameUpdate(float frameTime)
     {
@@ -47,21 +47,15 @@ public sealed class MechTurningSystem : SharedMechTurningSystem
         if (mouse.MapId != xform.MapID)
             return;
 
-        var (mechPos, mechRot) = Xform.GetWorldPositionRotation(xform);
+        var (mechPos, mechRot) = _xform.GetWorldPositionRotation(xform);
         var delta = mouse.Position - mechPos;
         if (delta.LengthSquared() < 0.25f)
             return;
-        var gridRot = Xform.GetWorldRotation(grid);
+        var gridRot = _xform.GetWorldRotation(grid);
         var wanted = (-gridRot).RotateVec(delta).ToWorldAngle().GetCardinalDir();
-        var current = (mechRot - gridRot).GetCardinalDir();
 
-        if (turning.IsTurning)
-        {
-            var turningTo = (turning.TargetRotation - gridRot).GetCardinalDir();
-            if (wanted == turningTo)
-                return;
-        }
-        else if (wanted == current)
+        var facing = ((turning.IsTurning ? turning.TargetRotation : mechRot) - gridRot).GetCardinalDir();
+        if (wanted == facing)
         {
             turning.LastRequested = null;
             return;

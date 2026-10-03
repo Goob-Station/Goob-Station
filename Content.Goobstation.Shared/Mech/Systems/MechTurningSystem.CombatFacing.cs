@@ -3,7 +3,7 @@ using Content.Shared.Mech.Components;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
-public abstract partial class SharedMechTurningSystem
+public sealed partial class MechTurningSystem
 {
     private void InitializeCombatFacing()
     {
@@ -27,7 +27,7 @@ public abstract partial class SharedMechTurningSystem
         if (Transform(mechUid.Value).GridUid is not { } grid)
             return;
 
-        var target = Xform.GetWorldRotation(grid) + msg.Direction.ToAngle();
+        var target = _xform.GetWorldRotation(grid) + msg.Direction.ToAngle();
         RequestFacing((mechUid.Value, turning), pilot, target);
     }
 }

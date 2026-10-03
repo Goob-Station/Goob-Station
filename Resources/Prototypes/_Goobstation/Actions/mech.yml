@@ -41,3 +41,20 @@
   - type: InstantAction
     event: !type:MechStompActionEvent
 
+- type: entity
+  parent: BaseMechAction
+  id: ActionMechRam
+  name: Ram
+  description: Charge forward. Tramples anyone in the way and smashes the first wall you hit, at a cost to the frame.
+  components:
+  - type: Action
+    useDelay: 20
+    icon:
+      sprite: _Goobstation/Interface/Actions/mech.rsi
+      state: mech_charge_off
+    iconOn:
+      sprite: _Goobstation/Interface/Actions/mech.rsi
+      state: mech_charge_on
+  - type: InstantAction
+    event: !type:MechRamActionEvent
+

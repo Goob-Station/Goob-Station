@@ -11,5 +11,5 @@ namespace Content.Goobstation.Shared.Audio;
 public sealed partial class AudioReverbComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public ProtoId<AudioPresetPrototype> Preset = "Timestop";
+    public ProtoId<AudioPresetPrototype> Preset = "MechCabin";
 }
