@@ -793,6 +793,7 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
+    - ORTSmelting # Lavaland
 
 - type: entity
   parent: BaseLathe

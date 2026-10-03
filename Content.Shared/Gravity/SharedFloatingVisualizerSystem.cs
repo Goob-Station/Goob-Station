@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Robust.Shared.Map;
 using Content.Shared._EinsteinEngines.Flight.Events; // Goobstation
@@ -29,7 +27,8 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
 
     protected bool CanFloat(Entity<FloatingVisualsComponent> entity)
     {
-        entity.Comp.CanFloat = _gravity.IsWeightless(entity.Owner);
+        // Goobstation - Optionally float regardless of gravity.
+        entity.Comp.CanFloat = entity.Comp.FloatRegardlessOfGravity || _gravity.IsWeightless(entity.Owner);
         Dirty(entity);
         return entity.Comp.CanFloat;
     }
