@@ -19,6 +19,7 @@
       - PowerCage
   - type: MechPowerDrain # Goobstation mech rework start
   - type: MechPilotAlerts
+  - type: MechCabinAudio
   - type: MechOverclock
   - type: MechStomp
   - type: MechRam
