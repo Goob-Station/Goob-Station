@@ -159,7 +159,8 @@
     - tator
   name: traitor-title
   description: traitor-description
-  showInVote: false
+  showInVote: true # the last resort if pop is super low and the crew wants antags secret plus is hard to make it focus on low pop but low pop works somewhat.
+  maxPlayers: 15
   rules:
   - DummyNonAntagChance
   - Traitor
