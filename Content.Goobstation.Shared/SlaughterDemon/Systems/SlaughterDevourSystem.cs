@@ -41,7 +41,7 @@ public sealed class SlaughterDevourSystem : EntitySystem
         _actorQuery = GetEntityQuery<ActorComponent>();
 
         SubscribeLocalEvent<SlaughterDevourComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlaughterDevourComponent, BloodCrawlAttemptEvent>(OnBloodCrawlAttempt);
+        SubscribeLocalEvent<SlaughterDevourComponent, ReagentCrawlAttemptEvent>(OnBloodCrawlAttempt);
 
         SubscribeLocalEvent<SlaughterDevourComponent, SlaughterDevourDoAfter>(OnDoAfter);
 
@@ -53,7 +53,7 @@ public sealed class SlaughterDevourSystem : EntitySystem
     private void OnMapInit(Entity<SlaughterDevourComponent> ent, ref MapInitEvent args) =>
         ent.Comp.Container = _container.EnsureContainer<Container>(ent.Owner, "stomach");
 
-    private void OnBloodCrawlAttempt(Entity<SlaughterDevourComponent> ent, ref BloodCrawlAttemptEvent args) =>
+    private void OnBloodCrawlAttempt(Entity<SlaughterDevourComponent> ent, ref ReagentCrawlAttemptEvent args) =>
         TryDevour(ent.Owner, ent.Comp, ref args);
 
     private void OnDoAfter(Entity<SlaughterDevourComponent> ent, ref SlaughterDevourDoAfter args)
@@ -69,7 +69,7 @@ public sealed class SlaughterDevourSystem : EntitySystem
     /// <summary>
     /// Exclusive to slaughter demons. They devour targets once they enter blood crawl jaunt form.
     /// </summary>
-    private void TryDevour(EntityUid uid, SlaughterDevourComponent comp, ref BloodCrawlAttemptEvent args)
+    private void TryDevour(EntityUid uid, SlaughterDevourComponent comp, ref ReagentCrawlAttemptEvent  args)
     {
         if (!_pullerQuery.TryComp(uid, out var puller)
             || puller.Pulling == null)

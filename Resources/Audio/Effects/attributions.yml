@@ -220,7 +220,7 @@
   source: https://github.com/space-wizards/space-station-14/pull/23476
 
 - files: ["eye_open.ogg", "eye_close.ogg"]
-  copyright: Bhijn and Myr (github username deathride58)
+  copyright: Bhijn and Myr (github username deathride58) - Converted to mono by Delphine on Goobstation
   license: CC0-1.0
   source: https://github.com/space-wizards/space-station-14/pull/23212
 

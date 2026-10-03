@@ -1,0 +1,9 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostVoidwalker
+  id: VoidwalkerToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-voidwalker-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-voidwalker-rules

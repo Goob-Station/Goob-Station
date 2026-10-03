@@ -12,7 +12,7 @@
       state: crawl
     useDelay: 4
   - type: InstantAction
-    event: !type:BloodCrawlEvent
+    event: !type:ReagentCrawlEvent
 
 - type: entity
   id: DemonicWhisperAction
