@@ -180,3 +180,14 @@
   id: CameraElectronics
   icon: { sprite: Structures/Wallmounts/camera.rsi, state: cameracase }
   result: CameraElectronics
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMechRecipeCategory ]
+  id: MechChargingStationCircuitboard
+  icon: { sprite: _Goobstation/Structures/Power/mech_charging_station.rsi, state: port }
+  result: MechChargingStationCircuitboard
+  materials:
+    Steel: 100
+    Glass: 500
+    Gold: 100
+    Diamond: 100

@@ -79,6 +79,7 @@
 - type: latheRecipePack
   id: MechBoardsCargo
   recipes:
+  - MechChargingStationCircuitboard
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - ClarkeCentralElectronics
@@ -94,5 +95,6 @@
 - type: latheRecipePack
   id: MechBoardsScience
   recipes:
+  - MechChargingStationCircuitboard
   - HamtrCentralElectronics
   - HamtrPeripheralsElectronics

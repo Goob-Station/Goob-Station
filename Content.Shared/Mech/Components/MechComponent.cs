@@ -107,6 +107,9 @@ public sealed partial class MechComponent : Component
 
     [DataField]
     public EntityWhitelist? BatteryWhitelist;
+
+    [ViewVariables, AutoNetworkedField]
+    public bool OnChargingStation;
     // Goobstation end
 
 

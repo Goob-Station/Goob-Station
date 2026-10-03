@@ -1,0 +1,160 @@
+- type: entity
+  id: MechChargingStationCircuitboard
+  parent: BaseItem
+  name: exosuit charging station board
+  description: A diamond-laced circuit board for an exosuit charging station. Insert it into a support lattice.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: charger_APC
+  - type: Item
+    storedRotation: -90
+  - type: Tag
+    tags:
+    - MechChargingStationBoard
+    - DroneUsable
+  - type: StaticPrice
+    price: 300
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 125
+      Steel: 25
+      Diamond: 50
+    chemicalComposition:
+      Silicon: 20
+  - type: GuideHelp
+    guides:
+    - Robotics
+
+- type: entity
+  id: MechChargingStationLattice
+  name: exosuit support lattice
+  description: A bare support lattice for an exosuit charging station. Anchor it, then insert a charging station board.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: false
+    noRot: false
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Structures/Power/mech_charging_station.rsi
+    drawdepth: FloorObjects
+    layers:
+    - state: lattice
+      map: ["base"]
+  - type: Anchorable
+  - type: Rotatable
+  - type: Construction
+    graph: MechChargingStation
+    node: lattice
+    containers:
+    - board
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 4
+      - !type:EmptyAllContainersBehaviour
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 50
+  - type: GuideHelp
+    guides:
+    - Robotics
+
+- type: entity
+  id: MechChargingStationOpen
+  parent: MechChargingStationLattice
+  name: unfinished exosuit charging station
+  description: An exosuit charging station with its guts exposed. It still needs wiring and a screwdriver.
+  components:
+  - type: Sprite
+    layers:
+    - state: port-open
+      map: ["base"]
+  - type: Construction
+    graph: MechChargingStation
+    node: boardInserted
+    containers:
+    - board
+
+- type: entity
+  id: MechChargingStation
+  parent: MechChargingStationLattice
+  name: exosuit charging station
+  description: A heavy-duty floor port that recharges any exosuit parked on top of it. Park the mech squarely on the pad and wait.
+  components:
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Sprite
+    layers:
+    - state: port
+      map: ["base"]
+  - type: ApcPowerReceiver
+    powerLoad: 1
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
+  - type: MechChargingStation
+  - type: WiresPanel
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.WiresVisuals.MaintenancePanelState:
+        base:
+          True: { state: port-open }
+          False: { state: port }
+  - type: AmbientSound
+    enabled: false
+    range: 4
+    volume: -6
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+  - type: PointLight
+    enabled: false
+    radius: 1.6
+    energy: 0.9
+    color: "#3fe56b"
+  - type: Construction
+    graph: MechChargingStation
+    node: port
+    containers:
+    - board
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 4
+      - !type:EmptyAllContainersBehaviour
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 2000
