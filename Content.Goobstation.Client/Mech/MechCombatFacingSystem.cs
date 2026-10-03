@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Mech;
 using Content.Goobstation.Shared.Mech.Components;
+using Content.Goobstation.Shared.Mech.Systems;
 using Content.Shared.CombatMode;
 using Content.Shared.Mech.Components;
 using Robust.Client.Graphics;
@@ -16,6 +17,7 @@ public sealed class MechCombatFacingSystem : EntitySystem
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly MechTurningSystem _turning = default!;
 
     public override void FrameUpdate(float frameTime)
     {
@@ -40,9 +42,6 @@ public sealed class MechCombatFacingSystem : EntitySystem
         }
 
         var xform = Transform(mech);
-        if (xform.GridUid is not { } grid)
-            return;
-
         var mouse = _eye.PixelToMap(_input.MouseScreenPosition);
         if (mouse.MapId != xform.MapID)
             return;
@@ -51,7 +50,7 @@ public sealed class MechCombatFacingSystem : EntitySystem
         var delta = mouse.Position - mechPos;
         if (delta.LengthSquared() < 0.25f)
             return;
-        var gridRot = _xform.GetWorldRotation(grid);
+        var gridRot = _turning.GetReferenceRotation(mech);
         var wanted = (-gridRot).RotateVec(delta).ToWorldAngle().GetCardinalDir();
 
         var facing = ((turning.IsTurning ? turning.TargetRotation : mechRot) - gridRot).GetCardinalDir();

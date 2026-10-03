@@ -10,6 +10,13 @@ public sealed partial class MechStompActionEvent : InstantActionEvent;
 
 public sealed partial class MechRamActionEvent : InstantActionEvent;
 
+public sealed partial class MechToggleLockActionEvent : InstantActionEvent;
+
+public sealed partial class MechSelectEquipmentEvent : InstantActionEvent
+{
+    public EntityUid? Equipment;
+}
+
 [Serializable, NetSerializable]
 public sealed partial class MechTurnDoAfterEvent : SimpleDoAfterEvent;
 

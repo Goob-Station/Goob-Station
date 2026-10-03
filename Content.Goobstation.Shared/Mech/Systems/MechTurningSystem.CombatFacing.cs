@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Mech.Components;
 using Content.Shared.Mech.Components;
+using Content.Shared.Movement.Components;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
@@ -24,10 +25,18 @@ public sealed partial class MechTurningSystem
             || mechComp.PilotSlot.ContainedEntity != pilot)
             return;
 
-        if (Transform(mechUid.Value).GridUid is not { } grid)
-            return;
-
-        var target = _xform.GetWorldRotation(grid) + msg.Direction.ToAngle();
+        var target = GetReferenceRotation(mechUid.Value) + msg.Direction.ToAngle();
         RequestFacing((mechUid.Value, turning), pilot, target);
+    }
+
+    /// <summary>
+    /// The frame cardinal facings are measured in. Matches WASD turning so it still works off-grid in space.
+    /// </summary>
+    public Angle GetReferenceRotation(EntityUid mech)
+    {
+        if (TryComp<InputMoverComponent>(mech, out var mover))
+            return _mover.GetParentGridAngle(mover);
+
+        return Transform(mech).GridUid is { } grid ? _xform.GetWorldRotation(grid) : Angle.Zero;
     }
 }

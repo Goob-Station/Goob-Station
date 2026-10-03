@@ -26,6 +26,9 @@
   - type: MechTurning
   - type: MechFiringArc
   - type: RestrictFov
+  - type: Lock
+    locked: false
+    unlockOnClick: false
   # Goobstation - mech rework end
   - type: MechAir
   - type: AirFilter

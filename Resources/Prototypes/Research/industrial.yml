@@ -171,6 +171,8 @@
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
   - MechChargingStationCircuitboard # Goobstation
+  - MechEquipmentThruster # Goobstation
+  - MechEquipmentAirTank # Goobstation
   # Goobstation R&D Console rework start
   position: 0,-5
   technologyPrerequisites:
