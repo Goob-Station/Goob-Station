@@ -27,6 +27,7 @@
     materialComposition:
       BSCrystal: 100
   - type: RandomTeleportOnUse
+    canTeleportBodyParts: true
     radius:
       min: 2
       max: 5

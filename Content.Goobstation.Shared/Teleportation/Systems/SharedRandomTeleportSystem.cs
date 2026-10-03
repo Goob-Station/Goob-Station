@@ -2,6 +2,7 @@
 
 using Content.Goobstation.Common.Effects;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Body.Systems;
 using Content.Shared.Database;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Interaction.Events;
@@ -21,10 +22,10 @@ using System.Numerics;
 
 namespace Content.Goobstation.Shared.Teleportation.Systems;
 
-public sealed class SharedRandomTeleportSystem : EntitySystem
+public abstract class SharedRandomTeleportSystem : EntitySystem
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] protected readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
@@ -33,7 +34,8 @@ public sealed class SharedRandomTeleportSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] protected readonly IGameTiming _timing = default!;
+    [Dependency] protected readonly SharedBodySystem _body = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -52,9 +54,18 @@ public sealed class SharedRandomTeleportSystem : EntitySystem
             return;
 
         args.Handled = true;
+        Vector2? wp = Vector2.Zero;
 
-        if (!RandomTeleport(args.User, ent.Comp, out var wp, user: args.User))
-            return;
+        if (ent.Comp.CanTeleportBodyParts)
+        {
+            if (!TeleportBodyPart(args.User, ent.Owner))
+                return;
+        }
+        else
+        {
+            if (!RandomTeleport(args.User, ent.Comp, out wp, user: args.User))
+                return;
+        }
 
         _adminLog.Add(LogType.Action, LogImpact.Low, $"{args.User:actor} randomly teleported to {wp} using {ent:used}");
 
@@ -102,12 +113,23 @@ public sealed class SharedRandomTeleportSystem : EntitySystem
         return rand.NextAngle().ToVec() * distance;
     }
 
+    /// <summary>
+    /// Randomly teleport body part upon using entity with RandomTeleportOnUse. It can be either limb or organ itself
+    /// </summary>v
+    public virtual bool TeleportBodyPart(EntityUid victim, EntityUid uid, RandomTeleportOnUseComponent? rtp = null)
+    {
+        return false;
+    }
+
     public Vector2? RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true,
-        bool pulled = true, EntityUid? user = null)
+        bool pulled = true, EntityUid? user = null, EntityUid? other = null)
     {
         var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(uid).Id);
         var rand = new RobustRandom();
         rand.SetSeed(seed);
+
+        if (other != null)
+            uid = other.Value;
 
         var xform = Transform(uid);
         var entityCoords = _xform.ToMapCoordinates(xform.Coordinates);
