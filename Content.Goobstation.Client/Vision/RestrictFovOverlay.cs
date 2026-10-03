@@ -14,7 +14,8 @@ public sealed class RestrictFovOverlay : Overlay
 
     private SharedTransformSystem? _transform;
     private SharedContainerSystem? _container;
-    private EntityQuery<RestrictFovComponent>? _fovQuery;
+    private readonly EntityQuery<RestrictFovComponent> _fovQuery;
+    private readonly EntityQuery<TransformComponent> _xformQuery;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => false;
@@ -28,50 +29,30 @@ public sealed class RestrictFovOverlay : Overlay
     public RestrictFovOverlay()
     {
         IoCManager.InjectDependencies(this);
+
         ZIndex = 200;
+
+        _fovQuery = _entity.GetEntityQuery<RestrictFovComponent>();
+        _xformQuery = _entity.GetEntityQuery<TransformComponent>();
     }
 
-    public static bool TryGetSource(EntityQuery<RestrictFovComponent> fovQuery,
-        SharedContainerSystem container,
-        IPlayerManager player,
-        out EntityUid source,
-        out RestrictFovComponent fov)
+    private EntityUid GetAnchor(EntityUid uid)
     {
-        source = default;
-        fov = default!;
+        while (_container!.TryGetContainingContainer((uid, null, null), out var cont))
+            uid = cont.Owner;
 
-        if (player.LocalEntity is not { } local)
-            return false;
-
-        var candidate = local;
-        for (var i = 0; i < 4; i++)
-        {
-            if (fovQuery.TryComp(candidate, out var comp))
-            {
-                source = candidate;
-                fov = comp;
-                return true;
-            }
-
-            if (!container.TryGetContainingContainer((candidate, null, null), out var cont))
-                return false;
-
-            candidate = cont.Owner;
-        }
-
-        return false;
+        return uid;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
         _transform ??= _entity.System<SharedTransformSystem>();
         _container ??= _entity.System<SharedContainerSystem>();
-        _fovQuery ??= _entity.GetEntityQuery<RestrictFovComponent>();
 
-        if (!TryGetSource(_fovQuery.Value, _container, _player, out var source, out var fov))
+        if (!_fovQuery.TryComp(_player.LocalEntity, out var fov))
             return;
 
-        var xform = _entity.GetComponent<TransformComponent>(source);
+        var xform = _xformQuery.GetComponent(GetAnchor(_player.LocalEntity.Value));
         if (xform.MapID != args.MapId)
             return;
 
