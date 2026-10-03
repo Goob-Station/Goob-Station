@@ -37,6 +37,8 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomPersonObjective: 1
+# BROKEN AFTER UPSTREAM      PermaKillRandomPersonObjective: 0.5 # Goobstation - straight up kill someone with no maroons
+# BROKEN AFTER UPSTREAM      PermaKillRandomTraitorObjective: 0.3 # Goobstation - target traitor
     KillRandomHeadObjective: 0.2
     TeachRandomPersonObjective: 1 #Goobstation  Teach them a lesson
     TeachRandomHeadObjective: 0.25 #Goobstation  Teach them a lesson
@@ -53,6 +55,7 @@
   weights:
 #    RandomTraitorAliveObjective: 1 - Removed because the objective was boring and didn't progress the round.
     RandomTraitorProgressObjective: 1
+# BROKEN AFTER UPSTREAM   RandomTraitorTargetAliveObjective: 0.5 # Goobstation - protect a player that is targeted by another trait
 
 #Thief groups
 - type: weightedRandom
