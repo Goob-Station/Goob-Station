@@ -15,6 +15,7 @@
       tags:
       - PowerCage
   - type: MechPowerDrain # Goobstation mech rework start
+  - type: RestrictFov
   # Goobstation - mech rework end
   - type: MechAir
   - type: AirFilter
