@@ -1,3 +1,11 @@
+using Content.Shared.Actions;
+using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
+
+namespace Content.Goobstation.Shared.Mech;
+
+public sealed partial class MechOverclockActionEvent : InstantActionEvent;
+
 [Serializable, NetSerializable]
 public sealed partial class MechTurnDoAfterEvent : SimpleDoAfterEvent;
 

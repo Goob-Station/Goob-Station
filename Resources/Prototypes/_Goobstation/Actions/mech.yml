@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseMechAction
+  id: ActionMechOverclock
+  name: Overclock
+  description: Force your exosuit to move faster than is safely possible. Shreds through integrity and power.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_overload_off
+    iconOn:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_overload_on
+  - type: InstantAction
+    event: !type:MechOverclockActionEvent
+
