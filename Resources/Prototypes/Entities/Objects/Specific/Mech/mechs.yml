@@ -18,6 +18,8 @@
       tags:
       - PowerCage
   - type: MechPowerDrain # Goobstation mech rework start
+    idleDrain: 0.3
+    perTileMovementDrain: 1.4
   - type: MechPilotAlerts
   - type: MechOverclock
   - type: MechLock

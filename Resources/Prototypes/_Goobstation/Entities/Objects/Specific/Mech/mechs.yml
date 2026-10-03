@@ -10,6 +10,9 @@
     equipmentWhitelist:
       tags:
       - CombatMech
+  - type: MechPowerDrain # ~6 min of driving on a high cage
+    idleDrain: 1.5
+    perTileMovementDrain: 7
   - type: MechStomp
   - type: MechRam
   - type: GiveMechPilot
@@ -118,6 +121,9 @@
   name: Clarke
   description: A fast-moving mech for space travel. It has built-in trusts.
   components:
+  - type: MechPowerDrain # faster than the Ripley, so cheaper per tile to still get ~30 min
+    idleDrain: 0.3
+    perTileMovementDrain: 0.9
   - type: MechLock
     requiredAccess:
     - Salvage
