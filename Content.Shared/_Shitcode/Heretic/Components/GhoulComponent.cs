@@ -48,4 +48,7 @@ public sealed partial class GhoulComponent : Component
 
     [DataField]
     public LocId GhostRoleRules = "ghostrole-ghoul-rules";
+
+    [DataField]
+    public string MindswapText = "ghoul";
 }

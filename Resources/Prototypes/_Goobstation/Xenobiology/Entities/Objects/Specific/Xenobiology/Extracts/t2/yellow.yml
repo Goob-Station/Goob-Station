@@ -32,3 +32,29 @@
   - type: Tag
     tags:
     - XenobiologyYellowExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, YellowSlimeExtract ]
+  id: FilledYellowSlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractFail
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:SpawnEntity
+        entity: XenobioVolatileOrgan
+        number: 1
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:Emp

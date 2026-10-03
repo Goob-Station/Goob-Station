@@ -20,3 +20,4 @@ xenobio-breed-oil = oil slime
 xenobio-breed-light-pink = light pink slime
 xenobio-breed-black = black slime
 xenobio-breed-adamantine = adamantine slime
+smile-slime-rainbow-popup = Something has gone wrong with this Smile!

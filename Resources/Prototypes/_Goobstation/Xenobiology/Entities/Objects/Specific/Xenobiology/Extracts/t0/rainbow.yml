@@ -1,1 +1,129 @@
-# in my wet dreams :(
+- type: entity
+  id: RainbowSlimeExtract
+  parent: BaseSlimeExtract
+  name: rainbow slime extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#828282"
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioExtractFail
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
+      - !type:Jitter
+        conditions:
+        - !type:ReactiveCondition
+          solutionName: extract
+          reagents:
+            Plasma:
+              min: 1
+              max: 4
+        time: 10
+        frequency: 5
+      - !type:SpawnEntity
+        conditions:
+        - !type:ReactiveCondition
+          solutionName: extract
+          reagents:
+            Plasma:
+              min: 1
+              max: 4
+        entity: XenobioAllSlimeBabySpawner
+        number: 5
+      - !type:SpawnEntity
+        conditions:
+        - !type:ReactiveCondition
+          solutionName: extract
+          reagents:
+            Plasma:
+              min: 5
+              max: 100
+        entity: XenobioAllSlimeExtractSpawnerInstant # If it work it work
+        number: 5
+      - !type:Explosion
+        conditions:
+        - !type:ReactiveCondition
+          solutionName: extract
+          reagents:
+            Plasma:
+              min: 5
+              max: 100
+        explosionType: Default
+        intensity: 1
+        radius: 1
+    - reagents: [ Blood ] 
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
+      - !type:Jitter
+        time: 10
+        frequency: 5
+      - !type:SpawnEntity
+        entity: XenobioPermutazineSpawner
+        number: 1
+    - reagents: [ Rainbowine ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
+      - !type:Explosion
+        explosionType: Default
+        intensity: 5
+        radius: 1
+      - !type:SpawnEntity
+        entity: XenobioAllFilledSlimeExtractSpawnerInstant
+        number: 5 # Increase with your own risk, above 10 crashed my pc..
+    - reagents: # Not using nested effect because this is edge case
+      - Uranium
+      - HolyWater
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:Jitter
+        time: 10
+        frequency: 5
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:SpawnEntity
+        conditions:
+        - !type:ReactiveCondition
+          solutionName: extract
+          reagents:
+            Uranium:
+              min: 5
+              max: 100
+            HolyWater:
+              min: 5
+              max: 100
+        entity: XenobioLevitaneSpawner
+        number: 1
+      - !type:RemoveComponents
+        conditions:
+        - !type:ReactiveCondition
+          solutionName: extract
+          reagents:
+            Uranium:
+              min: 5
+              max: 100
+            HolyWater:
+              min: 5
+              max: 100
+        guidebookText: entity-effect-guidebook-remove-reactive
+        components:
+        - type: Reactive
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+  - type: Tag
+    tags:
+    - XenobiologyRainbowExtract

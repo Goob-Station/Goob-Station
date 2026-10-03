@@ -5,7 +5,8 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint; // Goobstation
+using Content.Goobstation.Common.Chemistry;
 
 namespace Content.Shared.Chemistry;
 
@@ -20,13 +21,17 @@ public sealed class ReactiveSystem : EntitySystem
         {
             ReactionEntity(uid, method, reagent);
         }
+
+        // Goobstation - start. Took me a while to come up with this solution
+        var ev = new ReactionEntityDoneEvent();
+        RaiseLocalEvent(uid, ref ev);
+        // Goobstation - end
     }
 
     public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentQuantity reagentQuantity)
     {
         if (reagentQuantity.Quantity == FixedPoint2.Zero)
             return;
-
         // We throw if the reagent specified doesn't exist.
         if (!_proto.Resolve<ReagentPrototype>(reagentQuantity.Reagent.Prototype, out var proto))
             return;
