@@ -12,6 +12,11 @@
     blacklist:
       components:
       - SurplusBundle
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+      - LoneOpsUplink
 
 - type: listing
   id: UplinkBombCollarKit
