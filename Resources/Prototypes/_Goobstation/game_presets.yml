@@ -246,6 +246,7 @@
   description: secretplus-lowpop-description
   showInVote: true
   maxPlayers: 40
+  minPlayers: 15
   rules:
     - SecretPlusLowpop
     - MeteorSwarmMildScheduler
