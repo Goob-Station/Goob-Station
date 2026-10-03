@@ -161,6 +161,7 @@
   name: secretplus-low-title
   description: secretplus-low-description
   showInVote: true
+  minPlayers: 40 #keeps it from making just green shifts
   rules:
     - SecretPlusLow
     - MeteorSwarmMildScheduler

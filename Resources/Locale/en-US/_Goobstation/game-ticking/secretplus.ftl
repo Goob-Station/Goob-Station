@@ -1,5 +1,5 @@
-secretplus-low-title = Secret+ Light
-secretplus-low-description = Relatively calm. But not always.
+secretplus-low-title = Secret+ Casual
+secretplus-low-description = A relaxed gamemode, with a bit of spice.
 
 secretplus-mid-title = Secret+ Medium
 secretplus-mid-description = Handle unknown but balanced threats.
