@@ -237,6 +237,9 @@ public abstract partial class SharedMechSystem : EntitySystem
             _popup.PopupEntity(popupString, uid);
 
         Dirty(uid, component);
+
+        var changed = new MechSelectedEquipmentChangedEvent(); // Goobstation
+        RaiseLocalEvent(uid, ref changed);
     }
 
     /// <summary>

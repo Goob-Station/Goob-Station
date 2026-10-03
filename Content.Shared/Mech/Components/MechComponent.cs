@@ -110,6 +110,12 @@ public sealed partial class MechComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public bool OnChargingStation;
+
+    [DataField]
+    public EntProtoId SelectEquipmentAction = "ActionMechSelectEquipment";
+
+    [ViewVariables]
+    public Dictionary<EntityUid, EntityUid> EquipmentActions = new();
     // Goobstation end
 
 

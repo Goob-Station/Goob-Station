@@ -1,4 +1,16 @@
 - type: entity
+  parent: BaseAction
+  id: ActionMechSelectEquipment
+  name: Select equipment
+  description: Switch straight to this piece of equipment.
+  components:
+  - type: Action
+    useDelay: 0.25
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:MechSelectEquipmentEvent
+
+- type: entity
   parent: BaseMechAction
   id: ActionMechOverclock
   name: Overclock
