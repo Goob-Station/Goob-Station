@@ -14,6 +14,8 @@
     batteryWhitelist: # Goobstation
       tags:
       - PowerCage
+  - type: MechPowerDrain # Goobstation mech rework start
+  # Goobstation - mech rework end
   - type: MechAir
   - type: AirFilter
     # everything except oxygen and nitrogen
