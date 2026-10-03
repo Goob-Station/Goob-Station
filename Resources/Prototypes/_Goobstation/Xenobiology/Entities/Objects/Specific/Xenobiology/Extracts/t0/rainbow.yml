@@ -59,8 +59,6 @@
               min: 5
               max: 100
         explosionType: Default
-        intensity: 1
-        radius: 1
     - reagents: [ Blood ] 
       methods: [ Touch, Injection ]
       effects:
@@ -86,7 +84,7 @@
         number: 5 # Increase with your own risk, above 10 crashed my pc..
     - reagents: # Not using nested effect because this is edge case
       - Uranium
-      - HolyWater
+      - Holywater
       methods: [ Touch, Injection ]
       effects:
       - !type:Jitter

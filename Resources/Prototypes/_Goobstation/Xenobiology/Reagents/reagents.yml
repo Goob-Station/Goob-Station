@@ -315,8 +315,8 @@
         - !type:ModifySlimeComponent
             conditions:
             - !type:ReagentCondition
-            reagent: Rainbowine
-            min: 1
+              reagent: Rainbowine
+              min: 1
             offspringBonus: 1
             extractBonus: 1
 
