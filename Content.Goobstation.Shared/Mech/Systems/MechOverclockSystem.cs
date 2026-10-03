@@ -39,7 +39,7 @@ public sealed class MechOverclockSystem : EntitySystem
 
     private void OnPilotInserted(Entity<MechOverclockComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        if (!TryComp<MechComponent>(ent, out var mech) || args.Container.ID != mech.PilotSlotId)
+        if (_net.IsClient || !TryComp<MechComponent>(ent, out var mech) || args.Container.ID != mech.PilotSlotId)
             return;
 
         _actions.AddAction(args.Entity, ref ent.Comp.ActionEntity, ent.Comp.ActionProto, ent);
