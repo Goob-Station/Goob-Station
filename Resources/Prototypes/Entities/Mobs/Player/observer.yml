@@ -100,10 +100,11 @@
     tags: # BAD: Intentional removal of inherited tag
     - AllowGhostShownByEvent
   # <Goobstation>
-  - type: GhostObserverHud
+  - type: Ghost
+    canUseObserverHud: true
   - type: ActionGrant
     actions:
-    - ActionToggleGhostObserverHud
+    - ActionToggleObserverHud
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
