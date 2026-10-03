@@ -5,23 +5,47 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "(Taken from tgstation at https://github.com/tgstation and re-sprite by mally0352)",
+    "copyright": "(sprited by eggster_boi8084)",
     "states": [
         {
             "name": "sec",
-            "directions": 4
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1]
+            ]
         },
         {
             "name": "sec_e",
-            "directions": 4
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1]
+            ]
         },
         {
             "name": "sec_e_r",
-            "directions": 4
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1]
+            ]
         },
         {
             "name": "sec_l",
-            "directions": 4
+            "directions": 4,
+            "delays": [
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1],
+                [0.1, 0.1, 0.1, 0.1]
+            ]
         }
     ]
 }
