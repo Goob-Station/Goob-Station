@@ -313,9 +313,9 @@ public partial class SharedBodySystem
     /// <summary>
     /// Tries to remove the organ if it is inside of a body part.
     /// </summary>
-    public bool TryRemoveOrgan(EntityUid organId, OrganComponent? organ = null)
+    public bool TryRemoveOrgan(EntityUid organId, OrganComponent? organ = null, bool logMissing = true) // Goobstation - Added logMissing
     {
-        if (!Resolve(organId, ref organ))
+        if (!Resolve(organId, ref organ, logMissing)) // Goobstation - added logMissing
             return false;
 
         var ev = new TryRemoveOrganEvent(organId, organ);
