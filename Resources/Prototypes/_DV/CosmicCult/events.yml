@@ -5,7 +5,7 @@
   - type: GameRule # Goobstation, same as dragon?
     chaosScore: 600
   - type: StationEvent
-    weight: 1.5
+    weight: 2 # someone should sneak change this to 0.5 lowkey
     earliestStart: 30
     reoccurrenceDelay: 35
     minimumPlayers: 25
