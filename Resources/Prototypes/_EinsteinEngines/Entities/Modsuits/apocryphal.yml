@@ -5,7 +5,7 @@
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitApocryphal
   name: Apocryphal modsuit control unit
-  description: The main controller for a Apocryphal modsuit.
+  description: An incredibly menacing modular hardsuit used by the Death Squad. Resistance is futile.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi

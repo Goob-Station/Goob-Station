@@ -1,11 +1,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # The Modsuit Itself, This is just a Deathsquad modsuit, but reskined for CC Officials
+# Goobstation edit - Statement above is completely wrong. Its not DS level. Fix ur fucking comments or at the very least CTRL+V with some competence.
 - type: entity
   parent: [ ClothingModsuitStandardNoStorage, BaseSyndicateContraband ]
   id: ClothingModsuitContractor
   name: Contractor modsuit control unit
-  description: The main controller for a Contractor modsuit.
+  description: An evil red modular hardsuit for syndicate agents. Gorlex's logo is etched into the side of the unit.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/contractor.rsi
@@ -34,7 +35,7 @@
           type: ToggleableClothingBoundUserInterface
     - type: ExplosionResistance
       damageCoefficient: 0.1
- 
+
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, BaseSyndicateContraband]
   id: ClothingModsuitGauntletsContractor

@@ -3,8 +3,8 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
-  name: standard modsuit control unit
-  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
+  name: Standard modsuit control unit
+  description: A standard modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
   - type: Sprite
@@ -87,8 +87,8 @@
 - type: entity
   parent: Clothing
   id: ClothingModsuitStandardNoStorage
-  name: standard modsuit control unit
-  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
+  name: Slim modsuit control unit
+  description: A slim modular suit contol unit containing all necessary modular hardsuit parts. This one cant store anything.
   components:
   - type: Appearance
   - type: Sprite
@@ -170,8 +170,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
   id: ClothingModsuitSecurity
-  name: security soldat modsuit control unit
-  description: A robust modular hardsuit control module unit for thrashing commies in spess.
+  name: Soldat modsuit control unit
+  description: A robust security modular hardsuit control module unit for thrashing commies in spess.
   components:
   - type: Appearance
   - type: Sprite
@@ -208,7 +208,7 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitHeadOfSecurity
-  name: head of security's bulwark modsuit control unit
+  name: Bulwark modsuit control unit
   description: A robust modular HARDERsuit control module unit for the head of security.
   components:
   - type: Appearance
@@ -254,7 +254,7 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseMedicalContraband]
   id: ClothingModsuitParamedic
-  name: sanitater modsuit control unit
+  name: Sanitater modsuit control unit
   description: A modular hardsuit control module unit for paramedics.
   components:
   - type: Appearance
@@ -297,8 +297,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
   id: ClothingModsuitEngineer
-  name: engineer sapper modsuit control unit
-  description: A modular hardsuit control module unit for withstanding the greatest hazards on the job.
+  name: Sapper modsuit control unit
+  description: A modular hardsuit control module unit for withstanding the greatest engineering hazards on the job.
   components:
   - type: Appearance
   - type: Sprite
@@ -337,8 +337,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
   id: ClothingModsuitAtmostech
-  name: atmospheric technician aeolus modsuit control unit
-  description: A modular hardsuit control module unit for withstanding the greatest hazards on the job.
+  name: Aeolus modsuit control unit
+  description: A modular hardsuit control module unit for withstanding the greatest atmospheric hazards on the job.
   components:
   - type: Appearance
   - type: Sprite
@@ -377,8 +377,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
   id: ClothingModsuitResearchDirector
-  name: RD's minerva modsuit control unit
-  description: A modular hardsuit control module unit for withstanding another shuttlebomb.
+  name: Minerva modsuit control unit
+  description: An incredibly sturdy modular hardsuit control module unit for withstanding another shuttlebomb.
   components:
   - type: Appearance
   - type: Sprite
@@ -420,7 +420,7 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitCaptain
-  name: captain's magnate modsuit control unit
+  name: Magnate modsuit control unit
   description: A gem-encrusted, mirror-shined and absolutely MAGNATE armored modsuit. The cooling fluid is dragons' blood watered down with Dr. Gibb. This shit is nothing to you, man. # goob edit - grammar
   components:
   - type: Appearance
@@ -460,8 +460,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
   id: ClothingModsuitBrigMed
-  name: security trauma modsuit control unit
-  description: A robust modular hardsuit control module unit for healing commies in space.
+  name: Trauma modsuit control unit
+  description: A robust security modular hardsuit control module unit for healing commies in space.
   components:
   - type: Appearance
   - type: Sprite

@@ -5,7 +5,7 @@
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryEngineering
   name: Engineering Responsory modsuit control unit
-  description: The main controller for a Engineering Responsory modsuit.
+  description: A robust modular hardsuit made for a engineering ERT. It has a sharp yellow pattern.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/engineering-responsory.rsi
@@ -132,7 +132,7 @@
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
         outerClothing-vox:
-        - state: equipped-OUTERCLOTHING-sealed-vox    
+        - state: equipped-OUTERCLOTHING-sealed-vox
     - type: StaminaResistance
       damageCoefficient: 0.5 # 50%
     - type: FireProtection

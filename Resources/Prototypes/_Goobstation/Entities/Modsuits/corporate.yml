@@ -5,7 +5,7 @@
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitCorporate
   name: Corporate modsuit control unit
-  description: The main controller for a Corporate modsuit.
+  description: A lean, mean, and green modular hardsuit for Central Command Officials. Quite posh!
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
@@ -34,7 +34,7 @@
         back:
         - state: equipped-BACKPACK-sealed
         - state: equipped-BACKPACK-sealed-unshaded
-          shader: unshaded      
+          shader: unshaded
 
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, BaseCentcommContraband]
@@ -286,13 +286,13 @@
           - id: WelderExperimental
           - id: Multitool
           - id: MedkitCombatFilled
-          
+
 #NCT
 - type: entity
   parent: [ClothingModsuitCorporate, ClothingModsuitStandard, BaseCentcommContraband]
   id: ClothingModsuitTrainer
-  name: Career Trainer modsuit control unit
-  description: The main controller for a Career Trainer modsuit.
+  name: Pedagogue modsuit control unit
+  description: An elegant modular hardsuit for the Carrer Trainer. Trimmed with real gold!
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
