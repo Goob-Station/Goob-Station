@@ -480,6 +480,9 @@
     clothingVisuals:
       back:
       - state: equipped-BACKPACK-sealed
+  - type: ClothingSpeedModifier
+    sprintModifier: 1
+    walkModifier: 1
 
 - type: entity
   parent: ClothingModsuitBrigMed
