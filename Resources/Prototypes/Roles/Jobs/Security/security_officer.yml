@@ -38,11 +38,11 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    pocket1: WeaponPistolMk58
+    #pocket1: WeaponPistolMk58 - Goob, moved to loadouts
   storage:
     back:
     - Flash
-    - MagazinePistol
+    #- MagazinePistol - Goob, moved to loadouts
 
 - type: chameleonOutfit
   id: SecurityOfficerChameleonOutfit
