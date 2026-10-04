@@ -46,11 +46,11 @@
       VeinsDamage: 0
       NerveDamage: 0
   - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    layers:
+      Hair: HEAD
+      Snout: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
   - type: FaceHuggerBlocker
 
 - type: entity
@@ -64,11 +64,11 @@
   - type: IdentityBlocker
   - type: IngestionBlocker
   - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    layers:
+      Hair: HEAD
+      Snout: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -86,8 +86,8 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
     hideOnToggle: true
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
@@ -140,11 +140,11 @@
     - type: IngestionBlocker
       blockSmokeIngestion: True
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
@@ -217,8 +217,8 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -263,11 +263,11 @@
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
@@ -628,8 +628,8 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
   - type: IngestionBlocker
   - type: Clothing
     clothingVisuals:
@@ -683,11 +683,11 @@
       coolingCoefficient: 0.005
     - type: IdentityBlocker
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
@@ -741,11 +741,11 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    layers:
+      Hair: HEAD
+      Snout: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
     hideOnToggle: true
   - type: IdentityBlocker
   - type: IngestionBlocker
@@ -847,8 +847,8 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -894,11 +894,11 @@
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
@@ -964,8 +964,8 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
