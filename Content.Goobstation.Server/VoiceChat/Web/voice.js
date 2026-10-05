@@ -5,6 +5,10 @@ const TOKEN_KEY = "voice-token";
 const SETTINGS_KEY = "voice-settings";
 const CLOSE_INVALID_TOKEN = 4001;
 const CLOSE_REPLACED = 4002;
+const CLOSE_SESSION_ENDED = 4004;
+const CLOSE_TOO_MANY_ATTEMPTS = 4005;
+const CODE_ALPHABET = /[^A-Z0-9]/g;
+const CODE_MAX_LENGTH = 12;
 const METER_FLOOR_DB = -70;
 
 const DEFAULT_SETTINGS = {
@@ -17,6 +21,7 @@ const DEFAULT_SETTINGS = {
     noiseSuppression: true,
     echoCancellation: true,
     autoGainControl: true,
+    keepAwake: true,
 };
 
 const el = id => document.getElementById(id);
@@ -25,6 +30,9 @@ const ui = {
     statusDetail: el("status-detail"),
     start: el("start"),
     retry: el("retry"),
+    codeForm: el("code-form"),
+    code: el("code"),
+    codeSubmit: el("code-submit"),
     controls: el("controls"),
     indicatorLabel: el("indicator-label"),
     meterFill: el("meter-fill"),
@@ -43,12 +51,17 @@ const ui = {
     noiseSuppression: el("noise-suppression"),
     echoCancellation: el("echo-cancellation"),
     autoGainControl: el("auto-gain-control"),
+    keepAwake: el("keep-awake"),
+    keepAwakeRow: el("keep-awake-row"),
 };
 
 const settings = loadSettings();
-const token = takeToken();
+let token = takeToken();
 
 let worker = null;
+let context = null;
+let wakeLock = null;
+let starting = false;
 let socketReady = false;
 let retrying = false;
 let stopped = false;
@@ -80,21 +93,35 @@ function saveSettings() {
     }
 }
 
+function normalizeCode(code) {
+    return String(code || "").toUpperCase().replace(CODE_ALPHABET, "").slice(0, CODE_MAX_LENGTH);
+}
+
 function takeToken() {
-    const fromHash = decodeURIComponent(location.hash.slice(1));
-    if (fromHash) {
-        try {
-            localStorage.setItem(TOKEN_KEY, fromHash);
-        } catch {
-        }
-        history.replaceState(null, "", location.pathname + location.search);
-        return fromHash;
+    const params = new URLSearchParams(location.search);
+    const fromLink = normalizeCode(params.get("code") || location.hash.slice(1));
+    if (params.has("code") || location.hash) {
+        params.delete("code");
+        const query = params.toString();
+        history.replaceState(null, "", location.pathname + (query ? `?${query}` : ""));
+    }
+
+    if (fromLink) {
+        rememberToken(fromLink);
+        return fromLink;
     }
 
     try {
-        return localStorage.getItem(TOKEN_KEY) || "";
+        return normalizeCode(localStorage.getItem(TOKEN_KEY));
     } catch {
         return "";
+    }
+}
+
+function rememberToken(code) {
+    try {
+        localStorage.setItem(TOKEN_KEY, code);
+    } catch {
     }
 }
 
@@ -131,6 +158,68 @@ function startConnection() {
     stopped = false;
     retrying = false;
     worker.postMessage({ type: "start", candidates: socketCandidates(), token });
+    requestWakeLock();
+}
+
+function showCodeForm(focus) {
+    ui.codeForm.hidden = false;
+    ui.start.hidden = true;
+    ui.retry.hidden = true;
+    ui.code.value = "";
+    if (focus)
+        ui.code.focus();
+}
+
+async function begin() {
+    if (starting)
+        return;
+
+    starting = true;
+    ui.start.hidden = true;
+    ui.codeForm.hidden = true;
+
+    if (!audio) {
+        setStatus("Starting microphone…", "", "neutral");
+        try {
+            await startAudio();
+        } catch (error) {
+            starting = false;
+            reportMicError(error);
+            return;
+        }
+    }
+
+    starting = false;
+    ui.controls.hidden = false;
+    startConnection();
+    render();
+}
+
+async function requestWakeLock() {
+    if (!settings.keepAwake || wakeLock || stopped || !audio || !("wakeLock" in navigator) || document.visibilityState !== "visible")
+        return;
+
+    try {
+        const lock = await navigator.wakeLock.request("screen");
+        if (!settings.keepAwake || stopped) {
+            lock.release();
+            return;
+        }
+
+        wakeLock = lock;
+        lock.addEventListener("release", () => {
+            if (wakeLock === lock)
+                wakeLock = null;
+        });
+    } catch {
+    }
+}
+
+function releaseWakeLock() {
+    const lock = wakeLock;
+    wakeLock = null;
+    if (lock)
+        lock.release().catch(() => {});
 }
 
 function onWorkerMessage(event) {
@@ -157,13 +246,25 @@ function onWorkerMessage(event) {
             socketReady = false;
             serverState = null;
             stopped = true;
+            releaseWakeLock();
+            ui.retry.hidden = message.code !== CLOSE_REPLACED;
             if (message.code === CLOSE_INVALID_TOKEN) {
                 forgetToken();
-                setStatus("Link expired.", "Get a new one in game: Esc, Voice Chat.", "error");
+                showCodeForm(false);
+                setStatus("That code didn't work.", "Check the code in game: Esc, Voice Chat.", "error");
+            }
+            else if (message.code === CLOSE_SESSION_ENDED) {
+                forgetToken();
+                showCodeForm(false);
+                setStatus("You left the game server.", "Rejoin, then enter your new code.", "error");
+            }
+            else if (message.code === CLOSE_TOO_MANY_ATTEMPTS) {
+                forgetToken();
+                showCodeForm(false);
+                setStatus("Too many wrong codes.", "Wait a few minutes, then try again.", "error");
             }
             else if (message.code === CLOSE_REPLACED)
-                setStatus("Opened in another tab.", "", "error");
-            ui.retry.hidden = message.code !== CLOSE_REPLACED;
+                setStatus("Opened somewhere else.", "Voice chat is running in another tab or device.", "error");
             return;
     }
 
@@ -189,6 +290,10 @@ function pushConfig() {
 }
 
 async function startAudio() {
+    if (!context)
+        context = new AudioContext();
+    const resuming = context.resume();
+
     const constraints = {
         audio: {
             channelCount: 1,
@@ -213,11 +318,10 @@ async function startAudio() {
         throw error;
     }
 
-    const context = audio ? audio.context : new AudioContext();
     if (!audio)
         await context.audioWorklet.addModule("voice-worklet.js");
 
-    await context.resume();
+    await resuming;
 
     const source = context.createMediaStreamSource(stream);
     const node = audio ? audio.node : new AudioWorkletNode(context, "voice-capture", {
@@ -345,6 +449,10 @@ function render() {
         setStatus(name, "", "neutral");
     else if (state.muted)
         setStatus("Muted by an admin.", "", "error");
+    else if (state.selfMuted)
+        setStatus(name, "Your mic is muted in game.", "warn");
+    else if (state.lobby)
+        setStatus(name, state.canSpeak ? "In the lobby. Everyone in the lobby hears you." : "Lobby voice is off.", "neutral");
     else if (!state.inGame)
         setStatus(name, "Join the round to talk.", "neutral");
     else if (!state.canSpeak)
@@ -367,6 +475,8 @@ function bindControls() {
     ui.noiseSuppression.checked = settings.noiseSuppression;
     ui.echoCancellation.checked = settings.echoCancellation;
     ui.autoGainControl.checked = settings.autoGainControl;
+    ui.keepAwake.checked = settings.keepAwake;
+    ui.keepAwakeRow.hidden = !("wakeLock" in navigator);
     ui.thresholdValue.textContent = `${settings.threshold} dB`;
     ui.gainValue.textContent = `${Math.round(settings.gain * 100)}%`;
 
@@ -428,19 +538,40 @@ function bindControls() {
         });
     }
 
-    ui.start.addEventListener("click", async () => {
-        ui.start.hidden = true;
-        setStatus("Starting microphone…", "", "neutral");
-        try {
-            await startAudio();
-        } catch (error) {
-            reportMicError(error);
+    ui.keepAwake.addEventListener("change", () => {
+        settings.keepAwake = ui.keepAwake.checked;
+        saveSettings();
+        if (settings.keepAwake)
+            requestWakeLock();
+        else
+            releaseWakeLock();
+    });
+
+    ui.start.addEventListener("click", begin);
+
+    ui.code.addEventListener("input", () => {
+        const normalized = normalizeCode(ui.code.value);
+        if (ui.code.value !== normalized)
+            ui.code.value = normalized;
+    });
+
+    ui.codeForm.addEventListener("submit", event => {
+        event.preventDefault();
+        const code = normalizeCode(ui.code.value);
+        if (!code) {
+            ui.code.focus();
             return;
         }
 
-        ui.controls.hidden = false;
-        startConnection();
-        render();
+        token = code;
+        rememberToken(code);
+        ui.code.blur();
+        begin();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible")
+            requestWakeLock();
     });
 
     ui.retry.addEventListener("click", () => {
@@ -463,14 +594,15 @@ function init() {
         return;
     }
 
+    worker = new Worker("voice-worker.js");
+    worker.onmessage = onWorkerMessage;
+
     if (!token) {
-        setStatus("Open this page from the game.", "In game: Esc, Voice Chat.", "error");
-        ui.start.hidden = true;
+        setStatus("Enter your voice chat code.", "In game: Esc, Voice Chat.", "neutral");
+        showCodeForm(true);
         return;
     }
 
-    worker = new Worker("voice-worker.js");
-    worker.onmessage = onWorkerMessage;
     setStatus("Ready", "", "neutral");
 }
 

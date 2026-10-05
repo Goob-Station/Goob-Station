@@ -20,6 +20,9 @@
             "name": "mag-0"
         },
         {
+            "name": "flashlight"
+        },
+        {
             "name": "inhand-left",
             "directions": 4
         },

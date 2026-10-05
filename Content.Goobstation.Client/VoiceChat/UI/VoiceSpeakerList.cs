@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
@@ -28,6 +29,13 @@ public sealed class VoiceSpeakerList : Control
         AddChild(_entries);
     }
 
+    public void SetInset(float right, float bottom)
+    {
+        var margin = new Thickness(0, 0, right, bottom);
+        if (_entries.Margin != margin)
+            _entries.Margin = margin;
+    }
+
     public void Update(float frameTime, VoiceChatSystem voice)
     {
         var added = false;
@@ -35,6 +43,25 @@ public sealed class VoiceSpeakerList : Control
         {
             if (_bySpeaker.Count >= MaxEntries)
                 break;
+
+            if (stream.IsMix)
+            {
+                foreach (var (contributor, state) in stream.Contributors)
+                {
+                    if (_bySpeaker.Count >= MaxEntries)
+                        break;
+
+                    if (!state.Active || _bySpeaker.ContainsKey(contributor) || voice.IsSelf(contributor))
+                        continue;
+
+                    var mixEntry = new VoiceSpeakerEntry(contributor);
+                    _bySpeaker[contributor] = mixEntry;
+                    _entries.AddChild(mixEntry);
+                    added = true;
+                }
+
+                continue;
+            }
 
             if (_bySpeaker.ContainsKey(id) ||
                 voice.IsSelf(id) ||
@@ -56,12 +83,23 @@ public sealed class VoiceSpeakerList : Control
                 ? info.Name
                 : Loc.GetString("voice-speaker-unknown");
 
-            if (!voice.IsSelf(entry.Speaker) && voice.Streams.TryGetValue(entry.Speaker, out var stream))
+            if (voice.IsSelf(entry.Speaker))
+            {
+                entry.Update(frameTime, false, 0f, name, null, Color.White);
+            }
+            else if (voice.Streams.TryGetValue(entry.Speaker, out var stream) && !stream.IsMix)
             {
                 var visibility = stream.Global ? 1f : stream.Audibility;
                 var active = stream.Activity > 0f && visibility >= MinVisibility;
                 var level = stream.Levels.Overall * (0.25f + 0.75f * visibility);
                 entry.Update(frameTime, active, level, name, voice.GetRouteLabel(stream), voice.GetRouteColor(stream));
+            }
+            else if (TryFindMix(voice, entry.Speaker, out var mix, out var state))
+            {
+                var visibility = mix.Global ? 1f : mix.Audibility;
+                var active = state.Active && visibility >= MinVisibility;
+                var level = state.Level * (0.25f + 0.75f * visibility);
+                entry.Update(frameTime, active, level, name, voice.GetRouteLabel(mix), voice.GetRouteColor(mix));
             }
             else
             {
@@ -80,6 +118,22 @@ public sealed class VoiceSpeakerList : Control
 
         _expired.Clear();
         UpdateSelf(frameTime, voice, added);
+    }
+
+    private static bool TryFindMix(VoiceChatSystem voice, ushort speaker, [NotNullWhen(true)] out VoicePlaybackStream? mix, [NotNullWhen(true)] out VoiceContributorState? state)
+    {
+        foreach (var stream in voice.Streams.Values)
+        {
+            if (stream.IsMix && stream.Contributors.TryGetValue(speaker, out state))
+            {
+                mix = stream;
+                return true;
+            }
+        }
+
+        mix = null;
+        state = null;
+        return false;
     }
 
     public void Clear()

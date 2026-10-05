@@ -25,7 +25,7 @@ namespace Content.Client.Atmos.Overlays
         private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
 
         private readonly IEntityManager _entManager;
-        private readonly IMapManager _mapManager;
+        private readonly SharedMapSystem _mapManager;
         private readonly SharedAtmosphereSystem _atmosphereSystem;
         private readonly SharedMapSystem _mapSystem;
         private readonly SharedTransformSystem _xformSys;
@@ -57,7 +57,7 @@ namespace Content.Client.Atmos.Overlays
         public GasTileOverlay(GasTileOverlaySystem system, IEntityManager entManager, IResourceCache resourceCache, IPrototypeManager protoMan, SpriteSystem spriteSys, SharedTransformSystem xformSys)
         {
             _entManager = entManager;
-            _mapManager = IoCManager.Resolve<IMapManager>();
+            _mapManager = entManager.System<SharedMapSystem>();
             _atmosphereSystem = entManager.System<SharedAtmosphereSystem>();
             _mapSystem = entManager.System<SharedMapSystem>();
             _xformSys = xformSys;
