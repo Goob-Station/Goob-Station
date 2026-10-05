@@ -159,7 +159,7 @@ public sealed partial class WoundSystem
         WoundableComponent? woundableComp = null,
         bool amputateChildrenSafely = false)
     {
-        if (!Resolve(woundableEntity, ref woundableComp)
+        if (!Resolve(woundableEntity, ref woundableComp, false)
             || !woundableComp.CanRemove)
             return;
 
