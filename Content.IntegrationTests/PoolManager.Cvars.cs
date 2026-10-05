@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 #nullable enable
+using Content.Goobstation.Common.CCVar;
 using Content.Shared.CCVar;
 
 namespace Content.IntegrationTests;
@@ -38,5 +39,6 @@ public static partial class PoolManager
         (CCVars.InteractionRateLimitPeriod.Name, "0.1"),
         (CCVars.MovementMobPushing.Name, "false"),
         (CCVars.LavalandEnabled.Name, "false"), // Lavaland Change
+        (GoobCVars.DisablePathfinding.Name, "true"), // Goobstation
     };
 }
