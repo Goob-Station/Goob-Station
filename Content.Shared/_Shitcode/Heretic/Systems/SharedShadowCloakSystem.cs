@@ -8,6 +8,7 @@ using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Systems;
@@ -137,7 +138,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         if ((args.UncappedDamage ?? args.DamageDelta) is not { } dmg)
             return;
 
-        _dmg.TryChangeDamage(user,
+        _dmg.ChangeDamage(user,
             dmg,
             origin: args.Origin,
             interruptsDoAfters: args.InterruptsDoAfters,

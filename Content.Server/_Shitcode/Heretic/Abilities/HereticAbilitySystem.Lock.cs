@@ -7,6 +7,7 @@ using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -58,7 +59,7 @@ public sealed partial class HereticAbilitySystem
         // change this behavior if this ability is ever given to heretic
         if (TryComp(user, out DamageableComponent? userDamage) &&
             TryComp(polymorphed.Value, out DamageableComponent? polymorphedDamage))
-            _dmg.SetDamage(polymorphed.Value, polymorphedDamage, userDamage.Damage);
+            _dmg.SetDamage((polymorphed.Value, polymorphedDamage), userDamage.Damage);
 
         _npcFaction.AddFaction(polymorphed.Value, HereticSystem.HereticFactionId);
 
