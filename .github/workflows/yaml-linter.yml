@@ -1,6 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-name: YAML Linter & Map Renderer
+name: "CI: YAML Linter & Map Renderer"
 
 on:
   push:
