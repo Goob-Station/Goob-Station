@@ -355,8 +355,9 @@ namespace Content.Server.Guardian
             if (TerminatingOrDeleted(guardianUid) || TerminatingOrDeleted(hostUid))
                 return;
 
-            if (!Resolve(hostUid, ref hostComponent, ref hostXform) ||
-                !Resolve(guardianUid, ref guardianComponent, ref guardianXform))
+            // Goob - Fix (host may lack component)
+            if (!Resolve(hostUid, ref hostComponent, ref hostXform, false) ||
+                !Resolve(guardianUid, ref guardianComponent, ref guardianXform, false))
             {
                 return;
             }

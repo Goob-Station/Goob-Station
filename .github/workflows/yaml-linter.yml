@@ -1,6 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-name: YAML Linter
+name: "CI: YAML Linter & Map Renderer"
 
 on:
   push:
@@ -36,6 +34,10 @@ jobs:
       - name: Install dependencies
         run: dotnet restore
       - name: Build
+        id: build
         run: dotnet build --configuration Release --no-restore /p:WarningsAsErrors= /m
       - name: Run Linter
-        run: dotnet run --project Content.YAMLLinter/Content.YAMLLinter.csproj --no-build
+        run: dotnet run --project Content.YAMLLinter/Content.YAMLLinter.csproj --configuration Release --no-build
+      - name: Run Map Renderer
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: dotnet run --project Content.MapRenderer/Content.MapRenderer.csproj --configuration Release --no-build -- Dev

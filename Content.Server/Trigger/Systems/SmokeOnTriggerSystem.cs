@@ -15,7 +15,6 @@ namespace Content.Server.Trigger.Systems;
 /// </summary>
 public sealed class SmokeOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
@@ -41,7 +40,9 @@ public sealed class SmokeOnTriggerSystem : EntitySystem
 
         // TODO: move all of this into an API function in SmokeSystem
 
-        args.Handled = true;
+        // Goobstation - call SpawnSmoke helper
+        // TODO: fuck YOU trauma. why the FUCK. TODO: make a wizden PR fixing this fucking nonsense
+        args.Handled = GoidaFuckingFixThisSpawnSmoke(target.Value, ent.Comp.SmokePrototype, ent.Comp.Solution, ent.Comp.Duration, ent.Comp.SpreadAmount);
     }
 
     /// Trauma - Moved it to helper function
@@ -50,11 +51,11 @@ public sealed class SmokeOnTriggerSystem : EntitySystem
     /// TODO This should have moved to <see cref="SmokeSystem"/>
     /// </summary>
     /// <returns></returns>
-    public bool SpawnSmoke(EntityUid target, string prototype, Solution solution, TimeSpan duration, int spreadAmount)
+    public bool GoidaFuckingFixThisSpawnSmoke(EntityUid target, string prototype, Solution solution, TimeSpan duration, int spreadAmount)
     {
         var xform = Transform(target);
         var mapCoords = _transform.GetMapCoordinates(target, xform);
-        if (!_mapMan.TryFindGridAt(mapCoords, out var gridUid, out var gridComp) ||
+        if (!_map.TryFindGridAt(mapCoords, out var gridUid, out var gridComp) ||
             !_map.TryGetTileRef(gridUid, gridComp, xform.Coordinates, out var tileRef) ||
             tileRef.Tile.IsEmpty)
         {
