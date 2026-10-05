@@ -825,7 +825,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
 
         foreach (var entity in args.DumpQueue)
         {
-            DoInsertDisposalUnit(ent, entity, args.User, playSound: false);
+            DoInsertDisposalUnit(ent, entity, args.User, playSound: false); // Goob - fix trashbag sound spam
         }
     }
 }
