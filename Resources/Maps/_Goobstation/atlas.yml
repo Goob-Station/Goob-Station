@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 08/16/2026 06:44:18
-  entityCount: 9265
+  entityCount: 9266
 maps:
 - 1
 grids:
@@ -50019,6 +50019,13 @@ entities:
     components:
     - type: Transform
       pos: 39.5,1.5
+      parent: 2
+- proto: SpawnPointChiefMedicalOfficer
+  entities:
+  - uid: 9266
+    components:
+    - type: Transform
+      pos: 4.5,-6.5
       parent: 2
 - proto: SpawnPointClown
   entities:

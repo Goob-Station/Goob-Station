@@ -18,7 +18,7 @@ namespace Content.Server.NodeContainer.Nodes
             if (!xform.Anchored || grid == null)
                 yield break;
 
-            var gridIndex = grid.TileIndicesFor(xform.Coordinates);
+            var gridIndex = entMan.System<SharedMapSystem>().TileIndicesFor(grid.Owner, grid, xform.Coordinates);
 
             foreach (var node in NodeHelpers.GetNodesInTile(nodeQuery, grid, gridIndex))
             {
