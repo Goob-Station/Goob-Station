@@ -189,11 +189,13 @@ public sealed class AlmanacBladeSystem : SharedAlmanacBladeSystem
 
     private void OnChestMapInit(Entity<AlmanacBladeChestSpawnerComponent> ent, ref MapInitEvent args)
     {
-        if (_harvests >= HarvestsForMaints || !_random.Prob(ent.Comp.Chance))
+        if (!TryComp<EntityStorageComponent>(ent, out var storage)
+            || _harvests >= HarvestsForMaints
+            || !_random.Prob(ent.Comp.Chance))
             return;
 
         var blade = Spawn(ent.Comp.Blade, Transform(ent).Coordinates);
-        _entityStorage.Insert(blade, ent);
+        _entityStorage.Insert(blade, ent, storage);
     }
 
     private void OnMaterialInserted(Entity<AlmanacOreCounterComponent> ent, ref MaterialEntityInsertedEvent args)
