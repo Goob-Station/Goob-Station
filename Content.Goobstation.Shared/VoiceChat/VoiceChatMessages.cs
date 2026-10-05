@@ -210,6 +210,7 @@ public enum VoiceSelfFlags : byte
     Shout = 1 << 3,
     Whisper = 1 << 4,
     Megaphone = 1 << 5,
+    God = 1 << 6,
 }
 
 public sealed class MsgVoiceSelf : NetMessage
@@ -252,14 +253,37 @@ public sealed class MsgVoicePushToTalk : NetMessage
     public override MsgGroups MsgGroup => MsgGroups.Command;
 
     public bool Pressed;
+    public bool Radio;
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
         Pressed = buffer.ReadBoolean();
+        Radio = buffer.ReadBoolean();
     }
 
     public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
     {
         buffer.Write(Pressed);
+        buffer.Write(Radio);
     }
 }
+
+public sealed class MsgVoiceMicMute : NetMessage
+{
+    public override MsgGroups MsgGroup => MsgGroups.Command;
+
+    public bool Muted;
+
+    public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
+    {
+        Muted = buffer.ReadBoolean();
+    }
+
+    public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
+    {
+        buffer.Write(Muted);
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class VoiceGodCueEvent : EntityEventArgs;

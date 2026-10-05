@@ -43,11 +43,11 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             return null;
         }
 
-        if (component.LastScannedTarget.Equals(target))
+        if (component.LastScannedTarget.Equals(target) && component.ResultList.Count > 0)
         {
             // cycle through DNAs already acquired
             component.ResultListOffset++;
-            if (component.ResultListOffset == component.ResultList.Count)
+            if (component.ResultListOffset >= component.ResultList.Count)
                 component.ResultListOffset = 0;
 
             var (dna, freshnessTimestamp, entityId) = component.ResultList[component.ResultListOffset];

@@ -11,6 +11,7 @@ using Robust.Shared.GameObjects;
 namespace Content.IntegrationTests.Tests.GameRules;
 
 [TestFixture]
+[Category("GameRuleTests")]
 public sealed class FailAndStartPresetTest
 {
     [TestPrototypes]
