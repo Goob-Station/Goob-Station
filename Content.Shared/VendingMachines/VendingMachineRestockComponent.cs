@@ -2,9 +2,9 @@
 
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.VendingMachines;
 
@@ -21,8 +21,8 @@ public sealed partial class VendingMachineRestockComponent : Component
     /// What sort of machine inventory does this restock?
     /// This is checked against the VendingMachineComponent's pack value.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdHashSetSerializer<VendingMachineInventoryPrototype>))]
-    public HashSet<string> CanRestock = [];
+    [DataField]
+    public HashSet<ProtoId<VendingMachineInventoryPrototype>> CanRestock = [];
 
     /// <summary>
     ///     Sound that plays when starting to restock a machine.
