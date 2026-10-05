@@ -121,7 +121,7 @@ public abstract partial class SharedHandsSystem
 
         if (ContainerSystem.TryGetContainer(ent, handName, out var container))
         {
-            ContainerSystem.EmptyContainer(container, force: true);
+            ContainerSystem.EmptyContainer(container, force: true); // Goob - fix glued item deleted on hand remove
             ContainerSystem.ShutdownContainer(container);
         }
 
