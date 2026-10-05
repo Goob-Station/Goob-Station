@@ -21,20 +21,29 @@ jobs:
     timeout-minutes: 30
 
     steps:
+    - &swap
+      name: Enlarge swap
+      run: |
+        sudo swapoff -a
+        sudo rm -f /mnt/swapfile
+        sudo fallocate -l 12G /mnt/swapfile
+        sudo chmod 600 /mnt/swapfile
+        sudo mkswap /mnt/swapfile
+        sudo swapon /mnt/swapfile
+        free -h
+
     - &checkout
       name: Checkout Master
       uses: actions/checkout@v4.2.2
 
-    - &submodule
-      name: Setup Submodule
+    - name: Setup Submodule
       run: git submodule update --init --recursive
 
     - &submodule_pull
       name: Pull engine updates
       uses: space-wizards/submodule-dependency@v0.1.5
 
-    - &submodule_update
-      name: Update Engine Submodules
+    - name: Update Engine Submodules
       run: |
         cd RobustToolbox/
         git submodule update --init --recursive
@@ -46,10 +55,10 @@ jobs:
         dotnet-version: 10.0.x
 
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore Content.IntegrationTests/Content.IntegrationTests.csproj
 
     - name: Build Project
-      run: dotnet build --configuration DebugOpt --no-restore /m -clp:ErrorsOnly
+      run: dotnet build Content.IntegrationTests/Content.IntegrationTests.csproj --configuration DebugOpt --no-restore /m -clp:ErrorsOnly
 
     - name: Save build artifacts
       uses: actions/upload-artifact@v4
@@ -71,9 +80,10 @@ jobs:
 
     steps:
     - *checkout
-    - *submodule
+    - &submodule
+      name: Setup Submodule
+      run: git submodule update --init
     - *submodule_pull
-    - *submodule_update
     - *dotnet
     - &download_build
       name: Download build artifacts
@@ -88,72 +98,55 @@ jobs:
     - name: Run Content.Tests
       run: dotnet test bin/Content.Tests/Content.Tests.dll -- NUnit.ConsoleOut=0
 
-  test-main:
+  test-integration:
+    name: test-integration (${{ matrix.shard.name }})
     needs: build
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard:
+          - name: main
+            filter: cat != MapTests && cat != GameRuleTests && cat != PrototypeSweepTests
+          - name: prototype-sweep
+            filter: cat == PrototypeSweepTests
+          - name: maps-gamerules
+            filter: cat == MapTests || cat == GameRuleTests
+
+    env:
+      DOTNET_gcServer: 1
+      DOTNET_TieredPGO: 0
 
     steps:
+    - *swap
     - *checkout
     - *submodule
     - *submodule_pull
-    - *submodule_update
     - *dotnet
     - *download_build
 
-    - name: Run main Content.IntegrationTests
+    - name: Run Content.IntegrationTests (${{ matrix.shard.name }})
       timeout-minutes: 25
       run: |
-        DOTNET_gcServer=1 dotnet test bin/Content.IntegrationTests/Content.IntegrationTests.dll -- \
-          NUnit.Where="cat != MapTests && cat != GameRuleTests" \
+        dotnet test bin/Content.IntegrationTests/Content.IntegrationTests.dll \
+          --logger "trx;LogFileName=${{ matrix.shard.name }}.trx" --results-directory TestResults -- \
+          NUnit.Where="${{ matrix.shard.filter }}" \
           NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
 
-  test-maps:
-    needs: build
-    if: github.event.pull_request.draft == false
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-
-    steps:
-    - *checkout
-    - *submodule
-    - *submodule_pull
-    - *submodule_update
-    - *dotnet
-    - *download_build
-
-    - name: Run MapTests
-      timeout-minutes: 25
-      run: |
-        DOTNET_gcServer=1 dotnet test bin/Content.IntegrationTests/Content.IntegrationTests.dll -- \
-          NUnit.Where="cat == MapTests" \
-          NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
-
-  test-gamerules:
-    needs: build
-    if: github.event.pull_request.draft == false
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-
-    steps:
-    - *checkout
-    - *submodule
-    - *submodule_pull
-    - *submodule_update
-    - *dotnet
-    - *download_build
-
-    - name: Run GameRuleTests
-      timeout-minutes: 25
-      run: |
-        DOTNET_gcServer=1 dotnet test bin/Content.IntegrationTests/Content.IntegrationTests.dll -- \
-          NUnit.Where="cat == GameRuleTests" \
-          NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results-${{ matrix.shard.name }}
+        path: TestResults/*.trx
+        retention-days: 7
+        if-no-files-found: ignore
 
   ci-success:
     name: Build & Test Debug
-    needs: [build, test-unit, test-main, test-maps, test-gamerules]
+    needs: [build, test-unit, test-integration]
     runs-on: ubuntu-latest
     if: always() && github.event.pull_request.draft == false
     steps:
@@ -161,9 +154,7 @@ jobs:
         run: |
           if [[ "${{ needs.build.result }}" != "success" ||
                 "${{ needs.test-unit.result }}" != "success" ||
-                "${{ needs.test-main.result }}" != "success" ||
-                "${{ needs.test-maps.result }}" != "success" ||
-                "${{ needs.test-gamerules.result }}" != "success" ]]; then
+                "${{ needs.test-integration.result }}" != "success" ]]; then
             echo "Not all tests succeeded!"
             exit 1
           fi
