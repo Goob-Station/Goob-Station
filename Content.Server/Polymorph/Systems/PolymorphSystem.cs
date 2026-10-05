@@ -31,6 +31,8 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
@@ -70,6 +72,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly TagSystem _tag = default!; // goob edit
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!; // Goobstation
 
     // Shitmed Deps
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -253,6 +256,11 @@ public sealed partial class PolymorphSystem : EntitySystem
             proto = entities.Pick(_random).Id;
         }
         var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
+
+        if (configuration.AllowMovement
+            && TryComp<PhysicsComponent>(child, out var childPhysics)
+            && childPhysics.BodyType is not (BodyType.KinematicController or BodyType.Kinematic))
+            _physics.SetBodyType(child, BodyType.KinematicController, body: childPhysics);
 
         _mindSystem.MakeSentient(child, configuration.AllowMovement);
         // Goob edit end
