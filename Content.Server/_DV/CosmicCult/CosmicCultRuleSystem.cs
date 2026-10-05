@@ -442,7 +442,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void EndRoundVoid(EntityUid player, EntityCoordinates spawnTgt, CosmicCultRuleComponent cultRule)
     {
-        if (!_mind.TryGetMind(player, out var mind, out _) || _mobStateSystem.IsDead(player))
+        if (TerminatingOrDeleted(player) || !_mind.TryGetMind(player, out var mind, out _) || _mobStateSystem.IsDead(player))
             return;
         if (cultRule.Cultists.Contains(player))
         {

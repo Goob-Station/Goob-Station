@@ -179,7 +179,7 @@ namespace Content.Server.Medical.BiomassReclaimer
 
             if (storage != null)
                 foreach (var (item, _location) in storage.StoredItems)
-                    if (CanGib(reclaimer, item) && TryComp<PhysicsComponent>(args.Used, out var itemPhysics))
+                    if (CanGib(reclaimer, item) && TryComp<PhysicsComponent>(item, out var itemPhysics))
                         massToInsert += itemPhysics.FixturesMass;
 
             var delay = reclaimer.Comp.BaseInsertionDelay * massToInsert;
