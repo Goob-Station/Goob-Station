@@ -4,7 +4,6 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
 namespace Content.Client._Shitmed.Medical.Surgery.Wounds;
