@@ -835,6 +835,9 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
     private void UpdateCollectionChildMetaData(EntityUid child, EntityUid master)
     {
+        if (TerminatingOrDeleted(child) || TerminatingOrDeleted(master)) // Goob - Fix (deleted collection devices)
+            return;
+
         var netEntity = GetNetEntity(child);
         var xform = Transform(child);
 
@@ -974,7 +977,8 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             {
                 if (!entDevice.IsCollectionMaster)
                 {
-                    metaData.CollectionMaster = GetNetEntity(entDevice.CollectionMaster);
+                    if (!TerminatingOrDeleted(entDevice.CollectionMaster)) // Goob - Fix (deleted collection master)
+                        metaData.CollectionMaster = GetNetEntity(entDevice.CollectionMaster);
                 }
 
                 else if (entDevice.ChildDevices.Count > 0)

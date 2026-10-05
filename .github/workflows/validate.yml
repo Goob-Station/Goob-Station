@@ -1,0 +1,54 @@
+name: "CI: Validate"
+
+on:
+  push:
+    branches: [ master, staging, stable ]
+  merge_group:
+  pull_request:
+    types: [ opened, reopened, synchronize, ready_for_review ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4.2.2
+
+    - name: Setup Submodule
+      run: git submodule update --init
+
+    - name: Pull engine updates
+      id: engine
+      uses: space-wizards/submodule-dependency@v0.1.5
+
+    - name: Check for CRLF
+      if: ${{ !cancelled() && steps.engine.outcome == 'success' && github.event_name == 'pull_request' && github.event.pull_request.draft == false }}
+      run: Tools/check_crlf.py
+
+    - name: Validate map files
+      if: ${{ !cancelled() && steps.engine.outcome == 'success' && github.event.pull_request.draft == false }}
+      uses: PaulRitter/yaml-schema-validator@v1
+      with:
+        schema: RobustToolbox/Schemas/mapfile.yml
+        path_pattern: .*Resources/Maps/.*
+        validators_path: RobustToolbox/Schemas/mapfile_validators.py
+        validators_requirements: .github/Schemas/mapfile_requirements.txt
+
+    - name: Validate RGAs
+      if: ${{ !cancelled() && steps.engine.outcome == 'success' && github.event.pull_request.draft == false }}
+      uses: PaulRitter/yaml-schema-validator@v1
+      with:
+        schema: .github/Schemas/rga.yml
+        path_pattern: .*attributions.ya?ml$
+        validators_path: RobustToolbox/Schemas/rga_validators.py
+        validators_requirements: .github/Schemas/rga_requirements.txt
+
+    - name: Validate RSIs
+      if: ${{ !cancelled() && steps.engine.outcome == 'success' }}
+      run: |
+        pip3 install --ignore-installed --user pillow jsonschema
+        python3 RobustToolbox/Schemas/validate_rsis.py Resources/

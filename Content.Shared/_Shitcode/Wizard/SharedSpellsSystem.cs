@@ -96,7 +96,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly IMapManager MapManager = default!;
     [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
@@ -868,7 +867,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         var box = Box2.CenteredAround(mapPos.Position, new Vector2(range, range));
         var circle = new Circle(mapPos.Position, range);
         var grids = new List<Entity<MapGridComponent>>();
-        MapManager.FindGridsIntersecting(mapPos.MapId, box, ref grids);
+        Map.FindGridsIntersecting(mapPos.MapId, box, ref grids);
 
         bool IsTileValid((EntityCoordinates, TileRef) data)
         {
@@ -1444,7 +1443,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         var mapCoords = TransformSystem.ToMapCoordinates(coords);
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var spawnCoords = MapManager.TryFindGridAt(mapCoords, out var gridUid, out _)
+        var spawnCoords = Map.TryFindGridAt(mapCoords, out var gridUid, out _)
             ? TransformSystem.WithEntityId(coords, gridUid)
             : new(Map.GetMapOrInvalid(mapCoords.MapId), mapCoords.Position);
 
