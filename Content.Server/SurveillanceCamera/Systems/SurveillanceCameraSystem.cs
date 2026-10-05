@@ -222,7 +222,7 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         {
             if (deviceNet.ReceiveFrequencyId != null)
             {
-                camera.AvailableNetworks.Add(deviceNet.ReceiveFrequencyId);
+                camera.AvailableNetworks.Add(deviceNet.ReceiveFrequencyId.Value);
             }
             else if (!camera.NetworkSet)
             {
