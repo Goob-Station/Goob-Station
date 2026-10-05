@@ -375,7 +375,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
             if (stationAiCore.Comp?.RemoteEntity == null || stationAiCore.Comp.Remote)
                 continue;
 
-            var xform = Transform(stationAiCore.Comp.RemoteEntity.Value);
+            if (!TryComp(stationAiCore.Comp.RemoteEntity.Value, out TransformComponent? xform)) // Goob - remote entity may be deleted
+                continue;
 
             var range = (xform.MapID != sourceXform.MapID)
                 ? -1

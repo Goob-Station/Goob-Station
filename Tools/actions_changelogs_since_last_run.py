@@ -16,6 +16,7 @@ Automatically figures out the last run and changelog contents with the GitHub AP
 
 import itertools
 import os
+import time
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -29,8 +30,10 @@ GITHUB_API_URL = os.environ.get("GITHUB_API_URL", "https://api.github.com")
 # https://discord.com/developers/docs/resources/webhook
 DISCORD_SPLIT_LIMIT = 2000
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
+DISCORD_MAX_RETRIES = 10
 
 CHANGELOG_FILE = "Resources/Changelog/GoobChangelog.yml"
+PUBLISHED_TAG = os.environ.get("CHANGELOG_PUBLISHED_TAG", "changelog-published")
 
 TYPES_TO_EMOJI = {"Fix": "🐛", "Add": "🆕", "Remove": "❌", "Tweak": "⚒️"}
 
@@ -64,13 +67,19 @@ def get_most_recent_workflow(
     sess: requests.Session, github_repository: str, github_run: str
 ) -> Any:
     workflow_run = get_current_run(sess, github_repository, github_run)
-    past_runs = get_past_runs(sess, workflow_run)
-    for run in past_runs["workflow_runs"]:
-        # First past successful run that isn't our current run.
+    for run in get_past_runs(sess, workflow_run):
         if run["id"] == workflow_run["id"]:
+            continue
+        if run["head_branch"] != workflow_run["head_branch"]:
+            continue
+        if run["created_at"] > workflow_run["created_at"]:
+            continue
+        if run["conclusion"] != "success":
             continue
 
         return run
+
+    raise RuntimeError("Could not find a previous successful publish run")
 
 
 def get_current_run(
@@ -83,14 +92,20 @@ def get_current_run(
     return resp.json()
 
 
-def get_past_runs(sess: requests.Session, current_run: Any) -> Any:
+def get_past_runs(sess: requests.Session, current_run: Any) -> Iterable[Any]:
     """
-    Get all successful workflow runs before our current one.
+    Get all workflow runs on the current branch, newest first.
     """
-    params = {"status": "success", "created": f"<={current_run['created_at']}"}
-    resp = sess.get(f"{current_run['workflow_url']}/runs", params=params)
-    resp.raise_for_status()
-    return resp.json()
+    params = {"branch": current_run["head_branch"], "per_page": 100, "page": 1}
+    while True:
+        resp = sess.get(f"{current_run['workflow_url']}/runs", params=params)
+        resp.raise_for_status()
+        runs = resp.json()["workflow_runs"]
+        if not runs:
+            return
+
+        yield from runs
+        params["page"] += 1
 
 
 def get_last_changelog() -> str:
@@ -100,22 +115,25 @@ def get_last_changelog() -> str:
 
     session = requests.Session()
     session.headers["Authorization"] = f"Bearer {github_token}"
-    session.headers["Accept"] = "Accept: application/vnd.github+json"
+    session.headers["Accept"] = "application/vnd.github+json"
     session.headers["X-GitHub-Api-Version"] = "2022-11-28"
+
+    tag_changelog = get_last_changelog_by_sha(
+        session, f"tags/{PUBLISHED_TAG}", github_repository, allow_missing=True
+    )
+    if tag_changelog is not None:
+        print(f"Using last published changelog from tag {PUBLISHED_TAG}")
+        return tag_changelog
 
     most_recent = get_most_recent_workflow(session, github_repository, github_run)
     last_sha = most_recent["head_commit"]["id"]
-    print(f"Last successful publish job was {most_recent['id']}: {last_sha}")
-    last_changelog_stream = get_last_changelog_by_sha(
-        session, last_sha, github_repository
-    )
-
-    return last_changelog_stream
+    print(f"Tag {PUBLISHED_TAG} not found, last successful publish job was {most_recent['id']}: {last_sha}")
+    return get_last_changelog_by_sha(session, last_sha, github_repository)
 
 
 def get_last_changelog_by_sha(
-    sess: requests.Session, sha: str, github_repository: str
-) -> str:
+    sess: requests.Session, sha: str, github_repository: str, allow_missing: bool = False
+) -> str | None:
     """
     Use GitHub API to get the previous version of the changelog YAML (Actions builds are fetched with a shallow clone)
     """
@@ -129,6 +147,9 @@ def get_last_changelog_by_sha(
         headers=headers,
         params=params,
     )
+    if allow_missing and resp.status_code == 404:
+        return None
+
     resp.raise_for_status()
     return resp.text
 
@@ -157,7 +178,16 @@ def send_discord_webhook(lines: list[str]):
     content = "".join(lines)
     body = get_discord_body(content)
 
-    response = requests.post(DISCORD_WEBHOOK_URL, json=body)
+    for _ in range(DISCORD_MAX_RETRIES):
+        response = requests.post(DISCORD_WEBHOOK_URL, json=body)
+        if response.status_code != 429:
+            response.raise_for_status()
+            return
+
+        retry_after = float(response.json().get("retry_after", 1))
+        print(f"Rate limited by discord, retrying in {retry_after}s")
+        time.sleep(retry_after + 0.5)
+
     response.raise_for_status()
 
 

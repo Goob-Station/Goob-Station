@@ -59,7 +59,7 @@ using ItemToggleMeleeWeaponComponent = Content.Shared.Item.ItemToggle.Components
 
 namespace Content.Shared.Weapons.Melee;
 
-public abstract class SharedMeleeWeaponSystem : EntitySystem
+public abstract partial class SharedMeleeWeaponSystem : EntitySystem // Goob - partial
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly SharedMapSystem MapSystem = default!;
@@ -184,6 +184,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
+        AddArmorPenetrationExamine(args.Message, damageSpec); // Goob
     }
     private void OnMeleeSelected(EntityUid uid, MeleeWeaponComponent component, HandSelectedEvent args)
     {
@@ -826,6 +827,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         {
             if (entity == user ||
                 !damageQuery.HasComponent(entity))
+                continue;
+
+            if (IsHeavyAttackTargetBlocked(entity, user, meleeUid)) // Goob
                 continue;
 
             // Goobstation start
