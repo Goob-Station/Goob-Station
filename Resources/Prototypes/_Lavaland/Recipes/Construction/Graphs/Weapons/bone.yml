@@ -19,7 +19,7 @@
         amount: 10
         doAfter: 5
   - node: incompleteAxe
-    entity: IncompleteBaseBallBat
+    entity: IncompleteBoneAxe
     edges:
     - to: start
       completed:

@@ -8,6 +8,7 @@ using Content.Shared.Body.Events;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Holopad;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Light;
@@ -382,7 +383,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
     private void OnBrainPointAttempt(Entity<BorgBrainComponent> brain, ref PointAttemptEvent args)
     {
-        args.Cancel();
+        if (!HasComp<HolopadUserComponent>(brain)) // Goobstation
+            args.Cancel();
     }
 
     // Raised when the power cell is empty or removed from the borg.

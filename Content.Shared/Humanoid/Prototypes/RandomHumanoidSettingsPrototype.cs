@@ -13,7 +13,7 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
 {
     [IdDataField] public string ID { get; private set; } = default!;
 
-    [ParentDataField(typeof(PrototypeIdArraySerializer<RandomHumanoidSettingsPrototype>))]
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<RandomHumanoidSettingsPrototype>))]
     public string[]? Parents { get; private set; }
 
     [AbstractDataField]

@@ -9,6 +9,8 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Movement.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Temperature;
 using Content.Shared.Temperature.Components;
@@ -131,6 +133,12 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
                 temperature);
         }
 
+        if (comp.AddedBlockMovement)
+        {
+            comp.AddedBlockMovement = false;
+            RemComp<BlockMovementComponent>(uid);
+        }
+
         _blocker.UpdateCanMove(uid);
 
         Popup.PopupEntity(Loc.GetString("ice-cube-melt"), uid);
@@ -184,6 +192,12 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
 
         if (physics.BodyType != BodyType.KinematicController)
             return;
+
+        if (HasComp<InputMoverComponent>(uid) && !HasComp<BlockMovementComponent>(uid))
+        {
+            AddComp<BlockMovementComponent>(uid);
+            comp.AddedBlockMovement = true;
+        }
 
         comp.OldBodyType = physics.BodyType;
         Physics.SetBodyType(uid, comp.FrozenBodyType, fixtures, physics, xform);

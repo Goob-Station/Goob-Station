@@ -92,7 +92,7 @@ public abstract partial class SharedHereticAbilitySystem
     public bool IsTileRust(EntityCoordinates coords, [NotNullWhen(true)] out Vector2i? tileCoords)
     {
         tileCoords = null;
-        if (!_mapMan.TryFindGridAt(_transform.ToMapCoordinates(coords), out var gridUid, out var mapGrid))
+        if (!_map.TryFindGridAt(_transform.ToMapCoordinates(coords), out var gridUid, out var mapGrid))
             return false;
 
         var tileRef = _map.GetTileRef(gridUid, mapGrid, coords);

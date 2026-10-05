@@ -46,6 +46,11 @@
   - BorgModuleLollypop
 
 - type: latheRecipePack
+  id: SecBorgParts
+  recipes:
+  - SecEndoskeleton
+
+- type: latheRecipePack
   id: PowerCages
   recipes:
   - PowerCageHigh
