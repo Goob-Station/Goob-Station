@@ -9,28 +9,41 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobVox" Caption=""/>
   </Box>
 
-  [color=#ffa500]Warning! This species is not recommended for new players due to their fatal allergy to oxygen![/color]
+  [color=red]Warning! This species is not recommended for new players due to their fatal allergy to oxygen![/color]
 
-  Vox breathe nitrogen, and [color=#ffa500] oxygen is toxic to them.[/color]
+  Half-organic and half-silicon, Vox [color=#1e90ff]breathe nitrogen[/color], and [color=#ffa500] oxygen is toxic to them.[/color]
   Unfortunately, space stations tend to be full of oxygen,
   so Vox must use an internal nitrogen supply at almost all times to avoid fatal exposure.
 
   Vox always spawn wearing working nitrogen internals equipment.
   A spare breathing mask and an emergency nitrogen canister is provided in their survival box.
 
-  In addition to regular foods, Vox can also eat various snack packaging, banana peels, eggshells, and raw meat without any ill effects. They also like to drink welding fuel.
+  ## Unique Abilities
 
-  Vox are good at handling disgust.
+  ### Modified Biology
 
-  Vox [color=#1e90ff]slowly recover from low levels of poison damage[/color] on their own,
+  - Vox [color=#1e90ff]slowly recover from low levels of poison damage[/color] on their own,
   so long as they are careful not to exceed 20 poison damage.
-  This allows them to endure breathing station air for up to thirty seconds at a time without lasting damage,
+  - This allows them to endure breathing station air for up to thirty seconds at a time without lasting damage,
   letting them quickly eat, drink, take oral medication, and so on.
-  A thirty second oxygen exposure takes them two minutes to recover from.
-  If their health does not seem to improve within a minute of oxygen exposure, they should seek medical attention.
+  - A thirty second oxygen exposure takes them two minutes to recover from.
+  - If their health does not seem to improve within a minute of oxygen exposure, they should seek medical attention.
 
-  Due to them being half-organic and half-silicon, they do not rot, but it's also impossible to clone them.
+  ## Diet
 
-  Vox deal Slash damage with their unarmed attack.
+  - In addition to regular foods, Vox can also eat various snack packaging, banana peels, eggshells, and raw meat without any ill effects. They also like to drink welding fuel.
+
+  ## Benefits
+
+  - You slowly recover from poison damage below 20.
+  - Vox deal Slash damage with their unarmed attack.
+  - [color=#1e90ff]You cannot rot.[/color]
+
+  ## Drawbacks
+
+  - [color=#ffa500]Oxygen is toxic[/color] to Vox biology.
+  - [color=#ffa500]Inability to be cloned.[/color]
+  
+
 
 </Document>

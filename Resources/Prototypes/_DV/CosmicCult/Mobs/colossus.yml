@@ -183,21 +183,16 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    #- Binary # Goob
+    - Binary
     - Common
     - Science
     - CosmicRadio
   - type: ActiveRadio
     channels:
-    #- Binary # Goob
+    - Binary
     - Common
     - Science
     - CosmicRadio
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: ZombieImmune
   - type: UserInterface
     interfaces:
