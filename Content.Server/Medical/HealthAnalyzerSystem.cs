@@ -284,12 +284,13 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (TryComp<TemperatureComponent>(target, out var temp))
             bodyTemperature = temp.CurrentTemperature;
 
-        var bloodAmount = _bloodstreamSystem.GetBloodLevel(target); // Goobstation
+        var bloodAmount = float.NaN; // Goobstation
         var unrevivable = false;
         var bloodLow = false; // Goobstation
 
         if (TryComp<BloodstreamComponent>(target, out var bloodstream)) // Goobstation - Don't resolve twice
         {
+            bloodAmount = _bloodstreamSystem.GetBloodLevel((target, bloodstream)); // Goob - Fix (bloodless targets)
             bloodLow = bloodAmount < bloodstream.BloodlossThreshold; // Goobstation
         }
 
@@ -302,7 +303,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
             string msg = Loc.GetString(analyzerComp.SpeakerMessage,
                 ("damage", damageableComp.TotalDamage.ToString()),
-                ("bloodLevel", $"{bloodAmount * 100:F1}")
+                ("bloodLevel", float.IsNaN(bloodAmount) ? "0" : $"{bloodAmount * 100:F1}") // Goob - Fix (bloodless targets)
             );
 
             _chat.TrySendInGameICMessage(healthAnalyzer, msg, InGameICChatType.Speak, hideChat: true);
