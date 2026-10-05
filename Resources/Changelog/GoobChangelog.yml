@@ -25480,3 +25480,78 @@ Entries:
       message: Hev, force gun and tether gun resprite
   id: 2922
   time: '2026-10-01T10:01:58.0000000+00:00'
+- author: DoremyZerg
+  changes:
+    - type: Add
+      message: 'Three new admin plushies of characters: Nyxoma, Aya and Harel.'
+  id: 2923
+  time: '2026-10-01T14:22:56.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: >-
+        The cosmic cult's Blank ability no longer breaks the server when the
+        victim's original body is destroyed while they're in the void, they now
+        become a ghost.
+    - type: Fix
+      message: >-
+        Station AI camera vision no longer randomly fucks up when multiple
+        people are lookin at it.
+    - type: Fix
+      message: >-
+        Mice and other critters stuck in someone's pocket or hands no longer try
+        to escape over and over.
+    - type: Fix
+      message: >-
+        Health analyzers now show blood as N/A for IPCs, borgs and other
+        bloodless targets, instead of 0%.
+    - type: Fix
+      message: >-
+        The vent critter event with a small spawn count no longer fails to spawn
+        anything.
+    - type: Fix
+      message: >-
+        Rescanning the same puddle with a Bloodtrak no longer errors when the
+        last scan found no matches.
+    - type: Fix
+      message: The abductor console no longer errors when its stored target is gone.
+    - type: Fix
+      message: >-
+        Blinking or telefragging into people no longer errors when knocking them
+        down.
+    - type: Fix
+      message: >-
+        Megafauna phase thresholds no longer drift or break when they scale more
+        than once.
+    - type: Fix
+      message: Thunderdome ammo refills no longer fail.
+    - type: Fix
+      message: Disease effects that add or remove other effects no longer fail.
+    - type: Fix
+      message: Chat messages with an unclosed [ are no longer silently dropped.
+    - type: Fix
+      message: >-
+        You no longer get stuck unable to stand up properly after a cancelled
+        stand-up attempt.
+    - type: Fix
+      message: Untrained chaplain-bible users" message.
+    - type: Fix
+      message: >-
+        Diona no longer error on revival when their "Gib Yourself" action is
+        already gone.
+    - type: Fix
+      message: >-
+        Device networks no longer keep references to deleted devices, which
+        caused errors on air alarms and other device lists.
+    - type: Fix
+      message: >-
+        Turnstiles, holosign projectors, gas analyzers, station radios and
+        telephones/holopads no longer break on deleted entities.
+    - type: Fix
+      message: The Prospector shuttle event no longer shits iteslf.
+    - type: Fix
+      message: >-
+        The atmos alerts console no longer errors when its selected alarm has
+        been removed.
+  id: 2924
+  time: '2026-10-04T20:18:26.0000000+00:00'
