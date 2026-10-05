@@ -1,0 +1,78 @@
+- type: weightedRandom
+  id: HarshEvents
+  weights:
+    GasSpillOxy: 1
+    GasSpillPlasma: 1
+    GasSpillNitrium: 1
+    GasSpillCarbon: 1
+    GasSpillFrezon: 1
+    SMShardSpawn: 1
+    SMAnomSpawn: 1
+    SMEMPSpawn: 1
+    SMGravitySpawn: 1
+
+- type: supermatterEvent
+  id: SMSurge
+  announcement: supermatter-surge
+
+- type: supermatterEvent
+  id: GasSpillOxy
+  gasToSpawn: 0   # Changed to gas ID
+  announcement: gas-spill-oxygen
+
+- type: supermatterEvent
+  id: GasSpillPlasma
+  gasToSpawn: 3 # Changed to gas ID
+  announcement: gas-spill-plasma
+
+- type: supermatterEvent
+  id: GasSpillNitrium
+  gasToSpawn: 11 # Changed to gas ID
+  announcement: gas-spill-nitrium
+
+- type: supermatterEvent
+  id: GasSpillNitrogen
+  gasToSpawn: 1 # Changed to gas ID
+  announcement: gas-spill-nitrogen
+
+- type: supermatterEvent
+  id: GasSpillCarbon
+  gasToSpawn: 2 # Changed to gas ID
+  announcement: gas-spill-carbondioxide
+
+- type: supermatterEvent
+  id: GasSpillFrezon
+  gasToSpawn: 8 # Changed to gas ID
+  announcement: gas-spill-frezon
+
+- type: supermatterEvent
+  id: SMShardSpawn
+  protoToSpawn: SupermatterSliver
+  announcement: supermatter-announcement-cc-tamper
+
+- type: supermatterEvent
+  id: SMAnomSpawn
+  protoToSpawn: RandomAnomalySpawner
+  announcement: supermatter-announcement-cc-tamper
+
+- type: supermatterEvent
+  id: SMBSAnomSpawn
+  protoToSpawn: AnomalyBluespace
+  announcement: supermatter-announcement-cc-tamper
+
+- type: supermatterEvent
+  id: SMCrabSpawn
+  protoToSpawn: MobSupermatterCrab
+  announcement: supermatter-announcement-cc-tamper
+
+- type: supermatterEvent
+  id: SMEMPSpawn
+  protoToSpawn: AdminInstantEffectEMP7
+  announcement: supermatter-energy-surge
+
+- type: supermatterEvent
+  id: SMGravitySpawn
+  protoToSpawn: AdminInstantEffectGravityWell
+  announcement: supermatter-energy-surge
+
+
