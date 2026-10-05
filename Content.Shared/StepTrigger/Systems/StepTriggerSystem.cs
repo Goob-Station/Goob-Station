@@ -57,6 +57,9 @@ public sealed class StepTriggerSystem : EntitySystem
 
     private bool Update(EntityUid uid, StepTriggerComponent component, TransformComponent transform, EntityQuery<PhysicsComponent> query)
     {
+        if (component.Colliding.RemoveWhere(e => TerminatingOrDeleted(e)) + component.CurrentlySteppedOn.RemoveWhere(e => TerminatingOrDeleted(e)) > 0) // Goobstation - Fix
+            Dirty(uid, component);
+
         if (!component.Active ||
             component.Colliding.Count == 0)
         {
@@ -175,8 +178,7 @@ public sealed class StepTriggerSystem : EntitySystem
 
         if (component.Colliding.Add(otherUid))
         {
-            var cleanup = EnsureComp<StepTriggerCleanupComponent>(otherUid); // Goobstation - Fix
-            cleanup.StepTrigger = uid;
+            EnsureComp<StepTriggerCleanupComponent>(otherUid).StepTriggers.Add(uid); // Goobstation - Fix
             Dirty(uid, component);
         }
     }
@@ -189,7 +191,10 @@ public sealed class StepTriggerSystem : EntitySystem
             return;
 
         component.CurrentlySteppedOn.Remove(otherUid);
-        RemComp<StepTriggerCleanupComponent>(otherUid); // Goobstation - Fix
+        if (TryComp<StepTriggerCleanupComponent>(otherUid, out var cleanup) // Goobstation - Fix
+            && cleanup.StepTriggers.Remove(uid)
+            && cleanup.StepTriggers.Count == 0)
+            RemComp(otherUid, cleanup);
         Dirty(uid, component);
 
         if (component.StepOn)
@@ -267,11 +272,14 @@ public sealed class StepTriggerSystem : EntitySystem
 
     private void OnTerminating(EntityUid uid, StepTriggerCleanupComponent component, ref EntityTerminatingEvent args) // Goobstation - Fix
     {
-        if (!TryComp<StepTriggerComponent>(component.StepTrigger, out var step))
-            return;
+        foreach (var trigger in component.StepTriggers)
+        {
+            if (!TryComp<StepTriggerComponent>(trigger, out var step))
+                continue;
 
-        if (step.Colliding.Remove(uid) | step.CurrentlySteppedOn.Remove(uid)) // bitwise cause we remove from both.
-            Dirty(component.StepTrigger, step);
+            if (step.Colliding.Remove(uid) | step.CurrentlySteppedOn.Remove(uid)) // bitwise cause we remove from both.
+                Dirty(trigger, step);
+        }
     }
 
 }

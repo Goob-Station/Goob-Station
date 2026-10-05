@@ -15,7 +15,7 @@ log_late_msg = false
 enabled = true
 privacy_policy_link = "https://privacy.goobstation.com/"
 privacy_policy_identifier = "goob"
-privacy_policy_version = "2025-12-25"
+privacy_policy_version = "2026-09-24"
 
 [game]
 soft_max_players = 85
