@@ -5,7 +5,7 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: PermaKillRandomTraitorObjective
-  description: Do it however you like, as long as they're not breathing anymore.
+  description: They need to be dead when the shift ends. Do it however you like, just make sure they stay that way.
   components:
   - type: Objective
     difficulty: 2.5 # Most cases tots are armed themselves so have fun
@@ -22,7 +22,7 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: PermaKillRandomPersonObjective
-  description: Do it however you like, as long as they're not breathing anymore.
+  description: They need to be dead when the shift ends. Do it however you like, just make sure they stay that way.
   components:
   - type: Objective
     difficulty: 1.75

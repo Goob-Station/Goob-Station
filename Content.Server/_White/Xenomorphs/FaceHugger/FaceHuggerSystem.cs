@@ -344,7 +344,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     /// </summary>
     public void InjectChemicals(EntityUid uid, FaceHuggerComponent component, EntityUid target)
     {
-        if (!CanInject(uid, component, target))
+        if (component.SleepChemAmount <= 0 || !CanInject(uid, component, target))
             return;
 
         var sleepChem = CreateSleepChemicalSolution(component, component.SleepChemAmount);

@@ -769,7 +769,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (held != null && held == summons.Entity)
             return;
 
-        if (!Exists(summons.Entity) || !TryComp(summons.Entity.Value, out TransformComponent? xform))
+        if (!Exists(summons.Entity) || !TryComp(summons.Entity.Value, out TransformComponent? xform) || xform.MapID == MapId.Nullspace)
         {
             if (ItemValid(held))
                 MarkItem(held.Value);
