@@ -17,10 +17,14 @@
     },
     {
       "name": "medical_e",
-	  "directions": 4
+      "directions": 4
     },
     {
       "name": "medical_e_r",
+      "directions": 4
+    },
+    {
+      "name": "medical_moving",
       "directions": 4
     }
   ]

@@ -160,6 +160,14 @@
     implant: SmokeImplant
 
 - type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: JaunterImplanter
+  suffix: the swap
+  components:
+  - type: Implanter
+    implant: SyndicateJaunterImplant
+
+- type: entity
   id: NutrimentImplanter
   suffix: Nutriment Pump
   parent: BaseImplantOnlyImplanterSyndi
@@ -282,3 +290,11 @@
   components:
     - type: Implanter
       implant: RedspaceLifelineImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: TelepathyImplanter
+  suffix: Telepathy
+  components:
+  - type: Implanter
+    implant: TelepathyImplant

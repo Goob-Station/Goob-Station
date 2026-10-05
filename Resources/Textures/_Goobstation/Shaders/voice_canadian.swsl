@@ -1,0 +1,28 @@
+light_mode unshaded;
+
+uniform highp vec2 pivot;
+uniform highp float angle;
+uniform highp float mouthY;
+uniform highp float lift;
+
+void fragment() {
+    highp vec2 texel = TEXTURE_PIXEL_SIZE;
+    highp vec2 position = (UV - vec2(0.5)) / texel;
+
+    highp float c = cos(angle);
+    highp float s = sin(angle);
+    highp vec2 offset = position - pivot;
+    highp vec2 source = pivot + vec2(c * offset.x + s * offset.y, c * offset.y - s * offset.x - lift);
+
+    highp vec4 top = vec4(0.0);
+    if (source.y >= mouthY) {
+        top = zTexture(vec2(0.5) + source * texel);
+    }
+
+    highp vec4 bottom = vec4(0.0);
+    if (position.y < mouthY) {
+        bottom = zTexture(UV);
+    }
+
+    COLOR = top.a > 0.0 ? top : bottom;
+}
