@@ -10,12 +10,16 @@
       slasher-kit-butcher:
         gear: SlasherGear
         description: slasher-kit-butcher-desc
+        grantedToVictimOnSight:
+        - type: SlasherFearOverlay
         sprite:
           sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
           state: icon
       slasher-kit-spring:
         gear: SlasherGearSpring
         description: slasher-kit-spring-desc
+        grantedToVictimOnSight:
+        - type: SlasherFearOverlay
         sprite:
           sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
           state: icon
@@ -28,6 +32,8 @@
       slasher-kit-billy:
         gear: SlasherGearBilly
         description: slasher-kit-billy-desc
+        grantedToVictimOnSight:
+        - type: SlasherFearOverlay
         sprite:
           sprite: Objects/Tools/crowbar.rsi
           state: icon
@@ -40,6 +46,8 @@
       slasher-kit-cult:
         gear: SlasherGearCult
         description: slasher-kit-cult-desc
+        grantedToVictimOnSight:
+        - type: SlasherFearOverlay
         sprite:
           sprite: Clothing/Head/Hoods/cult.rsi
           state: icon
@@ -51,6 +59,8 @@
       slasher-kit-maintenance:
         gear: SlasherGearMaintenance
         description: slasher-kit-maintenance-desc
+        grantedToVictimOnSight:
+        - type: SlasherFearOverlay
         sprite:
           sprite: Clothing/Head/Hats/papersacksmile.rsi
           state: icon
@@ -62,6 +72,8 @@
       slasher-kit-cannibal:
         gear: SlasherGearCannibal
         description: slasher-kit-cannibal-desc
+        grantedToVictimOnSight:
+        - type: SlasherFearOverlay
         sprite:
           sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
           state: icon
@@ -74,6 +86,8 @@
       slasher-kit-clown:
         gear: SlasherGearClown
         description: slasher-kit-clown-desc
+        grantedToVictimOnSight:
+        - type: SlasherFearOverlay
         sprite:
           sprite: Clothing/Mask/clown.rsi
           state: icon
@@ -96,6 +110,8 @@
       slasher-kit-glutton:
         gear: SlasherGearGlutton
         description: slasher-kit-glutton-desc
+        grantedToVictimOnSight:
+        - type: SlasherFearOverlay
         sprite:
           sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
           state: icon
@@ -108,6 +124,8 @@
       slasher-kit-hockey:
         gear: SlasherGearHockey
         description: slasher-kit-hockey-desc
+        grantedToVictimOnSight:
+        - type: SlasherFearOverlay
         sprite:
           sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
           state: icon

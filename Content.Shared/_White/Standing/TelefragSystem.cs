@@ -29,8 +29,8 @@ public sealed class TelefragSystem : EntitySystem
             if (knockdownTime > TimeSpan.Zero && _stun.TryKnockdown(ent, knockdownTime))
                 continue;
 
-            if (_stun.TryCrawling(ent) && autoStandUp)
-                _stun.TryStand(ent!);
+            if (_stun.TryCrawling(ent) && autoStandUp && TryComp<KnockedDownComponent>(ent, out var knockedDown))
+                _stun.TryStand((ent, knockedDown));
         }
     }
 }
