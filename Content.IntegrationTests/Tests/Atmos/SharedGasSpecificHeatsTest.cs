@@ -14,6 +14,7 @@ namespace Content.IntegrationTests.Tests.Atmos;
 /// across client and server.
 /// </summary>
 [TestOf(nameof(SharedAtmosphereSystem))]
+[FixtureLifeCycle(LifeCycle.InstancePerTestCase)] // Goobstation
 public sealed class SharedGasSpecificHeatsTest
 {
     private IConfigurationManager _sConfig;
