@@ -12,8 +12,5 @@ public record struct MechInsertedEvent(EntityUid mechUid);
 /// </summary>
 public record struct MechEjectedEvent(EntityUid mechUid);
 
-/// <summary>
-/// Goobstation.
-/// </summary>
 [ByRefEvent]
 public record struct MechSelectedEquipmentChangedEvent;
