@@ -25555,3 +25555,27 @@ Entries:
         been removed.
   id: 2924
   time: '2026-10-04T20:18:26.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: >-
+        Migrated outdated damage systems to upstreamed version, please report
+        any resulting bugs on GitHub or the Discord server.
+    - type: Tweak
+      message: Mugwort tea now uses even healing.
+    - type: Tweak
+      message: Positronic brains can no longer be wiped whilst inhabited by a player.
+    - type: Tweak
+      message: Limb damage caps now behave per-type instead of total combined damage.
+    - type: Fix
+      message: >-
+        Fixed gibbing humanoids not working as expected by increasing torso
+        damage cap from 200 to 600.
+    - type: Fix
+      message: Fixed EvenHealthChange acting the same as regular HealthChange.
+    - type: Fix
+      message: >-
+        Fixed several prediction errors/desyncs with woundmed randomness
+        mechanics.
+  id: 2925
+  time: '2026-10-05T15:39:47.0000000+00:00'
