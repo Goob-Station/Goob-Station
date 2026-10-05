@@ -24,8 +24,20 @@ public sealed class VoiceChatManager
     public event Action<MsgVoiceSpeakerInfo>? SpeakerInfoReceived;
     public event Action<MsgVoiceSelf>? SelfReceived;
     public event Action<bool>? WebConnectedChanged;
+    public event Action<bool>? DeafenedChanged;
+    public event Action? LinkChanged;
 
     public bool WebConnected { get; private set; }
+
+    public bool MicMuted { get; private set; }
+
+    public bool Deafened { get; private set; }
+
+    public string? PageUrl { get; private set; }
+
+    public string? LinkCode { get; private set; }
+
+    public string? LinkUrl => PageUrl == null || LinkCode == null ? null : $"{PageUrl}?code={LinkCode}";
 
     public void Initialize()
     {
@@ -39,6 +51,7 @@ public sealed class VoiceChatManager
         _net.RegisterNetMessage<MsgVoiceSpeakerInfo>(message => SpeakerInfoReceived?.Invoke(message));
         _net.RegisterNetMessage<MsgVoiceSelf>(message => SelfReceived?.Invoke(message));
         _net.RegisterNetMessage<MsgVoicePushToTalk>();
+        _net.RegisterNetMessage<MsgVoiceMicMute>();
 
         _net.Connected += OnConnected;
         _cfg.OnValueChanged(GoobCVars.VoiceChatHearSelf, OnHearSelfChanged);
@@ -74,10 +87,27 @@ public sealed class VoiceChatManager
         SendSettings();
     }
 
-    public void SendPushToTalk(bool pressed)
+    public void SendPushToTalk(bool pressed, bool radio)
     {
         if (_net.IsConnected)
-            _net.ClientSendMessage(new MsgVoicePushToTalk { Pressed = pressed });
+            _net.ClientSendMessage(new MsgVoicePushToTalk { Pressed = pressed, Radio = radio });
+    }
+
+    public void SetMicMuted(bool muted)
+    {
+        MicMuted = muted;
+        SendMicMute();
+    }
+
+    public void SetDeafened(bool deafened)
+    {
+        if (Deafened == deafened)
+            return;
+
+        Deafened = deafened;
+        SendMicMute();
+        SendSettings();
+        DeafenedChanged?.Invoke(deafened);
     }
 
     public bool RequestLink()
@@ -89,11 +119,36 @@ public sealed class VoiceChatManager
         return true;
     }
 
+    public void OpenLink()
+    {
+        if (LinkUrl is not { } url)
+            return;
+
+        try
+        {
+            _uriOpener.OpenUri(url);
+        }
+        catch (ArgumentException e)
+        {
+            _sawmill.Error($"Could not open voice chat page {PageUrl}: {e.Message}");
+        }
+    }
+
     private void OnConnected(object? sender, NetChannelArgs args)
     {
         _mutedSpeakers.Clear();
+        PageUrl = null;
+        LinkCode = null;
+        LinkChanged?.Invoke();
         SetWebConnected(false);
         SendSettings();
+        SendMicMute();
+    }
+
+    private void SendMicMute()
+    {
+        if (_net.IsConnected)
+            _net.ClientSendMessage(new MsgVoiceMicMute { Muted = MicMuted || Deafened });
     }
 
     private void OnStatus(MsgVoiceStatus message)
@@ -135,7 +190,7 @@ public sealed class VoiceChatManager
         _net.ClientSendMessage(new MsgVoiceSettings
         {
             HearSelf = _cfg.GetCVar(GoobCVars.VoiceChatHearSelf),
-            Receive = !_receiveDisabled,
+            Receive = !_receiveDisabled && !Deafened,
             MutedChannels = new List<string>(ParseMutedChannels(_cfg.GetCVar(GoobCVars.VoiceChatRadioMuted))),
             MutedSpeakers = new List<ushort>(_mutedSpeakers),
         });
@@ -160,13 +215,8 @@ public sealed class VoiceChatManager
             baseUrl = $"http://{host}:{message.StatusPort}/voice/";
         }
 
-        try
-        {
-            _uriOpener.OpenUri($"{baseUrl}#{message.Token}");
-        }
-        catch (ArgumentException e)
-        {
-            _sawmill.Error($"Could not open voice chat page {baseUrl}: {e.Message}");
-        }
+        PageUrl = baseUrl;
+        LinkCode = message.Token;
+        LinkChanged?.Invoke();
     }
 }
