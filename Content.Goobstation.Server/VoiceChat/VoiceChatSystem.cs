@@ -15,7 +15,6 @@ using Content.Shared.Ghost;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Holopad;
 using Content.Shared.Implants.Components;
-using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
@@ -34,7 +33,6 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Enums;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -43,7 +41,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.VoiceChat;
 
-public sealed class VoiceChatSystem : EntitySystem
+public sealed partial class VoiceChatSystem : EntitySystem
 {
     [Dependency] private readonly VoiceChatManager _voice = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -65,6 +63,7 @@ public sealed class VoiceChatSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly VoiceRadioSystem _radioVoice = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly VoiceLogSystem _voiceLog = default!;
 
     private static readonly TimeSpan TransmissionGap = TimeSpan.FromMilliseconds(500);
     private static readonly TimeSpan PermissionRecheck = TimeSpan.FromSeconds(2);
@@ -126,20 +125,34 @@ public sealed class VoiceChatSystem : EntitySystem
         Subs.CVar(_cfg, GoobCVars.VoiceChatWhisperThreshold, value => _whisperThreshold = value, true);
         Subs.CVar(_cfg, GoobCVars.VoiceChatBitrate, value => _format = VoiceFormats.FromBitrate(value), true);
 
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.VoicePushToTalk,
-                InputCmdHandler.FromDelegate(
-                    session => SetPushToTalk(session, true),
-                    session => SetPushToTalk(session, false),
-                    handle: false))
-            .Register<VoiceChatSystem>();
+        _voice.PushToTalkReceived += OnPushToTalk;
+        _voice.MicMuteReceived += OnMicMute;
+        InitializeGod();
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
 
-        CommandBinds.Unregister<VoiceChatSystem>();
+        _voice.PushToTalkReceived -= OnPushToTalk;
+        _voice.MicMuteReceived -= OnMicMute;
+        ShutdownGod();
+    }
+
+    private void OnPushToTalk(NetUserId user, bool pressed, bool radio)
+    {
+        if (_player.TryGetSessionById(user, out var session))
+            SetPushToTalk(session, pressed, radio);
+    }
+
+    private void OnMicMute(NetUserId user, bool muted)
+    {
+        var speaker = GetSpeaker(user);
+        if (speaker.SelfMuted == muted)
+            return;
+
+        speaker.SelfMuted = muted;
+        SendState(user, false);
     }
 
     public override void Update(float frameTime)
@@ -171,6 +184,7 @@ public sealed class VoiceChatSystem : EntitySystem
         }
 
         ProcessMixers(now);
+        UpdateGod(now);
 
         if (now < _nextStateRefresh)
             return;
@@ -201,6 +215,12 @@ public sealed class VoiceChatSystem : EntitySystem
             return;
         }
 
+        if (_speakers.TryGetValue(frame.User, out var existing) && existing.SelfMuted)
+            return;
+
+        if (TryHandleGodFrame(session, frame, now))
+            return;
+
         if (IsInLobby(session))
         {
             HandleLobbyFrame(session, frame, now);
@@ -216,6 +236,7 @@ public sealed class VoiceChatSystem : EntitySystem
         if (_adminMuted.Contains(frame.User))
         {
             SendSelf(session, speaker, levels, VoiceSelfFlags.Blocked);
+            _voiceLog.Record(session, frame, VoiceLogFlags.Blocked, Name(uid), string.Empty);
             return;
         }
 
@@ -225,6 +246,7 @@ public sealed class VoiceChatSystem : EntitySystem
         if (!CanTransmit(speaker, uid, now, newTransmission))
         {
             SendSelf(session, speaker, levels, VoiceSelfFlags.Blocked);
+            _voiceLog.Record(session, frame, VoiceLogFlags.Blocked, Name(uid), string.Empty);
             return;
         }
 
@@ -242,7 +264,7 @@ public sealed class VoiceChatSystem : EntitySystem
 
         if (!_routes.TryGetValue(frame.User, out var route))
         {
-            route = BuildRoute(session, uid, speaker.Id, directRange);
+            route = BuildRoute(session, uid, speaker, directRange);
             _routes[frame.User] = route;
             UpdateEffect(frame.User);
             SendSpeakerInfo(speaker, uid, route, session.Channel);
@@ -266,6 +288,7 @@ public sealed class VoiceChatSystem : EntitySystem
             selfFlags |= VoiceSelfFlags.Whisper;
 
         SendSelf(session, speaker, levels, selfFlags);
+        _voiceLog.Record(session, frame, ToLogFlags(selfFlags), Name(uid), route.RadioChannel ?? string.Empty);
 
         foreach (var transmission in route.Radio)
         {
@@ -352,6 +375,7 @@ public sealed class VoiceChatSystem : EntitySystem
         if (!_lobby || _adminMuted.Contains(frame.User))
         {
             SendSelf(session, speaker, levels, VoiceSelfFlags.Blocked);
+            _voiceLog.Record(session, frame, VoiceLogFlags.Lobby | VoiceLogFlags.Blocked, string.Empty, string.Empty);
             return;
         }
 
@@ -360,6 +384,7 @@ public sealed class VoiceChatSystem : EntitySystem
 
         speaker.LastAttempt = now;
         SendSelf(session, speaker, levels, VoiceSelfFlags.None);
+        _voiceLog.Record(session, frame, VoiceLogFlags.Lobby, string.Empty, string.Empty);
 
         CollectLobby();
         _lobbyChannels.Clear();
@@ -433,6 +458,22 @@ public sealed class VoiceChatSystem : EntitySystem
             _net.ServerSendMessage(CreateSpeakerInfo(speaker), recipient);
     }
 
+    private static VoiceLogFlags ToLogFlags(VoiceSelfFlags flags)
+    {
+        var result = VoiceLogFlags.None;
+        if ((flags & VoiceSelfFlags.Radio) != 0)
+            result |= VoiceLogFlags.Radio;
+        if ((flags & VoiceSelfFlags.Broadcast) != 0)
+            result |= VoiceLogFlags.Broadcast;
+        if ((flags & VoiceSelfFlags.Megaphone) != 0)
+            result |= VoiceLogFlags.Megaphone;
+        if ((flags & VoiceSelfFlags.Shout) != 0)
+            result |= VoiceLogFlags.Shout;
+        if ((flags & VoiceSelfFlags.Whisper) != 0)
+            result |= VoiceLogFlags.Whisper;
+        return result;
+    }
+
     private void SendSelf(ICommonSession session, Speaker speaker, VoiceLevels levels, VoiceSelfFlags flags)
     {
         _net.ServerSendMessage(new MsgVoiceSelf
@@ -497,7 +538,7 @@ public sealed class VoiceChatSystem : EntitySystem
         };
     }
 
-    private Route BuildRoute(ICommonSession speakerSession, EntityUid speakerUid, ushort speakerId, float directRange)
+    private Route BuildRoute(ICommonSession speakerSession, EntityUid speakerUid, Speaker speaker, float directRange)
     {
         var route = new Route();
         var ghostSpeaker = _ghostQuery.HasComp(speakerUid);
@@ -528,7 +569,7 @@ public sealed class VoiceChatSystem : EntitySystem
                 _broadcast.GetRecipients(console, _broadcastRecipients);
             }
 
-            CollectRadio(speakerUid, route);
+            CollectRadio(speakerUid, route, speaker);
         }
 
         _sessions ??= _player.Sessions;
@@ -545,7 +586,7 @@ public sealed class VoiceChatSystem : EntitySystem
                 continue;
 
             if (ghostSpeaker && !_ghostQuery.HasComp(listener) ||
-                _voice.IsSpeakerMuted(session.UserId, speakerId))
+                _voice.IsSpeakerMuted(session.UserId, speaker.Id))
             {
                 continue;
             }
@@ -673,10 +714,13 @@ public sealed class VoiceChatSystem : EntitySystem
 
             foreach (var linked in telephone.LinkedTelephones)
             {
-                if (linked.Owner == uid || !_telephone.IsTelephonePowered(linked))
+                if (linked.Owner == uid || TerminatingOrDeleted(linked) || !_telephone.IsTelephonePowered(linked))
                     continue;
 
                 var emitter = GetRelayEmitter(linked);
+                if (TerminatingOrDeleted(emitter))
+                    continue;
+
                 var emitterOrigin = _transform.GetMapCoordinates(emitter);
                 if (emitterOrigin.MapId == MapId.Nullspace)
                     continue;
@@ -698,15 +742,19 @@ public sealed class VoiceChatSystem : EntitySystem
             return hologram;
         }
 
-        return telephone.Comp.Speaker?.Owner ?? telephone.Owner;
+        if (telephone.Comp.Speaker?.Owner is { } speaker && !TerminatingOrDeleted(speaker))
+            return speaker;
+
+        return telephone.Owner;
     }
 
-    private void CollectRadio(EntityUid speaker, Route route)
+    private void CollectRadio(EntityUid uid, Route route, Speaker speaker)
     {
-        if (_radioVoice.TryGetTransmission(speaker, out var channel, out var radioSource))
+        var localOnly = speaker.PushToTalk && !speaker.PushToTalkRadio;
+        if (!localOnly && _radioVoice.TryGetTransmission(uid, speaker.PushToTalkRadio, out var channel, out var radioSource))
             AddTransmission(route, channel, radioSource);
 
-        CollectMicrophones(speaker, route);
+        CollectMicrophones(uid, route);
         route.RadioChannel = route.Radio.Count > 0 ? route.Radio[0].Channel : null;
     }
 
@@ -951,16 +999,27 @@ public sealed class VoiceChatSystem : EntitySystem
         return _transform.GetMapCoordinates(listener);
     }
 
-    private void SetPushToTalk(ICommonSession? session, bool active)
+    private void SetPushToTalk(ICommonSession? session, bool active, bool radio)
     {
         if (session == null)
             return;
 
         var speaker = GetSpeaker(session.UserId);
-        if (speaker.PushToTalk == active)
-            return;
+        if (radio)
+        {
+            if (speaker.PushToTalkRadio == active)
+                return;
 
-        speaker.PushToTalk = active;
+            speaker.PushToTalkRadio = active;
+        }
+        else
+        {
+            if (speaker.PushToTalk == active)
+                return;
+
+            speaker.PushToTalk = active;
+        }
+
         SendState(session.UserId, false);
     }
 
@@ -970,7 +1029,11 @@ public sealed class VoiceChatSystem : EntitySystem
             return;
 
         var speaker = GetSpeaker(user);
-        var state = BuildState(user, speaker);
+        var state = BuildState(user, speaker) with
+        {
+            PushToTalk = speaker.PushToTalk || speaker.PushToTalkRadio,
+            SelfMuted = speaker.SelfMuted,
+        };
         if (!force && speaker.LastState == state)
             return;
 
@@ -1077,6 +1140,8 @@ public sealed class VoiceChatSystem : EntitySystem
         public readonly NetUserId User = user;
         public readonly ushort Id = id;
         public bool PushToTalk;
+        public bool PushToTalkRadio;
+        public bool SelfMuted;
         public bool Allowed;
         public EntityUid? CheckedEntity;
         public TimeSpan CheckedAt;
@@ -1093,6 +1158,8 @@ public sealed class VoiceChatSystem : EntitySystem
         private readonly short[] _levelPcm = new short[VoiceCodec.FrameSamples];
         private readonly VoiceEncoder _outgoing = new();
         private bool _decoded;
+
+        public bool Decoded => _decoded;
 
         public VoiceLevels Measure(byte[] payload, out float db)
         {

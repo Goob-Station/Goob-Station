@@ -2,14 +2,18 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
+using Content.Shared.Construction;
 using Content.Shared.Doors.Components;
 using Content.Shared.GameTicking;
+using Content.Shared.Input;
 using Content.Shared.Physics;
 using Content.Shared.Radio;
 using Content.Shared.Verbs;
 using Robust.Client.Audio;
 using Robust.Client.Graphics;
+using Robust.Client.Input;
 using Robust.Shared.Configuration;
+using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
@@ -37,6 +41,7 @@ public sealed class VoiceChatSystem : EntitySystem
     [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IOverlayManager _overlays = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -54,15 +59,16 @@ public sealed class VoiceChatSystem : EntitySystem
     private static readonly Color BroadcastColor = Color.FromHex("#FFC844");
     private static readonly Color RadioColor = Color.FromHex("#2CDB2C");
     private static readonly Color BlockedColor = Color.FromHex("#E04545");
+    private static readonly Color GodColor = Color.FromHex("#FFE9A8");
     private static readonly Color ShoutColor = Color.FromHex("#FF9F43");
     private static readonly Color WhisperColor = Color.FromHex("#A7B6D6");
     private static readonly TimeSpan SelfTimeout = TimeSpan.FromMilliseconds(150);
 
     private const float ObstructionVisibility = 0.5f;
     private const float ObstructionGain = 0.3f;
-    private const float AirlockWeight = 1.6f;
+    private const float AirlockWeight = 0.8f;
     private const float WallWeight = 1f;
-    private const float WindowWeight = 0.5f;
+    private const float WindowWeight = 0.25f;
     private static readonly TimeSpan ObstructionInterval = TimeSpan.FromMilliseconds(100);
     private const float SelfActivityRelease = 0.3f;
 
@@ -91,6 +97,7 @@ public sealed class VoiceChatSystem : EntitySystem
         _manager.FrameReceived += OnFrameReceived;
         _manager.SpeakerInfoReceived += OnSpeakerInfoReceived;
         _manager.SelfReceived += OnSelfReceived;
+        _manager.DeafenedChanged += OnDeafenedChanged;
 
         Subs.CVar(_cfg, GoobCVars.VoiceChatRange, value => _range = value, true);
         Subs.CVar(_cfg, GoobCVars.VoiceChatVolume, value => _volume = Math.Clamp(value, 0f, 2f), true);
@@ -105,6 +112,15 @@ public sealed class VoiceChatSystem : EntitySystem
         SubscribeLocalEvent<GetVerbsEvent<Verb>>(OnGetVerbs);
 
         _overlays.AddOverlay(new VoiceSpeakingOverlay(EntityManager, this));
+
+        _input.SetInputCommand(ContentKeyFunctions.VoicePushToTalk,
+            InputCmdHandler.FromDelegate(
+                _ => _manager.SendPushToTalk(true, false),
+                _ => _manager.SendPushToTalk(false, false)));
+        _input.SetInputCommand(ContentKeyFunctions.VoicePushToTalkRadio,
+            InputCmdHandler.FromDelegate(
+                _ => _manager.SendPushToTalk(true, true),
+                _ => _manager.SendPushToTalk(false, true)));
     }
 
     public override void Shutdown()
@@ -114,7 +130,10 @@ public sealed class VoiceChatSystem : EntitySystem
         _manager.FrameReceived -= OnFrameReceived;
         _manager.SpeakerInfoReceived -= OnSpeakerInfoReceived;
         _manager.SelfReceived -= OnSelfReceived;
+        _manager.DeafenedChanged -= OnDeafenedChanged;
         _overlays.RemoveOverlay<VoiceSpeakingOverlay>();
+        _input.SetInputCommand(ContentKeyFunctions.VoicePushToTalk, null);
+        _input.SetInputCommand(ContentKeyFunctions.VoicePushToTalkRadio, null);
         ClearStreams();
     }
 
@@ -156,6 +175,9 @@ public sealed class VoiceChatSystem : EntitySystem
 
     public Color GetSelfColor()
     {
+        if ((Self.Flags & VoiceSelfFlags.God) != 0)
+            return GodColor;
+
         if ((Self.Flags & VoiceSelfFlags.Blocked) != 0)
             return BlockedColor;
 
@@ -176,6 +198,9 @@ public sealed class VoiceChatSystem : EntitySystem
 
     public string? GetSelfLabel()
     {
+        if ((Self.Flags & VoiceSelfFlags.God) != 0)
+            return Loc.GetString("voice-self-god");
+
         if ((Self.Flags & VoiceSelfFlags.Blocked) != 0)
             return Loc.GetString("voice-self-blocked");
 
@@ -215,6 +240,7 @@ public sealed class VoiceChatSystem : EntitySystem
             VoiceRoute.Holopad => HolopadColor,
             VoiceRoute.Camera => CameraColor,
             VoiceRoute.Broadcast => BroadcastColor,
+            VoiceRoute.God => GodColor,
             _ => GetLoudness(stream) switch
             {
                 > 0 => ShoutColor,
@@ -235,6 +261,7 @@ public sealed class VoiceChatSystem : EntitySystem
             VoiceRoute.Holopad => Loc.GetString("voice-route-holopad"),
             VoiceRoute.Camera => Loc.GetString("voice-route-camera"),
             VoiceRoute.Broadcast => Loc.GetString("voice-route-broadcast"),
+            VoiceRoute.God => Loc.GetString("voice-route-god"),
             _ => GetLoudness(stream) switch
             {
                 > 0 => Loc.GetString("voice-loudness-shout"),
@@ -258,6 +285,12 @@ public sealed class VoiceChatSystem : EntitySystem
         return _speakerInfo.TryGetValue(speaker, out var info) &&
                info.Channel is { } id &&
                _prototype.TryIndex(id, out channel);
+    }
+
+    private void OnDeafenedChanged(bool deafened)
+    {
+        if (deafened)
+            ClearStreams();
     }
 
     private void OnRoundRestart()
@@ -358,6 +391,9 @@ public sealed class VoiceChatSystem : EntitySystem
 
     private void OnFrameReceived(MsgVoiceFrame message)
     {
+        if (_manager.Deafened)
+            return;
+
         if (_muted.Contains(message.Speaker))
             return;
 
@@ -445,6 +481,9 @@ public sealed class VoiceChatSystem : EntitySystem
 
     private float GetObstructionWeight(EntityUid uid)
     {
+        if (HasComp<SharedCanBuildWindowOnTopComponent>(uid))
+            return 0f;
+
         if (HasComp<DoorComponent>(uid))
             return AirlockWeight;
 

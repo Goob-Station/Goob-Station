@@ -237,7 +237,7 @@
     - type: PowerCellDraw
     - type: ToggleCellDraw
     - type: Sprite
-      sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
+      sprite: _Goobstation/Objects/Weapons/Guns/Launchers/tether_gun.rsi #GoobStation Resprite
       layers:
         - state: base
         - state: base-unshaded
@@ -292,7 +292,7 @@
     - type: PowerCellDraw
     - type: ToggleCellDraw
     - type: Sprite
-      sprite: Objects/Weapons/Guns/Launchers/force_gun.rsi
+      sprite: _Goobstation/Objects/Weapons/Guns/Launchers/force_gun.rsi #GoobStation Resprite
       layers:
         - state: base
         - state: base-unshaded
@@ -423,7 +423,7 @@
       dampingRatio: 4
       frequency: 20
     - type: Sprite
-      sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
+      sprite: _Goobstation/Objects/Weapons/Guns/Launchers/tether_gun.rsi #GoobStation Resprite
       layers:
         - state: base
         - state: base-unshaded
@@ -467,7 +467,7 @@
       throwDistance: 100
       lineColor: "#18a2d5"
     - type: Sprite
-      sprite: Objects/Weapons/Guns/Launchers/force_gun.rsi
+      sprite: _Goobstation/Objects/Weapons/Guns/Launchers/force_gun.rsi #GoobStation Resprite
       layers:
         - state: base
         - state: base-unshaded

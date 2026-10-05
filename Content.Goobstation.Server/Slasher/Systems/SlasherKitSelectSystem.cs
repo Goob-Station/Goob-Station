@@ -98,19 +98,24 @@ public sealed class SlasherKitSelectSystem : EntitySystem
                 summonComp.MachetePrototype = macheteProto;
         }
 
-        if (TryComp<SlasherBloodTrailComponent>(ent.Owner, out var bloodTrail))
+        if (TryComp<SlasherFearComponent>(ent.Owner, out var fearComp))
         {
+            if (selectedKit.GrantedToVictimOnSight.Count > 0)
+                fearComp.GrantedToVictimOnSight = selectedKit.GrantedToVictimOnSight;
+
             if (selectedKit.BloodTrailMusic is { } bloodMusic)
-                bloodTrail.BloodTrailMusic = bloodMusic;
+                fearComp.BloodTrailMusic = bloodMusic;
 
             if (selectedKit.JumpscareSound is { } jumpscareSound)
-                bloodTrail.JumpscareSounds = new()
+                fearComp.JumpscareSounds = new()
                 {
                     jumpscareSound
                 };
 
             if (selectedKit.BloodTrailReagent is { } bloodReagent)
-                bloodTrail.BloodTrailReagent = bloodReagent;
+                fearComp.BloodTrailReagent = bloodReagent;
+
+            Dirty(ent.Owner, fearComp);
         }
 
         if (TryComp<SlasherSummonMeatSpikeComponent>(ent.Owner, out var meatSpikeComp))
