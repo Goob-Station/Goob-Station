@@ -31,9 +31,9 @@
     event: !type:HauntEvent
 
 - type: entity
-  id: ActionWhisper
+  id: ActionWraithWhisper
   parent: DemonicWhisperAction
-  name: Whisper
+  name: Ethereal Whisper
   description: Send an ethereal message to a living being.
   components:
   - type: Action

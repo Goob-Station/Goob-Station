@@ -20,7 +20,6 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -89,7 +88,7 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
     {
         // Check if tile is occupied
         var mapCoords = _transformSystem.GetMapCoordinates(uid);
-        if (!_mapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid))
+        if (!_mapSystem.TryFindGridAt(mapCoords, out var gridUid, out var grid))
             return false;
 
         if (_mapSystem.GetAnchoredEntities(gridUid, grid, mapCoords).Any())

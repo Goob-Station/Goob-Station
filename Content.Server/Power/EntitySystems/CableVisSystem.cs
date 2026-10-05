@@ -14,6 +14,7 @@ namespace Content.Server.Power.EntitySystems
     {
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 
         public override void Initialize()
         {
@@ -32,7 +33,7 @@ namespace Content.Server.Power.EntitySystems
                 return;
 
             var mask = WireVisDirFlags.None;
-            var tile = grid.TileIndicesFor(transform.Coordinates);
+            var tile = _mapSystem.TileIndicesFor(transform.GridUid.Value, grid, transform.Coordinates);
 
             foreach (var reachable in node.ReachableNodes)
             {
@@ -40,7 +41,7 @@ namespace Content.Server.Power.EntitySystems
                     continue;
 
                 var otherTransform = Transform(reachable.Owner);
-                var otherTile = grid.TileIndicesFor(otherTransform.Coordinates);
+                var otherTile = _mapSystem.TileIndicesFor(transform.GridUid.Value, grid, otherTransform.Coordinates);
                 var diff = otherTile - tile;
 
                 mask |= diff switch

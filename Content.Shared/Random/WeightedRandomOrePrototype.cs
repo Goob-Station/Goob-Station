@@ -2,7 +2,6 @@
 
 using Content.Shared.Mining;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared.Random;
 
@@ -10,11 +9,11 @@ namespace Content.Shared.Random;
 /// Linter-friendly version of weightedRandom for Ore prototypes.
 /// </summary>
 [Prototype]
-public sealed partial class WeightedRandomOrePrototype : IWeightedRandomPrototype
+public sealed partial class WeightedRandomOrePrototype : IWeightedRandomPrototype<OrePrototype>
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("weights", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, OrePrototype>))]
-    public Dictionary<string, float> Weights { get; private set; } = new();
+    [DataField("weights")]
+    public Dictionary<ProtoId<OrePrototype>, float> Weights { get; private set; } = new();
 }
