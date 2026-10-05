@@ -677,8 +677,15 @@ public sealed class NPCUtilitySystem : EntitySystem
                     if (HasComp<BodyComponent>(consumer)
                         && _body.TryGetBodyOrganEntityComps<MetabolizerComponent>(consumer, out var metabolizers))
                     {
-                        metabolizingOrgan = metabolizers.First(met =>
-                            (met.Comp1.MetabolismGroups ?? []).Any(group => group.Id == metabolism));
+                        // Goob - Fix (no matching organ throws)
+                        foreach (var met in metabolizers)
+                        {
+                            if (!(met.Comp1.MetabolismGroups ?? []).Any(group => group.Id == metabolism))
+                                continue;
+
+                            metabolizingOrgan = met;
+                            break;
+                        }
                     }
 
                     if (effect.Conditions != null
