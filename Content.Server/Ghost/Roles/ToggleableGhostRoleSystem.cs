@@ -51,7 +51,7 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
 
         args.Handled = true;
 
-        TryActivate(uid, component, args.User);
+        TryActivate(uid, component, args.User); // Goob - TryActivate instead of ActivateGhostRole
     }
 
     public void ActivateGhostRole(Entity<ToggleableGhostRoleComponent?> ent)
