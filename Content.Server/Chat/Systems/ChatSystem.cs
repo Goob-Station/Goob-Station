@@ -300,7 +300,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
             {
-                modMessage = FormattedMessage.RemoveMarkupOrThrow(modMessage); // Sanitize it so markup cannot be shown.
+                // Goob - Fix (malformed markup throws)
+                modMessage = FormattedMessage.RemoveMarkupPermissive(modMessage); // Sanitize it so markup cannot be shown.
 
                 if (collective != null && collective.RespectAccents)
                 {
@@ -480,7 +481,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // The Original Message [-] Einstein Engines - Language
-        var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);  // Remove markup before transforming.
+        // Goob - Fix (malformed markup throws)
+        var message = FormattedMessage.RemoveMarkupPermissive(originalMessage);  // Remove markup before transforming.
         message = FormattedMessage.EscapeText(message); // Escape after removing markup
         message = TransformSpeech(source, message, language);
 
@@ -588,7 +590,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // Goob edit start
-        var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);
+        var message = FormattedMessage.RemoveMarkupPermissive(originalMessage); // Goob - Fix (malformed markup throws)
         message = FormattedMessage.EscapeText(message);
         message = TransformSpeech(source, message, language); // Einstein Engines - Language
         // Goob edit end
@@ -636,10 +638,9 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
             // Goob edit start
-            if (TryComp<DeafComponent>(listener, out var modifier) && language.SpeechOverride.RequireSpeech)
-                continue; // blocks anyone with the deaf component from hearing.
-            if (HasComp<PermanentBlindnessComponent>(listener) || HasComp<TemporaryBlindnessComponent>(listener))
-                continue; // block blind people from seeing subtle sign language gestures
+            var evSight = new ChatMessageOverrideInRange(language.SpeechOverride.RequireSpeech, language.SpeechOverride.RequireSight);
+            RaiseLocalEvent(listener, ref evSight);
+            if (evSight.Cancelled) continue;
             // Goob edit end
 
             // Einstein Engines - Language begin
@@ -727,7 +728,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
             ("entityName", name),
             ("entity", ent),
-            ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+            ("message", FormattedMessage.RemoveMarkupPermissive(action))); // Goob - Fix (malformed markup throws)
 
         if (checkEmote && !TryEmoteChatInput(source, action, forced)) // goob edit
             return;

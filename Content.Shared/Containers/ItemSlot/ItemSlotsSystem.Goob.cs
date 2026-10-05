@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Kitchen;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Materials;
@@ -13,6 +14,43 @@ public sealed partial class ItemSlotsSystem
     {
         SubscribeLocalEvent<ItemSlotsComponent, GotReclaimedEvent>(OnReclaimed);
         SubscribeLocalEvent<ItemSlotsComponent, ItemSlotInteractionDoAfterEvent>(HandleDoAfter);
+        SubscribeLocalEvent<ItemSlotsComponent, BeforeBeingButcheredEvent>(OnBeforeBeingButchered);
+    }
+
+    private void OnReclaimed(EntityUid uid, ItemSlotsComponent component, GotReclaimedEvent args)
+    {
+        foreach (var slot in component.Slots.Values)
+        {
+            if (slot.ContainerSlot != null)
+                _containers.EmptyContainer(slot.ContainerSlot, destination: args.ReclaimerCoordinates);
+        }
+    }
+
+    private void HandleDoAfter(EntityUid uid, ItemSlotsComponent component, ItemSlotInteractionDoAfterEvent args)
+    {
+        if (args.Handled
+            || args.Cancelled
+            || !component.Slots.TryGetValue(args.SlotId, out var slot))
+            return;
+
+        if (args.TryEject && slot.HasItem)
+            TryEjectToHands(uid, slot, args.User, true, false);
+        else if (args.TryInsert && !slot.HasItem && args.Used != null)
+            TryInsertWithConditions(uid, component, args.User, args.Used.Value, false);
+    }
+
+    private void OnBeforeBeingButchered(Entity<ItemSlotsComponent> ent, ref BeforeBeingButcheredEvent args)
+    {
+        if (ent.Comp.Slots.Values is not { } slots)
+            return;
+
+        var coord = Transform(ent.Owner).Coordinates;
+
+        foreach (var slot in slots)
+        {
+            if (slot.ContainerSlot != null)
+                _containers.EmptyContainer(slot.ContainerSlot, destination: coord);
+        }
     }
 
     public bool TryInsertWithConditions(EntityUid uid, ItemSlotsComponent itemSlots, EntityUid user, EntityUid toInsert, bool doAfter = true)
@@ -138,27 +176,5 @@ public sealed partial class ItemSlotsSystem
         }
 
         return false;
-    }
-
-    private void OnReclaimed(EntityUid uid, ItemSlotsComponent component, GotReclaimedEvent args)
-    {
-        foreach (var slot in component.Slots.Values)
-        {
-            if (slot.ContainerSlot != null)
-                _containers.EmptyContainer(slot.ContainerSlot, destination: args.ReclaimerCoordinates);
-        }
-    }
-
-    private void HandleDoAfter(EntityUid uid, ItemSlotsComponent component, ItemSlotInteractionDoAfterEvent args)
-    {
-        if (args.Handled
-            || args.Cancelled
-            || !component.Slots.TryGetValue(args.SlotId, out var slot))
-            return;
-
-        if (args.TryEject && slot.HasItem)
-            TryEjectToHands(uid, slot, args.User, true, false);
-        else if (args.TryInsert && !slot.HasItem && args.Used != null)
-            TryInsertWithConditions(uid, component, args.User, args.Used.Value, false);
     }
 }
