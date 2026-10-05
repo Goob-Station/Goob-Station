@@ -15,7 +15,7 @@ public sealed partial class FloorCleanerComponent : Component
     /// How long it takes to destroy footprints, strain, etcetera off of things using this entity
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float CleanDelay = 8.0f;
+    public float CleanDelay = 4.0f;
 
     /// <summary>
     /// The X by X box this utensil will clean in.

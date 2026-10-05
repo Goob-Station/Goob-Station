@@ -1,0 +1,64 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# S.E.C. cyborg
+- type: entity
+  parent: CyborgEndoskeleton
+  id: CyborgEndoskeletonSEC
+  name: S.E.C. cyborg endoskeleton
+  description: A heavily reinforced frame that security cyborgs are built on.
+  components:
+  - type: Construction
+    graph: CyborgSEC
+    node: start
+    defaultTarget: secborg
+    containers:
+    - part-container
+    - cell_slot
+
+- type: constructionGraph
+  id: CyborgSEC
+  start: start
+  graph:
+  - node: start
+    entity: CyborgEndoskeletonSEC
+    edges:
+    - to: secborg
+      steps:
+      - assemblyId: generic
+        guideString: borg-construction-guide-string
+      - material: Cable
+        amount: 1
+        doAfter: 1
+        store: part-container
+      - component: Flash
+        name: construction-graph-component-flash
+        store: part-container
+        icon:
+          sprite: Objects/Weapons/Melee/flash.rsi
+          state: flash
+      - component: Flash
+        name: construction-graph-component-second-flash
+        store: part-container
+        icon:
+          sprite: Objects/Weapons/Melee/flash.rsi
+          state: flash
+      - tag: Stunbaton
+        name: construction-graph-tag-stunbaton
+        icon:
+          sprite: Objects/Weapons/Melee/stunbaton.rsi
+          state: stunbaton_off
+      - tag: WeaponDisabler
+        name: construction-graph-tag-disabler
+        icon:
+          sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+          state: base
+      - tag: CombatKnife
+        name: construction-graph-tag-combat-knife
+        icon:
+          sprite: Objects/Weapons/Melee/combat_knife.rsi
+          state: icon
+      - tool: Screwing
+        doAfter: 0.5
+
+  - node: secborg
+    entity: BorgChassisSEC

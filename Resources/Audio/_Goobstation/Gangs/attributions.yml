@@ -1,0 +1,24 @@
+- files: ["hip_hop_beat.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by AleXZavesa"
+  source: "https://pixabay.com/sound-effects/film-special-effects-hip-hop-urban-logo-short-version-500071/"
+
+- files: ["cashout_success.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by stefannicolaebarbu (Freesound), Modified by Loltart"
+  source: https://pixabay.com/sound-effects/musical-short-drum-loop-33649/
+  
+- files: ["gang_start.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by geoffharvey, Modified by Loltart"
+  source: "https://pixabay.com/music/crime-scene-mafioso-388478/"
+
+- files: ["quickhack_1.ogg", "quickhack_2.ogg", "quickhack_3.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by SoundReality, Modified by Loltart"
+  source: "https://pixabay.com/sound-effects/film-special-effects-arcade-arped-145549/"
+
+- files: ["quickhack_fail.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by Universfield"
+  source: "https://pixabay.com/sound-effects/musical-fail-trumpet-242645/"

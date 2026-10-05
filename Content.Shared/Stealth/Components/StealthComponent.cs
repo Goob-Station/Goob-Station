@@ -88,28 +88,29 @@ public sealed partial class StealthComponent : Component
     [DataField("examinedDesc")]
     public string ExaminedDesc = "stealth-visual-effect";
 
+    // Goobstation - Start
     /// <summary>
     /// Remove stealth if an attack is made
     /// </summary>
     [DataField]
-    public bool RevealOnAttack = true; // Goobstation - Stealth change
+    public bool RevealOnAttack = true;
 
     /// <summary>
     /// Remove stealth if an attack is made
     /// </summary>
     [DataField]
-    public bool RevealOnDamage = true; // Goobstation - Stealth change
+    public bool RevealOnDamage = true;
+
     /// <summary>
-    ///
     ///  adds a threshold for whn taking damage so you dont get reveled from taking airloss or bleed
     /// </summary>
     [DataField]
-    public float Threshold = 5;// Goobstation - Stealth change
+    public float Threshold = 5;
 
     /// <summary>
     /// Is detectable by thermals?
     /// </summary>
-    [DataField]
-    [AutoNetworkedField]
-    public bool ThermalsImmune = false; // Goobstation - Stealth change
+    [DataField, AutoNetworkedField]
+    public bool ThermalsImmune;
+    // Goobstation - end
 }
