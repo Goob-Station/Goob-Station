@@ -29,6 +29,7 @@ using Robust.Shared.Utility;
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
+    [Category("MapTests")]
     public sealed class PostMapInitTest
     {
         private const bool SkipTestMaps = true;
