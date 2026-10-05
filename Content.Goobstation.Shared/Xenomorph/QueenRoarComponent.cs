@@ -14,7 +14,7 @@ public sealed partial class QueenRoarComponent : Component
     public NetEntity? RoarActionEntity;
 
     [DataField]
-    public EntProtoId RoarAction = "ActionQueenroar";
+    public EntProtoId RoarAction = "ActionQueenRoar";
 
     [DataField]
     public SoundSpecifier? SoundRoar = new SoundPathSpecifier("/Audio/_RMC14/Xeno/alien_queen_screech.ogg")
@@ -24,7 +24,7 @@ public sealed partial class QueenRoarComponent : Component
     };
 
     [DataField]
-    public SoundSpecifier? SoundRoarStart = new SoundPathSpecifier("/Audio/_Goobstation/Effects/queenroarstart.ogg")
+    public SoundSpecifier? SoundRoarStart = new SoundPathSpecifier("/Audio/_Goobstation/Effects/queen_roar_start.ogg")
     {
         Params = AudioParams.Default.WithVolume(12f)
     .WithMaxDistance(15f),

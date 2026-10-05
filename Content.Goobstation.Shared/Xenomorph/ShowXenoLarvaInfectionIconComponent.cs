@@ -6,4 +6,4 @@ namespace Content.Goobstation.Shared.Xenomorph;
 /// Lets this entity see xeno larva infection status icons.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class LarvaInfestationVisionComponent : Component;
+public sealed partial class ShowXenoLarvaInfectionIconComponent : Component;
