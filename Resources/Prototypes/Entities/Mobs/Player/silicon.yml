@@ -76,6 +76,12 @@
   - type: VoiceBroadcastConsole # Goobstation
   - type: CommunicationsConsole
     canShuttle: false
+    # Goobstation - yayyy
+    enableVox: true
+    delay: 30
+    voxVoices:
+    - voxFem
+    - voxSfx
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons

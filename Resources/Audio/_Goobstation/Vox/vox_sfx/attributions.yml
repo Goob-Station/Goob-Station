@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["sfx_airhorn.ogg", "sfx_censor.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "taken from tgstation"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/announcer/vox_fem"
+
+- files: ["sfx_airhorn2.ogg","sfx_doorstuck.ogg", "sfx_excellent.ogg", "sfx_fart.ogg", "sfx_honk.ogg", "sfx_woop.ogg", "sfx_woopwoop.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "taken from vgstation13"
+  source: "https://github.com/vgstation-coders/vgstation13/tree/Bleeding-Edge/sound/"
