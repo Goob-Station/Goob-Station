@@ -94,6 +94,17 @@ public sealed class GhoulSystem : EntitySystem
 
         SubscribeLocalEvent<HereticMinionComponent, AttackAttemptEvent>(OnTryAttack);
         SubscribeLocalEvent<HereticMinionComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
+        SubscribeLocalEvent<HereticMinionComponent, ComponentShutdown>(OnMinionShutdown);
+    }
+
+    private void OnMinionShutdown(Entity<HereticMinionComponent> ent, ref ComponentShutdown args)
+    {
+        var query = EntityQueryEnumerator<HereticComponent>();
+        while (query.MoveNext(out var mind, out var heretic))
+        {
+            if (heretic.Minions.Remove(ent))
+                Dirty(mind, heretic);
+        }
     }
 
     private void OnGetBriefing(Entity<GhoulRoleComponent> ent, ref GetBriefingEvent args)
