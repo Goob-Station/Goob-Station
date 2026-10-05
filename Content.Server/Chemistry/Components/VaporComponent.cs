@@ -38,6 +38,6 @@ namespace Content.Server.Chemistry.Components
         public bool Active;
 
         [ViewVariables]
-        public HashSet<EntityUid> ReactedEntities = new();
+        public HashSet<EntityUid> ReactedEntities = new(); // Goob
     }
 }
