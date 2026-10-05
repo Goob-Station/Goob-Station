@@ -46,6 +46,13 @@ public sealed class SharedGasSpecificHeatsTest
         _cAtmos = _cEntMan.System<AtmosphereSystem>();
     }
 
+    // Goobstation
+    [TearDown]
+    public async Task TearDown()
+    {
+        await _pair.CleanReturnAsync();
+    }
+
     /// <summary>
     /// Asserts that the cached gas specific heat arrays agree with each other.
     /// </summary>

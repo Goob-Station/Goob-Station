@@ -250,7 +250,7 @@ public sealed partial class PolymorphSystem : EntitySystem
                     return null;
             }
 
-            proto = entities.Pick(_random);
+            proto = entities.Pick(_random).Id;
         }
         var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
@@ -523,8 +523,15 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;
 
+        var reinserted = !component.Configuration.AttachToGridOrMap
+            && _container.TryGetContainingContainer((uid, uidXform, null), out var cont)
+            && !_hands.IsHolding(cont.Owner, uid)
+            && _container.Remove(uid, cont)
+            && _container.Insert(parent, cont);
+
         // if an item polymorph was picked up, put it back down after reverting
-        _transform.AttachToGridOrMap(parent, parentXform);
+        if (!reinserted)
+            _transform.AttachToGridOrMap(parent, parentXform);
 
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, parent, true);
