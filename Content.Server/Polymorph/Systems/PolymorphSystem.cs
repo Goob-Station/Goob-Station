@@ -32,6 +32,8 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
@@ -71,6 +73,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly TagSystem _tag = default!; // goob edit
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!; // Goobstation
 
     // Shitmed Deps
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -251,9 +254,14 @@ public sealed partial class PolymorphSystem : EntitySystem
                     return null;
             }
 
-            proto = entities.Pick(_random);
+            proto = entities.Pick(_random).Id;
         }
         var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
+
+        if (configuration.AllowMovement
+            && TryComp<PhysicsComponent>(child, out var childPhysics)
+            && childPhysics.BodyType is not (Robust.Shared.Physics.BodyType.KinematicController or Robust.Shared.Physics.BodyType.Kinematic))
+            _physics.SetBodyType(child, Robust.Shared.Physics.BodyType.KinematicController, body: childPhysics);
 
         _mindSystem.MakeSentient(child, configuration.AllowMovement);
         // Goob edit end
@@ -534,8 +542,15 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;
 
+        var reinserted = !component.Configuration.AttachToGridOrMap
+            && _container.TryGetContainingContainer((uid, uidXform, null), out var cont)
+            && !_hands.IsHolding(cont.Owner, uid)
+            && _container.Remove(uid, cont)
+            && _container.Insert(parent, cont);
+
         // if an item polymorph was picked up, put it back down after reverting
-        _transform.AttachToGridOrMap(parent, parentXform);
+        if (!reinserted)
+            _transform.AttachToGridOrMap(parent, parentXform);
 
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, parent, true);

@@ -52,7 +52,6 @@ namespace Content.Client.HealthAnalyzer.UI
         public event Action<HealthAnalyzerMode, EntityUid>? OnModeChanged;
         private EntityUid _spriteViewEntity;
 
-        [ValidatePrototypeId<EntityPrototype>]
         private readonly EntProtoId _bodyView = "AlertSpriteView";
 
         private readonly Dictionary<TargetBodyPart, TextureButton> _bodyPartControls;

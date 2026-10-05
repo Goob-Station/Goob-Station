@@ -344,7 +344,7 @@ namespace Content.IntegrationTests.Tests
             var server = pair.Server;
             await server.WaitIdleAsync();
 
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.System<SharedMapSystem>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
 

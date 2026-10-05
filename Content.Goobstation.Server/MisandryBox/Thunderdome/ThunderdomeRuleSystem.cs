@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Goobstation.Common.Mind;
 using Content.Goobstation.Common.Mobs;
 using Content.Goobstation.Server.MisandryBox.Mind;
@@ -623,7 +624,7 @@ public sealed class ThunderdomeRuleSystem : EntitySystem
             {
                 var inGun = container.ID is "gun_magazine" or "gun_chamber" or "revolver-ammo";
 
-                foreach (var contained in container.ContainedEntities)
+                foreach (var contained in container.ContainedEntities.ToArray())
                 {
                     toCheck.Enqueue(contained);
 

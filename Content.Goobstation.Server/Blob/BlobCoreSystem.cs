@@ -36,6 +36,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Blob;
 
@@ -60,12 +61,9 @@ public sealed class BlobCoreSystem : EntitySystem
     private EntityQuery<BlobFactoryComponent> _factory;
     private EntityQuery<BlobNodeComponent> _node;
 
-    [ValidatePrototypeId<AlertPrototype>]
-    private const string BlobHealth = "BlobHealth";
-    [ValidatePrototypeId<AlertPrototype>]
-    private const string BlobResource = "BlobResource";
-    [ValidatePrototypeId<CurrencyPrototype>]
-    private const string BlobMoney = "BlobPoint";
+    private static readonly ProtoId<AlertPrototype> BlobHealth = "BlobHealth";
+    private static readonly ProtoId<AlertPrototype> BlobResource = "BlobResource";
+    private static readonly ProtoId<CurrencyPrototype> BlobMoney = "BlobPoint";
 
     private readonly ReaderWriterLockSlim _pointsChange = new();
 

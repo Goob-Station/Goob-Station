@@ -111,7 +111,7 @@ namespace Content.Server.Bible
 
             if (!HasComp<BibleUserComponent>(args.User))
             {
-                _popupSystem.PopupEntity(Loc.GetString("bible-sizzle"), args.User, args.User);
+                _popupSystem.PopupEntity(Loc.GetString("bible-sizzle", ("bible", uid)), args.User, args.User); // Goob - Fix (missing loc argument)
 
                 _audio.PlayPvs(component.SizzleSoundPath, args.User);
                 _damageableSystem.TryChangeDamage(args.User, component.DamageOnUntrainedUse, true, origin: uid, targetPart: TargetBodyPart.All, ignoreBlockers: true); // Goob - shitmed targeting

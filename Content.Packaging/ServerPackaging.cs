@@ -77,37 +77,42 @@ public static class ServerPackaging
         }
 
         // Good variable naming right here.
+        string? builtTargetOs = null; // Goobstation
         foreach (var platform in Platforms)
         {
             if (!platforms.Contains(platform.Rid))
                 continue;
 
-            await BuildPlatform(platform, skipBuild, hybridAcz, configuration, logger);
+            await BuildPlatform(platform, skipBuild, hybridAcz, configuration, logger, builtTargetOs == platform.TargetOs); // Goobstation
+            builtTargetOs = platform.TargetOs; // Goobstation
         }
     }
 
-    private static async Task BuildPlatform(PlatformReg platform, bool skipBuild, bool hybridAcz, string configuration, IPackageLogger logger)
+    private static async Task BuildPlatform(PlatformReg platform, bool skipBuild, bool hybridAcz, string configuration, IPackageLogger logger, bool reuseContentBuild) // Goobstation
     {
-        logger.Info($"Building project for {platform.TargetOs}...");
+        logger.Info(reuseContentBuild ? $"Reusing {platform.TargetOs} build..." : $"Building project for {platform.TargetOs}..."); // Goobstation
 
         if (!skipBuild)
         {
-            await ProcessHelpers.RunCheck(new ProcessStartInfo
+            if (!reuseContentBuild) // Goobstation
             {
-                FileName = "dotnet",
-                ArgumentList =
+                await ProcessHelpers.RunCheck(new ProcessStartInfo
                 {
-                    "build",
-                    Path.Combine("Content.Goobstation.Server", "Content.Goobstation.Server.csproj"), // Goob
-                    "-c", configuration,
-                    "--nologo",
-                    "/v:m",
-                    $"/p:TargetOs={platform.TargetOs}",
-                    "/t:Rebuild",
-                    "/p:FullRelease=true",
-                    "/m"
-                }
-            });
+                    FileName = "dotnet",
+                    ArgumentList =
+                    {
+                        "build",
+                        Path.Combine("Content.Goobstation.Server", "Content.Goobstation.Server.csproj"), // Goob
+                        "-c", configuration,
+                        "--nologo",
+                        "/v:m",
+                        $"/p:TargetOs={platform.TargetOs}",
+                        "/t:Rebuild",
+                        "/p:FullRelease=true",
+                        "/m"
+                    }
+                });
+            }
 
             await PublishClientServer(platform.Rid, platform.TargetOs, configuration);
         }

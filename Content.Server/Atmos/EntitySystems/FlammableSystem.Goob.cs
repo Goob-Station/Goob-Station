@@ -6,12 +6,14 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Projectiles;
 using Robust.Shared.Configuration;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Atmos.EntitySystems;
 
 public sealed partial class FlammableSystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     [Dependency] private readonly SpellbladeSystem _spellblade = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
