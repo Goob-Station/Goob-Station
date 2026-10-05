@@ -48,6 +48,9 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Inventory;
+using Robust.Shared.Toolshed.Commands.Values;
+using Content.Shared.Damage.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
@@ -88,6 +91,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -289,11 +293,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         return new()
         {
             Coefficients = specifier.DamageDict
-                .Select(x => KeyValuePair.Create(x.Key, multiplier))
-                .ToDictionary(),
+                .ToDictionary(x => (ProtoId<DamageTypePrototype>) x.Key, _ => multiplier),
             FlatReduction = specifier.DamageDict
-                .Select(x => KeyValuePair.Create(x.Key, -modifier)) // Minus mod because it subtracts values from damage
-                .ToDictionary(),
+                .ToDictionary(x => (ProtoId<DamageTypePrototype>) x.Key, _ => -modifier), // Minus mod because it subtracts values from damage
         };
     }
 
@@ -580,6 +582,35 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         downed = IsDown(ent.Comp.CurrentTarget.Value);
         target = ent.Comp.CurrentTarget.Value;
+
+        foreach (var hand in _hands.EnumerateHands(ent.Owner)) //to do arts you have to have hands right???
+        {
+            if (!_hands.TryGetHeldItem(ent.Owner, hand, out var held))
+                continue;
+
+            if (TryComp<MartialArtBlockedComponent>(held, out var slotblockedComp)
+                    && TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComp)
+                    && knowledgeComp.MartialArtsForm == slotblockedComp.Form)
+            {
+                return false;
+            }
+        }
+
+        if (_inventory.TryGetSlots(ent, out var inv)) //checks for Blocked comp and type from the inventory
+        {
+            foreach (var slot in inv)
+            {
+                if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var slotEnt))
+                    continue;
+
+                if (TryComp<MartialArtBlockedComponent>(slotEnt, out var slotblockedComp)
+                    && TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComp)
+                    && knowledgeComp.MartialArtsForm == slotblockedComp.Form)
+                {
+                    return false;
+                }
+            }
+        }
 
         if (!knowledgeComponent.Blocked)
             return true;

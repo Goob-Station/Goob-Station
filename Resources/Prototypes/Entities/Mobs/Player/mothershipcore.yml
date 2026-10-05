@@ -4,6 +4,8 @@
   name: mothership core
   description: A sentient machine that can produce Xenoborgs. Without this the Xenoborgs are doomed.
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Robot
   - type: InputMover # needs this to pilot the mothership
   - type: BlockMovement # They should never be moving!
     blockInteraction: false
@@ -144,12 +146,12 @@
     channels:
     - Mothership
     - Xenoborg
-    #- Binary Goob
+    - Binary
   - type: ActiveRadio
     channels:
     - Mothership
     - Xenoborg
-    #- Binary Goob
+    - Binary
   - type: Xenoborg
     mindRole: MindRoleMothershipCore
     briefingText: mothership-welcome
@@ -236,10 +238,6 @@
   - type: ShowElectrocutionHUD
   - type: PowerMonitoringCableNetworks
   - type: RadarConsole
-  - type: CollectiveMind # Goobstation collectivemind binary
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: LanguageKnowledge # Einstein Engines - Languages. Xenoborgs understand every language so give this one to their core aswell
     speaks:
     - TauCetiBasic
