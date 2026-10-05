@@ -25837,3 +25837,222 @@ Entries:
       message: Fixed squackroach instantly dying with absurd high temperature
   id: 2957
   time: '2026-10-04T00:06:43.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: >-
+        Failing to move the Cosmic Cult monument no longer puts the ability on a
+        10 minute cooldown.
+    - type: Fix
+      message: The toy facehugger no longer puts you to sleep forever.
+    - type: Fix
+      message: >-
+        The end-of-round no-EORG warning can no longer be closed before its
+        timer runs out.
+    - type: Fix
+      message: >-
+        Leaving heretic shadow form no longer leaves your hands blocked by
+        virtual items.
+    - type: Fix
+      message: >-
+        Examining someone after a gender change now shows the correct pronouns
+        everywhere.
+    - type: Fix
+      message: Dumping a trash bag into disposals no longer blasts the insert sound.
+    - type: Fix
+      message: "Vehicle hand placeholders can no longer be put\t into disposals."
+    - type: Fix
+      message: The megaphone sound plays again when you speak through one.
+    - type: Fix
+      message: Simple mobs like mothroaches can no longer activate pAIs.
+    - type: Fix
+      message: >-
+        Glued items are no longer deleted when the hand holding them is
+        amputated.
+    - type: Fix
+      message: >-
+        Wizard instant summons can no longer pull a polymorphed mob's original
+        body out of nullspace.
+    - type: Fix
+      message: The xenomorph queen can no longer be gibbed while still alive.
+    - type: Fix
+      message: Snails no longer lay eggs that hatch into mice.
+    - type: Fix
+      message: Abductor lungs no longer show the low nitrogen alert.
+    - type: Fix
+      message: >-
+        Hydrakin no longer have an unusable facial hair slot in the character
+        editor.
+    - type: Fix
+      message: Resomi now have the same hitbox size as other species.
+    - type: Fix
+      message: Feroxi can now eat limbs.
+    - type: Fix
+      message: Floor tiles can now be placed on lavaland ground.
+    - type: Fix
+      message: The disgust alert now has a proper name and description.
+    - type: Fix
+      message: >-
+        The brigmedic suit selector no longer shows the Research Director's suit
+        names.
+    - type: Fix
+      message: The Syndicate EVA bundle description now matches what th
+    - type: Fix
+      message: >-
+        Perma-kill objectives now make it clear the target has to stay dead
+        until the shift ends.
+    - type: Fix
+      message: >-
+        Traitors can now get the "kill another agent" and "protect another
+        agent's target" objectives again. 
+    - type: Fix
+      message: >-
+        The Dark Priest now actually gets a kill objective alongside their
+        protect objective.
+    - type: Fix
+      message: >-
+        Healing chems no longer waste their healing when some of your limbs
+        can't be healed. They now heal their full listed amount.
+    - type: Fix
+      message: >-
+        Medical sprays no longer heal several times their listed amount from a
+        single spray.
+    - type: Fix
+      message: >-
+        Malign rifts no longer damage people who were near a rift at some point
+        but have since left.
+    - type: Fix
+      message: >-
+        Xenomorph plasma transfer now actually uses your own plasma instead of
+        creating free plasma.
+    - type: Fix
+      message: >-
+        Planting weeds and laying eggs as a xenomorph now costs the plasma
+        they're listed at.
+    - type: Fix
+      message: >-
+        Flesh heretic mimics and illusion clones no longer duplicate the
+        victim's gear and bag contents.
+    - type: Fix
+      message: >-
+        Organs and body parts taken from Gemini holo-clones now vanish instead
+        of becoming real, researchable organs.
+    - type: Fix
+      message: Blob zombies can now disarm the nuke.
+    - type: Fix
+      message: A nuke detonating on the station during a blob round now ends the round.
+    - type: Fix
+      message: Betty no longer falls out of your hand when you open it again.
+    - type: Fix
+      message: >-
+        Changelings keep their bought abilities after Last Resort and hatching
+        from an egg.
+    - type: Fix
+      message: >-
+        Changelings keep flash immunity, eye protection, night vision and
+        thermal vision when transforming.
+    - type: Fix
+      message: >-
+        Items in a slimeperson's built-in storage are no longer deleted when
+        polymorphed, and instead are transferred if the new body has storage, or
+        dropped on the floor.
+    - type: Fix
+      message: Polymorphed abductors can return to their ship again.
+    - type: Fix
+      message: >-
+        Abductor gizmos and consoles keep track of a marked victim who gets
+        polymorphed.
+    - type: Fix
+      message: The BSO's crit/death alerts track polymorphed command members.
+    - type: Fix
+      message: >-
+        Fixed a server crash when a holoparasite was dragged through walls (e.g.
+        via disposals).
+    - type: Fix
+      message: Fixed a rare server crash when someone was beheaded.
+    - type: Fix
+      message: Fixed local chat breaking for everyone when the AI's borg was destroyed.
+    - type: Fix
+      message: >-
+        Fixed the AI being unable to stop controlling a borg after the borg was
+        destroyed.
+    - type: Fix
+      message: Fixed a clown car crash freezing movement.
+    - type: Fix
+      message: >-
+        Shadowlings are now actually invulnerable while hatching, so plasmamen
+        no longer burn to death in the egg.
+    - type: Fix
+      message: >-
+        The dreadnought suit's self-damage now spreads across all limbs instead
+        of mostly hitting the head and torso.
+    - type: Fix
+      message: >-
+        The drowsiness blur no longer stays on screen after you ghost or switch
+        bodies.
+    - type: Fix
+      message: >-
+        Airtight lockers, cryo pods, disposals, mechs and vents now make you
+        breathe their own air instead of the tile's.
+    - type: Fix
+      message: >-
+        Fixed EMPs on mechs, mouth storage, and several trigger and console
+        checks doing nothing.
+    - type: Fix
+      message: >-
+        Climbing a table and then flying as a harpy no longer lets you walk
+        through tables permanently.
+    - type: Fix
+      message: >-
+        Entering cryosleep no longer takes players carried in your bags or hands
+        along with you, they're now dropped outside the pod.
+    - type: Fix
+      message: >-
+        Fixed borgs and supply bots sometimes starting with fucked up vision
+        after you ended the last round critical or dead.
+    - type: Fix
+      message: >-
+        Melee weapons with armor penetration, like the heretic blade, now show
+        it when examined.
+    - type: Fix
+      message: >-
+        Dropping a gun while wearing the holo-cigar no longer permanently
+        increases its spread.
+    - type: Fix
+      message: Spiders can no longer stack webs endlessly while crawling through vents.
+    - type: Fix
+      message: >-
+        The shadowling Destroy Engines ability now actually delays the
+        evacuation shuttle.
+    - type: Fix
+      message: >-
+        You can no longer climb out of the abductor experimentator or the cryo
+        sleep unit while asleep or stunned.
+    - type: Fix
+      message: The voice mask's chosen speech verb is now actually used when you speak
+    - type: Fix
+      message: The crusher hammer's description no longer says it has knockback.
+    - type: Fix
+      message: >-
+        Holoparasites stay linked to their host when the host is polymorphed,
+        and come back when they change back.
+    - type: Fix
+      message: Floor goblins hiding under the floor no longer trigger mousetraps
+    - type: Fix
+      message: Slaughter demons no longer lose Hell Rip after blood crawling.
+    - type: Fix
+      message: >-
+        Fixed changelog skipping over some PRs and not posting to Discord
+        correctly, and added missing changelog entries.
+    - type: Remove
+      message: >-
+        Removed the executive briefcase steal objective, since the briefcase has
+        been removed.
+    - type: Remove
+      message: The IPC chest can no longer be printed at the robotics lathe.
+    - type: Tweak
+      message: >-
+        Post-ascension shadowling thralls no longer show their reflection chance
+        on examine.
+  id: 2958
+  time: '2026-10-05T20:07:20.0000000+00:00'
