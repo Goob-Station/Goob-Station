@@ -33,7 +33,7 @@ namespace Content.IntegrationTests.Tests
             var server = pair.Server;
 
             var entityMan = server.ResolveDependency<IEntityManager>();
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.System<SharedMapSystem>();
             var prototypeMan = server.ResolveDependency<IPrototypeManager>();
             var mapSystem = entityMan.System<SharedMapSystem>();
 
@@ -228,7 +228,7 @@ namespace Content.IntegrationTests.Tests
 
             var cfg = server.ResolveDependency<IConfigurationManager>();
             var prototypeMan = server.ResolveDependency<IPrototypeManager>();
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.System<SharedMapSystem>();
             var sEntMan = server.ResolveDependency<IEntityManager>();
             var mapSys = server.System<SharedMapSystem>();
 
@@ -696,7 +696,7 @@ namespace Content.IntegrationTests.Tests
                 {
                     var subsetServer = subsetPair.Server;
                     var subsetCfg = subsetServer.ResolveDependency<IConfigurationManager>();
-                    var mapManager = subsetServer.ResolveDependency<IMapManager>();
+                    var mapManager = subsetServer.System<SharedMapSystem>();
                     var entMan = subsetServer.ResolveDependency<IEntityManager>();
                     var mapSys = subsetServer.System<SharedMapSystem>();
 
