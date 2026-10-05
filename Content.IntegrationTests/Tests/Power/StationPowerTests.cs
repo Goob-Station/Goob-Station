@@ -14,6 +14,7 @@ using Robust.Shared.EntitySerialization;
 namespace Content.IntegrationTests.Tests.Power;
 
 [Explicit] // Goobstation we are not readyto unexplicit this.
+[Category("MapTests")]
 public sealed class StationPowerTests
 {
     /// <summary>
