@@ -10,6 +10,7 @@ using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Light.EntitySystems
 {
@@ -21,8 +22,10 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly SharedItemSystem _item = default!;
         [Dependency] private readonly SharedPointLightSystem _lights = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
-        private readonly HashSet<Entity<MatchstickComponent>> _litMatches = new();
+        private readonly Dictionary<Entity<MatchstickComponent>, TimeSpan> _litMatches = new();
+        private readonly List<Entity<MatchstickComponent>> _burntMatches = new();
 
         public override void Initialize()
         {
@@ -41,20 +44,35 @@ namespace Content.Server.Light.EntitySystems
         {
             base.Update(frameTime);
 
-            foreach (var match in _litMatches)
+            var curTime = _timing.CurTime;
+            foreach (var (match, burnOutTime) in _litMatches)
             {
                 if (match.Comp.CurrentState != SmokableState.Lit || Paused(match) || match.Comp.Deleted)
                     continue;
 
+                if (curTime >= burnOutTime)
+                {
+                    _burntMatches.Add(match);
+                    continue;
+                }
+
                 var xform = Transform(match);
 
                 if (xform.GridUid is not {} gridUid)
-                    return;
+                    continue;
 
                 var position = _transformSystem.GetGridOrMapTilePosition(match, xform);
 
                 _atmosphereSystem.HotspotExpose(gridUid, position, 400, 50, match, true);
             }
+
+            foreach (var match in _burntMatches)
+            {
+                SetState(match, SmokableState.Burnt); // Shitmed Change
+                _litMatches.Remove(match);
+            }
+
+            _burntMatches.Clear();
         }
 
         private void OnInteractUsing(Entity<MatchstickComponent> ent, ref InteractUsingEvent args)
@@ -86,12 +104,7 @@ namespace Content.Server.Light.EntitySystems
 
             // Change state
             SetState((matchstick, component), SmokableState.Lit); // Shitmed Change
-            _litMatches.Add(matchstick);
-            matchstick.Owner.SpawnTimer(component.Duration * 1000, delegate
-            {
-                SetState((matchstick, component), SmokableState.Burnt); // Shitmed Change
-                _litMatches.Remove(matchstick);
-            });
+            _litMatches[matchstick] = _timing.CurTime + TimeSpan.FromSeconds(component.Duration);
         }
 
         // Shitmed Change Start
