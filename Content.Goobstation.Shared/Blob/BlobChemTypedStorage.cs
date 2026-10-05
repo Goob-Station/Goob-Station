@@ -9,19 +9,19 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Blob;
 
 #region BlobChemTypedStorage
-[DataDefinition, Serializable, NetSerializable]
+[Serializable, NetSerializable]
 public abstract partial class BlobChemTypedStorage<T> : IEnumerable
 {
-    [DataField]
     public virtual T BlazingOil { get; set; } = default!;
-    [DataField]
     public virtual T ReactiveSpines { get; set; }= default!;
-    [DataField]
     public virtual T RegenerativeMateria { get; set; }= default!;
-    [DataField]
     public virtual T ExplosiveLattice { get; set; }= default!;
-    [DataField]
     public virtual T ElectromagneticWeb { get; set; }= default!;
+    public virtual T ComatoseFiber { get; set; } = default!;
+    public virtual T ChainCoating { get; set; } = default!;
+    public virtual T SinewyTendons { get; set; } = default!;
+    public virtual T CorrosiveSlime { get; set; } = default!;
+    public virtual T CryogenicPoison { get; set; } = default!;
 
     // Indexer to access fields via BlobChemType enumeration
     [Pure]
@@ -34,6 +34,11 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
             BlobChemType.RegenerativeMateria => RegenerativeMateria,
             BlobChemType.ExplosiveLattice => ExplosiveLattice,
             BlobChemType.ElectromagneticWeb => ElectromagneticWeb,
+            BlobChemType.ComatoseFiber => ComatoseFiber,
+            BlobChemType.ChainCoating => ChainCoating,
+            BlobChemType.SinewyTendons => SinewyTendons,
+            BlobChemType.CorrosiveSlime => CorrosiveSlime,
+            BlobChemType.CryogenicPoison => CryogenicPoison,
             _ => throw new ArgumentOutOfRangeException(nameof(type), $"Unknown chemical type: {type}")
         };
         set
@@ -55,6 +60,21 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
                 case BlobChemType.ElectromagneticWeb:
                     ElectromagneticWeb = value;
                     break;
+                case BlobChemType.ComatoseFiber:
+                    ComatoseFiber = value;
+                    break;
+                case BlobChemType.ChainCoating:
+                    ChainCoating = value;
+                    break;
+                case BlobChemType.SinewyTendons:
+                    SinewyTendons = value;
+                    break;
+                case BlobChemType.CorrosiveSlime:
+                    CorrosiveSlime = value;
+                    break;
+                case BlobChemType.CryogenicPoison:
+                    CryogenicPoison = value;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), $"Unknown chemical type: {type}");
             }
@@ -75,6 +95,11 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
         yield return new KeyValuePair<BlobChemType, T>(BlobChemType.RegenerativeMateria, RegenerativeMateria);
         yield return new KeyValuePair<BlobChemType, T>(BlobChemType.ExplosiveLattice, ExplosiveLattice);
         yield return new KeyValuePair<BlobChemType, T>(BlobChemType.ElectromagneticWeb, ElectromagneticWeb);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.ComatoseFiber, ComatoseFiber);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.ChainCoating, ChainCoating);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.SinewyTendons, SinewyTendons);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.CorrosiveSlime, CorrosiveSlime);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.CryogenicPoison, CryogenicPoison);
     }
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
@@ -84,11 +109,67 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
 [DataDefinition, Serializable, NetSerializable]
 public sealed partial class BlobChemColors : BlobChemTypedStorage<Color>
 {
+    [DataField]
+    public override Color BlazingOil { get; set; } = default!;
 
+    [DataField]
+    public override Color ReactiveSpines { get; set; } = default!;
+
+    [DataField]
+    public override Color RegenerativeMateria { get; set; } = default!;
+
+    [DataField]
+    public override Color ExplosiveLattice { get; set; } = default!;
+
+    [DataField]
+    public override Color ElectromagneticWeb { get; set; } = default!;
+
+    [DataField]
+    public override Color ComatoseFiber { get; set; } = default!;
+
+    [DataField]
+    public override Color ChainCoating { get; set; } = default!;
+
+    [DataField]
+    public override Color SinewyTendons { get; set; } = default!;
+
+    [DataField]
+    public override Color CorrosiveSlime { get; set; } = default!;
+
+    [DataField]
+    public override Color CryogenicPoison { get; set; } = default!;
 }
 
 [DataDefinition, Serializable, NetSerializable]
 public sealed partial class BlobChemDamage : BlobChemTypedStorage<DamageSpecifier>
 {
+    [DataField]
+    public override DamageSpecifier BlazingOil { get; set; } = default!;
 
+    [DataField]
+    public override DamageSpecifier ReactiveSpines { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier RegenerativeMateria { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier ExplosiveLattice { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier ElectromagneticWeb { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier ComatoseFiber { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier ChainCoating { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier SinewyTendons { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier CorrosiveSlime { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier CryogenicPoison { get; set; } = default!;
 }

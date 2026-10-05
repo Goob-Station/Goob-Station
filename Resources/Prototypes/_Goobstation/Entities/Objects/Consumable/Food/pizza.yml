@@ -1,0 +1,70 @@
+- type: entity
+  name: flamin hot cotton pizza
+  parent: FoodPizzaBase
+  id: FoodPizzaCottonHot
+  description: Flat fabric cotton dough with super spicy cotton topping. Flamin hot!
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cotton
+    - bread
+    - spicy
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/cotton-pizza-hot.rsi
+    state: cotton-pizza-hot
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SliceableFood
+    slice: FoodPizzaCottonHotSlice
+  - type: Tag
+    tags:
+    - ClothMade
+    - Pizza
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 5
+        - ReagentId: CapsaicinOil
+          Quantity: 5
+
+- type: entity
+  name: slice of flamin hot cotton pizza
+  parent: FoodPizzaSliceBase
+  id: FoodPizzaCottonHotSlice
+  description: A slice of hot cotton pizza. Extra spicy!
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cotton
+    - bread
+    - spicy
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/cotton-pizza-hot.rsi
+    state: cotton-slice-hot
+  - type: Item
+    heldPrefix: cotton-slice-hot
+  - type: Tag
+    tags:
+    - ClothMade
+    - Pizza
+    - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3.5
+        - ReagentId: Vitamin
+          Quantity: 0.8
+        - ReagentId: Fiber
+          Quantity: 1
+        - ReagentId: CapsaicinOil
+          Quantity: 0.5

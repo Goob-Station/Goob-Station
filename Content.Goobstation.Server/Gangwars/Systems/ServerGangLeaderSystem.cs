@@ -2,6 +2,8 @@ using Content.Goobstation.Server.Gangwars.Roles;
 using Content.Goobstation.Shared.Gangwars.Components;
 using Content.Goobstation.Shared.Gangwars.Events;
 using Content.Server.Antag;
+using Content.Server.Heretic.Components;
+using Content.Server.Revolutionary.Components;
 using Content.Server.Roles;
 using Content.Shared.Mind;
 using Robust.Shared.Audio;
@@ -19,6 +21,22 @@ public sealed class ServerGangLeaderSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<GangMemberComponent, GangMemberRecruitedEvent>(OnRecruited);
         SubscribeLocalEvent<GangRoleComponent, GetBriefingEvent>(OnGetBriefing);
+
+        SubscribeLocalEvent<GangInviteServerCheckEvent>(OnInviteCheck);
+    }
+
+    private void OnInviteCheck(ref GangInviteServerCheckEvent args)
+    {
+        args.Cancelled = !ServerSideInviteCheck(args.Target);
+    }
+
+    private bool ServerSideInviteCheck(EntityUid target)
+    {
+        if (HasComp<SecurityStaffComponent>(target)
+            || HasComp<CommandStaffComponent>(target))
+            return false;
+
+        return true;
     }
 
     private void OnGetBriefing(EntityUid uid, GangRoleComponent comp, ref GetBriefingEvent args)
