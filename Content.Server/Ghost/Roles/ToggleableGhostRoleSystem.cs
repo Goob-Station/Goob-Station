@@ -46,7 +46,7 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
     // Goobstation
     private void OnActivateInWorld(EntityUid uid, ToggleableGhostRoleComponent component, ActivateInWorldEvent args)
     {
-        if (args.Handled || !args.Complex)
+        if (args.Handled || !args.Complex) // Goob - check complex
             return;
 
         args.Handled = true;
