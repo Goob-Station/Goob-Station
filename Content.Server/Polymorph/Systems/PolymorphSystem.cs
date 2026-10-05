@@ -259,8 +259,8 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (configuration.AllowMovement
             && TryComp<PhysicsComponent>(child, out var childPhysics)
-            && childPhysics.BodyType is not (BodyType.KinematicController or BodyType.Kinematic))
-            _physics.SetBodyType(child, BodyType.KinematicController, body: childPhysics);
+            && childPhysics.BodyType is not (Robust.Shared.Physics.BodyType.KinematicController or Robust.Shared.Physics.BodyType.Kinematic))
+            _physics.SetBodyType(child, Robust.Shared.Physics.BodyType.KinematicController, body: childPhysics);
 
         _mindSystem.MakeSentient(child, configuration.AllowMovement);
         // Goob edit end
