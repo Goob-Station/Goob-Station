@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.Shared.Disease.Components;
@@ -132,7 +133,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
         if (!args.Ent.Comp.EffectImmune)
         {
-            foreach (var effectUid in ent.Comp.Effects.ContainedEntities)
+            foreach (var effectUid in ent.Comp.Effects.ContainedEntities.ToArray())
             {
                 if (!EffectQuery.TryComp(effectUid, out var effect))
                     continue;
