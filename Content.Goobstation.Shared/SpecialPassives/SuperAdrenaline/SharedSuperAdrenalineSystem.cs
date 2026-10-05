@@ -12,6 +12,7 @@ using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stunnable;
@@ -152,7 +153,7 @@ public sealed class SharedSuperAdrenalineSystem : EntitySystem
 
         if (ent.Comp.PassiveDamage != null)
             _damageable.TryChangeDamage(
-                ent,
+                ent.Owner,
                 ent.Comp.PassiveDamage,
                 true,
                 false,

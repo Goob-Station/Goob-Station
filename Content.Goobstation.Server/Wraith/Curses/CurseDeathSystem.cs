@@ -6,6 +6,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
