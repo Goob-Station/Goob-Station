@@ -40,6 +40,7 @@
     - replay_load
     - saveconfig
     - chatwindow
+    - voicechat # Goobstation - Voice chat
 
 - Flags: DEBUG
   Commands:

@@ -388,6 +388,7 @@
     - Modsuits
     - PowerCages
     - BorgModulesGoob
+    - SecBorgParts # Goob
     - BasicCybernetics
     - MedicalCybernetics
     - AdvancedCybernetics
@@ -773,6 +774,7 @@
     - type: MiningPointsLathe # DeltaV
     - type: MaterialStorageMagnetPickup # Frontier
     - type: OreSiloClient
+    - type: AlmanacOreCounter # Goobstation
 
 - type: entity
   parent: OreProcessor
