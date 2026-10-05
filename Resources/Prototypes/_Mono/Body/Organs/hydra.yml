@@ -67,8 +67,9 @@
   components:
   - type: Sprite
     layers:
-    - state: kidney-l
-    - state: kidney-r
+     - state: liver # Goob
+#    - state: kidney-l # Goob
+#    - state: kidney-r # Goob
   - type: Item
     size: Small
     heldPrefix: liver
@@ -80,7 +81,6 @@
     metabolizerTypes: [Human]
     groups:
     - id: Alcohol
-      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
 
 - type: entity
   id: OrganHydrakinHeart
@@ -88,7 +88,7 @@
   name: hydrakin heart
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Hydrakin ]
+    metabolizerTypes: [ Hydrakin, Animal ] # goob edit - theobromine hurty
 
 - type: entity
   id: OrganHydrakinLungs

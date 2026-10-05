@@ -6,6 +6,8 @@
   parent: [BaseMob, MobDamageable, MobCombat, MobAtmosExposed, MobFlammable]
   abstract: true
   components:
+    - type: VoiceChatEffect # Goobstation - Voice chat
+      effect: Robot
     - type: ContentEye
     - type: CameraRecoil
     - type: Reactive
@@ -341,3 +343,4 @@
     - type: CombatMode
       canDisarm: true
     - type: ExaminableCharacter # WWDP
+    - type: CosmicCenserTarget # DeltaV - Cosmic Cult

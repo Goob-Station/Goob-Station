@@ -1,0 +1,12 @@
+- type: construction
+  id: RMCCampfire
+  graph: RMCCampfire
+  startNode: start
+  targetNode: campfire
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

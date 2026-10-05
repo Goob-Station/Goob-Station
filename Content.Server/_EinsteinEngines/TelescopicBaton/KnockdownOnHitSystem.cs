@@ -8,6 +8,8 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server._EinsteinEngines.TelescopicBaton;
 
@@ -15,6 +17,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
+    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
 
     public override void Initialize()
     {
@@ -46,7 +49,11 @@ public sealed class KnockdownOnHitSystem : EntitySystem
                 true,
                 dropItems,
                 entity.Comp.Autostand)) // goob edit
+            {
                 knockedDown.Add(target);
+                AdminLogger.Add(LogType.DisarmedKnockdown, LogImpact.High,
+                    $"Player {ToPrettyString(args.User):player} knocked down {ToPrettyString(target):target}");
+            }
         }
 
         if (knockedDown.Count > 0) // Goobstation

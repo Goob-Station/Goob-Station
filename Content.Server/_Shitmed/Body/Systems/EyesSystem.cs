@@ -52,10 +52,16 @@ namespace Content.Server._Shitmed.Body.Systems
                 || !TryComp(uid, out OrganComponent? organ)
                 || !organ.Body.HasValue
                 || !TryComp(organ.Body.Value, out BlindableComponent? blindable)
-                || organ.OrganIntegrity <= 0)
+                || organ.OrganIntegrity <= 0
+                || organ.IntegrityCap <= 0)
                 return;
 
-            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), (int) organ.OrganIntegrity);
+            
+            // Omu: The expected input is scaled as a number between 12 and 3,
+            // such that "blindness" occurs at 25% eye integrity.
+            
+            var blindnessSeverity = (int) ((organ.IntegrityCap - organ.OrganIntegrity) / (organ.IntegrityCap / 12)); // Omu
+            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), blindnessSeverity); // Omu
         }
 
         private void OnOrganEnabled(EntityUid uid, EyesComponent component, OrganEnabledEvent args)
@@ -65,10 +71,10 @@ namespace Content.Server._Shitmed.Body.Systems
             || !TryComp(body, out BlindableComponent? blindable))
                 return;
 
-            // We add the current eye damage since in any context, the organ being enabled means that it was
-            // either removed or disabled, so the BlindableComponent must have some prior damage already.
-            var adjustment = (int)(args.Organ.Comp.IntegrityCap - args.Organ.Comp.OrganIntegrity);
-            _blindableSystem.SetEyeDamage((body, blindable), adjustment);
+            var lost = args.Organ.Comp.IntegrityCap > 0
+                ? 1f - (float) (args.Organ.Comp.OrganIntegrity / args.Organ.Comp.IntegrityCap)
+                : 1f;
+            _blindableSystem.SetEyeDamage((body, blindable), (int) (blindable.MaxDamage * lost));
         }
 
         private void OnOrganDisabled(EntityUid uid, EyesComponent component, OrganDisabledEvent args)

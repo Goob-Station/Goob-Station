@@ -15,6 +15,10 @@
           shader: unshaded
           visible: false
   - type: RadioJammer
+    # <Trauma>
+    frequenciesExcluded:
+    - 1213 # Syndicate Radio
+    # </Trauma>
     settings:
     - wattage: 1
       range: 2.5

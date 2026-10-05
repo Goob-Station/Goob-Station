@@ -94,7 +94,7 @@ public sealed class SurgeryCVars : CVars
     /// The rate at which severity (wound) points get exchanged into bleeding; e.g., 50 severity would be 3.5 bleeding points.
     /// </summary>
     public static readonly CVarDef<float> BleedingSeverityTrade =
-        CVarDef.Create("bleeds.wound_severity_trade", 0.07f, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("bleeds.wound_severity_trade", 0.035f, CVar.SERVER | CVar.REPLICATED); // Originally 0.07f
 
     /// <summary>
     /// How quick by default do bleeds grow to their full form?

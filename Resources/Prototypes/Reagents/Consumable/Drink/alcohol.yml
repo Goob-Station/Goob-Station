@@ -174,10 +174,11 @@
           - Dwarf
           - Yowie  # Goobstation - Yowie
           - Cybernetic # Shitmed - Cybernetic Organs
+          - Oni # Goobstation, fixes Oni taking base ethanol poisoning on top of their specific ethanol poisoning
           inverted: true
         damage:
           types:
-            Poison: 0.1
+            Poison: 1 # 0.1 # Goob; pre-upstream life-threatening ethanol poisoning damage
             # dwarves take less toxin damage and heal a marginal amount of brute
 # Goobstation Start
 #      - !type:HealthChange
@@ -209,7 +210,8 @@
           type: [ Dwarf ]
         damage:
           groups:
-            Brute: -0.1
+            Brute: -1
+            Burn: -1
       - !type:ModifyBloodLevel
         conditions:
         - !type:ReagentCondition
@@ -282,6 +284,21 @@
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeliqueurglass.rsi
     state: icon_empty
+  metabolisms: # Goobstation: Caffeine
+    Drink:
+      effects:
+      - !type:SatiateThirst  # Goobstation: Caffeine
+        factor: 2
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
+        type: Remove
+      - !type:AdjustReagent  # Goobstation: Caffeine
+        reagent: Theobromine
+        amount: 0.05
+      - !type:AdjustReagent # Goobstation: Caffeine
+        reagent: Caffeine
+        amount: 0.2
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true

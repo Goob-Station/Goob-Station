@@ -1,0 +1,190 @@
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleStickyGrenadeLauncher
+  name: sticky grenade launcher cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: LauncherStickyGrenadeRegenerating
+  - type: BorgModuleIcon
+    icon: { sprite: _Trauma/Interface/Actions/actions_borg.rsi, state: china_lake }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleSyndicateDoorControl
+  name: door control cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: DoorRemoteSyndicate
+    - item: AccessBreaker
+    - item: AccessConfiguratorSyndicate
+  - type: BorgModuleIcon
+    icon: { sprite: _Trauma/Interface/Actions/actions_borg.rsi, state: access_config }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleSyndicateJammer
+  name: jammer cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: BorgRadioJammer
+  - type: BorgModuleIcon
+    icon: { sprite: _Trauma/Interface/Actions/actions_borg.rsi, state: jammer }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleSyndicateDartgun
+  name: dart gun cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: DartGun
+    - item: Syringe
+      hand:
+        emptyLabel: borg-slot-injector-dropper-empty
+        emptyRepresentative: Syringe
+        whitelist:
+          tags:
+          - Dropper
+          - Syringe
+    - item: ChemistryEmptyBottle01
+      hand: &small_container_hand
+        emptyLabel: borg-slot-small-containers-empty
+        emptyRepresentative: ChemistryEmptyBottle01
+        whitelist:
+          tags:
+          - Bottle
+          - Pill
+          - PillCanister
+    - item: ChemistryEmptyBottle01
+      hand: *small_container_hand
+  - type: BorgModuleIcon
+    icon: { sprite: _Trauma/Interface/Actions/actions_borg.rsi, state: dart }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleSyndicateTopical
+  name: topical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer
+    - item: SyndiHypo
+    - item: Syringe
+      hand:
+        emptyLabel: borg-slot-injector-dropper-empty
+        emptyRepresentative: Syringe
+        whitelist:
+          tags:
+          - Dropper
+          - Syringe
+    - item: Beaker
+      hand: &beaker_hand
+        emptyLabel: borg-slot-chemical-containers-empty
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
+    - item: Beaker
+      hand: *beaker_hand
+    - item: MedicatedSuture
+      hand: &suture_hand
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: MedicatedSuture
+        whitelist:
+          components:
+          - Healing
+    - item: MedicatedSuture
+      hand: *suture_hand
+    - item: RegenerativeMesh
+      hand: &mesh_hand
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: RegenerativeMesh
+        whitelist:
+          components:
+          - Healing
+    - item: RegenerativeMesh
+      hand: *mesh_hand
+    - item: Bloodpack
+      hand: &bloodpack_hand
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Bloodpack
+        whitelist:
+          components:
+          - Healing
+    - item: Bloodpack
+      hand: *bloodpack_hand
+  - type: BorgModuleIcon
+    icon: { sprite: _Trauma/Interface/Actions/actions_borg.rsi, state: hypo }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleSyndicateSurgery
+  name: surgery cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer
+    - item: OmnimedToolSyndie
+  - type: BorgModuleIcon
+    icon: { sprite: _Trauma/Interface/Actions/actions_borg.rsi, state: surgery }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleSyndicateRescue
+  name: rescue cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer
+    - item: DefibrillatorSyndicateUnpowered
+    - item: SyndicateJawsOfLife
+    - item: BorgFireExtinguisher
+    - item: BorgHandheldGPSBasic
+  - type: BorgModuleIcon
+    icon: { sprite: _Trauma/Interface/Actions/actions_borg.rsi, state: defib }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleSyndicateChameleonProjector
+  name: chameleon projector cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    hands:
+    - item: ChameleonProjectorNoBattery
+  - type: BorgModuleIcon
+    icon: { sprite: _Trauma/Interface/Actions/actions_borg.rsi, state: projector}

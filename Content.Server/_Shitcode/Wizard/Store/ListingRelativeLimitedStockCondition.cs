@@ -20,7 +20,7 @@ public sealed partial class ListingRelativeLimitedStockCondition : ListingCondit
         if (!args.EntityManager.TryGetComponent<StoreComponent>(args.StoreEntity, out var storeComp))
             return false;
 
-        var allListings = storeComp.Listings;
+        var allListings = storeComp.FullListingsCatalog;
 
         foreach (var listing in allListings)
         {

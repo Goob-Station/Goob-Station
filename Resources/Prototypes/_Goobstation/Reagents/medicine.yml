@@ -280,6 +280,7 @@
           groups:
             Toxin: -6
       - !type:CleanBloodstream
+        excluded: Musiver
         cleanseRate: 6 # POWERFUL cleansing effect
       - !type:HealthChange
         damage:
@@ -579,6 +580,7 @@
       metabolismRate: 1
       effects:
       - !type:CleanBloodstream
+        excluded: Calomel
         cleanseRate: 4.5 # better than charcoal
       - !type:HealthChange
         damage:
@@ -662,7 +664,7 @@
             groups:
               Brute: 1
               Burn: 1
-          inverse: true
+          inverted: true
 
 # Low-effect meds
 - type: reagent
@@ -788,7 +790,7 @@
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts!
-          invert: true
+          inverted: true
   metabolisms:
     Medicine:
       metabolismRate: 3
@@ -850,14 +852,14 @@
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts!
-          invert: true
+          inverted: true
       - !type:ModifyBleed
         amount: -2
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection
-          invert: true
+          inverted: true
   metabolisms:
     Medicine:
       metabolismRate: 3
@@ -907,14 +909,14 @@
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts! (copy pasted comment)
-          invert: true
+          inverted: true
       - !type:ModifyBleed
         amount: -2
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection
-          invert: true
+          inverted: true
 
 - type: reagent
   id: Synthcells
@@ -945,7 +947,7 @@
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts!
-          invert: true
+          inverted: true
   metabolisms:
     Medicine:
       effects:
@@ -997,7 +999,7 @@
           damage:
             groups:
               Brute: 25
-          inverse: true
+          inverted: true
         - !type:ReagentCondition
           reagent: SalicylicAcid
           max: 25
@@ -1051,7 +1053,7 @@
           damage:
             groups:
               Burn: 25
-          inverse: true
+          inverted: true
         - !type:ReagentCondition
           reagent: Oxandrolone
           max: 25
@@ -1085,6 +1087,7 @@
       metabolismRate: 0.25
       effects:
       - !type:CleanBloodstream
+        excluded: PentenicAcid # Goobstation
       - !type:HealthChange
         damage:
           types:

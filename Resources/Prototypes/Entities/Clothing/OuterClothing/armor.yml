@@ -84,10 +84,12 @@
     - Chest
     - Groin
     - Tail
-    traumaDeductions:
-      Dismemberment: 0.1
-      OrganDamage: 0.1
-      BoneDamage: 0.1
+    - Arm
+    - Leg
+    traumaDeductions: # Parity with Riot suit, Delimb merge kinda forces this.
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
@@ -553,6 +555,12 @@
     sprite: Clothing/OuterClothing/Armor/magusblue.rsi
   - type: Armor
     # Goob start
+    traumaDeductions: # Wizard Also Probally should have this
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.4

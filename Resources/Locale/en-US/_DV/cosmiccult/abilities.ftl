@@ -21,3 +21,5 @@ cosmicability-monument-spawn-error-grid = Invalid location! The Monument must be
 cosmicability-monument-spawn-error-station = Invalid location! The Monument must be beckoned upon the station.
 cosmicability-monument-spawn-error-intersection = Too crowded! The Monument requires an empty 3x1 area to be beckoned.
 cosmicability-monument-spawn-error-space = Too close to space! The Monument must be be at least {$DISTANCE}m away.
+
+cosmicability-hibernate-confirm = THIS ACTION WILL KEEP YOU IN PLACE! Use it again to confirm.

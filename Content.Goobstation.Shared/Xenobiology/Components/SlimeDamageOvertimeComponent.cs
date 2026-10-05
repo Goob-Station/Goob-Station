@@ -17,6 +17,9 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? SourceEntityUid;
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? VictimEntityUid;
+
     /// <summary>
     /// How many units from target's bloodstream would be sucked per tick
     /// </summary>
@@ -34,12 +37,6 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 ToxinUnits = 0.15;
-
-    [DataField]
-    public TimeSpan Interval = TimeSpan.FromSeconds(1);
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan NextTickTime = TimeSpan.Zero;
 
     [DataField]
     public DamageSpecifier Damage = new()

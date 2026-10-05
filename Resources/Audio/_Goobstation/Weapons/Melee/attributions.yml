@@ -2,3 +2,14 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Goonstation"
   source: "https://github.com/goonstation/goonstation/blob/master/sound/impact_sounds/katana_slash.ogg"
+  
+- files: ["swordpluck.ogg"]
+  license: "CC0-1.0"
+  copyright: '"pluck_can 10 cute.wav" by Ayavaron of Freesound.org. Mixed from stereo to mono.'
+  source: "https://freesound.org/people/Ayavaron/sounds/126502/"
+  
+- files: ["swordimpact.ogg"]
+  license: "CC0-1.0"
+  copyright: '"Cartoon Arrow 08.wav" by Debsound of Freesound.org. Mixed from stereo to mono, merged with pierce.ogg in Resources\Audio\Weapons.'
+  source: "https://freesound.org/people/Debsound/sounds/319550/"
+

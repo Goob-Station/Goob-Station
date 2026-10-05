@@ -2,8 +2,8 @@
 
 using System.Numerics;
 using Content.Server._Lavaland.Biome;
-using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Atmos.Components;
+using Content.Shared._Lavaland.Procedural.Components;
 using Content.Shared._Lavaland.Procedural.Prototypes;
 using Content.Shared.Gravity;
 using Content.Shared.Parallax.Biomes;
@@ -70,7 +70,7 @@ public sealed partial class LavalandSystem
         SetupRuins(pool, lavaland.Value, preloader.Value);
 
         // Hide all grids from the mass scanner.
-        foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
+        foreach (var grid in _map.GetAllGrids(lavalandMapId))
         {
             var flag = IFFFlags.HideLabel;
 

@@ -1,7 +1,7 @@
 - type: entity
   name: bone axe
   parent: [ BaseItem, BaseMajorContraband ]
-  id: BoneAxe
+  id: WeaponBoneAxe
   description: An axe made of bones. A primitive hunters favorite... probably.
   components:
   - type: Sprite
@@ -16,14 +16,14 @@
         Slash: 15
         Structural: 10
       woundSeverityMultipliers:
-        Slash: 4.5
+        Slash: 1.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Slash: 5
+        Slash: 10
         Structural: 20
   - type: Item
     size: Ginormous
@@ -53,8 +53,25 @@
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Construction
-    graph: BoneAxeConstructionGraph
+    graph: WeaponBoneAxeConstructionGraph
     node: axe
+  - type: UndetectableContraband
+
+- type: entity
+  name: incomplete bone axe
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: IncompleteBoneAxe
+  description: A few bones tied together with pieces of cloth.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/bone_axe.rsi
+    state: incomplete
+  - type: Item
+    size: Ginormous
+  - type: Construction
+    graph: WeaponBoneAxeConstructionGraph
+    node: incompleteAxe
+  - type: UndetectableContraband
 
 - type: entity
   name: bone dagger
@@ -85,3 +102,4 @@
   - type: Tag
     tags:
     - Knife
+  - type: UndetectableContraband

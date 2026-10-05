@@ -5,7 +5,6 @@ using Content.Shared.Body.Systems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Body.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.EntityEffects;
@@ -31,8 +30,8 @@ public sealed partial class AddReagentToBloodSystem : EntityEffectSystem<Bloodst
 
 public sealed partial class AddReagentToBlood : EntityEffectBase<AddReagentToBlood> // TODO Goobstation move this to goobmod
 {
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
-    public string? Reagent = null;
+    [DataField]
+    public ProtoId<ReagentPrototype>? Reagent = null;
 
     [DataField]
     public FixedPoint2 Amount = default!;

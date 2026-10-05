@@ -1,5 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Content.Shared.Body.Part;
 
@@ -43,7 +44,7 @@ public sealed partial class TraumaComponent : Component
     /// Self-explanatory
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public TraumaType TraumaType;
+    public ProtoId<TraumaTypePrototype> TraumaType;
 }
 
 // The networking on consciousness is rather silly.
@@ -54,5 +55,5 @@ public sealed class TraumaComponentState : ComponentState
     public NetEntity? TraumaTarget;
     public (BodyPartType, BodyPartSymmetry)? TargetType;
     public FixedPoint2 TraumaSeverity;
-    public TraumaType TraumaType;
+    public ProtoId<TraumaTypePrototype> TraumaType;
 }

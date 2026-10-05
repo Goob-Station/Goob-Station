@@ -39,7 +39,7 @@ namespace Content.Client.Gameplay
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
+        private SharedMapSystem _mapSystem => _entityManager.System<SharedMapSystem>();
         [Dependency] protected readonly IUserInterfaceManager UserInterfaceManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IViewVariablesManager _vvm = default!;
@@ -170,13 +170,11 @@ namespace Content.Client.Gameplay
 
             // Check the entities against whether or not we can click them
             var foundEntities = new List<(EntityUid, int, uint, float)>(entities.Count);
-            var clickQuery = _entityManager.GetEntityQuery<ClickableComponent>();
             var clickables = _entityManager.System<ClickableSystem>();
 
             foreach (var entity in entities)
             {
-                if (clickQuery.TryGetComponent(entity.Uid, out var component) &&
-                    clickables.CheckClick((entity.Uid, component, entity.Component, entity.Transform), coordinates.Position, eye, excludeFaded, out var drawDepthClicked, out var renderOrder, out var bottom))
+                if (clickables.CheckClick((entity.Uid, null, entity.Component, entity.Transform), coordinates.Position, eye, excludeFaded, out var drawDepthClicked, out var renderOrder, out var bottom))
                 {
                     foundEntities.Add((entity.Uid, drawDepthClicked, renderOrder, bottom));
                 }
@@ -256,7 +254,7 @@ namespace Content.Client.Gameplay
                     coordinates = EntityCoordinates.Invalid;
                 else
                 {
-                    coordinates = _mapManager.TryFindGridAt(map.Value, mousePosWorld.Position, out var uid, out _)
+                    coordinates = _mapSystem.TryFindGridAt(map.Value, mousePosWorld.Position, out var uid, out _)
                         ? mapSystem.MapToGrid(uid, mousePosWorld)
                         : transformSystem.ToCoordinates(map.Value, mousePosWorld);
                 }

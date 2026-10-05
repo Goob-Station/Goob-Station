@@ -8,6 +8,7 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -49,7 +50,6 @@ namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly INetManager _net = default!;
 
@@ -248,7 +248,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         var toCoords = coords;
 
         var fromMap = _transform.ToMapCoordinates(fromCoords);
-        var spawnCoords = _mapMan.TryFindGridAt(fromMap, out var gridUid, out _)
+        var spawnCoords = _map.TryFindGridAt(fromMap, out var gridUid, out _)
             ? _transform.WithEntityId(fromCoords, gridUid)
             : new(_map.GetMap(fromMap.MapId), fromMap.Position);
 
@@ -366,15 +366,18 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                         uid.Comp3.NerveSystem.Comp);
                 }
 
-                foreach (var nerve in uid.Comp3.NerveSystem.Comp.Nerves)
+                foreach (var nerveEnt in uid.Comp3.NerveSystem.Comp.Nerves)
                 {
-                    foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
+                    if (!TryComp<NerveComponent>(nerveEnt, out var nerve))
+                        continue;
+
+                    foreach (var painFeelsModifier in nerve.PainFeelingModifiers)
                     {
                         // Idk what it does, just remove it
                         _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
                             painFeelsModifier.Key.Item2,
-                            nerve.Key,
-                            nerve.Value);
+                            nerveEnt,
+                            nerve);
                     }
                 }
             }
