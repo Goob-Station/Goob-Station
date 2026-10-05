@@ -26056,3 +26056,19 @@ Entries:
         on examine.
   id: 2958
   time: '2026-10-05T20:07:20.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Fixed healing items like gauze erroring and doing nothing.
+    - type: Fix
+      message: >-
+        Fixed healing chems and natural healing not reducing a body's total
+        damage.
+    - type: Fix
+      message: Fixed a wound healing error spam.
+    - type: Fix
+      message: Fixed stealthed entities having a fucked up shader.
+    - type: Fix
+      message: Fixed items drawing offset from their slots in storage grids.
+  id: 2959
+  time: '2026-10-05T22:32:57.0000000+00:00'
