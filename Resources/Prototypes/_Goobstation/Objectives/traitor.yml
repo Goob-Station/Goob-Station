@@ -12,7 +12,16 @@
     unique: false
   - type: TargetObjective
     title: objective-condition-pkill-person
-  - type: PickRandomTraitor
+  - type: PickRandomPerson
+    filters:
+    - !type:HasRoleMindFilter
+      whitelist:
+        components:
+        - TraitorRole
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
   - type: KillPersonCondition
     requireDead: true
   - type: MultipleTraitorsRequirement
@@ -30,6 +39,11 @@
   - type: TargetObjective
     title: objective-condition-pkill-person
   - type: PickRandomPerson
+    filters:
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
   - type: KillPersonCondition
     requireDead: true
 
@@ -47,7 +61,16 @@
     difficulty: 1 # This can be either protect HoS (objective solves itself) or having some tider die in maints silently. Difficulty is set to 1 to have other objectives.
   - type: TargetObjective
     title: objective-condition-traitor-target-alive-title
-  - type: RandomTraitorTarget
+  - type: PickRandomPerson
+    filters:
+    - !type:TargetedByOthersMindFilter
+      whitelist:
+        components:
+        - KillPersonCondition
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KeepAliveCondition
   - type: MultipleTraitorsRequirement
 
 # Steal

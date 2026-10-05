@@ -217,37 +217,27 @@ public sealed partial class DamageableSystem
                 );
 
                 if (partDamageResult != null && !partDamageResult.Empty)
-                {
                     appliedDamage += partDamageResult;
 
-                    /*
-                        Why this ugly shitcode? Its so that we can track chems and other sorts of healing surpluses.
-                        Assume you're fighting in a spaced area. Your chest has 30 damage, and every other part
-                        is getting 0.5 per tick. Your chems will only be 1/11th as effective, so we take the surplus
-                        healing and pass it along parts. That way a chem that would heal you for 75 brute would truly
-                        heal the 75 brute per tick, and not some weird shit like 6.8 per tick.
-                    */
-                    foreach (var (type, damageFromDict) in modifiedDamage.DamageDict)
-                    {
-                        if (damageFromDict >= 0
-                            || !partDamageResult.DamageDict.TryGetValue(type, out var damageFromResult)
-                            || damageFromResult > 0)
-                            continue;
+                /*
+                    Why this ugly shitcode? Its so that we can track chems and other sorts of healing surpluses.
+                    Assume you're fighting in a spaced area. Your chest has 30 damage, and every other part
+                    is getting 0.5 per tick. Your chems will only be 1/11th as effective, so we take the surplus
+                    healing and pass it along parts. That way a chem that would heal you for 75 brute would truly
+                    heal the 75 brute per tick, and not some weird shit like 6.8 per tick.
+                */
+                foreach (var (type, requested) in modifiedDamage.DamageDict)
+                {
+                    if (requested >= 0)
+                        continue;
 
-                        // If the damage from the dict plus the surplus healing is equal to the damage from the result,
-                        // we can safely set the surplus healing to 0, as that means we consumed all of it.
-                        if (damageFromDict >= damageFromResult)
-                        {
-                            surplusHealing.DamageDict[type] = FixedPoint2.Zero;
-                        }
-                        else
-                        {
-                            if (surplusHealing.DamageDict.TryGetValue(type, out var _))
-                                surplusHealing.DamageDict[type] = damageFromDict - damageFromResult;
-                            else
-                                surplusHealing.DamageDict.TryAdd(type, damageFromDict - damageFromResult);
-                        }
-                    }
+                    var healed = FixedPoint2.Zero;
+                    if (partDamageResult != null
+                        && partDamageResult.DamageDict.TryGetValue(type, out var result)
+                        && result < 0)
+                        healed = result;
+
+                    surplusHealing.DamageDict[type] = FixedPoint2.Min(requested - healed, FixedPoint2.Zero);
                 }
             }
 
