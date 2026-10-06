@@ -3,7 +3,6 @@
 using Content.Shared.Random.Rules;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Audio;
 
@@ -36,6 +35,6 @@ public sealed partial class AmbientMusicPrototype : IPrototype
     [ViewVariables(VVAccess.ReadWrite), DataField("sound", required: true)]
     public SoundSpecifier Sound = default!;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("rules", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<RulesPrototype>))]
-    public string Rules = string.Empty;
+    [ViewVariables(VVAccess.ReadWrite), DataField("rules", required: true)]
+    public ProtoId<RulesPrototype> Rules = string.Empty;
 }

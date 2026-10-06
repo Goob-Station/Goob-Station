@@ -218,6 +218,7 @@ public sealed class VoiceLogLane : VoiceLogTimelineControl
     private static readonly Color BroadcastColor = Color.FromHex("#FFC844");
     private static readonly Color BlockedColor = Color.FromHex("#E04545");
     private static readonly Color RadioFallback = Color.FromHex("#2CDB2C");
+    private static readonly Color GodColor = Color.FromHex("#FFE9A8");
 
     private readonly VoiceLogTrack _track;
     private readonly Font _font;
@@ -281,6 +282,9 @@ public sealed class VoiceLogLane : VoiceLogTimelineControl
 
     private Color SegmentColor(VoiceLogSegment segment)
     {
+        if ((segment.Flags & VoiceLogFlags.God) != 0)
+            return GodColor;
+
         if ((segment.Flags & VoiceLogFlags.Blocked) != 0)
             return BlockedColor;
 

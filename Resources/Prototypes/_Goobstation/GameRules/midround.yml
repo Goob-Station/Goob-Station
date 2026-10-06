@@ -443,76 +443,90 @@
           slasher-kit-butcher:
             gear: SlasherGear
             description: slasher-kit-butcher-desc
+            grantedToVictimOnSight:
+            - type: SlasherFearOverlay
             sprite:
               sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
               state: icon
           slasher-kit-spring:
             gear: SlasherGearSpring
             description: slasher-kit-spring-desc
+            grantedToVictimOnSight:
+            - type: SlasherFearOverlay
             sprite:
               sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
               state: icon
             machetePrototype: SlasherMacheteSpring
             bloodTrailMusic:
-              path: /Audio/_Goobstation/Music/fnaf_bonnies_lullaby.ogg
+              path: /Audio/_Goobstation/Slasher/Music/fnaf_bonnies_lullaby.ogg
               params:
                 volume: -4
                 loop: true
           slasher-kit-billy:
             gear: SlasherGearBilly
             description: slasher-kit-billy-desc
+            grantedToVictimOnSight:
+            - type: SlasherFearOverlay
             sprite:
               sprite: Objects/Tools/crowbar.rsi
               state: icon
             machetePrototype: SlasherCrowbar
             bloodTrailMusic:
-              path: /Audio/_Goobstation/Music/that_handsome_devil_midi.ogg
+              path: /Audio/_Goobstation/Slasher/Music/that_handsome_devil_midi.ogg
               params:
                 volume: -7
                 loop: true
           slasher-kit-cult:
             gear: SlasherGearCult
             description: slasher-kit-cult-desc
+            grantedToVictimOnSight:
+            - type: SlasherFearOverlay
             sprite:
               sprite: Clothing/Head/Hoods/cult.rsi
               state: icon
             machetePrototype: SlasherEldritchBlade
             bloodTrailMusic:
-              path: /Audio/_Goobstation/Music/cultist_chant.ogg
+              path: /Audio/_Goobstation/Slasher/Music/cultist_chant.ogg
               params:
                 loop: true
           slasher-kit-maintenance:
             gear: SlasherGearMaintenance
             description: slasher-kit-maintenance-desc
+            grantedToVictimOnSight:
+            - type: SlasherFearOverlay
             sprite:
               sprite: Clothing/Head/Hats/papersacksmile.rsi
               state: icon
             machetePrototype: SlasherButchCleaver
             bloodTrailMusic:
-              path: /Audio/_Goobstation/Music/scared_to_bits.ogg
+              path: /Audio/_Goobstation/Slasher/Music/scared_to_bits.ogg
               params:
                 loop: true
           slasher-kit-cannibal:
             gear: SlasherGearCannibal
             description: slasher-kit-cannibal-desc
+            grantedToVictimOnSight:
+            - type: SlasherFearOverlay
             sprite:
               sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
               state: icon
             machetePrototype: SlasherButchCleaver
             bloodTrailMusic:
-              path: /Audio/_Goobstation/Music/horror_violin_string.ogg
+              path: /Audio/_Goobstation/Slasher/Music/horror_violin_string.ogg
               params:
                 volume: -7
                 loop: true
           slasher-kit-clown:
             gear: SlasherGearClown
             description: slasher-kit-clown-desc
+            grantedToVictimOnSight:
+            - type: SlasherFearOverlay
             sprite:
               sprite: Clothing/Mask/clown.rsi
               state: icon
             machetePrototype: SlasherOffsetCaneClown
             bloodTrailMusic:
-              path: /Audio/_Goobstation/Music/naktigonis_catwhisker.ogg
+              path: /Audio/_Goobstation/Slasher/Music/naktigonis_catwhisker.ogg
               params:
                 volume: -7
                 loop: true
@@ -531,23 +545,27 @@
           slasher-kit-glutton:
             gear: SlasherGearGlutton
             description: slasher-kit-glutton-desc
+            grantedToVictimOnSight:
+            - type: SlasherFearOverlay
             sprite:
               sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
               state: icon
             machetePrototype: SlasherButchCleaver
             bloodTrailMusic:
-              path: /Audio/_Goobstation/Music/padtext_horror.ogg
+              path: /Audio/_Goobstation/Slasher/Music/padtext_horror.ogg
               params:
                 volume: -7
                 loop: true
           slasher-kit-hockey:
             gear: SlasherGearHockey
             description: slasher-kit-hockey-desc
+            grantedToVictimOnSight:
+            - type: SlasherFearOverlay
             sprite:
               sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
               state: icon
             bloodTrailMusic:
-              path: /Audio/_Goobstation/Music/horror_synthwave.ogg
+              path: /Audio/_Goobstation/Slasher/Music/horror_synthwave.ogg
               params:
                 volume: -7
                 loop: true
@@ -559,7 +577,7 @@
           - type: SlasherStaggerArea
           - type: SlasherRelentlessGrab
           - type: SlasherRegenerate
-          - type: SlasherBloodTrail
+          - type: SlasherFear
           - type: SlasherIncorporeal
           - type: SlasherSoulSteal
           - type: SlasherSummonMeatSpike

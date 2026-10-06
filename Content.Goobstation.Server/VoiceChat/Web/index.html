@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="referrer" content="no-referrer">
     <title>Voice Chat</title>
     <script id="voice-config" type="application/json">/*VOICE_CONFIG*/</script>
@@ -441,9 +441,80 @@
             outline-offset: 2px;
         }
 
+        .code-form {
+            margin-top: 12px;
+        }
+
+        .code-row {
+            display: flex;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .code-input {
+            --c: 8px;
+            flex: 1;
+            min-width: 0;
+            min-height: 36px;
+            padding: 2px 12px;
+            border: 0;
+            background: var(--button);
+            color: var(--text);
+            font: 20px/1.2 ui-monospace, "Noto Sans Mono", monospace;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .code-input:focus-visible {
+            outline: 2px solid var(--focus);
+            outline-offset: 2px;
+        }
+
+        @media (pointer: coarse) {
+            .btn,
+            .select select {
+                min-height: 44px;
+            }
+
+            .btn.big {
+                min-height: 52px;
+            }
+
+            .slider {
+                height: 36px;
+            }
+
+            .slider input::-webkit-slider-thumb {
+                width: 28px;
+                height: 36px;
+            }
+
+            .slider input::-moz-range-thumb {
+                width: 28px;
+                height: 36px;
+            }
+
+            .check {
+                min-height: 40px;
+            }
+
+            .code-input,
+            .select select {
+                font-size: 18px;
+            }
+        }
+
         @media (max-width: 440px) {
             body {
-                padding-top: 16px;
+                padding: 12px 10px calc(12px + env(safe-area-inset-bottom));
+            }
+
+            .window-body {
+                padding: 10px 10px 4px;
+            }
+
+            .live-row .btn {
+                min-width: 80px;
             }
 
             .field {
@@ -476,6 +547,14 @@
     <div class="window-body">
         <p class="status" id="status" role="status" aria-live="polite">Loading…</p>
         <p class="status-detail" id="status-detail"></p>
+
+        <form class="code-form" id="code-form" hidden>
+            <label class="field-label" for="code">Voice chat code</label>
+            <div class="code-row">
+                <input class="code-input chamfer" id="code" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12" placeholder="ABCD2345">
+                <button class="btn chamfer" id="code-submit" type="submit">Connect</button>
+            </div>
+        </form>
 
         <button class="btn big chamfer" id="start" type="button">Start</button>
         <button class="btn big chamfer" id="retry" type="button" hidden>Reconnect here</button>
@@ -546,6 +625,7 @@
                 <label class="check"><input type="checkbox" id="noise-suppression">Noise suppression</label>
                 <label class="check"><input type="checkbox" id="echo-cancellation">Echo cancellation</label>
                 <label class="check"><input type="checkbox" id="auto-gain-control">Auto gain</label>
+                <label class="check" id="keep-awake-row"><input type="checkbox" id="keep-awake">Keep screen awake</label>
             </div>
         </section>
     </div>
