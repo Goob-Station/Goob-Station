@@ -26116,3 +26116,9 @@ Entries:
         merged.
   id: 2960
   time: '2026-10-06T01:58:21.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Lathes having issues with mats should be fixed, maybe??
+  id: 2961
+  time: '2026-10-06T18:28:17.0000000+00:00'
