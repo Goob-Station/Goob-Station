@@ -102,6 +102,7 @@ public sealed partial class GunSystem : SharedGunSystem
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
 
+        // Goobstation Start
         // Start the shot at a muzzle offset instead of the shooter's center, so walls behind the shooter aren't hit.
         // If something solid is in the way, keep the shooter's center so shots can't pass through adjacent walls.
         if (gun.Comp.MuzzleDistance > 0f && mapDirection.LengthSquared() > 0f)
@@ -118,6 +119,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 fromCoordinates = TransformSystem.ToCoordinates(fromMap);
             }
         }
+        // Goobstation End
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromEnt = _map.TryFindGridAt(fromMap, out var gridUid, out _)
