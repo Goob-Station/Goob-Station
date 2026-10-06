@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Projectiles;
 using Content.Server.Atmos.EntitySystems;
@@ -17,7 +18,9 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 using Robust.Shared.Audio;
+using Content.Shared.Physics;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -93,16 +96,34 @@ public sealed partial class GunSystem : SharedGunSystem
         var mapAngle = mapDirection.ToAngle();
         var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle(), user);  // Goobstation user
 
-        // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromEnt = _map.TryFindGridAt(fromMap, out var gridUid, out _)
-            ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
-            : new EntityCoordinates(_map.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
-
         var toMapBeforeRecoil = toMap; // Goobstation
 
         // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
+
+        // Start the shot at a muzzle offset instead of the shooter's center, so walls behind the shooter aren't hit.
+        // If something solid is in the way, keep the shooter's center so shots can't pass through adjacent walls.
+        if (gun.Comp.MuzzleDistance > 0f && mapDirection.LengthSquared() > 0f)
+        {
+            var muzzleDir = mapDirection.Normalized();
+            var muzzleRay = new CollisionRay(fromMap.Position, muzzleDir,
+                (int) (CollisionGroup.Impassable | CollisionGroup.BulletImpassable));
+            var blocked = Physics.IntersectRay(fromMap.MapId, muzzleRay, gun.Comp.MuzzleDistance, user, false).Any();
+
+            if (!blocked)
+            {
+                var muzzlePos = fromMap.Position + muzzleDir * gun.Comp.MuzzleDistance;
+                fromMap = new MapCoordinates(muzzlePos, fromMap.MapId);
+                fromCoordinates = TransformSystem.ToCoordinates(fromMap);
+            }
+        }
+
+        // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
+        var fromEnt = _map.TryFindGridAt(fromMap, out var gridUid, out _)
+            ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
+            : new EntityCoordinates(_map.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
+
         var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
 
         // I must be high because this was getting tripped even when true.
