@@ -19,7 +19,7 @@ public sealed class RedialUserOnTriggerSystem : EntitySystem
         SubscribeLocalEvent<RedialUserOnTriggerComponent, TriggerEvent>(OnTrigger);
     }
 
-    private void OnTrigger(EntityUid uid, RedialUserOnTriggerComponent component, TriggerEvent args)
+    private void OnTrigger(EntityUid uid, RedialUserOnTriggerComponent component, ref TriggerEvent args)
     {
         if (!TryComp(args.User, out ActorComponent? actor) || component.Address == string.Empty)
             return;

@@ -17,7 +17,8 @@ using Content.Server.Station.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DoAfter;
@@ -150,10 +151,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
             _battery.SetCharge((ent, battery), battery.MaxCharge);
         }
 
-        if (TryComp<DamageableComponent>(ent, out var damageable))
-        {
-            _damageable.SetAllDamage(ent, damageable, 0);
-        }
+        _damageable.ClearAllDamage(ent.Owner);
     }
 
     protected override void OnAiInsert(Entity<StationAiCoreComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -377,7 +375,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
             if (stationAiCore.Comp?.RemoteEntity == null || stationAiCore.Comp.Remote)
                 continue;
 
-            var xform = Transform(stationAiCore.Comp.RemoteEntity.Value);
+            if (!TryComp(stationAiCore.Comp.RemoteEntity.Value, out TransformComponent? xform)) // Goob - remote entity may be deleted
+                continue;
 
             var range = (xform.MapID != sourceXform.MapID)
                 ? -1

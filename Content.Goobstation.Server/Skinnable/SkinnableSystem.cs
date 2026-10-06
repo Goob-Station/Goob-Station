@@ -5,6 +5,7 @@ using Content.Server.DoAfter;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Popups;
@@ -86,7 +87,7 @@ public sealed partial class SkinnableSystem : SharedSkinnableSystem
         target.Comp.Skinned = true;
         ChangeVisuals(target);
 
-        _damageable.TryChangeDamage(target, target.Comp.DamageOnSkinned);
+        _damageable.TryChangeDamage(target.Owner, target.Comp.DamageOnSkinned);
     }
 
 }

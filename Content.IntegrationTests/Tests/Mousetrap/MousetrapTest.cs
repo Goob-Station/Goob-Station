@@ -1,6 +1,6 @@
 using Content.IntegrationTests.Tests.Movement;
 using Content.Server.NPC.HTN;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mobs;
