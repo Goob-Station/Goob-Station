@@ -30,6 +30,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Numerics;
+using Content.Shared.Damage.Components;
 
 namespace Content.Goobstation.Shared.Execution;
 

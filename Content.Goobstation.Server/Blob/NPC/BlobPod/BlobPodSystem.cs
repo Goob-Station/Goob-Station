@@ -22,6 +22,7 @@ using Content.Shared._Starlight.CollectiveMind;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Server.Blob.NPC.BlobPod;
 

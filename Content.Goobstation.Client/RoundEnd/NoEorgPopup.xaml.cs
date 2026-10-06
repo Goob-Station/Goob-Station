@@ -55,6 +55,14 @@ public sealed partial class NoEorgPopup : FancyWindow
         Close();
     }
 
+    public override void Close()
+    {
+        if (_remainingTime > 0f)
+            return;
+
+        base.Close();
+    }
+
     private void UpdateCloseButtonText()
     {
         var isWaiting = _remainingTime > 0f;
