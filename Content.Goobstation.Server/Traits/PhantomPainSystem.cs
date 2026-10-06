@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Traits.Components;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
