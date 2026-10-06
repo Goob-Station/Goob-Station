@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.CCVar;
 using Robust.Client.Input;
 using Robust.Shared.Configuration;
@@ -22,10 +20,10 @@ namespace Content.Client.Interaction;
 /// If for any reason the drag is ended, OnEndDrag is invoked.
 /// </summary>
 /// <typeparam name="T">thing being dragged and dropped</typeparam>
-public sealed class DragDropHelper<T>
+public sealed partial class DragDropHelper<T>
 {
-    [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IInputManager _inputManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private readonly OnBeginDrag _onBeginDrag;
     private readonly OnEndDrag _onEndDrag;
@@ -72,7 +70,6 @@ public sealed class DragDropHelper<T>
         _onBeginDrag = onBeginDrag;
         _onEndDrag = onEndDrag;
         _onContinueDrag = onContinueDrag;
-        _cfg.OnValueChanged(CCVars.DragDropDeadZone, SetDeadZone, true);
     }
 
     /// <summary>
@@ -92,6 +89,7 @@ public sealed class DragDropHelper<T>
         Dragged = target;
         _state = DragState.MouseDown;
         _mouseDownScreenPos = _inputManager.MouseScreenPosition;
+        _deadzone = _cfg.GetCVar(CCVars.DragDropDeadZone);
     }
 
     /// <summary>
@@ -99,9 +97,9 @@ public sealed class DragDropHelper<T>
     /// </summary>
     public void EndDrag()
     {
-        Dragged = default;
         _state = DragState.NotDragging;
         _onEndDrag.Invoke();
+        Dragged = default;
     }
 
     private void StartDragging()
@@ -144,11 +142,6 @@ public sealed class DragDropHelper<T>
                 break;
             }
         }
-    }
-
-    private void SetDeadZone(float value)
-    {
-        _deadzone = value;
     }
 }
 

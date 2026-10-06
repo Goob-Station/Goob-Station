@@ -249,7 +249,7 @@ public sealed class NtrTaskSystem : EntitySystem
     #endregion
 
     #region Document Processing
-    private void OnItemInsertAttempt(EntityUid uid, NtrTaskConsoleComponent component, ItemSlotInsertAttemptEvent args)
+    private void OnItemInsertAttempt(EntityUid uid, NtrTaskConsoleComponent component, ref ItemSlotInsertAttemptEvent args)
     {
         args.Cancelled = true;
         var item = args.Item;
