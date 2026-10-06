@@ -98,6 +98,7 @@ public sealed class LoudSpeakerSystem : EntitySystem
             if (speechEv.SpeechSounds != null)
             {
                 args.SpeechSoundProtoId = speechEv.SpeechSounds;
+                args.Handled = true;
                 return;
             }
 

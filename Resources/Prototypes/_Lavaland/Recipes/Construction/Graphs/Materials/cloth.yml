@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: Cloth
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cloth
+      steps:
+      - material: FlowersAsh
+        amount: 2
+        doAfter: 2
+
+  - node: paleflower
+    edges:
+    - to: cloth
+      steps:
+      - material: FlowersPale
+        amount: 1
+        doAfter: 1.5
+
+  - node: cloth
+    entity: MaterialCloth1

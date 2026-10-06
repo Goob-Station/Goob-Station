@@ -43,6 +43,15 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         base.Initialize();
 
         SubscribeLocalEvent<BlobRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagSelected);
+        SubscribeLocalEvent<NukeExplodedEvent>(OnNukeExploded);
+    }
+
+    private void OnNukeExploded(NukeExplodedEvent ev)
+    {
+        if (ev.OwningStation is { } grid
+            && _stationSystem.GetOwningStation(grid) != null
+            && GameTicker.IsGameRuleActive<BlobRuleComponent>())
+            _roundEndSystem.EndRound();
     }
 
     protected override void Started(EntityUid uid, BlobRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)

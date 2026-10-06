@@ -30,6 +30,11 @@
     progress: 0.0
 
 - type: shader
+  id: SpeedLines
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/speed_lines.swsl"
+
+- type: shader
   id: SandevistanGlitch
   kind: source
   path: "/Textures/_Goobstation/Shaders/sandevistan_glitch.swsl"
@@ -66,8 +71,22 @@
   kind: source
   path: "/Textures/_Goobstation/Shaders/sandevistan_timestop.swsl"
 
-
 - type: shader
   id: SandevistanTimestopWorld
   kind: source
   path: "/Textures/_Goobstation/Shaders/sandevistan_timestop_world.swsl"
+  
+- type: shader
+  id: VoiceCanadian
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voice_canadian.swsl"
+
+- type: shader
+  id: VoiceGodGlow
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voice_god_glow.swsl"
+
+- type: shader
+  id: VoiceGodRays
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voice_god_rays.swsl"

@@ -14,6 +14,7 @@ using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
@@ -32,6 +33,7 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests.GameRules;
 
 [TestFixture]
+[Category("GameRuleTests")]
 public sealed class NukeOpsTest
 {
     private static readonly ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";

@@ -10,6 +10,7 @@ using Content.Server.Construction.Components;
 using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -23,6 +24,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Blob;
 
@@ -42,8 +44,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     private EntityQuery<BlobTileComponent> _tileQuery;
     private EntityQuery<BlobObserverComponent> _observerQuery;
 
-    [ValidatePrototypeId<NpcFactionPrototype>]
-    private const string BlobFaction = "Blob";
+    private static readonly ProtoId<NpcFactionPrototype> BlobFaction = "Blob";
 
     public override void Initialize()
     {
@@ -142,7 +143,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
             healCore.DamageDict.TryAdd(keyValuePair.Key, keyValuePair.Value * 5);
         }
 
-        _damageableSystem.TryChangeDamage(ent, healCore);
+        _damageableSystem.TryChangeDamage(ent.Owner, healCore);
     }
 
     private bool CheckTile(

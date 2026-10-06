@@ -1,0 +1,7 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               MinSize="260 0">
+    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="8">
+        <LineEdit Name="PointsEdit" HorizontalExpand="True"/>
+        <Button Name="ConfirmButton" Text="{Loc gang-admin-set-points}" HorizontalExpand="True"/>
+    </BoxContainer>
+</DefaultWindow>

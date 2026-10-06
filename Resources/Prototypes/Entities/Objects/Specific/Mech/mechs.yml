@@ -130,7 +130,7 @@
     enabled: false
     softness: 5
     autoRot: true
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     radius: 7
     energy: 3
     netsync: false

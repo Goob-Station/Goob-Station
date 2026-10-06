@@ -13081,7 +13081,7 @@ Entries:
         Plasmamen in their Guidebook entry.
   id: 1447
   time: '2025-08-10T04:47:50.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Add
       message: Added Chitinids
@@ -13221,7 +13221,7 @@ Entries:
       message: Space Italian! The language of the kitchen!
   id: 1460
   time: '2025-08-12T12:05:40.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Add
       message: Added Asimov Lawset
@@ -16672,7 +16672,7 @@ Entries:
         dreams. (They've been reverted.)
   id: 1865
   time: '2025-10-21T00:20:28.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Add
       message: Added shark
@@ -17769,7 +17769,7 @@ Entries:
         the seccies you kill
   id: 1995
   time: '2025-11-11T09:42:17.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Add
       message: >-
@@ -18413,7 +18413,7 @@ Entries:
         for more info
   id: 2073
   time: '2025-11-25T20:37:36.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Add
       message: Added icons for patrons in OOC chat.
@@ -19112,7 +19112,7 @@ Entries:
       message: fixed ooc patron icons getting stuck on the screen sometimes
   id: 2157
   time: '2025-12-07T12:24:42.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Remove
       message: Removed stamina damage from bingles.
@@ -19570,7 +19570,7 @@ Entries:
       message: Guerrilla gloves are now correctly marked as Syndicate contraband.
   id: 2213
   time: '2025-12-20T08:29:27.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Fix
       message: Barks can no longer be heard cross-map/in lobby
@@ -20059,7 +20059,7 @@ Entries:
   changes: []
   id: 2272
   time: '2026-01-08T23:57:33.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Fix
       message: Fixed radiation causing another server hang.
@@ -22534,7 +22534,7 @@ Entries:
         in toolbelts
   id: 2573
   time: '2026-04-06T03:52:37.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Add
       message: Added fun to the queue screen.
@@ -22584,7 +22584,7 @@ Entries:
       message: New admeme "Whipping belt"
   id: 2581
   time: '2026-04-13T00:06:48.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
     - type: Tweak
       message: >-
@@ -24728,3 +24728,1391 @@ Entries:
       message: 'Square plasma tanks now fit in your back slot. '
   id: 2834
   time: '2026-08-28T22:23:35.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Borg sprites being errors
+  id: 2835
+  time: '2026-08-29T15:07:59.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed speech bubbles not having fonts
+  id: 2836
+  time: '2026-08-29T16:10:02.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added new researchable mining tools: diamond pickaxe, super mining
+        drill, super plasma cutter.
+    - type: Add
+      message: Added craftable wooden and ashwooden pickaxes.
+    - type: Add
+      message: >-
+        Added craftable cudgels - they require more wood than baseball bats but
+        focus more on structural damage.
+    - type: Add
+      message: Added Gibtonite ore to Lavaland. Beware of explosions!
+    - type: Add
+      message: >-
+        Gray and pale sprouts that grow on Lavaland now can be gathered and
+        crafted into cloth.
+    - type: Tweak
+      message: Bone axe is now more difficult to craft.
+  id: 2837
+  time: '2026-08-29T17:46:27.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: Gray matter is now obtainable from grinding brains.
+    - type: Tweak
+      message: Altered the chemical composition of most brains to make more sense.
+  id: 2838
+  time: '2026-08-29T17:47:10.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Tweak
+      message: Removed Energy Magnum from normal play
+  id: 2839
+  time: '2026-08-29T17:48:44.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        New nutriment called "Junk food" which is present in snack foods, if
+        eaten in excess, will cause you to become sluggish.
+    - type: Tweak
+      message: >-
+        Lowered the nutriment value of snack foods, and increased it for cooked
+        foods. The change will be barely noticeable, but snack food will now
+        theoretically not fuel you for the entire round as easily.
+    - type: Tweak
+      message: >-
+        The effect present in coffee that increases your movement speed if you
+        drink enough of it is now instead a new reagent called "Caffeine" which
+        does the same as it did in coffee, but now also affects other drinks.
+  id: 2840
+  time: '2026-08-29T17:49:11.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: >-
+        CHUDSHIFT no longer shows up as 'Unknown Title - Unknown Artist' in the
+        lobby.
+  id: 2841
+  time: '2026-08-29T17:53:26.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Normalised the volume of a lot of voices
+  id: 2842
+  time: '2026-08-29T17:56:00.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Area mopping and advance mop speed buff - to my beloved janitors
+  id: 2843
+  time: '2026-08-29T17:58:43.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: >-
+        Added the General Secretary of the Workers' Party of Goobstation, Rouge,
+        as a plushie
+  id: 2844
+  time: '2026-08-30T01:08:38.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Fix
+      message: Fixed Borgs movement sprites being nothing
+  id: 2845
+  time: '2026-08-31T15:27:52.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: >-
+        Amber alert now requires a significant threat or Captain / Hos + 1
+        command member to unlock it.
+  id: 2846
+  time: '2026-08-31T16:45:14.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Shadowkin, chitinids, yowie, hydrakin, and people with cybernetic livers
+        now properly metabolize ethanol at the standard metabolism rate
+        (0.05u/s).
+    - type: Tweak
+      message: >-
+        Ethanol poisoning now deals the damage it did pre-upstream (2 glasses of
+        absinthe have a non-zero chance of putting you into crit).
+    - type: Fix
+      message: Oni actually take reduced damage from ethanol poisoning.
+  id: 2847
+  time: '2026-09-01T00:35:10.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Stamina-altering chems and natural stamina regen ignore armor
+        resistances as intended.
+  id: 2848
+  time: '2026-09-01T00:41:42.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed vox and plasmaman getting disease
+  id: 2849
+  time: '2026-09-01T08:04:22.0000000+00:00'
+- author: Toaster-Box
+  changes:
+    - type: Fix
+      message: >-
+        Chitinads can no longer be injected, but this time by anything, take
+        your pills folk
+  id: 2850
+  time: '2026-09-01T21:23:01.0000000+00:00'
+- author: Duuckie, feistyfedora
+  changes:
+    - type: Fix
+      message: >-
+        Zombies and changelings have the appropriate amount of max blood for
+        their species.
+  id: 2851
+  time: '2026-09-02T12:31:32.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to steal Energy Shotgun
+  id: 2852
+  time: '2026-09-03T07:17:37.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to craft Bone Axe
+  id: 2853
+  time: '2026-09-03T07:18:12.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Ore lathes now print raw materials properly into storage in bulk instead
+        of having to print one by one.
+  id: 2854
+  time: '2026-09-03T07:20:58.0000000+00:00'
+- author: J C Denton
+  changes:
+    - type: Tweak
+      message: >-
+        Brigmed's surgery speed has been increased to 1.5, same as medical
+        doctor.
+  id: 2855
+  time: '2026-09-03T07:25:03.0000000+00:00'
+- author: Androidonator
+  changes:
+    - type: Tweak
+      message: Disabled flip dodge
+  id: 2856
+  time: '2026-09-03T07:26:29.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Tweak
+      message: Buffed beast's blood but also made it more punishing.
+  id: 2857
+  time: '2026-09-03T13:26:54.0000000+00:00'
+- author: Mistabay
+  changes:
+    - type: Fix
+      message: Brigmedic's armored gown now has a back slot.
+  id: 2858
+  time: '2026-09-03T22:44:21.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: >-
+        The throngler is back in the cargo lottery pool. Sponsored by the Goob
+        Hugbox & Throngler Citizens' Party!
+  id: 2859
+  time: '2026-09-03T23:24:50.0000000+00:00'
+- author: hzlayer
+  changes:
+    - type: Fix
+      message: Feroxi can now breathe pluoxium.
+  id: 2860
+  time: '2026-09-04T10:14:38.0000000+00:00'
+- author: Girl Skippy
+  changes:
+    - type: Add
+      message: Re-added the Clowning and Advanced Clowning modules to borgs
+  id: 2861
+  time: '2026-09-04T10:15:33.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: >-
+        Windoors no longer close automatically while you're on the same tile as
+        them
+  id: 2862
+  time: '2026-09-04T10:24:29.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Tweak
+      message: >-
+        The Blueshield Officer now spawns with the appropriate blueshield chest
+        rig and not a syndicate chest rig.
+  id: 2863
+  time: '2026-09-04T10:55:37.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        sponsored by the Goobs Hugbox Citizens' Party, Join today! Gangwars
+        playtesting is here! Heavily in dev and admin only for now. Checkout the
+        guidebook!
+  id: 2864
+  time: '2026-09-05T01:30:04.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Hydrakin are now forced to sleep by cryo chems
+    - type: Fix
+      message: Hydrakin are now poisoned by theobromine
+  id: 2865
+  time: '2026-09-05T02:13:13.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: Bleeding should be comparable to pre-upstream levels of bleeding.
+  id: 2866
+  time: '2026-09-05T02:15:40.0000000+00:00'
+- author: redmagicspider
+  changes:
+    - type: Fix
+      message: Blind/visually impaired characters can now hear whispers.
+    - type: Fix
+      message: Visually impaired (not totally blind) characters can see sign language.
+  id: 2867
+  time: '2026-09-05T02:17:43.0000000+00:00'
+- author: 8Platanus8
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a visual issue causing the revolver ammo indicator to not update
+        when using a speedloader
+  id: 2868
+  time: '2026-09-06T17:27:04.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Add
+      message: Xenobio to core.
+    - type: Add
+      message: Shaft miners to core. (lavaland is public)
+    - type: Add
+      message: Radio host to core.
+    - type: Add
+      message: NTR/BSO room to core.
+    - type: Add
+      message: AI turrets to core.
+    - type: Add
+      message: Brigmed to core.
+    - type: Add
+      message: Holopads to core.
+    - type: Add
+      message: Some cameras where needed to core.
+    - type: Add
+      message: Cloning to core.
+  id: 2869
+  time: '2026-09-06T20:47:40.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: >-
+        Significantly decreased the chances of the Tunnel Clown, Singuloth
+        Knights, Mime Assassin, Dark Priest, and Vox Raiders midrounds spawning.
+  id: 2870
+  time: '2026-09-07T01:37:34.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed all xenobio extract. Sorry for the long wait
+    - type: Fix
+      message: Xenobio should (hopefully) be less laggy
+    - type: Fix
+      message: Xenobio slime now should prioritize monkey to eat rather than people!
+  id: 2871
+  time: '2026-09-07T01:38:24.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: xenoborgs are now able to spawn naturally roundstart.
+    - type: Tweak
+      message: Nocturine is back to it's former glory.
+    - type: Tweak
+      message: 'Test buff for xenoborgs: base health 125 -> 175'
+    - type: Tweak
+      message: 'Test buff for xenoborgs: heavy health 250 -> 350'
+    - type: Tweak
+      message: >-
+        Test buff for xenoborgs: now have 25% ion resist but take 4x shock
+        damage
+  id: 2872
+  time: '2026-09-07T01:39:57.0000000+00:00'
+- author: balt-dev
+  changes:
+    - type: Add
+      message: Added a vinyl for Space Asshole.
+  id: 2873
+  time: '2026-09-07T01:42:57.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Fix
+      message: Fixed SM logging
+  id: 2874
+  time: '2026-09-07T19:07:08.0000000+00:00'
+- author: Firemix
+  changes:
+    - type: Add
+      message: >-
+        Added interaction to fulton with emag, after emagging you can fultoning
+        ALL mobs 
+  id: 2875
+  time: '2026-09-08T11:46:03.0000000+00:00'
+- author: ishkab, Jerulean, rivermyth
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the mass insomnia that's gripped the station. Falling asleep and
+        the many ways to snooze work again.
+    - type: Fix
+      message: Cleanades (and other smoke-spawning things) work again
+  id: 2876
+  time: '2026-09-11T01:07:18.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Add
+      message: Chefs can now cook Flamin Hot Cotton Pizza
+    - type: Add
+      message: Chefs can cook new Cold Foods with Chilly Peppers
+    - type: Tweak
+      message: Chefs now cook cold chili with Chilly Peppers
+    - type: Tweak
+      message: Chefs now cook Golden Apple Tarts with Golden Apples
+  id: 2877
+  time: '2026-09-11T23:51:08.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Add
+      message: Chaplains can now choose a custom name. Hallelujah!
+  id: 2878
+  time: '2026-09-15T18:37:50.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Add
+      message: >-
+        You can now use intellicards on man-machine interfaces, go give that
+        clanker flesh and blood!
+  id: 2879
+  time: '2026-09-15T18:42:59.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added 12 new hairstyles! Pawsome!
+  id: 2880
+  time: '2026-09-15T18:43:31.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: >-
+        Species changes and transformations now transfer your inventory even
+        while stunned, asleep, or knocked down.
+    - type: Fix
+      message: Clothing hidden under a modsuit is no longer lost when polymoph.
+    - type: Fix
+      message: Modsuit parts no longer detach during inventory transfers.
+    - type: Fix
+      message: >-
+        Permanent implants (bluespace/redspace lifeline, shadowmind,
+        xeno-compatibility, etc.) now follow you through a polymorph like other
+        implants.
+    - type: Add
+      message: >-
+        Added a transferAppearance option to species changes, keeping your look
+        (skin, eyes, hair, sex, height) while dropping anything invalid for the
+        new species.
+    - type: Tweak
+      message: >-
+        Xenobio toxins (slime, human, felinid, banana, advanced mutation) now
+        keep the player's appearance.
+  id: 2881
+  time: '2026-09-15T18:44:56.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: >-
+        Moths and chitinids now have a chance to scream when pest spray is
+        sprayed on them.
+  id: 2882
+  time: '2026-09-15T18:46:33.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Tweak
+      message: Xenobiology consoles now offer 10 bounties at a time instead of 6.
+  id: 2883
+  time: '2026-09-15T18:50:27.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: (temporarily) Blacklisted mindshield users from joining gangs.
+    - type: Tweak
+      message: Gang spray cans are now marked as minor contraband
+    - type: Tweak
+      message: Gang signs health has been reduced 40 => 20
+    - type: Fix
+      message: You can no longer deconstruct the gang crate.
+  id: 2884
+  time: '2026-09-15T19:18:01.0000000+00:00'
+- author: Sanyati
+  changes:
+    - type: Add
+      message: Reptilian Bone armor sprite.
+    - type: Add
+      message: Reptilian Cosmic Cultist armor sprites.
+    - type: Add
+      message: Reptilian Explorer armor sprites.
+  id: 2885
+  time: '2026-09-15T23:11:57.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: minervend to chloris salvage
+    - type: Fix
+      message: replaced weapons on pirate ship with pirate-appropriate weapons
+    - type: Fix
+      message: fixed some missing wires on box
+    - type: Fix
+      message: fixed pirate ship airlocks not having fans
+    - type: Fix
+      message: fixed chloris fax machines not having labels
+    - type: Fix
+      message: fixed the smartfridge in box kitchen having med access
+    - type: Fix
+      message: fixed tank harnesses not holding backpack water tanks
+    - type: Fix
+      message: fixed meteors not spawning on secret+
+    - type: Fix
+      message: fixed dimensional pot not being unbreakable
+    - type: Fix
+      message: fixed reptilians missing some markings
+    - type: Fix
+      message: fixed shadowkin black hole marking being unable to be recolored
+    - type: Fix
+      message: fixed trash bag not being able to pick up cigar butts
+    - type: Fix
+      message: fixed trash bag not being able to pick up certain types of garbage
+    - type: Tweak
+      message: trash bag can now pick up organs
+    - type: Tweak
+      message: nozzles and monkey cubes can now fit in the xenobiology pouch
+  id: 2886
+  time: '2026-09-15T23:14:31.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: Added 54 new vinyls for the radio host
+    - type: Tweak
+      message: the "joke" vinyl disks spawn less commonly now
+  id: 2887
+  time: '2026-09-16T12:16:50.0000000+00:00'
+- author: PhosphateWithManyOs, LizardHater
+  changes:
+    - type: Add
+      message: Added some emotes to Lizard!
+  id: 2888
+  time: '2026-09-16T20:10:42.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: Slot machine win rates have been adjusted
+    - type: Tweak
+      message: Slot machine emag effect is slighty different now
+  id: 2889
+  time: '2026-09-16T20:11:32.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: >-
+        Pizzabomb now detonates when opened via the E key. No more awkward
+        botched assassinations!
+  id: 2890
+  time: '2026-09-16T20:11:58.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to recall some of the nullrod
+  id: 2891
+  time: '2026-09-16T20:12:25.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: 'New HECU gamerule. Functions as weaker ERT. '
+  id: 2892
+  time: '2026-09-16T20:13:01.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: Mk58 can recieve flashlight upgrades
+  id: 2893
+  time: '2026-09-17T14:03:06.0000000+00:00'
+- author: lacedfent
+  changes:
+    - type: Fix
+      message: milk now actually heals skeletons when splashed on them
+  id: 2894
+  time: '2026-09-19T14:39:18.0000000+00:00'
+- author: madeline-celeste
+  changes:
+    - type: Tweak
+      message: >-
+        Windoors now close automatically while you're on the same tile as them
+        again
+  id: 2895
+  time: '2026-09-23T19:16:02.0000000+00:00'
+- author: madeline-celeste
+  changes:
+    - type: Fix
+      message: >-
+        Fix the Station AI being set to Crewsimov instead of NTDefault after the
+        experimental law board time runs out.
+  id: 2896
+  time: '2026-09-23T19:16:55.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Removed Barratry from map rotation,
+  id: 2897
+  time: '2026-09-23T19:17:57.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Increased HE1S firerate from 0.3 to 0.5
+  id: 2898
+  time: '2026-09-23T19:18:49.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Tweak
+      message: Monkeys now have much better speech sounds
+  id: 2899
+  time: '2026-09-23T19:21:39.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: Chaplain Dragon's tail resprite
+    - type: Tweak
+      message: >-
+        dragon's tail - it is now a whip with an attack radius of 2 tiles and an
+        area of effect of 20 degrees, increased attack speed, and the whip now
+        deals only 7 holy damage. The main damage of the whip is fire stacks,
+        each strike of the whip deals 1 stack of burning.
+  id: 2900
+  time: '2026-09-23T19:26:25.0000000+00:00'
+- author: Pok27
+  changes:
+    - type: Fix
+      message: >-
+        Radial menus no longer prevent sending to chat, or deleting text from
+        the chat input box.
+  id: 2901
+  time: '2026-09-23T19:27:47.0000000+00:00'
+- author: SirCannonFodder
+  changes:
+    - type: Fix
+      message: Fixed a error from wraith's blood writing.
+  id: 2902
+  time: '2026-09-23T19:28:43.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Shadowling hypnosis no longer ignores mindshields.
+    - type: Tweak
+      message: >-
+        Shadowling will now automatically end the round 3 minutes after
+        ascension.
+    - type: Fix
+      message: >-
+        Fixed Cosmic Cult star mark not being properly applied for conversions
+        during the Finale stage.
+  id: 2903
+  time: '2026-09-23T19:29:46.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Fix
+      message: >-
+        undergarments will no longer be worn as overgarments by rodentia, vulps,
+        chitinids, harpies, and shadowkin
+  id: 2904
+  time: '2026-09-23T19:30:57.0000000+00:00'
+- author: nlaky
+  changes:
+    - type: Fix
+      message: Fixed improper vulpkanin gas mask sprites
+  id: 2905
+  time: '2026-09-23T19:34:05.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed the ore processor mining points warning not appearing.
+  id: 2906
+  time: '2026-09-23T19:44:59.0000000+00:00'
+- author: charcuteriesampler
+  changes:
+    - type: Add
+      message: Spaceshrooms can now be cultivated by hydroponics.
+  id: 2907
+  time: '2026-09-23T19:47:19.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to scram inside a locker.
+  id: 2908
+  time: '2026-09-23T19:53:27.0000000+00:00'
+- author: PhantomDergwulf
+  changes:
+    - type: Tweak
+      message: Fixed the hydrakin liver incorrectly using the kidney texture.
+  id: 2909
+  time: '2026-09-23T20:07:27.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Fix
+      message: Fixed multiple narcotics healing everyone but Yowie.
+  id: 2910
+  time: '2026-09-23T21:02:27.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        anaconda, cobra, Dualetta, mk58, N1984, viper, deckard, inspector,
+        mateba, pirate revolver, python - resprited
+    - type: Tweak
+      message: small pump and enforcer inhand sprite tweaks
+  id: 2911
+  time: '2026-09-23T21:03:05.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Tweak
+      message: Cow tools now fit in utility belts. They're still terrible!
+  id: 2912
+  time: '2026-09-23T21:12:12.0000000+00:00'
+- author: IvanKuvalda
+  changes:
+    - type: Add
+      message: New secborg technology at t2 arsenal for 10000 points
+  id: 2913
+  time: '2026-09-23T21:26:30.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Tweak
+      message: Max flesh prophets 2 -> 5.
+    - type: Tweak
+      message: Max voiceless dead 2 -> 5.
+  id: 2914
+  time: '2026-09-23T21:38:19.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Fix
+      message: Fixed MK58 Sprite and Seclight Error
+    - type: Fix
+      message: Fixed icons display in cargo catalog
+  id: 2915
+  time: '2026-09-24T23:05:49.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: New slasher fear system.
+    - type: Remove
+      message: Removed the old bloodtrail action (replaced with fear)
+  id: 2916
+  time: '2026-09-26T10:48:39.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: New overlays for slasher actions.
+    - type: Add
+      message: if you use regenerate while dead as a slasher it will teleport you away.
+  id: 2917
+  time: '2026-09-27T08:33:09.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: >-
+        Fixed some bullshit that let you do some bullshit with parcel wrap and
+        trevor.
+  id: 2918
+  time: '2026-09-28T22:16:19.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: The Guide is back on the menu
+  id: 2919
+  time: '2026-09-29T15:45:45.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Tweak
+      message: Xorg heavy base movespeed has been buffed by 20%.
+    - type: Tweak
+      message: Xorg base brute/burn resists 20% -> 15%
+    - type: Tweak
+      message: Xorg heavy max health 350 -> 300
+    - type: Tweak
+      message: Xorg stealth hypo max capacity 12 -> 10
+  id: 2920
+  time: '2026-09-29T15:53:36.0000000+00:00'
+- author: DoremyZerg
+  changes:
+    - type: Add
+      message: More harpy emotes!
+  id: 2921
+  time: '2026-09-29T17:10:31.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: Hev, force gun and tether gun resprite
+  id: 2922
+  time: '2026-10-01T10:01:58.0000000+00:00'
+- author: DoremyZerg
+  changes:
+    - type: Add
+      message: 'Three new admin plushies of characters: Nyxoma, Aya and Harel.'
+  id: 2923
+  time: '2026-10-01T14:22:56.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: >-
+        The cosmic cult's Blank ability no longer breaks the server when the
+        victim's original body is destroyed while they're in the void, they now
+        become a ghost.
+    - type: Fix
+      message: >-
+        Station AI camera vision no longer randomly fucks up when multiple
+        people are lookin at it.
+    - type: Fix
+      message: >-
+        Mice and other critters stuck in someone's pocket or hands no longer try
+        to escape over and over.
+    - type: Fix
+      message: >-
+        Health analyzers now show blood as N/A for IPCs, borgs and other
+        bloodless targets, instead of 0%.
+    - type: Fix
+      message: >-
+        The vent critter event with a small spawn count no longer fails to spawn
+        anything.
+    - type: Fix
+      message: >-
+        Rescanning the same puddle with a Bloodtrak no longer errors when the
+        last scan found no matches.
+    - type: Fix
+      message: The abductor console no longer errors when its stored target is gone.
+    - type: Fix
+      message: >-
+        Blinking or telefragging into people no longer errors when knocking them
+        down.
+    - type: Fix
+      message: >-
+        Megafauna phase thresholds no longer drift or break when they scale more
+        than once.
+    - type: Fix
+      message: Thunderdome ammo refills no longer fail.
+    - type: Fix
+      message: Disease effects that add or remove other effects no longer fail.
+    - type: Fix
+      message: Chat messages with an unclosed [ are no longer silently dropped.
+    - type: Fix
+      message: >-
+        You no longer get stuck unable to stand up properly after a cancelled
+        stand-up attempt.
+    - type: Fix
+      message: Untrained chaplain-bible users" message.
+    - type: Fix
+      message: >-
+        Diona no longer error on revival when their "Gib Yourself" action is
+        already gone.
+    - type: Fix
+      message: >-
+        Device networks no longer keep references to deleted devices, which
+        caused errors on air alarms and other device lists.
+    - type: Fix
+      message: >-
+        Turnstiles, holosign projectors, gas analyzers, station radios and
+        telephones/holopads no longer break on deleted entities.
+    - type: Fix
+      message: The Prospector shuttle event no longer shits iteslf.
+    - type: Fix
+      message: >-
+        The atmos alerts console no longer errors when its selected alarm has
+        been removed.
+  id: 2924
+  time: '2026-10-04T20:18:26.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: >-
+        Migrated outdated damage systems to upstreamed version, please report
+        any resulting bugs on GitHub or the Discord server.
+    - type: Tweak
+      message: Mugwort tea now uses even healing.
+    - type: Tweak
+      message: Positronic brains can no longer be wiped whilst inhabited by a player.
+    - type: Tweak
+      message: Limb damage caps now behave per-type instead of total combined damage.
+    - type: Fix
+      message: >-
+        Fixed gibbing humanoids not working as expected by increasing torso
+        damage cap from 200 to 600.
+    - type: Fix
+      message: Fixed EvenHealthChange acting the same as regular HealthChange.
+    - type: Fix
+      message: >-
+        Fixed several prediction errors/desyncs with woundmed randomness
+        mechanics.
+  id: 2925
+  time: '2026-10-05T15:39:47.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Ambuzol can now cure dead zombies
+  id: 2926
+  time: '2026-05-23T20:30:30.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Increased the playtime requirements for Nuclear Operative Commanders.
+  id: 2927
+  time: '2026-05-24T22:46:03.0000000+00:00'
+- author: Etzil
+  changes:
+    - type: Add
+      message: Added a changeling to the lobby art pool.
+  id: 2928
+  time: '2026-06-08T03:45:14.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: All IPC hand markings show up in the correct hand category now.
+  id: 2929
+  time: '2026-07-10T12:44:37.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: 'Fixed stuck larva '
+  id: 2930
+  time: '2026-07-16T02:57:51.0000000+00:00'
+- author: Discommunicator
+  changes:
+    - type: Tweak
+      message: Rebalanced damage and price for gloves of the north star.
+  id: 2931
+  time: '2026-07-31T01:32:29.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: Added missing circuitboard recipes.
+    - type: Remove
+      message: Removed redundant spare locker circuitboards.
+  id: 2932
+  time: '2026-08-29T17:58:33.0000000+00:00'
+- author: Jerulean, Duuckie
+  changes:
+    - type: Fix
+      message: Burning your eyes with a welder now works as expected.
+  id: 2933
+  time: '2026-09-04T10:18:23.0000000+00:00'
+- author: Duuckie
+  changes:
+    - type: Fix
+      message: >-
+        Aloxadone heals 10 Heat/Shock/Cold/Caustic as it used to before
+        upstream.
+  id: 2934
+  time: '2026-09-04T10:44:04.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Fix
+      message: Topical stacks can be combined up to 15
+  id: 2935
+  time: '2026-09-04T10:45:37.0000000+00:00'
+- author: harryhulse12-alt
+  changes:
+    - type: Add
+      message: Ported SM events and diode discs from OmuStation!
+  id: 2936
+  time: '2026-09-04T10:46:23.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: No more NTR gamer loot
+  id: 2937
+  time: '2026-09-23T19:16:40.0000000+00:00'
+- author: J C Denton
+  changes:
+    - type: Fix
+      message: Fixed Chaplain spawning with an extra bible from their loadout.
+  id: 2938
+  time: '2026-09-23T19:18:25.0000000+00:00'
+- author: PhosphateWithManyOs
+  changes:
+    - type: Fix
+      message: Hydrakin audio fix. (Stereo -> Mono)
+  id: 2939
+  time: '2026-09-23T19:18:38.0000000+00:00'
+- author: Snorkcom
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the crew list refresh in the Manifest program when reopening the
+        PDA interface.
+  id: 2940
+  time: '2026-09-23T20:50:01.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Stamina resist on armor no longer applies twice to incoming stamina
+        damage.
+    - type: Fix
+      message: >-
+        A few sources of self inflicted stamina damage that shouldn't respect
+        stamina resistance now don't.
+  id: 2941
+  time: '2026-09-23T20:50:25.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Add
+      message: 18 new diseases symptoms
+    - type: Tweak
+      message: 'Plague Mouse: infection chance 20% -> 33%'
+  id: 2942
+  time: '2026-09-23T20:57:55.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Add
+      message: Added Brigmedic modsuit
+  id: 2943
+  time: '2026-09-23T20:59:07.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Add
+      message: Rouge plush to CC
+    - type: Add
+      message: New room in CC for retired admins
+  id: 2944
+  time: '2026-09-23T21:00:58.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: >-
+        Guardians can now telepathically whisper to their hosts, and others when
+        manifested.
+    - type: Tweak
+      message: Visual improvements to the demon whisper ability.
+  id: 2945
+  time: '2026-09-23T21:21:09.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Tweak
+      message: Added a few new ingredients to the energy food sythesizer.
+  id: 2946
+  time: '2026-09-23T21:28:51.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Tweak
+      message: >-
+        Binary comms are, once again, a radio channel. Use :b to communicate in
+        them.
+    - type: Tweak
+      message: >-
+        The binary decoder implant uses said radio channel instead of a
+        hivemind.
+  id: 2947
+  time: '2026-09-23T21:31:27.0000000+00:00'
+- author: Tony-251
+  changes:
+    - type: Add
+      message: >-
+        On Atlas, added Virology server/computer, paramedic opening, AI
+        restoration console, radio host, and department silos.
+    - type: Tweak
+      message: On Atlas, redid all utilities.
+    - type: Fix
+      message: On Atlas, correctly named all power stations and cameras.
+  id: 2948
+  time: '2026-09-23T21:32:56.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Atmospheric technicians now have their own snazzy new belt!
+    - type: Remove
+      message: >-
+        Removed the holofan and RPD from Atmospherics Technicians lockers and
+        moved them to their belts
+    - type: Fix
+      message: RPD can now lay pipe manifolds
+    - type: Fix
+      message: Fixed some RPD locale issues
+  id: 2949
+  time: '2026-09-23T21:34:13.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Sponsored by the Goobs Hugbox Citizens' Party, Join today! New dodge
+        animation / effect.
+    - type: Tweak
+      message: Sleeping carp users now dodge projectiles instead of reflecting them.
+  id: 2950
+  time: '2026-09-23T21:35:01.0000000+00:00'
+- author: spg-q
+  changes:
+    - type: Add
+      message: Added 5 new blob chems
+  id: 2951
+  time: '2026-09-23T21:35:26.0000000+00:00'
+- author: CryoDoctor
+  changes:
+    - type: Tweak
+      message: Modified species tab in guidebook to have a template.
+    - type: Tweak
+      message: Updated species information in guidebook for all species.
+  id: 2952
+  time: '2026-09-23T21:35:45.0000000+00:00'
+- author: mrs
+  changes:
+    - type: Add
+      message: Ported Shoko! A small/medium station for lowpop (0-40 players).
+  id: 2953
+  time: '2026-09-23T21:37:07.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added a very specific weapon.
+  id: 2954
+  time: '2026-10-02T23:39:30.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where walking over puddles, glass shards and other step
+        triggers could cause the server to spam clients till they crash.
+    - type: Fix
+      message: >-
+        Fixed the ghost role menu breaking for everyone when a ghost-role mob
+        was created and removed in the same instant.
+    - type: Fix
+      message: >-
+        Polymorphed people inside a container now go back into that container
+        when they revert. 
+    - type: Fix
+      message: >-
+        The biomass reclaimer no longer fails to start on bodies that have been
+        drained of blood.
+    - type: Fix
+      message: >-
+        Health analyzers no longer fail to scan bodies that have more than one
+        of the same body part.
+  id: 2955
+  time: '2026-10-04T00:05:24.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: >-
+        Removed elite raider tech involving laying down on the floor and killing
+        yourself.
+  id: 2956
+  time: '2026-10-04T00:06:23.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed squackroach instantly dying with absurd high temperature
+  id: 2957
+  time: '2026-10-04T00:06:43.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: >-
+        Failing to move the Cosmic Cult monument no longer puts the ability on a
+        10 minute cooldown.
+    - type: Fix
+      message: The toy facehugger no longer puts you to sleep forever.
+    - type: Fix
+      message: >-
+        The end-of-round no-EORG warning can no longer be closed before its
+        timer runs out.
+    - type: Fix
+      message: >-
+        Leaving heretic shadow form no longer leaves your hands blocked by
+        virtual items.
+    - type: Fix
+      message: >-
+        Examining someone after a gender change now shows the correct pronouns
+        everywhere.
+    - type: Fix
+      message: Dumping a trash bag into disposals no longer blasts the insert sound.
+    - type: Fix
+      message: "Vehicle hand placeholders can no longer be put\t into disposals."
+    - type: Fix
+      message: The megaphone sound plays again when you speak through one.
+    - type: Fix
+      message: Simple mobs like mothroaches can no longer activate pAIs.
+    - type: Fix
+      message: >-
+        Glued items are no longer deleted when the hand holding them is
+        amputated.
+    - type: Fix
+      message: >-
+        Wizard instant summons can no longer pull a polymorphed mob's original
+        body out of nullspace.
+    - type: Fix
+      message: The xenomorph queen can no longer be gibbed while still alive.
+    - type: Fix
+      message: Snails no longer lay eggs that hatch into mice.
+    - type: Fix
+      message: Abductor lungs no longer show the low nitrogen alert.
+    - type: Fix
+      message: >-
+        Hydrakin no longer have an unusable facial hair slot in the character
+        editor.
+    - type: Fix
+      message: Resomi now have the same hitbox size as other species.
+    - type: Fix
+      message: Feroxi can now eat limbs.
+    - type: Fix
+      message: Floor tiles can now be placed on lavaland ground.
+    - type: Fix
+      message: The disgust alert now has a proper name and description.
+    - type: Fix
+      message: >-
+        The brigmedic suit selector no longer shows the Research Director's suit
+        names.
+    - type: Fix
+      message: The Syndicate EVA bundle description now matches what th
+    - type: Fix
+      message: >-
+        Perma-kill objectives now make it clear the target has to stay dead
+        until the shift ends.
+    - type: Fix
+      message: >-
+        Traitors can now get the "kill another agent" and "protect another
+        agent's target" objectives again. 
+    - type: Fix
+      message: >-
+        The Dark Priest now actually gets a kill objective alongside their
+        protect objective.
+    - type: Fix
+      message: >-
+        Healing chems no longer waste their healing when some of your limbs
+        can't be healed. They now heal their full listed amount.
+    - type: Fix
+      message: >-
+        Medical sprays no longer heal several times their listed amount from a
+        single spray.
+    - type: Fix
+      message: >-
+        Malign rifts no longer damage people who were near a rift at some point
+        but have since left.
+    - type: Fix
+      message: >-
+        Xenomorph plasma transfer now actually uses your own plasma instead of
+        creating free plasma.
+    - type: Fix
+      message: >-
+        Planting weeds and laying eggs as a xenomorph now costs the plasma
+        they're listed at.
+    - type: Fix
+      message: >-
+        Flesh heretic mimics and illusion clones no longer duplicate the
+        victim's gear and bag contents.
+    - type: Fix
+      message: >-
+        Organs and body parts taken from Gemini holo-clones now vanish instead
+        of becoming real, researchable organs.
+    - type: Fix
+      message: Blob zombies can now disarm the nuke.
+    - type: Fix
+      message: A nuke detonating on the station during a blob round now ends the round.
+    - type: Fix
+      message: Betty no longer falls out of your hand when you open it again.
+    - type: Fix
+      message: >-
+        Changelings keep their bought abilities after Last Resort and hatching
+        from an egg.
+    - type: Fix
+      message: >-
+        Changelings keep flash immunity, eye protection, night vision and
+        thermal vision when transforming.
+    - type: Fix
+      message: >-
+        Items in a slimeperson's built-in storage are no longer deleted when
+        polymorphed, and instead are transferred if the new body has storage, or
+        dropped on the floor.
+    - type: Fix
+      message: Polymorphed abductors can return to their ship again.
+    - type: Fix
+      message: >-
+        Abductor gizmos and consoles keep track of a marked victim who gets
+        polymorphed.
+    - type: Fix
+      message: The BSO's crit/death alerts track polymorphed command members.
+    - type: Fix
+      message: >-
+        Fixed a server crash when a holoparasite was dragged through walls (e.g.
+        via disposals).
+    - type: Fix
+      message: Fixed a rare server crash when someone was beheaded.
+    - type: Fix
+      message: Fixed local chat breaking for everyone when the AI's borg was destroyed.
+    - type: Fix
+      message: >-
+        Fixed the AI being unable to stop controlling a borg after the borg was
+        destroyed.
+    - type: Fix
+      message: Fixed a clown car crash freezing movement.
+    - type: Fix
+      message: >-
+        Shadowlings are now actually invulnerable while hatching, so plasmamen
+        no longer burn to death in the egg.
+    - type: Fix
+      message: >-
+        The dreadnought suit's self-damage now spreads across all limbs instead
+        of mostly hitting the head and torso.
+    - type: Fix
+      message: >-
+        The drowsiness blur no longer stays on screen after you ghost or switch
+        bodies.
+    - type: Fix
+      message: >-
+        Airtight lockers, cryo pods, disposals, mechs and vents now make you
+        breathe their own air instead of the tile's.
+    - type: Fix
+      message: >-
+        Fixed EMPs on mechs, mouth storage, and several trigger and console
+        checks doing nothing.
+    - type: Fix
+      message: >-
+        Climbing a table and then flying as a harpy no longer lets you walk
+        through tables permanently.
+    - type: Fix
+      message: >-
+        Entering cryosleep no longer takes players carried in your bags or hands
+        along with you, they're now dropped outside the pod.
+    - type: Fix
+      message: >-
+        Fixed borgs and supply bots sometimes starting with fucked up vision
+        after you ended the last round critical or dead.
+    - type: Fix
+      message: >-
+        Melee weapons with armor penetration, like the heretic blade, now show
+        it when examined.
+    - type: Fix
+      message: >-
+        Dropping a gun while wearing the holo-cigar no longer permanently
+        increases its spread.
+    - type: Fix
+      message: Spiders can no longer stack webs endlessly while crawling through vents.
+    - type: Fix
+      message: >-
+        The shadowling Destroy Engines ability now actually delays the
+        evacuation shuttle.
+    - type: Fix
+      message: >-
+        You can no longer climb out of the abductor experimentator or the cryo
+        sleep unit while asleep or stunned.
+    - type: Fix
+      message: The voice mask's chosen speech verb is now actually used when you speak
+    - type: Fix
+      message: The crusher hammer's description no longer says it has knockback.
+    - type: Fix
+      message: >-
+        Holoparasites stay linked to their host when the host is polymorphed,
+        and come back when they change back.
+    - type: Fix
+      message: Floor goblins hiding under the floor no longer trigger mousetraps
+    - type: Fix
+      message: Slaughter demons no longer lose Hell Rip after blood crawling.
+    - type: Fix
+      message: >-
+        Fixed changelog skipping over some PRs and not posting to Discord
+        correctly, and added missing changelog entries.
+    - type: Remove
+      message: >-
+        Removed the executive briefcase steal objective, since the briefcase has
+        been removed.
+    - type: Remove
+      message: The IPC chest can no longer be printed at the robotics lathe.
+    - type: Tweak
+      message: >-
+        Post-ascension shadowling thralls no longer show their reflection chance
+        on examine.
+  id: 2958
+  time: '2026-10-05T20:07:20.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Fixed healing items like gauze erroring and doing nothing.
+    - type: Fix
+      message: >-
+        Fixed healing chems and natural healing not reducing a body's total
+        damage.
+    - type: Fix
+      message: Fixed a wound healing error spam.
+    - type: Fix
+      message: Fixed stealthed entities having a fucked up shader.
+    - type: Fix
+      message: Fixed items drawing offset from their slots in storage grids.
+  id: 2959
+  time: '2026-10-05T22:32:57.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Fixed shotgun pellets going through walls.
+    - type: Fix
+      message: >-
+        Fixed outlines, holograms, auras and enchant effects overriding each
+        other.
+    - type: Fix
+      message: Fixed click-dragging not working.
+    - type: Fix
+      message: Fixed most wires being invisible in the wires panel.
+    - type: Fix
+      message: Fixed the shuttle docking screen hiding the selected dock.
+    - type: Fix
+      message: >-
+        Fixed flashlights and other directional lights shining in every
+        direction.
+    - type: Fix
+      message: Fixed materials failing to insert into or withdraw from lathes an
+    - type: Fix
+      message: >-
+        Fixed health bars, speech bubbles and other overlays lagging behind
+        moving entities.
+    - type: Fix
+      message: Fixed popup text and the RCD placement preview jittering while moving
+    - type: Fix
+      message: >-
+        Fixed RCDs placing objects at an angle on rotated grids, and the
+        construction animation appearing off-centre.
+    - type: Fix
+      message: >-
+        Fixed anchored objects like walls, holosigns and bombs ending up off
+        centered
+    - type: Fix
+      message: Removed the tables under the mail teleporters on Oasis.
+    - type: Tweak
+      message: Changelings can no longer be gibbed by damage.
+    - type: Tweak
+      message: >-
+        Temporarily disabled character height/width until an engine fix is
+        merged.
+  id: 2960
+  time: '2026-10-06T01:58:21.0000000+00:00'

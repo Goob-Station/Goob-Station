@@ -1,6 +1,6 @@
 - type: construction
-  id: BoneAxeConstruction
-  graph: BoneAxeConstructionGraph
+  id: WeaponBoneAxeConstruction
+  graph: WeaponBoneAxeConstructionGraph
   category: construction-category-weapons
   targetNode: axe
   objectType: Item
@@ -10,4 +10,32 @@
   graph: DaggerBoneConstructionGraph
   category: construction-category-weapons
   targetNode: dagger
+  objectType: Item
+
+- type: construction
+  id: WoodCudgelConstruction
+  graph: WoodenCudgel
+  category: construction-category-weapons
+  targetNode: cudgel
+  objectType: Item
+
+- type: construction
+  id: AshwoodCudgelConstruction
+  graph: AshwoodCudgel
+  category: construction-category-weapons
+  targetNode: cudgel
+  objectType: Item
+
+- type: construction
+  id: WoodPickaxeConstruction
+  graph: PickaxeWood
+  category: construction-category-weapons
+  targetNode: pickaxe
+  objectType: Item
+
+- type: construction
+  id: AshwoodPickaxeConstruction
+  graph: PickaxeAshwood
+  category: construction-category-weapons
+  targetNode: pickaxe
   objectType: Item

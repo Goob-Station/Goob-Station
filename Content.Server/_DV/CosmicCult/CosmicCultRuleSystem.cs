@@ -69,6 +69,8 @@ using Content.Shared.Cuffs.Components;
 using Content.Server.Cuffs;
 using Content.Shared.Light.Components;
 using Content.Shared.Roles.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -440,7 +442,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void EndRoundVoid(EntityUid player, EntityCoordinates spawnTgt, CosmicCultRuleComponent cultRule)
     {
-        if (!_mind.TryGetMind(player, out var mind, out _) || _mobStateSystem.IsDead(player))
+        if (TerminatingOrDeleted(player) || !_mind.TryGetMind(player, out var mind, out _) || _mobStateSystem.IsDead(player))
             return;
         if (cultRule.Cultists.Contains(player))
         {
@@ -832,7 +834,15 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 3))
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
 
-            EnsureComp<CosmicSubtleMarkComponent>(uid);
+            // <Goob> wrap this in an if statement
+            // this is to fix subtle mark being applied after the star mark.
+            // which will cause OnCosmicSubtleMarkAdded to set the rsi state to subtle
+            // Fixes converted people not gaining a visible star mark during Finale conversions
+            if (!TryComp<CosmicFinaleComponent>(cult.Comp.MonumentInGame, out var c) || !c.FinaleActive)
+            {
+                EnsureComp<CosmicSubtleMarkComponent>(uid);
+            }
+            // </Goob>
             EnsureComp<PressureImmunityComponent>(uid);
             EnsureComp<TemperatureImmunityComponent>(uid);
         }

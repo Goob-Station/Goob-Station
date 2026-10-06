@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
@@ -213,7 +211,7 @@ public partial class SharedBodySystem
         Entity<BodyComponent?> entity)
         where T : IComponent
     {
-        if (!Resolve(entity, ref entity.Comp))
+        if (!Resolve(entity, ref entity.Comp, false)) // Goobstation - added false
             return new List<Entity<T, OrganComponent>>();
 
         // Goobstation start

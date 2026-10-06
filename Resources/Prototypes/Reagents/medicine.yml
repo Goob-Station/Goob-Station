@@ -239,10 +239,10 @@
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
-          scaleByTemperature: # Shitmed Change
-            min: 100.0
-            max: 213.0
-            scale: 1.6
+          #scaleByTemperature: # Shitmed Change # TODO SHITMED add properly for EvenHealthChange
+          #  min: 100.0
+          #  max: 213.0
+          #  scale: 1.6
           damage:
           # todo scale with temp like SS13
           # Goob - Cryo buff till temp scaling is implemented
@@ -262,15 +262,13 @@
             max: 213.0
           amount: -1
           #Omu End
-        - !type:GenericStatusEffect # Mono edit
+        - !type:ModifyStatusEffect # goob
           conditions:
-          - !type:MetabolizerTypeCondition
-            type:
-            - Hydrakin # i hate them
+          - !type:MetabolizerTypeCondition # Fuck you
+            type: [Hydrakin]
           - !type:TemperatureCondition
             max: 213.0
-          key: ForcedSleep
-          component: ForcedSleeping
+          effectProto: StatusEffectForcedSleeping
           type: Add
 
 - type: reagent
@@ -298,14 +296,13 @@
                 Cellular: -2
             groups: # Frontier
                 Brute: 1 # Frontier
-        - !type:GenericStatusEffect # Mono edit
+        - !type:ModifyStatusEffect # goob
           conditions:
           - !type:MetabolizerTypeCondition # Fuck you
             type: [Hydrakin]
           - !type:TemperatureCondition
             max: 213.0
-          key: ForcedSleep
-          component: ForcedSleeping
+          effectProto: StatusEffectForcedSleeping
           type: Add
 
 - type: reagent
@@ -1134,7 +1131,7 @@
             Blunt: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
             Slash: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
             Piercing: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
-      - !type:ImmunityModifier #Goobstation
+      - !type:ImmunityModifier # Goobstation
         gainRateModifier: 0.0011 #3x stronger than Immurin
         strengthModifier: 0.0088888888888 #Twice as strong
         statusLifetime: 3
@@ -1685,14 +1682,13 @@
               Brute: -5.0
               Burn: -5.0
               Toxin: -5.0
-        - !type:GenericStatusEffect # Mono edit
+        - !type:ModifyStatusEffect # goob
           conditions:
           - !type:MetabolizerTypeCondition # Fuck you
             type: [Hydrakin]
           - !type:TemperatureCondition
-            max: 217.15
-          key: ForcedSleep
-          component: ForcedSleeping
+            max: 213.0
+          effectProto: StatusEffectForcedSleeping
           type: Add
 
 
@@ -1708,7 +1704,8 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange
+      # - !type:EvenHealthChange # Goob, return Aloxadone to its pre-upstream strength
+      - !type:HealthChange
         conditions:
         - !type:TemperatureCondition
           max: 213.0
@@ -1717,16 +1714,19 @@
           max: 213.0
           scale: 1.6
         damage: # Goobstation - Cryo rebalance
-          Burn: -10.0
-      - !type:GenericStatusEffect # Mono edit
+          # Burn: -10.0
+          types: # Goob start; return Aloxadone to its pre-upstream strength
+            Heat: -10.0
+            Cold: -10.0
+            Shock: -10.0
+            Caustic: -10.0 # Goob end
+      - !type:ModifyStatusEffect # goob
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Hydrakin # i hate them
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
         - !type:TemperatureCondition
           max: 213.0
-        key: ForcedSleep
-        component: ForcedSleeping
+        effectProto: StatusEffectForcedSleeping
         type: Add
 
 - type: reagent
