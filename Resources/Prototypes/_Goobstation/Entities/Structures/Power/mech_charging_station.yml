@@ -75,7 +75,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
-    price: 50
+    price: 75
   - type: GuideHelp
     guides:
     - Robotics

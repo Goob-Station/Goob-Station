@@ -47,9 +47,11 @@ public sealed class MechCombatFacingSystem : EntitySystem
             return;
 
         var (mechPos, mechRot) = _xform.GetWorldPositionRotation(xform);
+
         var delta = mouse.Position - mechPos;
         if (delta.LengthSquared() < 0.25f)
             return;
+
         var gridRot = _turning.GetReferenceRotation(mech);
         var wanted = (-gridRot).RotateVec(delta).ToWorldAngle().GetCardinalDir();
 
