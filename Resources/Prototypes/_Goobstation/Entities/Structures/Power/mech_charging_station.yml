@@ -14,7 +14,7 @@
     - MechChargingStationBoard
     - DroneUsable
   - type: StaticPrice
-    price: 300
+    price: 1100
   - type: PhysicalComposition
     materialComposition:
       Glass: 125
