@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Goobstation.Common.BlueSpaceStorm;
+using Content.Goobstation.Common.BluespaceStorm;
 using Content.Server.Chat.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Maps;
@@ -26,9 +26,9 @@ using System.Numerics;
 using System.Linq;
 using Robust.Server.GameObjects;
 
-namespace Content.Goobstation.Server.BlueSpaceStorm;
+namespace Content.Goobstation.Server.BluespaceStorm;
 
-public sealed class BlueSpaceStormSystem : EntitySystem
+public sealed class BluespaceStormSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -55,10 +55,10 @@ public sealed class BlueSpaceStormSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BlueSpaceStormPortalComponent, PortalPulseEvent>(OnPortalPulse);
-        SubscribeLocalEvent<BlueSpaceStormPortalComponent, ComponentStartup>(OnInit);
-        SubscribeLocalEvent<BlueSpaceStormPortalComponent, PortalMobsAllDeathEvent>(OnMobDeath);
-        SubscribeLocalEvent<BlueSpaceStormPortalComponent, PortalMobSpawnEvent>(OnMobSpawn);
+        SubscribeLocalEvent<BluespaceStormPortalComponent, PortalPulseEvent>(OnPortalPulse);
+        SubscribeLocalEvent<BluespaceStormPortalComponent, ComponentStartup>(OnInit);
+        SubscribeLocalEvent<BluespaceStormPortalComponent, PortalMobsAllDeathEvent>(OnMobDeath);
+        SubscribeLocalEvent<BluespaceStormPortalComponent, PortalMobSpawnEvent>(OnMobSpawn);
         _physQuery = GetEntityQuery<PhysicsComponent>();
 
     }
@@ -68,7 +68,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<BlueSpaceStormPortalComponent>();
+        var query = EntityQueryEnumerator<BluespaceStormPortalComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
             if (Paused(uid))
@@ -102,7 +102,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         }
     }
 
-    private void OnInit(Entity<BlueSpaceStormPortalComponent> portalEnt, ref ComponentStartup args)
+    private void OnInit(Entity<BluespaceStormPortalComponent> portalEnt, ref ComponentStartup args)
     {
         var component = portalEnt.Comp;
         List<EntProtoId> mobsToSpawn = [];
@@ -115,7 +115,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         component.NextPulseTime = _timing.CurTime + TimeSpan.FromSeconds(component.TimeForPulse);
     }
 
-    private void OnPortalPulse(Entity<BlueSpaceStormPortalComponent> portalEnt, ref PortalPulseEvent args)
+    private void OnPortalPulse(Entity<BluespaceStormPortalComponent> portalEnt, ref PortalPulseEvent args)
     {
         var uid = portalEnt.Owner;
         var component = portalEnt.Comp;
@@ -322,7 +322,7 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         }
     }
 
-    private void OnMobSpawn(Entity<BlueSpaceStormPortalComponent> portalEnt, ref PortalMobSpawnEvent args)
+    private void OnMobSpawn(Entity<BluespaceStormPortalComponent> portalEnt, ref PortalMobSpawnEvent args)
     {
         var uid = portalEnt.Owner;
         var component = portalEnt.Comp;
@@ -330,18 +330,18 @@ public sealed class BlueSpaceStormSystem : EntitySystem
         foreach (EntProtoId proto in component.MobsToSpawn)
         {
             var newSpawn = Spawn(proto, _transform.GetMapCoordinates(uid));
-            if (!TryComp<BlueSpaceStormPortalMobComponent>(newSpawn, out _))
+            if (!TryComp<BluespaceStormPortalMobComponent>(newSpawn, out _))
             {
                 continue;
             }
             component.SpawnedMobs.Add(newSpawn);
-            Comp<BlueSpaceStormPortalMobComponent>(newSpawn).LinkedPortal = uid;
+            Comp<BluespaceStormPortalMobComponent>(newSpawn).LinkedPortal = uid;
         }
     }
 
-    private void OnMobDeath(Entity<BlueSpaceStormPortalComponent> portalEnt, ref PortalMobsAllDeathEvent args)
+    private void OnMobDeath(Entity<BluespaceStormPortalComponent> portalEnt, ref PortalMobsAllDeathEvent args)
     {
-        var query = EntityQueryEnumerator<BlueSpaceRuleComponent, ActiveGameRuleComponent, GameRuleComponent>();
+        var query = EntityQueryEnumerator<BluespaceRuleComponent, ActiveGameRuleComponent, GameRuleComponent>();
         EntityUid ruleUID;
         while (query.MoveNext(out ruleUID, out var rule, out _, out _))
         {

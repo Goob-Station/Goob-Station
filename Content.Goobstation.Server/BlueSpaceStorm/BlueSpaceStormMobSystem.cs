@@ -1,23 +1,25 @@
-using Content.Goobstation.Common.BlueSpaceStorm;
+using Content.Goobstation.Common.BluespaceStorm;
 using Content.Shared.Mobs;
 
-public sealed class BlueSpaceStormMobSystem : EntitySystem
+namespace Content.Goobstation.Server.BluespaceStorm;
+
+public sealed class BluespaceStormMobSystem : EntitySystem
 {
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BlueSpaceStormPortalMobComponent, MobStateChangedEvent>(OnPortalMobDeath);
+        SubscribeLocalEvent<BluespaceStormPortalMobComponent, MobStateChangedEvent>(OnPortalMobDeath);
 
     }
 
-    private void OnPortalMobDeath(Entity<BlueSpaceStormPortalMobComponent> mob, ref MobStateChangedEvent args)
+    private void OnPortalMobDeath(Entity<BluespaceStormPortalMobComponent> mob, ref MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Dead)
         {
             return;
         }
-        if (!TryComp<BlueSpaceStormPortalComponent>(mob.Comp.LinkedPortal, out var portalComponent))
+        if (!TryComp<BluespaceStormPortalComponent>(mob.Comp.LinkedPortal, out var portalComponent))
             return;
         if (!portalComponent.SpawnedMobs.Remove(mob.Owner))
             return;

@@ -1,10 +1,12 @@
 using Content.Server.GameTicking.Rules;
-using Content.Goobstation.Common.BlueSpaceStorm;
+using Content.Goobstation.Common.BluespaceStorm;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
+namespace Content.Goobstation.Server.BluespaceStorm;
+
 [RegisterComponent]
-public sealed partial class BlueSpaceRuleComponent : Component
+public sealed partial class BluespaceRuleComponent : Component
 {
     [DataField]
     public SoundSpecifier? DetectedAudio = new SoundPathSpecifier("/Audio/_Goobstation/Announcements/blob_detected.ogg");

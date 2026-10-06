@@ -690,7 +690,7 @@
 
 - type: entity
   parent: BaseGameRule
-  id: BlueSpaceStorm
+  id: BluespaceStorm
   components:
   - type: StationEvent
     weight: 1
@@ -700,7 +700,7 @@
     eventType: Chaotic
   - type: GameRule
     chaosScore: 250
-  - type: BlueSpaceRule
+  - type: BluespaceRule
     availablePortals:
     - LavalandBluespacePortal
     - PlantBluespacePortal

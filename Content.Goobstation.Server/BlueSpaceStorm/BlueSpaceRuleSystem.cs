@@ -5,16 +5,19 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Station.Components;
 using Content.Server.Chemistry.Components;
+using Content.Server.StationEvents.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 
-namespace Content.Server.StationEvents.Events;
+using Content.Goobstation.Server.BluespaceStorm;
 
-public sealed partial class BlueSpaceStormRuleSystem :
-    StationEventSystem<BlueSpaceRuleComponent>
+namespace Content.Goobstation.Server.StationEvents.Events;
+
+public sealed partial class BluespaceStormRuleSystem :
+    StationEventSystem<BluespaceRuleComponent>
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -22,7 +25,7 @@ public sealed partial class BlueSpaceStormRuleSystem :
     [Dependency] private readonly SharedMapSystem _mapsys = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
-    protected override void Started(EntityUid uid, BlueSpaceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, BluespaceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         _audio.PlayGlobal(
             new SoundPathSpecifier("/Audio/Announcements/attention.ogg"),

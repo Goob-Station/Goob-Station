@@ -13,7 +13,7 @@
   - type: Physics
     bodyType: Static
     canCollide: false
-  - type: BlueSpaceStormPortal
+  - type: BluespaceStormPortal
     portalType: LavalandBluespacePortal
     mobSpawnPool:
     - PortalGoliath
@@ -45,7 +45,7 @@
   - type: Physics
     bodyType: Static
     canCollide: false
-  - type: BlueSpaceStormPortal
+  - type: BluespaceStormPortal
     portalType: PlantBluespacePortal
     mobSpawnPool:
     - PortalLivingLight
@@ -78,7 +78,7 @@
   - type: Physics
     bodyType: Static
     canCollide: false
-  - type: BlueSpaceStormPortal
+  - type: BluespaceStormPortal
     portalType: FleshBluespacePortal
     mobSpawnPool:
     - PortalRotHulk
@@ -111,7 +111,7 @@
   - type: Physics
     bodyType: Static
     canCollide: false
-  - type: BlueSpaceStormPortal
+  - type: BluespaceStormPortal
     portalType: SlimeBluespacePortal
     mobSpawnPool:
     - PortalPlagueRatMedium

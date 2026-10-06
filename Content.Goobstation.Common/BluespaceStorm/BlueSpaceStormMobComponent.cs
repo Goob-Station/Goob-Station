@@ -1,8 +1,8 @@
 
-namespace Content.Goobstation.Common.BlueSpaceStorm;
+namespace Content.Goobstation.Common.BluespaceStorm;
 
 [RegisterComponent]
-public sealed partial class BlueSpaceStormPortalMobComponent : Component
+public sealed partial class BluespaceStormPortalMobComponent : Component
 {
     /// <summary>
     /// Portal the mob spawned from

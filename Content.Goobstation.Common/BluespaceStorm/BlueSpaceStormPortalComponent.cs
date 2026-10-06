@@ -1,10 +1,10 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Goobstation.Common.BlueSpaceStorm;
+namespace Content.Goobstation.Common.BluespaceStorm;
 
 [RegisterComponent, AutoGenerateComponentPause]
-public sealed partial class BlueSpaceStormPortalComponent : Component
+public sealed partial class BluespaceStormPortalComponent : Component
 {
     /// <summary>
     /// Portal type

@@ -5,7 +5,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalWatcherBase
@@ -14,7 +14,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalLegion
@@ -23,7 +23,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalLivingLight
@@ -32,7 +32,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalLuminousObject
@@ -41,7 +41,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalAngryBee
@@ -50,7 +50,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalRotHulk
@@ -59,7 +59,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalTomatoKiller
@@ -68,7 +68,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalFleshGolemSalvage
@@ -77,7 +77,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalFleshLoverSalvage
@@ -86,7 +86,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalFleshJaredSalvage
@@ -95,7 +95,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalBaseAdultSlime
@@ -104,7 +104,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalPlagueRatMedium
@@ -113,7 +113,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalPlagueRatSmall
@@ -122,7 +122,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalAncientLegsWraith
@@ -131,7 +131,7 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalGunbot
@@ -140,4 +140,4 @@
     - type: NpcFactionMember
       factions:
         - Lavafauna
-    - type: BlueSpaceStormPortalMob
+    - type: BluespaceStormPortalMob
