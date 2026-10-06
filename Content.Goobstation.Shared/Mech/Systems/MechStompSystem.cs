@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.Mech.Components;
 using Content.Shared.Actions;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;

@@ -2,6 +2,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Mech.Components;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Movement.Systems;
