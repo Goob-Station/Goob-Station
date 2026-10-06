@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee.Events;
