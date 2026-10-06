@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Singularity.Components;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Enums;
@@ -15,7 +16,7 @@ namespace Content.Client.Singularity
 
         [Dependency] private readonly IEntityManager _entMan = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        private SharedTransformSystem? _xformSystem = null;
+        private TransformSystem? _xformSystem = null;
 
         /// <summary>
         ///     Maximum number of distortions that can be shown on screen at a time.
@@ -58,7 +59,7 @@ namespace Content.Client.Singularity
                 if (xform.MapID != args.MapId)
                     continue;
 
-                var mapPos = _xformSystem.GetWorldPosition(uid);
+                var mapPos = _xformSystem.GetRenderWorldPosition((uid, xform));
 
                 // is the distortion in range?
                 if ((mapPos - args.WorldAABB.ClosestPoint(mapPos)).LengthSquared() > MaxDistance * MaxDistance)

@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.VoiceChat;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
+using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.VoiceChat;
 
@@ -17,7 +18,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
     private readonly IPlayerManager _player;
     private readonly VoiceChatSystem _voice;
     private readonly VoiceCanadianSystem _canadian;
-    private readonly SharedTransformSystem _transform;
+    private readonly TransformSystem _transform;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
@@ -26,7 +27,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
         _entityManager = entityManager;
         _player = IoCManager.Resolve<IPlayerManager>();
         _voice = voice;
-        _transform = entityManager.System<SharedTransformSystem>();
+        _transform = entityManager.System<TransformSystem>();
         _canadian = entityManager.System<VoiceCanadianSystem>();
     }
 
@@ -42,7 +43,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
             _entityManager.TryGetComponent<TransformComponent>(local, out var selfXform) &&
             selfXform.MapID == args.MapId)
         {
-            var position = _transform.GetWorldPosition(selfXform);
+            var position = _transform.GetRenderWorldPosition((local, selfXform));
             if (args.WorldAABB.Contains(position))
                 DrawIndicator(handle, rotation, position, self.Levels, _voice.GetSelfColor().WithAlpha(self.Activity), self.Activity);
         }
@@ -62,7 +63,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
                 continue;
             }
 
-            var position = _transform.GetWorldPosition(xform);
+            var position = _transform.GetRenderWorldPosition((uid.Value, xform));
             if (!args.WorldAABB.Contains(position))
                 continue;
 
