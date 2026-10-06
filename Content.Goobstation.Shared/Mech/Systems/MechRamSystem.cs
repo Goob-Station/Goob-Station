@@ -5,6 +5,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
