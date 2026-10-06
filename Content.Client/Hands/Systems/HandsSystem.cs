@@ -29,6 +29,7 @@ namespace Content.Client.Hands.Systems
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
+        [Dependency] private readonly TransformSystem _renderTransforms = default!;
 
         [Dependency] private readonly StrippableSystem _stripSys = default!;
         [Dependency] private readonly SpriteSystem _sprite = default!;
@@ -100,9 +101,15 @@ namespace Content.Client.Hands.Systems
             bool doDropInteraction = true,
             bool log = true)
         {
+            TryGetHeldItem(ent, handId, out var held);
             base.DoDrop(ent, handId, doDropInteraction, log);
 
-            if (TryGetHeldItem(ent, handId, out var held) && TryComp(held, out SpriteComponent? sprite))
+            if (held == null || IsHolding(ent, held.Value))
+                return;
+
+            _renderTransforms.SnapRenderTransform(held.Value, true);
+
+            if (TryComp(held, out SpriteComponent? sprite))
                 sprite.RenderOrder = EntityManager.CurrentTick.Value;
         }
 
