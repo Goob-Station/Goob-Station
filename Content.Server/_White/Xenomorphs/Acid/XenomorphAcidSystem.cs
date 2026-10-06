@@ -1,6 +1,7 @@
 using Content.Shared._White.Xenomorphs.Acid;
 using Content.Shared._White.Xenomorphs.Acid.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._White.Xenomorphs.Acid;
 
