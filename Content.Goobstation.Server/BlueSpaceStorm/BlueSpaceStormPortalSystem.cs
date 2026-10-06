@@ -143,7 +143,7 @@ public sealed class BluespaceStormSystem : EntitySystem
                 {
                     for (int i = 0; i < _random.Next(2, 7); i++)
                     {
-                        switch (_random.Next(0, 4))
+                        switch (_random.Next(0, 11))
                         {
                             case 0:
                                 EntityUid spawnedAsh = Spawn("Ash", origin);
@@ -160,6 +160,34 @@ public sealed class BluespaceStormSystem : EntitySystem
                             case 3:
                                 EntityUid spawnedCoal = Spawn("OreCoal", origin);
                                 _physics.ApplyLinearImpulse(spawnedCoal, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
+                                break;
+                            case 4:
+                                EntityUid spawnedGreenCrystal = Spawn("CrystalGreen", origin);
+                                _physics.ApplyLinearImpulse(spawnedGreenCrystal, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
+                                break;
+                            case 5:
+                                EntityUid spawnedPinkCrystal = Spawn("CrystalPink", origin);
+                                _physics.ApplyLinearImpulse(spawnedPinkCrystal, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
+                                break;
+                            case 6:
+                                EntityUid spawnedOrangeCrystal = Spawn("CrystalOrange", origin);
+                                _physics.ApplyLinearImpulse(spawnedOrangeCrystal, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
+                                break;
+                            case 7:
+                                EntityUid spawnedBlackCrystal = Spawn("CrystalBlack", origin);
+                                _physics.ApplyLinearImpulse(spawnedBlackCrystal, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
+                                break;
+                            case 8:
+                                EntityUid spawnedBlueCrystal = Spawn("CrystalBlue", origin);
+                                _physics.ApplyLinearImpulse(spawnedBlueCrystal, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
+                                break;
+                            case 9:
+                                EntityUid spawnedYellowCrystal = Spawn("CrystalYellow", origin);
+                                _physics.ApplyLinearImpulse(spawnedYellowCrystal, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
+                                break;
+                            case 10:
+                                EntityUid spawnedCyanCrystal = Spawn("CrystalCyan", origin);
+                                _physics.ApplyLinearImpulse(spawnedCyanCrystal, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
                                 break;
                         }
                     }
