@@ -1,0 +1,46 @@
+- type: entity
+  id: SCPPager
+  parent: BaseItem
+  name: Pager
+  description: Modified for foundation needs paging device. Receives network alerts and supports encrypted voice transmissions when paired with an earpiece.
+  components:
+  - type: Sprite
+    sprite: _F14/Objects/Devices/pager.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - IdCard
+    - Belt
+  - type: Pager
+    ringSound:
+      path: /Audio/Machines/twobeep.ogg
+    clickSound:
+      path: /Audio/Machines/button.ogg
+  - type: ActivatableUI
+    key: enum.PagerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PagerUiKey.Key:
+        type: PagerBoundUserInterface
+
+- type: entity
+  id: SCPPagerEarpiece
+  parent: BaseItem
+  name: pager micro-earpiece
+  description: A miniature earpiece with an integrated directional microphone. Links directly to an active pager.
+  components:
+  - type: Sprite
+    sprite: _F14/Objects/Devices/earpiece.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Tiny
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - ears
+  - type: PagerEarpiece

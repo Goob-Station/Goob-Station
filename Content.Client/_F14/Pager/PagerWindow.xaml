@@ -1,0 +1,306 @@
+<controls:PagerBaseWindow xmlns="https://spacestation14.io"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:controls="clr-namespace:Content.Client._F14.Pager"
+                          xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                          Resizable="True"
+                          MinSize="500 325"
+                          SetSize="500 325">
+    <LayoutContainer Name="RootLayout" MinSize="500 435" SetSize="500 435">
+        <TextureRect TexturePath="/Textures/_F14/Interface/Pager/pager_body.png"
+                     Stretch="KeepAspectCentered"
+                     MouseFilter="Ignore"
+                     LayoutContainer.Position="0 0"
+                     SetSize="500 325" />
+
+        <BoxContainer Name="ScreenContainer"
+                      Orientation="Vertical"
+                      LayoutContainer.Position="66 70"
+                      SetSize="354 128"
+                      Margin="1">
+
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="1 0 1 0">
+                <Label Name="WifiLabel" Text="[RF: VHF ||||]" FontColorOverride="#152812" />
+                <Control HorizontalExpand="True" />
+                <Label Name="HeaderTitle" Text="SCiPNET" FontColorOverride="#152812" />
+                <Control HorizontalExpand="True" />
+                <Label Name="TimeLabel" Text="12:00 [99%]" FontColorOverride="#152812" />
+            </BoxContainer>
+
+            <PanelContainer SetSize="350 1" MinSize="350 1" Modulate="#152812" Margin="0 1 0 2" />
+
+            <BoxContainer Name="LauncherView" Orientation="Vertical" VerticalExpand="True" Visible="True">
+                <Label Text="APPLICATIONS:" FontColorOverride="#152812" Margin="0 0 0 1" />
+                <ScrollContainer VerticalExpand="True" Name="LauncherScroll">
+                    <GridContainer Name="AppGrid" Columns="2" HorizontalExpand="True" VerticalExpand="True" Margin="0 1 0 0" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="ChatView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <Button Name="RecipientDropdownBtn"
+                        Modulate="#526c48"
+                        HorizontalExpand="True"
+                        Margin="0 0 0 2"
+                        MinHeight="24"
+                        MaxHeight="24">
+                    <BoxContainer Orientation="Horizontal" Margin="6 0" VerticalAlignment="Center">
+                        <Label Text="TO: " FontColorOverride="#152812" VerticalAlignment="Center" />
+                        <Label Name="RecipientLabel" Text="[BROADCAST (ALL)]" FontColorOverride="#152812" HorizontalExpand="True" VerticalAlignment="Center" />
+                        <Label Text="▼" FontColorOverride="#152812" VerticalAlignment="Center" />
+                    </BoxContainer>
+                </Button>
+
+                <BoxContainer Name="ChatMainArea" Orientation="Vertical" VerticalExpand="True">
+                    <ScrollContainer VerticalExpand="True" Name="ChatScroll">
+                        <BoxContainer Name="ChatContainer" Orientation="Vertical" SeparationOverride="1" />
+                    </ScrollContainer>
+                    <BoxContainer Orientation="Horizontal" Margin="0 2 0 0">
+                        <LineEdit Name="LcdInputMsg"
+                                  Modulate="#526c48"
+                                  PlaceHolder="Msg..."
+                                  HorizontalExpand="True"
+                                  MinHeight="20"
+                                  MaxHeight="20" />
+                        <Button Name="SendBtn"
+                                Modulate="#526c48"
+                                Margin="2 0 0 0"
+                                MinWidth="48"
+                                MinHeight="20"
+                                MaxHeight="20">
+                            <Label Text="SEND"
+                                   FontColorOverride="#152812"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Margin="2 0" />
+                        </Button>
+                    </BoxContainer>
+                </BoxContainer>
+
+                <BoxContainer Name="RecipientMenuArea" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                    <Label Text="SELECT CONTACT:" FontColorOverride="#152812" Margin="0 0 0 1" />
+                    <ScrollContainer VerticalExpand="True" Name="RecipientScroll">
+                        <BoxContainer Name="RecipientListContainer" Orientation="Vertical" SeparationOverride="1" />
+                    </ScrollContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="CallView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <Label Name="CallStatusLabel" Text="CALL STATUS: STANDBY" FontColorOverride="#152812" Margin="0 0 0 2" />
+                <ScrollContainer VerticalExpand="True" Name="CallScroll">
+                    <BoxContainer Name="ContactsContainer" Orientation="Vertical" SeparationOverride="2" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="ManifestView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <Label Text="SCiPNET PERSONNEL DIRECTORY:" FontColorOverride="#152812" Margin="0 0 0 1" />
+                <ScrollContainer VerticalExpand="True" Name="ManifestScroll">
+                    <BoxContainer Name="ManifestContainer" Orientation="Vertical" SeparationOverride="1" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="SysView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <ScrollContainer VerticalExpand="True" Name="SysScroll">
+                    <BoxContainer Orientation="Vertical" SeparationOverride="1">
+                        <Label Name="InfoOwnerLabel" Text="OPERATOR: UNKNOWN" FontColorOverride="#152812" />
+                        <Label Text="FACILITY: SITE-14 (ALASKA SECTOR)" FontColorOverride="#152812" />
+                        <Label Text="NETWORK: SCiPNET VHF-SECURE (2012)" FontColorOverride="#152812" />
+                        <Label Text="HARDWARE: SCP-TAC PAGER REV. 4" FontColorOverride="#152812" />
+                        <Label Name="EarpieceLabel" Text="EARPIECE: NOT DETECTED" FontColorOverride="#152812" />
+                        <Label Name="StorageLabel" Text="STORAGE: -- GQ FLASH" FontColorOverride="#152812" />
+                        <Label Name="UsageLabel" Text="USAGE: [..........] 0/0 GQ" FontColorOverride="#152812" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="StoreView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 1">
+                    <Label Name="DiskUsageLabel" Text="MEM: 0/64GQ" FontColorOverride="#152812" />
+                    <Control HorizontalExpand="True" />
+                    <Label Name="IdStatusLabel" Text="NO ID" FontColorOverride="#152812" ClipText="True" MaxWidth="140" />
+                    <Button Name="EjectIdBtn" Modulate="#526c48" Margin="4 0 0 0" MinHeight="16">
+                        <Label Text="EJECT" FontColorOverride="#152812" Margin="3 0" />
+                    </Button>
+                </BoxContainer>
+                <PanelContainer SetSize="350 1" MinSize="350 1" Modulate="#152812" Margin="0 1 0 2" />
+                <ScrollContainer VerticalExpand="True" Name="StoreScroll">
+                    <BoxContainer Name="StoreListContainer" Orientation="Vertical" SeparationOverride="2" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="NotesView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <Label Text="FIELD MEMOS / NOTEPAD:" FontColorOverride="#152812" Margin="0 0 0 1" />
+                <ScrollContainer VerticalExpand="True" Name="NotesScroll">
+                    <BoxContainer Name="NotesListContainer" Orientation="Vertical" SeparationOverride="1" />
+                </ScrollContainer>
+                <BoxContainer Orientation="Horizontal" Margin="0 2 0 0">
+                    <LineEdit Name="NoteInput" Modulate="#526c48" PlaceHolder="New note..." HorizontalExpand="True" MinHeight="18" MaxHeight="18" />
+                    <Button Name="AddNoteBtn" Modulate="#526c48" Margin="2 0 0 0" MinHeight="18">
+                        <Label Text="ADD" FontColorOverride="#152812" Margin="4 0" />
+                    </Button>
+                </BoxContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="NewsView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <Label Text="SITE-14 COMMAND BULLETINS:" FontColorOverride="#152812" Margin="0 0 0 1" />
+                <ScrollContainer VerticalExpand="True" Name="NewsScroll">
+                    <BoxContainer Name="NewsListContainer" Orientation="Vertical" SeparationOverride="2" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="BankView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <Label Text="SCiPNET FINANCIAL REGISTRY" FontColorOverride="#152812" Margin="0 0 0 1" />
+                <PanelContainer SetSize="350 1" MinSize="350 1" Modulate="#152812" Margin="0 1 0 2" />
+                <ScrollContainer VerticalExpand="True" Name="BankScroll">
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2">
+                        <Label Name="BankHolderLabel" Text="HOLDER: NO ID" FontColorOverride="#152812" />
+                        <Label Name="BankAccountLabel" Text="ACCOUNT: -----" FontColorOverride="#152812" />
+                        <Label Name="BankBalanceLabel" Text="BALANCE: 0 CREDITS" FontColorOverride="#152812" />
+                        <Label Text="PAYROLL: ALLOCATED" FontColorOverride="#152812" />
+                        <Label Text="STATUS: DIRECT ACCOUNT LINK VERIFIED" FontColorOverride="#152812" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="DatabaseView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <BoxContainer Name="DbListView" Orientation="Vertical" VerticalExpand="True">
+                    <Label Text="CONTAINMENT DOSSIERS:" FontColorOverride="#152812" Margin="0 0 0 1" />
+                    <ScrollContainer VerticalExpand="True" Name="DbScroll">
+                        <BoxContainer Name="DbListContainer" Orientation="Vertical" SeparationOverride="1" />
+                    </ScrollContainer>
+                </BoxContainer>
+                <BoxContainer Name="DbDetailView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                    <BoxContainer Orientation="Horizontal" Margin="0 0 0 1">
+                        <Label Name="DbDossierHeader" Text="SCP-173 [EUCLID]" FontColorOverride="#152812" HorizontalExpand="True" />
+                        <Button Name="DbBackBtn" Modulate="#526c48" MinHeight="16">
+                            <Label Text="BACK" FontColorOverride="#152812" Margin="3 0" />
+                        </Button>
+                    </BoxContainer>
+                    <ScrollContainer VerticalExpand="True" Name="DbDetailScroll">
+                        <BoxContainer Orientation="Vertical" SeparationOverride="1">
+                            <Label Name="DbDossierName" Text="The Sculpture" FontColorOverride="#152812" />
+                            <Label Text="PROCEDURES:" FontColorOverride="#152812" Margin="0 2 0 0" />
+                            <Label Name="DbDossierContainment" Text="..." FontColorOverride="#152812" />
+                            <Label Text="DESCRIPTION:" FontColorOverride="#152812" Margin="0 2 0 0" />
+                            <Label Name="DbDossierDesc" Text="..." FontColorOverride="#152812" />
+                        </BoxContainer>
+                    </ScrollContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="ShieldsView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 1">
+                    <Label Text="SECTOR-14 SHIELD TELEMETRY" FontColorOverride="#152812" HorizontalExpand="True" />
+                    <Button Name="CycleShieldsBtn" Modulate="#526c48" MinHeight="16">
+                        <Label Text="CYCLE" FontColorOverride="#152812" Margin="3 0" />
+                    </Button>
+                </BoxContainer>
+                <PanelContainer SetSize="350 1" MinSize="350 1" Modulate="#152812" Margin="0 1 0 2" />
+                <ScrollContainer VerticalExpand="True" Name="ShieldsScroll">
+                    <BoxContainer Name="ShieldsListContainer" Orientation="Vertical" SeparationOverride="2" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="RecordsView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <BoxContainer Name="RecordsListView" Orientation="Vertical" VerticalExpand="True">
+                    <Label Text="PERSONNEL SECURITY RECORDS:" FontColorOverride="#152812" Margin="0 0 0 1" />
+                    <ScrollContainer VerticalExpand="True" Name="RecordsScroll">
+                        <BoxContainer Name="RecordsListContainer" Orientation="Vertical" SeparationOverride="1" />
+                    </ScrollContainer>
+                </BoxContainer>
+                <BoxContainer Name="RecordsDetailView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                    <BoxContainer Orientation="Horizontal" Margin="0 0 0 1">
+                        <Label Name="RecordDetailHeader" Text="DOSSIER" FontColorOverride="#152812" HorizontalExpand="True" />
+                        <Button Name="RecordBackBtn" Modulate="#526c48" MinHeight="16">
+                            <Label Text="BACK" FontColorOverride="#152812" Margin="3 0" />
+                        </Button>
+                    </BoxContainer>
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Orientation="Vertical" SeparationOverride="1">
+                            <Label Name="RecordDetailClearance" Text="CLEARANCE: -" FontColorOverride="#152812" />
+                            <Label Name="RecordDetailStatus" Text="STATUS: -" FontColorOverride="#152812" />
+                            <Label Text="DISCIPLINARY / MEDICAL LOG:" FontColorOverride="#152812" Margin="0 2 0 0" />
+                            <Label Name="RecordDetailLog" Text="..." FontColorOverride="#152812" />
+                        </BoxContainer>
+                    </ScrollContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="SupplyView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 1">
+                    <Label Name="SupplyBudgetLabel" Text="BUDGET: 1500 CR" FontColorOverride="#152812" HorizontalExpand="True" />
+                    <Label Text="LOGISTICS DPT" FontColorOverride="#152812" />
+                </BoxContainer>
+                <PanelContainer SetSize="350 1" MinSize="350 1" Modulate="#152812" Margin="0 1 0 2" />
+                <ScrollContainer VerticalExpand="True" Name="SupplyScroll">
+                    <BoxContainer Name="SupplyListContainer" Orientation="Vertical" SeparationOverride="1" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="ScannerView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 1">
+                    <Label Text="ENVIRONMENT SENSOR" FontColorOverride="#152812" HorizontalExpand="True" />
+                    <Button Name="ScanTriggerBtn" Modulate="#526c48" MinHeight="16">
+                        <Label Text="PULSE" FontColorOverride="#152812" Margin="4 0" />
+                    </Button>
+                </BoxContainer>
+                <PanelContainer SetSize="350 1" MinSize="350 1" Modulate="#152812" Margin="0 1 0 2" />
+                <ScrollContainer VerticalExpand="True" Name="ScannerScroll">
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2">
+                        <Label Name="ScanHumeLabel" Text="HUME FIELD: 1.00 Hm [STABLE]" FontColorOverride="#152812" />
+                        <Label Name="ScanTempLabel" Text="TEMPERATURE: -38.4 C" FontColorOverride="#152812" />
+                        <Label Name="ScanRadLabel" Text="RADIATION: 0.02 mSv/h [NOMINAL]" FontColorOverride="#152812" />
+                        <Label Name="ScanBioLabel" Text="CARRIER PULSE: 74 BPM [NORMAL]" FontColorOverride="#152812" />
+                        <Label Name="ScanStatusLabel" Text="STATUS: SURROUNDINGS CLEAR" FontColorOverride="#152812" Margin="0 3 0 0" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="SnakeView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <Label Name="SnakeStatusLabel" Text="SNAKE.EXE | SCORE: 0" FontColorOverride="#152812" HorizontalExpand="True" Margin="0 0 0 2" />
+                <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalExpand="True">
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#00000000"
+                                                    BorderColor="#152812"
+                                                    BorderThickness="1 1 1 1" />
+                        </PanelContainer.PanelOverride>
+                        <LayoutContainer Name="SnakeCanvas" MinSize="128 64" SetSize="128 64" Margin="1" />
+                    </PanelContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="IdEditView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <Label Text="ID CARD PROGRAMMER:" FontColorOverride="#152812" Margin="0 0 0 1" />
+                <Label Name="IdEditStatusLabel" Text="NO ID INSERTED" FontColorOverride="#152812" Margin="0 0 0 3" />
+                <BoxContainer Orientation="Horizontal" Margin="0 1">
+                    <Label Text="NAME:" FontColorOverride="#152812" MinWidth="46" />
+                    <LineEdit Name="IdNameInput" Modulate="#526c48" HorizontalExpand="True" MinHeight="16" MaxHeight="16" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal" Margin="0 1">
+                    <Label Text="JOB:" FontColorOverride="#152812" MinWidth="46" />
+                    <LineEdit Name="IdJobInput" Modulate="#526c48" HorizontalExpand="True" MinHeight="16" MaxHeight="16" />
+                </BoxContainer>
+                <Button Name="IdSaveBtn" Modulate="#708c62" HorizontalAlignment="Center" Margin="0 4" MinHeight="18">
+                    <Label Text="WRITE TO CARD" FontColorOverride="#152812" Margin="6 0" />
+                </Button>
+            </BoxContainer>
+        </BoxContainer>
+
+        <TextureButton Name="WheelUpBtn" TexturePath="/Textures/_F14/Interface/Pager/button_up.png" Modulate="#00000000" LayoutContainer.Position="472 80" SetSize="24 35" />
+        <TextureButton Name="WheelDownBtn" TexturePath="/Textures/_F14/Interface/Pager/button_down.png" Modulate="#00000000" LayoutContainer.Position="472 120" SetSize="24 35" />
+        <TextureButton Name="PowerOffBtn" TexturePath="/Textures/_F14/Interface/Pager/poweron button.png" LayoutContainer.Position="455 18" SetSize="30 30" />
+        <TextureButton Name="BtnNorth" TexturePath="/Textures/_F14/Interface/Pager/button_up.png" LayoutContainer.Position="342 228" SetSize="44 32" />
+        <TextureButton Name="BtnSouth" TexturePath="/Textures/_F14/Interface/Pager/button_down.png" LayoutContainer.Position="342 262" SetSize="44 32" />
+        <TextureButton Name="BtnWest" TexturePath="/Textures/_F14/Interface/Pager/button_left.png" LayoutContainer.Position="300 242" SetSize="42 42" />
+        <TextureButton Name="BtnEast" TexturePath="/Textures/_F14/Interface/Pager/button_right.png" LayoutContainer.Position="386 242" SetSize="42 42" />
+        <TextureButton Name="BtnGreen" TexturePath="/Textures/_F14/Interface/Pager/green_button.png" LayoutContainer.Position="86 226" SetSize="50 20" />
+        <TextureButton Name="BtnRed" TexturePath="/Textures/_F14/Interface/Pager/red_button.png" LayoutContainer.Position="150 226" SetSize="50 20" />
+        <TextureButton Name="BtnSpace" TexturePath="/Textures/_F14/Interface/Pager/space_button.png" LayoutContainer.Position="44 252" SetSize="198 38" />
+
+        <TextureRect Name="KeyboardPanel"
+                     TexturePath="/Textures/_F14/Interface/Pager/keyboard.png"
+                     Stretch="Scale"
+                     LayoutContainer.Position="35 310"
+                     SetSize="430 120"
+                     Visible="False" />
+    </LayoutContainer>
+</controls:PagerBaseWindow>

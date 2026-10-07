@@ -1,0 +1,49 @@
+<!-- ==========================================================
+     Content.Client/_F14/SCPOS/SCPOSSoftwareDownloadWindow.xaml
+     ==========================================================
+     xmlns:graphics оголошений ОДИН РАЗ на кореневому елементі —
+     XAMLIL забороняє повторні xmlns-декларації на вкладених вузлах.
+     ========================================================== -->
+<controls:DefaultWindow xmlns="https://spacestation14.io"
+                         xmlns:controls="clr-namespace:Robust.Client.UserInterface.CustomControls;assembly=Robust.Client"
+                         xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                         MinSize="420 420"
+                         SetSize="460 560">
+    <PanelContainer>
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#0d1710" />
+        </PanelContainer.PanelOverride>
+
+        <BoxContainer Orientation="Vertical" Margin="8 6 8 8">
+
+            <!-- ── Диск ───────────────────────────────────── -->
+            <BoxContainer Orientation="Horizontal" Margin="0 0 0 2">
+                <Label Text="Disk usage:" FontColorOverride="#8a8f8a" VerticalAlignment="Center" />
+                <Control HorizontalExpand="True" MinWidth="6" />
+                <Label Name="DiskUsageLabel" Text="0 GQ / 64 GQ" FontColorOverride="#8fd18f" />
+            </BoxContainer>
+            <ProgressBar Name="DiskUsageBar"
+                         MinValue="0" MaxValue="100" Value="0"
+                         MinHeight="14"
+                         Margin="0 0 0 4" />
+
+            <!-- ── ID-картка ──────────────────────────────── -->
+            <Label Name="IdStatusLabel"
+                   Text="NO ID CARD INSERTED"
+                   FontColorOverride="#d17d7d"
+                   Margin="0 0 0 6" />
+
+            <PanelContainer MinHeight="1" Margin="0 0 0 6">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#2a3a2a" />
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+
+            <!-- ── Список програм ─────────────────────────── -->
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Name="SoftwareList" Orientation="Vertical" HorizontalExpand="True" />
+            </ScrollContainer>
+
+        </BoxContainer>
+    </PanelContainer>
+</controls:DefaultWindow>

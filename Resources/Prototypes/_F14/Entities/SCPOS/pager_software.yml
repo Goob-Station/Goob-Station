@@ -1,0 +1,154 @@
+# ==========================================================
+# PAGER SOFTWARE STORE — Resources/Prototypes/_F14/Pager/pager_software.yml
+# ==========================================================
+# RequiredAccess посилається на теги з scp_access.yml.
+# Порожньо = доступно всім без обмежень.
+# Core: true = вже вбудована програма (безкоштовна, невидалювана).
+# Список зі скріншотів SCPOS, без AIC Maintenance Utility.
+# ==========================================================
+
+# ── ВБУДОВАНІ (вже в InstalledSoftware пейджера за замовчуванням) ──
+
+- type: pagerSoftware
+  id: pager_chat
+  name: NanoChat
+  description: Text messaging over the SCiPNET pager network.
+  diskCost: 0
+  core: true
+
+- type: pagerSoftware
+  id: pager_dispatch
+  name: Dispatch
+  description: Voice call routing between pagers with an active earpiece.
+  diskCost: 0
+  core: true
+
+
+# ── ЗАГАЛЬНОДОСТУПНІ ────────────────────────────────────────
+
+- type: pagerSoftware
+  id: pager_micro_arcade
+  name: MacroSoft Micro Arcade
+  description: A port of the classic game 'Outbomb Cuban Pete', redesigned to run on pagers.
+  diskCost: 6
+
+- type: pagerSoftware
+  id: pager_library
+  name: Library
+  description: View e-books from an external archive.
+  diskCost: 6
+
+- type: pagerSoftware
+  id: pager_newscast
+  name: Newscast
+  description: A newsfeed browser connected to standard channels.
+  diskCost: 4
+
+- type: pagerSoftware
+  id: pager_p2p_transfer
+  name: SCiPnet P2P Transfer Client
+  description: Simple file transfer via direct peer-to-peer connection.
+  diskCost: 7
+
+- type: pagerSoftware
+  id: pager_report_editor
+  name: Report Editor
+  description: A general paperwork viewing and editing utility.
+  diskCost: 2
+
+- type: pagerSoftware
+  id: pager_scanner
+  name: Scanner
+  description: Set up and use an attached scanner module.
+  diskCost: 6
+
+- type: pagerSoftware
+  id: pager_taxquickly
+  name: TaxQuickly 1.45b
+  description: Outdated tax-filing software. Nobody remembers why it's still here.
+  diskCost: 1
+
+- type: pagerSoftware
+  id: pager_personnel_manifest
+  name: Personnel Manifest
+  description: Detailed extension of the built-in crew directory.
+  diskCost: 3
+
+
+# ── ОБМЕЖЕНІ ДОСТУПОМ ────────────────────────────────────────
+
+- type: pagerSoftware
+  id: pager_camera_monitoring
+  name: Camera Monitoring
+  description: Remote access to the camera system. Some networks may require additional access.
+  diskCost: 12
+  requiredAccess:
+  - Security1
+
+- type: pagerSoftware
+  id: pager_id_modification
+  name: ID card modification program
+  description: Program for programming crew ID cards.
+  diskCost: 8
+  requiredAccess:
+  - Admin2
+  - Security3
+
+- type: pagerSoftware
+  id: pager_shield_generators
+  name: Shield Generators Monitoring
+  description: Connects to shield generators and monitors their statuses.
+  diskCost: 10
+  requiredAccess:
+  - Admin3
+  - Security4
+
+- type: pagerSoftware
+  id: pager_supply_management
+  name: Supply Management
+  description: Ordering of various supplies through the facility's cargo system.
+  diskCost: 21
+  requiredAccess:
+  - Admin1
+
+- type: pagerSoftware
+  id: pager_relay_chat_server
+  name: SCiPnet Relay Chat Server
+  description: Host a chatroom over Foundation networks.
+  diskCost: 16
+  requiredAccess:
+  - Admin2
+
+- type: pagerSoftware
+  id: pager_database
+  name: SCiPnet Database
+  description: Maintain an online database of research and containment records.
+  diskCost: 16
+  requiredAccess:
+  - Science1
+  - Admin1
+
+- type: pagerSoftware
+  id: pager_database_client
+  name: SCiPnet Database Client
+  description: Query and browse the Foundation's central research database.
+  diskCost: 16
+  requiredAccess:
+  - Science1
+  - Admin1
+
+- type: pagerSoftware
+  id: pager_crew_records
+  name: Crew Records
+  description: Detailed personnel records, disciplinary history, and clearance logs.
+  diskCost: 9
+  requiredAccess:
+  - Admin1
+
+- type: pagerSoftware
+  id: pager_email_client
+  name: Email Client
+  description: Send and receive internal Foundation correspondence.
+  diskCost: 5
+  requiredAccess:
+  - Admin1

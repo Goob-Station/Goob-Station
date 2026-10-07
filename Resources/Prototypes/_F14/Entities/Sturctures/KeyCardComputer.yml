@@ -4,6 +4,19 @@
   name: Desktop Computer
   description: Great computer that has most advanced parts! You still can see sticker "Intel Pentium" on a side panel. It has slot for id cards
   components:
+  - type: SCPOSComputer
+    diskCapacity: 64
+    installedSoftware:
+    - scpos_file_manager
+    - scpos_config_tool
+    - scpos_nanoword
+    - scpos_relay_chat_client
+  - type: UserInterface
+    interfaces:
+      enum.SCPOSSoftwareUiKey.Key:
+        type: SCPOSSoftwareDownloadBoundUserInterface
+  - type: ActivatableUI
+    key: enum.SCPOSSoftwareUiKey.Key
 
   - type: Sprite
     sprite: _F14/Structures/IDComputer.rsi

@@ -1,0 +1,178 @@
+
+- type: scposSoftware
+  id: scpos_file_manager
+  name: SCPOS File Manager
+  description: Base filesystem browser for local storage.
+  diskCost: 0
+  core: true
+  icon: /Textures/Interface/Nano/folder.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_config_tool
+  name: Computer Configuration Tool
+  description: Adjust display, network, and system settings.
+  diskCost: 0
+  core: true
+  icon: /Textures/Interface/Nano/gear.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_nanoword
+  name: NanoWord
+  description: Basic text document editor.
+  diskCost: 0
+  core: true
+  icon: /Textures/Interface/Nano/paper.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_relay_chat_client
+  name: SCiPnet Relay Chat Client
+  description: Connect to a chatroom hosted on the Foundation network.
+  diskCost: 0
+  core: true
+  icon: /Textures/Interface/Nano/chat.svg.192dpi.png
+
+
+#general
+- type: scposSoftware
+  id: scpos_micro_arcade
+  name: MacroSoft Micro Arcade
+  description: A port of the classic game 'Outbomb Cuban Pete', redesigned to run on tablets.
+  diskCost: 6
+  icon: /Textures/Interface/Nano/game.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_library
+  name: Library
+  description: View e-books from an external archive.
+  diskCost: 6
+  icon: /Textures/Interface/Nano/book.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_newscast
+  name: Newscast
+  description: A newsfeed browser connected to standard channels.
+  diskCost: 4
+  icon: /Textures/Interface/Nano/newspaper.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_p2p_transfer
+  name: SCiPnet P2P Transfer Client
+  description: Simple file transfer via direct peer-to-peer connection.
+  diskCost: 7
+  icon: /Textures/Interface/Nano/transfer.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_report_editor
+  name: Report Editor
+  description: A general paperwork viewing and editing utility.
+  diskCost: 2
+  icon: /Textures/Interface/Nano/paper.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_scanner
+  name: Scanner
+  description: Set up and use an attached scanner module.
+  diskCost: 6
+  icon: /Textures/Interface/Nano/scanner.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_taxquickly
+  name: TaxQuickly 1.45b
+  description: Outdated tax-filing software. Nobody remembers why it's still here.
+  diskCost: 1
+  icon: /Textures/Interface/Nano/paper.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_personnel_manifest
+  name: Personnel Manifest
+  description: View the current roster of on-site personnel.
+  diskCost: 3
+  icon: /Textures/Interface/Nano/id.svg.192dpi.png
+
+
+# locked by access
+
+- type: scposSoftware
+  id: scpos_camera_monitoring
+  name: Camera Monitoring
+  description: This program allows remote access to the camera system. Some camera networks may have additional access requirements.
+  diskCost: 12
+  requiredAccess:
+  - Security1
+  icon: /Textures/Interface/Nano/camera.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_id_modification
+  name: ID card modification program
+  description: Program for programming crew ID cards.
+  diskCost: 8
+  requiredAccess:
+  - Admin2
+  - Security3
+  icon: /Textures/Interface/Nano/id_card.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_shield_generators
+  name: Shield Generators Monitoring
+  description: This program connects to shield generators and monitors their statuses.
+  diskCost: 10
+  requiredAccess:
+  - Admin3
+  - Security4
+  icon: /Textures/Interface/Nano/power.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_supply_management
+  name: Supply Management
+  description: A management tool that allows for ordering of various supplies through the facility's cargo system. Some features may require additional access.
+  diskCost: 21
+  requiredAccess:
+  - Admin1
+  icon: /Textures/Interface/Nano/cart.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_relay_chat_server
+  name: SCiPnet Relay Chat Server
+  description: Servers use this program to host a chatroom over Foundation networks.
+  diskCost: 16
+  requiredAccess:
+  - Admin2
+  icon: /Textures/Interface/Nano/server.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_database
+  name: SCiPnet Database
+  description: Servers use this program to maintain an online database of research and containment records.
+  diskCost: 16
+  requiredAccess:
+  - Science1
+  - Admin1
+  icon: /Textures/Interface/Nano/database.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_database_client
+  name: SCiPnet Database Client
+  description: Query and browse the Foundation's central research database.
+  diskCost: 16
+  requiredAccess:
+  - Science1
+  - Admin1
+  icon: /Textures/Interface/Nano/database.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_crew_records
+  name: Crew Records
+  description: Detailed personnel records, disciplinary history, and clearance logs.
+  diskCost: 9
+  requiredAccess:
+  - Admin1
+  icon: /Textures/Interface/Nano/folder.svg.192dpi.png
+
+- type: scposSoftware
+  id: scpos_email_client
+  name: Email Client
+  description: Send and receive internal Foundation correspondence.
+  diskCost: 5
+  requiredAccess:
+  - Admin1
+  icon: /Textures/Interface/Nano/mail.svg.192dpi.png

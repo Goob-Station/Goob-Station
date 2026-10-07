@@ -1,8 +1,5 @@
-using System;
-using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Content.Shared.Actions;
@@ -70,7 +67,7 @@ public sealed partial class SCP0492Component : Component { }
 [Serializable, NetSerializable]
 public sealed partial class SCP049CureDoAfterEvent : SimpleDoAfterEvent { }
 
-// SCP-330 
+// SCP-330
 [RegisterComponent]
 public sealed partial class SCP330Component : Component
 {
@@ -100,7 +97,7 @@ public sealed partial class SCP113Component : Component
 {
 }
 
-//scp-106 
+//scp-106
 [Serializable, NetSerializable]
 public enum SCP106Visuals : byte
 {
@@ -386,8 +383,8 @@ public sealed partial class SCP1499Component : Component
     // saves coordinates
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityCoordinates? SavedLocation;
-    
-    // saves UID 
+
+    // saves UID
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? CurrentUser;
 }
@@ -410,3 +407,4 @@ public sealed partial class SCP458Component : Component
         "FoodPizzaMushroom",
     };
 }
+
