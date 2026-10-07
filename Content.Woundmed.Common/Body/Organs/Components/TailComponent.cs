@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Shitmed.Body.Organ;
+namespace Content.Woundmed.Common.Body.Organs.Components;
 
 [RegisterComponent]
 public sealed partial class TailComponent : Component;

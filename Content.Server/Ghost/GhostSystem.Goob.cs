@@ -7,6 +7,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage.Prototypes;
+using Content.Woundmed.Common.Body.Types;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 

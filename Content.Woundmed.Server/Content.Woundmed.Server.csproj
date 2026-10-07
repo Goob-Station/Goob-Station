@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\bin\Content.Server\</OutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+    <PackageReference Include="NWaves" />
+  </ItemGroup>
+
+  <ItemGroup>
+		<ProjectReference Include="../Content.Woundmed.Shared/Content.Woundmed.Shared.csproj" />
+		<ProjectReference Include="../Content.Server/Content.Server.csproj" />
+  </ItemGroup>
+
+  <Import Project="../MSBuild/Content.props" />
+  <Import Project="../RobustToolbox/Imports/Shared.props" />
+
+	<Import Project="../RobustToolbox/MSBuild/Robust.Properties.targets" />
+	<Import Project="../RobustToolbox/MSBuild/Robust.CompNetworkGenerator.targets" />
+  <Import Project="../RobustToolbox/MSBuild/Robust.EntitySystemSubscriptionsGenerator.targets" />
+</Project>

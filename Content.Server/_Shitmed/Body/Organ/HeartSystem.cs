@@ -6,6 +6,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Server._Shitmed.DelayedDeath;
 using Content.Shared.Body.Components;
+using Content.Woundmed.Common.Body.Organs.Components;
 
 namespace Content.Server._Shitmed.Body.Organ;
 

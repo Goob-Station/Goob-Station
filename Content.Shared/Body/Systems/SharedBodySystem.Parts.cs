@@ -13,8 +13,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 // Shitmed Change Start
-using Content.Shared._Shitmed.Body.Components;
-using Content.Shared._Shitmed.BodyEffects;
+using Content.Woundmed.Common.Body.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Humanoid;
@@ -24,6 +23,7 @@ using Robust.Shared.Random;
 // Goobstation
 using Content.Shared.Destructible;
 using Content.Shared.Random.Helpers;
+using Content.Woundmed.Common.BodyEffects;
 
 namespace Content.Shared.Body.Systems;
 

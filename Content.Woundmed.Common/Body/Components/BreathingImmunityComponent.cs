@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Shitmed.Body.Components;
+namespace Content.Woundmed.Common.Body.Components;
 
 /// <summary>
 ///     Disables a mobs need for air when this component is added.
