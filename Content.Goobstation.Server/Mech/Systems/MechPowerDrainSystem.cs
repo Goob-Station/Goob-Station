@@ -7,11 +7,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Mech.Systems;
 
-public sealed class MechPowerDrainSystem : EntitySystem
+public sealed partial class MechPowerDrainSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMechSystem _mech = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMechSystem _mech = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

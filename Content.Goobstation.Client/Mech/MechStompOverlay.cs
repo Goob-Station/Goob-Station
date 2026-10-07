@@ -7,11 +7,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Mech;
 
-public sealed class MechStompOverlay : Overlay
+public sealed partial class MechStompOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private SharedTransformSystem? _xform;
 

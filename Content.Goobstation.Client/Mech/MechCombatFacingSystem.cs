@@ -10,14 +10,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Mech;
 
-public sealed class MechCombatFacingSystem : EntitySystem
+public sealed partial class MechCombatFacingSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly MechTurningSystem _turning = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IInputManager _input = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private MechTurningSystem _turning = default!;
 
     public override void FrameUpdate(float frameTime)
     {

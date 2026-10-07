@@ -10,10 +10,10 @@ namespace Content.Goobstation.Shared.Mech.Systems;
 /// <summary>
 /// Only allows the mech to fire within this many degrees of its facing direction.
 /// </summary>
-public sealed class MechFiringArcSystem : EntitySystem
+public sealed partial class MechFiringArcSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

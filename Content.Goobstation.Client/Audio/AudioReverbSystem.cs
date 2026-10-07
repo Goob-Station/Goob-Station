@@ -11,10 +11,10 @@ namespace Content.Goobstation.Client.Audio;
 /// <summary>
 /// Changes the Reverb of everything that has this.
 /// </summary>
-public sealed class AudioReverbSystem : EntitySystem
+public sealed partial class AudioReverbSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

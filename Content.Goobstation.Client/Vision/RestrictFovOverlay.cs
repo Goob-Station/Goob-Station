@@ -7,15 +7,15 @@ using Robust.Shared.Enums;
 
 namespace Content.Goobstation.Client.Vision;
 
-public sealed class RestrictFovOverlay : Overlay
+public sealed partial class RestrictFovOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private SharedTransformSystem? _transform;
     private SharedContainerSystem? _container;
-    private readonly EntityQuery<RestrictFovComponent> _fovQuery;
-    private readonly EntityQuery<TransformComponent> _xformQuery;
+    [Dependency] private EntityQuery<RestrictFovComponent> _fovQuery;
+    [Dependency] private EntityQuery<TransformComponent> _xformQuery;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => false;
@@ -31,9 +31,6 @@ public sealed class RestrictFovOverlay : Overlay
         IoCManager.InjectDependencies(this);
 
         ZIndex = 200;
-
-        _fovQuery = _entity.GetEntityQuery<RestrictFovComponent>();
-        _xformQuery = _entity.GetEntityQuery<TransformComponent>();
     }
 
     private EntityUid GetAnchor(EntityUid uid)

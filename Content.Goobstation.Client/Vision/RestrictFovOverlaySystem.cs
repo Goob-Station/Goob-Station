@@ -5,10 +5,10 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.Vision;
 
-public sealed class RestrictFovOverlaySystem : EntitySystem
+public sealed partial class RestrictFovOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IPlayerManager _playerMan = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IPlayerManager _playerMan = default!;
 
     private readonly RestrictFovOverlay _overlay = new();
 

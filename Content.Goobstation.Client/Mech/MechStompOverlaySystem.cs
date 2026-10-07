@@ -8,12 +8,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Mech;
 
-public sealed class MechStompOverlaySystem : EntitySystem
+public sealed partial class MechStompOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private readonly MechStompOverlay _overlay = new();
     private readonly Dictionary<EntityUid, Vector2> _lifted = new();

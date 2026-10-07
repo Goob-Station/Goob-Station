@@ -6,9 +6,9 @@ using Content.Shared.Movement.Components;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
-public sealed class MechThrusterModuleSystem : EntitySystem
+public sealed partial class MechThrusterModuleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
 
     public override void Initialize()
     {

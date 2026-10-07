@@ -13,14 +13,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
-public sealed class MechLockSystem : EntitySystem
+public sealed partial class MechLockSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly LockSystem _lock = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private LockSystem _lock = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

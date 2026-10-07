@@ -18,15 +18,15 @@ namespace Content.Goobstation.Shared.Mech.Systems;
 /// Allows the mech to move faster while it's overclocked.
 /// While overclocked it gets increased power drain and loses integrity.
 /// </summary>
-public sealed class MechOverclockSystem : EntitySystem
+public sealed partial class MechOverclockSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedMechSystem _mech = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedMechSystem _mech = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
 
     public override void Initialize()
     {

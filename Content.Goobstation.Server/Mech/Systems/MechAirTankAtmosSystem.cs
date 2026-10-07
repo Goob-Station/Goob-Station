@@ -6,9 +6,9 @@ using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Mech.Systems;
 
-public sealed class MechAirTankAtmosSystem : EntitySystem
+public sealed partial class MechAirTankAtmosSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
 
     public override void Initialize()
     {

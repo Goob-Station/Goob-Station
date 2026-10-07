@@ -4,10 +4,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
-public sealed class SharedMechStompOverlaySystem : EntitySystem
+public sealed partial class SharedMechStompOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

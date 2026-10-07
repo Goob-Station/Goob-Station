@@ -5,9 +5,9 @@ using Robust.Shared.Serialization.Manager;
 
 namespace Content.Goobstation.Server.Mech.Systems;
 
-public sealed class GiveMechPilotSystem : EntitySystem
+public sealed partial class GiveMechPilotSystem : EntitySystem
 {
-    [Dependency] private readonly ISerializationManager _serialization = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
 
     public override void Initialize()
     {

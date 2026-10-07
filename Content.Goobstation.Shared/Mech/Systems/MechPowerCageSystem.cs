@@ -8,11 +8,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
-public sealed class MechPowerCageSystem : EntitySystem
+public sealed partial class MechPowerCageSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {

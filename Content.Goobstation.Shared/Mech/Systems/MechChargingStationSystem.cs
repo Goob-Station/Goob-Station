@@ -14,17 +14,17 @@ namespace Content.Goobstation.Shared.Mech.Systems;
 /// <summary>
 /// Charges any mechs that are in the same tile as the charging station.
 /// </summary>
-public sealed class MechChargingStationSystem : EntitySystem
+public sealed partial class MechChargingStationSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedMechSystem _mech = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedMechSystem _mech = default!;
+    [Dependency] private SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambient = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
 
     public override void Initialize()
     {

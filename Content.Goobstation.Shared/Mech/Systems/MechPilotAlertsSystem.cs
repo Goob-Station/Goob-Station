@@ -5,10 +5,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
-public sealed class MechPilotAlertsSystem : EntitySystem
+public sealed partial class MechPilotAlertsSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
 
     public override void Update(float frameTime)
     {

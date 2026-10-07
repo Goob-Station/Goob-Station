@@ -14,11 +14,11 @@ namespace Content.Goobstation.Shared.Mech.Systems;
 
 public sealed partial class MechTurningSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
 
     public override void Initialize()
     {

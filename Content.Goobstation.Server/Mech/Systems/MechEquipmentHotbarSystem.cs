@@ -12,10 +12,10 @@ namespace Content.Goobstation.Server.Mech.Systems;
 /// <summary>
 /// Adds an action for mech users for each piece of equipment they have equipped.
 /// </summary>
-public sealed class MechEquipmentHotbarSystem : EntitySystem
+public sealed partial class MechEquipmentHotbarSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
