@@ -1,0 +1,80 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+               Title="{Loc admin-objectives-title}"
+               MinSize="640 560"
+               SetSize="640 600">
+    <BoxContainer Orientation="Vertical" Margin="4">
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+            <Label Name="PlayerLabel" HorizontalExpand="True" ClipText="True" />
+            <Button Name="RefreshButton" Text="{Loc admin-objectives-refresh}" />
+        </BoxContainer>
+
+        <TabContainer Name="Tabs" VerticalExpand="True" HorizontalExpand="True">
+            <!-- Current objectives -->
+            <ScrollContainer HScrollEnabled="False" VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Name="ObjectiveList" Orientation="Vertical" HorizontalExpand="True" Margin="2" />
+            </ScrollContainer>
+
+            <!-- Add from prototype -->
+            <BoxContainer Orientation="Vertical" Margin="4">
+                <LineEdit Name="ProtoSearch" HorizontalExpand="True" PlaceHolder="{Loc admin-objectives-search}" />
+                <Control MinHeight="4" />
+                <ItemList Name="ProtoList" SelectMode="Single" VerticalExpand="True" HorizontalExpand="True" />
+                <Control MinHeight="4" />
+                <Label Name="ProtoNameLabel" StyleClasses="LabelSubText" />
+                <BoxContainer Name="TargetBox" Orientation="Horizontal" Visible="False">
+                    <Label Text="{Loc admin-objectives-target}" MinWidth="80" />
+                    <OptionButton Name="TargetOption" HorizontalExpand="True" />
+                </BoxContainer>
+                <CheckBox Name="BypassCheck" Text="{Loc admin-objectives-bypass}" ToolTip="{Loc admin-objectives-bypass-tooltip}" />
+                <Button Name="AddProtoButton" Text="{Loc admin-objectives-add}" Disabled="True" />
+            </BoxContainer>
+
+            <!-- Custom -->
+            <BoxContainer Orientation="Vertical" Margin="4">
+                <Label Text="{Loc admin-objectives-custom-info}" StyleClasses="LabelSubText" />
+                <Control MinHeight="4" />
+                <Label Text="{Loc admin-objectives-custom-title}" />
+                <LineEdit Name="CustomTitle" HorizontalExpand="True" />
+                <Control MinHeight="4" />
+                <Label Text="{Loc admin-objectives-custom-description}" />
+                <TextEdit Name="CustomDescription" MinHeight="120" VerticalExpand="True" HorizontalExpand="True" />
+                <Control MinHeight="4" />
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc admin-objectives-issuer}" MinWidth="80" />
+                    <OptionButton Name="CustomIssuer" HorizontalExpand="True" />
+                </BoxContainer>
+                <Button Name="AddCustomButton" Text="{Loc admin-objectives-add}" />
+            </BoxContainer>
+
+            <!-- Steal -->
+            <BoxContainer Orientation="Vertical" Margin="4">
+                <Label Text="{Loc admin-objectives-steal-info}" StyleClasses="LabelSubText" />
+                <Control MinHeight="4" />
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc admin-objectives-steal-entity}" MinWidth="80" />
+                    <LineEdit Name="StealEntity" HorizontalExpand="True" PlaceHolder="{Loc admin-objectives-steal-placeholder}" />
+                </BoxContainer>
+                <Control MinHeight="4" />
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc admin-objectives-issuer}" MinWidth="80" />
+                    <OptionButton Name="StealIssuer" HorizontalExpand="True" />
+                </BoxContainer>
+                <Control MinHeight="4" />
+                <Button Name="AddStealButton" Text="{Loc admin-objectives-add}" />
+                <Control VerticalExpand="True" />
+            </BoxContainer>
+        </TabContainer>
+
+        <PanelContainer Margin="0 4 0 0">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1b1b1e" />
+            </PanelContainer.PanelOverride>
+            <Label Name="StatusLabel" Text=" " Margin="4" />
+        </PanelContainer>
+    </BoxContainer>
+</DefaultWindow>

@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Objectives that are only created by admins through the objectives panel (objectivespanel).
+# Their title, description, issuer (and for steal, icon) are filled in at creation time.
+
+# Always complete, shows whatever the admin typed.
+- type: entity
+  parent: BaseObjective
+  id: AdminCustomObjective
+  name: Custom objective
+  description: An objective given to you by the admins.
+  components:
+  - type: Objective
+    difficulty: 0
+    issuer: objective-issuer-unknown
+    unique: false
+    serverCurrency: 0 # no free goobcoin from admin typed objectives
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: paper_words
+  - type: RoleplayObjective # always reports full progress
+
+# Steal one specific entity, designated by its entity id.
+- type: entity
+  parent: BaseObjective
+  id: AdminStealObjective
+  name: Steal something
+  description: Steal the item you were told about.
+  components:
+  - type: Objective
+    difficulty: 0
+    issuer: objective-issuer-unknown
+    unique: false
+    serverCurrency: 0
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: paper_words
+  - type: AdminStealCondition
