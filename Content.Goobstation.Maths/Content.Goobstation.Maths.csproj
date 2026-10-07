@@ -3,6 +3,7 @@
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>Content.Goobstation.Maths</RootNamespace>
+        <WarningsAsErrors>nullable;RA0049;RA0051</WarningsAsErrors>
     </PropertyGroup>
     <Import Project="../MSBuild/Content.props" />
 
