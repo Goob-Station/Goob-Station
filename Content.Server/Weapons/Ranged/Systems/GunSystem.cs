@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
+using System.Linq; // Goobstation
 using System.Numerics;
 using Content.Goobstation.Common.Projectiles;
 using Content.Server.Atmos.EntitySystems;
@@ -18,9 +18,9 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 using Robust.Shared.Audio;
-using Content.Shared.Physics;
+using Content.Shared.Physics; // Goobstation
 using Robust.Shared.Map;
-using Robust.Shared.Physics;
+using Robust.Shared.Physics; // Goobstation
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
