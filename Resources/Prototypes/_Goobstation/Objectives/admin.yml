@@ -1,4 +1,3 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
 # Objectives that are only created by admins through the objectives panel (objectivespanel).
 # Their title, description, issuer (and for steal, icon) are filled in at creation time.
 

@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Eui;
 using Content.Shared.Objectives;
 using Robust.Shared.Serialization;

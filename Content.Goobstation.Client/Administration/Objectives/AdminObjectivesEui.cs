@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.Eui;
 using Content.Goobstation.Shared.Administration.Objectives;
 using Content.Shared.Eui;
