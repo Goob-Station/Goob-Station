@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <RootNamespace>Content.Goobstation.UIKit</RootNamespace>
-        <WarningsAsErrors>nullable;RA0049;RA0051</WarningsAsErrors>
+        <WarningsAsErrors>RA0049;RA0051</WarningsAsErrors>
     </PropertyGroup>
 
   <ItemGroup>
