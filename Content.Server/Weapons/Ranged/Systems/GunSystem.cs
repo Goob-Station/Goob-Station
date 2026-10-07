@@ -102,8 +102,8 @@ public sealed partial class GunSystem : SharedGunSystem
         var fromEnt = _map.TryFindGridAt(fromMap, out var gridUid, out _)
             ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
             : new EntityCoordinates(_map.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
-        var toMapBeforeRecoil = toMap; // Goobstation
         */
+        var toMapBeforeRecoil = toMap; // Goobstation
 
         // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
