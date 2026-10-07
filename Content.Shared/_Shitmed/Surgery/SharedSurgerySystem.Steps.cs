@@ -31,6 +31,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared._Shitmed.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
+using Content.Woundmed.Common.BodyEffects.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 

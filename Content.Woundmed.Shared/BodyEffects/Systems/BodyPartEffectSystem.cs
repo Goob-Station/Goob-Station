@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Body.Part;
-using Content.Woundmed.Common.BodyEffects;
+using Content.Woundmed.Common.BodyEffects.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 
-namespace Content.Woundmed.Shared.BodyEffects;
+namespace Content.Woundmed.Shared.BodyEffects.Systems;
 
 public sealed partial class BodyPartEffectSystem : EntitySystem
 {

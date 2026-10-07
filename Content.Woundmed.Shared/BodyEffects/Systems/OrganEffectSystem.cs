@@ -9,21 +9,16 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using Robust.Shared.Network;
+using Content.Woundmed.Common.BodyEffects.Components;
 
 
-namespace Content.Shared._Shitmed.BodyEffects;
+namespace Content.Woundmed.Shared.BodyEffects.Systems;
+
 public sealed partial class OrganEffectSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<OrganComponent, OrganComponentsModifyEvent>(OnOrganComponentsModify);
-    }
 
     // While I would love to kill this function, problem is that if we happen to have two parts that add the same
     // effect, removing one will remove both of them, since we cant tell what the source of a Component is.
@@ -41,10 +36,11 @@ public sealed partial class OrganEffectSystem : EntitySystem
                 continue;
 
             comp.NextUpdate = now + comp.Delay;
-            AddComponents(body, uid, comp.Active, comp, false);
+            AddComponents(body, uid, comp.Active);
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnOrganComponentsModify(Entity<OrganComponent> organEnt,
         ref OrganComponentsModifyEvent ev)
     {
@@ -71,15 +67,20 @@ public sealed partial class OrganEffectSystem : EntitySystem
     private void AddComponents(EntityUid body,
         EntityUid part,
         ComponentRegistry reg,
-        OrganEffectComponent? effectComp = null,
-        bool? removeExisting = true)
+        OrganEffectComponent? effectComp = null)
     {
         if (!Resolve(part, ref effectComp, logMissing: false))
             return;
 
-        EntityManager.AddComponents(body, reg, removeExisting ?? true);
         foreach (var (key, comp) in reg)
         {
+            var compType = comp.Component.GetType();
+            if (HasComp(body, compType))
+                continue;
+
+            var newComp = (Component) _serManager.CreateCopy(comp.Component, notNullableOverride: true);
+            AddComp(body, newComp, true);
+
             effectComp.Active[key] = comp;
         }
     }
@@ -92,9 +93,9 @@ public sealed partial class OrganEffectSystem : EntitySystem
         if (!Resolve(part, ref effectComp, logMissing: false))
             return;
 
-        EntityManager.RemoveComponents(body, reg);
-        foreach (var key in reg.Keys)
+        foreach (var (key, comp) in reg)
         {
+            RemComp(body, comp.Component.GetType());
             effectComp.Active.Remove(key);
         }
     }

@@ -24,6 +24,7 @@ using Robust.Shared.Random;
 using Content.Shared.Destructible;
 using Content.Shared.Random.Helpers;
 using Content.Woundmed.Common.BodyEffects;
+using Content.Woundmed.Common.BodyEffects.Components;
 
 namespace Content.Shared.Body.Systems;
 

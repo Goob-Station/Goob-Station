@@ -7,10 +7,10 @@ using Robust.Shared.Containers;
 
 // Shitmed Change
 
-using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Heretic;
 using Content.Woundmed.Common.Body.Organs.Components;
+using Content.Woundmed.Common.BodyEffects.Components;
 
 namespace Content.Shared.Body.Systems;
 
