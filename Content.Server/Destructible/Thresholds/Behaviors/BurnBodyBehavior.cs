@@ -52,6 +52,6 @@ public sealed partial class BurnBodyBehavior : IThresholdBehavior
         var bodyIdentity = Identity.Entity(bodyId, system.EntityManager);
         sharedPopupSystem.PopupCoordinates(Loc.GetString(PopupMessage, ("name", bodyIdentity)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
 
-        //system.EntityManager.QueueDeleteEntity(bodyId);
+        system.EntityManager.QueueDeleteEntity(bodyId);
     }
 }
