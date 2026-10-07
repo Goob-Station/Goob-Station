@@ -16,9 +16,8 @@ namespace Content.Woundmed.Shared.BodyEffects.Systems;
 
 public sealed partial class OrganEffectSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private ISerializationManager _serManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     // While I would love to kill this function, problem is that if we happen to have two parts that add the same
     // effect, removing one will remove both of them, since we cant tell what the source of a Component is.
