@@ -121,10 +121,12 @@ public sealed partial class GunSystem : SharedGunSystem
         }
         // Goobstation End
 
+        // Goobstation Start
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromEnt = _map.TryFindGridAt(fromMap, out var gridUid, out _)
             ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
             : new EntityCoordinates(_map.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
+            // Goobstation End
 
         var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
 
