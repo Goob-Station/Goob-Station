@@ -26,8 +26,11 @@ public sealed partial class WoundSystem
     /// <param name="parentWoundableEntity">Parent of the woundable entity.</param>
     /// <param name="woundableEntity">The entity containing the vulnerable body part</param>
     /// <param name="woundableComp">Woundable component of woundableEntity.</param>
-    public void DestroyWoundable(EntityUid parentWoundableEntity, EntityUid woundableEntity, WoundableComponent woundableComp)
+    public void DestroyWoundable(EntityUid parentWoundableEntity, EntityUid woundableEntity, WoundableComponent? woundableComp)
     {
+        if (!Resolve(woundableEntity, ref woundableComp, false))
+            return;
+
         if (!TryComp<BodyPartComponent>(woundableEntity, out var bodyPart))
             return;
 
