@@ -10,8 +10,8 @@ namespace Content.Goobstation.Shared.EntityEffects;
 // i dont even know if this works. if you're reading this, it likely doesn't. Change the Comp.
 public sealed partial class CreateRQuantityEntityReactionEffectSystem : EntityEffectSystem<ReactiveComponent, CreateRQuantityEntityReactionEffect>
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<CreateRQuantityEntityReactionEffect> args)
     {

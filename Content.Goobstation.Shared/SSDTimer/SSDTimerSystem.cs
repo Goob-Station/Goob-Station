@@ -6,10 +6,10 @@ using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Shared.SSDTimer;
 
-public sealed class SSDTimerSystem : EntitySystem
+public sealed partial class SSDTimerSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
 	
 	private float _icSsdSleepTime;
 

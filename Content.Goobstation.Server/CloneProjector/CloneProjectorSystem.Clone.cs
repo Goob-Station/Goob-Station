@@ -21,7 +21,7 @@ namespace Content.Goobstation.Server.CloneProjector;
 
 public partial class CloneProjectorSystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private SharedBodySystem _body = default!;
     public void InitializeClone()
     {
         SubscribeLocalEvent<HolographicCloneComponent, MapInitEvent>(OnInit);

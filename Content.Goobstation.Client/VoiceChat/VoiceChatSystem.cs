@@ -25,7 +25,7 @@ namespace Content.Goobstation.Client.VoiceChat;
 
 public readonly record struct VoiceSpeakerInfo(string Name, ProtoId<RadioChannelPrototype>? Channel);
 
-public sealed class VoiceSelfState
+public sealed partial class VoiceSelfState
 {
     public ushort Speaker;
     public VoiceSelfFlags Flags;
@@ -35,18 +35,18 @@ public sealed class VoiceSelfState
     public TimeSpan LastReceived;
 }
 
-public sealed class VoiceChatSystem : EntitySystem
+public sealed partial class VoiceChatSystem : EntitySystem
 {
-    [Dependency] private readonly VoiceChatManager _manager = default!;
-    [Dependency] private readonly IAudioManager _audioManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly IOverlayManager _overlays = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private VoiceChatManager _manager = default!;
+    [Dependency] private IAudioManager _audioManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IInputManager _input = default!;
+    [Dependency] private IOverlayManager _overlays = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
 
     private static readonly TimeSpan IdleTimeout = TimeSpan.FromSeconds(10);
     private static readonly float[] VolumeLevels = { 0.25f, 0.5f, 1f, 1.5f, 2f };

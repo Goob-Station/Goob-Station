@@ -23,17 +23,17 @@ using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.Pirates.Siphon;
 
-public sealed class ResourceSiphonSystem : EntitySystem
+public sealed partial class ResourceSiphonSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StationAnchorSystem _anchor = default!;
-    [Dependency] private readonly CargoSystem _cargo = default!;
-    [Dependency] private readonly PricingSystem _pricing = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private StationAnchorSystem _anchor = default!;
+    [Dependency] private CargoSystem _cargo = default!;
+    [Dependency] private PricingSystem _pricing = default!;
+    [Dependency] private TransformSystem _xform = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
 
     private float _tickTimer = 1f;
 

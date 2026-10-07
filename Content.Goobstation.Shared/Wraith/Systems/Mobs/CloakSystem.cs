@@ -6,11 +6,11 @@ using Content.Shared.Stealth.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Systems.Mobs;
-public sealed class CloakSystem : EntitySystem
+public sealed partial class CloakSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStealthSystem _stealth = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
         base.Initialize();

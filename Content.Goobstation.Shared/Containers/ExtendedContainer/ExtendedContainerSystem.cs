@@ -10,9 +10,9 @@ namespace Content.Goobstation.Shared.Containers.ExtendedContainer;
 
 public sealed partial class ExtendedContainerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistsystem = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistsystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

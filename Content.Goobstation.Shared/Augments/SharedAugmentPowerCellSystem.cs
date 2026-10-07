@@ -6,11 +6,11 @@ using Content.Shared.PowerCell.Components;
 
 namespace Content.Goobstation.Shared.Augments;
 
-public abstract class SharedAugmentPowerCellSystem : CommonAugmentPowerCellSystem
+public abstract partial class SharedAugmentPowerCellSystem : CommonAugmentPowerCellSystem
 {
-    [Dependency] protected readonly AugmentSystem Augment = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] protected readonly PowerCellSystem _powerCell = default!;
+    [Dependency] protected AugmentSystem Augment = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] protected PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {

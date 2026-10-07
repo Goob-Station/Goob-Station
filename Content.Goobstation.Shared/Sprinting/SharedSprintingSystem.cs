@@ -31,18 +31,18 @@ using System.Numerics;
 using Content.Shared.Movement.Events;
 
 namespace Content.Goobstation.Shared.Sprinting;
-public abstract class SharedSprintingSystem : EntitySystem
+public abstract partial class SharedSprintingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedMoverController _moverController = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedStaminaSystem _staminaSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedMoverController _moverController = default!;
+    [Dependency] private INetManager _net = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<SprinterComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
@@ -69,7 +69,7 @@ public abstract class SharedSprintingSystem : EntitySystem
 
     #region Core Functions
 
-    private sealed class SprintInputCmdHandler(SharedSprintingSystem system) : InputCmdHandler
+    private sealed partial class SprintInputCmdHandler(SharedSprintingSystem system) : InputCmdHandler
     {
         public override bool HandleCmdMessage(IEntityManager entManager, ICommonSession? session, IFullInputCmdMessage message)
         {

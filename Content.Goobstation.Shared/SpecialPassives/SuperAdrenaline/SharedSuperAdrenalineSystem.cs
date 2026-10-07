@@ -21,14 +21,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline;
 
-public sealed class SharedSuperAdrenalineSystem : EntitySystem
+public sealed partial class SharedSuperAdrenalineSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly PainSystem _pain = default!;
-    [Dependency] private readonly SleepingSystem _sleep = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private ConsciousnessSystem _consciousness = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private PainSystem _pain = default!;
+    [Dependency] private SleepingSystem _sleep = default!;
 
     private EntityQuery<MobStateComponent> _mobstateQuery;
     private EntityQuery<NerveSystemComponent> _nerveQuery;

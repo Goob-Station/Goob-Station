@@ -10,9 +10,9 @@ namespace Content.Goobstation.Shared.Inventory;
 
 public sealed partial class GoobInventorySystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private EntityQuery<MetaDataComponent> _metaQuery;
     private EntityQuery<ContainerManagerComponent> _managerQuery;

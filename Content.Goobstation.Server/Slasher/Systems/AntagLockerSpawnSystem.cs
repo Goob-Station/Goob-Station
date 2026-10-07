@@ -18,15 +18,15 @@ namespace Content.Goobstation.Server.Slasher.Systems;
 /// Handles placing the antag ghost-role spawner inside a random station locker.
 /// Works with AntagSelection.
 /// </summary>
-public sealed class AntagLockerSpawnSystem : GameRuleSystem<AntagLockerSpawnComponent>
+public sealed partial class AntagLockerSpawnSystem : GameRuleSystem<AntagLockerSpawnComponent>
 {
     private static readonly ProtoId<TagPrototype> MaintenanceClosetTag = "MaintenanceCloset";
 
-    [Dependency] private readonly AntagBetterRandomSpawnSystem _betterSpawn = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private AntagBetterRandomSpawnSystem _betterSpawn = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
 
     public override void Initialize()
     {

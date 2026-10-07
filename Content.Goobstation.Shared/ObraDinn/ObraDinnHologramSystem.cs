@@ -23,10 +23,10 @@ namespace Content.Goobstation.Shared.ObraDinn;
 /// <summary>
 /// This handles temporary holograms from the obra dinn clock
 /// </summary>
-public sealed class ObraDinnHologramSystem : EntitySystem
+public sealed partial class ObraDinnHologramSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

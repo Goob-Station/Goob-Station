@@ -8,7 +8,7 @@ namespace Content.Goobstation.Server.Damage;
 
 public sealed partial class SpawnSolutionOnDamageSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private IRobustRandom _random = null!;
      public override void Initialize()
     {
         SubscribeLocalEvent<SpawnSolutionOnDamageComponent, BeforeDamageChangedEvent>(OnTakeDamage);

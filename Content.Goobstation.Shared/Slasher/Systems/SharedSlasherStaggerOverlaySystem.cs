@@ -7,10 +7,10 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// <summary>
 /// Handles the lifetime of the stagger area component.
 /// </summary>
-public sealed class SharedSlasherStaggerOverlaySystem : EntitySystem
+public sealed partial class SharedSlasherStaggerOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

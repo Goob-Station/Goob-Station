@@ -25,17 +25,17 @@ using Content.Shared.Damage.Components;
 
 namespace Content.Goobstation.Shared.SpecialPassives.Fleshmend;
 
-public sealed class SharedFleshmendSystem : EntitySystem
+public sealed partial class SharedFleshmendSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly WoundSystem _wound = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private DamageableSystem _dmg = default!;
+    [Dependency] private WoundSystem _wound = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
     private EntityQuery<MobStateComponent> _mobstateQuery;

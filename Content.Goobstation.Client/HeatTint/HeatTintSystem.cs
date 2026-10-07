@@ -4,11 +4,11 @@ using Robust.Shared.Reflection;
 
 namespace Content.Goobstation.Client.HeatTint;
 
-public sealed class HeatTintSystem : SharedHeatTintSystem
+public sealed partial class HeatTintSystem : SharedHeatTintSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly IReflectionManager _reflection = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private IReflectionManager _reflection = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

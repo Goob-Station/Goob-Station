@@ -8,12 +8,12 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.Shadowling;
 
-public sealed class EnthrallSystem : SharedEnthrallSystem
+public sealed partial class EnthrallSystem : SharedEnthrallSystem
 {
     private EnthrallOverlay _overlay = default!;
 
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
 
     public override void Initialize()
     {

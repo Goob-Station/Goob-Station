@@ -9,7 +9,7 @@ namespace Content.Goobstation.Server.ChronoLegionnaire.Systems;
 
 public sealed partial class StasisGunSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private InventorySystem _inventory = default!;
     public override void Initialize()
     {
         base.Initialize();

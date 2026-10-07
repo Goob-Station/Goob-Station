@@ -13,12 +13,12 @@ using Content.Shared.Mind;
 
 namespace Content.Goobstation.Server.StationEvents;
 
-public sealed class JobAddCollectiveMindRule : StationEventSystem<JobAddCollectiveMindRuleComponent>
+public sealed partial class JobAddCollectiveMindRule : StationEventSystem<JobAddCollectiveMindRuleComponent>
 {
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SharedJobSystem _job = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
 
     protected override void Started(EntityUid uid, JobAddCollectiveMindRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

@@ -9,11 +9,11 @@ using Robust.Shared.Player;
 namespace Content.Goobstation.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronTestAddCommand : LocalizedCommands
+internal sealed partial class PatronTestAddCommand : LocalizedCommands
 {
     private static readonly string[] BoolOptions = ["true", "false"];
 
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
+    [Dependency] private LinkAccountManager _linkAccount = default!;
 
     public override string Command => "patrontest:add";
 
@@ -84,10 +84,10 @@ internal sealed class PatronTestAddCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronTestSetCommand : LocalizedCommands
+internal sealed partial class PatronTestSetCommand : LocalizedCommands
 {
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private LinkAccountManager _linkAccount = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     public override string Command => "patrontest:set";
 
@@ -166,10 +166,10 @@ internal sealed class PatronTestSetCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronTestListCommand : LocalizedCommands
+internal sealed partial class PatronTestListCommand : LocalizedCommands
 {
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private LinkAccountManager _linkAccount = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     public override string Command => "patrontest:list";
 

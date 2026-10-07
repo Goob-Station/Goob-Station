@@ -16,14 +16,14 @@ namespace Content.Goobstation.Server.Wraith.Curses;
 /// <summary>
 /// This handles the custom logic of Curse of Death
 /// </summary>
-public sealed class CurseDeathSystem : EntitySystem
+public sealed partial class CurseDeathSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SmokeSystem _smokeSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly WraithPointsSystem _wraithPoints = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SmokeSystem _smokeSystem = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
+    [Dependency] private WraithPointsSystem _wraithPoints = default!;
+    [Dependency] private BodySystem _bodySystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

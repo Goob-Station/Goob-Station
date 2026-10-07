@@ -9,10 +9,10 @@ using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
-public abstract class SharedCloneProjectorSystem : EntitySystem
+public abstract partial class SharedCloneProjectorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
     public override void Initialize()
     {
         base.Initialize();

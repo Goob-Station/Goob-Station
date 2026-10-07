@@ -7,10 +7,10 @@ using DrawDepthEnum = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Goobstation.Client.Sandevistan;
 
-public sealed class ClientSandevistanAfterimageSystem : EntitySystem
+public sealed partial class ClientSandevistanAfterimageSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
 
     private static readonly ProtoId<TagPrototype> HideContextMenuTag = "HideContextMenu";
 

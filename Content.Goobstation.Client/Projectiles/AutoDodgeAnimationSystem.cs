@@ -9,9 +9,9 @@ namespace Content.Goobstation.Client.Projectiles;
 /// <summary>
 /// Plays the dodge animation on auto-dodging entities.
 /// </summary>
-public sealed class AutoDodgeAnimationSystem : EntitySystem
+public sealed partial class AutoDodgeAnimationSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
 
     public override void Initialize()
     {

@@ -7,10 +7,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.MiscSignaller;
 
-public sealed class MiscSignallerSystem : EntitySystem
+public sealed partial class MiscSignallerSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _link = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private DeviceLinkSystem _link = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

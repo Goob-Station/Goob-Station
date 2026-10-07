@@ -43,27 +43,27 @@ namespace Content.Goobstation.Server.CloneProjector;
 
 public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly CarryingSystem _carrying = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly MobThresholdSystem _thresholds = default!;
-    [Dependency] private readonly GhostRoleSystem _ghost = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private SharedJointSystem _joints = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private CarryingSystem _carrying = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private MobThresholdSystem _thresholds = default!;
+    [Dependency] private GhostRoleSystem _ghost = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
 
     private ISawmill _sawmill = default!;
     public override void Initialize()

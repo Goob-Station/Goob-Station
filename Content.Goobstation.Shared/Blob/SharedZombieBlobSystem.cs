@@ -9,9 +9,9 @@ using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Goobstation.Shared.Blob;
 
-public abstract class SharedZombieBlobSystem : EntitySystem
+public abstract partial class SharedZombieBlobSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

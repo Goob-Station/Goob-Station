@@ -6,10 +6,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Wraith.Systems.Minions;
 
-public sealed class DiseasedRatSystem : SharedDiseasedRatSystem
+public sealed partial class DiseasedRatSystem : SharedDiseasedRatSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
 
     protected override void Evolve(EntityUid uid, ProtoId<DiseasedRatFormUnlockPrototype> newProto)
     {

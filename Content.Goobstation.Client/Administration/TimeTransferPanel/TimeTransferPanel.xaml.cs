@@ -16,9 +16,9 @@ namespace Content.Goobstation.Client.Administration.TimeTransferPanel;
 [GenerateTypedNameReferences]
 public sealed partial class TimeTransferPanel : DefaultWindow
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     private readonly SpriteSystem _spriteSystem;
 

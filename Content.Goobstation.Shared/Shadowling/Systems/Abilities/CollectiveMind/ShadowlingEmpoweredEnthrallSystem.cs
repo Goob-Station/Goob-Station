@@ -12,12 +12,12 @@ namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.CollectiveMind
 /// Empowered enthrall is like the basic enthrall, however it can bypass Mindshields, has slightly longer range.
 /// It also takes less time to enthrall someone.
 /// </summary>
-public sealed class ShadowlingEmpoweredEnthrallSystem : EntitySystem
+public sealed partial class ShadowlingEmpoweredEnthrallSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedShadowlingSystem _shadowling = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedShadowlingSystem _shadowling = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

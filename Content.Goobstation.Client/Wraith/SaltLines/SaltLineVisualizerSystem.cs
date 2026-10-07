@@ -3,10 +3,10 @@ using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Wraith.SaltLines;
 
-public sealed class SaltLineVisualizerSystem : EntitySystem
+public sealed partial class SaltLineVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SpriteSystem _spriteSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

@@ -3,9 +3,9 @@ using Robust.Shared.Map;
 namespace Content.Goobstation.Server.SpaceWhale; // predictions? how bout you predict my ass, but seriously this is THE problem with ts cuz i have no fucking idea how to predict it
 // edit ok nvm it looks sorta fine with mobs but please do not put this on something that is predicted otherwise it will look like shit
 
-public sealed class TailedEntitySystem : EntitySystem
+public sealed partial class TailedEntitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
 
 
     public override void Initialize()

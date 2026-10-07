@@ -21,14 +21,14 @@ namespace Content.Goobstation.Client.Particles;
 /// </summary>
 public sealed partial class ParticleSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IResourceCache _resource = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private IResourceCache _resource = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private readonly List<ActiveEmitter> _emitters = new();
     private readonly List<(ProtoId<ParticleEffectPrototype> Id, MapCoordinates Coords)> _pendingSubEmitters = new();

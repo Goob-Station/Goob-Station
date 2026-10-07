@@ -13,9 +13,9 @@ namespace Content.Goobstation.Server.Penalties.Systems;
 
 public sealed partial class OuterSlotPenaltySystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
 
     public override void Initialize()
     {

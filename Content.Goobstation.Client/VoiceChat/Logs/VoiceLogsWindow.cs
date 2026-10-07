@@ -11,11 +11,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.VoiceChat.Logs;
 
-public sealed class VoiceLogsWindow : DefaultWindow
+public sealed partial class VoiceLogsWindow : DefaultWindow
 {
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IAudioManager _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IAudioManager _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const long LeadMs = 60;
     private const long PrefetchMs = 20000;

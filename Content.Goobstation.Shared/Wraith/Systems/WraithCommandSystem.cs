@@ -15,14 +15,14 @@ namespace Content.Goobstation.Shared.Wraith.Systems;
 /// This handles the command ability of Wraith.
 /// Hurls a few nearby loose objects at the chosen target.
 /// </summary>
-public sealed class WraithCommandSystem : EntitySystem
+public sealed partial class WraithCommandSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private EntityLookupSystem _lookupSystem = default!;
+    [Dependency] private ThrowingSystem _throwingSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private INetManager _netManager = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

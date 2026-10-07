@@ -13,15 +13,15 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.ItemMiner;
 
-public sealed class ItemMinerSystem : EntitySystem
+public sealed partial class ItemMinerSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private StackSystem _stack = default!;
 
     // no freezing the game
     private TimeSpan _minInterval = TimeSpan.FromSeconds(0.001f);

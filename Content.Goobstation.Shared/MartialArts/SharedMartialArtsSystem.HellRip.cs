@@ -23,7 +23,7 @@ namespace Content.Goobstation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
-    [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
+    [Dependency] private WoundSystem _wound = default!; // Shitmed Change
 
     private void InitializeHellRip()
     {

@@ -14,16 +14,16 @@ namespace Content.Goobstation.Shared.SetSelector;
 /// <see cref="SetSelectorComponent"/>
 /// this system links the interface to the logic, and will spawn sets selected by the player in the interface
 /// </summary>
-public sealed class SetSelectorSystem : EntitySystem
+public sealed partial class SetSelectorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedEntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedEntityStorageSystem _entityStorage = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

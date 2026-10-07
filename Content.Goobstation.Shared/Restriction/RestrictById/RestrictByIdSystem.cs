@@ -13,8 +13,8 @@ namespace Content.Goobstation.Shared.Restriction.RestrictById
 {
     public sealed partial class RestrictByIdSystem : EntitySystem
     {
-        [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private AccessReaderSystem _accessReader = default!;
+        [Dependency] private EmagSystem _emag = default!;
 
         public override void Initialize()
         {

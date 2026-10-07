@@ -11,10 +11,10 @@ using System.Text;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
-public sealed class SlimeScannerSystem : EntitySystem
+public sealed partial class SlimeScannerSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private StringBuilder _sb = new();
 

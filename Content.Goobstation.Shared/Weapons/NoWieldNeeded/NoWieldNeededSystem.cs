@@ -8,9 +8,9 @@ using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.Weapons.NoWieldNeeded;
 
-public sealed class NoWieldNeededSystem : EntitySystem
+public sealed partial class NoWieldNeededSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
     public override void Initialize()
     {
         base.Initialize();

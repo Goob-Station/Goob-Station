@@ -54,8 +54,8 @@ namespace Content.Goobstation.Server.Changeling;
 public sealed partial class ChangelingSystem
 {
     #region Dependencies
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly WeldableSystem _weldable = default!; //for biodegrade unweld
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private WeldableSystem _weldable = default!; //for biodegrade unweld
     #endregion
 
     public void SubscribeAbilities()

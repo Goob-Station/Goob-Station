@@ -3,9 +3,9 @@ using Content.Shared.Popups;
 
 namespace Content.Goobstation.Shared.Teleportation.Systems;
 
-public sealed class BlockTeleportSystem : EntitySystem
+public sealed partial class BlockTeleportSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

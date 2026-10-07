@@ -12,7 +12,7 @@ namespace Content.Goobstation.Client.Polls.UI;
 [GenerateTypedNameReferences]
 public sealed partial class PollVotingWindow : FancyWindow
 {
-    [Dependency] private readonly PollManager _pollManager = default!;
+    [Dependency] private PollManager _pollManager = default!;
 
     public PollVotingWindow()
     {
@@ -145,7 +145,7 @@ public sealed partial class PollVotingWindow : FancyWindow
     }
 }
 
-public sealed class PollControl : BoxContainer
+public sealed partial class PollControl : BoxContainer
 {
     private readonly PollManager _pollManager;
     private PollData _poll;

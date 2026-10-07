@@ -7,10 +7,10 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.StationRadio.Systems;
 
-public sealed class StationRadioReceiverSystem : EntitySystem
+public sealed partial class StationRadioReceiverSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -15,13 +15,13 @@ namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.Ascension;
 /// The ascendance ability only forms the Ascension Egg.
 /// Other info about the Ascension Egg exists in its own system.
 /// </summary>
-public sealed class ShadowlingAscendanceSystem : EntitySystem
+public sealed partial class ShadowlingAscendanceSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

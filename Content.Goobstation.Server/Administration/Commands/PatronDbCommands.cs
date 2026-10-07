@@ -11,13 +11,13 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Administration.Commands;
 
-internal abstract class BasePatronDbCommand : LocalizedCommands
+internal abstract partial class BasePatronDbCommand : LocalizedCommands
 {
     protected static readonly string[] BoolOptions = ["true", "false"];
 
-    [Dependency] protected readonly IServerDbManager Db = default!;
-    [Dependency] protected readonly LinkAccountManager LinkAccount = default!;
-    [Dependency] protected readonly IPlayerManager PlayerManager = default!;
+    [Dependency] protected IServerDbManager Db = default!;
+    [Dependency] protected LinkAccountManager LinkAccount = default!;
+    [Dependency] protected IPlayerManager PlayerManager = default!;
 
     protected async Task<RMCPatronTier?> FindTier(IConsoleShell shell, string idOrName)
     {
@@ -64,7 +64,7 @@ internal abstract class BasePatronDbCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronAddCommand : BasePatronDbCommand
+internal sealed partial class PatronAddCommand : BasePatronDbCommand
 {
     public override string Command => "patron:add";
 
@@ -167,7 +167,7 @@ internal sealed class PatronAddCommand : BasePatronDbCommand
 }
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronModifyCommand : BasePatronDbCommand
+internal sealed partial class PatronModifyCommand : BasePatronDbCommand
 {
     private static readonly string[] Fields =
     [
@@ -326,7 +326,7 @@ internal sealed class PatronModifyCommand : BasePatronDbCommand
 }
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronDeleteCommand : BasePatronDbCommand
+internal sealed partial class PatronDeleteCommand : BasePatronDbCommand
 {
     public override string Command => "patron:delete";
 
@@ -391,7 +391,7 @@ internal sealed class PatronDeleteCommand : BasePatronDbCommand
 }
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronSetCommand : BasePatronDbCommand
+internal sealed partial class PatronSetCommand : BasePatronDbCommand
 {
     public override string Command => "patron:set";
 

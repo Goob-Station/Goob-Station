@@ -6,9 +6,9 @@ using Robust.Shared.Console;
 namespace Content.Goobstation.Server.Gangwars.Administration;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class GangAdminPanelCommand : LocalizedCommands
+public sealed partial class GangAdminPanelCommand : LocalizedCommands
 {
-    [Dependency] private readonly EuiManager _euis = default!;
+    [Dependency] private EuiManager _euis = default!;
 
     public override string Command => "gangpanel";
 

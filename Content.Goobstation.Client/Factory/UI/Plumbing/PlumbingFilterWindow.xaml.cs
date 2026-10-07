@@ -14,8 +14,8 @@ namespace Content.Goobstation.Client.Factory.UI.Plumbing;
 [GenerateTypedNameReferences]
 public sealed partial class PlumbingFilterWindow : FancyWindow
 {
-    [Dependency] private readonly EntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private EntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public event Action<ProtoId<ReagentPrototype>?>? OnChange;
 

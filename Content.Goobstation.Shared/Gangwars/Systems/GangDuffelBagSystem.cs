@@ -13,12 +13,12 @@ namespace Content.Goobstation.Shared.Gangwars.Systems;
 /// Handles the gang duffel bag trap.
 /// Requires a do-after to un-trap it which allows it to be pulled / moved and opened.
 /// </summary>
-public sealed class GangDuffelBagSystem : EntitySystem
+public sealed partial class GangDuffelBagSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
 
     public override void Initialize()
     {

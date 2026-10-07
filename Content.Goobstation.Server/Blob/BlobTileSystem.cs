@@ -28,17 +28,17 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Blob;
 
-public sealed class BlobTileSystem : SharedBlobTileSystem
+public sealed partial class BlobTileSystem : SharedBlobTileSystem
 {
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly BlobCoreActionSystem _blobCoreActionSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private BlobCoreActionSystem _blobCoreActionSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private EmpSystem _empSystem = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private NpcFactionSystem _npcFactionSystem = default!;
 
     private EntityQuery<BlobCoreComponent> _blobCoreQuery;
     private EntityQuery<BlobTileComponent> _tileQuery;

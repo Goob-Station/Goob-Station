@@ -13,11 +13,11 @@ namespace Content.Goobstation.Server.Gangwars.Administration;
 /// <summary>
 /// Server side of the admin gang panel.
 /// </summary>
-public sealed class GangAdminEui : BaseEui
+public sealed partial class GangAdminEui : BaseEui
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IAdminManager _adminMan = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IAdminManager _adminMan = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
 
     private GangwarRuleSystem _gangs = default!;
 

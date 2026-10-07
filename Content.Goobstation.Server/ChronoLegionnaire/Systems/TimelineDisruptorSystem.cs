@@ -14,13 +14,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.ChronoLegionnaire.Systems;
 
-public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
+public sealed partial class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
 {
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ContainerSystem _containerSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private ContainerSystem _containerSystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
     public override void Initialize()
     {
         base.Initialize();

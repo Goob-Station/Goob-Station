@@ -15,10 +15,10 @@ namespace Content.Goobstation.Shared.Penalties.Systems;
 
 public sealed partial class OuterSlotPenaltySystem : EntitySystem
 {
-    [Dependency] private readonly ClothingSystem _clothingSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly ClothingSpeedModifierSystem _clothingSpeedModifierSystem = default!;
+    [Dependency] private ClothingSystem _clothingSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private ClothingSpeedModifierSystem _clothingSpeedModifierSystem = default!;
 
     public override void Initialize()
     {

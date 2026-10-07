@@ -4,9 +4,9 @@ using Robust.Shared.Console;
 
 namespace Content.Goobstation.Client.VoiceChat;
 
-public sealed class VoiceChatCommand : LocalizedCommands
+public sealed partial class VoiceChatCommand : LocalizedCommands
 {
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
 
     public override string Command => "voicechat";
 

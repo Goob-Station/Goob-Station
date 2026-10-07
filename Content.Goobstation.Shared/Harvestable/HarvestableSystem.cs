@@ -1,4 +1,4 @@
-﻿using Content.Shared.DoAfter;
+using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 
@@ -7,10 +7,10 @@ namespace Content.Goobstation.Shared.Harvestable;
 /// <summary>
 /// "Click on me to get loot" behavior system
 /// </summary>
-public sealed class HarvestableSystem : EntitySystem
+public sealed partial class HarvestableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _handSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedHandsSystem _handSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

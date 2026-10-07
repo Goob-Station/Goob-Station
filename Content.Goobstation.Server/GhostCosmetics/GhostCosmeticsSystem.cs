@@ -9,11 +9,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.GhostCosmetics;
 
-public sealed class GhostCosmeticsSystem : EntitySystem
+public sealed partial class GhostCosmeticsSystem : EntitySystem
 {
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private LinkAccountManager _linkAccount = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
 
     public override void Initialize()
     {

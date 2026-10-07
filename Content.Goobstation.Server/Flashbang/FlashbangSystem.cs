@@ -11,10 +11,10 @@ using Content.Shared.Tag;
 
 namespace Content.Goobstation.Server.Flashbang;
 
-public sealed class FlashbangSystem : EntitySystem
+public sealed partial class FlashbangSystem : EntitySystem
 {
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     public override void Initialize()
     {

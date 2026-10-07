@@ -20,16 +20,16 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Weapons.MeleeDash;
 
-public sealed class MeleeDashSystem : EntitySystem
+public sealed partial class MeleeDashSystem : EntitySystem
 {
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     private const int DashCollisionLayer = (int) CollisionGroup.MidImpassable;
 

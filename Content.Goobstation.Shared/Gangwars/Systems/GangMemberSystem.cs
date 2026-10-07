@@ -17,18 +17,18 @@ namespace Content.Goobstation.Shared.Gangwars.Systems;
 /// Periodically checks whether the gangmember is standing within range
 /// of any gang territory and updates the gang territory alert accordingly.
 /// </summary>
-public sealed class GangMemberSystem : EntitySystem
+public sealed partial class GangMemberSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly GangwarRuleSystem _gangwarRule = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private GangwarRuleSystem _gangwarRule = default!;
 
     private const short GangBonusDark = 1; // not wearing gang clothes
     private const short GangBonusNormal = 2; // wearing gang clothes, normal bonus

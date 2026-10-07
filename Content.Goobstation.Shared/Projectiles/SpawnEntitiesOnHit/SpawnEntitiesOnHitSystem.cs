@@ -7,10 +7,10 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Goobstation.Shared.Projectiles.SpawnEntitiesOnHit;
 
-public sealed class SpawnEntitiesOnHitSystem : EntitySystem
+public sealed partial class SpawnEntitiesOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

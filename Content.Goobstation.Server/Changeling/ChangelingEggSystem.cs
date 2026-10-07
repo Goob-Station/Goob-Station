@@ -8,12 +8,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Changeling;
 
-public sealed class ChangelingEggSystem : EntitySystem
+public sealed partial class ChangelingEggSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ChangelingSystem _changeling = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private BodySystem _bodySystem = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private ChangelingSystem _changeling = default!;
 
     public override void Update(float frameTime)
     {

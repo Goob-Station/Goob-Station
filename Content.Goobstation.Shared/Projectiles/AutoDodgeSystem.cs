@@ -19,14 +19,14 @@ namespace Content.Goobstation.Shared.Projectiles;
 /// <summary>
 /// Entities with AutoDodgeComponent dodge projectiles and play a dodge animation.
 /// </summary>
-public sealed class AutoDodgeSystem : EntitySystem
+public sealed partial class AutoDodgeSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
 
     public override void Initialize()
     {

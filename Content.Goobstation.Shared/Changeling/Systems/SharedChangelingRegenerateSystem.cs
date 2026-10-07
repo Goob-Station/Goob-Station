@@ -12,12 +12,12 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract partial class SharedChangelingRegenerateSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedBloodstreamSystem _blood = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private EntityQuery<BodyComponent> _bodyQuery;
     private EntityQuery<BloodstreamComponent> _bloodQuery;
