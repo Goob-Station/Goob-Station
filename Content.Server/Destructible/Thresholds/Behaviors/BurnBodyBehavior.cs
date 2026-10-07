@@ -8,11 +8,7 @@ using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Body.Systems;
 using Content.Server.Body.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Robust.Shared.Audio;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;
 
