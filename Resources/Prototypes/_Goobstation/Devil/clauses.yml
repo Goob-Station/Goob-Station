@@ -210,12 +210,13 @@
   - type: CheatDeath
     reviveAmount: 1
 
-- type: clause
-  id: mortality
-  clauseWeight: -135
-  addedComponents:
-  - type: CheatDeath
-    infiniteRevives: true
+#Disabled for being insane
+#- type: clause
+#  id: mortality
+#  clauseWeight: -135
+#  addedComponents:
+#  - type: CheatDeath
+#    infiniteRevives: true
 
 - type: clause
   id: time

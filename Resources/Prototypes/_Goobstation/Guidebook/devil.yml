@@ -1,7 +1,7 @@
 - type: guideEntry
   id: Devil
   name: "Devil"
-  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Devil.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Devil.xml" #was changed to be kos and speciest- cleared things up about sec arests and their libality in killing pepole who try to escape.
   children:
   - DevilClauses
 
