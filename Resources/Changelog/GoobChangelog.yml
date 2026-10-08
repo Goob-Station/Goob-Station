@@ -26056,3 +26056,69 @@ Entries:
         on examine.
   id: 2958
   time: '2026-10-05T20:07:20.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Fixed healing items like gauze erroring and doing nothing.
+    - type: Fix
+      message: >-
+        Fixed healing chems and natural healing not reducing a body's total
+        damage.
+    - type: Fix
+      message: Fixed a wound healing error spam.
+    - type: Fix
+      message: Fixed stealthed entities having a fucked up shader.
+    - type: Fix
+      message: Fixed items drawing offset from their slots in storage grids.
+  id: 2959
+  time: '2026-10-05T22:32:57.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Fixed shotgun pellets going through walls.
+    - type: Fix
+      message: >-
+        Fixed outlines, holograms, auras and enchant effects overriding each
+        other.
+    - type: Fix
+      message: Fixed click-dragging not working.
+    - type: Fix
+      message: Fixed most wires being invisible in the wires panel.
+    - type: Fix
+      message: Fixed the shuttle docking screen hiding the selected dock.
+    - type: Fix
+      message: >-
+        Fixed flashlights and other directional lights shining in every
+        direction.
+    - type: Fix
+      message: Fixed materials failing to insert into or withdraw from lathes an
+    - type: Fix
+      message: >-
+        Fixed health bars, speech bubbles and other overlays lagging behind
+        moving entities.
+    - type: Fix
+      message: Fixed popup text and the RCD placement preview jittering while moving
+    - type: Fix
+      message: >-
+        Fixed RCDs placing objects at an angle on rotated grids, and the
+        construction animation appearing off-centre.
+    - type: Fix
+      message: >-
+        Fixed anchored objects like walls, holosigns and bombs ending up off
+        centered
+    - type: Fix
+      message: Removed the tables under the mail teleporters on Oasis.
+    - type: Tweak
+      message: Changelings can no longer be gibbed by damage.
+    - type: Tweak
+      message: >-
+        Temporarily disabled character height/width until an engine fix is
+        merged.
+  id: 2960
+  time: '2026-10-06T01:58:21.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Lathes having issues with mats should be fixed, maybe??
+  id: 2961
+  time: '2026-10-06T18:28:17.0000000+00:00'

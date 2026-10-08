@@ -138,7 +138,7 @@
     enabled: false
     radius: 5
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: true
   - type: HandheldLight
@@ -259,7 +259,7 @@
     enabled: false
     radius: 5
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: true
   - type: HandheldLight
@@ -366,7 +366,7 @@
     enabled: false
     radius: 5
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: true
   - type: HandheldLight
@@ -454,7 +454,7 @@
     enabled: false
     radius: 5
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: true
   - type: HandheldLight
@@ -546,7 +546,7 @@
     enabled: false
     radius: 5
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: true
   - type: HandheldLight
@@ -655,7 +655,7 @@
     enabled: false
     radius: 5
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: true
   - type: HandheldLight
@@ -755,7 +755,7 @@
     enabled: false
     radius: 5
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: true
   - type: HandheldLight
@@ -866,7 +866,7 @@
     enabled: false
     radius: 5
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: true
   - type: HandheldLight
@@ -980,7 +980,7 @@
     enabled: false
     radius: 5
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: true
   - type: HandheldLight

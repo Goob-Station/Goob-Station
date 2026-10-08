@@ -311,21 +311,14 @@ public sealed partial class DamageableSystem
             // </Woundmed>
         }
 
-        // <Woundmed> This means that the damaged part was a woundable
-        // which also means we send that shit to refresh the body.
-        // NOTE:
-        // Previously this ran regardlessly, but i THINK there will be no 
-        // issues if we only do it for complex bodies. if weird woundmed issues
-        // start happening with simple bodies immedaitely after this PR (goob#7157),
-        // this is likely why. this is run in ApplyDamageComplex called above,
-        // so i am commenting out for now, remove if there are no issues caused
-        //if (!damageDone.Empty && isWoundable && bodyComp != null)
-        //    UpdateComplexBodyDamage((ent, bodyComp, ent.Comp));
-        // </Woundmed>
-
         if (!damageDone.Empty)
+        {
             OnEntityDamageChanged((ent, ent.Comp), damageDone, interruptsDoAfters, origin,
                 uncappedDamage: damageDoneHypotheticalUncapped); // Woundmed
+
+            if (isWoundable) // Woundmed
+                UpdateParentBodyDamage(ent, interruptsDoAfters, origin, ignoreBlockers);
+        }
 
         return damageDone;
     }

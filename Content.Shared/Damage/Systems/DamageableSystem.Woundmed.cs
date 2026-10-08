@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
@@ -29,6 +30,7 @@ public sealed partial class DamageableSystem
     private EntityQuery<BodyPartComponent> _bodyPartQuery;
     private EntityQuery<ConsciousnessComponent> _consciousnessQuery;
     private EntityQuery<WoundableComponent> _woundableQuery;
+    private readonly HashSet<EntityUid> _complexDamageInProgress = new();
 
     /// <summary>
     /// These damages are always ensured to override targetting and be dealt to the vital body parts.
@@ -72,8 +74,6 @@ public sealed partial class DamageableSystem
             body.Comp2.Damage.DamageDict[type] = FixedPoint2.Zero;
         }
 
-        var delta = new DamageSpecifier();
-
         // Sum up damage from all body parts
         foreach (var (partId, _) in _body.GetBodyChildren(body))
         {
@@ -92,18 +92,36 @@ public sealed partial class DamageableSystem
 
                 body.Comp2.Damage.DamageDict.TryGetValue(type, out var existing);
                 body.Comp2.Damage.DamageDict[type] = existing + value;
-                delta.DamageDict[type] = value - existing;
             }
         }
 
-        body.Comp2.Damage.TrimZeros();
-        delta.TrimZeros();
+        var delta = new DamageSpecifier();
+        foreach (var (type, value) in body.Comp2.Damage.DamageDict)
+        {
+            var change = value - oldDamage.GetValueOrDefault(type);
+            if (change != 0)
+                delta.DamageDict[type] = change;
+        }
+
+        if (delta.Empty)
+            return false;
 
         // raises DamageChangedEvent through here
-        if (!delta.Empty)
-            OnEntityDamageChanged((body, body.Comp2), delta, interruptsDoAfters, origin, ignoreBlockers);
-
+        OnEntityDamageChanged((body, body.Comp2), delta, interruptsDoAfters, origin, ignoreBlockers);
         return true;
+    }
+
+    private void UpdateParentBodyDamage(EntityUid part, bool interruptsDoAfters, EntityUid? origin, bool ignoreBlockers)
+    {
+        if (!_bodyPartQuery.TryComp(part, out var bodyPart)
+            || bodyPart.Body is not { } parent
+            || _complexDamageInProgress.Contains(parent)
+            || !_bodyQuery.TryComp(parent, out var parentBody)
+            || parentBody.BodyType != BodyType.Complex
+            || !_damageableQuery.TryComp(parent, out var parentDamageable))
+            return;
+
+        UpdateComplexBodyDamage((parent, parentBody, parentDamageable), interruptsDoAfters, origin, ignoreBlockers);
     }
 
     /// <summary>
@@ -291,9 +309,6 @@ public sealed partial class DamageableSystem
                 interruptsDoAfters, origin, ignoreBlockers: ignoreBlockers);
         }
 
-        if (_damageableQuery.TryComp(body, out var damageableComp))
-            OnEntityDamageChanged((body, damageableComp), totalAppliedDamage, interruptsDoAfters, origin);
-
         return totalAppliedDamage;
     }
 
@@ -342,35 +357,46 @@ public sealed partial class DamageableSystem
                 regularDamage.DamageDict[type] = value;
         }
 
-        var appliedRegularDamage = regularDamage.Empty
-            ? null
-            : ApplyDamageToBodyParts(
-                body,
-                regularDamage,
-                origin,
-                ignoreResistances,
-                interruptsDoAfters,
-                targetPart,
-                partMultiplier,
-                ignoreBlockers,
-                splitDamage,
-                canMiss
-            );
+        var nested = !_complexDamageInProgress.Add(body);
+        DamageSpecifier? appliedRegularDamage;
+        DamageSpecifier? appliedVitalDamage;
+        try
+        {
+            appliedRegularDamage = regularDamage.Empty
+                ? null
+                : ApplyDamageToBodyParts(
+                    body,
+                    regularDamage,
+                    origin,
+                    ignoreResistances,
+                    interruptsDoAfters,
+                    targetPart,
+                    partMultiplier,
+                    ignoreBlockers,
+                    splitDamage,
+                    canMiss
+                );
 
-        var appliedVitalDamage = vitalDamage.Empty
-            ? null
-            : ApplyDamageToBodyParts(
-                body,
-                vitalDamage,
-                origin,
-                ignoreResistances,
-                interruptsDoAfters,
-                TargetBodyPart.Vital,
-                partMultiplier,
-                ignoreBlockers,
-                splitDamage,
-                canMiss
-            );
+            appliedVitalDamage = vitalDamage.Empty
+                ? null
+                : ApplyDamageToBodyParts(
+                    body,
+                    vitalDamage,
+                    origin,
+                    ignoreResistances,
+                    interruptsDoAfters,
+                    TargetBodyPart.Vital,
+                    partMultiplier,
+                    ignoreBlockers,
+                    splitDamage,
+                    canMiss
+                );
+        }
+        finally
+        {
+            if (!nested)
+                _complexDamageInProgress.Remove(body);
+        }
 
         var totalDamage = new DamageSpecifier();
 
@@ -383,7 +409,7 @@ public sealed partial class DamageableSystem
         {
             DebugTools.Assert("Applied damage to complex body without DamageableComponent!");
         }
-        else
+        else if (!nested)
         {
             UpdateComplexBodyDamage((body, body.Comp, damageableComp), interruptsDoAfters, origin, ignoreBlockers);
         }

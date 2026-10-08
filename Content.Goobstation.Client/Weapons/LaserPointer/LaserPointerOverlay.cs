@@ -48,7 +48,7 @@ public sealed class LaserPointerOverlay : Overlay
                 var ent = _entManager.GetEntity(netEnt);
                 if (xformQuery.TryComp(ent, out var xform))
                 {
-                    var coords = _transform.GetMapCoordinates(ent, xform);
+                    var coords = _transform.GetRenderMapCoordinates((ent, xform));
                     if (coords.MapId != MapId.Nullspace)
                         start = coords.Position;
                 }
