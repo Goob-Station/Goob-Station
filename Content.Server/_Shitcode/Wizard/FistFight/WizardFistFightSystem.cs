@@ -45,27 +45,27 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Shitcode.Wizard.FistFight;
 
-public sealed class WizardFistFightSystem : GameRuleSystem<WizardFistFightRuleComponent>
+public sealed partial class WizardFistFightSystem : GameRuleSystem<WizardFistFightRuleComponent>
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedGodmodeSystem _godmode = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!; // Used to check pax. Pax still uses old system so we do too.
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedGodmodeSystem _godmode = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private SharedCombatModeSystem _combat = default!;
+    [Dependency] private StatusEffectsSystem _status = default!; // Used to check pax. Pax still uses old system so we do too.
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private StoreSystem _store = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     private const string StorageContainerId = "wizard-fistfight-storage";
     private const string GlovesSlot = "gloves";
