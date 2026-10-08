@@ -14,8 +14,8 @@ public sealed partial class RestrictFovOverlay : Overlay
 
     private SharedTransformSystem? _transform;
     private SharedContainerSystem? _container;
-    [Dependency] private EntityQuery<RestrictFovComponent> _fovQuery;
-    [Dependency] private EntityQuery<TransformComponent> _xformQuery;
+    private readonly EntityQuery<RestrictFovComponent> _fovQuery;
+    private readonly EntityQuery<TransformComponent> _xformQuery;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => false;
@@ -31,6 +31,9 @@ public sealed partial class RestrictFovOverlay : Overlay
         IoCManager.InjectDependencies(this);
 
         ZIndex = 200;
+
+        _fovQuery = _entity.GetEntityQuery<RestrictFovComponent>();
+        _xformQuery = _entity.GetEntityQuery<TransformComponent>();
     }
 
     private EntityUid GetAnchor(EntityUid uid)
