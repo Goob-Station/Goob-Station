@@ -6,16 +6,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.MantisBlades;
 
-public sealed class MantisBladeVisualsSystem : EntitySystem
+public sealed partial class MantisBladeVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-
-    private enum BladeLayerKey : byte
-    {
-        Left,
-        Right,
-    }
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -65,20 +59,20 @@ public sealed class MantisBladeVisualsSystem : EntitySystem
         var query = EntityQueryEnumerator<MantisBladeUserComponent, SpriteComponent>();
         while (query.MoveNext(out var uid, out var user, out var sprite))
         {
-            if (user.Extended && user.Popped != IsPopped(user))
+            if (user.IsExtended && user.AnimationPlayed != IsAnimationPlayed(user))
                 UpdateLayers((uid, user), sprite);
         }
     }
 
-    private bool IsPopped(MantisBladeUserComponent user)
-        => _timing.CurTime >= user.ExtendedAt + user.PopTime;
+    private bool IsAnimationPlayed(MantisBladeUserComponent user)
+        => _timing.CurTime >= user.ExtendedAt + user.AnimationTime;
 
     private void UpdateLayers(Entity<MantisBladeUserComponent> ent, SpriteComponent sprite)
     {
         var left = false;
         var right = false;
 
-        if (ent.Comp.Extended)
+        if (ent.Comp.IsExtended)
             foreach (var blade in ent.Comp.Blades)
             {
                 if (!TryComp<BodyPartComponent>(Transform(blade).ParentUid, out var part))
@@ -90,8 +84,8 @@ public sealed class MantisBladeVisualsSystem : EntitySystem
                     right = true;
             }
 
-        ent.Comp.Popped = IsPopped(ent.Comp);
-        var prefix = ent.Comp.Popped ? "inhand" : "popout-inhand";
+        ent.Comp.AnimationPlayed = IsAnimationPlayed(ent.Comp);
+        var prefix = ent.Comp.AnimationPlayed ? "inhand" : "popout-inhand";
 
         SetLayer(BladeLayerKey.Left, $"{prefix}-left", left);
         SetLayer(BladeLayerKey.Right, $"{prefix}-right", right);

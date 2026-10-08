@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.MantisBlades;
@@ -9,23 +10,23 @@ namespace Content.Goobstation.Shared.MantisBlades;
 /// <summary>
 /// Marks a body with at least one mantis blade arm attached.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
 public sealed partial class MantisBladeUserComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public bool Extended;
+    [ViewVariables, AutoNetworkedField]
+    public bool IsExtended;
 
-    [DataField, AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan ExtendedAt;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public List<EntityUid> Blades = new();
 
     [DataField]
-    public bool Popped;
+    public bool AnimationPlayed;
 
     [DataField]
-    public TimeSpan PopTime = TimeSpan.FromSeconds(0.2);
+    public TimeSpan AnimationTime = TimeSpan.FromSeconds(0.2);
 
     [DataField]
     public ResPath Rsi = new("_Goobstation/Objects/Weapons/Melee/mantis_blade.rsi");
@@ -43,7 +44,7 @@ public sealed partial class MantisBladeUserComponent : Component
     [DataField]
     public EntProtoId Action = "ActionToggleMantisBlades";
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? ActionEntity;
 
     [DataField]
@@ -60,3 +61,9 @@ public sealed partial class MantisBladeUserComponent : Component
 }
 
 public sealed partial class ToggleMantisBladesActionEvent : InstantActionEvent;
+
+public enum BladeLayerKey : byte
+{
+    Left,
+    Right,
+}

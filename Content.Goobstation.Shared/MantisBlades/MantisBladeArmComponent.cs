@@ -19,6 +19,6 @@ public sealed partial class MantisBladeArmComponent : Component
     [DataField]
     public EntProtoId BladeProto = "MantisBlade";
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? Blade;
 }

@@ -16,16 +16,16 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.MantisBlades;
 
-public sealed class SharedMantisBladeSystem : EntitySystem
+public sealed partial class SharedMantisBladeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -145,19 +145,19 @@ public sealed class SharedMantisBladeSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!ent.Comp.Extended && ent.Comp.Blades.Count == 0)
+        if (!ent.Comp.IsExtended && ent.Comp.Blades.Count == 0)
         {
             _popup.PopupClient(Loc.GetString("mantis-blade-disabled-emp"), ent, ent);
             return;
         }
 
-        ent.Comp.Extended = !ent.Comp.Extended;
-        if (ent.Comp.Extended)
+        ent.Comp.IsExtended = !ent.Comp.IsExtended;
+        if (ent.Comp.IsExtended)
             ent.Comp.ExtendedAt = _timing.CurTime;
         Dirty(ent);
 
-        _actions.SetToggled(ent.Comp.ActionEntity, ent.Comp.Extended);
-        _audio.PlayPredicted(ent.Comp.Extended ? ent.Comp.ExtendSound : ent.Comp.RetractSound, ent, ent);
+        _actions.SetToggled(ent.Comp.ActionEntity, ent.Comp.IsExtended);
+        _audio.PlayPredicted(ent.Comp.IsExtended ? ent.Comp.ExtendSound : ent.Comp.RetractSound, ent, ent);
     }
 
     #endregion
@@ -166,7 +166,7 @@ public sealed class SharedMantisBladeSystem : EntitySystem
 
     private void OnGetMeleeWeapon(Entity<MantisBladeUserComponent> ent, ref GetMeleeWeaponEvent args)
     {
-        if (args.Handled || !ent.Comp.Extended || ent.Comp.Blades.Count == 0)
+        if (args.Handled || !ent.Comp.IsExtended || ent.Comp.Blades.Count == 0)
             return;
 
         if (_hands.TryGetActiveItem(ent.Owner, out var held)
@@ -180,7 +180,7 @@ public sealed class SharedMantisBladeSystem : EntitySystem
 
     private void OnGetMultihitWeapons(Entity<MantisBladeUserComponent> ent, ref MultihitGetWeaponsEvent args)
     {
-        if (!ent.Comp.Extended || ent.Comp.Blades.Count == 0)
+        if (!ent.Comp.IsExtended || ent.Comp.Blades.Count == 0)
             return;
 
         if (TryComp<MultihitComponent>(ent.Comp.Blades[0], out var lead))
