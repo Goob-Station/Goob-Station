@@ -5,7 +5,7 @@ name: Publish
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 * * *'
+    - cron: '17 10 * * *'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -62,6 +62,9 @@ jobs:
   publish:
     needs: package
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
 
     steps:
     - uses: actions/checkout@v4.2.2
@@ -92,6 +95,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
+
+    - name: Mark changelog as published
+      if: github.ref_name == 'master'
+      run: |
+        git tag -f changelog-published
+        git push -f origin refs/tags/changelog-published
 
 #    - name: Publish changelog (RSS)
 #      run: Tools/actions_changelog_rss.py

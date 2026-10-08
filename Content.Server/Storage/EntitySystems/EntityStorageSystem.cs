@@ -90,7 +90,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
 
     #region Gas mix event handlers
 
-    private void OnInsideInhale(EntityUid uid, InsideEntityStorageComponent component, InhaleLocationEvent args)
+    private void OnInsideInhale(EntityUid uid, InsideEntityStorageComponent component, ref InhaleLocationEvent args) // Goob - by-ref
     {
         if (TryComp<EntityStorageComponent>(component.Storage, out var storage) && storage.Airtight)
         {
@@ -98,7 +98,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         }
     }
 
-    private void OnInsideExhale(EntityUid uid, InsideEntityStorageComponent component, ExhaleLocationEvent args)
+    private void OnInsideExhale(EntityUid uid, InsideEntityStorageComponent component, ref ExhaleLocationEvent args) // Goob - by-ref
     {
         if (TryComp<EntityStorageComponent>(component.Storage, out var storage) && storage.Airtight)
         {
