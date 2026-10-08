@@ -3,7 +3,7 @@ construction-graph-tag-mech-charging-station-board = exosuit charging station bo
 
 mech-battery-whitelist-fail = {CAPITALIZE(THE($item))} doesn't fit in the exosuits battery socket. It needs a power cage.
 mech-power-depleted-popup = {CAPITALIZE(THE($mech))} powers down.
-mech-power-cage-examine = Outside an exosuit it will lose charge in[color=yellow]{$seconds} seconds[/color].
+zap-power-on-insert-popup = {CAPITALIZE(THE($battery))} sparks violently as its charge gets zapped!
 
 mech-charging-station-examine-rate = It charges a parked exosuit at [color=yellow]{$chargeRate}W[/color].
 mech-charging-station-examine-unpowered = It is [color=red]unpowered[/color].

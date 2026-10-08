@@ -17,7 +17,10 @@
     batteryWhitelist: # Goobstation
       tags:
       - PowerCage
-  - type: MechPowerDrain # Goobstation mech rework start
+  - type: ZapPowerOnInsert # Goobstation mech rework start
+    containerId: mech-battery-slot
+    chargeLoss: 1350 # half a medium cage
+  - type: MechPowerDrain
     idleDrain: 0.3
     perTileMovementDrain: 1.4
   - type: MechPilotAlerts

@@ -10,6 +10,8 @@
     equipmentWhitelist:
       tags:
       - CombatMech
+  - type: ZapPowerOnInsert
+    chargeLoss: 15500 # half a military cage
   - type: MechPowerDrain # ~6 min of driving on a high cage
     idleDrain: 1.5
     perTileMovementDrain: 7
