@@ -16,7 +16,7 @@ public sealed partial class SandevistanSlowdownVisionSystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IPlayerManager _player = default!;
 
-    private SandevistanSlowdownVisionOverlay _overlay = default!;
+    private readonly SandevistanSlowdownVisionOverlay _overlay = new();
 
     public override void Initialize()
     {
@@ -28,8 +28,6 @@ public sealed partial class SandevistanSlowdownVisionSystem : EntitySystem
         SubscribeLocalEvent<SandevistanSlowdownVisionComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new();
     }
 
     private void SetOverlay(bool show)

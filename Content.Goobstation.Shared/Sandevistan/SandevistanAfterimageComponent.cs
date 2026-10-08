@@ -1,17 +1,18 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Sandevistan;
 
 /// <summary>
 /// Component for afterimage entities spawned by Sandevistan users.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class SandevistanAfterimageComponent : Component
 {
     /// <summary>
     /// The entity that spawned this afterimage.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid SourceEntity;
 
     [DataField, AutoNetworkedField]
@@ -20,13 +21,13 @@ public sealed partial class SandevistanAfterimageComponent : Component
     /// <summary>
     /// The direction the user's sprite was facing when the afterimage was spawned.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public Direction DirectionOverride;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public int Order;
 
-    [DataField, AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan? DespawnAt;
 
     [DataField]

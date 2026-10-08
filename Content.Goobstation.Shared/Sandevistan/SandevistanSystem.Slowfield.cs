@@ -51,7 +51,7 @@ public sealed partial class SandevistanSystem
         var query = EntityQueryEnumerator<SandevistanSlowedComponent>();
         while (query.MoveNext(out var target, out var slowed))
         {
-            if (!slowed.IsSlowed && !slowed.Trampled)
+            if (!slowed.IsSlowed && !slowed.IsTrampled)
                 RemComp(target, slowed);
         }
     }
@@ -313,7 +313,7 @@ public sealed partial class SandevistanSystem
         if (thrown.LandTime is { } landTime)
             _stun.TryKnockdown(target, landTime - _timing.CurTime, refresh: true, force: true, drop: false);
 
-        slowed.Trampled = true;
+        slowed.IsTrampled = true;
 
         EnsureComp<ForcedDirectionRotateComponent>(target);
         Dirty(target, slowed);
@@ -321,7 +321,7 @@ public sealed partial class SandevistanSystem
 
     private void OnTrampledCollide(Entity<SandevistanSlowedComponent> ent, ref StartCollideEvent args)
     {
-        if (!ent.Comp.Trampled
+        if (!ent.Comp.IsTrampled
             || !args.OtherFixture.Hard
             || args.OtherBody.BodyType != BodyType.Static
             || !TryComp<ThrownItemComponent>(ent, out var thrown))
@@ -332,11 +332,11 @@ public sealed partial class SandevistanSystem
 
     private void OnTrampledStopThrow(Entity<SandevistanSlowedComponent> ent, ref StopThrowEvent args)
     {
-        if (!ent.Comp.Trampled)
+        if (!ent.Comp.IsTrampled)
             return;
 
         _stun.SetKnockdownTime(ent.Owner, TimeSpan.Zero);
-        ent.Comp.Trampled = false;
+        ent.Comp.IsTrampled = false;
         RemCompDeferred<ForcedDirectionRotateComponent>(ent);
 
         if (!TryComp<SandevistanUserComponent>(ent.Comp.Source, out var source) || !source.SlowfieldEnabled)

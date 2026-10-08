@@ -18,7 +18,7 @@ public sealed partial class SandevistanTimestopVisionSystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IPlayerManager _player = default!;
 
-    private SandevistanTimestopVisionOverlay _overlay = default!;
+    private readonly SandevistanTimestopVisionOverlay _overlay = new();
 
     public override void Initialize()
     {
@@ -30,8 +30,6 @@ public sealed partial class SandevistanTimestopVisionSystem : EntitySystem
         SubscribeLocalEvent<SandevistanTimestopVisionComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new();
     }
 
     private void OnInit(EntityUid uid, SandevistanTimestopVisionComponent component, ComponentInit args)

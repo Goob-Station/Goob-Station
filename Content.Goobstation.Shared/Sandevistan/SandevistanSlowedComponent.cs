@@ -9,13 +9,13 @@ namespace Content.Goobstation.Shared.Sandevistan;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SandevistanSlowedComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid Source;
 
     [DataField, AutoNetworkedField]
     public float SpeedMultiplier = 1f;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public Vector2 OriginalLinearVelocity;
 
     /// <summary>
@@ -25,15 +25,15 @@ public sealed partial class SandevistanSlowedComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsSlowed = true;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? SlowedWeapon;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public float SlowedWeaponOriginalAttackRate;
 
     /// <summary>
     /// Whether this entity is currently flying through the air from a sandevistan trample.
     /// </summary>
-    [DataField]
-    public bool Trampled;
+    [ViewVariables]
+    public bool IsTrampled;
 }
