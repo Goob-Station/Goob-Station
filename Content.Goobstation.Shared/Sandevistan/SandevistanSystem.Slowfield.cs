@@ -261,7 +261,8 @@ public sealed partial class SandevistanSystem
                 slowed.SpeedMultiplier = 1f;
 
             _speed.RefreshMovementSpeedModifiers(target);
-            EntityManager.AddComponents(target, comp.VisionComponents);
+            if (_proto.Resolve(comp.VisionComponents, out var vision))
+                EntityManager.AddComponents(target, vision);
         }
 
         // Bullets
@@ -361,8 +362,8 @@ public sealed partial class SandevistanSystem
         if (isMob)
         {
             _speed.RefreshMovementSpeedModifiers(ent);
-            if (TryComp<SandevistanUserComponent>(args.Source, out var source))
-                EntityManager.RemoveComponents(ent, source.VisionComponents);
+            if (TryComp<SandevistanUserComponent>(args.Source, out var source) && _proto.Resolve(source.VisionComponents, out var vision))
+                EntityManager.RemoveComponents(ent, vision);
             RestoreSlowedWeapon(ent);
         }
 

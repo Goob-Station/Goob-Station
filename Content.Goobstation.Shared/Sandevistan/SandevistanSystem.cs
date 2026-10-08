@@ -21,6 +21,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Sandevistan;
@@ -47,7 +48,7 @@ public sealed partial class SandevistanSystem : EntitySystem
     // [Dependency] private SharedCinematicSystem _cinematic = default!;
     [Dependency] private ISharedPlayerManager _player = default!;
     [Dependency] private ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -197,8 +198,10 @@ public sealed partial class SandevistanSystem : EntitySystem
 
         _speed.RefreshMovementSpeedModifiers(ent);
 
-        EntityManager.AddComponents(ent, ent.Comp.VisionComponents);
-        EntityManager.AddComponents(ent, ent.Comp.ActivationComponents);
+        if (_proto.Resolve(ent.Comp.VisionComponents, out var vision))
+            EntityManager.AddComponents(ent, vision);
+        if (_proto.Resolve(ent.Comp.ActivationComponents, out var activation))
+            EntityManager.AddComponents(ent, activation);
 
         SetFixtures(ent, ent.Comp, true);
         _physics.WakeBody(ent.Owner);
@@ -281,8 +284,10 @@ public sealed partial class SandevistanSystem : EntitySystem
         _speed.RefreshMovementSpeedModifiers(uid);
         comp.PlayingStream = _audio.Stop(comp.PlayingStream);
 
-        EntityManager.RemoveComponents(uid, comp.VisionComponents);
-        EntityManager.RemoveComponents(uid, comp.ActivationComponents);
+        if (_proto.Resolve(comp.VisionComponents, out var vision))
+            EntityManager.RemoveComponents(uid, vision);
+        if (_proto.Resolve(comp.ActivationComponents, out var activation))
+            EntityManager.RemoveComponents(uid, activation);
 
         if (wasActive)
             Dirty(uid, comp);

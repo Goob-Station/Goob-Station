@@ -14,4 +14,7 @@ public sealed partial class SandevistanTimestopBurstComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan StartedAt;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan ReversedAt;
 }

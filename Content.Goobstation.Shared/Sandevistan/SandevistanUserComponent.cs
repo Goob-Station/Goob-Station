@@ -127,14 +127,14 @@ public sealed partial class SandevistanUserComponent : Component
     /// <summary>
     /// Components added to the user + anyone that goes into the slowdown field.
     /// </summary>
-    [DataField]
-    public ComponentRegistry VisionComponents = new();
+    [DataField, AutoNetworkedField]
+    public EntProtoId? VisionComponents;
 
     /// <summary>
     /// Components applied to the user only.
     /// </summary>
-    [DataField]
-    public ComponentRegistry ActivationComponents = new();
+    [DataField, AutoNetworkedField]
+    public EntProtoId? ActivationComponents;
 
     // Cursed
     // A successful counter (see the Counter Stance action, granted by the statveka organ) launches the

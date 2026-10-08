@@ -17,8 +17,7 @@
   - type: Organ
     onAdd:
     - type: SandevistanUser
-      visionComponents:
-      - type: SandevistanSlowdownVision
+      visionComponents: SandevistanVisionSlowdown
       thresholds:
         Warning: 10
         Shaking: 15
@@ -52,9 +51,7 @@
       hitDamageMultiplier: 3
       hitDisables: true
       hitKnockbackStrength: 6
-      visionComponents:
-      - type: SandevistanSlowdownVision
-      - type: AudioPitch
+      visionComponents: SandevistanVisionStatveka
       thresholds:
         Shaking: 1
         Warning: 2
@@ -100,11 +97,8 @@
         params:
           volume: 12
       loopSound: null
-      visionComponents:
-      - type: SandevistanTimestopVision
-      - type: AudioReverb
-      activationComponents:
-      - type: SandevistanTimestopBurst
+      visionComponents: SandevistanVisionTimestop
+      activationComponents: SandevistanActivationTimestop
       thresholds:
         Warning: 2
         Shaking: 3

@@ -18,25 +18,29 @@ public sealed partial class SandevistanTimestopBurstOverlay : Overlay
     [Dependency] private IEntityManager _entMan = default!;
     [Dependency] private IGameTiming _timing = default!;
 
-    private readonly SharedTransformSystem _transform;
-    private readonly SandevistanTimestopBurstSystem _system;
+    private SharedTransformSystem? _transform;
+    private SandevistanTimestopBurstSystem? _system;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;
     private readonly ShaderInstance _shader;
 
-    public SandevistanTimestopBurstOverlay(SandevistanTimestopBurstSystem system)
+    public SandevistanTimestopBurstOverlay()
     {
         IoCManager.InjectDependencies(this);
 
-        _system = system;
-        _transform = _entMan.System<SharedTransformSystem>();
         _shader = _proto.Index(Shader).InstanceUnique();
         ZIndex = 100;
     }
 
-    protected override bool BeforeDraw(in OverlayDrawArgs args) =>
-        args.Viewport.Eye != null;
+    protected override bool BeforeDraw(in OverlayDrawArgs args)
+    {
+        if (_transform == null && !_entMan.TrySystem(out _transform)
+            || _system == null && !_entMan.TrySystem(out _system))
+            return false;
+
+        return args.Viewport.Eye != null;
+    }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
@@ -51,13 +55,14 @@ public sealed partial class SandevistanTimestopBurstOverlay : Overlay
                 DrawBurst(in args, uid, elapsed);
         }
 
-        if (_system.Reversing is { } user
-            && _entMan.TryGetComponent<TransformComponent>(user, out var reversingXform)
-            && reversingXform.MapID == args.MapId)
+        foreach (var (uid, burst) in _system!.Reversing)
         {
-            var elapsed = _timing.RealTime - _system.ReversedAt;
-            if (elapsed < _system.ReversedLasts)
-                DrawBurst(in args, user, _system.ReversedLasts - elapsed);
+            if (!_entMan.TryGetComponent<TransformComponent>(uid, out var xform) || xform.MapID != args.MapId)
+                continue;
+
+            var elapsed = _timing.RealTime - burst.ReversedAt;
+            if (elapsed < burst.Lasts)
+                DrawBurst(in args, uid, burst.Lasts - elapsed);
         }
     }
 
@@ -65,7 +70,7 @@ public sealed partial class SandevistanTimestopBurstOverlay : Overlay
     {
         var viewport = args.Viewport;
         var renderScale = viewport.RenderScale * viewport.Eye!.Scale;
-        var center = viewport.WorldToLocal(_transform.GetWorldPosition(user));
+        var center = viewport.WorldToLocal(_transform!.GetWorldPosition(user));
         center.Y = viewport.Size.Y - center.Y;
         var maxRadius = Vector2.Max(center, (Vector2) viewport.Size - center).Length() / renderScale.X;
 

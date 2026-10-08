@@ -15,11 +15,9 @@ public sealed partial class SandevistanTimestopBurstSystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IGameTiming _timing = default!;
 
-    private SandevistanTimestopBurstOverlay _overlay = default!;
+    private readonly SandevistanTimestopBurstOverlay _overlay = new();
 
-    public EntityUid? Reversing;
-    public TimeSpan ReversedAt;
-    public TimeSpan ReversedLasts;
+    public readonly Dictionary<EntityUid, SandevistanTimestopBurstComponent> Reversing = new();
 
     public override void Initialize()
     {
@@ -29,8 +27,6 @@ public sealed partial class SandevistanTimestopBurstSystem : EntitySystem
         SubscribeLocalEvent<SandevistanTimestopBurstComponent, ComponentShutdown>(OnShutdown);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new(this);
     }
 
     private void OnInit(EntityUid uid, SandevistanTimestopBurstComponent component, ComponentInit args)
@@ -43,20 +39,25 @@ public sealed partial class SandevistanTimestopBurstSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, SandevistanTimestopBurstComponent component, ComponentShutdown args)
     {
-        Reversing = uid;
-        ReversedAt = _timing.RealTime;
-        ReversedLasts = component.Lasts;
+        component.ReversedAt = _timing.RealTime;
+        Reversing[uid] = component;
     }
 
     public override void FrameUpdate(float frameTime)
     {
         base.FrameUpdate(frameTime);
 
-        if (Reversing == null || _timing.RealTime - ReversedAt < ReversedLasts)
-            return;
+        var ended = false;
+        foreach (var (uid, burst) in Reversing)
+        {
+            if (_timing.RealTime - burst.ReversedAt < burst.Lasts)
+                continue;
 
-        Reversing = null;
-        if (Count<SandevistanTimestopBurstComponent>() == 0)
+            Reversing.Remove(uid);
+            ended = true;
+        }
+
+        if (ended && Reversing.Count == 0 && Count<SandevistanTimestopBurstComponent>() == 0)
             _overlayMan.RemoveOverlay(_overlay);
     }
 
@@ -64,7 +65,7 @@ public sealed partial class SandevistanTimestopBurstSystem : EntitySystem
     {
         if (enabled)
             _overlayMan.RemoveOverlay(_overlay);
-        else if (Count<SandevistanTimestopBurstComponent>() > 0 || Reversing != null)
+        else if (Count<SandevistanTimestopBurstComponent>() > 0 || Reversing.Count > 0)
             _overlayMan.AddOverlay(_overlay);
     }
 }
