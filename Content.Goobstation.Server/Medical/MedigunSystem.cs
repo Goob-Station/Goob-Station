@@ -16,6 +16,8 @@ using Content.Shared.Alert;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
@@ -137,12 +139,11 @@ public sealed class MedigunSystem : SharedMedigunSystem
         var healing = comp.UberActivated ? comp.UberHealing : comp.Healing;
         var originalDamage = damageable.TotalDamage;
 
-        _damage.TryChangeDamage(
-            healed,
+        _damage.ChangeDamage(
+            (healed, damageable),
             healing,
             true,
             false,
-            damageable,
             ent.Comp.ParentEntity,
             partMultiplier: 1.0f,
             targetPart: TargetBodyPart.All,

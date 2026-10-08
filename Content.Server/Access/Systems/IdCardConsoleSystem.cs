@@ -14,6 +14,7 @@ using Content.Shared.Chat;
 using Content.Shared.Construction;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Roles;
 using Content.Shared.StationRecords;
@@ -147,7 +148,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         _idCard.TryChangeFullName(targetId, newFullName, player: player);
         _idCard.TryChangeJobTitle(targetId, newJobTitle, player: player);
 
-        if (_prototype.Resolve(newJobProto, out var job)
+        if (_prototype.TryIndex(newJobProto, out var job) // Goob - Fix (client input, no log)
             && _prototype.Resolve(job.Icon, out var jobIcon))
         {
             _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);

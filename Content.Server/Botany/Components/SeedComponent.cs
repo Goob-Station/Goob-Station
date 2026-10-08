@@ -2,7 +2,7 @@
 
 using Content.Server.Botany.Systems;
 using Content.Shared.Botany.Components;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Botany.Components
 {
@@ -26,7 +26,7 @@ namespace Content.Server.Botany.Components
         /// <summary>
         ///     Name of a base seed prototype that is used if <see cref="Seed"/> is null.
         /// </summary>
-        [DataField("seedId", customTypeSerializer: typeof(PrototypeIdSerializer<SeedPrototype>))]
-        public string? SeedId;
+        [DataField("seedId")]
+        public ProtoId<SeedPrototype>? SeedId;
     }
 }

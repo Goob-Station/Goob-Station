@@ -29,7 +29,7 @@ namespace Content.Shared._Shitcode.Heretic.Systems;
 public abstract class SharedStarMarkSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -206,7 +206,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        var spawnCoords = coords.SnapToGrid(EntityManager, _mapMan);
+        var spawnCoords = coords.SnapToGrid(EntityManager);
 
         var lookup = _lookup.GetEntitiesInRange<CosmicFieldComponent>(spawnCoords, 0.1f, LookupFlags.Static);
         if (lookup.Count > 0)

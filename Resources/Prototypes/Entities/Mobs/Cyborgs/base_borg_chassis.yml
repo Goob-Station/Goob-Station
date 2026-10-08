@@ -117,7 +117,9 @@
     - Science
   - type: ZombieImmune
   - type: Repairable
-    doAfterDelay: 10
+    damageValue: -10 # 10 seconds to repair from crit
+    doAfterDelay: 1
+    fuelCost: 0.5
     # allowSelfRepair: false # Goobstation
   - type: BorgChassis
   - type: LockingWhitelist
@@ -558,7 +560,7 @@
     - Xenoborg
     - Binary
   - type: Repairable
-    doAfterDelay: 13 # 25% more HP, so 30% more time to heal
+    doAfterDelay: 10 # goob - reduced to fit new values
   - type: BorgChassis
     maxModules: 0
     hasMindState: robot_e
