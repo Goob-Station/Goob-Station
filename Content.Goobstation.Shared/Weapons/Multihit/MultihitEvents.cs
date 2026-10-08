@@ -7,14 +7,11 @@ namespace Content.Goobstation.Shared.Weapons.Multihit;
 
 
 [ByRefEvent]
-public struct MultihitGetWeaponsEvent(EntityUid user, EntityUid weapon, float damageMultiplier, TimeSpan delay)
-{
-    public readonly EntityUid User = user;
-    public readonly EntityUid Weapon = weapon;
-    public float DamageMultiplier = damageMultiplier;
-    public TimeSpan Delay = delay;
-    public readonly List<EntityUid> Weapons = new();
-}
+public record struct MultihitGetWeaponsEvent(EntityUid User,
+    EntityUid Weapon,
+    float DamageMultiplier,
+    TimeSpan Delay,
+    List<EntityUid> Weapons);
 
 [Serializable, NetSerializable, ImplicitDataDefinitionForInheritors]
 public abstract partial class BaseMultihitUserConditionEvent : HandledEntityEventArgs

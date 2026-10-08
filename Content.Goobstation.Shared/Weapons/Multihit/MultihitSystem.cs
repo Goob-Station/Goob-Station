@@ -30,7 +30,7 @@ public sealed partial class MultihitSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MeleeHitEvent>(OnHit, before: new[] { typeof(ActiveMultihitSystem) });
+        SubscribeLocalEvent<MeleeHitEvent>(OnHit, before: [typeof(ActiveMultihitSystem)]);
 
         SubscribeLocalEvent<MultihitUserHereticEvent>(HereticCheck);
         SubscribeLocalEvent<MultihitUserWhitelistEvent>(WhitelistCheck);
@@ -89,7 +89,7 @@ public sealed partial class MultihitSystem : EntitySystem
 
         if (uid == args.User)
         {
-            var gather = new MultihitGetWeaponsEvent(args.User, args.Weapon, component.DamageMultiplier, component.MultihitDelay);
+            var gather = new MultihitGetWeaponsEvent(args.User, args.Weapon, component.DamageMultiplier, component.MultihitDelay, new());
             RaiseLocalEvent(args.User, ref gather);
 
             delay = gather.Delay;
@@ -131,7 +131,7 @@ public sealed partial class MultihitSystem : EntitySystem
             if (requireHeld)
                 return _hands.IsHolding(args.User, weapon);
 
-            var gather = new MultihitGetWeaponsEvent(args.User, args.Weapon, component.DamageMultiplier, component.MultihitDelay);
+            var gather = new MultihitGetWeaponsEvent(args.User, args.Weapon, component.DamageMultiplier, component.MultihitDelay, new());
             RaiseLocalEvent(args.User, ref gather);
             return gather.Weapons.Contains(weapon);
         }

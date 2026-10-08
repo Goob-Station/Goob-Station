@@ -71,8 +71,8 @@ public sealed partial class SharedMantisBladeSystem : EntitySystem
 
     private void OnArmRemove(Entity<MantisBladeArmComponent> ent, ref ComponentRemove args)
     {
-        if (_net.IsServer && ent.Comp.Blade is { } blade)
-            QueueDel(blade);
+        if (ent.Comp.Blade is { } blade)
+            PredictedQueueDel(blade);
 
         ent.Comp.Blade = null;
         RefreshBody(ent);
