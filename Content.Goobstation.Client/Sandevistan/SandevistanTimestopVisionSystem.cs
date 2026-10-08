@@ -17,8 +17,11 @@ public sealed partial class SandevistanTimestopVisionSystem : EntitySystem
     [Dependency] private IOverlayManager _overlayMan = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly SandevistanTimestopVisionOverlay _overlay = new();
+
+    private readonly Dictionary<EntityUid, TimeSpan> _started = new();
 
     public override void Initialize()
     {
@@ -32,8 +35,20 @@ public sealed partial class SandevistanTimestopVisionSystem : EntitySystem
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
     }
 
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+
+        foreach (var uid in _started.Keys)
+            if (!HasComp<SandevistanTimestopVisionComponent>(uid))
+                _started.Remove(uid);
+    }
+
     private void OnInit(EntityUid uid, SandevistanTimestopVisionComponent component, ComponentInit args)
     {
+        component.StartedAt = _started.TryGetValue(uid, out var started) ? started : _timing.RealTime;
+        _started[uid] = component.StartedAt;
+
         if (uid == _player.LocalEntity && !_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }

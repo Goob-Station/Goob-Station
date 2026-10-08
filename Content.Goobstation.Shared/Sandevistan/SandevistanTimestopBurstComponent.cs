@@ -1,5 +1,4 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Sandevistan;
 
@@ -10,11 +9,11 @@ namespace Content.Goobstation.Shared.Sandevistan;
 public sealed partial class SandevistanTimestopBurstComponent : Component
 {
     [DataField]
-    public TimeSpan Lasts = TimeSpan.FromSeconds(0.5f);
+    public TimeSpan Lasts = TimeSpan.FromSeconds(0.6f);
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [ViewVariables]
     public TimeSpan StartedAt;
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan ReversedAt;
+    [ViewVariables]
+    public TimeSpan? ReversedAt;
 }

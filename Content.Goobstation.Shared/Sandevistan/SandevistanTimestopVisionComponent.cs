@@ -1,5 +1,4 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Sandevistan;
 
@@ -14,8 +13,11 @@ public sealed partial class SandevistanTimestopVisionComponent : Component
     public Color LightColor = new(0.13f, 0.13f, 0.15f, 1f);
 
     [DataField]
-    public TimeSpan FadeIn = TimeSpan.FromSeconds(0.5f);
+    public TimeSpan FadeDelay = TimeSpan.FromSeconds(0.5f);
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField]
+    public TimeSpan FadeIn = TimeSpan.FromSeconds(0.1f);
+
+    [ViewVariables]
     public TimeSpan StartedAt;
 }

@@ -35,7 +35,6 @@ public sealed partial class SandevistanTimestopVisionOverlay : Overlay
         ZIndex = (int) DrawDepthEnum.Objects;
     }
 
-
     protected override bool BeforeDraw(in OverlayDrawArgs args) =>
         args.Viewport.Eye != null;
 
@@ -45,19 +44,25 @@ public sealed partial class SandevistanTimestopVisionOverlay : Overlay
             || !_entMan.TryGetComponent<SandevistanTimestopVisionComponent>(player, out var vision))
             return;
 
+        var elapsed = (_timing.RealTime - vision.StartedAt - vision.FadeDelay).TotalSeconds;
+        var t = Math.Clamp((float) (elapsed / vision.FadeIn.TotalSeconds), 0f, 1f);
+        var grey = t * t * (3f - 2f * t);
+        if (grey <= 0f)
+            return;
+
         if (args.Space == OverlaySpace.BeforeLighting)
-            DrawLighting(in args, vision);
+            DrawLighting(in args, vision, grey);
         else
-            DrawWorld(in args, vision);
+            DrawWorld(in args, grey);
     }
 
-    private void DrawWorld(in OverlayDrawArgs args, SandevistanTimestopVisionComponent vision)
+    private void DrawWorld(in OverlayDrawArgs args, float grey)
     {
         if (ScreenTexture is null)
             return;
 
         _world.SetParameter("SCREEN_TEXTURE", ScreenTexture);
-        _world.SetParameter("activated", (float) (_timing.RealTime - vision.StartedAt).TotalSeconds);
+        _world.SetParameter("grey", grey);
 
         var handle = args.WorldHandle;
         handle.SetTransform(Matrix3x2.Identity);
@@ -66,13 +71,10 @@ public sealed partial class SandevistanTimestopVisionOverlay : Overlay
         handle.UseShader(null);
     }
 
-    private void DrawLighting(in OverlayDrawArgs args, SandevistanTimestopVisionComponent vision)
+    private static void DrawLighting(in OverlayDrawArgs args, SandevistanTimestopVisionComponent vision, float grey)
     {
         var viewport = args.Viewport;
-        var elapsed = (float) (_timing.RealTime - vision.StartedAt).TotalSeconds;
-        var fadeIn = (float) vision.FadeIn.TotalSeconds;
-        var settled = Math.Clamp((elapsed - 0.43f) / (fadeIn - 0.43f), 0f, 1f);
-        var color = vision.LightColor.WithAlpha(vision.LightColor.A * settled);
+        var color = vision.LightColor.WithAlpha(vision.LightColor.A * grey);
         var worldHandle = args.WorldHandle;
         var bounds = args.WorldBounds;
         var lightScale = viewport.LightRenderTarget.Size / (Vector2) viewport.Size;

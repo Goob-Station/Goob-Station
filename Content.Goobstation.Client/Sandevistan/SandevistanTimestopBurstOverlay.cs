@@ -47,26 +47,21 @@ public sealed partial class SandevistanTimestopBurstOverlay : Overlay
         if (ScreenTexture == null)
             return;
 
-        var query = _entMan.AllEntityQueryEnumerator<SandevistanTimestopBurstComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var burst, out var xform))
+        var now = _timing.RealTime;
+        foreach (var (uid, burst) in _system!.Bursts)
         {
-            var elapsed = _timing.RealTime - burst.StartedAt;
-            if (xform.MapID == args.MapId && elapsed < burst.Lasts)
-                DrawBurst(in args, uid, elapsed);
-        }
-
-        foreach (var (uid, burst) in _system!.Reversing)
-        {
-            if (!_entMan.TryGetComponent<TransformComponent>(uid, out var xform) || xform.MapID != args.MapId)
+            var progress = SandevistanTimestopBurstSystem.Progress(burst, now);
+            if (progress <= 0f || progress >= 1f
+                || !_entMan.TryGetComponent<TransformComponent>(uid, out var xform)
+                || xform.MapID != args.MapId)
                 continue;
 
-            var elapsed = _timing.RealTime - burst.ReversedAt;
-            if (elapsed < burst.Lasts)
-                DrawBurst(in args, uid, burst.Lasts - elapsed);
+            var handoff = burst.ReversedAt == null ? SmoothStep(0.85f, 1f, progress) : 0f;
+            DrawBurst(in args, uid, progress, handoff);
         }
     }
 
-    private void DrawBurst(in OverlayDrawArgs args, EntityUid user, TimeSpan activated)
+    private void DrawBurst(in OverlayDrawArgs args, EntityUid user, float progress, float handoff)
     {
         var viewport = args.Viewport;
         var renderScale = viewport.RenderScale * viewport.Eye!.Scale;
@@ -78,12 +73,19 @@ public sealed partial class SandevistanTimestopBurstOverlay : Overlay
         _shader.SetParameter("renderScale", renderScale);
         _shader.SetParameter("center", center);
         _shader.SetParameter("maxRadius", maxRadius);
-        _shader.SetParameter("activated", (float) activated.TotalSeconds);
+        _shader.SetParameter("progress", progress);
+        _shader.SetParameter("handoff", handoff);
 
         var handle = args.WorldHandle;
         handle.SetTransform(Matrix3x2.Identity);
         handle.UseShader(_shader);
         handle.DrawRect(args.WorldBounds, Color.White);
         handle.UseShader(null);
+    }
+
+    private static float SmoothStep(float from, float to, float x)
+    {
+        var t = Math.Clamp((x - from) / (to - from), 0f, 1f);
+        return t * t * (3f - 2f * t);
     }
 }
