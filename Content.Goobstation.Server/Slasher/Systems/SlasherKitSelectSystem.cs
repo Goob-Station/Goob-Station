@@ -11,13 +11,13 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
-public sealed class SlasherKitSelectSystem : EntitySystem
+public sealed partial class SlasherKitSelectSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedStationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly SlasherIncorporealSystem _incorporeal = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedStationSpawningSystem _stationSpawning = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private SlasherIncorporealSystem _incorporeal = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {

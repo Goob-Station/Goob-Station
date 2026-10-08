@@ -11,10 +11,10 @@ namespace Content.Goobstation.Client.Slasher.Systems;
 /// <summary>
 /// Makes entities invisible in darkness and visible in light, and hides their status icons from everyone else.
 /// </summary>
-public sealed class BoogeymanShadowSystem : EntitySystem
+public sealed partial class BoogeymanShadowSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private static readonly ProtoId<ShaderPrototype> Shader = "SlasherBoogeyman";
 
