@@ -10,11 +10,11 @@ namespace Content.Goobstation.Client.Sandevistan;
 /// <summary>
 /// Handles the sandevistan slowdown overlay.
 /// </summary>
-public sealed class SandevistanSlowdownVisionSystem : EntitySystem
+public sealed partial class SandevistanSlowdownVisionSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private SandevistanSlowdownVisionOverlay _overlay = default!;
 

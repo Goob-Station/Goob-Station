@@ -9,9 +9,9 @@ namespace Content.Goobstation.Client.Audio;
 /// <summary>
 /// Changes the pitch of everything that has this.
 /// </summary>
-public sealed class AudioPitchSystem : EntitySystem
+public sealed partial class AudioPitchSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

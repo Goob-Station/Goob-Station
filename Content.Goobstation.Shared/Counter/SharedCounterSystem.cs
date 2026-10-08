@@ -13,11 +13,11 @@ namespace Content.Goobstation.Shared.Counter;
 /// <summary>
 /// Generic "counter" ability. 
 /// </summary>
-public sealed class SharedCounterSystem : EntitySystem
+public sealed partial class SharedCounterSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

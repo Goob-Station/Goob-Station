@@ -12,11 +12,11 @@ namespace Content.Goobstation.Client.Sandevistan;
 /// This is the grey look the background gets during a sandevistan timestop.
 /// Ignores player / item entities.
 /// </summary>
-public sealed class SandevistanTimestopVisionSystem : EntitySystem
+public sealed partial class SandevistanTimestopVisionSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private SandevistanTimestopVisionOverlay _overlay = default!;
 

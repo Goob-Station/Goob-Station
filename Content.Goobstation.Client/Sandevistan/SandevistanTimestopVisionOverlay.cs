@@ -13,14 +13,14 @@ namespace Content.Goobstation.Client.Sandevistan;
 /// This is the grey look the background gets during a sandevistan timestop.
 /// Ignores player / item entities.
 /// </summary>
-public sealed class SandevistanTimestopVisionOverlay : Overlay
+public sealed partial class SandevistanTimestopVisionOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> WorldShader = "SandevistanTimestopWorld";
 
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities | OverlaySpace.BeforeLighting;

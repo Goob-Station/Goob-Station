@@ -10,13 +10,13 @@ namespace Content.Goobstation.Client.Sandevistan;
 /// <summary>
 /// This is the green look the world gets during sandevistan time dilation.
 /// </summary>
-public sealed class SandevistanSlowdownVisionOverlay : Overlay
+public sealed partial class SandevistanSlowdownVisionOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "SandevistanSlowdownVision";
 
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace | OverlaySpace.BeforeLighting;

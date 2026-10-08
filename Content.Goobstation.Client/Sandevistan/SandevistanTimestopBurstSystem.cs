@@ -9,11 +9,11 @@ namespace Content.Goobstation.Client.Sandevistan;
 /// <summary>
 /// Plays the timestop swirl effect out of this entity for everyone who can see it.
 /// </summary>
-public sealed class SandevistanTimestopBurstSystem : EntitySystem
+public sealed partial class SandevistanTimestopBurstSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private SandevistanTimestopBurstOverlay _overlay = default!;
 
