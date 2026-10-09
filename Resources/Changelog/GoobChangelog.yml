@@ -26204,3 +26204,15 @@ Entries:
         etc.
   id: 2964
   time: '2026-10-09T20:00:39.0000000+00:00'
+- author: Mirrorcult, Durk
+  changes:
+    - type: Add
+      message: >-
+        Interacting with things now has animations, showing what you are
+        interacting with.
+    - type: Add
+      message: Hits, gunfire, explosions and gravity changes now shake the screen.
+    - type: Tweak
+      message: DoAfter bars now fade in, slide up and fade out.
+  id: 2965
+  time: '2026-10-09T22:52:55.0000000+00:00'
