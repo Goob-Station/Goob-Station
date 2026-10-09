@@ -10,7 +10,7 @@ namespace Content.Goobstation.Shared.Cinematic;
 public sealed partial class CinematicPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; set; } = default!;
 
     [DataField]
     public List<CinematicSegment> Segments = new();

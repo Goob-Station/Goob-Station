@@ -31,34 +31,34 @@ public sealed partial class CinematicComponent : Component
     [DataField, AutoNetworkedField]
     public string? StationName;
 
-    [DataField]
+    [ViewVariables]
     public bool Engaged;
 
-    [DataField]
+    [ViewVariables]
     public float Strength;
 
-    [DataField]
+    [ViewVariables]
     public Vector2 Pan;
 
-    [DataField]
+    [ViewVariables]
     public Vector2 EyeOffset;
 
-    [DataField]
+    [ViewVariables]
     public bool RegistryApplied;
 
-    [DataField]
+    [ViewVariables]
     public int ActiveSegment = -1;
 
-    [DataField]
+    [ViewVariables]
     public ComponentRegistry? Overridden;
 
-    [DataField]
+    [ViewVariables]
     public List<EntityUid> SegmentSounds = new();
 
     /// <summary>
     /// Sound sources the timeline has ducked.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public Dictionary<EntityUid, DuckedVolume> Ducked = new();
 }
 

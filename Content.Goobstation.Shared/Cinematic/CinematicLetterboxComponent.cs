@@ -24,6 +24,6 @@ public sealed partial class CinematicLetterboxComponent : Component
     [DataField]
     public Color Color = Color.Black;
 
-    [DataField]
+    [ViewVariables]
     public float Strength;
 }

@@ -24,6 +24,6 @@ public sealed partial class CinematicShakeComponent : Component
     [DataField]
     public float Range = 14f;
 
-    [DataField]
+    [ViewVariables]
     public float Strength;
 }

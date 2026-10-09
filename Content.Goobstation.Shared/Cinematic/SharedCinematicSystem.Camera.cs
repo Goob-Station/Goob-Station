@@ -4,9 +4,6 @@ using Content.Shared.Movement.Components;
 
 namespace Content.Goobstation.Shared.Cinematic;
 
-/// <summary>
-/// Decides who is watching and pulls their camera.
-/// </summary>
 public sealed partial class SharedCinematicSystem
 {
     private void UpdateEngagement(Entity<CinematicComponent> ent, CinematicPrototype timeline, EntityUid? viewer)

@@ -37,18 +37,18 @@ public sealed partial class CinematicPressureComponent : Component
 
     #endregion
 
-    [DataField]
+    [ViewVariables]
     public float Strength;
 
-    [DataField]
+    [ViewVariables]
     public float Current;
 
-    [DataField]
+    [ViewVariables]
     public float Age;
 
-    [DataField]
+    [ViewVariables]
     public float Shock = -1f;
 
-    [DataField]
+    [ViewVariables]
     public float Remaining;
 }

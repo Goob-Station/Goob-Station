@@ -18,6 +18,6 @@ public sealed partial class CinematicZoomComponent : Component
     [DataField]
     public float Range = 14f;
 
-    [DataField]
+    [ViewVariables]
     public float Strength;
 }
