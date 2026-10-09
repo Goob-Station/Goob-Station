@@ -1,10 +1,9 @@
 using System.Linq;
-using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Shitmed.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage.Components;
+using Content.Woundmed.Common.Body.Types;
 
 namespace Content.Shared.Mobs.Systems;
 

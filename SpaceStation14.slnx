@@ -44,6 +44,10 @@
   <Project Path="Content.Goobstation.Common/Content.Goobstation.Common.csproj" />
   <Project Path="Content.Goobstation.Maths/Content.Goobstation.Maths.csproj" />
   <Project Path="Content.Goobstation.UIKit/Content.Goobstation.UIKit.csproj" />
+  <Project Path="Content.Woundmed.Server/Content.Woundmed.Server.csproj" />
+  <Project Path="Content.Woundmed.Shared/Content.Woundmed.Shared.csproj" />
+  <Project Path="Content.Woundmed.Client/Content.Woundmed.Client.csproj" />
+  <Project Path="Content.Woundmed.Common/Content.Woundmed.Common.csproj" />
   <Project Path="Content.ModuleManager/Content.ModuleManager.csproj" />
   <!-- </Goob End> -->
   <Project Path="Content.Tests/Content.Tests.csproj" />

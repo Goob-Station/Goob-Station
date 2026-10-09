@@ -9,7 +9,6 @@ using Content.Server.Chat.Systems;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
@@ -33,6 +32,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Systems;
+using Content.Woundmed.Common.Body.Components;
 
 namespace Content.Goobstation.Server.HisGrace;
 

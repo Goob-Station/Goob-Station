@@ -2,10 +2,9 @@
 
 using Content.Goobstation.Common.Mobs;
 using Content.Shared.Database;
-using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
+using Content.Woundmed.Common.Body.Components;
 using Robust.Shared.Player;
-using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Shared.Mobs.Systems;
 

@@ -292,7 +292,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             // when unpolymorphing. i also think the damage sometimes just doesnt transfer such as with zombies
             // TODO: also this code can be better or have a helper function and moved
             if (TryComp<BodyComponent>(child, out var childBody)
-                && childBody.BodyType == Shared._Shitmed.Body.BodyType.Complex // Too lazy to come up with a new name lmfao
+                && childBody.BodyType == Woundmed.Common.Body.Types.BodyType.Complex // Too lazy to come up with a new name lmfao
                 && _body.TryGetRootPart(child, out var rootPart, childBody))
             {
                 var woundables = _wound.GetAllWoundableChildrenWithComp<DamageableComponent>(rootPart.Value);
@@ -484,7 +484,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             // when unpolymorphing. i also think the damage sometimes just doesnt transfer such as with zombies
             // TODO: also this code can be better or have a helper function and moved
             if (TryComp<BodyComponent>(parent, out var parentBody)
-                && parentBody.BodyType == Shared._Shitmed.Body.BodyType.Complex // Too lazy to come up with a new name lmfao
+                && parentBody.BodyType == Woundmed.Common.Body.Types.BodyType.Complex // Too lazy to come up with a new name lmfao
                 && _body.TryGetRootPart(parent, out var rootPart, parentBody))
             {
                 var woundables = _wound.GetAllWoundableChildrenWithComp<DamageableComponent>(rootPart.Value);

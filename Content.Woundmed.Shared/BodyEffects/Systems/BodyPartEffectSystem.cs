@@ -1,25 +1,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Part;
+using Content.Woundmed.Common.BodyEffects.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 
-namespace Content.Shared._Shitmed.BodyEffects;
+namespace Content.Woundmed.Shared.BodyEffects.Systems;
+
 public sealed partial class BodyPartEffectSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<BodyPartComponent, BodyPartAddedEvent>(OnPartAttached);
-        SubscribeLocalEvent<BodyPartComponent, BodyPartRemovedEvent>(OnPartDetached);
-    }
+    [Dependency] private ISerializationManager _serManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     // While I would love to kill this function, problem is that if we happen to have two parts that add the same
     // effect, removing one will remove both of them, since we cant tell what the source of a Component is.
@@ -39,30 +32,32 @@ public sealed partial class BodyPartEffectSystem : EntitySystem
         }
     }
 
-    private void OnPartAttached(EntityUid uid, BodyPartComponent part, ref BodyPartAddedEvent args)
+    [SubscribeLocalEvent]
+    private void OnPartAttached(Entity<BodyPartComponent> ent, ref BodyPartAddedEvent args)
     {
-        if (part.Body is null)
+        if (ent.Comp.Body is null)
             return;
 
-        if (part.OnAdd != null)
-            AddComponents(part.Body.Value, uid, part.OnAdd);
-        else if (part.OnRemove != null)
-            RemoveComponents(part.Body.Value, uid, part.OnRemove);
+        if (ent.Comp.OnAdd != null)
+            AddComponents(ent.Comp.Body.Value, ent, ent.Comp.OnAdd);
+        else if (ent.Comp.OnRemove != null)
+            RemoveComponents(ent.Comp.Body.Value, ent, ent.Comp.OnRemove);
 
-        Dirty(uid, part);
+        Dirty(ent);
     }
 
-    private void OnPartDetached(EntityUid uid, BodyPartComponent part, ref BodyPartRemovedEvent args)
+    [SubscribeLocalEvent]
+    private void OnPartDetached(Entity<BodyPartComponent> ent, ref BodyPartRemovedEvent args)
     {
-        if (part.Body is null)
+        if (ent.Comp.Body is null)
             return;
 
-        if (part.OnAdd != null)
-            RemoveComponents(part.Body.Value, uid, part.OnAdd);
-        else if (part.OnRemove != null)
-            AddComponents(part.Body.Value, uid, part.OnRemove);
+        if (ent.Comp.OnAdd != null)
+            RemoveComponents(ent.Comp.Body.Value, ent, ent.Comp.OnAdd);
+        else if (ent.Comp.OnRemove != null)
+            AddComponents(ent.Comp.Body.Value, ent, ent.Comp.OnRemove);
 
-        Dirty(uid, part);
+        Dirty(ent);
     }
 
     private void AddComponents(EntityUid body,
@@ -80,7 +75,7 @@ public sealed partial class BodyPartEffectSystem : EntitySystem
                 continue;
 
             var newComp = (Component) _serManager.CreateCopy(comp.Component, notNullableOverride: true);
-            EntityManager.AddComponent(body, newComp, true);
+            AddComp(body, newComp, true);
 
             effectComp.Active[key] = comp;
         }

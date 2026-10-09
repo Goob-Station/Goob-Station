@@ -1,4 +1,4 @@
-namespace Content.Shared._Shitmed.Body.Components;
+namespace Content.Woundmed.Common.Body.Components;
 
 /// <summary>
 ///     Disables a limb from being used.

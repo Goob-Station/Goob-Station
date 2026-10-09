@@ -2,6 +2,7 @@ using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared.Body.Part;
+using Content.Woundmed.Common.Body.Components;
 
 namespace Content.Server._Shitmed.Medical.Trauma;
 

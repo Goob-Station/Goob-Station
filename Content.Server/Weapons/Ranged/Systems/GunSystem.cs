@@ -271,7 +271,7 @@ public sealed partial class GunSystem : SharedGunSystem
         var look = _lookup.GetEntitiesInRange<BodyComponent>(coords, 2f, LookupFlags.Dynamic);
         foreach (var (uid, body) in look)
         {
-            if (body.BodyType != Shared._Shitmed.Body.BodyType.Complex)
+            if (body.BodyType != Woundmed.Common.Body.Types.BodyType.Complex)
                 continue;
 
             var part = GetTargetPart(shooter, coords, _transform.GetMapCoordinates(ent));

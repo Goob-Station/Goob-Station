@@ -8,6 +8,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Robust.Shared.Containers;
+using Content.Woundmed.Common.Body.Organs.Components;
 
 namespace Content.Server._Shitmed.Body.Systems
 {

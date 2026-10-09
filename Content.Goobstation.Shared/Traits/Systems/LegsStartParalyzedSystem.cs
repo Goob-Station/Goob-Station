@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Traits;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
+using Content.Woundmed.Common.Body.Components;
 
 namespace Content.Goobstation.Shared.Traits.Assorted;
 

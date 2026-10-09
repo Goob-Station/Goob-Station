@@ -29,6 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
+using Content.Woundmed.Common.Body.Types;
 
 namespace Content.IntegrationTests.Tests._Shitmed.Body;
 

@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Shitmed.BodyEffects;
+namespace Content.Woundmed.Common.BodyEffects.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentPause]
@@ -14,7 +14,7 @@ public sealed partial class BodyPartEffectComponent : Component
     ///     The components that are active on the part and will be refreshed every 5s
     /// </summary>
     [DataField]
-    public ComponentRegistry Active = new();
+    public ComponentRegistry Active = [];
 
     /// <summary>
     ///     How long to wait between each refresh.

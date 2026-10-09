@@ -1,5 +1,4 @@
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using System.Linq;
@@ -7,6 +6,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Woundmed.Common.Body.Types;
 
 namespace Content.Shared.Damage.Systems;
 

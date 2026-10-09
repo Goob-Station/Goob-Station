@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Shitmed.BodyEffects;
+namespace Content.Woundmed.Common.BodyEffects.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentPause]
