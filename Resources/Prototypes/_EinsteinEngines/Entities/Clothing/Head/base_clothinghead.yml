@@ -55,6 +55,8 @@
       - state: on-equipped-HELMET
         shader: unshaded
   - type: ItemTogglePointLight
+    toggleableVisualsColorModulatesLights: true # Goob Station edit.   Light color comes from ToggleableVisuals.Color
+  - type: WearerLightColor # Goob Station edit.   Light color = wearer plasmaman's body color
   - type: PointLight
     enabled: false
     color: "#ffa1ff"
@@ -66,6 +68,7 @@
   - type: Appearance
   - type: HandheldLight
     addPrefix: true
+    requiresPower: false # Goob Station edit.   Helmet light needs no power cell
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
   - type: LightBehaviour
@@ -85,16 +88,18 @@
         startValue: 0.1
         endValue: 2.0
         isLooped: true
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot {}
+  # Goob Station start
+  #- type: PowerCellSlot
+  #  cellSlotId: cell_slot
+  #- type: ItemSlots
+  #  slots:
+  #    cell_slot:
+  #      name: power-cell-slot-component-slot-name-default
+  #      startingItem: PowerCellMedium
+  #- type: ContainerContainer
+  #  containers:
+  #    cell_slot: !type:ContainerSlot {}
+  # Goob Station end
   - type: GuideHelp # While the playerbase is getting introduced to Plasmamen, add their guidebook here
     guides: [ Plasmaman ]
 

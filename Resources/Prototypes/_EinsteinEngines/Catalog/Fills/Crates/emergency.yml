@@ -23,7 +23,7 @@
     contents:
       - id: ClothingUniformEnvirosuit
         amount: 2
-      - id: ClothingHeadEnvirohelmEmpty
+      - id: ClothingHeadEnvirohelm # Goob Station edit
         amount: 2
       - id: ClothingHandsGlovesEnvirogloves
         amount: 2
