@@ -1,5 +1,3 @@
-// This sucks bro. Why can't it just be "If want cool text do cooltext = true"
-
 light_mode unshaded;
 
 uniform sampler2D MID;
@@ -59,8 +57,8 @@ highp float unblur(highp float g, highp float sigma) {
 void fragment() {
     highp float coverage = zTexture(UV).a;
     highp float mask = smoothstep(0.5 - maskEdge, 0.5 + maskEdge, coverage);
-    highp float g2 = zTextureSpec(MID, UV).a;
-    highp float g3 = zTextureSpec(FAR, UV).a;
+    highp float g2 = zTextureSpec(MID, UV).r;
+    highp float g3 = zTextureSpec(FAR, UV).r;
 
     if (g3 <= 0.0008 && coverage <= 0.0) {
         discard;
@@ -72,8 +70,8 @@ void fragment() {
     highp float d2 = unblur(g2, sigmaMid);
     highp float d3 = unblur(g3, sigmaFar);
     highp vec2 e = texelSize * (glyphSize * 0.25);
-    highp float gx = zTextureSpec(FAR, UV + vec2(e.x, 0.0)).a - zTextureSpec(FAR, UV - vec2(e.x, 0.0)).a;
-    highp float gy = zTextureSpec(FAR, UV + vec2(0.0, e.y)).a - zTextureSpec(FAR, UV - vec2(0.0, e.y)).a;
+    highp float gx = zTextureSpec(FAR, UV + vec2(e.x, 0.0)).r - zTextureSpec(FAR, UV - vec2(e.x, 0.0)).r;
+    highp float gy = zTextureSpec(FAR, UV + vec2(0.0, e.y)).r - zTextureSpec(FAR, UV - vec2(0.0, e.y)).r;
     highp vec2 grad = vec2(gx, -gy);
     highp vec2 outward = -grad / (length(grad) + 0.000001);
     highp vec2 anchor = px - outward * min(d3, glyphSize * 2.5);

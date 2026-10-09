@@ -47,16 +47,16 @@
   path: "/Textures/_Goobstation/Shaders/ai_machine_view.swsl"
 
 - type: shader
-  id: HereticBlur
+  id: CinematicCaptionBlur
   kind: source
-  path: "/Textures/_Goobstation/Shaders/heretic_blur.swsl"
+  path: "/Textures/_Goobstation/Shaders/cinematic_caption_blur.swsl"
   params:
     spread: 1.0
 
 - type: shader
-  id: HereticCaption
+  id: CinematicCaptionAura
   kind: source
-  path: "/Textures/_Goobstation/Shaders/heretic_caption.swsl"
+  path: "/Textures/_Goobstation/Shaders/cinematic_caption_aura.swsl"
   params:
     glyphSize: 48.0
     strength: 1.0
