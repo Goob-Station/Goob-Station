@@ -141,8 +141,8 @@
     - state: icon-tools
   - type: ItemBorgModule
     hands:
-    - item: Stunbaton
-    - item: WeaponDisabler
+    - item: StunbatonSEC
+    - item: WeaponDisablerSEC
     - item: CombatKnife
     - hand:
         emptyLabel: borg-slot-BolaEnergy-empty-goob
