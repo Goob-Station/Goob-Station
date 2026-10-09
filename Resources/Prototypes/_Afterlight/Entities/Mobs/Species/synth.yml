@@ -1,0 +1,157 @@
+- type: entity
+  save: false
+  abstract: true
+  parent: [BaseInventorySynth, BaseMobSpecies, MobAtmosStandard, MobFlammable]
+  id: BaseMobSynth
+  name: Urist McBeeper
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+  - type: Icon
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: full
+  - type: HumanoidAppearance
+    species: Synth
+    hideLayersOnEquip:
+    - Hair
+  - type: Hunger
+    baseDecayRate: 0.02
+    starvingSlowdownModifier: 0.75
+  - type: Thirst
+  - type: Puller
+    needsHands: false
+  - type: Body
+    prototype: Synth
+    requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: OrganSynthAppendix
+      amount: 5
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+  - type: TypingIndicator
+    proto: robot
+  - type: Vocal
+    sounds:
+      Male: UnisexSilicon
+      Female: UnisexSilicon
+      Unsexed: UnisexSilicon
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Synth
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    damage:
+      types:
+        Blunt: 6
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.25
+        Heat: 0.05
+  - type: Blindable
+  - type: ThermalRegulator
+    metabolismHeat: 500
+    radiatedHeat: 150
+    implicitHeatRegulation: 700
+    sweatHeatRegulation: 1200
+    shiveringHeatRegulation: 400
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 4
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 30
+  - type: TemperatureDamage
+    heatDamageThreshold: 360
+    coldDamageThreshold: 220
+    coldDamage:
+      types:
+        Cold: 0.1
+    heatDamage:
+      types:
+        Heat: 1.5
+  - type: TemperatureSpeed
+    thresholds:
+      260: 0.9
+      240: 0.8
+      220: 0.7
+  - type: FireVisuals
+    alternateState: Standing
+  - type: StunVisuals
+  - type: GrabIntent
+  - type: Grabbable
+  - type: Carriable
+  - type: SolutionContainerManager
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss: 0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+    bloodRefreshAmount: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: SynthBlood
+        Quantity: 300
+  - type: SynthBloodstream
+    minBloodLevel: 0.3
+    fullEfficiencyBloodLevel: 0.9
+    minBloodEfficiency: 0.1
+    minHunger: 50
+    hungerCostPerRepair: 1.5
+    hungerCostPerBleed: 2
+    bleedReductionAmount: 0.25
+    damage:
+      groups:
+        Brute: -1.25
+        Burn: -1.5
+      types:
+        Bloodloss: -0.1
+        Cellular: -0.035
+    bloodRegeneration:
+      targetBloodLevel: 1
+      bloodRefreshAmount: 0.3
+      hungerCostPerUnit: 0.5
+  - type: SynthBattery
+    drawRate: 0.4
+    nutrimentChargeMultiplier: 2.4
+    batteryLowText: synth-battery-low
+    batteryDeadText: synth-battery-dead
+    warningPercentages: [ 20, 10 ]
+    batteryLowSound:
+      path: /Audio/Machines/twobeep.ogg
+      params:
+        maxDistance: 5
+    batteryDeadSound:
+      path: /Audio/Machines/buzz-two.ogg
+      params:
+        maxDistance: 5
+    empDamage:
+      types:
+        Shock: 10
+        Heat: 10
+  - type: SynthShock
+    batteryChargeMultiplier: 10.8
+    cellularDamageMultiplier: 0.2
+  - type: ZombieImmune
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - SiliconEmotes
+    - Synth

@@ -1,0 +1,32 @@
+- type: reagent
+  parent: Blood
+  id: SynthBlood
+  name: reagent-name-synth-blood
+  group: Biological
+  desc: reagent-desc-synth-blood
+  flavor: metallic
+  color: "#3F1B66"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-reflective
+  metabolisms:
+    Drink:
+      metabolismRate: 1
+      effects:
+      - !type:SatiateThirst
+        factor: 0.25
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.25
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+          inverted: true
+      - !type:ModifyBloodLevel
+        amount: 0.45
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]

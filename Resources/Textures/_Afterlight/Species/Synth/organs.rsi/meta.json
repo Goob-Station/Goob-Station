@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by GitHub ItsDzordz / Discord dzordz (310775535984836609)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "appendix"
+        },
+        {
+            "name": "brain"
+        },
+		{
+            "name": "ears"
+        },
+        {
+            "name": "eyes"
+        },
+        {
+            "name": "heart"
+        },
+        {
+            "name": "kidneys"
+        },
+        {
+            "name": "liver"
+        },
+        {
+            "name": "lungs"
+        },
+        {
+            "name": "stomach"
+        },
+        {
+            "name": "tongue"
+        }
+    ]
+}

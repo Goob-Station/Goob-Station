@@ -957,6 +957,10 @@
             type: [ Feroxi ]
           factor: 2
         - !type:ModifyBloodLevel
+          conditions: # Goob start - Afterlight synths
+          - !type:MetabolizerTypeCondition
+            type: [ Synth ]
+            inverted: true # Goob end
           amount: 12 # Goobstation - buffed by two times due to shitmed changes
 
 - type: reagent

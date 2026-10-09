@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by GitHub NotLivyathan / Discord livyathan (298907041198637067)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chest_light",
+      "directions": 4
+    },
+	{
+      "name": "composite",
+      "directions": 4
+    },
+    {
+      "name": "composite_frame",
+      "directions": 4
+    },
+    {
+      "name": "star_cross",
+      "directions": 4
+    }
+  ]
+}

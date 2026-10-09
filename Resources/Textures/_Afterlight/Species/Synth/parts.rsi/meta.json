@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "by Github NotLivyathan / Discord livyathan (298907041198637067)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "eyes",
+            "directions": 4
+        },
+        {
+            "name": "full"
+        },
+        {
+            "name": "head",
+            "directions": 4
+        },
+        {
+            "name": "l_arm",
+            "directions": 4
+        },
+        {
+            "name": "l_foot",
+            "directions": 4
+        },
+        {
+            "name": "l_hand",
+            "directions": 4
+        },
+        {
+            "name": "l_leg",
+            "directions": 4
+        },
+        {
+            "name": "r_arm",
+            "directions": 4
+        },
+        {
+            "name": "r_foot",
+            "directions": 4
+        },
+        {
+            "name": "r_hand",
+            "directions": 4
+        },
+        {
+            "name": "r_leg",
+            "directions": 4
+        },
+        {
+            "name": "chest",
+            "directions": 4
+        },
+        {
+            "name": "groin",
+            "directions": 4
+        }
+    ]
+}
