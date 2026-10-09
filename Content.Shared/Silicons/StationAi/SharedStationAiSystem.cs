@@ -455,7 +455,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
         ent.Comp.Remote = isRemote;
 
-        EntityCoordinates? coords = ent.Comp.RemoteEntity != null ? Transform(ent.Comp.RemoteEntity.Value).Coordinates : null;
+        EntityCoordinates? coords = TryComp(ent.Comp.RemoteEntity, out TransformComponent? remoteXform) ? remoteXform.Coordinates : null; // Goob - remote entity may be deleted
 
         // Attach new eye
         var oldEye = ent.Comp.RemoteEntity;

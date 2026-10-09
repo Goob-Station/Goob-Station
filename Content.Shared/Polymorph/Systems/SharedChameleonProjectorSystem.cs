@@ -3,7 +3,6 @@
 using Content.Goobstation.Common.Effects;
 using Content.Shared.Actions;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -19,6 +18,7 @@ using Robust.Shared.Serialization.Manager;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared.Polymorph.Systems;
 

@@ -12,6 +12,7 @@ using Content.Shared._White.Standing;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Physics.Components;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._White.Grab;
 
