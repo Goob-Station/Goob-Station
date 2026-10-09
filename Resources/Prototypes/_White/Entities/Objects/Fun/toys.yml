@@ -27,6 +27,7 @@
       - Ghost
     knockdownTime: 0
     infectionPrototype: null
+    sleepChemAmount: 0
     damageOnImpact:
       types:
         Blunt: 0

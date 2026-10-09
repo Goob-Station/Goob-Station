@@ -45,11 +45,12 @@ public sealed class DrowsinessOverlay : Overlay
     {
         var playerEntity = _playerManager.LocalEntity;
 
-        if (playerEntity == null)
+        if (playerEntity == null
+            || !_statusEffects.TryGetEffectsEndTimeWithComp<DrowsinessStatusEffectComponent>(playerEntity, out var endTime))
+        {
+            CurrentPower = 0; // Goob - don't keep drawing on a new body
             return;
-
-        if (!_statusEffects.TryGetEffectsEndTimeWithComp<DrowsinessStatusEffectComponent>(playerEntity, out var endTime))
-            return;
+        }
 
         endTime ??= TimeSpan.MaxValue;
         var timeLeft = (float)(endTime - _timing.CurTime).Value.TotalSeconds;

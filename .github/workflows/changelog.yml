@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # From https://github.com/DeltaV-Station/Delta-v/
 name: PR Changelogs
-concurrency: commit_action
 on:
   pull_request_target:
     types: [closed]
@@ -42,17 +41,30 @@ jobs:
         shell: bash
         continue-on-error: true
 
-      - name: Generate Changelog
+      - name: Generate and Commit Changelog
         run: |
-          cd "Tools/changelog"
-          node changelog.js
-        shell: bash
-        continue-on-error: true
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            git fetch origin "${{ vars.CHANGELOG_BRANCH }}"
+            git reset --hard "origin/${{ vars.CHANGELOG_BRANCH }}"
 
-      - name: Commit Changelog
-        run: |
-          git add *.yml
-          git commit -m "${{ vars.CHANGELOG_MESSAGE }} (#${{ env.PR_NUMBER }})"
-          git push
+            (cd "Tools/changelog" && node changelog.js)
+
+            if git diff --quiet -- "$CHANGELOG_DIR"; then
+              echo "No changelog changes to commit"
+              exit 0
+            fi
+
+            git add "$CHANGELOG_DIR"
+            git commit -m "${{ vars.CHANGELOG_MESSAGE }} (#${{ env.PR_NUMBER }})"
+
+            if git push origin "HEAD:${{ vars.CHANGELOG_BRANCH }}"; then
+              exit 0
+            fi
+
+            echo "Push failed (attempt $attempt), retrying"
+            sleep $((RANDOM % 10 + attempt * 3))
+          done
+
+          echo "Failed to push changelog after 10 attempts"
+          exit 1
         shell: bash
-        continue-on-error: true

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Weapons.Misc;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 
@@ -24,7 +25,7 @@ public sealed class TetherGunOverlay : Overlay
         var tetherQuery = _entManager.GetEntityQuery<TetherGunComponent>();
         var forceQuery = _entManager.GetEntityQuery<ForceGunComponent>();
         var worldHandle = args.WorldHandle;
-        var xformSystem = _entManager.System<SharedTransformSystem>();
+        var xformSystem = _entManager.System<TransformSystem>();
 
         while (query.MoveNext(out var uid, out var tethered))
         {
@@ -39,8 +40,8 @@ public sealed class TetherGunOverlay : Overlay
             if (xform.MapID != gunXform.MapID)
                 continue;
 
-            var worldPos = xformSystem.GetWorldPosition(xform, xformQuery);
-            var gunWorldPos = xformSystem.GetWorldPosition(gunXform, xformQuery);
+            var worldPos = xformSystem.GetRenderWorldPosition((uid, xform));
+            var gunWorldPos = xformSystem.GetRenderWorldPosition((gun, gunXform));
             var diff = worldPos - gunWorldPos;
             var angle = diff.ToWorldAngle();
             var length = diff.Length() / 2f;

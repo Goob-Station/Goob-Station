@@ -7,6 +7,7 @@ using System.Numerics;
 using Content.Shared._Mono.FireControl;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
+using Robust.Client.GameObjects;
 
 namespace Content.Client._Mono.FireControl;
 
@@ -77,7 +78,7 @@ public sealed class FireControlVisualizerSystem : EntitySystem
     {
         private readonly FireControlVisualizerSystem _system;
         private readonly IEntityManager _entityManager;
-        private readonly SharedTransformSystem _transformSystem;
+        private readonly TransformSystem _transformSystem;
 
         public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -85,7 +86,7 @@ public sealed class FireControlVisualizerSystem : EntitySystem
         {
             _system = system;
             _entityManager = entityManager;
-            _transformSystem = entityManager.System<SharedTransformSystem>();
+            _transformSystem = entityManager.System<TransformSystem>();
         }
 
         protected override void Draw(in OverlayDrawArgs args)
@@ -98,7 +99,7 @@ public sealed class FireControlVisualizerSystem : EntitySystem
                 if (!_entityManager.TryGetComponent(uid, out TransformComponent? transform))
                     continue;
 
-                var position = _transformSystem.GetWorldPosition(transform);
+                var position = _transformSystem.GetRenderWorldPosition((uid, transform));
 
                 // Draw a small circle at the weapon position
                 handle.DrawCircle(position, 0.3f, Color.Yellow, true);
