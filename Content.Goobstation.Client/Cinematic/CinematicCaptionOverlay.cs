@@ -13,18 +13,18 @@ namespace Content.Goobstation.Client.Cinematic;
 /// <summary>
 /// Displays text that gets written in on the users screen.
 /// </summary>
-public sealed class CinematicCaptionOverlay : Overlay
+public sealed partial class CinematicCaptionOverlay : Overlay
 {
     /// <summary>
     /// Font sizes are authored against this viewport height and scaled from there.
     /// </summary>
     private const float ReferenceViewportHeight = 1080f;
 
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private CaptionTargets? _targets;
     private readonly Dictionary<(ResPath Path, int Size), VectorFont> _fonts = new();

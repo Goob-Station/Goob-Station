@@ -10,12 +10,12 @@ namespace Content.Goobstation.Client.Cinematic;
 /// <summary>
 /// Zooms the local players camera.
 /// </summary>
-public sealed class CinematicZoomSystem : EntitySystem
+public sealed partial class CinematicZoomSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly CinematicShakeSystem _shake = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private CinematicShakeSystem _shake = default!;
 
     public override void Initialize()
     {

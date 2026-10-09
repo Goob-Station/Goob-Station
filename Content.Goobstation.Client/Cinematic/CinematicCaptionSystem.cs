@@ -14,10 +14,10 @@ namespace Content.Goobstation.Client.Cinematic;
 /// </summary>
 public sealed partial class CinematicCaptionSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private CinematicCaptionOverlay _overlay = default!;
     private readonly List<SoundFade> _fades = new();

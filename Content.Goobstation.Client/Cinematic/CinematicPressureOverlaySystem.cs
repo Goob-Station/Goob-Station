@@ -12,9 +12,9 @@ namespace Content.Goobstation.Client.Cinematic;
 /// </summary>
 public sealed partial class CinematicPressureOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private CinematicPressureOverlay _overlay = default!;
 

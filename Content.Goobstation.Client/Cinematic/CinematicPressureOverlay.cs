@@ -8,11 +8,11 @@ namespace Content.Goobstation.Client.Cinematic;
 /// <summary>
 /// Full-screen pressure aura.
 /// </summary>
-public sealed class CinematicPressureOverlay : Overlay
+public sealed partial class CinematicPressureOverlay : Overlay
 {
     private const float MinStrength = 0.005f;
 
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     public ShaderInstance? Shader;
 

@@ -11,12 +11,12 @@ namespace Content.Goobstation.Client.Cinematic;
 /// <summary>
 /// Shakes the local players camera.
 /// </summary>
-public sealed class CinematicShakeSystem : EntitySystem
+public sealed partial class CinematicShakeSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

@@ -14,12 +14,12 @@ namespace Content.Goobstation.Server.Cinematics.Commands;
 /// Plays a scripted cinematic on an entity.
 /// </summary>
 [AdminCommand(AdminFlags.Admin)]
-public sealed class PlayCinematicCommand : LocalizedEntityCommands
+public sealed partial class PlayCinematicCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly SharedCinematicSystem _cinematic = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private SharedCinematicSystem _cinematic = default!;
 
     public override string Command => "playcinematic";
 

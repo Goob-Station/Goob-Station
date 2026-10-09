@@ -17,12 +17,12 @@ namespace Content.Server._Shitcode.Heretic.Commands;
 /// mainly for testing the ascension cinematics.
 /// </summary>
 [AdminCommand(AdminFlags.Debug)]
-public sealed class HereticAscendCommand : LocalizedEntityCommands
+public sealed partial class HereticAscendCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private HereticSystem _heretic = default!;
 
     public override string Command => "hereticascend";
 
