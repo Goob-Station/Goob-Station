@@ -60,7 +60,7 @@ public sealed partial class SharedCinematicSystem : EntitySystem
             HandleSegments(ent, timeline);
             UpdateAudio(ent, timeline, viewer);
 
-            if (_net.IsServer && _timing.CurTime >= comp.EndTime)
+            if (_timing.CurTime >= comp.EndTime)
                 StopCinematic(uid);
         }
     }
@@ -68,6 +68,8 @@ public sealed partial class SharedCinematicSystem : EntitySystem
     public override void FrameUpdate(float frameTime)
     {
         base.FrameUpdate(frameTime);
+
+        UpdateFades(frameTime);
 
         var viewer = _player.LocalEntity;
 
