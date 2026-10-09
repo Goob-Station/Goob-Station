@@ -1,0 +1,160 @@
+- type: cinematicCaptionStyle
+  id: CinematicCaptionDefault
+
+- type: cinematicCaptionStyle
+  id: HereticCaptionBase
+  abstract: true
+  fontPath: /Fonts/_Goobstation/PirataOne/PirataOne-Regular.ttf
+  fontSize: 46
+  maxWidthFraction: 0.72
+  verticalPosition: 0.62
+  shake: 1.5
+  textSound:
+    collection: HereticScriptWhispers
+    params:
+      volume: -5
+  textSoundFadeTime: 1.5
+
+- type: cinematicCaptionStyle
+  id: HereticCaptionPunchBase
+  abstract: true
+  parent: HereticCaptionBase
+  fontSize: 125
+  tracking: 0.05
+  maxWidthFraction: 0.92
+  verticalPosition: 0.5
+  shake: 2
+  letterWave: 1
+  waveSpeed: 1.3
+  slamScale: 0.25
+  slamDecay: 6
+  kick: 0.12
+  kickTime: 0.94
+  stepRate: 12
+  igniteTime: 0
+  throb: 0.02
+  auraScale: 1.15
+
+# Ash
+- type: cinematicCaptionStyle
+  id: HereticCaptionAsh
+  parent: HereticCaptionBase
+  textColor: "#100401"
+  hotColor: "#fff1cf"
+  midColor: "#ff9126"
+  deepColor: "#7a1d05"
+
+- type: cinematicCaptionStyle
+  id: HereticCaptionAshPunch
+  parent: HereticCaptionPunchBase
+  textColor: "#100401"
+  hotColor: "#fff1cf"
+  midColor: "#ff9126"
+  deepColor: "#7a1d05"
+
+# Blade
+- type: cinematicCaptionStyle
+  id: HereticCaptionBlade
+  parent: HereticCaptionBase
+  textColor: "#05070c"
+  hotColor: "#ffffff"
+  midColor: "#9fc4ff"
+  deepColor: "#2c4a75"
+
+- type: cinematicCaptionStyle
+  id: HereticCaptionBladePunch
+  parent: HereticCaptionPunchBase
+  textColor: "#05070c"
+  hotColor: "#ffffff"
+  midColor: "#9fc4ff"
+  deepColor: "#2c4a75"
+
+# Lock
+- type: cinematicCaptionStyle
+  id: HereticCaptionLock
+  parent: HereticCaptionBase
+  textColor: "#02100a"
+  hotColor: "#e8fff2"
+  midColor: "#4fe89e"
+  deepColor: "#0e5c38"
+
+- type: cinematicCaptionStyle
+  id: HereticCaptionLockPunch
+  parent: HereticCaptionPunchBase
+  textColor: "#02100a"
+  hotColor: "#e8fff2"
+  midColor: "#4fe89e"
+  deepColor: "#0e5c38"
+
+# Flesh
+- type: cinematicCaptionStyle
+  id: HereticCaptionFlesh
+  parent: HereticCaptionBase
+  textColor: "#0d0303"
+  hotColor: "#ffe4dc"
+  midColor: "#ff5a4a"
+  deepColor: "#711212"
+
+- type: cinematicCaptionStyle
+  id: HereticCaptionFleshPunch
+  parent: HereticCaptionPunchBase
+  textColor: "#0d0303"
+  hotColor: "#ffe4dc"
+  midColor: "#ff5a4a"
+  deepColor: "#711212"
+
+# Void
+- type: cinematicCaptionStyle
+  id: HereticCaptionVoid
+  parent: HereticCaptionBase
+  textColor: "#04080f"
+  hotColor: "#f0faff"
+  midColor: "#6fb2ff"
+  deepColor: "#1c3f77"
+
+- type: cinematicCaptionStyle
+  id: HereticCaptionVoidPunch
+  parent: HereticCaptionPunchBase
+  textColor: "#04080f"
+  hotColor: "#f0faff"
+  midColor: "#6fb2ff"
+  deepColor: "#1c3f77"
+
+# Rust
+- type: cinematicCaptionStyle
+  id: HereticCaptionRust
+  parent: HereticCaptionBase
+  textColor: "#100b02"
+  hotColor: "#fff0b8"
+  midColor: "#c89a2e"
+  deepColor: "#5c4410"
+
+- type: cinematicCaptionStyle
+  id: HereticCaptionRustPunch
+  parent: HereticCaptionPunchBase
+  textColor: "#100b02"
+  hotColor: "#fff0b8"
+  midColor: "#c89a2e"
+  deepColor: "#5c4410"
+
+# Cosmos
+- type: cinematicCaptionStyle
+  id: HereticCaptionCosmos
+  parent: HereticCaptionBase
+  textColor: "#0a0312"
+  hotColor: "#f5e6ff"
+  midColor: "#a86bff"
+  deepColor: "#3d1a75"
+
+- type: cinematicCaptionStyle
+  id: HereticCaptionCosmosPunch
+  parent: HereticCaptionPunchBase
+  textColor: "#0a0312"
+  hotColor: "#f5e6ff"
+  midColor: "#a86bff"
+  deepColor: "#3d1a75"
+
+- type: soundCollection
+  id: HereticScriptWhispers
+  files:
+  - /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg
