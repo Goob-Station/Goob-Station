@@ -27,6 +27,9 @@ public abstract partial class SharedInteractionSystem
             || HasComp<VirtualItemComponent>(target))
             return;
 
+        if (metaA.CreationTick == _gameTiming.CurTick || metaB.CreationTick == _gameTiming.CurTick)
+            return;
+
         if (_net.IsServer)
         {
             var filter = predicted
