@@ -29,12 +29,12 @@
   - type: Examiner
   - type: IntellicardableMind # Goobstation - we can finally turn clankers into humans
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
+#  - type: IntrinsicRadioTransmitter
+#    channels:
+#    - Binary
   - type: ActiveRadio
     channels:
-    - Binary
+#    - Binary// no more borg snitches
     - Common
   - type: NameIdentifier
     group: MMI
@@ -118,12 +118,12 @@
     - type: BorgBrain
     - type: IntellicardableMind # Goobstation - intellicard on more AIs
     - type: IntrinsicRadioReceiver
-    - type: IntrinsicRadioTransmitter
-      channels:
-      - Binary
+#    - type: IntrinsicRadioTransmitter
+#      channels:
+#      - Binary
     - type: ActiveRadio
       channels:
-      - Binary
+#      - Binary// no more borg snitches
       - Common
     - type: NameIdentifier
       group: PositronicBrain
