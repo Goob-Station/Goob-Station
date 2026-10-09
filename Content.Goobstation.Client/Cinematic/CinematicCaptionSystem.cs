@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.Cinematic;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -18,172 +17,207 @@ public sealed partial class CinematicCaptionSystem : EntitySystem
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedCinematicSystem _cinematic = default!;
 
-    private CinematicCaptionOverlay _overlay = default!;
-    private readonly List<SoundFade> _fades = new();
+    private Caption? _live;
+
+    private readonly Dictionary<string, ShaderInstance> _shaders = new();
+
+    private readonly CinematicCaptionOverlay _overlay = new();
+    private bool _overlayShown;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CinematicCaptionComponent, ComponentInit>(OnCaptionInit);
         SubscribeLocalEvent<CinematicCaptionComponent, ComponentStartup>(OnCaptionStartup);
         SubscribeLocalEvent<CinematicCaptionComponent, ComponentShutdown>(OnCaptionShutdown);
         SubscribeLocalEvent<CinematicCaptionComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<CinematicCaptionComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<CinematicCaptionComponent, CinematicUpdatedEvent>(OnCinematicUpdated);
 
-        _overlay = new();
     }
 
+    public override void Shutdown()
+    {
+        base.Shutdown();
+
+        foreach (var caption in _overlay.Captions)
+            StopSound(caption);
+
+        _overlay.Captions.Clear();
+        _live = null;
+        ShowOverlay(false);
+
+        foreach (var shader in _shaders.Values)
+            shader.Dispose();
+
+        _shaders.Clear();
+    }
 
     public override void FrameUpdate(float frameTime)
     {
         base.FrameUpdate(frameTime);
 
-        var player = _playerManager.LocalEntity;
-
-        var query = EntityQueryEnumerator<CinematicCaptionComponent>();
-        while (query.MoveNext(out var uid, out var caption))
+        for (var i = _overlay.Captions.Count - 1; i >= 0; i--)
         {
+            var caption = _overlay.Captions[i];
             caption.Age += frameTime;
 
-            var typing = uid == player && caption.Progress < 1f;
-            if (typing)
+            if (caption != _live)
             {
-                caption.Progress = MathF.Min(1f, caption.Progress + frameTime / MathF.Max(0.01f, caption.WriteTime));
-                typing = caption.Progress < 1f;
+                caption.Fade -= frameTime / MathF.Max(0.01f, caption.Style.FadeOutTime);
+                if (caption.Fade <= 0f)
+                    _overlay.Captions.RemoveAt(i);
+
+                continue;
             }
 
-            if (typing)
+            caption.Progress = MathF.Min(1f, caption.Progress + frameTime / MathF.Max(0.01f, caption.WriteTime));
+
+            if (caption.Progress < 1f)
                 StartSound(caption);
             else
                 StopSound(caption);
         }
 
-        UpdateFades(frameTime);
+        ShowOverlay(_overlay.Captions.Count > 0);
     }
 
-    private void UpdateFades(float frameTime)
+    private void OnCaptionStartup(Entity<CinematicCaptionComponent> ent, ref ComponentStartup args)
     {
-        for (var i = _fades.Count - 1; i >= 0; i--)
+        if (ent.Owner == _playerManager.LocalEntity)
+            Show(ent);
+    }
+
+    private void OnCaptionShutdown(Entity<CinematicCaptionComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Owner == _playerManager.LocalEntity)
+            Hide(fade: true);
+    }
+
+    private void OnPlayerAttached(Entity<CinematicCaptionComponent> ent, ref LocalPlayerAttachedEvent args)
+        => Show(ent);
+
+    private void OnPlayerDetached(Entity<CinematicCaptionComponent> ent, ref LocalPlayerDetachedEvent args)
+        => Hide(fade: false);
+
+    private void OnCinematicUpdated(Entity<CinematicCaptionComponent> ent, ref CinematicUpdatedEvent args)
+    {
+        if (_live != null && ent.Owner == _playerManager.LocalEntity)
+            _live.Strength = args.Strength;
+    }
+
+    private void Show(Entity<CinematicCaptionComponent> ent)
+    {
+        Hide(fade: true);
+
+        if (!_proto.TryIndex(ent.Comp.Style, out var style))
         {
-            var fade = _fades[i];
-            fade.Elapsed += frameTime;
-
-            var progress = fade.Elapsed / fade.Duration;
-            if (progress >= 1f || !TryComp<AudioComponent>(fade.Stream, out var audio))
-            {
-                _audio.Stop(fade.Stream);
-                _fades.RemoveAt(i);
-                continue;
-            }
-
-            _audio.SetVolume(fade.Stream, fade.StartVolume + SharedAudioSystem.GainToVolume(1f - progress), audio);
-            _fades[i] = fade;
+            Log.Error($"Caption on {ToPrettyString(ent)} uses unknown style {ent.Comp.Style}.");
+            return;
         }
+
+        TryComp<CinematicComponent>(ent, out var cinematic);
+        var name = cinematic?.SubjectName ?? string.Empty;
+        var station = cinematic?.StationName ?? string.Empty;
+
+        _live = new Caption
+        {
+            Style = style,
+            Text = Loc.GetString(ent.Comp.Text, ("name", name), ("station", station)),
+            Subject = ent.Comp.ShowSubject ? name : string.Empty,
+            WriteTime = ent.Comp.WriteTime,
+            AuraShader = GetShader(style.AuraShader),
+            BlurShader = GetShader(style.BlurShader),
+        };
+
+        _overlay.Captions.Add(_live);
     }
 
-    private void OnCaptionInit(EntityUid uid, CinematicCaptionComponent component, ComponentInit args)
+    private void Hide(bool fade)
     {
-        if (uid != _playerManager.LocalEntity)
+        if (_live is not { } caption)
             return;
 
-        SetShaders(component);
-        _overlayMan.AddOverlay(_overlay);
+        StopSound(caption);
+        _live = null;
+
+        if (!fade)
+            _overlay.Captions.Remove(caption);
     }
 
-    private void SetShaders(CinematicCaptionComponent component)
+    private void ShowOverlay(bool shown)
     {
-        _overlay.AuraShader?.Dispose();
-        _overlay.AuraShader = _proto.Index<ShaderPrototype>(component.AuraShader).InstanceUnique();
+        if (shown == _overlayShown)
+            return;
 
-        _overlay.BlurShader?.Dispose();
-        _overlay.BlurShader = _proto.Index<ShaderPrototype>(component.BlurShader).InstanceUnique();
-    }
+        _overlayShown = shown;
 
-    private void OnCaptionStartup(EntityUid uid, CinematicCaptionComponent component, ComponentStartup args)
-        => Localize(uid, component);
+        if (shown)
+        {
+            _overlayMan.AddOverlay(_overlay);
+            return;
+        }
 
-    private void OnCaptionShutdown(EntityUid uid, CinematicCaptionComponent component, ComponentShutdown args)
-    {
-        StopSound(component);
-
-        if (uid == _playerManager.LocalEntity)
-            RemoveOverlay();
-    }
-
-    private void OnPlayerAttached(EntityUid uid, CinematicCaptionComponent component, LocalPlayerAttachedEvent args)
-    {
-        SetShaders(component);
-        _overlayMan.AddOverlay(_overlay);
-    }
-
-    private void OnPlayerDetached(EntityUid uid, CinematicCaptionComponent component, LocalPlayerDetachedEvent args)
-        => RemoveOverlay();
-
-    private void RemoveOverlay()
-    {
         _overlayMan.RemoveOverlay(_overlay);
         _overlay.ReleaseTargets();
     }
 
-    /// <summary>
-    /// Resolves the captions text.
-    /// </summary>
-    private void Localize(EntityUid uid, CinematicCaptionComponent component)
+    private ShaderInstance? GetShader(string id)
     {
-        if (string.IsNullOrEmpty(component.Text)
-            || !TryComp<CinematicComponent>(uid, out var cinematic))
-            return;
+        if (_shaders.TryGetValue(id, out var shader))
+            return shader;
 
-        var text = Loc.GetString(component.Text,
-            ("name", cinematic.SubjectName ?? string.Empty),
-            ("station", cinematic.StationName ?? string.Empty));
+        if (!_proto.TryIndex<ShaderPrototype>(id, out var proto))
+        {
+            Log.Error($"Unknown caption shader {id}.");
+            return null;
+        }
 
-        component.Subject = component.ShowSubject ? cinematic.SubjectName ?? string.Empty : string.Empty;
-
-        if (text == component.Target)
-            return;
-
-        component.Target = text;
-        component.Progress = 0f;
+        return _shaders[id] = proto.InstanceUnique();
     }
 
-    private void StartSound(CinematicCaptionComponent component)
+    private void StartSound(Caption caption)
     {
-        if (component.TextSound == null)
+        if (caption.Style.TextSound == null)
             return;
 
-        if (component.Stream is { } current && !TerminatingOrDeleted(current))
+        if (caption.Stream is { } current && !TerminatingOrDeleted(current))
             return;
 
-        component.Stream = _audio.PlayGlobal(component.TextSound, Filter.Local(), false)?.Entity;
+        caption.Stream = _audio.PlayGlobal(caption.Style.TextSound, Filter.Local(), false)?.Entity;
 
-        if (component.Stream is { } stream)
+        if (caption.Stream is { } stream)
             EnsureComp<CinematicSceneSoundComponent>(stream);
     }
 
-    private void StopSound(CinematicCaptionComponent component)
+    private void StopSound(Caption caption)
     {
-        if (component.Stream is { } stream && !TerminatingOrDeleted(stream))
-            FadeOut(stream, component.TextSoundFadeTime);
+        if (caption.Stream is { } stream && !TerminatingOrDeleted(stream))
+            _cinematic.FadeOut(stream, caption.Style.TextSoundFadeTime);
 
-        component.Stream = null;
+        caption.Stream = null;
     }
 
-    private void FadeOut(EntityUid stream, float duration)
+    public sealed class Caption
     {
-        if (duration <= 0f || !TryComp<AudioComponent>(stream, out var audio))
-        {
-            _audio.Stop(stream);
-            return;
-        }
+        public required CinematicCaptionStylePrototype Style;
+        public required string Text;
+        public required string Subject;
+        public required float WriteTime;
 
-        _fades.Add(new SoundFade(stream, duration, audio.Params.Volume));
-    }
+        public ShaderInstance? AuraShader;
+        public ShaderInstance? BlurShader;
 
-    private record struct SoundFade(EntityUid Stream, float Duration, float StartVolume)
-    {
-        public float Elapsed;
+        public float Progress;
+
+        public float Age;
+
+        public float Strength;
+
+        public float Fade = 1f;
+
+        public EntityUid? Stream;
     }
 }

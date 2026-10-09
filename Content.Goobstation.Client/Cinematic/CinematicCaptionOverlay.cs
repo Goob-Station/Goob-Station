@@ -1,7 +1,7 @@
+using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Cinematic;
 using Robust.Client.Graphics;
-using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
 using Robust.Shared.Graphics;
@@ -15,195 +15,123 @@ namespace Content.Goobstation.Client.Cinematic;
 /// </summary>
 public sealed partial class CinematicCaptionOverlay : Overlay
 {
-    /// <summary>
-    /// Font sizes are authored against this viewport height and scaled from there.
-    /// </summary>
+    // Font sizes are authored against a 1080p viewport. Glyph sheets above 248px break the engine, below 8px are illegible.
     private const float ReferenceViewportHeight = 1080f;
+    private const int MaxGlyphSheetExtent = 248;
+    private const int MinGlyphRasterSize = 8;
+    private const int DrawOrder = 205;
+    private const int BlurLevels = 6;
+    private const float AuraPadding = 2.6f;
+    private const float ThrobFrequency = 2.6f;
+    private const float DriftFrequency = 0.6f;
+    private const float DriftAmplitude = 0.5f;
+    private const float DriftLinePhase = 1.3f;
+    private const float BobGlyphPhase = 0.55f;
+    private const float SweepRate = 0.35f;
+
+    private static readonly Vector4 AlphaChannel = new(0f, 0f, 0f, 1f);
+    private static readonly Vector4 RedChannel = new(1f, 0f, 0f, 0f);
 
     [Dependency] private IClyde _clyde = default!;
-    [Dependency] private IEntityManager _entityManager = default!;
-    [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IResourceCache _cache = default!;
     [Dependency] private IGameTiming _timing = default!;
 
-    private CaptionTargets? _targets;
+    // The live caption plus any still dissolving. Owned here so the system can construct the overlay inline.
+    public readonly List<CinematicCaptionSystem.Caption> Captions = new();
+    private readonly Dictionary<CinematicCaptionSystem.Caption, CaptionLayout> _layouts = new();
     private readonly Dictionary<(ResPath Path, int Size), VectorFont> _fonts = new();
-    private readonly CaptionLayout _layout = new();
-
-    public ShaderInstance? AuraShader;
-    public ShaderInstance? BlurShader;
+    private CaptionTargets? _targets;
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
     public CinematicCaptionOverlay()
     {
         IoCManager.InjectDependencies(this);
-
-        ZIndex = 205;
+        ZIndex = DrawOrder;
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
-    {
-        if (_playerManager.LocalEntity is not { } player
-            || !_entityManager.HasComponent<CinematicCaptionComponent>(player))
-            return false;
-
-        return base.BeforeDraw(in args);
-    }
+        => Captions.Count > 0 && base.BeforeDraw(in args);
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (_playerManager.LocalEntity is not { } player)
-            return;
-
-        if (!_entityManager.TryGetComponent<CinematicCaptionComponent>(player, out var caption)
-            || caption.Target.Length == 0)
-            return;
-
         var bounds = args.ViewportBounds;
         if (bounds.Width <= 0 || bounds.Height <= 0)
             return;
 
         var handle = args.ScreenHandle;
-        if (!TryLayout(handle, caption, bounds, out var layout))
-            return;
+        var targets = EnsureTargets(bounds.Size);
+        var now = (float) _timing.CurTime.TotalSeconds;
 
-        var targets = EnsureTargets(bounds.Size, caption);
-        var strength = Strength(caption, layout);
+        if (_layouts.Count > Captions.Count)
+            foreach (var stale in _layouts.Keys.Where(caption => !Captions.Contains(caption)).ToArray())
+                _layouts.Remove(stale);
 
-        RenderMask(handle, targets, caption, layout, bounds);
-
-        if (!caption.AuraEnabled)
+        foreach (var caption in Captions)
         {
-            DrawPlain(handle, targets, caption, layout, bounds, strength);
-            return;
+            if (caption.Text.Length == 0)
+                continue;
+
+            var style = caption.Style;
+            var layout = GetLayout(handle, caption, bounds);
+            if (layout.GlyphCount == 0)
+                continue;
+
+            var frame = Animate(caption, layout, bounds, now);
+            var ignite = style.IgniteTime > 0f ? Math.Clamp(frame.Age / style.IgniteTime, 0f, 1f) : 1f;
+            var strength = MathF.Min(ignite, caption.Strength) * caption.Fade;
+            if (strength <= 0f)
+                continue;
+
+            RenderMask(handle, targets, caption, layout, frame, bounds);
+
+            if (!style.AuraEnabled)
+            {
+                DrawPlain(handle, targets, style, frame, bounds, strength);
+                continue;
+            }
+
+            if (caption.AuraShader is not { } aura || caption.BlurShader is not { } blur)
+                continue;
+
+            BuildPyramid(handle, targets, style, blur);
+            Composite(handle, targets, style, frame, bounds, strength, aura);
         }
-
-        if (AuraShader is not { } aura || BlurShader is not { } blur)
-            return;
-
-        BuildPyramid(handle, targets, caption, blur);
-        Composite(handle, targets, caption, layout, bounds, strength, aura);
     }
 
-    private float Strength(CinematicCaptionComponent caption, CaptionLayout layout)
+    private CaptionLayout GetLayout(DrawingHandleScreen handle, CinematicCaptionSystem.Caption caption, UIBox2i bounds)
     {
-        var strength = caption.IgniteTime > 0f
-            ? Math.Clamp(layout.Age / caption.IgniteTime, 0f, 1f)
-            : 1f;
+        if (!_layouts.TryGetValue(caption, out var layout))
+            _layouts[caption] = layout = new CaptionLayout();
 
-        if (_entityManager.TryGetComponent<CinematicComponent>(_playerManager.LocalEntity, out var cinematic))
-            strength = MathF.Min(strength, cinematic.Strength);
+        if (layout.Matches(caption, bounds.Size))
+            return layout;
 
-        return strength;
-    }
-
-    private bool TryLayout(DrawingHandleScreen handle,
-        CinematicCaptionComponent caption,
-        UIBox2i bounds,
-        out CaptionLayout layout)
-    {
-        layout = _layout;
-
+        var style = caption.Style;
         var viewportScale = bounds.Height / ReferenceViewportHeight;
-        var font = RasterFont(caption, viewportScale);
-        var age = Step(caption.Age, caption.StepRate);
-        var size = caption.FontSize * viewportScale;
-        var animated = size;
-        if (caption.SlamScale > 0f)
-            animated *= 1f + caption.SlamScale * MathF.Exp(-age * caption.SlamDecay);
-        if (caption.Kick > 0f && age >= caption.KickTime)
-            animated *= 1f + caption.Kick * MathF.Exp(-(age - caption.KickTime) * caption.KickDecay);
-        if (caption.Throb > 0f)
-            animated *= 1f + caption.Throb * MathF.Sin(age * 2.6f);
+        var font = RasterFont(style.FontPath, style.FontSize, viewportScale);
+        var subjectFont = caption.Subject.Length > 0
+            ? RasterFont(style.SubjectFontPath ?? style.FontPath, style.FontSize, viewportScale * style.SubjectScale)
+            : null;
 
-        layout.Font = font;
-        layout.Age = age;
-        layout.Time = Step((float) _timing.CurTime.TotalSeconds, caption.StepRate);
-        layout.Scale = MathF.Max(animated, 1f) / font.Size;
-        layout.GlyphSize = font.Size * layout.Scale;
-        layout.Tracking = caption.Tracking * font.Size;
-        layout.LineStep = font.Size * caption.LineSpacing;
+        var restScale = MathF.Max(style.FontSize * viewportScale, 1f) / font.Size;
+        var maxWidth = bounds.Width * style.MaxWidthFraction / restScale;
 
-        var restScale = MathF.Max(size, 1f) / font.Size;
-
-        Wrap(handle, layout, caption.Target, bounds.Width * caption.MaxWidthFraction / restScale);
-        if (layout.Lines.Count == 0)
-            return false;
-
-        var widest = 0f;
-        var glyphs = 0;
-        layout.Widths.Clear();
-
-        foreach (var line in layout.Lines)
-        {
-            var width = Measure(handle, font, line, layout.Tracking);
-            layout.Widths.Add(width);
-            widest = MathF.Max(widest, width);
-            glyphs += line.Length;
-        }
-
-        layout.Shown = (int) MathF.Ceiling(Math.Clamp(caption.Progress, 0f, 1f) * glyphs);
-        layout.SubjectFont = null;
-        layout.SubjectTracking = 0f;
-        layout.SubjectWidth = 0f;
-        layout.SubjectTop = 0f;
-
-        var subjectHeight = 0f;
-
-        if (caption.Subject.Length > 0)
-        {
-            var subjectFont = RasterFont(caption, viewportScale, caption.SubjectScale);
-
-            layout.SubjectFont = subjectFont;
-            layout.SubjectTracking = caption.SubjectTracking * subjectFont.Size;
-            layout.SubjectWidth = Measure(handle, subjectFont, caption.Subject, layout.SubjectTracking);
-            layout.SubjectTop = -subjectFont.Size * caption.LineSpacing * (1f + caption.SubjectGap);
-
-            subjectHeight = -layout.SubjectTop * layout.Scale;
-        }
-
-        widest = MathF.Max(widest, layout.SubjectWidth);
-
-        var lineHeight = layout.LineStep * layout.Scale;
-        var blockHeight = layout.Lines.Count * lineHeight;
-        var centerX = bounds.Left + bounds.Width / 2f;
-        var top = bounds.Top + bounds.Height * caption.VerticalPosition - blockHeight / 2f;
-        var lowest = bounds.Bottom - blockHeight - lineHeight * 0.5f;
-        var highest = bounds.Top + lineHeight * 0.5f + subjectHeight;
-        if (lowest > highest)
-            top = Math.Clamp(top, highest, lowest);
-
-        layout.Anchor = new Vector2(centerX, top);
-
-        var half = widest * layout.Scale / 2f;
-        var pad = layout.GlyphSize * 2.6f * caption.AuraScale;
-
-        layout.Block = new UIBox2(
-            MathF.Max(centerX - half - pad, bounds.Left),
-            MathF.Max(top - subjectHeight - pad, bounds.Top),
-            MathF.Min(centerX + half + pad, bounds.Right),
-            MathF.Min(top + blockHeight + pad, bounds.Bottom));
-
-        return true;
+        layout.Rebuild(handle, caption, bounds.Size, font, subjectFont, maxWidth);
+        return layout;
     }
 
-    private VectorFont RasterFont(CinematicCaptionComponent caption, float viewportScale, float sizeScale = 1f)
+    private VectorFont RasterFont(ResPath path, int fontSize, float scale)
     {
-        var min = CinematicCaptionComponent.MinGlyphRasterSize;
-        var max = CinematicCaptionComponent.MaxGlyphSheetExtent;
-        var size = Math.Max(min, (int) (caption.FontSize * viewportScale * sizeScale));
-        var font = GetFont(caption.FontPath, size);
+        var size = Math.Max(MinGlyphRasterSize, (int) (fontSize * scale));
+        var font = GetFont(path, size);
         var height = font.GetHeight(1f);
-        if (height <= max)
+        if (height <= MaxGlyphSheetExtent)
             return font;
 
-        return GetFont(caption.FontPath, Math.Max(min, size * max / height));
+        return GetFont(path, Math.Max(MinGlyphRasterSize, size * MaxGlyphSheetExtent / height));
     }
 
-    /// <summary>
-    /// Prevents caching per frame which is entirely uneeded.
-    /// </summary>
     private VectorFont GetFont(ResPath path, int size)
     {
         var key = (path, size);
@@ -213,50 +141,68 @@ public sealed partial class CinematicCaptionOverlay : Overlay
         return font;
     }
 
+    private static CaptionFrame Animate(CinematicCaptionSystem.Caption caption, CaptionLayout layout, UIBox2i bounds, float now)
+    {
+        var style = caption.Style;
+        var age = Step(caption.Age, style.StepRate);
+        var time = Step(now, style.StepRate);
+
+        var size = style.FontSize * bounds.Height / ReferenceViewportHeight;
+        if (style.SlamScale > 0f)
+            size *= 1f + style.SlamScale * MathF.Exp(-age * style.SlamDecay);
+        if (style.Kick > 0f && age >= style.KickTime)
+            size *= 1f + style.Kick * MathF.Exp(-(age - style.KickTime) * style.KickDecay);
+        if (style.Throb > 0f)
+            size *= 1f + style.Throb * MathF.Sin(age * ThrobFrequency);
+
+        var scale = MathF.Max(size, 1f) / layout.Font.Size;
+        var glyphSize = layout.Font.Size * scale;
+        var lineHeight = layout.LineStep * scale;
+        var blockHeight = layout.Lines.Count * lineHeight;
+        var subjectHeight = -layout.SubjectTop * scale;
+
+        var centerX = bounds.Left + bounds.Width / 2f;
+        var top = bounds.Top + bounds.Height * style.VerticalPosition - blockHeight / 2f;
+        var lowest = bounds.Bottom - blockHeight - lineHeight * 0.5f;
+        var highest = bounds.Top + lineHeight * 0.5f + subjectHeight;
+        if (lowest > highest)
+            top = Math.Clamp(top, highest, lowest);
+
+        var half = layout.Widest * scale / 2f;
+        var pad = glyphSize * AuraPadding * style.AuraScale;
+        var block = new UIBox2(
+            MathF.Max(centerX - half - pad, bounds.Left),
+            MathF.Max(top - subjectHeight - pad, bounds.Top),
+            MathF.Min(centerX + half + pad, bounds.Right),
+            MathF.Min(top + blockHeight + pad, bounds.Bottom));
+
+        return new CaptionFrame(scale, glyphSize, new Vector2(centerX, top), block, layout.CountShown(caption.Progress), age, time);
+    }
+
     private static float Step(float time, float rate)
         => rate > 0f ? MathF.Floor(time * rate) / rate : time;
 
-    private static void Wrap(DrawingHandleScreen handle, CaptionLayout layout, string text, float maxWidth)
-    {
-        layout.Lines.Clear();
-        var current = string.Empty;
-
-        foreach (var word in text.Split(' '))
-        {
-            var candidate = current.Length == 0 ? word : current + " " + word;
-            if (current.Length > 0 && Measure(handle, layout.Font, candidate, layout.Tracking) > maxWidth)
-            {
-                layout.Lines.Add(current);
-                current = word;
-            }
-            else
-                current = candidate;
-        }
-
-        if (current.Length > 0)
-            layout.Lines.Add(current);
-    }
-
-    private static float Measure(DrawingHandleScreen handle, VectorFont font, string line, float tracking)
-        => handle.GetDimensions(font, line, 1f).X + tracking * Math.Max(0, line.Length - 1);
+    private static float Drift(float time, float waveSpeed, float shake, float phase)
+        => MathF.Sin(time * waveSpeed * DriftFrequency + phase) * shake * DriftAmplitude;
 
     private static void RenderMask(DrawingHandleScreen handle,
         CaptionTargets targets,
-        CinematicCaptionComponent caption,
+        CinematicCaptionSystem.Caption caption,
         CaptionLayout layout,
+        CaptionFrame frame,
         UIBox2i bounds)
     {
-        var anchor = layout.Anchor - (Vector2) bounds.TopLeft;
-        var shake = caption.Shake / layout.Scale;
-        var wave = caption.LetterWave / layout.Scale;
+        var anchor = frame.Anchor - (Vector2) bounds.TopLeft;
+        var shake = caption.Style.Shake / frame.Scale;
+        var wave = caption.Style.LetterWave / frame.Scale;
 
         handle.RenderInRenderTarget(targets.Mask,
             () =>
             {
-                handle.SetTransform(anchor, Angle.Zero, new Vector2(layout.Scale, layout.Scale));
+                handle.SetTransform(anchor, Angle.Zero, new Vector2(frame.Scale, frame.Scale));
 
-                DrawSubject(handle, caption, layout, shake);
-                DrawCaption(handle, caption, layout, shake, wave);
+                DrawSubject(handle, caption, layout, frame, shake);
+                DrawCaption(handle, caption, layout, frame, shake, wave);
 
                 handle.SetTransform(Matrix3x2.Identity);
             },
@@ -264,63 +210,60 @@ public sealed partial class CinematicCaptionOverlay : Overlay
     }
 
     private static void DrawSubject(DrawingHandleScreen handle,
-        CinematicCaptionComponent caption,
+        CinematicCaptionSystem.Caption caption,
         CaptionLayout layout,
+        CaptionFrame frame,
         float shake)
     {
-        if (layout.SubjectFont is not { } font)
+        if (layout.SubjectFont is not { } font || caption.Subject.Length == 0)
             return;
 
-        var drift = MathF.Sin(layout.Time * caption.WaveSpeed * 0.6f - 1.3f) * shake * 0.5f;
+        var drift = Drift(frame.Time, caption.Style.WaveSpeed, shake, -DriftLinePhase);
         var x = -layout.SubjectWidth / 2f;
 
         for (var c = 0; c < caption.Subject.Length; c++)
         {
-            var glyph = caption.Subject.AsSpan(c, 1);
-            handle.DrawString(font, new Vector2(x, layout.SubjectTop + drift), glyph, 1f, Color.White);
-
-            x += handle.GetDimensions(font, glyph, 1f).X;
-            if (c < caption.Subject.Length - 1)
-                x += layout.SubjectTracking;
+            handle.DrawString(font, new Vector2(x, layout.SubjectTop + drift), caption.Subject.AsSpan(c, 1), 1f, Color.White);
+            x += layout.SubjectAdvances[c] + layout.SubjectTracking;
         }
     }
 
     private static void DrawCaption(DrawingHandleScreen handle,
-        CinematicCaptionComponent caption,
+        CinematicCaptionSystem.Caption caption,
         CaptionLayout layout,
+        CaptionFrame frame,
         float shake,
         float wave)
     {
+        var style = caption.Style;
         var y = 0f;
         var written = 0;
 
         for (var i = 0; i < layout.Lines.Count; i++)
         {
             var line = layout.Lines[i];
-            var x = -layout.Widths[i] / 2f;
-            var drift = MathF.Sin(layout.Time * caption.WaveSpeed * 0.6f + i * 1.3f) * shake * 0.5f;
+            var advances = layout.Advances[i];
+            var x = -layout.LineWidths[i] / 2f;
+            var drift = Drift(frame.Time, style.WaveSpeed, shake, i * DriftLinePhase);
 
             for (var c = 0; c < line.Length; c++)
             {
-                if (written >= layout.Shown)
+                if (written >= frame.Shown)
                 {
-                    if (caption.Cursor.Length > 0)
-                        handle.DrawString(layout.Font, new Vector2(x, y + drift), caption.Cursor, Color.White);
+                    if (style.Cursor.Length > 0)
+                        handle.DrawString(layout.Font, new Vector2(x, y + drift), style.Cursor, Color.White);
 
                     return;
                 }
 
                 var bob = wave <= 0f
                     ? 0f
-                    : MathF.Sin(layout.Time * caption.WaveSpeed + c * 0.55f + i) * wave;
+                    : MathF.Sin(frame.Time * style.WaveSpeed + c * BobGlyphPhase + i) * wave;
 
-                var glyph = line.AsSpan(c, 1);
-                handle.DrawString(layout.Font, new Vector2(x, y + drift + bob), glyph, 1f, Color.White);
+                handle.DrawString(layout.Font, new Vector2(x, y + drift + bob), line.AsSpan(c, 1), 1f, Color.White);
 
                 written++;
-                x += handle.GetDimensions(layout.Font, glyph, 1f).X;
-                if (c < line.Length - 1)
-                    x += layout.Tracking;
+                x += advances[c] + layout.Tracking;
             }
 
             y += layout.LineStep;
@@ -329,29 +272,33 @@ public sealed partial class CinematicCaptionOverlay : Overlay
 
     private static void BuildPyramid(DrawingHandleScreen handle,
         CaptionTargets targets,
-        CinematicCaptionComponent caption,
+        CinematicCaptionStylePrototype style,
         ShaderInstance blur)
     {
-        blur.SetParameter("spread", caption.BlurSpread);
+        blur.SetParameter("spread", style.BlurSpread);
 
         var source = targets.Mask.Texture;
+        var channel = AlphaChannel;
 
         foreach (var level in targets.Levels)
         {
-            BlurPass(handle, blur, source, level.Scratch, new Vector2(1f, 0f));
-            BlurPass(handle, blur, level.Scratch.Texture, level.Blurred, new Vector2(0f, 1f));
+            BlurPass(handle, blur, source, channel, level.Scratch, new Vector2(1f, 0f));
+            BlurPass(handle, blur, level.Scratch.Texture, RedChannel, level.Blurred, new Vector2(0f, 1f));
 
             source = level.Blurred.Texture;
+            channel = RedChannel;
         }
     }
 
     private static void BlurPass(DrawingHandleScreen handle,
         ShaderInstance blur,
         Texture source,
+        Vector4 channel,
         IRenderTexture target,
         Vector2 axis)
     {
         blur.SetParameter("axis", axis);
+        blur.SetParameter("channel", channel);
 
         handle.RenderInRenderTarget(target,
             () =>
@@ -363,59 +310,52 @@ public sealed partial class CinematicCaptionOverlay : Overlay
             Color.Transparent);
     }
 
-    /// <summary>
-    /// Draws the letterforms on their own, for a caption whose aura is turned off.
-    /// The mask already holds them at their final size, so it only needs tinting.
-    /// </summary>
     private static void DrawPlain(DrawingHandleScreen handle,
         CaptionTargets targets,
-        CinematicCaptionComponent caption,
-        CaptionLayout layout,
+        CinematicCaptionStylePrototype style,
+        CaptionFrame frame,
         UIBox2i bounds,
         float strength)
     {
-        var color = caption.TextColor.WithAlpha(caption.TextColor.A * strength);
+        var color = style.TextColor.WithAlpha(style.TextColor.A * strength);
 
         handle.DrawTextureRectRegion(targets.Mask.Texture,
-            layout.Block,
-            MaskRegion(layout.Block, bounds),
+            frame.Block,
+            MaskRegion(frame.Block, bounds),
             color);
     }
 
-    /// <summary>
-    /// Draws the aura, the scrim and the letterforms in one pass.
-    /// </summary>
     private static void Composite(DrawingHandleScreen handle,
         CaptionTargets targets,
-        CinematicCaptionComponent caption,
-        CaptionLayout layout,
+        CinematicCaptionStylePrototype style,
+        CaptionFrame frame,
         UIBox2i bounds,
         float strength,
         ShaderInstance composite)
     {
-        var reach = layout.GlyphSize * caption.AuraScale;
-        var (mid, midSigma) = PickLevel(targets, caption, reach * caption.BloomReachFraction);
-        var (far, farSigma) = PickLevel(targets, caption, reach * caption.PressureReachFraction);
+        var reach = frame.GlyphSize * style.AuraScale;
+        var (mid, midSigma) = PickLevel(targets, style, reach * style.BloomReachFraction);
+        var (far, farSigma) = PickLevel(targets, style, reach * style.PressureReachFraction);
 
         composite.SetParameter("MID", mid.Blurred.Texture);
         composite.SetParameter("FAR", far.Blurred.Texture);
         composite.SetParameter("sigmaMid", midSigma);
         composite.SetParameter("sigmaFar", farSigma);
-        composite.SetParameter("hotColor", caption.HotColor);
-        composite.SetParameter("midColor", caption.MidColor);
-        composite.SetParameter("deepColor", caption.DeepColor);
-        composite.SetParameter("fillColor", caption.TextColor);
+        composite.SetParameter("hotColor", style.HotColor);
+        composite.SetParameter("midColor", style.MidColor);
+        composite.SetParameter("deepColor", style.DeepColor);
+        composite.SetParameter("fillColor", style.TextColor);
         composite.SetParameter("glyphSize", reach);
         composite.SetParameter("strength", strength);
-        composite.SetParameter("animTime", layout.Time);
-        composite.SetParameter("scrimAmount", caption.ScrimAmount);
-        composite.SetParameter("waveSpeed", caption.WaveSpeed);
-        composite.SetParameter("sweepPhase", layout.Age * 0.35f % 1f);
+        composite.SetParameter("animTime", frame.Time);
+        composite.SetParameter("scrimAmount", style.ScrimAmount);
+        composite.SetParameter("waveSpeed", style.WaveSpeed);
+        composite.SetParameter("sweepPhase", frame.Age * SweepRate % 1f);
         composite.SetParameter("texelSize", new Vector2(1f / targets.Size.X, 1f / targets.Size.Y));
-        composite.SetParameter("maskEdge", Math.Clamp(0.5f / layout.Scale, 0.04f, 0.5f));
+        composite.SetParameter("maskEdge", Math.Clamp(0.5f / frame.Scale, 0.04f, 0.5f));
 
         handle.UseShader(composite);
-        handle.DrawTextureRectRegion(targets.Mask.Texture, layout.Block, MaskRegion(layout.Block, bounds));
+        handle.DrawTextureRectRegion(targets.Mask.Texture, frame.Block, MaskRegion(frame.Block, bounds));
         handle.UseShader(null);
     }
 
@@ -426,7 +366,7 @@ public sealed partial class CinematicCaptionOverlay : Overlay
             block.Bottom - bounds.Top);
 
     private static (BlurLevel Level, float Sigma) PickLevel(CaptionTargets targets,
-        CinematicCaptionComponent caption,
+        CinematicCaptionStylePrototype style,
         float target)
     {
         var best = 0;
@@ -436,7 +376,7 @@ public sealed partial class CinematicCaptionOverlay : Overlay
 
         for (var i = 0; i < targets.Levels.Length; i++)
         {
-            var pass = caption.BlurSpread * caption.BlurPassSigma * (1 << (i + 1));
+            var pass = style.BlurSpread * style.BlurPassSigma * (1 << (i + 1));
             variance += pass * pass;
 
             var sigma = MathF.Sqrt(variance);
@@ -452,33 +392,15 @@ public sealed partial class CinematicCaptionOverlay : Overlay
         return (targets.Levels[best], bestSigma);
     }
 
-    private CaptionTargets EnsureTargets(Vector2i size, CinematicCaptionComponent caption)
+    private CaptionTargets EnsureTargets(Vector2i size)
     {
-        var levelCount = caption.AuraEnabled ? Math.Max(caption.BlurLevelCount, 1) : 0;
-
-        if (_targets is { } current
-            && current.Size == size
-            && (levelCount == 0 || current.Levels.Length == levelCount))
+        if (_targets is { } current && current.Size == size)
             return current;
 
         ReleaseTargets();
+        _fonts.Clear();
 
-        var sample = new TextureSampleParameters { Filter = true };
-        var maskFormat = new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8);
-        var blurFormat = new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba16F);
-        var mask = _clyde.CreateRenderTarget(size, maskFormat, sample, "heretic-caption-mask");
-        var levels = new BlurLevel[levelCount];
-
-        for (var i = 0; i < levels.Length; i++)
-        {
-            var levelSize = Vector2i.ComponentMax(size / (1 << (i + 1)), Vector2i.One);
-
-            levels[i] = new BlurLevel(
-                _clyde.CreateRenderTarget(levelSize, blurFormat, sample, $"heretic-caption-scratch{i}"),
-                _clyde.CreateRenderTarget(levelSize, blurFormat, sample, $"heretic-caption-blur{i}"));
-        }
-
-        _targets = new CaptionTargets(size, mask, levels);
+        _targets = new CaptionTargets(_clyde, size, BlurLevels);
         return _targets;
     }
 
@@ -491,23 +413,45 @@ public sealed partial class CinematicCaptionOverlay : Overlay
     protected override void DisposeBehavior()
     {
         ReleaseTargets();
-
-        AuraShader?.Dispose();
-        AuraShader = null;
-
-        BlurShader?.Dispose();
-        BlurShader = null;
-
         _fonts.Clear();
+        _layouts.Clear();
 
         base.DisposeBehavior();
     }
 
-    private sealed class CaptionTargets(Vector2i size, IRenderTexture mask, BlurLevel[] levels) : IDisposable
+    private readonly record struct CaptionFrame(float Scale,
+        float GlyphSize,
+        Vector2 Anchor,
+        UIBox2 Block,
+        int Shown,
+        float Age,
+        float Time);
+
+    private sealed class CaptionTargets : IDisposable
     {
-        public readonly Vector2i Size = size;
-        public readonly IRenderTexture Mask = mask;
-        public readonly BlurLevel[] Levels = levels;
+        public readonly Vector2i Size;
+        public readonly IRenderTexture Mask;
+        public readonly BlurLevel[] Levels;
+
+        public CaptionTargets(IClyde clyde, Vector2i size, int levelCount)
+        {
+            var sample = new TextureSampleParameters { Filter = true };
+            var maskFormat = new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8);
+            var blurFormat = new RenderTargetFormatParameters(RenderTargetColorFormat.R8);
+
+            Size = size;
+            Mask = clyde.CreateRenderTarget(size, maskFormat, sample, "cinematic-caption-mask");
+            Levels = new BlurLevel[levelCount];
+
+            for (var i = 0; i < Levels.Length; i++)
+            {
+                var levelSize = Vector2i.ComponentMax(size / (1 << (i + 1)), Vector2i.One);
+
+                Levels[i] = new BlurLevel(
+                    clyde.CreateRenderTarget(levelSize, blurFormat, sample, $"cinematic-caption-scratch{i}"),
+                    clyde.CreateRenderTarget(levelSize, blurFormat, sample, $"cinematic-caption-blur{i}"));
+            }
+        }
 
         public void Dispose()
         {
@@ -532,21 +476,161 @@ public sealed partial class CinematicCaptionOverlay : Overlay
 
     private sealed class CaptionLayout
     {
-        public readonly List<string> Lines = new();
-        public readonly List<float> Widths = new();
+        private const string PauseGlyphs = ".,!?;:…";
+
+        private string? _text;
+        private string? _subject;
+        private CinematicCaptionStylePrototype? _style;
+        private Vector2i _viewport;
+
         public VectorFont Font = default!;
         public VectorFont? SubjectFont;
-        public float Scale;
+        public readonly List<string> Lines = new();
+        public readonly List<float> LineWidths = new();
+        public readonly List<float[]> Advances = new();
+        public float[] SubjectAdvances = Array.Empty<float>();
+        public float Widest;
         public float Tracking;
-        public float SubjectTracking;
         public float LineStep;
+        public float SubjectTracking;
         public float SubjectWidth;
         public float SubjectTop;
-        public Vector2 Anchor;
-        public float GlyphSize;
-        public int Shown;
-        public float Age;
-        public float Time;
-        public UIBox2 Block;
+        public int GlyphCount;
+        private readonly List<float> _revealAt = new();
+        private float _revealTotal;
+
+        public bool Matches(CinematicCaptionSystem.Caption caption, Vector2i viewport)
+            => ReferenceEquals(_style, caption.Style)
+               && _viewport == viewport
+               && _text == caption.Text
+               && _subject == caption.Subject;
+
+        public void Rebuild(DrawingHandleScreen handle,
+            CinematicCaptionSystem.Caption caption,
+            Vector2i viewport,
+            VectorFont font,
+            VectorFont? subjectFont,
+            float maxWidth)
+        {
+            var style = caption.Style;
+
+            _text = caption.Text;
+            _subject = caption.Subject;
+            _style = style;
+            _viewport = viewport;
+
+            Font = font;
+            SubjectFont = subjectFont;
+            Tracking = style.Tracking * font.Size;
+            LineStep = font.Size * style.LineSpacing;
+
+            Wrap(handle, caption.Text, maxWidth);
+
+            LineWidths.Clear();
+            Advances.Clear();
+            _revealAt.Clear();
+            _revealTotal = 0f;
+            Widest = 0f;
+            GlyphCount = 0;
+
+            var pause = MathF.Max(1f, style.PunctuationPause);
+
+            foreach (var line in Lines)
+            {
+                var advances = MeasureGlyphs(handle, font, line);
+                var width = advances.Sum() + Tracking * Math.Max(0, line.Length - 1);
+
+                Advances.Add(advances);
+                LineWidths.Add(width);
+                Widest = MathF.Max(Widest, width);
+                GlyphCount += line.Length;
+
+                foreach (var glyph in line)
+                {
+                    _revealAt.Add(_revealTotal);
+                    _revealTotal += PauseGlyphs.Contains(glyph) ? pause : 1f;
+                }
+            }
+
+            SubjectAdvances = Array.Empty<float>();
+            SubjectTracking = 0f;
+            SubjectWidth = 0f;
+            SubjectTop = 0f;
+
+            if (subjectFont == null || caption.Subject.Length == 0)
+                return;
+
+            SubjectAdvances = MeasureGlyphs(handle, subjectFont, caption.Subject);
+            SubjectTracking = style.SubjectTracking * subjectFont.Size;
+            SubjectWidth = SubjectAdvances.Sum() + SubjectTracking * Math.Max(0, caption.Subject.Length - 1);
+            SubjectTop = -subjectFont.Size * style.LineSpacing * (1f + style.SubjectGap);
+            Widest = MathF.Max(Widest, SubjectWidth);
+        }
+
+        public int CountShown(float progress)
+        {
+            if (progress >= 1f)
+                return GlyphCount;
+
+            var target = progress * _revealTotal;
+            var shown = 0;
+
+            while (shown < GlyphCount && _revealAt[shown] < target)
+                shown++;
+
+            return shown;
+        }
+
+        private void Wrap(DrawingHandleScreen handle, string text, float maxWidth)
+        {
+            Lines.Clear();
+
+            foreach (var paragraph in text.Split('\n'))
+            {
+                var line = string.Empty;
+
+                foreach (var word in paragraph.Split(' ', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    var candidate = line.Length == 0 ? word : line + " " + word;
+
+                    if (line.Length > 0 && Measure(handle, Font, candidate, Tracking) > maxWidth)
+                    {
+                        Lines.Add(line);
+                        candidate = word;
+                    }
+
+                    line = BreakLongWord(handle, candidate, maxWidth);
+                }
+
+                Lines.Add(line);
+            }
+        }
+
+        private string BreakLongWord(DrawingHandleScreen handle, string word, float maxWidth)
+        {
+            while (word.Length > 1 && Measure(handle, Font, word, Tracking) > maxWidth)
+            {
+                var fit = word.Length - 1;
+                while (fit > 1 && Measure(handle, Font, word.AsSpan(0, fit), Tracking) > maxWidth)
+                    fit--;
+
+                Lines.Add(word[..fit]);
+                word = word[fit..];
+            }
+
+            return word;
+        }
+
+        private static float Measure(DrawingHandleScreen handle, VectorFont font, ReadOnlySpan<char> text, float tracking)
+            => handle.GetDimensions(font, text, 1f).X + tracking * Math.Max(0, text.Length - 1);
+
+        private static float[] MeasureGlyphs(DrawingHandleScreen handle, VectorFont font, string text)
+        {
+            var advances = new float[text.Length];
+            for (var i = 0; i < text.Length; i++)
+                advances[i] = handle.GetDimensions(font, text.AsSpan(i, 1), 1f).X;
+
+            return advances;
+        }
     }
 }
