@@ -26136,3 +26136,71 @@ Entries:
         part, leaving them immortal.
   id: 2963
   time: '2026-10-09T18:16:57.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: >-
+        Secret+ no longer fails to start when a rolled antag doesn't have enough
+        players.
+    - type: Fix
+      message: Traitors no longer get conflicting help/protect objectives.
+    - type: Fix
+      message: Plasma cutters no longer lie about fitting in rechargers.
+    - type: Fix
+      message: Gemini clones no longer have a glitchy square around them.
+    - type: Fix
+      message: Armor penetration works again.
+    - type: Fix
+      message: >-
+        Borging someone now deconverts them from revs, cosmic cult, thralls and
+        gangs.
+    - type: Fix
+      message: Right-clicking a modsuit part no longer unequips it.
+    - type: Fix
+      message: Janitorial modsuit chestplate no longer shows an error sprite.
+    - type: Fix
+      message: Rusted walls no longer spawn rotated.
+    - type: Fix
+      message: Chitinid biolight works after an anomaly is removed.
+    - type: Fix
+      message: Lavaland bosses stop chasing you once you leave their range.
+    - type: Fix
+      message: Admin erase no longer floods chat with old messages.
+    - type: Fix
+      message: Regenerative stasis regrows missing organs.
+    - type: Fix
+      message: Losing hunger or thirst clears their alerts and slowdown.
+    - type: Fix
+      message: Headslugs can ghost again.
+    - type: Fix
+      message: Holopad voice only connects once the call is answered.
+    - type: Fix
+      message: >-
+        S.E.C. borgs have one Obey AI law, one View Laws action and a
+        self-recharging baton.
+    - type: Fix
+      message: Head revs no longer become enemies of the revolution on a rev win.
+    - type: Fix
+      message: Xenobio slime crates are back in cargo.
+    - type: Fix
+      message: >-
+        Zombified dionas no longer end up in nullspace when splitting into
+        nymphs.
+    - type: Fix
+      message: Abductors can't be converted by revs, shadowlings or cosmic cult.
+    - type: Fix
+      message: Cosmic cult can no longer convert rotten corpses.
+    - type: Fix
+      message: Gang duffel bags can't be deconstructed.
+    - type: Fix
+      message: Carpolin turns you into a carp again.
+    - type: Fix
+      message: >-
+        Holopads and sentry turrets no longer get stuck showing the maintenance
+        panel.
+    - type: Tweak
+      message: >-
+        Synths can't spawn for gamerules/ghost roles, e.g. nukies, ert, ninja,
+        etc.
+  id: 2964
+  time: '2026-10-09T20:00:39.0000000+00:00'
