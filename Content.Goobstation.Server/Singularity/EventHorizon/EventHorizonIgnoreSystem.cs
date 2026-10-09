@@ -5,9 +5,9 @@ using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Server.Singularity.EventHorizon;
 
-public sealed class EventHorizonIgnoreSystem : EntitySystem
+public sealed partial class EventHorizonIgnoreSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

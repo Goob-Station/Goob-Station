@@ -12,7 +12,7 @@ namespace Content.Goobstation.Client.RoundEnd;
 [GenerateTypedNameReferences]
 public sealed partial class NoEorgPopup : FancyWindow
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private float _remainingTime;
 

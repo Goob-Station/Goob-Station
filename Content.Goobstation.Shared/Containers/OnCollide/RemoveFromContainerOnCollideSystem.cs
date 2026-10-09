@@ -11,13 +11,13 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Containers.OnCollide;
 
-public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
+public sealed partial class RemoveFromContainerOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckleSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private ThrowingSystem _throwingSystem = default!;
+    [Dependency] private SharedBuckleSystem _buckleSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

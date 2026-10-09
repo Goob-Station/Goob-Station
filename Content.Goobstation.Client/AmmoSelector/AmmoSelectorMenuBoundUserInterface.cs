@@ -10,10 +10,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Client.AmmoSelector;
 
 [UsedImplicitly]
-public sealed class AmmoSelectorMenuBoundUserInterface : BoundUserInterface
+public sealed partial class AmmoSelectorMenuBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private IClyde _displayManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
 
     private AmmoSelectorMenu? _menu;
 

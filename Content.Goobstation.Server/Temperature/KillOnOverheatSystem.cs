@@ -11,10 +11,10 @@ using Content.Shared.Temperature.Components;
 
 namespace Content.Goobstation.Server.Temperature;
 
-public sealed class KillOnOverheatSystem : EntitySystem
+public sealed partial class KillOnOverheatSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Update(float frameTime)
     {

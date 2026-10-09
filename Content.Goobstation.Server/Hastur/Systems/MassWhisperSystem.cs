@@ -11,11 +11,11 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Hastur.Systems
 {
-    public sealed class MassWhisperSystem : EntitySystem
+    public sealed partial class MassWhisperSystem : EntitySystem
     {
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private ChatSystem _chatSystem = default!;
+        [Dependency] private ISharedAdminLogManager _admin = default!;
 
         public override void Initialize()
         {

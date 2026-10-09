@@ -12,11 +12,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
-public sealed class StypticStimulatorImplantSystem : EntitySystem
+public sealed partial class StypticStimulatorImplantSystem : EntitySystem
 {
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private BloodstreamSystem _bloodstream = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
     public override void Initialize()
     {
         base.Initialize();

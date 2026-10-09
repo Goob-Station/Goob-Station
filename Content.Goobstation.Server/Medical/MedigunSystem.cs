@@ -32,23 +32,23 @@ using Robust.Shared.Utility;
 namespace Content.Goobstation.Server.Medical;
 
 // TODO: Move this to Shared when battery systems will be predicted
-public sealed class MedigunSystem : SharedMedigunSystem
+public sealed partial class MedigunSystem : SharedMedigunSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedActionsSystem _action = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly AlertsSystem _alert = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly PainSystem _pain = default!; // Shitmed Change
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedActionsSystem _action = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private AlertsSystem _alert = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private ConsciousnessSystem _consciousness = default!; // Shitmed Change
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private PainSystem _pain = default!; // Shitmed Change
+    [Dependency] private UseDelaySystem _useDelay = default!;
 
     private EntityQuery<BatteryComponent> _batteryQuery;
     private EntityQuery<DamageableComponent> _damageableQuery;

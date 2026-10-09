@@ -14,13 +14,13 @@ namespace Content.Goobstation.Server.Shadowling.Systems;
 /// This handles the hatching process
 /// </summary>
 ///
-public sealed class ShadowlingEggHatchSystem : EntitySystem
+public sealed partial class ShadowlingEggHatchSystem : EntitySystem
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

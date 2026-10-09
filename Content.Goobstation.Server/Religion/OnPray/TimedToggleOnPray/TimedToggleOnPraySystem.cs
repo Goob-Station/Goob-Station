@@ -7,12 +7,12 @@ using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Goobstation.Server.Religion.OnPray.TimedToggleOnPray;
 
-public sealed class TimedToggleOnPraySystem : EntitySystem
+public sealed partial class TimedToggleOnPraySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
 
     private EntityQuery<TimedToggleOnPrayComponent> _query;
 

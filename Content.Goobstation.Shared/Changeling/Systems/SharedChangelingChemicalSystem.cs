@@ -10,8 +10,8 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract partial class SharedChangelingChemicalSystem : EntitySystem
 {
-    [Dependency] private readonly SharedInternalResourcesSystem _resource = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedInternalResourcesSystem _resource = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private EntityQuery<InternalResourcesComponent> _resourceQuery;
 

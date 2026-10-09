@@ -4,9 +4,9 @@ using Content.Shared.Gibbing.Events;
 
 namespace Content.Goobstation.Shared.Gib;
 
-public sealed class GibIgnoreSolutionContainersSystem : EntitySystem
+public sealed partial class GibIgnoreSolutionContainersSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _soln = default!;
+    [Dependency] private SharedSolutionContainerSystem _soln = default!;
 
     public override void Initialize()
     {

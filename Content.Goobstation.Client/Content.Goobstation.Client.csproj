@@ -7,7 +7,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>..\bin\Content.Client\</OutputPath>
     <OutputType Condition="'$(FullRelease)' != 'True'">Exe</OutputType>
-    <WarningsAsErrors>nullable</WarningsAsErrors>
+    <WarningsAsErrors>nullable;RA0049;RA0051</WarningsAsErrors>
   </PropertyGroup>
   <Import Project="../MSBuild/Content.props" />
   <ItemGroup>

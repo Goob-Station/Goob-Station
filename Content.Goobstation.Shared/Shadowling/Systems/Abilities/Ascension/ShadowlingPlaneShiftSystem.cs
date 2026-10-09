@@ -10,9 +10,9 @@ namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.Ascension;
 /// This handles the Plane Shift ability.
 /// A toogleable ability that lets you phase through walls!
 /// </summary>
-public sealed class ShadowlingPlaneShiftSystem : EntitySystem
+public sealed partial class ShadowlingPlaneShiftSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

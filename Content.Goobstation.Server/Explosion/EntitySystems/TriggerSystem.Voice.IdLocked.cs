@@ -13,12 +13,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Explosion.EntitySystems
 {
-    public sealed class VoiceTriggerSystem : EntitySystem
+    public sealed partial class VoiceTriggerSystem : EntitySystem
     {
-        [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly TriggerSystem _triggerSystem = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private AccessReaderSystem _accessReader = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private TriggerSystem _triggerSystem = default!;
+        [Dependency] private IGameTiming _timing = default!;
 
         public override void Initialize()
         {

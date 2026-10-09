@@ -16,9 +16,9 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 ///
 ///   Jani - JaniMetricComponent.Puddles points per BaselineQty of various substances
 /// </summary>
-public sealed class PuddleMetricSystem : ChaosMetricSystem<PuddleMetricComponent>
+public sealed partial class PuddleMetricSystem : ChaosMetricSystem<PuddleMetricComponent>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
     private static readonly Gauge PuddlesTotal = Metrics.CreateGauge(
         "game_director_metric_puddle_total",

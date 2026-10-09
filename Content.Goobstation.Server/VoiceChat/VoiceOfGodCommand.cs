@@ -10,11 +10,11 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.VoiceChat;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class VoiceOfGodCommand : LocalizedEntityCommands
+public sealed partial class VoiceOfGodCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly VoiceChatSystem _voiceChat = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private VoiceChatSystem _voiceChat = default!;
 
     private const string RadiusMode = "radius";
     private const string DepartmentMode = "department";

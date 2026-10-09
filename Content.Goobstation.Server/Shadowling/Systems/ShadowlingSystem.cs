@@ -22,17 +22,17 @@ namespace Content.Goobstation.Server.Shadowling.Systems;
 /// <summary>
 /// This handles the Shadowling's System
 /// </summary>
-public sealed class ShadowlingSystem : SharedShadowlingSystem
+public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 {
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private CodeConditionSystem _codeCondition = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Update(float frameTime)
     {

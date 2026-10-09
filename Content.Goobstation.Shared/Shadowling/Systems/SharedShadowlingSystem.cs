@@ -25,17 +25,17 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems;
 
-public abstract class SharedShadowlingSystem : EntitySystem
+public abstract partial class SharedShadowlingSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedLightDetectionDamageSystem _lightDamage = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedLightDetectionDamageSystem _lightDamage = default!;
+    [Dependency] private SharedHumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MovementModStatusSystem _movementMod = default!;
 
     public override void Initialize()
     {

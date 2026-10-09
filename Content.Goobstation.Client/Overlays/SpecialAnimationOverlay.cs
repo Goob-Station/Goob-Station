@@ -13,14 +13,14 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Overlays;
 
-public sealed class SpecialAnimationOverlay : Overlay
+public sealed partial class SpecialAnimationOverlay : Overlay
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
+    [Dependency] private IUserInterfaceManager _uiManager = default!;
 
     private readonly SpriteSystem _sprite;
 

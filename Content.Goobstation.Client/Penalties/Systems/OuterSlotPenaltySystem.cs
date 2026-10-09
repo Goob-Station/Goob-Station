@@ -10,7 +10,7 @@ namespace Content.Goobstation.Client.Penalties.Systems;
 
 public sealed partial class OuterSlotPenaltySystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
 
     public override void Initialize()
     {

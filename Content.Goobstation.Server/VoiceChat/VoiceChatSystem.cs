@@ -43,27 +43,27 @@ namespace Content.Goobstation.Server.VoiceChat;
 
 public sealed partial class VoiceChatSystem : EntitySystem
 {
-    [Dependency] private readonly VoiceChatManager _voice = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IServerNetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedStationAiSystem _stationAi = default!;
-    [Dependency] private readonly TelephoneSystem _telephone = default!;
-    [Dependency] private readonly VoiceBroadcastSystem _broadcast = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly VoiceRadioSystem _radioVoice = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly VoiceLogSystem _voiceLog = default!;
+    [Dependency] private VoiceChatManager _voice = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IServerNetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedStationAiSystem _stationAi = default!;
+    [Dependency] private TelephoneSystem _telephone = default!;
+    [Dependency] private VoiceBroadcastSystem _broadcast = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private VoiceRadioSystem _radioVoice = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private VoiceLogSystem _voiceLog = default!;
 
     private static readonly TimeSpan TransmissionGap = TimeSpan.FromMilliseconds(500);
     private static readonly TimeSpan PermissionRecheck = TimeSpan.FromSeconds(2);
@@ -1093,7 +1093,7 @@ public sealed partial class VoiceChatSystem : EntitySystem
 
     private readonly record struct Relay(EntityUid Emitter, MapCoordinates Origin, float Range, VoiceRoute Route);
 
-    private sealed class Route
+    private sealed partial class Route
     {
         public readonly List<RouteGroup> Groups = new();
         public readonly List<Entity<TelephoneComponent>> Telephones = new();
@@ -1118,7 +1118,7 @@ public sealed partial class VoiceChatSystem : EntitySystem
         }
     }
 
-    private sealed class RadioTransmission(string channel)
+    private sealed partial class RadioTransmission(string channel)
     {
         public readonly string Channel = channel;
         public readonly HashSet<ICommonSession> Recipients = new();
@@ -1126,7 +1126,7 @@ public sealed partial class VoiceChatSystem : EntitySystem
         public readonly Dictionary<INetChannel, VoiceMixTarget> Targets = new();
     }
 
-    private sealed class RouteGroup(NetEntity source, VoiceRoute route, bool global, float range)
+    private sealed partial class RouteGroup(NetEntity source, VoiceRoute route, bool global, float range)
     {
         public readonly NetEntity Source = source;
         public readonly VoiceRoute Route = route;
@@ -1135,7 +1135,7 @@ public sealed partial class VoiceChatSystem : EntitySystem
         public readonly List<INetChannel> Channels = new();
     }
 
-    private sealed class Speaker(NetUserId user, ushort id)
+    private sealed partial class Speaker(NetUserId user, ushort id)
     {
         public readonly NetUserId User = user;
         public readonly ushort Id = id;

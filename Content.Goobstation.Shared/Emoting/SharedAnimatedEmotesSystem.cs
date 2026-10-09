@@ -15,9 +15,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Emoting;
 
-public abstract class SharedAnimatedEmotesSystem : EntitySystem
+public abstract partial class SharedAnimatedEmotesSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const float DodgeStaminaCost = 20f;
     private const float BorgDodgeBatteryCost = 20f;

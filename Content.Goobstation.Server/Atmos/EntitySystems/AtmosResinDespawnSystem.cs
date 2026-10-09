@@ -12,10 +12,10 @@ namespace Content.Goobstation.Server.Atmos.EntitySystems;
 /// Assmos - Extinguisher Nozzle
 /// Sets atmospheric temperature to 20C and removes all toxins. 
 /// </summary>
-public sealed class AtmosResinDespawnSystem : EntitySystem
+public sealed partial class AtmosResinDespawnSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmo = default!;
-    [Dependency] private readonly GasTileOverlaySystem _gasOverlaySystem = default!;
+    [Dependency] private AtmosphereSystem _atmo = default!;
+    [Dependency] private GasTileOverlaySystem _gasOverlaySystem = default!;
     public override void Initialize()
     {
         base.Initialize();

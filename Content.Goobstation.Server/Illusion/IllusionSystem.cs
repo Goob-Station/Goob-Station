@@ -38,18 +38,18 @@ using Robust.Shared.Spawners;
 
 namespace Content.Goobstation.Server.Illusion;
 
-public sealed class IllusionSystem : EntitySystem
+public sealed partial class IllusionSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
-    [Dependency] private readonly CloningSystem _cloning = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly HTNSystem _htn = default!;
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private CloningSystem _cloning = default!;
+    [Dependency] private TransformSystem _xform = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private HTNSystem _htn = default!;
+    [Dependency] private MobThresholdSystem _threshold = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     private static readonly ProtoId<CloningSettingsPrototype> Settings = "Illusion";
     private static readonly ProtoId<HTNCompoundPrototype> Compound = "IllusionCompound";

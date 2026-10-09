@@ -16,13 +16,13 @@ namespace Content.Goobstation.Server.SlaughterDemon.Objectives;
 /// <summary>
 /// A lot of the objectives are fluff. The actual ones are listed in this system.
 /// </summary>
-public sealed class SlaughterDemonObjectiveSystem : EntitySystem
+public sealed partial class SlaughterDemonObjectiveSystem : EntitySystem
 {
-    [Dependency] private readonly NumberObjectiveSystem _number = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private NumberObjectiveSystem _number = default!;
+    [Dependency] private TargetObjectiveSystem _target = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

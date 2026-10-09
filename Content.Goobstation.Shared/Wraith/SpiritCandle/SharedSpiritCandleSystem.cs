@@ -22,16 +22,16 @@ namespace Content.Goobstation.Shared.Wraith.SpiritCandle;
 /// </summary>
 public sealed partial class SharedSpiritCandleSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedVisibilitySystem _visibility = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _oldStatusEffects = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedVisibilitySystem _visibility = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private Content.Shared.StatusEffect.StatusEffectsSystem _oldStatusEffects = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

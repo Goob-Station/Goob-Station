@@ -14,12 +14,12 @@ namespace Content.Goobstation.Shared.SlotMachine;
 /// </summary>
 public sealed partial class PrizeSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedChatSystem _chatSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedChatSystem _chatSystem = default!;
 
     /// <summary>
     /// Ts is taken from SharedRandomExtensions so don't blame me if the math isn't right

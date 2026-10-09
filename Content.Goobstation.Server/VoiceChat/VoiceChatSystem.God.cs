@@ -30,12 +30,12 @@ public readonly record struct VoiceGodTarget(VoiceGodMode Mode, string Descripti
 
 public sealed partial class VoiceChatSystem
 {
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedMindSystem _minds = default!;
-    [Dependency] private readonly SharedJobSystem _jobs = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private SharedMindSystem _minds = default!;
+    [Dependency] private SharedJobSystem _jobs = default!;
 
     private static readonly TimeSpan GodTailDelay = TimeSpan.FromMilliseconds(60);
     private static readonly TimeSpan GodFrameDuration = TimeSpan.FromMilliseconds(20);
@@ -329,7 +329,7 @@ public sealed partial class VoiceChatSystem
         }
     }
 
-    private sealed class GodVoice(NetUserId admin, VoiceGodTarget target, ushort streamId, bool hearSelf)
+    private sealed partial class GodVoice(NetUserId admin, VoiceGodTarget target, ushort streamId, bool hearSelf)
     {
         public readonly NetUserId Admin = admin;
         public readonly VoiceGodTarget Target = target;

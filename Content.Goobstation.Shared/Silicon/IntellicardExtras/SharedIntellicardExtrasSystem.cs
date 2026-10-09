@@ -23,15 +23,15 @@ public sealed partial class IntellicardDoAfterEvent : SimpleDoAfterEvent;
 
 public abstract partial class SharedIntellicardExtrasSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly NameModifierSystem _nameMod = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private NameModifierSystem _nameMod = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     private static readonly EntProtoId DefaultAi = "StationAiBrain";
     private readonly ProtoId<ChatNotificationPrototype> _downloadChatNotificationPrototype = "IntellicardDownload";

@@ -19,14 +19,14 @@ namespace Content.Goobstation.Server.Antag;
 /// <summary>
 /// System for AntagBetterRandomSpawn that finds safe spawn locations avoiding cameras and solid objects.
 /// </summary>
-public sealed class AntagBetterRandomSpawnSystem : GameRuleSystem<AntagBetterRandomSpawnComponent>
+public sealed partial class AntagBetterRandomSpawnSystem : GameRuleSystem<AntagBetterRandomSpawnComponent>
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
 
     public override void Initialize()
     {

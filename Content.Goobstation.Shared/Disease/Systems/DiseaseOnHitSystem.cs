@@ -5,7 +5,7 @@ namespace Content.Goobstation.Shared.Disease.Systems;
 
 public sealed partial class DiseaseOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDiseaseSystem _disease = default!;
+    [Dependency] private SharedDiseaseSystem _disease = default!;
 
     public override void Initialize()
     {

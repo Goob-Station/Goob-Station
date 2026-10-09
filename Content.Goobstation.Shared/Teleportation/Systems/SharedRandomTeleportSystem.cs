@@ -21,18 +21,18 @@ using System.Numerics;
 
 namespace Content.Goobstation.Shared.Teleportation.Systems;
 
-public sealed class SharedRandomTeleportSystem : EntitySystem
+public sealed partial class SharedRandomTeleportSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly PullingSystem _pullingSystem = default!;
-    [Dependency] private readonly SparksSystem _sparks = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly TeleportSystem _teleport = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private PullingSystem _pullingSystem = default!;
+    [Dependency] private SparksSystem _sparks = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
+    [Dependency] private TeleportSystem _teleport = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 

@@ -12,12 +12,12 @@ namespace Content.Goobstation.Shared.OfficeChair;
 
 public sealed partial class VehicleHitAndRunSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     public override void Update(float frameTime)
     {

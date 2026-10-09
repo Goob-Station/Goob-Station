@@ -5,10 +5,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.VoiceChat;
 
-public sealed class VoiceGodCueSystem : EntitySystem
+public sealed partial class VoiceGodCueSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlays = default!;
-    [Dependency] private readonly VoiceChatSystem _voice = default!;
+    [Dependency] private IOverlayManager _overlays = default!;
+    [Dependency] private VoiceChatSystem _voice = default!;
 
     private const float RiseTime = 0.15f;
     private const float FallTime = 1.2f;
@@ -64,9 +64,9 @@ public sealed class VoiceGodCueSystem : EntitySystem
     }
 }
 
-public sealed class VoiceGodCueOverlay : Overlay
+public sealed partial class VoiceGodCueOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private static readonly ProtoId<ShaderPrototype> GlowShader = "VoiceGodGlow";
     private static readonly ProtoId<ShaderPrototype> RaysShader = "VoiceGodRays";

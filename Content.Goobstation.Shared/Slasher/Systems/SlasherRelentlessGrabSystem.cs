@@ -11,11 +11,11 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// Handles the Slasher Relentless Grab action.
 /// When activated, the slasher's next melee hit will grab the target.
 /// </summary>
-public sealed class SlasherRelentlessGrabSystem : EntitySystem
+public sealed partial class SlasherRelentlessGrabSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private PullingSystem _pulling = default!;
 
     public override void Initialize()
     {

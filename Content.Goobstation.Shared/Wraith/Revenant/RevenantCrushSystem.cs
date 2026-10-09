@@ -17,16 +17,16 @@ namespace Content.Goobstation.Shared.Wraith.Revenant;
 /// as their bones crack and their body implodes. The victim explodes into gibs once this damage becomes lethal,
 /// but the process is interrupted if they are removed from your line of sight or you move (or are moved).
 /// </summary>
-public sealed class RevenantCrushSystem : EntitySystem
+public sealed partial class RevenantCrushSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ISharedAdminLogManager _admin = default!;
 
     public override void Initialize()
     {

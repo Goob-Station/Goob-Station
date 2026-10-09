@@ -10,14 +10,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.VoiceChat;
 
-public sealed class VoiceCanadianSystem : EntitySystem
+public sealed partial class VoiceCanadianSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly VoiceChatSystem _voice = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private VoiceChatSystem _voice = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly ProtoId<ShaderPrototype> Shader = "VoiceCanadian";
     private const string PostShaderId = "voice-canadian";
@@ -203,7 +203,7 @@ public sealed class VoiceCanadianSystem : EntitySystem
         _sprite.RemovePostShader(sprite, PostShaderId);
     }
 
-    private sealed class FlapState(ShaderInstance shader)
+    private sealed partial class FlapState(ShaderInstance shader)
     {
         public readonly ShaderInstance Shader = shader;
         public float Open;

@@ -6,7 +6,7 @@ namespace Content.Server.Xenobiology.HTN;
 
 public sealed partial class HasActiveDoAfterPrecondition : HTNPrecondition
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     [DataField]
     public bool Invert = false;

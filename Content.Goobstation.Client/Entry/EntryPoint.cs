@@ -7,12 +7,12 @@ using Robust.Shared.ContentPack;
 
 namespace Content.Goobstation.Client.Entry;
 
-public sealed class EntryPoint : GameClient
+public sealed partial class EntryPoint : GameClient
 {
-    [Dependency] private readonly VoiceChatManager _voiceManager = default!;
-    [Dependency] private readonly JoinQueueManager _joinQueue = default!;
-    [Dependency] private readonly PollManager _pollManager = default!;
-    [Dependency] private readonly ICommonCurrencyManager _currMan = default!;
+    [Dependency] private VoiceChatManager _voiceManager = default!;
+    [Dependency] private JoinQueueManager _joinQueue = default!;
+    [Dependency] private PollManager _pollManager = default!;
+    [Dependency] private ICommonCurrencyManager _currMan = default!;
 
     public override void Init()
     {

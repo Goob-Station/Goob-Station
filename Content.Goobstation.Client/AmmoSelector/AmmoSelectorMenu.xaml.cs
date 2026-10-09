@@ -15,9 +15,9 @@ namespace Content.Goobstation.Client.AmmoSelector;
 [GenerateTypedNameReferences]
 public sealed partial class AmmoSelectorMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _entManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private EntityManager _entManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     private SpriteSystem _sprites;
 
@@ -89,7 +89,7 @@ public sealed partial class AmmoSelectorMenu : RadialMenu
     }
 }
 
-public sealed class AmmoSelectorMenuButton : RadialMenuButtonWithSector
+public sealed partial class AmmoSelectorMenuButton : RadialMenuButtonWithSector
 {
     public ProtoId<SelectableAmmoPrototype> ProtoId { get; set; }
 }

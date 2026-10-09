@@ -20,10 +20,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.RelayedDeathrattle;
 
-public sealed class RelayedDeathrattleSystem : EntitySystem
+public sealed partial class RelayedDeathrattleSystem : EntitySystem
 {
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
+    [Dependency] private ChatSystem _chat = default!;
     public override void Initialize()
     {
         base.Initialize();

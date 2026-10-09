@@ -5,9 +5,9 @@ using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Goobstation.Client.Polls;
 
-public sealed class PollUIController : UIController, IOnStateExited<GameplayState>, IOnStateExited<LobbyState>
+public sealed partial class PollUIController : UIController, IOnStateExited<GameplayState>, IOnStateExited<LobbyState>
 {
-    [Dependency] private readonly PollManager _polls = default!;
+    [Dependency] private PollManager _polls = default!;
 
     private PollVotingWindow? _window;
 

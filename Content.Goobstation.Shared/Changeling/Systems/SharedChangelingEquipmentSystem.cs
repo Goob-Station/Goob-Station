@@ -7,9 +7,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public sealed class ChangelingEquipmentSystem : EntitySystem
+public sealed partial class ChangelingEquipmentSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {

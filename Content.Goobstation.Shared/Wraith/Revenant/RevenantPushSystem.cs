@@ -7,11 +7,11 @@ namespace Content.Goobstation.Shared.Wraith.Revenant;
 /// <summary>
 /// Shoves the targeted victim or object away from you, dealing damage if they collide with something.
 /// </summary>
-public sealed class RevenantPushSystem : EntitySystem
+public sealed partial class RevenantPushSystem : EntitySystem
 {
-    [Dependency] private readonly GrabThrownSystem _grab = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private GrabThrownSystem _grab = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

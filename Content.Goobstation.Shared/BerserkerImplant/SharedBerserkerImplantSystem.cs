@@ -14,14 +14,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.BerserkerImplant;
 
-public abstract class SharedBerserkerImplantSystem : EntitySystem
+public abstract partial class SharedBerserkerImplantSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedJitteringSystem _jitter = default!;
 
     public override void Initialize()
     {

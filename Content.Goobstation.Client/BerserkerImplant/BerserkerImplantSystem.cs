@@ -6,10 +6,10 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.BerserkerImplant;
 
-public sealed class BerserkerImplantSystem : SharedBerserkerImplantSystem
+public sealed partial class BerserkerImplantSystem : SharedBerserkerImplantSystem
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private BerserkerImplantOverlay _overlay = new()
     {

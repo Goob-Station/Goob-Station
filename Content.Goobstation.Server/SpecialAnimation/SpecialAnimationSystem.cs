@@ -8,9 +8,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.SpecialAnimation;
 
-public sealed class SpecialAnimationSystem : SharedSpecialAnimationSystem
+public sealed partial class SpecialAnimationSystem : SharedSpecialAnimationSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     /// <summary>
     /// Plays a special attack animation.

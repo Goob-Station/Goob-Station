@@ -18,13 +18,13 @@ namespace Content.Goobstation.Server.VoiceChat;
 
 public readonly record struct VoiceWebState(string Name, bool InGame, bool CanSpeak, bool Muted, bool PushToTalk, bool Broadcasting, bool VoiceChanger, string? Radio, bool Lobby = false, bool SelfMuted = false);
 
-public sealed class VoiceChatManager
+public sealed partial class VoiceChatManager
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IServerNetManager _net = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IStatusHost _statusHost = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IServerNetManager _net = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IStatusHost _statusHost = default!;
+    [Dependency] private ILogManager _logManager = default!;
 
     private const string PagePath = "/voice";
     private const string CodeAlphabet = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";

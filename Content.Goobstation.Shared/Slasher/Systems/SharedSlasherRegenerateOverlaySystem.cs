@@ -6,9 +6,9 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// <summary>
 /// Handles the lifetime of the overlay.
 /// </summary>
-public sealed class SharedSlasherRegenerateOverlaySystem : EntitySystem
+public sealed partial class SharedSlasherRegenerateOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

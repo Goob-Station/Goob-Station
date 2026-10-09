@@ -11,9 +11,9 @@ namespace Content.Goobstation.Shared.Wraith.Revenant;
 /// This handles the revenant system for wraith.
 /// Just adds the abilities and passive damage shittery
 /// </summary>
-public sealed class WraithRevenantSystem : EntitySystem
+public sealed partial class WraithRevenantSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {

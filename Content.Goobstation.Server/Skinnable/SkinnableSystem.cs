@@ -17,10 +17,10 @@ namespace Content.Goobstation.Server.Skinnable;
 
 public sealed partial class SkinnableSystem : SharedSkinnableSystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfter = null!;
-    [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly PopupSystem _popups = null!;
-    [Dependency] private readonly AudioSystem _audio = null!;
+    [Dependency] private DoAfterSystem _doAfter = null!;
+    [Dependency] private DamageableSystem _damageable = null!;
+    [Dependency] private PopupSystem _popups = null!;
+    [Dependency] private AudioSystem _audio = null!;
     public override void Initialize()
     {
         base.Initialize();

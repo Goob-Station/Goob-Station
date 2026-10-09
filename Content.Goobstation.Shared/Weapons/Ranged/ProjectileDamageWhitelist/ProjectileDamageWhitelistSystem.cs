@@ -6,10 +6,10 @@ using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileDamageWhitelist;
 
-public sealed class ProjectileDamageWhitelistSystem : EntitySystem
+public sealed partial class ProjectileDamageWhitelistSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -16,7 +16,7 @@ namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class FillLinkedMachineOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private SharedMaterialStorageSystem _sharedMaterialStorage = default!;
     private SharedDisposalUnitSystem _sharedDisposalUnitSystem = default!;
     private SharedHandsSystem _sharedHandsSystem = default!;

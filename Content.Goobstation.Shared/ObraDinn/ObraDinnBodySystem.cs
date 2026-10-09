@@ -10,9 +10,9 @@ namespace Content.Goobstation.Shared.ObraDinn;
 /// <summary>
 /// This handles storing the entitys near a player specie  on death
 /// </summary>
-public sealed class ObraDinnBodySystem : EntitySystem
+public sealed partial class ObraDinnBodySystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
 
     public override void Initialize()

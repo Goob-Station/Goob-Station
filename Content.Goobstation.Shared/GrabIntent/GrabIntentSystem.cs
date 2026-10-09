@@ -33,23 +33,23 @@ namespace Content.Goobstation.Shared.GrabIntent;
 
 public sealed partial class GrabIntentSystem : EntitySystem
 {
-    [Dependency] private readonly ContestsSystem _contests = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _modifierSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
+    [Dependency] private ContestsSystem _contests = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedVirtualItemSystem _virtualSystem = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private MovementSpeedModifierSystem _modifierSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private HeldSpeedModifierSystem _clothingMoveSpeed = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private GrabThrownSystem _grabThrown = default!;
 
     private readonly SoundPathSpecifier _thudswoosh = new("/Audio/Effects/thudswoosh.ogg");
 

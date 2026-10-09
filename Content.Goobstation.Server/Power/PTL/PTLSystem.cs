@@ -30,15 +30,15 @@ namespace Content.Goobstation.Server.Power.PTL;
 
 public sealed partial class PTLSystem : EntitySystem
 {
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly IPrototypeManager _protMan = default!;
-    [Dependency] private readonly FlashSystem _flash = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly AudioSystem _aud = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private IGameTiming _time = default!;
+    [Dependency] private IPrototypeManager _protMan = default!;
+    [Dependency] private FlashSystem _flash = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private AudioSystem _aud = default!;
+    [Dependency] private EmagSystem _emag = default!;
 
     private static readonly ProtoId<TagPrototype> _tagScrewdriver = "Screwdriver";
     private static readonly ProtoId<TagPrototype> _tagMultitool = "Multitool";

@@ -7,8 +7,8 @@ using Content.Shared.NPC.Prototypes;
 namespace Content.Goobstation.Shared.NPC;
 public sealed partial class ChangeFactionStatusEffectSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly NpcFactionSystem _npc = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private NpcFactionSystem _npc = default!;
 
     public static readonly EntProtoId ChangeFactionStatusEffect = "ChangeFactionStatusEffect";
 

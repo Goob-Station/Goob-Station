@@ -13,10 +13,10 @@ using System.Linq;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public abstract class SharedVoidAdaptionSystem : EntitySystem
+public abstract partial class SharedVoidAdaptionSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

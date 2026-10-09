@@ -12,13 +12,13 @@ namespace Content.Goobstation.Shared.Gangwars.Systems;
 /// <summary>
 /// Stealths the structure without overriding the color and allows gang members to reveal it.
 /// </summary>
-public sealed class GangHiddenStructureSystem : EntitySystem
+public sealed partial class GangHiddenStructureSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
 
     private static readonly ProtoId<TagPrototype> HideContextMenuTag = "HideContextMenu";
 

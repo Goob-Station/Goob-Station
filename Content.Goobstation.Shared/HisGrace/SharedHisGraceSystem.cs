@@ -7,8 +7,8 @@ namespace Content.Goobstation.Shared.HisGrace;
 
 public abstract partial class SharedHisGraceSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
-    [Dependency] private readonly SharedItemSystem _item = null!;
+    [Dependency] private SharedAppearanceSystem _appearance = null!;
+    [Dependency] private SharedItemSystem _item = null!;
 
     protected virtual void VisualsChanged(Entity<HisGraceComponent> ent, string key)
     {

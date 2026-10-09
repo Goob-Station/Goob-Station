@@ -11,14 +11,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Gangwars.Systems;
 
-public sealed class QuickhackSystem : EntitySystem
+public sealed partial class QuickhackSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoorSystem _doorSystem = default!;
-    [Dependency] private readonly SharedChargesSystem _chargesSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private SharedDoorSystem _doorSystem = default!;
+    [Dependency] private SharedChargesSystem _chargesSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
 
     public override void Initialize()
     {

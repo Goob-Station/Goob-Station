@@ -10,10 +10,10 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Goobstation.Shared.Radio;
 
-public sealed class RadioJobIconSystem : EntitySystem
+public sealed partial class RadioJobIconSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private SharedIdCardSystem _idCardSystem = default!;
 
     // These are static vars rather than being inlined so that the YAML linter can verify that they actually exist.
     private static readonly ProtoId<JobIconPrototype> JobIconAI = new("JobIconStationAi");

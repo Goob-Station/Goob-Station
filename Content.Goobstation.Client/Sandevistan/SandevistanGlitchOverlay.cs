@@ -5,13 +5,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Trauma.Client.Sandevistan;
 
-public sealed class SandevistanGlitchOverlay : Overlay
+public sealed partial class SandevistanGlitchOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "SandevistanGlitch";
 
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;
