@@ -26122,3 +26122,9 @@ Entries:
       message: Lathes having issues with mats should be fixed, maybe??
   id: 2961
   time: '2026-10-06T18:28:17.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added new robotic species, Synths!
+  id: 2962
+  time: '2026-10-09T18:10:15.0000000+00:00'
