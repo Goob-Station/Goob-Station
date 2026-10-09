@@ -12,11 +12,11 @@ namespace Content.Goobstation.Server.Chat;
 /// Reroutes the IC chat of entities with ChatOnlyHeardByComponent
 /// so only the speaker and their designated listener receive it.
 /// </summary>
-public sealed class ChatOnlyHeardBySystem : EntitySystem
+public sealed partial class ChatOnlyHeardBySystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {
