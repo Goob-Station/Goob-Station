@@ -132,6 +132,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions: # Goob start - Afterlight synths
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+          inverted: true # Goob end
         damage:
           types:
             Cellular: 1 #it's a carcinogen, reckon this is fine

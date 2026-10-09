@@ -1,0 +1,5 @@
+- type: entity
+  save: false
+  parent: BaseMobSynth
+  id: MobSynth
+  name: Urist McBeeper
