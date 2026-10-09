@@ -333,8 +333,8 @@ public sealed partial class DamageableSystem
         bool canMiss = true
     )
     {
-        var vitalDamage = new DamageSpecifier();
-        var regularDamage = new DamageSpecifier();
+        var vitalDamage = new DamageSpecifier(damage.ArmorPenetration, damage.PartDamageVariation, damage.WoundSeverityMultipliers);
+        var regularDamage = new DamageSpecifier(damage.ArmorPenetration, damage.PartDamageVariation, damage.WoundSeverityMultipliers);
 
         // separate the vital damage so we have
         // vitalDamage for damage that must be applied to vital body parts (TargetBodyPart.Vital) &

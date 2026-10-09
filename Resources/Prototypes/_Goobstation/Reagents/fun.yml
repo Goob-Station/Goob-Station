@@ -77,14 +77,14 @@
         conditions:
         - !type:ReagentCondition
           reagent: Carpolin
-          min: 9
+          min: 5
       - !type:AdjustReagent
         reagent: Carpolin
         amount: -10
         conditions:
         - !type:ReagentCondition
           reagent: Carpolin
-          min: 9 # keep it the same as above
+          min: 5 # keep it the same as above
       - !type:PopupMessage
         type: Local
         messages: [ "reagent-popup-carpolin" ]
