@@ -14,7 +14,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Client.DoAfter;
 
-public sealed class DoAfterOverlay : Overlay
+public sealed partial class DoAfterOverlay : Overlay // Goob
 {
     private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
 
@@ -122,9 +122,11 @@ public sealed class DoAfterOverlay : Overlay
                     alpha = 0.5f;
                 }
 
+                alpha = GetDoAfterAlpha(time - doAfter.StartTime, doAfter.Args.Delay, alpha); // Goob
+
                 // Use the sprite itself if we know its bounds. This means short or tall sprites don't get overlapped
                 // by the bar.
-                var yOffset = _sprite.GetLocalBounds((uid, sprite)).Height / 2f + 0.05f;
+                var yOffset = GetDoAfterYOffset(time - doAfter.StartTime, _sprite.GetLocalBounds((uid, sprite)).Height); // Goob
 
                 // Position above the entity (we've already applied the matrix transform to the entity itself)
                 // Offset by the texture size for every do_after we have.
@@ -132,7 +134,7 @@ public sealed class DoAfterOverlay : Overlay
                     yOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
 
                 // Draw the underlying bar texture
-                handle.DrawTexture(_barTexture, position);
+                handle.DrawTexture(_barTexture, position, Color.White.WithAlpha(alpha)); // Goob
 
                 Color color;
                 float elapsedRatio;

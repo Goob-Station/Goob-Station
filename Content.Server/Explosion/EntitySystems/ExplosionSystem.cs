@@ -362,8 +362,6 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
 
         var visualEnt = CreateExplosionVisualEntity(pos, queued.Proto.ID, spaceMatrix, spaceData, gridData.Values, iterationIntensity);
 
-        // camera shake
-        CameraShake(iterationIntensity.Count * 4f, pos, queued.TotalIntensity);
 
         //For whatever bloody reason, sound system requires ENTITY coordinates.
         var mapEntityCoords = _transformSystem.ToCoordinates(_map.GetMap(pos.MapId), pos);
@@ -385,6 +383,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             : queued.Proto.Sound;
 
         _audio.PlayStatic(sound, filter, mapEntityCoords, true, sound.Params);
+        ExplosionScreenshake(filter, iterationIntensity.Count < queued.Proto.SmallSoundIterationThreshold); // Goob
 
         // play far sound
         // far sound should play for anyone who wasn't in range of any of the effects of the bomb
