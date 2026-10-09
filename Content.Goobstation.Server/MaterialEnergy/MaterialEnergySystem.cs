@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.MaterialEnergy;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Interaction;

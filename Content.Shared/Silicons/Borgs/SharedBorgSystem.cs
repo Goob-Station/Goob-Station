@@ -213,6 +213,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("borg-mind-added", ("name", Identity.Name(chassis.Owner, EntityManager))), chassis.Owner);
 
         TryActivate(chassis);
+        GoobDeconvertMind(chassis, args.Mind); // Goob
 
         _access.SetAccessEnabled(chassis.Owner, true); // Needs a player so that scientists can't drag around an empty borg for free AA.
         _appearance.SetData(chassis.Owner, BorgVisuals.HasPlayer, true);

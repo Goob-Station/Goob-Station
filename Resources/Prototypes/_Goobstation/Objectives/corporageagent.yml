@@ -152,6 +152,7 @@
         components:
         - HelpProgressCondition
         - KeepAliveCondition
+    - !type:ConflictingTargetMindFilter
 
 - type: entity
   parent: [BaseCorporateSocialObjective, BaseHelpProgressObjective]
@@ -181,6 +182,7 @@
         components:
         - HelpProgressCondition
         - KeepAliveCondition
+    - !type:ConflictingTargetMindFilter
 
 # steal
 

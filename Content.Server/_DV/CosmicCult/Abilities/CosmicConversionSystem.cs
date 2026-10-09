@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Conversion; // Goob
 using Content.Goobstation.Common.Religion;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Popups;
@@ -89,8 +90,16 @@ public sealed class CosmicConversionSystem : EntitySystem
             {
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-rotting"), uid, args.User);
                 args.Cancel();
+                continue; // Goob
             }
-            if (HasComp<BibleUserComponent>(target))
+            var convEv = new BeforeConversionEvent(target); // Goob
+            RaiseLocalEvent(target, ref convEv, true); // Goob
+            if (convEv.Blocked) // Goob
+            {
+                _popup.PopupEntity(Loc.GetString("cult-glyph-target-immune"), uid, args.User);
+                args.Cancel();
+            }
+            else if (HasComp<BibleUserComponent>(target))
             {
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-chaplain"), uid, args.User);
                 args.Cancel();
