@@ -42,6 +42,9 @@ public sealed class InternalsSystem : SharedInternalsSystem
         if (component.GasTankEntity != null)
             return; // already connected
 
+        if (!HasComp<RespiratorComponent>(uid)) // Goob
+            return;
+
         // Can the entity breathe the air it is currently exposed to?
         if (_respirator.CanMetabolizeInhaledAir(uid))
             return;
