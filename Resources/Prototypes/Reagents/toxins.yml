@@ -397,7 +397,10 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
-  # TODO: PROPER hallucinations
+      - !type:ModifyStatusEffect # Goobstation - hallucinations
+        effectProto: StatusEffectHallucinating
+        type: Add
+        time: 20
 
 - type: reagent
   id: Histamine

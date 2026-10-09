@@ -132,6 +132,7 @@ namespace Content.Server.Ghost
                 // Begin DeltaV additions
                 args.VisibilityMask |= (int)VisibilityFlags.CosmicCultMonument;
                 // End DeltaV additions
+                args.VisibilityMask |= (int)VisibilityFlags.Hallucination; // Goobstation
             }
         }
 
