@@ -11,7 +11,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Stunnable;
 using Content.Shared._NF.Shuttles;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Light.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Salvage;

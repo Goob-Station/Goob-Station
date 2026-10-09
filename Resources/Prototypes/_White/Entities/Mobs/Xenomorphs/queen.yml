@@ -50,6 +50,14 @@
       0: Alive
       735: Critical
       750: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 1500
+      behaviors:
+      - !type:GibBehavior { }
   - type: SlowOnDamage
     speedModifierThresholds:
       600: 0.9

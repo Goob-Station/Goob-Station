@@ -22,7 +22,7 @@ public sealed class MiscSignallerSystem : EntitySystem
     private void OnInit(EntityUid uid, MiscSignallerComponent component, ComponentInit args)
         => _link.EnsureSourcePorts(uid, component.Port);
 
-    private void OnTrigger(EntityUid uid, MiscSignallerComponent component, TriggerEvent args)
+    private void OnTrigger(EntityUid uid, MiscSignallerComponent component, ref TriggerEvent args)
     {
         if (component.NextActivationWindow > _timing.CurTime)
         {
