@@ -14,7 +14,7 @@ public sealed partial class CinematicLetterboxOverlaySystem : EntitySystem
     [Dependency] private IOverlayManager _overlayMan = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
 
-    private CinematicLetterboxOverlay _overlay = default!;
+    private readonly CinematicLetterboxOverlay _overlay = new();
 
     public override void Initialize()
     {
@@ -27,33 +27,31 @@ public sealed partial class CinematicLetterboxOverlaySystem : EntitySystem
         SubscribeLocalEvent<CinematicLetterboxComponent, CinematicUpdatedEvent>(OnCinematicUpdated);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new();
     }
 
-    private void OnLetterboxInit(EntityUid uid, CinematicLetterboxComponent component, ComponentInit args)
+    private void OnLetterboxInit(Entity<CinematicLetterboxComponent> ent, ref ComponentInit args)
     {
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnLetterboxShutdown(EntityUid uid, CinematicLetterboxComponent component, ComponentShutdown args)
+    private void OnLetterboxShutdown(Entity<CinematicLetterboxComponent> ent, ref ComponentShutdown args)
     {
         if (EntityManager.Count<CinematicLetterboxComponent>() <= 1)
             _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void OnPlayerAttached(EntityUid uid, CinematicLetterboxComponent component, LocalPlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<CinematicLetterboxComponent> ent, ref LocalPlayerAttachedEvent args)
     {
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(EntityUid uid, CinematicLetterboxComponent component, LocalPlayerDetachedEvent args) =>
-        _overlayMan.RemoveOverlay(_overlay);
+    private void OnPlayerDetached(Entity<CinematicLetterboxComponent> ent, ref LocalPlayerDetachedEvent args)
+        => _overlayMan.RemoveOverlay(_overlay);
 
-    private void OnCinematicUpdated(EntityUid uid, CinematicLetterboxComponent component, ref CinematicUpdatedEvent args) =>
-        component.Strength = args.Strength;
+    private void OnCinematicUpdated(Entity<CinematicLetterboxComponent> ent, ref CinematicUpdatedEvent args)
+        => ent.Comp.Strength = args.Strength;
 
     private void OnNoVisionFiltersChanged(bool enabled)
     {

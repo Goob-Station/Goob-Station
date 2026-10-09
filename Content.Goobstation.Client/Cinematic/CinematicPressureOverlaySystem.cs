@@ -16,7 +16,7 @@ public sealed partial class CinematicPressureOverlaySystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IPrototypeManager _proto = default!;
 
-    private CinematicPressureOverlay _overlay = default!;
+    private readonly CinematicPressureOverlay _overlay = new();
 
     public override void Initialize()
     {
@@ -29,8 +29,6 @@ public sealed partial class CinematicPressureOverlaySystem : EntitySystem
         SubscribeLocalEvent<CinematicPressureComponent, CinematicUpdatedEvent>(OnCinematicUpdated);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
-
-        _overlay = new();
     }
 
     public override void FrameUpdate(float frameTime)
@@ -73,15 +71,15 @@ public sealed partial class CinematicPressureOverlaySystem : EntitySystem
             pressure.Shock = progress;
     }
 
-    private void OnCinematicUpdated(EntityUid uid, CinematicPressureComponent component, ref CinematicUpdatedEvent args)
+    private void OnCinematicUpdated(Entity<CinematicPressureComponent> ent, ref CinematicUpdatedEvent args)
     {
-        component.Strength = args.Strength;
-        component.Remaining = args.Remaining;
+        ent.Comp.Strength = args.Strength;
+        ent.Comp.Remaining = args.Remaining;
     }
 
-    private void OnPressureInit(EntityUid uid, CinematicPressureComponent component, ComponentInit args)
+    private void OnPressureInit(Entity<CinematicPressureComponent> ent, ref ComponentInit args)
     {
-        SetShader(component);
+        SetShader(ent.Comp);
 
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
@@ -93,27 +91,27 @@ public sealed partial class CinematicPressureOverlaySystem : EntitySystem
         _overlay.Shader = _proto.Index<ShaderPrototype>(component.Shader).InstanceUnique();
     }
 
-    private void OnPressureShutdown(EntityUid uid, CinematicPressureComponent component, ComponentShutdown args)
+    private void OnPressureShutdown(Entity<CinematicPressureComponent> ent, ref ComponentShutdown args)
     {
         var query = EntityQueryEnumerator<CinematicPressureComponent>();
         while (query.MoveNext(out var other, out _))
         {
-            if (other != uid)
+            if (other != ent.Owner)
                 return;
         }
 
         _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void OnPlayerAttached(EntityUid uid, CinematicPressureComponent component, LocalPlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<CinematicPressureComponent> ent, ref LocalPlayerAttachedEvent args)
     {
-        SetShader(component);
+        SetShader(ent.Comp);
 
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(EntityUid uid, CinematicPressureComponent component, LocalPlayerDetachedEvent args)
+    private void OnPlayerDetached(Entity<CinematicPressureComponent> ent, ref LocalPlayerDetachedEvent args)
         => _overlayMan.RemoveOverlay(_overlay);
 
     private void OnNoVisionFiltersChanged(bool enabled)
