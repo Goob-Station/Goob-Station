@@ -127,6 +127,11 @@
     - LargeWin
     - Jackpot
     - GodPot
+    emagPrizes:
+    - EmagLose
+    - EmagMediumWin
+    - EmagLargeWin
+    - EmagJackpot
 
 - type: entity
   parent: BaseSlotMachine
