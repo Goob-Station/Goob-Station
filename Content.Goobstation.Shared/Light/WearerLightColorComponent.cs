@@ -10,7 +10,7 @@ namespace Content.Goobstation.Shared.Light
         /// Only wearers of this species tint the light; null means any humanoid
         /// </summary>
         [DataField]
-        public ProtoId<SpeciesPrototype> Species = "Plasmamen";
+        public ProtoId<SpeciesPrototype>? Species = "Plasmamen";
 
         /// <summary>
         /// Fallback color, copied from the entity's PointLight at MapInit
