@@ -2,6 +2,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Silicons.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -34,8 +35,8 @@ public sealed partial class RepairableSystem : EntitySystem
             return;
 
         var ipcSaysMoreRepairies = false; // Goob
-        var isBody = HasComp<BodyComponent>(ent); // Goob
-        if (isBody) // Goob
+        var isRepairableHumanoid = HasComp<RepairableHumanoidComponent>(ent); // Goob
+        if (isRepairableHumanoid) // Goob
             ipcSaysMoreRepairies = GoobTryRepairIPC(ent, args.User);
         else if (ent.Comp.DamageValue != null)
             RepairSomeDamage((ent, damageable), ent.Comp.DamageValue.Value, args.User);
@@ -44,7 +45,7 @@ public sealed partial class RepairableSystem : EntitySystem
         else
             RepairAllDamage((ent, damageable), args.User);
 
-        args.Repeat = ent.Comp.AutoDoAfter && (isBody ? ipcSaysMoreRepairies : damageable.TotalDamage > 0); // Goob
+        args.Repeat = ent.Comp.AutoDoAfter && (isRepairableHumanoid ? ipcSaysMoreRepairies : damageable.TotalDamage > 0); // Goob
         args.Args.Event.Repeat = args.Repeat;
         args.Handled = true;
 
