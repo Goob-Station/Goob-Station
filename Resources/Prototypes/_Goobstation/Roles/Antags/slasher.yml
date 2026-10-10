@@ -110,6 +110,15 @@
     head: ClothingMaskSlasherHockey
     outerClothing: ClothingOuterSlasherHockey
 
+- type: startingGear
+  id: SlasherGearBoogeyman
+  equipment:
+    jumpsuit: ClothingUniformSlasherBoogeyman
+    head: ClothingHeadHatSlasherMaskBoogeyman
+    back: ClothingBackpackSatchel
+    shoes: ClothingShoesSlasher
+    id: AgentIDCard
+
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
