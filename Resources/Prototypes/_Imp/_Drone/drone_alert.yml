@@ -28,3 +28,4 @@
   description: alerts-drone-battery-desc
   minSeverity: 0
   maxSeverity: 10
+  clientHandled: true # Goobstation (the power cell battery is read on the client so that we don't have to periodically network the charge)
