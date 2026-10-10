@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["shredder.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from goonstation"
+  source: "https://github.com/goonstation/goonstation/blob/24e645726c0489b9e3340a5c12e3d598d4e2c732/sound/machines/shredder.ogg"
