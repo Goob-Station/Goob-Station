@@ -66,8 +66,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 3 # Goobstation
-        Heat: 3 # Goobstation
+        Piercing: 4 # Goobstation
+        Heat: 4 # Goobstation
   - type: IgnitionSource
     ignited: true
 
