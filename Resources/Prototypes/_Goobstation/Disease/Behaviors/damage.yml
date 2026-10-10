@@ -57,8 +57,8 @@
       useTargeting: false
       damage:
         types:
-          Poison: 1.5
-          Bloodloss: 5
+          Poison: 2
+          Bloodloss: 3
   - type: DiseaseProgressCondition
     minProgress: 0.8
 
@@ -76,7 +76,7 @@
       useTargeting: false
       damage:
         types:
-          Asphyxiation: 3
+          Asphyxiation: 2
   - type: DiseaseProgressCondition
     minProgress: 0.5
 
@@ -129,6 +129,9 @@
   - type: DiseaseEffect
     complexity: 40
   - type: DiseaseReagentEffect
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     effects:
     - !type:HealthChange
       useTargeting: false
@@ -137,7 +140,85 @@
         types:
           Bloodloss: 200
   - type: DiseaseProgressCondition
-    minProgress: 1
+    minProgress: 0.95
+
+- type: entity
+  id: DiseaseBehaviorBeeVomit
+  parent: DiseaseBehaviorBase
+  name: Bee Vomiting
+  description: Makes you periodically vomit with bees.
+  components:
+  - type: DiseaseEffect
+    complexity: 30
+  - type: DiseaseReagentEffect
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
+    effects:
+    - !type:Vomit
+    - !type:SpawnEntity
+      entity: MobDiseaseAngryBee
+  - type: DiseaseSpreadEffect
+    arc: 360
+    range: 2
+    timeScale: true
+    spreadParams:
+      power: 0.8
+      chance: 0.6
+      spreadType: Aerial
+  - type: DiseasePeriodicCondition
+    delayMin: 10
+    delayMax: 45
+  - type: DiseaseProgressCondition
+    minProgress: 0.5
+
+- type: entity
+  id: DiseaseBehaviorSHC
+  parent: DiseaseBehaviorBase
+  name: Spontaneous Human Combustion
+  description: Makes you die in fire.
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect 
+    timeScale: false  
+    progressScale: false 
+    effects:
+    - !type:Flammable
+      multiplier: 1
+    - !type:Ignite
+      probability: 0.1
+  - type: DiseaseProgressCondition
+    minProgress: 0.98
+
+- type: entity
+  id: DiseaseBehaviorBeeKillMe
+  parent: DiseaseBehaviorBase
+  name: Bees parasites
+  description: Oh no...
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect
+    effects:
+    - !type:HealthChange
+      useTargeting: false
+      damage:
+        types:
+          Poison: 1
+          Piercing: 1
+    - !type:PopupMessage
+      type: Local
+      visualType: Medium
+      messages:
+        - "buzzochloricbees-effect-licoxide-electrifying"
+        - "buzzochloricbees-effect-licoxide-shocked-by-bee-facts"
+        - "buzzochloricbees-effect-licoxide-buzzed"
+        - "buzzochloricbees-effect-licoxide-buzzes"
+      probability: 0.05
+  - type: DiseaseProgressCondition
+    minProgress: 0.5
+
 
 # this is broken and hits the owning entity but i'm leaving it here so someone can fix it
 - type: entity

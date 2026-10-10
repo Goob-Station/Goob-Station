@@ -19,5 +19,13 @@
   name: disease-type-parasite
 
 - type: diseaseType
+  id: Nanobot
+  name: disease-type-nanobot
+
+- type: diseaseType
+  id: Fungal
+  name: disease-type-fungal
+
+- type: diseaseType
   id: Debug
   name: disease-type-debug
