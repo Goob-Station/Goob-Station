@@ -28,10 +28,15 @@ public sealed partial class XenomorphInfectionComponent : SharedXenomorphInfecti
     [DataField]
     public Dictionary<int, List<EntityEffect>> Effects = new ();
 
+    /// <summary>
+    /// The mind of the sentient facehugger that caused this infection, transferred into the larva on birth.
+    /// </summary>
+    [DataField]
+    public EntityUid? SourceMindId;
+
     [ViewVariables]
     public TimeSpan NextPointsAt;
 
     [ViewVariables]
     public EntityUid? Infected;
-
 }
