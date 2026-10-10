@@ -3,17 +3,13 @@
 using Content.Server.Administration;
 using Content.Shared.IdentityManagement;
 using Content.Server.Popups;
-using Content.Server.Prayer;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Content.Goobstation.Shared.Telepathy;
-using Content.Shared.Actions;
 using Content.Shared.Whitelist;
 using Content.Shared.Telepathy;
-using Content.Shared.Popups;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
-using Content.Server.Administration.Managers;
 using Content.Shared.Database;
 using Content.Server.Administration.Logs;
 
@@ -23,7 +19,7 @@ namespace Content.Goobstation.Server.Telepathy;
 /// This handles the Demonic Whisper logic.
 /// Demonic Whisper lets you send a subtle popup to someone.
 /// </summary>
-public sealed class TelepathySystem : SharedTelepathySystem
+public sealed partial class TelepathySystem : SharedTelepathySystem
 {
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -32,17 +28,9 @@ public sealed class TelepathySystem : SharedTelepathySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
-    private EntityQuery<ActorComponent> _actorQuery;
+    private readonly EntityQuery<ActorComponent> _actorQuery = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _actorQuery = GetEntityQuery<ActorComponent>();
-
-        SubscribeLocalEvent<TelepathyWhisperEvent>(OnTelepathyWhisper);
-    }
-
+    [SubscribeLocalEvent]
     private void OnTelepathyWhisper(TelepathyWhisperEvent args)
     {
         EntityUid performer = args.Performer;
