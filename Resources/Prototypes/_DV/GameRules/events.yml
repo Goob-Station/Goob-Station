@@ -38,14 +38,15 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 15
-    weight: 0.4 #this should be rare to throw people off, otherwise it happens every shift
+    weight: 0.8 # Goobstation - Too unlikely to happen, Should be much more common, and with a bigger consequence due to chaos score :)
+    reoccurrenceDelay: 15 # Goobstation - hard limit to the consequences
     eventType: Neutral
     startAnnouncement: cosmiccult-announce-tier2-warning
     startAnnouncementColor: "#cae8e8"
     startAudio:
       path: /Audio/_DV/CosmicCult/tier2.ogg
   - type: GameRule
-    chaosScore: -50
+    chaosScore: -100 # Goobstation - evil....
   - type: RandomMultipleSpawnRule
     prototype: CosmicMalignRift
     minAmount: 1
