@@ -135,6 +135,16 @@
     newPartProto: OrganHeartStatvekaSandevistan
 
 - type: entity
+  parent: BaseAutosurgeonSyndicateSingle
+  id: AutosurgeonTimestopperSandevistan
+  name: syndicate autosurgeon (timestopper sandevistan)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: Skibidi
+    newPartProto: OrganHeartTimestopperSandevistan
+
+- type: entity
   parent: BaseAutosurgeonSyndicateMultiple
   id: AutosurgeonSmartLink
   name: syndicate autosurgeon (smartlink arms)
