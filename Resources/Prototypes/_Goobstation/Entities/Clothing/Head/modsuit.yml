@@ -46,11 +46,11 @@
       VeinsDamage: 0
       NerveDamage: 0
   - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    layers:
+      Hair: HEAD
+      Snout: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
   - type: FaceHuggerBlocker
 
 - type: entity
@@ -64,11 +64,11 @@
   - type: IdentityBlocker
   - type: IngestionBlocker
   - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    layers:
+      Hair: HEAD
+      Snout: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -86,8 +86,8 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
     hideOnToggle: true
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
@@ -115,6 +115,18 @@
         Piercing: 0.85
         Heat: 0.85
         Radiation: 0.2
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: ComponentToggler
     components:
     - type: BreathMask
@@ -128,11 +140,11 @@
     - type: IngestionBlocker
       blockSmokeIngestion: True
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
@@ -189,6 +201,8 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
+      head-resomi:
+      - state: equipped-HEAD-resomi
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
       head-feroxi:
@@ -203,8 +217,8 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -249,11 +263,11 @@
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
@@ -304,6 +318,8 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
+      head-resomi:
+      - state: equipped-HEAD-resomi
       head-vulpkanin:
       - state: equipped-HEAD-vulpkanin
       head-feroxi:
@@ -416,13 +432,23 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
-      head-resomi:
-      - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
@@ -501,6 +527,18 @@
       map: [ "sealed" ]
   - type: HideLayerClothing
     hideOnToggle: true
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-hydrakin
   - type: IdentityBlocker
   - type: IngestionBlocker
   - type: SealableClothing
@@ -511,8 +549,6 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
-      head-resomi:
-      - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
@@ -592,13 +628,15 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
   - type: IngestionBlocker
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
       head-vox:
       - state: equipped-HEAD-vox
       head-vulpkanin:
@@ -645,11 +683,11 @@
       coolingCoefficient: 0.005
     - type: IdentityBlocker
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
@@ -703,11 +741,11 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    layers:
+      Hair: HEAD
+      Snout: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
     hideOnToggle: true
   - type: IdentityBlocker
   - type: IngestionBlocker
@@ -719,8 +757,6 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
-      head-resomi:
-      - state: equipped-HEAD-sealed-resomi
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
@@ -797,6 +833,8 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
       head-vox:
       - state: equipped-HEAD-vox
       head-hydrakin:
@@ -809,8 +847,8 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -856,11 +894,11 @@
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
@@ -908,6 +946,8 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
       head-vox:
       - state: equipped-HEAD-vox
       head-vulpkanin:
@@ -924,8 +964,8 @@
       visible: false
       map: [ "sealed" ]
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: HEAD
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -970,11 +1010,11 @@
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      layers:
+        Hair: HEAD
+        Snout: HEAD
+        HeadTop: HEAD
+        HeadSide: HEAD
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
