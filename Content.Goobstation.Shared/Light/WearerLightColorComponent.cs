@@ -1,3 +1,6 @@
+using Content.Shared.Humanoid.Prototypes;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Shared.Light
 {
     [RegisterComponent]
@@ -12,6 +15,6 @@ namespace Content.Goobstation.Shared.Light
         /// <summary>
         /// Fallback color, copied from the entity's PointLight at MapInit
         /// </summary>
-        public Color defaultColor;
+        public Color DefaultColor;
     }
 }

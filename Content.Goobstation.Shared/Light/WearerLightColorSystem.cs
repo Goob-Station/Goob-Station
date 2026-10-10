@@ -1,3 +1,7 @@
+using Content.Shared.Clothing;
+using Content.Shared.Humanoid;
+using Content.Shared.Toggleable;
+
 namespace Content.Goobstation.Shared.Light
 {
     public sealed class WearerLightColorSystem : EntitySystem
@@ -30,12 +34,13 @@ namespace Content.Goobstation.Shared.Light
                 color = humanoid.SkinColor;
             }
 
-            _appearance.SetData(ent, TogglebleVisuals.Color, ent.comp.DefaultColor);
+            // _appearance.SetData(ent, TogglebleVisuals.Color, ent.comp.DefaultColor);
+            _appearance.SetData(ent, ToggleableVisuals.Color, color);
         }
 
         private void OnUnequipped(Entity<WearerLightColorComponent> ent, ref ClothingGotUnequippedEvent args)
         {
-            _appearance.SetData(ent, TogglebleVisuals.Color, ent.comp.DefaultColor);
+            _appearance.SetData(ent, ToggleableVisuals.Color, ent.Comp.DefaultColor);
         }
     }
 }
