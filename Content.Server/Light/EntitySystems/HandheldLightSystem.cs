@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Light; // Goob Station edit
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Shared.Actions;
@@ -105,6 +106,11 @@ namespace Content.Server.Light.EntitySystems
             // Curently every single flashlight has the same number of levels for status and that's all it uses the charge for
             // Thus we'll just check if the level changes.
 
+            // Goob Station start
+            if (!ent.Comp.RequiresPower)
+                return HandheldLightComponent.StatusLevels - 1;
+            // Goob Station end
+
             if (!_powerCell.TryGetBatteryFromSlotOrEntity(ent.Owner, out var battery))
                 return null;
 
@@ -192,6 +198,24 @@ namespace Content.Server.Light.EntitySystems
             {
                 return false;
             }
+
+            // Goob Station start
+            var turnOn = new HandheldLightTurnOnEvent(user);
+            RaiseLocalEvent(uid, ref turnOn);
+            // Goob Station end
+
+            // Goob Station start
+            if (!component.RequiresPower) // Free light: skip every battery check and just turn on
+            {
+                // The client visualizer expects a power state, so mark it full
+                _appearance.SetData(uid, HandheldLightVisuals.Power, HandheldLightPowerStates.FullPower);
+
+                _lights.SetEnabled(uid, true, pointLightComponent);
+                SetActivated(uid, true, component, true);
+
+                return true;
+            }
+            // Goob Station end
 
             if (!_powerCell.TryGetBatteryFromSlotOrEntity(uid.Owner, out var battery))
             {

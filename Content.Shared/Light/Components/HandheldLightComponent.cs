@@ -19,6 +19,14 @@ public sealed partial class HandheldLightComponent : Component
     [DataField("wattage")]
     public float Wattage { get; set; } = .8f;
 
+    // Goob Station start
+    /// <summary>
+    /// If false, the light can be turned on and stays on without any power cell.
+    /// </summary>
+    [DataField("requiresPower")]
+    public bool RequiresPower = true;
+    // Goob Station end
+
     [DataField("turnOnSound")]
     public SoundSpecifier TurnOnSound = new SoundPathSpecifier("/Audio/Items/flashlight_on.ogg");
 
