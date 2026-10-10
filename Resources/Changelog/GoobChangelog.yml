@@ -26216,3 +26216,27 @@ Entries:
       message: DoAfter bars now fade in, slide up and fade out.
   id: 2965
   time: '2026-10-09T22:52:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added a General option to resize or turn off the interaction icon that
+        shows above your head.
+    - type: Add
+      message: >-
+        Added species specific hand interaction sprites (code is there but
+        pending sprites, if u want to make some contact me and ill add them)
+    - type: Fix
+      message: >-
+        Interaction particles no longer give away pickpocketing, stealthed
+        players, or people hiding in lockers.
+    - type: Fix
+      message: Interacting while buckled no longer shows the target above your head.
+    - type: Fix
+      message: >-
+        Picking things up no longer shows two particles, and particles for
+        actions the server rejected now disappear.
+    - type: Fix
+      message: Colored DoAfter bars now fade in and out with the rest of the bar.
+  id: 2966
+  time: '2026-10-10T03:18:43.0000000+00:00'
