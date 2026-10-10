@@ -16,8 +16,8 @@
       Damaged: 60
       Destroyed: 0
     onAdd:
-    - type: BloodCrawl
-      blood:
+    - type: ReagentCrawl
+      targetReagent:
       - Blood
       - AmmoniaBlood
       - InsectBlood
@@ -36,8 +36,8 @@
   components:
   - type: Organ
     onAdd:
-    - type: BloodCrawl
-      blood:
+    - type: ReagentCrawl
+      targetReagent:
       - Blood
       - AmmoniaBlood
       - InsectBlood

@@ -61,8 +61,8 @@ public sealed partial class SlasherIncorporealComponent : Component
     [ViewVariables]
     public TimeSpan? IncorporealStartTime;
 
-    [ViewVariables]
-    public HashSet<string> AddedIncorporealComponents = new();
+    [DataField]
+    public string TrackedComponentsIdentifier = "Slasher";
 
     /// <summary>
     /// Effect spawned when entering incorporeal state.

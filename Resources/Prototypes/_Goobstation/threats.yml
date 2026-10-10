@@ -61,6 +61,11 @@
   announcement: terror-sleeper-agent
   rule: SleeperAgents
 
+- type: ninjaHackingThreat
+  id: Voidwalker
+  announcement: terror-voidwalker
+  rule: VoidwalkerSpawn
+
 #- type: ninjaHackingThreat
 #  id: Wraith
 #  announcement: terror-wraith

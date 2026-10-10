@@ -1,0 +1,15 @@
+- type: specialAnimation
+  id: VoidwalkerJumpscareAnimation
+  animation: !type:SpecialAnimationData
+    totalDuration: 1.0
+    scale: 15.0
+    maxOpacity: 0.7
+    fadeInDuration: 0.2
+    fadeOutDuration: 0.2
+    startPosition: -500,-400
+    endPosition: -500,0
+    text: "J??OIN ???US?"
+    textPosition: -200,150
+    textOverrideColor: Purple
+    textFontPath: "/Fonts/NotoSans/NotoSans-Bold.ttf"
+    textFontSize: 28
