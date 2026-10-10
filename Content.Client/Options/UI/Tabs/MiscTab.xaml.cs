@@ -59,6 +59,7 @@ public sealed partial class MiscTab : Control
         Control.AddOptionCheckBox(CCVars.OpaqueStorageWindow, OpaqueStorageWindowCheckBox);
         Control.AddOptionCheckBox(GoobCVars.AutoFocusSearchOnBuildMenu, AutoFocusSearchOnBuildMenuCheckBox); // Goobstation Change
         Control.AddOptionCheckBox(GoobCVars.LockActionBarDrag, LockActionBarDragCheckBox); // Goobstation
+        Control.AddOptionPercentSlider(GoobCVars.InHandInteractionParticleScale, InHandInteractionParticleScaleSlider); // Goob
         Control.AddOptionCheckBox(CCVars.ChatEnableFancyBubbles, FancySpeechBubblesCheckBox);
         Control.AddOptionCheckBox(CCVars.ChatFancyNameBackground, FancyNameBackgroundsCheckBox);
         Control.AddOptionCheckBox(CCVars.StaticStorageUI, StaticStorageUI);

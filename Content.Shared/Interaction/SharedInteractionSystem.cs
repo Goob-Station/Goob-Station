@@ -111,6 +111,7 @@ namespace Content.Shared.Interaction
 
         public override void Initialize()
         {
+            InitializeInteractionParticles(); // Goob
             // <Trauma>
             _targetRelayQuery = GetEntityQuery<TargetInteractionRelayComponent>();
             // </Trauma>
