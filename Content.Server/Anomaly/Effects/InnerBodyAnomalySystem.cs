@@ -22,7 +22,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Anomaly.Effects;
 
-public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
+public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem // Goob
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly AnomalySystem _anomaly = default!;
@@ -96,7 +96,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
         ent.Comp.Injected = true;
 
-        EntityManager.AddComponents(ent, injectedAnom.Components);
+        GoobAddInjectedComponents(ent, injectedAnom.Components); // Goob
 
         _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
         _jitter.DoJitter(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration), true);
@@ -212,8 +212,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!ent.Comp.Injected)
             return;
 
-        if (_proto.Resolve(ent.Comp.InjectionProto, out var injectedAnom))
-            EntityManager.RemoveComponents(ent, injectedAnom.Components);
+        GoobRemoveInjectedComponents(ent); // Goob
 
         _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
 

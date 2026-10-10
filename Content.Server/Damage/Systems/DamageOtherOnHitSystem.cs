@@ -17,7 +17,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Damage.Systems;
 
-public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
+public sealed partial class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem // Goob
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly GunSystem _guns = default!;
@@ -62,7 +62,8 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
         if (TryComp<PhysicsComponent>(uid, out var body) && body.LinearVelocity.LengthSquared() > 0f)
         {
             var direction = body.LinearVelocity.Normalized();
-            _sharedCameraRecoil.KickCamera(args.Target, direction);
+            _sharedCameraRecoil.KickCamera(args.Target, direction * 0.1f); // Goob
+            _shake.Screenshake(args.Target, HitShake, null); // Goob
         }
     }
 }

@@ -71,6 +71,7 @@
       blacklist:
         components:
         - KeepAliveCondition
+    - !type:ConflictingTargetMindFilter
   - type: MultipleTraitorsRequirement
 
 # Steal

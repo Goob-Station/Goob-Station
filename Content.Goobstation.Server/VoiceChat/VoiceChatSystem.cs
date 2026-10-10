@@ -696,7 +696,7 @@ public sealed partial class VoiceChatSystem : EntitySystem
         var query = EntityQueryEnumerator<TelephoneComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var telephone, out var xform))
         {
-            if (telephone.LinkedTelephones.Count == 0 || telephone.Muted || xform.MapID != origin.MapId)
+            if (telephone.LinkedTelephones.Count == 0 || telephone.Muted || telephone.CurrentState != TelephoneState.InCall || xform.MapID != origin.MapId)
                 continue;
 
             var entity = new Entity<TelephoneComponent>(uid, telephone);
@@ -714,7 +714,7 @@ public sealed partial class VoiceChatSystem : EntitySystem
 
             foreach (var linked in telephone.LinkedTelephones)
             {
-                if (linked.Owner == uid || TerminatingOrDeleted(linked) || !_telephone.IsTelephonePowered(linked))
+                if (linked.Owner == uid || TerminatingOrDeleted(linked) || linked.Comp.CurrentState != TelephoneState.InCall || !_telephone.IsTelephonePowered(linked))
                     continue;
 
                 var emitter = GetRelayEmitter(linked);

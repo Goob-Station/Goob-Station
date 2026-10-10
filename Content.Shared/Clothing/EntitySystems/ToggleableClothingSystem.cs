@@ -382,7 +382,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
             args.Cancel(); // Cancel original unequip, DoAfter will handle it
         }
         else
-            UnequipClothing(args.Unequipee, new Entity<ToggleableClothingComponent>(toggleable, toggleableComp), args.UnEquipTarget, args.Slot);
+            args.Cancel(); // Goob - attempt events are also raised by CanUnequip queries (e.g. building the context menu), so retracting here unequipped the part
     }
 
     private void OnRemoveAttached(Entity<AttachedClothingComponent> attached, ref ComponentRemove args)
