@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: IDCardStandard
+  id: RancherIDCard
+  name: rancher ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idrancher
+      sprite: _Trauma/Objects/Misc/id_cards.rsi
+  - type: PresetIdCard
+    job: Rancher

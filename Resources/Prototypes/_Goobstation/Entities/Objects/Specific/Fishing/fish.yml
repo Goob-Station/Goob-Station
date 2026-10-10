@@ -43,6 +43,9 @@
       - ReagentId: Blood
         Quantity: 20
   - type: ZombieImmune
+  - type: Tag
+    tags:
+    - Fish
 
 - type: entity
   id: BaseFishRare

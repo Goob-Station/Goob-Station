@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipePack
+  id: TraumaServiceStatic
+  recipes:
+  - LightReplacer
+  - ChickenCarrier
+
+- type: latheRecipePack
+  id: TraumaServiceBoardsStatic
+  recipes:
+  - StationRadioCircuitboard
+  - RanchIncubatorCircuitboard
+
+## Dynamic
+
+- type: latheRecipePack
+  id: TraumaServiceBoards
+  recipes:
+  - VinylPlayerCircuitboard
+  - TapeDeckCircuitboard
+  - StationRadioServerCircuitboard
+  - StationRadioRigCircuitboard
+  - SheetifierMachineCircuitboard # moved out of ScienceBoards

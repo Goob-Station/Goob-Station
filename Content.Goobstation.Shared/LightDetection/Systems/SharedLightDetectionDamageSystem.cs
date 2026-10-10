@@ -33,3 +33,9 @@ public abstract class SharedLightDetectionDamageSystem : EntitySystem
         DirtyField(ent.Owner, ent.Comp, nameof(LightDetectionDamageComponent.ResistanceModifier));
     }
 }
+
+/// <summary>
+/// Raised before the detection values of LightDetectionDamage system's get updated
+/// </summary>
+[ByRefEvent]
+public record struct LightDamageUpdateAttemptEvent(bool Cancelled = false);

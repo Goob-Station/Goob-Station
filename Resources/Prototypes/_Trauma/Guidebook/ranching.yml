@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: GuidebookRanchingGuide
+  name: ranching field manual
+  description: The texture rect for document files, Jeremy, where's the texture rect? NO TEXTURE RECT? You fucking idiot, Jeremy! You total fucking idiot! That was YOUR job, you fucking moron! You DUMBASS! YOU'RE A FUCKHEAD! THAT'S WHAT YOU ARE! A FUCKING SHITHEAD!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Trauma/Guidebook/ranching.rsi
+    state: icon
+
+- type: guideEntry
+  id: Ranching
+  name: guide-entry-ranching
+  text: "/ServerInfo/_Trauma/Guidebook/Civilian/Ranching.xml"

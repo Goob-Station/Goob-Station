@@ -23,6 +23,12 @@ public sealed partial class InternalResourcesData
     public float MaxAmount = 100;
 
     /// <summary>
+    /// Minimum amount of resources
+    /// </summary>
+    [DataField]
+    public float MinAmount = 0;
+
+    /// <summary>
     /// Resources regeneration rate per update time
     /// </summary>
     [DataField]
@@ -45,12 +51,14 @@ public sealed partial class InternalResourcesData
         float regenerationRate,
         float startingAmount,
         Dictionary<string, (float, bool)>? thresholds,
-        string protoId)
+        string protoId,
+        float minAmount) // Trauma
     {
         CurrentAmount = startingAmount;
         MaxAmount = maxAmount;
         RegenerationRate = regenerationRate;
         Thresholds = thresholds;
         InternalResourcesType = protoId;
+        MinAmount = minAmount;
     }
 }

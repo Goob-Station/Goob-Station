@@ -1,0 +1,320 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: eggRecipe
+  id: WhiteEgg
+  egg: WhiteEgg
+  requiredChicken:
+  - MobWhiteHen
+
+- type: eggRecipe
+  id: BrownEgg
+  egg: BrownEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobBrownHen
+  chickensRequireDifferentHappiness:
+    MobBrownHen: 15
+  happinessRequired: 50
+
+- type: eggRecipe
+  id: IxworthEgg
+  egg: IxworthEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobIxworthHen
+  noSpecialFoodRequiredChickens:
+  - MobIxworthHen
+  foodTagsRequired:
+  - Tomato
+
+- type: eggRecipe
+  id: SilkieEgg
+  egg: SilkieEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobSilkieHen
+  noSpecialFoodRequiredChickens:
+  - MobSilkieHen
+  foodTagsRequired:
+  - Apple
+
+- type: eggRecipe
+  id: VoidEgg
+  egg: VoidEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobVoidHen
+  noSpecialFoodRequiredChickens:
+  - MobVoidHen
+  whitelist:
+    components:
+    - VomitedEnoughMarker
+
+- type: eggRecipe
+  id: VoidEggSelf
+  egg: VoidEgg
+  requiredChicken:
+  - MobVoidHen
+
+- type: eggRecipe
+  id: BlackSilkieEgg
+  egg: BlackSilkieEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobBlackSilkieHen
+  noSpecialFoodRequiredChickens:
+  - MobBlackSilkieHen
+  foodTagsRequired:
+  - DeliciousLookingApple
+
+- type: eggRecipe
+  id: WhiteSilkieEgg
+  egg: WhiteSilkieEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobWhiteSilkieHen
+  noSpecialFoodRequiredChickens:
+  - MobWhiteSilkieHen
+  foodTagsRequired:
+  - MethApple
+
+- type: eggRecipe
+  id: SeaEgg
+  egg: SeaEgg
+  requiredChicken:
+  - MobWhiteSilkieHen
+  - MobSelkieHen
+  noSpecialFoodRequiredChickens:
+  - MobSelkieHen
+  happinessRequired: 20
+  foodTagsRequired:
+  - Fish
+
+- type: eggRecipe
+  id: SnowEgg
+  egg: SnowEgg
+  requiredChicken:
+  - MobWhiteSilkieHen
+  - MobSnowHen
+  noSpecialFoodRequiredChickens:
+  - MobSnowHen
+  happinessRequired: 20
+  foodTagsRequired:
+  - Chilly
+
+- type: eggRecipe
+  id: DreamEgg
+  egg: DreamEgg
+  requiredChicken:
+  - MobDreamHen
+  noSpecialFoodRequiredChickens:
+  - MobDreamHen
+
+- type: eggRecipe
+  id: PoultrygeistEgg
+  egg: PoultrygeistEgg
+  requiredChicken:
+  - MobPoultrygeistHen
+  noSpecialFoodRequiredChickens:
+  - MobPoultrygeistHen
+
+- type: eggRecipe
+  id: SpicyEgg
+  egg: SpicyEgg
+  requiredChicken:
+  - MobBrownHen
+  - MobSpicyHen
+  noSpecialFoodRequiredChickens:
+  - MobSpicyHen
+  foodTagsRequired:
+  - Chili
+
+- type: eggRecipe
+  id: PigeonEgg
+  egg: PigeonEgg
+  requiredChicken:
+  - MobPigeonHen
+  - MobSilkieHen
+  noSpecialFoodRequiredChickens:
+  - MobPigeonHen
+  foodTagsRequired:
+  - Peas
+
+- type: eggRecipe
+  id: CandyEgg
+  egg: CandyEgg
+  requiredChicken:
+  - MobCandyHen
+  - MobSilkieHen
+  noSpecialFoodRequiredChickens:
+  - MobCandyHen
+  happinessRequired: 20
+  foodTagsRequired:
+  - Sugar
+
+- type: eggRecipe
+  id: GoldenEgg
+  egg: GoldenEgg
+  requiredChicken:
+  - MobGoldenHen
+  happinessRequired: 70
+
+- type: eggRecipe
+  id: ClownEgg
+  egg: ClownEgg
+  requiredChicken:
+  - MobClownHen
+  happinessRequired: 60
+
+- type: eggRecipe
+  id: CluwneEgg
+  egg: CluwneEgg
+  requiredChicken:
+  - MobCluwneHen
+  happinessRequired: -50 # THE HORDE
+
+- type: eggRecipe
+  id: GlassEgg
+  egg: GlassEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobGlassHen
+  noSpecialFoodRequiredChickens:
+  - MobGlassHen
+  foodTagsRequired:
+  - ClearCorn
+
+- type: eggRecipe
+  id: RaptorEgg
+  egg: RaptorEgg
+  requiredChicken:
+  - MobBrownHen
+  - MobRaptorHen
+  noSpecialFoodRequiredChickens:
+  - MobRaptorHen
+  foodTagsRequired:
+  - Meat
+
+- type: eggRecipe
+  id: OnagadoriEgg
+  egg: OnagadoriEgg
+  requiredChicken:
+  - MobWhiteHen
+  - MobOnagadoriHen
+  noSpecialFoodRequiredChickens:
+  - MobOnagadoriHen
+  foodTagsRequired:
+  - Peanut
+
+- type: eggRecipe
+  id: WizardEgg
+  egg: WizardEgg
+  requiredChicken:
+  - MobGlassHen
+  - MobWizardHen
+  noSpecialFoodRequiredChickens:
+  - MobWizardHen
+  weight: 5
+  foodTagsRequired:
+  - MagicMushroom
+
+- type: eggRecipe
+  id: SynthEgg
+  egg: SynthEgg
+  requiredChicken:
+  - MobBrownHen
+  - MobSynthHen
+  noSpecialFoodRequiredChickens:
+  - MobSynthHen
+  weight: 5
+  foodTagsRequired:
+  - SynthMeat
+
+- type: eggRecipe
+  id: MimeEgg
+  egg: MimeEgg
+  requiredChicken:
+  - MobMimeHen
+
+- type: eggRecipe
+  id: BalloonEgg
+  egg: BalloonEggSpawner
+  requiredChicken:
+  - MobClownHen
+  - MobBalloonHen
+  noSpecialFoodRequiredChickens:
+  - MobBalloonHen
+  foodTagsRequired:
+  - BalloonMelon
+
+- type: eggRecipe
+  id: RobotEgg
+  egg: RobotEgg
+  requiredChicken:
+  - MobSynthHen
+  - MobRobotHen
+  noSpecialFoodRequiredChickens:
+  - MobRobotHen
+  weight: 10
+  reagentsRequired:
+    NanoMachines: 0.01 # NANOMACHINES SON THEY HARDEN IN RESPONSE TO PHYSICAL TRAUMA, YOU CAN'T HURT ME JACK!
+
+- type: eggRecipe
+  id: KnightEgg
+  egg: KnightEgg
+  requiredChicken:
+  - MobIxworthHen
+  - MobKnightHen
+  noSpecialFoodRequiredChickens:
+  - MobKnightHen
+  weight: 10
+  foodTagsRequired:
+  - SteelWheat
+
+- type: eggRecipe
+  id: StoneEgg
+  egg: StoneEgg
+  requiredChicken:
+  - MobStoneHen
+  - MobGlassHen
+  noSpecialFoodRequiredChickens:
+  - MobStoneHen
+  weight: 10
+  reagentsRequired:
+    THC: 0.01 # make them smoke a blunt to lay the egg peak
+
+- type: eggRecipe
+  id: CockatriceEgg
+  egg: CockatriceEgg
+  requiredChicken:
+  - MobStoneHen
+  - MobCockatriceHen
+  noSpecialFoodRequiredChickens:
+  - MobCockatriceHen
+  weight: 10
+  foodTagsRequired:
+  - LizardTail
+
+- type: eggRecipe
+  id: SickleEgg
+  egg: SickleEgg
+  requiredChicken:
+  - MobSicleHen
+
+- type: eggRecipe
+  id: ZappyEgg
+  egg: ZappyEgg
+  requiredChicken:
+  - MobZappyHen
+
+- type: eggRecipe
+  id: DragonEgg
+  egg: DragonEgg
+  requiredChicken:
+  - MobDragonHen
+
+- type: eggRecipe
+  id: CoralEgg
+  egg: CoralEgg
+  requiredChicken:
+  - MobCoralHen

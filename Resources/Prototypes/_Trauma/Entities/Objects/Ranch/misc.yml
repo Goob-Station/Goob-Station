@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseEnergyBall
+  id: ThunderCloud
+  name: thunder cloud
+  description: A cloud which has a localized thunder storm inside of it, probably due to chicken magic.
+  components:
+  - type: ChasingWalk
+    minSpeed: 2
+    maxSpeed: 3
+    chasingComponent:
+    - type: LightningTarget
+  - type: Fixtures
+    fixtures:
+      TeslaCollider:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        hard: true
+        restitution: 0.8
+        density: 10
+        mask:
+        - None
+        layer:
+        - None
+  - type: TimedDespawn
+    lifetime: 20
+  - type: Sprite
+    drawdepth: Effects
+    sprite: _Trauma/Objects/Misc/thunder-cloud.rsi
+    layers:
+    - state: thundercloud
+      shader: unshaded
+  - type: Electrified
+    requirePower: false

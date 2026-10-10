@@ -1,0 +1,58 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: Tag
+  id: Apple
+
+- type: Tag
+  id: BalloonMelon
+
+- type: Tag
+  id: Chili
+
+- type: Tag
+  id: Chilly
+
+- type: Tag
+  id: ClearCorn
+
+- type: Tag
+  id: DeliciousLookingApple
+
+- type: Tag
+  id: EggPlant
+
+- type: Tag
+  id: Fish
+
+- type: Tag
+  id: LizardTail
+
+- type: Tag
+  id: MagicMushroom
+- type: Tag
+  id: MethApple
+
+- type: Tag
+  id: Peas
+
+- type: Tag
+  id: Peanut
+
+- type: Tag
+  id: Raptor
+
+- type: Tag
+  id: Rice
+
+- type: Tag
+  id: Sugar
+
+- type: Tag
+  id: SynthMeat
+
+- type: Tag
+  id: SteelWheat
+
+- type: Tag
+  id: Tomato
+

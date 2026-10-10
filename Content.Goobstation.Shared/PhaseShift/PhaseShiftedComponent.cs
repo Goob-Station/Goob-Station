@@ -37,6 +37,9 @@ public sealed partial class PhaseShiftedComponent : Component
     [DataField, AutoNetworkedField]
     public bool SpawnEffects = true;
 
+    [DataField]
+    public bool RevealOnDamage = true;
+
     public int StoredMask;
     public int StoredLayer;
 }
