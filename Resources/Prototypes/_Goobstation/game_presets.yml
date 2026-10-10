@@ -138,12 +138,12 @@
     - SpaceTrafficControlFriendlyEventScheduler
 
 - type: gamePreset
-  id: TheGuide
+  id: TheJester
   alias:
     - combat
     - combatdynamic
-  name: guide-title
-  description: guide-description
+  name: jester-title
+  description: jester-description
   showInVote: true
   minPlayers: 25
   rules:
