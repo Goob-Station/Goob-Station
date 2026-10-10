@@ -5,7 +5,7 @@
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryLeader
   name: Leader Responsory modsuit control unit
-  description: The main controller for a Leader Responsory modsuit.
+  description: A robust modular hardsuit made for an ERT Leader. It has a flowing blue pattern.
   components:
     - type: ClothingSpeedModifier
       walkModifier: 1
