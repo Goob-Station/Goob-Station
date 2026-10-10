@@ -43,3 +43,11 @@
 - type: statusEffect
   id: ActivateArtifactEffect
   alwaysAllowed: true
+
+- type: statusEffect
+  id: VomitChem
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: RandomBodySize
+  alwaysAllowed: true
