@@ -46,6 +46,7 @@
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3.5
+      baseWeightlessAcceleration: 1.5 # Goob - add weightless acceleration greater than jetpack
     - type: Stamina
       baseCritThreshold: 100
     - type: DamageStateVisuals
