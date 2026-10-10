@@ -34,7 +34,6 @@ namespace Content.Goobstation.Shared.Light
                 color = humanoid.SkinColor;
             }
 
-            // _appearance.SetData(ent, TogglebleVisuals.Color, ent.comp.DefaultColor);
             _appearance.SetData(ent, ToggleableVisuals.Color, color);
         }
 
