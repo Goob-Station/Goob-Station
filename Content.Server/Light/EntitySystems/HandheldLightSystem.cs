@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Light; // Goob Station edit
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Shared.Actions;
@@ -197,6 +198,11 @@ namespace Content.Server.Light.EntitySystems
             {
                 return false;
             }
+
+            // Goob Station start
+            var turnOn = new HandheldLightTurnOnEvent(user);
+            RaiseLocalEvent(uid, ref turnOn);
+            // Goob Station end
 
             // Goob Station start
             if (!component.RequiresPower) // Free light: skip every battery check and just turn on

@@ -24,8 +24,8 @@ public sealed partial class HandheldLightComponent : Component
     /// If false, the light can be turned on and stays on without any power cell.
     /// </summary>
     [DataField("requiresPower")]
-    // Goob Station end
     public bool RequiresPower = true;
+    // Goob Station end
 
     [DataField("turnOnSound")]
     public SoundSpecifier TurnOnSound = new SoundPathSpecifier("/Audio/Items/flashlight_on.ogg");

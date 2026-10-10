@@ -1,9 +1,10 @@
 using Content.Shared.Humanoid.Prototypes;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Light
 {
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class WearerLightColorComponent : Component
     {
         /// <summary>
@@ -16,5 +17,8 @@ namespace Content.Goobstation.Shared.Light
         /// Fallback color, copied from the entity's PointLight at MapInit
         /// </summary>
         public Color DefaultColor;
+
+        [AutoNetworkedField]
+        public bool LightSuppressed;
     }
 }

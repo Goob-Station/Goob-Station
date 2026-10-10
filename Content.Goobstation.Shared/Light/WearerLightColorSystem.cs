@@ -16,6 +16,8 @@ namespace Content.Goobstation.Shared.Light
             SubscribeLocalEvent<WearerLightColorComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<WearerLightColorComponent, ClothingGotEquippedEvent>(OnEquipped);
             SubscribeLocalEvent<WearerLightColorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
+            SubscribeLocalEvent<WearerLightColorComponent, HandheldLightTurnOnEvent>(OnTurnOn);
+            SubscribeLocalEvent<WearerLightColorComponent, AttemptPointLightToggleEvent>(OnLightAttempt);
         }
 
         private void OnMapInit(Entity<WearerLightColorComponent> ent, ref MapInitEvent args)
@@ -40,6 +42,26 @@ namespace Content.Goobstation.Shared.Light
         private void OnUnequipped(Entity<WearerLightColorComponent> ent, ref ClothingGotUnequippedEvent args)
         {
             _appearance.SetData(ent, ToggleableVisuals.Color, ent.Comp.DefaultColor);
+        }
+
+        private void OnTurnOn(Entity<WearerLightColorComponent> ent, ref HandheldLightTurnOnEvent args)
+        {
+            var suppressed = ent.Comp.Species != null
+                && (!TryComp<HumanoidAppearanceComponent>(args.User, out var humanoid)
+                    || humanoid.Species != ent.Comp.Species);
+
+            if (ent.Comp.LightSuppressed == suppressed)
+                return;
+
+            ent.Comp.LightSuppressed = suppressed;
+            Dirty(ent);
+        }
+
+        private void OnLightAttempt(Entity<WearerLightColorComponent> ent, ref AttemptPointLightToggleEvent args)
+        {
+            // Only block enabling; turning off always works.
+            if (args.Enabled && ent.Comp.LightSuppressed)
+                args.Cancelled = true;
         }
     }
 }
