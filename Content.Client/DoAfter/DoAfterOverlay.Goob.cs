@@ -20,4 +20,11 @@ public sealed partial class DoAfterOverlay
         var yStart = yFinished / 6f;
         return MathHelper.Lerp(yStart, yFinished, Easings.OutSine((float) Math.Clamp(elapsed / MaxYPosTime, 0.0, 1.0)));
     }
+
+    private static Color ApplyOverrideAlpha(Color? colorOverride, Color color)
+    {
+        return colorOverride is { } overrideColor
+            ? overrideColor.WithAlpha(overrideColor.A * color.A)
+            : color;
+    }
 }
