@@ -10,3 +10,6 @@ station-beacon-ruin-small-outpost = Small Outpost
 station-beacon-ruin-rouge-ai = Unknown Laboratory
 station-beacon-ruin-snow-biodome = Snow Biodome
 station-beacon-ruin-syndicate = Syndicate Signal
+
+station-beacon-mercury-arena = Sea of Fantasy Trees
+station-beacon-bottomless-pit = Radioactive Signal

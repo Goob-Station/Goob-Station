@@ -1,0 +1,318 @@
+######################### Construction graphs #########################################
+
+# Canceller (4 keratin)
+
+- type: construction
+  id: ParadoxCanceller
+  graph: ParadoxCanceller
+  startNode: start
+  targetNode: MegafaunaParadoxCanceller
+  category: construction-category-utilities
+  objectType: Item
+
+- type: constructionGraph
+  id: ParadoxCanceller
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: MegafaunaParadoxCanceller
+          steps:
+            - material: ORTKeratin
+              amount: 4
+              doAfter: 6
+    - node: MegafaunaParadoxCanceller
+      entity: MegafaunaParadoxCanceller
+
+# Ether drinker (4 keratin)
+
+- type: construction
+  id: EtherDrinker
+  graph: EtherDrinker
+  startNode: start
+  targetNode: MegafaunaEtherDrinker
+  category: construction-category-utilities
+  objectType: Item
+
+- type: constructionGraph
+  id: EtherDrinker
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: MegafaunaEtherDrinker
+          steps:
+            - material: ORTKeratin
+              amount: 5
+              doAfter: 6
+    - node: MegafaunaEtherDrinker
+      entity: MegafaunaEtherDrinker
+
+# Shield (1 alloy, 2 keratin)
+
+- type: construction
+  id: RadiantShield
+  graph: RadiantShield
+  startNode: start
+  targetNode: RadiantEnergyShield
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: RadiantShield
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: RadiantEnergyShield
+          steps:
+            - material: ORTKeratin
+              amount: 2
+              doAfter: 6
+            - material: ORTAlloy
+              amount: 1
+              doAfter: 6
+    - node: RadiantEnergyShield
+      entity: RadiantEnergyShield
+
+# Core (3 alloy)
+
+- type: construction
+  id: MercuryCore
+  graph: MercuryCore
+  startNode: start
+  targetNode: MegafaunaMercuryCore
+  category: construction-category-materials
+  objectType: Item
+
+- type: constructionGraph
+  id: MercuryCore
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: MegafaunaMercuryCore
+          steps:
+            - material: ORTAlloy
+              amount: 3
+              doAfter: 10
+    - node: MegafaunaMercuryCore
+      entity: MegafaunaMercuryCore
+
+# Railgun (1 alloy + core)
+
+- type: construction
+  id: MercuryRailgun
+  graph: MercuryRailgun
+  startNode: start
+  targetNode: WeaponMercuryRailgun
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: MercuryRailgun
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: WeaponMercuryRailgun
+          steps:
+            - tag: MegafaunaMercuryCore
+              name: mercury-core
+              icon:
+                sprite: _Lavaland/Objects/Devices/mercury.rsi
+                state: mercury_core
+              doAfter: 5
+            - material: ORTAlloy
+              amount: 1
+              doAfter: 5
+    - node: WeaponMercuryRailgun
+      entity: WeaponMercuryRailgun
+
+# MODSuit (2 alloy + core)
+
+- type: construction
+  id: RadiantMODsuit
+  graph: RadiantMODsuit
+  startNode: start
+  targetNode: ClothingModsuitORTRadiant
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: RadiantMODsuit
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ClothingModsuitORTRadiant
+          steps:
+            - tag: MegafaunaMercuryCore
+              name: mercury-core
+              icon:
+                sprite: _Lavaland/Objects/Devices/mercury.rsi
+                state: mercury_core
+              doAfter: 5
+            - material: ORTAlloy
+              amount: 2
+              doAfter: 5
+    - node: ClothingModsuitORTRadiant
+      entity: ClothingModsuitORTRadiant
+
+################################################################################################
+
+- type: entity
+  parent: BaseItem
+  id: MegafaunaMercuryCore
+  name: Core of Mercury
+  description: Can be used to make highly advanced tools and weaponry. Alternatively, can be sold for a handsome sum.
+  components:
+  - type: PointLight
+    radius: 2
+    color: cyan
+    energy: 1
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/mercury.rsi
+    state: mercury_core
+  - type: Tag # I hate construction graphs
+    tags:
+    - MegafaunaMercuryCore
+  - type: Construction
+    graph: MercuryCore
+    node: MegafaunaMercuryCore
+
+- type: entity
+  parent: BaseItem
+  id: MegafaunaEtherDrinker
+  name: Ether Drinker
+  description: Passively absorbs radiation as charge. Using it releases that energy in the form of highly damaging lightning strikes in a small radius. User immune to the lightning.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/mercury.rsi
+    state: ether_drinker
+  - type: UseDelay
+    delay: 300
+  - type: EtherDrinker
+  - type: RadiationReceiver
+  - type: HeldGrantComponent
+    components:
+    - type: ORTLightningImmune
+  - type: Construction
+    graph: EtherDrinker
+    node: MegafaunaEtherDrinker
+
+- type: entity
+  parent: BaseItem
+  id: MegafaunaParadoxCanceller
+  name: Paradox Canceller
+  description: A device that saves your point in time, then reverts you back to that point after a short delay, reverting any damage taken in that period.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/mercury.rsi
+    state: paradox_canceller
+  - type: UseDelay
+    delay: 60
+  - type: Construction
+    graph: ParadoxCanceller
+    node: MegafaunaParadoxCanceller
+  - type: ParadoxCanceller
+    trail:
+      - type: Trail
+        color: "#ae00ffdd"
+        scale: 0.9
+        frequency: 0.1
+        lifetime: 1
+        lerpTime: 0.05
+        alphaLerpAmount: 0.2
+        scaleLerpAmount: 0.1
+        shader: unshaded
+        sprite:
+          sprite: /Textures/Mobs/Aliens/paradox_clone.rsi
+          state: paradox
+
+- type: entity
+  name: radiant shield
+  parent: BaseItem
+  id: RadiantEnergyShield
+  description: An energy shield powered by radiation. Can even deflect magic!
+  components:
+    - type: ItemToggle
+      predictable: false
+      soundActivate:
+        path: /Audio/Weapons/ebladeon.ogg
+      soundDeactivate:
+        path: /Audio/Weapons/ebladeoff.ogg
+      soundFailToActivate:
+        path: /Audio/Machines/button.ogg
+        params:
+          variation: 0.250
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/Weapons/ebladehum.ogg
+    - type: ItemToggleSize
+      activatedSize: Huge
+    - type: ComponentToggler
+      components:
+      - type: DisarmMalus
+        malus: 1
+    - type: Sprite
+      sprite: _Lavaland/Objects/Weapons/Melee/Shields/mercury.rsi
+      layers:
+        - state: rshield-icon
+        - state: rshield-on
+          color: "#FFFFFF"
+          visible: false
+          shader: unshaded
+          map: [ "shield" ]
+    - type: Item
+      size: Small
+      sprite: _Lavaland/Objects/Weapons/Melee/Shields/mercury.rsi
+      heldPrefix: rshield
+    - type: UseDelay
+      delay: 0.4
+    - type: ToggleableVisuals
+      spriteLayer: shield
+      inhandVisuals:
+        left:
+          - state: inhand-left-shield
+            shader: unshaded
+        right:
+          - state: inhand-right-shield
+            shader: unshaded
+    - type: PointLight
+      netsync: false
+      enabled: false
+      radius: 3
+      energy: 2
+      color: gold
+    - type: ItemTogglePointLight
+    - type: Reflect
+      reflectProb: 0.6 # Reasonably strong, not too OP
+      reflects:
+        - Energy
+        - Magic
+        - NonEnergy
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 1.0
+          Slash: 0.9
+          Piercing: 0.85
+          Heat: 0.6
+      activeBlockModifier:
+        coefficients:
+          Blunt: 1.2
+          Slash: 0.85
+          Piercing: 0.5
+          Heat: 0.4
+        flatReductions:
+          Heat: 1
+          Piercing: 1
+    - type: Appearance
+    - type: Damageable
+      damageContainer: Shield
+    - type: StaticPrice
+      price: 5000
+    - type: Construction
+      graph: RadiantShield
+      node: RadiantEnergyShield

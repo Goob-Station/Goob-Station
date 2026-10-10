@@ -1,0 +1,9 @@
+- files: ["fairygrass.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "TGStation 13"
+  source: "https://github.com/tgstation/tgstation/blob/8c37743fc43035d910953dafa4ba3a62b23e648c/icons/turf/floors.dmi"
+
+- files: [ "fairydamaged.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "TGStation 13"
+  source: "https://github.com/tgstation/tgstation/blob/8c37743fc43035d910953dafa4ba3a62b23e648c/icons/turf/damaged.dmi"
