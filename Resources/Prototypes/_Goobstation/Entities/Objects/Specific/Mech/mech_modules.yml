@@ -1,0 +1,36 @@
+# Any mech class can mount these.
+- type: entity
+  id: UniversalMechEquipment
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - IndustrialMech
+    - CombatMech
+    - SpecialMech
+    - SmallMech
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  id: MechEquipmentThruster
+  parent: [ BaseMechEquipment, UniversalMechEquipment ]
+  name: exosuit thruster module
+  description: Lets an exosuit manuever in 0 grav.
+  components:
+  - type: Sprite
+    state: mecha_bin # TODO: Mechs, unique sprite
+  - type: MechEquipment
+  - type: MechThrusterModule
+
+- type: entity
+  id: MechEquipmentAirTank
+  parent: [ BaseMechEquipment, UniversalMechEquipment ]
+  name: exosuit air tank module
+  description: Seals the cabin and fills it with a standard o2 mixture.
+  components:
+  - type: Sprite
+    state: mecha_air_tank
+  - type: MechEquipment
+  - type: MechAirTankModule

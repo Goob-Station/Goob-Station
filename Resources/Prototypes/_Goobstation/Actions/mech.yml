@@ -1,0 +1,76 @@
+- type: entity
+  parent: BaseAction
+  id: ActionMechSelectEquipment
+  name: Select equipment
+  description: Switch straight to this piece of equipment.
+  components:
+  - type: Action
+    useDelay: 0.25
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:MechSelectEquipmentEvent
+
+- type: entity
+  parent: BaseMechAction
+  id: ActionMechOverclock
+  name: Overclock
+  description: Force your exosuit to move faster than is safely possible. Shreds through integrity and power.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_overload_off
+    iconOn:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_overload_on
+  - type: InstantAction
+    event: !type:MechOverclockActionEvent
+
+- type: entity
+  parent: BaseMechAction
+  id: ActionMechStomp
+  name: Stomp
+  description: Slam a foot down. Anyone standing next to the mech gets knocked flat.
+  components:
+  - type: Action
+    useDelay: 6
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_ivanov
+  - type: InstantAction
+    event: !type:MechStompActionEvent
+
+- type: entity
+  parent: BaseMechAction
+  id: ActionMechRam
+  name: Ram
+  description: Charge forward. Tramples anyone in the way and smashes the first wall you hit, at a cost to the frame.
+  components:
+  - type: Action
+    useDelay: 20
+    icon:
+      sprite: _Goobstation/Interface/Actions/mech.rsi
+      state: mech_charge_off
+    iconOn:
+      sprite: _Goobstation/Interface/Actions/mech.rsi
+      state: mech_charge_on
+  - type: InstantAction
+    event: !type:MechRamActionEvent
+
+- type: entity
+  parent: BaseMechAction
+  id: ActionMechToggleLock
+  name: Cabin Lock
+  description: Lock or unlock the cabin. Only people with your access can open a locked cabin from outside.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Goobstation/Interface/Actions/mech.rsi
+      state: mech_cabin_open
+    iconOn:
+      sprite: _Goobstation/Interface/Actions/mech.rsi
+      state: mech_cabin_closed
+  - type: InstantAction
+    event: !type:MechToggleLockActionEvent

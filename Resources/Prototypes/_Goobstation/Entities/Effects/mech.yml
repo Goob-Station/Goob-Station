@@ -1,0 +1,21 @@
+- type: entity
+  id: EffectMechOverclockGlow
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+  - type: PointLight
+    radius: 5
+    energy: 2.2
+    color: "#ff3a2a"
+    softness: 1.5
+    castShadows: false
+  - type: AmbientSound
+    enabled: true
+    range: 7
+    volume: -11
+    sound:
+      path: /Audio/Machines/warning_buzzer.ogg
+  - type: Tag
+    tags:
+    - HideContextMenu

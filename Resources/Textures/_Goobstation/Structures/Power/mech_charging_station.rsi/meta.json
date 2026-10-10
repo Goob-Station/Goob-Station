@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "port",
+            "directions": 4
+        },
+        {
+            "name": "port-open",
+            "directions": 4
+        },
+        {
+            "name": "lattice"
+        }
+    ]
+}

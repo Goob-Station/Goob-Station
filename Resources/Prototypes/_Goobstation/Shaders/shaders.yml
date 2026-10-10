@@ -60,3 +60,8 @@
   id: VoiceGodRays
   kind: source
   path: "/Textures/_Goobstation/Shaders/voice_god_rays.swsl"
+
+- type: shader
+  id: MechStompShockwave
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/mech_stomp_shockwave.swsl"

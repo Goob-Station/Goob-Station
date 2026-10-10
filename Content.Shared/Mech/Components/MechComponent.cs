@@ -101,8 +101,22 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntityWhitelist? PilotWhitelist;
 
+    // Goobstation start
     [DataField]
-    public EntityWhitelist? PilotBlacklist; // Goobstation Change
+    public EntityWhitelist? PilotBlacklist;
+
+    [DataField]
+    public EntityWhitelist? BatteryWhitelist;
+
+    [ViewVariables, AutoNetworkedField]
+    public bool OnChargingStation;
+
+    [DataField]
+    public EntProtoId SelectEquipmentAction = "ActionMechSelectEquipment";
+
+    [ViewVariables]
+    public Dictionary<EntityUid, EntityUid> EquipmentActions = new();
+    // Goobstation end
 
 
     /// <summary>

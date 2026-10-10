@@ -1,0 +1,74 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp vec2 renderScale;
+uniform highp vec2 center;
+uniform highp float elapsed;
+uniform highp float maxRadius;
+uniform highp vec3 dustColor;
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float noise(highp vec2 p)
+{
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
+               mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
+}
+
+highp float fbm(highp vec2 p)
+{
+    highp float v = 0.0;
+    highp float a = 0.5;
+    for (int i = 0; i < 3; i++)
+    {
+        v += a * noise(p);
+        p *= 2.1;
+        a *= 0.5;
+    }
+    return v;
+}
+
+void fragment()
+{
+    highp vec2 delta = (FRAGCOORD.xy - center) / renderScale;
+    highp float dist = length(delta);
+    highp vec2 dir = dist > 0.001 ? delta / dist : vec2(0.0);
+    highp vec3 color = zTextureSpec(SCREEN_TEXTURE, FRAGCOORD.xy * SCREEN_PIXEL_SIZE).rgb;
+    highp float t = max(elapsed, 0.0);
+
+    highp float grow = 1.0 - exp(-t * 4.0);
+    highp float front = maxRadius * (0.4 + 0.9 * grow);
+    highp float body = 1.0 - smoothstep(front * 0.6, front, dist);
+    highp float hollow = mix(1.0, smoothstep(front * 0.1, front * 0.65, dist), grow);
+    highp float billow = fbm(delta / 13.0 - dir * t * 1.4);
+    highp float fade = 1.0 - smoothstep(0.15, 1.3, t);
+    highp float dust = body * hollow * smoothstep(0.38, 0.68, billow) * fade;
+    color = mix(color, dustColor * (0.85 + 0.3 * billow), dust * 0.6);
+
+    for (int i = 0; i < 14; i++)
+    {
+        highp float fi = float(i);
+        highp float ha = hash(vec2(fi, 0.0));
+        highp float hb = hash(vec2(fi * 1.7, 3.1));
+        highp float hc = hash(vec2(fi * 2.3, 5.7));
+
+        highp vec2 throwDir = vec2(cos(ha * 6.2831853), sin(ha * 6.2831853));
+        highp float travel = mix(60.0, 140.0, hb) * (1.0 - exp(-2.6 * t)) / 2.6 + maxRadius * 0.2;
+        highp float vz = mix(50.0, 130.0, hc);
+        highp float h = max(vz * t - 260.0 * t * t, 0.0);
+        highp float size = mix(1.2, 2.8, hb * hc);
+        highp float rot = ha * 9.0 + min(t, 2.0 * vz / 520.0) * mix(-12.0, 12.0, hb);
+
+        highp vec2 local = delta - throwDir * travel - vec2(0.0, h);
+        highp vec2 rl = vec2(local.x * cos(rot) + local.y * sin(rot), -local.x * sin(rot) + local.y * cos(rot));
+        highp float chunk = step(max(abs(rl.x), abs(rl.y)), size) * (1.0 - smoothstep(0.9, 1.5, t));
+        highp vec3 chunkColor = mix(vec3(0.42, 0.40, 0.37), vec3(0.72, 0.70, 0.66), hash(vec2(fi, 9.0)));
+        color = mix(color, chunkColor, chunk);
+    }
+
+    COLOR = vec4(color, 1.0);
+}
