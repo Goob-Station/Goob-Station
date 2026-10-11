@@ -19,7 +19,7 @@ public sealed partial class PaintFrameSystem : EntitySystem
         if (args.Handled || !HasComp<PaintingFrameComponent>(args.Used))
             return;
 
-        args.Handled = TryFrame(ent, args.Used, args.User);
+        args.Handled = TryFrame(ent.Owner, args.Used, args.User);
     }
 
     public bool TryFrame(Entity<PaintCanvasVisualsComponent?> painting, EntityUid frameUid, EntityUid user)
