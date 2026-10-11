@@ -509,7 +509,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHawaiGreen
   name: green hawaiian shirt
-  description: CentComm™ Green.
+  description: Central Command™ Green.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
