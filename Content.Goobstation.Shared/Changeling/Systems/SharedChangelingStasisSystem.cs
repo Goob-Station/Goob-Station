@@ -59,6 +59,7 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingStasisComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChangelingStasisComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ChangelingStasisComponent, MindRemovedMessage>(OnMindRemoved);
 
         SubscribeLocalEvent<ChangelingStasisComponent, ChangelingStasisEvent>(OnStasisAction);
 
@@ -91,6 +92,11 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
         SetPreventGhosting(ent, false);
 
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
+    }
+
+    private void OnMindRemoved(Entity<ChangelingStasisComponent> ent, ref MindRemovedMessage args)
+    {
+        args.Mind.Comp.PreventGhosting = false;
     }
 
     #region Event Handlers
@@ -273,6 +279,8 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
         // fix traumas, broken bones and bleeding
         if (_bodyQuery.TryComp(ent, out var bodyComp))
         {
+            _body.RestoreMissingOrgans((ent, bodyComp));
+
             if (_trauma.TryGetBodyTraumas(ent, out var traumas, bodyComp: bodyComp))
                 foreach (var trauma in traumas)
                     _trauma.RemoveTrauma(trauma);
