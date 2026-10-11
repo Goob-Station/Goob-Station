@@ -1,0 +1,48 @@
+- type: reagent
+  abstract: true
+  id: BasePaintReagent
+  desc: reagent-desc-paint
+  physicalDesc: reagent-physical-desc-thick
+  flavor: bitter
+
+- type: reagent
+  parent: BasePaintReagent
+  id: PaintRed
+  name: reagent-name-paint-red
+  color: "#c42b2b"
+
+- type: reagent
+  parent: BasePaintReagent
+  id: PaintYellow
+  name: reagent-name-paint-yellow
+  color: "#e8d22e"
+
+- type: reagent
+  parent: BasePaintReagent
+  id: PaintGreen
+  name: reagent-name-paint-green
+  color: "#4fae3a"
+
+- type: reagent
+  parent: BasePaintReagent
+  id: PaintBlue
+  name: reagent-name-paint-blue
+  color: "#2f5fd0"
+
+- type: reagent
+  parent: BasePaintReagent
+  id: PaintViolet
+  name: reagent-name-paint-violet
+  color: "#9a3fc4"
+
+- type: reagent
+  parent: BasePaintReagent
+  id: PaintBlack
+  name: reagent-name-paint-black
+  color: "#1c1c1c"
+
+- type: reagent
+  parent: BasePaintReagent
+  id: PaintWhite
+  name: reagent-name-paint-white
+  color: "#f4f4f4"

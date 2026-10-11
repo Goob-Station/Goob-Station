@@ -1,0 +1,165 @@
+- type: entity
+  abstract: true
+  parent: [BaseItem, BasePart]
+  id: PartSynth
+  name: synth body part
+  components:
+  - type: Sprite
+    sprite: _Afterlight/Species/Synth/parts.rsi
+  - type: Icon
+    sprite: _Afterlight/Species/Synth/parts.rsi
+  - type: BodyPart
+    species: Synth
+  - type: Damageable
+    damageModifierSet: Synth
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nanites
+        Quantity: 3
+      - ReagentId: SynthBlood
+        Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Iron
+          Quantity: 10
+        - ReagentId: Carbon
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - metallic
+
+- type: entity
+  parent: [PartSynth, BaseChest]
+  id: ChestSynth
+  name: synth chest
+  components:
+  - type: Sprite
+    state: chest
+  - type: Icon
+    state: chest
+  - type: BodyPart
+    organs:
+      heart:
+        id: heart
+      lungs:
+        id: lungs
+      battery:
+        id: battery
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nanites
+        Quantity: 10
+      - ReagentId: SynthBlood
+        Quantity: 20
+
+- type: entity
+  parent: [PartSynth, BaseGroin]
+  id: GroinSynth
+  name: synth abdomen
+  components:
+  - type: Sprite
+    state: groin
+  - type: Icon
+    state: groin
+
+- type: entity
+  parent: [PartSynth, BaseHead]
+  id: HeadSynth
+  name: synth head
+  components:
+  - type: Sprite
+    state: head
+  - type: Icon
+    state: head
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nanites
+        Quantity: 5
+      - ReagentId: SynthBlood
+        Quantity: 10
+
+- type: entity
+  parent: [PartSynth, BaseLeftArm]
+  id: LeftArmSynth
+  name: left synth arm
+  components:
+  - type: Sprite
+    state: l_arm
+  - type: Icon
+    state: l_arm
+
+- type: entity
+  parent: [PartSynth, BaseRightArm]
+  id: RightArmSynth
+  name: right synth arm
+  components:
+  - type: Sprite
+    state: r_arm
+  - type: Icon
+    state: r_arm
+
+- type: entity
+  parent: [PartSynth, BaseLeftHand]
+  id: LeftHandSynth
+  name: left synth hand
+  components:
+  - type: Sprite
+    state: l_hand
+  - type: Icon
+    state: l_hand
+
+- type: entity
+  parent: [PartSynth, BaseRightHand]
+  id: RightHandSynth
+  name: right synth hand
+  components:
+  - type: Sprite
+    state: r_hand
+  - type: Icon
+    state: r_hand
+
+- type: entity
+  parent: [PartSynth, BaseLeftLeg]
+  id: LeftLegSynth
+  name: left synth leg
+  components:
+  - type: Sprite
+    state: l_leg
+  - type: Icon
+    state: l_leg
+
+- type: entity
+  parent: [PartSynth, BaseRightLeg]
+  id: RightLegSynth
+  name: right synth leg
+  components:
+  - type: Sprite
+    state: r_leg
+  - type: Icon
+    state: r_leg
+
+- type: entity
+  parent: [PartSynth, BaseLeftFoot]
+  id: LeftFootSynth
+  name: left synth foot
+  components:
+  - type: Sprite
+    state: l_foot
+  - type: Icon
+    state: l_foot
+
+- type: entity
+  parent: [PartSynth, BaseRightFoot]
+  id: RightFootSynth
+  name: right synth foot
+  components:
+  - type: Sprite
+    state: r_foot
+  - type: Icon
+    state: r_foot
