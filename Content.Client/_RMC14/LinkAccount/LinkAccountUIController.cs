@@ -9,7 +9,6 @@ using Content.Goobstation.Shared.Patrons; // Goob - ooc icon selection
 using Content.Goobstation.Shared.GhostCosmetics; // Goob - ghost cosmetics
 using Content.Shared._RMC14.GhostColor; // Goob - ghost cosmetics
 using Content.Shared._RMC14.LinkAccount;
-using Robust.Client.GameObjects; // Goob - ooc icon selection
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Configuration;
@@ -330,9 +329,9 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
 
         var window = _patronPerksWindow;
         window.OocIconList.RemoveAllChildren();
+        window.OocIconPreview.DisplayRect.Stretch = TextureRect.StretchMode.Scale;
         _selectedOocIcon = _linkAccount.OocIcon;
 
-        var sprite = _entityManager.System<SpriteSystem>();
         var group = new ButtonGroup();
         var icons = _prototype.GetAvailableOocIcons(tierProto).ToList();
 
@@ -365,14 +364,15 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
                     Pressed = icon.ID == _selectedOocIcon,
                 };
 
-                button.AddChild(new TextureRect
+                var iconRect = new AnimatedTextureRect
                 {
-                    Texture = sprite.Frame0(icon.Icon),
-                    Stretch = TextureRect.StretchMode.Scale,
                     SetSize = new System.Numerics.Vector2(24, 24),
                     HorizontalAlignment = Control.HAlignment.Center,
                     VerticalAlignment = Control.VAlignment.Center,
-                });
+                };
+                iconRect.DisplayRect.Stretch = TextureRect.StretchMode.Scale;
+                iconRect.SetFromSpriteSpecifier(icon.Icon);
+                button.AddChild(iconRect);
 
                 var id = icon.ID;
                 button.OnPressed += _ =>
@@ -416,14 +416,15 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
         var iconId = _selectedOocIcon ?? tier.Icon?.Id;
         if (iconId != null && _prototype.TryIndex<OocIconPrototype>(iconId, out var icon))
         {
-            _patronPerksWindow.OocIconPreview.Texture = _entityManager.System<SpriteSystem>().Frame0(icon.Icon);
+            _patronPerksWindow.OocIconPreview.Visible = true;
+            _patronPerksWindow.OocIconPreview.SetFromSpriteSpecifier(icon.Icon);
             _patronPerksWindow.OocIconSelectedName.Text = _selectedOocIcon == null
                 ? Loc.GetString("goob-ui-ooc-icon-default-name", ("name", Loc.GetString(icon.Name)))
                 : Loc.GetString(icon.Name);
         }
         else
         {
-            _patronPerksWindow.OocIconPreview.Texture = null;
+            _patronPerksWindow.OocIconPreview.Visible = false;
             _patronPerksWindow.OocIconSelectedName.Text = Loc.GetString("goob-ui-ooc-icon-none");
         }
 
