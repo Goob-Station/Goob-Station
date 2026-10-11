@@ -31,6 +31,10 @@
     maxCharges: 25
   - type: StaticPrice
     price: 5
+  - type: PaintTool # Goobstation
+    colorMode: Crayon
+    maxBrushSize: 3
+    pixelsPerCharge: 256
 
 - type: entity
   abstract: true

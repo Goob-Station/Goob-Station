@@ -476,6 +476,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         RaiseLocalEvent(gun, ref shotEv);
         var shotBodyEv = new GunShotBodyEvent(gun, gun); // Shitmed Change
         RaiseLocalEvent(user, shotBodyEv); // Shitmed Change
+        GunScreenshake(user, gun); // Goob
 
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
             return true;

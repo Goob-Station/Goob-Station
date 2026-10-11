@@ -48,7 +48,7 @@ public sealed class AggressorsSystem : EntitySystem
         while (query.MoveNext(out var uid, out var aggressive, out var xform))
         {
             if (aggressive.ForgiveRange == null
-                || aggressive.NextUpdate < curTime)
+                || aggressive.NextUpdate > curTime)
                 continue;
 
             aggressive.NextUpdate = curTime + aggressive.UpdateDelay;

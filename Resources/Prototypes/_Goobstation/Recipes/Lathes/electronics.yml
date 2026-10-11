@@ -191,3 +191,9 @@
     Glass: 500
     Gold: 100
     Diamond: 100
+    
+- type:
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: PhotocopierMachineCircuitboard
+  icon: { sprite: _Goobstation/Structures/Machines/photocopier.rsi, state: icon }
+  result: PhotocopierMachineCircuitboard
