@@ -1,0 +1,167 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BasePaintingFrame
+  description: Put it on a finished painting to frame it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/painting_frames.rsi
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameWood
+  name: wooden painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_simple
+  - type: PaintingFrame
+    material: simple
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameIron
+  name: iron painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_iron
+  - type: PaintingFrame
+    material: iron
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameBamboo
+  name: bamboo painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_bamboo
+  - type: PaintingFrame
+    material: bamboo
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameBones
+  name: bone painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_bones
+  - type: PaintingFrame
+    material: bones
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameBronze
+  name: bronze painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_bronze
+  - type: PaintingFrame
+    material: bronze
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameClown
+  name: clown painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_clown
+  - type: PaintingFrame
+    material: clown
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameFrog
+  name: frog painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_frog
+  - type: PaintingFrame
+    material: frog
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameSilver
+  name: silver painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_silver
+  - type: PaintingFrame
+    material: silver
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameNecropolis
+  name: necropolis painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_necropolis
+  - type: PaintingFrame
+    material: necropolis
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameGold
+  name: gold painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_gold
+  - type: PaintingFrame
+    material: gold
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameDiamond
+  name: diamond painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_diamond
+  - type: PaintingFrame
+    material: diamond
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameRainbow
+  name: rainbow painting frame
+  components:
+  - type: Sprite
+    state: 19x19frame_rainbow
+  - type: PaintingFrame
+    material: rainbow
+  - type: StaticPrice
+    price: 200
+
+- type: entity
+  parent: BasePaintingFrame
+  id: PaintingFrameSupermatter
+  name: supermatter painting frame
+  description: Put it on a finished painting to frame it. It hums faintly.
+  components:
+  - type: Sprite
+    state: 19x19frame_supermatter
+  - type: PaintingFrame
+    material: supermatter
+  - type: StaticPrice
+    price: 1000

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by GitHub NotLivyathan / Discord livyathan (298907041198637067)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "jaw_composite",
+      "directions": 4
+    },
+    {
+      "name": "visor",
+      "directions": 4
+    },
+    {
+      "name": "visor_frame",
+      "directions": 4
+    },
+    {
+      "name": "visor_plate",
+      "directions": 4
+    },
+    {
+      "name": "visor_plate_star_cross",
+      "directions": 4
+    }
+  ]
+}
