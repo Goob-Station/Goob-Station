@@ -315,6 +315,9 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
     {
         var ruleUid = _ticker.AddGameRule(rule);
 
+        if (!doStart && TryComp<GameRuleComponent>(ruleUid, out var ruleComp))
+            ruleComp.CancelPresetOnTooFewPlayers = false;
+
         scheduler.Comp.ChaosScore += GetChaosScore(ruleUid, players)!.Value;
 
         // if we hijack playercount, also hijack how many antags we pick
