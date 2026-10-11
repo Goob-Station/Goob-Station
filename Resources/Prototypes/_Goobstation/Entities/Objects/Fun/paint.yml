@@ -1,0 +1,245 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BasePaintCanvas
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/canvas.rsi
+    layers:
+    - state: canvas_24x24
+      map: [ "backing" ]
+    - map: [ "paint" ]
+    - map: [ "frame" ]
+      visible: false
+  - type: Item
+    size: Normal
+  - type: PaintSurface
+    background: "#ffffff"
+  - type: PaintCanvasVisuals
+  - type: ActivatableUI
+    key: enum.PaintUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaintUiKey.Key:
+        type: PaintBoundUserInterface
+  - type: FaxableObject
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: BasePaintCanvas
+  id: PaintCanvas
+  name: canvas
+  description: A blank square canvas. Use a crayon, paint or a palette on it to start painting.
+  components:
+  - type: PaintSurface
+    size: 64, 64
+  - type: PaintCanvasVisuals
+    sizeKey: 24x24
+    backingState: canvas_24x24
+    paintScale: 0.375, 0.375
+    easelOffset: 0, 0.09375
+
+- type: entity
+  parent: BasePaintCanvas
+  id: PaintCanvasLandscape
+  name: landscape canvas
+  description: A wide blank canvas, good for scenery.
+  components:
+  - type: Sprite
+    layers:
+    - state: canvas_23x19
+      map: [ "backing" ]
+    - map: [ "paint" ]
+    - map: [ "frame" ]
+      visible: false
+  - type: PaintSurface
+    size: 69, 57
+  - type: PaintCanvasVisuals
+    sizeKey: 23x19
+    backingState: canvas_23x19
+    paintScale: 0.33333334, 0.33333334
+    paintOffset: 0.015625, 0.015625
+    easelOffset: 0, 0.0234375
+
+- type: entity
+  parent: BasePaintCanvas
+  id: PaintCanvasSmall
+  name: small canvas
+  description: A tiny blank canvas, perfect for doodles and portraits.
+  components:
+  - type: Sprite
+    layers:
+    - state: canvas_11x11
+      map: [ "backing" ]
+    - map: [ "paint" ]
+    - map: [ "frame" ]
+      visible: false
+  - type: Item
+    size: Small
+  - type: PaintSurface
+    size: 33, 33
+  - type: PaintCanvasVisuals
+    sizeKey: 11x11
+    backingState: canvas_11x11
+    paintScale: 0.33333334, 0.33333334
+    paintOffset: 0.015625, -0.015625
+    easelOffset: 0, -0.046875
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: BaseItem
+  id: Paintbrush
+  name: artist's palette
+  description: A palette and brush to mix any colour you like.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/palette.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Objects/Fun/palette.rsi
+  - type: PaintTool
+    colorMode: Picker
+    maxBrushSize: 12
+    canErase: true
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: BaseItem
+  id: PaintCan
+  name: paint can
+  description: A metal can for paint. Pour any coloured liquid in to paint with it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/paint_bucket.rsi
+    layers:
+    - state: paint_empty
+    - state: paint_fill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Fun/paint_bucket.rsi
+  - type: SolutionContainerManager
+    solutions:
+      paint:
+        maxVol: 30
+  - type: RefillableSolution
+    solution: paint
+  - type: DrainableSolution
+    solution: paint
+  - type: ExaminableSolution
+    solution: paint
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: paint_fill
+    solutionName: paint
+  - type: PaintTool
+    colorMode: Solution
+    solution: paint
+    minBrushSize: 2
+    maxBrushSize: 6
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: PaintCan
+  id: PaintCanRed
+  name: red paint
+  description: A can of thick red paint.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      paint:
+        maxVol: 30
+        reagents:
+        - ReagentId: PaintRed
+          Quantity: 30
+
+- type: entity
+  parent: PaintCan
+  id: PaintCanYellow
+  name: yellow paint
+  description: A can of thick yellow paint.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      paint:
+        maxVol: 30
+        reagents:
+        - ReagentId: PaintYellow
+          Quantity: 30
+
+- type: entity
+  parent: PaintCan
+  id: PaintCanGreen
+  name: green paint
+  description: A can of thick green paint.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      paint:
+        maxVol: 30
+        reagents:
+        - ReagentId: PaintGreen
+          Quantity: 30
+
+- type: entity
+  parent: PaintCan
+  id: PaintCanBlue
+  name: blue paint
+  description: A can of thick blue paint.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      paint:
+        maxVol: 30
+        reagents:
+        - ReagentId: PaintBlue
+          Quantity: 30
+
+- type: entity
+  parent: PaintCan
+  id: PaintCanViolet
+  name: violet paint
+  description: A can of thick violet paint.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      paint:
+        maxVol: 30
+        reagents:
+        - ReagentId: PaintViolet
+          Quantity: 30
+
+- type: entity
+  parent: PaintCan
+  id: PaintCanBlack
+  name: black paint
+  description: A can of thick black paint.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      paint:
+        maxVol: 30
+        reagents:
+        - ReagentId: PaintBlack
+          Quantity: 30
+
+- type: entity
+  parent: PaintCan
+  id: PaintCanWhite
+  name: white paint
+  description: A can of thick white paint.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      paint:
+        maxVol: 30
+        reagents:
+        - ReagentId: PaintWhite
+          Quantity: 30
