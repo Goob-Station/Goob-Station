@@ -48,6 +48,11 @@ public sealed partial class GibActionSystem : EntitySystem
         }
 
         // If they aren't given the action, remove it.
+        // Goob - Fix (action not attached)
+        if (_actionsSystem.GetAction(comp.ActionEntity, false) is not { } action
+            || action.Comp.AttachedEntity != uid)
+            return;
+
         _actionsSystem.RemoveAction(uid, comp.ActionEntity);
     }
 

@@ -139,6 +139,14 @@ public abstract partial class SharedBuckleSystem
     private void OnParentChanged(Entity<BuckleComponent> ent, ref EntParentChangedMessage args)
     {
         BuckleTransformCheck(ent, args.Transform);
+        AfterBuckleParentChanged(ent, ref args);
+    }
+
+    /// <summary>
+    /// Allows sided buckle systems to handle completed parent changes.
+    /// </summary>
+    protected virtual void AfterBuckleParentChanged(Entity<BuckleComponent> ent, ref EntParentChangedMessage args)
+    {
     }
 
     private void OnInserted(Entity<BuckleComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -149,7 +157,23 @@ public abstract partial class SharedBuckleSystem
     private void OnBuckleMove(Entity<BuckleComponent> ent, ref MoveEvent ev)
     {
         BuckleTransformCheck(ent, ev.Component);
+        UnbuckledStrapParentCheck(ent, ev.Component); // Goobstation
     }
+
+    // Goobstation start
+    private void UnbuckledStrapParentCheck(Entity<BuckleComponent> buckle, TransformComponent xform)
+    {
+        if (_gameTiming.ApplyingState
+            || xform.ParentUid == xform.GridUid
+            || xform.ParentUid == xform.MapUid
+            || xform.ParentUid == buckle.Comp.BuckledTo
+            || !HasComp<StrapComponent>(xform.ParentUid)
+            || _container.IsEntityInContainer(buckle))
+            return;
+
+        _transform.AttachToGridOrMap(buckle, xform);
+    }
+    // Goobstation end
 
     /// <summary>
     /// Check if the entity should get unbuckled as a result of transform or container changes.
@@ -527,8 +551,12 @@ public abstract partial class SharedBuckleSystem
 
         if (buckleXform.ParentUid == strap.Owner && !Terminating(oldBuckledXform.ParentUid))
         {
-            _transform.PlaceNextTo((buckle, buckleXform), (strap.Owner, oldBuckledXform));
-            buckleXform.ActivelyLerping = false;
+            // Goobstation start
+            if (_container.IsEntityInContainer(strap))
+                _transform.PlaceNextTo((buckle, buckleXform), (strap.Owner, oldBuckledXform));
+            else
+                _transform.SetCoordinates(buckle, buckleXform, _transform.GetMoverCoordinates(strap, oldBuckledXform));
+            // Goobstation end
 
             var oldBuckledToWorldRot = _transform.GetWorldRotation(strap);
             _transform.SetWorldRotationNoLerp((buckle, buckleXform), oldBuckledToWorldRot);
@@ -536,7 +564,7 @@ public abstract partial class SharedBuckleSystem
             // TODO: This is doing 4 moveevents this is why I left the warning in, if you're going to remove it make it only do 1 moveevent.
             if (strap.Comp.BuckleOffset != Vector2.Zero)
             {
-                _transform.SetCoordinates(buckle, buckleXform, oldBuckledXform.Coordinates.Offset(strap.Comp.BuckleOffset));
+                _transform.SetCoordinates(buckle, buckleXform, _transform.GetMoverCoordinates(oldBuckledXform.Coordinates.Offset(strap.Comp.BuckleOffset))); // Goobstation
             }
         }
 

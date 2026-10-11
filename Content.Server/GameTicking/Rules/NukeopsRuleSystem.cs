@@ -54,8 +54,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     private static readonly ProtoId<CurrencyPrototype> TelecrystalCurrencyPrototype = "Telecrystal";
     private static readonly ProtoId<TagPrototype> NukeOpsUplinkTagPrototype = "NukeOpsUplink";
 
-    [ValidatePrototypeId<TagPrototype>]
-    private const string NukeOpsReinforcementUplinkTagPrototype = "NukeOpsReinforcementUplink"; // Goobstation
+    private static readonly ProtoId<TagPrototype> NukeOpsReinforcementUplinkTagPrototype = "NukeOpsReinforcementUplink"; // Goobstation
 
     public override void Initialize()
     {

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Client.Graphics;
 using Content.Goobstation.Shared.Enchanting.Components;
 using Content.Goobstation.Shared.Enchanting.Systems;
 using Content.Shared.Clothing;
@@ -17,6 +18,9 @@ namespace Content.Goobstation.Client.Enchanting.Systems;
 public sealed class EnchantVisualsSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
+    private const string PostShaderId = "enchant";
 
     public readonly ProtoId<ShaderPrototype> Shader = "Enchant";
 
@@ -24,17 +28,34 @@ public sealed class EnchantVisualsSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<EnchantedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<EnchantedComponent, AfterAutoHandleStateEvent>(OnHandleState);
         SubscribeLocalEvent<EnchantedComponent, HeldVisualsUpdatedEvent>(OnHeldVisualsUpdated);
         SubscribeLocalEvent<EnchantedComponent, EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
     }
 
+    private void OnStartup(Entity<EnchantedComponent> ent, ref ComponentStartup args)
+    {
+        ApplyShader(ent);
+    }
+
     private void OnHandleState(Entity<EnchantedComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        if (!TryComp<SpriteComponent>(ent, out var sprite))
+        ApplyShader(ent);
+    }
+
+    private void ApplyShader(EntityUid uid)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.Initialized)
             return;
 
-        sprite.PostShader = _proto.Index(Shader).InstanceUnique();
+        if (_sprite.HasPostShader((uid, sprite), PostShaderId))
+            return;
+
+        _sprite.SetPostShader((uid, sprite), new SpriteComponent.PostShaderArgs(PostShaderId, _proto.Index(Shader).InstanceUnique())
+        {
+            Before = ContentPostShaderIds.BeforeOutlines,
+        });
     }
 
     private void OnHeldVisualsUpdated(Entity<EnchantedComponent> ent, ref HeldVisualsUpdatedEvent args)

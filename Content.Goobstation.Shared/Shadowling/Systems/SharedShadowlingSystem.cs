@@ -7,6 +7,7 @@ using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
@@ -109,7 +110,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
 
     protected virtual void StartHatchingProgress(Entity<ShadowlingComponent> ent) { }
 
-    private void BeforeDamageChanged(EntityUid uid, ShadowlingComponent comp, BeforeDamageChangedEvent args)
+    private void BeforeDamageChanged(EntityUid uid, ShadowlingComponent comp, ref BeforeDamageChangedEvent args)
     {
         // Can't take damage during hatching
         if (comp.IsHatching)

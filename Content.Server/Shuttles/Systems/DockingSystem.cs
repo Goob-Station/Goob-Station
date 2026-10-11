@@ -20,7 +20,6 @@ namespace Content.Server.Shuttles.Systems
 {
     public sealed partial class DockingSystem : SharedDockingSystem
     {
-        [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         [Dependency] private readonly DoorSystem _doorSystem = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -49,7 +48,7 @@ namespace Content.Server.Shuttles.Systems
             SubscribeLocalEvent<DockingComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<DockingComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<DockingComponent, AnchorStateChangedEvent>(OnAnchorChange);
-            SubscribeLocalEvent<DockingComponent, ReAnchorEvent>(OnDockingReAnchor);
+            SubscribeLocalEvent<DockingComponent, MoveEvent>(OnDockingMove);
 
             SubscribeLocalEvent<DockingComponent, BeforeDoorAutoCloseEvent>(OnAutoClose);
 
@@ -183,12 +182,12 @@ namespace Content.Server.Shuttles.Systems
             }
         }
 
-        private void OnDockingReAnchor(Entity<DockingComponent> entity, ref ReAnchorEvent args)
+        private void OnDockingMove(Entity<DockingComponent> entity, ref MoveEvent args)
         {
             var uid = entity.Owner;
             var component = entity.Comp;
 
-            if (!component.Docked)
+            if (!component.Docked || args.OnlyRotation)
                 return;
 
             var otherDock = component.DockedWith;

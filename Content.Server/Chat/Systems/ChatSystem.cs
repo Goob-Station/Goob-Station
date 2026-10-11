@@ -300,7 +300,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
             {
-                modMessage = FormattedMessage.RemoveMarkupOrThrow(modMessage); // Sanitize it so markup cannot be shown.
+                // Goob - Fix (malformed markup throws)
+                modMessage = FormattedMessage.RemoveMarkupPermissive(modMessage); // Sanitize it so markup cannot be shown.
 
                 if (collective != null && collective.RespectAccents)
                 {
@@ -555,7 +556,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // The Original Message [-] Einstein Engines - Language
-        var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);  // Remove markup before transforming.
+        // Goob - Fix (malformed markup throws)
+        var message = FormattedMessage.RemoveMarkupPermissive(originalMessage);  // Remove markup before transforming.
         message = FormattedMessage.EscapeText(message); // Escape after removing markup
         message = TransformSpeech(source, message, language);
 
@@ -663,7 +665,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // Goob edit start
-        var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);
+        var message = FormattedMessage.RemoveMarkupPermissive(originalMessage); // Goob - Fix (malformed markup throws)
         message = FormattedMessage.EscapeText(message);
         message = TransformSpeech(source, message, language); // Einstein Engines - Language
         // Goob edit end
@@ -801,7 +803,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
             ("entityName", name),
             ("entity", ent),
-            ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+            ("message", FormattedMessage.RemoveMarkupPermissive(action))); // Goob - Fix (malformed markup throws)
 
         if (checkEmote && !TryEmoteChatInput(source, action, forced)) // goob edit
             return;
@@ -1115,7 +1117,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// </summary>
     public string WrapPublicMessage(EntityUid source, string name, string message, LanguagePrototype? language = null, Color? colorOverride = null)
     {
-        var wrapId = GetSpeechVerb(source, message).Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message";
+        var wrapId = GetSpeechVerbWithOverride(source, message).Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message"; // Goob
         return WrapMessage(wrapId, InGameICChatType.Speak, source, name, message, language, colorOverride);
     }
 
@@ -1132,7 +1134,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// </summary>
     public string WrapMessage(LocId wrapId, InGameICChatType chatType, EntityUid source, string entityName, string message, LanguagePrototype? language, Color? colorOverride)
     {
-        var speech = GetSpeechVerb(source, message);
+        var speech = GetSpeechVerbWithOverride(source, message); // Goob - keep voice mask verb override
         language ??= _language.GetLanguage(source);
 
         // Goobstation - Bolded Language Overrides begin
@@ -1215,7 +1217,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (player.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
 
-            var transformEntity = xforms.GetComponent(playerEntity);
+            if (!xforms.TryGetComponent(playerEntity, out var transformEntity)) // Goob
+                continue;
 
             if (transformEntity.MapID != sourceMapId)
                 continue;

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Common.Interactions;
@@ -58,7 +59,7 @@ namespace Content.Shared.Interaction
     public abstract partial class SharedInteractionSystem : EntitySystem
     {
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly ISharedChatManager _chat = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
@@ -633,11 +634,14 @@ namespace Content.Shared.Interaction
             // Only rotate to face if they're not moving.
             if (!HasComp<NoRotateOnInteractComponent>(user) && (!TryComp(user, out InputMoverComponent? mover) || (mover.HeldMoveButtons & MoveButtons.AnyDirection) == 0x0))
             {
-                _rotateToFaceSystem.TryFaceCoordinates(user, _transform.ToMapCoordinates(coordinates).Position);
+                TryFaceInteraction(user, _transform.ToMapCoordinates(coordinates).Position);
             }
 
             return true;
         }
+
+        protected virtual bool TryFaceInteraction(EntityUid user, Vector2 coordinates)
+            => _rotateToFaceSystem.TryFaceCoordinates(user, coordinates);
 
         /// <summary>
         ///     Traces a ray from coords to otherCoords and returns the length
@@ -949,8 +953,8 @@ namespace Content.Shared.Interaction
                     ignoreAnchored = angleDelta < wallMount.Arc / 2 || Math.Tau - angleDelta < wallMount.Arc / 2;
                 }
 
-                if (ignoreAnchored && _mapManager.TryFindGridAt(targetCoords, out _, out var grid))
-                    ignored.UnionWith(grid.GetAnchoredEntities(targetCoords));
+                if (ignoreAnchored && _mapSystem.TryFindGridAt(targetCoords, out _, out var grid))
+                    ignored.UnionWith(_mapSystem.GetAnchoredEntities(grid.Owner, grid, targetCoords));
             }
 
             Ignored combinedPredicate = e => e == target || (predicate?.Invoke(e) ?? false) || ignored.Contains(e);

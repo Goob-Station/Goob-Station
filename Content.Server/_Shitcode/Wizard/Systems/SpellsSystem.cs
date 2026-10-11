@@ -208,7 +208,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         var xform = Transform(ev.Performer);
         var mapCoords = TransformSystem.GetMapCoordinates(ev.Performer, xform);
 
-        if (!MapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
+        if (!Map.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
             !Map.TryGetTileRef(gridUid, grid, xform.Coordinates, out var tileRef) ||
             tileRef.Tile.IsEmpty)
             return;

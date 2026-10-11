@@ -16,6 +16,7 @@ using Content.Shared.Roles;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Prometheus;
+using Content.Shared.Damage.Components;
 
 namespace Content.Goobstation.Server.StationEvents.Metric;
 

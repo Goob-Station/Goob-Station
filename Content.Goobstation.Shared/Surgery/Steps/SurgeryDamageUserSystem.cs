@@ -1,5 +1,6 @@
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
 
 namespace Content.Goobstation.Shared.Surgery.Steps;

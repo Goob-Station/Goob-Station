@@ -30,6 +30,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.ReverseBearTrap;
 
@@ -287,7 +288,7 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Heat", 50);
-        _damageable.TryChangeDamage(trap.Wearer, damage, true, origin: args.Used, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
+        _damageable.TryChangeDamage(trap.Wearer.Value, damage, true, origin: args.Used, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
 
         _popup.PopupEntity(Loc.GetString("reverse-bear-trap-component-trap-fall-observer",
                     ("user", Identity.Name(trap.Wearer.Value, EntityManager))),
@@ -409,7 +410,7 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 300);
-        _damageable.TryChangeDamage(wearer, damage, true, origin: uid, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
+        _damageable.TryChangeDamage(wearer.Value, damage, true, origin: uid, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
         var head = _body.GetBodyChildrenOfType(wearer.Value, BodyPartType.Head).FirstOrDefault();
         if (head != default
             && TryComp<WoundableComponent>(head.Id, out var woundable)

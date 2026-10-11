@@ -161,7 +161,7 @@ public sealed class SpellsGrantSystem : EntitySystem
         if (totalWeight <= 0f || !_proto.TryIndex(spells, out var randomActions))
             return (totalWeight, chosenSpells);
 
-        var weights = FilterDictionary(randomActions.Weights, ignoredSpells);
+        var weights = FilterDictionary(randomActions.Weights.ToDictionary(x => x.Key.Id, x => x.Value), ignoredSpells);
 
         while (totalWeight > 0f && weights.Count > 0 && maxAmount is null or > 0)
         {

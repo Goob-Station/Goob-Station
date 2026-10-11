@@ -6,8 +6,11 @@ using Content.Goobstation.Shared.Temperature;
 using Content.Server.Emp;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Events;
+using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
@@ -29,6 +32,21 @@ public partial class CloneProjectorSystem
 
         SubscribeLocalEvent<HolographicCloneComponent, DamageModifyEvent>(OnCloneDamageModify);
         SubscribeLocalEvent<HolographicCloneComponent, TemperatureImmunityEvent>(OnTemperatureImmunityCheck);
+
+        SubscribeLocalEvent<HolographicBodyPartComponent, OrganRemovedEvent>(OnHolographicOrganRemoved);
+        SubscribeLocalEvent<HolographicBodyPartComponent, BodyPartRemovedEvent>(OnHolographicPartRemoved);
+    }
+
+    private void OnHolographicOrganRemoved(Entity<HolographicBodyPartComponent> ent, ref OrganRemovedEvent args)
+    {
+        if (!TerminatingOrDeleted(ent))
+            QueueDel(ent);
+    }
+
+    private void OnHolographicPartRemoved(Entity<HolographicBodyPartComponent> ent, ref BodyPartRemovedEvent args)
+    {
+        if (args.Part.Owner == ent.Owner && !TerminatingOrDeleted(ent))
+            QueueDel(ent);
     }
 
     // make clone immune to harmful temperature changes while stored away, to prevent death loops and such.
@@ -59,8 +77,13 @@ public partial class CloneProjectorSystem
 
     private void OnInit(Entity<HolographicCloneComponent> clone, ref MapInitEvent args)
     {
+        foreach (var organ in _body.GetBodyOrgans(clone))
+            EnsureComp<HolographicBodyPartComponent>(organ.Id);
+
         foreach (var part in _body.GetBodyChildren(clone))
         {
+            EnsureComp<HolographicBodyPartComponent>(part.Id);
+
             if (!TryComp(part.Id, out WoundableComponent? woundable))
                 continue;
 

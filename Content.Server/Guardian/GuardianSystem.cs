@@ -4,7 +4,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Wizard.Guardian;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Guardian;
@@ -29,7 +29,7 @@ namespace Content.Server.Guardian
     /// <summary>
     /// A guardian has a host it's attached to that it fights for. A fighting spirit.
     /// </summary>
-    public sealed class GuardianSystem : EntitySystem
+    public sealed partial class GuardianSystem : EntitySystem // Goob - partial
     {
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
@@ -66,6 +66,7 @@ namespace Content.Server.Guardian
             SubscribeLocalEvent<GuardianComponent, AttackAttemptEvent>(OnGuardianAttackAttempt);
 
             SubscribeLocalEvent<GuardianHostComponent, MechPilotRelayedEvent<GettingAttackedAttemptEvent>>(OnPilotAttackAttempt);
+            SubscribeLocalEvent<GuardianHostComponent, Content.Shared.Polymorph.PolymorphedEvent>(OnHostPolymorphed); // Goob
         }
 
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
@@ -297,8 +298,8 @@ namespace Content.Server.Guardian
             if (args.DamageDelta == null || component.Host == null || component.DamageShare == 0)
                 return;
 
-            _damageSystem.TryChangeDamage(
-                component.Host,
+            _damageSystem.ChangeDamage(
+                component.Host.Value,
                 args.DamageDelta * component.DamageShare,
                 origin: args.Origin,
                 ignoreResistances: true,
@@ -355,8 +356,9 @@ namespace Content.Server.Guardian
             if (TerminatingOrDeleted(guardianUid) || TerminatingOrDeleted(hostUid))
                 return;
 
-            if (!Resolve(hostUid, ref hostComponent, ref hostXform) ||
-                !Resolve(guardianUid, ref guardianComponent, ref guardianXform))
+            // Goob - Fix (host may lack component)
+            if (!Resolve(hostUid, ref hostComponent, ref hostXform, false) ||
+                !Resolve(guardianUid, ref guardianComponent, ref guardianXform, false))
             {
                 return;
             }
@@ -366,20 +368,7 @@ namespace Content.Server.Guardian
 
             // Goobstation - now moves you closer instead of retracting
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
-            {
-                if (hostXform.MapID != guardianXform.MapID)
-                {
-                    _transform.SetCoordinates(guardianUid, guardianXform, hostXform.Coordinates);
-                }
-                else
-                {
-                    // host's position in our parent's coordinates
-                    var hostPos = hostXform.Coordinates.WithEntityId(guardianXform.ParentUid, EntityManager).Position;
-                    var diff = guardianXform.LocalPosition - hostPos;
-                    var newDiff = diff.Normalized() * guardianComponent.DistanceAllowed;
-                    _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
-                }
-            }
+                PullGuardianToHost(guardianUid, guardianComponent, hostXform, guardianXform);
         }
 
         private void ReleaseGuardian(EntityUid host, GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)

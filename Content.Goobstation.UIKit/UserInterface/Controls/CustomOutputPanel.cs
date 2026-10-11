@@ -9,7 +9,6 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.UIKit.UserInterface.Controls;
 
-[Virtual]
 public sealed class CustomOutputPanel : Control
 {
     [Dependency] private readonly MarkupTagManager _tagManager = default!;

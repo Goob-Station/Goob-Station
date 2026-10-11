@@ -8,6 +8,8 @@ using Content.Server.RoundEnd;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
@@ -75,7 +77,7 @@ public sealed class ShadowlingSystem : SharedShadowlingSystem
         if (!_random.Prob(0.5f))
             return;
 
-        _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent);
+        _damageable.TryChangeDamage(ent.Owner, ent.Comp.GunShootFailDamage, origin: ent);
 
         _stun.TryUpdateParalyzeDuration(ent, ent.Comp.GunShootFailStunTime);
 
@@ -88,7 +90,7 @@ public sealed class ShadowlingSystem : SharedShadowlingSystem
         if (!TryComp<DamageableComponent>(uid, out var damageableComp))
             return;
 
-        _damageable.TryChangeDamage(uid, component.HeatDamage, damageable: damageableComp);
+        _damageable.ChangeDamage((uid, damageableComp), component.HeatDamage);
     }
 
     protected override void StartHatchingProgress(Entity<ShadowlingComponent> ent)

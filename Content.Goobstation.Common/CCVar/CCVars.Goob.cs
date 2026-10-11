@@ -75,6 +75,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> RemoveClumsyOnAntag =
         CVarDef.Create("game.antag.gain.remove_clumsy", false, CVar.SERVERONLY);
 
+    public static readonly CVarDef<string> DisabledGamePresets =
+        CVarDef.Create("game.disabled_presets", "", CVar.SERVERONLY);
+
     /// <summary>
     ///     Is ore silo enabled.
     /// </summary>

@@ -27,7 +27,10 @@ public sealed class NoWieldNeededSystem : EntitySystem
     }
     private void OnGunPickedUp(EntityUid uid, NoWieldNeededComponent comp, EntInsertedIntoContainerMessage args)
     {
-        if (!comp.GetBonus || !TryComp<GunComponent>(args.Entity, out var gun) || !TryComp<GunWieldBonusComponent>(args.Entity, out var bonus))
+        if (!comp.GetBonus
+            || comp.GunsWithBonus.Contains(args.Entity)
+            || !TryComp<GunComponent>(args.Entity, out var gun)
+            || !TryComp<GunWieldBonusComponent>(args.Entity, out var bonus))
             return;
 
         gun.MinAngle += bonus.MinAngle;
@@ -41,16 +44,16 @@ public sealed class NoWieldNeededSystem : EntitySystem
 
     private void OnGunDropped(EntityUid uid, NoWieldNeededComponent comp, EntRemovedFromContainerMessage args)
     {
-        if (!comp.GetBonus)
+        if (!comp.GunsWithBonus.Remove(args.Entity))
             return;
 
-        comp.GunsWithBonus.Remove(args.Entity);
         RevertGun(args.Entity);
     }
 
     private void OnComponentShutdown(Entity<NoWieldNeededComponent> ent, ref ComponentShutdown args)
     {
         ent.Comp.GunsWithBonus.ForEach(RevertGun);
+        ent.Comp.GunsWithBonus.Clear();
     }
 
     private void RevertGun(EntityUid uid)

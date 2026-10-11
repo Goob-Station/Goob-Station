@@ -7,6 +7,7 @@ using Robust.Shared.Prototypes;
 using Robust.Server.Player;
 using Robust.Shared.Random;
 using System.Numerics;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Server.Voodoo
 {

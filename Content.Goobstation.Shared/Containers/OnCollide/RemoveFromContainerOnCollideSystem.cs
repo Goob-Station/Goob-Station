@@ -44,7 +44,7 @@ public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
         if (component.RemoveStrapped && TryComp<StrapComponent>(uid, out var strapComponent)
            && strapComponent.BuckledEntities.Count != 0)
         {
-            foreach (var buckled in strapComponent.BuckledEntities)
+            foreach (var buckled in strapComponent.BuckledEntities.ToList())
             {
                 _buckleSystem.TryUnbuckle(buckled, buckled, true);
                 toRemove.Add(buckled);
@@ -57,7 +57,8 @@ public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
         // remove, paralyze and throw randomly everything in toRemove
         foreach (var removing in toRemove)
         {
-            _containerSystem.Remove(removing, container);
+            if (container.Contains(removing))
+                _containerSystem.Remove(removing, container);
 
             if (component.EjectAfterRemove)
             {

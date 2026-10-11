@@ -21,6 +21,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Actions.Components;
 using Content.Shared.Gravity;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.Vehicles;
 

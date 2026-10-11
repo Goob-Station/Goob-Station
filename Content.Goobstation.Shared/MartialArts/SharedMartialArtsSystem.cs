@@ -50,6 +50,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Inventory;
 using Robust.Shared.Toolshed.Commands.Values;
+using Content.Shared.Damage.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
@@ -292,11 +293,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         return new()
         {
             Coefficients = specifier.DamageDict
-                .Select(x => KeyValuePair.Create(x.Key, multiplier))
-                .ToDictionary(),
+                .ToDictionary(x => (ProtoId<DamageTypePrototype>) x.Key, _ => multiplier),
             FlatReduction = specifier.DamageDict
-                .Select(x => KeyValuePair.Create(x.Key, -modifier)) // Minus mod because it subtracts values from damage
-                .ToDictionary(),
+                .ToDictionary(x => (ProtoId<DamageTypePrototype>) x.Key, _ => -modifier), // Minus mod because it subtracts values from damage
         };
     }
 

@@ -1,5 +1,5 @@
 using Content.Shared.Actions;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;

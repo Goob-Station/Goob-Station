@@ -1,6 +1,6 @@
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Fluids;
 using Content.Shared.Ghost;

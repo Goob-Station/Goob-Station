@@ -23,7 +23,7 @@ public sealed partial class MobCallerSystem : EntitySystem
     [Dependency] private readonly PowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _map = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
@@ -98,7 +98,7 @@ public sealed partial class MobCallerSystem : EntitySystem
             var spawnPos = new MapCoordinates(xform.WorldPosition + spawnOffset, xform.MapID);
 
             // if we would somehow spawn it on a grid, don't
-            if (_map.TryFindGridAt(spawnPos, out _, out _))
+            if (_mapSystem.TryFindGridAt(spawnPos, out _, out _))
                 continue;
 
             // spawn the mob and have it follow us
@@ -131,7 +131,7 @@ public sealed partial class MobCallerSystem : EntitySystem
                 for (var j = 0; j < steps; j++)
                 {
                     // space isn't continuous, discard direction
-                    if (_map.TryFindGridAt(new MapCoordinates(checkPos, ent.Comp2.MapID), out _, out _))
+                    if (_mapSystem.TryFindGridAt(new MapCoordinates(checkPos, ent.Comp2.MapID), out _, out _))
                         return false;
 
                     checkPos += gridStepVec;
