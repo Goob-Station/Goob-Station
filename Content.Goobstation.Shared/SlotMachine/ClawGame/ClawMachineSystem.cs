@@ -4,8 +4,10 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.SlotMachine.ClawGame;
 
@@ -16,10 +18,10 @@ public sealed class ClawMachineSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PrizeSystem _prize = default!;
 
     public override void Initialize()
@@ -29,6 +31,13 @@ public sealed class ClawMachineSystem : EntitySystem
         SubscribeLocalEvent<ClawMachineComponent, ActivateInWorldEvent>(OnInteractHandEvent);
         SubscribeLocalEvent<ClawMachineComponent, ClawGameDoAfterEvent>(OnSlotMachineDoAfter);
         SubscribeLocalEvent<ClawMachineComponent, GotEmaggedEvent>(OnEmagged);
+    }
+
+    private void SetSpinning(Entity<ClawMachineComponent> ent, bool spinning)
+    {
+        _appearance.SetData(ent.Owner, ClawMachineVisuals.Spinning, spinning);
+        _appearance.SetData(ent.Owner, ClawMachineVisuals.NormalSprite, !spinning);
+        ent.Comp.IsSpinning = spinning;
     }
 
     private void OnEmagged(Entity<ClawMachineComponent> ent, ref GotEmaggedEvent args)
@@ -48,22 +57,21 @@ public sealed class ClawMachineSystem : EntitySystem
         if (ent.Comp.IsSpinning || !_power.IsPowered(ent.Owner))
             return;
 
-        var doAfter =
-         new DoAfterArgs(EntityManager, args.User, ent.Comp.DoAfterTime, new ClawGameDoAfterEvent(), ent.Owner)
-         {
-             BreakOnMove = true,
-             BreakOnDamage = true,
-             MultiplyDelay = false,
-         };
-        ent.Comp.IsSpinning = true;
-
-        if (_net.IsServer)
+        var doAfter = new DoAfterArgs(
+            EntityManager,
+            args.User,
+            ent.Comp.DoAfterTime,
+            new ClawGameDoAfterEvent(),
+            ent
+        )
         {
-            _audio.PlayPvs(ent.Comp.PlaySound, ent.Owner);
-            _doAfter.TryStartDoAfter(doAfter);
-            _appearance.SetData(ent.Owner, ClawMachineVisuals.Spinning, true);
-            _appearance.SetData(ent.Owner, ClawMachineVisuals.NormalSprite, false);
-        }
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            MultiplyDelay = false,
+        };
+
+        _audio.PlayPvs(ent.Comp.PlaySound, ent.Owner);
+        _doAfter.TryStartDoAfter(doAfter);
 
         Dirty(ent);
     }
@@ -80,24 +88,19 @@ public sealed class ClawMachineSystem : EntitySystem
             var selfMsgFail = Loc.GetString("clawmachine-fail-self");
             var othersMsgFail = Loc.GetString("clawmachine-fail-other", ("user", args.User));
 
-            ent.Comp.IsSpinning = false;
             _popupSystem.PopupPredicted(selfMsgFail, othersMsgFail, args.User, args.User);
 
-            _appearance.SetData(ent, ClawMachineVisuals.Spinning, false);
-            _appearance.SetData(ent, ClawMachineVisuals.NormalSprite, true);
-
+            SetSpinning(ent, false);
             Dirty(ent);
+
             return;
         }
 
-        _appearance.SetData(ent.Owner, ClawMachineVisuals.Spinning, false);
-        _appearance.SetData(ent.Owner, ClawMachineVisuals.NormalSprite, true);
-
-        ent.Comp.IsSpinning = false;
-
+        SetSpinning(ent, false);
         Dirty(ent);
 
-        if (_net.IsServer) // I have no fucking idea why this misperdicts on this only, when I try it on the slot machine its fine
-            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner);
+        var random = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(ent));
+
+        _prize.HandlePrize(ent.Comp.Prizes, ent.Owner, random);
     }
 }

@@ -20,7 +20,7 @@ namespace Content.Server.Holiday.Christmas;
 /// <summary>
 /// This handles granting players their gift.
 /// </summary>
-public sealed class RandomGiftSystem : EntitySystem
+public sealed partial class RandomGiftSystem : EntitySystem // Goob - partial
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly HandsSystem _hands = default!;

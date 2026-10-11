@@ -11,6 +11,11 @@ slotmachine-win-large = Congratulations! You've won 5000 spesos!
 slotmachine-win-jackpot = CONGRATULATIONS, YOU'VE HIT THE JACKPOT!!
 slotmachine-win-godpot = ERROR INTERGER OVERFLOW, DISPENSING "GODPOT"
 
+slotmachine-emag-lose = YOU LOSE!!!
+slotmachine-emag-win-medium = Congratulations! You've won PRESENT!!
+slotmachine-emag-win-large = Congratulations! You've ??? WON!!!!
+slotmachine-emag-win-jackpot = CONGRATULATIONS! CONGRATULYOU'VE W!!!?????? YOU'VE WON!!!
+
 slotmachine-win-qm-minor = Congratulations, you've won 100,000 spesos
 slotmachine-win-qm-jackpot = CONGRATULATIONS, YOU'VE WON 1,000,000 SPESOS, JACKPOT!!
 slotmachine-win-qm-throngler = If security tries to take this from you, remind them that they are mortal.
