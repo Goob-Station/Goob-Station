@@ -1,0 +1,184 @@
+- type: achievement
+  id: LifeBeforeYourEyes
+  name: achievement-life-before-your-eyes-name
+  description: achievement-life-before-your-eyes-desc
+  category: General
+  icon: { entity: MeteorMedium }
+  condition: !type:ExamineMeteorCondition
+
+- type: achievement
+  id: LifeInYourHands
+  name: achievement-life-in-your-hands-name
+  description: achievement-life-in-your-hands-desc
+  category: General
+  icon: { entity: MeteorLarge }
+  condition: !type:PunchMeteorCondition
+
+- type: achievement
+  id: LockBlock
+  name: achievement-lock-block-name
+  description: achievement-lock-block-desc
+  category: General
+  icon: { entity: Welder }
+  condition: !type:WeldDoorCondition
+
+- type: achievement
+  id: IJustCleanedThat
+  name: achievement-i-just-cleaned-that-name
+  description: achievement-i-just-cleaned-that-desc
+  category: General
+  icon: { entity: WetFloorSign }
+  condition: !type:SlipCondition
+    whitelist:
+      components:
+      - Puddle
+
+- type: achievement
+  id: BananaSlipper
+  name: achievement-banana-slipper-name
+  description: achievement-banana-slipper-desc
+  category: General
+  icon: { entity: FoodBanana }
+  condition: !type:SlipCondition
+    count: 100
+
+- type: achievement
+  id: TheForceIsStrong
+  name: achievement-the-force-is-strong-name
+  description: achievement-the-force-is-strong-desc
+  category: General
+  icon: { sprite: Objects/Weapons/Melee/e_sword.rsi, state: icon }
+  condition: !type:ToggleItemCondition
+    whitelist:
+      components:
+      - EnergySword
+
+- type: achievement
+  id: Jackpot
+  name: achievement-jackpot-name
+  description: achievement-jackpot-desc
+  category: General
+  icon: { entity: SlotMachine }
+  condition: !type:PrizeWonCondition
+    prizes:
+    - Jackpot
+    - GodPot
+    - QmJackpot
+
+- type: achievement
+  id: BlockStacker
+  name: achievement-block-stacker-name
+  description: achievement-block-stacker-desc
+  category: General
+  icon: { entity: BlockGameArcade }
+  condition: !type:BlockGameScoreCondition
+    score: 30000
+
+- type: achievement
+  id: TheBestDriver
+  name: achievement-the-best-driver-name
+  description: achievement-the-best-driver-desc
+  category: General
+  icon: { entity: VehicleClowncarAntag }
+  condition: !type:VehicleHornCondition
+    count: 100
+    whitelist:
+      components:
+      - Clowncar
+
+- type: achievement
+  id: CaptainsLog
+  name: achievement-captains-log-name
+  description: achievement-captains-log-desc
+  category: General
+  icon: { entity: TapeRecorder }
+  condition: !type:TapeRecordedCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Captain
+
+- type: achievement
+  id: UnhealthySnacks
+  name: achievement-unhealthy-snacks-name
+  description: achievement-unhealthy-snacks-desc
+  category: General
+  icon: { entity: Cigarette }
+  condition: !type:SmokeCondition
+    count: 20
+
+- type: achievement
+  id: AdjutantOnline
+  name: achievement-adjutant-online-name
+  description: achievement-adjutant-online-desc
+  category: General
+  icon: { entity: BorgChassisGeneric }
+  condition: !type:SpawnCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Borg
+
+- type: achievement
+  id: IsItReallyThatTimeAgain
+  name: achievement-is-it-really-that-time-again-name
+  description: achievement-is-it-really-that-time-again-desc
+  category: General
+  icon: { entity: Crowbar }
+  condition: !type:BlobPryCondition
+
+- type: achievement
+  id: FiveStarChef
+  name: achievement-five-star-chef-name
+  description: achievement-five-star-chef-desc
+  category: General
+  icon: { entity: ClothingHeadHatChef }
+  condition: !type:FoodCookedCondition
+    count: 100
+
+- type: achievement
+  id: Greenthumb
+  name: achievement-greenthumb-name
+  description: achievement-greenthumb-desc
+  category: General
+  icon: { entity: HydroponicsToolMiniHoe }
+  condition: !type:HarvestCondition
+    count: 500
+
+- type: achievement
+  id: HopExtraordinaire
+  name: achievement-hop-extraordinaire-name
+  description: achievement-hop-extraordinaire-desc
+  category: General
+  icon: { entity: RubberStampHop }
+  condition: !type:StampCondition
+    count: 100
+
+- type: achievement
+  id: DevilsBargain
+  name: achievement-devils-bargain-name
+  description: achievement-devils-bargain-desc
+  category: General
+  icon: { entity: PaperDevilContract }
+  condition: !type:DevilContractCondition
+
+- type: achievement
+  id: Tide
+  name: achievement-tide-name
+  description: achievement-tide-desc
+  category: General
+  icon: { entity: ClothingHandsGlovesColorYellow }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Passenger
+    - !type:WearingCondition
+      slot: gloves
+      whitelist:
+        components:
+        - Insulated
+    - !type:HoldingCondition
+      whitelist:
+        tags:
+        - Toolbox

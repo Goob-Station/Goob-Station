@@ -3,6 +3,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Fishing.Components;
+using Content.Goobstation.Shared.Fishing.Events;
 using Content.Goobstation.Shared.Fishing.Systems;
 using Content.Shared.EntityTable;
 using Content.Shared.Interaction.Events;
@@ -139,6 +140,8 @@ public sealed class FishingSystem : SharedFishingSystem
     {
         var position = Transform(fishSpot).Coordinates;
         var fish = Spawn(fishId, position);
+        var caughtEv = new FishCaughtEvent(fish);
+        RaiseLocalEvent(target, ref caughtEv);
         // Throw da fish back to the player because it looks funny
         var direction = Xform.GetWorldPosition(target) - Xform.GetWorldPosition(fish);
         var length = direction.Length();

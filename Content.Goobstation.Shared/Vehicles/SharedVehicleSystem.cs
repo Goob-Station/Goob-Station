@@ -127,6 +127,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _audio.PlayPvs(component.HornSound, uid);
         args.Handled = true;
+
+        var hornedEv = new VehicleHornedEvent(args.Performer);
+        RaiseLocalEvent(uid, ref hornedEv);
     }
 
     private void OnSiren(EntityUid uid, VehicleComponent component, InstantActionEvent args)

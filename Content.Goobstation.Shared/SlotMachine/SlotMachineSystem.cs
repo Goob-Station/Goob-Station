@@ -140,7 +140,7 @@ namespace Content.Goobstation.Shared.SlotMachine
 
             _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
 
-            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner);
+            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner, args.User);
         }
     }
 }

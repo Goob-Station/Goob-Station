@@ -3,6 +3,7 @@
 using System.Linq;
 using System.Text;
 using Content.Goobstation.Shared.Supermatter.Components;
+using Content.Goobstation.Shared.Supermatter.Events;
 using Content.Goobstation.Shared.Supermatter.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
@@ -597,6 +598,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (sm.DelamTimer > sm.DelamTimerAccumulator)
             return;
+
+        RaiseLocalEvent(new SupermatterDelaminatedEvent(uid));
 
         switch (_delamType)
         {
