@@ -1524,6 +1524,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("ghost_particles");
 
+                    b.Property<string>("OocIcon")
+                        .HasColumnType("text")
+                        .HasColumnName("ooc_icon");
+
                     b.Property<int>("TierId")
                         .HasColumnType("integer")
                         .HasColumnName("tier_id");
@@ -1576,11 +1580,8 @@ namespace Content.Server.Database.Migrations.Postgres
             modelBuilder.Entity("Content.Server.Database.RMCPatronTier", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasColumnName("rmc_patron_tiers_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("DiscordRole")
                         .HasColumnType("numeric(20,0)")

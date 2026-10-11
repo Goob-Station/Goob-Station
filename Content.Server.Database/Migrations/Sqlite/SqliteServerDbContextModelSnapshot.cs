@@ -1445,6 +1445,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("ghost_particles");
 
+                    b.Property<string>("OocIcon")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ooc_icon");
+
                     b.Property<int>("TierId")
                         .HasColumnType("INTEGER")
                         .HasColumnName("tier_id");
@@ -1497,7 +1501,6 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.RMCPatronTier", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
                         .HasColumnName("rmc_patron_tiers_id");
 

@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Common.Patrons;
 using Content.Shared.StatusIcon;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.RichText;
@@ -26,9 +28,11 @@ public sealed class IconTag : IMarkupTag
         }
 
         _spriteSystem ??= _entitySystem.GetEntitySystem<SpriteSystem>();
-        var texture = _prototype.TryIndex<JobIconPrototype>(id.StringValue, out var iconPrototype)
-            ? _spriteSystem.Frame0(iconPrototype.Icon)
-            : null;
+        Texture? texture = null;
+        if (_prototype.TryIndex<OocIconPrototype>(id.StringValue, out var oocIcon))
+            texture = _spriteSystem.Frame0(oocIcon.Icon);
+        else if (_prototype.TryIndex<JobIconPrototype>(id.StringValue, out var iconPrototype))
+            texture = _spriteSystem.Frame0(iconPrototype.Icon);
 
         var icon = new TextureRect
         {
