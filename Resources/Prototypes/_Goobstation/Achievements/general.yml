@@ -264,7 +264,7 @@
   name: achievement-lawset-changed-name
   description: achievement-lawset-changed-desc
   category: General
-  icon: { entity: StationAiCore }
+  icon: { sprite: Mobs/Silicon/station_ai.rsi, state: ai_clown }
   condition: !type:SiliconEmaggedCondition
     requirements:
     - !type:HasComponentCondition
@@ -538,7 +538,7 @@
   name: achievement-who-was-that-name
   description: achievement-who-was-that-desc
   category: General
-  icon: { entity: IDCardStandard }
+  icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
   hidden: true
   condition: !type:HugCondition
     creditTarget: true
