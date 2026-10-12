@@ -78,6 +78,9 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         var verb = _chat.GetSpeechVerb(args.Source, args.Message);
         var name = nameEv.VoiceName;
         cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message));
+
+        var recordedEv = new TapeRecordedEvent(ent);
+        RaiseLocalEvent(args.Source, ref recordedEv);
     }
 
     private void OnPrintMessage(Entity<TapeRecorderComponent> ent, ref PrintTapeRecorderMessage args)
