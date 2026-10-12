@@ -59,7 +59,6 @@ public sealed partial class BorgSystem
             chargeLevel = 1;
         }
 
-        _alerts.ClearAlert(ent.Owner, ent.Comp1.NoBatteryAlert); // this line might be redundant...
         _alerts.ShowAlert(ent.Owner, ent.Comp1.BatteryAlert, chargeLevel);
     }
 
