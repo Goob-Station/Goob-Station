@@ -37,6 +37,8 @@
     heatingCoefficient: 0.2
     coolingCoefficient: 0.2
   - type: IngestionBlocker
+  - type: GlowShielding # Goobstation - envirohelm moderately dims the plasmaman body glow
+    reduction: 0.3
   - type: Tag
     tags:
     - WhitelistChameleon
