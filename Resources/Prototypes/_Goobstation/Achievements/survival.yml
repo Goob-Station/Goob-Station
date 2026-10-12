@@ -170,7 +170,7 @@
   description: achievement-frankenstein-desc
   category: Survival
   icon: { entity: RightArmMoth }
-  condition: !type:RoundEndCondition
+  condition: !type:PeriodicRequirementsCondition
     requirements:
     - !type:MobStateCondition
       mobstate: Alive
@@ -214,3 +214,98 @@
   category: Survival
   icon: { entity: CrateCoffin }
   condition: !type:EarlyDeathCondition
+
+- type: achievement
+  id: EasyPrey
+  name: achievement-easy-prey-name
+  description: achievement-easy-prey-desc
+  category: Survival
+  icon: { entity: LeftArmHuman }
+  hidden: true
+  condition: !type:CausedMobStateCondition
+    requirements:
+    - !type:NoLimbsCondition
+    targetRequirements:
+    - !type:HasComponentCondition
+      components:
+      - type: HumanoidAppearance
+
+- type: achievement
+  id: Dormammu
+  name: achievement-dormammu-name
+  description: achievement-dormammu-desc
+  category: Survival
+  icon: { entity: CrateCoffin }
+  condition: !type:KilledBySameCondition
+    kills: 3
+
+- type: achievement
+  id: OutRobusted
+  name: achievement-out-robusted-name
+  description: achievement-out-robusted-desc
+  category: Survival
+  icon: { entity: ToolboxMechanical }
+  condition: !type:KillRageQuitCondition
+
+- type: achievement
+  id: FreakWorkplaceAccident
+  name: achievement-freak-workplace-accident-name
+  description: achievement-freak-workplace-accident-desc
+  category: Survival
+  icon: { entity: Recycler }
+  hidden: true
+  condition: !type:RecyclerGibbedCondition
+
+- type: achievement
+  id: SubZeroSurvivor
+  name: achievement-sub-zero-survivor-name
+  description: achievement-sub-zero-survivor-desc
+  category: Survival
+  icon: { entity: LockerFreezer }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:NukeDetonatedCondition
+    - !type:InsideContainerCondition
+      whitelist:
+        components:
+        - AntiRottingContainer
+
+- type: achievement
+  id: BadLuck
+  name: achievement-bad-luck-name
+  description: achievement-bad-luck-desc
+  category: Survival
+  icon: { entity: WeaponRussianRevolver }
+  condition: !type:MobStateEnteredCondition
+    requirements:
+    - !type:HoldingCondition
+      prototypes:
+      - WeaponRussianRevolver
+
+- type: achievement
+  id: GroundControl
+  name: achievement-ground-control-name
+  description: achievement-ground-control-desc
+  category: Survival
+  icon: { entity: ClothingOuterHardsuitEVA }
+  hidden: true
+  condition: !type:LostInFtlCondition
+
+- type: achievement
+  id: JusticeIsBlind
+  name: achievement-justice-is-blind-name
+  description: achievement-justice-is-blind-desc
+  category: Survival
+  icon: { entity: ClothingEyesBlindfold }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:DepartmentCondition
+      departments:
+      - Security
+    - !type:HasComponentCondition
+      components:
+      - type: PermanentBlindness

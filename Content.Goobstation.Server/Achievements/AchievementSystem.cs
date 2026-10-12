@@ -8,6 +8,7 @@ using Content.Shared.EntityConditions;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
+using Content.Shared.Projectiles;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Robust.Server.Player;
@@ -104,6 +105,13 @@ public sealed class AchievementSystem : EntitySystem
     private void OnPlayerLoaded(ICommonSession session)
     {
         SessionLoaded?.Invoke(session);
+    }
+
+    public EntityUid ResolveAttacker(EntityUid origin)
+    {
+        return TryComp<ProjectileComponent>(origin, out var projectile) && projectile.Shooter is { } shooter
+            ? shooter
+            : origin;
     }
 
     public bool TryGetSession(EntityUid player, [NotNullWhen(true)] out ICommonSession? session)

@@ -38,3 +38,36 @@
   category: Medical
   icon: { entity: OrganHumanHeart }
   condition: !type:OrganTransplantCondition
+
+- type: achievement
+  id: ForkInAnOutlet
+  name: achievement-fork-in-an-outlet-name
+  description: achievement-fork-in-an-outlet-desc
+  category: Medical
+  icon: { entity: Defibrillator }
+  condition: !type:DefibrillateCondition
+    onAttempt: true
+    targetRequirements:
+    - !type:SpeciesCondition
+      species:
+      - IPC
+
+- type: achievement
+  id: ILiveAgain
+  name: achievement-i-live-again-name
+  description: achievement-i-live-again-desc
+  category: Medical
+  icon: { entity: MMI }
+  condition: !type:BrainInMmiCondition
+
+- type: achievement
+  id: WoopsieDaisy
+  name: achievement-woopsie-daisy-name
+  description: achievement-woopsie-daisy-desc
+  category: Medical
+  icon: { entity: Syringe }
+  condition: !type:RazoriumPatientCondition
+    requirements:
+    - !type:DepartmentCondition
+      departments:
+      - Medical

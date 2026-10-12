@@ -15,7 +15,9 @@ public sealed partial class HoldingEntityConditionSystem : EntityConditionSystem
     {
         foreach (var held in _hands.EnumerateHeld((entity.Owner, entity.Comp)))
         {
-            if (!_whitelist.IsWhitelistPass(args.Condition.Whitelist, held))
+            if (!_whitelist.IsWhitelistPassOrNull(args.Condition.Whitelist, held)
+                || args.Condition.Prototypes is { } prototypes
+                && (Prototype(held) is not { } proto || !prototypes.Contains(proto.ID)))
                 continue;
 
             args.Result = true;
@@ -26,8 +28,11 @@ public sealed partial class HoldingEntityConditionSystem : EntityConditionSystem
 
 public sealed partial class HoldingCondition : EntityConditionBase<HoldingCondition>
 {
-    [DataField(required: true)]
-    public EntityWhitelist Whitelist = new();
+    [DataField]
+    public EntityWhitelist? Whitelist;
+
+    [DataField]
+    public List<EntProtoId>? Prototypes;
 
     public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {

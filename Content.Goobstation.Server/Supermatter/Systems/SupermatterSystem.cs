@@ -707,7 +707,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
 
             if (HasComp<ActorComponent>(target))
+            {
+                var consumedEv = new SupermatterConsumedEvent(uid);
+                RaiseLocalEvent(target, ref consumedEv);
                 _thunderstrikeSystem.Smite(target, true, null, LTGSM); // funny :3
+            }
             else
             {
                 SpawnNextToOrDrop("Ash", target);
@@ -731,6 +735,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             sm.Activated = true;
 
         sm.MatterPower += 200;
+
+        var touchedEv = new SupermatterConsumedEvent(uid);
+        RaiseLocalEvent(target, ref touchedEv);
 
         SpawnNextToOrDrop("Ash", target);
         _audio.PlayPvs(sm.DustSound, uid);

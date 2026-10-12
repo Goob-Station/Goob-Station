@@ -98,3 +98,21 @@
   category: Lavaland
   icon: { entity: LavalandEquipmentExplorerSuit }
   condition: !type:LavalandVisitCondition
+
+- type: achievement
+  id: ByThePowerOfTheLord
+  name: achievement-by-the-power-of-the-lord-name
+  description: achievement-by-the-power-of-the-lord-desc
+  category: Lavaland
+  icon: { entity: Bible }
+  condition: !type:BibleSmiteCondition
+    prototypes:
+    - LavalandBossColossus
+
+- type: achievement
+  id: LongWayDown
+  name: achievement-long-way-down-name
+  description: achievement-long-way-down-desc
+  category: Lavaland
+  icon: { entity: FloorChasmEntity }
+  condition: !type:ChasmFallCondition

@@ -170,3 +170,97 @@
     - !type:ObjectivesCompletedCondition
     - !type:MobStateCondition
       mobstate: Alive
+
+- type: achievement
+  id: NotAgain
+  name: achievement-not-again-name
+  description: achievement-not-again-desc
+  category: Antagonist
+  icon: { entity: OrganAbductorHeart }
+  hidden: true
+  condition: !type:AbductedAgainCondition
+
+- type: achievement
+  id: Brains
+  name: achievement-brains-name
+  description: achievement-brains-desc
+  category: Antagonist
+  icon: { entity: FoodMeat }
+  condition: !type:ZombieVictoryCondition
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - InitialInfectedRole
+
+- type: achievement
+  id: HeyCanIHaveThis
+  name: achievement-hey-can-i-have-this-name
+  description: achievement-hey-can-i-have-this-desc
+  category: Antagonist
+  icon: { entity: ClothingHandsChameleonThief }
+  condition: !type:PickpocketCondition
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - ThiefRole
+
+- type: achievement
+  id: CanITalkToYou
+  name: achievement-can-i-talk-to-you-name
+  description: achievement-can-i-talk-to-you-desc
+  category: Antagonist
+  icon: { entity: Bible }
+  condition: !type:CausedMobStateCondition
+    mobStates:
+    - Critical
+    - Dead
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Chaplain
+    targetRequirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - HereticRole
+
+- type: achievement
+  id: HeyIKnowYou
+  name: achievement-hey-i-know-you-name
+  description: achievement-hey-i-know-you-desc
+  category: Antagonist
+  icon: { entity: ArmBladeChangeling }
+  condition: !type:HugCondition
+    sameName: true
+    huggerRequirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - ChangelingRole
+
+- type: achievement
+  id: IngloriousLife
+  name: achievement-inglorious-life-name
+  description: achievement-inglorious-life-desc
+  category: Antagonist
+  icon: { entity: CrateCoffin }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:ObjectiveFailedCondition
+      objective: DieObjective
+
+- type: achievement
+  id: YouAreMyFire
+  name: achievement-you-are-my-fire-name
+  description: achievement-you-are-my-fire-desc
+  category: Antagonist
+  icon: { entity: AcousticGuitarInstrument }
+  condition: !type:BandCondition
+    requireTwin: true
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - ParadoxCloneRole
