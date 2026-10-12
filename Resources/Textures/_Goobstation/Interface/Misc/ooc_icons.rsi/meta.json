@@ -1,0 +1,119 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by @Yaoel on Discord.",
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "coglove"
+        },
+        {
+            "name": "floorpills"
+        },
+        {
+            "name": "ian"
+        },
+        {
+            "name": "teddy"
+        },
+        {
+            "name": "CBURN"
+        },
+        {
+            "name": "ERTChaplain"
+        },
+        {
+            "name": "ERTEngineer"
+        },
+        {
+            "name": "ERTJanitor"
+        },
+        {
+            "name": "ERTLeader"
+        },
+        {
+            "name": "ERTMedical"
+        },
+        {
+            "name": "ERTSecurity"
+        },
+        {
+            "name": "andheisking"
+        },
+        {
+            "name": "androidonator"
+        },
+        {
+            "name": "anxiousmist"
+        },
+        {
+            "name": "baptr0b0t"
+        },
+        {
+            "name": "birb"
+        },
+        {
+            "name": "blepington"
+        },
+        {
+            "name": "bomzis"
+        },
+        {
+            "name": "carlander"
+        },
+        {
+            "name": "CCCommander"
+        },
+        {
+            "name": "cco"
+        },
+        {
+            "name": "daffyd5"
+        },
+        {
+            "name": "durk"
+        },
+        {
+            "name": "harel"
+        },
+        {
+            "name": "Leguia"
+        },
+        {
+            "name": "lehmok"
+        },
+        {
+            "name": "nightharlaw"
+        },
+        {
+            "name": "NTIntern"
+        },
+        {
+            "name": "redstonewolf"
+        },
+        {
+            "name": "smallmonke"
+        },
+        {
+            "name": "specopsofficer"
+        },
+        {
+            "name": "unrobust"
+        },
+        {
+            "name": "wetaht"
+        },
+        {
+            "name": "wine"
+        },
+        {
+            "name": "xeve"
+        },
+        {
+            "name": "yummi"
+        }
+    ]
+}

@@ -114,6 +114,7 @@ namespace Content.Goobstation.Shared.SlotMachine
                 _stackSystem.SetCount((item, stack), _stackSystem.GetCount(item) - ent.Comp.SpinCost);
 
             ent.Comp.IsSpinning = true;
+            ent.Comp.Spinner = args.User;
 
             if (_net.IsServer) // The DoAfter causes a weird jitter if its predicted for some reason
             {
@@ -140,7 +141,8 @@ namespace Content.Goobstation.Shared.SlotMachine
 
             _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
 
-            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner);
+            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner, ent.Comp.Spinner);
+            ent.Comp.Spinner = null;
         }
     }
 }
