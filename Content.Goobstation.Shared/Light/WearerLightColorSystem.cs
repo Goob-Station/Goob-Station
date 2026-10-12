@@ -16,7 +16,6 @@ namespace Content.Goobstation.Shared.Light
             SubscribeLocalEvent<WearerLightColorComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<WearerLightColorComponent, ClothingGotEquippedEvent>(OnEquipped);
             SubscribeLocalEvent<WearerLightColorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
-            SubscribeLocalEvent<WearerLightColorComponent, HandheldLightTurnOnEvent>(OnTurnOn);
             SubscribeLocalEvent<WearerLightColorComponent, AttemptPointLightToggleEvent>(OnLightAttempt);
         }
 
@@ -28,28 +27,41 @@ namespace Content.Goobstation.Shared.Light
 
         private void OnEquipped(Entity<WearerLightColorComponent> ent, ref ClothingGotEquippedEvent args)
         {
-            var color = ent.Comp.DefaultColor;
+            Color color;
+            bool suppressed;
 
             if (TryComp<HumanoidAppearanceComponent>(args.Wearer, out var humanoid)
                 && (ent.Comp.Species == null || humanoid.Species == ent.Comp.Species))
             {
                 color = humanoid.SkinColor;
+                suppressed = false;
+            }
+            else
+            {
+                color = ent.Comp.DefaultColor;
+                suppressed = ent.Comp.Species != null;
             }
 
+            SetSuppressed(ent, suppressed);
             _appearance.SetData(ent, ToggleableVisuals.Color, color);
+            SyncLight(ent);
         }
 
         private void OnUnequipped(Entity<WearerLightColorComponent> ent, ref ClothingGotUnequippedEvent args)
         {
+            SetSuppressed(ent, false);
             _appearance.SetData(ent, ToggleableVisuals.Color, ent.Comp.DefaultColor);
+            SyncLight(ent);
         }
 
-        private void OnTurnOn(Entity<WearerLightColorComponent> ent, ref HandheldLightTurnOnEvent args)
+        private void OnLightAttempt(Entity<WearerLightColorComponent> ent, ref AttemptPointLightToggleEvent args)
         {
-            var suppressed = ent.Comp.Species != null
-                && (!TryComp<HumanoidAppearanceComponent>(args.User, out var humanoid)
-                    || humanoid.Species != ent.Comp.Species);
+            if (args.Enabled && ent.Comp.LightSuppressed)
+                args.Cancelled = true;
+        }
 
+        private void SetSuppressed(Entity<WearerLightColorComponent> ent, bool suppressed)
+        {
             if (ent.Comp.LightSuppressed == suppressed)
                 return;
 
@@ -57,11 +69,15 @@ namespace Content.Goobstation.Shared.Light
             Dirty(ent);
         }
 
-        private void OnLightAttempt(Entity<WearerLightColorComponent> ent, ref AttemptPointLightToggleEvent args)
+        private void SyncLight(Entity<WearerLightColorComponent> ent)
         {
-            // Only block enabling; turning off always works.
-            if (args.Enabled && ent.Comp.LightSuppressed)
-                args.Cancelled = true;
+            if (!_appearance.TryGetData<bool>(ent, ToggleableVisuals.Enabled, out var enabled) || !enabled)
+                return;
+
+            if (!_lights.TryGetLight(ent, out var light))
+                return;
+
+            _lights.SetEnabled(ent, !ent.Comp.LightSuppressed, light);
         }
     }
 }

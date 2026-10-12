@@ -68,7 +68,7 @@
   - type: Appearance
   - type: HandheldLight
     addPrefix: true
-    requiresPower: false # Goob Station edit.   Helmet light needs no power cell
+    wattage: 0 # Goob Station edit. The helmet light doesn't consume its internal battery.
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
   - type: LightBehaviour
@@ -99,6 +99,13 @@
   #- type: ContainerContainer
   #  containers:
   #    cell_slot: !type:ContainerSlot {}
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRechargeRate: 2
+  - type: EmpResistance
+    strengthMultiplier: 0
   # Goob Station end
   - type: GuideHelp # While the playerbase is getting introduced to Plasmamen, add their guidebook here
     guides: [ Plasmaman ]
