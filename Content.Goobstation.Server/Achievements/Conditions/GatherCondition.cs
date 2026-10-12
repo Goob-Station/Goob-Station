@@ -11,9 +11,9 @@ public sealed partial class GatherCondition : AchievementCondition
     public EntityWhitelist? Whitelist;
 }
 
-public sealed class GatherConditionSystem : AchievementConditionSystem<GatherCondition>
+public sealed partial class GatherConditionSystem : AchievementConditionSystem<GatherCondition>
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

@@ -7,8 +7,8 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class InsideContainerEntityConditionSystem : EntityConditionSystem<TransformComponent, InsideContainerCondition>
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     protected override void Condition(Entity<TransformComponent> entity, ref EntityConditionEvent<InsideContainerCondition> args)
     {

@@ -12,8 +12,8 @@ namespace Content.Goobstation.Client.Achievements.UI;
 [GenerateTypedNameReferences]
 public sealed partial class AchievementsWindow : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     private readonly SpriteSystem _sprite;
 

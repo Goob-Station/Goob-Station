@@ -7,8 +7,8 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class WearingEntityConditionSystem : EntityConditionSystem<InventoryComponent, WearingCondition>
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     protected override void Condition(Entity<InventoryComponent> entity, ref EntityConditionEvent<WearingCondition> args)
     {

@@ -57,7 +57,7 @@ internal abstract partial class BasePatronDbCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronSetCommand : BasePatronDbCommand
+internal sealed partial class PatronSetCommand : BasePatronDbCommand
 {
     public override string Command => "patron:set";
 

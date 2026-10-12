@@ -9,9 +9,9 @@ public sealed partial class VehicleHornCondition : AchievementCondition
     public EntityWhitelist? Whitelist;
 }
 
-public sealed class VehicleHornConditionSystem : AchievementConditionSystem<VehicleHornCondition>
+public sealed partial class VehicleHornConditionSystem : AchievementConditionSystem<VehicleHornCondition>
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

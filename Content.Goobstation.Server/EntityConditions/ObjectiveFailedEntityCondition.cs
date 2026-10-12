@@ -8,7 +8,7 @@ namespace Content.Goobstation.Server.EntityConditions;
 
 public sealed partial class ObjectiveFailedEntityConditionSystem : EntityConditionSystem<MindContainerComponent, ObjectiveFailedCondition>
 {
-    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
+    [Dependency] private SharedObjectivesSystem _objectives = default!;
 
     protected override void Condition(Entity<MindContainerComponent> entity, ref EntityConditionEvent<ObjectiveFailedCondition> args)
     {

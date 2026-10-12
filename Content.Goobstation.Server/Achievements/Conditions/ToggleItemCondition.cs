@@ -9,9 +9,9 @@ public sealed partial class ToggleItemCondition : AchievementCondition
     public EntityWhitelist Whitelist = new();
 }
 
-public sealed class ToggleItemConditionSystem : AchievementConditionSystem<ToggleItemCondition>
+public sealed partial class ToggleItemConditionSystem : AchievementConditionSystem<ToggleItemCondition>
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

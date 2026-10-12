@@ -8,9 +8,9 @@ namespace Content.Goobstation.Server.Achievements.Conditions;
 
 public sealed partial class UndamagedCondition : AchievementCondition;
 
-public sealed class UndamagedConditionSystem : AchievementConditionSystem<UndamagedCondition>
+public sealed partial class UndamagedConditionSystem : AchievementConditionSystem<UndamagedCondition>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private readonly HashSet<EntityUid> _eligible = new();
 

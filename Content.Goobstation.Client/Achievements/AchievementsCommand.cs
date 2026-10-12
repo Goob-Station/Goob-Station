@@ -5,9 +5,9 @@ using Robust.Shared.Console;
 namespace Content.Goobstation.Client.Achievements;
 
 [AnyCommand]
-public sealed class AchievementsCommand : LocalizedCommands
+public sealed partial class AchievementsCommand : LocalizedCommands
 {
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
 
     public override string Command => "achievements";
 

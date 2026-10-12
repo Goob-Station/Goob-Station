@@ -8,10 +8,10 @@ namespace Content.Goobstation.Server.Achievements.Conditions;
 
 public sealed partial class SmokeCondition : AchievementCondition;
 
-public sealed class SmokeConditionSystem : AchievementConditionSystem<SmokeCondition>
+public sealed partial class SmokeConditionSystem : AchievementConditionSystem<SmokeCondition>
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     private readonly HashSet<EntityUid> _finished = new();
 

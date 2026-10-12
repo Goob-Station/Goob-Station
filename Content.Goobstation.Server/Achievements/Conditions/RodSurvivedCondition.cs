@@ -8,10 +8,10 @@ namespace Content.Goobstation.Server.Achievements.Conditions;
 
 public sealed partial class RodSurvivedCondition : AchievementCondition;
 
-public sealed class RodSurvivedConditionSystem : AchievementConditionSystem<RodSurvivedCondition>
+public sealed partial class RodSurvivedConditionSystem : AchievementConditionSystem<RodSurvivedCondition>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     private static readonly TimeSpan SurviveDelay = TimeSpan.FromSeconds(5);
 

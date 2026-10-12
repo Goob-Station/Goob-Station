@@ -52,9 +52,9 @@ public sealed partial class ChronofieldCondition : AchievementCondition
     public float Radius = 3f;
 }
 
-public abstract class SessionsConditionSystem<T> : AchievementConditionSystem<T> where T : AchievementCondition
+public abstract partial class SessionsConditionSystem<T> : AchievementConditionSystem<T> where T : AchievementCondition
 {
-    [Dependency] protected readonly IPlayerManager PlayerManager = default!;
+    [Dependency] protected IPlayerManager PlayerManager = default!;
 
     protected void ProgressAllPlayers()
     {
@@ -66,7 +66,7 @@ public abstract class SessionsConditionSystem<T> : AchievementConditionSystem<T>
     }
 }
 
-public sealed class NukiePaybackConditionSystem : SessionsConditionSystem<NukiePaybackCondition>
+public sealed partial class NukiePaybackConditionSystem : SessionsConditionSystem<NukiePaybackCondition>
 {
     public override void Initialize()
     {
@@ -90,10 +90,10 @@ public sealed class NukiePaybackConditionSystem : SessionsConditionSystem<NukieP
     }
 }
 
-public sealed class ResearchCompleteConditionSystem : SessionsConditionSystem<ResearchCompleteCondition>
+public sealed partial class ResearchCompleteConditionSystem : SessionsConditionSystem<ResearchCompleteCondition>
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedStationSystem _station = default!;
 
     private readonly HashSet<EntityUid> _completed = new();
 
@@ -137,9 +137,9 @@ public sealed class ResearchCompleteConditionSystem : SessionsConditionSystem<Re
     }
 }
 
-public sealed class BlobDefeatedConditionSystem : SessionsConditionSystem<BlobDefeatedCondition>
+public sealed partial class BlobDefeatedConditionSystem : SessionsConditionSystem<BlobDefeatedCondition>
 {
-    [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private GameTicker _ticker = default!;
 
     private bool _nukeDetonated;
 
@@ -187,9 +187,9 @@ public sealed class BlobDefeatedConditionSystem : SessionsConditionSystem<BlobDe
     }
 }
 
-public sealed class ZombieVictoryConditionSystem : SessionsConditionSystem<ZombieVictoryCondition>
+public sealed partial class ZombieVictoryConditionSystem : SessionsConditionSystem<ZombieVictoryCondition>
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -222,13 +222,13 @@ public sealed class ZombieVictoryConditionSystem : SessionsConditionSystem<Zombi
     }
 }
 
-public sealed class CommandProtectedConditionSystem : AchievementConditionSystem<CommandProtectedCondition>
+public sealed partial class CommandProtectedConditionSystem : AchievementConditionSystem<CommandProtectedCondition>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedJobSystem _jobs = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SharedJobSystem _jobs = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private EmergencyShuttleSystem _emergency = default!;
 
     private readonly HashSet<ProtoId<DepartmentPrototype>> _deaths = new();
 
@@ -299,7 +299,7 @@ public sealed class CommandProtectedConditionSystem : AchievementConditionSystem
     }
 }
 
-public sealed class SingularityBustedConditionSystem : AchievementConditionSystem<SingularityBustedCondition>
+public sealed partial class SingularityBustedConditionSystem : AchievementConditionSystem<SingularityBustedCondition>
 {
     public override void Initialize()
     {
@@ -321,10 +321,10 @@ public sealed class SingularityBustedConditionSystem : AchievementConditionSyste
     }
 }
 
-public sealed class ChronofieldConditionSystem : AchievementConditionSystem<ChronofieldCondition>
+public sealed partial class ChronofieldConditionSystem : AchievementConditionSystem<ChronofieldCondition>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     public override void Initialize()
     {

@@ -52,10 +52,10 @@ public sealed partial class BandCondition : AchievementCondition
     public bool RequireTwin;
 }
 
-public abstract class PeriodicConditionSystem<T> : AchievementConditionSystem<T> where T : AchievementCondition
+public abstract partial class PeriodicConditionSystem<T> : AchievementConditionSystem<T> where T : AchievementCondition
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly IPlayerManager PlayerManager = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected IPlayerManager PlayerManager = default!;
 
     protected virtual TimeSpan Interval => TimeSpan.FromSeconds(5);
 
@@ -75,7 +75,7 @@ public abstract class PeriodicConditionSystem<T> : AchievementConditionSystem<T>
     protected abstract void Check();
 }
 
-public sealed class PeriodicRequirementsConditionSystem : PeriodicConditionSystem<PeriodicRequirementsCondition>
+public sealed partial class PeriodicRequirementsConditionSystem : PeriodicConditionSystem<PeriodicRequirementsCondition>
 {
     protected override void Check()
     {
@@ -87,9 +87,9 @@ public sealed class PeriodicRequirementsConditionSystem : PeriodicConditionSyste
     }
 }
 
-public sealed class CarryingStackConditionSystem : PeriodicConditionSystem<CarryingStackCondition>
+public sealed partial class CarryingStackConditionSystem : PeriodicConditionSystem<CarryingStackCondition>
 {
-    [Dependency] private readonly CarriedItemsSystem _carried = default!;
+    [Dependency] private CarriedItemsSystem _carried = default!;
 
     protected override void Check()
     {
@@ -115,10 +115,10 @@ public sealed class CarryingStackConditionSystem : PeriodicConditionSystem<Carry
     }
 }
 
-public sealed class DistanceFromStationConditionSystem : PeriodicConditionSystem<DistanceFromStationCondition>
+public sealed partial class DistanceFromStationConditionSystem : PeriodicConditionSystem<DistanceFromStationCondition>
 {
-    [Dependency] private readonly SharedStationSystem _station = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private SharedStationSystem _station = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     protected override void Check()
     {
@@ -157,7 +157,7 @@ public sealed class DistanceFromStationConditionSystem : PeriodicConditionSystem
     }
 }
 
-public sealed class LostInFtlConditionSystem : PeriodicConditionSystem<LostInFtlCondition>
+public sealed partial class LostInFtlConditionSystem : PeriodicConditionSystem<LostInFtlCondition>
 {
     private readonly Dictionary<EntityUid, int> _drifting = new();
 
@@ -195,7 +195,7 @@ public sealed class LostInFtlConditionSystem : PeriodicConditionSystem<LostInFtl
     }
 }
 
-public sealed class PowerSupplyConditionSystem : PeriodicConditionSystem<PowerSupplyCondition>
+public sealed partial class PowerSupplyConditionSystem : PeriodicConditionSystem<PowerSupplyCondition>
 {
     protected override TimeSpan Interval => TimeSpan.FromSeconds(30);
 
@@ -224,7 +224,7 @@ public sealed class PowerSupplyConditionSystem : PeriodicConditionSystem<PowerSu
     }
 }
 
-public sealed class BandConditionSystem : PeriodicConditionSystem<BandCondition>
+public sealed partial class BandConditionSystem : PeriodicConditionSystem<BandCondition>
 {
     protected override TimeSpan Interval => TimeSpan.FromSeconds(10);
 

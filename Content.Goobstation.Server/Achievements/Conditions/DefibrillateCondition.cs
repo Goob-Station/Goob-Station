@@ -17,10 +17,10 @@ public sealed partial class DefibrillateCondition : AchievementCondition
     public EntityCondition[]? TargetRequirements;
 }
 
-public sealed class DefibrillateConditionSystem : AchievementConditionSystem<DefibrillateCondition>
+public sealed partial class DefibrillateConditionSystem : AchievementConditionSystem<DefibrillateCondition>
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedEntityConditionsSystem _conditions = default!;
 
     public override void Initialize()
     {

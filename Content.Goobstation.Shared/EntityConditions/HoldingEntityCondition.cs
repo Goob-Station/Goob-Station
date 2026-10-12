@@ -8,8 +8,8 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class HoldingEntityConditionSystem : EntityConditionSystem<HandsComponent, HoldingCondition>
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     protected override void Condition(Entity<HandsComponent> entity, ref EntityConditionEvent<HoldingCondition> args)
     {

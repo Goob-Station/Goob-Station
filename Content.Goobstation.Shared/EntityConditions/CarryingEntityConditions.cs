@@ -11,8 +11,8 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class CarryingEntityConditionSystem : EntityConditionSystem<HandsComponent, CarryingCondition>
 {
-    [Dependency] private readonly CarriedItemsSystem _carried = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private CarriedItemsSystem _carried = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     protected override void Condition(Entity<HandsComponent> entity, ref EntityConditionEvent<CarryingCondition> args)
     {
@@ -29,8 +29,8 @@ public sealed partial class CarryingEntityConditionSystem : EntityConditionSyste
 
 public sealed partial class CarryingToolsEntityConditionSystem : EntityConditionSystem<HandsComponent, CarryingToolsCondition>
 {
-    [Dependency] private readonly CarriedItemsSystem _carried = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private CarriedItemsSystem _carried = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
 
     protected override void Condition(Entity<HandsComponent> entity, ref EntityConditionEvent<CarryingToolsCondition> args)
     {
@@ -46,9 +46,9 @@ public sealed partial class CarryingToolsEntityConditionSystem : EntityCondition
     }
 }
 
-public sealed class CarriedItemsSystem : EntitySystem
+public sealed partial class CarriedItemsSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     private const int MaxDepth = 3;
 

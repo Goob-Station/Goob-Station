@@ -10,9 +10,9 @@ public sealed partial class EarlyDeathCondition : AchievementCondition
     public TimeSpan Within = TimeSpan.FromSeconds(30);
 }
 
-public sealed class EarlyDeathConditionSystem : AchievementConditionSystem<EarlyDeathCondition>
+public sealed partial class EarlyDeathConditionSystem : AchievementConditionSystem<EarlyDeathCondition>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _spawnTimes = new();
 

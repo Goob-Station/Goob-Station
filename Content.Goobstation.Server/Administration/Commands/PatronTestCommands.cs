@@ -91,7 +91,7 @@ internal sealed partial class PatronTestSetCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronTestListCommand : LocalizedCommands
+internal sealed partial class PatronTestListCommand : LocalizedCommands
 {
     [Dependency] private LinkAccountManager _linkAccount = default!;
     [Dependency] private ISharedPlayerManager _playerManager = default!;

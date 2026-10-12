@@ -9,9 +9,9 @@ public sealed partial class SlipCondition : AchievementCondition
     public EntityWhitelist? Whitelist;
 }
 
-public sealed class SlipConditionSystem : AchievementConditionSystem<SlipCondition>
+public sealed partial class SlipConditionSystem : AchievementConditionSystem<SlipCondition>
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

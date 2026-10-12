@@ -11,9 +11,9 @@ public sealed partial class PlaytimeCondition : AchievementCondition
     public ProtoId<PlayTimeTrackerPrototype> Tracker = "Overall";
 }
 
-public sealed class PlaytimeConditionSystem : AchievementConditionSystem<PlaytimeCondition>
+public sealed partial class PlaytimeConditionSystem : AchievementConditionSystem<PlaytimeCondition>
 {
-    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
+    [Dependency] private PlayTimeTrackingManager _playTime = default!;
 
     public override void Initialize()
     {

@@ -8,7 +8,7 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class NoLimbsEntityConditionSystem : EntityConditionSystem<BodyComponent, NoLimbsCondition>
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private SharedBodySystem _body = default!;
 
     protected override void Condition(Entity<BodyComponent> entity, ref EntityConditionEvent<NoLimbsCondition> args)
     {

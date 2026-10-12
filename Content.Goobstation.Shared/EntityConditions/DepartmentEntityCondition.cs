@@ -8,7 +8,7 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class DepartmentEntityConditionSystem : EntityConditionSystem<MindContainerComponent, DepartmentCondition>
 {
-    [Dependency] private readonly SharedJobSystem _jobs = default!;
+    [Dependency] private SharedJobSystem _jobs = default!;
 
     protected override void Condition(Entity<MindContainerComponent> entity, ref EntityConditionEvent<DepartmentCondition> args)
     {

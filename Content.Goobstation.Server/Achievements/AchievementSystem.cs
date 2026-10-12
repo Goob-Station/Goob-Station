@@ -19,17 +19,17 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Achievements;
 
-public sealed class AchievementSystem : EntitySystem
+public sealed partial class AchievementSystem : EntitySystem
 {
-    [Dependency] private readonly AchievementManager _manager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IGameMapManager _gameMap = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;
+    [Dependency] private AchievementManager _manager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IGameMapManager _gameMap = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
+    [Dependency] private SharedEntityConditionsSystem _conditions = default!;
 
     private bool _enabled;
     private bool _roundExcluded;

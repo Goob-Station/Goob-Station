@@ -8,9 +8,9 @@ namespace Content.Goobstation.Server.Achievements.Conditions;
 
 public sealed partial class SuicideCondition : AchievementCondition;
 
-public sealed class SuicideConditionSystem : AchievementConditionSystem<SuicideCondition>
+public sealed partial class SuicideConditionSystem : AchievementConditionSystem<SuicideCondition>
 {
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
 
