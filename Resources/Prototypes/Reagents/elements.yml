@@ -21,6 +21,15 @@
   color: "#22282b"
   boilingPoint: 4200.0
   meltingPoint: 3550.0
+  metabolisms: # Goob start - Afterlight synths
+    Food:
+      metabolismRate: 0.1
+      effects:
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        amount: 0.405 # Goob end
 
 - type: reagent
   id: Chlorine
@@ -173,12 +182,20 @@
         damage:
           types:
             Poison: 0.1
+    Food: # Goob start - Afterlight synths
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        amount: 0.2 # Goob end
     Medicine:
       effects:
       - !type:ModifyBloodLevel
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid ]
+          type: [ Arachnid, Synth ] # Goob - Afterlight synths
           inverted: true
         amount: 0.4
 

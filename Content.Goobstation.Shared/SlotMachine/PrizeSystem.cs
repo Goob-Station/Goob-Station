@@ -60,9 +60,15 @@ public sealed partial class PrizeSystem : EntitySystem
     /// </summary>
     /// <param name="prizes"></param>
     /// <param name="uid">Whatever entity is spawning the prize</param>
-    public void HandlePrize(List<ProtoId<PrizePrototype>> prizes, EntityUid uid)
+    public void HandlePrize(List<ProtoId<PrizePrototype>> prizes, EntityUid uid, EntityUid? user = null)
     {
         var prize = GetRandomPrize(prizes);
+
+        if (user != null)
+        {
+            var wonEv = new PrizeWonEvent(prize.ID, uid);
+            RaiseLocalEvent(user.Value, ref wonEv);
+        }
 
         var win = _entityTable.GetSpawns(prize.PrizeTable);
 

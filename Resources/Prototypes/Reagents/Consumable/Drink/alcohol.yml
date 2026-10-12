@@ -175,6 +175,7 @@
           - Yowie  # Goobstation - Yowie
           - Cybernetic # Shitmed - Cybernetic Organs
           - Oni # Goobstation, fixes Oni taking base ethanol poisoning on top of their specific ethanol poisoning
+          - Synth # Goob - Afterlight synths
           inverted: true
         damage:
           types:
@@ -245,6 +246,7 @@
           - Dwarf
           - Cybernetic # Shitmed - Cybernetic Organs
           - Yowie # Goobstation - Yowie
+          - Synth # Goob - Afterlight synths
           inverted: true
       - !type:Drunk
         boozePower: 2
