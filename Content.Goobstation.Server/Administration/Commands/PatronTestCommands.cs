@@ -12,9 +12,9 @@ namespace Content.Goobstation.Server.Administration.Commands;
 [AdminCommand(AdminFlags.Host)]
 internal sealed class PatronTestSetCommand : LocalizedCommands
 {
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private LinkAccountManager _linkAccount = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
 
     public override string Command => "patrontest:set";
 
@@ -93,9 +93,9 @@ internal sealed class PatronTestSetCommand : LocalizedCommands
 [AdminCommand(AdminFlags.Host)]
 internal sealed class PatronTestListCommand : LocalizedCommands
 {
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private LinkAccountManager _linkAccount = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
 
     public override string Command => "patrontest:list";
 

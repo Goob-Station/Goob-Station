@@ -5,7 +5,7 @@ namespace Content.Goobstation.Server.Patrons;
 
 public sealed class PatronOocIconSystem : EntitySystem
 {
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
+    [Dependency] private LinkAccountManager _linkAccount = default!;
 
     public override void Initialize()
     {

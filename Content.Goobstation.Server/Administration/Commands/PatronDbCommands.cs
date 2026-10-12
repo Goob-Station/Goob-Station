@@ -15,10 +15,10 @@ namespace Content.Goobstation.Server.Administration.Commands;
 
 internal abstract class BasePatronDbCommand : LocalizedCommands
 {
-    [Dependency] protected readonly IServerDbManager Db = default!;
-    [Dependency] protected readonly LinkAccountManager LinkAccount = default!;
-    [Dependency] protected readonly IPlayerManager PlayerManager = default!;
-    [Dependency] protected readonly IPrototypeManager Prototypes = default!;
+    [Dependency] protected IServerDbManager Db = default!;
+    [Dependency] protected LinkAccountManager LinkAccount = default!;
+    [Dependency] protected IPlayerManager PlayerManager = default!;
+    [Dependency] protected IPrototypeManager Prototypes = default!;
 
     protected PatronTierPrototype? FindTier(IConsoleShell shell, string idOrName)
     {
