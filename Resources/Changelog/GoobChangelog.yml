@@ -26260,3 +26260,13 @@ Entries:
       message: Fixed the crayon label showing an error instead of its charges.
   id: 2967
   time: '2026-10-11T04:00:56.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added achievements, have fun.
+    - type: Add
+      message: Patron's can now change their OOC icon!
+    - type: Tweak
+      message: Made it so admins no longer always have purple names in OOC.
+  id: 2968
+  time: '2026-10-12T01:26:59.0000000+00:00'

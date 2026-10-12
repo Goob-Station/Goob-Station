@@ -1,0 +1,548 @@
+- type: achievement
+  id: LifeBeforeYourEyes
+  name: achievement-life-before-your-eyes-name
+  description: achievement-life-before-your-eyes-desc
+  category: General
+  icon: { entity: MeteorMedium }
+  condition: !type:ExamineMeteorCondition
+
+- type: achievement
+  id: LifeInYourHands
+  name: achievement-life-in-your-hands-name
+  description: achievement-life-in-your-hands-desc
+  category: General
+  icon: { entity: MeteorLarge }
+  condition: !type:PunchMeteorCondition
+
+- type: achievement
+  id: LockBlock
+  name: achievement-lock-block-name
+  description: achievement-lock-block-desc
+  category: General
+  icon: { entity: Welder }
+  condition: !type:WeldDoorCondition
+
+- type: achievement
+  id: IJustCleanedThat
+  name: achievement-i-just-cleaned-that-name
+  description: achievement-i-just-cleaned-that-desc
+  category: General
+  icon: { entity: WetFloorSign }
+  condition: !type:SlipCondition
+    whitelist:
+      components:
+      - Puddle
+
+- type: achievement
+  id: BananaSlipper
+  name: achievement-banana-slipper-name
+  description: achievement-banana-slipper-desc
+  category: General
+  icon: { entity: FoodBanana }
+  condition: !type:SlipCondition
+    count: 100
+
+- type: achievement
+  id: TheForceIsStrong
+  name: achievement-the-force-is-strong-name
+  description: achievement-the-force-is-strong-desc
+  category: General
+  icon: { sprite: Objects/Weapons/Melee/e_sword.rsi, state: icon }
+  condition: !type:ToggleItemCondition
+    whitelist:
+      components:
+      - EnergySword
+
+- type: achievement
+  id: Jackpot
+  name: achievement-jackpot-name
+  description: achievement-jackpot-desc
+  category: General
+  icon: { entity: SlotMachine }
+  condition: !type:PrizeWonCondition
+    prizes:
+    - Jackpot
+    - GodPot
+    - QmJackpot
+
+- type: achievement
+  id: BlockStacker
+  name: achievement-block-stacker-name
+  description: achievement-block-stacker-desc
+  category: General
+  icon: { entity: BlockGameArcade }
+  condition: !type:BlockGameScoreCondition
+    score: 30000
+
+- type: achievement
+  id: TheBestDriver
+  name: achievement-the-best-driver-name
+  description: achievement-the-best-driver-desc
+  category: General
+  icon: { entity: VehicleClowncarAntag }
+  condition: !type:VehicleHornCondition
+    count: 100
+    whitelist:
+      components:
+      - Clowncar
+
+- type: achievement
+  id: CaptainsLog
+  name: achievement-captains-log-name
+  description: achievement-captains-log-desc
+  category: General
+  icon: { entity: TapeRecorder }
+  condition: !type:TapeRecordedCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Captain
+
+- type: achievement
+  id: UnhealthySnacks
+  name: achievement-unhealthy-snacks-name
+  description: achievement-unhealthy-snacks-desc
+  category: General
+  icon: { entity: Cigarette }
+  condition: !type:SmokeCondition
+    count: 20
+
+- type: achievement
+  id: AdjutantOnline
+  name: achievement-adjutant-online-name
+  description: achievement-adjutant-online-desc
+  category: General
+  icon: { entity: BorgChassisGeneric }
+  condition: !type:SpawnCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Borg
+
+- type: achievement
+  id: IsItReallyThatTimeAgain
+  name: achievement-is-it-really-that-time-again-name
+  description: achievement-is-it-really-that-time-again-desc
+  category: General
+  icon: { entity: Crowbar }
+  condition: !type:BlobPryCondition
+
+- type: achievement
+  id: FiveStarChef
+  name: achievement-five-star-chef-name
+  description: achievement-five-star-chef-desc
+  category: General
+  icon: { entity: ClothingHeadHatChef }
+  condition: !type:FoodCookedCondition
+    count: 100
+
+- type: achievement
+  id: Greenthumb
+  name: achievement-greenthumb-name
+  description: achievement-greenthumb-desc
+  category: General
+  icon: { entity: HydroponicsToolMiniHoe }
+  condition: !type:HarvestCondition
+    count: 500
+
+- type: achievement
+  id: HopExtraordinaire
+  name: achievement-hop-extraordinaire-name
+  description: achievement-hop-extraordinaire-desc
+  category: General
+  icon: { entity: RubberStampHop }
+  condition: !type:StampCondition
+    count: 100
+
+- type: achievement
+  id: DevilsBargain
+  name: achievement-devils-bargain-name
+  description: achievement-devils-bargain-desc
+  category: General
+  icon: { entity: PaperDevilContract }
+  condition: !type:DevilContractCondition
+
+- type: achievement
+  id: Tide
+  name: achievement-tide-name
+  description: achievement-tide-desc
+  category: General
+  icon: { entity: ClothingHandsGlovesColorYellow }
+  condition: !type:PeriodicRequirementsCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Passenger
+    - !type:WearingCondition
+      slot: gloves
+      whitelist:
+        components:
+        - Insulated
+    - !type:HoldingCondition
+      whitelist:
+        tags:
+        - Toolbox
+
+- type: achievement
+  id: WhatDidYouExpect
+  name: achievement-what-did-you-expect-name
+  description: achievement-what-did-you-expect-desc
+  category: General
+  icon: { entity: Supermatter }
+  condition: !type:SupermatterConsumedCondition
+
+- type: achievement
+  id: SightForSoreEyes
+  name: achievement-sight-for-sore-eyes-name
+  description: achievement-sight-for-sore-eyes-desc
+  category: General
+  icon: { entity: MobMonkeyPunpun }
+  hidden: true
+  condition: !type:ButcherCondition
+    prototypes:
+    - MobMonkeyPunpun
+
+- type: achievement
+  id: NuclearPayback
+  name: achievement-nuclear-payback-name
+  description: achievement-nuclear-payback-desc
+  category: General
+  icon: { entity: NukeDisk }
+  condition: !type:NukiePaybackCondition
+    requirements:
+    - !type:MindRoleCondition
+      inverted: true
+      whitelist:
+        components:
+        - NukeopsRole
+
+- type: achievement
+  id: PeakScience
+  name: achievement-peak-science-name
+  description: achievement-peak-science-desc
+  category: General
+  icon: { entity: ResearchAndDevelopmentServer }
+  condition: !type:ResearchCompleteCondition
+    requirements:
+    - !type:DepartmentCondition
+      departments:
+      - Science
+
+- type: achievement
+  id: WhatIsWrongWithYou
+  name: achievement-what-is-wrong-with-you-name
+  description: achievement-what-is-wrong-with-you-desc
+  category: General
+  icon: { entity: MobHamsterHamlet }
+  hidden: true
+  condition: !type:EatenCondition
+    prototypes:
+    - MobHamsterHamlet
+    - MobHamsterHamletSlippery
+
+- type: achievement
+  id: WereRich
+  name: achievement-were-rich-name
+  description: achievement-were-rich-desc
+  category: General
+  icon: { entity: SpaceCash1000 }
+  condition: !type:CarryingStackCondition
+    stack: Credit
+    amount: 100000
+
+- type: achievement
+  id: SciMajorAnyPercent
+  name: achievement-sci-major-any-percent-name
+  description: achievement-sci-major-any-percent-desc
+  category: General
+  icon: { entity: ComplexXenoArtifact }
+  condition: !type:ArtifactExplosionCondition
+    within: 420
+
+- type: achievement
+  id: LawsetChanged
+  name: achievement-lawset-changed-name
+  description: achievement-lawset-changed-desc
+  category: General
+  icon: { sprite: Mobs/Silicon/station_ai.rsi, state: ai_clown }
+  condition: !type:SiliconEmaggedCondition
+    requirements:
+    - !type:HasComponentCondition
+      components:
+      - type: StationAiHeld
+
+- type: achievement
+  id: ItsNotShuttingDown
+  name: achievement-its-not-shutting-down-name
+  description: achievement-its-not-shutting-down-desc
+  category: General
+  icon: { entity: CartridgeRocketSingularityBuster }
+  condition: !type:SingularityBustedCondition
+
+- type: achievement
+  id: CompleteSet
+  name: achievement-complete-set-name
+  description: achievement-complete-set-desc
+  category: General
+  icon: { entity: ToolboxMechanical }
+  condition: !type:PeriodicRequirementsCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Passenger
+    - !type:WearingCondition
+      slot: gloves
+      whitelist:
+        components:
+        - Insulated
+    - !type:CarryingCondition
+      whitelist:
+        tags:
+        - WeldingMask
+    - !type:CarryingToolsCondition
+      qualities:
+      - Prying
+      - Anchoring
+      - Screwing
+      - Cutting
+      - Welding
+      - Pulsing
+
+- type: achievement
+  id: WhoTurnedOffTheLights
+  name: achievement-who-turned-off-the-lights-name
+  description: achievement-who-turned-off-the-lights-desc
+  category: General
+  icon: { entity: Welder }
+  condition: !type:UnprotectedWeldingCondition
+
+- type: achievement
+  id: WhereAreYouGoing
+  name: achievement-where-are-you-going-name
+  description: achievement-where-are-you-going-desc
+  category: General
+  icon: { entity: ClothingOuterHardsuitEVA }
+  condition: !type:DistanceFromStationCondition
+    distance: 10000
+
+- type: achievement
+  id: Smitten
+  name: achievement-smitten-name
+  description: achievement-smitten-desc
+  category: General
+  icon: { entity: ClothingMaskSexyClown }
+  hidden: true
+  condition: !type:EmoteSpamSmitedCondition
+
+- type: achievement
+  id: NobodyUsesTheMedicineDrug
+  name: achievement-nobody-uses-the-medicine-drug-name
+  description: achievement-nobody-uses-the-medicine-drug-desc
+  category: General
+  icon: { entity: MobMouse }
+  hidden: true
+  condition: !type:PolymorphedIntoCondition
+    prototypes:
+    - MobMouseSentient
+
+- type: achievement
+  id: Krampus
+  name: achievement-krampus-name
+  description: achievement-krampus-desc
+  category: General
+  icon: { entity: FloraTreeChristmas01 }
+  condition: !type:DestroyCondition
+    prototypes:
+    - FloraTreeChristmas01
+    - FloraTreeChristmas02
+    - FloraTreeChristmas03
+
+- type: achievement
+  id: HowDidThatGetThere
+  name: achievement-how-did-that-get-there-name
+  description: achievement-how-did-that-get-there-desc
+  category: General
+  icon: { entity: PresentRandomInsane }
+  hidden: true
+  condition: !type:GiftOpenedCondition
+    prototypes:
+    - Singularity
+    - TeslaEnergyBall
+    - MobRatvar
+    - Ratvar
+    - MobNarsie
+
+- type: achievement
+  id: RightManWrongPlace
+  name: achievement-right-man-wrong-place-name
+  description: achievement-right-man-wrong-place-desc
+  category: General
+  icon: { entity: NuclearBomb }
+  condition: !type:NukeDisarmCondition
+    requirements:
+    - !type:DepartmentCondition
+      inverted: true
+      departments:
+      - Security
+      - Command
+
+- type: achievement
+  id: HomeSweetHome
+  name: achievement-home-sweet-home-name
+  description: achievement-home-sweet-home-desc
+  category: General
+  icon: { entity: DisposalUnit }
+  condition: !type:DisposalFlushedCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Clown
+
+- type: achievement
+  id: BelayThoseOrders
+  name: achievement-belay-those-orders-name
+  description: achievement-belay-those-orders-desc
+  category: General
+  icon: { entity: NukeDisk }
+  condition: !type:BlobDefeatedCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:MindRoleCondition
+      inverted: true
+      whitelist:
+        components:
+        - BlobRole
+
+- type: achievement
+  id: PestControl
+  name: achievement-pest-control-name
+  description: achievement-pest-control-desc
+  category: General
+  icon: { entity: MobMouse }
+  condition: !type:EatenCondition
+    count: 100
+    prototypes:
+    - MobMouse
+    - MobMouse1
+    - MobMouse2
+    - MobMouseCancer
+    - MobMouseSentient
+
+- type: achievement
+  id: BasicsOfSurvival
+  name: achievement-basics-of-survival-name
+  description: achievement-basics-of-survival-desc
+  category: General
+  icon: { entity: Crowbar }
+  condition: !type:AirlockPryCondition
+
+- type: achievement
+  id: Shitsec
+  name: achievement-shitsec-name
+  description: achievement-shitsec-desc
+  category: General
+  icon: { entity: Stunbaton }
+  condition: !type:HarmBatonCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - SecurityOfficer
+
+- type: achievement
+  id: TrippinBalls
+  name: achievement-trippin-balls-name
+  description: achievement-trippin-balls-desc
+  category: General
+  icon: { entity: Cigarette }
+  condition: !type:SmokeCondition
+    requirements:
+    - !type:StatusEffectCondition
+      effect: StatusEffectDrunk
+    - !type:StatusEffectCondition
+      effect: StatusEffectSeeingRainbow
+
+- type: achievement
+  id: LimitlessPower
+  name: achievement-limitless-power-name
+  description: achievement-limitless-power-desc
+  category: General
+  icon: { entity: SMESBasic }
+  condition: !type:PowerSupplyCondition
+    watts: 20000000
+    requirements:
+    - !type:DepartmentCondition
+      departments:
+      - Engineering
+
+- type: achievement
+  id: TimeToJam
+  name: achievement-time-to-jam-name
+  description: achievement-time-to-jam-desc
+  category: General
+  icon: { entity: ElectricGuitarInstrument }
+  condition: !type:BandCondition
+    minSize: 4
+
+- type: achievement
+  id: ReturnToSender
+  name: achievement-return-to-sender-name
+  description: achievement-return-to-sender-desc
+  category: General
+  icon: { entity: ToolboxMechanical }
+  condition: !type:ReturnToSenderCondition
+
+- type: achievement
+  id: NanotrasensGreatestSoldier
+  name: achievement-nanotrasens-greatest-soldier-name
+  description: achievement-nanotrasens-greatest-soldier-desc
+  category: General
+  icon: { entity: ClothingHeadHelmetHardsuitBlueshield }
+  condition: !type:CommandProtectedCondition
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - BlueshieldOfficer
+    - !type:MobStateCondition
+      mobstate: Alive
+
+- type: achievement
+  id: WhoNeedsHop
+  name: achievement-who-needs-hop-name
+  description: achievement-who-needs-hop-desc
+  category: General
+  icon: { entity: PassengerIDCard }
+  condition: !type:MicrowaveIdCondition
+
+- type: achievement
+  id: ZaWarudo
+  name: achievement-za-warudo-name
+  description: achievement-za-warudo-desc
+  category: General
+  icon: { entity: ClothingHeadHatWizard }
+  condition: !type:ChronofieldCondition
+    requirements:
+    - !type:AnyCondition
+      conditions:
+      - !type:MindRoleCondition
+        whitelist:
+          components:
+          - GoobWizardRole
+          - ApprenticeRole
+      - !type:DepartmentCondition
+        departments:
+        - Science
+
+- type: achievement
+  id: WhoWasThat
+  name: achievement-who-was-that-name
+  description: achievement-who-was-that-desc
+  category: General
+  icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
+  hidden: true
+  condition: !type:HugCondition
+    creditTarget: true
+    huggerRequirements:
+    - !type:HasComponentCondition
+      components:
+      - type: Ghost
