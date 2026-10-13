@@ -1,4 +1,4 @@
-﻿<component name="ProjectRunConfigurationManager">
+<component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Goob Content Server+Client" type="CompoundRunConfigurationType">
     <toRun name="Content.Goobstation.Client" type="DotNetProject" />
     <toRun name="Content.Goobstation.Server" type="DotNetProject" />
