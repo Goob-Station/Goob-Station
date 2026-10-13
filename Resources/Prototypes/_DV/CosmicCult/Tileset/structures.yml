@@ -39,7 +39,7 @@
     radius: 1.5
     energy: 1.6
     enabled: true # Test fail if false
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     offset: "0, 0.4"
     castShadows: false

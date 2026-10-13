@@ -13,7 +13,7 @@ public sealed class SpeedLinesOverlay : Overlay
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
-    private readonly SharedTransformSystem _xformSystem;
+    private readonly TransformSystem _xformSystem;
     private readonly ShaderInstance _shader;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowEntities;
@@ -21,7 +21,7 @@ public sealed class SpeedLinesOverlay : Overlay
     public SpeedLinesOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _xformSystem = _entMan.System<SharedTransformSystem>();
+        _xformSystem = _entMan.System<TransformSystem>();
         _shader = _protoMan.Index(ShaderProto).InstanceUnique();
     }
 
@@ -41,7 +41,7 @@ public sealed class SpeedLinesOverlay : Overlay
                 continue;
 
             var seed = lines.Seed;
-            var worldPos = _xformSystem.GetWorldPosition(uid);
+            var worldPos = _xformSystem.GetRenderWorldPosition((uid, xform));
             var direction = lines.Direction;
             if (direction == Vector2.Zero)
                 direction = Vector2.UnitX;

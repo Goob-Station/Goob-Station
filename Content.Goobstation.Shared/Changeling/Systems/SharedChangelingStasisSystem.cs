@@ -11,6 +11,8 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -57,6 +59,7 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingStasisComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChangelingStasisComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ChangelingStasisComponent, MindRemovedMessage>(OnMindRemoved);
 
         SubscribeLocalEvent<ChangelingStasisComponent, ChangelingStasisEvent>(OnStasisAction);
 
@@ -89,6 +92,11 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
         SetPreventGhosting(ent, false);
 
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
+    }
+
+    private void OnMindRemoved(Entity<ChangelingStasisComponent> ent, ref MindRemovedMessage args)
+    {
+        args.Mind.Comp.PreventGhosting = false;
     }
 
     #region Event Handlers
@@ -264,13 +272,15 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
         {
             // taken straight from damageable rejuvenate method
             _mob.SetAllowRevives(ent, true, threshComp);
-            _dmg.SetAllDamage(ent, dmgComp, 0);
+            _dmg.SetAllDamage((ent, dmgComp), 0);
             _mob.SetAllowRevives(ent, false, threshComp);
         }
 
         // fix traumas, broken bones and bleeding
         if (_bodyQuery.TryComp(ent, out var bodyComp))
         {
+            _body.RestoreMissingOrgans((ent, bodyComp));
+
             if (_trauma.TryGetBodyTraumas(ent, out var traumas, bodyComp: bodyComp))
                 foreach (var trauma in traumas)
                     _trauma.RemoveTrauma(trauma);

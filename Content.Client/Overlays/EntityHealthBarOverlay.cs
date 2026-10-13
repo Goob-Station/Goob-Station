@@ -6,6 +6,7 @@ using Content.Client.UserInterface.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
 using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -27,7 +28,7 @@ public sealed class EntityHealthBarOverlay : Overlay
     private readonly IEntityManager _entManager;
     private readonly IPrototypeManager _prototype;
 
-    private readonly SharedTransformSystem _transform;
+    private readonly TransformSystem _transform;
     private readonly MobStateSystem _mobStateSystem;
     private readonly MobThresholdSystem _mobThresholdSystem;
     private readonly StatusIconSystem _statusIconSystem;
@@ -43,7 +44,7 @@ public sealed class EntityHealthBarOverlay : Overlay
     {
         _entManager = entManager;
         _prototype = prototype;
-        _transform = _entManager.System<SharedTransformSystem>();
+        _transform = _entManager.System<TransformSystem>();
         _mobStateSystem = _entManager.System<MobStateSystem>();
         _mobThresholdSystem = _entManager.System<MobThresholdSystem>();
         _statusIconSystem = _entManager.System<StatusIconSystem>();
@@ -82,7 +83,7 @@ public sealed class EntityHealthBarOverlay : Overlay
 
             // we use the status icon component bounds if specified otherwise use sprite
             var bounds = _entManager.GetComponentOrNull<StatusIconComponent>(uid)?.Bounds ?? _spriteSystem.GetLocalBounds((uid, spriteComponent));
-            var worldPos = _transform.GetWorldPosition(xform, xformQuery);
+            var worldPos = _transform.GetRenderWorldPosition((uid, xform));
 
             if (!bounds.Translated(worldPos).Intersects(args.WorldAABB))
                 continue;
@@ -91,7 +92,7 @@ public sealed class EntityHealthBarOverlay : Overlay
             if (CalcProgress(uid, mobStateComponent, damageableComponent, mobThresholdsComponent) is not { } deathProgress)
                 continue;
 
-            var worldPosition = _transform.GetWorldPosition(xform);
+            var worldPosition = worldPos;
             var worldMatrix = Matrix3Helpers.CreateTranslation(worldPosition);
 
             var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);

@@ -4,6 +4,7 @@ using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
@@ -54,7 +55,7 @@ public abstract partial class SharedNullRodSystem : EntitySystem
         if (_timing.CurTime < ent.Comp.NextPopupTime)
             return;
 
-        if (_damageableSystem.TryChangeDamage(user, ent.Comp.DamageOnUntrainedUse, origin: ent, targetPart: TargetBodyPart.All, ignoreBlockers: true) is null)
+        if (!_damageableSystem.TryChangeDamage(user, ent.Comp.DamageOnUntrainedUse, origin: ent, targetPart: TargetBodyPart.All, ignoreBlockers: true))
             return;
 
         _popupSystem.PopupEntity(Loc.GetString(ent.Comp.UntrainedUseString), user, user, PopupType.MediumCaution);

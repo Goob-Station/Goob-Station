@@ -2,6 +2,7 @@
 
 using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Nuke;
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Ranged.Events;
@@ -20,12 +21,15 @@ public abstract class SharedZombieBlobSystem : EntitySystem
         SubscribeLocalEvent<BoundUserInterfaceMessageAttempt>(OnBoundUserInterface, after: [typeof(SharedInteractionSystem)]);
     }
 
-    private void OnBoundUserInterface(BoundUserInterfaceMessageAttempt args)
+    private void OnBoundUserInterface(ref BoundUserInterfaceMessageAttempt args)
     {
         if(
             args.Cancelled ||
             !TryComp<ActivatableUIComponent>(args.Target, out var uiComp) ||
             !HasComp<ZombieBlobComponent>(args.Actor))
+            return;
+
+        if (args.UiKey is NukeUiKey)
             return;
 
         if(uiComp.RequiresComplex)

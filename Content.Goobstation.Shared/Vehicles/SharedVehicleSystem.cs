@@ -21,6 +21,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Actions.Components;
 using Content.Shared.Gravity;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.Vehicles;
 
@@ -126,6 +127,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _audio.PlayPvs(component.HornSound, uid);
         args.Handled = true;
+
+        var hornedEv = new VehicleHornedEvent(args.Performer);
+        RaiseLocalEvent(uid, ref hornedEv);
     }
 
     private void OnSiren(EntityUid uid, VehicleComponent component, InstantActionEvent args)

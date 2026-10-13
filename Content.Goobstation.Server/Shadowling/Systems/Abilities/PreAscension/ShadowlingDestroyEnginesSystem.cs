@@ -57,7 +57,7 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
             return;
         }
 
-        if (_roundEnd.ExpectedCountdownEnd is null)
+        if (_roundEnd.ExpectedCountdownEnd is null || !_roundEnd.IsRoundEndRequested())
         {
             _popup.PopupEntity(Loc.GetString("shadowling-destroy-engines-not-called"), uid);
             return;
@@ -71,10 +71,9 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
             Loc.GetString("shadowling-destroy-engines-sender"),
             colorOverride: Color.MediumPurple);
 
-        // add sound
         comp.HasBeenUsed = true;
 
-        _roundEnd.ExpectedCountdownEnd += comp.DelayTime;
+        _roundEnd.DelayRoundEndCountdown(comp.DelayTime);
         args.Handled = true;
         _actions.RemoveAction(args.Performer, (args.Action.Owner, args.Action.Comp));
     }

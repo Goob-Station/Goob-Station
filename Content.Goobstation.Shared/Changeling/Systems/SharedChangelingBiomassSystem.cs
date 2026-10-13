@@ -11,6 +11,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Fluids;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -157,7 +158,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
             return;
 
         var damagespec = new DamageSpecifier(genetic, (FixedPoint2) totalDamage);
-        _dmg.TryChangeDamage(ent, damagespec, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
+        _dmg.TryChangeDamage(ent.Owner, damagespec, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
 
         EnsureComp<AbsorbedComponent>(ent);
     }

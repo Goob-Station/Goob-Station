@@ -54,6 +54,12 @@ public sealed class ChangelingEggSystem : EntitySystem
 
         EntityManager.AddComponent(newUid, comp.lingStore);
 
+        foreach (var listing in comp.lingStore.FullListingsCatalog)
+        {
+            if (listing is { PurchaseAmount: > 0, RaiseProductEventOnUser: true, ProductEvent: { } productEvent })
+                RaiseLocalEvent(newUid, productEvent);
+        }
+
         _bodySystem.GibBody(uid);
     }
 }

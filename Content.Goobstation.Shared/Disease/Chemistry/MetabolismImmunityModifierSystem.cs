@@ -18,7 +18,7 @@ namespace Content.Goobstation.Shared.Disease.Chemistry
             SubscribeLocalEvent<ImmunityModifierMetabolismComponent, GetImmunityEvent>(OnGetImmunity);
         }
 
-        private void OnGetImmunity(EntityUid uid, ImmunityModifierMetabolismComponent component, GetImmunityEvent args)
+        private void OnGetImmunity(EntityUid uid, ImmunityModifierMetabolismComponent component, ref GetImmunityEvent args)
         {
             args.ImmunityGainRate += component.GainRateModifier;
             args.ImmunityStrength += component.StrengthModifier;

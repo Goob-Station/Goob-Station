@@ -32,6 +32,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Slasher.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 
@@ -213,6 +214,9 @@ public sealed partial class DevilContractSystem : EntitySystem
             paper.EditingDisabled = true;
 
         _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), signed, signer);
+
+        var signedEv = new DevilContractSignedEvent(contract);
+        RaiseLocalEvent(signer, ref signedEv);
     }
 
     private void HandleDevilSign(Entity<DevilContractComponent> contract, EntityUid signed, EntityUid signer)

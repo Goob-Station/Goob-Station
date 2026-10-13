@@ -44,6 +44,8 @@ using Content.Goobstation.Common.Materials;
 using Content.Goobstation.Shared.Xenomorph;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 

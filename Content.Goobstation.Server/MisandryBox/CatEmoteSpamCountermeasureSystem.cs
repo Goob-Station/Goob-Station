@@ -144,6 +144,13 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     /// <param name="killOverride">Optional override for the kill parameter. If null, uses DrasticMeasures</param>
     private void Smite(EntityUid uid, bool? killOverride = null)
     {
-        _thunderstrike.Smite(uid, kill: killOverride ?? DrasticMeasures);
+        var kill = killOverride ?? DrasticMeasures;
+        if (kill)
+        {
+            var ev = new EmoteSpamSmitedEvent();
+            RaiseLocalEvent(uid, ref ev);
+        }
+
+        _thunderstrike.Smite(uid, kill: kill);
     }
 }

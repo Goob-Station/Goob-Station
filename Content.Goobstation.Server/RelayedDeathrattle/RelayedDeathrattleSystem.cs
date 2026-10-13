@@ -9,11 +9,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.CrewMonitoring;
 using Content.Server.Chat.Systems;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Server.Pinpointer;
 using Content.Shared.Chat;
 using Content.Shared.Mobs;
+using Content.Shared.Polymorph;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.RelayedDeathrattle;
@@ -26,6 +28,22 @@ public sealed class RelayedDeathrattleSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<RelayedDeathrattleComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<RelayedDeathrattleComponent, PolymorphedEvent>(OnPolymorphed);
+    }
+
+    private void OnPolymorphed(Entity<RelayedDeathrattleComponent> ent, ref PolymorphedEvent args)
+    {
+        if (args.NewEntity == ent.Owner || args.IsRevert)
+            return;
+
+        var newComp = EnsureComp<RelayedDeathrattleComponent>(args.NewEntity);
+        newComp.Target = ent.Comp.Target;
+        newComp.CritMessage = ent.Comp.CritMessage;
+        newComp.DeathMessage = ent.Comp.DeathMessage;
+
+        if (TryComp<CrewMonitorScanningComponent>(ent.Comp.Target, out var scanner)
+            && !scanner.ScannedEntities.Contains(args.NewEntity))
+            scanner.ScannedEntities.Add(args.NewEntity);
     }
 
     private void OnMobStateChanged(EntityUid uid, RelayedDeathrattleComponent comp, MobStateChangedEvent args)

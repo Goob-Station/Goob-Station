@@ -42,7 +42,7 @@ public sealed class MechGunSystem : EntitySystem
         }
     }
 
-    private void OnCheckBattery(EntityUid uid, BatteryAmmoProviderComponent component, CheckMechWeaponBatteryEvent args)
+    private void OnCheckBattery(EntityUid uid, BatteryAmmoProviderComponent component, ref CheckMechWeaponBatteryEvent args)
     {
         if (args.Battery.LastCharge > component.FireCost)
             args.Cancelled = true;
