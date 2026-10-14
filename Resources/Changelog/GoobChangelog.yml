@@ -26337,3 +26337,12 @@ Entries:
       message: Fixed chess
   id: 2974
   time: '2026-10-14T19:14:15.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: >-
+        Fixed stupid bullshit causing vital damage (and any other sources of
+        multi-target damage other than explosions) to split to the entire body
+        instead of only intended vital body parts.
+  id: 2975
+  time: '2026-10-14T19:19:31.0000000+00:00'
