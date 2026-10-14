@@ -1,0 +1,34 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseVoidwalkerObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-void
+
+- type: entity
+  parent: BaseVoidwalkerObjective
+  id: VoidwalkerKidnapObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Objects/Weapons/Melee/voideater.rsi
+      state: icon
+  - type: NumberObjective
+    min: 5
+    max: 8
+    title: objective-condition-voidwalker-kidnap-title
+    description: objective-condition-voidwalker-kidnap-description
+  - type: VoidwalkerKidnapCondition
+
+- type: entity
+  parent: [BaseVoidwalkerObjective, BaseSurviveObjective]
+  id: VoidwalkerSurviveObjective
+  name: Survive
+  description: Y??ou must survi??ve to s??pread th??e j??oy.
+  components:
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Mobs/Voidwalker/voidwalker.rsi
+      state: voidwalker

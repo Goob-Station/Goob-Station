@@ -43,8 +43,8 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         SubscribeLocalEvent<SlaughterDemonComponent, RefreshMovementSpeedModifiersEvent>(RefreshMovement);
 
         // blood crawl
-        SubscribeLocalEvent<SlaughterDemonComponent, BloodCrawlExitEvent>(OnBloodCrawlExit);
-        SubscribeLocalEvent<SlaughterDemonComponent, BloodCrawlAttemptEvent>(OnBloodCrawlAttempt);
+        SubscribeLocalEvent<SlaughterDemonComponent, ReagentCrawlExitEvent>(OnBloodCrawlExit);
+        SubscribeLocalEvent<SlaughterDemonComponent, ReagentCrawlAttemptEvent>(OnBloodCrawlAttempt);
 
         // devouring
         SubscribeLocalEvent<SlaughterDevourEvent>(OnSlaughterDevour);
@@ -81,7 +81,7 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         }
     }
 
-    private void OnBloodCrawlExit(Entity<SlaughterDemonComponent> ent, ref BloodCrawlExitEvent args)
+    private void OnBloodCrawlExit(Entity<SlaughterDemonComponent> ent, ref ReagentCrawlExitEvent args)
     {
         ent.Comp.Accumulator = _timing.CurTime + ent.Comp.NextUpdate;
         ent.Comp.ExitedBloodCrawl = true;
@@ -147,7 +147,7 @@ public abstract class SharedSlaughterDemonSystem : EntitySystem
         }
     }
 
-    private void OnBloodCrawlAttempt(Entity<SlaughterDemonComponent> ent, ref BloodCrawlAttemptEvent args)
+    private void OnBloodCrawlAttempt(Entity<SlaughterDemonComponent> ent, ref ReagentCrawlAttemptEvent args)
     {
         if (args.Cancelled)
             return;

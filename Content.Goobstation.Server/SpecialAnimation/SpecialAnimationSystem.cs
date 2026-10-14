@@ -32,6 +32,18 @@ public sealed class SpecialAnimationSystem : SharedSpecialAnimationSystem
         RaiseNetworkEvent(ev, player);
     }
 
+    public override void PlayAnimationForEntity(
+        SpriteSpecifier sprite,
+        EntityUid player,
+        ProtoId<SpecialAnimationPrototype>? animationDataId = null,
+        string? overrideText = null)
+    {
+        if (!_protoMan.TryIndex(animationDataId, out var animationPrototype))
+            return;
+
+        PlayAnimationForEntity(sprite, player, animationPrototype.Animation, overrideText);
+    }
+
     /// <summary>
     /// Plays a special attack animation, and loads the sprite entity
     /// in PVS for the filter for a small amount of time.

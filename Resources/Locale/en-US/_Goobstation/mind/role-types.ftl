@@ -13,3 +13,4 @@ role-subtype-contractor = Contractor
 role-subtype-gang-leader = Gang Leader
 role-subtype-gang-member = Gang Member
 role-subtype-gemini = Gemini
+role-subtype-voidwalker = Voidwalker

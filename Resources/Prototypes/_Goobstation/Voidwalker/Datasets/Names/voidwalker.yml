@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamesVoidwalker
+  values:
+    prefix: names-voidwalker-dataset-
+    count: 22
+
+- type: localizedDataset
+  id: NamesVoidwalkerTitle
+  values:
+    prefix: names-voidwalker-title-dataset-
+    count: 8

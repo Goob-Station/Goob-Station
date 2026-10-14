@@ -1,0 +1,4 @@
+- type: shader
+  id: VoidedShader
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/voided.swsl"

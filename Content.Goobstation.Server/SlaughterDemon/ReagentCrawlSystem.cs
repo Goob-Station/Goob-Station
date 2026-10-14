@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.SlaughterDemon;
 
-public sealed class BloodCrawlSystem : SharedBloodCrawlSystem
+public sealed class ReagentCrawlSystem : SharedReagentCrawlSystem
 {
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -25,7 +25,7 @@ public sealed class BloodCrawlSystem : SharedBloodCrawlSystem
         _polymorphedQuery = GetEntityQuery<PolymorphedEntityComponent>();
     }
 
-    protected override bool CheckAlreadyCrawling(Entity<BloodCrawlComponent> ent)
+    protected override bool CheckAlreadyCrawling(Entity<ReagentCrawlComponent> ent)
     {
         base.CheckAlreadyCrawling(ent);
 
@@ -39,15 +39,18 @@ public sealed class BloodCrawlSystem : SharedBloodCrawlSystem
         if (reverted != null)
             _audio.PlayPvs(component.ExitJauntSound, reverted.Value);
 
-        var evExit = new BloodCrawlExitEvent();
-        RaiseLocalEvent(polymorph.Parent!.Value, ref evExit);
+        if (polymorph.Parent is not { } parent)
+            return false;
+
+        var evExit = new ReagentCrawlExitEvent();
+        RaiseLocalEvent(parent, ref evExit);
 
         return false;
     }
 
-    protected override void PolymorphDemon(EntityUid user, ProtoId<PolymorphPrototype> polymorph)
+    protected override void PolymorphEntity(EntityUid user, ProtoId<PolymorphPrototype> polymorph)
     {
-        base.PolymorphDemon(user, polymorph);
+        base.PolymorphEntity(user, polymorph);
 
         _polymorph.PolymorphEntity(user, polymorph);
     }

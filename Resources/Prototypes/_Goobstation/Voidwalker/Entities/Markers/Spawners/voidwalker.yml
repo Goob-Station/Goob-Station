@@ -1,0 +1,20 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostVoidwalker
+  name: ghost role spawn point
+  suffix: Voidwalker
+  components:
+  - type: GhostRole
+    name: ghost-role-information-voidwalker-name
+    description: ghost-role-information-voidwalker-description
+    rules: ghost-role-information-voidwalker-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonistGoob
+    raffle:
+      settings: default
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Goobstation/Mobs/Voidwalker/voidwalker.rsi
+      state: voidwalker

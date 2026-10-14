@@ -1,0 +1,33 @@
+- type: body
+  id: Voidwalker
+  name: void walker
+  root: chest
+  slots:
+    head:
+      part: HeadVoidwalker
+      connections:
+      - chest
+    chest:
+      part: ChestVoidwalker
+      connections:
+      - right leg
+      - left leg
+      - right arm
+      - left arm
+      - head
+    right arm:
+      part: RightArmVoidwalker
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmVoidwalker
+      connections:
+      - left hand
+    right hand:
+      part: RightHandVoidwalker
+    left hand:
+      part: LeftHandVoidwalker
+    right leg:
+      part: RightLegVoidwalker
+    left leg:
+      part: LeftLegVoidwalker

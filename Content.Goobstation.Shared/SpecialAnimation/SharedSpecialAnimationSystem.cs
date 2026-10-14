@@ -19,6 +19,14 @@ public abstract class SharedSpecialAnimationSystem : EntitySystem
     {
     }
 
+    public virtual void PlayAnimationForEntity(
+        SpriteSpecifier sprite,
+        EntityUid player,
+        ProtoId<SpecialAnimationPrototype>? animationData = null,
+        string? overrideText = null)
+    {
+    }
+
     public virtual void PlayAnimationFiltered(
         SpriteSpecifier sprite,
         Filter filter,
