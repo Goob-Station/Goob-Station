@@ -28,13 +28,13 @@ public sealed partial class TelepathySystem : SharedTelepathySystem
     [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private IAdminLogManager _adminLog = default!;
 
-    private readonly EntityQuery<ActorComponent> _actorQuery = default!;
+    [Dependency] private EntityQuery<ActorComponent> _actorQuery = default!;
 
     [SubscribeLocalEvent]
     private void OnTelepathyWhisper(TelepathyWhisperEvent args)
     {
-        EntityUid performer = args.Performer;
-        EntityUid target = args.Target;
+        var performer = args.Performer;
+        var target = args.Target;
 
         if (!TryComp(args.Action, out TelepathyActionComponent? telepathy)
             || !_whitelist.IsWhitelistPassOrNull(telepathy.TargetWhitelist, target)
