@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Console;
@@ -11,7 +10,7 @@ public sealed class ShowAccessReadersCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     public override string Command => "showaccessreaders";
 

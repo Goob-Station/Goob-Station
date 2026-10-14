@@ -6,7 +6,6 @@ using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Speech;
 using Robust.Client.Graphics;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
@@ -21,7 +20,7 @@ namespace Content.Client.Chat.UI
         [Dependency] private readonly IEyeManager _eyeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] protected readonly IConfigurationManager ConfigManager = default!;
-        private readonly TransformSystem _transformSystem;
+        private readonly SharedTransformSystem _transformSystem;
 
         // <Goob>
         public static readonly Type[] AllowedTags =
@@ -105,7 +104,7 @@ namespace Content.Client.Chat.UI
         {
             IoCManager.InjectDependencies(this);
             _senderEntity = senderEntity;
-            _transformSystem = _entityManager.System<TransformSystem>();
+            _transformSystem = _entityManager.System<SharedTransformSystem>();
 
             // Use text clipping so new messages don't overlap old ones being pushed up.
             RectClipContent = true;
@@ -169,7 +168,7 @@ namespace Content.Client.Chat.UI
                 baseOffset = speech.SpeechBubbleOffset;
 
             var offset = (-_eyeManager.CurrentEye.Rotation).ToWorldVec() * -(EntityVerticalOffset + baseOffset);
-            var worldPos = _transformSystem.GetRenderWorldPosition((_senderEntity, xform)) + offset;
+            var worldPos = _transformSystem.GetWorldPosition(xform) + offset;
 
             var lowerCenter = _eyeManager.WorldToScreen(worldPos) / UIScale;
             var screenPos = lowerCenter - new Vector2(ContentSize.X / 2, ContentSize.Y + _verticalOffsetAchieved);
