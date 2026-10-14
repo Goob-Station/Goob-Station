@@ -26331,3 +26331,9 @@ Entries:
         time (so now there is no excuse for running out of power)
   id: 2973
   time: '2026-10-14T19:12:02.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed chess
+  id: 2974
+  time: '2026-10-14T19:14:15.0000000+00:00'
