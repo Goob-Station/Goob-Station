@@ -9,10 +9,10 @@ using Content.Shared.Throwing;
 
 namespace Content.Goobstation.Shared.Knockdown;
 
-public sealed class KnockdownOnCollideSystem : EntitySystem
+public sealed partial class KnockdownOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHulkSystem _hulk = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+    [Dependency] private SharedHulkSystem _hulk = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
 
 
     public override void Initialize()

@@ -5,9 +5,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Mindcontrol;
 
-public sealed class MindcontrolSystem : EntitySystem
+public sealed partial class MindcontrolSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     public override void Initialize()
     {
         base.Initialize();

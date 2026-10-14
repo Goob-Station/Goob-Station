@@ -47,7 +47,7 @@ public sealed partial class DamageableSystem
     /// Get only the primitive flags (powers of 2) - these are the actual individual body parts
     /// </summary>
     private static readonly TargetBodyPart[] PrimitiveTargetBodyParts = Enum.GetValues<TargetBodyPart>()
-        .Where(flag => flag != 0 && (flag ^ (flag - 1)) == 0) // Power of 2 check
+        .Where(flag => flag != 0 && (flag & (flag - 1)) == 0) // Power of 2 check
         .ToArray();
 
     /// <summary>

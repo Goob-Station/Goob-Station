@@ -45,7 +45,7 @@ public sealed class VoidConduitOverlay : Overlay
         var query = _entMan.EntityQueryEnumerator<VoidConduitComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var conduit, out var xform))
         {
-            var (pos, rot) = _xform.GetRenderWorldPositionRotation((uid, xform));
+            var (pos, rot) = _xform.GetWorldPositionRotation(xform);
 
             var texture = _sprite.GetFrame(conduit.OverlaySprite, _timing.CurTime);
 

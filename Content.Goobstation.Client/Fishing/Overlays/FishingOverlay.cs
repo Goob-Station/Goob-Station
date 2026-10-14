@@ -75,7 +75,7 @@ public sealed class FishingOverlay : Overlay
                 continue;
 
             // Get the world position of the entity
-            var worldPosition = _transform.GetRenderWorldPosition((uid, xform));
+            var worldPosition = _transform.GetWorldPosition(xform);
             if (!bounds.Contains(worldPosition))
                 continue;
 
