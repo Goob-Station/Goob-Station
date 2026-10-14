@@ -10,7 +10,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <OutputType Condition="'$(FullRelease)' != 'True'">Exe</OutputType>
     <NoWarn>1998</NoWarn>
-    <WarningsAsErrors>nullable</WarningsAsErrors>
+    <WarningsAsErrors>nullable;RA0049;RA0051</WarningsAsErrors>
     <ServerGarbageCollection>true</ServerGarbageCollection>
   </PropertyGroup>
   <Import Project="../MSBuild/Content.props" />

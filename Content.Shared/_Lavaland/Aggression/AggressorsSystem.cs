@@ -92,7 +92,12 @@ public sealed class AggressorsSystem : EntitySystem
         => RemoveAllAggressors(ent);
 
     private void OnStateChange(Entity<AggressiveComponent> ent, ref MobStateChangedEvent args)
-        => RemoveAllAggressors(ent);
+    {
+        if (args.NewMobState == MobState.Dead)
+            RaiseLocalEvent(ent, new AggressiveKilledEvent(ent.Comp.Aggressors.ToList()));
+
+        RemoveAllAggressors(ent);
+    }
 
     private void OnAggressorAdded(Entity<AggressorComponent> ent, ref AggressiveAddedEvent args)
     {

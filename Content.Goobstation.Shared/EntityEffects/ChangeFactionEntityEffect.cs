@@ -8,7 +8,7 @@ namespace Content.Goobstation.Shared.EntityEffects;
 
 public sealed partial class ChangeFactionEntityEffectSystem : EntityEffectSystem<NpcFactionMemberComponent, ChangeFactionEntityEffect>
 {
-    [Dependency] private readonly ChangeFactionStatusEffectSystem _faction = default!;
+    [Dependency] private ChangeFactionStatusEffectSystem _faction = default!;
 
     protected override void Effect(Entity<NpcFactionMemberComponent> entity, ref EntityEffectEvent<ChangeFactionEntityEffect> args)
     {

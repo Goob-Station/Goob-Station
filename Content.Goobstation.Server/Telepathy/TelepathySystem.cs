@@ -21,12 +21,12 @@ namespace Content.Goobstation.Server.Telepathy;
 /// </summary>
 public sealed partial class TelepathySystem : SharedTelepathySystem
 {
-    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private QuickDialogSystem _quickDialog = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
 
     private readonly EntityQuery<ActorComponent> _actorQuery = default!;
 

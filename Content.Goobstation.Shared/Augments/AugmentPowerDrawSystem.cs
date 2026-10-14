@@ -5,12 +5,12 @@ using Content.Shared.PowerCell;
 
 namespace Content.Goobstation.Shared.Augments;
 
-public sealed class AugmentPowerDrawSystem : EntitySystem
+public sealed partial class AugmentPowerDrawSystem : EntitySystem
 {
-    [Dependency] private readonly AugmentSystem _augment = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedAugmentPowerCellSystem _augmentPower = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private AugmentSystem _augment = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedAugmentPowerCellSystem _augmentPower = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {

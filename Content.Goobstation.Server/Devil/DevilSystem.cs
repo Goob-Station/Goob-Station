@@ -62,25 +62,25 @@ namespace Content.Goobstation.Server.Devil;
 
 public sealed partial class DevilSystem : EntitySystem
 {
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly PolymorphSystem _poly = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly DevilContractSystem _contract = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PossessionSystem _possession = default!;
-    [Dependency] private readonly CondemnedSystem _condemned = default!;
-    [Dependency] private readonly MobStateSystem _state = default!;
-    [Dependency] private readonly JitteringSystem _jittering = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private PolymorphSystem _poly = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private DevilContractSystem _contract = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PossessionSystem _possession = default!;
+    [Dependency] private CondemnedSystem _condemned = default!;
+    [Dependency] private MobStateSystem _state = default!;
+    [Dependency] private JitteringSystem _jittering = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private ContainerSystem _container = default!;
 
     private static readonly Regex WhitespaceAndNonWordRegex = new(@"[\s\W]+", RegexOptions.Compiled);
 

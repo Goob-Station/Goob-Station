@@ -15,8 +15,8 @@ namespace Content.Goobstation.Server.Emoting;
 
 public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly AlmanacBladeSystem _almanac = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private AlmanacBladeSystem _almanac = default!;
     private bool _flipDodgeEnabled = default!;
 
     public override void Initialize()
