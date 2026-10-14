@@ -7,7 +7,9 @@ public partial class CommandButton
     private IGameTiming _timing = default!;
 
     public bool NeedsConfirm { get; set; } = false;
-    public TimeSpan ConfirmTimeout = TimeSpan.FromSeconds(1);
+    public TimeSpan ConfirmTimeout = TimeSpan.FromSeconds(3);
+    public TimeSpan ReadDelay = TimeSpan.FromSeconds(0.7);
+    private TimeSpan? _readTime;
     private TimeSpan? _confirmTimeoutTime;
     private bool _isAwaitingConfirm = false;
     private string? _beforeConfirmText;
@@ -16,8 +18,9 @@ public partial class CommandButton
     {
         base.FrameUpdate(args);
 
-        if (_timing is null)
-            _timing = IoCManager.Resolve<IGameTiming>();
+        _timing ??= IoCManager.Resolve<IGameTiming>();
+
+        Disabled = _isAwaitingConfirm && _timing.CurTime - _readTime < TimeSpan.Zero;
 
         if (_isAwaitingConfirm && _timing.CurTime - _confirmTimeoutTime >= TimeSpan.Zero)
             SetAwaitingConfirm(false);
@@ -25,10 +28,12 @@ public partial class CommandButton
 
     private void SetAwaitingConfirm(bool confirming)
     {
-        if (confirming)
+        _isAwaitingConfirm = confirming;
+
+        if (_isAwaitingConfirm)
         {
             _beforeConfirmText ??= Text; // Prevent overwriting it with the confirm dialogue
-            _isAwaitingConfirm = true;
+            _readTime = _timing.CurTime + ReadDelay;
             _confirmTimeoutTime = _timing.CurTime + ConfirmTimeout;
 
             ModulateSelfOverride = Color.Red;
@@ -36,11 +41,12 @@ public partial class CommandButton
         }
         else
         {
-            _isAwaitingConfirm = false;
-            _beforeConfirmText = null;
-
             ModulateSelfOverride = null;
-            Text = _beforeConfirmText;
+            Text = _beforeConfirmText ?? Text;
+
+            _beforeConfirmText = null;
+            _readTime = null;
+            _confirmTimeoutTime = null;
         }
     }
 
@@ -49,15 +55,7 @@ public partial class CommandButton
         if (!NeedsConfirm)
             return true;
 
-        if (!_isAwaitingConfirm)
-        {
-            SetAwaitingConfirm(true);
-
-            return false;
-        }
-
-        SetAwaitingConfirm(false);
-
-        return true;
+        SetAwaitingConfirm(!_isAwaitingConfirm);
+        return !_isAwaitingConfirm;
     }
 }
