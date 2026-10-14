@@ -26270,3 +26270,9 @@ Entries:
       message: Made it so admins no longer always have purple names in OOC.
   id: 2968
   time: '2026-10-12T01:26:59.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Cult colossus midround is now rarer.
+  id: 2969
+  time: '2026-10-14T19:04:52.0000000+00:00'
