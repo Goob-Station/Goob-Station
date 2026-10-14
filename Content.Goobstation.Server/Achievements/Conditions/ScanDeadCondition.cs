@@ -7,9 +7,9 @@ namespace Content.Goobstation.Server.Achievements.Conditions;
 
 public sealed partial class ScanDeadCondition : AchievementCondition;
 
-public sealed class ScanDeadConditionSystem : AchievementConditionSystem<ScanDeadCondition>
+public sealed partial class ScanDeadConditionSystem : AchievementConditionSystem<ScanDeadCondition>
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

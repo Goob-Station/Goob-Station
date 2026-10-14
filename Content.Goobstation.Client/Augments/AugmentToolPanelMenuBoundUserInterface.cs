@@ -6,11 +6,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Augments;
 
-public sealed class AugmentToolPanelMenuBoundUserInterface : BoundUserInterface
+public sealed partial class AugmentToolPanelMenuBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IInputManager _input = default!;
+    [Dependency] private IEntityManager _ent = default!;
 
     private AugmentToolPanelMenu? _menu;
 

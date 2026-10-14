@@ -5,7 +5,7 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class AnyEntityConditionSystem : EntityConditionSystem<TransformComponent, AnyCondition>
 {
-    [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;
+    [Dependency] private SharedEntityConditionsSystem _conditions = default!;
 
     protected override void Condition(Entity<TransformComponent> entity, ref EntityConditionEvent<AnyCondition> args)
     {

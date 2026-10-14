@@ -11,11 +11,11 @@ namespace Content.Goobstation.Client.Slasher.Overlays;
 /// <summary>
 /// Draws an expanding shockwave ring.
 /// </summary>
-public sealed class SlasherStaggerOverlay : Overlay
+public sealed partial class SlasherStaggerOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private TransformSystem? _xform;
 

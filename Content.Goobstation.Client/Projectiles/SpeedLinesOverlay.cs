@@ -6,12 +6,12 @@ using System.Numerics;
 
 namespace Content.Goobstation.Client.Projectiles;
 
-public sealed class SpeedLinesOverlay : Overlay
+public sealed partial class SpeedLinesOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> ShaderProto = "SpeedLines";
 
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     private readonly TransformSystem _xformSystem;
     private readonly ShaderInstance _shader;

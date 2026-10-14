@@ -11,8 +11,8 @@ namespace Content.Goobstation.Shared.Wraith.Minions.Plaguebringer;
 
 public sealed partial class RatBiteSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

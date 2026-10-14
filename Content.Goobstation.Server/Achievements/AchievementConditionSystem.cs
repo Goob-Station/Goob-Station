@@ -2,10 +2,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Achievements;
 
-public abstract class AchievementConditionSystem<T> : EntitySystem where T : AchievementCondition
+public abstract partial class AchievementConditionSystem<T> : EntitySystem where T : AchievementCondition
 {
-    [Dependency] protected readonly AchievementSystem Achievements = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] protected AchievementSystem Achievements = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     protected readonly List<(AchievementPrototype Proto, T Condition)> Entries = new();
 

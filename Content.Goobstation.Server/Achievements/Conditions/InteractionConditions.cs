@@ -70,9 +70,9 @@ public sealed partial class DestroyCondition : AchievementCondition
     public List<EntProtoId> Prototypes = new();
 }
 
-public sealed class HugConditionSystem : AchievementConditionSystem<HugCondition>
+public sealed partial class HugConditionSystem : AchievementConditionSystem<HugCondition>
 {
-    [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;
+    [Dependency] private SharedEntityConditionsSystem _conditions = default!;
 
     public override void Initialize()
     {
@@ -98,9 +98,9 @@ public sealed class HugConditionSystem : AchievementConditionSystem<HugCondition
     }
 }
 
-public sealed class AirlockPryConditionSystem : AchievementConditionSystem<AirlockPryCondition>
+public sealed partial class AirlockPryConditionSystem : AchievementConditionSystem<AirlockPryCondition>
 {
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
 
     public override void Initialize()
     {
@@ -122,9 +122,9 @@ public sealed class AirlockPryConditionSystem : AchievementConditionSystem<Airlo
     }
 }
 
-public sealed class HarmBatonConditionSystem : AchievementConditionSystem<HarmBatonCondition>
+public sealed partial class HarmBatonConditionSystem : AchievementConditionSystem<HarmBatonCondition>
 {
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
 
     public override void Initialize()
     {
@@ -142,7 +142,7 @@ public sealed class HarmBatonConditionSystem : AchievementConditionSystem<HarmBa
     }
 }
 
-public sealed class UnprotectedWeldingConditionSystem : AchievementConditionSystem<UnprotectedWeldingCondition>
+public sealed partial class UnprotectedWeldingConditionSystem : AchievementConditionSystem<UnprotectedWeldingCondition>
 {
     public override void Initialize()
     {
@@ -168,7 +168,7 @@ public sealed class UnprotectedWeldingConditionSystem : AchievementConditionSyst
     }
 }
 
-public sealed class PickpocketConditionSystem : AchievementConditionSystem<PickpocketCondition>
+public sealed partial class PickpocketConditionSystem : AchievementConditionSystem<PickpocketCondition>
 {
     public override void Initialize()
     {
@@ -186,7 +186,7 @@ public sealed class PickpocketConditionSystem : AchievementConditionSystem<Pickp
     }
 }
 
-public sealed class BrainInMmiConditionSystem : AchievementConditionSystem<BrainInMmiCondition>
+public sealed partial class BrainInMmiConditionSystem : AchievementConditionSystem<BrainInMmiCondition>
 {
     public override void Initialize()
     {
@@ -207,7 +207,7 @@ public sealed class BrainInMmiConditionSystem : AchievementConditionSystem<Brain
     }
 }
 
-public sealed class DisposalFlushedConditionSystem : AchievementConditionSystem<DisposalFlushedCondition>
+public sealed partial class DisposalFlushedConditionSystem : AchievementConditionSystem<DisposalFlushedCondition>
 {
     public override void Initialize()
     {
@@ -223,7 +223,7 @@ public sealed class DisposalFlushedConditionSystem : AchievementConditionSystem<
     }
 }
 
-public sealed class ReturnToSenderConditionSystem : AchievementConditionSystem<ReturnToSenderCondition>
+public sealed partial class ReturnToSenderConditionSystem : AchievementConditionSystem<ReturnToSenderCondition>
 {
     public override void Initialize()
     {
@@ -245,11 +245,11 @@ public sealed class ReturnToSenderConditionSystem : AchievementConditionSystem<R
     }
 }
 
-public sealed class RazoriumPatientConditionSystem : AchievementConditionSystem<RazoriumPatientCondition>
+public sealed partial class RazoriumPatientConditionSystem : AchievementConditionSystem<RazoriumPatientCondition>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
 
     private const string Razorium = "Razorium";
     private static readonly TimeSpan CheckDelay = TimeSpan.FromSeconds(1);
@@ -303,7 +303,7 @@ public sealed class RazoriumPatientConditionSystem : AchievementConditionSystem<
     }
 }
 
-public sealed class DestroyConditionSystem : AchievementConditionSystem<DestroyCondition>
+public sealed partial class DestroyConditionSystem : AchievementConditionSystem<DestroyCondition>
 {
     private readonly Dictionary<EntityUid, EntityUid> _lastAttacker = new();
 

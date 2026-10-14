@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class MindRoleEntityConditionSystem : EntityConditionSystem<MindContainerComponent, MindRoleCondition>
 {
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
 
     protected override void Condition(Entity<MindContainerComponent> entity, ref EntityConditionEvent<MindRoleCondition> args)
     {

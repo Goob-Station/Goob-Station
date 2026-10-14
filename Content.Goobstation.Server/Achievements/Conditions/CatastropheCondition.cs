@@ -6,9 +6,9 @@ namespace Content.Goobstation.Server.Achievements.Conditions;
 
 public sealed partial class CatastropheCondition : AchievementCondition;
 
-public sealed class CatastropheConditionSystem : AchievementConditionSystem<CatastropheCondition>
+public sealed partial class CatastropheConditionSystem : AchievementConditionSystem<CatastropheCondition>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

@@ -15,12 +15,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Achievements;
 
-public sealed class AchievementsUIController : UIController,
+public sealed partial class AchievementsUIController : UIController,
     IOnSystemChanged<AchievementsSystem>,
     IOnStateExited<GameplayState>,
     IOnStateExited<LobbyState>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     [UISystemDependency] private readonly AchievementsSystem? _achievements = default!;
     [UISystemDependency] private readonly AudioSystem? _audio = default!;

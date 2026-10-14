@@ -8,9 +8,9 @@ namespace Content.Goobstation.Server.Achievements.Conditions;
 
 public sealed partial class BlobPryCondition : AchievementCondition;
 
-public sealed class BlobPryConditionSystem : AchievementConditionSystem<BlobPryCondition>
+public sealed partial class BlobPryConditionSystem : AchievementConditionSystem<BlobPryCondition>
 {
-    [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
 
     private static readonly ProtoId<ToolQualityPrototype> PryingQuality = "Prying";
 

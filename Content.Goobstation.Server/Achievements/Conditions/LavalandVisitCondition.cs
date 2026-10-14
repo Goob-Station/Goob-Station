@@ -6,10 +6,10 @@ namespace Content.Goobstation.Server.Achievements.Conditions;
 
 public sealed partial class LavalandVisitCondition : AchievementCondition;
 
-public sealed class LavalandVisitConditionSystem : AchievementConditionSystem<LavalandVisitCondition>
+public sealed partial class LavalandVisitConditionSystem : AchievementConditionSystem<LavalandVisitCondition>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(5);
 

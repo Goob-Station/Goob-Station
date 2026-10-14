@@ -9,12 +9,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Achievements;
 
-public sealed class AchievementManager : IPostInjectInit
+public sealed partial class AchievementManager : IPostInjectInit
 {
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly UserDbDataManager _userDb = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private UserDbDataManager _userDb = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ILogManager _log = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -235,7 +235,7 @@ public sealed class AchievementManager : IPostInjectInit
             .ToList();
     }
 
-    private sealed class AchievementEntry
+    private sealed partial class AchievementEntry
     {
         public int Progress;
         public DateTime? UnlockedAt;

@@ -7,7 +7,7 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class ForeignBodyPartEntityConditionSystem : EntityConditionSystem<HumanoidAppearanceComponent, ForeignBodyPartCondition>
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private SharedBodySystem _body = default!;
 
     protected override void Condition(Entity<HumanoidAppearanceComponent> entity, ref EntityConditionEvent<ForeignBodyPartCondition> args)
     {

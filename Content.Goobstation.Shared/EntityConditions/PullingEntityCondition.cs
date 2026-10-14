@@ -6,7 +6,7 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class PullingEntityConditionSystem : EntityConditionSystem<PullerComponent, PullingCondition>
 {
-    [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;
+    [Dependency] private SharedEntityConditionsSystem _conditions = default!;
 
     protected override void Condition(Entity<PullerComponent> entity, ref EntityConditionEvent<PullingCondition> args)
     {

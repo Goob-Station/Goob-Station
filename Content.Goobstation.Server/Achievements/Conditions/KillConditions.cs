@@ -23,12 +23,12 @@ public sealed partial class KilledBySameCondition : AchievementCondition
 
 public sealed partial class KillRageQuitCondition : AchievementCondition;
 
-public sealed class KillConditionsSystem : EntitySystem
+public sealed partial class KillConditionsSystem : EntitySystem
 {
-    [Dependency] private readonly AchievementSystem _achievements = default!;
-    [Dependency] private readonly CausedMobStateConditionSystem _caused = default!;
-    [Dependency] private readonly KilledBySameConditionSystem _killedBySame = default!;
-    [Dependency] private readonly KillRageQuitConditionSystem _rageQuit = default!;
+    [Dependency] private AchievementSystem _achievements = default!;
+    [Dependency] private CausedMobStateConditionSystem _caused = default!;
+    [Dependency] private KilledBySameConditionSystem _killedBySame = default!;
+    [Dependency] private KillRageQuitConditionSystem _rageQuit = default!;
 
     public override void Initialize()
     {
@@ -54,9 +54,9 @@ public sealed class KillConditionsSystem : EntitySystem
     }
 }
 
-public sealed class CausedMobStateConditionSystem : AchievementConditionSystem<CausedMobStateCondition>
+public sealed partial class CausedMobStateConditionSystem : AchievementConditionSystem<CausedMobStateCondition>
 {
-    [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;
+    [Dependency] private SharedEntityConditionsSystem _conditions = default!;
 
     public void OnCaused(EntityUid attacker, EntityUid target, MobState state)
     {
@@ -71,7 +71,7 @@ public sealed class CausedMobStateConditionSystem : AchievementConditionSystem<C
     }
 }
 
-public sealed class KilledBySameConditionSystem : AchievementConditionSystem<KilledBySameCondition>
+public sealed partial class KilledBySameConditionSystem : AchievementConditionSystem<KilledBySameCondition>
 {
     private readonly Dictionary<(NetUserId Victim, NetUserId Killer), int> _kills = new();
 
@@ -107,7 +107,7 @@ public sealed class KilledBySameConditionSystem : AchievementConditionSystem<Kil
     }
 }
 
-public sealed class KillRageQuitConditionSystem : AchievementConditionSystem<KillRageQuitCondition>
+public sealed partial class KillRageQuitConditionSystem : AchievementConditionSystem<KillRageQuitCondition>
 {
     private readonly Dictionary<NetUserId, EntityUid> _lastAttacker = new();
 

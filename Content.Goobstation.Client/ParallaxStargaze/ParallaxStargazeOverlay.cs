@@ -8,13 +8,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.ParallaxStargaze;
 
-public sealed class ParallaxStargazeOverlay : Overlay
+public sealed partial class ParallaxStargazeOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
 
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
 
     private readonly ParallaxStargazeSystem _stargaze;
     private readonly ParallaxSystem _parallax;
