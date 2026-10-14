@@ -26323,3 +26323,11 @@ Entries:
         periods.
   id: 2972
   time: '2026-10-14T19:10:04.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Fix
+      message: >-
+        Maintenance drones can now see how much power they have left in real
+        time (so now there is no excuse for running out of power)
+  id: 2973
+  time: '2026-10-14T19:12:02.0000000+00:00'
