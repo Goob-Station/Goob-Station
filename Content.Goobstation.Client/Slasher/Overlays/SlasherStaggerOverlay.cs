@@ -85,7 +85,7 @@ public sealed partial class SlasherStaggerOverlay : Overlay
             if (progress is < 0f or >= 1f)
                 continue;
 
-            var worldPos = _xform.GetRenderWorldPosition((uid, xform));
+            var worldPos = _xform.GetWorldPosition(xform);
 
             var coords = args.Viewport.WorldToLocal(worldPos);
             coords.Y = args.Viewport.Size.Y - coords.Y;

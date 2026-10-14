@@ -138,7 +138,7 @@ public sealed partial class ThermalVisionOverlay : Overlay
         if (xform.MapID != map || !CanSee(uid, sprite))
             return;
 
-        var (position, rotation) = _transform.GetRenderWorldPositionRotation((uid, xform));
+        var (position, rotation) = _transform.GetWorldPositionRotation(xform);
 
         var originalColor = sprite.Color;
         Dictionary<int, (ShaderInstance? shader, Color color)> layerData = new();

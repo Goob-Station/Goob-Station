@@ -73,7 +73,7 @@ public sealed partial class ParallaxStargazeOverlay : Overlay
             if (!_entManager.TryGetComponent(uid, out SpriteComponent? sprite))
                 continue;
 
-            var (worldPos, worldRot) = _transform.GetRenderWorldPositionRotation(uid);
+            var (worldPos, worldRot) = _transform.GetWorldPositionRotation(uid);
             _sprite.RenderSprite((uid, sprite), handle, eyeRotation, worldRot, worldPos);
         }
 

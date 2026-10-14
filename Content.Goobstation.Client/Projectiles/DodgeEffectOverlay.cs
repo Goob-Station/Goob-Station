@@ -70,7 +70,7 @@ public sealed partial class DodgeEffectOverlay : Overlay
             if (xform.MapID != args.MapId)
                 continue;
 
-            var worldPos = _xformSystem.GetRenderWorldPosition((uid, xform));
+            var worldPos = _xformSystem.GetWorldPosition(xform);
             var elapsed = (float) (now - effect.Time).TotalSeconds;
             var progress = Math.Clamp(elapsed / dodge.Duration, 0f, 1f);
 

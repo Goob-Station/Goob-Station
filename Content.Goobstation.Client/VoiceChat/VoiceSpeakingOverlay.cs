@@ -43,7 +43,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
             _entityManager.TryGetComponent<TransformComponent>(local, out var selfXform) &&
             selfXform.MapID == args.MapId)
         {
-            var position = _transform.GetRenderWorldPosition((local, selfXform));
+            var position = _transform.GetWorldPosition(selfXform);
             if (args.WorldAABB.Contains(position))
                 DrawIndicator(handle, rotation, position, self.Levels, _voice.GetSelfColor().WithAlpha(self.Activity), self.Activity);
         }
@@ -63,7 +63,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
                 continue;
             }
 
-            var position = _transform.GetRenderWorldPosition((uid.Value, xform));
+            var position = _transform.GetWorldPosition(xform);
             if (!args.WorldAABB.Contains(position))
                 continue;
 

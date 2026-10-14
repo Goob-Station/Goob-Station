@@ -41,7 +41,7 @@ public sealed partial class SpeedLinesOverlay : Overlay
                 continue;
 
             var seed = lines.Seed;
-            var worldPos = _xformSystem.GetRenderWorldPosition((uid, xform));
+            var worldPos = _xformSystem.GetWorldPosition(xform);
             var direction = lines.Direction;
             if (direction == Vector2.Zero)
                 direction = Vector2.UnitX;
