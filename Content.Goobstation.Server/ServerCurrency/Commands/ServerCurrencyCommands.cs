@@ -11,10 +11,10 @@ using Robust.Shared.Console;
 namespace Content.Goobstation.Server.ServerCurrency.Commands
 {
     [AnyCommand]
-    public sealed class BalanceServerCurrencyCommand : IConsoleCommand
+    public sealed partial class BalanceServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private ICommonCurrencyManager _currencyMan = default!;
+        [Dependency] private IChatManager _chatManager = default!;
         public string Command => Loc.GetString("server-currency-balance-command");
         public string Description => Loc.GetString("server-currency-balance-command-description");
         public string Help => Loc.GetString("server-currency-balance-command-help");
@@ -41,10 +41,10 @@ namespace Content.Goobstation.Server.ServerCurrency.Commands
     }
 
     [AnyCommand]
-    public sealed class GiftServerCurrencyCommand : IConsoleCommand
+    public sealed partial class GiftServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private ICommonCurrencyManager _currencyMan = default!;
+        [Dependency] private IChatManager _chatManager = default!;
 
         public string Command => Loc.GetString("server-currency-gift-command");
         public string Description => Loc.GetString("server-currency-gift-command-description");
@@ -114,9 +114,9 @@ namespace Content.Goobstation.Server.ServerCurrency.Commands
     }
 
     [AdminCommand(AdminFlags.Host)]
-    public sealed class AddServerCurrencyCommand : IConsoleCommand
+    public sealed partial class AddServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
+        [Dependency] private ICommonCurrencyManager _currencyMan = default!;
 
         public string Command => Loc.GetString("server-currency-add-command");
         public string Description => Loc.GetString("server-currency-add-command-description");
@@ -159,9 +159,9 @@ namespace Content.Goobstation.Server.ServerCurrency.Commands
     }
 
     [AdminCommand(AdminFlags.Host)]
-    public sealed class RemoveServerCurrencyCommand : IConsoleCommand
+    public sealed partial class RemoveServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
+        [Dependency] private ICommonCurrencyManager _currencyMan = default!;
 
         public string Command => Loc.GetString("server-currency-remove-command");
         public string Description => Loc.GetString("server-currency-remove-command-description");
@@ -204,9 +204,9 @@ namespace Content.Goobstation.Server.ServerCurrency.Commands
     }
 
     [AdminCommand(AdminFlags.Host)]
-    public sealed class SetServerCurrencyCommand : IConsoleCommand
+    public sealed partial class SetServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
+        [Dependency] private ICommonCurrencyManager _currencyMan = default!;
 
         public string Command => Loc.GetString("server-currency-set-command");
         public string Description => Loc.GetString("server-currency-set-command-description");
@@ -250,9 +250,9 @@ namespace Content.Goobstation.Server.ServerCurrency.Commands
     }
 
     [AdminCommand(AdminFlags.Host)]
-    public sealed class GetServerCurrencyCommand : IConsoleCommand
+    public sealed partial class GetServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
+        [Dependency] private ICommonCurrencyManager _currencyMan = default!;
 
         public string Command => Loc.GetString("server-currency-get-command");
         public string Description => Loc.GetString("server-currency-get-command-description");

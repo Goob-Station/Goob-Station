@@ -11,6 +11,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Fluids;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -20,17 +21,17 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public abstract class SharedChangelingBiomassSystem : EntitySystem
+public abstract partial class SharedChangelingBiomassSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
-    [Dependency] private readonly SharedInternalResourcesSystem _resource = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private DamageableSystem _dmg = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private SharedBloodstreamSystem _blood = default!;
+    [Dependency] private SharedInternalResourcesSystem _resource = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPuddleSystem _puddle = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     private EntityQuery<AbsorbedComponent> _absorbQuery;
     private EntityQuery<BloodstreamComponent> _bloodQuery;
@@ -157,7 +158,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
             return;
 
         var damagespec = new DamageSpecifier(genetic, (FixedPoint2) totalDamage);
-        _dmg.TryChangeDamage(ent, damagespec, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
+        _dmg.TryChangeDamage(ent.Owner, damagespec, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
 
         EnsureComp<AbsorbedComponent>(ent);
     }

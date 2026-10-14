@@ -82,7 +82,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsWhite2
@@ -99,7 +99,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsWhite3
@@ -116,7 +116,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsWhite4
@@ -133,7 +133,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsWhite5
@@ -150,7 +150,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsWhite6
@@ -167,7 +167,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsRed1
@@ -185,7 +185,7 @@
     color: "#fc8d8d"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsRed2
@@ -203,7 +203,7 @@
     color: "#fc8d8d"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsRed3
@@ -221,7 +221,7 @@
     color: "#fc8d8d"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsRed4
@@ -239,7 +239,7 @@
     color: "#fc8d8d"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsRed5
@@ -257,7 +257,7 @@
     color: "#fc8d8d"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsRed6
@@ -275,7 +275,7 @@
     color: "#fc8d8d"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsBlue1
@@ -293,7 +293,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsBlue2
@@ -311,7 +311,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsBlue3
@@ -329,7 +329,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsBlue4
@@ -347,7 +347,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsBlue5
@@ -365,7 +365,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle
 
 - type: entity
   id: ChristmasLightsBlue6
@@ -383,4 +383,4 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/Effects/LightMasks/sparklemask.png
+    lightMask: Sparkle

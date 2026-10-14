@@ -8,10 +8,10 @@ using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public sealed class ChangelingGunSystem : EntitySystem
+public sealed partial class ChangelingGunSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGunSystem _guns = default!;
-    [Dependency] private readonly SharedInternalResourcesSystem _resource = default!;
+    [Dependency] private SharedGunSystem _guns = default!;
+    [Dependency] private SharedInternalResourcesSystem _resource = default!;
 
     public override void Initialize()
     {
