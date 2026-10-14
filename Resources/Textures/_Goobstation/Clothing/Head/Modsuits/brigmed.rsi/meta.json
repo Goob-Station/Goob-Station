@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "RedTerror",
+  "copyright": "RedTerror, r e s o m i  by john mcresomi",
   "size": {
     "x": 32,
     "y": 32
@@ -51,6 +51,14 @@
     },
     {
       "name": "equipped-HEAD-sealed-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-resomi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-resomi",
       "directions": 4
     }
   ]

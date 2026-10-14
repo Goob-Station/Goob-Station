@@ -12,6 +12,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.Verbs;
@@ -24,7 +25,7 @@ using Robust.Shared.Timing;
 using Vector2 = System.Numerics.Vector2;
 using Content.Shared.Silicons.StationAi;
 
-
+// todo, cry, please, if you are reading this, refactor me.
 namespace Content.Goobstation.Shared.Clothing.Systems;
 
 /// <summary>
@@ -42,18 +43,13 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
     [Dependency] private readonly ToggleableClothingSystem _toggleableSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<SealableClothingComponent, ClothingPartSealCompleteEvent>(OnPartSealingComplete);
-
         SubscribeLocalEvent<SealableClothingControlComponent, ClothingControlSealCompleteEvent>(OnControlSealingComplete);
         SubscribeLocalEvent<SealableClothingControlComponent, ClothingGotEquippedEvent>(OnControlEquip);
         SubscribeLocalEvent<SealableClothingControlComponent, ClothingGotUnequippedEvent>(OnControlUnequip);
@@ -69,11 +65,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         SubscribeLocalEvent<SealableClothingControlComponent, BeingUnequippedAttemptEvent>(OnToggleableUnequipAttemptSealCheck);
         SubscribeLocalEvent<SealableClothingControlComponent, OnToggleableUnequipAttemptEvent>(OnToggleSanityChecker);
         SubscribeLocalEvent<SealableClothingControlComponent, InventoryRelayedEvent<GetVerbsEvent<EquipmentVerb>>>(OnRelayedVerbRequest);
-
         SubscribeLocalEvent<SealableClothingComponent, OnAttachedUnequipAttemptEvent>(OnAttachedUnequipAttemptSealCheck);
-
-
-
     }
 
     #region Events
@@ -86,6 +78,27 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     private void OnPartSealingComplete(Entity<SealableClothingComponent> part, ref ClothingPartSealCompleteEvent args)
     {
         _componentTogglerSystem.ToggleComponent(part, args.IsSealed);
+
+        // look the way we currently yaml the fuckass modsuits is having a hidelayercomp both before and after seal
+        // comptoggler will remove the OLD comp on unseal and not restore it because its not fucking made to change individual comp states on the go
+        // im not touching wizden files rn. enjoy shitcode.
+        if (args.IsSealed || MetaData(part).EntityPrototype is not { } prototype)
+            return;
+
+        foreach (var entry in prototype.Components.Values)
+        {
+            if (entry.Component is not HideLayerClothingComponent hideLayer)
+                continue;
+
+            var liveHideLayer = EnsureComp<HideLayerClothingComponent>(part);
+            liveHideLayer.Layers = new(hideLayer.Layers);
+#pragma warning disable CS0618 // Type or member is obsolete
+            liveHideLayer.Slots = hideLayer.Slots;
+#pragma warning restore CS0618 // Type or member is obsolete
+            liveHideLayer.HideOnToggle = hideLayer.HideOnToggle;
+            Dirty(part, liveHideLayer);
+            break;
+        }
     }
 
     /// <summary>
@@ -373,12 +386,10 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         var (uid, comp) = control;
 
         // Prevent sealing/unsealing if modsuit don't have wearer or already started process
-        if (comp.WearerEntity == null || comp.IsInProcess)
+        if (comp.WearerEntity is not { } wearer || comp.IsInProcess)
             return false;
 
-        var wearer = comp.WearerEntity;
-
-        var ev = new ClothingSealAttemptEvent(wearer.Value);
+        var ev = new ClothingSealAttemptEvent(wearer);
         RaiseLocalEvent(control, ev);
 
         if (ev.Cancelled)
@@ -389,7 +400,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         // edge cases where a sealed part may be unequipped and you get stuck with a broke suit
         // Sealbreaker along with OnAttachedUnequip in Toggleableclothing should take care if a sealed part unequips
         // but we still let the user manually unseal as a fallback to an impossible situation
-        if (!comp.IsCurrentlySealed && _toggleableSystem.GetAttachedToggleStatus(wearer.Value, uid, false) != ToggleableClothingAttachedStatus.AllToggled)
+        if (!comp.IsCurrentlySealed && _toggleableSystem.GetAttachedToggleStatus(wearer, uid, false) != ToggleableClothingAttachedStatus.AllToggled)
         {
             if (user == wearer) // Popup spam prevent
             {
@@ -429,7 +440,58 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         comp.IsInProcess = true;
         Dirty(control);
 
+        var processQueue = control.Comp.ProcessQueue.ToArray(); // haha this is so dogshit kill me.
+
         NextSealProcess(control);
+
+        // cause hide layers only raises on 'player' unequip you gotta raise ts manually when other shit is unequipping for you
+        foreach (var netEntity in processQueue)
+        {
+            var part = GetEntity(netEntity);
+
+            if (!TryComp<ClothingComponent>(part, out var clothing))
+                continue;
+
+            // Holy fucking shit i need to fucking kill this.
+            // tldr componenttoggler is shit but im not touching wiz files for this nonsense.
+            // we get the `sealed` state hidelayerclothingComp if it exists and ensure it on seal
+            // This is ultrahardcoded and prone to fucking break if you mess with the yaml even slightly on these comps
+            // but holy fuck this code needs refactoring anyway. die.
+            if (MetaData(part).EntityPrototype is { } prototype)
+            {
+                foreach (var entry in prototype.Components.Values)
+                {
+                    if (entry.Component is not ComponentTogglerComponent toggler)
+                        continue;
+
+                    foreach (var toggledEntry in toggler.Components.Values)
+                    {
+                        if (toggledEntry.Component is not HideLayerClothingComponent hideLayer)
+                            continue;
+
+                        var liveHideLayer = EnsureComp<HideLayerClothingComponent>(part);
+                        liveHideLayer.Layers = new(hideLayer.Layers);
+#pragma warning disable CS0618 // Type or member is obsolete
+                        liveHideLayer.Slots = hideLayer.Slots;
+#pragma warning restore CS0618 // Type or member is obsolete
+                        liveHideLayer.HideOnToggle = hideLayer.HideOnToggle;
+                        Dirty(part, liveHideLayer);
+                        break;
+                    }
+                }
+            }
+
+            if (control.Comp.IsCurrentlySealed) // This feels backwards but is actually correct.
+            {
+                var uneqEv = new ClothingGotUnequippedEvent(wearer, clothing);
+                RaiseLocalEvent(part, ref uneqEv);
+            }
+            else
+            {
+                var equipEv = new ClothingGotEquippedEvent(wearer, clothing);
+                RaiseLocalEvent(part, ref equipEv);
+            }
+        }
 
         return true;
     }
@@ -645,8 +707,16 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     {
         // AttachedUid = Toggleable Part | args.Toggleable
         // Owner       = Toggled Part    | args.Attached
-        if (!TryComp<SealableClothingComponent>(args.Attached, out var sealableComp))
+        if (!TryComp<SealableClothingComponent>(args.Attached, out var sealableComp)
+            || !TryComp<ClothingComponent>(args.Attached, out var clothingComp))
             return;
+
+        // cause hide layers only raises on 'player' unequip you gotta raise ts manually when other shit is unequipping for you
+        if (sealable.Comp.WearerEntity is { } goober)
+        {
+            var ev = new ClothingGotUnequippedEvent(goober, clothingComp);
+            RaiseLocalEvent(args.Attached, ref ev);
+        }
 
         if (!sealableComp.IsSealed)
             return;
