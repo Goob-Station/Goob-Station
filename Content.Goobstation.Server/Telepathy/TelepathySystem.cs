@@ -63,7 +63,7 @@ public sealed partial class TelepathySystem : SharedTelepathySystem
                 ("message", FormattedMessage.EscapeText(message))),
                 performer, performer);
 
-            _adminLog.Add(LogType.AdminMessage, LogImpact.Medium, $"{ToPrettyString(target):player} received telepathic message from {ToPrettyString(performer):player}: {message}");
+            _adminLog.Add(LogType.Chat, LogImpact.Medium, $"{ToPrettyString(target):player} received telepathic message from {ToPrettyString(performer):player}: {message}");
         });
     }
 }
