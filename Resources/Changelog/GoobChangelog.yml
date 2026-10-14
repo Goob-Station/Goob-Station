@@ -26354,3 +26354,9 @@ Entries:
       message: Shuttles and the things on them move smoothly again.
   id: 2976
   time: '2026-10-14T19:30:06.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Fixed canvases and painting frames being uncraftable.
+  id: 2977
+  time: '2026-10-14T19:52:55.0000000+00:00'
