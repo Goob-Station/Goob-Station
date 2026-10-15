@@ -1,0 +1,78 @@
+- type: entity
+  name: H.F. muramasa
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: WeaponHFMuramasa
+  description: A high-frequency blade that hums with a hunger for flesh. Does not grant the power of double jumps.
+  components:
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+  - type: ItemToggleHot
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ItemTogglePointLight
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 14
+        Heat: 14
+        Structural: 20
+      woundSeverityMultipliers:
+        Slash: 3
+        Heat: 3
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: "#ff3322"
+    netsync: false
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/HF_muramasa.rsi
+    layers:
+    - state: icon
+  - type: Appearance
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 4
+  - type: UseDelay
+    delay: 1
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - Energy
+  - type: IgnitionSource
+    temperature: 700
+  - type: Tool
+    qualities:
+    - Ignition
+  - type: ThrowableBlocker
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2

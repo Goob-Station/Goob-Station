@@ -1,0 +1,69 @@
+- type: entity
+  name: Nanotrasen flagpole
+  parent: Spear
+  id: WeaponFlagpoleNanotrasen
+  description: To remind you which corporation you sold your soul to while poking stuff with the sharp end. Boosts regen of mindshielded personnel nearby.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/NT_pole.rsi
+    layers:
+    - state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 10
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 20
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 2.5
+  - type: EffectOnMindshielded
+    group: MindshieldHeal
+    range: 5
+    interval: 1
+    damage:
+      groups:
+        Brute: -10 # For testing, reduce later
+        Burn: -10
+  - type: Construction
+    graph: FlagpoleNanotrasen
+    node: flagpole
+
+- type: entity
+  name: Syndicate flagpole
+  parent: [ Spear, BaseSyndicateContraband ]
+  id: WeaponFlagpoleSyndicate
+  description: A spear flying the Syndicate colors, with an energy dagger lashed to its head. Deals terrible, terrible damage to mindshielded personnel.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/syndi_pole.rsi
+    layers:
+    - state: icon
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 2
+    color: "#ff5533"
+    netsync: false
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 10
+        Heat: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 24
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 5
+        Heat: 5
+  - type: EffectOnMindshielded
+    range: 0
+    meleeDamage:
+      types:
+        Slash: 20

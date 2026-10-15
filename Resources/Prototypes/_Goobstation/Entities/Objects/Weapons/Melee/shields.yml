@@ -1,0 +1,142 @@
+- type: entity
+  name: spiked shield
+  parent: BaseShield
+  id: WeaponSpikedShield
+  description: A wooden bulwark studded with knives. Reflects damage back to attacker.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/spiked_shield.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/spiked_shield.rsi
+    heldPrefix: icon
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 2
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 2
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+  - type: Construction
+    graph: SpikedShield
+    node: spikedShield
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 90
+      behaviors:
+      - !type:DoActsBehavior
+        acts:
+        - Destruction
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts:
+        - Destruction
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 3
+            max: 4
+  - type: StaticPrice
+    price: 200
+
+- type: entity
+  name: experimental emergency energy shield
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: WeaponEmergencyEnergyShield
+  description: An experimental shield emitter. Raises a nearly impenetrable shield that lasts for a very short while before breaking.
+  components:
+  - type: ItemToggle
+    onUse: false
+    onActivate: false
+    predictable: false
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ComponentToggler
+    components:
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.1
+          Slash: 0.1
+          Piercing: 0.1
+          Heat: 0.1
+          Cold: 0.1
+          Shock: 0.1
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.05
+          Slash: 0.05
+          Piercing: 0.05
+          Heat: 0.05
+          Cold: 0.05
+          Shock: 0.05
+    - type: Reflect
+      reflectProb: 1
+      reflects:
+      - Energy
+  - type: Damageable
+    damageContainer: Shield
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/e_shield.rsi
+    layers:
+    - state: eshield-icon
+    - state: eshield-on
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map:
+      - shield
+  - type: Item
+    size: Small
+    sprite: Objects/Weapons/Melee/e_shield.rsi
+    heldPrefix: eshield
+  - type: ToggleableVisuals
+    spriteLayer: shield
+    inhandVisuals:
+      left:
+      - state: inhand-left-shield
+        shader: unshaded
+      right:
+      - state: inhand-right-shield
+        shader: unshaded
+  - type: PointLight
+    netsync: false
+    enabled: false
+    radius: 1.5
+    energy: 0.7
+    color: "#678AD9"
+  - type: ItemTogglePointLight
+  - type: Appearance
+  - type: UseDelay
+    delay: 0.5
+  - type: StaticPrice
+    price: 500

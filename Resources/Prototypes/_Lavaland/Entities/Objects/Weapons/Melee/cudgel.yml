@@ -92,6 +92,55 @@
     node: cudgel
 
 - type: entity
+  name: ice cudgel
+  parent: WeaponCudgelBase
+  id: WeaponCudgelIce
+  description: A cudgel wrapped in brullbar fur and frozen solid.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/ice_club.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/ice_club.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/ice_club.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 11
+        Cold: 6
+    soundHit:
+      collection: MetalThud
+  - type: ChangeTemperatureOnHit
+    heat: -50000
+  - type: Construction
+    graph: IceClub
+    node: iceClub
+
+- type: entity
+  name: flesh cudgel
+  parent: WeaponCudgelBase
+  id: WeaponCudgelFlesh
+  description: A cudgel slathered in rotten meat. Disgusting!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/flesh_club.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/flesh_club.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/flesh_club.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      collection: MetalThud
+  - type: Construction
+    graph: FleshClub
+    node: fleshClub
+
+- type: entity
   name: incomplete wooden cudgel
   parent: [ BaseItem, BaseMinorContraband ]
   id: IncompleteWoodCudgel
