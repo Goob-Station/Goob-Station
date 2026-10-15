@@ -18,7 +18,7 @@ public sealed class ParallaxStargazeOverlay : Overlay
 
     private readonly ParallaxStargazeSystem _stargaze;
     private readonly ParallaxSystem _parallax;
-    private readonly SharedTransformSystem _transform;
+    private readonly TransformSystem _transform;
     private readonly SpriteSystem _sprite;
     private readonly ShaderInstance _unshaded;
 
@@ -30,7 +30,7 @@ public sealed class ParallaxStargazeOverlay : Overlay
         IoCManager.InjectDependencies(this);
         _stargaze = _entManager.System<ParallaxStargazeSystem>();
         _parallax = _entManager.System<ParallaxSystem>();
-        _transform = _entManager.System<SharedTransformSystem>();
+        _transform = _entManager.System<TransformSystem>();
         _sprite = _entManager.System<SpriteSystem>();
         _unshaded = _protoManager.Index(UnshadedShader).Instance();
     }
@@ -73,8 +73,7 @@ public sealed class ParallaxStargazeOverlay : Overlay
             if (!_entManager.TryGetComponent(uid, out SpriteComponent? sprite))
                 continue;
 
-            var worldPos = _transform.GetWorldPosition(uid);
-            var worldRot = _transform.GetWorldRotation(uid);
+            var (worldPos, worldRot) = _transform.GetRenderWorldPositionRotation(uid);
             _sprite.RenderSprite((uid, sprite), handle, eyeRotation, worldRot, worldPos);
         }
 
