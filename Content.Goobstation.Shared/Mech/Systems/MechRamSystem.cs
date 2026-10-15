@@ -74,7 +74,7 @@ public sealed partial class MechRamSystem : EntitySystem
     private void OnShutdown(Entity<MechRamComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Comp.ActionEntity);
-        PredictedQueueDel(ent.Comp.ActionEntity);
+        QueueDel(ent.Comp.ActionEntity);
     }
 
     private void OnRam(Entity<MechComponent> ent, ref MechRamActionEvent args)

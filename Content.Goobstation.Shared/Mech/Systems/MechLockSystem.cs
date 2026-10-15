@@ -46,7 +46,7 @@ public sealed partial class MechLockSystem : EntitySystem
     private void OnShutdown(Entity<MechLockComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Comp.ActionEntity);
-        PredictedQueueDel(ent.Comp.ActionEntity);
+        QueueDel(ent.Comp.ActionEntity);
     }
 
     private static bool HasRequiredAccess(MechLockComponent mechLock, ICollection<ProtoId<AccessLevelPrototype>> tags) =>

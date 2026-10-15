@@ -4,7 +4,7 @@ using Content.Shared.Mech.Components;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
-public sealed class MechAirTankModuleSystem : EntitySystem
+public sealed partial class MechAirTankModuleSystem : EntitySystem
 {
     public override void Initialize()
     {

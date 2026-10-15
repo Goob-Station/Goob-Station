@@ -52,7 +52,7 @@ public sealed partial class MechOverclockSystem : EntitySystem
     {
         ClearGlow(ent);
         _actions.RemoveAction(ent.Comp.ActionEntity);
-        PredictedQueueDel(ent.Comp.ActionEntity);
+        QueueDel(ent.Comp.ActionEntity);
     }
 
     private void OnToggle(Entity<MechComponent> ent, ref MechOverclockActionEvent args)
@@ -99,7 +99,7 @@ public sealed partial class MechOverclockSystem : EntitySystem
     private void ClearGlow(Entity<MechOverclockComponent> ent)
     {
         if (ent.Comp.GlowEntity is { } glow)
-            PredictedQueueDel(glow);
+            QueueDel(glow);
 
         ent.Comp.GlowEntity = null;
     }
