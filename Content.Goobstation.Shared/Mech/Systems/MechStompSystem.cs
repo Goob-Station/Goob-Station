@@ -153,7 +153,7 @@ public sealed partial class MechStompSystem : EntitySystem
             _throwing.TryThrow(target.Owner, dir, ent.Comp.KnockbackSpeed, mech, playSound: false);
         }
 
-        _popup.PopupPredicted(Loc.GetString("mech-stomp-popup", ("mech", mech)), mech, args.User, PopupType.MediumCaution);
+        _popup.PopupPredicted(Loc.GetString("mech-stomp-popup", ("mech", mech)), mech, mechComp.PilotSlot.ContainedEntity, PopupType.MediumCaution);
 
         foreach (var camera in _lookup.GetEntitiesInRange<CameraRecoilComponent>(xform.Coordinates, ent.Comp.StompRadius * 4f))
         {
