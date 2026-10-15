@@ -14,21 +14,8 @@ public sealed partial class MechAirTankAtmosSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MechAirTankModuleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MechAirComponent, EntInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<MechAirComponent, EntRemovedFromContainerMessage>(OnRemoved);
-    }
-
-    private void OnMapInit(Entity<MechAirTankModuleComponent> module, ref MapInitEvent args)
-    {
-        if (module.Comp.Air != null)
-            return;
-
-        var air = new GasMixture(module.Comp.Volume) { Temperature = Atmospherics.T20C };
-        var moles = Atmospherics.OneAtmosphere * module.Comp.Volume / (Atmospherics.R * Atmospherics.T20C);
-        air.AdjustMoles(Gas.Oxygen, moles * 0.21f);
-        air.AdjustMoles(Gas.Nitrogen, moles * 0.79f);
-        module.Comp.Air = air;
     }
 
     private void OnInserted(Entity<MechAirComponent> mech, ref EntInsertedIntoContainerMessage args)
@@ -36,12 +23,10 @@ public sealed partial class MechAirTankAtmosSystem : EntitySystem
         if (!TryComp<MechAirTankModuleComponent>(args.Entity, out var tank))
             return;
 
-        mech.Comp.Air.Volume += tank.Volume;
-        if (tank.Air == null)
-            return;
-
+        var volume = tank.Air.Volume;
+        mech.Comp.Air.Volume += volume;
         _atmos.Merge(mech.Comp.Air, tank.Air);
-        tank.Air = null;
+        tank.Air = new GasMixture(volume) { Temperature = tank.Air.Temperature };
     }
 
     private void OnRemoved(Entity<MechAirComponent> mech, ref EntRemovedFromContainerMessage args)
@@ -49,14 +34,16 @@ public sealed partial class MechAirTankAtmosSystem : EntitySystem
         if (!TryComp<MechAirTankModuleComponent>(args.Entity, out var tank))
             return;
 
-        if (mech.Comp.Air.Volume > tank.Volume)
+        var volume = tank.Air.Volume;
+        if (mech.Comp.Air.Volume > volume)
         {
-            tank.Air = mech.Comp.Air.RemoveVolume(tank.Volume);
-            mech.Comp.Air.Volume -= tank.Volume;
+            tank.Air = mech.Comp.Air.RemoveVolume(volume);
+            tank.Air.Volume = volume;
+            mech.Comp.Air.Volume -= volume;
         }
         else
         {
-            tank.Air = new GasMixture(tank.Volume) { Temperature = Atmospherics.T20C };
+            tank.Air = new GasMixture(volume) { Temperature = Atmospherics.T20C };
         }
     }
 }

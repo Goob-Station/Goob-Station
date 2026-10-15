@@ -4,16 +4,13 @@ using Robust.Shared.GameStates;
 namespace Content.Goobstation.Shared.Mech.Components;
 
 /// <summary>
-/// Fills the mech with a standard o2 mixture while installed.
+/// Seals the mech and adds its stored air to the cabin while installed.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MechAirTankModuleComponent : Component
 {
-    [DataField]
-    public float Volume = 500f;
-
-    [ViewVariables]
-    public GasMixture? Air;
+    [DataField(required: true)]
+    public GasMixture Air = new();
 
     [ViewVariables, AutoNetworkedField]
     public bool? PreviousAirtight;

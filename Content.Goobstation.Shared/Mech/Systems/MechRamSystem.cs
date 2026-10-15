@@ -4,9 +4,9 @@ using Content.Shared._vg.TileMovement;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Camera;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Gravity;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mobs.Components;
@@ -43,6 +43,8 @@ public sealed partial class MechRamSystem : EntitySystem
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+
 
     private enum StepResult : byte
     {
@@ -89,9 +91,9 @@ public sealed partial class MechRamSystem : EntitySystem
             return;
         }
 
-        if (Transform(ent).GridUid == null)
+        if (_gravity.IsWeightless(ent.Owner))
         {
-            _popup.PopupClient(Loc.GetString("mech-ram-no-grid"), ent, pilot);
+            _popup.PopupClient(Loc.GetString("mech-ram-no-grav"), ent, pilot);
             return;
         }
 
@@ -276,8 +278,6 @@ public sealed partial class MechRamSystem : EntitySystem
 
         return mask == 0 ? (int) CollisionGroup.MobMask : mask;
     }
-
-
 
     private void Trample(Entity<MechRamComponent> ent, EntityUid target, Vector2i dir)
     {

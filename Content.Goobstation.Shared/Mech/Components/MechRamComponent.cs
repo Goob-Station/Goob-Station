@@ -32,7 +32,6 @@ public sealed partial class MechRamComponent : Component
     [DataField]
     public int LungeDistance = 6;
 
-
     [DataField]
     public TimeSpan TileStepInterval = TimeSpan.FromSeconds(0.09);
 
@@ -74,7 +73,6 @@ public sealed partial class MechRamComponent : Component
 
     [DataField]
     public SoundSpecifier SmashSound = new SoundCollectionSpecifier("MetalBreak");
-
 
     [DataField]
     public float ImpactCameraKick = 3f;

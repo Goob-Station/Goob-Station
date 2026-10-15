@@ -34,3 +34,9 @@
     state: mecha_air_tank
   - type: MechEquipment
   - type: MechAirTankModule
+    air:
+      volume: 500
+      moles:
+        Oxygen: 4.365004
+        Nitrogen: 16.420730
+      temperature: 293.15

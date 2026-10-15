@@ -4,7 +4,7 @@ mech-overclock-off = {CAPITALIZE(THE($mech))} stops accelerating.
 mech-stomp-windup = {CAPITALIZE(THE($mech))} starts raising a foot...
 mech-stomp-popup = {CAPITALIZE(THE($mech))} slams their foot down!
 mech-ram-start = {CAPITALIZE(THE($mech))} lurches forward!
-mech-ram-no-grid = There's nothing to push off from out here.
+mech-ram-no-grav = You can't seem to get a grip.
 mech-ram-impact = {CAPITALIZE(THE($mech))} crashes into {THE($target)}!
 
 mech-lock-no-access = Your ID doesn't match the lock on {THE($mech)}.

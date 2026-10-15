@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Audio;
 
 /// <summary>
-/// Changes the Reverb of everything that has this.
+/// Changes the Reverb of everything for the entity that has this.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AudioReverbComponent : Component

@@ -26,13 +26,11 @@ public sealed partial class MechStompOverlayComponent : Component
     [DataField]
     public SoundSpecifier SlamSound = new SoundCollectionSpecifier("MetalSlam", AudioParams.Default.WithVariation(0.08f));
 
-
     [ViewVariables]
     public bool Landed;
 
     [DataField, AutoNetworkedField]
     public EntityCoordinates Origin;
-
 
     [DataField, AutoNetworkedField]
     public float DustRange = 1.6f;
