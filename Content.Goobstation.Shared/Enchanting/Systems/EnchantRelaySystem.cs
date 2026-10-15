@@ -15,9 +15,9 @@ namespace Content.Goobstation.Shared.Enchanting.Components;
 /// <summary>
 /// Relays events from enchanted items to their enchants.
 /// </summary>
-public sealed class EnchantRelaySystem : EntitySystem
+public sealed partial class EnchantRelaySystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {

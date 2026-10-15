@@ -10,12 +10,12 @@ namespace Content.Goobstation.Client.Wraith.Aura;
 /// <summary>
 /// This be handling your aura 🥀
 /// </summary>
-public sealed class AuraSystem : EntitySystem
+public sealed partial class AuraSystem : EntitySystem
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "Aura";
 
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private const string PostShaderId = "aura";
 

@@ -12,9 +12,9 @@ namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class ChangelingStasisSystem : SharedChangelingStasisSystem
 {
-    [Dependency] private readonly FlammableSystem _flame = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private FlammableSystem _flame = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
 
     private EntityQuery<FlammableComponent> _flameQuery;
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;

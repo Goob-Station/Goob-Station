@@ -17,6 +17,7 @@ public sealed partial class BlockHandsOnBuckleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<BlockHandsOnBuckleComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<BlockHandsOnBuckleComponent, UnstrappedEvent>(OnUnstrapped);
 
