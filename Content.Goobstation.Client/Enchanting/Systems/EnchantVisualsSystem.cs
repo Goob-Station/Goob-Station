@@ -24,14 +24,25 @@ public sealed class EnchantVisualsSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<EnchantedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<EnchantedComponent, AfterAutoHandleStateEvent>(OnHandleState);
         SubscribeLocalEvent<EnchantedComponent, HeldVisualsUpdatedEvent>(OnHeldVisualsUpdated);
         SubscribeLocalEvent<EnchantedComponent, EquipmentVisualsUpdatedEvent>(OnEquipmentVisualsUpdated);
     }
 
+    private void OnStartup(Entity<EnchantedComponent> ent, ref ComponentStartup args)
+    {
+        ApplyShader(ent);
+    }
+
     private void OnHandleState(Entity<EnchantedComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        if (!TryComp<SpriteComponent>(ent, out var sprite))
+        ApplyShader(ent);
+    }
+
+    private void ApplyShader(EntityUid uid)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || !sprite.Initialized)
             return;
 
         sprite.PostShader = _proto.Index(Shader).InstanceUnique();

@@ -137,7 +137,7 @@ public sealed partial class WoundSystem
     public bool TryHealBleedingWounds(EntityUid woundable, float bleedStopAbility, out FixedPoint2 modifiedBleed, WoundableComponent? component = null)
     {
         modifiedBleed = FixedPoint2.Zero;
-        if (!Resolve(woundable, ref component))
+        if (!Resolve(woundable, ref component, false))
             return false;
 
         var remaining = FixedPoint2.New(-bleedStopAbility);

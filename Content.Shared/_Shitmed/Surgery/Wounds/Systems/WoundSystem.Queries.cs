@@ -206,7 +206,7 @@ public sealed partial class WoundSystem
     /// </summary>
     public bool HasWoundsExceedingMangleSeverity(EntityUid targetEntity, WoundableComponent? targetWoundable = null)
     {
-        if (!Resolve(targetEntity, ref targetWoundable))
+        if (!Resolve(targetEntity, ref targetWoundable, false))
             return false;
 
         foreach (var wound in GetWoundableWounds(targetEntity, targetWoundable))

@@ -4,6 +4,7 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -45,7 +46,7 @@ public abstract partial class SharedGunSystem
                 ent.Comp.Count--;
 
             // Goob edit start
-            var proto = ent.Comp.Proto ?? prototypes!.Pick(Random);
+            EntProtoId proto = ent.Comp.Proto ?? prototypes!.Pick(Random).Id;
             var ammoEnt = Spawn(proto, args.Coordinates);
             // Goob edit end
             args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));

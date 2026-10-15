@@ -270,7 +270,7 @@ public abstract class SharedInternalResourcesSystem : EntitySystem
     {
         data = null;
 
-        return Resolve(uid, ref component) && component.HasResourceData(type, out data);
+        return Resolve(uid, ref component, false) && component.HasResourceData(type, out data);
     }
 
     /// <summary>

@@ -46,6 +46,7 @@
   id: AdminDisposalsSmite
   configuration:
     entity: DisposalUnit
+    allowMovement: false # Goobstation
     forced: true
     inventory: Drop
     ignoreAllowRepeatedMorphs: true

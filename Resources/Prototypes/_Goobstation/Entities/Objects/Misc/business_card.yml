@@ -17,7 +17,7 @@
     content: nanotrasen-business-card-base
   - type: PaperVisuals
     headerImagePath: "/Textures/_Goobstation/Interface/Paper/paper_heading_nanotrasen_logo.svg.96dpi.png"
-    headerMargin: 0.0, 0.0, 0.0, 2.0
+    headerMargin: 0.0, 2.0, 0.0, 0.0
     backgroundImagePath: "/Textures/_Goobstation/Interface/Paper/paper_background_green.svg.96dpi.png"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
     contentMargin: 4.0, 4.0, 4.0, 4.0

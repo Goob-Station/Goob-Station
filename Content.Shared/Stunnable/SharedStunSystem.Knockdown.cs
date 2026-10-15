@@ -161,7 +161,9 @@ public abstract partial class SharedStunSystem
         if (entity.Comp.DoAfterId == null)
             return;
 
-        DoAfter.Cancel(entity.Owner, entity.Comp.DoAfterId.Value);
+        if (DoAfter.IsRunning(entity.Owner, entity.Comp.DoAfterId.Value)) // Goob - Fix (finished do-after cancel)
+            DoAfter.Cancel(entity.Owner, entity.Comp.DoAfterId.Value);
+
         entity.Comp.DoAfterId = null;
         DirtyField(entity, entity.Comp, nameof(KnockedDownComponent.DoAfterId));
     }

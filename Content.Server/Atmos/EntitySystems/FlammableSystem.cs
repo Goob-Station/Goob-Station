@@ -40,6 +40,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Content.Goobstation.Common.Flammability;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -63,14 +64,12 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
         [Dependency] private readonly SharedBodySystem _body = default!; // Goobstation
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         private EntityQuery<InventoryComponent> _inventoryQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
-        // This should probably be moved to the component, requires a rewrite, all fires tick at the same time
-        private const float UpdateTime = 1f;
-
-        private float _timer;
+        private static readonly TimeSpan UpdateTime = TimeSpan.FromSeconds(1);
 
         private readonly Dictionary<Entity<FlammableComponent>, float> _fireEvents = new();
 
@@ -176,6 +175,8 @@ namespace Content.Server.Atmos.EntitySystems
 
         private void OnMapInit(EntityUid uid, FlammableComponent component, MapInitEvent args)
         {
+            component.NextUpdate = _timing.CurTime + UpdateTime;
+
             // Sets up a fixture for flammable collisions.
             // TODO: Should this be generalized into a general non-hard 'effects' fixture or something? I can't think of other use cases for it.
             // This doesn't seem great either (lots more collisions generated) but there isn't a better way to solve it either that I can think of.
@@ -184,7 +185,7 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             _fixture.TryCreateFixture(uid, component.FlammableCollisionShape, component.FlammableFixtureID, density: 0,
-                hard: false, collisionMask: (int) CollisionGroup.FullTileLayer, body: body);
+                hard: false, collisionMask: (int)CollisionGroup.FullTileLayer, body: body);
         }
 
         private void OnInteractUsing(EntityUid uid, FlammableComponent flammable, InteractUsingEvent args)
@@ -420,7 +421,7 @@ namespace Content.Server.Atmos.EntitySystems
             if (args.DamageDelta.DamageDict.TryGetValue("Heat", out FixedPoint2 value))
             {
                 // Make sure the value is greater than the threshold
-                if(value <= component.Threshold)
+                if (value <= component.Threshold)
                     return;
 
                 // Ignite that sucker
@@ -444,22 +445,14 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable))
                 return;
 
-            if (!flammable.OnFire || !_actionBlockerSystem.CanInteract(uid, null) || flammable.Resisting)
+            if (!flammable.OnFire || flammable.Resisting || !_actionBlockerSystem.CanInteract(uid, null))
                 return;
 
-            flammable.Resisting = true;
+            flammable.ResistCompleteTime = _timing.CurTime + flammable.ResistTime;
 
             _popup.PopupEntity(Loc.GetString("flammable-component-resist-message"), uid, uid);
             //goob edit stunmeta or something
-            _stunSystem.KnockdownOrStun(uid, TimeSpan.FromSeconds(2f));
-
-            // TODO FLAMMABLE: Make this not use TimerComponent...
-            uid.SpawnTimer(2000, () =>
-            {
-                flammable.Resisting = false;
-                flammable.FireStacks -= flammable.FirestackFade * 10f; // EE Plasmamen Change
-                UpdateAppearance(uid, flammable);
-            });
+            _stunSystem.KnockdownOrStun(uid, flammable.ResistTime);
         }
 
         public override void Update(float frameTime)
@@ -479,12 +472,7 @@ namespace Content.Server.Atmos.EntitySystems
             }
             _fireEvents.Clear();
 
-            _timer += frameTime;
-
-            if (_timer < UpdateTime)
-                return;
-
-            _timer -= UpdateTime;
+            var curTime = _timing.CurTime;
 
             // TODO: This needs cleanup to take off the crust from TemperatureComponent and shit.
             // <Goobstation> - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
@@ -497,6 +485,18 @@ namespace Content.Server.Atmos.EntitySystems
                     continue;
                 }
                 // </Goobstation>
+
+                if (curTime < flammable.NextUpdate)
+                    continue;
+
+                flammable.NextUpdate = curTime + UpdateTime;
+
+                if (curTime > flammable.ResistCompleteTime)
+                {
+                    flammable.ResistCompleteTime = null;
+                    flammable.FireStacks -= flammable.FirestackFade * 10f; // EE Plasmamen Change
+                    UpdateAppearance(uid, flammable);
+                }
 
                 // Slowly dry ourselves off if wet.
                 if (flammable.FireStacks < 0)

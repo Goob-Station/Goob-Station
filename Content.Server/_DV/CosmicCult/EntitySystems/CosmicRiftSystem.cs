@@ -69,7 +69,8 @@ public sealed class CosmicRiftSystem : EntitySystem
             _mobs.RemoveWhere(target => _chaplainsQuery.HasComp(target) || _cultistsQuery.HasComp(target) || _colossiQuery.HasComp(target));
             foreach(var mob in _mobs)
             {
-                if (!pos.TryDistance(EntityManager, Transform(mob).Coordinates, out var distance)) continue;
+                if (!TryComp(mob, out TransformComponent? mobXform)
+                    || !pos.TryDistance(EntityManager, mobXform.Coordinates, out var distance)) continue;
                 if (!_random.Prob(comp.PulseProb)) continue;
                 var damageMultiplier = Math.Clamp(comp.PulseRange / distance, 1, 10); //0.2 damage per second at max distance, up to 2 per second if closer
                 var effectDuration = _random.Next(10, 40); //2-8 damage at max distance, 20-80 damage at min distance

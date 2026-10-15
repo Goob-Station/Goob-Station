@@ -714,10 +714,13 @@ public sealed partial class VoiceChatSystem : EntitySystem
 
             foreach (var linked in telephone.LinkedTelephones)
             {
-                if (linked.Owner == uid || !_telephone.IsTelephonePowered(linked))
+                if (linked.Owner == uid || TerminatingOrDeleted(linked) || !_telephone.IsTelephonePowered(linked))
                     continue;
 
                 var emitter = GetRelayEmitter(linked);
+                if (TerminatingOrDeleted(emitter))
+                    continue;
+
                 var emitterOrigin = _transform.GetMapCoordinates(emitter);
                 if (emitterOrigin.MapId == MapId.Nullspace)
                     continue;
@@ -739,7 +742,10 @@ public sealed partial class VoiceChatSystem : EntitySystem
             return hologram;
         }
 
-        return telephone.Comp.Speaker?.Owner ?? telephone.Owner;
+        if (telephone.Comp.Speaker?.Owner is { } speaker && !TerminatingOrDeleted(speaker))
+            return speaker;
+
+        return telephone.Owner;
     }
 
     private void CollectRadio(EntityUid uid, Route route, Speaker speaker)

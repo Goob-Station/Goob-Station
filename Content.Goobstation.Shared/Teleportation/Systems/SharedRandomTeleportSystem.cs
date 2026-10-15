@@ -23,7 +23,6 @@ namespace Content.Goobstation.Shared.Teleportation.Systems;
 
 public sealed class SharedRandomTeleportSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -134,7 +133,7 @@ public sealed class SharedRandomTeleportSystem : EntitySystem
             targetCoords = entityCoords.Offset(GetTeleportVector(rand, radius.Min, extraRadius));
 
             // Try to not teleport into open space
-            if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+            if (!_map.TryFindGridAt(targetCoords, out var gridUid, out var grid))
                 continue;
 
             // Check if we picked a position inside a solid object

@@ -290,7 +290,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void UpdateChemicals(Entity<ChangelingIdentityComponent> ent, float amount, ChangelingChemicalComponent? chemComp = null)
     {
-        if (!Resolve(ent, ref chemComp)
+        if (!Resolve(ent, ref chemComp, false)
             || chemComp.ResourceData == null)
             return;
 
