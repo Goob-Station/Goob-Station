@@ -43,7 +43,7 @@ public sealed partial class ArtifactExplosionCondition : AchievementCondition
     public TimeSpan Within = TimeSpan.FromMinutes(7);
 }
 
-public abstract class PrototypeFilteredConditionSystem<T> : AchievementConditionSystem<T> where T : PrototypeFilteredCondition
+public abstract partial class PrototypeFilteredConditionSystem<T> : AchievementConditionSystem<T> where T : PrototypeFilteredCondition
 {
     protected void ProgressMatching(EntityUid player, EntProtoId? target)
     {
@@ -62,9 +62,9 @@ public abstract class PrototypeFilteredConditionSystem<T> : AchievementCondition
     }
 }
 
-public sealed class ButcherConditionSystem : PrototypeFilteredConditionSystem<ButcherCondition>
+public sealed partial class ButcherConditionSystem : PrototypeFilteredConditionSystem<ButcherCondition>
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -86,7 +86,7 @@ public sealed class ButcherConditionSystem : PrototypeFilteredConditionSystem<Bu
     }
 }
 
-public sealed class EatenConditionSystem : PrototypeFilteredConditionSystem<EatenCondition>
+public sealed partial class EatenConditionSystem : PrototypeFilteredConditionSystem<EatenCondition>
 {
     public override void Initialize()
     {
@@ -101,7 +101,7 @@ public sealed class EatenConditionSystem : PrototypeFilteredConditionSystem<Eate
     }
 }
 
-public sealed class BibleSmiteConditionSystem : PrototypeFilteredConditionSystem<BibleSmiteCondition>
+public sealed partial class BibleSmiteConditionSystem : PrototypeFilteredConditionSystem<BibleSmiteCondition>
 {
     public override void Initialize()
     {
@@ -116,7 +116,7 @@ public sealed class BibleSmiteConditionSystem : PrototypeFilteredConditionSystem
     }
 }
 
-public sealed class PolymorphedIntoConditionSystem : PrototypeFilteredConditionSystem<PolymorphedIntoCondition>
+public sealed partial class PolymorphedIntoConditionSystem : PrototypeFilteredConditionSystem<PolymorphedIntoCondition>
 {
     public override void Initialize()
     {
@@ -134,7 +134,7 @@ public sealed class PolymorphedIntoConditionSystem : PrototypeFilteredConditionS
     }
 }
 
-public sealed class GiftOpenedConditionSystem : PrototypeFilteredConditionSystem<GiftOpenedCondition>
+public sealed partial class GiftOpenedConditionSystem : PrototypeFilteredConditionSystem<GiftOpenedCondition>
 {
     public override void Initialize()
     {
@@ -152,7 +152,7 @@ public sealed class GiftOpenedConditionSystem : PrototypeFilteredConditionSystem
     }
 }
 
-public sealed class MicrowaveIdConditionSystem : AchievementConditionSystem<MicrowaveIdCondition>
+public sealed partial class MicrowaveIdConditionSystem : AchievementConditionSystem<MicrowaveIdCondition>
 {
     public override void Initialize()
     {
@@ -168,9 +168,9 @@ public sealed class MicrowaveIdConditionSystem : AchievementConditionSystem<Micr
     }
 }
 
-public sealed class ArtifactExplosionConditionSystem : AchievementConditionSystem<ArtifactExplosionCondition>
+public sealed partial class ArtifactExplosionConditionSystem : AchievementConditionSystem<ArtifactExplosionCondition>
 {
-    [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private GameTicker _ticker = default!;
 
     public override void Initialize()
     {

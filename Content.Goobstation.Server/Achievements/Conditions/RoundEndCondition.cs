@@ -9,10 +9,10 @@ public sealed partial class RoundEndCondition : AchievementCondition
     public TimeSpan? MaxRoundDuration;
 }
 
-public sealed class RoundEndConditionSystem : AchievementConditionSystem<RoundEndCondition>
+public sealed partial class RoundEndConditionSystem : AchievementConditionSystem<RoundEndCondition>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private GameTicker _ticker = default!;
 
     public override void Initialize()
     {

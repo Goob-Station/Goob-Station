@@ -3,7 +3,7 @@ using Content.Server._RMC14.LinkAccount;
 
 namespace Content.Goobstation.Server.Patrons;
 
-public sealed class PatronOocIconSystem : EntitySystem
+public sealed partial class PatronOocIconSystem : EntitySystem
 {
     [Dependency] private LinkAccountManager _linkAccount = default!;
 

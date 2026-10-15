@@ -7,7 +7,7 @@ namespace Content.Goobstation.Shared.EntityConditions;
 
 public sealed partial class StatusEffectEntityConditionSystem : EntityConditionSystem<StatusEffectContainerComponent, StatusEffectCondition>
 {
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     protected override void Condition(Entity<StatusEffectContainerComponent> entity, ref EntityConditionEvent<StatusEffectCondition> args)
     {

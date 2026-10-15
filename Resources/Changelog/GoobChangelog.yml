@@ -26270,3 +26270,93 @@ Entries:
       message: Made it so admins no longer always have purple names in OOC.
   id: 2968
   time: '2026-10-12T01:26:59.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Cult colossus midround is now rarer.
+  id: 2969
+  time: '2026-10-14T19:04:52.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        Secret+ Light now has a small number of roundstart antags, drawn only
+        from solo antags (Traitor, Changeling, Heretic, Thief, Corporate Agent).
+    - type: Tweak
+      message: The old Secret+ Medium has been renamed to Secret+ High.
+    - type: Add
+      message: Added a new Secret+ Medium that sits between Light and High.
+  id: 2970
+  time: '2026-10-14T19:06:40.0000000+00:00'
+- author: Jvne
+  changes:
+    - type: Add
+      message: Added a green Hawaiian shirt!
+  id: 2971
+  time: '2026-10-14T19:08:02.0000000+00:00'
+- author: mrs
+  changes:
+    - type: Add
+      message: 'Shoukou: Added the radio station between HoP and the news room.'
+    - type: Add
+      message: 'Shoukou: Placed the spare captain''s ID in the captain''s room.'
+    - type: Add
+      message: >-
+        Shoukou: Round-start mats have been placed in secure crates inside
+        engineering, science, and armory.
+    - type: Add
+      message: 'Shoukou: The Entity.'
+    - type: Add
+      message: 'Shoukou: Added a TEG crate in atmos, have fun!'
+    - type: Add
+      message: >-
+        Shoukou: Added a space shutter to the artifact chamber for sane
+        scientists.
+    - type: Tweak
+      message: 'Shoukou: Replaced the disabler safe with a laser weapons safe.'
+    - type: Remove
+      message: 'Shoukou: The energy chem dispensers are gone. It''s all your fault.'
+    - type: Remove
+      message: >-
+        Shoukou: Removed the barrier. The Entity is now able to enter the
+        station >10pop to hunt crewmembers that have been alone for prolonged
+        periods.
+  id: 2972
+  time: '2026-10-14T19:10:04.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Fix
+      message: >-
+        Maintenance drones can now see how much power they have left in real
+        time (so now there is no excuse for running out of power)
+  id: 2973
+  time: '2026-10-14T19:12:02.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed chess
+  id: 2974
+  time: '2026-10-14T19:14:15.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: >-
+        Fixed stupid bullshit causing vital damage (and any other sources of
+        multi-target damage other than explosions) to split to the entire body
+        instead of only intended vital body parts.
+  id: 2975
+  time: '2026-10-14T19:19:31.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Decals on moving shuttles no longer jitter, including during FTL.
+    - type: Fix
+      message: Shuttles and the things on them move smoothly again.
+  id: 2976
+  time: '2026-10-14T19:30:06.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Fixed canvases and painting frames being uncraftable.
+  id: 2977
+  time: '2026-10-14T19:52:55.0000000+00:00'

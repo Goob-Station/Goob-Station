@@ -9,9 +9,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.UserInterface;
 
-public sealed class IconTag : IMarkupTag
+public sealed partial class IconTag : IMarkupTag
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public string Name => "icon";
 

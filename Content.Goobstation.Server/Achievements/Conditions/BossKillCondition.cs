@@ -13,9 +13,9 @@ public sealed partial class BossKillCondition : AchievementCondition
     public List<EntProtoId>? Prototypes;
 }
 
-public sealed class BossKillConditionSystem : AchievementConditionSystem<BossKillCondition>
+public sealed partial class BossKillConditionSystem : AchievementConditionSystem<BossKillCondition>
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

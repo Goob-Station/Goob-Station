@@ -10,11 +10,11 @@ namespace Content.Goobstation.Shared.Wraith.Banishment;
 /// <summary>
 /// Revives once dead to give you a second chance, with side-effects (if needed).
 /// </summary>
-public sealed class BanishmentSystem : EntitySystem
+public sealed partial class BanishmentSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private ISharedAdminLogManager _admin = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

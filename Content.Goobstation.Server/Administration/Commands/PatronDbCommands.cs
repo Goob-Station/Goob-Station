@@ -13,7 +13,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Administration.Commands;
 
-internal abstract class BasePatronDbCommand : LocalizedCommands
+internal abstract partial class BasePatronDbCommand : LocalizedCommands
 {
     [Dependency] protected IServerDbManager Db = default!;
     [Dependency] protected LinkAccountManager LinkAccount = default!;
@@ -57,7 +57,7 @@ internal abstract class BasePatronDbCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class PatronSetCommand : BasePatronDbCommand
+internal sealed partial class PatronSetCommand : BasePatronDbCommand
 {
     public override string Command => "patron:set";
 

@@ -43,31 +43,31 @@ namespace Content.Goobstation.Server.Slasher.Systems;
 /// <summary>
 /// Soul steal system for the slasher. Gives bonuses for stealing souls from incapacitated or dead targets.
 /// </summary>
-public sealed class SlasherSoulStealSystem : EntitySystem
+public sealed partial class SlasherSoulStealSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly DevilContractSystem _devilContractSystem = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-    [Dependency] private readonly SharedWeatherSystem _weather = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PoweredLightSystem _light = default!;
-    [Dependency] private readonly SlasherRegenerateSystem _regenerate = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedStationSpawningSystem _spawning = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private DevilContractSystem _devilContractSystem = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
+    [Dependency] private SharedWeatherSystem _weather = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private PoweredLightSystem _light = default!;
+    [Dependency] private SlasherRegenerateSystem _regenerate = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedStationSpawningSystem _spawning = default!;
 
     public override void Initialize()
     {

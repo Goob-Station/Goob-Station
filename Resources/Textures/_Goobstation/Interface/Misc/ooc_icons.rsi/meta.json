@@ -76,9 +76,17 @@
         {
             "name": "durk"
         },
-        {
-            "name": "harel"
-        },
+	    {
+	      "name": "harel",
+	      "delays": [
+	      [
+	    	  0.2,
+	    	  0.2,
+	    	  0.2,
+	    	  0.2
+	      ]
+	      ]
+	    },
         {
             "name": "Leguia"
         },

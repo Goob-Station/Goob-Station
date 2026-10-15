@@ -6,7 +6,7 @@ namespace Content.Goobstation.Server.EntityConditions;
 
 public sealed partial class EscapingEntityConditionSystem : EntityConditionSystem<TransformComponent, EscapingCondition>
 {
-    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
+    [Dependency] private EmergencyShuttleSystem _emergency = default!;
 
     protected override void Condition(Entity<TransformComponent> entity, ref EntityConditionEvent<EscapingCondition> args)
     {
