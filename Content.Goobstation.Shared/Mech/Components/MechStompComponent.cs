@@ -3,13 +3,14 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Mech.Components;
 
 /// <summary>
 /// Gives a short stun to everyone nearby.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class MechStompComponent : Component
 {
     [DataField]
@@ -20,6 +21,9 @@ public sealed partial class MechStompComponent : Component
 
     [DataField]
     public TimeSpan StompWindUpDoAfter = TimeSpan.FromSeconds(1.5);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan? ImpactTime;
 
     [DataField]
     public float StompRadius = 1.6f;

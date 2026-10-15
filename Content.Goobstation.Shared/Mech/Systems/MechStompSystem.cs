@@ -14,11 +14,13 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Mech.Systems;
 
 public sealed partial class MechStompSystem : EntitySystem
 {
+    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
@@ -59,7 +61,7 @@ public sealed partial class MechStompSystem : EntitySystem
 
     private void OnStomp(Entity<MechComponent> ent, ref MechStompActionEvent args)
     {
-        if (args.Handled || ent.Comp.Broken || !TryComp<MechStompComponent>(ent, out var stomp))
+        if (args.Handled || ent.Comp.Broken || !TryComp<MechStompComponent>(ent, out var stomp) || stomp.ImpactTime != null)
             return;
 
         var pilot = args.Performer;
@@ -100,6 +102,41 @@ public sealed partial class MechStompSystem : EntitySystem
         args.Handled = true;
         _mech.TryChangeEnergy(mech, -ent.Comp.PowerCageEnergyCost, mechComp);
 
+        if (_net.IsClient)
+            return;
+
+        var xform = Transform(mech);
+        var overlay = EnsureComp<MechStompOverlayComponent>(mech);
+        overlay.DustRange = ent.Comp.StompRadius;
+        overlay.Origin = _transform.GetMoverCoordinates(mech, xform);
+        Dirty(mech, overlay);
+
+        ent.Comp.ImpactTime = _timing.CurTime + overlay.SpriteLiftTiming;
+        Dirty(ent);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var curTime = _timing.CurTime;
+        var query = EntityQueryEnumerator<MechStompComponent, MechComponent>();
+        while (query.MoveNext(out var uid, out var stomp, out var mech))
+        {
+            if (stomp.ImpactTime is not { } impact || curTime < impact)
+                continue;
+
+            stomp.ImpactTime = null;
+            Dirty(uid, stomp);
+
+            if (!mech.Broken)
+                Impact((uid, stomp), mech);
+        }
+    }
+
+    private void Impact(Entity<MechStompComponent> ent, MechComponent mechComp)
+    {
+        var mech = ent.Owner;
         var xform = Transform(mech);
         var (origin, facing) = _transform.GetWorldPositionRotation(xform);
 
@@ -118,9 +155,6 @@ public sealed partial class MechStompSystem : EntitySystem
 
         _popup.PopupPredicted(Loc.GetString("mech-stomp-popup", ("mech", mech)), mech, args.User, PopupType.MediumCaution);
 
-        if (_net.IsClient)
-            return;
-
         foreach (var camera in _lookup.GetEntitiesInRange<CameraRecoilComponent>(xform.Coordinates, ent.Comp.StompRadius * 4f))
         {
             var delta = _transform.GetWorldPosition(camera) - origin;
@@ -128,10 +162,5 @@ public sealed partial class MechStompSystem : EntitySystem
             var falloff = 1f - Math.Clamp(delta.Length() / (ent.Comp.StompRadius * 4f), 0f, 0.8f);
             _recoil.KickCamera(camera, dir * ent.Comp.CameraKick * falloff);
         }
-
-        var overlay = EnsureComp<MechStompOverlayComponent>(mech);
-        overlay.DustRange = ent.Comp.StompRadius;
-        overlay.Origin = _transform.GetMoverCoordinates(mech, xform);
-        Dirty(mech, overlay);
     }
 }

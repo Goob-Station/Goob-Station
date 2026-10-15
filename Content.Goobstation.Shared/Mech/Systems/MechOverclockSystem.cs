@@ -87,8 +87,8 @@ public sealed partial class MechOverclockSystem : EntitySystem
         ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.UpdateInterval;
 
         ClearGlow(ent);
-        if (active)
-            ent.Comp.GlowEntity = PredictedSpawnAttachedTo(ent.Comp.GlowProto, new EntityCoordinates(ent, default));
+        if (active && _net.IsServer)
+            ent.Comp.GlowEntity = SpawnAttachedTo(ent.Comp.GlowProto, new EntityCoordinates(ent, default));
 
         Dirty(ent);
 

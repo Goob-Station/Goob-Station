@@ -34,7 +34,7 @@
   description: Slam a foot down. Anyone standing next to the mech gets knocked flat.
   components:
   - type: Action
-    useDelay: 6
+    useDelay: 20
     icon:
       sprite: Interface/Actions/actions_mecha.rsi
       state: mech_ivanov
