@@ -63,8 +63,12 @@ public sealed class CosmicRiftSystem : EntitySystem
             if (_timing.CurTime < comp.NextPulseTime) continue;
             comp.NextPulseTime = _timing.CurTime + _random.Next(comp.MinPulseTime, comp.MaxPulseTime);
 
-            var pos = Transform(uid).Coordinates;
+            if (!TryComp(uid, out TransformComponent? riftXform))
+                continue;
+
+            var pos = riftXform.Coordinates;
             Spawn(comp.PulseVFX, pos);
+            _mobs.Clear();
             _lookup.GetEntitiesInRange<MobStateComponent>(pos, comp.PulseRange, _mobs);
             _mobs.RemoveWhere(target => _chaplainsQuery.HasComp(target) || _cultistsQuery.HasComp(target) || _colossiQuery.HasComp(target));
             foreach(var mob in _mobs)

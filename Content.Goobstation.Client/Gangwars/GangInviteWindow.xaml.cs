@@ -12,7 +12,7 @@ public sealed partial class GangInviteWindow : DefaultWindow
     public event Action? OnAccepted;
     public event Action? OnDenied;
 
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public TimeSpan EndTime { get; private set; }
     private bool _responded;

@@ -13,16 +13,16 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Client.Parallax;
 
-public sealed class MeteorParallaxSystem : EntitySystem
+public sealed partial class MeteorParallaxSystem : EntitySystem
 {
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly ParallaxSystem _parallax = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private ParallaxSystem _parallax = default!;
 
     public readonly Dictionary<string, MeteorField> Fields = new();
 
@@ -219,7 +219,7 @@ public sealed class MeteorParallaxSystem : EntitySystem
     }
 }
 
-public sealed class MeteorField
+public sealed partial class MeteorField
 {
     public MeteorParallaxConfig Config = default!;
     public Texture[] Textures = Array.Empty<Texture>();
