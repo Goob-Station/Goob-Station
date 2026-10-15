@@ -4,19 +4,20 @@ using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Slasher.Overlays;
 
 /// <summary>
 /// Draws an expanding shockwave ring.
 /// </summary>
-public sealed class SlasherStaggerOverlay : Overlay
+public sealed partial class SlasherStaggerOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
-    private SharedTransformSystem? _xform;
+    private TransformSystem? _xform;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;
@@ -84,7 +85,7 @@ public sealed class SlasherStaggerOverlay : Overlay
             if (progress is < 0f or >= 1f)
                 continue;
 
-            var worldPos = _xform.GetWorldPosition(uid);
+            var worldPos = _xform.GetWorldPosition(xform);
 
             var coords = args.Viewport.WorldToLocal(worldPos);
             coords.Y = args.Viewport.Size.Y - coords.Y;

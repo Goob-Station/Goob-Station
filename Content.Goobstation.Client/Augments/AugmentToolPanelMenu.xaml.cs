@@ -11,7 +11,7 @@ namespace Content.Goobstation.Client.Augments;
 [GenerateTypedNameReferences]
 public sealed partial class AugmentToolPanelMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _ent = default!;
+    [Dependency] private EntityManager _ent = default!;
 
     public event Action<EntityUid?>? SendSwitchMessage;
 

@@ -1,0 +1,19 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      Title="{Loc 'achievements-window-title'}"
+                      SetSize="620 680"
+                      MinSize="460 400">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="10">
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
+            <Label Name="SummaryLabel" StyleClasses="LabelHeading" Text="{Loc 'achievements-window-loading'}" />
+            <ProgressBar Name="SummaryBar"
+                         HorizontalExpand="True"
+                         MinValue="0"
+                         MaxValue="1"
+                         SetHeight="14"
+                         Margin="12 0 0 0"
+                         VerticalAlignment="Center" />
+        </BoxContainer>
+        <TabContainer Name="Tabs" VerticalExpand="True" HorizontalExpand="True" />
+    </BoxContainer>
+</controls:FancyWindow>

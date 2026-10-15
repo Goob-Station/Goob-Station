@@ -5,10 +5,10 @@ using Robust.Client.Player;
 
 namespace Content.Goobstation.Client.Sandevistan;
 
-public sealed class SandevistanAlertSystem : EntitySystem
+public sealed partial class SandevistanAlertSystem : EntitySystem
 {
-    [Dependency] private readonly ILocalizationManager _loc = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private static readonly string[] SeverityColors = ["yellow", "orange", "red", "darkred"];
 

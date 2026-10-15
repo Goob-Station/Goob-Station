@@ -48,8 +48,6 @@
     layers:
       - state: lung-l
       - state: lung-r
-  - type: Lung
-    alert: LowNitrogen
   - type: Organ
     slotId: lungs
 

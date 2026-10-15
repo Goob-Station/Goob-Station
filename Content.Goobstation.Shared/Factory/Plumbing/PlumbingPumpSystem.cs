@@ -8,13 +8,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Factory.Plumbing;
 
-public sealed class PlumbingPumpSystem : EntitySystem
+public sealed partial class PlumbingPumpSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PlumbingFilterSystem _filter = default!;
-    [Dependency] private readonly PlumbingLinkSystem _links = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private ExclusiveSlotsSystem _exclusive = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PlumbingFilterSystem _filter = default!;
+    [Dependency] private PlumbingLinkSystem _links = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
 
     private EntityQuery<SolutionTransferComponent> _transferQuery;
     private readonly Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> _filteredTransferAmounts = new();

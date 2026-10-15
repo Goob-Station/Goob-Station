@@ -15,17 +15,17 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Gangwars.Systems;
 
-public sealed class SharedGangSprayCanSystem : EntitySystem
+public sealed partial class SharedGangSprayCanSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly GangwarRuleSystem _gangwarRule = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private GangwarRuleSystem _gangwarRule = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
 
     public override void Initialize()
     {

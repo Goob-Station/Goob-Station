@@ -10,7 +10,7 @@ namespace Content.Goobstation.Client.Factory.UI;
 [GenerateTypedNameReferences]
 public sealed partial class PressureFilterWindow : FancyWindow
 {
-    [Dependency] private readonly EntityManager _entMan = default!;
+    [Dependency] private EntityManager _entMan = default!;
 
     public event Action<float>? OnSetMin;
     public event Action<float>? OnSetMax;

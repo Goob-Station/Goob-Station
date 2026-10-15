@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -110,7 +110,7 @@ public sealed class CosmosComboSystem : EntitySystem
             switch (dictHit.Value)
             {
                 case 1:
-                    _damageable.TryChangeDamage(dictHit.Key,
+                    _damageable.ChangeDamage(dictHit.Key,
                         combo.DamageToSecondTargets,
                         origin: uid,
                         targetPart: TargetBodyPart.Chest,
@@ -119,7 +119,7 @@ public sealed class CosmosComboSystem : EntitySystem
                     Spawn(combo.SecondTargetEffect, Transform(dictHit.Key).Coordinates);
                     break;
                 case 2:
-                    _damageable.TryChangeDamage(dictHit.Key,
+                    _damageable.ChangeDamage(dictHit.Key,
                         combo.DamageToThirdTargets,
                         origin: uid,
                         targetPart: TargetBodyPart.Chest,
