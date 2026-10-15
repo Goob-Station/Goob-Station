@@ -26116,3 +26116,247 @@ Entries:
         merged.
   id: 2960
   time: '2026-10-06T01:58:21.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Lathes having issues with mats should be fixed, maybe??
+  id: 2961
+  time: '2026-10-06T18:28:17.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added new robotic species, Synths!
+  id: 2962
+  time: '2026-10-09T18:10:15.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: >-
+        Fixed burn ashing behavior with complex bodies only deleting the root
+        part, leaving them immortal.
+  id: 2963
+  time: '2026-10-09T18:16:57.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: >-
+        Secret+ no longer fails to start when a rolled antag doesn't have enough
+        players.
+    - type: Fix
+      message: Traitors no longer get conflicting help/protect objectives.
+    - type: Fix
+      message: Plasma cutters no longer lie about fitting in rechargers.
+    - type: Fix
+      message: Gemini clones no longer have a glitchy square around them.
+    - type: Fix
+      message: Armor penetration works again.
+    - type: Fix
+      message: >-
+        Borging someone now deconverts them from revs, cosmic cult, thralls and
+        gangs.
+    - type: Fix
+      message: Right-clicking a modsuit part no longer unequips it.
+    - type: Fix
+      message: Janitorial modsuit chestplate no longer shows an error sprite.
+    - type: Fix
+      message: Rusted walls no longer spawn rotated.
+    - type: Fix
+      message: Chitinid biolight works after an anomaly is removed.
+    - type: Fix
+      message: Lavaland bosses stop chasing you once you leave their range.
+    - type: Fix
+      message: Admin erase no longer floods chat with old messages.
+    - type: Fix
+      message: Regenerative stasis regrows missing organs.
+    - type: Fix
+      message: Losing hunger or thirst clears their alerts and slowdown.
+    - type: Fix
+      message: Headslugs can ghost again.
+    - type: Fix
+      message: Holopad voice only connects once the call is answered.
+    - type: Fix
+      message: >-
+        S.E.C. borgs have one Obey AI law, one View Laws action and a
+        self-recharging baton.
+    - type: Fix
+      message: Head revs no longer become enemies of the revolution on a rev win.
+    - type: Fix
+      message: Xenobio slime crates are back in cargo.
+    - type: Fix
+      message: >-
+        Zombified dionas no longer end up in nullspace when splitting into
+        nymphs.
+    - type: Fix
+      message: Abductors can't be converted by revs, shadowlings or cosmic cult.
+    - type: Fix
+      message: Cosmic cult can no longer convert rotten corpses.
+    - type: Fix
+      message: Gang duffel bags can't be deconstructed.
+    - type: Fix
+      message: Carpolin turns you into a carp again.
+    - type: Fix
+      message: >-
+        Holopads and sentry turrets no longer get stuck showing the maintenance
+        panel.
+    - type: Tweak
+      message: >-
+        Synths can't spawn for gamerules/ghost roles, e.g. nukies, ert, ninja,
+        etc.
+  id: 2964
+  time: '2026-10-09T20:00:39.0000000+00:00'
+- author: Mirrorcult, Durk
+  changes:
+    - type: Add
+      message: >-
+        Interacting with things now has animations, showing what you are
+        interacting with.
+    - type: Add
+      message: Hits, gunfire, explosions and gravity changes now shake the screen.
+    - type: Tweak
+      message: DoAfter bars now fade in, slide up and fade out.
+  id: 2965
+  time: '2026-10-09T22:52:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added a General option to resize or turn off the interaction icon that
+        shows above your head.
+    - type: Add
+      message: >-
+        Added species specific hand interaction sprites (code is there but
+        pending sprites, if u want to make some contact me and ill add them)
+    - type: Fix
+      message: >-
+        Interaction particles no longer give away pickpocketing, stealthed
+        players, or people hiding in lockers.
+    - type: Fix
+      message: Interacting while buckled no longer shows the target above your head.
+    - type: Fix
+      message: >-
+        Picking things up no longer shows two particles, and particles for
+        actions the server rejected now disappear.
+    - type: Fix
+      message: Colored DoAfter bars now fade in and out with the rest of the bar.
+  id: 2966
+  time: '2026-10-10T03:18:43.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added painting! Paint on canvases with crayons, paint cans or the
+        artist's palette. Several people can paint the same canvas at once.
+    - type: Add
+      message: >-
+        Added the photocopier, which copies a painting onto a blank canvas. Its
+        board is printed at the circuit imprinter.
+    - type: Add
+      message: >-
+        The art supplies crate now has canvases, frames, paint cans and an
+        artist's palette.
+    - type: Add
+      message: Added a Painting page to the guidebook.
+    - type: Fix
+      message: Fixed the crayon label showing an error instead of its charges.
+  id: 2967
+  time: '2026-10-11T04:00:56.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added achievements, have fun.
+    - type: Add
+      message: Patron's can now change their OOC icon!
+    - type: Tweak
+      message: Made it so admins no longer always have purple names in OOC.
+  id: 2968
+  time: '2026-10-12T01:26:59.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Cult colossus midround is now rarer.
+  id: 2969
+  time: '2026-10-14T19:04:52.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        Secret+ Light now has a small number of roundstart antags, drawn only
+        from solo antags (Traitor, Changeling, Heretic, Thief, Corporate Agent).
+    - type: Tweak
+      message: The old Secret+ Medium has been renamed to Secret+ High.
+    - type: Add
+      message: Added a new Secret+ Medium that sits between Light and High.
+  id: 2970
+  time: '2026-10-14T19:06:40.0000000+00:00'
+- author: Jvne
+  changes:
+    - type: Add
+      message: Added a green Hawaiian shirt!
+  id: 2971
+  time: '2026-10-14T19:08:02.0000000+00:00'
+- author: mrs
+  changes:
+    - type: Add
+      message: 'Shoukou: Added the radio station between HoP and the news room.'
+    - type: Add
+      message: 'Shoukou: Placed the spare captain''s ID in the captain''s room.'
+    - type: Add
+      message: >-
+        Shoukou: Round-start mats have been placed in secure crates inside
+        engineering, science, and armory.
+    - type: Add
+      message: 'Shoukou: The Entity.'
+    - type: Add
+      message: 'Shoukou: Added a TEG crate in atmos, have fun!'
+    - type: Add
+      message: >-
+        Shoukou: Added a space shutter to the artifact chamber for sane
+        scientists.
+    - type: Tweak
+      message: 'Shoukou: Replaced the disabler safe with a laser weapons safe.'
+    - type: Remove
+      message: 'Shoukou: The energy chem dispensers are gone. It''s all your fault.'
+    - type: Remove
+      message: >-
+        Shoukou: Removed the barrier. The Entity is now able to enter the
+        station >10pop to hunt crewmembers that have been alone for prolonged
+        periods.
+  id: 2972
+  time: '2026-10-14T19:10:04.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Fix
+      message: >-
+        Maintenance drones can now see how much power they have left in real
+        time (so now there is no excuse for running out of power)
+  id: 2973
+  time: '2026-10-14T19:12:02.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed chess
+  id: 2974
+  time: '2026-10-14T19:14:15.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: >-
+        Fixed stupid bullshit causing vital damage (and any other sources of
+        multi-target damage other than explosions) to split to the entire body
+        instead of only intended vital body parts.
+  id: 2975
+  time: '2026-10-14T19:19:31.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Decals on moving shuttles no longer jitter, including during FTL.
+    - type: Fix
+      message: Shuttles and the things on them move smoothly again.
+  id: 2976
+  time: '2026-10-14T19:30:06.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Fixed canvases and painting frames being uncraftable.
+  id: 2977
+  time: '2026-10-14T19:52:55.0000000+00:00'

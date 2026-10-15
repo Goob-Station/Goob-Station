@@ -8,10 +8,10 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.ServerCurrency;
 
-public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEventSubscriber, IPostInjectInit
+public sealed partial class ClientCurrencyManager : ICommonCurrencyManager, IEntityEventSubscriber, IPostInjectInit
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IPlayerManager _playMan = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IPlayerManager _playMan = default!;
 
     private static int _cachedBalance = -1;
     public event Action? ClientBalanceChange;

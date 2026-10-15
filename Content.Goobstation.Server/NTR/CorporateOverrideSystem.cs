@@ -5,9 +5,9 @@ using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.NTR;
 
-public sealed class CorporateOverrideSystem : EntitySystem
+public sealed partial class CorporateOverrideSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {

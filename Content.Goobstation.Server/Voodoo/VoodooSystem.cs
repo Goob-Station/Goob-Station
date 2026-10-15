@@ -14,14 +14,14 @@ namespace Content.Goobstation.Server.Voodoo
     /// <summary>
     /// System used for the voodoo component for making someone take damage, and throw them when their counterpart "voodoo doll" takes damage.
     /// </summary>
-    public sealed class VengeanceSystem : EntitySystem
+    public sealed partial class VengeanceSystem : EntitySystem
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly DamageableSystem _damageable = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-        [Dependency] private readonly ThrowingSystem _throwing = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private DamageableSystem _damageable = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
+        [Dependency] private SharedBodySystem _bodySystem = default!;
+        [Dependency] private ThrowingSystem _throwing = default!;
+        [Dependency] private IRobustRandom _random = default!;
 
         public override void Initialize()
         {

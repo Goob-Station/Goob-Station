@@ -47,7 +47,7 @@ public sealed partial class DamageableSystem
     /// Get only the primitive flags (powers of 2) - these are the actual individual body parts
     /// </summary>
     private static readonly TargetBodyPart[] PrimitiveTargetBodyParts = Enum.GetValues<TargetBodyPart>()
-        .Where(flag => flag != 0 && (flag ^ (flag - 1)) == 0) // Power of 2 check
+        .Where(flag => flag != 0 && (flag & (flag - 1)) == 0) // Power of 2 check
         .ToArray();
 
     /// <summary>
@@ -333,8 +333,8 @@ public sealed partial class DamageableSystem
         bool canMiss = true
     )
     {
-        var vitalDamage = new DamageSpecifier();
-        var regularDamage = new DamageSpecifier();
+        var vitalDamage = new DamageSpecifier(damage.ArmorPenetration, damage.PartDamageVariation, damage.WoundSeverityMultipliers);
+        var regularDamage = new DamageSpecifier(damage.ArmorPenetration, damage.PartDamageVariation, damage.WoundSeverityMultipliers);
 
         // separate the vital damage so we have
         // vitalDamage for damage that must be applied to vital body parts (TargetBodyPart.Vital) &

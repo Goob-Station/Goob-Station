@@ -11,11 +11,11 @@ namespace Content.Goobstation.Client.Slasher.Overlays;
 /// <summary>
 /// Draws an expanding shockwave ring.
 /// </summary>
-public sealed class SlasherStaggerOverlay : Overlay
+public sealed partial class SlasherStaggerOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private TransformSystem? _xform;
 
@@ -85,7 +85,7 @@ public sealed class SlasherStaggerOverlay : Overlay
             if (progress is < 0f or >= 1f)
                 continue;
 
-            var worldPos = _xform.GetRenderWorldPosition((uid, xform));
+            var worldPos = _xform.GetWorldPosition(xform);
 
             var coords = args.Viewport.WorldToLocal(worldPos);
             coords.Y = args.Viewport.Size.Y - coords.Y;
