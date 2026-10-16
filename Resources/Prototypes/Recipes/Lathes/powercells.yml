@@ -69,7 +69,7 @@
 - type: latheRecipe
   parent: BasePowerCellRecipe
   id: PowerCageSmall
-  result: PowerCageSmall
+  result: PowerCageSmallEmpty # Goobstation
   completetime: 3
   materials:
     Steel: 200
@@ -78,7 +78,7 @@
 - type: latheRecipe
   parent: BasePowerCellRecipe
   id: PowerCageMedium
-  result: PowerCageMedium
+  result: PowerCageMediumEmpty # Goobstation
   completetime: 6
   materials:
     Steel: 500
@@ -89,7 +89,7 @@
 - type: latheRecipe
   parent: BasePowerCellRecipe
   id: PowerCageHigh
-  result: PowerCageHigh
+  result: PowerCageHighEmpty # Goobstation
   completetime: 10
   materials:
     Steel: 600
