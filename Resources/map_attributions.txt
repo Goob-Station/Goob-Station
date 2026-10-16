@@ -16,6 +16,9 @@
 - files: ["cluster.yml"]
   authors: Scribbles0
 
+- files: ["erstleben.yml"]
+  authors: DerBall
+
 - files: ["fland.yml"]
   authors: Emisse
 
