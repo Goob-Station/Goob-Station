@@ -1538,4 +1538,48 @@
         damage:
           types:
             Poison: 0.5
+
+- type: reagent
+  id: Nemozol
+  name: reagent-name-nemozol
+  group: Medicine
+  desc: reagent-desc-nemozol
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: terrible
+  color: "#397d62"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:DiseaseProgressChange
+        affectedType: Parasite
+        progressModifier: -0.033333333333 # cure disease with 15u without immunity (30 secs)
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+      - !type:Vomit
+        probability: 0.1
+
+- type: reagent
+  id: Nanotetrazol
+  name: reagent-name-nanotetrazol
+  group: Medicine
+  desc: reagent-desc-nanotetrazol
+  physicalDesc: reagent-physical-desc-thick
+  flavor: terrible
+  color: "#222020"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:DiseaseProgressChange
+        affectedType: Nanobot
+        progressModifier: -0.033333333333 # cure disease with 15u without immunity (30 secs)
+      - !type:HealthChange
+        damage:
+          types:
+            Shock: 0.5
+      - !type:TakeStaminaDamage
+        amount: -1
+        immediate: true
+        probability: 0.2
 # </Viro>
