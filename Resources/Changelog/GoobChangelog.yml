@@ -26360,3 +26360,9 @@ Entries:
       message: Fixed canvases and painting frames being uncraftable.
   id: 2977
   time: '2026-10-14T19:52:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added an intro for when you join a round.
+  id: 2978
+  time: '2026-10-16T17:33:18.0000000+00:00'
