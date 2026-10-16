@@ -26366,3 +26366,60 @@ Entries:
       message: Added an intro for when you join a round.
   id: 2978
   time: '2026-10-16T17:33:18.0000000+00:00'
+- author: >-
+    Durk, EmoGarbage404, mirrorcult, Flareguy, mycobiota, YaraaraY,
+    jessicamaybe, adamsong
+  changes:
+    - type: Add
+      message: >-
+        You now turn to face whatever you're working on during a do-after, and
+        machines while their UI is open.
+    - type: Add
+      message: >-
+        Items with a use cooldown now show a cooldown circle around your mouse
+        cursor.
+    - type: Tweak
+      message: Popups are now slightly scattered, and stay on screen longer.
+    - type: Add
+      message: >-
+        Portable scrubbers, space heaters and J.R.P.A.C.M.A.N. generators can be
+        anchored by hand with an alt-click verb.
+    - type: Add
+      message: >-
+        New puddle sprites, with different looks for blood, vomit, water,
+        drinks, powders, acids and more.
+    - type: Add
+      message: >-
+        Interaction outline colors can now be customized in the Accessibility
+        options.
+    - type: Add
+      message: Vending machines now use a keypad UI.
+    - type: Add
+      message: >-
+        Speech now shows as SS13-style runechat, this will generate mald but idc
+        cuz i like it :-)
+    - type: Add
+      message: >-
+        Hold Alt (rebindable) to peek at the names and pronouns (wokestation14)
+        of people around you.
+    - type: Add
+      message: Radio channel colors can now be customized per channel.
+    - type: Add
+      message: Added a Customization tab to the options menu.
+    - type: Add
+      message: >-
+        Blood, vomit and spilled reagents now stain nearby walls. Stains can be
+        scrubbed off with a mop, rag or soap, and you can pour containers onto
+        walls.
+    - type: Add
+      message: Explosions now have new visuals.
+    - type: Add
+      message: >-
+        Welding masks can now be flipped up and down, and darkens your vision
+        while down.
+    - type: Add
+      message: >-
+        Meson goggles no longer protect you from welding, and can now toggle a
+        T-ray scanner and tints your vision while it's on.
+  id: 2979
+  time: '2026-10-16T22:08:14.0000000+00:00'
