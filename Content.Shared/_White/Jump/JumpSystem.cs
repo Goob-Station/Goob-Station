@@ -39,7 +39,7 @@ public sealed class JumpSystem : EntitySystem
         if (args.Handled || _container.IsEntityInContainer(uid))
             return;
 
-        _throwing.TryThrow(uid, args.Target, component.JumpSpeed, uid, 10F);
+        _throwing.TryThrow(uid, args.Target, component.JumpSpeed, uid, pushbackRatio: 0f);
 
         _audio.PlayPvs(component.JumpSound, uid, component.JumpSound?.Params);
 

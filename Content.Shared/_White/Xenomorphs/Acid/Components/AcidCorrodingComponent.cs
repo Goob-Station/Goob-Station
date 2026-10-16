@@ -1,8 +1,9 @@
 using Content.Shared.Damage;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._White.Xenomorphs.Acid.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class AcidCorrodingComponent : Component
 {
     [DataField]
