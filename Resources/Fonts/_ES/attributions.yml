@@ -4,6 +4,6 @@
   source: "https://www.dafont.com/grand9k-pixel.font"
 
 - files: ["Wormtown9k-Small.ttf"]
-  license: "OFL-1.1"
-  copyright: "Created by sowelipililimute (GitHub)."
+  license: "Custom"
+  copyright: "Created by sowelipililimute (GitHub). Licensed under the SIL Open Font License 1.1 (OFL-1.1)."
   source: "https://github.com/EphemeralSpace/worm-fonts/"
