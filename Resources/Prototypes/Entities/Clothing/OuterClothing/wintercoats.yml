@@ -195,6 +195,31 @@
       head: ClothingHeadHatHoodWinterCMO
 
 - type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: ClothingOuterLabWinterCMO
+  name: chief medical officer's winter lab coat
+  description: A large and expensive labcoat fitted with extra insulation for particularly cold operating rooms.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/cmocoat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/cmocoat.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.8
+        Caustic: 0.6
+    priceMultiplier: 0.15   
+ 
+
+- type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterClown
   name: clown winter coat
