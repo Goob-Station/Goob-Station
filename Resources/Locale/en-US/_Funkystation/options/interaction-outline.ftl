@@ -1,0 +1,7 @@
+ui-options-interaction-outline-header = Interaction outline settings
+ui-options-use-custom-interaction-outline-color = Use custom interaction outline colors
+ui-options-interaction-outline-color-expand = Expand interaction outline color settings
+ui-options-interaction-outline-color-valid = Outline color for objects inside of interaction range
+ui-options-interaction-outline-color-invalid = Outline color for objects outside of interaction range
+ui-options-interaction-outline-color-example = This is the outline color.
+ui-options-color-slider-default-button = Reset to default

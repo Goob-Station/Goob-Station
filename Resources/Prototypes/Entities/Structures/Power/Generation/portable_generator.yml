@@ -46,6 +46,7 @@
       interfaces:
         enum.GeneratorComponentUiKey.Key:
           type: PortableGeneratorBoundUserInterface
+    - type: ESForcedFacingUi # Goob
     - type: ActivatableUI
       key: enum.GeneratorComponentUiKey.Key
     - type: Electrified
@@ -254,6 +255,7 @@
   id: PortableGeneratorJrPacman
   suffix: Welding Fuel, 8 kW
   components:
+    - type: ESVerbAnchorable # Goob
     - type: AmbientSound
       range: 4
       volume: -8

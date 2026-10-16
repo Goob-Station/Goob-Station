@@ -36,6 +36,7 @@
         enum.MicrowaveVisualizerLayers.BaseUnlit:
           True: { visible: true }
           False: { visible: false }
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.MicrowaveUiKey.Key
   - type: DeviceLinkSink
