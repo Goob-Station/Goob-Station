@@ -1,20 +1,22 @@
 <Document>
-<Box>
-<GuideEntityEmbed Entity="PlumbingPump"/>
-<GuideEntityEmbed Entity="ChemMaster"/>
-<GuideEntityEmbed Entity="ReagentGrinderIndustrial"/>
-<GuideEntityEmbed Entity="BaseGasCondenser"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="PlumbingPump"/>
+    <GuideEntityEmbed Entity="ChemMaster"/>
+    <GuideEntityEmbed Entity="ReagentGrinderIndustrial"/>
+    <GuideEntityEmbed Entity="BaseGasCondenser"/>
+  </Box>
 
-Modern technology allows space creatures like you and I to automate the movement of liquids.
+  Modern technology allows space creatures like you and I to automate the movement of liquids.
 
-Research and build a liquid pump and some automation upgrade kits.
-You can upgrade certain liquid handling machines like ChemMasters and industrial reagent grinders.
-Link the pump to the Plumbing Input/Output ports and it will start pumping.
+  Research and build a liquid pump and some automation upgrade kits.
+  You can upgrade certain liquid handling machines like ChemMasters and industrial reagent grinders.
+  Link the pump to the Plumbing Input/Output ports and it will start pumping.
 
-Pumps can only transfer between 2 machines, but you can click them to assign a filter. Only that filtered reagent will be moved by the pump.
-Use multiple pumps for advanced stuff.
+  Pumps can transfer liquids through other pumps before reaching the final machine.
+  Each pump adds its transfer amount to the chain’s total rate and can be assigned a reagent filter.
+  Without filters, the input mixture is transferred as-is. With filters, only selected reagents are transferred, and each reagent’s output share is based on the combined transfer amount of pumps using that filter. Unfiltered pumps increase the total rate without affecting these ratios.
+  If one filtered reagent runs out, the other filtered reagents continue moving at their own rates.
 
-Because it's just multitool based you don't need to build any pipes or anything, just link pumps to machines and watch the liquids move!
+  Because it's just multitool based you don't need to build any pipes or anything, just link pumps to machines and watch the liquids move!
 
 </Document>
