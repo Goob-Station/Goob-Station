@@ -22,6 +22,8 @@ public abstract partial class SharedTrayScannerSystem : EntitySystem // Goob
     {
         base.Initialize();
 
+        GoobInitialize(); // Goob
+
         SubscribeLocalEvent<TrayScannerComponent, ComponentGetState>(OnTrayScannerGetState);
         SubscribeLocalEvent<TrayScannerComponent, ComponentHandleState>(OnTrayScannerHandleState);
         SubscribeLocalEvent<TrayScannerComponent, ActivateInWorldEvent>(OnTrayScannerActivate);

@@ -9,14 +9,19 @@ public abstract partial class SharedTrayScannerSystem
     [Dependency] private SharedAudioSystem _goobAudio = default!;
     [Dependency] private ActionContainerSystem _goobActionContainer = default!;
 
-    [SubscribeLocalEvent]
+    private void GoobInitialize()
+    {
+        SubscribeLocalEvent<TrayScannerToggleComponent, MapInitEvent>(OnToggleMapInit);
+        SubscribeLocalEvent<TrayScannerToggleComponent, GetItemActionsEvent>(OnToggleGetActions);
+        SubscribeLocalEvent<TrayScannerToggleComponent, ToggleTrayScannerEvent>(OnToggleAction);
+    }
+
     private void OnToggleMapInit(Entity<TrayScannerToggleComponent> ent, ref MapInitEvent args)
     {
         _goobActionContainer.EnsureAction(ent, ref ent.Comp.ActionEntity, ent.Comp.Action);
         Dirty(ent);
     }
 
-    [SubscribeLocalEvent]
     private void OnToggleGetActions(Entity<TrayScannerToggleComponent> ent, ref GetItemActionsEvent args)
     {
         if (args.SlotFlags is not { } slot || (slot & ent.Comp.RequiredSlot) == 0)
@@ -25,7 +30,6 @@ public abstract partial class SharedTrayScannerSystem
         args.AddAction(ref ent.Comp.ActionEntity, ent.Comp.Action);
     }
 
-    [SubscribeLocalEvent]
     private void OnToggleAction(Entity<TrayScannerToggleComponent> ent, ref ToggleTrayScannerEvent args)
     {
         if (args.Handled || !TryComp<TrayScannerComponent>(ent, out var scanner))
