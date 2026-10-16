@@ -14,6 +14,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   <ItemGroup>
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
+    <ProjectReference Include="..\Content.Woundmed.Shared\Content.Woundmed.Shared.csproj" />
   </ItemGroup>
 
   <Import Project="..\RobustToolbox\Imports\Shared.props" />

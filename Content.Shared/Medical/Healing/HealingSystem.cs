@@ -26,8 +26,6 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -35,6 +33,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 using Robust.Shared.Network;
 using Content.Shared.Damage;
+using Content.Woundmed.Common.Body.Types;
 
 namespace Content.Shared.Medical.Healing;
 
@@ -366,7 +365,7 @@ public sealed class HealingSystem : EntitySystem
         var leftoverHealAndTrauma = false;
         var leftoverHealAndBleed = false;
         var healingLeft = healing.Damage * _damageable.UniversalTopicalsHealModifier;
-        if (TryComp<BodyComponent>(ent, out var bodyComp) && bodyComp.BodyType == _Shitmed.Body.BodyType.Complex)
+        if (TryComp<BodyComponent>(ent, out var bodyComp) && bodyComp.BodyType == BodyType.Complex)
         {
             // Create parts to go over queue: targetted part -> head -> torso -> groin -> everything else
             // Iterate over the parts in the predefined order until we run out of parts or run out of healing

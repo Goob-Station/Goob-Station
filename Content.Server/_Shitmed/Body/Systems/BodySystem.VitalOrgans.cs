@@ -3,6 +3,7 @@
 using Content.Server.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Components;
+using Content.Woundmed.Common.Body.Organs.Components;
 
 namespace Content.Server.Body.Systems;
 

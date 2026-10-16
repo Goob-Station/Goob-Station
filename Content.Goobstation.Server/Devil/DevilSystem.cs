@@ -31,7 +31,6 @@ using Content.Server.Temperature.Components;
 using Content.Server.Zombies;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Lavaland.Chasm;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Systems;
@@ -57,6 +56,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
+using Content.Woundmed.Common.Body.Components;
 
 namespace Content.Goobstation.Server.Devil;
 

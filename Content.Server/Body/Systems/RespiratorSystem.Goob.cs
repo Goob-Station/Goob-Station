@@ -5,9 +5,9 @@ using Content.Goobstation.Shared.Body;
 using Content.Goobstation.Shared.GrabIntent;
 using Content.Server.Body.Components;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared.Body.Components;
+using Content.Woundmed.Common.Body.Components;
 
 namespace Content.Server.Body.Systems;
 
