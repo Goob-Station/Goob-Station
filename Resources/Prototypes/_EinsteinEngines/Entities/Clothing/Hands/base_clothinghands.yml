@@ -17,3 +17,5 @@
     - Recyclable
     - WhitelistChameleon
     - PlasmamanSafe
+  - type: GlowShielding # Goobstation - envirogloves slightly dim the plasmaman body glow
+    reduction: 0.1
