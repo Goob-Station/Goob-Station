@@ -5,7 +5,7 @@
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsorySecurity
   name: Security Responsory modsuit control unit
-  description: The main controller for a Security Responsory modsuit.
+  description: A robust modular hardsuit made for a security ERT. It has a fierce red pattern.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/security-responsory.rsi
@@ -51,7 +51,7 @@
         gloves-vox:
         - state: equipped-HAND-sealed-vox
         - state: equipped-HAND-sealed-unshaded-vox
-          shader: unshaded          
+          shader: unshaded
     - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
 
 - type: entity
