@@ -43,6 +43,7 @@ public sealed partial class RoundIntroOverlay : Control
         NameLabel.FontOverride = LoadFont("/Fonts/NotoSans/NotoSans-Bold.ttf", 40);
         JobLabel.FontOverride = LoadFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 22);
         StationLabel.FontOverride = LoadFont("/Fonts/NotoSans/NotoSans-Italic.ttf", 14);
+        AntagLabel.FontOverride = LoadFont("/Fonts/NotoSans/NotoSans-Bold.ttf", 18);
         CoworkersLabel.FontOverride = LoadFont("/Fonts/NotoSans/NotoSans-Italic.ttf", 14);
         _coworkerNameFont = LoadFont("/Fonts/NotoSans/NotoSans-Bold.ttf", 13);
         _coworkerJobFont = LoadFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 11);
@@ -58,14 +59,18 @@ public sealed partial class RoundIntroOverlay : Control
         return new VectorFont(_cache.GetResource<FontResource>(path), size);
     }
 
-    public void SetText(NetEntity entity, string prefix, string name, string? job, string station)
+    public void SetText(NetEntity entity, string prefix, string name, string? job, Color jobColor, string? antag, string? station)
     {
         SelfView.SetEntity(entity);
         PrefixLabel.Text = prefix;
         NameLabel.Text = name;
         JobLabel.Text = job ?? string.Empty;
         JobLabel.Visible = job != null;
-        StationLabel.Text = station;
+        JobLabel.FontColorOverride = jobColor;
+        AntagLabel.Text = antag ?? string.Empty;
+        AntagLabel.Visible = antag != null;
+        StationLabel.Text = station ?? string.Empty;
+        StationLabel.Visible = station != null;
     }
 
     public void SetCoworkersTitle(string title)

@@ -26,6 +26,8 @@ public sealed partial class RoundIntroSystem : EntitySystem
     [Dependency] private IStateManager _state = default!;
     [Dependency] private IUserInterfaceManager _ui = default!;
 
+    private static readonly Color CrewColor = Color.FromHex("#d8c48a");
+    private static readonly Color AntagColor = Color.FromHex("#d9483b");
     private static readonly TimeSpan MaxEnterWait = TimeSpan.FromSeconds(10);
 
     private RoundIntroOverlay? _overlay;
@@ -81,15 +83,36 @@ public sealed partial class RoundIntroSystem : EntitySystem
         if (_overlay == null || _hasIntro || _inGame)
             return;
 
+        string? antagName = null;
+        if (ev.Antag is { } antagId && _proto.TryIndex(antagId, out var antagProto))
+            antagName = Loc.GetString(antagProto.Name);
+
         string? job = null;
-        if (ev.Job is { } jobId && _proto.TryIndex(jobId, out var jobProto))
-            job = Loc.GetString("round-intro-job", ("job", jobProto.LocalizedName));
+        string? antagLine = null;
+        var jobColor = CrewColor;
+
+        if (ev.AntagBody)
+        {
+            if (antagName != null)
+                job = Loc.GetString("round-intro-antag-role", ("antag", antagName));
+            jobColor = AntagColor;
+        }
+        else
+        {
+            if (ev.Job is { } jobId && _proto.TryIndex(jobId, out var jobProto))
+                job = Loc.GetString("round-intro-job", ("job", jobProto.LocalizedName));
+
+            if (antagName != null)
+                antagLine = Loc.GetString("round-intro-antag-hidden", ("antag", antagName));
+        }
 
         _overlay.SetText(ev.Entity,
             Loc.GetString("round-intro-prefix"),
             ev.Name,
             job,
-            Loc.GetString("round-intro-station", ("station", ev.Station)));
+            jobColor,
+            antagLine,
+            ev.Location is { } location ? Loc.GetString("round-intro-station", ("station", location)) : null);
 
         _hasIntro = true;
     }
@@ -99,13 +122,15 @@ public sealed partial class RoundIntroSystem : EntitySystem
         if (_overlay == null || !_hasIntro)
             return;
 
-        _overlay.SetCoworkersTitle(Loc.GetString("round-intro-coworkers"));
+        _overlay.SetCoworkersTitle(Loc.GetString(ev.Teammates ? "round-intro-teammates" : "round-intro-coworkers"));
 
         foreach (var coworker in ev.Coworkers)
         {
             string? job = null;
             if (coworker.Job is { } jobId && _proto.TryIndex(jobId, out var jobProto))
                 job = jobProto.LocalizedName;
+            else if (coworker.Antag is { } antagId && _proto.TryIndex(antagId, out var antagProto))
+                job = Loc.GetString(antagProto.Name);
 
             _overlay.AddCoworker(coworker.Entity, coworker.Name, job);
         }

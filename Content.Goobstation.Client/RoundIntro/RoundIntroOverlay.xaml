@@ -21,6 +21,7 @@
         <Label Name="PrefixLabel" HorizontalAlignment="Center" FontColorOverride="#9a9a9a" />
         <Label Name="NameLabel" HorizontalAlignment="Center" FontColorOverride="#ffffff" />
         <Label Name="JobLabel" HorizontalAlignment="Center" FontColorOverride="#d8c48a" />
+        <Label Name="AntagLabel" HorizontalAlignment="Center" FontColorOverride="#d9483b" Visible="False" />
         <Control MinHeight="12" />
         <Label Name="StationLabel" HorizontalAlignment="Center" FontColorOverride="#7a7a7a" />
         <BoxContainer Name="CoworkersBox" Orientation="Vertical" Visible="False" MouseFilter="Ignore">
