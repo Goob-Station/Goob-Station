@@ -221,39 +221,39 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 3.5
-    reoccurrenceDelay: 1
+    reoccurrenceDelay: 30
     duration: 1
-    earliestStart: 30
+    earliestStart: 60
     minimumPlayers: 25
     chaos: # Goobstation
-      Power: 100
-      Atmos: 100
+      Power: 400
+      Atmos: 400
   - type: ImmovableRodRule
     rodPrototypes:
     - id: ImmovableRodKeepTiles
-      prob: 0.94
+      prob: 0.5
       orGroup: rodProto
     - id: ImmovableRodMop
-      prob: 0.0075
+      prob: 0.0625
       orGroup: rodProto
     - id: ImmovableRodShark
-      prob: 0.0075
+      prob: 0.0625
       orGroup: rodProto
     - id: ImmovableRodClown
-      prob: 0.0075
+      prob: 0.0625
       orGroup: rodProto
     - id: ImmovableRodBanana
-      prob: 0.0075
+      prob: 0.0625
       orGroup: rodProto
     - id: ImmovableRodHammer
-      prob: 0.0075
+      prob: 0.0625
       orGroup: rodProto
     - id: ImmovableRodThrongler
-      prob: 0.0075
+      prob: 0.0625
       orGroup: rodProto
     - id: ImmovableRodGibstick
-      prob: 0.0075
+      prob: 0.0625
       orGroup: rodProto
     - id: ImmovableRodWeh
-      prob: 0.0075
+      prob: 0.0625
       orGroup: rodProto
