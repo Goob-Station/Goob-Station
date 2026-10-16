@@ -732,4 +732,40 @@ public sealed partial class GoobCVars
         CVarDef.Create("particles.inhand_interaction_scale", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
+
+    #region Runechat
+
+    /// <summary>
+    /// Whether speech bubbles are drawn SS13 runechat style
+    /// </summary>
+    public static readonly CVarDef<bool> ChatRunechat =
+        CVarDef.Create("chat.runechat", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Radio Channel Colors
+
+    public static readonly CVarDef<bool> UseCustomRadioChannelColors =
+        CVarDef.Create("radio.use_custom_channel_colors", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Per-channel color overrides, formatted as "ChannelId=#RRGGBB;OtherChannel=#RRGGBB".
+    /// </summary>
+    public static readonly CVarDef<string> RadioChannelColors =
+        CVarDef.Create("radio.channel_colors", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Interaction Outline
+
+    public static readonly CVarDef<bool> UseCustomInteractionOutlineColors =
+        CVarDef.Create("interaction_outline.use_custom_colors", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<string> ValidInteractionOutlineColor =
+        CVarDef.Create("interaction_outline.in_range_color", "#00FF0055", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<string> InvalidInteractionOutlineColor =
+        CVarDef.Create("interaction_outline.out_of_range_color", "#FF000055", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
 }
