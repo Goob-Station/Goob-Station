@@ -15,11 +15,11 @@ public sealed class RunechatSpeechBubble : SpeechBubble
 {
     public const string StyleClassNormal = "runechat";
     public const string StyleClassLoud = "runechatLoud";
+    public const string StyleClassWhisper = "runechatWhisper";
     public const int NormalSize = 12;
     public const int LoudSize = 18;
     private const float DesignPixelsPerEm = 8f;
     private const float RunechatMaxWidth = 200;
-    private const float WhisperAlpha = 0.7f;
     private static readonly TimeSpan FadeInTime = TimeSpan.FromSeconds(0.15);
     private static readonly Color LoocColor = Color.FromHex("#48d1cc");
 
@@ -86,9 +86,6 @@ public sealed class RunechatSpeechBubble : SpeechBubble
                 break;
         }
 
-        if (type == SpeechType.Whisper)
-            color = color.WithAlpha(WhisperAlpha);
-
         var msg = new FormattedMessage();
         msg.AddMarkupPermissive($"[color={color.ToHex()}]{FormattedMessage.EscapeText(text.Trim())}[/color]");
 
@@ -100,7 +97,7 @@ public sealed class RunechatSpeechBubble : SpeechBubble
             OutlineThicknessOverride = outline,
             OutlineColorOverride = Color.Black,
             Margin = new Thickness(pad, pad, pad, pad + 2),
-            StyleClasses = { size == LoudSize ? StyleClassLoud : StyleClassNormal },
+            StyleClasses = { type == SpeechType.Whisper ? StyleClassWhisper : size == LoudSize ? StyleClassLoud : StyleClassNormal },
         };
         label.SetMessage(msg, AllowedTags);
 

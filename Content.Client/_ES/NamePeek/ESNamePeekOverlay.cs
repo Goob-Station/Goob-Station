@@ -19,7 +19,6 @@ namespace Content.Client._ES.NamePeek;
 public sealed class ESNamePeekOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
-    private const string SmallFontPath = "/Fonts/_ES/Wormtown9k-Small.ttf";
     private const int FontSize = 12;
     private const float MinLightLevel = 0.1f;
 
@@ -56,7 +55,7 @@ public sealed class ESNamePeekOverlay : Overlay
 
         _shader = _prototypeManager.Index(UnshadedShader).Instance();
         _font = new VectorFont(_cache.GetResource<FontResource>(RunechatSheetlet.FontPath), FontSize);
-        _smallFont = new VectorFont(_cache.GetResource<FontResource>(SmallFontPath), FontSize);
+        _smallFont = new VectorFont(_cache.GetResource<FontResource>(RunechatSheetlet.WhisperFontPath), FontSize);
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
