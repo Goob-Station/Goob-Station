@@ -557,3 +557,25 @@ public sealed partial class RathenEvent : InstantActionEvent
     [DataField]
     public float LimbTearChance = 0.2f;
 }
+
+[DataDefinition]
+public sealed partial class WizardFistFightEvent : EntityEventArgs
+{
+    [DataField]
+    public EntProtoId GameRule = "WizardFistFight";
+
+    [DataField]
+    public SoundSpecifier? AnnouncementSound = new SoundPathSpecifier("/Audio/Weapons/boxingbell.ogg");
+
+    [DataField]
+    public FixedPoint2 WizCoinRefund = 10;
+
+    [DataField]
+    public FixedPoint2 WizCoinPrize = 15;
+
+    [DataField]
+    public TimeSpan ChallengeTimeout = TimeSpan.FromMinutes(2);
+
+    [DataField]
+    public EntProtoId ChallengerSpawner = "SpawnPointGhostWizardChallenger";
+}

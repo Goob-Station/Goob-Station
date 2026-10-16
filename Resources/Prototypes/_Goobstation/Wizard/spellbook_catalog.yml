@@ -960,6 +960,24 @@
       - SpellbookTileToggle
   disableRefund: true
 
+- type: listing
+  id: SpellbookEventWizardFistFight
+  name: spellbook-event-wizard-fist-fight-name
+  description: spellbook-event-wizard-fist-fight-desc
+  productEvent: !type:WizardFistFightEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
+    state: icon
+  cost:
+    WizCoin: 10
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
 # Special
 - type: listing
   id: SpellbookFullRandom
