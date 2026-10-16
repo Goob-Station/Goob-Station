@@ -707,3 +707,25 @@
   - type: Tag
     tags:
     - MidroundAntag
+
+- type: entity
+  parent: BaseGameRule
+  id: BluespaceStorm
+  components:
+  - type: StationEvent
+    weight: 1
+    earliestStart: 30
+    minimumPlayers: 20
+    maxOccurrences: 2
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 250
+  - type: BluespaceRule
+    availablePortals:
+    - LavalandBluespacePortal
+    - PlantBluespacePortal
+    - FleshBluespacePortal
+    - SlimeBluespacePortal
+  - type: Tag
+    tags:
+    - MidroundAntag
