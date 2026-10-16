@@ -1,0 +1,45 @@
+uniform sampler2D SCREEN_TEXTURE;
+
+const highp int   kEchoes       = 6;     // number of colored echo copies
+const highp float kTrail        = 0.14;  // how far the echoes smear
+const highp float kEchoStrength = 0.7;   // overall visibility of the neon echoes
+const highp float kSaturation   = 1.35;
+
+highp vec3 hsv2rgb(highp vec3 c) {
+    highp vec3 p = abs(fract(c.xxx + vec3(0.0, 0.6666667, 0.3333333)) * 6.0 - 3.0);
+    return c.z * mix(vec3(1.0), clamp(p - 1.0, 0.0, 1.0), c.y);
+}
+
+highp float luma(highp vec3 c) {
+    return dot(c, vec3(0.299, 0.587, 0.114));
+}
+
+void fragment() {
+    highp vec2 uv = UV;
+    highp vec2 dir = uv - vec2(0.5, 0.5);
+    highp float dist = length(dir);
+
+    highp vec3 base = zTextureSpec(SCREEN_TEXTURE, uv).rgb;
+
+    highp vec3 echo = vec3(0.0);
+    for (int i = 1; i <= kEchoes; i++) {
+        highp float s = float(i) / float(kEchoes);
+        highp vec2 suv = uv - dir * kTrail * s;
+
+        highp vec3 tap = zTextureSpec(SCREEN_TEXTURE, suv).rgb;
+
+        highp float hue = mix(0.33, 0.85, s);
+        highp vec3 echoColor = hsv2rgb(vec3(hue, 1.0, 1.0));
+
+        highp float w = 1.0 - s * 0.7;
+        echo += echoColor * luma(tap) * w;
+    }
+    echo /= float(kEchoes);
+
+    highp vec3 col = base + echo * kEchoStrength;
+
+    highp float l = luma(col);
+    col = mix(vec3(l), col, kSaturation);
+
+    COLOR = vec4(clamp(col, 0.0, 1.0), 1.0);
+}
