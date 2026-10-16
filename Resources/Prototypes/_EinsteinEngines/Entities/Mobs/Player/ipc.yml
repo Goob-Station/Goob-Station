@@ -157,6 +157,7 @@
         Blunt: -15
         Piercing: -15
         Slash: -15
+  - type: RepairableHumanoid #Goob only component(for _shitmed compat)
   - type: DamagedSiliconAccent
   - type: Uncloneable
   - type: OwnInteractionVerbs
