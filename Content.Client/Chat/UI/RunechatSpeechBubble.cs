@@ -127,7 +127,7 @@ public sealed class RunechatSpeechBubble : SpeechBubble
         return pointSize * 96f / 72f / DesignPixelsPerEm;
     }
 
-    private static Color GetNameColor(string name)
+    public static Color GetNameColor(string name)
     {
         var hash = 2166136261u;
         foreach (var c in name)

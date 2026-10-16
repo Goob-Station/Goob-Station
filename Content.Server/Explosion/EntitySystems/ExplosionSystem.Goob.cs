@@ -1,4 +1,5 @@
 using Content.Shared._ES.Camera;
+using Content.Shared._Funkystation.Explosion;
 using Robust.Shared.Player;
 
 namespace Content.Server.Explosion.EntitySystems;
@@ -13,5 +14,11 @@ public sealed partial class ExplosionSystem
     private void ExplosionScreenshake(Filter filter, bool small)
     {
         _shake.Screenshake(filter, small ? SmallExplosionShake : LargeExplosionShake, null);
+    }
+
+    private void RaiseExplosiveTriggered(EntityUid uid)
+    {
+        var ev = new ExplosiveTriggeredEvent();
+        RaiseLocalEvent(uid, ref ev);
     }
 }

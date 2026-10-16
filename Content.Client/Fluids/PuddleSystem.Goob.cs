@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Footprints;
 using Content.Shared._ES.Fluids;
 using Content.Shared.Fluids;
 using Content.Shared.Random.Helpers;
@@ -12,6 +13,13 @@ public sealed partial class PuddleSystem
 
     private void UpdatePuddleSprite(Entity<SpriteComponent> ent, float volume, IReadOnlyDictionary<Enum, object> appearanceData)
     {
+        if (HasComp<FootprintComponent>(ent))
+        {
+            if (appearanceData.TryGetValue(PuddleVisuals.SolutionColor, out var footprintColor))
+                _sprite.SetColor(ent.AsNullable(), ((Color) footprintColor).WithAlpha(0.7f));
+            return;
+        }
+
         var spriteSetId = DefaultPuddleSpriteSet;
         if (appearanceData.TryGetValue(PuddleVisuals.SpriteSet, out var spriteSetObj) && spriteSetObj is string spriteSetString)
             spriteSetId = spriteSetString;

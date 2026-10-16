@@ -95,6 +95,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Breakage"]
+  - type: ExplosionEffect # Goob
   - type: Explosive
     explosionType: Default
     maxIntensity: 5

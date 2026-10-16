@@ -5,3 +5,7 @@ ui-options-interaction-outline-color-valid = Outline color for objects inside of
 ui-options-interaction-outline-color-invalid = Outline color for objects outside of interaction range
 ui-options-interaction-outline-color-example = This is the outline color.
 ui-options-color-slider-default-button = Reset to default
+ui-options-radio-channel-colors-header = Radio channel colors
+ui-options-use-custom-radio-channel-colors = Use custom radio channel colors
+ui-options-radio-channel-colors-expand = Expand radio channel color settings
+ui-options-radio-channel-colors-example = [{$channel}] This is the channel color.

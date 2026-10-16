@@ -740,6 +740,19 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Radio Channel Colors
+
+    public static readonly CVarDef<bool> UseCustomRadioChannelColors =
+        CVarDef.Create("radio.use_custom_channel_colors", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Per-channel color overrides, formatted as "ChannelId=#RRGGBB;OtherChannel=#RRGGBB".
+    /// </summary>
+    public static readonly CVarDef<string> RadioChannelColors =
+        CVarDef.Create("radio.channel_colors", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
     #region Interaction Outline
 
     public static readonly CVarDef<bool> UseCustomInteractionOutlineColors =

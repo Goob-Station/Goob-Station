@@ -73,6 +73,14 @@
     - MesonGoggles
     - WhitelistChameleon
     - PetWearable # Goobstation?
+  - type: TrayScanner # Goob
+  - type: TrayScannerToggle # Goob
+    soundOn: # Goob
+      path: /Audio/Items/flashlight_on.ogg # Goob
+    soundOff: # Goob
+      path: /Audio/Items/flashlight_off.ogg # Goob
+  - type: GoggleShader # Goob
+    color: '#5AB43CCC' # Goob
 
 - type: entity
   parent: ClothingEyesBase

@@ -23,31 +23,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <CheckBox Name="CensorNudityCheckBox" Text="{Loc 'ui-options-censor-nudity'}" />
                 <CheckBox Name="AutoFillHighlightsCheckBox" Text="{Loc 'ui-options-auto-fill-highlights'}" />
                 <CheckBox Name="HighlightSoundCheckBox" Text="{Loc 'ui-options-highlight-sound'}" /> <!-- Goobstation - Highlight chat sounds! -->
-                <ui:OptionColorSlider Name="HighlightsColorSlider"
-                    Title="{Loc 'ui-options-highlights-color'}"
-                    Example="{Loc 'ui-options-highlights-color-example'}"/>
-                <!-- Goob start -->
-                <Label Text="{Loc 'ui-options-interaction-outline-header'}"
-                       StyleClasses="LabelKeyText"
-                       Margin="0 10 0 0"/>
-                <CheckBox Name="UseCustomInteractionOutlineColors"
-                          Text="{Loc 'ui-options-use-custom-interaction-outline-color'}"/>
-                <Collapsible Margin="0 5">
-                    <CollapsibleHeading Title="{Loc 'ui-options-interaction-outline-color-expand'}" DefaultCursorShape="Hand"/>
-                    <CollapsibleBody Margin="10 0 0 0">
-                        <BoxContainer Orientation="Vertical">
-                            <Label Text="{Loc 'ui-options-interaction-outline-color-valid'}"
-                                   StyleClasses="LabelKeyText"/>
-                            <ui:OptionColorSlider Name="ValidInteractionOutlineColorSlider"
-                                                  Example="{Loc 'ui-options-interaction-outline-color-example'}"/>
-                            <Label Text="{Loc 'ui-options-interaction-outline-color-invalid'}"
-                                   StyleClasses="LabelKeyText"/>
-                            <ui:OptionColorSlider Name="InvalidInteractionOutlineColorSlider"
-                                                  Example="{Loc 'ui-options-interaction-outline-color-example'}"/>
-                        </BoxContainer>
-                    </CollapsibleBody>
-                </Collapsible>
-                <!-- Goob end -->
+                <!-- Goob - highlight color & interaction outline options moved to CustomizationTab -->
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />
