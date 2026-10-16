@@ -520,12 +520,12 @@ public sealed partial class InjectorSystem : EntitySystem
         else
             removedSolution = _solutionContainer.SplitSolution(injector.Comp.Solution.Value, realTransferAmount);
 
-        _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection);
-
         if (!asRefill)
             _solutionContainer.Inject(target, targetSolution, removedSolution);
         else
             _solutionContainer.Refill(target, targetSolution, removedSolution);
+
+        _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection); // Goobstation - Inject the target first before doing reaction. Surely nothing will break.
 
         LocId msgSuccess = target == user ? "injector-component-inject-success-message-self" : "injector-component-inject-success-message";
 

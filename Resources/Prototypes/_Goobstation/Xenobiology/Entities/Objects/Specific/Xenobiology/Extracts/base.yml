@@ -32,3 +32,24 @@
   - type: GuideHelp
     guides:
     - Xenobiology
+
+- type: entity
+  abstract: true
+  id: FilledBaseSlimeExtract
+  suffix: Filled
+  components:
+  - type: InjectOnSpawn
+    solutionName: extract
+    reagents:
+    - ReagentId: Water
+      Quantity: 5
+    - ReagentId: Blood
+      Quantity: 5
+    - ReagentId: Plasma
+      Quantity: 5
+  - type: Reactive
+    effects:
+    - !type:RemoveComponents
+      guidebookText: entity-effect-guidebook-remove-reactive
+      components:
+      - type: Reactive # Remove after the whole reagent reaction done

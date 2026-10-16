@@ -970,6 +970,25 @@
     understands:
     - Bubblish
     - TauCetiBasic
+  - type: Reactive # Goobstation - Rainbow Slime
+    scaleOverride: 1
+    reactions:
+    - reagents: [ Rainbowine ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "smile-slime-rainbow-popup" ]
+      - !type:Jitter
+        time: 10
+        frequency: 15
+      - !type:SpawnEntity
+        entity: MobSlimeXenobioBabyRainbowSpawner
+        number: 1
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 10
 
 - type: entity
   name: Pun Pun

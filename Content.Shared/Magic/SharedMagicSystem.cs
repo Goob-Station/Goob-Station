@@ -690,35 +690,16 @@ public abstract class SharedMagicSystem : EntitySystem
         }
 
         // Goobstation start
-        if (_mobState.IsIncapacitated(ev.Target) || HasComp<ZombieComponent>(ev.Target))
-        {
-            _popup.PopupClient(Loc.GetString("spell-fail-mindswap-dead"), ev.Performer, ev.Performer);
-            return;
-        }
 
-        // raise blocker event (why the fuck was this done as a list lol)
         var blockEv = new BeforeMindSwappedEvent();
         RaiseLocalEvent(ev.Target, ref blockEv);
 
-        List<(Type, string)> blockers = new()
-        {
-            (typeof(GhoulComponent), "ghoul"),
-            // Mindswapping with aghost real.
-            (typeof(GhostComponent), "ghost"),
-            (typeof(SpectralComponent), "ghost"),
-            (typeof(TimedDespawnComponent), "temporary"),
-            (typeof(FadingTimedDespawnComponent), "temporary"),
-        };
-
-        // someone should nuke the list and make all of the components use the event. that someone is not me.
         if (blockEv.Cancelled)
         {
             _popup.PopupClient(Loc.GetString($"spell-fail-mindswap-{blockEv.Message}"), ev.Performer, ev.Performer);
             return;
         }
 
-        if (blockers.Any(x => CheckMindswapBlocker(x.Item1, x.Item2)))
-            return;
         // Goobstation end
 
         ev.Handled = true;
@@ -850,19 +831,10 @@ public abstract class SharedMagicSystem : EntitySystem
                 return factions.Where(x => factionsToTransfer.Contains(x));
             }
         }
-
-        bool CheckMindswapBlocker(Type type, string message)
-        {
-            if (!HasComp(ev.Target, type))
-                return false;
-
-            _popup.PopupClient(Loc.GetString($"spell-fail-mindswap-{message}"), ev.Performer, ev.Performer);
-            return true;
-        }
         // Goobstation end
     }
 
-    private void TransferComponent(Type type, EntityUid a, EntityUid b)
+    public void TransferComponent(Type type, EntityUid a, EntityUid b) // Goobstation - Made it public
     {
         var aHasComp = HasComp(a, type);
         var bHasComp = HasComp(b, type);
