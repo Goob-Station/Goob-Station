@@ -22,16 +22,16 @@ using System.Linq;
 
 namespace Content.Goobstation.Shared.SpecialPassives.BoostedImmunity;
 
-public abstract class SharedBoostedImmunitySystem : EntitySystem
+public abstract partial class SharedBoostedImmunitySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly BlindableSystem _blindSys = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodSys = default!;
-    [Dependency] private readonly SharedDrunkSystem _drunkSys = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private BlindableSystem _blindSys = default!;
+    [Dependency] private DamageableSystem _dmg = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodSys = default!;
+    [Dependency] private SharedDrunkSystem _drunkSys = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
     private EntityQuery<MobStateComponent> _mobStateQuery;

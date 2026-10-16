@@ -19,7 +19,7 @@ namespace Content.Goobstation.Shared.EntityEffects;
 public sealed partial class HealShadowlingSystem
     : EntityEffectSystem<SolutionContainerManagerComponent, HealShadowling>
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private DamageableSystem _damage = default!;
 
     protected override void Effect(Entity<SolutionContainerManagerComponent> entity, ref EntityEffectEvent<HealShadowling> args)
     {
