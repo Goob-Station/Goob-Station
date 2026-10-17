@@ -26,11 +26,11 @@ public sealed partial class DamageableSystem
     [Dependency] private readonly WoundSystem _wounds = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    private EntityQuery<BodyComponent> _bodyQuery;
-    private EntityQuery<BodyPartComponent> _bodyPartQuery;
-    private EntityQuery<ConsciousnessComponent> _consciousnessQuery;
-    private EntityQuery<WoundableComponent> _woundableQuery;
-    private readonly HashSet<EntityUid> _complexDamageInProgress = new();
+    [Dependency] private EntityQuery<BodyComponent> _bodyQuery;
+    [Dependency] private EntityQuery<BodyPartComponent> _bodyPartQuery;
+    [Dependency] private EntityQuery<WoundableComponent> _woundableQuery;
+
+    private readonly HashSet<EntityUid> _complexDamageInProgress = [];
 
     /// <summary>
     /// These damages are always ensured to override targetting and be dealt to the vital body parts.
@@ -111,7 +111,11 @@ public sealed partial class DamageableSystem
         return true;
     }
 
-    private void UpdateParentBodyDamage(EntityUid part, bool interruptsDoAfters, EntityUid? origin, bool ignoreBlockers)
+    /// <summary>
+    ///     [Woundmed]
+    ///     Tries to update the parent body of a body part if it can find it.
+    /// </summary>
+    private bool TryUpdateParentBodyDamage(EntityUid part, bool interruptsDoAfters, EntityUid? origin, bool ignoreBlockers)
     {
         if (!_bodyPartQuery.TryComp(part, out var bodyPart)
             || bodyPart.Body is not { } parent
@@ -119,9 +123,10 @@ public sealed partial class DamageableSystem
             || !_bodyQuery.TryComp(parent, out var parentBody)
             || parentBody.BodyType != BodyType.Complex
             || !_damageableQuery.TryComp(parent, out var parentDamageable))
-            return;
+            return false;
 
         UpdateComplexBodyDamage((parent, parentBody, parentDamageable), interruptsDoAfters, origin, ignoreBlockers);
+        return true;
     }
 
     /// <summary>
@@ -246,16 +251,13 @@ public sealed partial class DamageableSystem
                 */
                 foreach (var (type, requested) in modifiedDamage.DamageDict)
                 {
-                    if (requested >= 0)
+                    if (requested >= 0
+                        || partDamageResult is null
+                        || !partDamageResult.DamageDict.TryGetValue(type, out var result)
+                        || result > 0)
                         continue;
 
-                    var healed = FixedPoint2.Zero;
-                    if (partDamageResult != null
-                        && partDamageResult.DamageDict.TryGetValue(type, out var result)
-                        && result < 0)
-                        healed = result;
-
-                    surplusHealing.DamageDict[type] = FixedPoint2.Min(requested - healed, FixedPoint2.Zero);
+                    surplusHealing.DamageDict[type] = FixedPoint2.Min(requested - result, FixedPoint2.Zero);
                 }
             }
 

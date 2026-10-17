@@ -1,22 +1,6 @@
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
 
 namespace Content.Shared.Damage.Systems;
-
-public sealed partial class DamageableSystem
-{
-    // Todo: we can remove this once entity queries can be declared as dependencies!
-    public void InitializeWoundmed()
-    {
-        _bodyQuery = GetEntityQuery<BodyComponent>();
-        _consciousnessQuery = GetEntityQuery<ConsciousnessComponent>();
-        _woundableQuery = GetEntityQuery<WoundableComponent>();
-        _bodyPartQuery = GetEntityQuery<BodyPartComponent>();
-    }
-}
 
 public sealed partial class DamageChangedEvent
 {
