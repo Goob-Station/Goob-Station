@@ -613,7 +613,7 @@ public sealed partial class GoobCVars
     /// Applies to Brute and Burn damage
     /// </summary>
     public static readonly CVarDef<float> ExplosionWoundMultiplier =
-        CVarDef.Create("explosion.wounding_multiplier", 2.5f, CVar.SERVERONLY);
+        CVarDef.Create("explosion.wounding_multiplier", 4f, CVar.SERVERONLY);
 
     /// <summary>
     /// Explosion damage multiplied on vital parts.
