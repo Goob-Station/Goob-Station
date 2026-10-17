@@ -317,7 +317,7 @@ public sealed partial class DamageableSystem
                 uncappedDamage: damageDoneHypotheticalUncapped); // Woundmed
 
             if (isWoundable) // Woundmed
-                UpdateParentBodyDamage(ent, interruptsDoAfters, origin, ignoreBlockers);
+                TryUpdateParentBodyDamage(ent, interruptsDoAfters, origin, ignoreBlockers);
         }
 
         return damageDone;
