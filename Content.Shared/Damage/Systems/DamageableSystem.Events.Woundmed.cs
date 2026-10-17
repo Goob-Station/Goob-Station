@@ -1,6 +1,16 @@
+using Content.Goobstation.Common.CCVar;
 using Content.Shared._Shitmed.Targeting;
 
 namespace Content.Shared.Damage.Systems;
+
+public sealed partial class DamageableSystem
+{
+    private void WoundmedInitialize()
+    {
+        Subs.CVar(_config, GoobCVars.ExplosionVitalMultiplier, value => ExplosionVitalMultiplier = value, true); // Woundmed
+        Subs.CVar(_config, GoobCVars.ExplosionNonVitalMultiplier, value => ExplosionNonVitalMultiplier = value, true); // Woundmed
+    }
+}
 
 public sealed partial class DamageChangedEvent
 {

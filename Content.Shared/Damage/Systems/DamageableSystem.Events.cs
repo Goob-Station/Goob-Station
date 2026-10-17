@@ -118,6 +118,8 @@ public sealed partial class DamageableSystem
             value => UniversalMobDamageModifier = value,
             true
         );
+
+        WoundmedInitialize(); // Woundmed
     }
 
     /// <summary>

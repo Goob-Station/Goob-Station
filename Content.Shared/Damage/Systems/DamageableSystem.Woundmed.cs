@@ -3,7 +3,6 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Damage;
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
@@ -22,13 +21,16 @@ namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly WoundSystem _wounds = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private EntityQuery<BodyComponent> _bodyQuery;
-    [Dependency] private EntityQuery<BodyPartComponent> _bodyPartQuery;
-    [Dependency] private EntityQuery<WoundableComponent> _woundableQuery;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private WoundSystem _wounds = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityQuery<BodyComponent> _bodyQuery = default!;
+    [Dependency] private EntityQuery<BodyPartComponent> _bodyPartQuery = default!;
+    [Dependency] private EntityQuery<WoundableComponent> _woundableQuery = default!;
+
+    public float ExplosionVitalMultiplier { get; private set; } = 1f;
+    public float ExplosionNonVitalMultiplier { get; private set; } = 1f;
 
     private readonly HashSet<EntityUid> _complexDamageInProgress = [];
 
@@ -172,6 +174,23 @@ public sealed partial class DamageableSystem
 
     /// <summary>
     ///     [Woundmed]
+    ///     Gets whether an Entity<BodyPartComponent> has a <see cref="TargetBodyPart"/>.
+    /// </summary>
+    /// <param name="bodyPart"></param>
+    /// <returns></returns>
+    private bool BodyPartHasTargetBodyPartFlag(Entity<BodyPartComponent> bodyPart, TargetBodyPart target)
+    {
+        foreach (var flag in PrimitiveTargetBodyParts)
+        {
+            if (target.HasFlag(flag)
+                && bodyPart.Comp.PartType != _body.ConvertTargetBodyPart(flag).Type)
+                return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    ///     [Woundmed]
     ///     This cursed shitcode lets us know if the target part is a power of 2
     ///     therefore having multiple parts targeted.
     /// </summary>
@@ -219,13 +238,15 @@ public sealed partial class DamageableSystem
                 return null;
             }
 
-            var damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targettedParts);
+            // Apply split damage behavior to get all the parts and the damage we must do to them
+            var partDamageDict = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targettedParts);
             var appliedDamage = new DamageSpecifier();
             var surplusHealing = new DamageSpecifier();
-            for (var i = 0; i < targettedParts.Count; i++)
+
+            foreach (var pair in partDamageDict)
             {
-                var part = targettedParts[i];
-                var modifiedDamage = damagePerPart;
+                var part = pair.Key;
+                var modifiedDamage = pair.Value;
                 modifiedDamage += surplusHealing;
 
                 // Apply damage to this part
@@ -419,6 +440,18 @@ public sealed partial class DamageableSystem
         return totalDamage;
     }
 
+    private Dictionary<Entity<BodyPartComponent, DamageableComponent>, DamageSpecifier> MakeGenericDamageSplit(
+        List<Entity<BodyPartComponent, DamageableComponent>> parts,
+        DamageSpecifier damagePerPart)
+    {
+        Dictionary<Entity<BodyPartComponent, DamageableComponent>, DamageSpecifier> split = [];
+        foreach (var part in parts)
+        {
+            split[part] = damagePerPart;
+        }
+        return split;
+    }
+
     /// <summary>
     ///     [Woundmed]
     ///     Applies the provided <see cref="SplitDamageBehavior"/> onto the given body parts with the provided <see cref="DamageSpecifier"/>  
@@ -429,24 +462,42 @@ public sealed partial class DamageableSystem
     /// <returns>
     ///     The <see cref="DamageSpecifier"=> that should be equally dealt to each provided body part.
     /// </returns>
-    public DamageSpecifier ApplySplitDamageBehaviors(SplitDamageBehavior splitDamageBehavior,
+    public Dictionary<Entity<BodyPartComponent, DamageableComponent>, DamageSpecifier>
+    ApplySplitDamageBehaviors(SplitDamageBehavior splitDamageBehavior,
         DamageSpecifier damage,
         List<Entity<BodyPartComponent, DamageableComponent>> parts)
     {
         var newDamage = new DamageSpecifier(damage);
         switch (splitDamageBehavior)
         {
-            case SplitDamageBehavior.None:
-                return newDamage;
+            case SplitDamageBehavior.None: // No split, damage is the same for all
+                return MakeGenericDamageSplit(parts, newDamage * parts.Count);
             case SplitDamageBehavior.Split:
-                return newDamage / parts.Count;
+                return MakeGenericDamageSplit(parts, newDamage); // Split evenly between all parts
             case SplitDamageBehavior.SplitExplosion:
-                var vitalParts = parts.Where(part =>
-                TryComp<ConsciousnessRequiredComponent>(part, out var consciousness)
-                && consciousness.CausesDeath == true).ToList();
+                List<EntityUid> vitalParts = [];
 
-                return newDamage / vitalParts.Count;
-            case SplitDamageBehavior.SplitEnsureAllDamaged:
+                foreach (var part in parts)
+                {
+                    if (!BodyPartHasTargetBodyPartFlag(part, TargetBodyPart.Vital))
+                        continue;
+                    vitalParts.Add(part);
+                }
+
+                Dictionary<Entity<BodyPartComponent, DamageableComponent>, DamageSpecifier> split = [];
+
+                newDamage /= parts.Count;
+
+                foreach (var part in parts)
+                {
+                    if (vitalParts.Contains(part))
+                        split[part] = newDamage * ExplosionVitalMultiplier;
+                    else
+                        split[part] = newDamage * ExplosionNonVitalMultiplier;
+                }
+
+                return split;
+            case SplitDamageBehavior.SplitEnsureAllDamaged: // EnsureAll + Split between all damaged parts
                 var damagedParts = parts.Where(part =>
                     part.Comp2.TotalDamage > FixedPoint2.Zero).ToList();
 
@@ -454,7 +505,7 @@ public sealed partial class DamageableSystem
                 parts.AddRange(damagedParts);
 
                 goto case SplitDamageBehavior.SplitEnsureAll;
-            case SplitDamageBehavior.SplitEnsureAllOrganic:
+            case SplitDamageBehavior.SplitEnsureAllOrganic: // EnsureAll + Split between only organic parts
                 var organicParts = parts.Where(part =>
                     part.Comp1.PartComposition == BodyPartComposition.Organic).ToList();
 
@@ -462,7 +513,7 @@ public sealed partial class DamageableSystem
                 parts.AddRange(organicParts);
 
                 goto case SplitDamageBehavior.SplitEnsureAll;
-            case SplitDamageBehavior.SplitEnsureAllDamagedAndOrganic:
+            case SplitDamageBehavior.SplitEnsureAllDamagedAndOrganic: // EnsureAll + Split betwene only damaged & organic parts
                 var compatableParts = parts.Where(part =>
                     part.Comp2.TotalDamage > FixedPoint2.Zero &&
                     part.Comp1.PartComposition == BodyPartComposition.Organic).ToList();
@@ -497,9 +548,9 @@ public sealed partial class DamageableSystem
                 }
                 // We sort the parts to ensure that surplus damage gets passed from least to most damaged.
                 parts.Sort((a, b) => a.Comp2.TotalDamage.CompareTo(b.Comp2.TotalDamage));
-                return newDamage;
+                return MakeGenericDamageSplit(parts, newDamage);
             default:
-                return damage;
+                return MakeGenericDamageSplit(parts, damage);
         }
     }
 
