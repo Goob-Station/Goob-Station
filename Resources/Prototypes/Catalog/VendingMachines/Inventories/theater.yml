@@ -67,6 +67,14 @@
     ClothingOuterSuitPickle: 1
     ClothingOuterSuitTutu: 2 # Goob
     ClothingHeadHatTinfoilHat: 2 # Goobstation
+    ClothingHeadHatDeku: 1 #Goobstation
+    ClothingOuterArmorDeku: 1 #Goobstation
+    ClothingOuterArmorInvincible: 1 #Goobstation
+    ClothingHeadHatInvincible: 1 #Goobstation
+    ClothingOuterArmorCombineElite: 1 #Goobstation
+    ClothingUniformJumpsuitLash: 1 #Goobstation
+    ClothingUniformJumpsuitKris: 1 #Goobstation
+    ClothingUniformJumpsuitFrisk: 1 #Goobstation
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ClothingShoesBling: 1
@@ -87,6 +95,7 @@
     ClothingUniformJumpsuitResonant: 1 # Goobstation
     ClothingOuterArmorHereticCostume: 1 # Goobstation
     ToyBladeEldritch: 1 # Goobstation
+    ClothingUniformJumpsuitChara: 1 #Goobstation
   emaggedInventory: # goob
     ClothingOuterPonchoClassicRobust: 1
     ClothingHeadHatCowboyBrownRobust: 1
