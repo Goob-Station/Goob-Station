@@ -26,8 +26,11 @@ public sealed partial class WoundSystem
     /// <param name="parentWoundableEntity">Parent of the woundable entity.</param>
     /// <param name="woundableEntity">The entity containing the vulnerable body part</param>
     /// <param name="woundableComp">Woundable component of woundableEntity.</param>
-    public void DestroyWoundable(EntityUid parentWoundableEntity, EntityUid woundableEntity, WoundableComponent woundableComp)
+    public void DestroyWoundable(EntityUid parentWoundableEntity, EntityUid woundableEntity, WoundableComponent? woundableComp)
     {
+        if (!Resolve(woundableEntity, ref woundableComp, false))
+            return;
+
         if (!TryComp<BodyPartComponent>(woundableEntity, out var bodyPart))
             return;
 
@@ -117,11 +120,29 @@ public sealed partial class WoundSystem
 
 
         var bodyPart = Comp<BodyPartComponent>(parentWoundableEntity);
-        if (bodyPart.Body is not { } body
-            || !woundableComp.CanRemove)
+        if (bodyPart.Body == null
+            || !woundableComp.CanRemove
+            || !_amputating.Add(woundableEntity))
             return;
 
-        _audio.PlayPvs(woundableComp.WoundableDelimbedSound, bodyPart.Body.Value);
+        try
+        {
+            AmputateWoundableInternal(parentWoundableEntity, woundableEntity, woundableComp, bodyPart);
+        }
+        finally
+        {
+            _amputating.Remove(woundableEntity);
+        }
+    }
+
+    private readonly HashSet<EntityUid> _amputating = new();
+
+    private void AmputateWoundableInternal(EntityUid parentWoundableEntity,
+        EntityUid woundableEntity,
+        WoundableComponent woundableComp,
+        BodyPartComponent bodyPart)
+    {
+        _audio.PlayPvs(woundableComp.WoundableDelimbedSound, bodyPart.Body!.Value);
 
         var ampEv = new BeforeAmputationDamageEvent();
         RaiseLocalEvent(bodyPart.Body.Value, ref ampEv);
@@ -159,7 +180,7 @@ public sealed partial class WoundSystem
         WoundableComponent? woundableComp = null,
         bool amputateChildrenSafely = false)
     {
-        if (!Resolve(woundableEntity, ref woundableComp)
+        if (!Resolve(woundableEntity, ref woundableComp, false)
             || !woundableComp.CanRemove)
             return;
 

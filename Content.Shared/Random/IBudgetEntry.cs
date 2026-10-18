@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: MIT
 
+using Robust.Shared.Prototypes;
+
 namespace Content.Shared.Random;
 
 /// <summary>
@@ -9,7 +11,7 @@ public interface IBudgetEntry : IProbEntry
 {
     float Cost { get; set; }
 
-    string Proto { get; set; }
+    EntProtoId Proto { get; set; }
 }
 
 /// <summary>

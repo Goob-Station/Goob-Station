@@ -6,6 +6,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -23,7 +24,7 @@ public sealed class AmbientOcclusionOverlay : Overlay
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    private List<Entity<MapGridComponent>> _cachedGrids = new();
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowEntities;
@@ -115,18 +116,20 @@ public sealed class AmbientOcclusionOverlay : Overlay
                 // Don't want lighting affecting it.
                 worldHandle.UseShader(_proto.Index(UnshadedShader).Instance());
 
-                foreach (var grid in _mapManager.FindGridsIntersecting(mapId, worldBounds))
+                _cachedGrids.Clear();
+                maps.FindGridsIntersecting(mapId, worldBounds, ref _cachedGrids);
+                foreach (var grid in _cachedGrids)
                 {
                     var transform = xformSystem.GetWorldMatrix(grid.Owner);
                     var worldToTextureMatrix = Matrix3x2.Multiply(transform, invMatrix);
-                    var tiles = maps.GetTilesEnumerator(grid.Owner, grid, worldBounds);
+                    var tiles = maps.GetTilesEnumerator(grid.Owner, grid.Comp, worldBounds);
                     worldHandle.SetTransform(worldToTextureMatrix);
                     while (tiles.MoveNext(out var tileRef))
                     {
                         if (turfSystem.IsSpace(tileRef))
                             continue;
 
-                        var bounds = lookups.GetLocalBounds(tileRef, grid.TileSize);
+                        var bounds = lookups.GetLocalBounds(tileRef, grid.Comp.TileSize);
                         worldHandle.DrawRect(bounds, Color.White);
                     }
                 }

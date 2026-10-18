@@ -14,10 +14,10 @@ namespace Content.Goobstation.Server.MartialArts;
 /// <summary>
 /// Just handles carp sayings for now.
 /// </summary>
-public sealed class MartialArtsSystem : SharedMartialArtsSystem
+public sealed partial class MartialArtsSystem : SharedMartialArtsSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {
@@ -28,10 +28,20 @@ public sealed class MartialArtsSystem : SharedMartialArtsSystem
     }
 
     private void OnPolymorphedCPC(Entity<CanPerformComboComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<CanPerformComboComponent>(ent, args.NewEntity);
+    {
+        if (HasComp<CanPerformComboComponent>(args.NewEntity))
+            return;
+
+        _polymorph.CopyPolymorphComponent<CanPerformComboComponent>(ent, args.NewEntity);
+    }
 
     private void OnPolymorphedMAK(Entity<MartialArtsKnowledgeComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<MartialArtsKnowledgeComponent>(ent, args.NewEntity);
+    {
+        if (HasComp<MartialArtsKnowledgeComponent>(args.NewEntity))
+            return;
+
+        _polymorph.CopyPolymorphComponent<MartialArtsKnowledgeComponent>(ent, args.NewEntity);
+    }
 
     private void OnSleepingCarpSaying(Entity<CanPerformComboComponent> ent, ref SleepingCarpSaying args)
     {

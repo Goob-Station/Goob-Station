@@ -87,3 +87,13 @@
   cost: 1000
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: FunAlmanacBlade
+  icon:
+    sprite: Objects/Weapons/Melee/katana.rsi
+    state: icon
+  product: WeaponAlmanacBlade
+  cost: 6666
+  category: cargoproduct-category-name-fun
+  group: market

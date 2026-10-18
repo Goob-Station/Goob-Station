@@ -591,10 +591,14 @@ namespace Content.Server.Voting.Managers
         private Dictionary<string, string> GetGamePresets()
         {
             var presets = new Dictionary<string, string>();
+            var ticker = _entityManager.System<GameTicker>();
 
             foreach (var preset in _prototypeManager.EnumeratePrototypes<GamePresetPrototype>())
             {
                 if(!preset.ShowInVote)
+                    continue;
+
+                if (ticker.IsPresetDisabled(preset))
                     continue;
 
                 if(_playerManager.PlayerCount < (preset.MinPlayers ?? int.MinValue))

@@ -116,6 +116,7 @@
       interfaces:
         enum.BatteryUiKey.Key:
           type: BatteryBoundUserInterface
+    - type: ESForcedFacingUi # Goob
     - type: ActivatableUI
       key: enum.BatteryUiKey.Key
 

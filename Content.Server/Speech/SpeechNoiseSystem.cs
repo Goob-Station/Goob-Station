@@ -97,7 +97,9 @@ namespace Content.Server.Speech
             {
                 var ev = new GetBarkSourceEntityEvent();
                 RaiseLocalEvent(uid, ref ev);
-                if (HasComp<SpeechSynthesisComponent>(ev.Ent ?? uid))
+                var soundEv = new GetSpeechSoundEvent();
+                RaiseLocalEvent(uid, ref soundEv);
+                if (HasComp<SpeechSynthesisComponent>(ev.Ent ?? uid) && !soundEv.Handled)
                     return;
             }
             // END

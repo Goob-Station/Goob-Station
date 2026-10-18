@@ -9,28 +9,18 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Blob;
 
 #region BlobChemTypedStorage
-[DataDefinition, Serializable, NetSerializable]
+[Serializable, NetSerializable]
 public abstract partial class BlobChemTypedStorage<T> : IEnumerable
 {
-    [DataField]
     public virtual T BlazingOil { get; set; } = default!;
-    [DataField]
     public virtual T ReactiveSpines { get; set; }= default!;
-    [DataField]
     public virtual T RegenerativeMateria { get; set; }= default!;
-    [DataField]
     public virtual T ExplosiveLattice { get; set; }= default!;
-    [DataField]
     public virtual T ElectromagneticWeb { get; set; }= default!;
-    [DataField]
     public virtual T ComatoseFiber { get; set; } = default!;
-    [DataField]
     public virtual T ChainCoating { get; set; } = default!;
-    [DataField]
     public virtual T SinewyTendons { get; set; } = default!;
-    [DataField]
     public virtual T CorrosiveSlime { get; set; } = default!;
-    [DataField]
     public virtual T CryogenicPoison { get; set; } = default!;
 
     // Indexer to access fields via BlobChemType enumeration
@@ -119,11 +109,67 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
 [DataDefinition, Serializable, NetSerializable]
 public sealed partial class BlobChemColors : BlobChemTypedStorage<Color>
 {
+    [DataField]
+    public override Color BlazingOil { get; set; } = default!;
 
+    [DataField]
+    public override Color ReactiveSpines { get; set; } = default!;
+
+    [DataField]
+    public override Color RegenerativeMateria { get; set; } = default!;
+
+    [DataField]
+    public override Color ExplosiveLattice { get; set; } = default!;
+
+    [DataField]
+    public override Color ElectromagneticWeb { get; set; } = default!;
+
+    [DataField]
+    public override Color ComatoseFiber { get; set; } = default!;
+
+    [DataField]
+    public override Color ChainCoating { get; set; } = default!;
+
+    [DataField]
+    public override Color SinewyTendons { get; set; } = default!;
+
+    [DataField]
+    public override Color CorrosiveSlime { get; set; } = default!;
+
+    [DataField]
+    public override Color CryogenicPoison { get; set; } = default!;
 }
 
 [DataDefinition, Serializable, NetSerializable]
 public sealed partial class BlobChemDamage : BlobChemTypedStorage<DamageSpecifier>
 {
+    [DataField]
+    public override DamageSpecifier BlazingOil { get; set; } = default!;
 
+    [DataField]
+    public override DamageSpecifier ReactiveSpines { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier RegenerativeMateria { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier ExplosiveLattice { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier ElectromagneticWeb { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier ComatoseFiber { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier ChainCoating { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier SinewyTendons { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier CorrosiveSlime { get; set; } = default!;
+
+    [DataField]
+    public override DamageSpecifier CryogenicPoison { get; set; } = default!;
 }

@@ -10,6 +10,7 @@ using Content.Server.Construction.Components;
 using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -23,27 +24,27 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Blob;
 
-public sealed class BlobTileSystem : SharedBlobTileSystem
+public sealed partial class BlobTileSystem : SharedBlobTileSystem
 {
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly BlobCoreActionSystem _blobCoreActionSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private BlobCoreActionSystem _blobCoreActionSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private EmpSystem _empSystem = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private NpcFactionSystem _npcFactionSystem = default!;
 
     private EntityQuery<BlobCoreComponent> _blobCoreQuery;
     private EntityQuery<BlobTileComponent> _tileQuery;
     private EntityQuery<BlobObserverComponent> _observerQuery;
 
-    [ValidatePrototypeId<NpcFactionPrototype>]
-    private const string BlobFaction = "Blob";
+    private static readonly ProtoId<NpcFactionPrototype> BlobFaction = "Blob";
 
     public override void Initialize()
     {
@@ -142,7 +143,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
             healCore.DamageDict.TryAdd(keyValuePair.Key, keyValuePair.Value * 5);
         }
 
-        _damageableSystem.TryChangeDamage(ent, healCore);
+        _damageableSystem.TryChangeDamage(ent.Owner, healCore);
     }
 
     private bool CheckTile(

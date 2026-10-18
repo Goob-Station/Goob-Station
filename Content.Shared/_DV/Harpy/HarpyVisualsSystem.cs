@@ -3,6 +3,7 @@
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
 using Content.Shared.Humanoid;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Harpy;
 
@@ -11,8 +12,7 @@ public sealed class HarpyVisualsSystem : EntitySystem
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
 
-    [ValidatePrototypeId<TagPrototype>]
-    private const string HarpyWingsTag = "HidesHarpyWings";
+    private static readonly ProtoId<TagPrototype> HarpyWingsTag = "HidesHarpyWings";
 
     public override void Initialize()
     {

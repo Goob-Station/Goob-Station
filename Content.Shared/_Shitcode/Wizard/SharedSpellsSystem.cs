@@ -87,6 +87,8 @@ using Robust.Shared.Timing;
 using Content.Shared.Actions.Components;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Goobstation.Wizard;
 
@@ -96,7 +98,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly IMapManager MapManager = default!;
     [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
@@ -404,9 +405,8 @@ public abstract class SharedSpellsSystem : EntitySystem
 
             range = MathF.Max(1f, range);
 
-            Damageable.TryChangeDamage(target,
+            Damageable.ChangeDamage((target, damageable),
                 ev.Damage / range,
-                damageable: damageable,
                 origin: ev.Performer,
                 targetPart: TargetBodyPart.All);
 
@@ -770,7 +770,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (held != null && held == summons.Entity)
             return;
 
-        if (!Exists(summons.Entity) || !TryComp(summons.Entity.Value, out TransformComponent? xform))
+        if (!Exists(summons.Entity) || !TryComp(summons.Entity.Value, out TransformComponent? xform) || xform.MapID == MapId.Nullspace)
         {
             if (ItemValid(held))
                 MarkItem(held.Value);
@@ -868,7 +868,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         var box = Box2.CenteredAround(mapPos.Position, new Vector2(range, range));
         var circle = new Circle(mapPos.Position, range);
         var grids = new List<Entity<MapGridComponent>>();
-        MapManager.FindGridsIntersecting(mapPos.MapId, box, ref grids);
+        Map.FindGridsIntersecting(mapPos.MapId, box, ref grids);
 
         bool IsTileValid((EntityCoordinates, TileRef) data)
         {
@@ -1086,7 +1086,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
             Popup(ev.Performer, "spell-soul-tap-dead-message-user", PopupType.LargeCaution);
 
-            var dmg = Damageable.TryChangeDamage(ev.Performer,
+            var dmg = Damageable.ChangeDamage(ev.Performer,
                 new DamageSpecifier(ProtoMan.Index(ev.KillDamage), 666),
                 true);
             if ((dmg == null || dmg.GetTotal() < 1) && Timing.IsFirstTimePredicted)
@@ -1444,7 +1444,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         var mapCoords = TransformSystem.ToMapCoordinates(coords);
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var spawnCoords = MapManager.TryFindGridAt(mapCoords, out var gridUid, out _)
+        var spawnCoords = Map.TryFindGridAt(mapCoords, out var gridUid, out _)
             ? TransformSystem.WithEntityId(coords, gridUid)
             : new(Map.GetMapOrInvalid(mapCoords.MapId), mapCoords.Position);
 

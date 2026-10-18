@@ -1,0 +1,95 @@
+- type: patronTier
+  id: PatronTierGameStaff
+  databaseId: 0
+  name: patron-tier-game-staff
+  discordRole: 1205292413896097792
+  priority: 1
+  icon: OocIconFuture
+  ghostColor: true
+  ghostCosmetics: true
+  ghostParticles: true
+  lobbyMessage: true
+  oocIconTiers:
+  - PatronTierGameStaff
+  - PatronTierCentralCommand
+  - PatronTierCaptain
+  - PatronTierStationAi
+  - PatronTierJanitor
+  - PatronTierAssistant
+
+- type: patronTier
+  id: PatronTierCentralCommand
+  databaseId: 1
+  name: patron-tier-central-command
+  discordRole: 1330738833951817819
+  priority: 1
+  icon: OocIconNanotrasen
+  showOnCredits: true
+  ghostColor: true
+  ghostCosmetics: true
+  ghostParticles: true
+  lobbyMessage: true
+  roundEndShoutout: true
+  oocIconTiers:
+  - PatronTierCentralCommand
+  - PatronTierCaptain
+  - PatronTierStationAi
+  - PatronTierJanitor
+  - PatronTierAssistant
+
+- type: patronTier
+  id: PatronTierCaptain
+  databaseId: 2
+  name: patron-tier-captain
+  discordRole: 1330738800506310656
+  priority: 2
+  icon: OocIconCaptain
+  showOnCredits: true
+  ghostColor: true
+  ghostCosmetics: true
+  lobbyMessage: true
+  roundEndShoutout: true
+  oocIconTiers:
+  - PatronTierCaptain
+  - PatronTierStationAi
+  - PatronTierJanitor
+  - PatronTierAssistant
+
+- type: patronTier
+  id: PatronTierStationAi
+  databaseId: 3
+  name: patron-tier-station-ai
+  discordRole: 1330738772186366013
+  priority: 3
+  icon: OocIconStationAi
+  showOnCredits: true
+  ghostColor: true
+  lobbyMessage: true
+  oocIconTiers:
+  - PatronTierStationAi
+  - PatronTierJanitor
+  - PatronTierAssistant
+
+- type: patronTier
+  id: PatronTierJanitor
+  databaseId: 4
+  name: patron-tier-janitor
+  discordRole: 1330738734756401172
+  priority: 4
+  icon: OocIconJanitor
+  showOnCredits: true
+  ghostColor: true
+  oocIconTiers:
+  - PatronTierJanitor
+  - PatronTierAssistant
+
+- type: patronTier
+  id: PatronTierAssistant
+  databaseId: 5
+  name: patron-tier-assistant
+  discordRole: 1330738557119365211
+  priority: 5
+  icon: OocIconPassenger
+  showOnCredits: true
+  oocIconTiers:
+  - PatronTierAssistant

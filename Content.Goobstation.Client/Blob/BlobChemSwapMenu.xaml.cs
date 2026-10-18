@@ -15,8 +15,8 @@ namespace Content.Goobstation.Client.Blob;
 [GenerateTypedNameReferences]
 public sealed partial class BlobChemSwapMenu : DefaultWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
     private readonly SpriteSystem _sprite;
     public event Action<BlobChemType>? OnIdSelected;
 
@@ -47,8 +47,7 @@ public sealed partial class BlobChemSwapMenu : DefaultWindow
         ClearGrid();
     }
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string NormalBlobTile = "NormalBlobTile";
+    private static readonly EntProtoId NormalBlobTile = "NormalBlobTile";
 
     private void UpdateGrid()
     {

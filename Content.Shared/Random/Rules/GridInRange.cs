@@ -29,7 +29,7 @@ public sealed partial class GridInRangeRule : RulesRule
         }
 
         var transform = entManager.System<SharedTransformSystem>();
-        var mapManager = IoCManager.Resolve<IMapManager>();
+        var mapManager = IoCManager.Resolve<IEntityManager>().System<SharedMapSystem>();
 
         var worldPos = transform.GetWorldPosition(xform);
         var gridRange = new Vector2(Range, Range);

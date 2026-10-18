@@ -2,7 +2,7 @@
 
 using Content.Server.Damage.Components;
 using Content.Server.Popups;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Server.Damage.Systems;

@@ -8,13 +8,13 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Shared.Wraith.Minions.Harbinger;
 
-public sealed class SpikerShuffleSystem : EntitySystem
+public sealed partial class SpikerShuffleSystem : EntitySystem
 {
-    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _statusOld = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusNew = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private Content.Shared.StatusEffect.StatusEffectsSystem _statusOld = default!;
+    [Dependency] private StatusEffectsSystem _statusNew = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
