@@ -113,6 +113,21 @@ public sealed partial class DamageableSystem
         return true;
     }
 
+    private static bool IsNoOpHeal(DamageableComponent damageable, DamageSpecifier damage)
+    {
+        var current = damageable.Damage.DamageDict;
+        foreach (var (type, value) in damage.DamageDict)
+        {
+            if (value > 0)
+                return false;
+
+            if (value < 0 && current.TryGetValue(type, out var existing) && existing > 0)
+                return false;
+        }
+
+        return true;
+    }
+
     /// <summary>
     ///     [Woundmed]
     ///     Tries to update the parent body of a body part if it can find it.
