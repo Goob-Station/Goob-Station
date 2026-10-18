@@ -486,9 +486,9 @@ public sealed partial class DamageableSystem
         switch (splitDamageBehavior)
         {
             case SplitDamageBehavior.None: // No split, damage is the same for all
-                return MakeGenericDamageSplit(parts, newDamage * parts.Count);
+                return MakeGenericDamageSplit(parts, newDamage);
             case SplitDamageBehavior.Split:
-                return MakeGenericDamageSplit(parts, newDamage); // Split evenly between all parts
+                return MakeGenericDamageSplit(parts, newDamage / parts.Count); // Split evenly between all parts
             case SplitDamageBehavior.SplitExplosion:
                 List<EntityUid> vitalParts = [];
 
