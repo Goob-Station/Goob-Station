@@ -26445,3 +26445,9 @@ Entries:
         damage splits.
   id: 2980
   time: '2026-10-17T22:55:23.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed fire being realistic.
+  id: 2981
+  time: '2026-10-18T18:13:02.0000000+00:00'
