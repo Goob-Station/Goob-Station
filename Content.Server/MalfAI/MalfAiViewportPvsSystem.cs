@@ -17,7 +17,7 @@ namespace Content.Server.MalfAI;
 /// </summary>
 public sealed class MalfAiViewportPvsSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 

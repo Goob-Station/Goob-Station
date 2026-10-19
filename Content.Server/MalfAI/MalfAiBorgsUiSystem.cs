@@ -12,6 +12,7 @@ using Robust.Server.Player;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Utility;
 using Content.Server.Silicons.StationAi;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.MalfAI;
 
@@ -33,7 +34,7 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
         // Refresh UI when a borg becomes (un)linked and when it takes damage.
         SubscribeLocalEvent<MalfAiControlledComponent, ComponentStartup>(OnMalfBorgStart);
         SubscribeLocalEvent<MalfAiControlledComponent, ComponentShutdown>(OnMalfBorgShutdown);
-        SubscribeLocalEvent<MalfAiControlledComponent, Content.Shared.Damage.DamageChangedEvent>(OnMalfBorgDamaged);
+        SubscribeLocalEvent<MalfAiControlledComponent, DamageChangedEvent>(OnMalfBorgDamaged);
         // Handle BUI messages from the AI-held owner; avoid MetaDataComponent in generics to prevent registration at startup.
         Subs.BuiEvents<Content.Shared.MalfAI.MalfAiMarkerComponent>(MalfAiBorgsUiKey.Key,
             subs =>
@@ -229,7 +230,7 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
         PushRefreshForControllerAndMind(controller);
     }
 
-    private void OnMalfBorgDamaged(Entity<MalfAiControlledComponent> ent, ref Content.Shared.Damage.DamageChangedEvent args)
+    private void OnMalfBorgDamaged(Entity<MalfAiControlledComponent> ent, ref DamageChangedEvent args)
     {
         if (ent.Comp.Controller is not { } controller)
             return;

@@ -14,9 +14,9 @@ namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
 public sealed partial class IconTag : IMarkupTagHandler
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
     private SpriteSystem? _spriteSystem;
 
     public string Name => "icon";

@@ -15,10 +15,10 @@ namespace Content.Goobstation.Client.UserInterface;
 
 public sealed partial class IconTag : IMarkupTag
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IEntitySystemManager _entitySystem = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
     private SpriteSystem? _spriteSystem;
 
     public string Name => "icon";

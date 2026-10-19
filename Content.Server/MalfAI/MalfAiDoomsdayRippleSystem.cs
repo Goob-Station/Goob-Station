@@ -8,6 +8,7 @@ using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.RoundEnd;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.MalfAI;
 using Robust.Shared.Map;
