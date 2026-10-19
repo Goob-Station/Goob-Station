@@ -4,7 +4,7 @@ meta:
   engineVersion: 293.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/19/2026 14:52:15
+  time: 10/19/2026 15:20:06
   entityCount: 9330
 maps:
 - 1
@@ -4495,7 +4495,7 @@ entities:
       pos: -32.5,-2.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -141300.77
+      secondsUntilStateChange: -141422.98
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4530,7 +4530,7 @@ entities:
       pos: 27.5,18.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -69011.38
+      secondsUntilStateChange: -69133.6
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4770,7 +4770,7 @@ entities:
       pos: 6.5,29.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -19816.09
+      secondsUntilStateChange: -19938.309
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -20674,11 +20674,12 @@ entities:
       pos: 5.5,6.5
 - proto: ChairFolding
   entities:
-  - uid: 5301
+  - uid: 5346
     components:
     - type: Transform
       parent: 2
-      pos: -13.5,-20.5
+      rot: 1.5707963267948966 rad
+      pos: -14.442897,-19.328266
   - uid: 7881
     components:
     - type: Transform
@@ -46840,11 +46841,11 @@ entities:
     - type: Transform
       parent: 2
       pos: -5.5,-14.5
-  - uid: 5346
+  - uid: 5313
     components:
     - type: Transform
       parent: 2
-      pos: -14.5,-20.5
+      pos: -14.5,-18.5
   - uid: 7564
     components:
     - type: Transform
@@ -48581,13 +48582,12 @@ entities:
       pos: -54.5,10.5
 - proto: RMCCampfire
   entities:
-  - uid: 5311
+  - uid: 5301
     components:
     - type: Transform
       parent: 2
-      pos: -14.5,-18.5
-    - type: ParallaxStargaze
-      activationRadius: 2
+      rot: 1.5707963267948966 rad
+      pos: -13.5,-20.5
 - proto: RobocopCircuitBoard
   entities:
   - uid: 7139
@@ -53230,11 +53230,11 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -25.5,-0.5
-  - uid: 5313
+  - uid: 5311
     components:
     - type: Transform
       parent: 2
-      pos: -14.5,-20.5
+      pos: -14.5,-18.5
   - uid: 7005
     components:
     - type: Transform
