@@ -57,7 +57,7 @@
       useTargeting: false
       damage:
         types:
-          Poison: 2
+          Poison: 1
           Bloodloss: 3
   - type: DiseaseProgressCondition
     minProgress: 0.8
@@ -76,7 +76,7 @@
       useTargeting: false
       damage:
         types:
-          Asphyxiation: 2
+          Asphyxiation: 1
   - type: DiseaseProgressCondition
     minProgress: 0.5
 
@@ -114,7 +114,7 @@
       useTargeting: false
       damage:
         types:
-          Asphyxiation: 8
+          Asphyxiation: 4
     - !type:ModifyBloodLevel
       amount: -3
   - type: DiseaseProgressCondition
