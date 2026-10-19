@@ -515,3 +515,15 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
+
+#FlavourVille
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFlavourTown
+  name: Flavour Town Shirt
+  description: Divers, Drive-Ins and Dives!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/FlavTown.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/FlavTown.rsi
