@@ -26423,3 +26423,31 @@ Entries:
         T-ray scanner and tints your vision while it's on.
   id: 2979
   time: '2026-10-16T22:08:14.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed surplus healing being applied multiple times.
+    - type: Fix
+      message: Fixed explosions being 5.5x stronger than intended.
+    - type: Tweak
+      message: As a result of the above, buffed the pizza bomb.
+    - type: Tweak
+      message: >-
+        As a result of the above above, buffed the hardlight bow explosive arrow
+        back to previous values.
+    - type: Tweak
+      message: >-
+        As a result of the above above above, tweaked explosion wounding
+        multipliers back to their previous value 4x from 2.5x.
+    - type: Tweak
+      message: >-
+        Explosions now do 1.5x damage to vital parts to compensate for woundmed
+        damage splits.
+  id: 2980
+  time: '2026-10-17T22:55:23.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed fire being realistic.
+  id: 2981
+  time: '2026-10-18T18:13:02.0000000+00:00'
