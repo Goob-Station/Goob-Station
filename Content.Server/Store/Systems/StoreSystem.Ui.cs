@@ -66,14 +66,24 @@ public sealed partial class StoreSystem
     public void ToggleUi(EntityUid user, EntityUid storeEnt, StoreComponent? component = null)
     {
         if (!Resolve(storeEnt, ref component))
+        {
+            Robust.Shared.Log.Logger.ErrorS("malfai", $"ToggleUi: Failed to resolve StoreComponent on {storeEnt}");
             return;
+        }
 
         if (!TryComp<ActorComponent>(user, out var actor))
+        {
+            Robust.Shared.Log.Logger.ErrorS("malfai", $"ToggleUi: Failed to find ActorComponent on user {user}");
             return;
+        }
 
         if (!_ui.TryToggleUi(storeEnt, StoreUiKey.Key, actor.PlayerSession))
+        {
+            Robust.Shared.Log.Logger.ErrorS("malfai", $"ToggleUi: TryToggleUi failed for {storeEnt} with user {user}. Does it have UserInterfaceComponent?");
             return;
+        }
 
+        Robust.Shared.Log.Logger.InfoS("malfai", $"ToggleUi: Successfully opened Store for {storeEnt}");
         UpdateUserInterface(user, storeEnt, component);
     }
 

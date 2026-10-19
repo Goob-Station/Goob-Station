@@ -263,6 +263,21 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", cosmicCultName, Loc.GetString("admin-verb-make-cosmiccultist")),
         };
         args.Verbs.Add(cosmiccult);
+
+        // Funkystation - Malfunctioning AI
+        Verb malfAi = new()
+        {
+            Text = "Malfunctioning AI",
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "StationAi"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<MalfAiRuleComponent>(targetPlayer, "MalfAi");
+            },
+            Impact = LogImpact.High,
+            Message = "Assigned Malfunctioning AI antagonist",
+        };
+        args.Verbs.Add(malfAi);
         // End DeltaV Additions
     }
 }

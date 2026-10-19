@@ -1,6 +1,7 @@
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
@@ -27,8 +28,34 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
+        SubscribeLocalEvent<StationAiHeldComponent, EyeZoomChangedEvent>(OnHeldZoomChanged);
+
+        SubscribeLocalEvent<StationAiEyeComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshAiEyeSpeed);
 
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
+    }
+
+    private void OnRefreshAiEyeSpeed(Entity<StationAiEyeComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(ent.Comp.SpeedModifier, ent.Comp.SpeedModifier, bypassImmunity: true);
+    }
+
+    private void OnHeldZoomChanged(Entity<StationAiHeldComponent> ent, ref EyeZoomChangedEvent args)
+    {
+        if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
+            return;
+
+        var holo = core.Comp.RemoteEntity.Value;
+        if (!TryComp<StationAiEyeComponent>(holo, out var eyeComp))
+            return;
+
+        var speedMod = MathF.Max(1.0f, args.Zoom.X);
+        if (MathHelper.CloseTo(eyeComp.SpeedModifier, speedMod))
+            return;
+
+        eyeComp.SpeedModifier = speedMod;
+        Dirty(holo, eyeComp);
+        _speedModifier.RefreshMovementSpeedModifiers(holo);
     }
 
     private void OnTryGetIdentityShortInfo(TryGetIdentityShortInfoEvent args)

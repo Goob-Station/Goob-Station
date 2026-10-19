@@ -37,9 +37,21 @@ using Content.Shared.Turrets;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using System.Numerics;
+using Content.Server.DeviceNetwork.Components;
+using Content.Server.Medical.CrewMonitoring;
+using Content.Shared.Actions;
+using Content.Shared.Inventory;
+using Content.Shared.Medical.SuitSensor;
+using Content.Shared.Medical.SuitSensors;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
+using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using static Content.Server.Chat.Systems.ChatSystem;
 
 namespace Content.Server.Silicons.StationAi;
@@ -64,6 +76,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly CrewMonitoringServerSystem _crewMonitoringServer = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedContentEyeSystem _contentEye = default!;
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
 
@@ -93,6 +110,274 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
         SubscribeLocalEvent<StationAiTurretComponent, AmmoShotEvent>(OnAmmoShot);
+
+        SubscribeLocalEvent<CrewMonitoringServerComponent, BeforeCrewMonitoringBroadcastEvent>(OnBeforeCrewMonitoringBroadcast);
+        SubscribeLocalEvent<StationAiHeldComponent, ToggleAiEyeVisibilityEvent>(OnToggleAiEyeVisibility);
+        SubscribeNetworkEvent<StationAiRequestCrewMonitoringSensorsEvent>(OnRequestCrewMonitoringSensors);
+        SubscribeNetworkEvent<StationAiTeleportToTargetEvent>(OnTeleportToTarget);
+    }
+
+    private SuitSensorStatus? CreateAiEyeSensorStatus(EntityUid user, EntityUid holo)
+    {
+        var xform = Transform(holo);
+        if (xform.MapUid == null)
+            return null;
+
+        EntityCoordinates coordinates;
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        if (xform.GridUid != null)
+        {
+            coordinates = new EntityCoordinates(xform.GridUid.Value,
+                Vector2.Transform(_xforms.GetWorldPosition(xform, xformQuery),
+                    _xforms.GetInvWorldMatrix(xformQuery.GetComponent(xform.GridUid.Value), xformQuery)));
+        }
+        else
+        {
+            coordinates = new EntityCoordinates(xform.MapUid.Value,
+                _xforms.GetWorldPosition(xform, xformQuery));
+        }
+
+        return new SuitSensorStatus(
+            GetNetEntity(user),
+            GetNetEntity(holo),
+            Name(holo),
+            Loc.GetString("job-name-station-ai"),
+            "JobIconStationAi",
+            new List<string> { Loc.GetString("department-Silicon") }
+        )
+        {
+            IsAlive = true,
+            Coordinates = GetNetCoordinates(coordinates),
+            Timestamp = _gameTiming.CurTime,
+            IsCommandTracker = false
+        };
+    }
+
+    private void OnBeforeCrewMonitoringBroadcast(Entity<CrewMonitoringServerComponent> ent, ref BeforeCrewMonitoringBroadcastEvent args)
+    {
+        var serverStation = _station.GetOwningStation(ent.Owner);
+
+        var query = EntityQueryEnumerator<StationAiCoreComponent>();
+        while (query.MoveNext(out var coreUid, out var core))
+        {
+            var coreStation = _station.GetOwningStation(coreUid);
+            if (serverStation != null && coreStation != null && serverStation != coreStation)
+                continue;
+
+            var key = $"station_ai_eye_{coreUid}";
+
+            if (!TryGetHeld((coreUid, core), out var heldUid) ||
+                !TryComp<StationAiHeldComponent>(heldUid, out var held))
+            {
+                args.Server.SensorStatus.Remove(key);
+                continue;
+            }
+
+            if (!held.EyeVisibleOnCrewMonitor ||
+                core.RemoteEntity is not { } holo ||
+                !Exists(holo) ||
+                _mobState.IsDead(heldUid.Value))
+            {
+                args.Server.SensorStatus.Remove(key);
+                continue;
+            }
+
+            var status = CreateAiEyeSensorStatus(heldUid.Value, holo);
+            if (status != null)
+                args.Server.SensorStatus[key] = status;
+            else
+                args.Server.SensorStatus.Remove(key);
+        }
+
+        // Send updates to any active Station AI whose view is zoomed out into crew monitoring mode
+        var allSensors = args.Server.SensorStatus.Values.ToList();
+        var aiBrains = EntityQueryEnumerator<StationAiHeldComponent, ActorComponent, ContentEyeComponent>();
+        while (aiBrains.MoveNext(out var brainUid, out _, out var actor, out var eye))
+        {
+            if (eye.TargetZoom.X > 1.445f)
+            {
+                RaiseNetworkEvent(new StationAiCrewMonitoringSensorsEvent(allSensors), actor.PlayerSession);
+            }
+        }
+    }
+
+    private void OnRequestCrewMonitoringSensors(StationAiRequestCrewMonitoringSensorsEvent ev, EntitySessionEventArgs args)
+    {
+        if (args.SenderSession.AttachedEntity is not { } playerEnt)
+            return;
+
+        if (!HasComp<StationAiHeldComponent>(playerEnt))
+            return;
+
+        var station = _station.GetOwningStation(playerEnt);
+        var servers = EntityQueryEnumerator<CrewMonitoringServerComponent, SingletonDeviceNetServerComponent>();
+        while (servers.MoveNext(out var serverUid, out var serverComp, out var singleton))
+        {
+            var serverStation = _station.GetOwningStation(serverUid);
+            if (station != null && serverStation != null && serverStation != station)
+                continue;
+
+            RaiseNetworkEvent(new StationAiCrewMonitoringSensorsEvent(serverComp.SensorStatus.Values.ToList()), args.SenderSession);
+            break;
+        }
+    }
+
+    private void OnToggleAiEyeVisibility(Entity<StationAiHeldComponent> ent, ref ToggleAiEyeVisibilityEvent args)
+    {
+        args.Handled = true;
+        ent.Comp.EyeVisibleOnCrewMonitor = !ent.Comp.EyeVisibleOnCrewMonitor;
+        Dirty(ent);
+
+        var msg = ent.Comp.EyeVisibleOnCrewMonitor
+            ? Loc.GetString("station-ai-eye-tracking-enabled")
+            : Loc.GetString("station-ai-eye-tracking-disabled");
+        _popups.PopupEntity(msg, ent.Owner, ent.Owner);
+
+        _actions.SetToggled(args.Action.Owner, !ent.Comp.EyeVisibleOnCrewMonitor);
+
+        if (TryGetCore(ent.Owner, out var core))
+        {
+            var station = _station.GetOwningStation(core.Owner);
+            var servers = EntityQueryEnumerator<CrewMonitoringServerComponent, SingletonDeviceNetServerComponent>();
+            var key = $"station_ai_eye_{core.Owner}";
+            while (servers.MoveNext(out var serverUid, out var serverComp, out _))
+            {
+                var serverStation = _station.GetOwningStation(serverUid);
+                if (station != null && serverStation != null && serverStation != station)
+                    continue;
+
+                if (!ent.Comp.EyeVisibleOnCrewMonitor)
+                {
+                    serverComp.SensorStatus.Remove(key);
+                }
+                else if (core.Comp?.RemoteEntity is { } holo && Exists(holo))
+                {
+                    var status = CreateAiEyeSensorStatus(ent.Owner, holo);
+                    if (status != null)
+                        serverComp.SensorStatus[key] = status;
+                }
+
+                _crewMonitoringServer.BroadcastSensorStatus(serverUid, serverComp);
+            }
+        }
+    }
+
+    private void OnTeleportToTarget(StationAiTeleportToTargetEvent ev, EntitySessionEventArgs args)
+    {
+        if (args.SenderSession.AttachedEntity is not { } playerEnt)
+            return;
+
+        TeleportToTarget(ev.Target, playerEnt);
+    }
+
+    public void TeleportToTarget(NetEntity targetNet, EntityUid playerEnt)
+    {
+        if (!HasComp<StationAiHeldComponent>(playerEnt))
+            return;
+
+        if (_mobState.IsDead(playerEnt))
+            return;
+
+        var target = GetEntity(targetNet);
+        if (!Exists(target) || Deleted(target))
+        {
+            _popups.PopupEntity(Loc.GetString("station-ai-teleport-no-coordinates"), playerEnt, playerEnt, PopupType.MediumCaution);
+            return;
+        }
+
+        if (!HasCoordinatesOn(target))
+        {
+            _popups.PopupEntity(Loc.GetString("station-ai-teleport-no-coordinates"), playerEnt, playerEnt, PopupType.MediumCaution);
+            return;
+        }
+
+        if (!TryGetCore(playerEnt, out var core) || core.Comp == null)
+            return;
+
+        var coreEnt = (core.Owner, core.Comp);
+
+        // Prevent teleporting across different maps (e.g. CentCom)
+        if (Transform(core.Owner).MapID != Transform(target).MapID)
+        {
+            _popups.PopupEntity(Loc.GetString("station-ai-teleport-no-coordinates"), playerEnt, playerEnt, PopupType.MediumCaution);
+            return;
+        }
+
+        if (core.Comp.RemoteEntity == null)
+        {
+            SetupEye(coreEnt);
+            AttachEye(coreEnt);
+        }
+
+        if (!core.Comp.Remote)
+            SwitchRemoteEntityMode(coreEnt, true);
+
+        if (core.Comp.RemoteEntity is not { } holo || !Exists(holo))
+            return;
+
+        var targetCoords = _xforms.GetMoverCoordinates(target);
+        if (!targetCoords.IsValid(EntityManager))
+        {
+            _popups.PopupEntity(Loc.GetString("station-ai-teleport-no-coordinates"), playerEnt, playerEnt, PopupType.MediumCaution);
+            return;
+        }
+
+        _xforms.SetCoordinates(holo, targetCoords);
+
+        // Reset zoom to normal if zoomed out into crew monitoring mode
+        if (TryComp<ContentEyeComponent>(playerEnt, out var contentEye) && contentEye.TargetZoom.X > 1.445f)
+        {
+            _contentEye.SetZoom(playerEnt, Vector2.One, true, contentEye);
+        }
+    }
+
+    private bool HasCoordinatesOn(EntityUid target)
+    {
+        // Direct suit sensor component
+        if (TryComp<SuitSensorComponent>(target, out var directSensor) &&
+            directSensor.Mode == SuitSensorMode.SensorCords)
+        {
+            return true;
+        }
+
+        // Equipped item with suit sensor component
+        if (_inventory.TryGetContainerSlotEnumerator(target, out var slotEnumerator))
+        {
+            while (slotEnumerator.NextItem(out var item, out _))
+            {
+                if (TryComp<SuitSensorComponent>(item, out var sensor) &&
+                    (sensor.User == null || sensor.User == target) &&
+                    sensor.Mode == SuitSensorMode.SensorCords)
+                {
+                    return true;
+                }
+            }
+        }
+
+        var query = EntityQueryEnumerator<SuitSensorComponent>();
+        while (query.MoveNext(out _, out var sensor))
+        {
+            if (sensor.User == target && sensor.Mode == SuitSensorMode.SensorCords)
+            {
+                return true;
+            }
+        }
+
+        // Active sensor status on any station crew monitoring server
+        var servers = EntityQueryEnumerator<CrewMonitoringServerComponent>();
+        while (servers.MoveNext(out var serverComp))
+        {
+            foreach (var status in serverComp.SensorStatus.Values)
+            {
+                if ((GetEntity(status.OwnerUid) == target || GetEntity(status.SuitSensorUid) == target) &&
+                    status.Coordinates != null)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private void AfterConstructionChangeEntity(Entity<StationAiCoreComponent> ent, ref AfterConstructionChangeEntityEvent args)

@@ -63,3 +63,12 @@ station-ai-hologram-male = Male appearance
 station-ai-hologram-face = Disembodied head
 station-ai-hologram-cat = Cat form
 station-ai-hologram-dog = Corgi form
+
+# Eye Visibility
+action-name-toggle-ai-eye-tracking = Toggle Eye Tracking
+action-description-toggle-ai-eye-tracking = Toggle whether your eye is tracked and visible on crew monitoring systems.
+station-ai-eye-tracking-enabled = AI eye tracking enabled on crew monitoring.
+station-ai-eye-tracking-disabled = AI eye tracking hidden from crew monitoring.
+
+station-ai-teleport-no-coordinates = Unable to track target: Suit sensor coordinates are offline.
+

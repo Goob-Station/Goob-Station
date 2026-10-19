@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+CPU = CPU
 # SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
 # SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -25,3 +26,4 @@ store-currency-display-telecrystal = TC
 store-currency-display-stolen-essence = Stolen Essence
 store-currency-display-silicon-memory = Memory
 store-currency-display-wizcoin = Wiz€oin™
+store-currency-display-cpu = CPU

@@ -17,6 +17,9 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Client.Silicons.StationAi;
+using Content.Shared.Silicons.StationAi;
+using Robust.Client.Player;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
@@ -27,8 +30,13 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     private readonly SharedTransformSystem _transformSystem;
     private readonly SpriteSystem _spriteSystem;
+    private readonly StationAiSystem _aiSystem;
+
+    private readonly Dictionary<NetEntity, NetEntity> _sensorToOwnerMap = new();
 
     private NetEntity? _trackedEntity;
     private bool _tryToScrollToListFocus;
@@ -41,8 +49,21 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
         _transformSystem = _entManager.System<SharedTransformSystem>();
         _spriteSystem = _entManager.System<SpriteSystem>();
+        _aiSystem = _entManager.System<StationAiSystem>();
 
         NavMap.TrackedEntitySelectedAction += SetTrackedEntityFromNavMap;
+
+        var isAi = _playerManager.LocalEntity is { } local && _entManager.HasComponent<StationAiHeldComponent>(local);
+        if (isAi)
+        {
+            NavMap.OnWarpPressed += sensorUid =>
+            {
+                if (_sensorToOwnerMap.TryGetValue(sensorUid, out var ownerUid))
+                    _aiSystem.TeleportToTarget(ownerUid);
+                else
+                    _aiSystem.TeleportToTarget(sensorUid);
+            };
+        }
     }
 
     public void Set(string stationName, EntityUid? mapUid)
@@ -173,6 +194,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
     private void PopulateDepartmentList(IEnumerable<SuitSensorStatus> departmentSensors)
     {
+        var isAi = _playerManager.LocalEntity is { } local && _entManager.HasComponent<StationAiHeldComponent>(local);
+
         // Populate departments
         foreach (var sensor in departmentSensors)
         {
@@ -185,6 +208,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
             // Add a button that will hold a username and other details
             NavMap.LocalizedNames.TryAdd(sensor.SuitSensorUid, sensor.Name + ", " + sensor.Job);
+            _sensorToOwnerMap[sensor.SuitSensorUid] = sensor.OwnerUid;
 
             var sensorButton = new CrewMonitoringButton()
             {
@@ -304,6 +328,39 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             };
 
             jobContainer.AddChild(jobLabel);
+
+            // Add Warp button for Station AI
+            if (isAi && coordinates != null)
+            {
+                var warpButton = new Button
+                {
+                    Text = Loc.GetString("crew-monitoring-ui-warp-button"),
+                    ToolTip = Loc.GetString("crew-monitoring-ui-warp-button-tooltip"),
+                    Margin = new Thickness(6, 0, 0, 0),
+                    VerticalAlignment = VAlignment.Center,
+                    HorizontalAlignment = HAlignment.Right,
+                };
+
+                var targetUid = sensor.OwnerUid;
+                warpButton.OnPressed += _ =>
+                {
+                    _aiSystem.TeleportToTarget(targetUid);
+                };
+
+                mainContainer.AddChild(warpButton);
+
+                // Double click on row also warps for AI
+                var lastClickTime = TimeSpan.Zero;
+                sensorButton.OnButtonDown += _ =>
+                {
+                    var now = _timing.RealTime;
+                    if ((now - lastClickTime).TotalMilliseconds < 400)
+                    {
+                        _aiSystem.TeleportToTarget(targetUid);
+                    }
+                    lastClickTime = now;
+                };
+            }
 
             // Add user coordinates to the navmap
             if (coordinates != null && NavMap.Visible && _blipTexture != null)
@@ -448,6 +505,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         NavMap.TrackedCoordinates.Clear();
         NavMap.TrackedEntities.Clear();
         NavMap.LocalizedNames.Clear();
+        _sensorToOwnerMap.Clear();
     }
 }
 

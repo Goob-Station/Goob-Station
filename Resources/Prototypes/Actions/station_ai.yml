@@ -58,3 +58,19 @@
     useDelay: 0.5
   - type: InstantAction
     event: !type:ToggleLawsScreenEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleAiEyeVisibility
+  name: action-name-toggle-ai-eye-tracking
+  description: action-description-toggle-ai-eye-tracking
+  components:
+  - type: Action
+    priority: -7
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: crew_monitor
+    useDelay: 0.5
+  - type: InstantAction
+    event: !type:ToggleAiEyeVisibilityEvent
+

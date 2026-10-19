@@ -62,6 +62,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] protected readonly SharedMapSystem Maps = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPowerReceiverSystem PowerReceiver = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
@@ -545,6 +546,14 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
         var eyeName = Loc.GetString("station-ai-eye-name", ("name", Name(user)));
         _metadata.SetEntityName(ent.Comp.RemoteEntity.Value, eyeName);
+
+        if (TryComp<StationAiEyeComponent>(ent.Comp.RemoteEntity.Value, out var aiEyeComp) &&
+            TryComp<ContentEyeComponent>(user, out var contentEye))
+        {
+            aiEyeComp.SpeedModifier = MathF.Max(1.0f, contentEye.TargetZoom.X);
+            Dirty(ent.Comp.RemoteEntity.Value, aiEyeComp);
+            _speedModifier.RefreshMovementSpeedModifiers(ent.Comp.RemoteEntity.Value);
+        }
     }
 
     private EntityUid? GetInsertedAI(Entity<StationAiCoreComponent> ent)

@@ -15,19 +15,44 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
     private Label _trackedEntityLabel;
     private PanelContainer _trackedEntityPanel;
 
+    public Button? WarpButton;
+    public event Action<NetEntity>? OnWarpPressed;
+
     public CrewMonitoringNavMapControl() : base()
     {
         WallColor = new Color(192, 122, 196);
         TileColor = new(71, 42, 72);
         BackgroundColor = Color.FromSrgb(TileColor.WithAlpha(BackgroundOpacity));
 
+        var panelBox = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            Margin = new Thickness(8f, 6f),
+        };
+
         _trackedEntityLabel = new Label
         {
-            Margin = new Thickness(10f, 8f),
-            HorizontalAlignment = HAlignment.Center,
+            Margin = new Thickness(4f, 2f),
+            HorizontalAlignment = HAlignment.Left,
             VerticalAlignment = VAlignment.Center,
             Modulate = Color.White,
         };
+
+        WarpButton = new Button
+        {
+            Text = Loc.GetString("crew-monitoring-ui-warp-button"),
+            Margin = new Thickness(8f, 2f, 4f, 2f),
+            VerticalAlignment = VAlignment.Center,
+            Visible = false,
+        };
+        WarpButton.OnPressed += _ =>
+        {
+            if (Focus != null)
+                OnWarpPressed?.Invoke(Focus.Value);
+        };
+
+        panelBox.AddChild(_trackedEntityLabel);
+        panelBox.AddChild(WarpButton);
 
         _trackedEntityPanel = new PanelContainer
         {
@@ -42,7 +67,7 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             Visible = false,
         };
 
-        _trackedEntityPanel.AddChild(_trackedEntityLabel);
+        _trackedEntityPanel.AddChild(panelBox);
         this.AddChild(_trackedEntityPanel);
     }
 
@@ -72,6 +97,8 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
 
             _trackedEntityLabel.Text = message;
             _trackedEntityPanel.Visible = true;
+            if (WarpButton != null)
+                WarpButton.Visible = OnWarpPressed != null;
 
             return;
         }

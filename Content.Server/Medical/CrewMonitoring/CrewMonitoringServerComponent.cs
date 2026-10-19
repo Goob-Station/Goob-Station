@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Medical.SuitSensor;
+using Content.Server.Silicons.StationAi;
 
 namespace Content.Server.Medical.CrewMonitoring;
 
 [RegisterComponent]
-[Access(typeof(CrewMonitoringServerSystem))]
+[Access(typeof(CrewMonitoringServerSystem), typeof(StationAiSystem))]
 public sealed partial class CrewMonitoringServerComponent : Component
 {
 

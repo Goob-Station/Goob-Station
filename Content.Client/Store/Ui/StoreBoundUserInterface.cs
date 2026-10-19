@@ -31,7 +31,11 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
 
         _menu = this.CreateWindow<StoreMenu>();
         if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store))
+        {
             _menu.Title = Loc.GetString(store.Name);
+            if (store.Name == "store-preset-name-malfai")
+                _menu.ApplyMalfTheme();
+        }
 
         _menu.OnListingButtonPressed += (_, listing) =>
         {

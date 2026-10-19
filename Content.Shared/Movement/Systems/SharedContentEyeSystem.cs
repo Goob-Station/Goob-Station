@@ -64,13 +64,30 @@ public abstract class SharedContentEyeSystem : EntitySystem
     private void ZoomOut(ICommonSession? session)
     {
         if (TryComp(session?.AttachedEntity, out ContentEyeComponent? eye))
-            SetZoom(session.AttachedEntity.Value, eye.TargetZoom * ZoomMod, eye: eye);
+        {
+            var newZoom = eye.TargetZoom * ZoomMod;
+            if (eye.MaxZoom.X > 1.44f && eye.TargetZoom.X < 1.43f && newZoom.X > 1.44f)
+            {
+                newZoom = new Vector2(1.44f, 1.44f);
+            }
+            SetZoom(session.AttachedEntity.Value, newZoom, eye: eye);
+        }
     }
 
     private void ZoomIn(ICommonSession? session)
     {
         if (TryComp(session?.AttachedEntity, out ContentEyeComponent? eye))
-            SetZoom(session.AttachedEntity.Value, eye.TargetZoom / ZoomMod, eye: eye);
+        {
+            var newZoom = eye.TargetZoom / ZoomMod;
+            if (eye.MaxZoom.X > 1.44f)
+            {
+                if (eye.TargetZoom.X > 1.45f && newZoom.X < 1.44f)
+                    newZoom = new Vector2(1.44f, 1.44f);
+                else if (eye.TargetZoom.X <= 1.45f && eye.TargetZoom.X >= 1.43f)
+                    newZoom = DefaultZoom;
+            }
+            SetZoom(session.AttachedEntity.Value, newZoom, eye: eye);
+        }
     }
 
     private Vector2 Clamp(Vector2 zoom, ContentEyeComponent component)
@@ -86,8 +103,15 @@ public abstract class SharedContentEyeSystem : EntitySystem
         if (!Resolve(uid, ref eye, false))
             return;
 
+        var oldZoom = eye.TargetZoom;
         eye.TargetZoom = ignoreLimits ? zoom : Clamp(zoom, eye);
         Dirty(uid, eye);
+
+        if (oldZoom != eye.TargetZoom)
+        {
+            var ev = new EyeZoomChangedEvent(uid, eye.TargetZoom);
+            RaiseLocalEvent(uid, ref ev);
+        }
     }
 
     private void OnContentZoomRequest(RequestTargetZoomEvent msg, EntitySessionEventArgs args)
@@ -222,3 +246,9 @@ public abstract class SharedContentEyeSystem : EntitySystem
         }
     }
 }
+
+/// <summary>
+/// Raised on an entity when its eye target zoom changes.
+/// </summary>
+[ByRefEvent]
+public readonly record struct EyeZoomChangedEvent(EntityUid Eye, Vector2 Zoom);

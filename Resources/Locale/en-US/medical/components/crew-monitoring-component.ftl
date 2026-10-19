@@ -24,3 +24,6 @@ crew-monitoring-ui-no-station-label = Unknown station
 
 crew-monitoring-ui-flavor-left-label = In case of an emergency, contact station medical staff immediately
 crew-monitoring-ui-flavor-right-label = v1.7
+
+crew-monitoring-ui-warp-button = Warp
+crew-monitoring-ui-warp-button-tooltip = Warp AI eye to this crew member

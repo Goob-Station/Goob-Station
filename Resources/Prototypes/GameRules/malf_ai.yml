@@ -1,0 +1,20 @@
+- type: entity
+  id: MalfAi
+  parent: BaseGameRule
+  components:
+  - type: MalfAiRule
+  - type: GameRule
+  - type: AntagSelection
+    agentName: malf-ai-role-name
+    definitions:
+    - prefRoles: [ StationAi ]
+      max: 1
+      playerRatio: 1
+      mindRoles:
+      - MindRoleMalfunctioningAI
+      components:
+      - type: MalfAiMarker
+      briefing:
+        text: malf-ai-role-greeting
+        color: Red
+        sound: "/Audio/Ambience/Antag/silicon_lawboard_antimov.ogg"

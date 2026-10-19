@@ -1,0 +1,17 @@
+<!-- SPDX-License-Identifier: MIT -->
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+               Title="Voice Modulator"
+               MinSize="360 160"
+               SetSize="420 180">
+  <PanelContainer Name="RootBackdrop">
+    <PanelContainer.PanelOverride>
+      <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
+    </PanelContainer.PanelOverride>
+    <BoxContainer Orientation="Vertical" Margin="8,8,8,8">
+      <Label Name="HeaderLabel" Text="Enter new AI name:" HorizontalExpand="True" />
+      <LineEdit Name="NameEdit" PlaceHolder="e.g. Central Command AI" HorizontalExpand="True" Margin="0,4,0,8"/>
+      <Button Name="ConfirmButton" Text="Confirm" HorizontalAlignment="Right" MinWidth="88"/>
+    </BoxContainer>
+  </PanelContainer>
+</DefaultWindow>

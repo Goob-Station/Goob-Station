@@ -16,6 +16,13 @@
       forceEnableEmergencyLights: true
       emergencyLightColor: DodgerBlue
       shuttleTime: 600
+    cyan:
+      announcement: alert-level-cyan-announcement
+      sound: /Audio/Misc/cyan.ogg
+      color: Cyan
+      forceEnableEmergencyLights: true
+      emergencyLightColor: Cyan
+      shuttleTime: 600
     violet:
       announcement: alert-level-violet-announcement
       sound: /Audio/Misc/notice1.ogg

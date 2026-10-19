@@ -62,6 +62,9 @@ public sealed partial class StationAiOverlay : Overlay //goob edit
 
         var playerEnt = _player.LocalEntity;
 
+        if (_entManager.TryGetComponent<EyeComponent>(playerEnt, out var eye) && eye.Zoom.X > 1.445f)
+            return;
+
         // Shitmed - Starlight Abductors Change Start
         if (_entManager.TryGetComponent(playerEnt, out StationAiOverlayComponent? stationAiOverlay)
             && stationAiOverlay.AllowCrossGrid

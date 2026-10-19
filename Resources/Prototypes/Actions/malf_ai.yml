@@ -1,0 +1,295 @@
+# SPDX-FileCopyrightText: 2025 YourName
+# SPDX-License-Identifier: MIT
+
+# Note: This file exists in the root Resources to ensure the server content pack
+# loads the viewport pack prototype used by the store listing.
+
+# Bundle: Viewport actions (Set + Open)
+# Place viewport action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiSetViewport
+  name: malfai-viewport-place-name
+  description: malfai-viewport-place-desc
+  components:
+  - type: Action
+    priority: -5
+    useDelay: 30
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_placeviewport
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: WorldTargetAction
+    event: !type:MalfAiSetViewportActionEvent {}
+
+# Open viewport action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiOpenViewport
+  name: malfai-viewport-open-name
+  description: malfai-viewport-open-desc
+  components:
+  - type: Action
+    priority: -5
+    icon: Interface/Actions/eyeopen.png
+  - type: InstantAction
+    event: !type:MalfAiOpenViewportActionEvent {}
+
+
+# Malf AI: required action entities for rule startup
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiOpenStore
+  name: malfai-open-store-name
+  description: malfai-open-store-desc
+  components:
+  - type: Action
+    priority: -20
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: Interface/Actions/shop.png
+  - type: InstantAction
+    event: !type:IntrinsicStoreActionEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiOpenBorgsUi
+  name: malfai-open-borgs-ui-name
+  description: malfai-open-borgs-ui-desc
+  components:
+  - type: Action
+    priority: -10
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: borg_control }
+  - type: InstantAction
+    event: !type:OpenMalfAiBorgsUiActionEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiToggleCameraUpgrade
+  name: malfai-camera-upgrade-name
+  description: malfai-camera-upgrade-desc
+  components:
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_cameraupgrade
+  - type: InstantAction
+    event: !type:MalfAiToggleCameraUpgradeActionEvent {}
+
+# New: Doomsday Protocol (AI-only)
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiDoomsday
+  name: malfai-doomsday-name
+  description: malfai-doomsday-desc
+  components:
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_doomsday
+  - type: InstantAction
+    event: !type:MalfAiDoomsdayActionEvent {}
+
+# New: Robotics Factory (AI-only)
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiRoboticsFactory
+  name: malfai-robotics-factory-name
+  description: malfai-robotics-factory-desc
+  components:
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_factory
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: WorldTargetAction
+    event: !type:MalfAiRoboticsFactoryActionEvent {}
+
+# Shunt to APC action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiShuntToApc
+  name: malfai-shunt-to-apc-name
+  description: malfai-shunt-to-apc-desc
+  components:
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_shunttoapc
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: EntityTargetAction
+    event: !type:MalfAiShuntToApcActionEvent {}
+
+# Voice Modulator action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiVoiceModulator
+  name: malfai-voice-modulator-name
+  description: malfai-voice-modulator-desc
+  components:
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_voicemodulator
+  - type: InstantAction
+    event: !type:MalfAiVoiceModulatorActionEvent {}
+
+# Return to Core action (used for shunt and mech hijack)
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiReturnToCore
+  name: malfai-return-to-core-name
+  description: malfai-return-to-core-desc
+  components:
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: ai_core
+  - type: InstantAction
+    event: !type:MalfAiReturnToCoreActionEvent {}
+
+# Overload Machine action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiOverloadMachine
+  name: malfai-overload-machine-name
+  description: malfai-overload-machine-desc
+  components:
+  - type: LimitedCharges
+    maxCharges: 2
+    charges: 2
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_overloadmachine
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+    # effectively infinite range, there's no way to define "infinite" range directly
+  - type: WorldTargetAction
+    event: !type:MalfAiOverloadMachineActionEvent {}
+
+# Hijack Mech action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiHijackMech
+  name: malfai-hijack-mech-name
+  description: malfai-hijack-mech-desc
+  components:
+  - type: Action
+    priority: -5
+    checkCanInteract: false
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_mech
+  - type: TargetAction
+    range: 99999
+    # See above comment about range.
+  - type: EntityTargetAction
+    event: !type:MalfAiHijackMechActionEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiOverrideMachine
+  name: malfai-action-override-machine-name
+  description: malfai-action-override-machine-desc
+  components:
+  - type: LimitedCharges
+    maxCharges: 2
+    charges: 2
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_overridemachine
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+    # See above comment about range. I'm sure we can define "infinite" range somehow but that's outside my expertise, if anyone can figure it out replace all ranges in this YML with it. Thanks. - Tyrafox
+  - type: WorldTargetAction
+    event: !type:MalfAiOverrideMachineActionEvent {}
+
+# Toggle Camera Microphones action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiToggleCameraMicrophones
+  name: malfai-toggle-camera-microphones-name
+  description: malfai-toggle-camera-microphones-desc
+  components:
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_cameramic
+  - type: InstantAction
+    event: !type:MalfAiToggleCameraMicrophonesActionEvent {}
+
+# Detonate RCDs action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiDetonateRCDs
+  name: malfai-detonate-rcds-name
+  description: malfai-detonate-rcds-desc
+  components:
+  - type: LimitedCharges
+    maxCharges: 1
+    charges: 1
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_detonatercd
+  - type: InstantAction
+    event: !type:MalfAiDetonateRcdsActionEvent {}
+
+# Lockdown Grid action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiLockdownGrid
+  name: malfai-lockdown-grid-name
+  description: malfai-lockdown-grid-desc
+  components:
+  - type: LimitedCharges
+    maxCharges: 1
+    charges: 1
+  - type: Action
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_lockdowngrid
+  - type: InstantAction
+    event: !type:MalfAiLockdownGridActionEvent {}
+
+# Gyroscope action
+- type: entity
+  parent: BaseAction
+  id: ActionMalfAiGyroscope
+  name: malfai-gyroscope-name
+  description: malfai-gyroscope-desc
+  components:
+  - type: Action
+    priority: -5
+    useDelay: 3
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_gyroscope
+  - type: TargetAction
+    checkCanAccess: false
+    range: 5
+  - type: WorldTargetAction
+    event: !type:MalfAiGyroscopeActionEvent {}

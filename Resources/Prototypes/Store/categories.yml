@@ -128,3 +128,18 @@
 - type: storeCategory
   id: PAIAbilities
   name: store-category-abilities
+- type: storeCategory
+  id: MalfAI
+  name: store-category-malfai
+
+- type: storeCategory
+  id: Factory
+  name: store-category-factory
+
+- type: storeCategory
+  id: Deception
+  name: store-category-deception
+
+- type: storeCategory
+  id: Disruption
+  name: store-category-disruption

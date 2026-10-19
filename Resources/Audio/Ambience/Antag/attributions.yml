@@ -36,3 +36,6 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by DarkIcedCoffee (discord)"
   source: "https://github.com/space-wizards/space-station-14/pull/40042/"
+- files: ["malf_ai_start.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by GP"

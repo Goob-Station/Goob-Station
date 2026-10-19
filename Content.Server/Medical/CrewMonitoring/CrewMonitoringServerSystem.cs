@@ -46,6 +46,8 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
                 continue;
 
             UpdateTimeout(id);
+            var ev = new BeforeCrewMonitoringBroadcastEvent(id, server);
+            RaiseLocalEvent(id, ref ev);
             BroadcastSensorStatus(id, server);
         }
     }
@@ -90,7 +92,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     /// <summary>
     /// Broadcasts the status of all connected sensors
     /// </summary>
-    private void BroadcastSensorStatus(EntityUid uid, CrewMonitoringServerComponent? serverComponent = null, DeviceNetworkComponent? device = null)
+    public void BroadcastSensorStatus(EntityUid uid, CrewMonitoringServerComponent? serverComponent = null, DeviceNetworkComponent? device = null)
     {
         if (!Resolve(uid, ref serverComponent, ref device))
             return;
@@ -112,3 +114,9 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         component.SensorStatus.Clear();
     }
 }
+
+/// <summary>
+/// Raised on a crew monitoring server before it broadcasts its sensor statuses to consoles.
+/// </summary>
+[ByRefEvent]
+public readonly record struct BeforeCrewMonitoringBroadcastEvent(EntityUid ServerUid, CrewMonitoringServerComponent Server);

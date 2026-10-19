@@ -1,0 +1,16 @@
+<!--
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+//
+SPDX-License-Identifier: MIT
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:viewport="clr-namespace:Content.Client.Viewport"
+               MinWidth="400" MinHeight="300">
+  <!-- ScalingViewport target hookup is done in code-behind -->
+  <viewport:ScalingViewport Name="Viewport"
+                            VerticalExpand="True"
+                            HorizontalExpand="True"
+                            MinSize="300 300"
+                            MouseFilter="Ignore" />
+</DefaultWindow>
