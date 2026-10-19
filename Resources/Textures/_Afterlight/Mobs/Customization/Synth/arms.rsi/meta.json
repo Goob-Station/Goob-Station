@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by GitHub NotLivyathan / Discord livyathan (298907041198637067)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "arm_light_l",
+      "directions": 4
+    },
+    {
+      "name": "arm_light_r",
+      "directions": 4
+    },
+    {
+      "name": "star_pauldron_l",
+      "directions": 4
+    },
+    {
+      "name": "star_pauldron_r",
+      "directions": 4
+    }
+  ]
+}

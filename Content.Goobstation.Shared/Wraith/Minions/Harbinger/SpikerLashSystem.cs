@@ -7,12 +7,12 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.Wraith.Minions.Harbinger;
 
-public sealed class SpikerLashSystem : EntitySystem
+public sealed partial class SpikerLashSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

@@ -10,6 +10,7 @@ using Content.Shared.Audio;
 using Content.Shared.CombatMode;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -475,6 +476,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         RaiseLocalEvent(gun, ref shotEv);
         var shotBodyEv = new GunShotBodyEvent(gun, gun); // Shitmed Change
         RaiseLocalEvent(user, shotBodyEv); // Shitmed Change
+        GunScreenshake(user, gun); // Goob
 
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
             return true;

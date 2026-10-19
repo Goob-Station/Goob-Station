@@ -5,9 +5,9 @@ using Content.Shared.Item.ItemToggle;
 
 namespace Content.Goobstation.Shared.ContractorBaton;
 
-public sealed class TogglePreventStaminaDamageSystem : EntitySystem
+public sealed partial class TogglePreventStaminaDamageSystem : EntitySystem
 {
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
 
     public override void Initialize()
     {

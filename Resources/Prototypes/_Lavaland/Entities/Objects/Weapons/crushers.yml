@@ -193,7 +193,7 @@
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]
   id: WeaponCrusherHammer
   name: crusher hammer
-  description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
+  description: A beefy, two-handed weapon that inflicts heavier damage than a crusher.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer.rsi

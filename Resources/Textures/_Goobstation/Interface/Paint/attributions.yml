@@ -1,0 +1,4 @@
+- files: ["brush.svg", "eraser.svg", "line.svg", "rectangle.svg", "ellipse.svg", "picker.svg", "style-round.svg", "style-square.svg", "style-spray.svg", "style-calligraphy.svg", "undo.svg"]
+  license: "MIT"
+  copyright: "Tabler Icons by Paweł Kuna, recoloured white"
+  source: "https://github.com/tabler/tabler-icons/tree/v3.49.0/icons"

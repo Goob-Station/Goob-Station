@@ -10,7 +10,7 @@ namespace Content.Goobstation.Server.EntityEffects.EffectConditions;
 
 public sealed partial class StaminaDamageThresholdSystem : EntityConditionSystem<StaminaComponent, StaminaDamageThreshold>
 {
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
 
     protected override void Condition(Entity<StaminaComponent> entity, ref EntityConditionEvent<StaminaDamageThreshold> args)
     {
