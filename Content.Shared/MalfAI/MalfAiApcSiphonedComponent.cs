@@ -4,6 +4,7 @@
 
 using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.MalfAI;
 
@@ -11,14 +12,20 @@ namespace Content.Shared.MalfAI;
 /// Component indicating this APC is currently siphoned by a Malf AI.
 /// Siphoned APCs are completely disabled and cannot be interacted with.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class MalfAiApcSiphonedComponent : Component
 {
     /// <summary>
     /// The time when the siphon expires and the APC can be siphoned again.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan SiphonEndTime;
+
+    /// <summary>
+    /// Whether the APC was already emagged before being siphoned.
+    /// </summary>
+    [DataField]
+    public bool WasEmagged;
 
     /// <summary>
     /// The original state of the APC's main breaker before siphoning.

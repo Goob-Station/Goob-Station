@@ -4,3 +4,5 @@ changes:
     message: Added an Advanced Research module for cyborgs.
   - type: Add
     message: Added a Super Mining module for cyborgs.
+  - type: Tweak
+    message: Added dedicated eye tracking toggle action icons for Station AI.

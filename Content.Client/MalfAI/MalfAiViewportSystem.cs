@@ -32,6 +32,7 @@ public sealed class MalfAiViewportSystem : EntitySystem
         _window = new MalfAiViewportWindow(ev.MapId, ev.WorldPosition, ev.SizePixels, ev.Title, ev.Rotation, ev.ZoomLevel, ev.AnchorEntity);
         _window.OnClose += () =>
         {
+            RaiseNetworkEvent(new MalfAiViewportClosedMessage());
             _window = null;
         };
     }

@@ -54,6 +54,12 @@
     },
 		{
 			"name": "camera_jump"
+		},
+		{
+			"name": "eye_tracking"
+		},
+		{
+			"name": "eye_tracking_off"
 		}
 	]
 }

@@ -32,7 +32,7 @@ public sealed partial class MalfAiViewportComponent : Component
     /// Cooldown between setting a new viewport location.
     /// </summary>
     [DataField]
-    public TimeSpan SetCooldown = TimeSpan.FromSeconds(30);
+    public TimeSpan SetCooldown = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// Absolute game time when the AI may set the viewport again.

@@ -222,15 +222,9 @@
         whitelist:
           components:
           - PressureDamageChange
-    - item: WeaponSuperPlasmaCutter
-      hand:
-        emptyRepresentative: WeaponSuperPlasmaCutter
-        emptyLabel: borg-slot-WeaponSuperPlasmaCutter-empty-goob
-        whitelist:
-          components:
-          - MaterialEnergy
+    - item: WeaponSuperPlasmaCutterBorg
   - type: BorgModuleIcon
-    icon: { sprite: _Lavaland/Objects/Tools/handdrill_super.rsi, state: handdrill }
+    icon: { sprite: _Goobstation/Actions/actions_borg.rsi, state: super-mining-module }
 
 - type: entity
   id: BorgModuleAdvancedResearch
@@ -241,10 +235,8 @@
   - type: Sprite
     layers:
     - state: science
-    - sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
-      state: base
-      scale: 0.6, 0.6
-      color: "#FFAEB6"
+    - state: icon-adv-research
+      sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     hands:
     - item: WeaponPistolCHIMPBorg
@@ -253,7 +245,6 @@
     - item: WeaponTetherGun
     - item: PinpointerAnomaly
   - type: BorgModuleIcon
-    icon: { sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi, state: base }
-    color: "#FFAEB6"
+    icon: { sprite: _Goobstation/Actions/actions_borg.rsi, state: adv-research-module }
 
 

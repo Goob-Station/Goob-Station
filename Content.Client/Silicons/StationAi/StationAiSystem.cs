@@ -1,3 +1,4 @@
+using Content.Shared.Ghost;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Silicons.StationAi;
@@ -55,7 +56,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         if (!HasComp<StationAiHeldComponent>(playerEnt))
             return false;
 
-        if (!TryComp<EyeComponent>(playerEnt, out var eye) || eye.Zoom.X <= 1.445f)
+        if (!TryComp<EyeComponent>(playerEnt, out var eye) || eye.Zoom.X <= StationAiCrewMonitoringOverlay.CrewMonitoringZoomThreshold || eye.Zoom.X > StationAiCrewMonitoringOverlay.MassScannerZoomThreshold)
             return false;
 
         var clickMapPos = _transform.ToMapCoordinates(args.Coordinates);
@@ -100,7 +101,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
     {
         base.OnHeldZoomChanged(ent, ref args);
 
-        if (args.Zoom.X > 1.445f)
+        if (args.Zoom.X > StationAiCrewMonitoringOverlay.CrewMonitoringZoomThreshold && args.Zoom.X <= StationAiCrewMonitoringOverlay.MassScannerZoomThreshold)
         {
             RaiseNetworkEvent(new StationAiRequestCrewMonitoringSensorsEvent());
         }
@@ -108,7 +109,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
 
     public void TeleportToTarget(NetEntity target)
     {
-        if (_player.LocalEntity is not { } local || !HasComp<StationAiHeldComponent>(local))
+        if (_player.LocalEntity is not { } local || (!HasComp<StationAiHeldComponent>(local) && !HasComp<GhostComponent>(local)))
             return;
 
         RaiseNetworkEvent(new StationAiTeleportToTargetEvent(target));

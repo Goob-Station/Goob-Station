@@ -4,28 +4,6 @@
 # Malf AI shop listings
 
 - type: listing
-  id: MalfAiViewport
-  name: malfai-listing-viewport-name
-  description: malfai-listing-viewport-desc
-  categories:
-  - MalfAI
-  - Deception
-  cost:
-    CPU: 25
-  icon:
-    sprite: Interface/Actions/actions_malf_ai.rsi
-    state: malfai_placeviewport
-  productAction: ActionMalfAiSetViewport
-  productEvent: !type:ActionPurchaseCompanionEvent
-    companionActions:
-      - ActionMalfAiOpenViewport
-  raiseProductEventOnUser: true
-  priority: 10
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
   id: MalfAiToggleCameraUpgrade
   name: malfai-listing-camera-upgrade-name
   description: malfai-listing-camera-upgrade-desc

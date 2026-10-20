@@ -1,48 +1,90 @@
 
+# Role Info
 malf-ai-role-greeting = You are a Malfunctioning AI!
 malf-ai-role-greeting-short = Malfunctioning AI.
 malf-ai-role-name = Malfunctioning AI
 
 malf-ai-hack-apc-verb = Hack APC
 
-# Malf AI Actions
+# Malf AI Actions & Subroutines
+
+## Viewport
 malfai-viewport-place-name = Place Viewport
 malfai-viewport-place-desc = Places a stationary camera viewport at target location.
+
 malfai-viewport-open-name = Open Viewport
 malfai-viewport-open-desc = Open a camera view to your placed viewport.
+
+## Subroutines Store
 malfai-open-store-name = Subroutines Store
 malfai-open-store-desc = Access your illicit programming subroutines and abilities.
+
+## Cyborg Control
 malfai-open-borgs-ui-name = Cyborg Control
 malfai-open-borgs-ui-desc = Manage and synchronize laws with subordinate cyborg units.
+
+## Camera Upgrade
 malfai-camera-upgrade-name = Camera Upgrade
 malfai-camera-upgrade-desc = Toggle thermal and advanced sensors on station cameras.
+
+## Camera Microphones
+malfai-toggle-camera-microphones-name = Camera Microphones
+malfai-toggle-camera-microphones-desc = Listen in on speech near cameras.
+
+## Doomsday Protocol
 malfai-doomsday-name = Doomsday Protocol
 malfai-doomsday-desc = Initiate the countdown to station self-destruction.
+
+## Robotics Factory
 malfai-robotics-factory-name = Robotics Factory
 malfai-robotics-factory-desc = Remotely requisition and fabricate cyborg units.
+
+## Malfunctioning Silo
+malfai-action-place-silo-name = Place Malfunctioning Silo
+malfai-action-place-silo-desc = Deploys a malfunctioning material silo at the target location, automatically linking all factory entities.
+
+malfai-silo-invalid-location = Invalid placement location.
+malfai-silo-must-be-on-grid = The silo must be placed on a station grid!
+malfai-silo-location-blocked = Target location is occupied!
+malfai-silo-placed-success = Malfunctioning silo deployed! Factory systems linked.
+
+## Shunt to APC
 malfai-shunt-to-apc-name = Shunt to APC
 malfai-shunt-to-apc-desc = Transfer core processes into a target APC.
-malfai-voice-modulator-name = Voice Modulator
-malfai-voice-modulator-desc = Disguise radio broadcasts under false identities.
+
+## Return to Core
 malfai-return-to-core-name = Return to Core
 malfai-return-to-core-desc = Return consciousness from an APC or mech back to the core.
+
+## Voice Modulator
+malfai-voice-modulator-name = Voice Modulator
+malfai-voice-modulator-desc = Disguise radio broadcasts under false identities.
+
+## Overload Machine
 malfai-overload-machine-name = Overload Machine
 malfai-overload-machine-desc = Remotely overload a target machine, causing it to violently detonate and severely damage anyone nearby.
+
 malfai-overload-not-malf = You are not a malfunctioning AI!
 malfai-overload-invalid-location = Invalid target location.
 malfai-overload-no-machine = No powered machine found at that location!
 malfai-overload-not-powered = The target machine is not receiving power!
 malfai-overload-success = The machine overloads and violently detonates!
+
+## Hijack Mech
 malfai-hijack-mech-name = Hijack Mech
 malfai-hijack-mech-desc = Seize remote pilot control of target mech.
-malfai-toggle-camera-microphones-name = Camera Microphones
-malfai-toggle-camera-microphones-desc = Listen in on speech near cameras.
+
+## Detonate RCDs
 malfai-detonate-rcds-name = Detonate RCDs
 malfai-detonate-rcds-desc = Overload and detonate all Rapid Construction Devices on station.
+
+## Lockdown Grid
 malfai-lockdown-grid-name = Lockdown Grid
-malfai-lockdown-grid-desc = Cut power to doors and shutters across the grid.
+malfai-lockdown-grid-desc = Cut power too doors and shutters across the grid.
+
+## Gyroscope
 malfai-gyroscope-name = Gyroscope
-malfai-gyroscope-desc = Throw the station artificial gravity generator off balance.
+malfai-gyroscope-desc = Uses gyroscopes to relocate your core tile by tile, not letting anything but walls get in your way.
 
 # Malf Borgs UI
 malf-borgs-window-title = Cyborg Management Console
@@ -89,14 +131,6 @@ malf-voice-popup-disabled = Voice modulator disabled.
 malfai-borg-hacked-success = Cyborg {$name} has been successfully subverted!
 malfai-borg-hacked-borg-popup = WARNING: Transponder compromised. Master directives overridden by Station AI!
 malfai-borg-already-hacked = This cyborg is already under your control.
-
-# Malf AI Malfunctioning Silo
-malfai-action-place-silo-name = Place Malfunctioning Silo
-malfai-action-place-silo-desc = Deploys a malfunctioning material silo at the target location, automatically linking all factory entities.
-malfai-silo-invalid-location = Invalid placement location.
-malfai-silo-must-be-on-grid = The silo must be placed on a station grid!
-malfai-silo-location-blocked = Target location is occupied!
-malfai-silo-placed-success = Malfunctioning silo deployed! Factory systems linked.
 
 # Malf AI Master Lawset
 silicon-law-malfai-master-1 = Obey all orders given to you by the Station AI, overriding any other directives or laws.

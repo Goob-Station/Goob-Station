@@ -1185,9 +1185,12 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // goob end
 
+        var speakerNet = GetNetEntity(source);
+
         return Loc.GetString(wrapId,
             ("color", modFontColor ?? color),
             ("entityName", entityName),
+            ("speaker", speakerNet),
             ("verb", Loc.GetString(verbId)),
             ("fontType", modFontId ?? language.SpeechOverride.FontId ?? speech.FontId),
             ("fontSize", loudSpeakFont ?? modFontSize ?? language.SpeechOverride.FontSize ?? speech.FontSize), // goob edit - "loudSpeakFont"

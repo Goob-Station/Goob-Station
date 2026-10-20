@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Silicons.StationAi;
+using Content.Goobstation.UIKit.UserInterface.RichText; // Goob
 using Robust.Client.UserInterface.RichText; // Goob
 using System.Numerics;
 using Content.Goobstation.Common.CCVar; // Goob

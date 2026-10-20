@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Patrons;
+using Content.Shared.Ghost;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StatusIcon;
 using Robust.Client.GameObjects;
@@ -66,7 +67,7 @@ public sealed partial class IconTag : IMarkupTag
         {
             icon.OnMouseEntered += _ =>
             {
-                if (_playerManager.LocalEntity is { } local && _entMan.HasComponent<StationAiHeldComponent>(local))
+                if (_playerManager.LocalEntity is { } local && (_entMan.HasComponent<StationAiHeldComponent>(local) || _entMan.HasComponent<GhostComponent>(local)))
                     icon.DefaultCursorShape = Control.CursorShape.Hand;
                 else
                     icon.DefaultCursorShape = Control.CursorShape.Arrow;
@@ -82,7 +83,10 @@ public sealed partial class IconTag : IMarkupTag
                 if (args.Function != EngineKeyFunctions.UIClick)
                     return;
 
-                if (_playerManager.LocalEntity is not { } local || !_entMan.HasComponent<StationAiHeldComponent>(local))
+                if (_playerManager.LocalEntity is not { } local)
+                    return;
+
+                if (!_entMan.HasComponent<StationAiHeldComponent>(local) && !_entMan.HasComponent<GhostComponent>(local))
                     return;
 
                 _entMan.EntityNetManager.SendSystemNetworkMessage(new StationAiTeleportToTargetEvent(speaker.Value));

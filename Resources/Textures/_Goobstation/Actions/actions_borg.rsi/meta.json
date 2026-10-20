@@ -9,6 +9,12 @@
   "states": [
 	{
         "name": "lollypop-module"
+    },
+    {
+        "name": "adv-research-module"
+    },
+    {
+        "name": "super-mining-module"
     }
   ]
 }

@@ -29,6 +29,7 @@ public struct CustomRichTextEntry
         typeof(EntityTextureTag),
         typeof(RadioIconTag),
         typeof(TextureTag),
+        typeof(SpeakerTag),
     ];
 
     private readonly Color _defaultColor;
@@ -363,7 +364,11 @@ public struct CustomRichTextEntry
             if (staticSprite is not null)
                 staticSprite.IsVisible = true;
             else
+            {
                 control.Visible = true;
+                if (control is Label label && label.FontColorOverride == null)
+                    label.FontColorOverride = color;
+            }
 
             var invertedScale = 1f / uiScale;
             var pos = new Vector2(baseLine.X * invertedScale, (baseLine.Y - defaultFont.GetAscent(uiScale)) * invertedScale);
@@ -398,7 +403,9 @@ public struct CustomRichTextEntry
                         Angle.Zero);
             }
 
-            var advanceX = control.SetWidth;
+            var advanceX = !float.IsNaN(control.SetWidth) && control.SetWidth > 0
+                ? control.SetWidth
+                : control.DesiredPixelSize.X;
             controlYAdvance = Math.Max(0f, (control.DesiredPixelSize.Y - GetLineHeight(font, uiScale, lineHeightScale)) * invertedScale);
             baseLine += new Vector2(advanceX, 0);
         }

@@ -347,7 +347,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                     _aiSystem.TeleportToTarget(targetUid);
                 };
 
-                mainContainer.AddChild(warpButton);
+                jobContainer.AddChild(warpButton);
 
                 // Double click on row also warps for AI
                 var lastClickTime = TimeSpan.Zero;

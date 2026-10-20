@@ -77,4 +77,13 @@ station-ai-teleport-to-speaker-tooltip = Click to jump AI eye to {$name}
 station-ai-cyan-access-revoked = Station access revoked under Alert Level Cyan!
 station-ai-cyan-access-restored = Station access restored.
 
+# Viewport
+action-name-ai-place-viewport = Place Viewport
+action-description-ai-place-viewport = Places a stationary camera viewport at target location.
+action-name-ai-toggle-viewport = Toggle Viewport
+action-description-ai-toggle-viewport = Opens or closes the floating camera viewport window.
+station-ai-viewport-out-of-range = Target location must be on the station grid!
+station-ai-viewport-cooldown = Viewport recalibrating. Please wait.
+station-ai-viewport-not-placed = No viewport has been placed yet! Use 'Place Viewport' first.
+
 

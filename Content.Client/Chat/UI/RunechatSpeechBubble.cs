@@ -57,9 +57,16 @@ public sealed class RunechatSpeechBubble : SpeechBubble
             _ => SpeechType.Say,
         };
 
-        var header = FormattedMessage.RemoveMarkupPermissive(SharedChatSystem.GetStringInsideTag(message, "BubbleHeader")).Trim();
-        if (header.Length == 0 && entMan.EntityExists(sender))
-            header = Identity.Name(sender, entMan);
+        var rawHeader = SharedChatSystem.GetStringInsideTag(message, "BubbleHeader");
+        var header = FormattedMessage.RemoveMarkupPermissive(rawHeader).Trim();
+        if (header.Length == 0)
+        {
+            var match = System.Text.RegularExpressions.Regex.Match(rawHeader, @"name=""([^""]+)""");
+            if (match.Success)
+                header = match.Groups[1].Value;
+            else if (entMan.EntityExists(sender))
+                header = Identity.Name(sender, entMan);
+        }
 
         string text;
         var color = GetNameColor(header);

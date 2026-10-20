@@ -18,6 +18,17 @@
     autoRechargeRate: 25
 
 - type: entity
+  name: super plasma cutter
+  parent: WeaponSuperPlasmaCutter
+  id: WeaponSuperPlasmaCutterBorg
+  categories: [ HideSpawnMenu ]
+  suffix: Borg
+  components:
+  - type: BorgBatteryDrainRecharge
+    rechargeRate: 40
+    drainMultiplier: 2.0
+
+- type: entity
   id: AnomalyCoreInfinite
   name: infinite anomaly core
   parent: BaseAnomalyCore

@@ -69,8 +69,45 @@
     priority: -7
     icon:
       sprite: Interface/Actions/actions_ai.rsi
-      state: crew_monitor
+      state: eye_tracking
+    iconOn:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: eye_tracking_off
     useDelay: 0.5
   - type: InstantAction
     event: !type:ToggleAiEyeVisibilityEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionAiPlaceViewport
+  name: action-name-ai-place-viewport
+  description: action-description-ai-place-viewport
+  components:
+  - type: Action
+    priority: -6
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_placeviewport
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: WorldTargetAction
+    event: !type:MalfAiSetViewportActionEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionAiToggleViewport
+  name: action-name-ai-toggle-viewport
+  description: action-description-ai-toggle-viewport
+  components:
+  - type: Action
+    priority: -6
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_openviewport
+  - type: InstantAction
+    event: !type:MalfAiOpenViewportActionEvent {}
 

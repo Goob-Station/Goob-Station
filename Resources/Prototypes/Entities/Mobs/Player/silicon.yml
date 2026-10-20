@@ -40,6 +40,9 @@
     - ActionOpenRemoteDevicesMenu # Corvax-Next-AiRemoteControl
     - ActionOpenCameraWarpMenu # Goobstation-Ai-Camera-Jumping
     - ActionToggleAiEyeVisibility
+    - ActionAiPlaceViewport
+    - ActionAiToggleViewport
+  - type: MalfAiViewport
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -90,6 +93,18 @@
     - SiliconRadiation
   - type: ContentEye  #Goobstation
     maxZoom: 16.4,16.4
+
+- type: entity
+  id: StationAiViewportAnchor
+  name: AI Viewport Anchor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+  - type: Eye
+    drawFov: false
+    drawLight: true
+    visMask: 1
+  - type: CameraUpgradeOmitter
 
 - type: entity
   id: AiHeldIntellicard

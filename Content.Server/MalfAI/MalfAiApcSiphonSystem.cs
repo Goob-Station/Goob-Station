@@ -35,6 +35,7 @@ public sealed class MalfAiApcSiphonSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<ApcComponent, Content.Shared.Verbs.GetVerbsEvent<Content.Shared.Verbs.AlternativeVerb>>(OnGetAltVerbs);
+        SubscribeLocalEvent<MalfAiApcSiphonedComponent, ComponentShutdown>(OnSiphonedShutdown);
     }
 
     public override void Update(float frameTime)
@@ -49,6 +50,32 @@ public sealed class MalfAiApcSiphonSystem : EntitySystem
                 RemComp<MalfAiApcSiphonedComponent>(uid);
             }
         }
+    }
+
+    private void OnSiphonedShutdown(EntityUid uid, MalfAiApcSiphonedComponent comp, ComponentShutdown args)
+    {
+        if (Terminating(uid))
+            return;
+
+        // Revert emagged status if it wasn't emagged prior to siphoning
+        if (!comp.WasEmagged && TryComp<Content.Shared.Emag.Components.EmaggedComponent>(uid, out var emagged))
+        {
+            emagged.EmagType &= ~Content.Shared.Emag.Systems.EmagType.Interaction;
+            if (emagged.EmagType == 0)
+                RemComp<Content.Shared.Emag.Components.EmaggedComponent>(uid);
+            else
+                Dirty(uid, emagged);
+        }
+
+        // Restore normal APC visual appearance
+        if (TryComp<ApcComponent>(uid, out var apc))
+        {
+            apc.LastChargeStateTime = null;
+            _apcSystem.UpdateApcState(uid, apc);
+        }
+
+        var expiredEv = new ApcSiphonExpiredEvent();
+        RaiseLocalEvent(uid, ref expiredEv);
     }
 
     private void OnGetAltVerbs(EntityUid uid, ApcComponent apc, ref Content.Shared.Verbs.GetVerbsEvent<Content.Shared.Verbs.AlternativeVerb> args)
@@ -78,12 +105,17 @@ public sealed class MalfAiApcSiphonSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-
-
     public void OnApcStartSiphon(EntityUid uid, ApcComponent apc, ref ApcStartSiphonEvent args)
     {
         if (HasComp<MalfAiApcSiphonedComponent>(uid))
             return;
+
+        var wasEmagged = TryComp<Content.Shared.Emag.Components.EmaggedComponent>(uid, out var existingEmag)
+            && (existingEmag.EmagType & Content.Shared.Emag.Systems.EmagType.Interaction) != 0;
+
+        var siphonedComp = EnsureComp<MalfAiApcSiphonedComponent>(uid);
+        siphonedComp.WasEmagged = wasEmagged;
+        siphonedComp.SiphonEndTime = _timing.CurTime + TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.MalfAiCpuSiphonDuration));
 
         // Hack it: Ensure it's emagged
         var emagged = EnsureComp<Content.Shared.Emag.Components.EmaggedComponent>(uid);
@@ -94,10 +126,8 @@ public sealed class MalfAiApcSiphonSystem : EntitySystem
         RaiseLocalEvent(uid, ref emagEvent);
         
         // Force visual state update so the APC turns blue immediately
+        apc.LastChargeStateTime = null;
         _apcSystem.UpdateApcState(uid, apc);
-
-        var siphonedComp = EnsureComp<MalfAiApcSiphonedComponent>(uid);
-        siphonedComp.SiphonEndTime = _timing.CurTime + TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.MalfAiCpuSiphonDuration));
 
         if (!TryComp<Content.Shared.Store.Components.StoreComponent>(args.SiphonedBy, out var store))
             return;

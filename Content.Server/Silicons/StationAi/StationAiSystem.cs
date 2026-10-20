@@ -33,6 +33,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Power.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Roles;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech.Components;
 using Content.Shared.StationAi;
@@ -47,6 +48,8 @@ using Content.Server.DeviceNetwork.Components;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Shared.Actions;
 using Content.Shared.Inventory;
+using Content.Shared.Follower;
+using Content.Shared.Ghost;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Medical.SuitSensors;
 using Content.Shared.Movement.Components;
@@ -85,6 +88,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedContentEyeSystem _contentEye = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
+    [Dependency] private readonly FollowerSystem _followerSystem = default!;
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
 
@@ -200,7 +204,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         var aiBrains = EntityQueryEnumerator<StationAiHeldComponent, ActorComponent, ContentEyeComponent>();
         while (aiBrains.MoveNext(out var brainUid, out _, out var actor, out var eye))
         {
-            if (eye.TargetZoom.X > 1.445f)
+            if (eye.TargetZoom.X > CrewMonitoringZoomThreshold && eye.TargetZoom.X <= MassScannerZoomThreshold)
             {
                 RaiseNetworkEvent(new StationAiCrewMonitoringSensorsEvent(allSensors), actor.PlayerSession);
             }
@@ -278,18 +282,33 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
     public void TeleportToTarget(NetEntity targetNet, EntityUid playerEnt)
     {
-        if (!HasComp<StationAiHeldComponent>(playerEnt))
+        var target = GetEntity(targetNet);
+        if (!Exists(target) || Deleted(target))
+        {
+            if (HasComp<StationAiHeldComponent>(playerEnt))
+                _popups.PopupEntity(Loc.GetString("station-ai-teleport-no-coordinates"), playerEnt, playerEnt, PopupType.MediumCaution);
+            return;
+        }
+
+        // Ghosts can use chat warping to follow the entity, ignoring coordinates
+        if (HasComp<GhostComponent>(playerEnt))
+        {
+            if (Transform(target).MapID == MapId.Nullspace)
+                return;
+
+            _followerSystem.StartFollowingEntity(playerEnt, target);
+            return;
+        }
+
+        var isAi = HasComp<StationAiHeldComponent>(playerEnt) ||
+                   HasComp<StationAiCoreComponent>(playerEnt) ||
+                   HasComp<StationAiEyeComponent>(playerEnt);
+
+        if (!isAi)
             return;
 
         if (_mobState.IsDead(playerEnt))
             return;
-
-        var target = GetEntity(targetNet);
-        if (!Exists(target) || Deleted(target))
-        {
-            _popups.PopupEntity(Loc.GetString("station-ai-teleport-no-coordinates"), playerEnt, playerEnt, PopupType.MediumCaution);
-            return;
-        }
 
         if (!HasCoordinatesOn(target))
         {
@@ -297,10 +316,19 @@ public sealed class StationAiSystem : SharedStationAiSystem
             return;
         }
 
-        if (!TryGetCore(playerEnt, out var core) || core.Comp == null)
+        Entity<StationAiCoreComponent> core;
+        if (TryComp<StationAiCoreComponent>(playerEnt, out var directCore))
+        {
+            core = (playerEnt, directCore);
+        }
+        else if (TryGetCore(playerEnt, out var foundCore) && foundCore.Comp != null)
+        {
+            core = (foundCore.Owner, foundCore.Comp);
+        }
+        else
+        {
             return;
-
-        var coreEnt = (core.Owner, core.Comp);
+        }
 
         // Prevent teleporting across different maps (e.g. CentCom)
         if (Transform(core.Owner).MapID != Transform(target).MapID)
@@ -311,12 +339,12 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
         if (core.Comp.RemoteEntity == null)
         {
-            SetupEye(coreEnt);
-            AttachEye(coreEnt);
+            SetupEye(core);
+            AttachEye(core);
         }
 
         if (!core.Comp.Remote)
-            SwitchRemoteEntityMode(coreEnt, true);
+            SwitchRemoteEntityMode((core.Owner, (StationAiCoreComponent?) core.Comp), true);
 
         if (core.Comp.RemoteEntity is not { } holo || !Exists(holo))
             return;
@@ -331,7 +359,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         _xforms.SetCoordinates(holo, targetCoords);
 
         // Reset zoom to normal if zoomed out into crew monitoring mode
-        if (TryComp<ContentEyeComponent>(playerEnt, out var contentEye) && contentEye.TargetZoom.X > 1.445f)
+        if (TryComp<ContentEyeComponent>(playerEnt, out var contentEye) && contentEye.TargetZoom.X > CrewMonitoringZoomThreshold)
         {
             _contentEye.SetZoom(playerEnt, Vector2.One, true, contentEye);
         }
@@ -368,6 +396,10 @@ public sealed class StationAiSystem : SharedStationAiSystem
                 return true;
             }
         }
+
+        // Silicons and AI cores are always tracked by the AI
+        if (HasComp<BorgChassisComponent>(target) || HasComp<StationAiCoreComponent>(target))
+            return true;
 
         // Active sensor status on any station crew monitoring server
         var servers = EntityQueryEnumerator<CrewMonitoringServerComponent>();
