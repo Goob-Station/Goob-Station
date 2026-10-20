@@ -25,7 +25,9 @@ alert-level-blue-instructions = Crewmembers are advised to be vigilant and repor
 
 alert-level-cyan = Cyan
 alert-level-cyan-announcement = All Silicon entities are to be decommissioned on sight.
-alert-level-cyan-instructions = All Silicon entities are to be decommissioned on sight.
+alert-level-cyan-instructions = Crewmembers are advised to listen to heads of staff for further instructions.
+alert-level-cyan-command-only = Only Command staff can set Alert Level Cyan.
+alert-level-cyan-revoked-authority = Your authority to change the alert level been revoked under Alert Level Cyan!
 
 alert-level-red = Red
 alert-level-red-announcement = There is an immediate threat to the station. Security should prepare to use lethal force if necessary. Crewmembers should find a safe place to shelter in, and are advised to follow any present authorities.

@@ -2,16 +2,51 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                Title="Voice Modulator"
-               MinSize="360 160"
-               SetSize="420 180">
+               MinSize="440 340"
+               SetSize="460 360">
   <PanelContainer Name="RootBackdrop">
     <PanelContainer.PanelOverride>
       <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
     </PanelContainer.PanelOverride>
-    <BoxContainer Orientation="Vertical" Margin="8,8,8,8">
-      <Label Name="HeaderLabel" Text="Enter new AI name:" HorizontalExpand="True" />
-      <LineEdit Name="NameEdit" PlaceHolder="e.g. Central Command AI" HorizontalExpand="True" Margin="0,4,0,8"/>
-      <Button Name="ConfirmButton" Text="Confirm" HorizontalAlignment="Right" MinWidth="88"/>
+    <BoxContainer Orientation="Vertical" Margin="10,10,10,10" SeparationOverride="8">
+      <!-- Status & Toggle Header -->
+      <PanelContainer Name="StatusPanel">
+        <BoxContainer Orientation="Horizontal" Margin="6,4,6,4" SeparationOverride="8">
+          <Label Name="StatusHeaderLabel" Text="Modulator Status:" VerticalAlignment="Center" />
+          <Label Name="StatusLabel" Text="Modulation Active" FontColorOverride="#33FF33" HorizontalExpand="True" VerticalAlignment="Center" />
+          <Button Name="ToggleModulatorButton" Text="ENABLED" MinWidth="110" />
+        </BoxContainer>
+      </PanelContainer>
+
+      <!-- Spoofed Name Input -->
+      <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <Label Name="NameHeaderLabel" Text="Disguised Speaker Name:" FontColorOverride="#00FF66" />
+        <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+          <LineEdit Name="NameEdit" PlaceHolder="e.g. Captain, Central Command AI" HorizontalExpand="True" />
+          <Button Name="ClearNameButton" Text="Clear" MinWidth="60" />
+        </BoxContainer>
+      </BoxContainer>
+
+      <!-- HoP Job Selection & Icon -->
+      <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <Label Name="JobHeaderLabel" Text="Disguised Job &amp; Icon:" FontColorOverride="#00FF66" />
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+          <TextureRect Name="JobIconPreview" MinSize="32 32" SetSize="32 32" Stretch="KeepCentered" />
+          <OptionButton Name="JobOptionButton" HorizontalExpand="True" />
+        </BoxContainer>
+      </BoxContainer>
+
+      <!-- Accent Selection -->
+      <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <Label Name="AccentHeaderLabel" Text="Disguised Speech Accent:" FontColorOverride="#00FF66" />
+        <OptionButton Name="AccentOptionButton" HorizontalExpand="True" />
+      </BoxContainer>
+
+      <!-- Footer Buttons -->
+      <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" SeparationOverride="8" Margin="0,6,0,0">
+        <Button Name="ApplyButton" Text="Apply &amp; Close" MinWidth="120" />
+        <Button Name="DismissButton" Text="Close" MinWidth="80" />
+      </BoxContainer>
     </BoxContainer>
   </PanelContainer>
 </DefaultWindow>

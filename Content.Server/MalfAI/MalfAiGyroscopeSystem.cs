@@ -32,12 +32,14 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly Content.Server.Silicons.StationAi.StationAiSystem _stationAi = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         // Subscribe to the world-targeted action event.
         SubscribeLocalEvent<MalfAiGyroscopeActionEvent>(OnGyroscope);
+        SubscribeLocalEvent<MalfGyroTraverseComponent, ComponentShutdown>(OnTraverseShutdown);
     }
 
     public override void Update(float frameTime)
@@ -110,6 +112,7 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
                 // Ensure exact final state and clear the traversal.
                 _xform.SetMapCoordinates(uid, traverse.EndMap);
                 _xform.SetLocalRotation(uid, traverse.EndRotation);
+                AnchorCore(uid);
                 RemComp<MalfGyroTraverseComponent>(uid);
             }
         }
@@ -161,6 +164,9 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
             if (!HasComp<StationAiCoreComponent>(core))
                 return;
         }
+
+        if (HasComp<MalfGyroTraverseComponent>(core))
+            return;
 
         // Resolve current map position and clicked position.
         var startMap = _xform.GetMapCoordinates(core);
@@ -238,6 +244,8 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
 
         var endRot = startRot + Angle.FromDegrees(90f * rotationDir);
 
+        _xform.Unanchor(core, Transform(core));
+
         var traverse = EnsureComp<MalfGyroTraverseComponent>(core);
         traverse.StartMap = startMap;
         traverse.EndMap = endMap;
@@ -264,5 +272,30 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
             return null;
 
         return core.Comp.RemoteEntity.Value;
+    }
+
+    private void OnTraverseShutdown(Entity<MalfGyroTraverseComponent> ent, ref ComponentShutdown args)
+    {
+        if (EntityManager.IsQueuedForDeletion(ent.Owner))
+            return;
+
+        AnchorCore(ent.Owner);
+    }
+
+    private void AnchorCore(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        if (xform.Anchored)
+            return;
+
+        if (xform.GridUid is { } gUid && TryComp<MapGridComponent>(gUid, out var gridComp))
+        {
+            var indices = _map.TileIndicesFor((gUid, gridComp), xform.Coordinates);
+            _xform.AnchorEntity((uid, xform, MetaData(uid)), (gUid, gridComp), indices);
+        }
+        else
+        {
+            _xform.AnchorEntity(uid, xform);
+        }
     }
 }

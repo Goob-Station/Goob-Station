@@ -115,3 +115,21 @@
   position: -4,3
   technologyPrerequisites:
   - Xenobiology
+
+- type: technology
+  id: AdvancedResearchCyborgTechnology
+  name: research-technology-advanced-research-cyborg
+  icon:
+    sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
+    state: base
+  discipline: Experimental
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - BorgModuleAdvancedResearch
+  position: -5,1
+  technologyPrerequisites:
+  - GravityManipulation
+  - AdvancedAnomalyResearch
+  - Pinpointers
+

@@ -19,4 +19,5 @@
   components:
   - type: MindRole
     antagPrototype: MalfunctioningAI
-    roleType: TeamAntagonist
+    # This can be changed to team antagonist if needed
+    roleType: Malfunctioning_Silicon

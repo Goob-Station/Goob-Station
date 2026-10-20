@@ -81,13 +81,6 @@ public sealed partial class MalfAiOverloadMachineActionEvent : WorldTargetAction
 }
 
 /// <summary>
-/// Action event for the Malf AI Override Machine ability.
-/// </summary>
-public sealed partial class MalfAiOverrideMachineActionEvent : WorldTargetActionEvent
-{
-}
-
-/// <summary>
 /// Action event for toggling the Malf AI camera upgrade.
 /// </summary>
 public sealed partial class MalfAiToggleCameraUpgradeActionEvent : InstantActionEvent
@@ -105,5 +98,12 @@ public sealed partial class MalfAiToggleCameraMicrophonesActionEvent : InstantAc
 /// Action event for the Malf AI Robotics Factory ability.
 /// </summary>
 public sealed partial class MalfAiRoboticsFactoryActionEvent : WorldTargetActionEvent
+{
+}
+
+/// <summary>
+/// Action event for deploying a Malfunctioning Silo.
+/// </summary>
+public sealed partial class MalfAiPlaceSiloActionEvent : WorldTargetActionEvent
 {
 }

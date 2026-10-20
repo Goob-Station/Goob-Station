@@ -52,6 +52,19 @@
   id: BorgModuleAdvancedMining
   result: BorgModuleAdvancedMining
 
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleSuperMining
+  result: BorgModuleSuperMining
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 500
+    Diamond: 100
+    Plasma: 250
+    BSCrystal: 100
+
 # Engineering Modules
 
 - type: latheRecipe
@@ -74,6 +87,17 @@
   result: BorgModuleAdvancedTopical
 
 # Science Modules
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedResearch
+  result: BorgModuleAdvancedResearch
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 250
+    Plasma: 250
 
 # Service Modules
 

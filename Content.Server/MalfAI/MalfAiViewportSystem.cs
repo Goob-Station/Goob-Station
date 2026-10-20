@@ -132,7 +132,7 @@ public sealed class MalfAiViewportSystem : EntitySystem
         // Anchor the entity to the grid so it moves with the grid
         if (EntityManager.TryGetComponent<TransformComponent>(comp.ViewportAnchor.Value, out var anchorTransform))
         {
-            anchorTransform.Anchored = true;
+            _transform.AnchorEntity(comp.ViewportAnchor.Value, anchorTransform);
         }
 
         // Record chosen coordinates.

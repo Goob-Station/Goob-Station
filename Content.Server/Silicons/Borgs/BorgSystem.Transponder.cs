@@ -10,7 +10,11 @@ using Content.Shared.Robotics;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
+using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
+using Content.Shared.MalfAI;
+using Content.Server.MalfAI;
+using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Utility;
 using Content.Shared._Imp.Drone; //Goobstation drone
 using Robust.Shared.Player; //Goobstation drone
@@ -56,7 +60,8 @@ public sealed partial class BorgSystem
                 chassis.ModuleCount,
                 hasBrain,
                 canDisable,
-                HasComp<AiRemoteControllerComponent>(uid)); // Corvax-Next-AiRemoteControl
+                HasComp<AiRemoteControllerComponent>(uid), // Corvax-Next-AiRemoteControl
+                HasComp<MalfAiControlledComponent>(uid));
 
             var payload = new NetworkPayload()
             {
@@ -83,7 +88,8 @@ public sealed partial class BorgSystem
                 0,
                 hasBrain,
                 false, // Corvax-Next-AiRemoteControl
-                false);
+                false,
+                HasComp<MalfAiControlledComponent>(uid));
 
             var payload = new NetworkPayload()
             {
@@ -104,6 +110,10 @@ public sealed partial class BorgSystem
         {
             ent.Comp1.FakeDisabled = true;
             ent.Comp1.FakeDisabling = false;
+
+            if (TryComp<MalfAiControlledComponent>(ent.Owner, out var controlled) && controlled.Controller != null)
+                _malfAiBorgsUi.PushRefreshForControllerAndMind(controlled.Controller.Value);
+
             return;
         }
 
@@ -125,6 +135,71 @@ public sealed partial class BorgSystem
             Disable(ent);
         else if (command == RoboticsConsoleConstants.NET_DESTROY_COMMAND)
             Destroy(ent.Owner);
+        else if (command == RoboticsConsoleConstants.NET_HACK_COMMAND)
+            Hack(ent, args);
+    }
+
+    private void Hack(Entity<BorgTransponderComponent> ent, DeviceNetworkPacketEvent args)
+    {
+        if (!args.Data.TryGetValue(RoboticsConsoleConstants.NET_MALF_AI_CONTROLLER, out NetEntity netController))
+            return;
+
+        var controller = GetEntity(netController);
+        if (!HasComp<MalfAiMarkerComponent>(controller))
+            return;
+
+        var borg = ent.Owner;
+        if (HasComp<MalfAiControlledComponent>(borg))
+        {
+            _popup.PopupEntity(Loc.GetString("malfai-borg-already-hacked"), controller, controller, PopupType.SmallCaution);
+            return;
+        }
+
+        var controlled = EnsureComp<MalfAiControlledComponent>(borg);
+        controlled.Controller = controller;
+        controlled.UniqueId = Guid.NewGuid().ToString();
+        Dirty(borg, controlled);
+
+        EnsureComp<MalfBorgSyncToMasterComponent>(borg);
+
+        // Apply master lawset to this borg
+        var lawsApplied = false;
+        var ruleQuery = AllEntityQuery<MalfMasterLawsetComponent, SiliconLawBoundComponent>();
+        while (ruleQuery.MoveNext(out var ruleUid, out _, out var bound))
+        {
+            var masterSet = _siliconLaws.GetLaws(ruleUid, bound).Laws;
+            if (TryComp<SiliconLawProviderComponent>(borg, out var borgProvider))
+                _siliconLaws.SetLaws(masterSet, borg, borgProvider.LawUploadSound);
+            else
+                _siliconLaws.SetLaws(masterSet, borg);
+            lawsApplied = true;
+            break;
+        }
+
+        if (!lawsApplied && TryComp<SiliconLawBoundComponent>(controller, out var aiBound))
+        {
+            var aiLaws = _siliconLaws.GetLaws(controller, aiBound).Laws;
+            if (TryComp<SiliconLawProviderComponent>(borg, out var borgProvider))
+                _siliconLaws.SetLaws(aiLaws, borg, borgProvider.LawUploadSound);
+            else
+                _siliconLaws.SetLaws(aiLaws, borg);
+        }
+
+        // Set emag flag to protect the borg from being remote-disabled or remote-destroyed by the robotics console
+        var emagged = EnsureComp<EmaggedComponent>(borg);
+        emagged.EmagType |= EmagType.Interaction;
+        Dirty(borg, emagged);
+
+        // Notify AI and borg
+        var borgName = Name(borg);
+        _popup.PopupEntity(Loc.GetString("malfai-borg-hacked-success", ("name", borgName)), controller, controller, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString("malfai-borg-hacked-borg-popup"), borg, borg, PopupType.LargeCaution);
+
+        // Force immediate transponder broadcast so the robotics console updates its state
+        ent.Comp.NextBroadcast = _timing.CurTime;
+
+        // Immediately update Malf AI menu so the hacked borg appears in the list
+        _malfAiBorgsUi.PushRefreshForControllerAndMind(controller);
     }
 
     private void Disable(Entity<BorgTransponderComponent, BorgChassisComponent?> ent)
@@ -158,6 +233,11 @@ public sealed partial class BorgSystem
         {
             // prevent reappearing on the console a few seconds later
             RemComp<BorgTransponderComponent>(ent);
+
+            // Update Malf AI menu so the stealth-destroyed borg remains visible
+            if (TryComp<MalfAiControlledComponent>(ent.Owner, out var controlled) && controlled.Controller != null)
+                _malfAiBorgsUi.PushRefreshForControllerAndMind(controlled.Controller.Value);
+
             return;
         }
 

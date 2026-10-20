@@ -42,7 +42,6 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         SubscribeLocalEvent<StationAiCoreComponent, AppearanceChangeEvent>(OnAppearanceChange);
 
         SubscribeNetworkEvent<StationAiCrewMonitoringSensorsEvent>(OnCrewSensorsReceived);
-        SubscribeLocalEvent<StationAiHeldComponent, EyeZoomChangedEvent>(OnClientHeldZoomChanged);
     }
 
     private bool OnUse(in PointerInputCmdHandler.PointerInputCmdArgs args)
@@ -97,8 +96,10 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         ActiveCrewSensors = ev.Sensors;
     }
 
-    private void OnClientHeldZoomChanged(Entity<StationAiHeldComponent> ent, ref EyeZoomChangedEvent args)
+    protected override void OnHeldZoomChanged(Entity<StationAiHeldComponent> ent, ref EyeZoomChangedEvent args)
     {
+        base.OnHeldZoomChanged(ent, ref args);
+
         if (args.Zoom.X > 1.445f)
         {
             RaiseNetworkEvent(new StationAiRequestCrewMonitoringSensorsEvent());

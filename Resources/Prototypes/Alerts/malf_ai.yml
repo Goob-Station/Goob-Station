@@ -14,16 +14,23 @@
   id: AlertMalfCpuSpriteView
   categories: [ HideSpawnMenu ]
   components:
+  - type: GenericCounterAlert
+    centerGlyph: true
+    hideLeadingZeroes: true
   - type: Sprite
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
       sprite: /Textures/Interface/Actions/actions_malf_ai.rsi
       state: CPU
-    - map: [ "enum.MalfAiHudVisualLayers.Digit1" ]
+    - map: [ "1" ]
       sprite: /Textures/Interface/Alerts/essence_counter.rsi
-    - map: [ "enum.MalfAiHudVisualLayers.Digit2" ]
+      state: "0"
+    - map: [ "10" ]
       sprite: /Textures/Interface/Alerts/essence_counter.rsi
-      offset: 0.125, 0
-    - map: [ "enum.MalfAiHudVisualLayers.Digit3" ]
+      state: "0"
+    - map: [ "100" ]
       sprite: /Textures/Interface/Alerts/essence_counter.rsi
-      offset: 0.25, 0
+      state: "0"
+    - map: [ "1000" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"

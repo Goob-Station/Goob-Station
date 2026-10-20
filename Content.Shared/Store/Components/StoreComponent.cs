@@ -10,10 +10,10 @@ namespace Content.Shared.Store.Components;
 /// This component manages a store which players can use to purchase different listings
 /// through the ui. The currency, listings, and categories are defined in yaml.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class StoreComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public LocId Name = "store-ui-default-title";
 
     /// <summary>
@@ -28,7 +28,7 @@ public sealed partial class StoreComponent : Component
     /// The string represents the ID of te currency prototype, where the
     /// float is that amount.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Balance = new();
 
     /// <summary>

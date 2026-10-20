@@ -106,13 +106,16 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
                 }
             }
 
+            if (actorComp.PlayerSession is not { } playerSession)
+                continue;
+
             foreach (var toRemove in _silosToRemove)
             {
-                _pvsOverride.RemoveSessionOverride(toRemove, actorComp.PlayerSession);
+                _pvsOverride.RemoveSessionOverride(toRemove, playerSession);
             }
             foreach (var toAdd in _silosToAdd)
             {
-                _pvsOverride.AddSessionOverride(toAdd, actorComp.PlayerSession);
+                _pvsOverride.AddSessionOverride(toAdd, playerSession);
             }
         }
     }

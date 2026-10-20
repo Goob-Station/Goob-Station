@@ -14,18 +14,6 @@ public sealed partial class CCVars
         GameDummyTicker = CVarDef.Create("game.dummyticker", false, CVar.ARCHIVE | CVar.SERVERONLY);
 
     /// <summary>
-    ///     How much CPU the Malf AI receives from siphoning an APC.
-    /// </summary>
-    public static readonly CVarDef<float>
-        MalfAiApcSiphonCpu = CVarDef.Create("game.malfai_apc_siphon_cpu", 15f, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    ///     How long (in seconds) before the Malf AI can siphon the same APC again.
-    /// </summary>
-    public static readonly CVarDef<float>
-        MalfAiApcSiphonCooldown = CVarDef.Create("game.malfai_apc_siphon_cooldown", 180f, CVar.SERVERONLY | CVar.ARCHIVE);
-
-    /// <summary>
     ///     Controls if the lobby is enabled. If it is not, and there are no available jobs, you may get stuck on a black screen.
     /// </summary>
     public static readonly CVarDef<bool>

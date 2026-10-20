@@ -89,7 +89,7 @@
     - Silicon
     - SiliconRadiation
   - type: ContentEye  #Goobstation
-    maxZoom: 4.86,4.86
+    maxZoom: 16.4,16.4
 
 - type: entity
   id: AiHeldIntellicard
@@ -455,6 +455,8 @@
   - type: Eye
     drawFov: false
   - type: Examiner
+  - type: Physics
+    bodyType: KinematicController
   - type: InputMover
   - type: BlockMovement
     blockInteraction: false

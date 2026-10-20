@@ -40,7 +40,7 @@ public abstract partial class SharedStationAiSystem
         args.ModifySpeed(ent.Comp.SpeedModifier, ent.Comp.SpeedModifier, bypassImmunity: true);
     }
 
-    private void OnHeldZoomChanged(Entity<StationAiHeldComponent> ent, ref EyeZoomChangedEvent args)
+    protected virtual void OnHeldZoomChanged(Entity<StationAiHeldComponent> ent, ref EyeZoomChangedEvent args)
     {
         if (!TryGetCore(ent.Owner, out var core) || core.Comp?.RemoteEntity == null)
             return;

@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
@@ -20,7 +21,7 @@ public sealed partial class RepairableSystem
     // If there is nothign to heal on a body, dont try it.
     private bool GoobCanRepair(Entity<RepairableComponent> ent)
     {
-        if (!HasComp<BodyComponent>(ent))
+        if (!TryComp<BodyComponent>(ent.Owner, out var body) || body.BodyType != BodyType.Complex)
             return true;
 
         if (ent.Comp.Damage != null)
@@ -40,7 +41,7 @@ public sealed partial class RepairableSystem
 
     private bool GoobTryRepairIPC(Entity<RepairableComponent> ent, EntityUid user)
     {
-        if (TryComp<BodyComponent>(ent.Owner, out var body) && ent.Comp.Damage != null && body != null) // repair entities with bodies
+        if (TryComp<BodyComponent>(ent.Owner, out var body) && body.BodyType == BodyType.Complex && ent.Comp.Damage != null) // repair entities with complex bodies (IPCs)
         {
             // here we create a fake healing comp
             var repairHealing = new HealingComponent

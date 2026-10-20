@@ -1,5 +1,4 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Goobstation.Shared.AlertLevel;
 using Content.Server.AlertLevel;
@@ -10,6 +9,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
+using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
@@ -21,8 +21,11 @@ using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Communications
 {
@@ -34,6 +37,7 @@ namespace Content.Server.Communications
         [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
         [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
+        [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
@@ -49,6 +53,8 @@ namespace Content.Server.Communications
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
             SubscribeLocalEvent<RoundEndSystemChangedEvent>(_ => OnGenericBroadcastEvent());
             SubscribeLocalEvent<AlertLevelDelayFinishedEvent>(_ => OnGenericBroadcastEvent());
+
+            SubscribeLocalEvent<AlertLevelSelectAttemptEvent>(OnAlertLevelSelectAttempt);
 
             // Messages from the BUI
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleSelectAlertLevelMessage>(OnSelectAlertLevelMessage);
@@ -116,6 +122,13 @@ namespace Content.Server.Communications
             while (query.MoveNext(out var uid, out var comp))
             {
                 var entStation = _stationSystem.GetOwningStation(uid);
+                if (entStation == null && HasComp<StationAiHeldComponent>(uid))
+                {
+                    var parent = Transform(uid).ParentUid;
+                    if (parent.IsValid())
+                        entStation = _stationSystem.GetOwningStation(parent);
+                }
+
                 if (args.Station == entStation)
                     UpdateCommsConsoleInterface(uid, comp);
             }
@@ -139,6 +152,13 @@ namespace Content.Server.Communications
         public void UpdateCommsConsoleInterface(EntityUid uid, CommunicationsConsoleComponent comp)
         {
             var stationUid = _stationSystem.GetOwningStation(uid);
+            if (stationUid == null && HasComp<StationAiHeldComponent>(uid))
+            {
+                var parent = Transform(uid).ParentUid;
+                if (parent.IsValid())
+                    stationUid = _stationSystem.GetOwningStation(parent);
+            }
+
             List<string>? levels = null;
             string currentLevel = default!;
             float currentDelay = 0;
@@ -148,20 +168,33 @@ namespace Content.Server.Communications
                 if (TryComp(stationUid.Value, out AlertLevelComponent? alertComp) &&
                     alertComp.AlertLevels != null)
                 {
+                    currentLevel = alertComp.CurrentLevel;
+                    currentDelay = _alertLevelSystem.GetAlertLevelDelay(stationUid.Value, alertComp);
+
                     if (alertComp.IsSelectable)
                     {
-                        levels = new();
-                        foreach (var (id, detail) in alertComp.AlertLevels.Levels)
+                        // If this console belongs to a silicon (AI or borg), and current level is Cyan,
+                        // silicon authority is revoked: no alert levels can be selected.
+                        if (IsSilicon(uid) && currentLevel.Equals("cyan", StringComparison.OrdinalIgnoreCase))
                         {
-                            if (detail.Selectable)
+                            levels = null;
+                        }
+                        else
+                        {
+                            levels = new();
+                            foreach (var (id, detail) in alertComp.AlertLevels.Levels)
                             {
+                                if (!detail.Selectable)
+                                    continue;
+
+                                // Silicons (AI and borgs) cannot set the alert level to Cyan.
+                                if (IsSilicon(uid) && id.Equals("cyan", StringComparison.OrdinalIgnoreCase))
+                                    continue;
+
                                 levels.Add(id);
                             }
                         }
                     }
-
-                    currentLevel = alertComp.CurrentLevel;
-                    currentDelay = _alertLevelSystem.GetAlertLevelDelay(stationUid.Value, alertComp);
                 }
             }
 
@@ -214,6 +247,94 @@ namespace Content.Server.Communications
             return !(left.TotalSeconds / expected.TotalSeconds < recallThreshold);
         }
 
+        private static readonly ProtoId<AccessLevelPrototype> CommandAccess = "Command";
+        private static readonly ProtoId<AccessLevelPrototype> CaptainAccess = "Captain";
+        private static readonly ProtoId<AccessLevelPrototype> HosAccess = "HeadOfSecurity";
+        private static readonly ProtoId<AccessLevelPrototype> HopAccess = "HeadOfPersonnel";
+        private static readonly ProtoId<AccessLevelPrototype> RdAccess = "ResearchDirector";
+        private static readonly ProtoId<AccessLevelPrototype> CeAccess = "ChiefEngineer";
+        private static readonly ProtoId<AccessLevelPrototype> CmoAccess = "ChiefMedicalOfficer";
+        private static readonly ProtoId<AccessLevelPrototype> CentcomAccess = "CentralCommand";
+
+        private bool IsAi(EntityUid entity)
+        {
+            return HasComp<StationAiCoreComponent>(entity) ||
+                   HasComp<StationAiHeldComponent>(entity) ||
+                   HasComp<StationAiEyeComponent>(entity);
+        }
+
+        private bool IsBorg(EntityUid entity)
+        {
+            return HasComp<BorgChassisComponent>(entity) ||
+                   HasComp<BorgBrainComponent>(entity);
+        }
+
+        private bool IsSilicon(EntityUid entity)
+        {
+            return IsAi(entity) || IsBorg(entity);
+        }
+
+        private bool IsCommand(EntityUid user)
+        {
+            var tags = _accessReaderSystem.FindAccessTags(user);
+            if (tags.Contains(CommandAccess) ||
+                tags.Contains(CaptainAccess) ||
+                tags.Contains(HosAccess) ||
+                tags.Contains(HopAccess) ||
+                tags.Contains(RdAccess) ||
+                tags.Contains(CeAccess) ||
+                tags.Contains(CmoAccess) ||
+                tags.Contains(CentcomAccess))
+            {
+                return true;
+            }
+
+            if (_idCardSystem.TryFindIdCard(user, out var idCard))
+            {
+                var cardTags = _accessReaderSystem.FindAccessTags(idCard);
+                if (cardTags.Contains(CommandAccess) ||
+                    cardTags.Contains(CaptainAccess) ||
+                    cardTags.Contains(HosAccess) ||
+                    cardTags.Contains(HopAccess) ||
+                    cardTags.Contains(RdAccess) ||
+                    cardTags.Contains(CeAccess) ||
+                    cardTags.Contains(CmoAccess) ||
+                    cardTags.Contains(CentcomAccess))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void OnAlertLevelSelectAttempt(ref AlertLevelSelectAttemptEvent ev)
+        {
+            if (ev.Cancelled)
+                return;
+
+            if (TryComp<AlertLevelComponent>(ev.Station, out var alertComp))
+            {
+                // If Cyan is called, AI's authority is revoked, in other words AI shouldn't be able to change alert level
+                if (alertComp.CurrentLevel.Equals("cyan", StringComparison.OrdinalIgnoreCase) && IsSilicon(ev.User))
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("alert-level-cyan-revoked-authority"), ev.Console, ev.User, PopupType.MediumCaution);
+                    ev.Cancelled = true;
+                    return;
+                }
+            }
+
+            // Ensure only command can set Cyan, AI and borgs should NOT be able to set the alert level to cyan.
+            if (ev.Level.Equals("cyan", StringComparison.OrdinalIgnoreCase))
+            {
+                if (IsSilicon(ev.User) || !IsCommand(ev.User))
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("alert-level-cyan-command-only"), ev.Console, ev.User, PopupType.MediumCaution);
+                    ev.Cancelled = true;
+                }
+            }
+        }
+
         private void OnSelectAlertLevelMessage(EntityUid uid, CommunicationsConsoleComponent comp, CommunicationsConsoleSelectAlertLevelMessage message)
         {
             if (message.Actor is not { Valid: true } mob)
@@ -226,8 +347,46 @@ namespace Content.Server.Communications
             }
 
             var stationUid = _stationSystem.GetOwningStation(uid);
+            if (stationUid == null && HasComp<StationAiHeldComponent>(uid))
+            {
+                var parent = Transform(uid).ParentUid;
+                if (parent.IsValid())
+                    stationUid = _stationSystem.GetOwningStation(parent);
+            }
+
+            if (stationUid == null)
+            {
+                stationUid = _stationSystem.GetOwningStation(mob);
+                if (stationUid == null && HasComp<StationAiHeldComponent>(mob))
+                {
+                    var parent = Transform(mob).ParentUid;
+                    if (parent.IsValid())
+                        stationUid = _stationSystem.GetOwningStation(parent);
+                }
+            }
+
             if (stationUid != null)
             {
+                if (TryComp<AlertLevelComponent>(stationUid.Value, out var alertComp))
+                {
+                    // If Cyan is called, AI's authority is revoked, in other words AI shouldn't be able to change alert level
+                    if (alertComp.CurrentLevel.Equals("cyan", StringComparison.OrdinalIgnoreCase) && IsSilicon(mob))
+                    {
+                        _popupSystem.PopupCursor(Loc.GetString("alert-level-cyan-revoked-authority"), message.Actor, PopupType.MediumCaution);
+                        return;
+                    }
+                }
+
+                // Ensure only command can set Cyan, AI and borgs should NOT be able to set the alert level to cyan.
+                if (message.Level.Equals("cyan", StringComparison.OrdinalIgnoreCase))
+                {
+                    if (IsSilicon(mob) || !IsCommand(mob))
+                    {
+                        _popupSystem.PopupCursor(Loc.GetString("alert-level-cyan-command-only"), message.Actor, PopupType.MediumCaution);
+                        return;
+                    }
+                }
+
                 // Goobstation - allow systems (e.g. amber alert gating) to veto the selection.
                 var attempt = new AlertLevelSelectAttemptEvent(stationUid.Value, uid, mob, message.Level);
                 RaiseLocalEvent(ref attempt);

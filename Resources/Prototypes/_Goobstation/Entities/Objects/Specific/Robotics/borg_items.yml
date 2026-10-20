@@ -6,3 +6,39 @@
   components:
   - type: BatterySelfRecharger
     autoRechargeRate: 10
+
+- type: entity
+  name: C.H.I.M.P. handcannon
+  parent: WeaponPistolCHIMP
+  id: WeaponPistolCHIMPBorg
+  categories: [ HideSpawnMenu ]
+  suffix: Borg
+  components:
+  - type: BatterySelfRecharger
+    autoRechargeRate: 25
+
+- type: entity
+  id: AnomalyCoreInfinite
+  name: infinite anomaly core
+  parent: BaseAnomalyCore
+  categories: [ HideSpawnMenu ]
+  suffix: Infinite
+  components:
+  - type: AnomalyCore
+    timeToDecay: 31536000000
+    isDecayed: false
+
+- type: entity
+  name: G.O.R.I.L.L.A. gauntlet
+  parent: WeaponGauntletGorilla
+  id: WeaponGauntletGorillaInfinite
+  categories: [ HideSpawnMenu ]
+  suffix: Infinite, Borg
+  components:
+  - type: ItemSlots
+    slots:
+      core_slot:
+        name: anomaly-gorilla-core-slot-name
+        startingItem: AnomalyCoreInfinite
+        locked: true
+

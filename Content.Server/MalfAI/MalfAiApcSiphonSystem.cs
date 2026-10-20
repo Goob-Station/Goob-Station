@@ -35,7 +35,6 @@ public sealed class MalfAiApcSiphonSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<ApcComponent, Content.Shared.Verbs.GetVerbsEvent<Content.Shared.Verbs.AlternativeVerb>>(OnGetAltVerbs);
-        SubscribeLocalEvent<ApcComponent, Content.Shared.Verbs.GetVerbsEvent<Content.Shared.Verbs.InteractionVerb>>(OnGetInteractionVerbs);
     }
 
     public override void Update(float frameTime)
@@ -79,32 +78,7 @@ public sealed class MalfAiApcSiphonSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    private void OnGetInteractionVerbs(EntityUid uid, ApcComponent apc, ref Content.Shared.Verbs.GetVerbsEvent<Content.Shared.Verbs.InteractionVerb> args)
-    {
-        if (!args.CanInteract || !args.CanAccess)
-            return;
-        
-        if (!HasComp<MalfAiMarkerComponent>(args.User))
-            return;
 
-        // Ensure we haven't already siphoned it
-        if (HasComp<MalfAiApcSiphonedComponent>(uid))
-            return;
-
-        var user = args.User;
-        var verb = new Content.Shared.Verbs.InteractionVerb()
-        {
-            Text = Loc.GetString("malf-ai-hack-apc-verb", ("target", uid)), // Will fallback if missing
-            Icon = new Robust.Shared.Utility.SpriteSpecifier.Texture(new Robust.Shared.Utility.ResPath("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
-            Priority = 10,
-            Act = () =>
-            {
-                var siphonEvent = new ApcStartSiphonEvent(user);
-                OnApcStartSiphon(uid, apc, ref siphonEvent);
-            }
-        };
-        args.Verbs.Add(verb);
-    }
 
     public void OnApcStartSiphon(EntityUid uid, ApcComponent apc, ref ApcStartSiphonEvent args)
     {
@@ -123,12 +97,12 @@ public sealed class MalfAiApcSiphonSystem : EntitySystem
         _apcSystem.UpdateApcState(uid, apc);
 
         var siphonedComp = EnsureComp<MalfAiApcSiphonedComponent>(uid);
-        siphonedComp.SiphonEndTime = _timing.CurTime + TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.MalfAiApcSiphonCooldown));
+        siphonedComp.SiphonEndTime = _timing.CurTime + TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.MalfAiCpuSiphonDuration));
 
         if (!TryComp<Content.Shared.Store.Components.StoreComponent>(args.SiphonedBy, out var store))
             return;
 
-        var cpuAmount = _cfg.GetCVar(Content.Shared.CCVar.CCVars.MalfAiApcSiphonCpu);
+        var cpuAmount = _cfg.GetCVar(CCVars.MalfAiCpuSiphonAmount);
         var siphonAmount = FixedPoint2.New(cpuAmount);
 
         // Grant CPU to the AI

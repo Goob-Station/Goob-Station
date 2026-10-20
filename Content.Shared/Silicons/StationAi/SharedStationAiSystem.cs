@@ -374,7 +374,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         _slots.RemoveItemSlot(ent.Owner, ent.Comp.Slot);
     }
 
-    private void OnHolderConInsert(Entity<StationAiHolderComponent> ent, ref EntInsertedIntoContainerMessage args)
+    protected virtual void OnHolderConInsert(Entity<StationAiHolderComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
         if (_timing.ApplyingState)
             return;

@@ -60,3 +60,30 @@
   - type: WiresPanel
   - type: StaticPrice
     price: 1500
+
+- type: entity
+  id: MachineMaterialSiloMalfunctioning
+  parent: MachineMaterialSilo
+  name: malfunctioning material silo
+  description: A subverted bluespace material silo under Malfunctioning AI control, supplying infinite-range materials to all station factory machines.
+  components:
+  - type: MalfAiSilo
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: Sprite
+    sprite: Structures/Machines/silo.rsi
+    layers:
+    - state: silo_active
+      map: [ "base" ]
+  - type: OreSilo
+    range: 99999
+  - type: MaterialStorage
+    storage:
+      Steel: 50000
+      Glass: 30000
+      Plastic: 20000
+      Plasma: 10000
+      Silver: 10000
+      Gold: 10000
+      Uranium: 5000
+      Biomass: 5000

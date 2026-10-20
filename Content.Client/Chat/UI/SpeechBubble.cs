@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Client.Silicons.StationAi;
 using Robust.Client.UserInterface.RichText; // Goob
 using System.Numerics;
 using Content.Goobstation.Common.CCVar; // Goob
@@ -33,6 +34,7 @@ namespace Content.Client.Chat.UI
             typeof(HeadingTag),
             typeof(ItalicTag),
             typeof(FontTag),
+            typeof(SpeakerTag),
         ];
         // </Goob>
 

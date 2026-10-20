@@ -416,6 +416,25 @@ public abstract partial class SharedChatSystem : EntitySystem
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
 
+    public static string ReplaceTag(string rawmsg, string tag, string replacement)
+    {
+        var openTagPrefix = $"[{tag}";
+        var closeTag = $"[/{tag}]";
+        var tagStart = rawmsg.IndexOf(openTagPrefix, StringComparison.Ordinal);
+        if (tagStart < 0)
+            return rawmsg;
+
+        var openTagEnd = rawmsg.IndexOf(']', tagStart);
+        if (openTagEnd < 0)
+            return rawmsg;
+
+        var tagEnd = rawmsg.IndexOf(closeTag, openTagEnd, StringComparison.Ordinal);
+        if (tagEnd < 0)
+            return rawmsg;
+
+        return rawmsg.Substring(0, tagStart) + replacement + rawmsg.Substring(tagEnd + closeTag.Length);
+    }
+
     protected virtual void SendEntityEmote(
         EntityUid source,
         string action,

@@ -25,12 +25,39 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
     {
     }
 
+    private bool IsMalfAiStore(StoreUpdateState? msg = null)
+    {
+        if (EntMan.HasComponent<Content.Shared.MalfAI.MalfAiMarkerComponent>(Owner))
+            return true;
+
+        if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store) && store.Name == "store-preset-name-malfai")
+            return true;
+
+        if (msg != null)
+        {
+            if (msg.Balance.ContainsKey("CPU"))
+                return true;
+
+            if (msg.Listings.Any(l => l.Categories.Contains("Deception") ||
+                                      l.Categories.Contains("Factory") ||
+                                      l.Categories.Contains("Disruption")))
+                return true;
+        }
+
+        return false;
+    }
+
     protected override void Open()
     {
         base.Open();
 
         _menu = this.CreateWindow<StoreMenu>();
-        if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store))
+        if (IsMalfAiStore())
+        {
+            _menu.Title = Loc.GetString("store-preset-name-malfai");
+            _menu.ApplyMalfTheme();
+        }
+        else if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store))
         {
             _menu.Title = Loc.GetString(store.Name);
             if (store.Name == "store-preset-name-malfai")
@@ -45,7 +72,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
         _menu.OnCategoryButtonPressed += (_, category) =>
         {
             _menu.CurrentCategory = category;
-            _menu?.UpdateListing();
+            UpdateListingsWithSearchFilter();
         };
 
         _menu.OnWithdrawAttempt += (_, type, amount) =>
@@ -71,6 +98,13 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
         switch (state)
         {
             case StoreUpdateState msg:
+                if (IsMalfAiStore(msg))
+                {
+                    _menu?.ApplyMalfTheme();
+                    if (_menu != null)
+                        _menu.Title = Loc.GetString("store-preset-name-malfai");
+                }
+
                 _listings = msg.Listings;
 
                 _menu?.UpdateBalance(msg.Balance);

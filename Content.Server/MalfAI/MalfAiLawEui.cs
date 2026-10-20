@@ -99,25 +99,14 @@ public sealed class MalfAiLawEui : BaseEui
         if (Player.AttachedEntity is not { } attached)
             return false;
 
-        if (_entityManager.HasComponent<MalfMasterLawsetComponent>(target))
-            return _entityManager.HasComponent<Content.Shared.Silicons.StationAi.StationAiHeldComponent>(attached);
+        var malfSys = _entityManager.System<MalfAiBorgsUiSystem>();
 
-        if (!_entityManager.TryGetComponent<MalfAiControlledComponent>(target, out var controlled) || controlled.Controller == null)
+        if (_entityManager.HasComponent<MalfMasterLawsetComponent>(target))
+            return malfSys.TryGetMalfAi(attached, out _);
+
+        if (!_entityManager.TryGetComponent<MalfAiControlledComponent>(target, out var controlled))
             return false;
 
-        if (controlled.Controller == attached)
-            return true;
-
-        if (_entityManager.TryGetComponent<MindContainerComponent>(attached, out var aMind) && aMind.Mind != null)
-        {
-            if (controlled.Controller != null &&
-                _entityManager.TryGetComponent<MindContainerComponent>(controlled.Controller.Value, out var cMind) &&
-                cMind.Mind == aMind.Mind)
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return malfSys.IsBorgControlledByAi(attached, controlled);
     }
 }

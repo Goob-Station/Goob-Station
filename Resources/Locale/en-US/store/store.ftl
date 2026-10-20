@@ -31,3 +31,4 @@ store-preset-name-spellbook = Spellbook
 store-preset-name-nukie-delivery = NukeOps Bluespace Delivery
 store-preset-name-changeling = DNA Store
 store-preset-name-spellbook-ghost = Ghostly Spellshop
+store-preset-name-malfai = Malfunctioning AI Subroutines

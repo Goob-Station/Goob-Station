@@ -198,3 +198,62 @@
           - MagazineRifle
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Rifles/lecter.rsi, state: base }
+
+- type: entity
+  id: BorgModuleSuperMining
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: super mining cyborg module
+  description: Advanced cargo module containing state-of-the-art super mining equipment.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-mining-adv
+  - type: ItemBorgModule
+    hands:
+    - item: MiningDrillSuper
+    - item: Shovel
+    - item: AdvancedMineralScannerUnpowered
+    - item: OreBagOfHolding
+    - item: WeaponProtoKineticAcceleratorSpace
+      hand:
+        emptyRepresentative: WeaponProtoKineticAcceleratorSpace
+        emptyLabel: borg-slot-WeaponProtoKineticAccelerator-empty-goob
+        whitelist:
+          components:
+          - PressureDamageChange
+    - item: WeaponSuperPlasmaCutter
+      hand:
+        emptyRepresentative: WeaponSuperPlasmaCutter
+        emptyLabel: borg-slot-WeaponSuperPlasmaCutter-empty-goob
+        whitelist:
+          components:
+          - MaterialEnergy
+  - type: BorgModuleIcon
+    icon: { sprite: _Lavaland/Objects/Tools/handdrill_super.rsi, state: handdrill }
+
+- type: entity
+  id: BorgModuleAdvancedResearch
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  name: advanced research cyborg module
+  description: Advanced science module containing cutting-edge anomaly analysis, containment, and artifact research equipment.
+  components:
+  - type: Sprite
+    layers:
+    - state: science
+    - sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
+      state: base
+      scale: 0.6, 0.6
+      color: "#FFAEB6"
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponPistolCHIMPBorg
+    - item: WeaponGauntletGorillaInfinite
+    - item: AnomalyScanner
+    - item: WeaponTetherGun
+    - item: PinpointerAnomaly
+  - type: BorgModuleIcon
+    icon: { sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi, state: base }
+    color: "#FFAEB6"
+
+

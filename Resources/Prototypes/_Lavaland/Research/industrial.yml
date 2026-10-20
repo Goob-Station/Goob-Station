@@ -10,6 +10,7 @@
   recipeUnlocks:
   - MiningDrillSuper
   - WeaponSuperPlasmaCutter
+  - BorgModuleSuperMining
   # Goobstation R&D Console rework start
   position: 0,-7
   technologyPrerequisites:

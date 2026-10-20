@@ -63,6 +63,20 @@ public sealed class RoboticsConsoleDestroyMessage : BoundUserInterfaceMessage
 }
 
 /// <summary>
+/// Message to hack the selected cyborg (Malf AI only).
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class RoboticsConsoleHackMessage : BoundUserInterfaceMessage
+{
+    public readonly string Address;
+
+    public RoboticsConsoleHackMessage(string address)
+    {
+        Address = address;
+    }
+}
+
+/// <summary>
 /// All data a client needs to render the console UI for a single cyborg.
 /// Created by <c>BorgTransponderComponent</c> and sent to clients by <c>RoboticsConsoleComponent</c>.
 /// </summary>
@@ -131,7 +145,13 @@ public partial record struct CyborgControlData
     public bool IsAiControllable;
     // Corvax-Next-AiRemoteControl-End
 
-    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, float hpPercent, int moduleCount, bool hasBrain, bool canDisable, bool isAiControllable) // Corvax-Next-AiRemoteControl
+    /// <summary>
+    /// Whether the cyborg has been subverted by a Malf AI.
+    /// </summary>
+    [DataField]
+    public bool IsHacked;
+
+    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, float hpPercent, int moduleCount, bool hasBrain, bool canDisable, bool isAiControllable, bool isHacked = false) // Corvax-Next-AiRemoteControl
     {
         ChassisSprite = chassisSprite;
         ChassisName = chassisName;
@@ -142,6 +162,7 @@ public partial record struct CyborgControlData
         HasBrain = hasBrain;
         CanDisable = canDisable;
         IsAiControllable = isAiControllable; // Corvax-Next-AiRemoteControl
+        IsHacked = isHacked;
     }
 }
 
@@ -153,4 +174,6 @@ public static class RoboticsConsoleConstants
     // sent by robotics console to cyborgs on Cyborg Control frequency
     public const string NET_DISABLE_COMMAND = "cyborg-disable";
     public const string NET_DESTROY_COMMAND = "cyborg-destroy";
+    public const string NET_HACK_COMMAND = "cyborg-hack";
+    public const string NET_MALF_AI_CONTROLLER = "cyborg-malf-controller";
 }

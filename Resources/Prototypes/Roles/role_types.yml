@@ -48,3 +48,11 @@
   color: '#c832e6'
   symbol: "⛞"
 
+# This can be changed to team antagonist if needed
+- type: roleType
+  id: Malfunctioning_Silicon
+  name: role-type-malfunctioning-silicon-name
+  color: '#c832e6'
+  symbol: "⛞"
+
+

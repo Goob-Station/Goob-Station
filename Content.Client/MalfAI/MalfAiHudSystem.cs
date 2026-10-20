@@ -4,7 +4,9 @@
 
 using Content.Client.Alerts;
 using Content.Shared.Alert;
+using Content.Shared.Alert.Components;
 using Content.Shared.MalfAI;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Store.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Store;
@@ -18,45 +20,74 @@ public sealed class MalfAiHudSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        // Subscribe on StationAiHeld so this runs for the local AI eye entity.
-        SubscribeLocalEvent<Content.Shared.Silicons.StationAi.StationAiHeldComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
+        SubscribeLocalEvent<AlertsComponent, GetGenericAlertCounterAmountEvent>(OnGetCounterAmount);
+        SubscribeLocalEvent<StoreComponent, GetGenericAlertCounterAmountEvent>(OnGetCounterAmountStore);
+        SubscribeLocalEvent<StationAiHeldComponent, GetGenericAlertCounterAmountEvent>(OnGetCounterAmountHeld);
     }
 
     private EntityUid? ResolveMalfAiEntity(EntityUid local)
     {
-        // Prefer local if it already has a store (covers some setups)
-        if (TryComp<StoreComponent>(local, out _))
+        // 1. Prefer local entity if it has a store with CPU
+        if (TryComp<StoreComponent>(local, out var localStore) &&
+            (localStore.Balance.ContainsKey("CPU") || localStore.CurrencyWhitelist.Contains("CPU")))
+        {
+            return local;
+        }
+
+        // 2. If local is an AI held entity
+        if (TryComp<StationAiHeldComponent>(local, out _) && TryComp<StoreComponent>(local, out _))
             return local;
 
-        // Find any entity flagged as Malf AI that also has a store.
+        // 3. Find any entity flagged as Malf AI that also has a store.
         var query = AllEntityQuery<MalfAiMarkerComponent, StoreComponent>();
         while (query.MoveNext(out var uid, out _, out _))
             return uid;
 
+        // 4. Fall back to any store that contains CPU in balance or whitelist
+        var storeQuery = AllEntityQuery<StoreComponent>();
+        while (storeQuery.MoveNext(out var uid, out var store))
+        {
+            if (store.Balance.ContainsKey("CPU") || store.CurrencyWhitelist.Contains("CPU"))
+                return uid;
+        }
+
         return null;
     }
 
-    private void OnUpdateAlert(Entity<Content.Shared.Silicons.StationAi.StationAiHeldComponent> ent, ref UpdateAlertSpriteEvent args)
+    private void OnGetCounterAmountStore(Entity<StoreComponent> ent, ref GetGenericAlertCounterAmountEvent args)
     {
+        TryHandleCounter(ent.Owner, ref args);
+    }
+
+    private void OnGetCounterAmountHeld(Entity<StationAiHeldComponent> ent, ref GetGenericAlertCounterAmountEvent args)
+    {
+        TryHandleCounter(ent.Owner, ref args);
+    }
+
+    private void OnGetCounterAmount(Entity<AlertsComponent> ent, ref GetGenericAlertCounterAmountEvent args)
+    {
+        TryHandleCounter(ent.Owner, ref args);
+    }
+
+    private void TryHandleCounter(EntityUid local, ref GetGenericAlertCounterAmountEvent args)
+    {
+        if (args.Handled)
+            return;
+
         if (args.Alert.ID != "MalfCpu")
             return;
 
-        // Find which entity holds the CPU store.
-        var source = ResolveMalfAiEntity(ent.Owner);
+        var source = ResolveMalfAiEntity(local);
         if (source == null || !TryComp<StoreComponent>(source.Value, out var store))
+        {
+            args.Amount = 0;
             return;
+        }
 
-        var sprite = args.SpriteViewEnt.Comp;
-
-        // Read CPU amount and clamp to 0..999
         ProtoId<CurrencyPrototype> cpu = "CPU";
-        var amount = 0;
         if (store.Balance.TryGetValue(cpu, out FixedPoint2 val))
-            amount = (int) val.Int();
-        amount = Math.Clamp(amount, 0, 999);
-
-        sprite.LayerSetState(MalfAiHudVisualLayers.Digit1, $"{(amount / 100) % 10}");
-        sprite.LayerSetState(MalfAiHudVisualLayers.Digit2, $"{(amount / 10) % 10}");
-        sprite.LayerSetState(MalfAiHudVisualLayers.Digit3, $"{amount % 10}");
+            args.Amount = (int) val.Int();
+        else
+            args.Amount = 0;
     }
 }

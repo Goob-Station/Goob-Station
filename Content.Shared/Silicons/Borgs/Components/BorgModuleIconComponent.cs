@@ -2,6 +2,7 @@
 
 //using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
+using Robust.Shared.Maths;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Silicons.Borgs.Components;
@@ -19,4 +20,9 @@ public sealed partial class BorgModuleIconComponent : Component
     [DataField]
     public SpriteSpecifier.Rsi Icon = default!;
 
+    /// <summary>
+    /// Optional color tint for the action icon.
+    /// </summary>
+    [DataField]
+    public Color? Color;
 }

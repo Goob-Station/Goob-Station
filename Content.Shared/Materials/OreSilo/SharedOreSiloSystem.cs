@@ -165,4 +165,28 @@ public abstract class SharedOreSiloSystem : EntitySystem
 
         return true;
     }
+
+    /// <summary>
+    /// Connects a client to a silo, disconnecting it from any existing silo.
+    /// </summary>
+    [PublicAPI]
+    public void LinkClient(Entity<OreSiloComponent> silo, Entity<OreSiloClientComponent> client)
+    {
+        if (client.Comp.Silo == silo.Owner)
+            return;
+
+        if (client.Comp.Silo is { } oldSiloUid &&
+            oldSiloUid != silo.Owner &&
+            TryComp<OreSiloComponent>(oldSiloUid, out var oldSilo))
+        {
+            oldSilo.Clients.Remove(client.Owner);
+            Dirty(oldSiloUid, oldSilo);
+        }
+
+        silo.Comp.Clients.Add(client.Owner);
+        Dirty(silo);
+
+        client.Comp.Silo = silo.Owner;
+        Dirty(client);
+    }
 }

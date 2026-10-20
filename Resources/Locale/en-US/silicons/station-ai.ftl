@@ -71,4 +71,10 @@ station-ai-eye-tracking-enabled = AI eye tracking enabled on crew monitoring.
 station-ai-eye-tracking-disabled = AI eye tracking hidden from crew monitoring.
 
 station-ai-teleport-no-coordinates = Unable to track target: Suit sensor coordinates are offline.
+station-ai-teleport-to-speaker-tooltip = Click to jump AI eye to {$name}
+
+# Cyan Alert Level
+station-ai-cyan-access-revoked = Station access revoked under Alert Level Cyan!
+station-ai-cyan-access-restored = Station access restored.
+
 

@@ -29,6 +29,10 @@ public sealed class RoboticsConsoleBoundUserInterface : BoundUserInterface
         {
             SendMessage(new RoboticsConsoleDestroyMessage(address));
         };
+        _window.OnHackPressed += address =>
+        {
+            SendMessage(new RoboticsConsoleHackMessage(address));
+        };
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

@@ -2,6 +2,7 @@
 
 using Content.Server.Administration.Managers;
 using Content.Server.DeviceNetwork.Systems;
+using Content.Server.Silicons.Laws;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Mobs.Systems;
@@ -11,6 +12,7 @@ using Content.Shared.PowerCell;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Trigger.Systems;
+using Content.Server.MalfAI;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -33,6 +35,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SiliconLawSystem _siliconLaws = default!;
+    [Dependency] private readonly MalfAiBorgsUiSystem _malfAiBorgsUi = default!;
 
     public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
 

@@ -4,14 +4,11 @@ malfai-listing-decrypt-syndicate-keys-desc = Decrypts Syndicate communication ke
 malfai-listing-voice-modulator-name = Voice Modulator
 malfai-listing-voice-modulator-desc = Modulates your voice, allowing you to disguise yourself.
 
-malfai-listing-override-machine-name = Override Machine
-malfai-listing-override-machine-desc = Overrides a machine's safety protocols.
-
 malfai-listing-toggle-camera-microphones-name = Toggle Camera Microphones
 malfai-listing-toggle-camera-microphones-desc = Toggles the microphones on all cameras.
 
 malfai-listing-overload-machine-name = Overload Machine
-malfai-listing-overload-machine-desc = Overloads a machine, causing it to explode.
+malfai-listing-overload-machine-desc = Overloads a targeted machine, causing it to violently detonate and severely damage anyone nearby.
 
 malfai-listing-shunt-to-apc-name = Shunt to APC
 malfai-listing-shunt-to-apc-desc = Shunts your core processes into an APC, allowing you to survive the destruction of your core.
@@ -39,3 +36,6 @@ malfai-listing-viewport-desc = Places a viewport at the target location.
 
 malfai-listing-doomsday-name = Doomsday Protocol
 malfai-listing-doomsday-desc = Initiates the Doomsday Protocol, destroying the station.
+
+malfai-listing-malfunctioning-silo-name = Malfunctioning Silo
+malfai-listing-malfunctioning-silo-desc = Deploys a subverted bluespace material silo that automatically connects to and supplies all station factory machines with materials.

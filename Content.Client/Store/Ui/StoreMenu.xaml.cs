@@ -52,6 +52,9 @@ public sealed partial class StoreMenu : FancyWindow
 
     public void ApplyMalfTheme()
     {
+        if (IsMalfAi)
+            return;
+
         IsMalfAi = true;
         var cache = IoCManager.Resolve<Robust.Client.ResourceManagement.IResourceCache>();
         ((Control) this).Stylesheet = Content.Client.MalfAI.Theme.MalfUiTheme.GetCachedStylesheet(cache, 12);
@@ -73,6 +76,15 @@ public sealed partial class StoreMenu : FancyWindow
         // Apply Malf background styles to the hardcoded panels
         MainPanel.PanelOverride = Content.Client.MalfAI.Theme.MalfUiTheme.CreateBackdropStyle();
         CategoryPanel.PanelOverride = Content.Client.MalfAI.Theme.MalfUiTheme.CreateBackdropStyle();
+
+        WithdrawButton.Visible = false;
+        WithdrawButton.StyleBoxOverride = Content.Client.MalfAI.Theme.MalfUiTheme.CreateButtonStyle();
+        RefundButton.StyleBoxOverride = Content.Client.MalfAI.Theme.MalfUiTheme.CreateButtonStyle();
+
+        if (_cachedListings.Count > 0)
+        {
+            UpdateListing();
+        }
     }
 
     public void UpdateBalance(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance)
@@ -101,7 +113,10 @@ public sealed partial class StoreMenu : FancyWindow
             }
         }
 
-        WithdrawButton.Disabled = disabled;
+        if (IsMalfAi)
+            WithdrawButton.Visible = false;
+        else
+            WithdrawButton.Disabled = disabled;
     }
 
     public void UpdateListing(List<ListingDataWithCostModifiers> listings)
@@ -285,6 +300,9 @@ public sealed partial class StoreMenu : FancyWindow
         {
             foreach (var cat in listing.Categories)
             {
+                if (IsMalfAi && cat.Id == "MalfAI")
+                    continue;
+
                 var proto = _prototypeManager.Index(cat);
                 if (!allCategories.Contains(proto))
                     allCategories.Add(proto);
@@ -318,8 +336,19 @@ public sealed partial class StoreMenu : FancyWindow
 
             if (IsMalfAi)
             {
-                // Apply malf styling: green border black button, overrides the generic style
-                catButton.StyleBoxOverride = Content.Client.MalfAI.Theme.MalfUiTheme.CreateButtonStyle();
+                // Apply malf styling: green border black button, with dark green background when pressed
+                var border = Content.Client.MalfAI.Theme.MalfUiTheme.Accent;
+                var bg = proto.ID == CurrentCategory ? new Color(0f, 0.25f, 0.05f) : Color.Black;
+                catButton.StyleBoxOverride = new StyleBoxFlat
+                {
+                    BackgroundColor = bg,
+                    BorderColor = border,
+                    BorderThickness = new Thickness(2f),
+                    ContentMarginLeftOverride = 4,
+                    ContentMarginTopOverride = 2,
+                    ContentMarginRightOverride = 4,
+                    ContentMarginBottomOverride = 2
+                };
             }
             else
             {

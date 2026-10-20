@@ -80,6 +80,24 @@
     stock: 1
 
 - type: listing
+  id: MalfAiMalfunctioningSilo
+  name: malfai-listing-malfunctioning-silo-name
+  description: malfai-listing-malfunctioning-silo-desc
+  categories:
+  - MalfAI
+  - Factory
+  cost:
+    CPU: 50
+  icon:
+    sprite: Structures/Machines/silo.rsi
+    state: silo
+  productAction: ActionMalfAiPlaceSilo
+  priority: 10
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: MalfAiDetonateRCDs
   name: malfai-listing-detonate-rcds-name
   description: malfai-listing-detonate-rcds-desc
@@ -130,22 +148,6 @@
   productAction: ActionMalfAiOverloadMachine
   productActionCharges: 2
   priority: 6
-
-- type: listing
-  id: MalfAiOverrideMachine
-  name: malfai-listing-override-machine-name
-  description: malfai-listing-override-machine-desc
-  categories:
-  - MalfAI
-  - Disruption
-  cost:
-    CPU: 75
-  icon:
-    sprite: Interface/Actions/actions_malf_ai.rsi
-    state: malfai_overridemachine
-  productAction: ActionMalfAiOverrideMachine
-  productActionCharges: 2
-  priority: 5
 
 - type: listing
   id: MalfAiDecryptSyndicateKeys

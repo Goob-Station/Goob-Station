@@ -889,6 +889,35 @@ public sealed partial class ChatUIController : UIController
                 msg.WrappedMessage = SharedChatSystem.InjectTagInsideTag(msg, "Name", "color", GetNameColor(SharedChatSystem.GetStringInsideTag(msg, "Name")));
         }
 
+        // Station AI: Make speaker name clickable in local and whisper chat
+        if ((msg.Channel == ChatChannel.Local || msg.Channel == ChatChannel.Whisper) &&
+            msg.SenderEntity != default && msg.SenderEntity != NetEntity.Invalid)
+        {
+            var rawName = SharedChatSystem.GetStringInsideTag(msg, "Name");
+            if (!string.IsNullOrEmpty(rawName))
+            {
+                string? colorHex = null;
+                var pureName = rawName;
+                if (pureName.StartsWith("[color=", StringComparison.Ordinal) && pureName.EndsWith("[/color]", StringComparison.Ordinal))
+                {
+                    var colorEnd = pureName.IndexOf(']');
+                    if (colorEnd > 7)
+                    {
+                        colorHex = pureName.Substring(7, colorEnd - 7);
+                        pureName = pureName.Substring(colorEnd + 1, pureName.Length - colorEnd - 1 - 8);
+                    }
+                }
+
+                pureName = FormattedMessage.RemoveMarkupPermissive(pureName).Trim();
+                if (!string.IsNullOrEmpty(pureName))
+                {
+                    var colorAttr = colorHex != null ? $" color=\"{colorHex}\"" : "";
+                    var speakerTag = $"[speaker=\"{FormattedMessage.EscapeText(pureName)}\" target=\"{msg.SenderEntity}\"{colorAttr}/]";
+                    msg.WrappedMessage = SharedChatSystem.ReplaceTag(msg.WrappedMessage, "Name", speakerTag);
+                }
+            }
+        }
+
         // Color any codewords for minds that have roles that use them
         if (_player.LocalUser != null && _mindSystem != null && _roleCodewordSystem != null)
         {

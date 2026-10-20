@@ -130,7 +130,8 @@
   components:
   - type: MindRole
     antagPrototype: SubvertedSilicon
-    roleType: SiliconAntagonist
+    # This can be changed to team antagonist if needed
+    roleType: Malfunctioning_Silicon
     subtype: role-subtype-subverted
   - type: SubvertedSiliconRole
 

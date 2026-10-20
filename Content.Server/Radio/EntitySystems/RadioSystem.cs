@@ -283,13 +283,18 @@ public sealed partial class RadioSystem : EntitySystem
                 }
             }
 
+        var speakerNet = GetNetEntity(source);
         var nameString = jobIcon is null // (unrelated to loudspeakers but still goob)
-            ? name
+            ? Loc.GetString("chat-radio-message-name",
+                ("name", name),
+                ("speaker", speakerNet),
+                ("channelId", channel.ID))
             : Loc.GetString("chat-radio-message-name-with-icon",
                 ("jobIcon", jobIcon),
                 ("jobName", jobName ?? ""),
                 ("name", name),
-                ("speaker", GetNetEntity(source)));
+                ("speaker", speakerNet),
+                ("channelId", channel.ID));
         // goob end
 
         return Loc.GetString(wrapId,

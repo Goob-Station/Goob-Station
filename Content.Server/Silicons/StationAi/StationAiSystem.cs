@@ -13,7 +13,10 @@ using Content.Server.Power.Components;
 using Content.Server.Roles;
 using Content.Server.Spawners.Components;
 using Content.Server.Spawners.EntitySystems;
+using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Containers.ItemSlots;
@@ -81,6 +84,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedContentEyeSystem _contentEye = default!;
+    [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
 
@@ -115,6 +119,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, ToggleAiEyeVisibilityEvent>(OnToggleAiEyeVisibility);
         SubscribeNetworkEvent<StationAiRequestCrewMonitoringSensorsEvent>(OnRequestCrewMonitoringSensors);
         SubscribeNetworkEvent<StationAiTeleportToTargetEvent>(OnTeleportToTarget);
+
+        SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
     }
 
     private SuitSensorStatus? CreateAiEyeSensorStatus(EntityUid user, EntityUid holo)
@@ -446,6 +452,15 @@ public sealed class StationAiSystem : SharedStationAiSystem
         UpdateBatteryAlert(ent);
         UpdateCoreIntegrityAlert(ent);
         UpdateDamagedAccent(ent);
+
+        var station = _station.GetOwningStation(ent.Owner);
+        if (station != null &&
+            TryComp<AlertLevelComponent>(station, out var alertComp) &&
+            TryComp<AccessComponent>(args.Entity, out var access))
+        {
+            var isCyan = alertComp.CurrentLevel.Equals("cyan", StringComparison.OrdinalIgnoreCase);
+            SetAiAccess(args.Entity, access, !isCyan);
+        }
     }
 
     protected override void OnAiRemove(Entity<StationAiCoreComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -765,5 +780,123 @@ public sealed class StationAiSystem : SharedStationAiSystem
         }
 
         return hashSet;
+    }
+
+    protected override void OnHolderConInsert(Entity<StationAiHolderComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        base.OnHolderConInsert(ent, ref args);
+
+        if (args.Container.ID != StationAiHolderComponent.Container)
+            return;
+
+        var station = _station.GetOwningStation(ent.Owner);
+        if (station == null)
+        {
+            var parent = Transform(ent.Owner).ParentUid;
+            while (parent.IsValid())
+            {
+                station = _station.GetOwningStation(parent);
+                if (station != null)
+                    break;
+                parent = Transform(parent).ParentUid;
+            }
+        }
+
+        if (station != null &&
+            TryComp<AlertLevelComponent>(station, out var alertComp) &&
+            TryComp<AccessComponent>(args.Entity, out var access))
+        {
+            var isCyan = alertComp.CurrentLevel.Equals("cyan", StringComparison.OrdinalIgnoreCase);
+            SetAiAccess(args.Entity, access, !isCyan);
+        }
+    }
+
+    private void OnAlertLevelChanged(AlertLevelChangedEvent args)
+    {
+        var isCyan = args.AlertLevel.Equals("cyan", StringComparison.OrdinalIgnoreCase);
+        UpdateStationAiAccess(args.Station, isCyan);
+    }
+
+    public void UpdateStationAiAccess(EntityUid stationUid, bool isCyan)
+    {
+        var holderQuery = EntityQueryEnumerator<StationAiHolderComponent>();
+        while (holderQuery.MoveNext(out var holderUid, out var holder))
+        {
+            var station = _station.GetOwningStation(holderUid);
+            if (station == null)
+            {
+                var parent = Transform(holderUid).ParentUid;
+                while (parent.IsValid())
+                {
+                    station = _station.GetOwningStation(parent);
+                    if (station != null)
+                        break;
+                    parent = Transform(parent).ParentUid;
+                }
+            }
+
+            if (station != stationUid)
+                continue;
+
+            if (TryGetHeld((holderUid, holder), out var heldUid) && TryComp<AccessComponent>(heldUid, out var access))
+            {
+                SetAiAccess(heldUid.Value, access, !isCyan);
+            }
+        }
+
+        var aiQuery = EntityQueryEnumerator<StationAiHeldComponent, AccessComponent>();
+        while (aiQuery.MoveNext(out var aiUid, out _, out var access))
+        {
+            var station = GetAiStation(aiUid);
+            if (station != stationUid)
+                continue;
+
+            SetAiAccess(aiUid, access, !isCyan);
+        }
+    }
+
+    public EntityUid? GetAiStation(EntityUid aiUid)
+    {
+        var station = _station.GetOwningStation(aiUid);
+        if (station != null)
+            return station;
+
+        if (TryGetCore(aiUid, out var core) && core.Comp != null)
+        {
+            station = _station.GetOwningStation(core.Owner);
+            if (station != null)
+                return station;
+        }
+
+        var parent = Transform(aiUid).ParentUid;
+        while (parent.IsValid())
+        {
+            station = _station.GetOwningStation(parent);
+            if (station != null)
+                return station;
+
+            parent = Transform(parent).ParentUid;
+        }
+
+        return null;
+    }
+
+    private void SetAiAccess(EntityUid aiUid, AccessComponent access, bool enabled)
+    {
+        if (access.Enabled == enabled)
+            return;
+
+        _accessSystem.SetAccessEnabled(aiUid, enabled, access);
+
+        var msg = enabled
+            ? Loc.GetString("station-ai-cyan-access-restored")
+            : Loc.GetString("station-ai-cyan-access-revoked");
+        var popupType = enabled ? PopupType.Medium : PopupType.LargeCaution;
+        _popups.PopupEntity(msg, aiUid, aiUid, popupType);
+
+        if (TryGetCore(aiUid, out var core) && core.Comp?.RemoteEntity is { } holo && Exists(holo))
+        {
+            _popups.PopupEntity(msg, holo, aiUid, popupType);
+        }
     }
 }

@@ -71,11 +71,17 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
             }
 
             // Check if we should start the doomsday music
-            if (!comp.MusicStarted && comp.SongDuration.HasValue && comp.SelectedDoomsdaySong != null)
+            if (!comp.MusicStarted && comp.SelectedDoomsdaySong != null)
             {
-                // Start music when remaining time matches song duration (with small buffer)
-                var songDurationWithBuffer = TimeSpan.FromSeconds(comp.SongDuration.Value + DoomsdaySongBuffer);
-                if (comp.RemainingTime <= songDurationWithBuffer)
+                var shouldStart = true;
+                if (comp.SongDuration.HasValue)
+                {
+                    // Start music when remaining time matches song duration (with small buffer)
+                    var songDurationWithBuffer = TimeSpan.FromSeconds(comp.SongDuration.Value + DoomsdaySongBuffer);
+                    shouldStart = comp.RemainingTime <= songDurationWithBuffer;
+                }
+
+                if (shouldStart)
                 {
                     _sound.DispatchStationEventMusic(comp.Station, comp.SelectedDoomsdaySong, StationEventMusicType.Nuke);
                     comp.MusicStarted = true;
@@ -147,7 +153,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         }
 
         // Get duration configuration
-        var duration = 300f;
+        var duration = _cfg.GetCVar(CCVars.MalfAiDoomsdayCountdown);
         var actualDuration = duration > 0 ? duration : 1f; // Ensure positive duration
 
         // Record previous alert level state.

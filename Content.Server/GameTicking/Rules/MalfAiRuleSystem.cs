@@ -95,6 +95,7 @@ public sealed class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponent>
         var store = EnsureComp<Content.Shared.Store.Components.StoreComponent>(aiEnt);
         // Configure store minimal settings
         store.Name = "store-preset-name-malfai";
+        Dirty(aiEnt, store);
 
         var requiredCategories = new[] { "Deception", "Factory", "Disruption" };
         foreach (var category in requiredCategories)

@@ -3,12 +3,16 @@
 using Content.Server.Administration.Logs;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Radio.EntitySystems;
+using Content.Server.Silicons.StationAi;
 using Content.Shared.Lock;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.MalfAI;
+using Content.Shared.Mind.Components;
 using Content.Shared.Robotics;
 using Content.Shared.Robotics.Components;
 using Content.Shared.Robotics.Systems;
+using Content.Shared.Silicons.StationAi;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 using Content.Shared.DeviceNetwork.Events;
@@ -27,6 +31,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly StationAiSystem _stationAi = default!;
 
     // almost never timing out more than 1 per tick so initialize with that capacity
     private List<string> _removing = new(1);
@@ -41,6 +46,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
             subs.Event<BoundUIOpenedEvent>(OnOpened);
             subs.Event<RoboticsConsoleDisableMessage>(OnDisable);
             subs.Event<RoboticsConsoleDestroyMessage>(OnDestroy);
+            subs.Event<RoboticsConsoleHackMessage>(OnHack);
             // TODO: camera stuff
         });
     }
@@ -144,6 +150,86 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
 
         ent.Comp.NextDestroy = now + ent.Comp.DestroyCooldown;
         Dirty(ent, ent.Comp);
+    }
+
+    private void OnHack(Entity<RoboticsConsoleComponent> ent, ref RoboticsConsoleHackMessage args)
+    {
+        if (!ent.Comp.AllowBorgControl)
+            return;
+
+        if (!TryGetMalfAi(args.Actor, out var malfAi))
+            return;
+
+        if (!ent.Comp.Cyborgs.TryGetValue(args.Address, out var data))
+            return;
+
+        var payload = new NetworkPayload()
+        {
+            [DeviceNetworkConstants.Command] = RoboticsConsoleConstants.NET_HACK_COMMAND,
+            [RoboticsConsoleConstants.NET_MALF_AI_CONTROLLER] = GetNetEntity(malfAi)
+        };
+
+        _deviceNetwork.QueuePacket(ent, args.Address, payload);
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Actor):user} (Malf AI {ToPrettyString(malfAi):entity}) hacked borg {data.Name} with address {args.Address}");
+    }
+
+    private bool TryGetMalfAi(EntityUid actor, out EntityUid malfAi)
+    {
+        if (HasComp<MalfAiMarkerComponent>(actor))
+        {
+            malfAi = actor;
+            return true;
+        }
+
+        if (TryComp<StationAiEyeComponent>(actor, out _))
+        {
+            var coreQuery = AllEntityQuery<StationAiCoreComponent>();
+            while (coreQuery.MoveNext(out var coreUid, out var coreComp))
+            {
+                if (coreComp.RemoteEntity == actor)
+                {
+                    if (_stationAi.TryGetHeld((coreUid, coreComp), out var held) &&
+                        HasComp<MalfAiMarkerComponent>(held))
+                    {
+                        malfAi = held.Value;
+                        return true;
+                    }
+                }
+            }
+        }
+
+        if (TryComp<StationAiCoreComponent>(actor, out var coreComp2) &&
+            _stationAi.TryGetHeld((actor, coreComp2), out var heldCore) &&
+            HasComp<MalfAiMarkerComponent>(heldCore))
+        {
+            malfAi = heldCore.Value;
+            return true;
+        }
+
+        if (_stationAi.TryGetCore(actor, out var core) &&
+            _stationAi.TryGetHeld(core, out var heldBrain) &&
+            HasComp<MalfAiMarkerComponent>(heldBrain))
+        {
+            malfAi = heldBrain.Value;
+            return true;
+        }
+
+        if (TryComp<MindContainerComponent>(actor, out var mindContainer) &&
+            mindContainer.Mind != null)
+        {
+            var mindQuery = AllEntityQuery<MalfAiMarkerComponent, MindContainerComponent>();
+            while (mindQuery.MoveNext(out var mUid, out _, out var mMindContainer))
+            {
+                if (mMindContainer.Mind == mindContainer.Mind)
+                {
+                    malfAi = mUid;
+                    return true;
+                }
+            }
+        }
+
+        malfAi = default;
+        return false;
     }
 
     private void UpdateUserInterface(Entity<RoboticsConsoleComponent> ent)

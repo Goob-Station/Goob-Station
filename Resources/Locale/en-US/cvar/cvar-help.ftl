@@ -38,3 +38,12 @@ changecvar-simple-playtest_stamina_damage_modifier = Multiplier affecting stamin
 changecvar-full-playtest_stamina_damage_modifier = Multiplier affecting all stamina damage dealt.
 changecvar-simple-playtest_mob_damage_modifier = Multiplier affecting all damage dealt to mobs.
 changecvar-full-playtest_mob_damage_modifier = Multiplier affecting all damage dealt to entities with MobStateComponent.
+
+changecvar-simple-malf_cpu_siphon_amount = How much CPU the Malf AI receives from siphoning an APC.
+changecvar-full-malf_cpu_siphon_amount = Controls how much CPU currency the Malfunctioning AI receives from siphoning an APC.
+
+changecvar-simple-malf_cpu_siphon_duration = How long an APC remains siphoned in seconds.
+changecvar-full-malf_cpu_siphon_duration = Controls how long in seconds an APC remains siphoned and disabled before the Malfunctioning AI can siphon it again.
+
+changecvar-simple-malf_doomsday_countdown = Doomsday countdown duration in seconds.
+changecvar-full-malf_doomsday_countdown = Controls the countdown timer duration in seconds for the Malfunctioning AI Doomsday Protocol.

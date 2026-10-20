@@ -16,6 +16,7 @@ public static class StyleClass
     public const string Positive = "positive";
     public const string Negative = "negative";
     public const string Highlight = "highlight";
+    public const string Caution = "Caution";
 
     public const string StatusGood = "status-good"; //          Status.GetStatusColor(1.0f)
     public const string StatusOkay = "status-okay"; //          Status.GetStatusColor(0.75f)

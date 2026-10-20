@@ -207,6 +207,8 @@ public sealed partial class StoreSystem
             component.BalanceSpent[currency] += value;
         }
 
+        Dirty(uid, component);
+
         //spawn entity
         if (listing.ProductEntity != null)
         {
@@ -387,6 +389,7 @@ public sealed partial class StoreSystem
         }
 
         component.Balance[msg.Currency] -= msg.Amount;
+        Dirty(uid, component);
         UpdateUserInterface(buyer, uid, component);
     }
 
@@ -494,6 +497,8 @@ public sealed partial class StoreSystem
             if (component.BalanceSpent.ContainsKey(currency))
                 component.BalanceSpent[currency] -= value;
         }
+
+        Dirty(uid, component);
 
         if (refundComp.Data.ProductUpgradeId != null)
         {

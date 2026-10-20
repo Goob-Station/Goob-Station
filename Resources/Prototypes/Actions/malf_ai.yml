@@ -4,10 +4,19 @@
 # Note: This file exists in the root Resources to ensure the server content pack
 # loads the viewport pack prototype used by the store listing.
 
+# Base prototype for Malf AI actions to ensure full-size action icons
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: BaseActionMalfAi
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+
 # Bundle: Viewport actions (Set + Open)
 # Place viewport action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiSetViewport
   name: malfai-viewport-place-name
   description: malfai-viewport-place-desc
@@ -15,9 +24,10 @@
   - type: Action
     priority: -5
     useDelay: 30
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_placeviewport
+      state: malfai_bg_placeviewport
   - type: TargetAction
     checkCanAccess: false
     range: 99999
@@ -26,21 +36,24 @@
 
 # Open viewport action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiOpenViewport
   name: malfai-viewport-open-name
   description: malfai-viewport-open-desc
   components:
   - type: Action
     priority: -5
-    icon: Interface/Actions/eyeopen.png
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_openviewport
   - type: InstantAction
     event: !type:MalfAiOpenViewportActionEvent {}
 
 
 # Malf AI: required action entities for rule startup
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiOpenStore
   name: malfai-open-store-name
   description: malfai-open-store-desc
@@ -49,12 +62,15 @@
     priority: -20
     checkCanInteract: false
     checkConsciousness: false
-    icon: Interface/Actions/shop.png
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_shop
   - type: InstantAction
     event: !type:IntrinsicStoreActionEvent {}
 
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiOpenBorgsUi
   name: malfai-open-borgs-ui-name
   description: malfai-open-borgs-ui-desc
@@ -63,69 +79,98 @@
     priority: -10
     checkCanInteract: false
     checkConsciousness: false
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: borg_control }
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_borgs
   - type: InstantAction
     event: !type:OpenMalfAiBorgsUiActionEvent {}
 
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiToggleCameraUpgrade
   name: malfai-camera-upgrade-name
   description: malfai-camera-upgrade-desc
   components:
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_cameraupgrade
+      state: malfai_bg_cameraupgrade
   - type: InstantAction
     event: !type:MalfAiToggleCameraUpgradeActionEvent {}
 
 # New: Doomsday Protocol (AI-only)
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiDoomsday
   name: malfai-doomsday-name
   description: malfai-doomsday-desc
   components:
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_doomsday
+      state: malfai_bg_doomsday
   - type: InstantAction
     event: !type:MalfAiDoomsdayActionEvent {}
 
 # New: Robotics Factory (AI-only)
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiRoboticsFactory
   name: malfai-robotics-factory-name
   description: malfai-robotics-factory-desc
   components:
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_factory
+      state: malfai_bg_factory
   - type: TargetAction
     checkCanAccess: false
     range: 99999
   - type: WorldTargetAction
     event: !type:MalfAiRoboticsFactoryActionEvent {}
 
+# Malfunctioning Silo (AI-only)
+- type: entity
+  parent: BaseActionMalfAi
+  id: ActionMalfAiPlaceSilo
+  name: malfai-action-place-silo-name
+  description: malfai-action-place-silo-desc
+  components:
+  - type: LimitedCharges
+    maxCharges: 1
+    charges: 1
+  - type: Action
+    priority: -5
+    itemIconStyle: BigAction
+    icon:
+      sprite: Structures/Machines/silo.rsi
+      state: silo_active
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: WorldTargetAction
+    event: !type:MalfAiPlaceSiloActionEvent {}
+
 # Shunt to APC action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiShuntToApc
   name: malfai-shunt-to-apc-name
   description: malfai-shunt-to-apc-desc
   components:
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_shunttoapc
+      state: malfai_bg_shunttoapc
   - type: TargetAction
     checkCanAccess: false
     range: 99999
@@ -134,37 +179,39 @@
 
 # Voice Modulator action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiVoiceModulator
   name: malfai-voice-modulator-name
   description: malfai-voice-modulator-desc
   components:
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_voicemodulator
+      state: malfai_bg_voicemodulator
   - type: InstantAction
     event: !type:MalfAiVoiceModulatorActionEvent {}
 
 # Return to Core action (used for shunt and mech hijack)
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiReturnToCore
   name: malfai-return-to-core-name
   description: malfai-return-to-core-desc
   components:
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
-      sprite: Interface/Actions/actions_ai.rsi
-      state: ai_core
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_returntocore
   - type: InstantAction
     event: !type:MalfAiReturnToCoreActionEvent {}
 
 # Overload Machine action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiOverloadMachine
   name: malfai-overload-machine-name
   description: malfai-overload-machine-desc
@@ -174,9 +221,10 @@
     charges: 2
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_overloadmachine
+      state: malfai_bg_overloadmachine
   - type: TargetAction
     checkCanAccess: false
     range: 99999
@@ -186,7 +234,7 @@
 
 # Hijack Mech action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiHijackMech
   name: malfai-hijack-mech-name
   description: malfai-hijack-mech-desc
@@ -194,54 +242,35 @@
   - type: Action
     priority: -5
     checkCanInteract: false
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_mech
+      state: malfai_bg_mech
   - type: TargetAction
     range: 99999
     # See above comment about range.
   - type: EntityTargetAction
     event: !type:MalfAiHijackMechActionEvent {}
 
-- type: entity
-  parent: BaseAction
-  id: ActionMalfAiOverrideMachine
-  name: malfai-action-override-machine-name
-  description: malfai-action-override-machine-desc
-  components:
-  - type: LimitedCharges
-    maxCharges: 2
-    charges: 2
-  - type: Action
-    priority: -5
-    icon:
-      sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_overridemachine
-  - type: TargetAction
-    checkCanAccess: false
-    range: 99999
-    # See above comment about range. I'm sure we can define "infinite" range somehow but that's outside my expertise, if anyone can figure it out replace all ranges in this YML with it. Thanks. - Tyrafox
-  - type: WorldTargetAction
-    event: !type:MalfAiOverrideMachineActionEvent {}
-
 # Toggle Camera Microphones action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiToggleCameraMicrophones
   name: malfai-toggle-camera-microphones-name
   description: malfai-toggle-camera-microphones-desc
   components:
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_cameramic
+      state: malfai_bg_cameramic
   - type: InstantAction
     event: !type:MalfAiToggleCameraMicrophonesActionEvent {}
 
 # Detonate RCDs action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiDetonateRCDs
   name: malfai-detonate-rcds-name
   description: malfai-detonate-rcds-desc
@@ -251,15 +280,16 @@
     charges: 1
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_detonatercd
+      state: malfai_bg_detonatercd
   - type: InstantAction
     event: !type:MalfAiDetonateRcdsActionEvent {}
 
 # Lockdown Grid action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiLockdownGrid
   name: malfai-lockdown-grid-name
   description: malfai-lockdown-grid-desc
@@ -269,15 +299,16 @@
     charges: 1
   - type: Action
     priority: -5
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_lockdowngrid
+      state: malfai_bg_lockdowngrid
   - type: InstantAction
     event: !type:MalfAiLockdownGridActionEvent {}
 
 # Gyroscope action
 - type: entity
-  parent: BaseAction
+  parent: BaseActionMalfAi
   id: ActionMalfAiGyroscope
   name: malfai-gyroscope-name
   description: malfai-gyroscope-desc
@@ -285,9 +316,10 @@
   - type: Action
     priority: -5
     useDelay: 3
+    itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_gyroscope
+      state: malfai_bg_gyroscope
   - type: TargetAction
     checkCanAccess: false
     range: 5
