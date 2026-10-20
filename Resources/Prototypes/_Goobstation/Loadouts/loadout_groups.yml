@@ -667,14 +667,7 @@
   maxLimit: 1
   loadouts:
   - WhiteEnvirogloves
--
-- type: loadoutGroup
-  id: JumpsuitFlavourTown
-  name: loadout-group-chef-FlavourTown Shirt
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - JumpsuitFlavourTown
+
 
 # Janitor
 
