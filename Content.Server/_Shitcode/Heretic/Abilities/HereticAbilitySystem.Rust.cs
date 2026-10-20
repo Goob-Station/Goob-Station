@@ -93,7 +93,7 @@ public sealed partial class HereticAbilitySystem
         var circle = new Circle(mapPos.Position, radius);
         var grids = new List<Entity<MapGridComponent>>();
         var box = Box2.CenteredAround(mapPos.Position, new Vector2(radius, radius));
-        _mapMan.FindGridsIntersecting(mapPos.MapId, box, ref grids);
+        _map.FindGridsIntersecting(mapPos.MapId, box, ref grids);
 
         var tiles = new List<(EntityCoordinates, TileRef, EntityUid, MapGridComponent)>();
         foreach (var grid in grids)
@@ -141,7 +141,7 @@ public sealed partial class HereticAbilitySystem
         var box = Box2.CenteredAround(mapPos.Position, new Vector2(range, range));
         var circle = new Circle(mapPos.Position, range);
         var grids = new List<Entity<MapGridComponent>>();
-        _mapMan.FindGridsIntersecting(mapPos.MapId, box, ref grids);
+        _map.FindGridsIntersecting(mapPos.MapId, box, ref grids);
 
         var tiles = new List<(EntityCoordinates, TileRef, EntityUid, MapGridComponent)>();
         foreach (var grid in grids)
@@ -226,11 +226,11 @@ public sealed partial class HereticAbilitySystem
 
             var xform = Transform(target);
             var rotation = xform.LocalRotation;
-            var coords = _transform.GetMapCoordinates(target, xform);
+            var coords = xform.Coordinates;
 
             Del(target);
 
-            targetEntity = Spawn(transformation, coords, rotation: rotation);
+            targetEntity = SpawnAttachedTo(transformation, coords, rotation: rotation);
         }
 
         if (TerminatingOrDeleted(targetEntity) || !_tag.HasTag(targetEntity, "Wall"))

@@ -62,6 +62,7 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
             if (!_accessReader.IsAllowed(args.OtherEntity, ent))
                 return;
 
+            ent.Comp.CollideExceptions.RemoveWhere(e => TerminatingOrDeleted(e)); // Goob - Fix (prune deleted entities)
             ent.Comp.CollideExceptions.Add(args.OtherEntity);
             if (_pulling.GetPulling(args.OtherEntity) is { } uid)
                 ent.Comp.CollideExceptions.Add(uid);
@@ -105,6 +106,7 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
         if (!args.OurFixture.Hard)
         {
             ent.Comp.CollideExceptions.Remove(args.OtherEntity);
+            ent.Comp.CollideExceptions.RemoveWhere(e => TerminatingOrDeleted(e)); // Goob - Fix (prune deleted entities)
             Dirty(ent);
         }
     }

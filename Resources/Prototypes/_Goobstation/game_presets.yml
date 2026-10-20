@@ -144,7 +144,7 @@
     - combatdynamic
   name: guide-title
   description: guide-description
-  showInVote: false
+  showInVote: true
   minPlayers: 25
   rules:
     - CombatDynamic
@@ -179,11 +179,21 @@
     - MeteorSwarmScheduler
 
 - type: gamePreset
+  id: SecretPlusHigh
+  alias:
+    - secretplushigh
+  name: secretplus-high-title
+  description: secretplus-high-description
+  showInVote: true
+  rules:
+    - SecretPlusHigh
+    - MeteorSwarmScheduler
+
+- type: gamePreset
   id: SecretPlusAdmeme
   alias:
     - secretplusadmeme
     - secretplusevil
-    - secretplushigh
     - chaos
   name: secretplus-admeme-title
   description: secretplus-admeme-description

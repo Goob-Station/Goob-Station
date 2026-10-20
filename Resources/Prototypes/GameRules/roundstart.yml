@@ -138,6 +138,7 @@
     #- Vox
     - Yowie # Goobstation
     - Plasmaman # EE
+    - Synth # Goob
   - type: AntagObjectives # Goobstation
     objectives:
     - NukeopsDetonateObjective
@@ -288,6 +289,15 @@
       lateJoinAdditional: true # Goobstation
       mindRoles:
       - MindRoleTraitor
+
+#- type: entity
+#  id: TraitorReinforcement
+#  parent: Traitor
+#  components:
+#  - type: TraitorRule
+#    giveUplink: false
+#    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
+#    giveBriefing: false
 
 - type: entity
   id: Revolutionary

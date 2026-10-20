@@ -33,7 +33,6 @@ namespace Content.Server.Heretic.EntitySystems;
 public sealed class MansusGraspSystem : SharedMansusGraspSystem
 {
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -120,7 +119,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             if (!args.ClickLocation.IsValid(EntityManager))
                 return;
 
-            if (!_mapManager.TryFindGridAt(_transform.ToMapCoordinates(args.ClickLocation), out var gridUid, out var mapGrid))
+            if (!_mapSystem.TryFindGridAt(_transform.ToMapCoordinates(args.ClickLocation), out var gridUid, out var mapGrid))
                 return;
 
             var tileRef = _mapSystem.GetTileRef(gridUid, mapGrid, args.ClickLocation);

@@ -15,14 +15,13 @@ namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.Ascension;
 /// The ascendance ability only forms the Ascension Egg.
 /// Other info about the Ascension Egg exists in its own system.
 /// </summary>
-public sealed class ShadowlingAscendanceSystem : EntitySystem
+public sealed partial class ShadowlingAscendanceSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -89,7 +88,7 @@ public sealed class ShadowlingAscendanceSystem : EntitySystem
     {
         // Check if tile is occupied
         var mapCoords = _transformSystem.GetMapCoordinates(uid);
-        if (!_mapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid))
+        if (!_mapSystem.TryFindGridAt(mapCoords, out var gridUid, out var grid))
             return false;
 
         if (_mapSystem.GetAnchoredEntities(gridUid, grid, mapCoords).Any())

@@ -29,6 +29,7 @@ using Robust.Shared.Utility;
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
+    [Category("MapTests")]
     public sealed class PostMapInitTest
     {
         private const bool SkipTestMaps = true;
@@ -146,6 +147,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Saltern",
             "Serpentcrest",
+			"Shoukou",
             "Snowball",
             "TestTeg",        // Dev map
             "Train"           // Not in pool
@@ -191,6 +193,7 @@ namespace Content.IntegrationTests.Tests
               "Reach",
               "Saltern",
               "Serpentcrest",
+			  "Shoukou",
              // "Snowball", // fuck off not in pool
         };
         // Goobstation edit end
@@ -342,7 +345,7 @@ namespace Content.IntegrationTests.Tests
                 foreach (var yamlEntity in (YamlSequenceNode) yamlEntities)
                 {
                     var protoId = yamlEntity["proto"].AsString();
-                    protoManager.TryIndex(protoId, out var proto, false);
+                    protoManager.TryIndex(protoId, out var proto);
                     if (proto is null || proto.EditorSuffix is null)
                         continue;
                     if (proto.Categories.Contains(dnmCategory) && !DoNotMapWhitelist.Contains(map.ToString()))
@@ -471,7 +474,7 @@ namespace Content.IntegrationTests.Tests
             });
             var server = pair.Server;
 
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.System<SharedMapSystem>();
             var entManager = server.ResolveDependency<IEntityManager>();
             var mapLoader = entManager.System<MapLoaderSystem>();
             var mapSystem = entManager.System<SharedMapSystem>();

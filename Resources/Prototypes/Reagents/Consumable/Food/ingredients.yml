@@ -8,6 +8,7 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: chalky
   color: white
+  puddleSpriteSet: Powder # Goob
   recognizable: true
   metabolisms:
     Food:
@@ -29,6 +30,7 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: corn #so corn doesnt taste chalky
   color: tan
+  puddleSpriteSet: Powder # Goob
   metabolisms:
     Food:
       effects:
@@ -46,6 +48,7 @@
   physicalDesc: reagent-physical-desc-coarse
   flavor: oats
   color: tan
+  puddleSpriteSet: Powder # Goob
   metabolisms:
     Food:
       effects:
@@ -64,6 +67,7 @@
   physicalDesc: reagent-physical-desc-chalky
   flavor: bitter
   color: "#009900"
+  puddleSpriteSet: Splotchy # Goob
 
 - type: reagent
   id: Egg
@@ -73,6 +77,7 @@
   physicalDesc: reagent-physical-desc-mucus-like
   flavor: raw-egg
   color: white
+  puddleSpriteSet: Egg # Goob
   recognizable: true
   metabolisms:
     Food:
@@ -89,6 +94,7 @@
   physicalDesc: reagent-physical-desc-fluffy
   flavor: egg
   color: white
+  puddleSpriteSet: Egg # Goob
   recognizable: true
   metabolisms:
     Food:
@@ -105,6 +111,7 @@
   physicalDesc: reagent-physical-desc-grainy
   flavor: peppery
   color: black
+  puddleSpriteSet: Powder # Goob
   recognizable: true
   metabolisms:
     Food:
@@ -134,6 +141,7 @@
   physicalDesc: reagent-physical-desc-sour
   flavor: bitter
   color: tan
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   metabolisms:
     Food:
@@ -159,6 +167,7 @@
   physicalDesc: reagent-physical-desc-chewy
   flavor: rice
   color: white
+  puddleSpriteSet: Powder # Goob
   recognizable: true
   metabolisms:
     Food:
@@ -179,6 +188,7 @@
   flavor: oily
   flavorMinimum: 0.05
   color: olive
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   metabolisms:
     Food:
@@ -197,6 +207,7 @@
   flavorMinimum: 0.05
   recognizable: true
   color: "#b67823"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 300.0
   meltingPoint: -16.0
   tileReactions:
@@ -211,6 +222,7 @@
   flavor: spicy
   flavorMinimum: 0.05
   color: "#FF0000"
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   meltingPoint: 146
   boilingPoint: 410 # Really high boiling point compared to its melting
@@ -245,6 +257,7 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: chocolate
   color: "#800000"
+  puddleSpriteSet: Powder # Goob
   meltingPoint: 146.0
   metabolisms:
     Food:
@@ -274,6 +287,7 @@
   physicalDesc: reagent-physical-desc-creamy
   flavor: butter
   color: yellow
+  puddleSpriteSet: Splotchy # Goob
   meltingPoint: 32.0
   boilingPoint: 100.0
   recognizable: true
@@ -291,6 +305,7 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: tea
   color: "#7F8400"
+  puddleSpriteSet: Powder # Goob
   group: Foods
   metabolisms:
     Food:
@@ -309,6 +324,7 @@
   physicalDesc: reagent-physical-desc-oily
   flavor: cold
   color: skyblue
+  puddleSpriteSet: Shiny # Goob
   metabolisms:
     Food:
       effects:

@@ -4,10 +4,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.GPS;
 
-public abstract class SharedGpsSystem : EntitySystem
+public abstract partial class SharedGpsSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedUserInterfaceSystem UiSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] protected SharedUserInterfaceSystem UiSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

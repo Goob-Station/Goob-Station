@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Server.Store.Components;
 using Content.Shared.UserInterface;
@@ -10,15 +8,9 @@ using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Store.Components;
 using Content.Shared.Store.Events;
-using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using System.Linq;
-using Content.Server._White.StoreDiscount;
-using Content.Shared.Mind;
-using Content.Shared.Polymorph;
-using Content.Server.Polymorph.Systems;
 
 namespace Content.Server.Store.Systems;
 
@@ -26,14 +18,11 @@ namespace Content.Server.Store.Systems;
 /// Manages general interactions with a store and different entities,
 /// getting listings for stores, and interfacing with the store UI.
 /// </summary>
-// goob edit - fuck newstore
-// do not touch unless you want to shoot yourself in the leg
 public sealed partial class StoreSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StoreDiscountSystem _storeDiscount = default!; // WD EDIT
-    [Dependency] private readonly PolymorphSystem _polymorph = default!; // goob edit
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -49,20 +38,10 @@ public sealed partial class StoreSystem : EntitySystem
         SubscribeLocalEvent<StoreComponent, OpenUplinkImplantEvent>(OnImplantActivate);
         SubscribeLocalEvent<StoreComponent, IntrinsicStoreActionEvent>(OnIntrinsicStoreAction);
 
-        SubscribeLocalEvent<StoreComponent, PolymorphedEvent>(OnPolymorphed); // goob edit
-
         InitializeUi();
         InitializeCommand();
         InitializeRefund();
-    }
-
-    // goob edit - store now transfers on pm
-    private void OnPolymorphed(Entity<StoreComponent> ent, ref PolymorphedEvent args)
-    {
-        if (args.IsRevert)
-            return;
-
-        _polymorph.CopyPolymorphComponent<StoreComponent>(ent, args.NewEntity);
+        InitializeGoob(); // Goob
     }
 
     private void OnMapInit(EntityUid uid, StoreComponent component, MapInitEvent args)
@@ -149,7 +128,7 @@ public sealed partial class StoreSystem : EntitySystem
     public Dictionary<string, FixedPoint2> GetCurrencyValue(EntityUid uid, CurrencyComponent component)
     {
         var amount = EntityManager.GetComponentOrNull<StackComponent>(uid)?.Count ?? 1;
-        return component.Price.ToDictionary(v => v.Key, p => p.Value * amount);
+        return component.Price.ToDictionary(v => v.Key.Id, p => p.Value * amount);
     }
 
     /// <summary>
@@ -163,12 +142,8 @@ public sealed partial class StoreSystem : EntitySystem
         if (!Resolve(store.Owner, ref store.Comp))
             return false;
 
-        var value = currency.Comp.Price;
-        if (TryComp(currency.Owner, out StackComponent? stack) && stack.Count != 1)
-        {
-            value = currency.Comp.Price
-                .ToDictionary(v => v.Key, p => p.Value * stack.Count);
-        }
+        var count = TryComp(currency.Owner, out StackComponent? stack) ? stack.Count : 1;
+        var value = currency.Comp.Price.ToDictionary(v => v.Key.Id, p => p.Value * count);
 
         if (!TryAddCurrency(value, store, store.Comp))
             return false;

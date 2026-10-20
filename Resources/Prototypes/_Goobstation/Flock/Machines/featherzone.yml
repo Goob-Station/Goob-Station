@@ -84,6 +84,7 @@
 
 - type: entity
   id: EffectFlockReactor
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Effects

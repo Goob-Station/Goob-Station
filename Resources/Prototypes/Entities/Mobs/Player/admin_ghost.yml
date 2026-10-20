@@ -78,6 +78,7 @@
       enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionAGhostShowStationRecords
   - type: SolarControlConsole # look ma i AM the computer!
+  - type: VoiceBroadcastConsole # Goobstation
   - type: CommunicationsConsole
     title: comms-console-announcement-title-centcom
     color: "#1d8bad"

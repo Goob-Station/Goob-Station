@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.Shared.Disease.Components;
@@ -14,14 +15,14 @@ namespace Content.Goobstation.Shared.Disease.Systems;
 
 public abstract partial class SharedDiseaseSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] protected SharedContainerSystem ContainerSystem = default!;
 
     private TimeSpan _lastUpdated = TimeSpan.FromSeconds(0);
 
@@ -132,7 +133,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
 
         if (!args.Ent.Comp.EffectImmune)
         {
-            foreach (var effectUid in ent.Comp.Effects.ContainedEntities)
+            foreach (var effectUid in ent.Comp.Effects.ContainedEntities.ToArray())
             {
                 if (!EffectQuery.TryComp(effectUid, out var effect))
                     continue;

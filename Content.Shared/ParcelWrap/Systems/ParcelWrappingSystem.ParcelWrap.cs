@@ -116,11 +116,11 @@ public sealed partial class ParcelWrappingSystem
         // Check if the target has a pre-defined parcel type to be used.
         if (TryComp<ParcelWrapOverrideComponent>(target, out var overrideComp))
         {
-            spawned = Spawn(overrideComp.ParcelPrototype, targetTransform.Coordinates);
+            spawned = SpawnAtPosition(overrideComp.ParcelPrototype, targetTransform.Coordinates);
         }
         else // Create a parcel with the same size and generic sprites instead.
         {
-            spawned = Spawn(wrapper.Comp.ParcelPrototype, targetTransform.Coordinates);
+            spawned = SpawnAtPosition(wrapper.Comp.ParcelPrototype, targetTransform.Coordinates);
 
             // If this wrap maintains the size when wrapping, set the parcel's size to the target's size. Otherwise use the
             // wrap's fallback size.

@@ -37,7 +37,7 @@
     castShadows: false
     radius: 2
     energy: 1.5
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
   - type: LitOnPowered
   - type: ApcPowerReceiver
@@ -55,10 +55,6 @@
     weight: 0.125
   - type: StaticPrice
     price: 100
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: IntellicardableMind
   - type: Vocalizer
     minVocalizeInterval: 8m
@@ -220,7 +216,7 @@
     castShadows: false
     radius: 2
     energy: 1.5
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
   - type: LitOnPowered
   - type: ApcPowerReceiver
@@ -238,10 +234,6 @@
     weight: 0.125
   - type: StaticPrice
     price: 100
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: Vocalizer
     minVocalizeInterval: 8m
     maxVocalizeInterval: 10m
@@ -341,7 +333,7 @@
     castShadows: false
     radius: 2
     energy: 1.5
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
   - type: LitOnPowered
   - type: ApcPowerReceiver
@@ -359,10 +351,6 @@
     weight: 0.125
   - type: StaticPrice
     price: 100
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: Vocalizer
     minVocalizeInterval: 8m
     maxVocalizeInterval: 10m

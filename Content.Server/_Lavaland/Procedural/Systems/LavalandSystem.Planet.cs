@@ -70,7 +70,7 @@ public sealed partial class LavalandSystem
         SetupRuins(pool, lavaland.Value, preloader.Value);
 
         // Hide all grids from the mass scanner.
-        foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
+        foreach (var grid in _map.GetAllGrids(lavalandMapId))
         {
             var flag = IFFFlags.HideLabel;
 

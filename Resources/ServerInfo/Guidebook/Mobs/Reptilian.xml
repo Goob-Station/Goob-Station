@@ -8,13 +8,26 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box>
     <GuideEntityEmbed Entity="MobReptilian" Caption=""/>
   </Box>
+  Reptilians are a humanoid species, sporting tails and a pronounced snout. Their physiology has led them to adopt an accent similar to that of cobras.
 
-  They can eat raw meat and drink blood without any ill effects.
-  They prefer a somewhat higher temperature range than humans.
-  They can drag objects with their tail, keeping both their hands free.
+  ## Unique Abilities
+  
+  ### Tail Dragging
 
-  Their unarmed claw attacks deal Slash damage instead of Blunt.
+  - With their ability to manipulate their tails, Reptilians can drag objects with their tail, keeping both of their hands free.
+  
+  ## Diet
 
-  They take [color=#ffa500]30% more Cold damage.[/color]
+  - They can eat raw meat and drink blood without any ill effects.
+
+  ## Benefits
+
+  - They prefer a somewhat higher temperature range than humans, making them slightly less susceptible to higher temperatures.
+
+  - Their unarmed claw attacks deal [color=#ec3a3a]Slash[/color] damage instead of Blunt.
+
+  ## Drawbacks
+
+  - They take [color=#ffa500]30% more Cold damage.[/color]
 
 </Document>

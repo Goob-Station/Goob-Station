@@ -85,7 +85,14 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     private void OnAttractBuiMsg(Entity<AbductorConsoleComponent> ent, ref AbductorAttractBuiMsg args)
     {
         if (ent.Comp.Target == null || ent.Comp.AlienPod == null) return;
-        var target = GetEntity(ent.Comp.Target.Value);
+        if (!TryGetEntity(ent.Comp.Target.Value, out var targetEnt) || TerminatingOrDeleted(targetEnt)
+            || !TryGetEntity(ent.Comp.AlienPod.Value, out var podEnt) || TerminatingOrDeleted(podEnt))
+        {
+            ent.Comp.Target = null;
+            return;
+        }
+
+        var target = targetEnt.Value;
         EnsureComp<TransformComponent>(target, out var xform);
         var effectEnt = SpawnAttachedTo(TeleportationEffectEntity, xform.Coordinates);
         _xformSys.SetParent(effectEnt, target);

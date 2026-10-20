@@ -824,7 +824,7 @@ public sealed partial class ShuttleSystem
             // We don't include this in the actual targetAABB because then we would be double-expanding it.
             // Once in this loop, then again when placing the shuttle later.
             // Note that targetAABB already has expansionAmount factored in already.
-            _mapManager.FindGridsIntersecting(mapId, targetAABB.Enlarged(maxOffset), ref grids);
+            _mapSystem.FindGridsIntersecting(mapId, targetAABB.Enlarged(maxOffset), ref grids);
 
             foreach (var grid in grids)
             {
@@ -1014,6 +1014,7 @@ public sealed partial class ShuttleSystem
 
                 if (_bodyQuery.TryGetComponent(ent, out var mob))
                 {
+                    RaiseShuttleCrushed(ent, uid); // Goob
                     _logger.Add(LogType.Gib, LogImpact.Extreme, $"{ToPrettyString(ent):player} got gibbed by the shuttle" +
                                                                 $" {ToPrettyString(uid)} arriving from FTL at {xform.Coordinates:coordinates}");
                     var gibs = _bobby.GibBody(ent, body: mob);

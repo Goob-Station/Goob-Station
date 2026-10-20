@@ -11,13 +11,13 @@ using Content.Shared.Throwing;
 
 namespace Content.Goobstation.Shared.Dash;
 
-public sealed class DashActionSystem : EntitySystem
+public sealed partial class DashActionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -50,7 +50,7 @@ public sealed class DashActionSystem : EntitySystem
         _throwing.TryThrow(args.Performer, vec, speed, animated: false);
 
         if (args.StaminaDrain != null)
-            _stamina.TakeStaminaDamage(args.Performer, args.StaminaDrain.Value, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(args.Performer, args.StaminaDrain.Value, visual: false, immediate: false, ignoreResist: true);
 
         if (args.Emote != null && TryComp<AnimatedEmotesComponent>(args.Performer, out var emotes))
         {

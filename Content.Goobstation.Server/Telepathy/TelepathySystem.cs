@@ -1,0 +1,69 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Administration;
+using Content.Shared.IdentityManagement;
+using Content.Server.Popups;
+using Robust.Shared.Player;
+using Robust.Shared.Utility;
+using Content.Goobstation.Shared.Telepathy;
+using Content.Shared.Whitelist;
+using Content.Shared.Telepathy;
+using Content.Server.Chat.Managers;
+using Content.Shared.Chat;
+using Content.Shared.Database;
+using Content.Server.Administration.Logs;
+
+namespace Content.Goobstation.Server.Telepathy;
+
+/// <summary>
+/// This handles the Demonic Whisper logic.
+/// Demonic Whisper lets you send a subtle popup to someone.
+/// </summary>
+public sealed partial class TelepathySystem : SharedTelepathySystem
+{
+    [Dependency] private QuickDialogSystem _quickDialog = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+
+    [Dependency] private EntityQuery<ActorComponent> _actorQuery = default!;
+
+    [SubscribeLocalEvent]
+    private void OnTelepathyWhisper(TelepathyWhisperEvent args)
+    {
+        var performer = args.Performer;
+        var target = args.Target;
+
+        if (!TryComp(args.Action, out TelepathyActionComponent? telepathy)
+            || !_whitelist.IsWhitelistPassOrNull(telepathy.TargetWhitelist, target)
+            || !_actorQuery.TryComp(performer, out ActorComponent? actor)
+            || !_actorQuery.TryComp(target, out ActorComponent? actorTarget))
+            return;
+
+        _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString(telepathy.DialogueTitle), "Message", (string message) =>
+        {
+            // Suddenly, a voice resonates in your head...
+            // blah blah
+            if (telepathy.PopupWhisperFlavor is not null)
+                _chatManager.ChatMessageToOne(
+                    ChatChannel.Local,
+                    "",
+                    Loc.GetString(telepathy.PopupWhisperFlavor),
+                    EntityUid.Invalid,
+                    false,
+                    actorTarget.PlayerSession.Channel
+                );
+            _popup.PopupEntity(message, target, target, telepathy.PopupType);
+
+            // You whisper to
+            _popup.PopupEntity(Loc.GetString(telepathy.PopupWhisperSelf,
+                ("name", _identity.GetEntityIdentity(target)),
+                ("message", FormattedMessage.EscapeText(message))),
+                performer, performer);
+
+            _adminLog.Add(LogType.Chat, LogImpact.Medium, $"{ToPrettyString(target):player} received telepathic message from {ToPrettyString(performer):player}: {message}");
+        });
+    }
+}

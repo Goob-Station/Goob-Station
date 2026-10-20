@@ -210,6 +210,7 @@
       Milk: 12
       Sugar: 3
       Water: 3
+      Fiber: 4
       # Uncommon ingredients
       Fat: 20
       UncookedAnimalProteins: 20
@@ -217,6 +218,7 @@
       Oats: 14
       Vinegar: 8
       OilOlive: 5
+      Nutriment: 30
       # Condiments
       TableSalt: 2
       Blackpepper: 2
@@ -226,6 +228,7 @@
       Ketchup: 3
       Mayo: 3
       Hotsauce: 3
+      Coldsauce: 3
       Syrup: 3
       Vinaigrette: 4
       Astrotame: 8

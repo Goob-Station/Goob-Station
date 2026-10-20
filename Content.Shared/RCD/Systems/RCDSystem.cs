@@ -221,7 +221,7 @@ public sealed class RCDSystem : EntitySystem
         #endregion
 
         // Try to start the do after
-        var effect = Spawn(effectPrototype, location);
+        var effect = Spawn(effectPrototype, _mapSystem.ToCenterCoordinates(tile, mapGrid));
         var ev = new RCDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, component.ProtoId, cost, GetNetEntity(effect));
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
@@ -684,35 +684,15 @@ public sealed class RCDSystem : EntitySystem
                     ? prototype.MirrorPrototype
                     : prototype.Prototype;
 
-                // Funky - Calculate rotation and apply it before spawning
                 var rotation = prototype.Rotation switch
                 {
                     RcdRotation.Fixed => Angle.Zero,
                     RcdRotation.Camera => Transform(uid).LocalRotation,
                     RcdRotation.User => direction.ToAngle(),
-                    _ => Angle.Zero // Fallback
+                    _ => Angle.Zero
                 };
 
-                // Convert EntityCoordinates to MapCoordinates
-                var entityCoords = _mapSystem.GridTileToLocal(gridUid, mapGrid, position);
-                var mapCoords = _transform.ToMapCoordinates(entityCoords);
-                var ent = Spawn(proto, mapCoords, rotation: rotation);
-                // End of funky changes
-
-                /* Funky - handled above
-                switch (prototype.Rotation)
-                {
-                    case RcdRotation.Fixed:
-                        Transform(ent).LocalRotation = Angle.Zero;
-                        break;
-                    case RcdRotation.Camera:
-                        Transform(ent).LocalRotation = Transform(uid).LocalRotation;
-                        break;
-                    case RcdRotation.User:
-                        Transform(ent).LocalRotation = direction.ToAngle();
-                        break;
-                }
-                */
+                var ent = SpawnAttachedTo(proto, _mapSystem.GridTileToLocal(gridUid, mapGrid, position), rotation: rotation);
 
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to spawn {ToPrettyString(ent)} at {position} on grid {gridUid}");
                 break;

@@ -1,0 +1,38 @@
+<Document>
+  # Synths
+
+  <Box>
+    <GuideEntityEmbed Entity="AppearanceSynth" Caption=""/>
+  </Box>
+
+  [color=#ffa500]Warning! This species is not recommended for new players due to major gameplay changes![/color]
+
+  Synths are a species of artificial humanoids vaguely resembling bipedal lizards, who are maintained through a combination of known complex machinery and organic flesh treatment methods.
+
+  ## Racial Features
+
+  - They can speak and understand Tau-Ceti Basic and Robot Talk.
+  - They rely on an internal power cell, which can be [color=yellow]replaced via surgery[/color] and recharged in any cell recharger. Movement will be [color=yellow]impaired[/color] if it reaches 0% charge.
+  - In addition to an internal power cell, they feature a miniature bioreactor, which processes organic mass to generate power and facilitates autonomous bodily repair. Eating recharges the power cell.
+  - Internal nanites allow them to passively recover from Brute, Burn, and Cellular damage at the cost of satiation. Autonomous repairs are [color=yellow]slow[/color] and will eventually [color=red]starve[/color] the bioreactor if not maintained.
+  - They contain fullerene, a carbon-based, blood-like solution, which assists their internal nanites in performing repairs. Autonomous repairs will [color=yellow]slow down[/color] as fullerene reserves deplete.
+  - Due to its complexity, it is impossible to inject reagents directly into Synth bloodstreams, rendering oral administration [color=yellow]necessary for metabolization[/color]. Needles and hyposprays [color=red]will not work[/color]!
+  - They do not need to breathe, and can eat raw materials such as ore, sheets and rods.
+  - Metabolized Carbon helps restore depleted fullerene. In the event of an emergency, [color=yellow]replacement fullerene packs[/color] can be fabricated at a medical techfab, requiring diamonds.
+  - They receive [color=#8147ff]40% more Shock damage[/color], [color=#B9BF93]25% less Blunt damage[/color], [color=#B9BF93]10% less Slash damage[/color], [color=#ffa500]5% more Piercing damage[/color], [color=#B9BF93]15% less Heat damage[/color], [color=#1e90ff]40% less Cold damage[/color], and [color=#B9BF93]20% less Radiation damage[/color].
+  - Shock damage [color=yellow]recharges their power cell[/color], but [color=red]also inflicts Cellular damage[/color].
+  - EMPs are [color=red]dangerous[/color] but not lethal, capable of [color=yellow]completely depleting their internal power cell[/color] and dealing Shock and Heat damage.
+
+  <Box>
+    <GuideEntityEmbed Entity="OrganSynthBrain" Scale="5" Caption=""/>
+  </Box>
+
+  ## Central Computing Unit
+
+  - Synth CCUs function similarly to positronic brains and can be [color=yellow]directly inserted into a cyborg chassis[/color].
+
+  ## Nanites
+
+  - Nanites function as the most effective means of treatment for Synth injuries, despite a [color=red]dangerous OD at >10.5 units[/color], and can be [color=yellow]created via chemistry[/color] using an [color=yellow]electrolysis[/color] machine. [color=red]Warning! Nanites are incredibly lethal to organic species and should be handled with extreme caution![/color]
+
+</Document>

@@ -93,8 +93,9 @@
     solution: battery
   - type: DrawableSolution
     solution: battery
+  - type: ExplosionEffect # Goob
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Goob
     intensitySlope: 1.5
     maxIntensity: 200
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -106,6 +107,7 @@
     - Security
   - type: MartialArtBlocked # Goobstation - Martial Arts
     form: CorporateJudo # Goobstation - Martial Arts
+    staminaDmgBlock: True # Goob
 
 - type: entity
   name: truncheon

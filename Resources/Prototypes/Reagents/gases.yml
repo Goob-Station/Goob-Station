@@ -10,6 +10,7 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#c4f5ff"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: -183.0
   meltingPoint: -218.4
   metabolisms:
@@ -134,6 +135,7 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#7e009e"
+  puddleSpriteSet: Acid # Goob
   recognizable: true
   boilingPoint: -127.3 # Random values picked between the actual values for CO2 and O2
   meltingPoint: -186.4
@@ -347,6 +349,7 @@
   physicalDesc: reagent-physical-desc-odorless
   flavor: bitter
   color: "#66ff33"
+  puddleSpriteSet: Acid # Goob
   metabolisms:
     Poison:
       effects:
@@ -419,6 +422,7 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#a1e1ff"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: -195.8
   meltingPoint: -210.0
   metabolisms:
@@ -468,6 +472,7 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#5d88c9"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: -88
   meltingPoint: -90
   metabolisms:

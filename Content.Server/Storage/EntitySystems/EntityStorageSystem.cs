@@ -17,7 +17,6 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
 {
     [Dependency] private readonly ConstructionSystem _construction = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
 
     public override void Initialize()
@@ -81,7 +80,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
     {
         var targetCoordinates = TransformSystem.ToMapCoordinates(new EntityCoordinates(uid, component.EnteringOffset));
 
-        if (_map.TryFindGridAt(targetCoordinates, out var gridId, out var grid))
+        if (_mapSystem.TryFindGridAt(targetCoordinates, out var gridId, out var grid))
         {
             return _mapSystem.GetTileRef(gridId, grid, targetCoordinates);
         }
@@ -91,7 +90,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
 
     #region Gas mix event handlers
 
-    private void OnInsideInhale(EntityUid uid, InsideEntityStorageComponent component, InhaleLocationEvent args)
+    private void OnInsideInhale(EntityUid uid, InsideEntityStorageComponent component, ref InhaleLocationEvent args) // Goob - by-ref
     {
         if (TryComp<EntityStorageComponent>(component.Storage, out var storage) && storage.Airtight)
         {
@@ -99,7 +98,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         }
     }
 
-    private void OnInsideExhale(EntityUid uid, InsideEntityStorageComponent component, ExhaleLocationEvent args)
+    private void OnInsideExhale(EntityUid uid, InsideEntityStorageComponent component, ref ExhaleLocationEvent args) // Goob - by-ref
     {
         if (TryComp<EntityStorageComponent>(component.Storage, out var storage) && storage.Airtight)
         {

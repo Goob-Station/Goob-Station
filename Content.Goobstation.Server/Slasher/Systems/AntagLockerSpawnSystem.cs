@@ -18,15 +18,15 @@ namespace Content.Goobstation.Server.Slasher.Systems;
 /// Handles placing the antag ghost-role spawner inside a random station locker.
 /// Works with AntagSelection.
 /// </summary>
-public sealed class AntagLockerSpawnSystem : GameRuleSystem<AntagLockerSpawnComponent>
+public sealed partial class AntagLockerSpawnSystem : GameRuleSystem<AntagLockerSpawnComponent>
 {
     private static readonly ProtoId<TagPrototype> MaintenanceClosetTag = "MaintenanceCloset";
 
-    [Dependency] private readonly AntagBetterRandomSpawnSystem _betterSpawn = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private AntagBetterRandomSpawnSystem _betterSpawn = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
 
     public override void Initialize()
     {
@@ -85,6 +85,22 @@ public sealed class AntagLockerSpawnSystem : GameRuleSystem<AntagLockerSpawnComp
             || !TryGetRandomStation(out var station))
             return;
 
+        PlaceInStation(station.Value, spawnerEnt.Value, comp.MaintenanceOnly, out var locker, out var fallback);
+        comp.ChosenLocker = locker;
+        comp.FallbackCoords = fallback;
+        comp.Placed = true;
+    }
+
+    private void PlaceInStation(
+        EntityUid station,
+        EntityUid target,
+        bool maintenanceOnly,
+        out EntityUid? locker,
+        out EntityCoordinates? fallback)
+    {
+        locker = null;
+        fallback = null;
+
         var validLockers = new List<(EntityUid, EntityStorageComponent)>();
         var query = EntityQueryEnumerator<EntityStorageComponent, TransformComponent>();
         while (query.MoveNext(out var ent, out var storage, out var xform))
@@ -94,35 +110,39 @@ public sealed class AntagLockerSpawnSystem : GameRuleSystem<AntagLockerSpawnComp
                 || storage.Contents.ContainedEntities.Count >= storage.Capacity)
                 continue;
 
-            if (comp.MaintenanceOnly && !_tag.HasTag(ent, MaintenanceClosetTag))
+            if (maintenanceOnly && !_tag.HasTag(ent, MaintenanceClosetTag))
                 continue;
 
             validLockers.Add((ent, storage));
         }
 
-        if (validLockers.Count == 0)
+        if (validLockers.Count > 0)
         {
-            // No valid locker found; fall back to TryFindSafeRandomLocation.
-            EntityCoordinates? safeCoords = null;
-            if (_betterSpawn.TryFindSafeRandomLocation(out var betterCoords))
-                safeCoords = betterCoords;
-
-            if (safeCoords is { } coords)
+            var (picked, storageComp) = RobustRandom.Pick(validLockers);
+            if (_entityStorage.Insert(target, picked, storageComp))
             {
-                _transform.SetMapCoordinates(spawnerEnt.Value, _transform.ToMapCoordinates(coords));
-                comp.FallbackCoords = coords;
+                locker = picked;
+                return;
             }
-
-            comp.Placed = true;
-            return;
         }
 
-        var (locker, storageComp) = RobustRandom.Pick(validLockers);
-        if (!_entityStorage.Insert(spawnerEnt.Value, locker, storageComp))
-            return;
-
-        comp.ChosenLocker = locker;
-        comp.Placed = true;
+        // No locker: fall back to a safe random location.
+        if (_betterSpawn.TryFindSafeRandomLocation(out var safeCoords))
+        {
+            _transform.SetMapCoordinates(target, _transform.ToMapCoordinates(safeCoords));
+            fallback = safeCoords;
+        }
     }
 
+    /// <summary>
+    /// Relocates the target to a random maintenance locker.
+    /// </summary>
+    public bool TryRelocateToLocker(EntityUid target, bool maintenanceOnly = true)
+    {
+        if (!TryGetRandomStation(out var station))
+            return false;
+
+        PlaceInStation(station.Value, target, maintenanceOnly, out var locker, out var fallback);
+        return locker != null || fallback != null;
+    }
 }

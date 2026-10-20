@@ -33,7 +33,7 @@
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-      - behavior: Screwing
+      - behavior: [ Screwing ]
         sprite:
           sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
           state: screw
@@ -41,7 +41,7 @@
           path: /Audio/Items/drill_use.ogg
         changeSound:
           path: /Audio/Effects/Arcade/newgame.ogg
-      - behavior: Prying
+      - behavior: [ Prying ]
         sprite:
           sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
           state: cutter
@@ -49,7 +49,7 @@
           path: /Audio/Items/jaws_pry.ogg
         changeSound:
           path: /Audio/Effects/Arcade/newgame.ogg
-      - behavior: Anchoring
+      - behavior: [ Anchoring ]
         sprite:
           sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
           state: wrench
@@ -57,7 +57,7 @@
           path: /Audio/Items/ratchet.ogg
         changeSound:
           path: /Audio/Effects/Arcade/newgame.ogg
-      - behavior: Cutting
+      - behavior: [ Cutting ]
         sprite:
           sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
           state: crowbar
@@ -65,7 +65,7 @@
           path: /Audio/Items/jaws_cut.ogg
         changeSound:
           path: /Audio/Effects/Arcade/newgame.ogg
-      - behavior: Pulsing
+      - behavior: [ Pulsing ]
         sprite:
           sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
           state: icon

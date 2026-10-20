@@ -34,6 +34,14 @@ public sealed class AddImplant : LocalizedCommands
         }
 
         var target  = targetEntity.Value;
+        if (!IoCManager.Resolve<IPrototypeManager>().HasIndex<EntityPrototype>(args[1]))
+        {
+            shell.WriteLine(Loc.GetString("cmd-addimplant-failure",
+                ("implant", args[1]),
+                ("target", entityManager.ToPrettyString(target))));
+            return;
+        }
+
         var implant = implantSystem.AddImplant(target, args[1]);
 
         if (implant != null)
