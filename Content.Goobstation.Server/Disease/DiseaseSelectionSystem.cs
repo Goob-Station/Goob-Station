@@ -13,10 +13,10 @@ namespace Content.Goobstation.Server.Disease;
   
 public sealed partial class DiseaseSelectionSystem : GameRuleSystem<DiseaseSelectionComponent>  
 {  
-    [Dependency] private readonly DiseaseSystem _disease = default!;  
-    [Dependency] private readonly MobStateSystem _mobState = default!;  
-    [Dependency] private readonly SharedMindSystem _mind = default!;  
-    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private DiseaseSystem _disease = default!;  
+    [Dependency] private MobStateSystem _mobState = default!;  
+    [Dependency] private SharedMindSystem _mind = default!;  
+    [Dependency] private SharedRoleSystem _role = default!;
   
     protected override void Started(EntityUid uid, DiseaseSelectionComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)  
     {  
