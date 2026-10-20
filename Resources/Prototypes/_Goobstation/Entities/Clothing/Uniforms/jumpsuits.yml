@@ -519,11 +519,11 @@
 #FlavourVille
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitFlavourTown
-  name: Flavour Town Shirt
-  description: Divers, Drive-Ins and Dives!
+  id: ClothingUniformJumpsuitHawaiFire
+  name: flaming hawaiian shirt
+  description: A souvenir from Flavour Town
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/FlavTown.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaifire.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/FlavTown.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaifire.rsi
