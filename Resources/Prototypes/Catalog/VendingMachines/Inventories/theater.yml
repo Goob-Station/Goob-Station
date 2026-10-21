@@ -74,9 +74,10 @@
     ClothingHeadHatInvincible: 1 #Goobstation
     ClothingOuterArmorCombineElite: 1 #Goobstation
     ClothingOuterArmorDivingSuit: 1 #Goobstation
-    ClothingOuterArmorInfectedDivingSuit: 1
+    ClothingOuterArmorHuskDivingSuit: 1
     ClothingUniformJumpsuitLash: 1 #Goobstation
     ClothingUniformJumpsuitKris: 1 #Goobstation
+    ToyKnife: 1 #Goobstation
     ClothingUniformJumpsuitFrisk: 1 #Goobstation
     ClothingUniformJumpsuitGoku: 2 # Goobstaiton
     ClothingMaskPlague: 1 # Goobstation - Halloween
