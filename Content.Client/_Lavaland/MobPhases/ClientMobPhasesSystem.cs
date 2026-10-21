@@ -12,8 +12,7 @@ public sealed partial class ClientMobPhasesSystem : MobPhasesSystem
     [SubscribeLocalEvent]
     private void OnPhaseChanged(Entity<MobPhasesComponent> ent, ref MobPhaseChangedEvent args)
     {
-        if (!TryGetPhase(ent.Comp, args.NewPhase, out var phase))
-            return;
+        TryGetPhase(ent.Comp, args.NewPhase, out var phase);
 
         var held = new SpriteHeldEvent();
         RaiseLocalEvent(ent, ref held);
@@ -25,11 +24,11 @@ public sealed partial class ClientMobPhasesSystem : MobPhasesSystem
     [SubscribeLocalEvent]
     private void OnSpriteReleased(Entity<MobPhasesComponent> ent, ref SpriteReleasedEvent args)
     {
-        if (TryGetPhase(ent.Comp, ent.Comp.CurrentPhase, out var phase))
-            ApplyPhaseSprite(ent, phase);
+        TryGetPhase(ent.Comp, ent.Comp.CurrentPhase, out var phase);
+        ApplyPhaseSprite(ent, phase);
     }
 
-    private void ApplyPhaseSprite(Entity<MobPhasesComponent> ent, MobPhase phase)
+    private void ApplyPhaseSprite(Entity<MobPhasesComponent> ent, MobPhase? phase)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
@@ -42,7 +41,7 @@ public sealed partial class ClientMobPhasesSystem : MobPhasesSystem
 
         ent.Comp.OriginalSprites.Clear();
 
-        if (phase.NewSprite is not { } specifier)
+        if (phase?.NewSprite is not { } specifier)
             return;
 
         var layer = 0;
