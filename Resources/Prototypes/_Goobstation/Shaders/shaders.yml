@@ -65,3 +65,8 @@
   id: MechStompShockwave
   kind: source
   path: "/Textures/_Goobstation/Shaders/mech_stomp_shockwave.swsl"
+
+- type: shader
+  id: Jiggle
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/jiggle.swsl"

@@ -95,6 +95,7 @@
         type: ApcBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     inHandsOnly: false
     key: enum.ApcUiKey.Key
