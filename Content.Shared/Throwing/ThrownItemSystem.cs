@@ -20,7 +20,7 @@ namespace Content.Shared.Throwing
     /// <summary>
     ///     Handles throwing landing and collisions.
     /// </summary>
-    public sealed class ThrownItemSystem : EntitySystem
+    public sealed partial class ThrownItemSystem : EntitySystem // Goob
     {
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly INetManager _netMan = default!;
@@ -69,6 +69,9 @@ namespace Content.Shared.Throwing
                 return;
 
             if (args.OtherEntity == component.Thrower)
+                return;
+
+            if (TryDeferCollision(args.OurEntity, args.OtherEntity)) // Goob
                 return;
 
             ThrowCollideInteraction(component, args.OurEntity, args.OtherEntity);
@@ -174,6 +177,8 @@ namespace Content.Shared.Throwing
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
+
+            ProcessDeferredCollisions(); // Goob
 
             var query = EntityQueryEnumerator<ThrownItemComponent, PhysicsComponent>();
             var frozenQuery = GetEntityQuery<FrozenComponent>(); // Goobstation

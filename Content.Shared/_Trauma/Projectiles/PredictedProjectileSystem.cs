@@ -47,6 +47,8 @@ public sealed class PredictedProjectileSystem : EntitySystem
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<PredictedShooterComponent> _shooterQuery;
 
+    private readonly List<(EntityUid Projectile, EntityUid Target, string FixtureId)> _deferredHits = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -65,7 +67,35 @@ public sealed class PredictedProjectileSystem : EntitySystem
         if (args.OurFixtureId != SharedProjectileSystem.ProjectileFixture || !args.OtherFixture.Hard)
             return;
 
+        if (_net.IsClient && _timing.ApplyingState)
+        {
+            _deferredHits.Add((ent.Owner, args.OtherEntity, args.OtherFixtureId));
+            return;
+        }
+
         DoHit((ent, ent.Comp, args.OurBody), args.OtherEntity, args.OtherFixture);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_deferredHits.Count == 0)
+            return;
+
+        var hits = _deferredHits.ToArray();
+        _deferredHits.Clear();
+        foreach (var (uid, target, fixtureId) in hits)
+        {
+            if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(target) ||
+                !_query.TryComp(uid, out var comp) ||
+                !_physicsQuery.TryComp(uid, out var physics) ||
+                !_fixturesQuery.TryComp(target, out var fixtures) ||
+                !fixtures.Fixtures.TryGetValue(fixtureId, out var fixture))
+                continue;
+
+            DoHit((uid, comp, physics), target, fixture);
+        }
     }
 
     /// <summary>

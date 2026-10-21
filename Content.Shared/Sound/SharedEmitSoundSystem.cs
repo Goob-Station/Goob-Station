@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Trauma.Hands; // Goob
 using Content.Shared.Audio;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
@@ -40,6 +41,7 @@ public abstract class SharedEmitSoundSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly PredictedHandsSystem _predictedHands = default!; // Goob
 
     public override void Initialize()
     {
@@ -134,6 +136,9 @@ public abstract class SharedEmitSoundSystem : EntitySystem
 
     private void OnEmitSoundOnDrop(EntityUid uid, EmitSoundOnDropComponent component, DroppedEvent args)
     {
+        if (_predictedHands.ThrowDropping == uid) // Goob
+            return;
+
         TryEmitSound(uid, component, args.User);
     }
 
