@@ -18,8 +18,6 @@
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
     - id: CargoMegaphone # goob - loudspeaker
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
-    - id: CandyBowl # Goob - Happy Halloween!
-    - id: RandomSnacks # Goob - Happy Halloween!
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -57,7 +55,6 @@
       conditions:
       - !type:PlayerCountCondition
         max: 15
-    - id: CandyBowl # Goob - Happy Halloween!
 
 # No laser table + Laser table
 - type: entityTable
@@ -144,7 +141,6 @@
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
     - id: CommandMegaphone # goob - loudspeakers
-    - id: CandyBowl # Goob - Happy Halloween!
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -187,7 +183,6 @@
     - id: MachinePowerTransmissionLaserFlatpack
     - id: RCDRechargingCE
     - id: MaterialSiloFlatpack # Goob
-    - id: CandyBowl # Goob - Happy Halloween!
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -263,7 +258,6 @@
     # Virology
     - id: DiseaseDiagnoserFlatPack
     - id: VaccinatorFlatPack
-    - id: CandyBowl # Happy Halloween!
     # Goobstation End
 
 # Hardsuit table, used for suit storage as well
@@ -324,7 +318,6 @@
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
     - id: MMI # Goobstation
-    - id: CandyBowl # Goob - Happy Halloween!
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -389,7 +382,6 @@
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
     - id: MaterialSiloFlatpack # Goob
-    - id: FoodPacketLollypopTrash # Goob - ...happy halloween?
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

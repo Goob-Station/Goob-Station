@@ -573,7 +573,7 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitKris #when did you start being yourself?
+  id: ClothingUniformJumpsuitKris
   name: other important person's shirt
   description: Your love will become theirs.
   components:
@@ -654,15 +654,3 @@
         color: "#67A3E0"
       - state: equipped-decor-twostripe
         color: "#E806F8"
-
-#dragon fighter
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitGoku
-  name: dragon fighter outfit
-  description: Let me handle this!
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Other/dragon_fighter.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Other/dragon_fighter.rsi
