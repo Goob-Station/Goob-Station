@@ -1,14 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Lavaland.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._Lavaland.Aggression;
 
@@ -16,7 +14,6 @@ public sealed class AggressorsSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedBossMusicSystem _bossMusic = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
@@ -31,8 +28,6 @@ public sealed class AggressorsSystem : EntitySystem
 
         SubscribeLocalEvent<AggressorComponent, MobStateChangedEvent>(OnAggressorStateChange);
         SubscribeLocalEvent<AggressorComponent, EntityTerminatingEvent>(OnAggressorDeleted);
-        SubscribeLocalEvent<AggressorComponent, AggressiveAddedEvent>(OnAggressorAdded);
-        SubscribeLocalEvent<AggressorComponent, AggressiveRemovedEvent>(OnAggressorRemoved);
 
         _xformQuery = GetEntityQuery<TransformComponent>();
     }
@@ -98,15 +93,6 @@ public sealed class AggressorsSystem : EntitySystem
 
         RemoveAllAggressors(ent);
     }
-
-    private void OnAggressorAdded(Entity<AggressorComponent> ent, ref AggressiveAddedEvent args)
-    {
-        if (ent.Comp.Aggressives.TryFirstOrNull(out var boss))
-            _bossMusic.StartBossMusic(boss.Value);
-    }
-
-    private void OnAggressorRemoved(Entity<AggressorComponent> ent, ref AggressiveRemovedEvent args)
-        => _bossMusic.EndAllMusic(); // Stop the music if we are no longer get attacked by anyone.
 
     private void OnAggressorStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
     {
