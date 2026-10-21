@@ -8,7 +8,9 @@ using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rotation;
 using Content.Shared.Standing;
@@ -136,7 +138,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         if ((args.UncappedDamage ?? args.DamageDelta) is not { } dmg)
             return;
 
-        _dmg.TryChangeDamage(user,
+        _dmg.ChangeDamage(user,
             dmg,
             origin: args.Origin,
             interruptsDoAfters: args.InterruptsDoAfters,
@@ -179,8 +181,26 @@ public abstract class SharedShadowCloakSystem : EntitySystem
     {
         var parent = ent.Comp.User ?? Transform(ent).ParentUid;
 
+        RestoreVirtualItemBlockers(ent.Owner, parent);
+
         if (!RemoveShadowCloak(parent))
             PredictedQueueDel(ent.Owner);
+    }
+
+    private void RestoreVirtualItemBlockers(EntityUid cloak, EntityUid user)
+    {
+        if (!Exists(user) || TerminatingOrDeleted(user))
+            return;
+
+        var query = EntityQueryEnumerator<VirtualItemComponent>();
+        while (query.MoveNext(out var uid, out var virt))
+        {
+            if (virt.BlockingEntity != cloak)
+                continue;
+
+            virt.BlockingEntity = user;
+            Dirty(uid, virt);
+        }
     }
 
     private void OnGetDoAfterSpeed(Entity<ShadowCloakedComponent> ent, ref GetDoAfterDelayMultiplierEvent args)

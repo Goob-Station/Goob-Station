@@ -16,8 +16,8 @@ namespace Content.Goobstation.Client.Weapons.Melee.EnergySword
     [GenerateTypedNameReferences]
     public sealed partial class EsColorPicker : FancyWindow
     {
-        [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-        [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private IEntitySystemManager _entitySystem = default!;
+        [Dependency] private IEntityManager _entManager = default!;
         private readonly SharedRgbLightControllerSystem _rgbSystem = default!;
         private readonly SharedAppearanceSystem _appearance = default!;
 

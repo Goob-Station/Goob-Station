@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by GitHub NotLivyathan / Discord livyathan (298907041198637067)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "composite_hood",
+      "directions": 4
+    },
+    {
+      "name": "composite_hood_light",
+      "directions": 4
+    },
+    {
+      "name": "solar_fans",
+      "directions": 4
+    }
+  ]
+}

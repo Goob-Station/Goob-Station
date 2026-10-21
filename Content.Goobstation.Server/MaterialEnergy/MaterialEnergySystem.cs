@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.MaterialEnergy;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Interaction;
@@ -8,11 +9,11 @@ using Content.Shared.Stacks;
 
 namespace Content.Goobstation.Server.MaterialEnergy
 {
-    public sealed class MaterialEnergySystem : EntitySystem
+    public sealed partial class MaterialEnergySystem : EntitySystem
     {
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly BatterySystem _batterySystem = default!;
-        [Dependency] private readonly StackSystem _stack = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+        [Dependency] private BatterySystem _batterySystem = default!;
+        [Dependency] private StackSystem _stack = default!;
 
         public override void Initialize()
         {

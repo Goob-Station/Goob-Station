@@ -19,6 +19,7 @@
       alwaysRandomize: true
     - type: Defusable
     - type: Rotatable
+    - type: ExplosionEffect # Goob
     - type: Explosive
       explosionType: Default
       totalIntensity: 20.0
@@ -86,8 +87,9 @@
       color: "#0063C7"
       radius: 1.1
       softness: 1
+    - type: ExplosionEffect # Goob
     - type: Explosive
-      explosionType: Default
+      explosionType: Transparent # Goob
       totalIntensity: 5.0
       intensitySlope: 5
       maxIntensity: 4
@@ -125,6 +127,7 @@
       color: "#C7001B"
       radius: 1.1
       softness: 1
+    - type: ExplosionEffect # Goob
     - type: Explosive
       explosionType: HardBomb
       totalIntensity: 4000.0
@@ -138,8 +141,9 @@
   id: SyndicateBombFake
   suffix: fake
   components:
+    - type: ExplosionEffect # Goob
     - type: Explosive
-      explosionType: Default
+      explosionType: Transparent # Goob
       totalIntensity: 5.0
       intensitySlope: 5
       maxIntensity: 4

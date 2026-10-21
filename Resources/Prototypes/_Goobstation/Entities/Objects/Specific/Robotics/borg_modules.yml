@@ -138,7 +138,7 @@
   - type: Sprite
     layers:
     - state: security
-    - state: icon-tools
+    - state: icon-tools 
   - type: ItemBorgModule
     hands:
     - item: StunbatonSEC

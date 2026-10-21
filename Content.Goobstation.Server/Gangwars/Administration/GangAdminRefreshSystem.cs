@@ -6,9 +6,9 @@ namespace Content.Goobstation.Server.Gangwars.Administration;
 /// Keeps any open GangAdminEui panels in sync with gang data that changes outside the panel
 /// (points earned from spray cans/crates, members joining or being kicked through gameplay, etc.)
 /// </summary>
-public sealed class GangAdminRefreshSystem : EntitySystem
+public sealed partial class GangAdminRefreshSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private static readonly TimeSpan RefreshInterval = TimeSpan.FromSeconds(1);
 
