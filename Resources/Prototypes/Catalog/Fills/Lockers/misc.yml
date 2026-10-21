@@ -181,7 +181,7 @@
     children:
     - id: StrangePill
       prob: 0.15
-    - id: ClothingOuterArmorRU6B2Vest # Goobstation 
+    - id: ClothingOuterArmorRU6B2Vest # Goobstation
       prob: 0.04
     # Tools
     - !type:NestedSelector
@@ -211,6 +211,12 @@
     # Recursive
     - id: ClosetMaintenanceFilledRandom
       prob: 0.01
+    # Goobstation, Halloween - Candies and snacks
+    - !type:NestedSelector
+      tableId: RandomSnackTable
+      prob: 0.22
+      rolls: !type:RangeNumberSelector
+        range: 0, 4
 
 - type: entity
   id: ClosetMaintenanceFilledRandom
