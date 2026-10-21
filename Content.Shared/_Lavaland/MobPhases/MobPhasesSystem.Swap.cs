@@ -25,26 +25,42 @@ public abstract partial class MobPhasesSystem
         if (TerminatingOrDeleted(target))
             return;
 
-        // Undo the old phase.
-        foreach (var (name, _) in Components(oldAdd))
+        var oldAdded = Components(oldAdd);
+        var oldRemoved = Components(oldRemove);
+        var nextAdded = Components(nextAdd);
+        var nextRemoved = Components(nextRemove);
+
+        // Undo the old phase
+        foreach (var (name, _) in oldAdded)
         {
+            if (nextAdded.ContainsKey(name) || nextRemoved.ContainsKey(name))
+                continue;
+
             RemComp(target, _factory.GetRegistration(name).Type);
             Restore(name);
         }
 
-        foreach (var (name, _) in Components(oldRemove))
-            Restore(name);
+        foreach (var (name, _) in oldRemoved)
+            if (!nextAdded.ContainsKey(name) && !nextRemoved.ContainsKey(name))
+                Restore(name);
 
         // Apply the next phase.
-        foreach (var (name, _) in Components(nextRemove))
+        foreach (var (name, _) in nextRemoved)
         {
-            Stash(name);
+            if (!oldAdded.ContainsKey(name) && !oldRemoved.ContainsKey(name))
+                Stash(name);
+
             RemComp(target, _factory.GetRegistration(name).Type);
         }
 
-        foreach (var (name, entry) in Components(nextAdd))
+        foreach (var (name, entry) in nextAdded)
         {
-            Stash(name);
+            if (oldAdded.TryGetValue(name, out var same) && same.Component == entry.Component)
+                continue;
+
+            if (!oldAdded.ContainsKey(name) && !oldRemoved.ContainsKey(name))
+                Stash(name);
+
             EntityManager.AddComponents(target, new ComponentRegistry { [name] = entry });
         }
 

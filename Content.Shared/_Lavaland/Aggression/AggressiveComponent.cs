@@ -7,7 +7,7 @@ namespace Content.Shared._Lavaland.Aggression;
 /// <summary>
 ///     Keeps track of whoever attacked our mob, so that it could prioritize or randomize targets.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class AggressiveComponent : Component
 {
     /// <summary>

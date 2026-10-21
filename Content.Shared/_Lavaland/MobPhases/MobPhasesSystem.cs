@@ -108,6 +108,7 @@ public abstract partial class MobPhasesSystem : EntitySystem
         TryGetPhase(ent.Comp, oldPhase, out var old);
         TryGetPhase(ent.Comp, newPhase, out var next);
         SwapComponents(ent, ent.Comp.Stashed, old?.AddComp, old?.RemoveComp, next?.AddComp, next?.RemoveComp);
+        SyncEnemies(ent, oldPhase, newPhase);
 
         var ev = new MobPhaseChangedEvent(oldPhase, newPhase);
         RaiseLocalEvent(ent, ref ev);
