@@ -35,7 +35,7 @@ public sealed partial class BossMusicSystem : EntitySystem
     [Dependency] private MobStateSystem _mobState = default!;
 
     // I don't care enough to change the rest of the trycomps.
-    [Dependency] private EntityQuery<BossMusicListenerComponent> _bossListenerQuery;
+    [Dependency] private EntityQuery<BossMusicListenerComponent> _listenerQuery;
 
     /// <summary>
     /// Used to block ambient music.
@@ -64,7 +64,7 @@ public sealed partial class BossMusicSystem : EntitySystem
         base.FrameUpdate(frameTime);
 
         if (_player.LocalEntity is not { } local
-            || !_bossListenerQuery.TryComp(local, out var listener)
+            || !_listenerQuery.TryComp(local, out var listener)
             || listener.StartAt is not { } startAt
             || _timing.CurTime < startAt)
             return;
@@ -119,7 +119,7 @@ public sealed partial class BossMusicSystem : EntitySystem
         => Refresh(ent);
 
     [SubscribeLocalEvent]
-    private void OnAggressorMobState(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
+    private void OnListenerMobState(Entity<BossMusicListenerComponent> ent, ref MobStateChangedEvent args)
         => Refresh(ent);
 
     [SubscribeLocalEvent]
