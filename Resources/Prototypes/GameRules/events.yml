@@ -237,7 +237,7 @@
   id: ClosetSkeleton
   components:
   - type: StationEvent
-    weight: 5
+    weight: 6
     duration: 1
     minimumPlayers: 10
     eventType: Chaotic # Goobstation
