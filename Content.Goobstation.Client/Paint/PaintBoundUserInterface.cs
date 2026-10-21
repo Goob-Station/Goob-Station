@@ -434,7 +434,7 @@ public sealed partial class PaintBoundUserInterface(EntityUid owner, Enum uiKey)
         _texture = null;
     }
 
-    private sealed class PendingStroke(
+    private sealed partial class PendingStroke(
         int sequence,
         Color color,
         int brushSize,

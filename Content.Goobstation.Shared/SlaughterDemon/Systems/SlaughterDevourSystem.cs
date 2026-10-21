@@ -20,14 +20,14 @@ namespace Content.Goobstation.Shared.SlaughterDemon.Systems;
 /// <summary>
 /// This handles the devouring system for the slaughter demons
 /// </summary>
-public sealed class SlaughterDevourSystem : EntitySystem
+public sealed partial class SlaughterDevourSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
     private EntityQuery<PullerComponent> _pullerQuery;
     private EntityQuery<HumanoidAppearanceComponent> _humanoid;

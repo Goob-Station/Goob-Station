@@ -5,9 +5,9 @@ using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Server.Weapons.ChangeTemperatureOnHit;
 
-public sealed class ChangeTemperatureOnHitSystem : EntitySystem
+public sealed partial class ChangeTemperatureOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
 
     public override void Initialize()
     {

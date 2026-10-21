@@ -35,6 +35,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: WiresPanel
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.LatheUiKey.Key
   - type: ActivatableUIRequiresPower

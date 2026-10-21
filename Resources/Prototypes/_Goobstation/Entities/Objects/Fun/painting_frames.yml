@@ -20,6 +20,9 @@
     material: simple
   - type: StaticPrice
     price: 10
+  - type: Construction
+    graph: PaintingFrameWoodGraph
+    node: frame
 
 - type: entity
   parent: BasePaintingFrame
@@ -32,6 +35,9 @@
     material: iron
   - type: StaticPrice
     price: 20
+  - type: Construction
+    graph: PaintingFrameIronGraph
+    node: frame
 
 - type: entity
   parent: BasePaintingFrame
@@ -44,6 +50,9 @@
     material: bamboo
   - type: StaticPrice
     price: 15
+  - type: Construction
+    graph: PaintingFrameBambooGraph
+    node: frame
 
 - type: entity
   parent: BasePaintingFrame
@@ -56,6 +65,9 @@
     material: bones
   - type: StaticPrice
     price: 30
+  - type: Construction
+    graph: PaintingFrameBonesGraph
+    node: frame
 
 - type: entity
   parent: BasePaintingFrame
@@ -68,6 +80,9 @@
     material: bronze
   - type: StaticPrice
     price: 50
+  - type: Construction
+    graph: PaintingFrameBronzeGraph
+    node: frame
 
 - type: entity
   parent: BasePaintingFrame
@@ -104,6 +119,9 @@
     material: silver
   - type: StaticPrice
     price: 100
+  - type: Construction
+    graph: PaintingFrameSilverGraph
+    node: frame
 
 - type: entity
   parent: BasePaintingFrame
@@ -128,6 +146,9 @@
     material: gold
   - type: StaticPrice
     price: 250
+  - type: Construction
+    graph: PaintingFrameGoldGraph
+    node: frame
 
 - type: entity
   parent: BasePaintingFrame
@@ -140,6 +161,9 @@
     material: diamond
   - type: StaticPrice
     price: 500
+  - type: Construction
+    graph: PaintingFrameDiamondGraph
+    node: frame
 
 - type: entity
   parent: BasePaintingFrame

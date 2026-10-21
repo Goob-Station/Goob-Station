@@ -273,7 +273,7 @@ public sealed partial class PaintSurfaceSystem : SharedPaintSurfaceSystem
         _paintLog.LogPainting(ent.Owner, user, pixels, image);
     }
 
-    private sealed class UndoStep(int strokeId)
+    private sealed partial class UndoStep(int strokeId)
     {
         public readonly int StrokeId = strokeId;
         public readonly Dictionary<int, (byte Old, byte New)> Changes = new();
