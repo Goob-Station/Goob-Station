@@ -21,7 +21,7 @@ public sealed class MaintsSoundsSystem : EntitySystem
         .WithVariation(0.3f);
 
     /// <summary>Range in tiles around the player to look for cat walks.</summary>
-    private const float AreaRange = 6f;
+    private const float AreaRange = 8f;
 
     /// <summary>Min/max distance in tiles from the player at which the sound is heard.</summary>
     private const float MinSoundDistance = 3f;
