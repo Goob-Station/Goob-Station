@@ -459,9 +459,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/diver.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/infected_diver.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/diver.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/infected_diver.rsi
   - type: HideLayerClothing
     slots:
     - Hair
