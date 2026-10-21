@@ -214,7 +214,7 @@
   category: Survival
   icon: { entity: CrateCoffin }
   condition: !type:EarlyDeathCondition
-
+  
 - type: achievement
   id: EasyPrey
   name: achievement-easy-prey-name
@@ -229,6 +229,7 @@
     - !type:HasComponentCondition
       components:
       - type: HumanoidAppearance
+        species: Human
 
 - type: achievement
   id: Dormammu
