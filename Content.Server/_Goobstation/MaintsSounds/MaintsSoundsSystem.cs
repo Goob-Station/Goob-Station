@@ -28,8 +28,8 @@ public sealed class MaintsSoundsSystem : EntitySystem
     private const float MaxSoundDistance = 8f;
 
     /// <summary>Min/max delay in seconds between sounds for one player.</summary>
-    private const float MinDelay = 230f;
-    private const float MaxDelay = 390f;
+    private const float MinDelay = 360f;
+    private const float MaxDelay = 490f;
 
     public override void Update(float frameTime)
     {
