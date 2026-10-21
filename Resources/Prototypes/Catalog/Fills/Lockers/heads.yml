@@ -18,8 +18,11 @@
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
     - id: CargoMegaphone # goob - loudspeaker
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
-    - id: CandyBowl # Goob - Happy Halloween!
-    - id: RandomSnacks # Goob - Happy Halloween!
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -57,7 +60,11 @@
       conditions:
       - !type:PlayerCountCondition
         max: 15
-    - id: CandyBowl # Goob - Happy Halloween!
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 # No laser table + Laser table
 - type: entityTable
@@ -144,7 +151,11 @@
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
     - id: CommandMegaphone # goob - loudspeakers
-    - id: CandyBowl # Goob - Happy Halloween!
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -187,7 +198,11 @@
     - id: MachinePowerTransmissionLaserFlatpack
     - id: RCDRechargingCE
     - id: MaterialSiloFlatpack # Goob
-    - id: CandyBowl # Goob - Happy Halloween!
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -263,7 +278,11 @@
     # Virology
     - id: DiseaseDiagnoserFlatPack
     - id: VaccinatorFlatPack
-    - id: CandyBowl # Happy Halloween!
+    - id: CandyBowlFilledLollypopsMystery # Happy Halloween!
+    - !type:NestedSelector # Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
     # Goobstation End
 
 # Hardsuit table, used for suit storage as well
@@ -324,7 +343,11 @@
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
     - id: MMI # Goobstation
-    - id: CandyBowl # Goob - Happy Halloween!
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -439,6 +462,11 @@
     - id: BikeHorn
     - id: FoodMango #Goobstation
       prob: 0.65
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      prob: 0.9
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
 
 - type: entity
   id: LockerFreezerVaultFilled
