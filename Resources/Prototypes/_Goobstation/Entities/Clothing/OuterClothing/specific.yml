@@ -236,6 +236,36 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Misc/unrobustable.rsi
 
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterArmorDivingSuit
+  name: diving suit costume
+  description: A replica diving suit from the days-gone submarine era of Europa.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/diver.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/diver.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatDivingSuitHelmet
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterArmorHuskDivingSuit
+  name: infected diving suit costume
+  description: A replica diving suit inhabiting a long-extinct alien parasite. Familiar.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/infected_diver.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/infected_diver.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHuskDivingSuitHelmet
+
 #Admeme
 - type: entity
   parent: ClothingOuterHardsuitDeathsquad
