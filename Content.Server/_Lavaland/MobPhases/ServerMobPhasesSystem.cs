@@ -57,7 +57,6 @@ public sealed partial class ServerMobPhasesSystem : MobPhasesSystem
         if (ent.Comp.Enemies.ContainsKey(args.Aggressor))
             return;
 
-
         var stash = new ComponentRegistry();
         ent.Comp.Enemies[args.Aggressor] = stash;
 

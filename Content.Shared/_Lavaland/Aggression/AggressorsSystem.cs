@@ -156,9 +156,12 @@ public sealed class AggressorsSystem : EntitySystem
                 RaiseLocalEvent(aggressor, new AggressiveRemovedEvent(ent.Owner));
                 RemComp(aggressor, aggressorComp);
             }
+            else
+                Dirty(aggressor, aggressorComp);
         }
 
         ent.Comp.Aggressors.Clear();
+        Dirty(ent);
     }
 
     #endregion

@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Reflection.PortableExecutable;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.Damage.Components;
@@ -125,9 +124,13 @@ public abstract partial class MobPhasesSystem : EntitySystem
         ent.Comp.Deaths = death;
         Dirty(ent);
 
-        var remaining = dead.Value * (1f - revive.HealPercentageOnDeath);
-        var scale = (remaining / damageable.Damage.GetTotal()).Float();
-        _damageable.SetDamage((ent.Owner, damageable), damageable.Damage * scale);
+        var total = damageable.Damage.GetTotal();
+        if (total > 0)
+        {
+            var remaining = dead.Value * (1f - revive.HealPercentageOnDeath);
+            _damageable.SetDamage((ent.Owner, damageable), damageable.Damage * (remaining / total).Float());
+        }
+
         SetPhase((ent.Owner, ent.Comp), revive.Phase);
         return true;
     }
