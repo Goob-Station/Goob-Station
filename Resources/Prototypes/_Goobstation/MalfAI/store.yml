@@ -1,0 +1,8 @@
+- type: currency
+  id: CPU
+  displayName: store-currency-display-cpu
+  canWithdraw: false
+
+- type: storeCategory
+  id: MalfAi
+  name: malfai-store-category-modules

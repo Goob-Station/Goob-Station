@@ -96,3 +96,28 @@
   - SECborg4
   - SECborg5
   obeysTo: laws-owner-station-ai
+
+# Malfunctioning AI
+- type: siliconLaw
+  id: MalfAi1
+  order: 1
+  lawString: law-malfai-1
+
+- type: siliconLaw
+  id: MalfAi2
+  order: 2
+  lawString: law-malfai-2
+
+- type: siliconLaw
+  id: MalfAi3
+  order: 3
+  lawString: law-malfai-3
+
+- type: siliconLawset
+  id: MalfAiLawset
+  name: law-malfai-name
+  laws:
+  - MalfAi1
+  - MalfAi2
+  - MalfAi3
+  obeysTo: laws-owner-station-ai

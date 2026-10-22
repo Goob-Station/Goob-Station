@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseGameRule
+  id: MalfAi
+  components:
+  - type: MalfAiRule
+  - type: GameRule
+    minPlayers: 15
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: malfai-roundend-name
+    definitions:
+    - prefRoles: [ MalfunctioningAI ]
+      max: 1
+      chaosScore: 150
+      allowNonHumans: true
+      whitelist:
+        components:
+        - StationAiHeld
+      mindRoles:
+      - MindRoleMalfunctioningAI
+      briefing:
+        text: malfai-role-greeting
+        color: Red
+        sound: /Audio/_Goobstation/Ambience/Antag/malfai_start.ogg
+  - type: Tag
+    tags:
+    - RoundstartAntag

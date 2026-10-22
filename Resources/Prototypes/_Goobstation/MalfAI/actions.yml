@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiOpenStore
+  name: AI modules
+  description: Open your module shop and view your available CPU.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/actions_malf_ai.rsi
+      state: malfai_bg_shop
+  - type: InstantAction
+    event: !type:OpenMalfAiStoreEvent

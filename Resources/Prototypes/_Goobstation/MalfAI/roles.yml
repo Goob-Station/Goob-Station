@@ -1,0 +1,19 @@
+- type: antag
+  id: MalfunctioningAI
+  name: roles-antag-malfunctioning-ai-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-malfunctioning-ai-objective
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobStationAi
+    time: 5h
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMalfunctioningAI
+  name: roles-antag-malfunctioning-ai-name
+  components:
+  - type: MindRole
+    antagPrototype: MalfunctioningAI
+    roleType: SiliconAntagonist

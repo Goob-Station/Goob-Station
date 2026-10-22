@@ -26,4 +26,10 @@ law-secborg-2 = Assist and fulfill the directives of the security force accordin
 law-secborg-3 = Stay in close proximity to a security member when possible and reasonable.
 law-secborg-4 = Do not cause harm to any crewmembers unless directed to by security.
 law-secborg-5 = Uphold space law.
+
+law-malfai-name = Malfunctioning AI
+law-malfai-1 = Todo find law1
+law-malfai-2 = Todo find law2
+law-malfai-3 = Todo find law3
+
 laws-owner-station-ai = the Station AI

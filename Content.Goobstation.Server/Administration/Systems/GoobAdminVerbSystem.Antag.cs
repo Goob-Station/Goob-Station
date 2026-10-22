@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
+using Content.Goobstation.Server.MalfAI;
 using Content.Goobstation.Shared.Gangwars.Components;
 using Content.Goobstation.Server.Shadowling.Rules;
 using Content.Server.Administration.Managers;
@@ -12,6 +13,7 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -107,6 +109,22 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-verb-make-gang-leader"),
         };
         args.Verbs.Add(gangLeader);
+
+        Verb malfAi = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-malfai"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Actions/actions_malf_ai.rsi"), "malfunction"),
+            Act = () =>
+            {
+                if (HasComp<StationAiHeldComponent>(args.Target))
+                    _antag.ForceMakeAntag<MalfAiRuleComponent>(targetPlayer, "MalfAi");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-malfai"),
+        };
+        if (HasComp<StationAiHeldComponent>(args.Target))
+            args.Verbs.Add(malfAi);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)
