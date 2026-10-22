@@ -134,6 +134,9 @@
     tags:
     - SiliconEmotes
   chatMessages: ["chat-emote-msg-squish"]
+  event: !type:JiggleEmoteEvent # Goobstation
+    pulses:
+    - impulse: 0,-40
   chatTriggers:
     - squish
     - squishing

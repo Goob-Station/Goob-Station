@@ -15,6 +15,17 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-bubble"]
+  event: !type:JiggleEmoteEvent # Goobstation
+    pulses:
+    - impulse: 8,10
+    - delay: 0.12
+      impulse: -14,-6
+    - delay: 0.24
+      impulse: 14,10
+    - delay: 0.36
+      impulse: -14,-6
+    - delay: 0.48
+      impulse: 8,8
   chatTriggers:
     # Frontier: emote consistency
     - bubble
@@ -37,6 +48,11 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-pop"]
+  event: !type:JiggleEmoteEvent # Goobstation
+    pulses:
+    - impulse: 0,45
+    - delay: 0.12
+      impulse: 0,-40
   chatTriggers:
     # Frontier: emote consistency
     - pop

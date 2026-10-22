@@ -28,6 +28,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 
     private const int TweakAnimationDurationMs = 1100; // 11 frames * 100ms per frame
     private const int FlexAnimationDurationMs = 200 * 7; // 7 frames * 200ms per frame
+    private static readonly TimeSpan MaxEmoteAge = TimeSpan.FromSeconds(1);
 
     public override void Initialize()
     {
@@ -77,8 +78,15 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 
     private void OnHandleState(EntityUid uid, AnimatedEmotesComponent component, ref ComponentHandleState args)
     {
-        if (args.Current is not AnimatedEmotesComponentState state
-        || !_prot.TryIndex<EmotePrototype>(state.Emote, out var emote))
+        if (args.Current is not AnimatedEmotesComponentState state)
+            return;
+
+        var fresh = state.EmoteTime > component.LastPlayedTime && _timing.CurTime - state.EmoteTime <= MaxEmoteAge;
+        component.Emote = state.Emote;
+        component.EmoteTime = state.EmoteTime;
+        component.LastPlayedTime = state.EmoteTime;
+
+        if (!fresh || !_prot.TryIndex<EmotePrototype>(state.Emote, out var emote))
             return;
 
         if (emote.Event != null)

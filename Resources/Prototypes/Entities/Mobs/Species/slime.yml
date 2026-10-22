@@ -52,6 +52,11 @@
     allowedEmotes: ['Squish', 'Bubble', 'Pop'] # Imp: add Bubble, Pop
   - type: TypingIndicator
     proto: slime
+  - type: Jiggle # Goobstation
+  - type: SlimeRegrowth # Goobstation
+    damage:
+      types:
+        Blunt: 35
   - type: Vocal
     sounds:
       Male: MaleSlime
