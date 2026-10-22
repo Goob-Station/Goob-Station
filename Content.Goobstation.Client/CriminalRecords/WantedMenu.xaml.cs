@@ -22,8 +22,8 @@ namespace Content.Goobstation.Client.CriminalRecords;
 [GenerateTypedNameReferences]
 public sealed partial class WantedMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystem = default!;
     private readonly IPlayerManager _player;
     private readonly AccessReaderSystem _accessReader;
     private readonly IRobustRandom _random;

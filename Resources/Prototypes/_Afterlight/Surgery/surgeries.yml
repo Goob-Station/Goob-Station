@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemoveSynthPowerCell
+  name: Remove Power Cell
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+  - type: SurgeryPartCondition
+    parts: [ Chest ]
+  - type: SurgeryOrganSlotCondition
+    organSlot: battery
+  - type: SurgeryOrganCondition
+    organ:
+    - type: SynthPowerCell
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertSynthPowerCell
+  name: Insert Power Cell
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+  - type: SurgeryPartCondition
+    parts: [ Chest ]
+  - type: SurgeryOrganSlotCondition
+    organSlot: battery
+  - type: SurgeryOrganCondition
+    organ:
+    - type: SynthPowerCell

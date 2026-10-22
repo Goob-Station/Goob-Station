@@ -15,6 +15,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 

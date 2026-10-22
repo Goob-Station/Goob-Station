@@ -6,6 +6,11 @@
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Appearance
+  - type: Jiggle
+    stiffness: 150
+    damping: 4
+    inertia: 6
+    drag: 0.3
   - type: Hunger
     startingHunger: 40
     thresholds:
