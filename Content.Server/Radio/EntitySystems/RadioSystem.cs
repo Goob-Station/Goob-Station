@@ -290,6 +290,8 @@ public sealed partial class RadioSystem : EntitySystem
 
         return Loc.GetString(wrapId,
             ("color", channel.Color),
+            ("channelId", channel.ID), // Goob
+            ("languageOverride", language.SpeechOverride.Color is null ? "none" : languageColor.ToHex()), // Goob
             ("languageColor", languageColor),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
             ("fontSize", loudSpeakFont ?? language.SpeechOverride.FontSize ?? speech.FontSize), // goob edit - "loudSpeakFont"

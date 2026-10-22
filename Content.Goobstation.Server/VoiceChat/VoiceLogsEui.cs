@@ -10,11 +10,11 @@ using Content.Shared.Eui;
 
 namespace Content.Goobstation.Server.VoiceChat;
 
-public sealed class VoiceLogsEui : BaseEui
+public sealed partial class VoiceLogsEui : BaseEui
 {
-    [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly VoiceLogManager _logs = default!;
+    [Dependency] private IAdminManager _admin = default!;
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private VoiceLogManager _logs = default!;
 
     private readonly VoiceLogSystem _system;
     private readonly Guid? _initialUser;

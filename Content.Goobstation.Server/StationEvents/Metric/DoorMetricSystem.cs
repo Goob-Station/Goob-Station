@@ -18,9 +18,9 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 ///   Power - PowerCost per door or firelock with no power
 ///   Atmos - PressureCost for holding spacing or FireCost for holding back fire
 /// </summary>
-public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
+public sealed partial class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 {
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
 
     private static readonly Gauge DoorsTotal = Metrics.CreateGauge(
         "game_director_metric_door_total",

@@ -8,9 +8,9 @@ namespace Content.Goobstation.Shared.Stun;
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class SharedGoobStunSystem : EntitySystem
+public sealed partial class SharedGoobStunSystem : EntitySystem
 {
-    [Dependency] private readonly ClothingModifyStunTimeSystem _modifySystem = default!;
+    [Dependency] private ClothingModifyStunTimeSystem _modifySystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
