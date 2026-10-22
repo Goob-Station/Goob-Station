@@ -20,6 +20,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Players;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
+using Content.Woundmed.Common.Body.Types;
 using Robust.Server.Console;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;

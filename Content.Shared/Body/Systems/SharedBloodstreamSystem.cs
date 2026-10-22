@@ -1,7 +1,6 @@
 using Content.Goobstation.Common.Bloodstream;
 using Content.Goobstation.Common.CCVar; // Goobstation
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
@@ -31,6 +30,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Woundmed.Common.Body.Types;
 
 namespace Content.Shared.Body.Systems;
 // todo marty clean up this warzone.

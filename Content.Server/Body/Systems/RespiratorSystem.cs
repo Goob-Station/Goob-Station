@@ -31,6 +31,7 @@ using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Woundmed.Common.Body.Components;
 
 namespace Content.Server.Body.Systems;
 

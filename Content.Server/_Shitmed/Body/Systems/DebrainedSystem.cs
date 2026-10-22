@@ -7,6 +7,8 @@ using Content.Server.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Content.Woundmed.Common.Body.Components;
+using Content.Woundmed.Common.Body.Organs.Components;
 
 namespace Content.Server._Shitmed.Body.Systems;
 

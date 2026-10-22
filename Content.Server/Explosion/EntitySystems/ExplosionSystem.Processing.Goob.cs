@@ -17,7 +17,7 @@ public sealed partial class ExplosionSystem
         if (!TryComp<DestructibleComponent>(uid, out var destructible)
             || !TryComp<DamageableComponent>(uid, out var damageable)
             || !TryComp<BodyComponent>(uid, out var body)
-            || body.BodyType == Shared._Shitmed.Body.BodyType.Simple)
+            || body.BodyType == Woundmed.Common.Body.Types.BodyType.Simple)
             return false;
 
         foreach (var threshold in destructible.Thresholds)
