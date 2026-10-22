@@ -26463,3 +26463,11 @@ Entries:
       message: Fixed animated emotes replaying when someone walks into range.
   id: 2982
   time: '2026-10-21T17:13:14.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Very spooky slasher variant.
+    - type: Fix
+      message: Fixed slasher tokens not getting the variant system.
+  id: 2983
+  time: '2026-10-22T22:25:28.0000000+00:00'
