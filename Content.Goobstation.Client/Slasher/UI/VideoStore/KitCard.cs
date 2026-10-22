@@ -14,11 +14,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Slasher.UI.VideoStore;
 
-public sealed class KitCard : Control
+public sealed partial class KitCard : Control
 {
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IEntitySystemManager _sysMan = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IEntitySystemManager _sysMan = default!;
+    [Dependency] private IResourceCache _cache = default!;
 
     public event Action<string>? OnRent;
     public event Action<ProtoId<GuideEntryPrototype>>? OnGuide;

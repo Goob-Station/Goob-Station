@@ -12,9 +12,9 @@ namespace Content.Goobstation.Client.Slasher.UI.VideoStore;
 /// <summary>
 /// Just don't.
 /// </summary>
-public sealed class SpinnerRack : Control
+public sealed partial class SpinnerRack : Control
 {
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private IResourceCache _cache = default!;
 
     public event Action<int, Entry>? OnSelected;
 

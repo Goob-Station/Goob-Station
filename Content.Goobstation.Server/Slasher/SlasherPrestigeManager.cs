@@ -8,12 +8,12 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Slasher;
 
-public sealed class SlasherPrestigeManager : IPostInjectInit
+public sealed partial class SlasherPrestigeManager : IPostInjectInit
 {
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly ITaskManager _task = default!;
-    [Dependency] private readonly UserDbDataManager _userDb = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private ITaskManager _task = default!;
+    [Dependency] private UserDbDataManager _userDb = default!;
 
     private readonly Dictionary<NetUserId, HashSet<string>> _ascensions = new();
     private readonly List<Task> _pendingSaveTasks = new();

@@ -6,10 +6,10 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Client.Slasher.UI.VideoStore;
 
-public sealed class NeonSign
+public sealed partial class NeonSign
 {
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private const float BreathRate = 2.1f;
     private const float Bloom = 34f;

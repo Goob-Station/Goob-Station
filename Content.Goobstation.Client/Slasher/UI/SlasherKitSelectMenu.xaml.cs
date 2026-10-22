@@ -16,7 +16,7 @@ namespace Content.Goobstation.Client.Slasher.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SlasherKitSelectMenu : BaseWindow
 {
-    [Dependency] private readonly IEntitySystemManager _sysMan = default!;
+    [Dependency] private IEntitySystemManager _sysMan = default!;
     public event Action<string>? OnKitSelected;
     private readonly SpriteSystem _sprites;
     private List<SlasherKitInfo> _kits = new();
