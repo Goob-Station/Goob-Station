@@ -175,7 +175,7 @@
     thresholds:
       243: 0.8
   - type: Fart
-    gasToFart: Plasma
+    gas: Plasma
 
 - type: entity
   parent: BaseSpeciesDummy
