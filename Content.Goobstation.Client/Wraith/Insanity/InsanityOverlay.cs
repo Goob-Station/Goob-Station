@@ -6,13 +6,13 @@ using System.Numerics;
 
 namespace Content.Goobstation.Client.Wraith.Insanity;
 
-public sealed class InsanityOverlay : Overlay
+public sealed partial class InsanityOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "Insanity";
 
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;

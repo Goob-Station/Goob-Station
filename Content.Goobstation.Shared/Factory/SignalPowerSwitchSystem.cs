@@ -5,10 +5,10 @@ using Content.Shared.Power.EntitySystems;
 
 namespace Content.Goobstation.Shared.Factory;
 
-public sealed class SignalPowerSwitchSystem : EntitySystem
+public sealed partial class SignalPowerSwitchSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDeviceLinkSystem _device = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private SharedDeviceLinkSystem _device = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
 
     public override void Initialize()
     {

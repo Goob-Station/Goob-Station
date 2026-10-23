@@ -30,6 +30,8 @@ public sealed class ActivateInWorldEvent : HandledEntityEventArgs, ITargetedInte
     /// </summary>
     public bool WasLogged { get; set; }
 
+    public bool InteractionParticle = true; // Goob
+
     public ActivateInWorldEvent(EntityUid user, EntityUid target, bool complex)
     {
         User = user;

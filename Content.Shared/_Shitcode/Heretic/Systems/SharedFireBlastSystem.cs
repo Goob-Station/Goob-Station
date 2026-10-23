@@ -5,6 +5,7 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
@@ -85,7 +86,6 @@ public abstract class SharedFireBlastSystem : EntitySystem
                 damage * Body.GetVitalBodyPartRatio(uid),
                 true,
                 false,
-                dmg,
                 targetPart: TargetBodyPart.All,
                 splitDamage: SplitDamageBehavior.SplitEnsureAll,
                 canMiss: false);

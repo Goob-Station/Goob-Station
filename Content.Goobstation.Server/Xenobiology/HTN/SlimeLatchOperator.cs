@@ -10,7 +10,7 @@ namespace Content.Goobstation.Server.Xenobiology.HTN;
 
 public sealed partial class SlimeLatchOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private SlimeLatchSystem _slimeLatch = default!;
 
     private EntityQuery<SlimeComponent> _slimeQuery = default!;
