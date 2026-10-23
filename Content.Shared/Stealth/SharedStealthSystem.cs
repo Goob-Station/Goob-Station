@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Stealth;
 
-public abstract class SharedStealthSystem : EntitySystem
+public abstract partial class SharedStealthSystem : EntitySystem // Trauma - made partial
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 

@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+namespace Content.Goobstation.Shared._Trauma.AnimalAgeing.Events;
+
+/// <summary>
+/// Raise on the mob when attempting to kill it via old age
+/// </summary>
+/// <param name="Mob">The mob raised on</param>
+[ByRefEvent]
+public record struct OldAgeDeathAttemptEvent(Entity<AnimalAgeingComponent> Mob, bool Cancelled = false);

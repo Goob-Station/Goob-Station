@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from goonstation at https://github.com/goonstation/goonstation/blob/66218b8852fc7eba761beadc86fc8bb1e93cbdc1/icons/mob/ranch/chickens.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states":
+    [
+    {
+      "name": "chick-dead"
+    },
+    {
+      "name": "hen-dead"
+    },
+    {
+      "name": "rooster-dead"
+    },
+    {
+      "name": "chick",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "rooster",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "hen",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    }
+    ]
+}

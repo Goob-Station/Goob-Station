@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatRancher
+  name: ranchers hat
+  description: YEEEEEEEE HAAAAAAAA!!!!!!!
+  components:
+  - type: Sprite
+    sprite: _Trauma/Clothing/Head/Hats/rancher_hat.rsi
+  - type: Clothing
+    sprite: _Trauma/Clothing/Head/Hats/rancher_hat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - PetWearable
+    - CorgiWearable
+    - HamsterWearable
+    - WhitelistChameleon

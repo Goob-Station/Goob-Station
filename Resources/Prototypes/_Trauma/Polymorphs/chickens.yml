@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: polymorph
+  id: ChickenRanchMorph
+  configuration:
+    forced: true
+    transferName: false
+    revertOnCrit: false
+    revertOnDeath: false
+    revertOnDelete: false
+    revertOnEat: false
+    polymorphPopup: null
+    exitPolymorphPopup: null

@@ -1,0 +1,77 @@
+# Goob port note: Trauma uses its own organ system (InitialBody/InternalOrgan/OrganComponents).
+- type: entity
+  abstract: true
+  id: AppearanceShadowDemon
+  name: shadow demon appearance
+  components:
+  - type: Body
+    prototype: ShadowDemon
+
+- type: body
+  id: ShadowDemon
+  name: "shadow demon"
+  root: chest
+  slots:
+    chest:
+      part: ChestSlaughter
+      connections:
+      - groin
+      - right arm
+      - left arm
+      organs:
+        lungs: OrganSpaceAnimalLungs
+        heart: OrganShadowDemonHeart
+    groin:
+      part: GroinSlaughter
+      organs:
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    right arm:
+      part: RightArmSlaughter
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmSlaughter
+      connections:
+      - left hand
+    right hand:
+      part: RightHandSlaughter
+    left hand:
+      part: LeftHandSlaughter
+
+## Organs
+
+- type: entity
+  parent: [ OrganAnimalHeart, BaseMagicalContraband ]
+  id: OrganShadowDemonHeart
+  name: heart of darkness
+  description: It still beats furiously, emitting an aura of fear.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/heart.rsi
+    state: demon_heart
+    color: "#000000"
+  - type: Organ
+    intCap: 30
+    integrity: 30
+    integrityThresholds:
+      Normal: 30
+      Damaged: 20
+      Destroyed: 0
+    onAdd:
+    - type: ShadowGrapple # Only grants you the action, check shadow_grapple.yml for damage values instead
+    # fuck you
+    - type: LightDetection
+      onLightLevel: 0.5
+    - type: LightDetectionDamage
+      detectionValueRegeneration: 1
+      maxDetection: 8
+      damageToDeal:
+        types:
+          Heat: 16
+    - type: LightSpeedModifier # Makes you run faster on light or darkness
+      walkModifier: 1.5
+      sprintModifier: 1.5
+  - type: StaticPrice
+    price: 10000

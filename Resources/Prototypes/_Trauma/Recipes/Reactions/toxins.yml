@@ -10,3 +10,24 @@
   products:
     NitricAcid: 2
     PotassiumSulfate: 1
+
+- type: reaction
+  id: NanoMachines
+  impact: Medium
+  reactants:
+    Gold:
+      amount: 15
+    Lithium:
+      amount: 5
+    Silicon:
+      amount: 7
+    Silver:
+      amount: 3
+    Iron:
+      amount: 10
+    NanoProcessor:
+      amount: 1
+    Blood:
+      amount: 5
+  products:
+    NanoMachines: 20
