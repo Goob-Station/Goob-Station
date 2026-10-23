@@ -26553,3 +26553,9 @@ Entries:
       message: Buff acceleration for dragon and carps 1 -> 1.5
   id: 2995
   time: '2026-10-23T02:29:50.0000000+00:00'
+- author: loksill
+  changes:
+    - type: Fix
+      message: Fixed the use of items from the bag on a xeno nest.
+  id: 2996
+  time: '2026-10-23T02:50:36.0000000+00:00'
