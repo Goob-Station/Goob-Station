@@ -26477,3 +26477,9 @@ Entries:
       message: Atmospheric belts do not replace your jumpsuit anymore.
   id: 2984
   time: '2026-10-23T01:12:15.0000000+00:00'
+- author: OliverOtter
+  changes:
+    - type: Fix
+      message: Mitotrophin now metabolizes properly at a 0.5u rate.
+  id: 2985
+  time: '2026-10-23T01:12:54.0000000+00:00'
