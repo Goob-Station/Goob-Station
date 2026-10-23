@@ -9,14 +9,14 @@ using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Projectiles;
 
-public sealed class DodgeEffectOverlay : Overlay
+public sealed partial class DodgeEffectOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> ShaderProto = "Dodge";
 
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private TransformSystem? _xformSystem;
 
@@ -70,7 +70,7 @@ public sealed class DodgeEffectOverlay : Overlay
             if (xform.MapID != args.MapId)
                 continue;
 
-            var worldPos = _xformSystem.GetRenderWorldPosition((uid, xform));
+            var worldPos = _xformSystem.GetWorldPosition(xform);
             var elapsed = (float) (now - effect.Time).TotalSeconds;
             var progress = Math.Clamp(elapsed / dodge.Duration, 0f, 1f);
 

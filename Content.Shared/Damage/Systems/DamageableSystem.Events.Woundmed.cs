@@ -1,20 +1,14 @@
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Goobstation.Common.CCVar;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
 
 namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem
 {
-    // Todo: we can remove this once entity queries can be declared as dependencies!
-    public void InitializeWoundmed()
+    private void WoundmedInitialize()
     {
-        _bodyQuery = GetEntityQuery<BodyComponent>();
-        _consciousnessQuery = GetEntityQuery<ConsciousnessComponent>();
-        _woundableQuery = GetEntityQuery<WoundableComponent>();
-        _bodyPartQuery = GetEntityQuery<BodyPartComponent>();
+        Subs.CVar(_config, GoobCVars.ExplosionVitalMultiplier, value => ExplosionVitalMultiplier = value, true); // Woundmed
+        Subs.CVar(_config, GoobCVars.ExplosionNonVitalMultiplier, value => ExplosionNonVitalMultiplier = value, true); // Woundmed
     }
 }
 

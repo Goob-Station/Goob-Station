@@ -14,10 +14,10 @@ namespace Content.Goobstation.Server.MartialArts;
 /// <summary>
 /// Just handles carp sayings for now.
 /// </summary>
-public sealed class MartialArtsSystem : SharedMartialArtsSystem
+public sealed partial class MartialArtsSystem : SharedMartialArtsSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {

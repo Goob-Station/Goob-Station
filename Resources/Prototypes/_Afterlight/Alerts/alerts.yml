@@ -1,0 +1,9 @@
+- type: alert
+  parent: BorgBattery
+  id: SynthBattery
+  clientHandled: false
+
+- type: alert
+  parent: BorgBatteryNone
+  id: SynthBatteryNone
+  clientHandled: false
