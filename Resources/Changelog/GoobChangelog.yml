@@ -26513,3 +26513,13 @@ Entries:
       message: Guns and throwing are both predicted now.
   id: 2990
   time: '2026-10-23T02:10:42.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Fix
+      message: Fixed vox being unable to bagawk.
+    - type: Fix
+      message: >-
+        Fixed vox being poisoned by microplastics, they now heal from it
+        properly.
+  id: 2991
+  time: '2026-10-23T02:11:37.0000000+00:00'
