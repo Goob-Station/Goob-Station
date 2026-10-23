@@ -26483,3 +26483,9 @@ Entries:
       message: Mitotrophin now metabolizes properly at a 0.5u rate.
   id: 2985
   time: '2026-10-23T01:12:54.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: nerfed full SMES sell price by ~50%
+  id: 2986
+  time: '2026-10-23T01:13:45.0000000+00:00'
