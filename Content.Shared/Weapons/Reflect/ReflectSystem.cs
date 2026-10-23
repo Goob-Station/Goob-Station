@@ -1,5 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// <Trauma>
+using Content.Shared._Trauma.Projectiles;
+using Content.Shared.Random.Helpers;
+using Robust.Shared.Timing;
+// </Trauma>
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared._Goobstation.Wizard.Projectiles;
@@ -22,6 +27,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Examine;
 using Content.Shared.Localizations;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared.Weapons.Reflect;
 
@@ -31,6 +37,7 @@ namespace Content.Shared.Weapons.Reflect;
 public sealed class ReflectSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // Trauma
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
@@ -107,16 +114,17 @@ public sealed class ReflectSystem : EntitySystem
 
     public bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile)
     {
+        var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(reflector)); // Trauma
         if (!TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflector.Comp.Reflects & reflective.Reflective) == 0x0 ||
             !_toggle.IsActivated(reflector.Owner) ||
-            !_random.Prob(reflector.Comp.ReflectProb) ||
+            !rand.Prob(reflector.Comp.ReflectProb) || // Trauma - use predicted random
             !TryComp<PhysicsComponent>(projectile, out var physics))
         {
             return false;
         }
 
-        var rotation = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2).Opposite();
+        var rotation = rand.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2).Opposite(); // Trauma - use predicted random
         var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
         var relativeVelocity = existingVelocity - _physics.GetMapLinearVelocity(user);
         var newVelocity = rotation.RotateVec(relativeVelocity);
@@ -133,14 +141,14 @@ public sealed class ReflectSystem : EntitySystem
         if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
             RemCompDeferred(projectile, homing);
 
-        PlayAudioAndPopup(reflector.Comp, user);
+        PlayAudioAndPopup(reflector.Comp, user, CompOrNull<PredictedShooterComponent>(projectile)?.Shooter); // Trauma - pass predicting shooter
 
         if (Resolve(projectile, ref projectile.Comp, false))
         {
             // WD EDIT START
             if (reflector.Comp.DamageOnReflectModifier != 0)
             {
-                _damageable.TryChangeDamage(reflector, projectile.Comp.Damage * reflector.Comp.DamageOnReflectModifier,
+                _damageable.TryChangeDamage(reflector.Owner, projectile.Comp.Damage * reflector.Comp.DamageOnReflectModifier,
                     projectile.Comp.IgnoreResistances, origin: projectile.Comp.Shooter);
             }
             // WD EDIT END
@@ -169,24 +177,25 @@ public sealed class ReflectSystem : EntitySystem
         DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
+        var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(reflector)); // Trauma
         if ((reflector.Comp.Reflects & hitscanReflectType) == 0x0 ||
             !_toggle.IsActivated(reflector.Owner) ||
             // Goob edit start
-            !((reflector.Comp.Reflects & hitscanReflectType) != 0x0 && _random.Prob(reflector.Comp.ReflectProb)))
+            !((reflector.Comp.Reflects & hitscanReflectType) != 0x0 && rand.Prob(reflector.Comp.ReflectProb))) // Trauma - use predicted random
             // Goob edit end
         {
             newDirection = null;
             return false;
         }
 
-        PlayAudioAndPopup(reflector.Comp, user);
+        PlayAudioAndPopup(reflector.Comp, user, shooter); // Trauma - pass predicting shooter
 
         // WD EDIT START
         if (reflector.Comp.DamageOnReflectModifier != 0 && damage != null)
-            _damageable.TryChangeDamage(reflector, damage * reflector.Comp.DamageOnReflectModifier, origin: shooter);
+            _damageable.TryChangeDamage(reflector.Owner, damage * reflector.Comp.DamageOnReflectModifier, origin: shooter);
         // WD EDIT END
 
-        var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);
+        var spread = rand.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2); // Trauma - use predicted random
         newDirection = -spread.RotateVec(direction);
 
         if (shooter != null)
@@ -197,14 +206,12 @@ public sealed class ReflectSystem : EntitySystem
         return true;
     }
 
-    private void PlayAudioAndPopup(ReflectComponent reflect, EntityUid user)
+    private void PlayAudioAndPopup(ReflectComponent reflect, EntityUid user, EntityUid? predictingUser) // Trauma - added predictingUser
     {
-        // Can probably be changed for prediction
-        if (_netManager.IsServer)
-        {
-            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
-            _audio.PlayPvs(reflect.SoundOnReflect, user);
-        }
+        // <Trauma> - shots are predicted by whoever fired them, everyone else gets it from the server
+        _popup.PopupPredicted(Loc.GetString("reflect-shot"), user, predictingUser);
+        _audio.PlayPredicted(reflect.SoundOnReflect, user, predictingUser);
+        // </Trauma>
     }
 
     private void OnReflectEquipped(Entity<ReflectComponent> ent, ref GotEquippedEvent args)

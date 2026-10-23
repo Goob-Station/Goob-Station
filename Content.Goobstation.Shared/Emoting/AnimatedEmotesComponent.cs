@@ -20,6 +20,10 @@ namespace Content.Goobstation.Shared.Emoting;
 [RegisterComponent, NetworkedComponent] public sealed partial class AnimatedEmotesComponent : Component
 {
     [DataField] public ProtoId<EmotePrototype>? Emote;
+
+    [ViewVariables] public TimeSpan EmoteTime;
+
+    [ViewVariables] public TimeSpan LastPlayedTime;
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
@@ -33,9 +37,11 @@ public sealed partial class PendingAnimatedEmoteComponent : Component
 public sealed partial class AnimatedEmotesComponentState : ComponentState
 {
     public ProtoId<EmotePrototype>? Emote;
+    public TimeSpan EmoteTime;
 
-    public AnimatedEmotesComponentState(ProtoId<EmotePrototype>? emote)
+    public AnimatedEmotesComponentState(ProtoId<EmotePrototype>? emote, TimeSpan emoteTime)
     {
         Emote = emote;
+        EmoteTime = emoteTime;
     }
 }

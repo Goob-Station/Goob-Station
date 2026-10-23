@@ -60,7 +60,7 @@
     color: "#ffa1ff"
     radius: 4
     energy: 3
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: false
   - type: Appearance

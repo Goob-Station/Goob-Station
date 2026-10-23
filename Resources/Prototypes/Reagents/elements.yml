@@ -8,6 +8,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: metallic
   color: "#848789"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 2327.0
   meltingPoint: 660.0
 
@@ -19,8 +20,18 @@
   physicalDesc: reagent-physical-desc-crystalline
   flavor: bitter
   color: "#22282b"
+  puddleSpriteSet: Powder # Goob
   boilingPoint: 4200.0
   meltingPoint: 3550.0
+  metabolisms: # Goob start - Afterlight synths
+    Food:
+      metabolismRate: 0.1
+      effects:
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        amount: 0.405 # Goob end
 
 - type: reagent
   id: Chlorine
@@ -30,6 +41,7 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#a2ff00"
+  puddleSpriteSet: Shiny # Goob
   meltingPoint: -101.5
   boilingPoint: -34.04
   plantMetabolism:
@@ -61,6 +73,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: metallic
   color: "#b05b3c"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 2595.0
   meltingPoint: 1083.0
   metabolisms:
@@ -93,6 +106,7 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#ba85cc"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: -188.11
   meltingPoint: -219.67
   plantMetabolism:
@@ -125,6 +139,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: metallic
   color: "#F7C430"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 2700.0
   meltingPoint: 1064.76
 
@@ -136,6 +151,7 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#cccccc"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: -253.0
   meltingPoint: -259.2
 
@@ -147,6 +163,7 @@
   physicalDesc: reagent-physical-desc-dark-brown
   flavor: bitter
   color: "#BC8A00"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 184.3
   meltingPoint: 113.7
 
@@ -158,6 +175,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: metallic
   color: "#434b4d"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 2862.0
   meltingPoint: 1538.0
   metabolisms:
@@ -173,12 +191,20 @@
         damage:
           types:
             Poison: 0.1
+    Food: # Goob start - Afterlight synths
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        amount: 0.2 # Goob end
     Medicine:
       effects:
       - !type:ModifyBloodLevel
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid ]
+          type: [ Arachnid, Synth ] # Goob - Afterlight synths
           inverted: true
         amount: 0.4
 
@@ -190,6 +216,7 @@
   physicalDesc: reagent-physical-desc-shiny
   flavor: metallic
   color: "#d6c0a7"
+  puddleSpriteSet: Shiny # Goob
   meltingPoint: 180.5
   boilingPoint: 1330.0
   metabolisms:
@@ -225,6 +252,7 @@
   physicalDesc: reagent-physical-desc-shiny
   flavor: metallic
   color: "#929296"
+  puddleSpriteSet: Shiny # Goob
   meltingPoint: -38.83
   boilingPoint: 356.73
   metabolisms:
@@ -250,6 +278,7 @@
   physicalDesc: reagent-physical-desc-shiny
   flavor: metallic
   color: "#c6c8cc"
+  puddleSpriteSet: Shiny # Goob
   meltingPoint: 65.5
   boilingPoint: 759.0
 
@@ -261,6 +290,7 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: metallic
   color: "#f5da9a"
+  puddleSpriteSet: Powder # Goob
   meltingPoint: 44.2
   boilingPoint: 280.5
   plantMetabolism:
@@ -280,6 +310,7 @@
   physicalDesc: reagent-physical-desc-glowing
   flavor: metallic
   color: "#00ff04"
+  puddleSpriteSet: Acid # Goob
   meltingPoint: 700.0
   boilingPoint: 1737.0
 
@@ -291,6 +322,7 @@
   physicalDesc: reagent-physical-desc-crystalline
   flavor: metallic
   color: "#364266"
+  puddleSpriteSet: Powder # Goob
   boilingPoint: 3265.0
   meltingPoint: 1414.0
   metabolisms:
@@ -313,6 +345,7 @@
   physicalDesc: reagent-physical-desc-reasonably-metallic
   flavor: metallic
   color: "#d0d0d0"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 2212.0
   meltingPoint: 960.5
 
@@ -324,6 +357,7 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: bitter
   color: "#fff385"
+  puddleSpriteSet: Powder # Goob
   boilingPoint: 445.0
   meltingPoint: 120.0
   metabolisms:
@@ -342,6 +376,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: bitter
   color: "#a7b3d6"
+  puddleSpriteSet: Shiny # Goob
   meltingPoint: 97.8
   boilingPoint: 883.0
 
@@ -353,6 +388,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: metallic
   color: "#8fa191"
+  puddleSpriteSet: Acid # Goob
   meltingPoint: 1133.0
   boilingPoint: 4131.0
   plantMetabolism:
@@ -381,5 +417,6 @@
   physicalDesc: reagent-physical-desc-shiny
   flavor: metallic
   color: "#bababa"
+  puddleSpriteSet: Shiny # Goob
   meltingPoint: 419.5
   boilingPoint: 907.0

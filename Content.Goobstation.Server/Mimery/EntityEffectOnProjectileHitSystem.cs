@@ -3,9 +3,9 @@ using Content.Shared.Projectiles;
 
 namespace Content.Goobstation.Server.Mimery;
 
-public sealed class EntityEffectOnProjectileHitSystem : EntitySystem
+public sealed partial class EntityEffectOnProjectileHitSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEntityEffectsSystem _effect = default!;
+    [Dependency] private SharedEntityEffectsSystem _effect = default!;
 
     public override void Initialize()
     {

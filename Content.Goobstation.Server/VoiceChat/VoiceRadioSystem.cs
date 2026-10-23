@@ -15,15 +15,15 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.VoiceChat;
 
-public sealed class VoiceRadioSystem : EntitySystem
+public sealed partial class VoiceRadioSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     private static readonly TimeSpan RefreshInterval = TimeSpan.FromSeconds(1);
 
