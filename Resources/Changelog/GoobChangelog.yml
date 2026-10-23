@@ -26565,3 +26565,11 @@ Entries:
       message: You can now surgically remove and reattach your ass!
   id: 2997
   time: '2026-10-23T18:21:16.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Mice can now become a swarm.
+    - type: Add
+      message: Mice can now gnaw off limbs of corpses.
+  id: 2998
+  time: '2026-10-23T18:22:03.0000000+00:00'
