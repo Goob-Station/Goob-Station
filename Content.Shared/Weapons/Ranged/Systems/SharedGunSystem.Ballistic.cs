@@ -83,6 +83,7 @@ public abstract partial class SharedGunSystem
             // BreakOnMove = true, // Goobstation - no
             BreakOnDamage = false,
             NeedHand = true,
+            FaceTarget = false, // Goob
         });
     }
 

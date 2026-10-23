@@ -26360,3 +26360,132 @@ Entries:
       message: Fixed canvases and painting frames being uncraftable.
   id: 2977
   time: '2026-10-14T19:52:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added an intro for when you join a round.
+  id: 2978
+  time: '2026-10-16T17:33:18.0000000+00:00'
+- author: >-
+    Durk, EmoGarbage404, mirrorcult, Flareguy, mycobiota, YaraaraY,
+    jessicamaybe, adamsong
+  changes:
+    - type: Add
+      message: >-
+        You now turn to face whatever you're working on during a do-after, and
+        machines while their UI is open.
+    - type: Add
+      message: >-
+        Items with a use cooldown now show a cooldown circle around your mouse
+        cursor.
+    - type: Tweak
+      message: Popups are now slightly scattered, and stay on screen longer.
+    - type: Add
+      message: >-
+        Portable scrubbers, space heaters and J.R.P.A.C.M.A.N. generators can be
+        anchored by hand with an alt-click verb.
+    - type: Add
+      message: >-
+        New puddle sprites, with different looks for blood, vomit, water,
+        drinks, powders, acids and more.
+    - type: Add
+      message: >-
+        Interaction outline colors can now be customized in the Accessibility
+        options.
+    - type: Add
+      message: Vending machines now use a keypad UI.
+    - type: Add
+      message: >-
+        Speech now shows as SS13-style runechat, this will generate mald but idc
+        cuz i like it :-)
+    - type: Add
+      message: >-
+        Hold Alt (rebindable) to peek at the names and pronouns (wokestation14)
+        of people around you.
+    - type: Add
+      message: Radio channel colors can now be customized per channel.
+    - type: Add
+      message: Added a Customization tab to the options menu.
+    - type: Add
+      message: >-
+        Blood, vomit and spilled reagents now stain nearby walls. Stains can be
+        scrubbed off with a mop, rag or soap, and you can pour containers onto
+        walls.
+    - type: Add
+      message: Explosions now have new visuals.
+    - type: Add
+      message: >-
+        Welding masks can now be flipped up and down, and darkens your vision
+        while down.
+    - type: Add
+      message: >-
+        Meson goggles no longer protect you from welding, and can now toggle a
+        T-ray scanner and tints your vision while it's on.
+  id: 2979
+  time: '2026-10-16T22:08:14.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed surplus healing being applied multiple times.
+    - type: Fix
+      message: Fixed explosions being 5.5x stronger than intended.
+    - type: Tweak
+      message: As a result of the above, buffed the pizza bomb.
+    - type: Tweak
+      message: >-
+        As a result of the above above, buffed the hardlight bow explosive arrow
+        back to previous values.
+    - type: Tweak
+      message: >-
+        As a result of the above above above, tweaked explosion wounding
+        multipliers back to their previous value 4x from 2.5x.
+    - type: Tweak
+      message: >-
+        Explosions now do 1.5x damage to vital parts to compensate for woundmed
+        damage splits.
+  id: 2980
+  time: '2026-10-17T22:55:23.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed fire being realistic.
+  id: 2981
+  time: '2026-10-18T18:13:02.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added jiggle physics.
+    - type: Add
+      message: >-
+        Slimes can now regrow weakened limbs at the cost of hunger and blood
+        level. (temporary sprite for the action)
+    - type: Fix
+      message: Fixed animated emotes replaying when someone walks into range.
+  id: 2982
+  time: '2026-10-21T17:13:14.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Very spooky slasher variant.
+    - type: Fix
+      message: Fixed slasher tokens not getting the variant system.
+  id: 2983
+  time: '2026-10-22T22:25:28.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Atmospheric belts do not replace your jumpsuit anymore.
+  id: 2984
+  time: '2026-10-23T01:12:15.0000000+00:00'
+- author: OliverOtter
+  changes:
+    - type: Fix
+      message: Mitotrophin now metabolizes properly at a 0.5u rate.
+  id: 2985
+  time: '2026-10-23T01:12:54.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: nerfed full SMES sell price by ~50%
+  id: 2986
+  time: '2026-10-23T01:13:45.0000000+00:00'

@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.DoAfter; // Goobstation
 using Content.Shared._Shitmed.DoAfter; // Shitmed
+using Content.Shared._ES.Interaction.ForcedFacing; // Goob
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -24,6 +25,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly ESForcedFacingSystem _forcedFacing = default!; // Goob
 
     /// <summary>
     ///     We'll use an excess time so stuff like finishing effects can show.
@@ -104,6 +106,9 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
 
         if (component.AwaitedDoAfters.Remove(doAfter.Index, out var tcs))
             tcs.SetResult(doAfter.Cancelled ? DoAfterStatus.Cancelled : DoAfterStatus.Finished);
+
+        if (doAfter.Args.FaceTarget && (doAfter.Cancelled || !ev.Repeat)) // Goob
+            _forcedFacing.RefreshForcedFacing(doAfter.Args.User); // Goob
     }
 
     private void OnDoAfterGetState(EntityUid uid, DoAfterComponent comp, ref ComponentGetState args)
@@ -293,6 +298,10 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         EnsureComp<ActiveDoAfterComponent>(args.User);
         Dirty(args.User, comp);
         args.Event.DoAfter = doAfter;
+
+        if (args.FaceTarget) // Goob
+            _forcedFacing.RefreshForcedFacing(args.User); // Goob
+
         return true;
     }
 
