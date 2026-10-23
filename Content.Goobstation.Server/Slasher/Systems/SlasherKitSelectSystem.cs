@@ -19,15 +19,7 @@ public sealed partial class SlasherKitSelectSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SlasherPrestigeManager _prestige = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SlasherKitSelectComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<SlasherKitSelectComponent, BoundUIOpenedEvent>(OnUIOpened);
-        SubscribeLocalEvent<SlasherKitSelectComponent, SlasherKitSelectedMessage>(OnKitSelected);
-    }
-
+    [SubscribeLocalEvent]
     private void OnPlayerAttached(Entity<SlasherKitSelectComponent> ent, ref PlayerAttachedEvent args)
     {
         if (ent.Comp.KitSelected)
@@ -46,6 +38,7 @@ public sealed partial class SlasherKitSelectSystem : EntitySystem
         _ui.OpenUi(ent.Owner, SlasherKitSelectUiKey.Key, args.Player);
     }
 
+    [SubscribeLocalEvent]
     private void OnUIOpened(Entity<SlasherKitSelectComponent> ent, ref BoundUIOpenedEvent args)
     {
         if (!TryComp<ActorComponent>(args.Actor, out var actor))
@@ -73,6 +66,7 @@ public sealed partial class SlasherKitSelectSystem : EntitySystem
     private bool IsKitUnlocked(SlasherKit kit, NetUserId userId)
         => kit.RequiredAscension == null || _prestige.HasAscension(userId, kit.RequiredAscension);
 
+    [SubscribeLocalEvent]
     private void OnKitSelected(Entity<SlasherKitSelectComponent> ent, ref SlasherKitSelectedMessage args)
     {
         if (ent.Comp.KitSelected

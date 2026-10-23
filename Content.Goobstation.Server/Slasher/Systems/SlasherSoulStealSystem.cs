@@ -72,27 +72,14 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     [Dependency] private SharedStationSpawningSystem _spawning = default!;
     [Dependency] private SlasherPrestigeManager _prestige = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SlasherSoulStealComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlasherSoulStealComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSoulStealEvent>(OnSoulSteal);
-        SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSoulStealDoAfterEvent>(OnSoulStealDoAfterComplete);
-        SubscribeLocalEvent<SlasherSoulStealMacheteBonusComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
-        SubscribeLocalEvent<SlasherSoulStealMacheteBonusComponent, ThrowDoHitEvent>(OnThrowHit);
-        SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSummonMacheteEvent>(OnSummonMachete);
-        SubscribeLocalEvent<SlasherSoulStealComponent, DidEquipHandEvent>(OnDidEquipHand);
-        SubscribeLocalEvent<SlasherSoulStealComponent, DamageModifyEvent>(OnDamageModify);
-    }
-
+    [SubscribeLocalEvent]
     private void OnMapInit(Entity<SlasherSoulStealComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
         Dirty(ent);
     }
 
+    [SubscribeLocalEvent]
     private void OnShutdown(Entity<SlasherSoulStealComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Comp.ActionEntity);
@@ -103,6 +90,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     /// </summary>
     /// <param name="ent">Owner of the SlasherSoulStealComponent</param>
     /// <param name="args">SlasherSoulStealEvent</param>
+    [SubscribeLocalEvent]
     private void OnSoulSteal(Entity<SlasherSoulStealComponent> ent, ref SlasherSoulStealEvent args)
     {
         if (args.Handled || !args.Target.Valid)
@@ -174,6 +162,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     /// </summary>
     /// <param name="ent">SlasherSoulStealComponent</param>
     /// <param name="ev">SlasherSoulStealDoAfterEvent</param>
+    [SubscribeLocalEvent]
     private void OnSoulStealDoAfterComplete(Entity<SlasherSoulStealComponent> ent, ref SlasherSoulStealDoAfterEvent ev)
     {
         if (ev.Cancelled || ev.Args.Target == null)
@@ -322,6 +311,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
         comp.ArmorReduction = MathF.Min(comp.ArmorReduction + percent, comp.ArmorCap);
     }
 
+    [SubscribeLocalEvent]
     private void OnDamageModify(Entity<SlasherSoulStealComponent> ent, ref DamageModifyEvent args)
     {
         var reduction = ent.Comp.ArmorReduction;
@@ -380,6 +370,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     /// </summary>
     /// <param name="ent">SlasherSoulStealMacheteBonusComponent</param>
     /// <param name="args">GetMeleeDamageEvent</param>
+    [SubscribeLocalEvent]
     private void OnGetMeleeDamage(Entity<SlasherSoulStealMacheteBonusComponent> ent, ref GetMeleeDamageEvent args)
     {
         if (ent.Comp.SlashBonus <= 0f)
@@ -391,6 +382,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
         args.Damage += add;
     }
 
+    [SubscribeLocalEvent]
     private void OnThrowHit(Entity<SlasherSoulStealMacheteBonusComponent> ent, ref ThrowDoHitEvent args)
     {
         if (ent.Comp.SlashBonus <= 0f || TerminatingOrDeleted(args.Target))
@@ -407,6 +399,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     /// </summary>
     /// <param name="ent">SlasherSoulStealComponent</param>
     /// <param name="args">SlasherSummonMacheteEvent</param>
+    [SubscribeLocalEvent]
     private void OnSummonMachete(Entity<SlasherSoulStealComponent> ent, ref SlasherSummonMacheteEvent args)
     {
         var machete = GetMachete(ent.Owner);
@@ -426,6 +419,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnDidEquipHand(Entity<SlasherSoulStealComponent> ent, ref DidEquipHandEvent args)
     {
         if (!HasComp<SlasherMassacreMacheteComponent>(args.Equipped))
