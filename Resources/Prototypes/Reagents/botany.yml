@@ -26,6 +26,7 @@
   desc: reagent-desc-left4-zed
   flavor: bitter
   color: "#5b406c"
+  puddleSpriteSet: Shiny # Goob
   physicalDesc: reagent-physical-desc-heterogeneous
   plantMetabolism:
     - !type:PlantAdjustNutrition
@@ -57,6 +58,8 @@
   desc: reagent-desc-pest-killer
   flavor: bitter
   color: "#9e9886"
+  puddleSpriteSet: Acid # Goob
+  puddleColor: "#9e9880CC" # Goob
   physicalDesc: reagent-physical-desc-bubbling
   plantMetabolism:
     - !type:PlantAdjustToxins
@@ -81,6 +84,8 @@
   desc: reagent-desc-plant-b-gone
   flavor: bitter
   color: "#49002E"
+  puddleSpriteSet: Acid # Goob
+  puddleColor: "#49002E80" # Goob
   physicalDesc: reagent-physical-desc-bubbling
   plantMetabolism:
     - !type:PlantAdjustToxins
@@ -112,6 +117,7 @@
   desc: reagent-desc-robust-harvest
   flavor: bitter
   color: "#3e901c"
+  puddleSpriteSet: Shiny # Goob
   physicalDesc: reagent-physical-desc-robust
   plantMetabolism:
     - !type:PlantAdjustNutrition
@@ -182,6 +188,7 @@
   desc: reagent-desc-weed-killer
   flavor: bitter
   color: "#968395"
+  puddleSpriteSet: Acid # Goob
   physicalDesc: reagent-physical-desc-bubbling
   plantMetabolism:
     - !type:PlantAdjustToxins
@@ -207,6 +214,7 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: bitter
   color: "#77b58e"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: -33.0
   meltingPoint: -77.7
   plantMetabolism:
@@ -292,6 +300,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: bitter
   color: "#a1000b"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 55.5
   meltingPoint: -50.0
   plantMetabolism:

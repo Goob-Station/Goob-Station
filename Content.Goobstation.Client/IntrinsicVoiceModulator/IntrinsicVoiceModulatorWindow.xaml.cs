@@ -18,8 +18,8 @@ namespace Content.Goobstation.Client.IntrinsicVoiceModulator;
 [GenerateTypedNameReferences]
 public sealed partial class IntrinsicVoiceModulatorWindow : DefaultWindow
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystem = default!;
 
     private readonly SpriteSystem _spriteSystem;
 

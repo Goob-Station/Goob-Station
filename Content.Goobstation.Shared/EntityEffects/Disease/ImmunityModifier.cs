@@ -11,7 +11,7 @@ namespace Content.Goobstation.Shared.EntityEffects.Disease;
 /// </summary>
 public sealed partial class ImmunityModifierSystem : EntityEffectSystem<ImmunityModifierMetabolismComponent, ImmunityModifier>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     protected override void Effect(Entity<ImmunityModifierMetabolismComponent> entity, ref EntityEffectEvent<ImmunityModifier> args)
     {

@@ -6,10 +6,10 @@ using Robust.Shared.Console;
 namespace Content.Goobstation.Server.VoiceChat;
 
 [AdminCommand(AdminFlags.Logs)]
-public sealed class VoiceLogsCommand : LocalizedEntityCommands
+public sealed partial class VoiceLogsCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly VoiceLogSystem _voiceLogs = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private VoiceLogSystem _voiceLogs = default!;
 
     public override string Command => "voicelogs";
 

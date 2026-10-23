@@ -6,11 +6,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Physics;
 
-public sealed class ComplexJointVisualsSystem : EntitySystem
+public sealed partial class ComplexJointVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

@@ -14,15 +14,15 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Bloodtrak;
 
-public sealed class BloodtrakSystem : SharedBloodtrakSystem
+public sealed partial class BloodtrakSystem : SharedBloodtrakSystem
 {
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly UseDelaySystem _delaySystem = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private ForensicsSystem _forensicsSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private UseDelaySystem _delaySystem = default!;
 
     public override void Initialize()
     {
