@@ -26529,3 +26529,9 @@ Entries:
       message: Atmospherics belts can now hold power drills!
   id: 2992
   time: '2026-10-23T02:12:38.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Remove
+      message: Removed the S.L.A.Y.E.R coat from the uplink
+  id: 2993
+  time: '2026-10-23T02:14:56.0000000+00:00'
