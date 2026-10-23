@@ -26547,3 +26547,9 @@ Entries:
       message: Increased maximum PTL draw 5MJ->10MJ
   id: 2994
   time: '2026-10-23T02:29:17.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Tweak
+      message: Buff acceleration for dragon and carps 1 -> 1.5
+  id: 2995
+  time: '2026-10-23T02:29:50.0000000+00:00'
