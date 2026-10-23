@@ -5,7 +5,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Mech.Components;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Goobstation.Maths.FixedPoint;
@@ -262,7 +262,7 @@ public sealed partial class MechSystem : SharedMechSystem
         args.Handled = true;
     }
     //goobstation
-    private void OnEmpPulse(EntityUid uid, MechComponent component, EmpPulseEvent args)
+    private void OnEmpPulse(EntityUid uid, MechComponent component, ref EmpPulseEvent args) // Goob - by-ref
     {
         args.Affected = true;
         args.Disabled = true;
@@ -284,7 +284,7 @@ public sealed partial class MechSystem : SharedMechSystem
             component.PilotSlot.ContainedEntity != null)
         {
             var damage = args.DamageDelta * component.MechToPilotDamageMultiplier;
-            _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, damage);
+            _damageable.ChangeDamage(component.PilotSlot.ContainedEntity.Value, damage);
         }
     }
 
@@ -406,7 +406,7 @@ public sealed partial class MechSystem : SharedMechSystem
     }
 
     #region Atmos Handling
-    private void OnInhale(EntityUid uid, MechPilotComponent component, InhaleLocationEvent args)
+    private void OnInhale(EntityUid uid, MechPilotComponent component, ref InhaleLocationEvent args) // Goob - by-ref
     {
         if (!TryComp<MechComponent>(component.Mech, out var mech) ||
             !TryComp<MechAirComponent>(component.Mech, out var mechAir))
@@ -418,7 +418,7 @@ public sealed partial class MechSystem : SharedMechSystem
             args.Gas = mechAir.Air;
     }
 
-    private void OnExhale(EntityUid uid, MechPilotComponent component, ExhaleLocationEvent args)
+    private void OnExhale(EntityUid uid, MechPilotComponent component, ref ExhaleLocationEvent args) // Goob - by-ref
     {
         if (!TryComp<MechComponent>(component.Mech, out var mech) ||
             !TryComp<MechAirComponent>(component.Mech, out var mechAir))

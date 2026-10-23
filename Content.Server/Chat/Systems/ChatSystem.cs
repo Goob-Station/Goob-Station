@@ -1117,7 +1117,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// </summary>
     public string WrapPublicMessage(EntityUid source, string name, string message, LanguagePrototype? language = null, Color? colorOverride = null)
     {
-        var wrapId = GetSpeechVerb(source, message).Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message";
+        var wrapId = GetSpeechVerbWithOverride(source, message).Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message"; // Goob
         return WrapMessage(wrapId, InGameICChatType.Speak, source, name, message, language, colorOverride);
     }
 
@@ -1134,7 +1134,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// </summary>
     public string WrapMessage(LocId wrapId, InGameICChatType chatType, EntityUid source, string entityName, string message, LanguagePrototype? language, Color? colorOverride)
     {
-        var speech = GetSpeechVerb(source, message);
+        var speech = GetSpeechVerbWithOverride(source, message); // Goob - keep voice mask verb override
         language ??= _language.GetLanguage(source);
 
         // Goobstation - Bolded Language Overrides begin
@@ -1217,7 +1217,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (player.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
 
-            var transformEntity = xforms.GetComponent(playerEntity);
+            if (!xforms.TryGetComponent(playerEntity, out var transformEntity)) // Goob
+                continue;
 
             if (transformEntity.MapID != sourceMapId)
                 continue;

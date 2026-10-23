@@ -8,11 +8,11 @@ using Robust.Shared.Serialization.Manager;
 
 namespace Content.Goobstation.Shared.Clothing.Systems;
 
-public sealed class ClothingGrantingSystem : EntitySystem
+public sealed partial class ClothingGrantingSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly ISerializationManager _serializationManager = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private ISerializationManager _serializationManager = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
 
     public override void Initialize()
     {

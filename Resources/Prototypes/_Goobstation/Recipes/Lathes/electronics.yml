@@ -180,3 +180,9 @@
   id: CameraElectronics
   icon: { sprite: Structures/Wallmounts/camera.rsi, state: cameracase }
   result: CameraElectronics
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: PhotocopierMachineCircuitboard
+  icon: { sprite: _Goobstation/Structures/Machines/photocopier.rsi, state: icon }
+  result: PhotocopierMachineCircuitboard

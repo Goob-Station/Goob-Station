@@ -3,6 +3,7 @@
 using System.Linq;
 using System.Text;
 using Content.Goobstation.Shared.Supermatter.Components;
+using Content.Goobstation.Shared.Supermatter.Events;
 using Content.Goobstation.Shared.Supermatter.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
@@ -45,28 +46,28 @@ using Content.Shared._Omu.DiodeDisc;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
-public sealed class SupermatterSystem : SharedSupermatterSystem
+public sealed partial class SupermatterSystem : SharedSupermatterSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly AmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly AlertLevelSystem _alert = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly ThunderstrikeSystem _thunderstrikeSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
-    [Dependency] private readonly IChatManager _chatmanager = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private TransformSystem _xform = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private AmbientSoundSystem _ambient = default!;
+    [Dependency] private LightningSystem _lightning = default!;
+    [Dependency] private AlertLevelSystem _alert = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private ThunderstrikeSystem _thunderstrikeSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private RadioSystem _radioSystem = default!;
+    [Dependency] private IChatManager _chatmanager = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private const string LTGSM = "/Textures/_Goobstation/MisandryBox/LTGSM.png";
     private DelamType _delamType = DelamType.Explosion;
@@ -598,6 +599,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (sm.DelamTimer > sm.DelamTimerAccumulator)
             return;
 
+        RaiseLocalEvent(new SupermatterDelaminatedEvent(uid));
+
         switch (_delamType)
         {
             case DelamType.Explosion:
@@ -704,7 +707,11 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
 
             if (HasComp<ActorComponent>(target))
+            {
+                var consumedEv = new SupermatterConsumedEvent(uid);
+                RaiseLocalEvent(target, ref consumedEv);
                 _thunderstrikeSystem.Smite(target, true, null, LTGSM); // funny :3
+            }
             else
             {
                 SpawnNextToOrDrop("Ash", target);
@@ -728,6 +735,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             sm.Activated = true;
 
         sm.MatterPower += 200;
+
+        var touchedEv = new SupermatterConsumedEvent(uid);
+        RaiseLocalEvent(target, ref touchedEv);
 
         SpawnNextToOrDrop("Ash", target);
         _audio.PlayPvs(sm.DustSound, uid);

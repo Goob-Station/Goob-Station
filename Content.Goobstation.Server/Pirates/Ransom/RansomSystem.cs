@@ -9,8 +9,8 @@ namespace Content.Goobstation.Server.Pirates.Ransom;
 
 public sealed partial class RansomSystem : EntitySystem
 {
-    [Dependency] private readonly PendingPirateRuleSystem _pprs = default!;
-    [Dependency] private readonly GameTicker _gt = default!;
+    [Dependency] private PendingPirateRuleSystem _pprs = default!;
+    [Dependency] private GameTicker _gt = default!;
 
     public override void Initialize()
     {

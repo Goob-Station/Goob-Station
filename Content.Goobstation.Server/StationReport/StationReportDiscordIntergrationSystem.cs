@@ -11,11 +11,11 @@ using Robust.Shared.IoC;
 
 namespace Content.Goobstation.Server.StationReportDiscordIntergrationSystem;
 
-public sealed class StationReportDiscordIntergrationSystem : EntitySystem
+public sealed partial class StationReportDiscordIntergrationSystem : EntitySystem
 {
     //thank you Timfa for writing this code
     private static readonly HttpClient client = new();
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private string? _webhookUrl;
 

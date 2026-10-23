@@ -33,7 +33,7 @@
   - type: RadiationSource
   - type: Appearance
   - type: PowerNetworkBattery
-    maxChargeRate: 5000000 # 5MJ
+    maxChargeRate: 10000000 # 10MJ
   - type: Battery
     netsync: false
     startingCharge: 0

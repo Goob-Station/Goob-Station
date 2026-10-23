@@ -36,6 +36,7 @@
         enum.MicrowaveVisualizerLayers.BaseUnlit:
           True: { visible: true }
           False: { visible: false }
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.MicrowaveUiKey.Key
   - type: DeviceLinkSink
@@ -94,6 +95,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Breakage"]
+  - type: ExplosionEffect # Goob
   - type: Explosive
     explosionType: Default
     maxIntensity: 5

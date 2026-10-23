@@ -34,6 +34,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Mind.Components;
 using Content.Server.Maps;
 using Content.Shared.Maps;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.GameTicking
 {
