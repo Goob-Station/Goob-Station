@@ -25,3 +25,6 @@ public sealed class ActiveFishingSpotComponentState : ComponentState
         AttachedFishingLure = attachedFishingLure;
     }
 }
+
+[ByRefEvent]
+public readonly record struct FishCaughtEvent(EntityUid Fish);

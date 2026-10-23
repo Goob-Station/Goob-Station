@@ -7,10 +7,10 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Goobstation.Shared.Projectiles.SpawnEntitiesOnHit;
 
-public sealed class SpawnEntitiesOnHitSystem : EntitySystem
+public sealed partial class SpawnEntitiesOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -37,13 +37,17 @@ public sealed class SpawnEntitiesOnHitSystem : EntitySystem
         if (comp.SpawnOnlyIfHitMob && !HasComp<MobStateComponent>(args.Target))
             return;
 
-        var coords = _transform.GetMapCoordinates(uid);
-        for (var i = 0; i < ent.Comp.Amount; i++)
+        // Trauma - projectile hits are predicted now, don't spawn clientside entities that never get deleted
+        if (_net.IsServer)
         {
-            Spawn(comp.Proto, coords);
+            var coords = _transform.GetMapCoordinates(uid);
+            for (var i = 0; i < ent.Comp.Amount; i++)
+            {
+                Spawn(comp.Proto, coords);
+            }
         }
 
-        if (comp.DeleteOnSpawn && _net.IsServer)
-            QueueDel(uid);
+        if (comp.DeleteOnSpawn)
+            PredictedQueueDel(uid); // Trauma - predicted
     }
 }

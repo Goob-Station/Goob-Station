@@ -11,11 +11,11 @@ namespace Content.Goobstation.Client.Slasher.Systems;
 /// <summary>
 /// Plays the SlasherRegenerateOverlay.
 /// </summary>
-public sealed class SlasherRegenerateOverlaySystem : EntitySystem
+public sealed partial class SlasherRegenerateOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private readonly SlasherRegenerateOverlay _overlay = new();
 
