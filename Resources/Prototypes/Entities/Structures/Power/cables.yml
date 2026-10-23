@@ -281,6 +281,7 @@
         nodeGroupID: ExCable
   - type: CableVisualizer
     statePrefix: excable_
+  - type: ExplosionEffect # Goob
   - type: Explosive
     explosionType: DemolitionCharge
     totalIntensity: 10

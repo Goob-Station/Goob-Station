@@ -1,0 +1,7 @@
+<LayoutContainer xmlns="https://spacestation14.io"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <TextureRect Name="KeySprite"
+                 TexturePath="/Textures/_Funkystation/Interface/vending_key.png"
+                 Stretch="Scale" />
+    <Label Name="KeyLabel" HorizontalAlignment="Center" VerticalAlignment="Center" />
+</LayoutContainer>

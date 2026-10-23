@@ -37,13 +37,16 @@
         Heat: 0.8
 
 - type: entity
-  parent: WeldingMaskBase
+  parent: [ WeldingMaskBase, BaseFlippableWeldingMask ] # Goob
   id: ClothingHeadHatWelding
   name: welding mask
   description: A head-mounted face cover designed to protect the wearer completely from space-arc eye.
   components:
   - type: Sprite
     sprite: Clothing/Head/Welding/welding.rsi
+    layers: # Goob
+    - state: icon # Goob
+      map: [ "enum.ToggleableVisuals.Layer" ] # Goob
   - type: Clothing
     sprite: Clothing/Head/Welding/welding.rsi
   - type: Tag
@@ -54,34 +57,43 @@
     - DroneUsable # Goobstation
 
 - type: entity
-  parent: WeldingMaskBase
+  parent: [ WeldingMaskBase, BaseFlippableWeldingMask ] # Goob
   id: ClothingHeadHatWeldingMaskFlame
   name: flame welding mask
   description: A painted welding helmet, this one has flames on it.
   components:
   - type: Sprite
     sprite: Clothing/Head/Welding/flame_welding_mask.rsi
+    layers: # Goob
+    - state: icon # Goob
+      map: [ "enum.ToggleableVisuals.Layer" ] # Goob
   - type: Clothing
     sprite: Clothing/Head/Welding/flame_welding_mask.rsi
 
 - type: entity
-  parent: WeldingMaskBase
+  parent: [ WeldingMaskBase, BaseFlippableWeldingMask ] # Goob
   id: ClothingHeadHatWeldingMaskFlameBlue
   name: blue-flame welding mask
   description: A painted welding helmet, this one has blue flames on it.
   components:
   - type: Sprite
     sprite: Clothing/Head/Welding/blue_flame_welding_mask.rsi
+    layers: # Goob
+    - state: icon # Goob
+      map: [ "enum.ToggleableVisuals.Layer" ] # Goob
   - type: Clothing
     sprite: Clothing/Head/Welding/blue_flame_welding_mask.rsi
 
 - type: entity
-  parent: WeldingMaskBase
+  parent: [ WeldingMaskBase, BaseFlippableWeldingMask ] # Goob
   id: ClothingHeadHatWeldingMaskPainted
   name: painted welding mask
   description: A welding helmet, painted in crimson.
   components:
   - type: Sprite
     sprite: Clothing/Head/Welding/paintedwelding.rsi
+    layers: # Goob
+    - state: icon # Goob
+      map: [ "enum.ToggleableVisuals.Layer" ] # Goob
   - type: Clothing
     sprite: Clothing/Head/Welding/paintedwelding.rsi
