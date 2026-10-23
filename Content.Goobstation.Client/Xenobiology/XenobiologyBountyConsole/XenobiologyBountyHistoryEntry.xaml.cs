@@ -14,7 +14,7 @@ namespace Content.Goobstation.Client.Xenobiology.XenobiologyBountyConsole;
 [GenerateTypedNameReferences]
 public sealed partial class XenobiologyBountyHistoryEntry : BoxContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public XenobiologyBountyHistoryEntry(XenobiologyBountyHistoryData bounty)
     {

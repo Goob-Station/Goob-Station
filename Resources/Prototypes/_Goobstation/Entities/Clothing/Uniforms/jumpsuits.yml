@@ -503,3 +503,15 @@
     sprite: _ShitChap/Clothing/Uniforms/monk.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/Uniforms/monk.rsi
+    
+#casual
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitHawaiGreen
+  name: green hawaiian shirt
+  description: Central Command™ Green.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi

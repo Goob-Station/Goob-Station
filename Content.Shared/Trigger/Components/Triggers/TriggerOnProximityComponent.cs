@@ -71,6 +71,9 @@ public sealed partial class TriggerOnProximityComponent : BaseTriggerOnXComponen
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan NextVisualUpdate = TimeSpan.Zero;
 
+    [AutoPausedField]
+    public TimeSpan NextAttempt = TimeSpan.Zero; // Goob
+
     /// <summary>
     /// What speed should the other object be moving at to trigger the proximity fixture?
     /// </summary>

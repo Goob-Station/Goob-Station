@@ -16,19 +16,19 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Gangwars.Systems;
 
-public sealed class GangLeaderSystem : EntitySystem
+public sealed partial class GangLeaderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly GangwarRuleSystem _gangwarRule = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private GangwarRuleSystem _gangwarRule = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
 
     private static readonly EntProtoId DropPodSpawner = "DropPodspawner";
     private static readonly EntProtoId GangMemberMindRole = "MindRoleGangMember";

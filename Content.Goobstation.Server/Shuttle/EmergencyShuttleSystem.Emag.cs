@@ -13,13 +13,13 @@ using Content.Shared.Shuttles.Components;
 
 namespace Content.Goobstation.Server.Shuttle;
 
-public sealed class GoobEmergencyShuttleSystem : EntitySystem
+public sealed partial class GoobEmergencyShuttleSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _logger = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedChargesSystem _charge = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emerg = default!;
+    [Dependency] private IAdminLogManager _logger = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedChargesSystem _charge = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private EmergencyShuttleSystem _emerg = default!;
 
     public override void Initialize()
     {
