@@ -3,6 +3,7 @@
 using System.Linq;
 using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
@@ -60,6 +61,7 @@ namespace Content.Goobstation.Shared.MartialArts;
 public abstract partial class SharedMartialArtsSystem : EntitySystem
 {
     [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedAnimatedEmotesSystem _animatedEmotes = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private PullingSystem _pulling = default!;
