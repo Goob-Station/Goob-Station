@@ -26501,3 +26501,9 @@ Entries:
       message: Smartlink is now exclusive to only traitors.
   id: 2988
   time: '2026-10-23T01:15:47.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Majority of ghost role raffles are now 30 seconds instead of 45.
+  id: 2989
+  time: '2026-10-23T01:16:55.0000000+00:00'
