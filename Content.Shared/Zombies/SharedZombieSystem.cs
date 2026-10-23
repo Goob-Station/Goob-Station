@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Magic; // Goobstation
 using Content.Shared.Armor;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
@@ -16,6 +17,7 @@ public abstract class SharedZombieSystem : EntitySystem
 
         SubscribeLocalEvent<ZombieComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
         SubscribeLocalEvent<ZombieComponent, RefreshNameModifiersEvent>(OnRefreshNameModifiers);
+        SubscribeLocalEvent<ZombieComponent, BeforeMindSwappedEvent>(OnBeforeMindSwapped);
         SubscribeLocalEvent<ZombificationResistanceComponent, ArmorExamineEvent>(OnArmorExamine);
         SubscribeLocalEvent<ZombificationResistanceComponent, InventoryRelayedEvent<ZombificationResistanceQueryEvent>>(OnResistanceQuery);
     }
@@ -45,5 +47,11 @@ public abstract class SharedZombieSystem : EntitySystem
     private void OnRefreshNameModifiers(Entity<ZombieComponent> entity, ref RefreshNameModifiersEvent args)
     {
         args.AddModifier("zombie-name-prefix");
+    }
+
+    private void OnBeforeMindSwapped(Entity<ZombieComponent> ent, ref BeforeMindSwappedEvent args)
+    {
+        args.Message = ent.Comp.MindSwapText;
+        args.Cancelled = true;
     }
 }

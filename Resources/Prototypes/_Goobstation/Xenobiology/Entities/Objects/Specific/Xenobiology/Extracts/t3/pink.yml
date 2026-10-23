@@ -44,3 +44,41 @@
   - type: Tag
     tags:
     - XenobiologyPinkExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, PinkSlimeExtract ]
+  id: FilledPinkSlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:RelayNearby
+        compName: PlantHolder # TODO: may need to change this if botany ecs ever gets merged
+        range: 5
+        effect: !type:PlantAdjustMutationLevel
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioJellyPink
+          amount: 10
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioGenderFluid
+          amount: 10

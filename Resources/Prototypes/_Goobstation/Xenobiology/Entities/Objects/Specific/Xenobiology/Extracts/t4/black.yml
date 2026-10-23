@@ -34,3 +34,31 @@
   - type: Tag
     tags:
     - XenobiologyBlackExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, BlackSlimeExtract ]
+  id: FilledBlackSlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractFail
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: AdvancedMutationToxin
+          amount: 10
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractFail
