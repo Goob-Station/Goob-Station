@@ -1,0 +1,168 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp vec2 renderScale;
+uniform highp vec2 center;
+uniform highp float maxRadius;
+uniform highp float progress;
+uniform highp float handoff;
+
+const highp int   kTaps      = 12;
+const highp float kRingEnd   = 1.12;
+const highp float kGreyLevel = 0.42;
+const highp vec3  kGreyTint  = vec3(0.92, 0.95, 1.05);
+const highp vec3  kWall1     = vec3(0.86, 0.80, 1.00);
+const highp vec3  kWall2     = vec3(1.00, 0.92, 0.96);
+const highp vec3  kGold      = vec3(1.00, 0.82, 0.42);
+
+highp float luma(highp vec3 c) {
+    return dot(c, vec3(0.299, 0.587, 0.114));
+}
+
+highp vec3 hsv2rgb(highp vec3 c) {
+    highp vec3 p = abs(fract(c.xxx + vec3(0.0, 0.6666667, 0.3333333)) * 6.0 - 3.0);
+    return c.z * mix(vec3(1.0), clamp(p - 1.0, 0.0, 1.0), c.y);
+}
+
+highp float hash(highp vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float vnoise(highp vec2 p) {
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
+               mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
+}
+
+highp float easeOut(highp float x) {
+    x = clamp(x, 0.0, 1.0);
+    return 1.0 - pow(1.0 - x, 1.8);
+}
+
+highp float easeIn(highp float x) {
+    x = clamp(x, 0.0, 1.0);
+    return pow(x, 1.6);
+}
+
+highp float paletteHue(highp float p) {
+    highp float h = 0.70;
+    h = mix(h, 0.86, smoothstep(0.05, 0.25, p));
+    h = mix(h, 0.36, smoothstep(0.25, 0.55, p));
+    h = mix(h, 0.16, smoothstep(0.55, 0.85, p));
+    return h;
+}
+
+highp vec3 tex(highp vec2 u) {
+    return zTextureSpec(SCREEN_TEXTURE, (center + u * maxRadius * renderScale) * SCREEN_PIXEL_SIZE).rgb;
+}
+
+highp float wobble(highp float ang, highp float p, highp float seed, highp float r) {
+    return (sin(ang * 3.0 + p * 5.0 + seed) * 0.6 + sin(ang * 7.0 - p * 9.0 + seed) * 0.4) * 4.0 * min(1.0, r / 0.25);
+}
+
+highp vec3 wall(highp vec3 col, highp float q, highp vec3 colour, highp float w, highp float strength, highp float seed, highp float ang, highp float p) {
+    highp float along = 0.75 + 0.25 * sin(ang * 5.0 + p * 9.0 + seed) * sin(ang * 2.0 - p * 4.0);
+    highp float band = exp(-pow(q / (10.0 * w), 2.0)) * 0.55 * along;
+    highp float core = exp(-pow(q / (4.0 * w), 2.0)) * 0.45 * along;
+    highp float glow = exp(-pow(q / (30.0 * w), 2.0)) * step(q, 0.0) * 0.35;
+    highp float halo = exp(-pow((q - 14.0 * w) / (14.0 * w), 2.0)) * step(0.0, q) * 0.25 * along;
+    highp float dark = exp(-pow((q - 30.0 * w) / (14.0 * w), 2.0)) * 0.25;
+    highp float fil = exp(-pow((q + 12.0 * w + 4.0 * sin(ang * 17.0 + p * 9.0 + seed)) / 2.2, 2.0))
+        * 0.25 * clamp(sin(ang * 31.0 - p * 20.0 + seed), 0.0, 1.0);
+    highp float fil2 = exp(-pow((q + 22.0 * w + 5.0 * sin(ang * 11.0 - p * 7.0)) / 2.6, 2.0))
+        * 0.15 * clamp(sin(ang * 19.0 + p * 15.0), 0.0, 1.0);
+    col *= 1.0 - dark * strength;
+    return col + (band + core + glow + halo + fil + fil2) * strength * colour;
+}
+
+void fragment() {
+    highp vec2 u = (FRAGCOORD.xy - center) / (renderScale * maxRadius);
+    highp float d = length(u);
+    highp vec2 dir = u / max(d, 0.0001);
+    highp float px = 1.0 / (maxRadius * renderScale.x);
+    highp float p = progress;
+    highp float ang = atan(u.y, u.x);
+
+    highp float r1 = kRingEnd * easeOut(p / 0.4);
+    highp float r2 = kRingEnd * (1.0 - easeIn((p - 0.5) / 0.5));
+    highp float live2 = step(0.5, p);
+    highp float q1 = (d - r1) / px - wobble(ang, p, 0.0, r1);
+    highp float q2 = (d - r2) / px - wobble(ang, p, 2.1, r2);
+
+    // zones
+    highp float in1 = 1.0 - smoothstep(r1 - 2.0 * px, r1 + 2.0 * px, d);
+    highp float in2 = mix(1.0, 1.0 - smoothstep(r2 - 2.0 * px, r2 + 2.0 * px, d), live2);
+    highp float zone = in1 * in2;
+    highp float greyzone = in1 * (1.0 - in2);
+
+    // warp
+    highp float psych = smoothstep(0.24, 0.34, p) * (1.0 - smoothstep(0.84, 0.96, p));
+    highp float t2 = (p - 0.5) / 0.5;
+    highp float hump2 = 4.0 * t2 * (1.0 - t2) * live2;
+    highp float rEff = mix(r1, r2, live2);
+    highp float qEff = mix(q1, q2, live2);
+    highp float x = d / max(rEff, 0.001);
+    highp float bulge = 0.32 * clamp(1.0 - x * x, 0.0, 1.0);
+    highp float rimPull = exp(-pow((qEff + 8.0) / 14.0, 2.0)) * 10.0 * px;
+    highp float swirlEnv = max(psych, 0.7 * (1.0 - smoothstep(0.2, 0.45, p)));
+    highp float swirl = sin(p * 20.0) * 0.12 * smoothstep(0.0, 0.6, d) * swirlEnv;
+    highp vec2 uu = u * (1.0 - bulge) - dir * rimPull;
+    highp float cs = cos(swirl);
+    highp float sn = sin(swirl);
+    uu = vec2(uu.x * cs - uu.y * sn, uu.x * sn + uu.y * cs);
+    highp vec3 colOut = tex(u);
+
+    // zoom blur with ray highlight
+    highp float blur = 0.14 * (1.0 - smoothstep(0.2, 0.5, p)) + 0.05 * psych + 0.08 * hump2;
+    highp vec3 base = vec3(0.0);
+    highp vec3 ray = vec3(0.0);
+    for (int i = 0; i < kTaps; i++) {
+        highp float s = float(i) / float(kTaps - 1);
+        highp vec3 tap = tex(uu - dir * blur * s * (0.1 + d));
+        base += tap;
+        ray = max(ray, tap * (1.0 - s * 0.5));
+    }
+    base /= float(kTaps);
+    base = mix(base, max(base, ray), smoothstep(0.35, 0.9, luma(ray)) * min(blur * 6.0, 0.6));
+    highp vec3 col = mix(colOut, base, zone);
+
+    // stopped zone
+    highp float lum = luma(col);
+    highp vec3 chroma = col - vec3(lum);
+    highp float sat = 0.35 + 0.30 * smoothstep(0.2, 0.35, p);
+    highp vec3 tint = hsv2rgb(vec3(fract(paletteHue(p)), sat, 1.0));
+    highp float rays = 1.0 + 0.07 * sin(ang * 22.0 + p * 9.0) * smoothstep(0.08, 0.4, d);
+    highp float core = exp(-pow(d / 0.38, 2.0)) * (0.12 + 0.22 * (1.0 - smoothstep(0.25, 0.55, p)));
+    highp float key = (pow(lum, 0.85) * 0.9 + 0.04) * rays + core * 0.25;
+    highp vec2 nuv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+    highp float cloud = vnoise(nuv * 7.0 + p * 0.4) * 0.6 + vnoise(nuv * 15.0 - p * 0.7) * 0.4;
+    key = key * (1.0 + 0.45 * (cloud - 0.5)) + 0.36 * clamp(cloud - 0.55, 0.0, 1.0);
+    highp vec3 wrong = key * mix(vec3(1.0), tint, 0.5) * 1.05 - chroma * 1.5 + core * kGold * 1.1;
+    wrong = (wrong - 0.5) * 1.15 + 0.5;
+    wrong *= 1.0 - 0.25 * smoothstep(0.5, 1.1, d);
+
+    highp vec3 grey = mix(vec3(lum) * kGreyLevel * kGreyTint, col, handoff);
+
+    highp vec3 outc = mix(col, wrong, zone);
+    outc = mix(outc, grey, greyzone);
+
+    // echo rings
+    highp float echoEnv = 1.0 - smoothstep(0.3, 0.45, p);
+    highp float qe1 = (d - r1 * 0.86) / px - wobble(ang, p, 1.3, r1 * 0.86);
+    highp float qe2 = (d - r1 * 0.72) / px - wobble(ang, p, 1.3, r1 * 0.72);
+    outc = wall(outc, qe1, kWall1, 0.7, 0.3 * echoEnv, 1.3, ang, p);
+    outc = wall(outc, qe2, kWall1, 0.7, 0.15 * echoEnv, 1.3, ang, p);
+
+    outc = wall(outc, q1, kWall1, 1.0, 1.0, 0.0, ang, p);
+    outc = wall(outc, q2, kWall2, 1.2, 1.1 * min(1.0, r2 / 0.12) * live2, 2.1, ang, p);
+    highp float pop = exp(-pow(d / 0.05, 2.0)) * smoothstep(0.93, 1.0, p) * (1.0 - smoothstep(0.985, 1.0, p));
+    outc += pop * kWall2 * 0.35;
+
+    // outside wisps
+    highp float wispT = smoothstep(0.8, 1.0, p) * live2;
+    highp float arms = pow(clamp(sin(ang * 9.0 + p * 7.0), 0.0, 1.0), 6.0) * clamp(sin(ang * 4.0 - p * 3.0), 0.0, 1.0);
+    highp float reach = exp(-pow((d - r2 - 0.05 - 0.25 * wispT) / 0.12, 2.0));
+    outc += arms * reach * 0.5 * wispT * kWall2;
+
+    COLOR = vec4(clamp(outc, 0.0, 1.0), 1.0);
+}

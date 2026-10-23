@@ -125,12 +125,62 @@
   components:
   - type: Action
     checkCanInteract: false
-    useDelay: 3
+    useDelay: 0.5
     icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
     itemIconStyle: NoItem
     raiseOnUser: true
   - type: InstantAction
     event: !type:ToggleSandevistanEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionSandevistanCounter
+  name: Counter Stance
+  description: Enter a counter stance. After a brief windup period, if you get hit you dash towards whoever hit you and return the favor 10 fold. Getting hit during the wind up cancels it.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 6
+    icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+    itemIconStyle: NoItem
+    raiseOnUser: true
+  - type: InstantAction
+    event: !type:ArmCounterActionEvent
+  - type: CounterAction
+    buildupShader: SandevistanBuildup
+    armedShader: SandevistanCounter
+    triggeredShader: SandevistanCounterTriggered
+    buildupSound:
+      path: /Audio/_Goobstation/Sandevistan/counter_buildup.ogg
+      params:
+        volume: -2
+        maxDistance: 12
+        rolloffFactor: 2
+    armedSound:
+      path: /Audio/_Goobstation/Sandevistan/counter_armed.ogg
+      params:
+        volume: 0
+        maxDistance: 12
+        rolloffFactor: 2
+    armedLoopSound:
+      path: /Audio/_Goobstation/Sandevistan/counter_armed_loop.ogg
+      params:
+        loop: true
+        volume: -2
+        maxDistance: 12
+        rolloffFactor: 2
+    triggerSound:
+      path: /Audio/_Goobstation/Sandevistan/counter_trigger.ogg
+      params:
+        volume: 0
+        maxDistance: 12
+        rolloffFactor: 2
+    fizzleSound:
+      path: /Audio/_Goobstation/Sandevistan/counter_fizzle.ogg
+      params:
+        volume: -3
+        maxDistance: 12
+        rolloffFactor: 2
 
 - type: entity
   parent: BaseMentalAction
