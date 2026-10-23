@@ -26559,3 +26559,9 @@ Entries:
       message: Fixed the use of items from the bag on a xeno nest.
   id: 2996
   time: '2026-10-23T02:50:36.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: You can now surgically remove and reattach your ass!
+  id: 2997
+  time: '2026-10-23T18:21:16.0000000+00:00'
