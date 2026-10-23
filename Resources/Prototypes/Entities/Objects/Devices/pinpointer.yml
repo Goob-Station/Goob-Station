@@ -161,9 +161,6 @@
   - type: Tag
     tags:
     - MothershipPinpointerPiece
-  - type: Construction
-    graph: RepairMothershipPinpointer
-    node: start
 
 - type: entity
   parent: PinpointerMothership
