@@ -24,10 +24,9 @@
   # Pump
   - type: PlumbingPump
   - type: PlumbingFilter
-  - type: ExclusiveInputSlot
-    port: PlumbingInput
-  - type: ExclusiveOutputSlot
-    port: PlumbingOutput
+  - type: PlumbingPorts
+    input: PlumbingInput
+    output: PlumbingOutput
   - type: SolutionTransfer # verb so you can throttle its speed
     transferAmount: 50 # max speed is 50u/s
     maxTransferAmount: 50
