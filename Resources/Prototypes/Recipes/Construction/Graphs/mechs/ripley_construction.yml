@@ -75,12 +75,12 @@
 #i omitted the steps involving inserting machine parts because
 #currently mechs don't support upgrading. add them back in once that's squared away.
 
-      - component: PowerCell
-        name: construction-graph-component-power-cell
+      - tag: PowerCage # Goobstation
+        name: construction-graph-tag-power-cage
         store: battery-container
         icon:
-          sprite: Objects/Power/power_cells.rsi
-          state: small
+          sprite: Objects/Power/power_cages.rsi
+          state: high
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"
