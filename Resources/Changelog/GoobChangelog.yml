@@ -26495,3 +26495,9 @@ Entries:
       message: Fixed camera
   id: 2987
   time: '2026-10-23T01:14:30.0000000+00:00'
+- author: loksill
+  changes:
+    - type: Tweak
+      message: Smartlink is now exclusive to only traitors.
+  id: 2988
+  time: '2026-10-23T01:15:47.0000000+00:00'
