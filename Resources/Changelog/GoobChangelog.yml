@@ -26507,3 +26507,9 @@ Entries:
       message: Majority of ghost role raffles are now 30 seconds instead of 45.
   id: 2989
   time: '2026-10-23T01:16:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Guns and throwing are both predicted now.
+  id: 2990
+  time: '2026-10-23T02:10:42.0000000+00:00'
