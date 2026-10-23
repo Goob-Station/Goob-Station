@@ -1,8 +1,8 @@
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Damage;
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
@@ -21,14 +21,18 @@ namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly WoundSystem _wounds = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    private EntityQuery<BodyComponent> _bodyQuery;
-    private EntityQuery<BodyPartComponent> _bodyPartQuery;
-    private EntityQuery<ConsciousnessComponent> _consciousnessQuery;
-    private EntityQuery<WoundableComponent> _woundableQuery;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private WoundSystem _wounds = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityQuery<BodyComponent> _bodyQuery = default!;
+    [Dependency] private EntityQuery<BodyPartComponent> _bodyPartQuery = default!;
+    [Dependency] private EntityQuery<WoundableComponent> _woundableQuery = default!;
+
+    public float ExplosionVitalMultiplier { get; private set; } = 1f;
+    public float ExplosionNonVitalMultiplier { get; private set; } = 1f;
+
+    private readonly HashSet<EntityUid> _complexDamageInProgress = [];
 
     /// <summary>
     /// These damages are always ensured to override targetting and be dealt to the vital body parts.
@@ -45,7 +49,7 @@ public sealed partial class DamageableSystem
     /// Get only the primitive flags (powers of 2) - these are the actual individual body parts
     /// </summary>
     private static readonly TargetBodyPart[] PrimitiveTargetBodyParts = Enum.GetValues<TargetBodyPart>()
-        .Where(flag => flag != 0 && (flag ^ (flag - 1)) == 0) // Power of 2 check
+        .Where(flag => flag != 0 && (flag & (flag - 1)) == 0) // Power of 2 check
         .ToArray();
 
     /// <summary>
@@ -72,8 +76,6 @@ public sealed partial class DamageableSystem
             body.Comp2.Damage.DamageDict[type] = FixedPoint2.Zero;
         }
 
-        var delta = new DamageSpecifier();
-
         // Sum up damage from all body parts
         foreach (var (partId, _) in _body.GetBodyChildren(body))
         {
@@ -92,17 +94,55 @@ public sealed partial class DamageableSystem
 
                 body.Comp2.Damage.DamageDict.TryGetValue(type, out var existing);
                 body.Comp2.Damage.DamageDict[type] = existing + value;
-                delta.DamageDict[type] = value - existing;
             }
         }
 
-        body.Comp2.Damage.TrimZeros();
-        delta.TrimZeros();
+        var delta = new DamageSpecifier();
+        foreach (var (type, value) in body.Comp2.Damage.DamageDict)
+        {
+            var change = value - oldDamage.GetValueOrDefault(type);
+            if (change != 0)
+                delta.DamageDict[type] = change;
+        }
+
+        if (delta.Empty)
+            return false;
 
         // raises DamageChangedEvent through here
-        if (!delta.Empty)
-            OnEntityDamageChanged((body, body.Comp2), delta, interruptsDoAfters, origin, ignoreBlockers);
+        OnEntityDamageChanged((body, body.Comp2), delta, interruptsDoAfters, origin, ignoreBlockers);
+        return true;
+    }
 
+    private static bool IsNoOpHeal(DamageableComponent damageable, DamageSpecifier damage)
+    {
+        var current = damageable.Damage.DamageDict;
+        foreach (var (type, value) in damage.DamageDict)
+        {
+            if (value > 0)
+                return false;
+
+            if (value < 0 && current.TryGetValue(type, out var existing) && existing > 0)
+                return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    ///     [Woundmed]
+    ///     Tries to update the parent body of a body part if it can find it.
+    /// </summary>
+    private bool TryUpdateParentBodyDamage(EntityUid part, bool interruptsDoAfters, EntityUid? origin, bool ignoreBlockers)
+    {
+        if (!_bodyPartQuery.TryComp(part, out var bodyPart)
+            || bodyPart.Body is not { } parent
+            || _complexDamageInProgress.Contains(parent)
+            || !_bodyQuery.TryComp(parent, out var parentBody)
+            || parentBody.BodyType != BodyType.Complex
+            || !_damageableQuery.TryComp(parent, out var parentDamageable))
+            return false;
+
+        UpdateComplexBodyDamage((parent, parentBody, parentDamageable), interruptsDoAfters, origin, ignoreBlockers);
         return true;
     }
 
@@ -145,6 +185,23 @@ public sealed partial class DamageableSystem
         }
 
         return extracted;
+    }
+
+    /// <summary>
+    ///     [Woundmed]
+    ///     Gets whether an Entity<BodyPartComponent> has a <see cref="TargetBodyPart"/>.
+    /// </summary>
+    /// <param name="bodyPart"></param>
+    /// <returns></returns>
+    private bool BodyPartHasTargetBodyPartFlag(Entity<BodyPartComponent> bodyPart, TargetBodyPart target)
+    {
+        foreach (var flag in PrimitiveTargetBodyParts)
+        {
+            if (target.HasFlag(flag)
+                && bodyPart.Comp.PartType != _body.ConvertTargetBodyPart(flag).Type)
+                return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -196,13 +253,15 @@ public sealed partial class DamageableSystem
                 return null;
             }
 
-            var damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targettedParts);
+            // Apply split damage behavior to get all the parts and the damage we must do to them
+            var partDamageDict = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targettedParts);
             var appliedDamage = new DamageSpecifier();
             var surplusHealing = new DamageSpecifier();
-            for (var i = 0; i < targettedParts.Count; i++)
+
+            foreach (var pair in partDamageDict)
             {
-                var part = targettedParts[i];
-                var modifiedDamage = damagePerPart;
+                var part = pair.Key;
+                var modifiedDamage = pair.Value;
                 modifiedDamage += surplusHealing;
 
                 // Apply damage to this part
@@ -217,37 +276,24 @@ public sealed partial class DamageableSystem
                 );
 
                 if (partDamageResult != null && !partDamageResult.Empty)
-                {
                     appliedDamage += partDamageResult;
 
-                    /*
-                        Why this ugly shitcode? Its so that we can track chems and other sorts of healing surpluses.
-                        Assume you're fighting in a spaced area. Your chest has 30 damage, and every other part
-                        is getting 0.5 per tick. Your chems will only be 1/11th as effective, so we take the surplus
-                        healing and pass it along parts. That way a chem that would heal you for 75 brute would truly
-                        heal the 75 brute per tick, and not some weird shit like 6.8 per tick.
-                    */
-                    foreach (var (type, damageFromDict) in modifiedDamage.DamageDict)
-                    {
-                        if (damageFromDict >= 0
-                            || !partDamageResult.DamageDict.TryGetValue(type, out var damageFromResult)
-                            || damageFromResult > 0)
-                            continue;
+                /*
+                    Why this ugly shitcode? Its so that we can track chems and other sorts of healing surpluses.
+                    Assume you're fighting in a spaced area. Your chest has 30 damage, and every other part
+                    is getting 0.5 per tick. Your chems will only be 1/11th as effective, so we take the surplus
+                    healing and pass it along parts. That way a chem that would heal you for 75 brute would truly
+                    heal the 75 brute per tick, and not some weird shit like 6.8 per tick.
+                */
+                foreach (var (type, requested) in modifiedDamage.DamageDict)
+                {
+                    if (requested >= 0
+                        || partDamageResult is null
+                        || !partDamageResult.DamageDict.TryGetValue(type, out var result)
+                        || result > 0)
+                        continue;
 
-                        // If the damage from the dict plus the surplus healing is equal to the damage from the result,
-                        // we can safely set the surplus healing to 0, as that means we consumed all of it.
-                        if (damageFromDict >= damageFromResult)
-                        {
-                            surplusHealing.DamageDict[type] = FixedPoint2.Zero;
-                        }
-                        else
-                        {
-                            if (surplusHealing.DamageDict.TryGetValue(type, out var _))
-                                surplusHealing.DamageDict[type] = damageFromDict - damageFromResult;
-                            else
-                                surplusHealing.DamageDict.TryAdd(type, damageFromDict - damageFromResult);
-                        }
-                    }
+                    surplusHealing.DamageDict[type] = FixedPoint2.Min(requested - result, FixedPoint2.Zero);
                 }
             }
 
@@ -301,9 +347,6 @@ public sealed partial class DamageableSystem
                 interruptsDoAfters, origin, ignoreBlockers: ignoreBlockers);
         }
 
-        if (_damageableQuery.TryComp(body, out var damageableComp))
-            OnEntityDamageChanged((body, damageableComp), totalAppliedDamage, interruptsDoAfters, origin);
-
         return totalAppliedDamage;
     }
 
@@ -328,8 +371,8 @@ public sealed partial class DamageableSystem
         bool canMiss = true
     )
     {
-        var vitalDamage = new DamageSpecifier();
-        var regularDamage = new DamageSpecifier();
+        var vitalDamage = new DamageSpecifier(damage.ArmorPenetration, damage.PartDamageVariation, damage.WoundSeverityMultipliers);
+        var regularDamage = new DamageSpecifier(damage.ArmorPenetration, damage.PartDamageVariation, damage.WoundSeverityMultipliers);
 
         // separate the vital damage so we have
         // vitalDamage for damage that must be applied to vital body parts (TargetBodyPart.Vital) &
@@ -352,35 +395,46 @@ public sealed partial class DamageableSystem
                 regularDamage.DamageDict[type] = value;
         }
 
-        var appliedRegularDamage = regularDamage.Empty
-            ? null
-            : ApplyDamageToBodyParts(
-                body,
-                regularDamage,
-                origin,
-                ignoreResistances,
-                interruptsDoAfters,
-                targetPart,
-                partMultiplier,
-                ignoreBlockers,
-                splitDamage,
-                canMiss
-            );
+        var nested = !_complexDamageInProgress.Add(body);
+        DamageSpecifier? appliedRegularDamage;
+        DamageSpecifier? appliedVitalDamage;
+        try
+        {
+            appliedRegularDamage = regularDamage.Empty
+                ? null
+                : ApplyDamageToBodyParts(
+                    body,
+                    regularDamage,
+                    origin,
+                    ignoreResistances,
+                    interruptsDoAfters,
+                    targetPart,
+                    partMultiplier,
+                    ignoreBlockers,
+                    splitDamage,
+                    canMiss
+                );
 
-        var appliedVitalDamage = vitalDamage.Empty
-            ? null
-            : ApplyDamageToBodyParts(
-                body,
-                vitalDamage,
-                origin,
-                ignoreResistances,
-                interruptsDoAfters,
-                TargetBodyPart.Vital,
-                partMultiplier,
-                ignoreBlockers,
-                splitDamage,
-                canMiss
-            );
+            appliedVitalDamage = vitalDamage.Empty
+                ? null
+                : ApplyDamageToBodyParts(
+                    body,
+                    vitalDamage,
+                    origin,
+                    ignoreResistances,
+                    interruptsDoAfters,
+                    TargetBodyPart.Vital,
+                    partMultiplier,
+                    ignoreBlockers,
+                    splitDamage,
+                    canMiss
+                );
+        }
+        finally
+        {
+            if (!nested)
+                _complexDamageInProgress.Remove(body);
+        }
 
         var totalDamage = new DamageSpecifier();
 
@@ -393,12 +447,24 @@ public sealed partial class DamageableSystem
         {
             DebugTools.Assert("Applied damage to complex body without DamageableComponent!");
         }
-        else
+        else if (!nested)
         {
             UpdateComplexBodyDamage((body, body.Comp, damageableComp), interruptsDoAfters, origin, ignoreBlockers);
         }
 
         return totalDamage;
+    }
+
+    private Dictionary<Entity<BodyPartComponent, DamageableComponent>, DamageSpecifier> MakeGenericDamageSplit(
+        List<Entity<BodyPartComponent, DamageableComponent>> parts,
+        DamageSpecifier damagePerPart)
+    {
+        Dictionary<Entity<BodyPartComponent, DamageableComponent>, DamageSpecifier> split = [];
+        foreach (var part in parts)
+        {
+            split[part] = damagePerPart;
+        }
+        return split;
     }
 
     /// <summary>
@@ -411,24 +477,42 @@ public sealed partial class DamageableSystem
     /// <returns>
     ///     The <see cref="DamageSpecifier"=> that should be equally dealt to each provided body part.
     /// </returns>
-    public DamageSpecifier ApplySplitDamageBehaviors(SplitDamageBehavior splitDamageBehavior,
+    public Dictionary<Entity<BodyPartComponent, DamageableComponent>, DamageSpecifier>
+    ApplySplitDamageBehaviors(SplitDamageBehavior splitDamageBehavior,
         DamageSpecifier damage,
         List<Entity<BodyPartComponent, DamageableComponent>> parts)
     {
         var newDamage = new DamageSpecifier(damage);
         switch (splitDamageBehavior)
         {
-            case SplitDamageBehavior.None:
-                return newDamage;
+            case SplitDamageBehavior.None: // No split, damage is the same for all
+                return MakeGenericDamageSplit(parts, newDamage);
             case SplitDamageBehavior.Split:
-                return newDamage / parts.Count;
+                return MakeGenericDamageSplit(parts, newDamage / parts.Count); // Split evenly between all parts
             case SplitDamageBehavior.SplitExplosion:
-                var vitalParts = parts.Where(part =>
-                TryComp<ConsciousnessRequiredComponent>(part, out var consciousness)
-                && consciousness.CausesDeath == true).ToList();
+                List<EntityUid> vitalParts = [];
 
-                return newDamage / vitalParts.Count;
-            case SplitDamageBehavior.SplitEnsureAllDamaged:
+                foreach (var part in parts)
+                {
+                    if (!BodyPartHasTargetBodyPartFlag(part, TargetBodyPart.Vital))
+                        continue;
+                    vitalParts.Add(part);
+                }
+
+                Dictionary<Entity<BodyPartComponent, DamageableComponent>, DamageSpecifier> split = [];
+
+                newDamage /= parts.Count;
+
+                foreach (var part in parts)
+                {
+                    if (vitalParts.Contains(part))
+                        split[part] = newDamage * ExplosionVitalMultiplier;
+                    else
+                        split[part] = newDamage * ExplosionNonVitalMultiplier;
+                }
+
+                return split;
+            case SplitDamageBehavior.SplitEnsureAllDamaged: // EnsureAll + Split between all damaged parts
                 var damagedParts = parts.Where(part =>
                     part.Comp2.TotalDamage > FixedPoint2.Zero).ToList();
 
@@ -436,7 +520,7 @@ public sealed partial class DamageableSystem
                 parts.AddRange(damagedParts);
 
                 goto case SplitDamageBehavior.SplitEnsureAll;
-            case SplitDamageBehavior.SplitEnsureAllOrganic:
+            case SplitDamageBehavior.SplitEnsureAllOrganic: // EnsureAll + Split between only organic parts
                 var organicParts = parts.Where(part =>
                     part.Comp1.PartComposition == BodyPartComposition.Organic).ToList();
 
@@ -444,7 +528,7 @@ public sealed partial class DamageableSystem
                 parts.AddRange(organicParts);
 
                 goto case SplitDamageBehavior.SplitEnsureAll;
-            case SplitDamageBehavior.SplitEnsureAllDamagedAndOrganic:
+            case SplitDamageBehavior.SplitEnsureAllDamagedAndOrganic: // EnsureAll + Split betwene only damaged & organic parts
                 var compatableParts = parts.Where(part =>
                     part.Comp2.TotalDamage > FixedPoint2.Zero &&
                     part.Comp1.PartComposition == BodyPartComposition.Organic).ToList();
@@ -479,9 +563,9 @@ public sealed partial class DamageableSystem
                 }
                 // We sort the parts to ensure that surplus damage gets passed from least to most damaged.
                 parts.Sort((a, b) => a.Comp2.TotalDamage.CompareTo(b.Comp2.TotalDamage));
-                return newDamage;
+                return MakeGenericDamageSplit(parts, newDamage);
             default:
-                return damage;
+                return MakeGenericDamageSplit(parts, damage);
         }
     }
 

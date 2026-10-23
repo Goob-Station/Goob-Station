@@ -5,7 +5,10 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Slasher;
 
-public sealed class SlasherAscendedEvent : EntityEventArgs;
+public sealed class SlasherAscendedEvent(EntityUid slasher) : EntityEventArgs
+{
+    public readonly EntityUid Slasher = slasher;
+}
 
 public sealed partial class SlasherToggleFearMusicAlertEvent : BaseAlertEvent;
 

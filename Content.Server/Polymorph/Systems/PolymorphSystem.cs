@@ -369,6 +369,8 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         }
 
+        TransferStorage(uid, child, configuration.Inventory); // Goobstation
+
         if (configuration.TransferName && TryComp(uid, out MetaDataComponent? targetMeta))
         {
             // Goob edit start
@@ -531,6 +533,8 @@ public sealed partial class PolymorphSystem : EntitySystem
                 _hands.TryDrop(uid, held);
             }
         }
+
+        TransferStorage(uid, parent, component.Configuration.Inventory); // Goobstation
 
         _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 

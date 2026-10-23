@@ -59,7 +59,7 @@ using ItemToggleMeleeWeaponComponent = Content.Shared.Item.ItemToggle.Components
 
 namespace Content.Shared.Weapons.Melee;
 
-public abstract class SharedMeleeWeaponSystem : EntitySystem
+public abstract partial class SharedMeleeWeaponSystem : EntitySystem // Goob - partial
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly SharedMapSystem MapSystem = default!;
@@ -184,6 +184,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
+        AddArmorPenetrationExamine(args.Message, damageSpec); // Goob
     }
     private void OnMeleeSelected(EntityUid uid, MeleeWeaponComponent component, HandSelectedEvent args)
     {
@@ -737,6 +738,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (damageResult.GetTotal() > FixedPoint2.Zero)
         {
             DoDamageEffect(targets, user, targetXform);
+            DoMeleeScreenshake(user, targets); // Goob
         }
     }
 
@@ -826,6 +828,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         {
             if (entity == user ||
                 !damageQuery.HasComponent(entity))
+                continue;
+
+            if (IsHeavyAttackTargetBlocked(entity, user, meleeUid)) // Goob
                 continue;
 
             // Goobstation start
@@ -935,6 +940,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             var target = entities.First();
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
+
+        DoMeleeScreenshake(user, targets); // Goob
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)
         {
@@ -1099,7 +1106,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Goobstation end
 
         PhysicalShove(user, target);
-        Interaction.DoContactInteraction(user, target);
+        Interaction.DoContactInteraction(user, target, null, true); // Goob
 
         if (MobState.IsIncapacitated(target))
             return true;

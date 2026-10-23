@@ -34,23 +34,23 @@ using Content.Shared.Damage.Components;
 
 namespace Content.Goobstation.Server.Blob;
 
-public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
+public sealed partial class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly BlobTileSystem _blobTileSystem = default!;
-    //[Dependency] private readonly GridFixtureSystem _gridFixture = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private EmpSystem _empSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private BlobTileSystem _blobTileSystem = default!;
+    //[Dependency] private GridFixtureSystem _gridFixture = default!;
 
     private const double ActionJobTime = 0.005;
     private readonly JobQueue _actionJobQueue = new(ActionJobTime);
@@ -77,7 +77,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         _actionJobQueue.Process();
     }
 
-    public sealed class BlobMouseActionProcess(
+    public sealed partial class BlobMouseActionProcess(
         Entity<BlobObserverComponent> ent,
         Entity<BlobCoreComponent> core,
         BlobCoreActionSystem system,

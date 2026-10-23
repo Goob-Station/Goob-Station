@@ -32,24 +32,24 @@ namespace Content.Goobstation.Server.Shadowling.Systems;
 /// <summary>
 /// This handles the Ascension Egg system.
 /// </summary>
-public sealed class ShadowlingAscensionEggSystem : EntitySystem
+public sealed partial class ShadowlingAscensionEggSystem : EntitySystem
 {
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly ShadowlingSystem _shadowling = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly ServerGlobalSoundSystem _globalSound = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private ShadowlingSystem _shadowling = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private PoweredLightSystem _poweredLight = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private ServerGlobalSoundSystem _globalSound = default!;
 
     private EntProtoId _nightmareAbilities = "NightmareAbilities";
 
