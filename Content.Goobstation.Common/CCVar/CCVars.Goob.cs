@@ -780,4 +780,15 @@ public sealed partial class GoobCVars
         CVarDef.Create("interaction_outline.out_of_range_color", "#FF000055", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
+
+    #region Gun Prediction
+
+    /// <summary>
+    ///     Distance between a projectile and a target's lag-compensated position that counts as a hit.
+    ///     Lets players with high ping hit what they actually saw when shooting.
+    /// </summary>
+    public static readonly CVarDef<float> GunLagCompRange =
+        CVarDef.Create("gun.lag_comp_range", 0.6f, CVar.SERVER | CVar.SERVERONLY);
+
+    #endregion
 }

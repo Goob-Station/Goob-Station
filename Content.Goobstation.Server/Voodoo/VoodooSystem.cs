@@ -111,7 +111,8 @@ namespace Content.Goobstation.Server.Voodoo
                 if (direction == Vector2.Zero)
                     direction = _random.NextVector2(1f);
 
-                _throwing.TryThrow(target, direction, strength, args.User);
+                _throwing.TryThrow(target, direction, strength, args.User,
+                    predicted: false); // Trauma
             }
         }
     }
