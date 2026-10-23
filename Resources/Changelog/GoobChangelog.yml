@@ -26451,3 +26451,111 @@ Entries:
       message: Fixed fire being realistic.
   id: 2981
   time: '2026-10-18T18:13:02.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added jiggle physics.
+    - type: Add
+      message: >-
+        Slimes can now regrow weakened limbs at the cost of hunger and blood
+        level. (temporary sprite for the action)
+    - type: Fix
+      message: Fixed animated emotes replaying when someone walks into range.
+  id: 2982
+  time: '2026-10-21T17:13:14.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Very spooky slasher variant.
+    - type: Fix
+      message: Fixed slasher tokens not getting the variant system.
+  id: 2983
+  time: '2026-10-22T22:25:28.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Atmospheric belts do not replace your jumpsuit anymore.
+  id: 2984
+  time: '2026-10-23T01:12:15.0000000+00:00'
+- author: OliverOtter
+  changes:
+    - type: Fix
+      message: Mitotrophin now metabolizes properly at a 0.5u rate.
+  id: 2985
+  time: '2026-10-23T01:12:54.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: nerfed full SMES sell price by ~50%
+  id: 2986
+  time: '2026-10-23T01:13:45.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed camera
+  id: 2987
+  time: '2026-10-23T01:14:30.0000000+00:00'
+- author: loksill
+  changes:
+    - type: Tweak
+      message: Smartlink is now exclusive to only traitors.
+  id: 2988
+  time: '2026-10-23T01:15:47.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Majority of ghost role raffles are now 30 seconds instead of 45.
+  id: 2989
+  time: '2026-10-23T01:16:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Guns and throwing are both predicted now.
+  id: 2990
+  time: '2026-10-23T02:10:42.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Fix
+      message: Fixed vox being unable to bagawk.
+    - type: Fix
+      message: >-
+        Fixed vox being poisoned by microplastics, they now heal from it
+        properly.
+  id: 2991
+  time: '2026-10-23T02:11:37.0000000+00:00'
+- author: mrs-teg
+  changes:
+    - type: Tweak
+      message: Atmospherics belts can now hold power drills!
+  id: 2992
+  time: '2026-10-23T02:12:38.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Remove
+      message: Removed the S.L.A.Y.E.R coat from the uplink
+  id: 2993
+  time: '2026-10-23T02:14:56.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: Increased maximum PTL power draw per shot 5MJ->100MJ
+    - type: Tweak
+      message: Decreased PTL speso/MJ generation by about 85%
+    - type: Tweak
+      message: Decreased PTL damage/MJ by 50%
+    - type: Tweak
+      message: Increased maximum PTL draw 5MJ->10MJ
+  id: 2994
+  time: '2026-10-23T02:29:17.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Tweak
+      message: Buff acceleration for dragon and carps 1 -> 1.5
+  id: 2995
+  time: '2026-10-23T02:29:50.0000000+00:00'
+- author: loksill
+  changes:
+    - type: Fix
+      message: Fixed the use of items from the bag on a xeno nest.
+  id: 2996
+  time: '2026-10-23T02:50:36.0000000+00:00'
