@@ -10,7 +10,7 @@ namespace Content.Goobstation.Client.Factory.UI;
 [GenerateTypedNameReferences]
 public sealed partial class LabelFilterWindow : FancyWindow
 {
-    [Dependency] private readonly EntityManager _entMan = default!;
+    [Dependency] private EntityManager _entMan = default!;
 
     public event Action<string>? OnSetLabel;
 

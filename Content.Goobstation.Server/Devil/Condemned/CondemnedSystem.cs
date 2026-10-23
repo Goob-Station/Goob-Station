@@ -16,10 +16,10 @@ namespace Content.Goobstation.Server.Devil.Condemned;
 
 public sealed partial class CondemnedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly PolymorphSystem _poly = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ScrambleDnaEffectSystem _scramble = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PolymorphSystem _poly = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ScrambleDnaEffectSystem _scramble = default!;
     public override void Initialize()
     {
         base.Initialize();

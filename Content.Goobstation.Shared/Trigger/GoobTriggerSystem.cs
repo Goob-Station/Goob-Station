@@ -10,14 +10,14 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Trigger;
 
-public sealed class GoobTriggerSystem : EntitySystem
+public sealed partial class GoobTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedEnsnareableSystem _snare = default!;
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedEnsnareableSystem _snare = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

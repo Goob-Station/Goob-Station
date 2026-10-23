@@ -440,7 +440,7 @@
   description: Revolting unless you're french.
   components:
   - type: Body
-    prototype: Mouse
+    prototype: Snail
   - type: GhostRole
     makeSentient: true
     allowSpeech: false

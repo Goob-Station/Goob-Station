@@ -6,6 +6,7 @@
   name: portable scrubber
   description: It scrubs, portably!
   components:
+  - type: ESVerbAnchorable # Goob
   - type: Transform
     anchored: false
   - type: Physics
@@ -111,6 +112,7 @@
   description: A bluespace technology device that alters local temperature. Commonly referred to as a "Space Heater".
   suffix: Unanchored
   components:
+  - type: ESVerbAnchorable # Goob
   - type: StationAiWhitelist
   - type: Transform
     anchored: false

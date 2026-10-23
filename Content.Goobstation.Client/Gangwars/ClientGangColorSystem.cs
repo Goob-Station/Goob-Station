@@ -7,9 +7,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Gangwars;
 
-public sealed class ClientGangColorSystem : EntitySystem
+public sealed partial class ClientGangColorSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

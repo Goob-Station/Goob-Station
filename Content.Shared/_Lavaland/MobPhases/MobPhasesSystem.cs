@@ -2,7 +2,8 @@
 
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using JetBrains.Annotations;
 
 namespace Content.Shared._Lavaland.MobPhases;
