@@ -442,12 +442,13 @@
       - type: SlasherKitSelect
         kits:
           slasher-kit-butcher:
+            ascensionId: Butcher
             gear: SlasherGear
             description: slasher-kit-butcher-desc
             grantedToVictimOnSight:
             - type: SlasherFearOverlay
             sprite:
-              sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/butcher.rsi
               state: icon
           slasher-kit-spring:
             gear: SlasherGearSpring
@@ -455,7 +456,7 @@
             grantedToVictimOnSight:
             - type: SlasherFearOverlay
             sprite:
-              sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/spring.rsi
               state: icon
             machetePrototype: SlasherMacheteSpring
             bloodTrailMusic:
@@ -464,12 +465,13 @@
                 volume: -4
                 loop: true
           slasher-kit-billy:
+            ascensionId: Billy
             gear: SlasherGearBilly
             description: slasher-kit-billy-desc
             grantedToVictimOnSight:
             - type: SlasherFearOverlay
             sprite:
-              sprite: Objects/Tools/crowbar.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/billy.rsi
               state: icon
             machetePrototype: SlasherCrowbar
             bloodTrailMusic:
@@ -483,7 +485,7 @@
             grantedToVictimOnSight:
             - type: SlasherFearOverlay
             sprite:
-              sprite: Clothing/Head/Hoods/cult.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/cult.rsi
               state: icon
             machetePrototype: SlasherEldritchBlade
             bloodTrailMusic:
@@ -496,7 +498,7 @@
             grantedToVictimOnSight:
             - type: SlasherFearOverlay
             sprite:
-              sprite: Clothing/Head/Hats/papersacksmile.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/maintenance.rsi
               state: icon
             machetePrototype: SlasherButchCleaver
             bloodTrailMusic:
@@ -509,7 +511,7 @@
             grantedToVictimOnSight:
             - type: SlasherFearOverlay
             sprite:
-              sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/cannibal.rsi
               state: icon
             machetePrototype: SlasherButchCleaver
             bloodTrailMusic:
@@ -523,7 +525,7 @@
             grantedToVictimOnSight:
             - type: SlasherFearOverlay
             sprite:
-              sprite: Clothing/Mask/clown.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/clown.rsi
               state: icon
             machetePrototype: SlasherOffsetCaneClown
             bloodTrailMusic:
@@ -549,7 +551,7 @@
             grantedToVictimOnSight:
             - type: SlasherFearOverlay
             sprite:
-              sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/glutton.rsi
               state: icon
             machetePrototype: SlasherButchCleaver
             bloodTrailMusic:
@@ -563,7 +565,7 @@
             grantedToVictimOnSight:
             - type: SlasherFearOverlay
             sprite:
-              sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/hockey.rsi
               state: icon
             bloodTrailMusic:
               path: /Audio/_Goobstation/Slasher/Music/horror_synthwave.ogg
@@ -577,7 +579,7 @@
             description: slasher-kit-boogeyman-desc
             guide: SlasherBoogeyman
             sprite:
-              sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
+              sprite: _Goobstation/Slasher/Interface/KitIcons/boogeyman.rsi
               state: icon
             machetePrototype: SlasherKitchenKnife
             bloodTrailMusic:
