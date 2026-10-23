@@ -1,17 +1,18 @@
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Wraith.Other;
 
-public sealed class DamageNearbySystem : EntitySystem
+public sealed partial class DamageNearbySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     private readonly HashSet<Entity<MobStateComponent>> _mobStates = new();
 
@@ -54,7 +55,7 @@ public sealed class DamageNearbySystem : EntitySystem
             if (!_whitelist.IsWhitelistPassOrNull(ent.Comp.Whitelist, entity))
                 continue;
 
-            _damageable.TryChangeDamage(entity, ent.Comp.Damage, targetPart: TargetBodyPart.All);
+            _damageable.TryChangeDamage(entity.Owner, ent.Comp.Damage, targetPart: TargetBodyPart.All);
         }
     }
 }

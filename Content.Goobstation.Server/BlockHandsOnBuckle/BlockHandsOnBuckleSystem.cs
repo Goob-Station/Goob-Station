@@ -11,12 +11,12 @@ using Content.Shared.Inventory;
 using Content.Shared.Interaction.Events;
 
 namespace Content.Goobstation.Server.BlockHandsOnBuckle;
-public sealed class BlockHandsOnBuckleSystem : EntitySystem
+public sealed partial class BlockHandsOnBuckleSystem : EntitySystem
 {
 
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -24,6 +24,7 @@ public sealed class BlockHandsOnBuckleSystem : EntitySystem
         SubscribeLocalEvent<BlockHandsOnBuckleComponent, UnstrappedEvent>(OnUnstrapped);
 
         SubscribeLocalEvent<BuckleComponent, AttackAttemptEvent>(OnCanAttack);
+        SubscribeLocalEvent<BuckleComponent, ConsciousAttemptEvent>(OnConsciousAttempt);
     }
 
     private void OnBuckled(Entity<BlockHandsOnBuckleComponent> ent, ref StrappedEvent args)
@@ -39,17 +40,27 @@ public sealed class BlockHandsOnBuckleSystem : EntitySystem
             }
         }
     }
-    
+
     private void OnUnstrapped(Entity<BlockHandsOnBuckleComponent> ent, ref UnstrappedEvent args)
     {
         _virtualItem.DeleteInHandsMatching(args.Buckle.Owner, ent.Owner);
 
     }
-    
+
     private void OnCanAttack(EntityUid uid, BuckleComponent buckle, ref AttackAttemptEvent args)
     {
-        if (buckle.BuckledTo != null
-            && HasComp<BlockHandsOnBuckleComponent>(buckle.BuckledTo.Value))
+        if (IsHandsBlocked(buckle))
             args.Cancel();
+    }
+
+    private void OnConsciousAttempt(EntityUid uid, BuckleComponent buckle, ref ConsciousAttemptEvent args)
+    {
+        if (IsHandsBlocked(buckle))
+            args.Cancelled = true;
+    }
+
+    private bool IsHandsBlocked(BuckleComponent buckle)
+    {
+        return buckle.BuckledTo is { } strap && HasComp<BlockHandsOnBuckleComponent>(strap);
     }
 }

@@ -4,10 +4,10 @@ using Robust.Client.UserInterface.Controls;
 
 namespace Content.Goobstation.Client.VoiceChat.UI;
 
-public sealed class VoiceChatConnectPanel : BoxContainer
+public sealed partial class VoiceChatConnectPanel : BoxContainer
 {
-    [Dependency] private readonly IClipboardManager _clipboard = default!;
-    [Dependency] private readonly VoiceChatManager _voice = default!;
+    [Dependency] private IClipboardManager _clipboard = default!;
+    [Dependency] private VoiceChatManager _voice = default!;
 
     private static readonly Color ConnectedColor = Color.FromHex("#5CD65C");
 

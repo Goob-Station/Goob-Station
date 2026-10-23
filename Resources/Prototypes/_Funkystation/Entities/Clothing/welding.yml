@@ -1,0 +1,65 @@
+- type: entity
+  abstract: true
+  parent: BaseToggleClothing
+  id: BaseFlippableWeldingMask
+  components:
+  - type: ToggleClothing
+    action: ActionToggleWeldingMask
+    mustEquip: false
+  - type: ItemToggle
+    activated: true
+  - type: WeldingMaskOverlay
+    texture: /Textures/_Funkystation/Clothing/Head/Welding/weldingOverlay.png
+  - type: ComponentToggler
+    components:
+    - type: IngestionBlocker
+    - type: FlashImmunity
+    - type: IdentityBlocker
+    - type: EyeProtection
+    - type: HideLayerClothing
+      slots:
+      - Snout
+    - type: WeldingMaskOverlay
+      texture: /Textures/_Funkystation/Clothing/Head/Welding/weldingOverlay.png
+  - type: ItemTogglePrefix
+    prefixOn: null
+    prefixOff: up
+  - type: ToggleClothingPrefix
+    prefixOn: null
+    prefixOff: up
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: icon}
+          False: {state: icon-up}
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleWeldingMask
+  name: Toggle Welding Mask
+  description: Flips the welding mask up or down.
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleTrayScanner
+  name: Toggle T-Ray Scanner
+  description: Turn the T-ray scanning functionality on or off.
+  components:
+  - type: Action
+    icon:
+      sprite: Objects/Tools/t-ray.rsi
+      state: tray-on
+  - type: InstantAction
+    event: !type:ToggleTrayScannerEvent
+
+- type: shader
+  id: Goggles
+  kind: source
+  path: "/Textures/_Funkystation/Shaders/goggles.swsl"

@@ -14,9 +14,9 @@ namespace Content.Goobstation.Server.CheckInfection;
 
 public sealed partial class CheckInfectionSystem : EntitySystem
 {
-    [Dependency] private readonly DoAfterSystem _doafter = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private DoAfterSystem _doafter = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private AudioSystem _audio = default!;
 
     public override void Initialize()
     {
