@@ -26489,3 +26489,9 @@ Entries:
       message: nerfed full SMES sell price by ~50%
   id: 2986
   time: '2026-10-23T01:13:45.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed camera
+  id: 2987
+  time: '2026-10-23T01:14:30.0000000+00:00'
