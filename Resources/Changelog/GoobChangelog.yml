@@ -26535,3 +26535,15 @@ Entries:
       message: Removed the S.L.A.Y.E.R coat from the uplink
   id: 2993
   time: '2026-10-23T02:14:56.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: Increased maximum PTL power draw per shot 5MJ->100MJ
+    - type: Tweak
+      message: Decreased PTL speso/MJ generation by about 85%
+    - type: Tweak
+      message: Decreased PTL damage/MJ by 50%
+    - type: Tweak
+      message: Increased maximum PTL draw 5MJ->10MJ
+  id: 2994
+  time: '2026-10-23T02:29:17.0000000+00:00'
