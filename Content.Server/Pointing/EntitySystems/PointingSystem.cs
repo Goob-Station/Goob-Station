@@ -8,6 +8,7 @@ using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
 using Content.Shared.Ghost;
+using Content.Shared.Holopad;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
@@ -15,6 +16,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Pointing;
 using Content.Shared.Popups;
+using Content.Shared.Telephone;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -35,7 +37,6 @@ namespace Content.Server.Pointing.EntitySystems
     {
         [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly IReplayRecordingManager _replay = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -154,6 +155,22 @@ namespace Content.Server.Pointing.EntitySystems
             {
                 return false;
             }
+
+            // This is probably an entity relaying through holopad i.e. Station AI. Redirect the verb.
+            var relayPointer = EntityUid.Invalid; // need this to check for point origin later. Invalid (zero) if original entity is the one pointing.
+
+            if (TryComp<HolopadUserComponent>(player, out var holopadComp))
+            {
+                var stationAi = holopadComp.LinkedHolopads.FirstOrDefault(); // This is the station ai square, not brain.
+                if (!TryComp<TelephoneComponent>(stationAi, out var telephoneComp))
+                    return false;
+
+                if (telephoneComp.LinkedTelephones.Count != 1) // unsupported and i cba dealing with this.
+                    return false;
+
+                player = telephoneComp.LinkedTelephones.Single();// yo if you're reviewing here doublecheck this doesnt fuck shit up and remove this comment if it doesnt thanks.
+                relayPointer = player;
+            }
             // Goobstation End.
 
             if (!CanPoint(player))
@@ -173,7 +190,10 @@ namespace Content.Server.Pointing.EntitySystems
 
             if (TryComp<PointingArrowComponent>(arrow, out var pointing))
             {
-                pointing.StartPosition = _transform.ToCoordinates((arrow, Transform(arrow)), _transform.ToMapCoordinates(Transform(player).Coordinates)).Position;
+                if (relayPointer == EntityUid.Invalid) // Goobstation. The reason im doing it this way is due to upstreaming gripes. easier to merge.
+                    pointing.StartPosition = _transform.ToCoordinates((arrow, Transform(arrow)), _transform.ToMapCoordinates(Transform(player).Coordinates)).Position;
+                else // Goobstation start
+                    pointing.StartPosition = _transform.ToCoordinates((arrow, Transform(arrow)), _transform.ToMapCoordinates(Transform(relayPointer).Coordinates)).Position; // Goobstation end
                 pointing.EndTime = _gameTiming.CurTime + PointDuration;
 
                 Dirty(arrow, pointing);
@@ -293,7 +313,7 @@ namespace Content.Server.Pointing.EntitySystems
                 TileRef? tileRef = null;
                 string? position = null;
 
-                if (_mapManager.TryFindGridAt(mapCoordsPointed, out var gridUid, out var grid))
+                if (_map.TryFindGridAt(mapCoordsPointed, out var gridUid, out var grid))
                 {
                     position = $"EntId={gridUid} {_map.WorldToTile(gridUid, grid, mapCoordsPointed.Position)}";
                     tileRef = _map.GetTileRef(gridUid, grid, _map.WorldToTile(gridUid, grid, mapCoordsPointed.Position));

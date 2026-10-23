@@ -13,6 +13,17 @@
     - BorgChassis
     - Silicon
   chatMessages: ["chat-emote-msg-fart"]
+  event: !type:JiggleEmoteEvent # Goobstation
+    pulses:
+    - impulse: 0,25
+    - delay: 0.06
+      impulse: 12,0
+    - delay: 0.12
+      impulse: -18,0
+    - delay: 0.18
+      impulse: 18,0
+    - delay: 0.24
+      impulse: -12,0
   chatTriggers:
     - fart
     - farts
@@ -257,3 +268,21 @@
     - is surprised
     - exclamation marks
     - exclamation mark
+
+- type: emote
+  id: Hoot
+  name: Hoot
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/caw.png
+  whitelist:
+    tags:
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ hoots. ]
+  chatTriggers:
+    - hoots
+    - hoot
+    - hooting
+    - hooted

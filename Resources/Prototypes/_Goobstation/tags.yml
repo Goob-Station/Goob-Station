@@ -32,6 +32,9 @@
   id: BolaEnergy
 
 - type: Tag
+  id: BorgModuleSEC
+
+- type: Tag
   id: BudgetInsuls
 
 - type: Tag
@@ -615,6 +618,9 @@
   id: WeaponDisabler
 
 - type: Tag
+  id: WeaponRifleLecter
+
+- type: Tag
   id: Flash
 
 - type: Tag
@@ -776,3 +782,6 @@
 
 - type: Tag
   id: ContractorUplink
+
+- type: Tag
+  id: XenobioSlimeFavoriteFood

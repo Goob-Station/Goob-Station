@@ -11,9 +11,9 @@ namespace Content.Goobstation.Shared.EntityEffects;
 public sealed partial class RandomSpeciesChangeSystem
     : EntityEffectSystem<HumanoidAppearanceComponent, RandomSpeciesChange>
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
 
     protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<RandomSpeciesChange> args)
     {
@@ -31,7 +31,7 @@ public sealed partial class RandomSpeciesChangeSystem
         if (list.Count == 0)
             return;
 
-        var sce = new SpeciesChange(_random.Pick(list).ID);
+        var sce = new SpeciesChange(_random.Pick(list).ID, effect.TransferAppearance);
         _effects.TryApplyEffect(entity.Owner, sce);
     }
 }
@@ -40,6 +40,7 @@ public sealed partial class RandomSpeciesChange : EntityEffectBase<RandomSpecies
 {
     [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesWhitelist;
     [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesBlacklist;
+    [DataField] public bool TransferAppearance;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-change-species-random");

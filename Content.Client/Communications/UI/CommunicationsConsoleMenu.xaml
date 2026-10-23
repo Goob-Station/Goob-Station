@@ -43,6 +43,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     ToolTip="{Loc 'comms-console-menu-broadcast-button-tooltip'}"
                     StyleClasses="OpenBoth"/>
 
+                <Button Name="VoiceBroadcastButton"
+                    Access="Public"
+                    Text="{Loc 'comms-console-menu-voice-broadcast-button'}"
+                    ToolTip="{Loc 'comms-console-menu-voice-broadcast-button-tooltip'}"
+                    StyleClasses="OpenBoth"
+                    Visible="False"/> <!-- Goobstation - Voice chat -->
+
                 <OptionButton Name="AlertLevelButton"
                     Access="Public"
                     ToolTip="{Loc 'comms-console-menu-alert-level-button-tooltip'}"

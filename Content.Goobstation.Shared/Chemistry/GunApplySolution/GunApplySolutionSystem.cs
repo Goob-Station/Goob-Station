@@ -7,9 +7,9 @@ using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Goobstation.Shared.Chemistry.GunApplySolution;
 
-public sealed class GunApplySolutionSystem : EntitySystem
+public sealed partial class GunApplySolutionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
     public override void Initialize()
     {
         base.Initialize();

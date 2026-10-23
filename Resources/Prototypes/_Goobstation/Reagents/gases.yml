@@ -506,6 +506,11 @@
       - !type:Oxygenate
         factor: 8
         conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Feroxi ]
+      - !type:Oxygenate
+        factor: 8
+        conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Cybernetics
           type: [ Cybernetic ]
       # Convert Pluox into CO2.
@@ -563,6 +568,11 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Plant ]
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Feroxi ]
       - !type:Oxygenate
         factor: 8
         conditions:

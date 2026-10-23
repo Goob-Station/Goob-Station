@@ -11,9 +11,9 @@ using Robust.Shared.Map;
 
 namespace Content.Goobstation.Server.Tools;
 
-public sealed class WeldingSparksSystem : EntitySystem
+public sealed partial class WeldingSparksSystem : EntitySystem
 {
-    [Dependency] private readonly ToolSystem _toolSystem = default!;
+    [Dependency] private ToolSystem _toolSystem = default!;
 
     public override void Initialize()
     {
@@ -37,7 +37,7 @@ public sealed class WeldingSparksSystem : EntitySystem
         var spawnLoc = GetSpawnLoc(ent, args.Target);
         if (spawnLoc is not { } loc)
             return;
-            
+
         SpawnEffect(ent, ref args, doAfterId, loc);
     }
 

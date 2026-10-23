@@ -15,6 +15,8 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.UnitTesting.Pool;
+using System.IO;
 
 namespace Content.Benchmarks;
 
@@ -31,7 +33,7 @@ public class MapLoadBenchmark
         ProgramShared.PathOffset = "../../../../";
         PoolManager.Startup();
 
-        _pair = PoolManager.GetServerClient().GetAwaiter().GetResult();
+        _pair = PoolManager.GetServerClient(testContext: new ExternalTestContext("Benchmark", StreamWriter.Null)).GetAwaiter().GetResult();
         var server = _pair.Server;
 
         Paths = server.ResolveDependency<IPrototypeManager>()
@@ -49,7 +51,7 @@ public class MapLoadBenchmark
         PoolManager.Shutdown();
     }
 
-    public static readonly string[] MapsSource = { "Empty", "Satlern", "Box", "Bagel", "Dev", "CentComm", "Atlas", "Core", "TestTeg", "Packed", "Origin", "Omega", "Cluster", "Reach", "Meta", "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Lambda", "Leonid", "Delta", "Amber", "Chloris", "Cog", "Serpentcrest"}; //Goobstation, readds maps
+    public static readonly string[] MapsSource = { "Empty", "Satlern", "Box", "Bagel", "Dev", "CentComm", "Atlas", "Core", "TestTeg", "Packed", "Origin", "Omega", "Cluster", "Reach", "Meta", "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Lambda", "Leonid", "Delta", "Amber", "Chloris", "Cog", "Serpentcrest", "Shoukou"}; //Goobstation, readds maps
 
     [ParamsSource(nameof(MapsSource))]
     public string Map;

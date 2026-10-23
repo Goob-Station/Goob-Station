@@ -83,6 +83,15 @@ public partial class StatusIconData : IComparable<StatusIconData>
     /// </summary>
     [DataField]
     public bool IsShaded = false;
+
+    // Goobstation begin
+    /// <summary>
+    /// Color modulation applied when drawing the icon. Defaults to white (no tint).
+    /// </summary>
+    [DataField]
+    public Color Color = Color.White;
+    // Goobstation end
+
     public int CompareTo(StatusIconData? other)
     {
         return Priority.CompareTo(other?.Priority ?? int.MaxValue);
@@ -92,6 +101,7 @@ public partial class StatusIconData : IComparable<StatusIconData>
 /// <summary>
 /// <see cref="StatusIconData"/> but in new convenient prototype form!
 /// </summary>
+[DataDefinition]
 public abstract partial class StatusIconPrototype : StatusIconData, IPrototype
 {
     /// <inheritdoc/>

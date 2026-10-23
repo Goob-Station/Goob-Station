@@ -10,8 +10,8 @@ namespace Content.Goobstation.Client.NTR;
 public sealed partial class GoobStoreListingControl : Control
 {
 
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     // private readonly ListingData _data;
     // _
@@ -23,6 +23,6 @@ public sealed partial class GoobStoreListingControl : Control
             return;
 
         if (prototype.ResetRestockOnPurchase)
-            listing.RestockTime = _timing.CurTime + prototype.RestockDuration;
+                listing.RestockTime = _timing.CurTime + prototype.RestockTime;
     }
 }

@@ -1,0 +1,39 @@
+- type: constructionGraph
+  id: PickaxeWood
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pickaxe
+      steps:
+      - material: Cloth
+        amount: 3
+        doAfter: 3
+      - material: WoodPlank
+        amount: 3
+        doAfter: 2
+      - material: WoodStick
+        amount: 4
+        doAfter: 2
+  - node: pickaxe
+    entity: PickaxeWood
+
+- type: constructionGraph
+  id: PickaxeAshwood
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pickaxe
+      steps:
+      - material: Cloth
+        amount: 3
+        doAfter: 3
+      - material: AshwoodPlank
+        amount: 3
+        doAfter: 2
+      - material: AshwoodStick
+        amount: 4
+        doAfter: 2
+  - node: pickaxe
+    entity: PickaxeAshwood

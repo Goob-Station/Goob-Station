@@ -26,7 +26,7 @@ public sealed class ProduceMaterialExtractorSystem : EntitySystem
 
     private void OnInteractUsing(Entity<ProduceMaterialExtractorComponent> ent, ref AfterInteractUsingEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || !args.CanReach) // Goobstation - Added canReach
             return;
 
         if (!this.IsPowered(ent, EntityManager))

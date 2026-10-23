@@ -803,7 +803,7 @@
   - type: PointLight
     radius: 8
     energy: 6
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RgbLightController
     cycleRate: 0.3
   - type: RotatingLight
@@ -1087,6 +1087,66 @@
         Slash: 5
     biteSound:
       collection: VulpkaninSnarls
+      
+- type: entity
+  parent: BasePlushie
+  id: PlushieRouge
+  name: rouge plushie
+  description: A cute stuffed toy resembling the humble and always drunk CCO of CCO's. Its eyebrows seem glued to be permanently furrowed.
+  components:
+  - type: Sprite
+    scale: 0.8,0.8
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    layers:
+    - state: plushie_rouge_off
+    - state: plushie_rouge_on
+      visible: false
+      map: [ "Unsheathe" ]
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Items/unsheath.ogg
+    soundDeactivate:
+      path: /Audio/Items/sheath.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Effects/newplayerpingmono.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/alert.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Weapons/soup.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Weapons/Melee/swordpluck.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: SpeakOnCollide
+    pack: PlushieRouge
+  - type: ToggleableVisuals
+    spriteLayer: Unsheathe
+    inhandVisuals:
+      left:
+      - state: plushierouge-inhand-left-on
+        shader: unshaded
+      right:
+      - state: plushierouge-inhand-right-on
+        shader: unshaded
+  - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plushierouge-inhand-left-off
+        shader: unshaded
+      right:
+      - state: plushierouge-inhand-right-off
+        shader: unshaded
+  - type: ComponentToggler
+    components:
+    - type: EmbeddableProjectile
+      sound: /Audio/_Goobstation/Weapons/Melee/swordimpact.ogg
 
 - type: entity
   parent: PlushieLizard
@@ -1120,6 +1180,122 @@
     slots:
     - HEAD
     - NECK
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDoremyZerg
+  name: Aya plushie
+  description: A shiny toy stained with ink and tea.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Fun/toys.rsi
+      state: plushie_aya
+    - type: EmitSoundOnUse
+      sound:
+        path: /Audio/_Floofstation/Voice/Harpy/harpy_coo1.ogg
+    - type: EmitSoundOnLand
+      sound:
+        path: /Audio/_DV/Voice/Harpy/caw1.ogg
+    - type: EmitSoundOnActivate
+      sound:
+        path: /Audio/_Floofstation/Voice/Harpy/harpy_coo2.ogg
+    - type: EmitSoundOnTrigger
+      sound:
+        path: /Audio/_Floofstation/Voice/Harpy/harpy_coo3.ogg
+    - type: EmitSoundOnCollide
+      sound:
+        path: /Audio/_Floofstation/Voice/Harpy/harpy_coo4.ogg
+    - type: Boomerang
+    - type: Clothing
+      quickEquip: true
+      sprite: _Goobstation/Objects/Fun/toys.rsi
+      equippedPrefix: plushieaya
+      slots:
+      - HEAD
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 0
+      soundHit:
+        path: /Audio/_Goobstation/Voice/Harpy/owl_hoot.ogg
+    - type: Item
+      heldPrefix: plushieaya
+      sprite: _Goobstation/Objects/Fun/toys.rsi
+    - type: SpeechSynthesis
+      voice: Harpy
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieSanyati
+  name: Nyxoma plushie
+  description: Smells like ag'hsj'saje'sh.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Fun/toys.rsi
+      state: plushie_nyxoma
+    - type: EmitSoundOnUse
+      sound:
+        path: /Audio/_Goobstation/Heretic/heartbeat.ogg
+    - type: EmitSoundOnLand
+      sound:
+        path: /Audio/_Goobstation/Heretic/hiss/hiss2.ogg
+    - type: EmitSoundOnActivate
+      sound:
+        path: /Audio/_Goobstation/Heretic/heartbeat.ogg
+    - type: EmitSoundOnTrigger
+      sound:
+        path: /Audio/_Goobstation/Heretic/hiss/hiss2.ogg
+    - type: EmitSoundOnCollide
+      sound:
+        path: /Audio/_Goobstation/Heretic/hiss/hiss2.ogg
+    - type: Clothing
+      quickEquip: true
+      sprite: _Goobstation/Objects/Fun/toys.rsi
+      equippedPrefix: plushienyxoma
+      slots:
+      - HEAD
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 0
+      soundHit:
+        path: /Audio/_Goobstation/Heretic/repulse.ogg
+    - type: Item
+      heldPrefix: plushienyxoma
+      sprite: _Goobstation/Objects/Fun/toys.rsi
+    - type: SpeechSynthesis
+      voice: Lizard
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieHarel
+  name: Harel plushie
+  description: Smells like fresh plasma.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Fun/toys.rsi
+      state: plushie_harel
+    - type: EmitSoundOnUse
+      sound:
+        collection: ReptilianScreech
+    - type: EmitSoundOnLand
+      sound:
+        collection: ReptilianScreech
+    - type: EmitSoundOnActivate
+      sound:
+        collection: ReptilianScreech
+    - type: EmitSoundOnTrigger
+      sound:
+        collection: ReptilianScreech
+    - type: EmitSoundOnCollide
+      sound:
+        collection: ReptilianScreech
+    - type: Clothing
+      quickEquip: true
+      sprite: _Goobstation/Objects/Fun/toys.rsi
+      equippedPrefix: plushieharel
+      slots:
+      - HEAD
 
 # Plushies, but EVIL!!!
 
@@ -1211,4 +1387,28 @@
   name: evil Irene plush
   parent: PlushieRedstonewolf
   id: EvilPlushieRedstonewolf
+  suffix: Evil
+  
+- type: entity
+  name: evil Rouge plush
+  parent: PlushieRouge
+  id: EvilPlushieRouge
+  suffix: Evil
+
+- type: entity
+  name: evil Aya plush
+  parent: PlushieDoremyZerg
+  id: EvilPlushieDoremyZerg
+  suffix: Evil
+
+- type: entity
+  name: evil Nyxoma plush
+  parent: PlushieSanyati
+  id: EvilPlushieSanyati
+  suffix: Evil
+
+- type: entity
+  name: evil Harel plush
+  parent: PlushieHarel
+  id: EvilPlushieHarel
   suffix: Evil

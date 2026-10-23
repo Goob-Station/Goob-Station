@@ -137,7 +137,7 @@ public sealed partial class WoundSystem
     public bool TryHealBleedingWounds(EntityUid woundable, float bleedStopAbility, out FixedPoint2 modifiedBleed, WoundableComponent? component = null)
     {
         modifiedBleed = FixedPoint2.Zero;
-        if (!Resolve(woundable, ref component))
+        if (!Resolve(woundable, ref component, false))
             return false;
 
         var remaining = FixedPoint2.New(-bleedStopAbility);
@@ -450,6 +450,8 @@ public sealed partial class WoundSystem
             return false;
 
         var holdingWoundable = comp.HoldingWoundable;
+        if (!TryComp<WoundableComponent>(holdingWoundable, out var woundable))
+            return false;
 
         var ev = new WoundHealAttemptOnWoundableEvent((wound, comp));
         RaiseLocalEvent(holdingWoundable, ref ev);
@@ -457,7 +459,7 @@ public sealed partial class WoundSystem
         if (ev.Cancelled)
             return false;
 
-        var ev1 = new WoundHealAttemptEvent((holdingWoundable, Comp<WoundableComponent>(holdingWoundable)), ignoreBlockers);
+        var ev1 = new WoundHealAttemptEvent((holdingWoundable, woundable), ignoreBlockers);
         RaiseLocalEvent(wound, ref ev1);
 
         severityFloor = ev1.SeverityFloor;

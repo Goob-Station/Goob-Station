@@ -27,6 +27,9 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     // goob edit - implants now transfer on polymorph
     private void OnPolymorphed(Entity<ImplantedComponent> ent, ref PolymorphedEvent args)
     {
+        if (ent.Owner == args.NewEntity)
+            return;
+
         // copy it to prevent collection modification error
         var implants = new List<EntityUid>(ent.Comp.ImplantContainer.ContainedEntities);
         foreach (var implant in implants)

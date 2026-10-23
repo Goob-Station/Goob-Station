@@ -147,6 +147,12 @@ public sealed partial class ShadowlingComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId ObjectiveAscend = "ShadowlingAscendObjective";
+
+    [DataField]
+    public TimeSpan? TimeAscended;
+
+    [DataField]
+    public TimeSpan? AscensionRoundEndDelay = TimeSpan.FromMinutes(3); // no more slop
 }
 
 [NetSerializable, Serializable]

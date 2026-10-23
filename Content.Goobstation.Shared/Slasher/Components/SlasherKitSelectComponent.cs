@@ -52,17 +52,24 @@ public sealed partial class SlasherKit
 
     /// <summary>
     /// Optional music override for the blood trail sound on this kit.
-    /// If null, the default sound on SlasherBloodTrailComponent is kept.
+    /// If null, the default sound on SlasherFearComponent is kept.
     /// </summary>
     [DataField]
     public SoundSpecifier? BloodTrailMusic;
 
     /// <summary>
     /// Optional jumpscare sound override for the blood trail sound on this kit.
-    /// If null, the default sounds on SlasherBloodTrailComponent are kept.
+    /// If null, the default sounds on SlasherFearComponent are kept.
     /// </summary>
     [DataField]
     public SoundSpecifier? JumpscareSound;
+
+    /// <summary>
+    /// Optional extra component added alongside the fear status effect.
+    /// If null, nothing gets added.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry GrantedToVictimOnSight = new();
 
     /// <summary>
     /// Optional meat spike prototype override for this kit.
@@ -73,7 +80,7 @@ public sealed partial class SlasherKit
 
     /// <summary>
     /// Optional reagent override for the blood trail on this kit.
-    /// If null, the default reagent on SlasherBloodTrailComponent is kept.
+    /// If null, the default reagent on SlasherFearComponent is kept.
     /// </summary>
     [DataField]
     public string? BloodTrailReagent;
@@ -106,5 +113,24 @@ public sealed partial class SlasherKit
     [DataField]
     public SoundSpecifier? AscendanceSound;
 
-}
+    /// <summary>
+    /// Extra components added to the Slasher when this kit is selected. Used for kit-specific
+    /// mechanics like the boogeyman's shadow invisibility.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry Components = new();
 
+    /// <summary>
+    /// Components removed from the Slasher after the shared post-selection and kit components are
+    /// added. Used to strip shared abilities (like the incorporeal jaunt) from specific kits.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry RemoveComponents = new();
+
+    /// <summary>
+    /// Guidebook entry id for this kit. Set on kits whose gameplay differs from the default slasher;
+    /// the kit-select card shows a "?" that opens the guidebook to this page.
+    /// </summary>
+    [DataField]
+    public string? Guide;
+}

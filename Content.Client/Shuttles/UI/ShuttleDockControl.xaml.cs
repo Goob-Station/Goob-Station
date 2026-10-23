@@ -20,7 +20,6 @@ namespace Content.Client.Shuttles.UI;
 public sealed partial class ShuttleDockControl : BaseShuttleControl
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     private readonly DockingSystem _dockSystem;
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _xformSystem;
@@ -123,7 +122,7 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
         // Draw nearby grids
         var controlBounds = PixelSizeBox;
         _grids.Clear();
-        _mapManager.FindGridsIntersecting(gridXform.MapID, viewBoundsWorld, ref _grids);
+        Maps.FindGridsIntersecting(gridXform.MapID, viewBoundsWorld, ref _grids);
 
         // offset the dotted-line position to the bounds.
         Vector2? viewedDockPos = _viewedState != null ? MidPointVector : null;
@@ -307,13 +306,13 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
         var invertedPosition = Vector2.Zero;
         invertedPosition.Y = -invertedPosition.Y;
         var rotation = Matrix3Helpers.CreateRotation(-_angle.Value + MathF.PI);
-        var ourDockConnection = new UIBox2(
-            ScalePosition(Vector2.Transform(new Vector2(-0.2f, -0.7f), rotation)),
-            ScalePosition(Vector2.Transform(new Vector2(0.2f, -0.5f), rotation)));
+        var connPosA = ScalePosition(Vector2.Transform(new Vector2(-0.2f, -0.7f), rotation));
+        var connPosB = ScalePosition(Vector2.Transform(new Vector2(0.2f, -0.5f), rotation));
+        var ourDockConnection = new UIBox2(Vector2.Min(connPosA, connPosB), Vector2.Max(connPosA, connPosB));
 
-        var ourDock = new UIBox2(
-            ScalePosition(Vector2.Transform(new Vector2(-0.5f, 0.5f), rotation)),
-            ScalePosition(Vector2.Transform(new Vector2(0.5f, -0.5f), rotation)));
+        var dockPosA = ScalePosition(Vector2.Transform(new Vector2(-0.5f, 0.5f), rotation));
+        var dockPosB = ScalePosition(Vector2.Transform(new Vector2(0.5f, -0.5f), rotation));
+        var ourDock = new UIBox2(Vector2.Min(dockPosA, dockPosB), Vector2.Max(dockPosA, dockPosB));
 
         var dockColor = _viewedState?.HighlightedColor ?? _fallbackHighlightedColor;
         var connectionColor = Color.Pink;

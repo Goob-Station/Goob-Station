@@ -1,6 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-name: Build & Test Debug
+name: "CI: Build & Test Debug"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,21 +15,30 @@ on:
 jobs:
   build:
     if: github.event.pull_request.draft == false
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
-    - name: Checkout Master
+    - &swap
+      name: Enlarge swap
+      run: |
+        sudo swapoff -a
+        sudo rm -f /mnt/swapfile
+        sudo fallocate -l 12G /mnt/swapfile
+        sudo chmod 600 /mnt/swapfile
+        sudo mkswap /mnt/swapfile
+        sudo swapon /mnt/swapfile
+        free -h
+
+    - &checkout
+      name: Checkout Master
       uses: actions/checkout@v4.2.2
 
     - name: Setup Submodule
-      run: |
-        git submodule update --init --recursive
+      run: git submodule update --init --recursive
 
-    - name: Pull engine updates
+    - &submodule_pull
+      name: Pull engine updates
       uses: space-wizards/submodule-dependency@v0.1.5
 
     - name: Update Engine Submodules
@@ -39,30 +46,114 @@ jobs:
         cd RobustToolbox/
         git submodule update --init --recursive
 
-    - name: Setup .NET Core
+    - &dotnet
+      name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
       with:
         dotnet-version: 10.0.x
 
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore Content.IntegrationTests/Content.IntegrationTests.csproj
 
     - name: Build Project
-      run: dotnet build --configuration DebugOpt --no-restore /m
+      run: dotnet build Content.IntegrationTests/Content.IntegrationTests.csproj --configuration DebugOpt --no-restore /m -clp:ErrorsOnly
+
+    - name: Save build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-output
+        path: |
+          bin/Content.*/*.json
+          bin/Content.IntegrationTests/*.dll
+          bin/Content.IntegrationTests/*.pdb
+          bin/Content.IntegrationTests/runtimes/linux-x64/**
+          bin/Content.Tests/*.dll
+        retention-days: 1
+
+  test-unit:
+    needs: build
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+    - *checkout
+    - &submodule
+      name: Setup Submodule
+      run: git submodule update --init
+    - *submodule_pull
+    - *dotnet
+    - &download_build
+      name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-output
+        path: bin/
+
+    - name: Link runtimes
+      run: ln -s $(pwd)/bin/Content.IntegrationTests/runtimes bin/Content.Tests/
 
     - name: Run Content.Tests
-      run: dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0
+      run: dotnet test bin/Content.Tests/Content.Tests.dll -- NUnit.ConsoleOut=0
 
-    - name: Run Content.IntegrationTests
-      shell: pwsh
+  test-integration:
+    name: test-integration (${{ matrix.shard.name }})
+    needs: build
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard:
+          - name: main
+            filter: cat != MapTests && cat != GameRuleTests && cat != PrototypeSweepTests
+          - name: prototype-sweep
+            filter: cat == PrototypeSweepTests
+          - name: maps-gamerules
+            filter: cat == MapTests || cat == GameRuleTests
+
+    env:
+      DOTNET_gcServer: 1
+      DOTNET_TieredPGO: 0
+
+    steps:
+    - *swap
+    - *checkout
+    - *submodule
+    - *submodule_pull
+    - *dotnet
+    - *download_build
+
+    - name: Run Content.IntegrationTests (${{ matrix.shard.name }})
+      timeout-minutes: 25
       run: |
-        $env:DOTNET_gcServer=1
-        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+        dotnet test bin/Content.IntegrationTests/Content.IntegrationTests.dll \
+          --logger "trx;LogFileName=${{ matrix.shard.name }}.trx" --results-directory TestResults -- \
+          NUnit.Where="${{ matrix.shard.filter }}" \
+          NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results-${{ matrix.shard.name }}
+        path: TestResults/*.trx
+        retention-days: 7
+        if-no-files-found: ignore
+
   ci-success:
     name: Build & Test Debug
-    needs:
-      - build
+    needs: [build, test-unit, test-integration]
     runs-on: ubuntu-latest
+    if: always() && github.event.pull_request.draft == false
     steps:
       - name: CI succeeded
-        run: exit 0
+        run: |
+          if [[ "${{ needs.build.result }}" != "success" ||
+                "${{ needs.test-unit.result }}" != "success" ||
+                "${{ needs.test-integration.result }}" != "success" ]]; then
+            echo "Not all tests succeeded!"
+            exit 1
+          fi
+          exit 0

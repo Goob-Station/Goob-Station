@@ -7,6 +7,7 @@
   desc: reagent-desc-toxin
   flavor: bitter
   color: "#cf3600"
+  puddleSpriteSet: Blood # Goob
   physicalDesc: reagent-physical-desc-opaque
   contrabandSeverity: Minor
   plantMetabolism:
@@ -33,6 +34,7 @@
   desc: reagent-desc-carpotoxin
   flavor: bitter
   color: "#e2a38c"
+  puddleSpriteSet: Blood # Goob
   physicalDesc: reagent-physical-desc-exotic-smelling
   allowedDepartments:
   - Medical
@@ -69,6 +71,8 @@
   desc: reagent-desc-chloral-hydrate
   flavor: bitter
   color: "#000067"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#000067CC" # Goob
   physicalDesc: reagent-physical-desc-nondescript
   allowedDepartments:
   - Medical
@@ -142,6 +146,7 @@
   desc: reagent-desc-mold
   flavor: bitter
   color: "#8a9a5b"
+  puddleSpriteSet: Splotchy # Goob
   recognizable: true
   physicalDesc: reagent-physical-desc-fuzzy
   metabolisms:
@@ -165,6 +170,7 @@
   contrabandSeverity: Major
   flavor: acid
   color: "#a1000b"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: 78.2 # This isn't a real chemical...
   meltingPoint: -19.4
   plantMetabolism:
@@ -232,6 +238,7 @@
   contrabandSeverity: Minor
   flavor: acid
   color: "#5050ff"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: 165
   meltingPoint: -87
   reactiveEffects:
@@ -273,6 +280,7 @@
   - Chemist
   flavor: acid
   color: "#BF8C00"
+  puddleSpriteSet: Acid # Goob
   recognizable: true
   boilingPoint: 337.0
   meltingPoint: 10.31
@@ -323,6 +331,8 @@
   - Botanist
   flavor: bitter
   color: "#00ff5f"
+  puddleSpriteSet: Acid # Goob
+  puddleColor: "#00ff5fCC" # Goob
   boilingPoint: 340282300000000000000000000000000000000 # Ethidium bromide, which doesn't boil.
   meltingPoint: 261.0
   plantMetabolism:
@@ -348,6 +358,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   contrabandSeverity: Major
   color: "#5f959c"
+  puddleSpriteSet: Acid # Goob
   metabolisms:
     Poison:
       effects:
@@ -387,6 +398,7 @@
   physicalDesc: reagent-physical-desc-opaque
   flavor: bitter
   color: "#77b58e"
+  puddleSpriteSet: Acid # Goob
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -406,6 +418,7 @@
   desc: reagent-desc-histamine
   physicalDesc: reagent-physical-desc-abrasive
   color: "#FA6464"
+  puddleSpriteSet: Splotchy # Goob
   metabolisms:
     Poison:
       effects:
@@ -450,6 +463,7 @@
   desc: reagent-desc-theobromine
   physicalDesc: reagent-physical-desc-grainy
   color: "#f5f5f5"
+  puddleSpriteSet: Powder # Goob
   meltingPoint: 351
   boilingPoint: 554 # I'm not a chemist, but it boils at 295, lower than melting point, idk how it works so I gave it higher value
   metabolisms:
@@ -477,6 +491,8 @@
   physicalDesc: reagent-physical-desc-nondescript
   contrabandSeverity: Major
   color: "#D6CE7B"
+  puddleSpriteSet: Acid # Goob
+  puddleColor: "#D6CE7BCC" # Goob
   metabolisms:
     Poison:
       metabolismRate: 0.2
@@ -498,6 +514,8 @@
   physicalDesc: reagent-physical-desc-sticky
   flavor: bitter
   color: "#000000"
+  puddleSpriteSet: Acid # Goob
+  puddleColor: "#1c1c1cFF" # Goob
   metabolisms:
     Poison:
       effects:
@@ -558,6 +576,7 @@
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           - Hydrakin # Fuck you
+          - Synth # Goob - Afterlight synths
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -574,6 +593,7 @@
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           - Hydrakin # Fuck you
+          - Synth # Goob - Afterlight synths
           inverted: true
       - !type:HealthChange
         conditions:
@@ -585,6 +605,7 @@
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           - Hydrakin # Fuck you
+          - Synth # Goob - Afterlight synths
           inverted: true
         damage:
           types:
@@ -630,6 +651,7 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: bitter
   color: "#F2E9D2"
+  puddleSpriteSet: Splotchy # Goob
   metabolisms:
     Medicine: #Goobstation start
       metabolismRate: 0.25
@@ -687,6 +709,7 @@
       effects:
       - !type:SpeciesChange
         newSpecies: BananaMen
+        transferAppearance: true #Goobstation
         conditions:
         - !type:ReagentCondition
           reagent: Honk

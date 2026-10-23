@@ -10,11 +10,11 @@ namespace Content.Goobstation.shared.Chemistry;
 
 public sealed partial class TakeStaminaDamageSystem : EntityEffectSystem<StaminaComponent, TakeStaminaDamage>
 {
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
 
     protected override void Effect(Entity<StaminaComponent> entity, ref EntityEffectEvent<TakeStaminaDamage> args)
     {
-        _stamina.TakeStaminaDamage(entity.Owner, args.Effect.Amount, visual: false, immediate: args.Effect.Immediate);
+        _stamina.TakeStaminaDamage(entity.Owner, args.Effect.Amount, visual: false, immediate: args.Effect.Immediate, ignoreResist: true); // ignores armor resistances
     }
 }
 

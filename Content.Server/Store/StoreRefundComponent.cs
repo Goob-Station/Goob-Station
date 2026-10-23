@@ -1,11 +1,10 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Store.Systems;
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Store;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Store.Components;
+
+// TODO: Refund on a per-item/action level.
+//   Requires a refund button next to each purchase (disabled/invis by default)
+//   Interactions with ActionUpgrades would need to be modified to reset all upgrade progress and return the original action purchase to the store.
 
 /// <summary>
 ///     Keeps track of entities bought from stores for refunds, especially useful if entities get deleted before they can be refunded.
@@ -13,14 +12,21 @@ namespace Content.Server.Store.Components;
 [RegisterComponent, Access(typeof(StoreSystem))]
 public sealed partial class StoreRefundComponent : Component
 {
-    [ViewVariables, DataField]
+    /// <summary>
+    ///     The store this entity was bought from
+    /// </summary>
+    [DataField]
     public EntityUid? StoreEntity;
 
-    // Goobstation start
-    [ViewVariables, DataField]
-    public ListingData? Data;
+    /// <summary>
+    ///     The time this entity was bought
+    /// </summary>
+    [DataField]
+    public TimeSpan? BoughtTime;
 
-    [ViewVariables, DataField]
-    public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> BalanceSpent = new();
-    // Goobstation end
+    /// <summary>
+    ///     How long until this entity disables refund purchase?
+    /// </summary>
+    [DataField]
+    public TimeSpan DisableTime = TimeSpan.FromSeconds(300);
 }

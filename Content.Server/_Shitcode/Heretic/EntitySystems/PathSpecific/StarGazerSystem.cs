@@ -14,6 +14,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Heretic;
 using Content.Shared.Mind.Components;
@@ -460,7 +461,8 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
                     recoil: false,
                     animated: false,
                     doSpin: false,
-                    playSound: false);
+                    playSound: false,
+                    predicted: false); // Trauma
             }
         }
     }

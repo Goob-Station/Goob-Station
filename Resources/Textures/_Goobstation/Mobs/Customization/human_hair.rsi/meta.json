@@ -163,7 +163,7 @@
         "name": "spikehawk",
         "directions": 4
 	  },
-	   {
+	  {
         "name": "poofed",
         "directions": 4
       },
@@ -205,6 +205,54 @@
 	  },
 	  {
 		"name": "twintail",
+		"directions": 4
+	  },
+	  {
+		"name": "cubism",
+		"directions": 4
+	  },
+	  {
+		"name": "deathkid",
+		"directions": 4
+	  },
+	  {
+		"name": "longroundextensions",
+		"directions": 4
+	  },
+	  {
+		"name": "longtufttipped",
+		"directions": 4
+	  },
+	  {
+		"name": "orb",
+		"directions": 4
+	  },
+	  {
+		"name": "pigtailextensions",
+		"directions": 4
+	  },
+	  {
+		"name": "shortandcurvy",
+		"directions": 4
+	  },
+	  {
+		"name": "shortroundedextensions",
+		"directions": 4
+	  },
+	  {
+		"name": "shorttufttipped",
+		"directions": 4
+	  },
+	  {
+		"name": "triangulum",
+		"directions": 4
+	  },
+	  {
+		"name": "wolfcutclean",
+		"directions": 4
+	  },
+	  {
+		"name": "wolfcutmeow",
 		"directions": 4
 	  }
     ]

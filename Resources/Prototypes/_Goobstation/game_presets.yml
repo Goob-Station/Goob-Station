@@ -144,7 +144,7 @@
     - combatdynamic
   name: guide-title
   description: guide-description
-  showInVote: false
+  showInVote: true
   minPlayers: 25
   rules:
     - CombatDynamic
@@ -163,6 +163,7 @@
   showInVote: true
   rules:
     - SecretPlusLow
+    - MeteorSwarmMildScheduler
 
 - type: gamePreset
   id: SecretPlusMid
@@ -175,19 +176,31 @@
   showInVote: true
   rules:
     - SecretPlusMid
+    - MeteorSwarmScheduler
+
+- type: gamePreset
+  id: SecretPlusHigh
+  alias:
+    - secretplushigh
+  name: secretplus-high-title
+  description: secretplus-high-description
+  showInVote: true
+  rules:
+    - SecretPlusHigh
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: SecretPlusAdmeme
   alias:
     - secretplusadmeme
     - secretplusevil
-    - secretplushigh
     - chaos
   name: secretplus-admeme-title
   description: secretplus-admeme-description
   showInVote: false # 1984
   rules:
     - SecretPlusAdmeme
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: SurvivalPlusMid
@@ -200,6 +213,7 @@
   showInVote: true
   rules:
     - SecretPlusRampingMid
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: Xenomorphs
@@ -243,3 +257,4 @@
   maxPlayers: 40
   rules:
     - SecretPlusLowpop
+    - MeteorSwarmMildScheduler

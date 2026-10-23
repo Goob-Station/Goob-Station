@@ -2,7 +2,6 @@
 
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Procedural.Loot;
 
@@ -18,8 +17,8 @@ public sealed partial class RandomSpawnsLoot : IDungeonLoot
 [DataDefinition]
 public partial record struct RandomSpawnLootEntry() : IBudgetEntry
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Proto { get; set; } = string.Empty;
+    [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true)]
+    public EntProtoId Proto { get; set; } = string.Empty;
 
     /// <summary>
     /// Cost for this loot to spawn.

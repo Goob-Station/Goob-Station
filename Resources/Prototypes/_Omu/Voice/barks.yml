@@ -1,0 +1,17 @@
+
+# Moff squeaksqueaksqueaksqueak
+- type: soundCollection
+  id: MothSqueakBark
+  files:
+  - /Audio/_Omu/Voice/Barks/Moth_Squeak/moth.ogg
+  - /Audio/_Omu/Voice/Barks/Moth_Squeak/moth_ask.ogg
+  - /Audio/_Omu/Voice/Barks/Moth_Squeak/moth_exclaim.ogg
+
+- type: bark
+  id: MothSqueak
+  name: Moth Squeak
+  soundCollection:
+    collection: MothSqueakBark
+  speciesWhitelist:
+    - Moth
+    - Harpy # The Egg demands that harpies get all barks...

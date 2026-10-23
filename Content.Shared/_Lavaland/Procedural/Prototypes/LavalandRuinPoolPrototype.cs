@@ -22,6 +22,12 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
     public int MaxDistance = 256;
 
     /// <summary>
+    /// Min distance that Ruins can generate.
+    /// </summary>
+    [DataField]
+    public int MinDistance;
+
+    /// <summary>
     /// List of all grid ruins and their count.
     /// Used for ruins that are loaded as proper grids.
     /// </summary>
