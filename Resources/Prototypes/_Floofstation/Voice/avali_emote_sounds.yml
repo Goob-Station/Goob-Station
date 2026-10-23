@@ -45,8 +45,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Trill:
-      collection: Trill
     Warble:
       collection: Warble
     Wurble:
@@ -61,6 +59,12 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Scree:
+      collection: ResomiScrees #Starlight
+    Call:
+      collection: ResomiCalls #Starlight
+    Squawk:
+      collection: ResomiSquawk #Starlight
 
 - type: emoteSounds
   id: FemaleAvaliEmote
@@ -97,8 +101,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Trill:
-      collection: Trill
     Warble:
       collection: Warble
     Wurble:
@@ -113,3 +115,9 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Scree:
+      collection: ResomiScrees #Starlight
+    Call:
+      collection: ResomiCalls #Starlight
+    Squawk:
+      collection: ResomiSquawk #Starlight

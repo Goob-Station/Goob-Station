@@ -1,0 +1,24 @@
+- files: ["arachnid_cough.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Recorded by metroangel on iNaturalist.org, edited by Entings (Github) and honeyed-lemons (Github)."
+  source: "https://www.inaturalist.org/observations/286474327"
+
+- files: ["arachnid_cry.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Recorded by Jane Trembath on iNaturalist.org, edited by Entings (Github) and honeyed-lemons (Github)."
+  source: "https://www.inaturalist.org/observations/11271589"
+
+- files: ["arachnid_gasp.ogg"]
+  license: "CC0-1.0"
+  copyright: "Recorded by taure on freesound.org, modified by Entings (Github) and honeyed-lemons (Github)."
+  source: "https://freesound.org/people/taure/sounds/362780/"
+
+- files: ["arachnid_sigh.ogg"]
+  license: "CC-BY-NC-3.0"
+  copyright: "Recorded by ermine on freesound.org, modified by Entings (Github) and honeyed-lemons (Github)."
+  source: "https://freesound.org/people/ermine/sounds/40114/"
+
+- files: ["arachnid_yawn.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "Clemente, Lorier, García, López-López & Presa. 2018. Entomological Science 21(2):225-240, edited by Entings (Github) and honeyed-lemons (Github)."
+  source: "http://orthoptera.archive.speciesfile.org/Common/basic/PlaySound.aspx?TaxonNameID=1105211&SoundID=2756"

@@ -149,7 +149,7 @@
   available: false
   icon: Interface/Emotes/chitter.png
   whitelist:
-    tags: 
+    tags:
     - HarpyEmotes # Omu, allow harpy to chitter
     components:
     - Vocal
@@ -169,8 +169,9 @@
   available: false
   icon: Interface/Emotes/squeak.png
   whitelist:
-    tags: 
+    tags:
     - HarpyEmotes # Omu, allow harpy to squeak
+    - RodentiaEmotes # Omu
     components:
       - Vocal
   blacklist:
@@ -189,7 +190,7 @@
   available: false
   icon: Interface/Emotes/click.png
   whitelist:
-    tags: 
+    tags:
     - HarpyEmotes # Omu, allow harpy to click
     components:
     - Vocal
@@ -441,6 +442,7 @@
     - Silicon
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to buzz
   chatTriggers:
     - buzzing
     - buzz
@@ -455,6 +457,7 @@
   chatMessages: ["chat-emote-msg-weh"]
   whitelist:
     tags:
+    - HarpyEmotes # Omu, allow harpy to weh
     - ReptilianEmotes # Goob - restrict wehs to the OG lizz
     - HarpyEmotes # Goob - harpy can also weh
   blacklist:
@@ -472,9 +475,10 @@
   chatMessages: ["chat-emote-msg-hew"]
   whitelist:
     tags:
-      - HarpyEmotes # Omu, allow harpy to hew
+    - HarpyEmotes # Omu, allow harpy to hew
+    - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   chatTriggers: # Omu, allow harpy to hew
-    - hew 
+    - hew
     - hews
 
 - type: emote
@@ -490,6 +494,8 @@
   blacklist:
     tags:
     - SiliconEmotes
+    - HarpyEmotes # Omu, allow harpy to chirp
+    - FeroxiEmotes # Omu
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
     - chirp
