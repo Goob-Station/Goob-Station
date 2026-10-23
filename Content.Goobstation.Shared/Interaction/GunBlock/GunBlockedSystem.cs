@@ -8,11 +8,11 @@ namespace Content.Goobstation.Shared.Interaction.GunBlock;
 /// <summary>
 /// Cancels gun firing attempts
 /// </summary>
-public sealed class SlasherGunBlockedSystem : EntitySystem
+public sealed partial class SlasherGunBlockedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     // Server-side cooldown to avoid popup spam while holding fire
     private readonly Dictionary<EntityUid, TimeSpan> _lastPopup = new();

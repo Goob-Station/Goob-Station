@@ -16,12 +16,12 @@ using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Server.Blob;
 
-public sealed class BlobMobSystem : SharedBlobMobSystem
+public sealed partial class BlobMobSystem : SharedBlobMobSystem
 {
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
+    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private RadioSystem _radioSystem = default!;
     private EntityQuery<BlobSpeakComponent> _activeBSpeak;
 
     public override void Initialize()

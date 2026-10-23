@@ -11,10 +11,10 @@ using Content.Shared.Sprite;
 namespace Content.Goobstation.Server.EatToGrow;
 
 
-public sealed class EatToGrowSystem : EntitySystem
+public sealed partial class EatToGrowSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {

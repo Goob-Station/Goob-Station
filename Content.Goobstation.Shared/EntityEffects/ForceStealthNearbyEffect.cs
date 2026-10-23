@@ -9,9 +9,9 @@ namespace Content.Goobstation.Shared.EntityEffects;
 
 public sealed partial class ForceStealthNearbyEffectSystem : EntityEffectSystem<ReactiveComponent, ForceStealthNearbyEffect>
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ForcedStealthSystem _stealth = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ForcedStealthSystem _stealth = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<ForceStealthNearbyEffect> args)
     {

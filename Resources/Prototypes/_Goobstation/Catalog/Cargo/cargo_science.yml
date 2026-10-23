@@ -11,6 +11,16 @@
   group: market
 
 - type: cargoProduct
+  id: LivestockXenobioSlimes
+  icon:
+    sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+    state: base
+  product: CrateNPCXenobioSlime
+  cost: 12600
+  category: cargoproduct-category-name-science
+  group: market
+
+- type: cargoProduct
   id: ScienceResearchServer
   icon:
     sprite: Structures/Machines/server.rsi

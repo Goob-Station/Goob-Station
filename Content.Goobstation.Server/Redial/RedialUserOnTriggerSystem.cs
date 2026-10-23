@@ -8,9 +8,9 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Redial;
 
-public sealed class RedialUserOnTriggerSystem : EntitySystem
+public sealed partial class RedialUserOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly RedialManager _redial = default!;
+    [Dependency] private RedialManager _redial = default!;
 
     public override void Initialize()
     {

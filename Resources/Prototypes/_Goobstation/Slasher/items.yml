@@ -759,6 +759,51 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING
 
+# Boogeyman Kit
+
+- type: entity
+  name: kitchen knife
+  parent: SlasherMachete
+  id: SlasherKitchenKnife
+  categories: [ HideSpawnMenu ]
+  description: A general purpose chef's knife. It has found a far grislier purpose.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+    storedOffset: -1,1
+    storedRotation: -45
+
+- type: entity
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadHatSlasherMaskBoogeyman
+  name: boogeyman mask
+  description: A featureless mask worn by the thing that hides under the bed. It watches, and it waits.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-MASK
+
+- type: entity
+  parent: ClothingUniformSlasher
+  id: ClothingUniformSlasherBoogeyman
+  name: tattered outfit
+  description: A dark, ragged outfit that seems to drink the light around it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/outfit.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/outfit.rsi
+    clothingVisuals:
+      innerClothing:
+      - state: equipped-INNERCLOTHING
 
 - type: entity
   id: SlasherMeatSpike
