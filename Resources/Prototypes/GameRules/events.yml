@@ -237,7 +237,7 @@
   id: ClosetSkeleton
   components:
   - type: StationEvent
-    weight: 6
+    weight: 6 # Goob - Happy Halloween!
     duration: 1
     minimumPlayers: 10
     eventType: Chaotic # Goobstation

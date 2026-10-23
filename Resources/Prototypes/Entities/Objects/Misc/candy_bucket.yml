@@ -26,7 +26,12 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,4,5
+    - 0,0,4,5 #Goob - MOAR CANDY
+    #whitelist: - Goob
+    #  components:
+    #    - Pill
+    #  tags:
+    #    - FoodSnack
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
