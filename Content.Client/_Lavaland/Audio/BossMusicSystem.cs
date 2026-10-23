@@ -1,227 +1,289 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Audio;
+using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Robust.Client.Audio;
 using Robust.Client.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Client._Lavaland.Audio;
 
-// TODO: Port this system to Shared and optimize it.
-public sealed class BossMusicSystem : SharedBossMusicSystem
+/// <summary>
+/// Plays the music of the boss the local player is fighting.
+/// <see cref="BossMusicListenerComponent"/> holds the state on the local player entity.
+/// </summary>
+public sealed partial class BossMusicSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly ContentAudioSystem _audioContent = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ContentAudioSystem _contentAudio = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
-    private static float _volumeSlider;
-    private Entity<AudioComponent?>? _bossMusicStream;
-    private BossMusicPrototype? _musicProto;
+    // I don't care enough to change the rest of the trycomps.
+    [Dependency] private EntityQuery<BossMusicListenerComponent> _listenerQuery;
 
-    // Need how much volume to change per tick and just remove it when it drops below "0"
-    private readonly Dictionary<EntityUid, float> _fadingOut = new();
-
-    // Need volume change per tick + target volume.
-    private readonly Dictionary<EntityUid, (float VolumeChange, float TargetVolume)> _fadingIn = new();
-
-    private readonly List<EntityUid> _fadeToRemove = new();
-
-    private const float MinVolume = -32f;
-    private const float DefaultDuration = 1f;
+    /// <summary>
+    /// Used to block ambient music.
+    /// </summary>
+    public bool Active => _player.LocalEntity is { } local && HasComp<BossMusicListenerComponent>(local);
 
     public override void Initialize()
     {
         base.Initialize();
 
-        Subs.CVar(_configManager, CCVars.LobbyMusicVolume, BossVolumeCVarChanged, true);
-
-        SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnMindRemoved);
-        SubscribeLocalEvent<ActorComponent, MobStateChangedEvent>(OnPlayerDeath);
-        SubscribeLocalEvent<ActorComponent, EntParentChangedMessage>(OnPlayerParentChange);
-        SubscribeLocalEvent<RoundEndMessageEvent>(OnRoundEnd);
+        Subs.CVar(_cfg, CCVars.LobbyMusicVolume, OnVolumeChanged);
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        _bossMusicStream = _audio.Stop(_bossMusicStream);
-    }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        UpdateFade(frameTime);
-    }
-
-    private void BossVolumeCVarChanged(float obj)
-    {
-        _volumeSlider = SharedAudioSystem.GainToVolume(obj);
-
-        if (_bossMusicStream != null
-            && _musicProto != null)
-            _audio.SetVolume(_bossMusicStream, _musicProto.Sound.Params.Volume + _volumeSlider);
-    }
-
-    public override void StartBossMusic(ProtoId<BossMusicPrototype> music)
-    {
-        if (_musicProto != null || _bossMusicStream != null)
-            return;
-
-        _audioContent.DisableAmbientMusic();
-
-        var sound = _proto.Index(music);
-        _musicProto = sound;
-
-        var stream = _audio.PlayGlobal(
-            sound.Sound,
-            Filter.Local(),
-            false,
-            AudioParams.Default.WithVolume(sound.Sound.Params.Volume + _volumeSlider).WithLoop(true));
-
-        if (_musicProto.FadeIn
-            && stream != null)
-        {
-            _bossMusicStream = (stream.Value.Entity, stream.Value.Component);
-            FadeIn(_bossMusicStream, stream.Value.Component, sound.FadeInTime);
-        }
-    }
-
-    public override void EndAllMusic()
-    {
-        if (_musicProto == null
-            || _bossMusicStream == null)
-            return;
-
-        if (_musicProto.FadeIn)
-            FadeOut(_bossMusicStream, duration: _musicProto.FadeOutTime);
-        else
-            _audio.Stop(_bossMusicStream);
-
-        _musicProto = null;
-        _bossMusicStream = null;
-    }
-
-    private void OnMindRemoved(LocalPlayerDetachedEvent args)
-    {
-        EndAllMusic();
-    }
-
-    private void OnPlayerDeath(Entity<ActorComponent> ent, ref MobStateChangedEvent args)
-    {
-        if (ent.Comp.PlayerSession == _player.LocalSession &&
-            args.NewMobState == MobState.Dead)
-            EndAllMusic();
+        StopAll();
     }
 
     /// <summary>
-    /// Raised when salvager escapes from lavaland (ohio reference)
+    /// Only used for delayed starts.
     /// </summary>
-    private void OnPlayerParentChange(Entity<ActorComponent> ent, ref EntParentChangedMessage args)
+    public override void FrameUpdate(float frameTime)
     {
-        if (ent.Comp.PlayerSession == _player.LocalSession &&
-            args.OldMapId != null)
-            EndAllMusic();
+        base.FrameUpdate(frameTime);
+
+        if (_player.LocalEntity is not { } local
+            || !_listenerQuery.TryComp(local, out var listener)
+            || listener.StartAt is not { } startAt
+            || _timing.CurTime < startAt)
+            return;
+
+        listener.StartAt = null;
+        Play((local, listener));
     }
 
+    #region Public API
+
+    public void AdjustVolume(float decibels)
+    {
+        if (_player.LocalEntity is not { } local
+            || !TryComp<BossMusicListenerComponent>(local, out var listener))
+            return;
+
+        listener.VolumeOffset = Math.Min(decibels, -_proto.Index(listener.Music).Sound.Params.Volume);
+        if (listener.Stream is { } stream)
+            _audio.SetVolume(stream, Volume(listener));
+    }
+
+    public void RestoreVolume()
+        => AdjustVolume(0f);
+
+    public void SetPaused(bool paused)
+    {
+        if (_player.LocalEntity is not { } local || !TryComp<BossMusicListenerComponent>(local, out var listener))
+            return;
+
+        listener.Paused = paused;
+        if (listener.Stream is { } stream)
+            _audio.SetState(stream, paused ? AudioState.Paused : AudioState.Playing);
+    }
+
+    #endregion
+
+    #region spam
+
+    [SubscribeLocalEvent]
+    private void OnPlayAmbientMusic(ref PlayAmbientMusicEvent ev)
+    {
+        if (Active)
+            ev.Cancelled = true;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnAggressorState(Entity<AggressorComponent> ent, ref AfterAutoHandleStateEvent args)
+        => Refresh(ent);
+
+    [SubscribeLocalEvent]
+    private void OnAggressorShutdown(Entity<AggressorComponent> ent, ref ComponentShutdown args)
+        => Refresh(ent);
+
+    [SubscribeLocalEvent]
+    private void OnListenerMobState(Entity<BossMusicListenerComponent> ent, ref MobStateChangedEvent args)
+        => Refresh(ent);
+
+    [SubscribeLocalEvent]
+    private void OnAggressorParentChanged(Entity<AggressorComponent> ent, ref EntParentChangedMessage args)
+        => Refresh(ent);
+
+    [SubscribeLocalEvent]
+    private void OnBossMusicStartup(Entity<BossMusicComponent> ent, ref ComponentStartup args)
+        => Refresh(_player.LocalEntity);
+
+    [SubscribeLocalEvent]
+    private void OnBossMobState(Entity<BossMusicComponent> ent, ref MobStateChangedEvent args)
+        => Refresh(_player.LocalEntity);
+
+    [SubscribeLocalEvent]
+    private void OnPlayerAttached(LocalPlayerAttachedEvent args)
+        => Refresh(args.Entity);
+
+    [SubscribeLocalEvent]
+    private void OnPlayerDetached(LocalPlayerDetachedEvent args)
+        => RemComp<BossMusicListenerComponent>(args.Entity);
+
+    [SubscribeLocalEvent]
     private void OnRoundEnd(RoundEndMessageEvent args)
-    {
-        _bossMusicStream = _audio.Stop(_bossMusicStream);
-    }
+        => StopAll();
 
-    #region Fades
-
-    private void FadeOut(EntityUid? stream, AudioComponent? component = null, float duration = DefaultDuration)
+    [SubscribeLocalEvent]
+    private void OnListenerShutdown(Entity<BossMusicListenerComponent> ent, ref ComponentShutdown args)
     {
-        if (stream == null || duration <= 0f || !Resolve(stream.Value, ref component))
+        if (ent.Comp.Stream is not { } stream)
             return;
 
-        _fadingIn.Remove(stream.Value);
-        var diff = component.Volume - MinVolume;
-        _fadingOut.Add(stream.Value, diff / duration);
+        if (_proto.Index(ent.Comp.Music) is { FadeIn: true, FadeOutTime: > 0f } proto)
+            _contentAudio.FadeOut(stream, duration: proto.FadeOutTime);
+        else
+            _audio.Stop(stream);
     }
 
-    private void FadeIn(EntityUid? stream, AudioComponent? component = null, float duration = DefaultDuration)
+    #endregion
+
+    private void Refresh(EntityUid? player)
     {
-        if (stream == null || duration <= 0f || !Resolve(stream.Value, ref component) || component.Volume < MinVolume)
+        if (player is not { } local || _player.LocalEntity != local)
             return;
 
-        _fadingOut.Remove(stream.Value);
-        var curVolume = component.Volume;
-        var change = (MinVolume - curVolume) / duration;
-        _fadingIn.Add(stream.Value, (change, component.Volume));
-        component.Volume = MinVolume;
+        var playing = TryComp<BossMusicListenerComponent>(local, out var listener);
+
+        if (!TryComp<AggressorComponent>(local, out var aggressor)
+            || !IsFighting((local, aggressor))
+            || !FindBoss(local, aggressor, listener, out var boss, out var music))
+        {
+            RemComp<BossMusicListenerComponent>(local);
+            return;
+        }
+
+        if (playing && listener!.Music == music)
+        {
+            listener.Boss = boss;
+            return;
+        }
+
+        RemComp<BossMusicListenerComponent>(local);
+        Start(local, boss, music);
     }
 
-    private void UpdateFade(float frameTime)
+    #region Helpers
+
+    private bool IsFighting(Entity<AggressorComponent> ent)
     {
-        _fadeToRemove.Clear();
+        return ent.Comp.LifeStage <= ComponentLifeStage.Running
+            && ent.Comp.Aggressives.Count > 0
+            && !_mobState.IsDead(ent);
+    }
 
-        foreach (var (stream, change) in _fadingOut)
+    private bool FindBoss(EntityUid local,
+        AggressorComponent aggressor,
+        BossMusicListenerComponent? listener,
+        out EntityUid boss,
+        out ProtoId<BossMusicPrototype> music)
+    {
+        if (listener != null && aggressor.Aggressives.Contains(listener.Boss) && !_mobState.IsDead(listener.Boss))
         {
-            if (!TryComp(stream, out AudioComponent? component))
-            {
-                _fadeToRemove.Add(stream);
+            boss = listener.Boss;
+            music = TryComp<BossMusicComponent>(boss, out var current) ? current.SoundId : listener.Music;
+            return true;
+        }
+
+        var map = Transform(local).MapID;
+        foreach (var uid in aggressor.Aggressives)
+        {
+            if (!CanPlay(uid, map))
                 continue;
-            }
 
-            var volume = component.Volume - change * frameTime;
-            volume = MathF.Max(MinVolume, volume);
-            _audio.SetVolume(stream, volume, component);
-
-            if (component.Volume.Equals(MinVolume))
-            {
-                _audio.Stop(stream);
-                _fadeToRemove.Add(stream);
-            }
+            boss = uid;
+            music = Comp<BossMusicComponent>(uid).SoundId;
+            return true;
         }
 
-        foreach (var stream in _fadeToRemove)
+        boss = default;
+        music = default;
+        return false;
+    }
+
+    private bool CanPlay(EntityUid boss, MapId map)
+    {
+        return !TerminatingOrDeleted(boss)
+            && HasComp<BossMusicComponent>(boss)
+            && Transform(boss).MapID == map
+            && !_mobState.IsDead(boss);
+    }
+
+    private void Start(EntityUid local, EntityUid boss, ProtoId<BossMusicPrototype> music)
+    {
+        var listener = AddComp<BossMusicListenerComponent>(local);
+        listener.Boss = boss;
+        listener.Music = music;
+
+        var proto = _proto.Index(music);
+        if (proto.StartDelay > 0f)
+            listener.StartAt = _timing.CurTime + TimeSpan.FromSeconds(proto.StartDelay);
+        else
+            Play((local, listener));
+    }
+
+    private void Play(Entity<BossMusicListenerComponent> ent)
+    {
+        var proto = _proto.Index(ent.Comp.Music);
+        var stream = _audio.PlayGlobal(proto.Sound, Filter.Local(), false, AudioParams.Default.WithVolume(Volume(ent.Comp)).WithLoop(true));
+
+        if (stream == null)
+            return;
+
+        ent.Comp.Stream = stream.Value.Entity;
+        if (proto is { FadeIn: true, FadeInTime: > 0f })
+            _contentAudio.FadeIn(stream.Value.Entity, duration: proto.FadeInTime);
+
+        if (ent.Comp.Paused)
+            _audio.SetState(stream.Value.Entity, AudioState.Paused);
+
+        _contentAudio.DisableAmbientMusic();
+    }
+
+    private void StopAll()
+    {
+        var query = EntityQueryEnumerator<BossMusicListenerComponent>();
+        while (query.MoveNext(out var uid, out var listener))
         {
-            _fadingOut.Remove(stream);
+            RemCompDeferred(uid, listener);
         }
+    }
 
-        _fadeToRemove.Clear();
+    private float Volume(BossMusicListenerComponent listener)
+    {
+        return _proto.Index(listener.Music).Sound.Params.Volume
+            + SharedAudioSystem.GainToVolume(_cfg.GetCVar(CCVars.LobbyMusicVolume))
+            + listener.VolumeOffset;
+    }
 
-        foreach (var (stream, (change, target)) in _fadingIn)
-        {
-            // Cancelled elsewhere
-            if (!TryComp(stream, out AudioComponent? component))
-            {
-                _fadeToRemove.Add(stream);
-                continue;
-            }
-
-            var volume = component.Volume - change * frameTime;
-            volume = MathF.Min(target, volume);
-            _audio.SetVolume(stream, volume, component);
-
-            if (component.Volume.Equals(target))
-            {
-                _fadeToRemove.Add(stream);
-            }
-        }
-
-        foreach (var stream in _fadeToRemove)
-        {
-            _fadingIn.Remove(stream);
-        }
+    private void OnVolumeChanged(float gain)
+    {
+        if (_player.LocalEntity is { } local
+            && TryComp<BossMusicListenerComponent>(local, out var listener)
+            && listener.Stream is { } stream)
+            _audio.SetVolume(stream, Volume(listener));
     }
 
     #endregion
