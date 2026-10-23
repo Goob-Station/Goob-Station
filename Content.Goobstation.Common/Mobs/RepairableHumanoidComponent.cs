@@ -4,7 +4,7 @@
 /// </summary>
 /// all the actual component does is get detected by RepairableSystem.
 
-namespace Content.Goobstation.Mobs;
+namespace Content.Goobstation.Common.Mobs;
 
 [RegisterComponent]
 public sealed partial class RepairableHumanoidComponent : Component
