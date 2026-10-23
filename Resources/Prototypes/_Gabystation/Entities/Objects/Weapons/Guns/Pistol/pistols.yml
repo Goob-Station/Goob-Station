@@ -1,0 +1,44 @@
+- type: entity
+  name: golden MK58
+  parent: WeaponPistolMk58
+  id: WeaponPistolMk58Gold
+  description: A gold-plated semi-automatic pistol chambered in thirty-five. If you see an officer wielding this, they have definitely seen some shit.
+  components:
+  - type: Sprite
+    sprite: _Gabystation/Objects/Weapons/Guns/Pistol/mk58gold.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Gabystation/Objects/Weapons/Guns/Pistol/mk58gold.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolGold
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+      flashlight:
+        name: weapon-upgrade-slot-name-flashlight
+        priority: 1
+        insertDelay: 0.4
+        ejectDelay: 0.2
+        ejectOnBreak: true
+        occludesLight: false
+        whitelist:
+          components:
+          - GunUpgradeFlashlight
