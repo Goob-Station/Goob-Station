@@ -78,21 +78,12 @@ public sealed class PredictedHandsSystem : EntitySystem
         CommandBinds.Unregister<PredictedHandsSystem>();
     }
 
-    /// <summary>
-    /// Get a predicted random instance for an entity, specific to this tick.
-    /// </summary>
-    private System.Random GetRandom(EntityUid uid)
-    {
-        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(uid).Id);
-        return new System.Random(seed);
-    }
-
     private void OnDisarmed(Entity<HandsComponent> ent, ref DisarmedEvent args)
     {
         if (args.Handled)
             return;
 
-        var rand = GetRandom(ent);
+        var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(ent));
         if (!rand.Prob(args.DisarmProbability)) // wdp shoving
             return;
 
@@ -224,7 +215,7 @@ public sealed class PredictedHandsSystem : EntitySystem
         var holderVelocity = _physicsQuery.CompOrNull(entity)?.LinearVelocity ?? Vector2.Zero;
         var spreadMaxAngle = Angle.FromDegrees(DropHeldItemsSpread);
 
-        var rand = GetRandom(entity);
+        var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(entity));
 
         foreach (var hand in entity.Comp.Hands.Keys)
         {

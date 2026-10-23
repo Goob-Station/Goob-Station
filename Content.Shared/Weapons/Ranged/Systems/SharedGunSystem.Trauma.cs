@@ -30,11 +30,8 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Get a predicted random instance for an entity, specific to this tick.
     /// </summary>
-    protected System.Random GetRandom(EntityUid uid, int salt = 0)
-    {
-        var seed = SharedRandomExtensions.HashCodeCombine((int) Timing.CurTick.Value, GetNetEntity(uid).Id, salt);
-        return new System.Random(seed);
-    }
+    protected IRobustRandom GetRandom(EntityUid uid, EntityUid? other = null)
+        => SharedRandomExtensions.PredictedRandom(Timing, GetNetEntity(uid), GetNetEntity(other));
 
     /// <summary>
     /// Goob - mark who fired a projectile or hitscan, see <see cref="PredictedShooterComponent"/>.
@@ -106,7 +103,7 @@ public abstract partial class SharedGunSystem
         // I must be high because this was getting tripped even when true.
         // DebugTools.Assert(direction != Vector2.Zero);
         var shotProjectiles = new List<EntityUid>(ammo.Count);
-        var pellets = 0; // for unique random per pellet
+        var shotRandom = GetRandom(gun, user);
 
         foreach (var (ent, shootable) in ammo)
         {
@@ -149,7 +146,7 @@ public abstract partial class SharedGunSystem
 
                     // Something like ballistic might want to leave it in the container still
                     if (!cartridge.DeleteOnSpawn && !Containers.IsEntityInContainer(ent!.Value))
-                        EjectCartridge(GetRandom(gun, -1), user, ent.Value, angle);
+                        EjectCartridge(shotRandom, user, ent.Value, angle);
 
                     Dirty(ent!.Value, cartridge);
                     break;
@@ -225,7 +222,7 @@ public abstract partial class SharedGunSystem
                     {
                         FiredProjectile = newuid
                     });
-                    SetProjectilePerfectHitEntities(newuid, user, new MapCoordinates(toMap, fromMap.MapId), GetRandom(gun, ++pellets));
+                    SetProjectilePerfectHitEntities(newuid, user, new MapCoordinates(toMap, fromMap.MapId), shotRandom);
                     // Lavaland end
                     ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, user,
                         targetCoordinates: toMapBeforeRecoil); // Goob
@@ -248,7 +245,7 @@ public abstract partial class SharedGunSystem
     public TargetBodyPart? GetTargetPart(Entity<TargetingComponent?>? ent,
         MapCoordinates shootCoords,
         MapCoordinates targetCoords,
-        System.Random rand) // Trauma - predicted random
+        IRobustRandom rand) // Trauma - predicted random
     {
         if (shootCoords.MapId != targetCoords.MapId || ent == null)
             return null;
@@ -266,7 +263,7 @@ public abstract partial class SharedGunSystem
     private void SetProjectilePerfectHitEntities(EntityUid projectile,
         Entity<TargetingComponent?>? shooter,
         MapCoordinates coords,
-        System.Random rand) // Trauma - predicted random
+        IRobustRandom rand) // Trauma - predicted random
     {
         if (shooter == null)
             return;

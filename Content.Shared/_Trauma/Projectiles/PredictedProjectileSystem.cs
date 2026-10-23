@@ -46,6 +46,7 @@ public sealed class PredictedProjectileSystem : EntitySystem
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<PredictedShooterComponent> _shooterQuery;
+    private EntityQuery<EmbeddableProjectileComponent> _embedQuery;
 
     private readonly List<(EntityUid Projectile, EntityUid Target, string FixtureId)> _deferredHits = new();
 
@@ -57,6 +58,7 @@ public sealed class PredictedProjectileSystem : EntitySystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _fixturesQuery = GetEntityQuery<FixturesComponent>();
         _shooterQuery = GetEntityQuery<PredictedShooterComponent>();
+        _embedQuery = GetEntityQuery<EmbeddableProjectileComponent>();
 
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
     }
@@ -91,12 +93,16 @@ public sealed class PredictedProjectileSystem : EntitySystem
                 !_query.TryComp(uid, out var comp) ||
                 !_physicsQuery.TryComp(uid, out var physics) ||
                 !_fixturesQuery.TryComp(target, out var fixtures) ||
-                !fixtures.Fixtures.TryGetValue(fixtureId, out var fixture))
+                !fixtures.Fixtures.TryGetValue(fixtureId, out var fixture) ||
+                IsEmbedded(uid))
                 continue;
 
             DoHit((uid, comp, physics), target, fixture);
         }
     }
+
+    private bool IsEmbedded(EntityUid uid)
+        => _embedQuery.TryComp(uid, out var embed) && embed.EmbeddedIntoUid != null;
 
     /// <summary>
     /// Process a hit for a projectile and a target entity.

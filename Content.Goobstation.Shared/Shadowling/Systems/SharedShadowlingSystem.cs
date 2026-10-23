@@ -67,9 +67,7 @@ public abstract partial class SharedShadowlingSystem : EntitySystem
         if (args.Gun.Comp.ClumsyProof)
             return;
 
-        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(args.Gun).Id);
-        var rand = new System.Random(seed);
-        if (!rand.Prob(0.5f))
+        if (!SharedRandomExtensions.PredictedProb(_timing, 0.5f, GetNetEntity(args.Gun)))
             return;
 
         _damageable.TryChangeDamage(ent.Owner, ent.Comp.GunShootFailDamage, origin: ent);

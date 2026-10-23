@@ -114,7 +114,7 @@ public sealed class ReflectSystem : EntitySystem
 
     public bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile)
     {
-        var rand = GetRandom(reflector); // Trauma
+        var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(reflector)); // Trauma
         if (!TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflector.Comp.Reflects & reflective.Reflective) == 0x0 ||
             !_toggle.IsActivated(reflector.Owner) ||
@@ -177,7 +177,7 @@ public sealed class ReflectSystem : EntitySystem
         DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
-        var rand = GetRandom(reflector); // Trauma
+        var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(reflector)); // Trauma
         if ((reflector.Comp.Reflects & hitscanReflectType) == 0x0 ||
             !_toggle.IsActivated(reflector.Owner) ||
             // Goob edit start
@@ -212,15 +212,6 @@ public sealed class ReflectSystem : EntitySystem
         _popup.PopupPredicted(Loc.GetString("reflect-shot"), user, predictingUser);
         _audio.PlayPredicted(reflect.SoundOnReflect, user, predictingUser);
         // </Trauma>
-    }
-
-    /// <summary>
-    /// Trauma - get a predicted random instance for a reflector, specific to this tick.
-    /// </summary>
-    private System.Random GetRandom(EntityUid uid)
-    {
-        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(uid).Id);
-        return new System.Random(seed);
     }
 
     private void OnReflectEquipped(Entity<ReflectComponent> ent, ref GotEquippedEvent args)

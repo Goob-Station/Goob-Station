@@ -1,3 +1,5 @@
+using Content.Shared.Projectiles;
+
 namespace Content.Shared.Throwing;
 
 public sealed partial class ThrownItemSystem
@@ -23,7 +25,8 @@ public sealed partial class ThrownItemSystem
         foreach (var (thrown, target) in collisions)
         {
             if (TerminatingOrDeleted(thrown) || TerminatingOrDeleted(target) ||
-                !TryComp<ThrownItemComponent>(thrown, out var component))
+                !TryComp<ThrownItemComponent>(thrown, out var component) ||
+                TryComp<EmbeddableProjectileComponent>(thrown, out var embed) && embed.EmbeddedIntoUid != null)
                 continue;
 
             ThrowCollideInteraction(component, thrown, target);
