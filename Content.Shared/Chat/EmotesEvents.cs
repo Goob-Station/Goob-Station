@@ -22,6 +22,8 @@ public sealed class BeforeEmoteEvent(EntityUid source, EmotePrototype emote)
     /// </summary>
     public EntityUid? Blocker = null;
 
+    public string? CancelMessage; // Goob
+
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }
 
