@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using System.Numerics; // Goob
 using Content.Shared.Containers;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Goobstation.Common.CCVar; // Goobstation Change
@@ -18,6 +19,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random; // Goob
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 
@@ -31,6 +33,7 @@ namespace Content.Client.Popups
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IRobustRandom _random = default!; // Goob
         [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
         [Dependency] private readonly IReplayRecordingManager _replayRecording = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
@@ -42,9 +45,10 @@ namespace Content.Client.Popups
         private readonly Dictionary<WorldPopupData, WorldPopupLabel> _aliveWorldLabels = new();
         private readonly Dictionary<CursorPopupData, CursorPopupLabel> _aliveCursorLabels = new();
 
-        public const float MinimumPopupLifetime = 0.7f;
-        public const float MaximumPopupLifetime = 5f;
-        public const float PopupLifetimePerCharacter = 0.04f;
+        public const float MaximumPopupRandomOffsetMagnitude = 20f; // Goob
+        public const float MinimumPopupLifetime = 1f; // Goob
+        public const float MaximumPopupLifetime = 4f; // Goob
+        public const float PopupLifetimePerCharacter = 0.1f; // Goob
 
         // WD EDIT START
         private static readonly Dictionary<PopupType, string> FontSizeDict = new()
@@ -123,6 +127,7 @@ namespace Content.Client.Popups
             {
                 Text = message,
                 Type = type,
+                RandomOffset = _random.NextVector2(MaximumPopupRandomOffsetMagnitude), // Goob
             };
 
             _aliveWorldLabels.Add(popupData, label);
@@ -186,6 +191,7 @@ namespace Content.Client.Popups
             {
                 Text = message,
                 Type = type,
+                RandomOffset = _random.NextVector2(MaximumPopupRandomOffsetMagnitude), // Goob
             };
 
             _aliveCursorLabels.Add(popupData, label);
@@ -379,6 +385,7 @@ namespace Content.Client.Popups
             public PopupType Type = PopupType.Small;
             public string Text { get; set; } = string.Empty;
             public float TotalTime { get; set; }
+            public Vector2 RandomOffset = Vector2.Zero; // Goob
             public int Repeats = 1;
         }
 

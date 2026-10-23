@@ -36,23 +36,23 @@ using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Server.HisGrace;
 
-public sealed class HisGraceSystem : SharedHisGraceSystem
+public sealed partial class HisGraceSystem : SharedHisGraceSystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly PopupSystem _popup = null!;
-    [Dependency] private readonly IGameTiming _timing = null!;
-    [Dependency] private readonly MobStateSystem _state = null!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = null!;
-    [Dependency] private readonly EntityLookupSystem _lookup = null!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = null!;
-    [Dependency] private readonly TransformSystem _transform = null!;
-    [Dependency] private readonly AudioSystem _audio = null!;
-    [Dependency] private readonly MindSystem _mind = null!;
-    [Dependency] private readonly StunSystem _stun = null!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
-    [Dependency] private readonly ChatSystem _chat = null!;
-    [Dependency] private readonly MobThresholdSystem _threshold = null!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = null!;
+    [Dependency] private DamageableSystem _damageable = null!;
+    [Dependency] private PopupSystem _popup = null!;
+    [Dependency] private IGameTiming _timing = null!;
+    [Dependency] private MobStateSystem _state = null!;
+    [Dependency] private SharedContainerSystem _containerSystem = null!;
+    [Dependency] private EntityLookupSystem _lookup = null!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = null!;
+    [Dependency] private TransformSystem _transform = null!;
+    [Dependency] private AudioSystem _audio = null!;
+    [Dependency] private MindSystem _mind = null!;
+    [Dependency] private StunSystem _stun = null!;
+    [Dependency] private MovementSpeedModifierSystem _speedModifier = null!;
+    [Dependency] private ChatSystem _chat = null!;
+    [Dependency] private MobThresholdSystem _threshold = null!;
+    [Dependency] private ISharedAdminLogManager _adminLog = null!;
 
     public override void Initialize()
     {

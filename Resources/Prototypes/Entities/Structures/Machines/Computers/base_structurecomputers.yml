@@ -22,6 +22,7 @@
     powerLoad: 200
   - type: ExtensionCableReceiver
   - type: ActivatableUIRequiresPower
+  - type: ESForcedFacingUi # Goob
   - type: Sprite
     sprite: Structures/Machines/computers.rsi
     layers:

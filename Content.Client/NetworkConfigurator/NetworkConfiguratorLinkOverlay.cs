@@ -2,7 +2,6 @@
 
 using Content.Client.NetworkConfigurator.Systems;
 using Content.Shared.DeviceNetwork.Components;
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
@@ -15,7 +14,7 @@ public sealed class NetworkConfiguratorLinkOverlay : Overlay
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     private readonly DeviceListSystem _deviceListSystem;
-    private readonly TransformSystem _transformSystem;
+    private readonly SharedTransformSystem _transformSystem;
 
     public Dictionary<EntityUid, Color> Colors = new();
     public EntityUid? Action;
@@ -27,7 +26,7 @@ public sealed class NetworkConfiguratorLinkOverlay : Overlay
         IoCManager.InjectDependencies(this);
 
         _deviceListSystem = _entityManager.System<DeviceListSystem>();
-        _transformSystem = _entityManager.System<TransformSystem>();
+        _transformSystem = _entityManager.System<SharedTransformSystem>();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -71,10 +70,7 @@ public sealed class NetworkConfiguratorLinkOverlay : Overlay
                     continue;
                 }
 
-                args.WorldHandle.DrawLine(
-                    _transformSystem.GetRenderWorldPosition((uid, sourceTransform)),
-                    _transformSystem.GetRenderWorldPosition((device, linkTransform)),
-                    Colors[uid]);
+                args.WorldHandle.DrawLine(_transformSystem.GetWorldPosition(sourceTransform), _transformSystem.GetWorldPosition(linkTransform), Colors[uid]);
             }
         }
     }

@@ -17,15 +17,15 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Electrocution;
 
-public sealed class ExplosiveShockSystem : EntitySystem
+public sealed partial class ExplosiveShockSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedExplosionSystem _explosion = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedExplosionSystem _explosion = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {

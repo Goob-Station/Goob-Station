@@ -16,17 +16,17 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Blob;
 
-public sealed class BlobbernautSystem : SharedBlobbernautSystem
+public sealed partial class BlobbernautSystem : SharedBlobbernautSystem
 {
-    [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private EntityLookupSystem _entityLookupSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
 
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EmpSystem _empSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private TransformSystem _transform = default!;
     //private EntityQuery<MapGridComponent> _mapGridQuery;
     private EntityQuery<BlobTileComponent> _tileQuery;
     private EntityQuery<BlobCoreComponent> _coreQuery;

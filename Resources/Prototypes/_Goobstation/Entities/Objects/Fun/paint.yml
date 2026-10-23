@@ -39,6 +39,9 @@
     backingState: canvas_24x24
     paintScale: 0.375, 0.375
     easelOffset: 0, 0.09375
+  - type: Construction
+    graph: PaintCanvasGraph
+    node: canvas
 
 - type: entity
   parent: BasePaintCanvas
@@ -61,6 +64,9 @@
     paintScale: 0.33333334, 0.33333334
     paintOffset: 0.015625, 0.015625
     easelOffset: 0, 0.0234375
+  - type: Construction
+    graph: PaintCanvasGraph
+    node: landscape
 
 - type: entity
   parent: BasePaintCanvas
@@ -87,6 +93,9 @@
     easelOffset: 0, -0.046875
   - type: StaticPrice
     price: 10
+  - type: Construction
+    graph: PaintCanvasGraph
+    node: small
 
 - type: entity
   parent: BaseItem

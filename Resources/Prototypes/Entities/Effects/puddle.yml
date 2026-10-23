@@ -166,11 +166,10 @@
     noRot: true
     anchored: true
   - type: Sprite
-    layers:
-    - sprite: Fluids/puddle.rsi
-      state: splat0
     drawdepth: Puddles
-    color: "#FFFFFF80"
+    layers:
+    - sprite: _ES/Effects/puddle.rsi # Goob
+      state: large-2 # Goob
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -184,12 +183,6 @@
         layer:
         - SlipLayer
         hard: false
-  - type: IconSmooth
-    key: puddles
-    additionalKeys:
-    - walls
-    base: splat
-    mode: CardinalFlags
   - type: SolutionContainerManager
     solutions:
       puddle:

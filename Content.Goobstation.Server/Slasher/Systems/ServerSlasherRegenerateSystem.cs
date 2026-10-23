@@ -6,9 +6,9 @@ namespace Content.Goobstation.Server.Slasher.Systems;
 /// <summary>
 /// Server-side of the slasher Regenerate system.
 /// </summary>
-public sealed class ServerSlasherRegenerateSystem : EntitySystem
+public sealed partial class ServerSlasherRegenerateSystem : EntitySystem
 {
-    [Dependency] private readonly AntagLockerSpawnSystem _lockerSpawn = default!;
+    [Dependency] private AntagLockerSpawnSystem _lockerSpawn = default!;
 
     public override void Initialize()
     {
