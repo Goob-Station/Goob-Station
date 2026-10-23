@@ -12,13 +12,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server._Trauma.ShadowDemon;
 
-public sealed class ShadowCocoonSystem : SharedShadowCocoonSystem
+public sealed partial class ShadowCocoonSystem : SharedShadowCocoonSystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PoweredLightSystem _poweredLight = default!;
 
     private EntityQuery<ExpendableLightComponent> _expendableLightQuery;
     private EntityQuery<WelderComponent> _welderQuery;

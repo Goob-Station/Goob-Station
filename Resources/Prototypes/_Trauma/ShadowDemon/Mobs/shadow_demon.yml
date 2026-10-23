@@ -67,7 +67,6 @@
         Heat: 10
         Slash: 12
         Structural: 50
-  - type: DemonicWhisper # Allows the demon to demonic whisper
   - type: Puller
     needsHands: false
   - type: Targeting

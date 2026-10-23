@@ -5,9 +5,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared._Trauma.LightDetection;
 
-public sealed class LightImmunitySystem : EntitySystem
+public sealed partial class LightImmunitySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

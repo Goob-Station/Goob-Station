@@ -5,9 +5,9 @@ using Content.Shared.Movement.Systems;
 
 namespace Content.Goobstation.Shared._Trauma.LightDetection;
 
-public sealed class LightSpeedModifierSystem : EntitySystem
+public sealed partial class LightSpeedModifierSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

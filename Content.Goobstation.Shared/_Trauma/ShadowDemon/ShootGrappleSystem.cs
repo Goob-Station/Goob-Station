@@ -9,10 +9,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared._Trauma.ShadowDemon;
 
-public sealed class ShootGrappleSystem : EntitySystem
+public sealed partial class ShootGrappleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
