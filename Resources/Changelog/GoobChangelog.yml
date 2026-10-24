@@ -26573,3 +26573,9 @@ Entries:
       message: Mice can now gnaw off limbs of corpses.
   id: 2998
   time: '2026-10-23T18:22:03.0000000+00:00'
+- author: Jvne
+  changes:
+    - type: Add
+      message: Ported an upstream accessibility feature for old people like me. 👵
+  id: 2999
+  time: '2026-10-24T14:12:23.0000000+00:00'
