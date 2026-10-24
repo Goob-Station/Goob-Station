@@ -17,5 +17,6 @@ public sealed partial class GoobAdminVerbSystem : EntitySystem
     {
         AddAntagVerbs(args);
         AddSmiteVerbs(args);
+        AddObjectiveVerbs(args);
     }
 }
