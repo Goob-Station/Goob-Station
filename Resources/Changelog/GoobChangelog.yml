@@ -26579,3 +26579,9 @@ Entries:
       message: Ported an upstream accessibility feature for old people like me. 👵
   id: 2999
   time: '2026-10-24T14:12:23.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Tweak
+      message: Added Departmental request consoles to Kettle
+  id: 3000
+  time: '2026-10-24T22:06:48.0000000+00:00'
