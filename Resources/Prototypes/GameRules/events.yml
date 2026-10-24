@@ -41,7 +41,7 @@
     children:
     - id: ClosetSkeleton
     - id: KingRatMigration
-    # - id: RevenantSpawn # Goob
+    - id: RevenantSpawn # Happy Halloween!
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
 
@@ -53,7 +53,7 @@
     - id: ColossusSpawn # DeltaV
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
-    #- id: RevenantSpawn  # GoobStation - removed till rework
+    - id: RevenantSpawn  # Happy Halloween!
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
@@ -237,7 +237,7 @@
   id: ClosetSkeleton
   components:
   - type: StationEvent
-    weight: 5
+    weight: 6 # Goob - Happy Halloween!
     duration: 1
     minimumPlayers: 10
     eventType: Chaotic # Goobstation
@@ -411,27 +411,27 @@
   - type: DynamicRuleCost
     cost: 50
 
-#- type: entity   Goobstaion start - disabled until rework
-#  parent: BaseGameRule
-#  id: RevenantSpawn
-#  components:
-#  - type: StationEvent
-#    weight: 3.5
-#    duration: 1
-#    earliestStart: 30
-#    minimumPlayers: 20
-#    chaos: # Goobstation
-#      Hostile: 20
-#      Friend: 20
-#      Combat: 40
-#      Death: 100
-#      Medical: 100
-#    eventType: HostilesSpawn # Goobstation
-#  # Goobstation
-#  - type: GameRule
-#    chaosScore: 450
-#  - type: RandomSpawnRule
-#    prototype: MobRevenant      goobstation end
+- type: entity
+  parent: BaseGameRule
+  id: RevenantSpawn
+  components:
+  - type: StationEvent
+    weight: 3 # Happy Halloween!
+    duration: 1
+    earliestStart: 30
+    minimumPlayers: 25 # Happy Halloween!
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 450
+  - type: RandomSpawnRule
+    prototype: MobRevenant
 
 #- type: entity
 #  parent: BaseWizardRule
@@ -658,7 +658,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 7 # Goobstation - was 5
+    weight: 8 # Goobstation - was 5 // Happy Halloween!
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
