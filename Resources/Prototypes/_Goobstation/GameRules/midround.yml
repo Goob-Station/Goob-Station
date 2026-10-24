@@ -596,6 +596,7 @@
               baseSprintSpeed: 5.0
         postSelectionComponents:
           - type: Slasher
+          - type: ForceHideIcons
           - type: SlasherSummonMachete
           - type: SlasherStaggerArea
           - type: SlasherRelentlessGrab
