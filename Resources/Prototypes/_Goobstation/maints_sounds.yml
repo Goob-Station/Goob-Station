@@ -1,0 +1,17 @@
+
+- type: soundCollection
+  id: MaintsAmbience
+  files:
+    - /Audio/_Goobstation/Ambience/Maints/helpme.ogg
+    - /Audio/_Goobstation/Ambience/Maints/radiovoid.ogg
+    - /Audio/_Goobstation/Ambience/Maints/screamlong.ogg
+    - /Audio/_Goobstation/Ambience/Maints/short.ogg
+    - /Audio/_Goobstation/Ambience/Maints/tiderNighmare.ogg
+
+# waiter waiter ! one tider in psychosis please !
+- type: entity
+  id: MaintsAreaMarker
+  name: maints area marker
+  parent: MarkerBase
+  components:
+  - type: MaintsAreaMarker
