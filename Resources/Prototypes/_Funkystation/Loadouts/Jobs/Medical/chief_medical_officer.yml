@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# For mantles
+- type: loadoutEffectGroup
+  id: MasterCMO
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 20h
+
+- type: loadout
+  id: ChiefMedicalOfficerLabCoatWinter
+  equipment:
+    outerClothing: ClothingOuterLabWinterCMO
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCMO
