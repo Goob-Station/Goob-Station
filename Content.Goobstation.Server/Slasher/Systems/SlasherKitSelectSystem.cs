@@ -117,6 +117,9 @@ public sealed partial class SlasherKitSelectSystem : EntitySystem
                     jumpscareSound
                 };
 
+            if (selectedKit.JumpscareFear is { } jumpscareFear)
+                fearComp.JumpscareFear = jumpscareFear;
+
             if (selectedKit.BloodTrailReagent is { } bloodReagent)
                 fearComp.BloodTrailReagent = bloodReagent;
 
