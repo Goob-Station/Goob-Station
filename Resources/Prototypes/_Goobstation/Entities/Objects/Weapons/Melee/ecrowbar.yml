@@ -1,0 +1,75 @@
+- type: entity
+  name: energy crowbar
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: WeaponEnergyCrowbar
+  description: A crowbar with a plasma-forged head. Cuts through any airlock, bolted or not, though not as quickly as a proper set of jaws.
+  components:
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+  - type: ItemToggleSize
+    activatedSize: Normal
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Blunt: 11
+        Heat: 11
+  - type: ComponentToggler
+    components:
+    - type: Tool
+      qualities:
+      - Prying
+      useSound: /Audio/Items/jaws_pry.ogg
+    - type: Prying
+      force: true
+      pryPowered: true
+      speedModifier: 1.0
+      useSound: /Audio/Items/jaws_pry.ogg
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 2
+    color: "#ff5533"
+    netsync: false
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_crowbar.rsi
+    layers:
+    - state: icon
+    - state: icon-on
+      shader: unshaded
+      visible: false
+      map:
+      - blade
+  - type: ToggleableVisuals
+    spriteLayer: blade
+  - type: Appearance
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Objects/Weapons/Melee/e_crowbar.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    damage:
+      types:
+        Blunt: 2
+  - type: UseDelay
+    delay: 1
+  - type: ToolTileCompatible
+    delay: 0.5

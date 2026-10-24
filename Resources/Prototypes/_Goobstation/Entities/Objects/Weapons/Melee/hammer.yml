@@ -33,3 +33,51 @@
   - type: Construction
     graph: Hammer
     node: hammer
+
+- type: entity
+  name: large hammer
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: WeaponLargeHammer
+  description: Large enough to put a sledgehammer to shame, this hammer deals tremendous damage to shields and structures.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/large_hammer.rsi
+    state: icon
+  - type: Item
+    size: Huge
+    sprite: _Goobstation/Objects/Weapons/Melee/large_hammer.rsi
+  - type: MeleeWeapon
+    attackRate: 0.7
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 18
+    soundHit:
+      collection: MetalThud
+  - type: Construction
+    graph: LargeHammer
+    node: largeHammer
+  - type: DisarmMalus
+
+
+- type: entity
+  name: dragon tooth
+  parent: [ BaseItem, BaseMinorContraband ]
+  id: WeaponDragonTooth
+  description: The rotting tooth of a space dragon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/dragon_tooth.rsi
+    state: icon
+  - type: Item
+    size: Huge
+    sprite: _Goobstation/Objects/Weapons/Melee/dragon_tooth.rsi
+  - type: MeleeWeapon
+    attackRate: 0.2
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 55
+    soundHit:
+      collection: MetalThud
+  - type: DisarmMalus
