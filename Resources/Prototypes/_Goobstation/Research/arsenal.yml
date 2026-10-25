@@ -46,6 +46,23 @@
   - ClothingMaskMuzzleShock
   position: 1,2
   technologyPrerequisites:
+  - DraconicMunitions
+
+- type: technology
+  id: TacticalWeaponry
+  name: research-technology-tactical-weapons
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/tactical_tonfa.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - WeaponTacticalTonfa
+  - WeaponTacticalMancatcher
+  - WeaponTacticalRam
+  position: 0, 1
+  technologyPrerequisites:
   - SalvageWeapons
 
 # Tier 2
