@@ -90,8 +90,6 @@ public sealed partial class SlaughterDevourSystem : EntitySystem
             pullingEnt)
         {
             BreakOnMove = true,
-            BreakOnDamage = true,
-            DistanceThreshold = 1.5f,
             ColorOverride = Color.Red
         };
 
