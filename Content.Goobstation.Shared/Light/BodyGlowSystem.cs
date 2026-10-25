@@ -4,7 +4,7 @@ using Content.Shared.Inventory.Events;
 
 namespace Content.Goobstation.Shared.Light
 {
-    public sealed class BodyGlowSystem : EntitySystem
+    public sealed partial class BodyGlowSystem : EntitySystem
     {
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly SharedPointLightSystem _lights = default!;

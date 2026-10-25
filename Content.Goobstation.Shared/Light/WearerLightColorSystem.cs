@@ -4,7 +4,7 @@ using Content.Shared.Toggleable;
 
 namespace Content.Goobstation.Shared.Light
 {
-    public sealed class WearerLightColorSystem : EntitySystem
+    public sealed partial class WearerLightColorSystem : EntitySystem
     {
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedPointLightSystem _lights = default!;
