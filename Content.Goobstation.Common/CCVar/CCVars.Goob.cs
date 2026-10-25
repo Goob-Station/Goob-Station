@@ -753,6 +753,18 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> ChatRunechat =
         CVarDef.Create("chat.runechat", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Point size of normal runechat text.
+    /// </summary>
+    public static readonly CVarDef<int> ChatRunechatFontSize =
+        CVarDef.Create("chat.runechat_font_size", 12, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Multiplier on the runechat text outline thickness.
+    /// </summary>
+    public static readonly CVarDef<float> ChatRunechatOutlineScale =
+        CVarDef.Create("chat.runechat_outline_scale", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #endregion
 
     #region Radio Channel Colors
