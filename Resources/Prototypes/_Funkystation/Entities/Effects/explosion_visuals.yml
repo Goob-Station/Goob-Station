@@ -1,0 +1,265 @@
+- type: entity
+  id: ExplosionEffectGrenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Effects/grenade_explosion.rsi
+    state: grenade
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: ParticleEmitter
+    effect: ExplosionFlash
+
+- type: entity
+  id: ExplosionEffectGrenadeShockWave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: ExplosionShockWave
+
+- type: entity
+  id: ExplosionEffectGrenadeSmoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 2.8
+  - type: ParticleEmitter
+    effect: ExplosionSmoke
+
+- type: entity
+  id: ExplosionEffectGrenadeEmbers
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.2
+  - type: ParticleEmitter
+    effect: ExplosionEmbers
+
+- type: entity
+  id: ExplosionEffectGrenadeGlowingEmbers
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 2.8
+  - type: ParticleEmitter
+    effect: ExplosionGlowingEmbers
+
+- type: entity
+  id: ExplosionEffectShrapnel1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CollisionWake
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0
+  - type: Sprite
+    sprite: _Funkystation/Effects/shrapnel.rsi
+    state: shrapnel_bright1
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: DeleteOnCollide
+  - type: ParticleOnThrown
+    effect: ExplosionShrapnelTrail
+
+- type: entity
+  parent: ExplosionEffectShrapnel1
+  id: ExplosionEffectShrapnel2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: shrapnel_bright2
+
+- type: particleEffect
+  id: ExplosionFlash
+  renderLayer: 5
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: soft_dot_big
+  shader: unshaded
+  colorOverLifetime:
+  - time: 0.0
+    color: "#FFFFFFFF"
+  - time: 0.15
+    color: "#FFE088FF"
+  - time: 0.4
+    color: "#FF550066"
+  - time: 1.0
+    color: "#00000000"
+  sizeOverLifetime:
+  - time: 0.0
+    value: 0.2
+  - time: 0.15
+    value: 2.2
+  - time: 1.0
+    value: 4.5
+  lifetime: 0.25
+  speed: 0
+  particleSize: 1.5
+  emissionRate: 0
+  maxCount: 1
+  burst: true
+  spreadAngle: 0
+  emitAngle: 0
+  shape:
+    type: Point
+
+- type: particleEffect
+  id: ExplosionEmbers
+  renderLayer: 10
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: dot
+  shader: unshaded
+  colorOverLifetime:
+  - time: 0.0
+    color: "#FFFFFFFF"
+  - time: 0.15
+    color: "#FFDD55FF"
+  - time: 0.6
+    color: "#FF4400CC"
+  - time: 1.0
+    color: "#22000000"
+  lifetime: 0.8
+  lifetimeVariance: 0.3
+  speed: 15.5
+  speedVariance: 5.5
+  particleSize: 0.25
+  sizeVariance: 0.08
+  emissionRate: 0
+  maxCount: 65
+  burst: true
+  gravity: 3.0
+  drag: 5.0
+  spreadAngle: 360
+  emitAngle: 0
+  shape:
+    type: CircleFill
+    radius: 0.15
+
+- type: particleEffect
+  id: ExplosionGlowingEmbers
+  renderLayer: 8
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: dot
+  shader: unshaded
+  colorOverLifetime:
+  - time: 0.0
+    color: "#FFFFFFFF"
+  - time: 0.2
+    color: "#FFAA22FF"
+  - time: 0.65
+    color: "#FF3300CC"
+  - time: 1.0
+    color: "#00000000"
+  lifetime: 2.2
+  lifetimeVariance: 0.6
+  speed: 8.5
+  speedVariance: 3.5
+  particleSize: 0.22
+  sizeVariance: 0.1
+  emissionRate: 0
+  maxCount: 45
+  burst: true
+  gravity: -0.7
+  drag: 4.5
+  noiseStrength: 0.6
+  noiseFrequency: 1.8
+  spreadAngle: 360
+  emitAngle: 0
+  shape:
+    type: CircleFill
+    radius: 0.4
+
+- type: particleEffect
+  id: ExplosionSmoke
+  renderLayer: -10
+  sprite:
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+  startColor: "#1A1A1A77"
+  endColor: "#11111100"
+  sizeOverLifetime:
+  - time: 0.0
+    value: 0.6
+  - time: 0.25
+    value: 2.2
+  - time: 1.0
+    value: 4.0
+  alphaOverLifetime:
+  - time: 0.0
+    value: 0.0
+  - time: 0.12
+    value: 0.65
+  - time: 0.7
+    value: 0.4
+  - time: 1.0
+    value: 0.0
+  lifetime: 2.5
+  lifetimeVariance: 0.6
+  speed: 7.0
+  speedVariance: 3.5
+  particleSize: 0.85
+  sizeVariance: 0.4
+  emissionRate: 0
+  maxCount: 50
+  burst: true
+  gravity: -0.3
+  drag: 3.8
+  noiseStrength: 0.3
+  noiseFrequency: 0.8
+  spreadAngle: 360
+  emitAngle: 0
+  startRotationVariance: 180
+  rotationSpeedVariance: 45
+  shape:
+    type: CircleFill
+    radius: 0.4
+
+- type: particleEffect
+  id: ExplosionShrapnelTrail
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: dot
+  shader: unshaded
+  colorOverLifetime:
+  - time: 0.0
+    color: "#FFFFFFFF"
+  - time: 0.2
+    color: "#FFCC44FF"
+  - time: 0.6
+    color: "#FF4400AA"
+  - time: 1.0
+    color: "#00000000"
+  lifetime: 0.15
+  lifetimeVariance: 0.05
+  speed: 0.5
+  particleSize: 0.22
+  sizeVariance: 0.08
+  emissionRate: 50
+  maxCount: 15
+  burst: false
+  drag: 0.1
+  spreadAngle: 30
+  emitAngle: 180
+  worldSpace: true
+  inheritVelocity: 0.1
+  shape:
+    type: Point
+
+- type: shader
+  id: ShockWave
+  kind: source
+  path: "/Textures/_Funkystation/Shaders/shock_wave.swsl"

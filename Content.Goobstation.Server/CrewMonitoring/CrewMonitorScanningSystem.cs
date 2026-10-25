@@ -13,13 +13,13 @@ using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.CrewMonitoring;
 
-public sealed class CrewMonitorScanningSystem : EntitySystem
+public sealed partial class CrewMonitorScanningSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
-    [Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private SharedSubdermalImplantSystem _implantSystem = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     private const string CommandTrackerImplant = "CommandTrackingImplant";
     private const string CommandTrackerImplantName = "command tracking implant";

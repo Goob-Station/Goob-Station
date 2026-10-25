@@ -29,19 +29,19 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract partial class SharedChangelingStasisSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly MobThresholdSystem _mob = default!;
-    [Dependency] private readonly MobStateSystem _state = default!;
-    [Dependency] private readonly PullingSystem _pull = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _blood = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedSuicideSystem _suicide = default!;
-    [Dependency] private readonly TraumaSystem _trauma = default!;
-    [Dependency] private readonly WoundSystem _wound = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private DamageableSystem _dmg = default!;
+    [Dependency] private MobThresholdSystem _mob = default!;
+    [Dependency] private MobStateSystem _state = default!;
+    [Dependency] private PullingSystem _pull = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedBloodstreamSystem _blood = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedSuicideSystem _suicide = default!;
+    [Dependency] private TraumaSystem _trauma = default!;
+    [Dependency] private WoundSystem _wound = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     private EntityQuery<AbsorbedComponent> _absorbQuery;
     private EntityQuery<BodyComponent> _bodyQuery;
@@ -59,6 +59,7 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingStasisComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ChangelingStasisComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ChangelingStasisComponent, MindRemovedMessage>(OnMindRemoved);
 
         SubscribeLocalEvent<ChangelingStasisComponent, ChangelingStasisEvent>(OnStasisAction);
 
@@ -91,6 +92,11 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
         SetPreventGhosting(ent, false);
 
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
+    }
+
+    private void OnMindRemoved(Entity<ChangelingStasisComponent> ent, ref MindRemovedMessage args)
+    {
+        args.Mind.Comp.PreventGhosting = false;
     }
 
     #region Event Handlers
@@ -273,6 +279,8 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
         // fix traumas, broken bones and bleeding
         if (_bodyQuery.TryComp(ent, out var bodyComp))
         {
+            _body.RestoreMissingOrgans((ent, bodyComp));
+
             if (_trauma.TryGetBodyTraumas(ent, out var traumas, bodyComp: bodyComp))
                 foreach (var trauma in traumas)
                     _trauma.RemoveTrauma(trauma);

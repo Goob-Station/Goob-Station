@@ -14,7 +14,7 @@ namespace Content.Goobstation.Client.Guidebook.Controls;
 /// </summary>
 public sealed partial class GuideAutomationSlotsEmbed : IDocumentTag
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
     private readonly AutomationSystem _automation;
 
     public GuideAutomationSlotsEmbed()

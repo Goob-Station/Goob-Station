@@ -13,10 +13,10 @@ using System.Linq;
 namespace Content.Goobstation.Server.InternalResources.Commands;
 
 [AdminCommand(AdminFlags.Debug)]
-public sealed class AddInternalResourceCommand : LocalizedEntityCommands
+public sealed partial class AddInternalResourceCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedInternalResourcesSystem _internalResources = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedInternalResourcesSystem _internalResources = default!;
 
     public override string Command => "addinternalresource";
 

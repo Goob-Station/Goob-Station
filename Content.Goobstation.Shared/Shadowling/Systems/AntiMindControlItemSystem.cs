@@ -15,12 +15,12 @@ namespace Content.Goobstation.Shared.Shadowling.Systems;
 /// Its the same as enthralling, but takes some seconds more.
 /// Has charges, and is limited through crafting it
 /// </summary>
-public sealed class AntiMindControlItemSystem : EntitySystem
+public sealed partial class AntiMindControlItemSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

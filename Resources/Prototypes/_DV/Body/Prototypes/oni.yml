@@ -29,6 +29,7 @@
         stomach: OrganOniStomach
         liver: OrganOniLiver
         kidneys: OrganHumanKidneys
+        butt: Butt # Goob
     right arm:
       part: RightArmOni
       connections:

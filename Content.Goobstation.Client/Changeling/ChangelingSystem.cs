@@ -9,9 +9,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Changeling;
 
-public sealed class ChangelingSystem : SharedChangelingSystem
+public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     public override void Initialize()
     {
         base.Initialize();

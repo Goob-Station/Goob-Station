@@ -5,9 +5,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Particles;
 
-public sealed class SpawnParticlesEffectSystem : SharedSpawnParticlesEffectSystem
+public sealed partial class SpawnParticlesEffectSystem : SharedSpawnParticlesEffectSystem
 {
-    [Dependency] private readonly ParticleSystem _particles = default!;
+    [Dependency] private ParticleSystem _particles = default!;
 
     protected override void SpawnParticles(ProtoId<ParticleEffectPrototype> particleProto, EntityUid target, Color? color, bool attached)
     {
