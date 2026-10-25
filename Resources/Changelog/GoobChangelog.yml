@@ -26636,3 +26636,103 @@ Entries:
         people's internal storage.
   id: 3001
   time: '2026-10-25T19:48:08.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: The flatpacker and industrial reagent grinder now come pre-automated.
+    - type: Fix
+      message: The S.L.A.Y.E.R. coat now protects hands and feet.
+    - type: Fix
+      message: Nuclear operative carps are now part of the carp faction.
+    - type: Fix
+      message: Bad markup in the station report no longer breaks the round-end summary.
+    - type: Fix
+      message: >-
+        The supermatter can no longer be instantly healed to full, damage now
+        builds up and heals over time.
+    - type: Fix
+      message: Achievements can no longer be earned after the round has ended.
+    - type: Fix
+      message: Thrown items no longer reveal hidden floor goblins.
+    - type: Fix
+      message: Butter can now be ground in a grinder.
+    - type: Fix
+      message: >-
+        Ore silos no longer stop linking after being linked to an invalid
+        machine.
+    - type: Fix
+      message: >-
+        Saying last words or ghosting in crit no longer clears asphyxiation
+        damage.
+    - type: Fix
+      message: Synths now spawn with a survival kit.
+    - type: Fix
+      message: Pills can no longer be fed through masks.
+    - type: Fix
+      message: Throwing someone out of a grab now properly resets your movement speed.
+    - type: Fix
+      message: >-
+        Shuttle timer screens now work on Serpentcrest and at CentComm when the
+        syndicate evac shuttle is used.
+    - type: Fix
+      message: Picking up a lit flare no longer resets its glow.
+    - type: Fix
+      message: Cybernetic augments now drain their power cell.
+    - type: Fix
+      message: >-
+        Chinese characters now display in the Autodoc and other newer UI
+        windows.
+    - type: Fix
+      message: IPCs can no longer roll as roundstart blob.
+    - type: Fix
+      message: The slime scanner now shows the correct colours for potential mutations.
+    - type: Fix
+      message: >-
+        Prying apart a maint altar now gives back the same budget insulated
+        gloves instead of rerolling them.
+    - type: Tweak
+      message: >-
+        Envirosuits now provide pressure protection, so plasmamen in a full
+        envirosuit are spaceproof.
+    - type: Fix
+      message: Command tracking implants turn back on after being hit by multiple EMPs.
+    - type: Fix
+      message: News articles now support text formatting.
+    - type: Fix
+      message: You can no longer be knocked down or go prone while buckled.
+    - type: Fix
+      message: >-
+        Healium, BZ, probital and other sleep-inducing chemicals now put you to
+        sleep again.
+    - type: Fix
+      message: IPCs and slimepeople can now be medically examined.
+    - type: Fix
+      message: Handcuffed people can no longer drive wheelchairs or other vehicles.
+    - type: Fix
+      message: Paradox clones of chefs now have CQC.
+    - type: Fix
+      message: >-
+        Explosions can no longer disarm an armed nuke by blowing out the floor
+        under it.
+    - type: Fix
+      message: Rust heretic's mansus grasp no longer destroys IPC brains.
+    - type: Fix
+      message: Sealing and unsealing a modsuit helmet no longer removes your face.
+    - type: Fix
+      message: Larvae hatching from monkeys no longer gib them.
+    - type: Fix
+      message: >-
+        The scram implant no longer teleports you onto asteroids or other
+        far-away grids.
+    - type: Fix
+      message: You can now respawn in deathmatch after visiting the thunderdome.
+    - type: Fix
+      message: Upgraded bingles now properly turn into zombies.
+    - type: Fix
+      message: Unwrenched pipes and atmos devices no longer block RPD placement.
+    - type: Fix
+      message: Restored the background panels on NTR and xenobiology consoles.
+    - type: Tweak
+      message: Zombies can no longer vent crawl.
+  id: 3002
+  time: '2026-10-25T19:48:23.0000000+00:00'
