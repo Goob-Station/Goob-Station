@@ -91,7 +91,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 _physics.SetLinearDamping(vapor, physics, 0f);
                 _physics.SetAngularDamping(vapor, physics, 0f);
 
-                _throwing.TryThrow(vapor, dir, speed, user: user);
+                _throwing.TryThrow(vapor, dir, speed, user: user,
+                    predicted: false); // Trauma
 
                 var distance = (target.Position - _transformSystem.GetWorldPosition(vaporXform)).Length();
                 var time = (distance / physics.LinearVelocity.Length());

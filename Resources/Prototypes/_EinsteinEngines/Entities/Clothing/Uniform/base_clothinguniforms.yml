@@ -83,6 +83,9 @@
   parent: UnsensoredClothingUniformBase
   id: UnsensoredClothingUniformEnvirosuitBase
   components:
+  - type: PressureProtection # Goob
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
   - type: IgniteFromGasImmunity
     parts:
     - Chest

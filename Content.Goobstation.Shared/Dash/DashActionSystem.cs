@@ -14,6 +14,7 @@ namespace Content.Goobstation.Shared.Dash;
 public sealed partial class DashActionSystem : EntitySystem
 {
     [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAnimatedEmotesSystem _emotes = default!;
     [Dependency] private SharedGravitySystem _gravity = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
@@ -52,11 +53,8 @@ public sealed partial class DashActionSystem : EntitySystem
         if (args.StaminaDrain != null)
             _stamina.TakeStaminaDamage(args.Performer, args.StaminaDrain.Value, visual: false, immediate: false, ignoreResist: true);
 
-        if (args.Emote != null && TryComp<AnimatedEmotesComponent>(args.Performer, out var emotes))
-        {
-            emotes.Emote = args.Emote;
-            Dirty(args.Performer, emotes);
-        }
+        if (args.Emote != null)
+            _emotes.SetEmote(args.Performer, args.Emote);
     }
 
     private void OnComponentInit(EntityUid uid, DashActionComponent comp, ref ComponentInit args)

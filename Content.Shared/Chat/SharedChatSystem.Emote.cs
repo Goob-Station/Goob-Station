@@ -266,7 +266,9 @@ public abstract partial class SharedChatSystem
             if (_net.IsClient)
                 return false;
 
-            if (beforeEv.Blocker != null)
+            if (beforeEv.CancelMessage != null) // Goob
+                _popup.PopupEntity(beforeEv.CancelMessage, uid, uid); // Goob
+            else if (beforeEv.Blocker != null) // Goob - else
             {
                 _popup.PopupEntity(
                     Loc.GetString(

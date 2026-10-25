@@ -753,6 +753,18 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> ChatRunechat =
         CVarDef.Create("chat.runechat", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Point size of normal runechat text.
+    /// </summary>
+    public static readonly CVarDef<int> ChatRunechatFontSize =
+        CVarDef.Create("chat.runechat_font_size", 12, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Multiplier on the runechat text outline thickness.
+    /// </summary>
+    public static readonly CVarDef<float> ChatRunechatOutlineScale =
+        CVarDef.Create("chat.runechat_outline_scale", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #endregion
 
     #region Radio Channel Colors
@@ -778,6 +790,17 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<string> InvalidInteractionOutlineColor =
         CVarDef.Create("interaction_outline.out_of_range_color", "#FF000055", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Gun Prediction
+
+    /// <summary>
+    ///     Distance between a projectile and a target's lag-compensated position that counts as a hit.
+    ///     Lets players with high ping hit what they actually saw when shooting.
+    /// </summary>
+    public static readonly CVarDef<float> GunLagCompRange =
+        CVarDef.Create("gun.lag_comp_range", 0.6f, CVar.SERVER | CVar.SERVERONLY);
 
     #endregion
 }

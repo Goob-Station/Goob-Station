@@ -8,6 +8,7 @@ using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Camera;
+using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
@@ -49,6 +50,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IStateManager _state = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -98,7 +100,7 @@ public sealed partial class GunSystem : SharedGunSystem
         SubscribeAllEvent<MuzzleFlashEvent>(OnMuzzleFlash);
 
         // Plays animated effects on the client.
-        SubscribeNetworkEvent<HitscanEvent>(OnHitscan);
+        SubscribeAllEvent<HitscanEvent>(OnHitscan); // Trauma - all instead of network, predicted shots raise it locally
 
         InitializeMagazineVisuals();
         InitializeSpentAmmo();
@@ -225,79 +227,19 @@ public sealed partial class GunSystem : SharedGunSystem
 
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
 
+
         RaisePredictiveEvent(new RequestShootEvent
         {
             Target = target,
             Coordinates = GetNetCoordinates(coordinates),
             Gun = GetNetEntity(gun),
+            Continuous = _cfg.GetCVar(CCVars.ControlHoldToAttackRanged),
         });
     }
 
-    public override void Shoot(Entity<GunComponent> gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
-        EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false)
-    {
-        userImpulse = true;
+    // Trauma - Shoot is predicted in shared now
 
-        // Rather than splitting client / server for every ammo provider it's easier
-        // to just delete the spawned entities. This is for programmer sanity despite the wasted perf.
-        // This also means any ammo specific stuff can be grabbed as necessary.
-        var direction = TransformSystem.ToMapCoordinates(fromCoordinates).Position - TransformSystem.ToMapCoordinates(toCoordinates).Position;
-        var worldAngle = direction.ToAngle().Opposite();
-
-        foreach (var (ent, shootable) in ammo)
-        {
-            if (throwItems)
-            {
-                Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                if (IsClientSide(ent!.Value))
-                    Del(ent.Value);
-                else
-                    RemoveShootable(ent.Value);
-                continue;
-            }
-
-            // TODO: Clean this up in a gun refactor at some point - too much copy pasting
-            switch (shootable)
-            {
-                case CartridgeAmmoComponent cartridge:
-                    if (!cartridge.Spent)
-                    {
-                        SetCartridgeSpent(ent!.Value, cartridge, true);
-                        MuzzleFlash(gun, cartridge, worldAngle, user);
-                        Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
-                        Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                        // TODO: Can't predict entity deletions.
-                        //if (cartridge.DeleteOnSpawn)
-                        //    Del(cartridge.Owner);
-                    }
-                    else
-                    {
-                        userImpulse = false;
-                        Audio.PlayPredicted(gun.Comp.SoundEmpty, gun, user);
-                    }
-
-                    if (IsClientSide(ent!.Value))
-                        Del(ent.Value);
-
-                    break;
-                case AmmoComponent newAmmo:
-                    MuzzleFlash(gun, newAmmo, worldAngle, user);
-                    Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
-                    Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                    if (IsClientSide(ent!.Value))
-                        Del(ent.Value);
-                    else
-                        RemoveShootable(ent.Value);
-                    break;
-                case HitscanAmmoComponent:
-                    Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
-                    Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                    break;
-            }
-        }
-    }
-
-    private void Recoil(EntityUid? user, Vector2 recoil, float recoilScalar)
+    protected override void Recoil(EntityUid? user, Vector2 recoil, float recoilScalar) // Trauma - override shared virtual
     {
         if (!Timing.IsFirstTimePredicted || user == null || recoil == Vector2.Zero || recoilScalar == 0)
             return;
@@ -555,5 +497,5 @@ public sealed partial class GunSystem : SharedGunSystem
         return false;
     }
 
-    public override void PlayImpactSound(EntityUid otherEntity, DamageSpecifier? modifiedDamage, SoundSpecifier? weaponSound, bool forceWeaponSound) { }
+    // Trauma - PlayImpactSound is predicted in shared
 }

@@ -35,6 +35,6 @@ public sealed class SwapOnProjectileHitSystem : EntitySystem
             comp.Effect);
 
         if (comp.DeleteProjectileOnSwap)
-            Del(uid);
+            PredictedDel(uid); // Trauma - projectile hits are predicted
     }
 }
