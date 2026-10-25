@@ -18,11 +18,11 @@ namespace Content.Goobstation.Server.Nightmare;
 /// This handles the Light Eater system.
 /// Light Eater is an armblade that ashes any light that it attacks.
 /// </summary>
-public sealed class LightEaterSystem : EntitySystem
+public sealed partial class LightEaterSystem : EntitySystem
 {
-    [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private PowerCellSystem _powerCellSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {

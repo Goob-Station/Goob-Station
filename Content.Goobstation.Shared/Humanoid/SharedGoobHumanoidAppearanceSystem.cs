@@ -7,11 +7,11 @@ using Robust.Shared.GameObjects.Components.Localization;
 
 namespace Content.Goobstation.Shared.Humanoid;
 
-public sealed class SharedGoobHumanoidAppearanceSystem : EntitySystem
+public sealed partial class SharedGoobHumanoidAppearanceSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
-    [Dependency] private readonly GrammarSystem _grammar = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private SharedHumanoidAppearanceSystem _humanoidAppearanceSystem = default!;
+    [Dependency] private GrammarSystem _grammar = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     public void SwapSex(EntityUid uid, HumanoidAppearanceComponent? humanoid = null)
     {

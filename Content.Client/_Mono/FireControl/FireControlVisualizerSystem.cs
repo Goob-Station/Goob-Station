@@ -99,7 +99,7 @@ public sealed class FireControlVisualizerSystem : EntitySystem
                 if (!_entityManager.TryGetComponent(uid, out TransformComponent? transform))
                     continue;
 
-                var position = _transformSystem.GetRenderWorldPosition((uid, transform));
+                var position = _transformSystem.GetWorldPosition(transform);
 
                 // Draw a small circle at the weapon position
                 handle.DrawCircle(position, 0.3f, Color.Yellow, true);

@@ -23,11 +23,11 @@ namespace Content.Goobstation.Server.Clothing.Systems;
 /// </summary>
 public sealed partial class ClothingAutoinjectorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
