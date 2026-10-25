@@ -6,8 +6,8 @@ namespace Content.Goobstation.Shared.Light
 {
     public sealed partial class BodyGlowSystem : EntitySystem
     {
-        [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly SharedPointLightSystem _lights = default!;
+        [Dependency] private InventorySystem _inventory = default!;
+        [Dependency] private SharedPointLightSystem _lights = default!;
 
         public override void Initialize()
         {

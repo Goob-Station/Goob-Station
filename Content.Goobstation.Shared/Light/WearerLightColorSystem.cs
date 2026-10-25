@@ -6,8 +6,8 @@ namespace Content.Goobstation.Shared.Light
 {
     public sealed partial class WearerLightColorSystem : EntitySystem
     {
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedPointLightSystem _lights = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedPointLightSystem _lights = default!;
 
         public override void Initialize()
         {
