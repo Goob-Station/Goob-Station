@@ -76,7 +76,8 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         var dir = _random.NextAngle().ToVec();
         var speed = _random.NextFloat(comp.ThrowingSpeed.X, comp.ThrowingSpeed.Y);
 
-        _throwingSystem.TryThrow(uid, dir, speed, user, 0, recoil: false);
+        _throwingSystem.TryThrow(uid, dir, speed, user, 0, recoil: false,
+            predicted: false); // Trauma - server only
 
         EnsureComp<FadingTimedDespawnComponent>(uid);
 
