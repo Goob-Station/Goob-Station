@@ -26585,3 +26585,54 @@ Entries:
       message: Added Departmental request consoles to Kettle
   id: 3000
   time: '2026-10-24T22:06:48.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Synths resistances have been hard nerfed.
+    - type: Tweak
+      message: Metal rods now contain lead, like steel.
+    - type: Fix
+      message: Synths are no longer poisoned by the lead in steel and rods.
+    - type: Fix
+      message: Synths can no longer use patches or get hit by syringe guns.
+    - type: Tweak
+      message: Synths now get 0.25x their normal passive healing while crit.
+    - type: Add
+      message: >-
+        Added runechat options for font size and outline thickness, with a live
+        preview in the Customization settings.
+    - type: Fix
+      message: >-
+        Turning runechat off now also switches popups, point text and Alt names
+        back to the normal style.
+    - type: Fix
+      message: >-
+        Fixed healing items, chems and surgery sometimes doing nothing to wounds
+        until the patient took more damage.
+    - type: Fix
+      message: >-
+        Fixed surgeries not appearing until you closed and reopened the
+        incision.
+    - type: Fix
+      message: Fixed gauze sometimes refusing to work right.
+    - type: Fix
+      message: >-
+        Effects that stop bleeding now actually stop it, instead of it coming
+        back a second later.
+    - type: Fix
+      message: >-
+        Wounds no longer restart bleeding at full strength from extra damage
+        after hitting their severity cap.
+    - type: Fix
+      message: Borgs can be repaired with welders again.
+    - type: Fix
+      message: >-
+        Holding Alt no longer shows names when you're blind or flashed, on
+        stealthed people, or in places the AI's cameras can't see (when you're
+        AI, obviously.)
+    - type: Fix
+      message: >-
+        Switching modes on advanced surgery tools no longer puts them in slime
+        people's internal storage.
+  id: 3001
+  time: '2026-10-25T19:48:08.0000000+00:00'
