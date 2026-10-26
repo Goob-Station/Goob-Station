@@ -16,6 +16,8 @@ using Content.Shared.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Body.Part;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 
@@ -30,6 +32,7 @@ public sealed class XenomorphLarvaSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MobThresholdSystem _threshold = default!;
 
     public override void Initialize()
     {
@@ -88,6 +91,7 @@ public sealed class XenomorphLarvaSystem : EntitySystem
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 120);
         damage.DamageDict.Add("Piercing", 80);
+
         if (_threshold.TryGetThresholdForState(victim, MobState.Dead, out var dead) // Goob - don't gib small mobs
             && TryComp<DamageableComponent>(victim, out var damageable))
         {
@@ -96,6 +100,7 @@ public sealed class XenomorphLarvaSystem : EntitySystem
             if (needed < total)
                 damage *= FixedPoint2.Max(needed, 0) / total;
         }
+
         _damageableSystem.TryChangeDamage(victim, damage: damage, ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.Chest);
 
         foreach (var (chestId, chest) in _body.GetBodyChildrenOfType(victim, BodyPartType.Chest).ToList())
