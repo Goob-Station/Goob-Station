@@ -7,11 +7,12 @@ using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Mindshield;
+namespace Content.Goobstation.Shared.Flagpole;
 
-public sealed partial class EffectOnMindshieldedSystem : EntitySystem
+public sealed partial class FlagpoleSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
@@ -21,29 +22,28 @@ public sealed partial class EffectOnMindshieldedSystem : EntitySystem
     [Dependency] private SharedChatSystem _chat = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private readonly HashSet<Entity<MindShieldComponent>> _targets = new();
     private readonly Dictionary<(EntityUid Target, string Group), (EntityUid Source, TimeSpan Expiry)> _claims = new();
     private readonly List<(EntityUid Target, string Group)> _expired = new();
-    private TimeSpan _nextPrune = TimeSpan.Zero;
-    private static readonly TimeSpan PruneInterval = TimeSpan.FromSeconds(30);
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EffectOnMindshieldedComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<EffectOnMindshieldedComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<EffectOnMindshieldedComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<FlagpoleComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<FlagpoleComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<FlagpoleComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
     }
 
-    private void OnMapInit(Entity<EffectOnMindshieldedComponent> ent, ref MapInitEvent args)
+    private void OnMapInit(Entity<FlagpoleComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.Interval;
         Dirty(ent);
     }
 
-    private void OnMeleeHit(Entity<EffectOnMindshieldedComponent> ent, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<FlagpoleComponent> ent, ref MeleeHitEvent args)
     {
         if (ent.Comp.MeleeDamage.Empty)
             return;
@@ -57,7 +57,7 @@ public sealed partial class EffectOnMindshieldedSystem : EntitySystem
         }
     }
 
-    private void OnGetVerbs(Entity<EffectOnMindshieldedComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    private void OnGetVerbs(Entity<FlagpoleComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract || ent.Comp.UseRange <= 0f)
             return;
@@ -72,17 +72,18 @@ public sealed partial class EffectOnMindshieldedSystem : EntitySystem
         });
     }
 
-    private void Inspire(Entity<EffectOnMindshieldedComponent> ent, EntityUid user)
+    private void Inspire(Entity<FlagpoleComponent> ent, EntityUid user)
     {
         if (!_useDelay.TryResetDelay(ent.Owner, true))
             return;
 
-        if (ent.Comp.UseSpeech.Count > 0)
+        if (ent.Comp.UseSpeech is { } speech)
         {
-            _chat.TrySendInGameICMessage(user, Loc.GetString(_random.Pick(ent.Comp.UseSpeech)), InGameICChatType.Speak, false);
+            var dataset = _proto.Index(speech);
+            _chat.TrySendInGameICMessage(user, Loc.GetString(_random.Pick(dataset.Values)), InGameICChatType.Speak, false);
         }
 
-        if (ent.Comp.UseDamage.Empty)
+        if (ent.Comp.ApplyOnCrit.Empty)
             return;
 
         _targets.Clear();
@@ -93,7 +94,7 @@ public sealed partial class EffectOnMindshieldedSystem : EntitySystem
             if (!_mobState.IsCritical(target))
                 continue;
 
-            _damageable.TryChangeDamage(target.Owner, ent.Comp.UseDamage, ent.Comp.IgnoreResistances, origin: user);
+            _damageable.TryChangeDamage(target.Owner, ent.Comp.ApplyOnCrit, ent.Comp.IgnoreResistances, origin: user);
         }
     }
 
@@ -106,16 +107,16 @@ public sealed partial class EffectOnMindshieldedSystem : EntitySystem
 
         var curTime = _timing.CurTime;
 
-        if (curTime >= _nextPrune)
-        {
-            _nextPrune = curTime + PruneInterval;
-            PruneClaims(curTime);
-        }
-
-        var query = EntityQueryEnumerator<EffectOnMindshieldedComponent>();
+        var query = EntityQueryEnumerator<FlagpoleComponent>();
 
         while (query.MoveNext(out var uid, out var comp))
         {
+            if (curTime >= comp.NextPrune)
+            {
+                comp.NextPrune = curTime + comp.PruneInterval;
+                PruneClaims(curTime);
+            }
+
             if (comp.Range <= 0f || curTime < comp.NextUpdate)
                 continue;
 
@@ -126,7 +127,7 @@ public sealed partial class EffectOnMindshieldedSystem : EntitySystem
         }
     }
 
-    private void ApplyArea(Entity<EffectOnMindshieldedComponent> ent)
+    private void ApplyArea(Entity<FlagpoleComponent> ent)
     {
         var curTime = _timing.CurTime;
 
@@ -155,14 +156,14 @@ public sealed partial class EffectOnMindshieldedSystem : EntitySystem
         }
     }
 
-    private bool TryClaim(Entity<EffectOnMindshieldedComponent> ent, EntityUid target, TimeSpan curTime)
+    private bool TryClaim(Entity<FlagpoleComponent> ent, EntityUid target, TimeSpan curTime)
     {
-        if (ent.Comp.Stacks)
+        if (ent.Comp.AllowMultipleSources)
         {
             return true;
         }
 
-        var key = (target, ent.Comp.Group);
+        var key = (target, ent.Comp.StackGroup);
 
         if (_claims.TryGetValue(key, out var claim) && claim.Source != ent.Owner && curTime < claim.Expiry)
         {

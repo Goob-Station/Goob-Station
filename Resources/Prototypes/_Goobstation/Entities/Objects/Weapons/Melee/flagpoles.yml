@@ -43,8 +43,8 @@
         Piercing: 20
   - type: UseDelay
     delay: 180
-  - type: EffectOnMindshielded
-    group: MindshieldHeal
+  - type: Flagpole
+    stackGroup: MindshieldHeal
     range: 5
     interval: 1
     damage:
@@ -56,13 +56,16 @@
       groups:
         Brute: -40
         Burn: -40
-    useSpeech:
-    - flagpole-inspire-1
-    - flagpole-inspire-2
-    - flagpole-inspire-3
+    useSpeech: FlagpoleInspireSpeech
   - type: Construction
     graph: FlagpoleNanotrasen
     node: flagpole
+
+- type: localizedDataset
+  id: FlagpoleInspireSpeech
+  values:
+    prefix: flagpole-inspire-
+    count: 3
 
 - type: entity
   name: Syndicate flagpole
@@ -121,8 +124,7 @@
         Piercing: 5
         Heat: 5
   - type: UseDelay
-  - type: EffectOnMindshielded
-    range: 0
+  - type: Flagpole
     meleeDamage:
       types:
         Slash: 20
