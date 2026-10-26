@@ -26,20 +26,20 @@ namespace Content.Goobstation.Server.Administration.Objectives;
 /// Logic behind the admin objectives panel: listing, adding (prototype, custom, steal) and removing objectives.
 /// Kept separate from the EUI so other systems can reuse it.
 /// </summary>
-public sealed class AdminObjectivesSystem : EntitySystem
+public sealed partial class AdminObjectivesSystem : EntitySystem
 {
-    [Dependency] private readonly EuiManager _euis = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IAdminManager _adminMan = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly AdminStealConditionSystem _steal = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
+    [Dependency] private EuiManager _euis = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IAdminManager _adminMan = default!;
+    [Dependency] private IComponentFactory _compFactory = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private AdminStealConditionSystem _steal = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private ObjectivesSystem _objectives = default!;
+    [Dependency] private SharedJobSystem _job = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private TargetObjectiveSystem _target = default!;
 
     public const string CustomObjectiveProto = "AdminCustomObjective";
     public const string StealObjectiveProto = "AdminStealObjective";

@@ -11,11 +11,11 @@ namespace Content.Goobstation.Server.Administration.Objectives;
 /// Opens the objectives panel for a player, a UI alternative to <c>addobjective</c>, <c>rmobjective</c> and <c>lsobjectives</c>.
 /// </summary>
 [AdminCommand(AdminFlags.Admin)]
-public sealed class ObjectivesPanelCommand : LocalizedEntityCommands
+public sealed partial class ObjectivesPanelCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly AdminObjectivesSystem _adminObjectives = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private AdminObjectivesSystem _adminObjectives = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override string Command => "objectivespanel";
 

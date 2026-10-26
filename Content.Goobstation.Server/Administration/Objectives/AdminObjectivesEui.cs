@@ -9,11 +9,11 @@ namespace Content.Goobstation.Server.Administration.Objectives;
 /// <summary>
 /// Admin window to view, add and remove the objectives of one mind.
 /// </summary>
-public sealed class AdminObjectivesEui : BaseEui
+public sealed partial class AdminObjectivesEui : BaseEui
 {
-    [Dependency] private readonly IAdminManager _adminMan = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private IAdminManager _adminMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private ILogManager _log = default!;
 
     private readonly AdminObjectivesSystem _system;
     private readonly ISawmill _sawmill;

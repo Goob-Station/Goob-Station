@@ -8,11 +8,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Objectives;
 
-public sealed class AdminStealConditionSystem : EntitySystem
+public sealed partial class AdminStealConditionSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedObjectivesSystem _objectives = default!;
 
     public override void Initialize()
     {

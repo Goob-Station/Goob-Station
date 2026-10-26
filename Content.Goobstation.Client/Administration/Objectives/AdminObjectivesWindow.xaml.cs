@@ -11,7 +11,7 @@ namespace Content.Goobstation.Client.Administration.Objectives;
 [GenerateTypedNameReferences]
 public sealed partial class AdminObjectivesWindow : DefaultWindow
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     private enum TabIndex
     {

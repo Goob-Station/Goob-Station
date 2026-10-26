@@ -10,8 +10,8 @@ namespace Content.Goobstation.Server.Administration.Systems;
 
 public sealed partial class GoobAdminVerbSystem
 {
-    [Dependency] private readonly AdminObjectivesSystem _adminObjectives = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private AdminObjectivesSystem _adminObjectives = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
 
     private void AddObjectiveVerbs(GetVerbsEvent<Verb> args)
     {
