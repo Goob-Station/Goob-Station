@@ -255,6 +255,7 @@
         components:
         - CommandStaff
         - AntagImmune
+        - Silicon
       briefing:
         text: blob-carrier-role-greeting
         color: Plum

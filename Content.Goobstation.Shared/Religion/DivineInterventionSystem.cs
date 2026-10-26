@@ -13,14 +13,14 @@ namespace Content.Goobstation.Shared.Religion;
 /// Handles "Spell Denial", these methods are largely targeted towards TargetActionEvents, however,
 /// may also have other edge-cases.
 /// </summary>
-public sealed class DivineInterventionSystem : EntitySystem
+public sealed partial class DivineInterventionSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

@@ -29,6 +29,7 @@
         stomach: OrganPlasmamanStomach
         liver: OrganPlasmamanLiver
         kidneys: OrganPlasmamanKidneys
+        butt: Butt # Goob
     right arm:
       part: RightArmPlasmaman
       connections:

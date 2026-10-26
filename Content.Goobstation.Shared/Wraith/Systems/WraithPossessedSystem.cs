@@ -16,13 +16,13 @@ namespace Content.Goobstation.Shared.Wraith.Systems;
 /// This system is hardcoded for Wraith, so don't re-use this.
 /// Use the devil system instead. im sorry and sybau im not unhardocoding ts
 /// </summary>
-public sealed class WraithPossessedSystem : EntitySystem
+public sealed partial class WraithPossessedSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly WraithRevenantSystem _wraithRevenant = default!;
-    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private WraithRevenantSystem _wraithRevenant = default!;
+    [Dependency] private ISharedAdminLogManager _admin = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

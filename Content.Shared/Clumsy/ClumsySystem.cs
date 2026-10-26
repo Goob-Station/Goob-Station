@@ -134,10 +134,11 @@ public sealed class ClumsySystem : EntitySystem
         _stun.TryUpdateParalyzeDuration(ent, ent.Comp.GunShootFailStunTime);
 
         // Apply salt to the wound ("Honk!") (No idea what this comment means)
-        _audio.PlayPvs(ent.Comp.GunShootFailSound, ent);
-        _audio.PlayPvs(ent.Comp.ClumsySound, ent);
+        // Trauma - gun shooting is predicted now, don't play it twice for the shooter
+        _audio.PlayPredicted(ent.Comp.GunShootFailSound, ent, ent);
+        _audio.PlayPredicted(ent.Comp.ClumsySound, ent, ent);
 
-        _popup.PopupEntity(Loc.GetString(ent.Comp.GunFailedMessage), ent, ent);
+        _popup.PopupClient(Loc.GetString(ent.Comp.GunFailedMessage), ent, ent); // Trauma - PopupClient
         args.Cancel();
     }
 

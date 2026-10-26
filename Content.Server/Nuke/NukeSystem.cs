@@ -31,7 +31,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Nuke;
 
-public sealed class NukeSystem : EntitySystem
+public sealed partial class NukeSystem : EntitySystem // Goob
 {
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
@@ -171,15 +171,7 @@ public sealed class NukeSystem : EntitySystem
     private void OnAnchorChanged(EntityUid uid, NukeComponent component, ref AnchorStateChangedEvent args)
     {
         UpdateUserInterface(uid, component);
-
-        if (args.Anchored == false && component.Status == NukeStatus.ARMED && component.RemainingTime > component.DisarmDoAfterLength)
-        {
-            // yes, this means technically if you can find a way to unanchor the nuke, you can disarm it
-            // without the doafter. but that takes some effort, and it won't allow you to disarm a nuke that can't be disarmed by the doafter.
-            DisarmBomb(uid, component);
-        }
-
-        UpdateAppearance(uid, component);
+        UpdateAppearance(uid, component); // Goob - no longer disarms when unanchored
     }
 
     #endregion
@@ -307,6 +299,7 @@ public sealed class NukeSystem : EntitySystem
             return;
 
         DisarmBomb(uid, component);
+        GoobRaiseDisarmed(uid, args.User); // Goob
 
         var ev = new NukeDisarmSuccessEvent();
         RaiseLocalEvent(ev);

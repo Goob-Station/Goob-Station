@@ -1,0 +1,797 @@
+# GameStaff
+- type: oocIcon
+  id: OocIconAndheisking
+  name: ooc-icon-andheisking
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: andheisking
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconAndroidonator
+  name: ooc-icon-androidonator
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: androidonator
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconAnxiousmist
+  name: ooc-icon-anxiousmist
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: anxiousmist
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconBaptr0b0t
+  name: ooc-icon-baptr0b0t
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: baptr0b0t
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconBirb
+  name: ooc-icon-birb
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: birb
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconBlepington
+  name: ooc-icon-blepington
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: blepington
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconBomzis
+  name: ooc-icon-bomzis
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: bomzis
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconCarlander
+  name: ooc-icon-carlander
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: carlander
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconCCCommander
+  name: ooc-icon-cccommander
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: CCCommander
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconCco
+  name: ooc-icon-cco
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: cco
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconDaffyd5
+  name: ooc-icon-daffyd5
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: daffyd5
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconDurk
+  name: ooc-icon-durk
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: durk
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconFuture
+  name: ooc-icon-future
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: Future
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconHarel
+  name: ooc-icon-harel
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: harel
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconLeguia
+  name: ooc-icon-leguia
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: Leguia
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconLehmok
+  name: ooc-icon-lehmok
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: lehmok
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconNightharlaw
+  name: ooc-icon-nightharlaw
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: nightharlaw
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconNTIntern
+  name: ooc-icon-ntintern
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: NTIntern
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconRedstonewolf
+  name: ooc-icon-redstonewolf
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: redstonewolf
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconSmallmonke
+  name: ooc-icon-smallmonke
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: smallmonke
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconSpecopsofficer
+  name: ooc-icon-specopsofficer
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: specopsofficer
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconTrainer
+  name: ooc-icon-trainer
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: trainer
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconUnrobust
+  name: ooc-icon-unrobust
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: unrobust
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconWetaht
+  name: ooc-icon-wetaht
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: wetaht
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconWine
+  name: ooc-icon-wine
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: wine
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconXeve
+  name: ooc-icon-xeve
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: xeve
+  tier: PatronTierGameStaff
+
+- type: oocIcon
+  id: OocIconYummi
+  name: ooc-icon-yummi
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: yummi
+  tier: PatronTierGameStaff
+
+# CentralCommand
+- type: oocIcon
+  id: OocIconBlueshield
+  name: ooc-icon-blueshield
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: blueshield
+  tier: PatronTierCentralCommand
+
+- type: oocIcon
+  id: OocIconCBURN
+  name: ooc-icon-cburn
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: CBURN
+  tier: PatronTierCentralCommand
+
+- type: oocIcon
+  id: OocIconERTChaplain
+  name: ooc-icon-ertchaplain
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: ERTChaplain
+  tier: PatronTierCentralCommand
+
+- type: oocIcon
+  id: OocIconERTEngineer
+  name: ooc-icon-ertengineer
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: ERTEngineer
+  tier: PatronTierCentralCommand
+
+- type: oocIcon
+  id: OocIconERTJanitor
+  name: ooc-icon-ertjanitor
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: ERTJanitor
+  tier: PatronTierCentralCommand
+
+- type: oocIcon
+  id: OocIconERTLeader
+  name: ooc-icon-ertleader
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: ERTLeader
+  tier: PatronTierCentralCommand
+
+- type: oocIcon
+  id: OocIconERTMedical
+  name: ooc-icon-ertmedical
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: ERTMedical
+  tier: PatronTierCentralCommand
+
+- type: oocIcon
+  id: OocIconERTSecurity
+  name: ooc-icon-ertsecurity
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: ERTSecurity
+  tier: PatronTierCentralCommand
+
+- type: oocIcon
+  id: OocIconNanotrasen
+  name: ooc-icon-nanotrasen
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Nanotrasen
+  tier: PatronTierCentralCommand
+
+- type: oocIcon
+  id: OocIconNanotrasenrepresentative
+  name: ooc-icon-nanotrasenrepresentative
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: nanotrasenrepresentative
+  tier: PatronTierCentralCommand
+
+# Captain
+- type: oocIcon
+  id: OocIconCaptain
+  name: ooc-icon-captain
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Captain
+  tier: PatronTierCaptain
+
+- type: oocIcon
+  id: OocIconChiefEngineer
+  name: ooc-icon-chief-engineer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ChiefEngineer
+  tier: PatronTierCaptain
+
+- type: oocIcon
+  id: OocIconChiefMedicalOfficer
+  name: ooc-icon-chief-medical-officer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ChiefMedicalOfficer
+  tier: PatronTierCaptain
+
+- type: oocIcon
+  id: OocIconHeadOfPersonnel
+  name: ooc-icon-head-of-personnel
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: HeadOfPersonnel
+  tier: PatronTierCaptain
+
+- type: oocIcon
+  id: OocIconHeadOfSecurity
+  name: ooc-icon-head-of-security
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: HeadOfSecurity
+  tier: PatronTierCaptain
+
+- type: oocIcon
+  id: OocIconHeadRevolutionary
+  name: ooc-icon-head-revolutionary
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: HeadRevolutionary
+  tier: PatronTierCaptain
+
+- type: oocIcon
+  id: OocIconInitialInfected
+  name: ooc-icon-initial-infected
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: InitialInfected
+  tier: PatronTierCaptain
+
+- type: oocIcon
+  id: OocIconQuarterMaster
+  name: ooc-icon-quarter-master
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: QuarterMaster
+  tier: PatronTierCaptain
+
+- type: oocIcon
+  id: OocIconResearchDirector
+  name: ooc-icon-research-director
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ResearchDirector
+  tier: PatronTierCaptain
+
+# StationAi
+- type: oocIcon
+  id: OocIconChangeling
+  name: ooc-icon-changeling
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Changeling
+  tier: PatronTierStationAi
+
+- type: oocIcon
+  id: OocIconCluwne
+  name: ooc-icon-cluwne
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Cluwne
+  tier: PatronTierStationAi
+
+- type: oocIcon
+  id: OocIconParadoxClone
+  name: ooc-icon-paradox-clone
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ParadoxClone
+  tier: PatronTierStationAi
+
+- type: oocIcon
+  id: OocIconParamedic
+  name: ooc-icon-paramedic
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Paramedic
+  tier: PatronTierStationAi
+
+- type: oocIcon
+  id: OocIconRevolutionary
+  name: ooc-icon-revolutionary
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Revolutionary
+  tier: PatronTierStationAi
+
+- type: oocIcon
+  id: OocIconStationAi
+  name: ooc-icon-station-ai
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: StationAi
+  tier: PatronTierStationAi
+
+- type: oocIcon
+  id: OocIconWarden
+  name: ooc-icon-warden
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Warden
+  tier: PatronTierStationAi
+
+# Janitor
+- type: oocIcon
+  id: OocIconAtmosphericTechnician
+  name: ooc-icon-atmospheric-technician
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: AtmosphericTechnician
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconBrigmedic
+  name: ooc-icon-brigmedic
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Brigmedic
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconCargoTechnician
+  name: ooc-icon-cargo-technician
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: CargoTechnician
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconChemist
+  name: ooc-icon-chemist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Chemist
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconCommandMaid
+  name: ooc-icon-command-maid
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: CommandMaid
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconDetective
+  name: ooc-icon-detective
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Detective
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconGeneticist
+  name: ooc-icon-geneticist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Geneticist
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconJanitor
+  name: ooc-icon-janitor
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Janitor
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconMedicalDoctor
+  name: ooc-icon-medical-doctor
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: MedicalDoctor
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconRoboticist
+  name: ooc-icon-roboticist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Roboticist
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconScientist
+  name: ooc-icon-scientist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Scientist
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconSecurityClown
+  name: ooc-icon-security-clown
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SecurityClown
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconSecurityOfficer
+  name: ooc-icon-security-officer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SecurityOfficer
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconShaftMiner
+  name: ooc-icon-shaft-miner
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ShaftMiner
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconStationEngineer
+  name: ooc-icon-station-engineer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: StationEngineer
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconSyndicate
+  name: ooc-icon-syndicate
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Syndicate
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconVirologist
+  name: ooc-icon-virologist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Virologist
+  tier: PatronTierJanitor
+
+- type: oocIcon
+  id: OocIconZombie
+  name: ooc-icon-zombie
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Zombie
+  tier: PatronTierJanitor
+
+# Assistant
+- type: oocIcon
+  id: OocIconBartender
+  name: ooc-icon-bartender
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Bartender
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconBorg
+  name: ooc-icon-borg
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Borg
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconBotanist
+  name: ooc-icon-botanist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Botanist
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconBoxer
+  name: ooc-icon-boxer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Boxer
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconChaplain
+  name: ooc-icon-chaplain
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Chaplain
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconChef
+  name: ooc-icon-chef
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Chef
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconClown
+  name: ooc-icon-clown
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Clown
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconCoglove
+  name: ooc-icon-coglove
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: coglove
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconFloorpills
+  name: ooc-icon-floorpills
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: floorpills
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconIan
+  name: ooc-icon-ian
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: ian
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconLawyer
+  name: ooc-icon-lawyer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Lawyer
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconLibrarian
+  name: ooc-icon-librarian
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Librarian
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconMedicalIntern
+  name: ooc-icon-medical-intern
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: MedicalIntern
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconMime
+  name: ooc-icon-mime
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Mime
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconMusician
+  name: ooc-icon-musician
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Musician
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconNoId
+  name: ooc-icon-no-id
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: NoId
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconPassenger
+  name: ooc-icon-passenger
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Passenger
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconPrisoner
+  name: ooc-icon-prisoner
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Prisoner
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconPsychologist
+  name: ooc-icon-psychologist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Psychologist
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconRadiohost
+  name: ooc-icon-radiohost
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: radiohost
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconReporter
+  name: ooc-icon-reporter
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Reporter
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconResearchAssistant
+  name: ooc-icon-research-assistant
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ResearchAssistant
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconSecurityCadet
+  name: ooc-icon-security-cadet
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SecurityCadet
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconServiceWorker
+  name: ooc-icon-service-worker
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ServiceWorker
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconTechnicalAssistant
+  name: ooc-icon-technical-assistant
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: TechnicalAssistant
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconTeddy
+  name: ooc-icon-teddy
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/ooc_icons.rsi
+    state: teddy
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconVisitor
+  name: ooc-icon-visitor
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Visitor
+  tier: PatronTierAssistant
+
+- type: oocIcon
+  id: OocIconZookeeper
+  name: ooc-icon-zookeeper
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Zookeeper
+  tier: PatronTierAssistant

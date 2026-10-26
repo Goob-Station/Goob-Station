@@ -21,6 +21,7 @@
     whitelist:
       tags:
       - Sheet
+      - RawMaterial
       - Ingot
   - type: ActivatableUI
     key: enum.OreSiloUiKey.Key

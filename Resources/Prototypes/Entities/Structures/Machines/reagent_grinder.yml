@@ -8,6 +8,7 @@
   suffix: grinder/juicer
   components:
   - type: ReagentGrinder
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.ReagentGrinderUiKey.Key
   - type: UserInterface
@@ -81,7 +82,7 @@
       machine_parts: !type:Container
 
 - type: entity
-  parent: Recycler #too different so different parent
+  parent: [ Recycler, BaseAutomatedMachine ] #too different so different parent # Goob: Automation
   id: ReagentGrinderIndustrial
   name: industrial reagent grinder
   description: An industrial reagent grinder.

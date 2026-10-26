@@ -1,0 +1,31 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieSynth
+  name: Synth Plushie
+  description: Marketable and stylish, with built-in speakers to remind everybody why people call Synths "beepers".
+  components:
+  - type: Sprite
+    sprite: _Afterlight/Objects/Fun/Plushes/synth_plushie.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    sprite: _Afterlight/Objects/Fun/Plushes/synth_plushie.rsi
+  - type: EmitSoundOnUse
+    sound: &PlushieSynthSound
+      path: /Audio/Machines/twobeep.ogg
+      params:
+        volume: 2
+  - type: EmitSoundOnLand
+    sound: *PlushieSynthSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieSynthSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieSynthSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieSynthSound
+  - type: Edible
+    useSound: *PlushieSynthSound
+  - type: MeleeWeapon
+    soundHit: *PlushieSynthSound

@@ -7,6 +7,8 @@ using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
 using Content.Shared.Damage;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -42,6 +44,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusNew = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -209,8 +212,12 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                               HasComp<BorgChassisComponent>(target) ||
                               _tag.HasTag(target, "Bot"))) // Check for ingorganic target
                     {
+                        FixedPoint2 rustDamage = 500;
+                        if (_threshold.TryGetThresholdForState(target, MobState.Dead, out var dead))
+                            rustDamage = FixedPoint2.Max(dead.Value - damageable.TotalDamage + 10, 0);
+
                         _damage.ChangeDamage(target,
-                            new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 500),
+                            new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), rustDamage),
                             ignoreResistances: true,
                             origin: performer,
                             targetPart: TargetBodyPart.Chest);
