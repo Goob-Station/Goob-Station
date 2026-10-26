@@ -110,7 +110,7 @@
   targetNode: flagpole
   category: construction-category-weapons
   objectType: Item
-  description: A spear fitted with a Nanotrasen flag and two mindshield implanters.
+  description: construction-flagpole-nanotrasen-description
 
 - type: construction
   id: FlagpoleSyndicate
@@ -119,7 +119,7 @@
   targetNode: flagpole
   category: construction-category-weapons
   objectType: Item
-  description: A spear fitted with an energy dagger and a Syndicate flag.
+  description: construction-flagpole-syndicate-description
 
 - type: constructionGraph
   id: FlagpoleNanotrasen
@@ -130,22 +130,22 @@
     - to: flagpole
       steps:
       - tag: Spear
-        name: spear
+        name: construction-step-flagpole-spear
         icon:
           sprite: Objects/Weapons/Melee/spear.rsi
           state: spear
       - tag: NTHandyFlag
-        name: Nanotrasen handheld flag
+        name: construction-step-flagpole-nt-flag
         icon:
           sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
           state: icon
       - tag: MindShieldImplanter
-        name: mindshield implanter
+        name: construction-step-flagpole-mindshield-implanter
         icon:
           sprite: Objects/Specific/Medical/implanter.rsi
           state: implanter1
       - tag: MindShieldImplanter
-        name: mindshield implanter
+        name: construction-step-flagpole-mindshield-implanter
         icon:
           sprite: Objects/Specific/Medical/implanter.rsi
           state: implanter1
@@ -161,17 +161,17 @@
     - to: flagpole
       steps:
       - tag: Spear
-        name: spear
+        name: construction-step-flagpole-spear
         icon:
           sprite: Objects/Weapons/Melee/spear.rsi
           state: spear
       - tag: EnergyDagger
-        name: energy dagger
+        name: construction-step-flagpole-energy-dagger
         icon:
           sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
           state: e_sword
       - tag: SyndieHandyFlag
-        name: syndicate handheld flag
+        name: construction-step-flagpole-syndicate-flag
         icon:
           sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi
           state: icon
