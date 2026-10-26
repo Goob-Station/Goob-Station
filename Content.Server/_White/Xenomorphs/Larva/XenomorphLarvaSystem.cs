@@ -88,6 +88,14 @@ public sealed class XenomorphLarvaSystem : EntitySystem
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 120);
         damage.DamageDict.Add("Piercing", 80);
+        if (_threshold.TryGetThresholdForState(victim, MobState.Dead, out var dead) // Goob - don't gib small mobs
+            && TryComp<DamageableComponent>(victim, out var damageable))
+        {
+            var needed = dead.Value - damageable.TotalDamage + 10;
+            var total = damage.GetTotal();
+            if (needed < total)
+                damage *= FixedPoint2.Max(needed, 0) / total;
+        }
         _damageableSystem.TryChangeDamage(victim, damage: damage, ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.Chest);
 
         foreach (var (chestId, chest) in _body.GetBodyChildrenOfType(victim, BodyPartType.Chest).ToList())

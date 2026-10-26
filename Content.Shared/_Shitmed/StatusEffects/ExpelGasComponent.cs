@@ -10,6 +10,9 @@ namespace Content.Shared._Shitmed.StatusEffects;
 [RegisterComponent]
 public sealed partial class ExpelGasComponent : Component
 {
+    [DataField]
+    public LocId Emote = "expel-gas-emote";
+
     public List<Gas> PossibleGases = new()
     {
         Gas.Oxygen,
