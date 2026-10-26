@@ -26736,3 +26736,13 @@ Entries:
       message: Zombies can no longer vent crawl.
   id: 3002
   time: '2026-10-25T19:48:23.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Shrapnel now has a limit of 3 instances. No more shrapnel in every limb.
+    - type: Tweak
+      message: Mice swarms can no longer tank big hits.
+    - type: Tweak
+      message: Mice have a two minute cooldown between laying eggs now.
+  id: 3003
+  time: '2026-10-26T03:10:12.0000000+00:00'
