@@ -9,7 +9,7 @@ using Content.Shared.Magic;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Supermatter.Systems;
+namespace Content.Goobstation.Shared.Wizard;
 
 public sealed partial class SummonSupermatterSpellSystem : EntitySystem
 {
