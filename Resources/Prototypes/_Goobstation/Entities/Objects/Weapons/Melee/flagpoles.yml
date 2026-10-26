@@ -52,7 +52,7 @@
         Brute: -1
         Burn: -1
     useRange: 5
-    useDamage:
+    applyOnCrit:
       groups:
         Brute: -40
         Burn: -40
