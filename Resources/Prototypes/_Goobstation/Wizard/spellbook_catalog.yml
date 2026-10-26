@@ -360,6 +360,7 @@
     blacklist:
     - SpellbookFullRandom
     - SpellbookSemiRandom
+  disableRefund: true
 
 # Defensive
 - type: listing

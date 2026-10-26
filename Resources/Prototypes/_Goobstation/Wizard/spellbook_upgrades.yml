@@ -325,6 +325,7 @@
     - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
+  disableRefund: true
 
 - type: listing
   id: SpellbookRodFormUpgrade
