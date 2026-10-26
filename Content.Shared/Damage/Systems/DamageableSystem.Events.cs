@@ -119,7 +119,7 @@ public sealed partial class DamageableSystem
             true
         );
 
-        InitializeWoundmed(); // Woundmed
+        WoundmedInitialize(); // Woundmed
     }
 
     /// <summary>

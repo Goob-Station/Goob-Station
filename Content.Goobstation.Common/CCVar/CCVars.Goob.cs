@@ -108,6 +108,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> LastReadRoundEndNoEorgPopup =
         CVarDef.Create("game.last_read_end_eorg_popup_time", "", CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    public static readonly CVarDef<bool> RoundIntroEnabled =
+        CVarDef.Create("game.round_intro", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /// <summary>
     /// How long to display the EORG popup for.
     /// </summary>
@@ -610,7 +613,19 @@ public sealed partial class GoobCVars
     /// Applies to Brute and Burn damage
     /// </summary>
     public static readonly CVarDef<float> ExplosionWoundMultiplier =
-        CVarDef.Create("explosion.wounding_multiplier", 2.5f, CVar.SERVERONLY);
+        CVarDef.Create("explosion.wounding_multiplier", 4f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Explosion damage multiplied on vital parts.
+    /// </summary>
+    public static readonly CVarDef<float> ExplosionVitalMultiplier =
+        CVarDef.Create("explosion.vital_multiplier", 1.5f, CVar.SERVER | CVar.REPLICATED, "Multiplier of explosion damage done on vital parts due to woundmed stuff.");
+
+    /// <summary>
+    /// Explosion damage multiplied on non-vital parts.
+    /// </summary>
+    public static readonly CVarDef<float> ExplosionNonVitalMultiplier =
+        CVarDef.Create("explosion.non_vital_multiplier", 1f, CVar.SERVER | CVar.REPLICATED, "Multiplier of explosion damage done on non-vital parts due to woundmed stuff.");
 
     #endregion
 
@@ -727,6 +742,65 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<float> InHandInteractionParticleScale =
         CVarDef.Create("particles.inhand_interaction_scale", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Runechat
+
+    /// <summary>
+    /// Whether speech bubbles are drawn SS13 runechat style
+    /// </summary>
+    public static readonly CVarDef<bool> ChatRunechat =
+        CVarDef.Create("chat.runechat", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Point size of normal runechat text.
+    /// </summary>
+    public static readonly CVarDef<int> ChatRunechatFontSize =
+        CVarDef.Create("chat.runechat_font_size", 12, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Multiplier on the runechat text outline thickness.
+    /// </summary>
+    public static readonly CVarDef<float> ChatRunechatOutlineScale =
+        CVarDef.Create("chat.runechat_outline_scale", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Radio Channel Colors
+
+    public static readonly CVarDef<bool> UseCustomRadioChannelColors =
+        CVarDef.Create("radio.use_custom_channel_colors", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Per-channel color overrides, formatted as "ChannelId=#RRGGBB;OtherChannel=#RRGGBB".
+    /// </summary>
+    public static readonly CVarDef<string> RadioChannelColors =
+        CVarDef.Create("radio.channel_colors", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Interaction Outline
+
+    public static readonly CVarDef<bool> UseCustomInteractionOutlineColors =
+        CVarDef.Create("interaction_outline.use_custom_colors", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<string> ValidInteractionOutlineColor =
+        CVarDef.Create("interaction_outline.in_range_color", "#00FF0055", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<string> InvalidInteractionOutlineColor =
+        CVarDef.Create("interaction_outline.out_of_range_color", "#FF000055", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Gun Prediction
+
+    /// <summary>
+    ///     Distance between a projectile and a target's lag-compensated position that counts as a hit.
+    ///     Lets players with high ping hit what they actually saw when shooting.
+    /// </summary>
+    public static readonly CVarDef<float> GunLagCompRange =
+        CVarDef.Create("gun.lag_comp_range", 0.6f, CVar.SERVER | CVar.SERVERONLY);
 
     #endregion
 }

@@ -15,10 +15,10 @@ namespace Content.Goobstation.Client.Enchanting.Systems;
 /// <summary>
 /// Gives enchanted items a cool shader
 /// </summary>
-public sealed class EnchantVisualsSystem : EntitySystem
+public sealed partial class EnchantVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private const string PostShaderId = "enchant";
 

@@ -50,6 +50,7 @@ public abstract partial class SharedBuckleSystem
 
         SubscribeLocalEvent<BuckleComponent, PreventCollideEvent>(OnBucklePreventCollide);
         SubscribeLocalEvent<BuckleComponent, DownAttemptEvent>(OnBuckleDownAttempt);
+        SubscribeLocalEvent<BuckleComponent, KnockDownAttemptEvent>(OnBuckleKnockDownAttempt); // Goob
         SubscribeLocalEvent<BuckleComponent, StandAttemptEvent>(OnBuckleStandAttempt);
         SubscribeLocalEvent<BuckleComponent, ThrowPushbackAttemptEvent>(OnBuckleThrowPushbackAttempt);
         SubscribeLocalEvent<BuckleComponent, UpdateCanMoveEvent>(OnBuckleUpdateCanMove);
@@ -139,14 +140,6 @@ public abstract partial class SharedBuckleSystem
     private void OnParentChanged(Entity<BuckleComponent> ent, ref EntParentChangedMessage args)
     {
         BuckleTransformCheck(ent, args.Transform);
-        AfterBuckleParentChanged(ent, ref args);
-    }
-
-    /// <summary>
-    /// Allows sided buckle systems to handle completed parent changes.
-    /// </summary>
-    protected virtual void AfterBuckleParentChanged(Entity<BuckleComponent> ent, ref EntParentChangedMessage args)
-    {
     }
 
     private void OnInserted(Entity<BuckleComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -223,6 +216,14 @@ public abstract partial class SharedBuckleSystem
         if (component.Buckled)
             args.Cancel();
     }
+
+    // Goob start
+    private void OnBuckleKnockDownAttempt(Entity<BuckleComponent> ent, ref KnockDownAttemptEvent args)
+    {
+        if (ent.Comp.Buckled)
+            args.Cancelled = true;
+    }
+    // Goob end
 
     private void OnBuckleStandAttempt(EntityUid uid, BuckleComponent component, StandAttemptEvent args)
     {
@@ -557,6 +558,7 @@ public abstract partial class SharedBuckleSystem
             else
                 _transform.SetCoordinates(buckle, buckleXform, _transform.GetMoverCoordinates(strap, oldBuckledXform));
             // Goobstation end
+            buckleXform.ActivelyLerping = false;
 
             var oldBuckledToWorldRot = _transform.GetWorldRotation(strap);
             _transform.SetWorldRotationNoLerp((buckle, buckleXform), oldBuckledToWorldRot);

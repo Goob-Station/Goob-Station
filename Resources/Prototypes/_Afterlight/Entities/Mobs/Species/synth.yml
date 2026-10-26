@@ -147,6 +147,9 @@
     batteryChargeMultiplier: 10.8
     cellularDamageMultiplier: 0.2
   - type: ZombieImmune
+  - type: BlockInjection
+    blockPatches: true
+    denyMessage: synth-injection-denied
   - type: Tag
     tags:
     - CanPilot

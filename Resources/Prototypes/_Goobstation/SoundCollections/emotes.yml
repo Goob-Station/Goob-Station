@@ -3,9 +3,18 @@
 - type: soundCollection
   id: Fart
   files:
+    - /Audio/Effects/Emotes/parp1.ogg
     - /Audio/_Goobstation/Voice/Human/fart2.ogg
     - /Audio/_Goobstation/Voice/Human/fart3.ogg
     - /Audio/_Goobstation/Voice/Human/fart4.ogg
+
+- type: soundCollection
+  id: FartInhale
+  files:
+    - /Audio/_Goobstation/Voice/Human/fart2-reverse.ogg
+    - /Audio/_Goobstation/Voice/Human/fart3-reverse.ogg
+    - /Audio/_Goobstation/Voice/Human/fart4-reverse.ogg
+    - /Audio/_Goobstation/Voice/Human/parp1-reverse.ogg
 
 - type: soundCollection
   id: SuperFart

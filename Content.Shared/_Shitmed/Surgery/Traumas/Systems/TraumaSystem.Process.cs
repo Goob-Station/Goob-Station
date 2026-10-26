@@ -656,7 +656,8 @@ public partial class TraumaSystem
     public bool TryInflictTrauma(Entity<WoundableComponent> woundable, ProtoId<TraumaTypePrototype> traumaType, FixedPoint2 severity)
     {
         if (_net.IsClient
-            || Comp<BodyPartComponent>(woundable).Body == null
+            || Comp<BodyPartComponent>(woundable).Body is not { } body
+            || AtBodyLimit(body, traumaType)
             || !_wound.TryInduceWound(woundable, "Blunt", 0f, out var hostWound))
             return false;
 
@@ -695,7 +696,8 @@ public partial class TraumaSystem
     /// </summary>
     private void ApplyTrauma(Entity<WoundableComponent> target, Entity<TraumaInflicterComponent> inflicter, ProtoId<TraumaTypePrototype> traumaType, FixedPoint2 severity)
     {
-        if (!_prototype.TryIndex(traumaType, out var proto))
+        if (!_prototype.TryIndex(traumaType, out var proto)
+            || Comp<BodyPartComponent>(target).Body is { } body && AtBodyLimit(body, proto))
             return;
 
         var targetChosen = SelectTraumaTarget(target, proto.Target);
@@ -722,6 +724,18 @@ public partial class TraumaSystem
         //        ? $"A new trauma (Raw Severity: {severity}) was created on target: {target} of type Vein damage"
         //        : $"Tried to create a trauma on target: {target}, but no trauma was applied. Type: Vein damage.");
         //}
+    }
+
+    private bool AtBodyLimit(EntityUid body, ProtoId<TraumaTypePrototype> traumaType)
+    {
+        return _prototype.TryIndex(traumaType, out var proto) && AtBodyLimit(body, proto);
+    }
+
+    private bool AtBodyLimit(EntityUid body, TraumaTypePrototype proto)
+    {
+        return proto.MaxPerBody is { } max
+            && TryGetBodyTraumas(body, out var traumas, proto.ID)
+            && traumas.Count >= max;
     }
 
     private EntityUid? SelectTraumaTarget(Entity<WoundableComponent> woundable, TraumaTarget target)
