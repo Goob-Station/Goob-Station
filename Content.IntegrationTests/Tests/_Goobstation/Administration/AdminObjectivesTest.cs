@@ -43,6 +43,18 @@ public sealed class AdminObjectivesTest
   - type: KillPersonCondition
 """;
 
+    private static int CountObjectives(IEntityManager entMan)
+    {
+        var count = 0;
+        var query = entMan.AllEntityQueryEnumerator<ObjectiveComponent>();
+        while (query.MoveNext(out _, out _))
+        {
+            count++;
+        }
+
+        return count;
+    }
+
     [Test]
     public async Task CustomObjectiveTest()
     {
@@ -103,18 +115,14 @@ public sealed class AdminObjectivesTest
             var mind = mindSys.CreateMind(session.UserId);
             var targetMind = mindSys.CreateMind(null, "Target Person");
 
+            // the test pair is reused, so other tests may have left objectives behind
+            var objectivesBefore = CountObjectives(entMan);
+
             // the traitor role requirement fails
             Assert.That(adminObjectives.TryAddPrototype(session, mind, TargetObjectiveProto, targetMind, false, out _), Is.False);
             Assert.That(mind.Comp.Objectives, Is.Empty);
-
-            var leaked = 0;
-            var query = entMan.AllEntityQueryEnumerator<ObjectiveComponent>();
-            while (query.MoveNext(out _, out _))
-            {
-                leaked++;
-            }
-
-            Assert.That(leaked, Is.Zero, "A failed requirement check must not leak the spawned objective.");
+            Assert.That(CountObjectives(entMan), Is.EqualTo(objectivesBefore),
+                "A failed requirement check must not leak the spawned objective.");
 
             // bypassing it works, and the designated target is used instead of a random one
             Assert.That(adminObjectives.TryAddPrototype(session, mind, TargetObjectiveProto, targetMind, true, out _), Is.True);
