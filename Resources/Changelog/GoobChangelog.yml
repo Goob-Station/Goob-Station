@@ -26752,3 +26752,9 @@ Entries:
       message: CMO now has a new insulated labcoat loadout option!
   id: 3004
   time: '2026-10-26T16:45:03.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: carry client reload/crash bug
+  id: 3005
+  time: '2026-10-26T16:45:58.0000000+00:00'
