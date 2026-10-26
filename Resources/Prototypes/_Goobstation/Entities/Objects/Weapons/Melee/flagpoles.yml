@@ -66,7 +66,7 @@
 
 - type: entity
   name: Syndicate flagpole
-  parent: [ Spear, BaseSyndicateContraband ]
+  parent: [ BaseItem, BaseSyndicateContraband ]
   id: WeaponFlagpoleSyndicate
   description: A spear flying the Syndicate colors, with an energy dagger lashed to its head. Deals terrible, terrible damage to mindshielded personnel.
   components:
@@ -80,20 +80,47 @@
     energy: 2
     color: "#ff5533"
     netsync: false
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,8,0
+    storedRotation: 45
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Sharp
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
   - type: MeleeWeapon
+    canWideSwing: false
+    range: 2.2
+    attackRate: 0.8
+    animationRotation: -135
+    wideAnimationRotation: -135
+    animation: WeaponArcThrust
+    angle: 0
     damage:
       types:
         Piercing: 10
         Heat: 5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     damage:
       types:
         Piercing: 24
+  - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
         Piercing: 5
         Heat: 5
+  - type: UseDelay
   - type: EffectOnMindshielded
     range: 0
     meleeDamage:
