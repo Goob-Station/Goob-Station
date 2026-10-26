@@ -359,7 +359,7 @@
   name: DT-12 Lawbringer
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunLawbringer
-  description: Sometimes rank is a function of firepower. A versatile energy gun with a myriad of firing modes designed for the Head of Security. Self-recharges after a 40 second delay.
+  description: Sometimes rank is a function of firepower. A versatile energy gun with a myriad of firing modes designed for the Head of Security. Self-recharges after a 20 second delay.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
@@ -447,7 +447,7 @@
     repeatable: true
   - type: BatterySelfRecharger
     autoRechargeRate: 50
-    autoRechargePauseTime: 40
+    autoRechargePauseTime: 20
 
 - type: entity
   name: Ion Rifle
