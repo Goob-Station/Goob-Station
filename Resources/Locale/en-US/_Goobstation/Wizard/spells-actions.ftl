@@ -36,3 +36,4 @@ action-speech-spell-summon-stick-minions = Rise, my creations! Off your page int
 action-speech-spell-tile-toggle = RUK'AT
 action-speech-spell-curse-of-byond = CURSE OF BYOND!!
 action-speech-spell-rathen = ARSE NATH!!
+action-speech-spell-summon-supermatter = GY'T OH'O RI'LER'!!! 

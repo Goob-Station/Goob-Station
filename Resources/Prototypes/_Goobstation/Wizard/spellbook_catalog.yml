@@ -343,6 +343,24 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
+- type: listing
+  id: SpellbookSummonSupermatter
+  productUpgradeId: SpellbookSummonSupermatterUpgrade
+  name: spellbook-summon-supermatter-name
+  description: spellbook-summon-supermatter-desc
+  productAction: ActionSummonSupermatter
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile
