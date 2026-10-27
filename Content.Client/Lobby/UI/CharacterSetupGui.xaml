@@ -2,46 +2,39 @@
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
+<!-- Goob -->
 <Control xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-         xmlns:style="clr-namespace:Content.Client.Stylesheets"
          xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+         xmlns:hull="clr-namespace:Content.Goobstation.UIKit.UserInterface.Lobby;assembly=Content.Goobstation.UIKit"
          VerticalExpand="True">
-    <Control>
-        <PanelContainer Name="BackgroundPanel" />
-        <BoxContainer Orientation="Vertical" SeparationOverride="0">
-            <BoxContainer Orientation="Horizontal" MinSize="0 40">
+    <hull:HullPanel Name="BackgroundPanel">
+        <BoxContainer Orientation="Vertical" Margin="14 9 14 22" SeparationOverride="8">
+            <hull:HazardStripe MinHeight="6" Margin="11 0 11 9" />
+            <BoxContainer Orientation="Horizontal" SeparationOverride="4">
                 <Label Text="{Loc 'character-setup-gui-character-setup-label'}"
-                       Margin="8 0 0 0" VAlign="Center"
-                       StyleClasses="LabelHeadingBigger" />
-
-                <Button Name="StatsButton" HorizontalExpand="True"
+                       StyleClasses="HullHeading" VAlign="Center" HorizontalExpand="True" />
+                <Button Name="StatsButton"
                         Text="{Loc 'character-setup-gui-character-setup-stats-button'}"
-                        StyleClasses="ButtonBig"
-                        HorizontalAlignment="Right" />
+                        StyleClasses="HullPlate" />
                 <cc:CommandButton Name="AdminRemarksButton"
                                   Command="adminremarks"
                                   Text="{Loc 'character-setup-gui-character-setup-adminremarks-button'}"
-                                  StyleClasses="ButtonBig" />
+                                  StyleClasses="HullPlate" />
                 <Button Name="RulesButton"
                         Text="{Loc 'character-setup-gui-character-setup-rules-button'}"
-                        StyleClasses="ButtonBig"/>
+                        StyleClasses="HullPlate" />
                 <Button Name="CloseButton"
                         Access="Public"
-                        Text="{Loc 'character-setup-gui-character-setup-close-button'}"
-                        StyleClasses="ButtonBig"/>
+                        Text="{Loc 'character-setup-gui-back-to-lobby'}"
+                        StyleClasses="HullPlate" />
             </BoxContainer>
-            <PanelContainer StyleClasses="highlight">
-            </PanelContainer>
-            <BoxContainer Orientation="Horizontal" VerticalExpand="True" SeparationOverride="0">
-                <ScrollContainer MinSize="325 0" Margin="5 5 0 0">
-                    <BoxContainer Name="Characters" Orientation="Vertical" />
+            <PanelContainer StyleClasses="HullInset">
+                <ScrollContainer HScrollEnabled="True" VScrollEnabled="False" Margin="4" MinHeight="146">
+                    <BoxContainer Name="Characters" Orientation="Horizontal" SeparationOverride="6" Margin="0 0 0 4" />
                 </ScrollContainer>
-                <PanelContainer MinSize="2 0" StyleClasses="highlight">
-                </PanelContainer>
-                <BoxContainer Name="CharEditor" HorizontalExpand="True" />
-            </BoxContainer>
+            </PanelContainer>
+            <BoxContainer Name="CharEditor" HorizontalExpand="True" VerticalExpand="True" />
         </BoxContainer>
-    </Control>
+    </hull:HullPanel>
 </Control>
