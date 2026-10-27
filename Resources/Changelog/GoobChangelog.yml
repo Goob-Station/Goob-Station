@@ -26758,3 +26758,9 @@ Entries:
       message: carry client reload/crash bug
   id: 3005
   time: '2026-10-26T16:45:58.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added new LOBBY UI!!!!!
+  id: 3006
+  time: '2026-10-27T22:15:19.0000000+00:00'
