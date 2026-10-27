@@ -1,0 +1,37 @@
+- type: newsEntry
+  id: VoiceChat
+  title: news-voice-chat-title
+  summary: news-voice-chat-summary
+  document: /ServerInfo/_Goobstation/News/VoiceChat.xml
+  card: /ServerInfo/_Goobstation/News/VoiceChatCard.xml
+  conditions:
+  - !type:VoiceChatAvailable
+  popup:
+    frequency: EveryConnect
+    allowNeverShow: true
+    conditions:
+    - !type:VoiceMicDisconnected
+
+- type: newsEntry
+  id: PatreonSupport
+  title: news-patreon-title
+  summary: news-patreon-summary
+  document: /ServerInfo/_Goobstation/News/PatreonSupport.xml
+  card: /ServerInfo/_Goobstation/News/PatreonSupportCard.xml
+  popup:
+    frequency: Days
+    days: 7
+
+- type: newsEntry
+  id: SigmaNoTokens
+  title: news-sigma-no-tokens-title
+  summary: news-sigma-no-tokens-summary
+  date: 2026-10-26
+  document: /ServerInfo/_Goobstation/News/SigmaNoTokens.xml
+
+- type: newsEntry
+  id: NewLobby
+  title: news-new-lobby-title
+  summary: news-new-lobby-summary
+  date: 2026-10-27
+  document: /ServerInfo/_Goobstation/News/NewLobby.xml

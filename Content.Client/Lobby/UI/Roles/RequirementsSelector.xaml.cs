@@ -21,6 +21,7 @@ public sealed partial class RequirementsSelector : BoxContainer
 {
     private readonly RadioOptions<int> _options;
     private readonly StripeBack _lockStripe;
+    private readonly Label _lockReason; // Goob
     private List<ProtoId<GuideEntryPrototype>>? _guides;
 
     public event Action<int>? OnSelected;
@@ -33,9 +34,9 @@ public sealed partial class RequirementsSelector : BoxContainer
         RobustXamlLoader.Load(this);
         _options = new RadioOptions<int>(RadioOptionsLayout.Horizontal)
         {
-            FirstButtonStyle = StyleClass.ButtonOpenRight,
-            ButtonStyle = StyleClass.ButtonOpenBoth,
-            LastButtonStyle = StyleClass.ButtonOpenLeft,
+            FirstButtonStyle = "HullTab", // Goob
+            ButtonStyle = "HullTab", // Goob
+            LastButtonStyle = "HullTab", // Goob
             HorizontalExpand = true,
         };
         //Override default radio option button width
@@ -47,13 +48,7 @@ public sealed partial class RequirementsSelector : BoxContainer
             OnSelected?.Invoke(args.Id);
         };
 
-        var requirementsLabel = new Label()
-        {
-            Text = Loc.GetString("role-timer-locked"),
-            Visible = true,
-            HorizontalAlignment = HAlignment.Center,
-            StyleClasses = {StyleClass.LabelSubText},
-        };
+        _lockReason = new Label { HorizontalExpand = true, ClipText = true, Margin = new Thickness(6, 0), StyleClasses = { "HullFieldLabel" } }; // Goob
 
         _lockStripe = new StripeBack()
         {
@@ -63,7 +58,7 @@ public sealed partial class RequirementsSelector : BoxContainer
             MouseFilter = MouseFilterMode.Stop,
             Children =
             {
-                requirementsLabel
+                _lockReason // Goob
             }
         };
 
@@ -107,8 +102,17 @@ public sealed partial class RequirementsSelector : BoxContainer
         OptionsContainer.AddChild(_lockStripe);
     }
 
+    public bool Locked => _lockStripe.Visible; // Goob
+
     public void LockRequirements(FormattedMessage requirements)
     {
+        var lines = requirements.ToString().Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries); // Goob
+        _lockReason.Text = lines.Length switch // Goob
+        {
+            0 => Loc.GetString("role-timer-locked"),
+            1 => lines[0],
+            _ => Loc.GetString("humanoid-profile-editor-job-requirements-more", ("first", lines[0]), ("count", lines.Length - 1)),
+        };
         var tooltip = new Tooltip();
         tooltip.SetMessage(requirements);
         _lockStripe.TooltipSupplier = _ => tooltip;

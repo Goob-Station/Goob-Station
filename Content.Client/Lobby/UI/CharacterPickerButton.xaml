@@ -2,27 +2,32 @@
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
+<!-- Goob -->
 <ContainerButton xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:style="clr-namespace:Content.Client.Stylesheets">
-    <BoxContainer Orientation="Horizontal"
+         StyleClasses="HullSlot"
+         SetWidth="132">
+    <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
-                  SeparationOverride="0"
+                  SeparationOverride="2"
                   Name="InternalHBox">
         <SpriteView Scale="2 2"
-                    Margin="0 4 4 4"
                     OverrideDirection="South"
                     Name="View"
-                    SetSize="64 64"/>
+                    SetSize="64 64"
+                    HorizontalAlignment="Center"/>
         <Label Name="DescriptionLabel"
                ClipText="True"
+               Align="Center"
                HorizontalExpand="True"/>
-        <Button Name="DeleteButton"
-                Text="{Loc 'character-setup-gui-character-picker-button-delete-button'}"/>
-        <Button Name="ConfirmDeleteButton"
-                Text="{Loc 'character-setup-gui-character-picker-button-confirm-delete-button'}"
-                Visible="False"
-                StyleClasses="negative"/>
-
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" MinHeight="24">
+            <Button Name="DeleteButton"
+                    StyleClasses="HullPlate"
+                    Text="{Loc 'character-setup-gui-character-picker-button-delete-button'}"/>
+            <Button Name="ConfirmDeleteButton"
+                    Text="{Loc 'character-setup-gui-character-picker-button-confirm-delete-button'}"
+                    Visible="False"
+                    StyleClasses="HullDanger"/>
+        </BoxContainer>
     </BoxContainer>
 </ContainerButton>
