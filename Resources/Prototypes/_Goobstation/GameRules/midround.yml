@@ -419,6 +419,7 @@
     - Harpy
     - Plasmaman
     - Synth
+    - SlimePerson
     forceMaxSize: true
   - type: AntagObjectives
     objectives:
