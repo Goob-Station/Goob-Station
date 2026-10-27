@@ -14,6 +14,7 @@ using Content.Shared.CCVar;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby.UI;
 
@@ -95,8 +96,8 @@ public sealed partial class LobbyGui
 
     public void SetRoundInfo(string map, string mode, int roundId, int players, int ready)
     {
-        MapValue.Text = map;
-        ModeValue.Text = mode;
+        MapValue.Text = FormattedMessage.RemoveMarkupPermissive(map);
+        ModeValue.Text = FormattedMessage.RemoveMarkupPermissive(mode);
         RoundValue.Text = Loc.GetString("ui-lobby-fact-round-value", ("roundId", roundId));
         ReadyValue.Text = Loc.GetString("ui-lobby-fact-ready-value", ("ready", ready), ("players", players));
     }

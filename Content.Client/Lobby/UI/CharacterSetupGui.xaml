@@ -30,7 +30,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         StyleClasses="HullPlate" />
             </BoxContainer>
             <PanelContainer StyleClasses="HullInset">
-                <ScrollContainer HScrollEnabled="True" VScrollEnabled="False" Margin="4" MinHeight="146">
+                <ScrollContainer HScrollEnabled="True" VScrollEnabled="False" ReturnMeasure="True" Margin="4">
                     <BoxContainer Name="Characters" Orientation="Horizontal" SeparationOverride="6" Margin="0 0 0 4" />
                 </ScrollContainer>
             </PanelContainer>

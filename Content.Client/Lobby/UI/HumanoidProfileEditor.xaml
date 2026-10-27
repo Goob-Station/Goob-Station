@@ -79,7 +79,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <BoxContainer Orientation="Horizontal" SeparationOverride="6" Visible="False" Name="BarksContainer">
                     <Label Text="{Loc 'humanoid-profile-editor-voice-label'}" StyleClasses="HullFieldLabel" MinWidth="130" VAlign="Top" />
                     <PanelContainer StyleClasses="HullInset" HorizontalExpand="True">
-                        <ScrollContainer HScrollEnabled="False" MaxHeight="180">
+                        <ScrollContainer HScrollEnabled="False" ReturnMeasure="True" MaxHeight="180">
                             <hull:VoiceList Name="BarkVoiceButton" Margin="4" />
                         </ScrollContainer>
                     </PanelContainer>

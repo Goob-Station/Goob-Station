@@ -472,7 +472,8 @@ public sealed partial class MarkingGridPicker : BoxContainer
         content.AddChild(new PanelContainer
         {
             SetSize = new Vector2(16, 16),
-            VerticalAlignment = VAlignment.Center,
+            VerticalAlignment = VAlignment.Top,
+            Margin = new Thickness(0, 2, 0, 0),
             PanelOverride = new StyleBoxFlat
             {
                 BackgroundColor = marking.MarkingColors.Count > 0 ? marking.MarkingColors[0] : Color.White,
@@ -482,16 +483,22 @@ public sealed partial class MarkingGridPicker : BoxContainer
             MouseFilter = MouseFilterMode.Ignore,
         });
 
-        var names = new BoxContainer { Orientation = LayoutOrientation.Vertical, HorizontalExpand = true };
+        var details = new BoxContainer { Orientation = LayoutOrientation.Vertical, HorizontalExpand = true, SeparationOverride = 2 };
         var title = new RichTextLabel { HorizontalExpand = true, MouseFilter = MouseFilterMode.Ignore };
         title.SetMessage(FormattedMessage.FromUnformatted(Loc.GetString(marking.Forced ? "marking-grid-applied-forced" : "marking-grid-applied-name", ("name", Loc.GetString($"marking-{proto.ID}")))));
-        names.AddChild(title);
-        names.AddChild(new Label
+        details.AddChild(title);
+
+        var actions = new BoxContainer { Orientation = LayoutOrientation.Horizontal, SeparationOverride = 4 };
+        actions.AddChild(new Label
         {
             Text = Loc.GetString($"markings-category-{category}"),
+            HorizontalExpand = true,
+            ClipText = true,
+            VerticalAlignment = VAlignment.Center,
             StyleClasses = { HullStyleClasses.PostDate },
         });
-        content.AddChild(names);
+        details.AddChild(actions);
+        content.AddChild(details);
 
         var up = new Button { Text = "▲", StyleClasses = { HullStyleClasses.Plate }, Disabled = reverseIndex == 0 };
         var down = new Button { Text = "▼", StyleClasses = { HullStyleClasses.Plate }, Disabled = reverseIndex >= count - 1 };
@@ -511,9 +518,9 @@ public sealed partial class MarkingGridPicker : BoxContainer
         };
         remove.OnPressed += _ => RemoveMarking(category, proto.ID);
 
-        content.AddChild(up);
-        content.AddChild(down);
-        content.AddChild(remove);
+        actions.AddChild(up);
+        actions.AddChild(down);
+        actions.AddChild(remove);
         row.AddChild(content);
 
         row.OnPressed += _ =>

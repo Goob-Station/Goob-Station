@@ -6,7 +6,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <ContainerButton xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          StyleClasses="HullSlot"
-         SetWidth="132">
+         MinWidth="132">
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
                   SeparationOverride="2"
@@ -17,9 +17,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     SetSize="64 64"
                     HorizontalAlignment="Center"/>
         <Label Name="DescriptionLabel"
-               ClipText="True"
                Align="Center"
                HorizontalExpand="True"/>
+        <Label Name="JobLabel"
+               Align="Center"
+               HorizontalExpand="True"
+               StyleClasses="HullMuted"
+               Visible="False"/>
+        <Control VerticalExpand="True"/>
         <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" MinHeight="24">
             <Button Name="DeleteButton"
                     StyleClasses="HullPlate"

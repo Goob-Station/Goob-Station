@@ -9,6 +9,7 @@ using Content.Client.Message;
 using Content.Client.Playtime;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
+using Content.Goobstation.Common.CCVar; // Goob
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Shared.CCVar;
 using Robust.Client;
@@ -65,7 +66,8 @@ namespace Content.Client.Lobby
             LayoutContainer.SetAnchorPreset(Lobby, LayoutContainer.LayoutPreset.Wide);
 
             var lobbyNameCvar = _cfg.GetCVar(CCVars.ServerLobbyName);
-            var serverName = _baseClient.GameInfo?.ServerName ?? string.Empty;
+            var windowTitle = _cfg.GetCVar(GoobCVars.WindowTitle); // Goob
+            var serverName = string.IsNullOrWhiteSpace(windowTitle) ? _baseClient.GameInfo?.ServerName ?? string.Empty : windowTitle; // Goob
 
             Lobby.ServerName.Text = string.IsNullOrEmpty(lobbyNameCvar)
                 ? Loc.GetString("ui-lobby-title", ("serverName", serverName))
