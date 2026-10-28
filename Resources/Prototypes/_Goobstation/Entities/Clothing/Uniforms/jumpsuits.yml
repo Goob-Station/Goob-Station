@@ -515,3 +515,15 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
+
+#FlavourVille
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitHawaiFire
+  name: flaming hawaiian shirt
+  description: A souvenir from Flavour Town
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaifire.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaifire.rsi
