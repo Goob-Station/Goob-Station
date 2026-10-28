@@ -26764,3 +26764,35 @@ Entries:
       message: Added new LOBBY UI!!!!!
   id: 3006
   time: '2026-10-27T22:15:19.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: >-
+        Halloween is here! Get costumes inspired by your favorites at your local
+        autodrobe! Remember to check the contraband storage.
+    - type: Add
+      message: Candy can now spawn in maintenance lockers
+    - type: Add
+      message: >-
+        Candy and snacks now spawn in head lockers. Will you trick or treat your
+        employees?
+    - type: Add
+      message: Added a new borg skin!
+    - type: Add
+      message: >-
+        Added the candy bucket as a selectable trinket. Are you guys going trick
+        or treating?
+    - type: Add
+      message: Added candy buckets to the autodrobe in case you lose yours.
+    - type: Add
+      message: Readded the revenant for a limited time. Ooooooo....
+    - type: Tweak
+      message: Increased the amount of basic costumes in the autodrobe
+    - type: Tweak
+      message: Very slightly increased the spawnrate of vent spiders.
+    - type: Tweak
+      message: Reduced the price of the syndicate candy bundle to 90 TC from 100 TC.
+    - type: Tweak
+      message: slightly increased the spawnrate of skeletons.
+  id: 3007
+  time: '2026-10-28T19:42:18.0000000+00:00'
