@@ -24,13 +24,7 @@ public sealed partial class XenobiologyMiscSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMagicSystem _magic = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<MindTransferenceEvent>(OnMindTransference);
-    }
-
+    [SubscribeLocalEvent]
     private void OnMindTransference(MindTransferenceEvent ev)
     {
         if (ev.Handled)

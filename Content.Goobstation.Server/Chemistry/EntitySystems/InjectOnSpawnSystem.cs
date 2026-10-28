@@ -10,12 +10,7 @@ public sealed partial class InjectOnSpawnSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly ReactiveSystem _reactive = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<InjectOnSpawnComponent, MapInitEvent>(OnInjectMapInit);
-    }
-
+    [SubscribeLocalEvent]
     private void OnInjectMapInit(Entity<InjectOnSpawnComponent> ent, ref MapInitEvent args)
     {
         if (!TryComp<SolutionContainerManagerComponent>(ent.Owner, out var solContainer)

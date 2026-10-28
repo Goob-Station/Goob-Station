@@ -8,13 +8,7 @@ public sealed partial class GoobReactiveSystem : EntitySystem
 {
     [Dependency] private readonly SharedEntityEffectsSystem _effect = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ReactiveComponent, ReactionEntityDoneEvent>(OnReactionEntityDone);
-    }
-
+    [SubscribeLocalEvent]
     private void OnReactionEntityDone(Entity<ReactiveComponent> ent, ref ReactionEntityDoneEvent args)
     {
         if (ent.Comp.Effects == null)
