@@ -5,13 +5,7 @@ namespace Content.Goobstation.Shared.Ghost;
 
 public sealed partial class SpectralSystem : EntitySystem
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SpectralComponent, BeforeMindSwappedEvent>(OnBeforeMindSwapped);
-    }
-
+    [SubscribeLocalEvent]
     private void OnBeforeMindSwapped(Entity<SpectralComponent> ent, ref BeforeMindSwappedEvent args)
     {
         args.Message = ent.Comp.MindswapText;
