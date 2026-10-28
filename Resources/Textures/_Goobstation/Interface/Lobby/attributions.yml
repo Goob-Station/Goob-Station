@@ -1,0 +1,9 @@
+- files: ["ready.png", "ready_pressed.png", "screw_diagonal.png", "round_panel.png", "button.png", "button_hover.png", "button_pressed.png", "button_disabled.png", "danger.png", "danger_hover.png", "danger_pressed.png", "danger_disabled.png", "fact_panel.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by @Rouge2t7 (Discord) for Goob Station"
+  source: "https://discord.gg/goobstation"
+
+- files: ["metal_panel.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made (Temporarily) by @Gaming420 (Discord) for Goob Station"
+  source: "https://discord.gg/goobstation"

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Popups;
+using Content.Shared._DV.Chemistry.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
@@ -14,21 +15,38 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.MedicalPatch;
 
-public sealed class MedicalPatchSystem : EntitySystem
+public sealed partial class MedicalPatchSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly StickySystem _stickySystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
-    [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
-    [Dependency] protected readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private StickySystem _stickySystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainers = default!;
+    [Dependency] private ReactiveSystem _reactiveSystem = default!;
+    [Dependency] protected ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MedicalPatchComponent, EntityUnstuckEvent>(OnUnstuck);
         SubscribeLocalEvent<MedicalPatchComponent, EntityStuckEvent>(OnStuck);
+        SubscribeLocalEvent<MedicalPatchComponent, AttemptEntityStickEvent>(OnAttemptStick);
+    }
+
+    private void OnAttemptStick(Entity<MedicalPatchComponent> ent, ref AttemptEntityStickEvent args)
+    {
+        if (args.Cancelled
+            || !TryComp<BlockInjectionComponent>(args.Target, out var block)
+            || !block.BlockPatches)
+            return;
+
+        args.Cancelled = true;
+        _popupSystem.PopupEntity(Loc.GetString(block.DenyMessage), args.Target, args.User);
+    }
+
+    private bool IsPatchBlocked(EntityUid target)
+    {
+        return TryComp<BlockInjectionComponent>(target, out var block) && block.BlockPatches;
     }
     public override void Update(float frameTime)
     {
@@ -69,6 +87,9 @@ public sealed class MedicalPatchSystem : EntitySystem
         if (stickycomp.StuckTo == null)
             return false;
         var target = (EntityUid) stickycomp.StuckTo;
+
+        if (IsPatchBlocked(target))
+            return false;
 
         if (!_solutionContainers.TryGetSolution(uid, component.SolutionName, out var medicalPatchSoln, out var medicalPatchSolution) || medicalPatchSolution.Volume == 0)
         {

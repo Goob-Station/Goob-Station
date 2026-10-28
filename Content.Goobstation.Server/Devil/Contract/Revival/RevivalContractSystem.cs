@@ -16,12 +16,12 @@ using Robust.Server.Player;
 namespace Content.Goobstation.Server.Devil.Contract.Revival;
 public sealed partial class PendingRevivalContractSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly DevilContractSystem _contract = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
+    [Dependency] private RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private DevilContractSystem _contract = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

@@ -2,13 +2,26 @@
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
-<DefaultWindow xmlns="https://spacestation14.io"
-            Title="{Loc 'character-setup-gui-save-panel-title'}"
-            Resizable="False">
-
-    <BoxContainer Orientation="Horizontal" SeparationOverride="4" MinSize="200 40">
-        <Button Name="SaveButton" Access="Public" Text="{Loc 'character-setup-gui-save-panel-save'}" StyleClasses="ButtonBig"/>
-        <Button Name="NoSaveButton" Access="Public" Text="{Loc 'character-setup-gui-save-panel-nosave'}" StyleClasses="ButtonBig"/>
-        <Button Name="CancelButton" Access="Public" Text="{Loc 'character-setup-gui-save-panel-cancel'}" StyleClasses="ButtonBig"/>
-    </BoxContainer>
-</DefaultWindow>
+<!-- Goob -->
+<ui:CharacterSetupGuiSavePanel xmlns="https://spacestation14.io"
+            xmlns:ui="clr-namespace:Content.Client.Lobby.UI"
+            xmlns:hull="clr-namespace:Content.Goobstation.UIKit.UserInterface.Lobby;assembly=Content.Goobstation.UIKit"
+            MinWidth="420">
+    <hull:HullPanel>
+        <BoxContainer Orientation="Vertical" Margin="16 9 16 22" SeparationOverride="10">
+            <hull:HazardStripe MinHeight="6" Margin="9 0 9 11" />
+            <Label Text="{Loc 'character-setup-gui-save-panel-title'}" StyleClasses="HullHeading" />
+            <Label Text="{Loc 'character-setup-gui-save-panel-body'}" StyleClasses="HullFieldLabel" />
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8" HorizontalAlignment="Right" Margin="0 6 0 0">
+                <Button Name="CancelButton" Access="Public" Text="{Loc 'character-setup-gui-save-panel-cancel'}"
+                        StyleClasses="HullPlate" VerticalAlignment="Center" />
+                <Button Name="NoSaveButton" Access="Public" Text="{Loc 'character-setup-gui-save-panel-nosave'}"
+                        StyleClasses="HullDanger" VerticalAlignment="Center" />
+                <hull:HazardStripe>
+                    <Button Name="SaveButton" Access="Public" Text="{Loc 'character-setup-gui-save-panel-save'}"
+                            StyleClasses="HullReady" MinWidth="110" MinHeight="32" Margin="4" />
+                </hull:HazardStripe>
+            </BoxContainer>
+        </BoxContainer>
+    </hull:HullPanel>
+</ui:CharacterSetupGuiSavePanel>

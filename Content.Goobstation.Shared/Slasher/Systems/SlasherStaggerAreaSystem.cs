@@ -14,18 +14,18 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// <summary>
 /// Handles the Slasher Stagger Area action. When used, slows nearby mobs in range for a short duration.
 /// </summary>
-public sealed class SlasherStaggerAreaSystem : EntitySystem
+public sealed partial class SlasherStaggerAreaSystem : EntitySystem
 {
     public static readonly EntProtoId EffectId = "SlasherSlowdownStatusEffect";
 
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedInteractionSystem _interact = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly MovementModStatusSystem _movemod = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedInteractionSystem _interact = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private MovementModStatusSystem _movemod = default!;
 
     public override void Initialize()
     {

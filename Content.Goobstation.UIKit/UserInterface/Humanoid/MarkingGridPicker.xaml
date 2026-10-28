@@ -1,0 +1,32 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:hull="clr-namespace:Content.Goobstation.UIKit.UserInterface.Lobby;assembly=Content.Goobstation.UIKit"
+              Orientation="Vertical"
+              HorizontalExpand="True"
+              VerticalExpand="True"
+              SeparationOverride="8">
+    <hull:TileFlowContainer Name="CategoryChips" Separation="4" CrossSeparation="4" HorizontalExpand="True" />
+    <BoxContainer Orientation="Horizontal" SeparationOverride="10" VerticalExpand="True">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="1.6" SeparationOverride="6">
+            <LineEdit Name="Search" StyleClasses="HullField" PlaceHolder="{Loc 'markings-search'}" />
+            <PanelContainer StyleClasses="HullInset" VerticalExpand="True">
+                <ScrollContainer Name="Scroll" HScrollEnabled="False" VerticalExpand="True">
+                    <BoxContainer Orientation="Vertical">
+                        <hull:TileFlowContainer Name="Grid" Separation="6" CrossSeparation="6" Margin="4" HorizontalExpand="True" />
+                        <Label Name="EmptyLabel" Text="{Loc 'marking-tiles-no-match'}" StyleClasses="HullMuted"
+                               HorizontalAlignment="Center" Margin="0 12" Visible="False" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </PanelContainer>
+            <Label Name="PointsLabel" StyleClasses="HullFieldLabel" />
+        </BoxContainer>
+        <PanelContainer StyleClasses="HullInset" HorizontalExpand="True" MinWidth="260">
+            <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+                    <BoxContainer Name="AppliedList" Orientation="Vertical" SeparationOverride="4" />
+                    <Label Name="AppliedEmpty" Text="{Loc 'marking-grid-applied-empty'}" StyleClasses="HullMuted" />
+                    <BoxContainer Name="ColorEditor" Orientation="Vertical" SeparationOverride="6" Visible="False" Margin="0 6 0 0" />
+                </BoxContainer>
+            </ScrollContainer>
+        </PanelContainer>
+    </BoxContainer>
+</BoxContainer>

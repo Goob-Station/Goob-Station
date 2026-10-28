@@ -1,3 +1,6 @@
 [game]
 hostname = "Goob Alpha ᴇᴜ-ᴡ"
 desc = "😱"
+
+[goob]
+window_title = "Goob Alpha"

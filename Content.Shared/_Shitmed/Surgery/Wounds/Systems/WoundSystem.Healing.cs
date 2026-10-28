@@ -68,7 +68,10 @@ public sealed partial class WoundSystem
             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
                 continue;
 
+            bleeds.BleedingAmountRaw = 0;
+            bleeds.Scaling = 0;
             bleeds.IsBleeding = false;
+            Dirty(wound, bleeds);
         }
 
         return true;
@@ -450,6 +453,8 @@ public sealed partial class WoundSystem
             return false;
 
         var holdingWoundable = comp.HoldingWoundable;
+        if (!TryComp<WoundableComponent>(holdingWoundable, out var woundable))
+            return false;
 
         var ev = new WoundHealAttemptOnWoundableEvent((wound, comp));
         RaiseLocalEvent(holdingWoundable, ref ev);
@@ -457,7 +462,7 @@ public sealed partial class WoundSystem
         if (ev.Cancelled)
             return false;
 
-        var ev1 = new WoundHealAttemptEvent((holdingWoundable, Comp<WoundableComponent>(holdingWoundable)), ignoreBlockers);
+        var ev1 = new WoundHealAttemptEvent((holdingWoundable, woundable), ignoreBlockers);
         RaiseLocalEvent(wound, ref ev1);
 
         severityFloor = ev1.SeverityFloor;

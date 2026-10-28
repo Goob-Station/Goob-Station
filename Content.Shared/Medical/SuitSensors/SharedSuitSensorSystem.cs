@@ -2,7 +2,7 @@ using System.Numerics;
 using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clothing;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
@@ -140,6 +140,9 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     {
         args.Affected = true;
         args.Disabled = true;
+
+        if (HasComp<EmpDisabledComponent>(ent)) // Goob
+            return;
 
         ent.Comp.PreviousMode = ent.Comp.Mode;
         SetSensor(ent.AsNullable(), SuitSensorMode.SensorOff, null);

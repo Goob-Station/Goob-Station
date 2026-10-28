@@ -148,7 +148,8 @@ public sealed partial class ZombieSystem
             Forced = true,
             Inventory = PolymorphInventoryChange.Transfer,
             RevertOnCrit = false,
-            RevertOnDeath = false
+            RevertOnDeath = false,
+            IgnoreAllowRepeatedMorphs = true, // Goob - zombify already-polymorphed mobs like upgraded bingles
         };
 
         if (_polymorph.PolymorphEntity(target, polyConfig) is not { } zombie)
@@ -310,8 +311,7 @@ public sealed partial class ZombieSystem
             tempComp.ColdDamage.ClampMax(0);
 
         //Heals the zombie from all the damage it took while human
-        if (TryComp<DamageableComponent>(target, out var damageablecomp))
-            _damageable.SetAllDamage(target, damageablecomp, 0);
+        _damageable.ClearAllDamage(target);
         _mobState.ChangeMobState(target, MobState.Alive);
 
         _faction.ClearFactions(target, dirty: false);

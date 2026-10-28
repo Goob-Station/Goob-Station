@@ -41,6 +41,7 @@ namespace Content.Server.GameTicking
         {
             RaiseNetworkEvent(GetInfoMsg(), Filter.Empty().AddPlayers(_playerManager.NetworkedSessions));
             RaiseNetworkEvent(GetInGameInfoMsg(), Filter.Empty().AddPlayers(_playerManager.NetworkedSessions));
+            RaiseNetworkEvent(GetLobbyRoundInfoMsg(), Filter.Empty().AddPlayers(_playerManager.NetworkedSessions)); // Goob
         }
 
         private string GetInfoText(bool isInGameInfo = false)
