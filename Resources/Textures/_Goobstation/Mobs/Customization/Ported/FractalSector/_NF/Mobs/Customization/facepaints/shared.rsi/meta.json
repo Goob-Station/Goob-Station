@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Sprited by Zergologist (discord). Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_NF/Mobs/Customization/facepaints/shared.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "facepaint_eyebrows",
+      "directions": 4
+    },
+    {
+      "name": "facepaint_lipstick_snout",
+      "directions": 4
+    }
+  ]
+}

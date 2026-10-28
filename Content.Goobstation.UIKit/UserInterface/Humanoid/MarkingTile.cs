@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Goobstation.UIKit.UserInterface.Lobby;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -35,7 +36,7 @@ public sealed class MarkingTileColors
     }
 }
 
-public readonly record struct MarkingTileLayer(Texture Texture, MarkingTileTint Tint, int ColorLayer, HumanoidVisualLayers? Slot = null);
+public readonly record struct MarkingTileLayer(Texture Texture, MarkingTileTint Tint, int ColorLayer, HumanoidVisualLayers? Slot = null, IRsiStateLike? Animation = null);
 
 public sealed class MarkingTile : ContainerButton
 {
@@ -47,13 +48,14 @@ public sealed class MarkingTile : ContainerButton
 
     private readonly LayeredTextureControl _art;
     private readonly Label _star;
+    private readonly Label _animatedBadge;
 
     public string? MarkingId { get; }
     public string DisplayName { get; }
 
     public event Action<MarkingTile>? RightClicked;
 
-    public MarkingTile(string? markingId, string displayName, MarkingTileColors colors, List<MarkingTileLayer> layers, UIBox2 region, EntityUid? doll, float width = TileWidth)
+    public MarkingTile(string? markingId, string displayName, MarkingTileColors colors, List<MarkingTileLayer> layers, UIBox2 region, EntityUid? doll, float width = TileWidth, MarkingCategories? hiddenCategory = null)
     {
         MarkingId = markingId;
         DisplayName = displayName;
@@ -62,7 +64,7 @@ public sealed class MarkingTile : ContainerButton
         StyleClasses.Add(HullStyleClasses.Slot);
         ToolTip = displayName;
 
-        _art = new LayeredTextureControl(colors, layers, region, doll)
+        _art = new LayeredTextureControl(colors, layers, region, doll, hiddenCategory)
         {
             SetSize = new Vector2(ArtSize, ArtSize),
             HorizontalAlignment = HAlignment.Center,
@@ -72,6 +74,15 @@ public sealed class MarkingTile : ContainerButton
             Text = "★",
             StyleClasses = { HullStyleClasses.PostNew },
             HorizontalAlignment = HAlignment.Right,
+            VerticalAlignment = VAlignment.Top,
+            Visible = false,
+        };
+
+        _animatedBadge = new Label
+        {
+            Text = Loc.GetString("marking-tiles-animated-badge"),
+            StyleClasses = { HullStyleClasses.PostNew },
+            HorizontalAlignment = HAlignment.Left,
             VerticalAlignment = VAlignment.Top,
             Visible = false,
         };
@@ -93,6 +104,7 @@ public sealed class MarkingTile : ContainerButton
 
         AddChild(column);
         AddChild(_star);
+        AddChild(_animatedBadge);
 
         OnKeyBindDown += args =>
         {
@@ -102,6 +114,16 @@ public sealed class MarkingTile : ContainerButton
             RightClicked?.Invoke(this);
             args.Handle();
         };
+    }
+
+    public bool Animated
+    {
+        get => _animatedBadge.Visible;
+        set
+        {
+            _animatedBadge.Visible = value;
+            ToolTip = value ? Loc.GetString("marking-tiles-animated-tooltip", ("name", DisplayName)) : DisplayName;
+        }
     }
 
     public bool Favourite

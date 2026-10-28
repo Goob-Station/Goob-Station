@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by bulbo44kkey (Discord). Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Arcane/Mobs/Customization/Moth/body.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "belly",
+      "directions": 4
+    },
+    {
+      "name": "deadhead-collar",
+      "directions": 4
+    },
+    {
+      "name": "leopard-collar",
+      "directions": 4
+    },
+    {
+      "name": "melancholic-collar",
+      "directions": 4
+    },
+    {
+      "name": "moon-collar",
+      "directions": 4
+    },
+    {
+      "name": "pentadactyla-collar",
+      "directions": 4
+    },
+    {
+      "name": "white-moth-collar",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "flowers and thorns from https://github.com/Citadel-Station-13/Citadel-Station-13-RP/commit/38051f45d3b26bd31f6e292239f43adb36ff01fe, modified by EmoGarbage and atdoop (github). bloom, bracket, brush, cornflower, ficus, garland, king, laurel, lotus, oak, palm, root, rose, rosey, thorns, vinel, vines, and wildflower from https://github.com/TauCetiStation/TauCetiClassic/blob/a8c097fd0e749dcd6f66f05cf5325e51f6b081dd/icons/mob/human_face.dmi and modified by atdoop (github). amanita, bigfirefly, jack, mycena, pollendust and shelf by crocodilecarousel (github). Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/_Impstation/Mobs/Customization/Diona/head.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "sunflower_base",
+      "directions": 4
+    },
+    {
+      "name": "sunflower_eyes",
+      "directions": 4
+    },
+    {
+      "name": "sunflower_petals1",
+      "directions": 4
+    },
+    {
+      "name": "sunflower_petals2",
+      "directions": 4
+    }
+  ]
+}

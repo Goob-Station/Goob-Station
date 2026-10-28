@@ -1,0 +1,12 @@
+# Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42
+
+- type: marking
+  id: SlimeSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [SlimePerson]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/SlimePerson/snout.rsi
+    state: snout

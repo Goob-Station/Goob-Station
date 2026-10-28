@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Drawn by ThatOneDragon, Lumithrax. Ported from https://github.com/Sector-Umbra/sector-umbra/tree/58f7e454941dc71e00166c60a09063b9e8378d56/Resources/Textures/_Umbra/Mobs/Customization/aquaticheadfrills.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "AquaticHeadFrills",
+      "directions": 4
+    }
+  ]
+}

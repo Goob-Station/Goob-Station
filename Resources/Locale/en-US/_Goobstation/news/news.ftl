@@ -29,3 +29,6 @@ news-new-lobby-demo-plate = Button
 news-new-lobby-demo-tab = Toggle
 news-new-lobby-demo-danger = Danger
 
+news-new-markings-title = New Markings
+news-new-markings-summary = 2,073 new markings.
+news-new-markings-feedback = Tell me which markings are fucked, on Discord

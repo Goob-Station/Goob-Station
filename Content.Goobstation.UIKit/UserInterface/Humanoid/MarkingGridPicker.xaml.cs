@@ -62,6 +62,7 @@ public sealed partial class MarkingGridPicker : BoxContainer
     private bool _hoverActive;
     private string? _hoverId;
     private bool _hoverDirty;
+    private bool _animatedPreview;
 
     public string IgnoreCategories
     {
@@ -102,6 +103,12 @@ public sealed partial class MarkingGridPicker : BoxContainer
         _doll = new TileBaseDoll(_entMan, _prototypeManager);
 
         Search.OnTextChanged += args => Populate(args.Text);
+        WagButton.OnToggled += args =>
+        {
+            _animatedPreview = args.Pressed;
+            BuildTiles();
+            _hoverDirty = true;
+        };
     }
 
     public void SetData(List<Marking> newMarkings, string species, Sex sex, Color skinColor, Color eyeColor)
@@ -189,6 +196,7 @@ public sealed partial class MarkingGridPicker : BoxContainer
 
     public void PopulateUsed()
     {
+        MarkPreviewDirty();
         AppliedList.RemoveAllChildren();
 
         if (!IgnoreSpecies)
@@ -232,18 +240,27 @@ public sealed partial class MarkingGridPicker : BoxContainer
             _colorPending = false;
             _lastColorCommit = _timing.RealTime;
             OnMarkingColorChange?.Invoke(_currentMarkings);
+            MarkPreviewDirty();
         }
 
         if (!_hoverDirty)
             return;
 
         _hoverDirty = false;
+        MarkingSet? preview = null;
         if (_hoverActive && _hoverId != null && _markingManager.Markings.TryGetValue(_hoverId, out var proto)
             && _currentMarkings.FindIndexOf(proto.MarkingCategory, proto.ID) < 0
             && (Forced || _currentMarkings.PointsLeft(proto.MarkingCategory) != 0))
         {
-            var preview = new MarkingSet(_currentMarkings);
+            preview = new MarkingSet(_currentMarkings);
             preview.AddBack(proto.MarkingCategory, CreateMarking(proto));
+        }
+
+        if (_animatedPreview)
+            preview = WithAnimatedVariants(preview ?? _currentMarkings);
+
+        if (preview != null)
+        {
             OnMarkingPreview?.Invoke(preview);
             return;
         }
@@ -277,9 +294,9 @@ public sealed partial class MarkingGridPicker : BoxContainer
 
     private IReadOnlyDictionary<string, MarkingPrototype> GetMarkings(MarkingCategories category)
     {
-        return IgnoreSpecies
+        return _markingManager.WithoutWaggingVariants(IgnoreSpecies
             ? _markingManager.MarkingsByCategoryAndSex(category, _currentSex)
-            : _markingManager.MarkingsByCategoryAndSpeciesAndSex(category, _currentSpecies, _currentSex);
+            : _markingManager.MarkingsByCategoryAndSpeciesAndSex(category, _currentSpecies, _currentSex));
     }
 
     private void SetupCategoryChips()
@@ -325,16 +342,25 @@ public sealed partial class MarkingGridPicker : BoxContainer
 
         var region = HumanoidTileArt.IsHeadCategory(_selectedCategory) ? HumanoidTileArt.HeadRegion : HumanoidTileArt.FullBody;
 
+        var anyAnimated = false;
         foreach (var proto in GetMarkings(_selectedCategory).Values.OrderBy(p => Loc.GetString($"marking-{p.ID}")))
         {
+            var animated = GetAnimatedVariant(proto);
+            anyAnimated |= animated != null;
+
+            var art = _animatedPreview && animated != null ? animated : proto;
             var layers = new List<MarkingTileLayer>();
-            for (var i = 0; i < proto.Sprites.Count; i++)
+            for (var i = 0; i < art.Sprites.Count; i++)
             {
-                layers.Add(new MarkingTileLayer(_sprite.Frame0(proto.Sprites[i]), MarkingTileTint.Marking, i, HumanoidTileArt.SlotFor(proto, i)));
+                var animation = art == animated ? _sprite.RsiStateLike(art.Sprites[i]) : null;
+                layers.Add(new MarkingTileLayer(_sprite.Frame0(art.Sprites[i]), MarkingTileTint.Marking, i, HumanoidTileArt.SlotFor(art, i), animation));
             }
 
             var colors = new MarkingTileColors();
-            var tile = new MarkingTile(proto.ID, Loc.GetString($"marking-{proto.ID}"), colors, layers, region, _doll.Entity, MarkingTile.WideTileWidth);
+            var tile = new MarkingTile(proto.ID, Loc.GetString($"marking-{proto.ID}"), colors, layers, region, _doll.Entity, MarkingTile.WideTileWidth, _selectedCategory)
+            {
+                Animated = animated != null,
+            };
             tile.OnPressed += _ => ToggleMarking(proto);
             tile.OnMouseEntered += _ => SetHover(true, proto.ID);
             tile.OnMouseExited += _ => SetHover(false, null);
@@ -343,7 +369,55 @@ public sealed partial class MarkingGridPicker : BoxContainer
             Grid.AddChild(tile);
         }
 
+        WagButton.Visible = anyAnimated || _animatedPreview;
         RefreshTileColors();
+    }
+
+    private MarkingPrototype? GetAnimatedVariant(MarkingPrototype proto)
+    {
+        return _markingManager.TryGetWaggingMarking(proto.ID, out var id) && _markingManager.Markings.TryGetValue(id, out var animated)
+            ? animated
+            : null;
+    }
+
+    private MarkingSet WithAnimatedVariants(MarkingSet set)
+    {
+        var result = new MarkingSet(set);
+        foreach (var (category, markings) in set.Markings)
+        {
+            for (var i = 0; i < markings.Count; i++)
+            {
+                if (!_markingManager.TryGetWaggingMarking(markings[i].MarkingId, out var animated))
+                    continue;
+
+                result.Replace(category, i, new Marking(animated, markings[i].MarkingColors)
+                {
+                    Visible = markings[i].Visible,
+                    Forced = markings[i].Forced,
+                });
+            }
+        }
+
+        return result;
+    }
+
+    private void MarkPreviewDirty()
+    {
+        if (_animatedPreview)
+            _hoverDirty = true;
+    }
+
+    protected override void VisibilityChanged(bool newVisible)
+    {
+        base.VisibilityChanged(newVisible);
+
+        if (!_animatedPreview)
+            return;
+
+        if (newVisible)
+            _hoverDirty = true;
+        else
+            OnMarkingPreviewEnd?.Invoke();
     }
 
     private void QueueDoll()
@@ -508,12 +582,14 @@ public sealed partial class MarkingGridPicker : BoxContainer
         {
             _currentMarkings.ShiftRankDownFromEnd(category, reverseIndex);
             OnMarkingRankChange?.Invoke(_currentMarkings);
+            MarkPreviewDirty();
             PopulateUsed();
         };
         down.OnPressed += _ =>
         {
             _currentMarkings.ShiftRankUpFromEnd(category, reverseIndex);
             OnMarkingRankChange?.Invoke(_currentMarkings);
+            MarkPreviewDirty();
             PopulateUsed();
         };
         remove.OnPressed += _ => RemoveMarking(category, proto.ID);

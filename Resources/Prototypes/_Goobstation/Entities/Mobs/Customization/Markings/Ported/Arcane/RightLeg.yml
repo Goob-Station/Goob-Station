@@ -1,0 +1,193 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: AndroidDefaultRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android_default.rsi
+    state: r_leg
+
+- type: marking
+  id: AndroidScrapLegRight
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: r_leg_scrap
+
+- type: marking
+  id: AndroidSyntLegRight
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: r_leg_synt
+
+- type: marking
+  id: BS2RLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bs2ipc_r_leg
+
+- type: marking
+  id: BSHRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bshipc_r_leg
+
+- type: marking
+  id: CyberlimbRLegBishop
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/bishop.rsi
+    state: r_leg
+
+- type: marking
+  id: CyberlimbRLegMorpheus
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/morpheus.rsi
+    state: r_leg
+
+- type: marking
+  id: CyberlimbRLegNanotrasen
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/nanotrasen.rsi
+    state: r_leg
+
+- type: marking
+  id: CyberlimbRLegZenghu
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/zenghu.rsi
+    state: r_leg
+
+- type: marking
+  id: HI2RLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: hi2ipc_r_leg
+
+- type: marking
+  id: IPCRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ipc_r_leg
+
+- type: marking
+  id: IPSRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ips_r_leg
+
+- type: marking
+  id: PawsitronsRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: pawsitrons_r_leg
+
+- type: marking
+  id: SGMRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: sgmipc_r_leg
+
+- type: marking
+  id: SteampunkRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: staripc_r_leg
+
+- type: marking
+  id: WTMRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: wtmipc_r_leg
+
+- type: marking
+  id: XM2RLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: xm2ipc_r_leg
+
+- type: marking
+  id: ZHPRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: zhpipc_r_leg
