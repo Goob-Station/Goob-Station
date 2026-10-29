@@ -25,6 +25,7 @@ public sealed partial class LobbyGui
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IUriOpener _uri = default!;
     [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ChangelogManager _changelog = default!;
 
     private readonly List<(CVarDef<string> CVar, Button Button)> _linkButtons = new();
 
@@ -40,6 +41,10 @@ public sealed partial class LobbyGui
         Hatch.Landed += () => _shake = ShakeSeconds;
 
         CreateMenu(LinksButton, BuildLinks());
+
+        ChangelogButton.OnPressed += _ => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
+        _changelog.NewChangelogEntriesChanged += UpdateChangelogButton;
+        UpdateChangelogButton();
         CreateMenu(MenuButton, BuildMenu());
 
         NewsTabButton.OnPressed += _ => SelectTab(false);
@@ -140,6 +145,14 @@ public sealed partial class LobbyGui
         ReadyValue.Text = Loc.GetString("ui-lobby-fact-ready-value", ("ready", ready), ("players", players));
     }
 
+    private void UpdateChangelogButton()
+    {
+        var unread = _changelog.NewChangelogEntries;
+        ChangelogButton.Text = Loc.GetString(unread ? "changelog-button-new-entries" : "changelog-button");
+        ChangelogButton.RemoveStyleClass(unread ? HullStyleClasses.Plate : HullStyleClasses.Danger);
+        ChangelogButton.AddStyleClass(unread ? HullStyleClasses.Danger : HullStyleClasses.Plate);
+    }
+
     private List<BaseButton> BuildLinks()
     {
         var items = new List<BaseButton>();
@@ -151,10 +164,6 @@ public sealed partial class LobbyGui
         var guidebook = new Button { Text = Loc.GetString("server-info-guidebook-button") };
         guidebook.OnPressed += _ => UserInterfaceManager.GetUIController<GuidebookUIController>().ToggleGuidebook();
         items.Add(guidebook);
-
-        var changelog = new ChangelogButton();
-        changelog.OnPressed += _ => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
-        items.Add(changelog);
 
         AddLink("server-info-discord-button", CCVars.InfoLinksDiscord);
         AddLink("server-info-website-button", CCVars.InfoLinksWebsite);

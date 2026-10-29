@@ -45,6 +45,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         <Label Name="ServerName" Access="Public" StyleClasses="HullHeading" VAlign="Center"
                                HorizontalExpand="True" ClipText="True" />
                         <Button Name="LinksButton" Text="{Loc 'ui-lobby-links-button'}" StyleClasses="HullPlate" />
+                        <Button Name="ChangelogButton" Text="{Loc 'changelog-button'}" StyleClasses="HullPlate" />
                         <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}" StyleClasses="HullPlate" />
                         <Button Name="MenuButton" Text="{Loc 'ui-lobby-menu-button'}" StyleClasses="HullPlate" />
                         <TextureButton Name="CollapseButton"
