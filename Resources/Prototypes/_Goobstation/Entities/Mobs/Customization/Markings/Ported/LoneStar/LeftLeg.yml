@@ -1,0 +1,28 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: ResomiLLegCoat
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_leg_markings.rsi
+    state: l_leg_coat
+
+- type: marking
+  id: ResomiLLegFade
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_leg_markings.rsi
+    state: l_leg_fade
+
+- type: marking
+  id: ResomiLLegStripes
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_leg_markings.rsi
+    state: l_leg_stripes

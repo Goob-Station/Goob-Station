@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Based off old sergal markings but remastered, made by chlymerine(SS14)/kaminukurumi(github). Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "sergears-1",
+      "directions": 4
+    },
+    {
+      "name": "sergears-2",
+      "directions": 4
+    },
+    {
+      "name": "sergsnoutredux-1",
+      "directions": 4
+    },
+    {
+      "name": "sergsnoutredux-2",
+      "directions": 4
+    },
+    {
+      "name": "sergtail-1",
+      "directions": 4
+    },
+    {
+      "name": "sergtail-2",
+      "directions": 4
+    }
+  ]
+}

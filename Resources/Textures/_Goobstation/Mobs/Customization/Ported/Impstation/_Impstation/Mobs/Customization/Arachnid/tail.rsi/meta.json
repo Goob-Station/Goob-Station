@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "abdomenbasic, creepy, and widow by crocodilecarousel (github) for Impstation. scorpion by Entings (github) for Impstation. rest made by PixelTheKermit (github) for SS14 and edited by Sha-Seng (github) for Impstation. Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/_Impstation/Mobs/Customization/Arachnid/tail.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "scorpion",
+      "directions": 4
+    }
+  ]
+}

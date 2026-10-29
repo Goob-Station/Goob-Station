@@ -12,6 +12,11 @@ humanoid-profile-editor-match-hair-colors = Match hair and facial hair color
 marking-tiles-all = All
 marking-tiles-favourites = ★ Favourites {$count}
 marking-tiles-favourites-tooltip = Right-click a style to star it.
+marking-tiles-animated-badge = WAG
+marking-tiles-animated-tooltip = {$name}
+    Has a wagging animation.
+marking-grid-preview-animated = Preview wag
+marking-grid-preview-animated-tooltip = Show the wagging version of tails.
 marking-tiles-none = None
 marking-tiles-color = Color
 marking-tiles-custom = Custom

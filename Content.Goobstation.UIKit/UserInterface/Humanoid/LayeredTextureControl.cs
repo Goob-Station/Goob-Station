@@ -1,14 +1,20 @@
 using System.Numerics;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Graphics.RSI;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.UIKit.UserInterface.Humanoid;
 
 public sealed partial class LayeredTextureControl : Control
 {
     [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MarkingManager _markingManager = default!;
 
     private const float BaseSize = 32;
 
@@ -18,9 +24,12 @@ public sealed partial class LayeredTextureControl : Control
     private readonly EntityUid? _doll;
     private readonly Dictionary<int, List<MarkingTileLayer>> _inserts = new();
     private readonly List<MarkingTileLayer> _trailing = new();
+    private readonly HashSet<int> _hidden = new();
+    private readonly MarkingCategories? _hiddenCategory;
 
-    public LayeredTextureControl(MarkingTileColors colors, List<MarkingTileLayer> layers, UIBox2 region, EntityUid? doll = null)
+    public LayeredTextureControl(MarkingTileColors colors, List<MarkingTileLayer> layers, UIBox2 region, EntityUid? doll = null, MarkingCategories? hiddenCategory = null)
     {
+        _hiddenCategory = hiddenCategory;
         IoCManager.InjectDependencies(this);
         _colors = colors;
         _layers = layers;
@@ -40,7 +49,7 @@ public sealed partial class LayeredTextureControl : Control
         {
             foreach (var layer in _layers)
             {
-                DrawTexture(handle, layer.Texture, _colors.Get(layer.Tint, layer.ColorLayer), scale);
+                DrawTexture(handle, LayerTexture(layer), _colors.Get(layer.Tint, layer.ColorLayer), scale);
             }
 
             return;
@@ -68,17 +77,19 @@ public sealed partial class LayeredTextureControl : Control
             }
         }
 
+        CollectHiddenLayers(spriteSystem, (doll, sprite));
+
         var i = 0;
         foreach (var spriteLayer in sprite.AllLayers)
         {
-            if (spriteLayer.Visible && GetTexture(spriteLayer) is { } texture)
+            if (spriteLayer.Visible && !_hidden.Contains(i) && GetTexture(spriteLayer) is { } texture)
                 DrawTexture(handle, texture, spriteLayer.Color * sprite.Color, scale);
 
             if (_inserts.TryGetValue(i, out var inserted))
             {
                 foreach (var layer in inserted)
                 {
-                    DrawTexture(handle, layer.Texture, _colors.Get(layer.Tint, layer.ColorLayer), scale);
+                    DrawTexture(handle, LayerTexture(layer), _colors.Get(layer.Tint, layer.ColorLayer), scale);
                 }
             }
 
@@ -87,7 +98,7 @@ public sealed partial class LayeredTextureControl : Control
 
         foreach (var layer in _trailing)
         {
-            DrawTexture(handle, layer.Texture, _colors.Get(layer.Tint, layer.ColorLayer), scale);
+            DrawTexture(handle, LayerTexture(layer), _colors.Get(layer.Tint, layer.ColorLayer), scale);
         }
     }
 
@@ -99,6 +110,54 @@ public sealed partial class LayeredTextureControl : Control
             (BaseSize - size.Y) / 2f - _region.Top * BaseSize) * scale;
 
         handle.DrawTextureRect(texture, UIBox2.FromDimensions(topLeft, size * scale), color);
+    }
+
+    private void CollectHiddenLayers(SpriteSystem spriteSystem, Entity<SpriteComponent> doll)
+    {
+        _hidden.Clear();
+
+        if (_hiddenCategory is not { } category
+            || !_entMan.TryGetComponent<HumanoidAppearanceComponent>(doll, out var humanoid)
+            || !humanoid.MarkingSet.Markings.TryGetValue(category, out var markings))
+            return;
+
+        foreach (var marking in markings)
+        {
+            if (!_markingManager.Markings.TryGetValue(marking.MarkingId, out var proto))
+                continue;
+
+            foreach (var specifier in proto.Sprites)
+            {
+                if (specifier is SpriteSpecifier.Rsi rsi
+                    && spriteSystem.LayerMapTryGet(doll.AsNullable(), $"{proto.ID}-{rsi.RsiState}", out var index, false))
+                    _hidden.Add(index);
+            }
+        }
+    }
+
+    private Texture LayerTexture(MarkingTileLayer layer)
+    {
+        if (layer.Animation is not { IsAnimated: true } animation)
+            return layer.Texture;
+
+        var total = 0f;
+        for (var i = 0; i < animation.AnimationFrameCount; i++)
+        {
+            total += animation.GetDelay(i);
+        }
+
+        if (total <= 0)
+            return layer.Texture;
+
+        var time = (float) (_timing.RealTime.TotalSeconds % total);
+        for (var i = 0; i < animation.AnimationFrameCount; i++)
+        {
+            time -= animation.GetDelay(i);
+            if (time < 0)
+                return animation.GetFrame(RsiDirection.South, i);
+        }
+
+        return layer.Texture;
     }
 
     private static Texture? GetTexture(ISpriteLayer layer)

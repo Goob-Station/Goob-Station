@@ -182,7 +182,7 @@ public sealed partial class MarkingTilePicker : BoxContainer
         if (_species == null)
             return;
 
-        var options = _markingManager.MarkingsByCategoryAndSpecies(_category, _species);
+        var options = _markingManager.WithoutWaggingVariants(_markingManager.MarkingsByCategoryAndSpecies(_category, _species));
         OptionCount = options.Count;
 
         var region = _category == MarkingCategories.FacialHair

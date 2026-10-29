@@ -35,3 +35,10 @@
   summary: news-new-lobby-summary
   date: 2026-10-27
   document: /ServerInfo/_Goobstation/News/NewLobby.xml
+
+- type: newsEntry
+  id: NewMarkings
+  title: news-new-markings-title
+  summary: news-new-markings-summary
+  date: 2026-10-28
+  document: /ServerInfo/_Goobstation/News/NewMarkings.xml

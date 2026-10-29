@@ -1,0 +1,83 @@
+# Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116
+
+- type: marking
+  id: UndergarmentTopBinderVulpkanin
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: null
+      fallbackColor: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/Mobs/Customization/undergarments.rsi
+    state: binder_vulpkanin
+
+- type: marking
+  id: UndergarmentTopBraVulpkanin
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: null
+      fallbackColor: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/Mobs/Customization/undergarments.rsi
+    state: classic_vulpkanin
+
+- type: marking
+  id: UndergarmentTopSportsbraVulpkanin
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: null
+      fallbackColor: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/Mobs/Customization/undergarments.rsi
+    state: sports_vulpkanin
+
+- type: marking
+  id: UndergarmentTopTanktopVulpkanin
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: null
+      fallbackColor: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/Mobs/Customization/undergarments.rsi
+    state: tanktop_vulpkanin
+
+- type: marking
+  id: UndershirtDefaultF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Felinid, Feroxi, Harpy, Human, Hydrakin, Moth, Oni, Reptilian, Resomi, Rodentia, Shadowkin, Tajaran, Vox, Vulpkanin, Yowie]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
+    state: undershirtf
+
+- type: marking
+  id: UndershirtRolledF
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Felinid, Feroxi, Harpy, Human, Hydrakin, Moth, Oni, Reptilian, Rodentia, Shadowkin, Tajaran, Vox, Vulpkanin, Yowie]
+  sexRestriction: [Female]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi
+    state: rolledundershirtf

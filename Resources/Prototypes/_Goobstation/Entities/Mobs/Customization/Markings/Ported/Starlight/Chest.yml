@@ -1,0 +1,37 @@
+# Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42
+
+- type: marking
+  id: BodyHairBack
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/human_body_hair.rsi
+    state: hair_back
+
+- type: marking
+  id: BodyHairChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/human_body_hair.rsi
+    state: hair_chest
+
+- type: marking
+  id: MarkingStandardChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_FarHorizons/Mobs/Customization/ipc/standard/standard_main.rsi
+    state: torso_m
+
+- type: marking
+  id: VulpBellySkunk
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/body_markings.rsi
+    state: skunk

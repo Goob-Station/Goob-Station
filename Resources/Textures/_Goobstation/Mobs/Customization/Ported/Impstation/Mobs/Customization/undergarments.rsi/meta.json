@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "sprites taken from https://github.com/cmss13-devs/cmss13/blob/884ab172389b6fc54ef063f5fbea5e8b0a0a2235/icons/mob/humans/underwear.dmi and https://github.com/cmss13-devs/cmss13/blob/884ab172389b6fc54ef063f5fbea5e8b0a0a2235/icons/mob/humans/undershirt.dmi, edited by SlamBamActionman. Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/Mobs/Customization/undergarments.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "boxers_vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "briefs_vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "classic_vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "sports_vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "tanktop_vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "binder_vulpkanin",
+      "directions": 4
+    }
+  ]
+}

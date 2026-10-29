@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by GitHub NotLivyathan / Discord livyathan (298907041198637067), xeno tails originally by GitHub Mspaintwizard / Discord 426969028796350485, modified by NotLivyathan South frame separated onto the TailBehind layer for Wolfgate. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_WF/Genitals/Mobs/Customization/TailSplit/_HL/Mobs/Customization/Synth/tail.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "factory_composite_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "factory_composite_FRONT",
+      "directions": 4
+    }
+  ]
+}
