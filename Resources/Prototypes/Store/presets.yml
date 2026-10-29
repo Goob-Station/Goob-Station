@@ -31,11 +31,11 @@
   - type: Store
     name: store-preset-name-spellbook
     categories:
-    - SpellbookOffensive    #Fireball, Rod Form
-    - SpellbookDefensive    #Magic Missile, Wall of Force
-    - SpellbookUtility      #Body Swap, Lich, Teleport, Knock, Polymorph
-    - SpellbookEquipment    #Battlemage Robes, Staff of Locker
-    - SpellbookEvents       #Summon Weapons, Summon Ghosts
+    - SpellbookOffensive
+    - SpellbookDefensive
+    - SpellbookUtility
+    - SpellbookEquipment
+    - SpellbookEvents
     - SpellbookSummons      #Goobstation
     - SpellbookSpecial      #Goobstation
     - SpellbookBundles      #Goobstation
@@ -49,10 +49,10 @@
   - type: Store
     name: store-preset-name-spellbook-ghost
     categories:
-    - SpellbookOffensive   #Fireball, Rod Form
-    - SpellbookDefensive    #Magic Missile, Wall of Force
-    - SpellbookUtility      #Body Swap, Lich, Teleport, Knock, Polymorph
-    - SpellbookEquipment    #Battlemage Robes, Staff of Locker
+    - SpellbookOffensive
+    - SpellbookDefensive
+    - SpellbookUtility
+    - SpellbookEquipment
     - SpellbookSummons      #Goobstation
     - SpellbookBundles      #Goobstation
     currencyWhitelist:
@@ -80,3 +80,4 @@
     - Telecrystal
     balance:
       Telecrystal: 0
+

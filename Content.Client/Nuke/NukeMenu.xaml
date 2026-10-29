@@ -10,14 +10,12 @@ SPDX-License-Identifier: MIT
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
                   VerticalExpand="True">
-        <!-- First status label -->
         <PanelContainer Margin="0 0 0 5">
             <PanelContainer.PanelOverride>
                 <gfx:StyleBoxFlat BackgroundColor="#001c00" />
             </PanelContainer.PanelOverride>
             <Label Name="FirstStatusLabel"/>
         </PanelContainer>
-        <!-- Second status label -->
         <PanelContainer Margin="0 0 0 5">
             <PanelContainer.PanelOverride>
                 <gfx:StyleBoxFlat BackgroundColor="#001c00" />
@@ -36,7 +34,6 @@ SPDX-License-Identifier: MIT
         <BoxContainer Orientation="Horizontal" >
             <GridContainer Columns="3"
                            Name="KeypadGrid">
-                <!-- Keypad is filled by code -->
             </GridContainer>
             <BoxContainer Orientation="Vertical"
                           HorizontalExpand="True"
@@ -57,3 +54,4 @@ SPDX-License-Identifier: MIT
         </BoxContainer>
     </BoxContainer>
 </DefaultWindow>
+

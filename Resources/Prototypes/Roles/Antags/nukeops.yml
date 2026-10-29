@@ -54,7 +54,6 @@
   - !type:DepartmentTimeRequirement
     department: Command
     time: 10h # 10h Goobstation
-# should be changed to nukie playtime when thats tracked (wyci)
   - !type:SpeciesRequirement
     inverted: true
     species:
@@ -80,9 +79,7 @@
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
-    - NukeConversionKit # Goobstation - siege rework
 
-#Nuclear Operative Gear
 - type: startingGear
   id: SyndicateOperativeGearFull
   parent: SyndicateOperativeGearFullNoUplink
@@ -98,7 +95,6 @@
     head: ClothingHeadHelmetHardsuitSyndie
     neck: ClothingNeckScarfStripedSyndieRed
 
-#Nuclear Operative Commander Gear
 - type: startingGear
   id: SyndicateCommanderGearFull
   parent: SyndicateOperativeGearFullNoUplink
@@ -120,7 +116,6 @@
     head: ClothingHeadHelmetHardsuitSyndieCommander
     neck: ClothingNeckScarfStripedSyndieGreen
 
-#Nuclear Operative Medic Gear
 - type: startingGear
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFullNoUplink
@@ -135,8 +130,6 @@
   storage:
     back:
     - SyndiHypo
-    #- SawAdvanced # Shitmed
-    #- Cautery # Shitmed
     - CombatKnife
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
@@ -144,7 +137,6 @@
     - CombatMedipen
     - DeathAcidifierImplanter
     - MedkitCombatFilled # Goobstation
-    - NukeConversionKit # Goobstation - siege rework
 
 - type: chameleonOutfit
   id: NukeopsMedicOutfit
@@ -155,10 +147,10 @@
     head: ClothingHeadHelmetHardsuitSyndieMedic
     neck: ClothingNeckScarfStripedLightBlue
 
-#Lone Operative Gear
 - type: startingGear
   id: SyndicateLoneOperativeGearFull
   parent: SyndicateOperativeGearFull
   equipment:
     # Goobstation - Telecrystal rework
     pocket2: LoneOpsUplink350TC #Goobstation
+

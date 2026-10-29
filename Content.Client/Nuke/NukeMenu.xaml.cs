@@ -21,18 +21,13 @@ namespace Content.Client.Nuke
             FillKeypadGrid();
         }
 
-        /// <summary>
-        ///     Fill keypad buttons in keypad grid
-        /// </summary>
         private void FillKeypadGrid()
         {
-            // add 3 rows of keypad buttons (1-9)
             for (var i = 1; i <= 9; i++)
             {
                 AddKeypadButton(i);
             }
 
-            // clear button
             var clearBtn = new Button()
             {
                 Text = "C"
@@ -40,10 +35,8 @@ namespace Content.Client.Nuke
             clearBtn.OnPressed += _ => OnClearButtonPressed?.Invoke();
             KeypadGrid.AddChild(clearBtn);
 
-            // zero button
             AddKeypadButton(0);
 
-            // enter button
             var enterBtn = new Button()
             {
                 Text = "E"
@@ -97,7 +90,6 @@ namespace Content.Client.Nuke
                         ("time", state.CooldownTime));
                     break;
                 default:
-                    // shouldn't normally be here
                     firstMsg = Loc.GetString("nuke-user-interface-status-error");
                     secondMsg = Loc.GetString("nuke-user-interface-status-error");
                     break;
