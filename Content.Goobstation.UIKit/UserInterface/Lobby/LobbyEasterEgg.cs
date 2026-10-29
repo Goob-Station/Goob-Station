@@ -88,7 +88,7 @@ public sealed partial class LobbyEasterEgg : LayoutContainer
         if (_edge == null || _hatch == null)
             return;
 
-        var shown = _shownWith?.Visible != false && _hatch.IsVisibleInTree;
+        var shown = _shownWith?.Visible != false && _hatch.VisibleInTree;
         _drawer.Visible = shown;
         if (!shown)
         {
