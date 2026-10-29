@@ -26812,3 +26812,15 @@ Entries:
         sprites.
   id: 3008
   time: '2026-10-29T02:08:18.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added 2000 new markings!
+    - type: Add
+      message: Added ability to view animated markings in the customization menu.
+    - type: Tweak
+      message: >-
+        Any mob with a tail that has an animated variant now automatically gets
+        the tail wag action, instead of it being set per species.
+  id: 3009
+  time: '2026-10-29T02:09:01.0000000+00:00'
