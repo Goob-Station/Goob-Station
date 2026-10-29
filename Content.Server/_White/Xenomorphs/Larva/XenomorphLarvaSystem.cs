@@ -20,6 +20,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 namespace Content.Server._White.Xenomorphs.Larva;
 
@@ -33,6 +34,9 @@ public sealed class XenomorphLarvaSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private readonly TraumaSystem _trauma = default!;
+
+    private const string BurstOrganDamageIdentifier = "LarvaBurst";
 
     public override void Initialize()
     {
@@ -101,14 +105,18 @@ public sealed class XenomorphLarvaSystem : EntitySystem
                 damage *= FixedPoint2.Max(needed, 0) / total;
         }
 
-        _damageableSystem.TryChangeDamage(victim, damage: damage, ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.Chest);
+        _damageableSystem.TryChangeDamage(victim,
+            damage: damage,
+            ignoreResistances: true,
+            interruptsDoAfters: false,
+            origin: uid,
+            ignoreGlobalModifiers: true,
+            targetPart: TargetBodyPart.Chest,
+            canMiss: false);
 
         foreach (var (chestId, chest) in _body.GetBodyChildrenOfType(victim, BodyPartType.Chest).ToList())
             foreach (var (organId, organ) in _body.GetPartOrgans(chestId, chest).ToList())
-            {
-                _body.RemoveOrgan(organId, organ);
-                QueueDel(organId);
-            }
+                _trauma.TrySetOrganDamageModifier(organId, organ.IntegrityCap, uid, BurstOrganDamageIdentifier, organ);
 
         _mobState.ChangeMobState(victim, MobState.Dead, origin: uid);
     }
