@@ -1,0 +1,266 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: BonemaskSockets
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Generic/bonemask.rsi
+    state: SocketsBonemask-marking-head
+
+- type: marking
+  id: Neckfur
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [Rodentia, Shadowkin, Tajaran, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Generic/neckfur.rsi
+    state: Neckfur
+
+- type: marking
+  id: PawSocksFeet
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: pawsocks_feet
+
+- type: marking
+  id: WFMeridianMarkingBandsAndStripesAltLFoot
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: bands_and_stripes_alt_l_foot
+
+- type: marking
+  id: WFMeridianMarkingBandsAndStripesAltRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: bands_and_stripes_alt_r_foot
+
+- type: marking
+  id: WFMeridianMarkingBandsAndStripesLFoot
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: bands_and_stripes_l_foot
+
+- type: marking
+  id: WFMeridianMarkingBandsAndStripesRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: bands_and_stripes_r_foot
+
+- type: marking
+  id: WFMeridianMarkingBurntOffGrayscaleRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: burnt_off_grayscale_r_foot
+
+- type: marking
+  id: WFMeridianMarkingChitinLFoot
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Arachnid, Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: chitin_l_foot
+
+- type: marking
+  id: WFMeridianMarkingChitinRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Arachnid, Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: chitin_r_foot
+
+- type: marking
+  id: WFMeridianMarkingColorBandsFootLFoot
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian, Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: color_bands_foot_l_foot
+
+- type: marking
+  id: WFMeridianMarkingColorBandsFootRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian, Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: color_bands_foot_r_foot
+
+- type: marking
+  id: WFMeridianMarkingGuilmonMarkLFoot
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: guilmon_mark_l_foot
+
+- type: marking
+  id: WFMeridianMarkingGuilmonMarkRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: guilmon_mark_r_foot
+
+- type: marking
+  id: WFMeridianMarkingScolipedeLFoot
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Chitinid]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: scolipede_l_foot
+
+- type: marking
+  id: WFMeridianMarkingScolipedeRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Chitinid]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: scolipede_r_foot
+
+- type: marking
+  id: WFMeridianMarkingTattooTigerFootLFoot
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#112222"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: tattoo_tiger_foot_l_foot
+
+- type: marking
+  id: WFMeridianMarkingTattooTigerFootRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#112222"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: tattoo_tiger_foot_r_foot
+
+- type: marking
+  id: WFMeridianMarkingTigerSpotLLeg
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: tiger_spot_l_leg
+
+- type: marking
+  id: WFMeridianMarkingTigerStripeLLeg
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Shadowkin, Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: tiger_stripe_l_leg
+
+- type: marking
+  id: WFMeridianMarkingWitchwingGrayscaleRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: witchwing_grayscale_r_foot

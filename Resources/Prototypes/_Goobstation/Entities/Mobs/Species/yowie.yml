@@ -79,9 +79,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: HumanoidAppearance
-    species: Diona
+    species: Yowie
   - type: Inventory
-    templateId: diona
+    templateId: yowie
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

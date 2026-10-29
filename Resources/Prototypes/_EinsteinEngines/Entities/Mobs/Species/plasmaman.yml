@@ -4,6 +4,10 @@
   name: Urist McPlasma
   abstract: true
   components:
+  - type: Barotrauma # Goob
+    protectionSlots:
+    - head
+    - jumpsuit
   - type: ZombieImmune
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
@@ -175,7 +179,7 @@
     thresholds:
       243: 0.8
   - type: Fart
-    gasToFart: Plasma
+    gas: Plasma
 
 - type: entity
   parent: BaseSpeciesDummy

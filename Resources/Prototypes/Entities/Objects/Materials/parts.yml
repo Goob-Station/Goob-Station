@@ -81,8 +81,10 @@
       rod:
         reagents:
         - ReagentId: Iron
-          Quantity: 4.5
+          Quantity: 4 # Goob
         - ReagentId: Carbon
+          Quantity: 0.5
+        - ReagentId: Lead # Goob
           Quantity: 0.5
   - type: GuideHelp
     guides:

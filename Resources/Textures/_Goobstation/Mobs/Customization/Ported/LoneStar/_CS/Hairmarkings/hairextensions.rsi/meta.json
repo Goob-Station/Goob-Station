@@ -1,0 +1,363 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "coyote-bayou. Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab/Resources/Textures/_CS/Hairmarkings/hairextensions.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "hairbgeneric",
+      "directions": 4
+    },
+    {
+      "name": "haircgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbedheadgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairjensengeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairkusanagigeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairponytail2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairponytail5generic",
+      "directions": 4
+    },
+    {
+      "name": "hairbedheadv2genric",
+      "directions": 4
+    },
+    {
+      "name": "hairlongfringegeneric",
+      "directions": 4
+    },
+    {
+      "name": "haircurlsgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairhimecutgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairhimecut2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairhimeupgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbedheadv3generic",
+      "directions": 4
+    },
+    {
+      "name": "hairlongest2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairspikeygeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbigafrogeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairafrogeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbraidgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbraid2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairgelledgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairsargeantgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairkagamigeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairafro2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairbeehivegeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbobcurlgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbobcutgeneric",
+      "directions": 4
+    },
+    {
+      "name": "haircombovergeneric",
+      "directions": 4
+    },
+    {
+      "name": "haircrewcutgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairdevillockgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairemogeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairfeathergeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairhightopgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairodangogeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairombregeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairpartedgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairpompadourgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairquiffgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairupdogeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairpartgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbungeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairsidetailgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairsidetail2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairantennageneric",
+      "directions": 4
+    },
+    {
+      "name": "hairprotagonistgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairsidetail3generic",
+      "directions": 4
+    },
+    {
+      "name": "hairhbraidgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairgentlegeneric",
+      "directions": 4
+    },
+    {
+      "name": "haironeshouldergeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairtressshouldergeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairmessygeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairshorthair2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairbraidtailgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairponytail3generic",
+      "directions": 4
+    },
+    {
+      "name": "hairkeanugeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairsweptgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbusiness2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairhedgehoggeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbusinessgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairshorthair3generic",
+      "directions": 4
+    },
+    {
+      "name": "hairbobgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbunhead2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairponytail4generic",
+      "directions": 4
+    },
+    {
+      "name": "hairlonggeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairlong2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairbigflattopgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairdrillhairgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairbigpompadourgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairpigtailsgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairspiky2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairbusiness3generic",
+      "directions": 4
+    },
+    {
+      "name": "hairbusiness4generic",
+      "directions": 4
+    },
+    {
+      "name": "hairpigtails2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairpixiegeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairsidetail4generic",
+      "directions": 4
+    },
+    {
+      "name": "hairbeehivev2generic",
+      "directions": 4
+    },
+    {
+      "name": "hairlargebungeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairshortbraidgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairmegaeyebrowsgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairlongemogeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairlongovereyegeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairshortovereyegeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairlongsidepartgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairlongstraightponytailgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairhighponytailgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairsidecutgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairdrillhairextendedgeneric",
+      "directions": 4
+    },
+    {
+      "name": "hairlong3generic",
+      "directions": 4
+    }
+  ]
+}

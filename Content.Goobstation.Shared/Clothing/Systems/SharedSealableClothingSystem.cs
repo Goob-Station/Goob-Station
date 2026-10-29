@@ -36,6 +36,7 @@ public abstract partial class SharedSealableClothingSystem : EntitySystem
     [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private ActionContainerSystem _actionContainerSystem = default!;
     [Dependency] private ComponentTogglerSystem _componentTogglerSystem = default!;
+    [Dependency] private HideLayerClothingSystem _hideLayer = default!;
     [Dependency] private SharedActionsSystem _actionsSystem = default!;
     [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private SharedAudioSystem _audioSystem = default!;
@@ -85,7 +86,13 @@ public abstract partial class SharedSealableClothingSystem : EntitySystem
     /// <param name="args"></param>
     private void OnPartSealingComplete(Entity<SealableClothingComponent> part, ref ClothingPartSealCompleteEvent args)
     {
+        if (!args.IsSealed)
+            _hideLayer.SetWearerLayersHidden(part, false);
+
         _componentTogglerSystem.ToggleComponent(part, args.IsSealed);
+
+        if (args.IsSealed)
+            _hideLayer.SetWearerLayersHidden(part, true);
     }
 
     /// <summary>

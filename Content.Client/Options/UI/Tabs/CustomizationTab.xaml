@@ -7,6 +7,12 @@
                 <Label Text="{Loc 'ui-options-customization-header-speech'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="RunechatCheckBox" Text="{Loc 'ui-options-runechat'}" />
+                <ui:OptionSlider Name="RunechatFontSizeSlider" Title="{Loc 'ui-options-runechat-font-size'}" />
+                <ui:OptionSlider Name="RunechatOutlineSlider" Title="{Loc 'ui-options-runechat-outline'}" />
+                <Label Text="{Loc 'ui-options-runechat-preview'}" Margin="0 4 0 0" />
+                <PanelContainer Name="RunechatPreviewPanel" Margin="0 4 0 8">
+                    <BoxContainer Name="RunechatPreview" Orientation="Vertical" Margin="8" />
+                </PanelContainer>
                 <CheckBox Name="FancySpeechBubblesCheckBox" Text="{Loc 'ui-options-fancy-speech'}" />
                 <CheckBox Name="FancyNameBackgroundsCheckBox" Text="{Loc 'ui-options-fancy-name-background'}" />
 

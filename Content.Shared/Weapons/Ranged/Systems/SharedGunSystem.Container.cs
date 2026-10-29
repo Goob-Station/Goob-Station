@@ -27,8 +27,7 @@ public partial class SharedGunSystem
 
             var ammoEnt = container.ContainedEntities[0];
 
-            if (_netManager.IsServer)
-                Containers.Remove(ammoEnt, container);
+            Containers.Remove(ammoEnt, container); // Trauma - predicted
 
             args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));
         }

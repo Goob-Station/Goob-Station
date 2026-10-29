@@ -1,0 +1,19 @@
+# Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116
+
+- type: marking
+  id: VulpSnoutTop
+  bodyPart: Snout
+  markingCategory: SnoutCover
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: snout-top
+
+- type: marking
+  id: VulpSnoutVulpineLines
+  bodyPart: Snout
+  markingCategory: SnoutCover
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/Mobs/Customization/Vulpkanin/snout_markings.rsi
+    state: vulpine-lines

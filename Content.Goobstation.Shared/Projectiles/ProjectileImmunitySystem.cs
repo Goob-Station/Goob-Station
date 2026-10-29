@@ -99,7 +99,7 @@ public sealed partial class ProjectileImmunitySystem : EntitySystem
             _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false, ignoreResist: true);
 
         if (ent.Comp.DodgeEffect != null)
-            SpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero));
+            PredictedSpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero)); // Trauma - predicted
     }
 
     private void TryHandleDodge(Entity<ProjectileImmunityComponent> ent, EntityUid projectile)
@@ -114,6 +114,6 @@ public sealed partial class ProjectileImmunitySystem : EntitySystem
             _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false, ignoreResist: true);
 
         if (ent.Comp.DodgeEffect != null)
-            SpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero));
+            PredictedSpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero)); // Trauma - predicted
     }
 }

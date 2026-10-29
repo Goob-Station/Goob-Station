@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Selene wings by @bogus_0451 on discord. Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_DV/Mobs/Customization/Moth/moth_wings.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "selene",
+      "directions": 4
+    }
+  ]
+}

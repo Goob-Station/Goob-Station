@@ -92,3 +92,6 @@ barks_enabled = true
 
 [biomass]
 easy_mode = false
+
+[news]
+pinned = "PatreonSupport"
