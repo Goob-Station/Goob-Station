@@ -13,6 +13,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Audio;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Destructible; // Goobstation
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Item;
@@ -88,6 +89,9 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         // Doafter events
         SubscribeLocalEvent<NukeComponent, NukeDisarmDoAfterEvent>(OnDoAfter);
 
+        SubscribeLocalEvent<NukeComponent, DestructionEventArgs>(OnNukeDestroyed); // Goobstation
+        SubscribeLocalEvent<NukeComponent, ItemSlotInsertAttemptEvent>(OnDiskInsertAttempt); // Goobstation
+
         SubscribeLocalEvent<NukeDiskComponent, BeingMicrowavedEvent>(OnMicrowaved);
     }
 
@@ -162,6 +166,42 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         if (args.Container.ID != component.DiskSlot.ID)
             return;
 
+        // Goobstation start - nuke ops siege rework
+        if (args is EntInsertedIntoContainerMessage &&
+            component.Converted &&
+            component.DiskSlot.Item is { } disk &&
+            HasComp<NukeDiskComponent>(disk))
+        {
+            if (IsAntagonist(component.LastDiskInserter))
+            {
+                if (component.Status == NukeStatus.ARMED)
+                {
+                    component.RemainingTime = MathF.Max(
+                        component.RemainingTime - component.DiskTimerReduction,
+                        component.DiskReductionMinTime);
+                    _popups.PopupEntity(Loc.GetString("nuke-component-disk-accelerated"), uid, PopupType.LargeCaution);
+                }
+            }
+            else if (component.Status == NukeStatus.ARMED)
+            {
+                DisarmBomb(uid, component);
+                _popups.PopupEntity(Loc.GetString("nuke-component-disk-defused"), uid, PopupType.Large);
+            }
+            else
+            {
+                component.Converted = false;
+                component.Status = NukeStatus.AWAIT_DISK;
+
+                var modifier = CompOrNull<NukeDiskComponent>(disk)?.TimeModifier ?? TimeSpan.Zero;
+                component.RemainingTime = MathF.Max(component.Timer + (float) modifier.TotalSeconds, component.MinimumTime);
+
+                _popups.PopupEntity(Loc.GetString("nuke-component-disk-recaptured"), uid, PopupType.Large);
+            }
+
+            component.LastDiskInserter = null;
+        }
+        // Goobstation end
+
         UpdateStatus(uid, component);
         UpdateUserInterface(uid, component);
     }
@@ -192,8 +232,8 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         if (component.Status == NukeStatus.ARMED)
             return;
 
-        // Nuke has to have the disk in it to be moved
-        if (!component.DiskSlot.HasItem)
+        // Nuke has to have the disk in it to be moved, unless it was converted with a kit (Goobstation)
+        if (!component.DiskSlot.HasItem && !component.Converted)
         {
             var msg = Loc.GetString("nuke-component-cant-anchor-toggle");
             _popups.PopupEntity(msg, uid, args.Actor, PopupType.MediumCaution);
@@ -278,7 +318,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
     {
         var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item);
 
-        if (!component.DiskSlot.HasItem)
+        if (!component.DiskSlot.HasItem && !component.Converted) // Goobstation
             return;
 
         if (component.Status == NukeStatus.AWAIT_ARM && Transform(uid).Anchored)
@@ -383,7 +423,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
                     component.Status = NukeStatus.AWAIT_ARM;
                 break;
             case NukeStatus.AWAIT_CODE:
-                if (!component.DiskSlot.HasItem)
+                if (!component.DiskSlot.HasItem && !component.Converted) // Goobstation
                 {
                     component.Status = NukeStatus.AWAIT_DISK;
                     component.EnteredCode = "";
@@ -393,8 +433,17 @@ public sealed partial class NukeSystem : EntitySystem // Goob
                 if (component.EnteredCode == component.Code)
                 {
                     component.Status = NukeStatus.AWAIT_ARM;
-                    var modifier = CompOrNull<NukeDiskComponent>(component.DiskSlot.Item)?.TimeModifier ?? TimeSpan.Zero;
-                    component.RemainingTime = MathF.Max(component.Timer + (float)modifier.TotalSeconds, component.MinimumTime);
+                    // Goobstation start - nuke ops siege rework
+                    if (component.Converted)
+                    {
+                        component.RemainingTime = component.ConvertedTimer;
+                    }
+                    else
+                    {
+                        var modifier = CompOrNull<NukeDiskComponent>(component.DiskSlot.Item)?.TimeModifier ?? TimeSpan.Zero;
+                        component.RemainingTime = MathF.Max(component.Timer + (float)modifier.TotalSeconds, component.MinimumTime);
+                    }
+                    // Goobstation end
                     _audio.PlayPvs(component.AccessGrantedSound, uid);
                 }
                 else
@@ -409,7 +458,8 @@ public sealed partial class NukeSystem : EntitySystem // Goob
                 break;
             case NukeStatus.ARMED:
                 // handling case of wizard recalling disk out of armed Nuke
-                if (!component.DiskSlot.HasItem)
+                // Goobstation
+                if (!component.DiskSlot.HasItem && !component.Converted)
                 {
                     DisarmBomb(uid, component);
                 }
@@ -428,7 +478,8 @@ public sealed partial class NukeSystem : EntitySystem // Goob
 
         var anchored = Transform(uid).Anchored;
 
-        var allowArm = component.DiskSlot.HasItem &&
+        // Goobstation
+        var allowArm = (component.DiskSlot.HasItem || component.Converted) &&
                        (component.Status == NukeStatus.AWAIT_ARM ||
                         component.Status == NukeStatus.ARMED);
 
@@ -442,6 +493,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
             EnteredCodeLength = component.EnteredCode.Length,
             MaxCodeLength = component.CodeLength,
             CooldownTime = (int) component.CooldownTime,
+            Converted = component.Converted, // Goobstation
         };
 
         _ui.SetUiState(uid, NukeUiKey.Key, state);
@@ -568,7 +620,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         // enable the navmap beacon for people to find it
         _navMap.SetBeaconEnabled(uid, true);
 
-        _itemSlots.SetLock(uid, component.DiskSlot, true);
+        _itemSlots.SetLock(uid, component.DiskSlot, !component.Converted); // Goobstation
         if (!nukeXform.Anchored)
         {
             // Admin command shenanigans, just make sure.
@@ -681,6 +733,53 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         component.RemainingTime = timer;
         UpdateUserInterface(uid, component);
     }
+
+    // Goobstation start - nuke ops siege rework
+    public void SetNukeCode(EntityUid uid, string code, NukeComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.Code = code;
+    }
+
+    /// <summary>
+    ///     Convert a bomb with a conversion kit so it can be armed without the authorization disk.
+    /// </summary>
+    public void ConvertBomb(EntityUid uid, NukeComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        if (component.Converted || component.Status == NukeStatus.ARMED)
+            return;
+
+        component.Converted = true;
+
+        if (component.Status == NukeStatus.AWAIT_DISK)
+            component.Status = NukeStatus.AWAIT_CODE;
+
+        UpdateUserInterface(uid, component);
+    }
+
+    public void SilentlyDeactivate(EntityUid uid, NukeComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        if (component.Status != NukeStatus.ARMED)
+            return;
+
+        component.PlayedNukeSong = false;
+        component.PlayedAlertSound = false;
+        component.AlertAudioStream = _audio.Stop(component.AlertAudioStream);
+        _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
+        _pointLight.SetEnabled(uid, false);
+        _navMap.SetBeaconEnabled(uid, false);
+        component.Status = NukeStatus.COOLDOWN;
+        component.CooldownTime = component.Cooldown;
+    }
+    // Goobstation end
 
     #endregion
 

@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Goobstation - nuke ops siege rework
+
+- type: entity
+  parent: BaseItem
+  id: NukeConversionKit
+  name: nuclear bomb conversion kit
+  description: A syndicate toolkit full of illegal authorization bypass hardware. Use it on a nuclear fission explosive to convert it for diskless arming. The keypad code is still required, and the resulting timer is much longer.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/nuke_conversion_kit.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: NukeConversionKit
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseStructure
+  id: NuclearBombWreck
+  name: wrecked nuclear fission explosive
+  description: A smashed nuclear fission explosive. The core is intact but the casing is ruined. It can be repaired with a welding tool.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 255
+        mask:
+        - MachineMask
+        layer:
+        - HalfWallLayer
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/nuke_wreck.rsi
+    state: icon
+    noRot: true
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 5
+            max: 10
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 5000
