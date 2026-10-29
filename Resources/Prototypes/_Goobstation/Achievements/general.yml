@@ -326,15 +326,6 @@
     distance: 10000
 
 - type: achievement
-  id: Smitten
-  name: achievement-smitten-name
-  description: achievement-smitten-desc
-  category: General
-  icon: { entity: ClothingMaskSexyClown }
-  hidden: true
-  condition: !type:EmoteSpamSmitedCondition
-
-- type: achievement
   id: NobodyUsesTheMedicineDrug
   name: achievement-nobody-uses-the-medicine-drug-name
   description: achievement-nobody-uses-the-medicine-drug-desc

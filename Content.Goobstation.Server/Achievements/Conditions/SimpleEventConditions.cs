@@ -1,6 +1,5 @@
 using Content.Goobstation.Common.Abductor;
 using Content.Goobstation.Common.Materials;
-using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Common.Nuke;
 using Content.Goobstation.Shared.Supermatter.Events;
 using Content.Shared.Body.Components;
@@ -13,8 +12,6 @@ namespace Content.Goobstation.Server.Achievements.Conditions;
 public sealed partial class SupermatterConsumedCondition : AchievementCondition;
 
 public sealed partial class SiliconEmaggedCondition : AchievementCondition;
-
-public sealed partial class EmoteSpamSmitedCondition : AchievementCondition;
 
 public sealed partial class AbductedAgainCondition : AchievementCondition;
 
@@ -49,21 +46,6 @@ public sealed class SiliconEmaggedConditionSystem : AchievementConditionSystem<S
     }
 
     private void OnSiliconEmaggedEvent(Entity<ActorComponent> ent, ref SiliconEmaggedEvent args)
-    {
-        ProgressAll(ent);
-    }
-}
-
-public sealed class EmoteSpamSmitedConditionSystem : AchievementConditionSystem<EmoteSpamSmitedCondition>
-{
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ActorComponent, EmoteSpamSmitedEvent>(OnEmoteSpamSmitedEvent);
-    }
-
-    private void OnEmoteSpamSmitedEvent(Entity<ActorComponent> ent, ref EmoteSpamSmitedEvent args)
     {
         ProgressAll(ent);
     }

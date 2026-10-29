@@ -9,7 +9,6 @@
   whitelist:
     tags:
     - ReptilianEmotes
-    - HarpyEmotes
   blacklist:
     components:
       - BorgChassis
