@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "undergarments sprites created by Huaqas (GitHub). Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42/Resources/Textures/_Starlight/Mobs/Customization/undergarments.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "briefs_rodentia",
+      "directions": 4
+    },
+    {
+      "name": "satin_rodentia",
+      "directions": 4
+    },
+    {
+      "name": "boxers_rodentia",
+      "directions": 4
+    },
+    {
+      "name": "classic_rodentia",
+      "directions": 4
+    },
+    {
+      "name": "sports_rodentia",
+      "directions": 4
+    },
+    {
+      "name": "binder_rodentia",
+      "directions": 4
+    },
+    {
+      "name": "tanktop_rodentia",
+      "directions": 4
+    }
+  ]
+}

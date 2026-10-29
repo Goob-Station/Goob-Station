@@ -1,0 +1,112 @@
+# Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116
+
+- type: marking
+  id: UndergarmentBottomBoxersVulpkanin
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: null
+      fallbackColor: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/Mobs/Customization/undergarments.rsi
+    state: boxers_vulpkanin
+
+- type: marking
+  id: UndergarmentBottomBriefsVulpkanin
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type: null
+      fallbackColor: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/Mobs/Customization/undergarments.rsi
+    state: briefs_vulpkanin
+
+- type: marking
+  id: UnderwearBriefsVox
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: briefs
+
+- type: marking
+  id: UnderwearHighWaisted
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: highwaisted
+
+- type: marking
+  id: UnderwearLowridersV
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: lowriders
+
+- type: marking
+  id: UnderwearStrappy
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: "#703c14"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: strappy1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: strappy2
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: strappy3
+
+- type: marking
+  id: UnderwearTangaR
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Reptilian/undergarmentbottom.rsi
+    state: tanga
+
+- type: marking
+  id: UnderwearTangaV
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi
+    state: tanga

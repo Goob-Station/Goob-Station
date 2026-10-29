@@ -1,0 +1,311 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/DopplerShift13/DopplerShift/pull/428 Originally by - kannthus, https://github.com/DopplerShift13/DopplerShift/commit/87a9672fb543ce8a377ec2799d5bdf923d8cc38f and https://github.com/DopplerShift13/DopplerShift/commit/ee8eef295332175db2c76cc3886d111082c8620b Originally by - Nerev4r, https://github.com/DopplerShift13/DopplerShift/commit/e023ca65185de04629f574eb4a2f5de4194deeb2 Originally by - rulerstars, and https://github.com/DopplerShift13/DopplerShift/commit/0e0546c412e15062fbfa82cbf609ed0ef619287a Originally by - carpotoxin and from https://github.com/Bubberstation/Bubberstation/pull/3006. Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Orion/Mobs/Customization/human_hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "hair_amazon",
+      "directions": 4
+    },
+    {
+      "name": "hair_astolfo",
+      "directions": 4
+    },
+    {
+      "name": "hair_baum",
+      "directions": 4
+    },
+    {
+      "name": "hair_beachwave",
+      "directions": 4
+    },
+    {
+      "name": "hair_bluntbangs",
+      "directions": 4
+    },
+    {
+      "name": "hair_bluntbangs_alt",
+      "directions": 4
+    },
+    {
+      "name": "hair_braided_front",
+      "directions": 4
+    },
+    {
+      "name": "hair_braided_sidetail",
+      "directions": 4
+    },
+    {
+      "name": "hair_bunhead4",
+      "directions": 4
+    },
+    {
+      "name": "hair_combed",
+      "directions": 4
+    },
+    {
+      "name": "hair_combedbob",
+      "directions": 4
+    },
+    {
+      "name": "hair_cottonalt",
+      "directions": 4
+    },
+    {
+      "name": "hair_curly",
+      "directions": 4
+    },
+    {
+      "name": "hair_dave",
+      "directions": 4
+    },
+    {
+      "name": "hair_diagonal_bangs",
+      "directions": 4
+    },
+    {
+      "name": "hair_dreadlocks_long",
+      "directions": 4
+    },
+    {
+      "name": "hair_fluffy_bangs",
+      "directions": 4
+    },
+    {
+      "name": "hair_fluffy_short",
+      "directions": 4
+    },
+    {
+      "name": "hair_fortuneteller",
+      "directions": 4
+    },
+    {
+      "name": "hair_froofylong",
+      "directions": 4
+    },
+    {
+      "name": "hair_geisha",
+      "directions": 4
+    },
+    {
+      "name": "hair_gentle_bun",
+      "directions": 4
+    },
+    {
+      "name": "hair_glammetal",
+      "directions": 4
+    },
+    {
+      "name": "hair_gloomy_long",
+      "directions": 4
+    },
+    {
+      "name": "hair_grande",
+      "directions": 4
+    },
+    {
+      "name": "hair_hairfre",
+      "directions": 4
+    },
+    {
+      "name": "hair_halfcut",
+      "directions": 4
+    },
+    {
+      "name": "hair_halfcut_rough",
+      "directions": 4
+    },
+    {
+      "name": "hair_holo_tuber",
+      "directions": 4
+    },
+    {
+      "name": "hair_hyenamane",
+      "directions": 4
+    },
+    {
+      "name": "hair_jay",
+      "directions": 4
+    },
+    {
+      "name": "hair_jessica",
+      "directions": 4
+    },
+    {
+      "name": "hair_kajam",
+      "directions": 4
+    },
+    {
+      "name": "hair_longovereye_alt",
+      "directions": 4
+    },
+    {
+      "name": "hair_longsidepartstraight",
+      "directions": 4
+    },
+    {
+      "name": "hair_loose_slicked",
+      "directions": 4
+    },
+    {
+      "name": "hair_mcsqueeb",
+      "directions": 4
+    },
+    {
+      "name": "hair_mediumbraid",
+      "directions": 4
+    },
+    {
+      "name": "hair_mia",
+      "directions": 4
+    },
+    {
+      "name": "hair_newyou",
+      "directions": 4
+    },
+    {
+      "name": "hair_phoenix",
+      "directions": 4
+    },
+    {
+      "name": "hair_phoenix_half_shaven",
+      "directions": 4
+    },
+    {
+      "name": "hair_poofy",
+      "directions": 4
+    },
+    {
+      "name": "hair_punktails",
+      "directions": 4
+    },
+    {
+      "name": "hair_quadcurls",
+      "directions": 4
+    },
+    {
+      "name": "hair_ring_tails",
+      "directions": 4
+    },
+    {
+      "name": "hair_rowbraid",
+      "directions": 4
+    },
+    {
+      "name": "hair_rowdualtail",
+      "directions": 4
+    },
+    {
+      "name": "hair_royal_curls",
+      "directions": 4
+    },
+    {
+      "name": "hair_runner",
+      "directions": 4
+    },
+    {
+      "name": "hair_sabitsuki",
+      "directions": 4
+    },
+    {
+      "name": "hair_scully",
+      "directions": 4
+    },
+    {
+      "name": "hair_short_tassles",
+      "directions": 4
+    },
+    {
+      "name": "hair_sleaze",
+      "directions": 4
+    },
+    {
+      "name": "hair_slightlymessy",
+      "directions": 4
+    },
+    {
+      "name": "hair_spicy",
+      "directions": 4
+    },
+    {
+      "name": "hair_stacy",
+      "directions": 4
+    },
+    {
+      "name": "hair_strict",
+      "directions": 4
+    },
+    {
+      "name": "hair_toriyama",
+      "directions": 4
+    },
+    {
+      "name": "hair_tri_bun_long",
+      "directions": 4
+    },
+    {
+      "name": "hair_violet",
+      "directions": 4
+    },
+    {
+      "name": "hair_violet_ponytail",
+      "directions": 4
+    },
+    {
+      "name": "hair_viper",
+      "directions": 4
+    },
+    {
+      "name": "hair_volajupompless",
+      "directions": 4
+    },
+    {
+      "name": "hair_ziegler",
+      "directions": 4
+    },
+    {
+      "name": "hair_zoey",
+      "directions": 4
+    },
+    {
+      "name": "halfshave_glamorous",
+      "directions": 4
+    },
+    {
+      "name": "halfshave_long",
+      "directions": 4
+    },
+    {
+      "name": "halfshave_messy",
+      "directions": 4
+    },
+    {
+      "name": "halfshave_messylong",
+      "directions": 4
+    },
+    {
+      "name": "inari",
+      "directions": 4
+    },
+    {
+      "name": "longsmoothie",
+      "directions": 4
+    },
+    {
+      "name": "shortbob",
+      "directions": 4
+    },
+    {
+      "name": "shortside",
+      "directions": 4
+    },
+    {
+      "name": "twintailsberly",
+      "directions": 4
+    }
+  ]
+}

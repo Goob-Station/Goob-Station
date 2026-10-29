@@ -1,0 +1,56 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: AurelianVoxClawsFeetLeft
+  bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#a0a654"
+  layering:
+    claws_feet_left: LFoot
+  colorLinks:
+    claws_feet_left_behind: claws_feet_left
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: claws_feet_left
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: claws_feet_left_behind
+
+- type: marking
+  id: AurelianVoxRoboticFootLeft
+  bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: robotic_foot_left
+
+- type: marking
+  id: AurelianVoxScutesLegsLeft
+  bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#bc7d3e"
+  layering:
+    scutes_legs_left: LLeg
+    scutes_foot_left: LFoot
+  colorLinks:
+    scutes_legs_left: scutes_foot_left
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: scutes_legs_left
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: scutes_foot_left
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Species/AurelianVox/parts.rsi
+    state: r_foot_behind

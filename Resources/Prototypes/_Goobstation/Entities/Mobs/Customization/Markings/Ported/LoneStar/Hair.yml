@@ -1,0 +1,425 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: HairResomiAerodynamic
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiAerodynamic
+
+- type: marking
+  id: HairResomiBun
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiBun
+
+- type: marking
+  id: HairResomiColonel
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiColonel
+
+- type: marking
+  id: HairResomiCowlick
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiCowlick
+
+- type: marking
+  id: HairResomiCrest
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiCrest
+
+- type: marking
+  id: HairResomiCrowned
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiCrowned
+
+- type: marking
+  id: HairResomiCube
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiCube
+
+- type: marking
+  id: HairResomiMohawkAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiMohawk_Alt
+
+- type: marking
+  id: HairResomiPeel
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiPeel
+
+- type: marking
+  id: HairResomiPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiPonytail
+
+- type: marking
+  id: HairResomiSamurai
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiSamurai
+
+- type: marking
+  id: HairResomiSleek
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiSleek
+
+- type: marking
+  id: HairResomiSoap
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiSoap
+
+- type: marking
+  id: HairResomiSpikyAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiSpiky_Alt
+
+- type: marking
+  id: HairResomiSweptup
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiSweptup
+
+- type: marking
+  id: HairResomiWedge
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi
+    state: ResomiWedge
+
+- type: marking
+  id: HumanHairAdoringFan
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: adoringfan
+
+- type: marking
+  id: HumanHairAsymBun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: asymbun
+
+- type: marking
+  id: HumanHairBabyHair
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: babyhair
+
+- type: marking
+  id: HumanHairBaldingCurls
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: baldingcurls
+
+- type: marking
+  id: HumanHairBaldingLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: baldinglong
+
+- type: marking
+  id: HumanHairBraidMed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: braidmed
+
+- type: marking
+  id: HumanHairChonmage
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: chonmage
+
+- type: marking
+  id: HumanHairCurlyPerm
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: curlyperm
+
+- type: marking
+  id: HumanHairDrillTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: drilltail
+
+- type: marking
+  id: HumanHairEyeBangLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: eyebanglong
+
+- type: marking
+  id: HumanHairEyeBangSideTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: eyebangsidetail
+
+- type: marking
+  id: HumanHairFadeHighlight
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: fadehighlight
+
+- type: marking
+  id: HumanHairFriar
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: friar
+
+- type: marking
+  id: HumanHairFringeBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: fringebraid
+
+- type: marking
+  id: HumanHairFringeRat
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: fringerat
+
+- type: marking
+  id: HumanHairFringeTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: fringetail
+
+- type: marking
+  id: HumanHairGuyMullet
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: guymullet
+
+- type: marking
+  id: HumanHairGuyTied
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: guytied
+
+- type: marking
+  id: HumanHairIntakeLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: intakelong
+
+- type: marking
+  id: HumanHairIntakeShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: intakeshort
+
+- type: marking
+  id: HumanHairJed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: jed
+
+- type: marking
+  id: HumanHairJedPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: jedponytail
+
+- type: marking
+  id: HumanHairLiberatorLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: liberatorlong
+
+- type: marking
+  id: HumanHairLiberatorShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: liberatorshort
+
+- type: marking
+  id: HumanHairLiberatorTied
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: liberatortied
+
+- type: marking
+  id: HumanHairLocsTied
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: locstied
+
+- type: marking
+  id: HumanHairMidBangs
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: midbangs
+
+- type: marking
+  id: HumanHairMidPartPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: midpartponytail
+
+- type: marking
+  id: HumanHairMiddlePartShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: middlepartshort
+
+- type: marking
+  id: HumanHairOverEyes
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: overeyes
+
+- type: marking
+  id: HumanHairOverEyesTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: overeyestail
+
+- type: marking
+  id: HumanHairPosterPerson
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: posterperson
+
+- type: marking
+  id: HumanHairSideshaveBun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: sideshavebun
+
+- type: marking
+  id: HumanHairSmiler
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: smiler
+
+- type: marking
+  id: HumanHairWavyLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/Humanoid/hair.rsi
+    state: wavylong

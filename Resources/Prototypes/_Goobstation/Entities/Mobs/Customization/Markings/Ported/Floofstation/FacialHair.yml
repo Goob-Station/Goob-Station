@@ -1,0 +1,113 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: HumanFacialHairBristle
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-bristle
+
+- type: marking
+  id: HumanFacialHairChin2
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-beardchin
+
+- type: marking
+  id: HumanFacialHairHandlebar
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Corvax/Mobs/Customization/human_facial_hair.rsi
+    state: handlebar
+
+- type: marking
+  id: HumanFacialHairSuperLong
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-beardlong
+
+- type: marking
+  id: HumanFacialHairThick
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-beardthick
+
+- type: marking
+  id: HumanFacialHairViking
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: beard-beardviking
+
+- type: marking
+  id: ZetaEMWhiskers
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/z_human_facial_hair.rsi
+    state: emwhiskers
+
+- type: marking
+  id: ZetaOnTheChin
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/z_human_facial_hair.rsi
+    state: onthechin
+
+- type: marking
+  id: ZetaSpiderWhiskers
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/z_human_facial_hair.rsi
+    state: spiderwhiskers
+
+- type: marking
+  id: ZetaTwirlable
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/z_human_facial_hair.rsi
+    state: twirlable
+
+- type: marking
+  id: ZetaVoluminous
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/z_human_facial_hair.rsi
+    state: voluminous
+
+- type: marking
+  id: ZetaWalrus
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/z_human_facial_hair.rsi
+    state: walrus
+
+- type: marking
+  id: ZetaWizardous
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/z_human_facial_hair.rsi
+    state: wizardous
+
+- type: marking
+  id: ZetaWorkinMan
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/z_human_facial_hair.rsi
+    state: workinman

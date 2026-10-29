@@ -1,5 +1,6 @@
 using Content.Goobstation.Common.Augments;
 using Content.Shared.Body.Systems;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.PowerCell.Components;
@@ -11,6 +12,7 @@ public abstract partial class SharedAugmentPowerCellSystem : CommonAugmentPowerC
     [Dependency] protected AugmentSystem Augment = default!;
     [Dependency] private SharedBodySystem _body = default!;
     [Dependency] protected PowerCellSystem _powerCell = default!;
+    [Dependency] private SharedBatterySystem _sharedBattery = default!;
 
     public override void Initialize()
     {
@@ -82,6 +84,9 @@ public abstract partial class SharedAugmentPowerCellSystem : CommonAugmentPowerC
 
         ent.Comp.DrawRate = rate;
         Dirty(ent, ent.Comp);
+
+        if (_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
+            _sharedBattery.RefreshChargeRate(battery.Value.AsNullable());
     }
 
     /// <summary>

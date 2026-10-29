@@ -1,0 +1,36 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: OniOverlayAshenDust
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#000000"
+  layering:
+    ashendust: LLeg
+    ashendust-HANDS: RHand
+  colorLinks:
+    ashendust-HANDS: ashendust
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/oni_markings.rsi
+    state: ashendust
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/oni_markings.rsi
+    state: ashendust-HANDS
+
+- type: marking
+  id: OniOverlayImpBinds
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#000000"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/oni_markings.rsi
+    state: impbinds

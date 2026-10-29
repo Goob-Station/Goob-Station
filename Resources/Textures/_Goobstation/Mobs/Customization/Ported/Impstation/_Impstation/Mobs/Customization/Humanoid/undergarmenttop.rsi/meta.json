@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/884ab172389b6fc54ef063f5fbea5e8b0a0a2235/icons/mob/humans/undershirt.dmi, nanotrasen taken from https://github.com/tgstation/tgstation/commit/c14e98740794eb107bfa40aad19bd4c4d307184f, undershirts modified by Pinkbat5(github), binder by Pinkbat5(github), all adjusted to look good under short sleeve tops by Sha-Seng (github), reptilian and vox tanga and lowriders also made by Sha-Seng. Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/_Impstation/Mobs/Customization/Humanoid/undergarmenttop.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "rolledundershirtf",
+      "directions": 4
+    },
+    {
+      "name": "undershirtf",
+      "directions": 4
+    }
+  ]
+}

@@ -68,7 +68,10 @@ public sealed partial class WoundSystem
             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
                 continue;
 
+            bleeds.BleedingAmountRaw = 0;
+            bleeds.Scaling = 0;
             bleeds.IsBleeding = false;
+            Dirty(wound, bleeds);
         }
 
         return true;

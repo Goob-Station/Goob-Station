@@ -1,0 +1,93 @@
+# Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f
+
+- type: marking
+  id: RMCLizardSnakeTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/snake_tail.rsi
+    state: m_waggingtail_snaketail
+
+- type: marking
+  id: RMCLizardSnakeTailStripeAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/snake_tail.rsi
+    state: m_waggingtail_snakestripe_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/snake_tail.rsi
+    state: m_waggingtail_snakestripe_secondary
+
+- type: marking
+  id: VulpTailAustralianShepherd
+  wagging: VulpTailAustralianShepherdAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/australianshepherd_tail.rsi
+    state: m_tail_australianshepherd_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/australianshepherd_tail.rsi
+    state: m_tail_australianshepherd_secondary
+
+- type: marking
+  id: VulpTailAustralianShepherdAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/australianshepherd_tail.rsi
+    state: m_tail_australianshepherd_primary_wag
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/australianshepherd_tail.rsi
+    state: m_tail_australianshepherd_secondary_wag
+
+- type: marking
+  id: VulpTailDalmation
+  wagging: VulpTailDalmationWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/tail_markings.rsi
+    state: dalmatian
+
+- type: marking
+  id: VulpTailDalmationWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/tail_markings.rsi
+    state: dalmatian_wag
+
+- type: marking
+  id: VulpTailFox4
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/fox4_tail.rsi
+    state: m_tail_fox4_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/fox4_tail.rsi
+    state: m_tail_fox4_secondary
+
+- type: marking
+  id: VulpTailStraight
+  wagging: VulpTailStraightAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/straight_tail.rsi
+    state: m_tail_straighttail_primary
+
+- type: marking
+  id: VulpTailStraightAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/straight_tail.rsi
+    state: m_tail_straighttail_primary_wag

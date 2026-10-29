@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Dragon wings from cosmatic-drift-14 by Github KittenColony / Discord kittencolony (297865728374210561), dragonwings_membrane by github Kadeo64. Fairy wings: 'Sprited by erhardsteinhauer (github) for New Frontier; Based on Fairy Dragon from Heroes of Might and Magic 3'. Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab/Resources/Textures/_CS/Mobs/Customization/wings.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fairy",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: BonemaskBeak
+  bodyPart: Head
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Resomi, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Generic/bonemask.rsi
+    state: beakBonemask-marking-head
+
+- type: marking
+  id: BonemaskFlat
+  bodyPart: Head
+  markingCategory: Snout
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Generic/bonemask.rsi
+    state: FlatBonemask-marking-head
+
+- type: marking
+  id: WFMeridianSnoutAcrador1NormalAlt
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    layers:
+      acrador_1_normal_alt_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      acrador_1_normal_alt_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: acrador_1_normal_alt_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: acrador_1_normal_alt_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: acrador_1_normal_alt_tertiary
+
+- type: marking
+  id: WFMeridianSnoutBugNoAntennaeBelowHair
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Arachnid, Chitinid]
+  coloring:
+    layers:
+      bug_no_antennae_below_hair_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: bug_no_antennae_below_hair_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: bug_no_antennae_below_hair_secondary
+
+- type: marking
+  id: WFMeridianSnoutCanineAlt
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      canine_alt_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      canine_alt_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: canine_alt_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: canine_alt_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: canine_alt_tertiary
+
+- type: marking
+  id: WFMeridianSnoutCorvidBeak
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Resomi, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: corvid_beak_primary
+
+- type: marking
+  id: WFMeridianSnoutDragonfly
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Chitinid]
+  coloring:
+    layers:
+      dragonfly_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: dragonfly_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: dragonfly_secondary
+
+- type: marking
+  id: WFMeridianSnoutMandiblesTop
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Arachnid, Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: mandibles_top_primary
+
+- type: marking
+  id: WFMeridianSnoutRamatanRound
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Rodentia, Tajaran]
+  coloring:
+    layers:
+      ramatan_round_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      ramatan_round_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: ramatan_round_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: ramatan_round_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: ramatan_round_tertiary
+
+- type: marking
+  id: WFMeridianSnoutRoundDualTone
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Rodentia, Tajaran]
+  coloring:
+    layers:
+      round_dual_tone_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: round_dual_tone_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: round_dual_tone_secondary
+
+- type: marking
+  id: WFMeridianSnoutSharpDualTone
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian, Vulpkanin]
+  coloring:
+    layers:
+      sharp_dual_tone_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: sharp_dual_tone_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: sharp_dual_tone_secondary
+
+- type: marking
+  id: WFMeridianSnoutSnaggletooth
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian, Vulpkanin]
+  coloring:
+    layers:
+      snaggletooth_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      snaggletooth_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: snaggletooth_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: snaggletooth_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: snaggletooth_tertiary
+
+- type: marking
+  id: WFMeridianSnoutVulpTwoshade
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      vulp_twoshade_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: vulp_twoshade_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/snouts.rsi
+    state: vulp_twoshade_secondary
