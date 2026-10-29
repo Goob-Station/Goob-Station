@@ -27,8 +27,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="8">
                 <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" SeparationOverride="8">
                     <hull:HazardStripe>
-                        <Button Name="SaveButton" Text="{Loc 'humanoid-profile-editor-save-button'}"
-                                StyleClasses="HullReady" MinWidth="120" MinHeight="34" Margin="4" />
+                        <Button Name="SaveButton" Text="{Loc 'humanoid-profile-editor-save-button'}" ToolTip="{Loc 'humanoid-profile-editor-save-button'}"
+                                StyleClasses="HullSaveArt" SetSize="128 64" Margin="4" />
                     </hull:HazardStripe>
                     <Button Name="ResetButton" Disabled="True" Text="{Loc 'humanoid-profile-editor-reset-button'}"
                             StyleClasses="HullPlate" VerticalAlignment="Center" />
@@ -52,7 +52,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <LineEdit Name="NameEdit" StyleClasses="HullField" HorizontalExpand="True" VerticalAlignment="Center" />
                     <Button Name="NameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" StyleClasses="HullPlate" />
                 </BoxContainer>
-                <RichTextLabel Name="WarningLabel" HorizontalExpand="True" Margin="136 0 0 0" />
+                <RichTextLabel Name="WarningLabel" HorizontalExpand="True" Margin="136 0 0 0" StyleClasses="HullFieldLabel" />
 
                 <BoxContainer Orientation="Horizontal" SeparationOverride="6" Margin="0 8 0 0">
                     <Label Text="{Loc 'humanoid-profile-editor-species-label'}" StyleClasses="HullFieldLabel" VAlign="Center" />

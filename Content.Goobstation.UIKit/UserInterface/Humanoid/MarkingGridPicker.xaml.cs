@@ -572,6 +572,7 @@ public sealed partial class MarkingGridPicker : BoxContainer
             selector.OnColorChanged += color => SetMarkingColor(editing.Category, editing.Id, layer, color);
 
             ColorEditor.AddChild(new Label { Text = Loc.GetString("marking-grid-layer-color", ("layer", stateNames[i])), StyleClasses = { HullStyleClasses.FieldLabel } });
+            HullStyler.Apply(selector);
             ColorEditor.AddChild(selector);
         }
 

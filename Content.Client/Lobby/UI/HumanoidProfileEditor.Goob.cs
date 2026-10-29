@@ -1,3 +1,4 @@
+using Content.Shared.Preferences;
 using System.Linq;
 using System.Numerics;
 using Content.Client.Humanoid;
@@ -81,6 +82,14 @@ public sealed partial class HumanoidProfileEditor
         var bracket = age < species.YoungAge ? "young" : age >= species.OldAge ? "old" : "adult";
         AgeBracketLabel.Text = Loc.GetString($"humanoid-profile-editor-age-{bracket}");
     }
+
+    private static readonly Dictionary<int, Color> JobPriorityColors = new()
+    {
+        [(int) JobPriority.Never] = HullPalette.Green,
+        [(int) JobPriority.Low] = HullPalette.Yellow,
+        [(int) JobPriority.Medium] = HullPalette.Orange,
+        [(int) JobPriority.High] = HullPalette.Red,
+    };
 
     private void InitializeHairGoob()
     {

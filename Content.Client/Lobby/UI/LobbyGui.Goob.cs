@@ -14,6 +14,8 @@ using Content.Shared.CCVar;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby.UI;
@@ -22,11 +24,21 @@ public sealed partial class LobbyGui
 {
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IUriOpener _uri = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private readonly List<(CVarDef<string> CVar, Button Button)> _linkButtons = new();
 
+    private const float ShakeSeconds = 0.45f;
+    private const float ShakeStrength = 7f;
+
+    private float _shake;
+
     private void InitializeGoob()
     {
+        SetAnchorPreset(EasterEgg, LayoutPreset.Wide);
+        EasterEgg.Attach(RightSide, Hatch);
+        Hatch.Landed += () => _shake = ShakeSeconds;
+
         CreateMenu(LinksButton, BuildLinks());
         CreateMenu(MenuButton, BuildMenu());
 
@@ -66,15 +78,41 @@ public sealed partial class LobbyGui
         ChatTabButton.Pressed = chat;
     }
 
+    public void ResetEasterEgg()
+    {
+        EasterEgg.Reset();
+        _shake = 0;
+        SetMarginLeft(MainContainer, 0);
+        SetMarginRight(MainContainer, 0);
+        SetMarginTop(MainContainer, 0);
+        SetMarginBottom(MainContainer, 0);
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (_shake <= 0)
+            return;
+
+        _shake = MathF.Max(0, _shake - args.DeltaSeconds);
+        var strength = ShakeStrength * (_shake / ShakeSeconds);
+        var offset = _shake > 0
+            ? new Vector2(_random.NextFloat(-strength, strength), _random.NextFloat(-strength, strength))
+            : Vector2.Zero;
+
+        SetMarginLeft(MainContainer, offset.X);
+        SetMarginRight(MainContainer, offset.X);
+        SetMarginTop(MainContainer, offset.Y);
+        SetMarginBottom(MainContainer, offset.Y);
+    }
+
     public void UpdateReadyArt()
     {
-        var art = ReadyButton.ToggleMode;
-        ReadyButton.Label.Visible = !art;
-        ReadyButton.ToolTip = art ? ReadyButton.Text : null;
-
-        ReadyButton.RemoveStyleClass(art ? HullStyleClasses.Ready : HullStyleClasses.ReadyArt);
-        ReadyButton.AddStyleClass(art ? HullStyleClasses.ReadyArt : HullStyleClasses.Ready);
-        ReadyButton.SetSize = art ? new Vector2(128, 64) : new Vector2(160, 38);
+        var ready = ReadyButton.ToggleMode;
+        ReadyButton.ToolTip = ReadyButton.Text;
+        ReadyButton.RemoveStyleClass(ready ? HullStyleClasses.JoinArt : HullStyleClasses.ReadyArt);
+        ReadyButton.AddStyleClass(ready ? HullStyleClasses.ReadyArt : HullStyleClasses.JoinArt);
     }
 
     public void SetNewsUnread(bool unread)

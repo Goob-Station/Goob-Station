@@ -13,9 +13,10 @@ public static class HullStyleClasses
     public const string MenuItem = "HullMenuItem";
 
     public const string Tab = "HullTab";
-    public const string Ready = "HullReady";
     public const string Danger = "HullDanger";
     public const string ReadyArt = "HullReadyArt";
+    public const string JoinArt = "HullJoinArt";
+    public const string SaveArt = "HullSaveArt";
 
     public const string Lcd = "HullLcd";
     public const string LcdCaption = "HullLcdCaption";
@@ -36,6 +37,9 @@ public static class HullStyleClasses
     public const string Field = "HullField";
     public const string Slider = "HullSlider";
     public const string ColorTrack = "HullColorTrack";
+    public const string ColorSlider = "HullColorSlider";
     public const string Section = "HullSection";
+    public const string Text = "HullText";
+    public const string TileName = "HullTileName";
     public const string FieldLabel = "HullFieldLabel";
 }
