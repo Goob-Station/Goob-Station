@@ -276,11 +276,23 @@ public sealed partial class GoobCVars
 
     #endregion
 
-    public static readonly CVarDef<string> PatronSupportLastShown =
-        CVarDef.Create("patron.support_last_shown", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<string> NewsPinned =
+        CVarDef.Create("news.pinned", "", CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Comma-separated newsEntry IDs pinned to the top of the lobby news feed, in order.");
 
-    public static readonly CVarDef<int> PatronAskSupport =
-        CVarDef.Create("patron.ask_support", 7, CVar.REPLICATED | CVar.SERVER);
+    public static readonly CVarDef<string> NewsRead =
+        CVarDef.Create("news.read", "", CVar.CLIENTONLY | CVar.ARCHIVE, "Comma-separated newsEntry IDs this client has opened.");
+
+    public static readonly CVarDef<string> NewsPopupState =
+        CVarDef.Create("news.popup_state", "", CVar.CLIENTONLY | CVar.ARCHIVE, "When each news popup was last shown, as id=timestamp pairs separated by semicolons. A value of never means don't show again.");
+
+    public static readonly CVarDef<string> MarkingFavourites =
+        CVarDef.Create("humanoid.marking_favourites", "", CVar.CLIENTONLY | CVar.ARCHIVE, "Comma-separated marking IDs starred in the character editor.");
+
+    public static readonly CVarDef<bool> FacialHairMatchesHair =
+        CVarDef.Create("humanoid.facial_hair_matches_hair", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Changing hair color in the character editor also recolors facial hair.");
+
+    public static readonly CVarDef<string> WindowTitle =
+        CVarDef.Create("goob.window_title", "", CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Shown in the client's window title instead of the hostname when set.");
 
     #region Xenobiology
 
@@ -502,9 +514,6 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<float> VoiceChatWhisperThreshold =
         CVarDef.Create("voice.whisper_threshold", 5f, CVar.SERVERONLY | CVar.ARCHIVE, "How many dB below a speaker's normal loudness counts as whispering.");
-
-    public static readonly CVarDef<bool> VoiceChatJoinPrompt =
-        CVarDef.Create("voice.join_prompt", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Offer to open voice chat when joining a server that has it.");
 
     public static readonly CVarDef<bool> VoiceChatSpeakerList =
         CVarDef.Create("voice.speaker_list", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Show the list of players you can currently hear on voice chat.");
@@ -753,6 +762,18 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> ChatRunechat =
         CVarDef.Create("chat.runechat", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Point size of normal runechat text.
+    /// </summary>
+    public static readonly CVarDef<int> ChatRunechatFontSize =
+        CVarDef.Create("chat.runechat_font_size", 12, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Multiplier on the runechat text outline thickness.
+    /// </summary>
+    public static readonly CVarDef<float> ChatRunechatOutlineScale =
+        CVarDef.Create("chat.runechat_outline_scale", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #endregion
 
     #region Radio Channel Colors
@@ -778,6 +799,17 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<string> InvalidInteractionOutlineColor =
         CVarDef.Create("interaction_outline.out_of_range_color", "#FF000055", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Gun Prediction
+
+    /// <summary>
+    ///     Distance between a projectile and a target's lag-compensated position that counts as a hit.
+    ///     Lets players with high ping hit what they actually saw when shooting.
+    /// </summary>
+    public static readonly CVarDef<float> GunLagCompRange =
+        CVarDef.Create("gun.lag_comp_range", 0.6f, CVar.SERVER | CVar.SERVERONLY);
 
     #endregion
 }

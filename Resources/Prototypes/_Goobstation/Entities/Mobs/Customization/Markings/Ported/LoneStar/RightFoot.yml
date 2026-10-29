@@ -1,0 +1,30 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: ResomiLFootFade
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_leg_markings.rsi
+    state: l_foot_fade
+
+- type: marking
+  id: ResomiRFootFade
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_leg_markings.rsi
+    state: r_foot_fade
+
+- type: marking
+  id: ResomiRLegFeathersComplex
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_leg_markings.rsi
+    state: r_foot_feathers_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_leg_markings.rsi
+    state: r_foot_feathers_secondary

@@ -6,6 +6,7 @@
   minLimit: 0
   maxLimit: 3
   loadouts:
+  - CandyBucket # Goobstation - Halloween
   - FlowerWreath
   - Hairflower
   - Headphones
@@ -1541,6 +1542,7 @@
   loadouts:
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
+  - ChiefMedicalOfficerLabCoatWinter # Funky Station
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck

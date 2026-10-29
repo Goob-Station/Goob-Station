@@ -1,0 +1,16 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: WingsRoboticRGB
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [IPC]
+  shader: unshaded
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/rgb_wings.rsi
+    state: robotic_light_rgb

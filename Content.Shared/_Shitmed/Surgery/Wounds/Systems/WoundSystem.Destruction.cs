@@ -165,7 +165,8 @@ public sealed partial class WoundSystem
             woundableEntity,
             _random.NextAngle().ToWorldVec() * _random.NextFloat(0.8f, 5f),
             _random.NextFloat(0.5f, 1f),
-            pushbackRatio: 0.3f
+            pushbackRatio: 0.3f,
+            predicted: false // Trauma - server only
         );
     }
 
