@@ -28,6 +28,7 @@ public sealed partial class HullLobbyUIController : UIController, IOnStateEntere
         _news.Changed += UpdateUnread;
         UpdateUnread();
         lobby.SelectTab(_news.UnreadCount == 0);
+        lobby.ResetEasterEgg();
 
         if (_roundInfo != null)
         {

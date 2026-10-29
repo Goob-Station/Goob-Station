@@ -7,3 +7,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made (Temporarily) by @Gaming420 (Discord) for Goob Station"
   source: "https://discord.gg/goobstation"
+
+- files: ["drawer.png", "bolt.png", "under_metal_panel.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Aidenkrz (GitHub) for Goob Station"
+  source: "https://github.com/Goob-Station/Goob-Station"
