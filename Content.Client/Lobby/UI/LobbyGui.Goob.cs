@@ -36,7 +36,7 @@ public sealed partial class LobbyGui
     private void InitializeGoob()
     {
         SetAnchorPreset(EasterEgg, LayoutPreset.Wide);
-        EasterEgg.Attach(RightSide, Hatch);
+        EasterEgg.Attach(RightSide, Hatch, DefaultState);
         Hatch.Landed += () => _shake = ShakeSeconds;
 
         CreateMenu(LinksButton, BuildLinks());

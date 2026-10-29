@@ -37,6 +37,7 @@ public sealed partial class LobbyEasterEgg : LayoutContainer
 
     private Control? _edge;
     private MetalPanelHatch? _hatch;
+    private Control? _shownWith;
     private bool _open;
     private bool _wrenchHeld;
     private float _slide = HandleWidth;
@@ -59,11 +60,11 @@ public sealed partial class LobbyEasterEgg : LayoutContainer
         SetAnchorPreset(cursor, LayoutPreset.Wide);
     }
 
-    public void Attach(Control edge, MetalPanelHatch hatch)
+    public void Attach(Control edge, MetalPanelHatch hatch, Control shownWith)
     {
         _edge = edge;
         _hatch = hatch;
-        _drawer.Visible = true;
+        _shownWith = shownWith;
     }
 
     public void Reset()
@@ -86,6 +87,18 @@ public sealed partial class LobbyEasterEgg : LayoutContainer
 
         if (_edge == null || _hatch == null)
             return;
+
+        var shown = _shownWith?.Visible != false && _hatch.IsVisibleInTree;
+        _drawer.Visible = shown;
+        if (!shown)
+        {
+            if (_wrenchHeld)
+                SetWrenchHeld(false);
+
+            _open = false;
+            _slide = HandleWidth;
+            return;
+        }
 
         var target = _open ? DrawerSize.X : HandleWidth;
         var step = SlideSpeed * args.DeltaSeconds;
