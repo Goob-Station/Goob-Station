@@ -86,3 +86,21 @@ marking-TajaranEarsTorn-torn_inner = Inner ear
 marking-TajaranEarsWide = Wide Ears
 marking-TajaranEarsWide-wide_outer = Outer ear
 marking-TajaranEarsWide-wide_inner = Inner ear
+
+marking-TajaranLeopardChest = Leopard Spots (Chest)
+marking-TajaranLeopardChest-leopard_chest = Spots
+
+marking-TajaranLeopardAltChest = Leopard Spots (Chest, Alt)
+marking-TajaranLeopardAltChest-leopard_alt_chest = Spots
+
+marking-TajaranLeopardLArm = Leopard Spots (Left Arm)
+marking-TajaranLeopardLArm-leopard_l_arm = Spots
+
+marking-TajaranLeopardRArm = Leopard Spots (Right Arm)
+marking-TajaranLeopardRArm-leopard_r_arm = Spots
+
+marking-TajaranLeopardLHand = Leopard Spots (Left Hand)
+marking-TajaranLeopardLHand-leopard_l_hand = Spots
+
+marking-TajaranLeopardRHand = Leopard Spots (Right Hand)
+marking-TajaranLeopardRHand-leopard_r_hand = Spots

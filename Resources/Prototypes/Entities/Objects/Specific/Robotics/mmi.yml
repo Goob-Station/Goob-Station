@@ -109,6 +109,7 @@
       stopSearchVerbText: positronic-brain-stop-searching-verb-text
       stopSearchVerbPopup: positronic-brain-stopped-searching
       job: Borg
+      canBeWiped: false # Goob - sorry shitters
     - type: Organ
       slotId: posbrain
     - type: Brain

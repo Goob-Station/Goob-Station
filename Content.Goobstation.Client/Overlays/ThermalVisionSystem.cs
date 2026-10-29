@@ -8,9 +8,9 @@ using Robust.Client.Graphics;
 
 namespace Content.Goobstation.Client.Overlays;
 
-public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionComponent>
+public sealed partial class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionComponent>
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     private ThermalVisionOverlay _thermalOverlay = default!;
     private BaseSwitchableOverlay<ThermalVisionComponent> _overlay = default!;

@@ -44,7 +44,7 @@ namespace Content.Server.Medical
             }
         }
 
-        private void OnInhaleLocation(EntityUid uid, InsideCryoPodComponent component, InhaleLocationEvent args)
+        private void OnInhaleLocation(EntityUid uid, InsideCryoPodComponent component, ref InhaleLocationEvent args) // Goob - by-ref
         {
             if (TryComp<CryoPodAirComponent>(Transform(uid).ParentUid, out var cryoPodAir))
             {
@@ -52,7 +52,7 @@ namespace Content.Server.Medical
             }
         }
 
-        private void OnExhaleLocation(EntityUid uid, InsideCryoPodComponent component, ExhaleLocationEvent args)
+        private void OnExhaleLocation(EntityUid uid, InsideCryoPodComponent component, ref ExhaleLocationEvent args) // Goob - by-ref
         {
             if (TryComp<CryoPodAirComponent>(Transform(uid).ParentUid, out var cryoPodAir))
             {

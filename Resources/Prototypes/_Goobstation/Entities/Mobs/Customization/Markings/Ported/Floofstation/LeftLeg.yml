@@ -1,0 +1,60 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: HumanTattooSkeletlegL
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_skelet_leg_l
+
+- type: marking
+  id: LegProstheticLeft
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Impstation/Mobs/Customization/scars.rsi
+    state: leg_l_prosthetic
+
+- type: marking
+  id: ReptilianTattoSkeletLegL
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: tatto_skelet_leg_l
+
+- type: marking
+  id: VulpPointsCrestLegL
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_crest-legsL
+
+- type: marking
+  id: VulpPointsFadeLegL
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_fade-legsL
+
+- type: marking
+  id: VulpPointsSharpLegL
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_sharp-legsL

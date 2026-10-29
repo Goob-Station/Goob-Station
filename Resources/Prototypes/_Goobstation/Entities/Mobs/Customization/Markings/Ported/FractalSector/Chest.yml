@@ -1,0 +1,20 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: AurelianVoxRoboticChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: robotic_chest
+
+- type: marking
+  id: DwarfChestHair
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dwarfchesthair

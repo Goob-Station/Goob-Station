@@ -3,6 +3,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Fishing.Components;
+using Content.Goobstation.Shared.Fishing.Events;
 using Content.Goobstation.Shared.Fishing.Systems;
 using Content.Shared.EntityTable;
 using Content.Shared.Interaction.Events;
@@ -18,14 +19,14 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Fishing;
 
-public sealed class FishingSystem : SharedFishingSystem
+public sealed partial class FishingSystem : SharedFishingSystem
 {
     // Here we calculate the start of fishing, because apparently StartCollideEvent
     // works janky on clientside so we can't predict when fishing starts.
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
+    [Dependency] private IComponentFactory _compFactory = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -120,7 +121,8 @@ public sealed class FishingSystem : SharedFishingSystem
             direction = Vector2.UnitX; // If the user somehow manages to click directly in the center of themself, just toss it to the right i guess.
 
         // Yeet
-        Throwing.TryThrow(fishFloat, direction, 15f, player, 2f, null, true);
+        Throwing.TryThrow(fishFloat, direction, 15f, player, 2f, null, true,
+            predicted: false); // Trauma
 
         // Set up lure component
         var fishLureComp = EnsureComp<FishingLureComponent>(fishFloat);
@@ -139,13 +141,16 @@ public sealed class FishingSystem : SharedFishingSystem
     {
         var position = Transform(fishSpot).Coordinates;
         var fish = Spawn(fishId, position);
+        var caughtEv = new FishCaughtEvent(fish);
+        RaiseLocalEvent(target, ref caughtEv);
         // Throw da fish back to the player because it looks funny
         var direction = Xform.GetWorldPosition(target) - Xform.GetWorldPosition(fish);
         var length = direction.Length();
         var distance = Math.Clamp(length, 0.5f, 15f);
         direction *= distance / length;
 
-        Throwing.TryThrow(fish, direction, 7f);
+        Throwing.TryThrow(fish, direction, 7f,
+            predicted: false); // Trauma
     }
 
     protected override void CalculateFightingTimings(Entity<ActiveFisherComponent> fisher, ActiveFishingSpotComponent activeSpotComp)

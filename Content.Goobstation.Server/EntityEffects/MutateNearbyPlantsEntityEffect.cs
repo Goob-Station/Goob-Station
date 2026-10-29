@@ -8,8 +8,8 @@ namespace Content.Goobstation.Server.EntityEffects;
 
 public sealed partial class MutateNearbyPlantsEntityEffectSystem : EntityEffectSystem<PlantHolderComponent, MutateNearbyPlantsEntityEffect>
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
 
     protected override void Effect(Entity<PlantHolderComponent> entity, ref EntityEffectEvent<MutateNearbyPlantsEntityEffect> args)
     {

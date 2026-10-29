@@ -150,7 +150,6 @@
     laws: SECborgLawset
   - type: ActionGrant
     actions:
-    - ActionViewLaws
     - ActionSECBorgSelfDestruct
   - type: ContainerFill
     containers:
@@ -500,3 +499,12 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: service_rover
+
+- type: entity
+  id: BorgChassisGenericClaptrap
+  parent: BorgChassisGeneric
+  name: steward cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: generic_claptrap

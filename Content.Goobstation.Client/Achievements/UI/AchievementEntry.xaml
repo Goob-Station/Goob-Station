@@ -1,0 +1,36 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                HorizontalExpand="True"
+                Margin="0 0 0 6">
+    <BoxContainer Orientation="Horizontal" SeparationOverride="10" Margin="8">
+        <PanelContainer Name="IconPanel" SetSize="56 56" VerticalAlignment="Top">
+            <TextureRect Name="Icon"
+                         Stretch="KeepAspectCentered"
+                         HorizontalExpand="True"
+                         VerticalExpand="True"
+                         Margin="4" />
+            <Label Name="HiddenIconLabel"
+                   Text="?"
+                   StyleClasses="LabelHeadingBigger"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Visible="False" />
+        </PanelContainer>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="2">
+            <BoxContainer Orientation="Horizontal">
+                <Label Name="NameLabel" StyleClasses="LabelKeyText" HorizontalExpand="True" ClipText="True" />
+                <Label Name="StatusLabel" StyleClasses="LabelWeak" Margin="8 0 0 0" />
+            </BoxContainer>
+            <RichTextLabel Name="DescriptionLabel" HorizontalExpand="True" />
+            <BoxContainer Name="ProgressBox" Orientation="Horizontal" Visible="False">
+                <ProgressBar Name="ProgressFill"
+                             HorizontalExpand="True"
+                             MinValue="0"
+                             MaxValue="1"
+                             SetHeight="10"
+                             VerticalAlignment="Center" />
+                <Label Name="ProgressLabel" StyleClasses="LabelWeak" Margin="8 0 0 0" />
+            </BoxContainer>
+            <Label Name="RarityLabel" StyleClasses="LabelWeak" />
+        </BoxContainer>
+    </BoxContainer>
+</PanelContainer>

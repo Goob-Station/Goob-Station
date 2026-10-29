@@ -2,9 +2,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Disease.Chemistry
 {
-    public sealed class MetabolismImmunityModifierSystem : EntitySystem
+    public sealed partial class MetabolismImmunityModifierSystem : EntitySystem
     {
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
 
         private readonly List<Entity<ImmunityModifierMetabolismComponent>> _components = new();
 
@@ -18,7 +18,7 @@ namespace Content.Goobstation.Shared.Disease.Chemistry
             SubscribeLocalEvent<ImmunityModifierMetabolismComponent, GetImmunityEvent>(OnGetImmunity);
         }
 
-        private void OnGetImmunity(EntityUid uid, ImmunityModifierMetabolismComponent component, GetImmunityEvent args)
+        private void OnGetImmunity(EntityUid uid, ImmunityModifierMetabolismComponent component, ref GetImmunityEvent args)
         {
             args.ImmunityGainRate += component.GainRateModifier;
             args.ImmunityStrength += component.StrengthModifier;

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "tail, tail_feathers taken from Baystation12 commit a41ce0bd9323bc5fcf8feb57b84f08857a89052f, and modified by Huaqas (GitHub). damaged, stubby tail/feathers and prosthetics taken from PolarisSS13 commit 4e9c367322a5a07604d120c0972adbc61fba9a25, and modified by Huaqas (GitHub). tail_bird, tail_feathers_x_x created by Huaqas (GitHub) by modifying BayStation sprites. Tail bands created by Huaqas (GitHub) and AegisShieldDev (GitHub). Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab/Resources/Textures/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tail",
+      "directions": 4
+    },
+    {
+      "name": "tail_stubby",
+      "directions": 4
+    },
+    {
+      "name": "tail_feathers_stubby",
+      "directions": 4
+    },
+    {
+      "name": "tail_top",
+      "directions": 4
+    },
+    {
+      "name": "tail_middle",
+      "directions": 4
+    },
+    {
+      "name": "tail_bottom",
+      "directions": 4
+    },
+    {
+      "name": "tail_damaged",
+      "directions": 4
+    },
+    {
+      "name": "tail_feathers_damaged",
+      "directions": 4
+    },
+    {
+      "name": "tail_feathers",
+      "directions": 4
+    }
+  ]
+}

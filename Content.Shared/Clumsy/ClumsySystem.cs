@@ -4,7 +4,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Medical;
 using Content.Shared.Popups;
@@ -97,7 +97,7 @@ public sealed class ClumsySystem : EntitySystem
         args.Cancelled = true; // fail to catch
 
         if (ent.Comp.CatchingFailDamage != null)
-            _damageable.TryChangeDamage(ent, ent.Comp.CatchingFailDamage, origin: args.Item);
+            _damageable.ChangeDamage(ent.Owner, ent.Comp.CatchingFailDamage, origin: args.Item);
 
         // Collisions don't work properly with PopupPredicted or PlayPredicted.
         // So we make this server only.
@@ -129,15 +129,16 @@ public sealed class ClumsySystem : EntitySystem
             return;
 
         if (ent.Comp.GunShootFailDamage != null)
-            _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent);
+            _damageable.ChangeDamage(ent.Owner, ent.Comp.GunShootFailDamage, origin: ent);
 
         _stun.TryUpdateParalyzeDuration(ent, ent.Comp.GunShootFailStunTime);
 
         // Apply salt to the wound ("Honk!") (No idea what this comment means)
-        _audio.PlayPvs(ent.Comp.GunShootFailSound, ent);
-        _audio.PlayPvs(ent.Comp.ClumsySound, ent);
+        // Trauma - gun shooting is predicted now, don't play it twice for the shooter
+        _audio.PlayPredicted(ent.Comp.GunShootFailSound, ent, ent);
+        _audio.PlayPredicted(ent.Comp.ClumsySound, ent, ent);
 
-        _popup.PopupEntity(Loc.GetString(ent.Comp.GunFailedMessage), ent, ent);
+        _popup.PopupClient(Loc.GetString(ent.Comp.GunFailedMessage), ent, ent); // Trauma - PopupClient
         args.Cancel();
     }
 
@@ -201,7 +202,7 @@ public sealed class ClumsySystem : EntitySystem
         {
             stunTime = bonkComp.BonkTime;
             if (bonkComp.BonkDamage != null)
-                _damageable.TryChangeDamage(target, bonkComp.BonkDamage, true);
+                _damageable.ChangeDamage(target.Owner, bonkComp.BonkDamage, true);
         }
 
         _stun.TryUpdateParalyzeDuration(target, stunTime);
