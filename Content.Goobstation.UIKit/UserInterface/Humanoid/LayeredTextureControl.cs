@@ -17,6 +17,7 @@ public sealed partial class LayeredTextureControl : Control
     [Dependency] private MarkingManager _markingManager = default!;
 
     private const float BaseSize = 32;
+    private const string StencilClear = "StencilClear";
 
     private readonly MarkingTileColors _colors;
     private readonly List<MarkingTileLayer> _layers;
@@ -82,7 +83,7 @@ public sealed partial class LayeredTextureControl : Control
         var i = 0;
         foreach (var spriteLayer in sprite.AllLayers)
         {
-            if (spriteLayer.Visible && !_hidden.Contains(i) && GetTexture(spriteLayer) is { } texture)
+            if (spriteLayer.Visible && !_hidden.Contains(i) && !IsStencilOnly(spriteLayer) && GetTexture(spriteLayer) is { } texture)
                 DrawTexture(handle, texture, spriteLayer.Color * sprite.Color, scale);
 
             if (_inserts.TryGetValue(i, out var inserted))
@@ -158,6 +159,11 @@ public sealed partial class LayeredTextureControl : Control
         }
 
         return layer.Texture;
+    }
+
+    private static bool IsStencilOnly(ISpriteLayer layer)
+    {
+        return layer is SpriteComponent.Layer { ShaderPrototype: { } shader } && shader == StencilClear;
     }
 
     private static Texture? GetTexture(ISpriteLayer layer)

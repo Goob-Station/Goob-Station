@@ -139,9 +139,20 @@ public sealed partial class MetalPanelHatch : Control
         handle.DrawTextureRect(_under, UIBox2.FromDimensions(Vector2.Zero, (Vector2) _under.Size * scale));
 
         var now = _timing.RealTime;
+        if (_fallStart is not { } start || now < start)
+            DrawPanel(handle, now, scale, 0f, 0f, 1f);
+    }
+
+    public void DrawOnTop(DrawingHandleScreen handle, Vector2 pixelOffset)
+    {
+        var scale = UIScale;
+        var now = _timing.RealTime;
         var offset = 0f;
         var angle = 0f;
         var alpha = 1f;
+
+        var baseTransform = handle.GetTransform();
+        handle.SetTransform(Matrix3x2.CreateTranslation(pixelOffset) * baseTransform);
 
         if (_fallStart is { } start && now >= start)
         {
@@ -153,12 +164,13 @@ public sealed partial class MetalPanelHatch : Control
                 var resting = (float) (now - landed).TotalSeconds - RestSeconds;
                 alpha = 1f - Math.Clamp(resting / FadeSeconds, 0f, 1f);
             }
+
+            if (alpha > 0)
+                DrawPanel(handle, now, scale, offset, angle, alpha);
         }
 
-        if (alpha > 0)
-            DrawPanel(handle, now, scale, offset, angle, alpha);
-
         DrawFallingBolts(handle, now, scale);
+        handle.SetTransform(baseTransform);
     }
 
     private void DrawPanel(DrawingHandleScreen handle, TimeSpan now, float scale, float offset, float angle, float alpha)

@@ -151,7 +151,7 @@ public sealed class HullSheetlet : Sheetlet<NanotrasenStylesheet>
             rules.Add(E<ContainerButton>().Class(styleClass).PseudoNormal().ParentOf(E<Label>()).FontColor(Color.Transparent));
             rules.Add(E<ContainerButton>().Class(styleClass).PseudoHovered().ParentOf(E<Label>()).FontColor(Color.Transparent));
             rules.Add(E<ContainerButton>().Class(styleClass).PseudoPressed().ParentOf(E<Label>()).FontColor(Color.Transparent));
-            rules.Add(E<ContainerButton>().Class(styleClass).PseudoDisabled().ParentOf(E<Label>()).FontColor(Color.Transparent));
+            rules.Add(E<ContainerButton>().Class(styleClass).Class(ContainerButton.StyleClassButton).PseudoDisabled().ParentOf(E<Label>()).FontColor(Color.Transparent));
         }
 
         static StyleBoxTexture Art(Texture texture, Color modulate)

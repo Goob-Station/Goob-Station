@@ -185,6 +185,9 @@ public sealed partial class LobbyEasterEgg : LayoutContainer
         {
             base.Draw(handle);
 
+            if (_owner._hatch is { } hatch && _owner._drawer.Visible)
+                hatch.DrawOnTop(handle, hatch.GlobalPixelPosition - GlobalPixelPosition);
+
             if (!_owner._wrenchHeld)
                 return;
 
