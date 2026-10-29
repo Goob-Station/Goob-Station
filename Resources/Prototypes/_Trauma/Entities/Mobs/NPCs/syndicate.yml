@@ -191,6 +191,7 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+    - Dragon
   - type: Access
     tags:
     - NuclearOperative

@@ -1,0 +1,566 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: PawSocksArms
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: pawsocks_arms
+
+- type: marking
+  id: VulpPointsCrestArmLeft
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#e5e3d1"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: crest-arm-l
+
+- type: marking
+  id: VulpPointsFadeArmLeft
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#e5e3d1"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_fade-arm-l
+
+- type: marking
+  id: VulpPointsSharpArmLeft
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#e5e3d1"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_sharp-arm-l
+
+- type: marking
+  id: VulpPointsSharpLongArmLeft
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#e5e3d1"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_sharp-arm-long-l
+
+- type: marking
+  id: WFMeridianMarkingBandsAndStripesAltLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: bands_and_stripes_alt_l_arm
+
+- type: marking
+  id: WFMeridianMarkingBandsAndStripesLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: bands_and_stripes_l_arm
+
+- type: marking
+  id: WFMeridianMarkingBeeLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Chitinid]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: bee_l_arm
+
+- type: marking
+  id: WFMeridianMarkingBovineLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Tajaran, Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: bovine_l_arm
+
+- type: marking
+  id: WFMeridianMarkingBurntOffGrayscaleLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: burnt_off_grayscale_l_arm
+
+- type: marking
+  id: WFMeridianMarkingChitinLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Arachnid, Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: chitin_l_arm
+
+- type: marking
+  id: WFMeridianMarkingColorBandsLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Reptilian, Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: color_bands_l_arm
+
+- type: marking
+  id: WFMeridianMarkingDalmatianLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: dalmatian_l_arm
+
+- type: marking
+  id: WFMeridianMarkingDogSpotLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: dog_spot_l_arm
+
+- type: marking
+  id: WFMeridianMarkingFennecLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: fennec_l_arm
+
+- type: marking
+  id: WFMeridianMarkingFlooferSockLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Shadowkin, Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: floofer_sock_l_arm
+
+- type: marking
+  id: WFMeridianMarkingGothicGrayscaleLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: gothic_grayscale_l_arm
+
+- type: marking
+  id: WFMeridianMarkingGuilmonLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: guilmon_l_arm
+
+- type: marking
+  id: WFMeridianMarkingGuilmonMarkLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: guilmon_mark_l_arm
+
+- type: marking
+  id: WFMeridianMarkingHuskyLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: husky_l_arm
+
+- type: marking
+  id: WFMeridianMarkingHyenaLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: hyena_l_arm
+
+- type: marking
+  id: WFMeridianMarkingJackalBackFurAccentsLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: jackal_back_fur_accents_l_arm
+
+- type: marking
+  id: WFMeridianMarkingJackalBackFurLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: jackal_back_fur_l_arm
+
+- type: marking
+  id: WFMeridianMarkingLoversGrayscaleLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: lovers_grayscale_l_arm
+
+- type: marking
+  id: WFMeridianMarkingLowerLimbLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: lower_limb_l_arm
+
+- type: marking
+  id: WFMeridianMarkingPantherLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Felinid, Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: panther_l_arm
+
+- type: marking
+  id: WFMeridianMarkingRaggedGrayscaleLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Rodentia, Vulpkanin, Yowie]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: ragged_grayscale_l_arm
+
+- type: marking
+  id: WFMeridianMarkingRatSpotLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: rat_spot_l_arm
+
+- type: marking
+  id: WFMeridianMarkingRedPandaLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: red_panda_l_arm
+
+- type: marking
+  id: WFMeridianMarkingReddishGrayscaleLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: reddish_grayscale_l_arm
+
+- type: marking
+  id: WFMeridianMarkingSabresuneLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: sabresune_l_arm
+
+- type: marking
+  id: WFMeridianMarkingShepherdLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: shepherd_l_arm
+
+- type: marking
+  id: WFMeridianMarkingSplotchesLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: splotches_l_arm
+
+- type: marking
+  id: WFMeridianMarkingTattooHeartLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#112222"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: tattoo_heart_l_arm
+
+- type: marking
+  id: WFMeridianMarkingTattooInfinityLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#112222"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: tattoo_infinity_l_arm
+
+- type: marking
+  id: WFMeridianMarkingTattooTigerLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#112222"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: tattoo_tiger_l_arm
+
+- type: marking
+  id: WFMeridianMarkingTigerStripeLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Shadowkin, Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: tiger_stripe_l_arm
+
+- type: marking
+  id: WFMeridianMarkingUpperLimbLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: upper_limb_l_arm
+
+- type: marking
+  id: WFMeridianMarkingWhiteflyGrayscaleLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Chitinid, Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: whitefly_grayscale_l_arm
+
+- type: marking
+  id: WFMeridianMarkingWolfSpotLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: wolf_spot_l_arm

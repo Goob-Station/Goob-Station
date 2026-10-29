@@ -1,0 +1,531 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Meridian Rift at https://github.com/Aphelion-Moon/Meridian-Rift/tree/0fd8e40910402f2745e5e5e4adc7d37bd45fed40 (modular_nova/master_files/icons/mob/body_markings/akula_markings.dmi, modular_nova/master_files/icons/mob/body_markings/moth_grayscale_markings.dmi, modular_nova/master_files/icons/mob/body_markings/other_markings.dmi, modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi, modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi, modular_nova/master_files/icons/mob/body_markings/tertiary_markings.dmi), which carries the art of NovaSector, Skyrat-tg and tgstation. Layers merged per colour and centred for Wolfgate by Tools/_WF/MeridianMarkings/port.py. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_WF/MeridianMarkings/body_legs.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "anklet_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "anklet_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "bands_and_stripes_alt_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "bands_and_stripes_alt_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "bands_and_stripes_alt_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "bands_and_stripes_alt_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "bands_and_stripes_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "bands_and_stripes_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "bands_and_stripes_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "bands_and_stripes_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "bee_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "bee_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "bovine_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "bovine_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "bovine_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "bovine_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "bovine_spot_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "bovine_spot_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "burnt_off_grayscale_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "burnt_off_grayscale_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "chitin_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "chitin_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "chitin_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "chitin_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "claw_tips_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "claw_tips_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "color_bands_foot_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "color_bands_foot_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "color_bands_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "color_bands_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "corvid_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "corvid_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "dalmatian_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "dalmatian_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "dalmatian_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "dalmatian_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "datashark_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "datashark_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "datashark_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "datashark_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "dog_spot_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "dog_spot_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "fennec_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "fennec_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "fox_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "fox_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "gothic_grayscale_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "gothic_grayscale_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "guilmon_mark_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "guilmon_mark_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "guilmon_mark_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "guilmon_mark_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "harpy_claws_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "harpy_claws_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "harpy_lower_legs_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "harpy_lower_legs_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "harpy_lower_legs_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "harpy_lower_legs_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "harpy_upper_legs_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "harpy_upper_legs_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "hawk_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "hawk_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "hawk_talon_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "husky_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "hyena_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "hyena_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "hyena_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "hyena_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "leg_band_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "leg_band_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "lovers_grayscale_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "lovers_grayscale_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "lower_limb_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "otie_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "panther_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "panther_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "panther_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "panther_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "possum_sock_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "possum_sock_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "raccoon_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "raccoon_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "ragged_grayscale_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "ragged_grayscale_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "ragged_grayscale_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "ragged_grayscale_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "rat_spot_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "rat_spot_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "red_panda_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "red_panda_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "reddish_grayscale_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "reddish_grayscale_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "reddish_grayscale_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "reddish_grayscale_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "sabresune_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "sabresune_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "sabresune_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "sabresune_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "scolipede_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "scolipede_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "shepherd_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "shepherd_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "skunk_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "skunk_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "splotches_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "splotches_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "splotches_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "splotches_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_infinity_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_infinity_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_tiger_foot_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_tiger_foot_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_tiger_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_tiger_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "tiger_spot_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "tiger_spot_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "tiger_stripe_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "tiger_stripe_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "tiger_stripe_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "tiger_stripe_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "upper_limb_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "upper_limb_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_grayscale_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_grayscale_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_grayscale_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_grayscale_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_grayscale_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_grayscale_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "wolf_spot_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "wolf_spot_r_leg",
+      "directions": 4
+    }
+  ]
+}

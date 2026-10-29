@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by seraphimttt, theanemone, bulbo44kkey, tinry. (Discord), r.t.r. , rewafflution, NeGhostea. Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Arcane/Mobs/Customization/hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "man_long",
+      "directions": 4
+    },
+    {
+      "name": "short_mullet",
+      "directions": 4
+    },
+    {
+      "name": "bob_strand",
+      "directions": 4
+    },
+    {
+      "name": "braid_crooked_bangs",
+      "directions": 4
+    },
+    {
+      "name": "dreadlocks_short_tale",
+      "directions": 4
+    },
+    {
+      "name": "dreadlocks_short",
+      "directions": 4
+    },
+    {
+      "name": "dreadlocks_tale",
+      "directions": 4
+    },
+    {
+      "name": "gakupo",
+      "directions": 4
+    },
+    {
+      "name": "angel",
+      "directions": 4
+    },
+    {
+      "name": "arataki",
+      "directions": 4
+    },
+    {
+      "name": "gacha",
+      "directions": 4
+    },
+    {
+      "name": "kasaneteto",
+      "directions": 4
+    },
+    {
+      "name": "manmessy",
+      "directions": 4
+    },
+    {
+      "name": "messybangseyes",
+      "directions": 4
+    },
+    {
+      "name": "tord",
+      "directions": 4
+    },
+    {
+      "name": "hatsunemiku",
+      "directions": 4
+    },
+    {
+      "name": "hairfoam",
+      "directions": 4
+    },
+    {
+      "name": "hairthreebun",
+      "directions": 4
+    },
+    {
+      "name": "hairthreebunalt",
+      "directions": 4
+    },
+    {
+      "name": "long_straight",
+      "directions": 4
+    },
+    {
+      "name": "man_bun_bob",
+      "directions": 4
+    },
+    {
+      "name": "neru",
+      "directions": 4
+    },
+    {
+      "name": "pinkamina",
+      "directions": 4
+    },
+    {
+      "name": "princess",
+      "directions": 4
+    },
+    {
+      "name": "spider",
+      "directions": 4
+    },
+    {
+      "name": "tale_bang",
+      "directions": 4
+    },
+    {
+      "name": "tale",
+      "directions": 4
+    },
+    {
+      "name": "twilight",
+      "directions": 4
+    },
+    {
+      "name": "hardmorning",
+      "directions": 4
+    },
+    {
+      "name": "mullet",
+      "directions": 4
+    },
+    {
+      "name": "wolfcut_m",
+      "directions": 4
+    },
+    {
+      "name": "wolfcut_f",
+      "directions": 4
+    },
+    {
+      "name": "bob_with_tail",
+      "directions": 4
+    }
+  ]
+}

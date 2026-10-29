@@ -1,0 +1,133 @@
+# Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42
+
+- type: marking
+  id: GauzeVulpBoxerwrapLeft
+  bodyPart: LHand
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/gauze.rsi
+    state: gauze_vulp_boxerwrap_l
+
+- type: marking
+  id: GauzeVulpBoxerwrapRight
+  bodyPart: RHand
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/gauze.rsi
+    state: gauze_vulp_boxerwrap_r
+
+- type: marking
+  id: GauzeVulpLeftArm
+  bodyPart: LArm
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/gauze.rsi
+    state: gauze_vulp_leftarm
+
+- type: marking
+  id: GauzeVulpLowerArmRight
+  bodyPart: RHand
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/gauze.rsi
+    state: gauze_vulp_lowerarm_r
+
+- type: marking
+  id: GauzeVulpLowerLegLeft
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/gauze.rsi
+    state: gauze_vulp_lowerleg_l
+
+- type: marking
+  id: GauzeVulpLowerLegRight
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/gauze.rsi
+    state: gauze_vulp_lowerleg_r
+
+- type: marking
+  id: GauzeVulpShoulder
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/gauze.rsi
+    state: gauze_vulp_shoulder
+
+- type: marking
+  id: GauzeVulpStomach
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/gauze.rsi
+    state: gauze_vulp_abdomen
+
+- type: marking
+  id: VoxAllSeeing
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: allseeingeyes
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: allseeingface
+
+- type: marking
+  id: VoxThirdEye
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: thirdeye

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Starlight, Corvax , Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807. Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42/Resources/Textures/_Starlight/Mobs/Customization/human_hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "longbangs",
+      "copyright": "aedler",
+      "directions": 4
+    },
+    {
+      "name": "himecutwithtails",
+      "copyright": "aedler",
+      "directions": 4
+    },
+    {
+      "name": "shortfluffy",
+      "copyright": "Toaster0423 (Discord)",
+      "directions": 4
+    },
+    {
+      "name": "reihair",
+      "copyright": "Toaster0423 (Discord)",
+      "directions": 4
+    },
+    {
+      "name": "coolspikes",
+      "copyright": "neomoth",
+      "directions": 4
+    }
+  ]
+}

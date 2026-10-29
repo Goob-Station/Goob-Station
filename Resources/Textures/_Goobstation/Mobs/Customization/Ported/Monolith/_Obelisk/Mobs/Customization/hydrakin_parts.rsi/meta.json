@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by Zethine (discord: synthetic_086). Ported from https://github.com/Monolith-Station/Monolith/tree/b518fe44c0c6250b8339bfc4705f64abcd246d90/Resources/Textures/_Obelisk/Mobs/Customization/hydrakin_parts.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ears_fin",
+      "directions": 4
+    },
+    {
+      "name": "ears_fin_overlay",
+      "directions": 4
+    }
+  ]
+}

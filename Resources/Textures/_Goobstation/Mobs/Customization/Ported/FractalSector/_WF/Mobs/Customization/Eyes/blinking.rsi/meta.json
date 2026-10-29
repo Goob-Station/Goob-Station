@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Created by Whisper for Wayfarer. Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_WF/Mobs/Customization/Eyes/blinking.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blinking_eye_r",
+      "directions": 4,
+      "delays": [
+        [
+          5,
+          0.3
+        ],
+        [
+          5,
+          0.3
+        ],
+        [
+          5,
+          0.3
+        ],
+        [
+          5,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "blinking_eye_l",
+      "directions": 4,
+      "delays": [
+        [
+          5,
+          0.3
+        ],
+        [
+          5,
+          0.3
+        ],
+        [
+          5,
+          0.3
+        ],
+        [
+          5,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "blinking_eye_both",
+      "directions": 4,
+      "delays": [
+        [
+          5,
+          0.3
+        ],
+        [
+          5,
+          0.3
+        ],
+        [
+          5,
+          0.3
+        ],
+        [
+          5,
+          0.3
+        ]
+      ]
+    }
+  ]
+}

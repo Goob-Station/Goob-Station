@@ -3,6 +3,7 @@
 - type: vendingMachineInventory
   id: AutoDrobeInventory
   startingInventory:
+    CandyBucket: 8 #Goobstation - Halloween
     ClothingHeadHatJester: 1
     ClothingUniformJumpsuitJester: 1
     ClothingHeadHatJesterAlt: 1
@@ -12,32 +13,32 @@
     ClothingOuterWinterMime: 1
     ClothingOuterWinterMusician: 1
     ClothingMaskJoy: 2
-    ClothingHeadHatCardborg: 2
-    ClothingOuterCardborg: 2
-    ClothingHeadHatSombrero: 2
-    ClothingOuterPonchoClassic: 2
+    ClothingHeadHatCardborg: 4 # Goobstation - Halloween
+    ClothingOuterCardborg: 4 # Goobstation - Halloween
+    ClothingHeadHatSombrero: 3 # Goobstation - Halloween
+    ClothingOuterPonchoClassic: 3 # Goobstation - Halloween
     ClothingHeadHatPwig: 2
-    ClothingOuterRobesJudge: 2
-    ClothingOuterPoncho: 2
+    ClothingOuterRobesJudge: 3 # Goobstation - Halloween
+    ClothingOuterPoncho: 3 # Goobstation - Halloween
     ClothingHeadHatSantahat: 2
     ClothingOuterSanta: 2
-    ClothingHeadHatSkub: 2
-    ClothingOuterSkub: 2
+    ClothingHeadHatSkub: 4 # Goobstation - Halloween
+    ClothingOuterSkub: 4 # Goobstation - Halloween
     ClothingHeadHatBeretFrench: 2
-    ClothingOuterSuitChicken: 2
+    ClothingOuterSuitChicken: 4 # Goobstation - Halloween
     ClothingHeadHatChickenhead: 2
-    ClothingOuterSuitMonkey: 2
-    ClothingHeadHatPumpkin: 2
+    ClothingOuterSuitMonkey: 4 # Goobstation - Halloween
+    ClothingHeadHatPumpkin: 6 #Goob - Halloween
     ClothingHeadHatShrineMaidenWig: 2
     ClothingOuterSuitShrineMaiden: 2
     Gohei: 2
-    ClothingOuterSuitWitchRobes: 2
-    ClothingHeadHatWitch1: 2
-    Broomstick: 2 # Goobstation
+    ClothingOuterSuitWitchRobes: 4 # Goobstation - Halloween
+    ClothingHeadHatWitch1: 4 # Goobstation - Halloween
+    Broomstick: 3 # Goobstation - Halloween
     ClothingHeadHatRedRacoon: 2
     ClothingOuterRedRacoon: 2
-    ClothingHeadPaperSack: 2
-    ClothingHeadPaperSackSmile: 2
+    ClothingHeadPaperSack: 3 # Goobstation - Halloween
+    ClothingHeadPaperSackSmile: 3 # Goobstation - Halloween
     ClothingEyesBlindfold: 1
     ClothingHeadRastaHat: 2
     ClothingUniformJumpsuitDameDane: 2
@@ -49,17 +50,17 @@
     ClothingUniformJumpsuitKimono: 1
     ClothingHeadHatCasa: 1
     FoodPoppy: 1
-    ClothingHeadHatGladiator: 1
-    ClothingUniformJumpsuitGladiator: 1
-    ClothingHeadHatCowboyBrown: 1
-    ClothingHeadHatCowboyBlack: 1
-    ClothingHeadHatCowboyWhite: 1
-    ClothingHeadHatCowboyGrey: 1
-    ClothingShoesBootsCowboyBrown: 1
-    ClothingShoesBootsCowboyBlack: 1
-    ClothingShoesBootsCowboyWhite: 1
-    ClothingCostumeAbductorHead: 1
-    ClothingCostumeAbductor: 1
+    ClothingHeadHatGladiator: 3 # Goobstation - Halloween
+    ClothingUniformJumpsuitGladiator: 3 # Goobstation - Halloween
+    ClothingHeadHatCowboyBrown: 2 # Goobstation - Halloween
+    ClothingHeadHatCowboyBlack: 2 # Goobstation - Halloween
+    ClothingHeadHatCowboyWhite: 2 # Goobstation - Halloween
+    ClothingHeadHatCowboyGrey: 2 # Goobstation - Halloween
+    ClothingShoesBootsCowboyBrown: 2 # Goobstation - Halloween
+    ClothingShoesBootsCowboyBlack: 2 # Goobstation - Halloween
+    ClothingShoesBootsCowboyWhite: 2 # Goobstation - Halloween
+    ClothingCostumeAbductorHead: 3 # Goobstation - Halloween
+    ClothingCostumeAbductor: 3 # Goobstation - Halloween
     ClothingHeadSanabi: 1 # Goobstation
     ClothingNeckCloakSanabi: 1 # Goobstation
     ClothingCostumeGingerbreadHead: 1 #goob
@@ -67,12 +68,26 @@
     ClothingOuterSuitPickle: 1
     ClothingOuterSuitTutu: 2 # Goob
     ClothingHeadHatTinfoilHat: 2 # Goobstation
+    ClothingHeadHatDeku: 1 #Goobstation
+    ClothingOuterArmorDeku: 1 #Goobstation
+    ClothingOuterArmorInvincible: 1 #Goobstation
+    ClothingHeadHatInvincible: 1 #Goobstation
+    ClothingOuterArmorCombineElite: 1 #Goobstation
+    ClothingOuterArmorDivingSuit: 1 #Goobstation
+    ClothingOuterArmorHuskDivingSuit: 1
+    ClothingUniformJumpsuitLash: 1 #Goobstation
+    ClothingUniformJumpsuitKris: 1 #Goobstation
+    ToyKnife: 1 #Goobstation
+    ClothingUniformJumpsuitFrisk: 1 #Goobstation
+    ClothingUniformJumpsuitGoku: 2 # Goobstaiton
+    ClothingMaskPlague: 1 # Goobstation - Halloween
+    ClothingOuterPlagueSuit: 1  #Goobstation - Halloween
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
     ClothingOuterDogi: 1
-    ClothingOuterSuitCarp: 1
+    ClothingOuterSuitCarp: 3 # Goobstation - Halloween
     #ClothingMaskBlushingClown: 1 # Goob
     #ClothingMaskBlushingMime: 1 # Goob
     ClothingMaskSexyClown: 1 # Goobstation
@@ -85,8 +100,10 @@
     ClothingShoesResonant: 1 # Goobstation
     ClothingNeckCloakResonant: 1 # Goobstation
     ClothingUniformJumpsuitResonant: 1 # Goobstation
-    ClothingOuterArmorHereticCostume: 1 # Goobstation
-    ToyBladeEldritch: 1 # Goobstation
+    ClothingOuterArmorHereticCostume: 3 # Goobstation - Halloween
+    ToyBladeEldritch: 3 # Goobstation - Halloween
+    ClothingUniformJumpsuitChara: 1 #Goobstation - About time.
+    KitchenKnife: 1 #Goobstation -  Here we are!
   emaggedInventory: # goob
     ClothingOuterPonchoClassicRobust: 1
     ClothingHeadHatCowboyBrownRobust: 1

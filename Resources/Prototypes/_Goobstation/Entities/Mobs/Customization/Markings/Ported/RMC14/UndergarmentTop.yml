@@ -1,0 +1,41 @@
+# Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f
+
+- type: marking
+  id: RMCUndershirtClassic
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/undershirt.rsi
+    state: c_classic
+
+- type: marking
+  id: RMCUndershirtRolled
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/undershirt.rsi
+    state: t_rolled_undershirt
+
+- type: marking
+  id: RMCUndershirtRolledSleeveless
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/undershirt.rsi
+    state: t_rolled_undershirt_sleeveless
+
+- type: marking
+  id: RMCUndershirtSleeveless
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/undershirt.rsi
+    state: t_undershirt_sleeveless

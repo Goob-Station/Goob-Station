@@ -1,0 +1,855 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: SynthHeadCore
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/head.rsi
+    state: core
+
+- type: marking
+  id: SynthHeadFracture
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/head.rsi
+    state: fracture
+
+- type: marking
+  id: SynthHeadStreak
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/head.rsi
+    state: streak
+
+- type: marking
+  id: VulpHeadBlaze
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/head_markings.rsi
+    state: blaze
+
+- type: marking
+  id: VulpHeadMask
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/head_markings.rsi
+    state: mask
+
+- type: marking
+  id: VulpPatch
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/head_markings.rsi
+    state: patch
+
+- type: marking
+  id: VulpSlash
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/head_markings.rsi
+    state: slash
+
+- type: marking
+  id: VulpStripes1
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/head_markings.rsi
+    state: stripes_1
+
+- type: marking
+  id: VulpStripes2
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/head_markings.rsi
+    state: stripes_2
+
+- type: marking
+  id: VulpVulpine
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/head_markings.rsi
+    state: vulpine
+
+- type: marking
+  id: WFMeridianMarkingBackStripeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: back_stripe_head
+
+- type: marking
+  id: WFMeridianMarkingClownCrossHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFF00"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: clown_cross_head
+
+- type: marking
+  id: WFMeridianMarkingClownLipsHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FF0033"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: clown_lips_head
+
+- type: marking
+  id: WFMeridianMarkingCorgiHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: corgi_head
+
+- type: marking
+  id: WFMeridianMarkingCorvidHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Harpy, Resomi, Vox]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: corvid_head
+
+- type: marking
+  id: WFMeridianMarkingDalmatianHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: dalmatian_head
+
+- type: marking
+  id: WFMeridianMarkingDogSpotHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: dog_spot_head
+
+- type: marking
+  id: WFMeridianMarkingDrakeEyesHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FF0000"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: drake_eyes_head
+
+- type: marking
+  id: WFMeridianMarkingEarsHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: ears_head
+
+- type: marking
+  id: WFMeridianMarkingEeveeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: eevee_head
+
+- type: marking
+  id: WFMeridianMarkingFennecHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: fennec_head
+
+- type: marking
+  id: WFMeridianMarkingFoxHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: fox_head
+
+- type: marking
+  id: WFMeridianMarkingGuilmonMarkHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: guilmon_mark_head
+
+- type: marking
+  id: WFMeridianMarkingHarlequinReversedHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: harlequin_reversed_head
+
+- type: marking
+  id: WFMeridianMarkingHawkHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: hawk_head
+
+- type: marking
+  id: WFMeridianMarkingHyenaHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: hyena_head
+
+- type: marking
+  id: WFMeridianMarkingHyenaSideHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: hyena_side_head
+
+- type: marking
+  id: WFMeridianMarkingInsectAntennaeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Chitinid, Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#CCCCCC"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: insect_antennae_head
+
+- type: marking
+  id: WFMeridianMarkingLargeEyesHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FF0000"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: large_eyes_head
+
+- type: marking
+  id: WFMeridianMarkingLightbearerHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: lightbearer_head
+
+- type: marking
+  id: WFMeridianMarkingMonsterMouthHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#CCCCCC"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: monster_mouth_head
+
+- type: marking
+  id: WFMeridianMarkingMonsterMouthWhiteEyeCompatibleHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#CCCCCC"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: monster_mouth_white_eye_compatible_head
+
+- type: marking
+  id: WFMeridianMarkingOrcaHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Feroxi]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: orca_head
+
+- type: marking
+  id: WFMeridianMarkingOtieHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: otie_head
+
+- type: marking
+  id: WFMeridianMarkingOtieSpotHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: otie_spot_head
+
+- type: marking
+  id: WFMeridianMarkingOtterHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: otter_head
+
+- type: marking
+  id: WFMeridianMarkingOtterHeadHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: otter_head_head
+
+- type: marking
+  id: WFMeridianMarkingPantherHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: panther_head
+
+- type: marking
+  id: WFMeridianMarkingPilotHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#CCCCCC"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: pilot_head
+
+- type: marking
+  id: WFMeridianMarkingPilotJawHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#CCCCCC"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: pilot_jaw_head
+
+- type: marking
+  id: WFMeridianMarkingPossumHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: possum_head
+
+- type: marking
+  id: WFMeridianMarkingRaccoonHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: raccoon_head
+
+- type: marking
+  id: WFMeridianMarkingRaccoonSpotHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: raccoon_spot_head
+
+- type: marking
+  id: WFMeridianMarkingRatSpotHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: rat_spot_head
+
+- type: marking
+  id: WFMeridianMarkingRedPandaHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: red_panda_head
+
+- type: marking
+  id: WFMeridianMarkingRedPandaHeadHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: red_panda_head_head
+
+- type: marking
+  id: WFMeridianMarkingSabresuneHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: sabresune_head
+
+- type: marking
+  id: WFMeridianMarkingScleraHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FF0000"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: sclera_head
+
+- type: marking
+  id: WFMeridianMarkingScolipedeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Chitinid]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: scolipede_head
+
+- type: marking
+  id: WFMeridianMarkingSharkHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Feroxi]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: shark_head
+
+- type: marking
+  id: WFMeridianMarkingShepherdSpotHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: shepherd_spot_head
+
+- type: marking
+  id: WFMeridianMarkingSkunkHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: skunk_head
+
+- type: marking
+  id: WFMeridianMarkingSlothHeadHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Yowie]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: sloth_head_head
+
+- type: marking
+  id: WFMeridianMarkingSplotchesHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: splotches_head
+
+- type: marking
+  id: WFMeridianMarkingSplotchesSwappedHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: splotches_swapped_head
+
+- type: marking
+  id: WFMeridianMarkingTajaranHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: tajaran_head
+
+- type: marking
+  id: WFMeridianMarkingThreeEyesHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Arachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FF0000"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: three_eyes_head
+
+- type: marking
+  id: WFMeridianMarkingTigerSpotHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: tiger_spot_head
+
+- type: marking
+  id: WFMeridianMarkingTigerStripeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: tiger_stripe_head
+
+- type: marking
+  id: WFMeridianMarkingWolfHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: wolf_head
+
+- type: marking
+  id: WFMeridianMarkingWolfSpotHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_head.rsi
+    state: wolf_spot_head

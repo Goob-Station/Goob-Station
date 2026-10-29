@@ -1,0 +1,92 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: FootProstheticLeft
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Impstation/Mobs/Customization/scars.rsi
+    state: foot_l_prosthetic
+
+- type: marking
+  id: FootProstheticRight
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Impstation/Mobs/Customization/scars.rsi
+    state: foot_r_prosthetic
+
+- type: marking
+  id: HumanTattooFullskelet
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_fullskelet
+
+- type: marking
+  id: HumanTattooSkeletbody
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_skelet_body
+
+- type: marking
+  id: HumanTattooSkeletfootL
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_skelet_foot_l
+
+- type: marking
+  id: HumanTattooSkeletfootR
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_skelet_foot_r
+
+- type: marking
+  id: ReptilianDrawingKhar
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_khar
+
+- type: marking
+  id: SpeciesAdaptorReptilianLFoot
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Species/Reptilian/parts.rsi
+    state: l_foot
+
+- type: marking
+  id: SpeciesAdaptorReptilianRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Species/Reptilian/parts.rsi
+    state: r_foot

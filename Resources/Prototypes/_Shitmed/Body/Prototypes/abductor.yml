@@ -30,6 +30,7 @@
         stomach: OrganAbductorStomach
         liver: OrganAbductorLiver
         kidneys: OrganAbductorKidneys
+        butt: Butt # Goob
     right arm:
       part: RightArmAbductor
       connections:
