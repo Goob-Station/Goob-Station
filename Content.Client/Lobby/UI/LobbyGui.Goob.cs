@@ -68,13 +68,10 @@ public sealed partial class LobbyGui
 
     public void UpdateReadyArt()
     {
-        var art = ReadyButton.ToggleMode;
-        ReadyButton.Label.Visible = !art;
-        ReadyButton.ToolTip = art ? ReadyButton.Text : null;
-
-        ReadyButton.RemoveStyleClass(art ? HullStyleClasses.Ready : HullStyleClasses.ReadyArt);
-        ReadyButton.AddStyleClass(art ? HullStyleClasses.ReadyArt : HullStyleClasses.Ready);
-        ReadyButton.SetSize = art ? new Vector2(128, 64) : new Vector2(160, 38);
+        var ready = ReadyButton.ToggleMode;
+        ReadyButton.ToolTip = ReadyButton.Text;
+        ReadyButton.RemoveStyleClass(ready ? HullStyleClasses.JoinArt : HullStyleClasses.ReadyArt);
+        ReadyButton.AddStyleClass(ready ? HullStyleClasses.ReadyArt : HullStyleClasses.JoinArt);
     }
 
     public void SetNewsUnread(bool unread)

@@ -87,8 +87,9 @@ public sealed class MarkingTile : ContainerButton
             HorizontalExpand = true,
             Margin = new Thickness(2, 0),
             MouseFilter = MouseFilterMode.Ignore,
+            StyleClasses = { HullStyleClasses.TileName },
         };
-        name.SetMessage(FormattedMessage.FromMarkupPermissive($"[font size=7]{FormattedMessage.EscapeText(displayName)}[/font]"), defaultColor: NameColor);
+        name.SetMessage(FormattedMessage.FromUnformatted(displayName), defaultColor: NameColor);
         column.AddChild(name);
 
         AddChild(column);

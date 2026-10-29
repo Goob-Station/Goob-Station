@@ -33,7 +33,12 @@ public sealed class NewsButton : IDocumentTag
                 button.AddStyleClass(HullStyleClasses.ReadyArt);
                 button.ToggleMode = true;
                 button.ToolTip = button.Text;
-                button.Label.Visible = false;
+                button.SetSize = new Vector2(128, 64);
+                break;
+            case "Join":
+            case "Save":
+                button.AddStyleClass(style == "Join" ? HullStyleClasses.JoinArt : HullStyleClasses.SaveArt);
+                button.ToolTip = button.Text;
                 button.SetSize = new Vector2(128, 64);
                 break;
             default:

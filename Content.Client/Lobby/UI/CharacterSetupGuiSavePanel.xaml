@@ -18,8 +18,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <Button Name="NoSaveButton" Access="Public" Text="{Loc 'character-setup-gui-save-panel-nosave'}"
                         StyleClasses="HullDanger" VerticalAlignment="Center" />
                 <hull:HazardStripe>
-                    <Button Name="SaveButton" Access="Public" Text="{Loc 'character-setup-gui-save-panel-save'}"
-                            StyleClasses="HullReady" MinWidth="110" MinHeight="32" Margin="4" />
+                    <Button Name="SaveButton" Access="Public" Text="{Loc 'character-setup-gui-save-panel-save'}" ToolTip="{Loc 'character-setup-gui-save-panel-save'}"
+                            StyleClasses="HullSaveArt" SetSize="128 64" Margin="4" />
                 </hull:HazardStripe>
             </BoxContainer>
         </BoxContainer>
