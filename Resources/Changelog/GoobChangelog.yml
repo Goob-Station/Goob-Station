@@ -26796,3 +26796,19 @@ Entries:
       message: slightly increased the spawnrate of skeletons.
   id: 3007
   time: '2026-10-28T19:42:18.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Trying a new font for the new lobby ui, if everyone hates it i will
+        revert it.
+    - type: Add
+      message: >-
+        added a super secret easter egg to the lobby UI, you totally wont find
+        it easily :smile:
+    - type: Tweak
+      message: >-
+        Made a lot of the UI in the character customization properly use our
+        sprites.
+  id: 3008
+  time: '2026-10-29T02:08:18.0000000+00:00'

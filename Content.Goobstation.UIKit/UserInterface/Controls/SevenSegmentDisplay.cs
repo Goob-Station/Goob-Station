@@ -1,10 +1,11 @@
 using System.Numerics;
 using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 
 namespace Content.Goobstation.UIKit.UserInterface.Controls;
 
-public sealed class SevenSegmentDisplay : Control
+public sealed partial class SevenSegmentDisplay : Control
 {
     private const int SegA = 1 << 0;
     private const int SegB = 1 << 1;
@@ -57,18 +58,37 @@ public sealed class SevenSegmentDisplay : Control
         ['Z'] = SegA | SegB | SegG | SegE | SegD,
     };
 
+    private const string TexturePath = "/Textures/_Goobstation/Interface/SevenSegment";
+    private static readonly string[] SegmentNames = { "a", "b", "c", "d", "e", "f", "g" };
+
+    [Dependency] private IResourceCache _cache = default!;
+
     private readonly List<Cell> _cells = new();
+    private readonly Texture[] _segments = new Texture[7];
+    private readonly Texture _colon;
+    private readonly Texture _decimal;
 
     private string _text = string.Empty;
     private int _minDigits;
-    private int _segmentLength = 5;
-    private int _segmentThickness = 2;
-    private int _spacing = 2;
-    private float _pixelScale = 2;
+    private float _spacing = 6;
+    private float _scale = 1;
 
-    public Color OnColor { get; set; } = Color.FromHex("#33ff33");
+    public Color SegmentColor { get; set; } = Color.FromHex("#33ff33");
 
-    public Color OffColor { get; set; } = Color.FromHex("#33ff3318");
+    public float OffAlpha { get; set; } = 0.02f;
+
+    public SevenSegmentDisplay()
+    {
+        IoCManager.InjectDependencies(this);
+
+        for (var i = 0; i < SegmentNames.Length; i++)
+        {
+            _segments[i] = LoadTexture($"segment_{SegmentNames[i]}");
+        }
+
+        _colon = LoadTexture("colon");
+        _decimal = LoadTexture("decimal");
+    }
 
     public string Text
     {
@@ -93,27 +113,7 @@ public sealed class SevenSegmentDisplay : Control
         }
     }
 
-    public int SegmentLength
-    {
-        get => _segmentLength;
-        set
-        {
-            _segmentLength = Math.Max(1, value);
-            InvalidateMeasure();
-        }
-    }
-
-    public int SegmentThickness
-    {
-        get => _segmentThickness;
-        set
-        {
-            _segmentThickness = Math.Max(1, value);
-            InvalidateMeasure();
-        }
-    }
-
-    public int Spacing
+    public float Spacing
     {
         get => _spacing;
         set
@@ -123,131 +123,97 @@ public sealed class SevenSegmentDisplay : Control
         }
     }
 
-    public float PixelScale
+    public float Scale
     {
-        get => _pixelScale;
+        get => _scale;
         set
         {
-            _pixelScale = Math.Max(1, value);
+            _scale = Math.Max(0.1f, value);
             InvalidateMeasure();
         }
     }
 
-    private int DigitWidth => _segmentThickness * 2 + _segmentLength;
-
-    private int DigitHeight => _segmentThickness * 3 + _segmentLength * 2;
+    private Vector2 DigitSize => _segments[0].Size;
 
     protected override Vector2 MeasureOverride(Vector2 availableSize)
     {
-        return new Vector2(ArtWidth(), DigitHeight) * _pixelScale;
+        return new Vector2(ArtWidth(), DigitSize.Y) * _scale;
     }
 
     protected override void Draw(DrawingHandleScreen handle)
     {
         base.Draw(handle);
 
-        var unit = MathF.Max(1, MathF.Round(_pixelScale * UIScale));
+        var scale = _scale * UIScale;
         var origin = new Vector2(
-            MathF.Floor((PixelSize.X - ArtWidth() * unit) / 2f),
-            MathF.Floor((PixelSize.Y - DigitHeight * unit) / 2f));
+            MathF.Floor((PixelSize.X - ArtWidth() * scale) / 2f),
+            MathF.Floor((PixelSize.Y - DigitSize.Y * scale) / 2f));
 
-        var x = 0;
+        var x = 0f;
         for (var i = 0; i < _cells.Count; i++)
         {
             if (i > 0)
                 x += _spacing;
 
             var cell = _cells[i];
+            var position = origin + new Vector2(x * scale, 0);
             switch (cell.Kind)
             {
                 case CellKind.Digit:
-                    DrawDigit(handle, origin, unit, x, cell.Segments);
-                    x += DigitWidth;
+                    var off = SegmentColor.WithAlpha(SegmentColor.A * OffAlpha);
+                    for (var segment = 0; segment < _segments.Length; segment++)
+                    {
+                        var lit = (cell.Segments & (1 << segment)) != 0;
+                        DrawCell(handle, _segments[segment], position, scale, lit ? SegmentColor : off);
+                    }
                     break;
                 case CellKind.Colon:
-                    DrawColon(handle, origin, unit, x);
-                    x += _segmentThickness;
+                    DrawCell(handle, _colon, position, scale, SegmentColor);
                     break;
                 case CellKind.Dot:
-                    DrawPixels(handle, origin, unit, x, DigitHeight - _segmentThickness, _segmentThickness, _segmentThickness, OnColor);
-                    x += _segmentThickness;
+                    DrawCell(handle, _decimal, position, scale, SegmentColor);
                     break;
             }
+
+            x += CellWidth(cell.Kind);
         }
     }
 
-    private void DrawDigit(DrawingHandleScreen handle, Vector2 origin, float unit, int x, int segments)
+    private void DrawCell(DrawingHandleScreen handle, Texture texture, Vector2 position, float scale, Color color)
     {
-        var t = _segmentThickness;
-        var l = _segmentLength;
-
-        DrawHorizontal(handle, origin, unit, x + t, 0, segments, SegA);
-        DrawHorizontal(handle, origin, unit, x + t, t + l, segments, SegG);
-        DrawHorizontal(handle, origin, unit, x + t, t * 2 + l * 2, segments, SegD);
-        DrawVertical(handle, origin, unit, x, t, segments, SegF);
-        DrawVertical(handle, origin, unit, x + t + l, t, segments, SegB);
-        DrawVertical(handle, origin, unit, x, t * 2 + l, segments, SegE);
-        DrawVertical(handle, origin, unit, x + t + l, t * 2 + l, segments, SegC);
-    }
-
-    private void DrawHorizontal(DrawingHandleScreen handle, Vector2 origin, float unit, int x, int y, int segments, int segment)
-    {
-        var color = (segments & segment) != 0 ? OnColor : OffColor;
-        for (var row = 0; row < _segmentThickness; row++)
-        {
-            var inset = Taper(row);
-            DrawPixels(handle, origin, unit, x + inset, y + row, _segmentLength - inset * 2, 1, color);
-        }
-    }
-
-    private void DrawVertical(DrawingHandleScreen handle, Vector2 origin, float unit, int x, int y, int segments, int segment)
-    {
-        var color = (segments & segment) != 0 ? OnColor : OffColor;
-        for (var column = 0; column < _segmentThickness; column++)
-        {
-            var inset = Taper(column);
-            DrawPixels(handle, origin, unit, x + column, y + inset, 1, _segmentLength - inset * 2, color);
-        }
-    }
-
-    private void DrawColon(DrawingHandleScreen handle, Vector2 origin, float unit, int x)
-    {
-        var t = _segmentThickness;
-        var l = _segmentLength;
-        var offset = Math.Max(0, (l - t) / 2);
-
-        DrawPixels(handle, origin, unit, x, t + offset, t, t, OnColor);
-        DrawPixels(handle, origin, unit, x, t * 2 + l + offset, t, t, OnColor);
-    }
-
-    private int Taper(int index)
-    {
-        if (_segmentThickness < 3 || _segmentLength < 3)
-            return 0;
-
-        return index == 0 || index == _segmentThickness - 1 ? 1 : 0;
-    }
-
-    private static void DrawPixels(DrawingHandleScreen handle, Vector2 origin, float unit, int x, int y, int width, int height, Color color)
-    {
-        if (width <= 0 || height <= 0 || color.A <= 0)
+        if (color.A <= 0)
             return;
 
-        handle.DrawRect(UIBox2.FromDimensions(origin + new Vector2(x, y) * unit, new Vector2(width, height) * unit), color);
+        handle.DrawTextureRect(texture, UIBox2.FromDimensions(position, (Vector2) texture.Size * scale), color);
     }
 
-    private int ArtWidth()
+    private float CellWidth(CellKind kind)
     {
-        var width = 0;
+        return kind switch
+        {
+            CellKind.Colon => _colon.Width,
+            CellKind.Dot => _decimal.Width,
+            _ => DigitSize.X,
+        };
+    }
+
+    private float ArtWidth()
+    {
+        var width = 0f;
         for (var i = 0; i < _cells.Count; i++)
         {
             if (i > 0)
                 width += _spacing;
 
-            width += _cells[i].Kind == CellKind.Digit ? DigitWidth : _segmentThickness;
+            width += CellWidth(_cells[i].Kind);
         }
 
         return width;
+    }
+
+    private Texture LoadTexture(string name)
+    {
+        return _cache.GetResource<TextureResource>($"{TexturePath}/{name}.png").Texture;
     }
 
     private void RebuildCells()

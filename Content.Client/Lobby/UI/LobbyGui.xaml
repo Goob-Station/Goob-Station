@@ -54,31 +54,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                        Scale="0.5 0.5" />
                     </BoxContainer>
 
-                    <PanelContainer StyleClasses="HullCard">
-                        <BoxContainer Orientation="Vertical" Margin="6">
-                            <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
-                            <Label Name="Balance" Access="Public" StyleClasses="HullMuted" HorizontalAlignment="Right" />
-                        </BoxContainer>
-                    </PanelContainer>
-
-                    <BoxContainer Orientation="Horizontal" SeparationOverride="3">
-                        <Button Name="ChatTabButton" ToggleMode="True" StyleClasses="HullTab" HorizontalExpand="True"
-                                Text="{Loc 'ui-lobby-chat-tab'}" />
-                        <ContainerButton Name="NewsTabButton" ToggleMode="True" StyleClasses="HullTab" HorizontalExpand="True">
-                            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" SeparationOverride="6">
-                                <Label Text="{Loc 'ui-lobby-news-tab'}" />
-                                <hull:IndicatorLamp Name="NewsLamp" Visible="False" Margin="0 2 0 0" />
-                            </BoxContainer>
-                        </ContainerButton>
-                    </BoxContainer>
-
-                    <PanelContainer StyleClasses="HullInset" VerticalExpand="True">
-                        <Control Margin="4" VerticalExpand="True">
-                            <Control Name="NewsContainer" Access="Public" VerticalExpand="True" />
-                            <widgets:ChatBox Name="Chat" Access="Public" VerticalExpand="True" MinHeight="50" Visible="False" />
-                        </Control>
-                    </PanelContainer>
-
                     <PanelContainer StyleClasses="HullRoundPanel">
                         <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="8">
                             <BoxContainer Orientation="Horizontal" SeparationOverride="10">
@@ -124,13 +99,37 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                                         Text="{Loc 'ui-lobby-observe-button'}"
                                                         StyleClasses="HullPlate" HorizontalAlignment="Center" MinWidth="100"
                                                         WindowType="{x:Type lobbyUi:ObserveWarningWindow}" />
-                                    <TextureRect TexturePath="/Textures/_Goobstation/Interface/Lobby/metal_panel.png"
-                                                 Stretch="KeepCentered" HorizontalAlignment="Center" Margin="0 2 0 0" />
+                                    <hull:MetalPanelHatch Name="Hatch" HorizontalAlignment="Center" Margin="0 2 0 0" />
                                 </BoxContainer>
                             </BoxContainer>
 
                             <RichTextLabel Name="PlaytimeComment" Visible="False" Access="Public" HorizontalAlignment="Center" />
                         </BoxContainer>
+                    </PanelContainer>
+
+                    <PanelContainer StyleClasses="HullCard">
+                        <BoxContainer Orientation="Vertical" Margin="6">
+                            <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
+                            <Label Name="Balance" Access="Public" StyleClasses="HullMuted" HorizontalAlignment="Right" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="3">
+                        <Button Name="ChatTabButton" ToggleMode="True" StyleClasses="HullTab" HorizontalExpand="True"
+                                Text="{Loc 'ui-lobby-chat-tab'}" />
+                        <ContainerButton Name="NewsTabButton" ToggleMode="True" StyleClasses="HullTab" HorizontalExpand="True">
+                            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" SeparationOverride="6">
+                                <Label Text="{Loc 'ui-lobby-news-tab'}" />
+                                <hull:IndicatorLamp Name="NewsLamp" Visible="False" Margin="0 2 0 0" />
+                            </BoxContainer>
+                        </ContainerButton>
+                    </BoxContainer>
+
+                    <PanelContainer StyleClasses="HullInset" VerticalExpand="True">
+                        <Control Margin="4" VerticalExpand="True">
+                            <Control Name="NewsContainer" Access="Public" VerticalExpand="True" />
+                            <widgets:ChatBox Name="Chat" Access="Public" VerticalExpand="True" MinHeight="50" Visible="False" />
+                        </Control>
                     </PanelContainer>
                 </BoxContainer>
             </hull:HullPanel>
@@ -150,4 +149,5 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                            Margin="4" />
         </PanelContainer>
     </BoxContainer>
+    <hull:LobbyEasterEgg Name="EasterEgg" />
 </lobbyUi:LobbyGui>

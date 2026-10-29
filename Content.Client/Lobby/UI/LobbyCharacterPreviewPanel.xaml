@@ -13,7 +13,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <BoxContainer Name="ViewBox" Orientation="Horizontal" VerticalAlignment="Center" />
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalAlignment="Center" SeparationOverride="4">
                 <Label Text="{Loc 'lobby-character-preview-panel-header'}" StyleClasses="HullMuted" />
-                <Label Name="Summary" StyleClasses="HullPostTitle" ClipText="True" />
+                <Label Name="Summary" StyleClasses="HullText" ClipText="True" />
                 <BoxContainer Orientation="Horizontal" SeparationOverride="4">
                     <Button Name="CharacterSetup" Text="{Loc 'lobby-character-preview-panel-character-setup-button'}"
                             StyleClasses="HullPlate" />

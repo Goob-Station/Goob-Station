@@ -1,10 +1,8 @@
 using System.Numerics;
-using Robust.Client.Graphics;
-using Robust.Client.UserInterface.Controls;
 
 namespace Content.Goobstation.UIKit.UserInterface.Lobby;
 
-public sealed class ColorSwatch : Button
+public sealed class ColorSwatch : TintButton
 {
     public Color Color { get; }
 
@@ -13,15 +11,9 @@ public sealed class ColorSwatch : Button
         Color = color;
         ToggleMode = true;
         SetSize = new Vector2(24, 24);
-        StyleClasses.Add(HullStyleClasses.Slot);
+        StyleClasses.Add(HullStyleClasses.Plate);
         ToolTip = color.ToHex();
-
-        AddChild(new PanelContainer
-        {
-            PanelOverride = new StyleBoxFlat { BackgroundColor = color },
-            Margin = new Thickness(2),
-            MouseFilter = MouseFilterMode.Ignore,
-        });
+        Tint = color;
     }
 
     public bool Matches(Color color)

@@ -18,6 +18,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     HorizontalAlignment="Center"/>
         <Label Name="DescriptionLabel"
                Align="Center"
+               StyleClasses="HullPostTitle"
                HorizontalExpand="True"/>
         <Label Name="JobLabel"
                Align="Center"
