@@ -54,9 +54,15 @@ public sealed partial class NukeSystem : EntitySystem // Goob
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    /// <summary>
+    ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
+    /// </summary>
     private float _nukeSongLength;
     private ResolvedSoundSpecifier _selectedNukeSong = String.Empty;
 
+    /// <summary>
+    ///     Time to leave between the nuke song and the nuke alarm playing.
+    /// </summary>
     private const float NukeSongBuffer = 1.5f;
 
     public override void Initialize()
@@ -70,14 +76,17 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         SubscribeLocalEvent<NukeComponent, EntRemovedFromContainerMessage>(OnItemSlotChanged);
         SubscribeLocalEvent<NukeComponent, ExaminedEvent>(OnExaminedEvent);
 
+        // Shouldn't need re-anchoring.
         SubscribeLocalEvent<NukeComponent, AnchorStateChangedEvent>(OnAnchorChanged);
 
+        // ui events
         SubscribeLocalEvent<NukeComponent, NukeAnchorMessage>(OnAnchorButtonPressed);
         SubscribeLocalEvent<NukeComponent, NukeArmedMessage>(OnArmButtonPressed);
         SubscribeLocalEvent<NukeComponent, NukeKeypadMessage>(OnKeypadButtonPressed);
         SubscribeLocalEvent<NukeComponent, NukeKeypadClearMessage>(OnClearButtonPressed);
         SubscribeLocalEvent<NukeComponent, NukeKeypadEnterMessage>(OnEnterButtonPressed);
 
+        // Doafter events
         SubscribeLocalEvent<NukeComponent, NukeDisarmDoAfterEvent>(OnDoAfter);
 
         SubscribeLocalEvent<NukeComponent, DestructionEventArgs>(OnNukeDestroyed); // Goobstation
@@ -131,6 +140,9 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         nuke.Code = GenerateRandomNumberString(nuke.CodeLength);
     }
 
+    /// <summary>
+    /// Slightly randomize nuke countdown timer
+    /// </summary>
     private void OnMicrowaved(Entity<NukeDiskComponent> ent, ref BeingMicrowavedEvent args)
     {
         if (ent.Comp.TimeModifier != null)
@@ -202,6 +214,8 @@ public sealed partial class NukeSystem : EntitySystem // Goob
 
         if (args.Anchored == false && component.Status == NukeStatus.ARMED && component.RemainingTime > component.DisarmDoAfterLength)
         {
+            // yes, this means technically if you can find a way to unanchor the nuke, you can disarm it
+            // without the doafter. but that takes some effort, and it won't allow you to disarm a nuke that can't be disarmed by the doafter.
             DisarmBomb(uid, component);
         }
 
@@ -214,6 +228,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
 
     private async void OnAnchorButtonPressed(EntityUid uid, NukeComponent component, NukeAnchorMessage args)
     {
+        // malicious client sanity check
         if (component.Status == NukeStatus.ARMED)
             return;
 
@@ -225,6 +240,8 @@ public sealed partial class NukeSystem : EntitySystem // Goob
             return;
         }
 
+        // manually set transform anchor (bypassing anchorable)
+        // todo: it will break pullable system
         var xform = Transform(uid);
         if (xform.Anchored)
         {
@@ -264,7 +281,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
 
         var curTime = _timing.CurTime;
         if (curTime < component.LastCodeEnteredAt + SharedNukeComponent.EnterCodeCooldown)
-            return;
+            return; // Validate that they are not entering codes faster than the cooldown.
 
         component.LastCodeEnteredAt = curTime;
 
@@ -347,6 +364,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         nuke.CooldownTime -= frameTime;
         if (nuke.CooldownTime <= 0)
         {
+            // reset nuke to default state
             nuke.CooldownTime = 0;
             nuke.Status = NukeStatus.AWAIT_ARM;
             UpdateStatus(uid, nuke);
@@ -362,12 +380,15 @@ public sealed partial class NukeSystem : EntitySystem // Goob
 
         nuke.RemainingTime -= frameTime;
 
+        // Start playing the nuke event song so that it ends a couple seconds before the alert sound
+        // should play
         if (nuke.RemainingTime <= _nukeSongLength + nuke.AlertSoundTime + NukeSongBuffer && !nuke.PlayedNukeSong && !ResolvedSoundSpecifier.IsNullOrEmpty(_selectedNukeSong))
         {
             _sound.DispatchStationEventMusic(uid, _selectedNukeSong, StationEventMusicType.Nuke);
             nuke.PlayedNukeSong = true;
         }
 
+        // play alert sound if time is running out
         if (nuke.RemainingTime <= nuke.AlertSoundTime && !nuke.PlayedAlertSound)
         {
             _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(nuke.AlertSound), new AudioParams{Volume = -5f});
@@ -433,8 +454,10 @@ public sealed partial class NukeSystem : EntitySystem // Goob
 
                 break;
             case NukeStatus.AWAIT_ARM:
+                // do nothing, wait for arm button to be pressed
                 break;
             case NukeStatus.ARMED:
+                // handling case of wizard recalling disk out of armed Nuke
                 // Goobstation
                 if (!component.DiskSlot.HasItem && !component.Converted)
                 {
@@ -481,6 +504,10 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         if (!Resolve(uid, ref component))
             return;
 
+        // This is a C mixolydian blues scale.
+        // 1 2 3    C D Eb
+        // 4 5 6    E F F#
+        // 7 8 9    G A Bb
         var semitoneShift = number switch
         {
             1 => 0,
@@ -496,6 +523,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
             _ => 0,
         };
 
+        // Don't double-dip on the octave shifting
         component.LastPlayedKeypadSemitones = number == 0 ? component.LastPlayedKeypadSemitones : semitoneShift;
 
         var opts = component.KeypadPressSound.Params;
@@ -523,6 +551,9 @@ public sealed partial class NukeSystem : EntitySystem // Goob
 
     #region Public API
 
+    /// <summary>
+    ///     Force a nuclear bomb to start a countdown timer
+    /// </summary>
     public void ArmBomb(EntityUid uid, NukeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -535,6 +566,9 @@ public sealed partial class NukeSystem : EntitySystem // Goob
 
         var nukeXform = Transform(uid);
         var stationUid = _station.GetStationInMap(nukeXform.MapID);
+        // The nuke may not be on a station, so it's more important to just
+        // let people know that a nuclear bomb was armed in their vicinity instead.
+        // Otherwise, you could set every station to whatever AlertLevelOnActivate is.
         if (stationUid != null && !isOverride)
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnActivate, true, true, true, true);
         else if (stationUid != null && isOverride)
@@ -545,16 +579,18 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         var y = (int) pos.Y;
         var posText = $"({x}, {y})";
 
+        // We are collapsing the randomness here, otherwise we would get separate random song picks for checking duration and when actually playing the song afterwards
         _selectedNukeSong = _audio.ResolveSound(component.ArmMusic);
 
         // Goobstation start
+        // If it's honkops, we use a different soundcollection!
         var activeRules = _gameTicker.GetActiveGameRules();
 
         foreach (var rule in activeRules)
         {
             if (TryComp<NukeopsRuleComponent>(rule, out var nukeopsComp))
             {
-                if (nukeopsComp.LocalePrefix == "honkops-")
+                if (nukeopsComp.LocalePrefix == "honkops-") // This is a silly way of doing it, but why make another bool when you can just hardcode this?
                 {
                     _selectedNukeSong = _audio.GetSound(component.HonkopsArmMusic);
                     break;
@@ -569,6 +605,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         }
         // Goobstation end
 
+        // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-armed",
             ("time", (int) component.RemainingTime),
             ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, nukeXform)))));
@@ -578,12 +615,15 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.ArmSound));
         _nukeSongLength = (float) _audio.GetAudioLength(_selectedNukeSong).TotalSeconds;
 
+        // turn on the spinny light
         _pointLight.SetEnabled(uid, true);
+        // enable the navmap beacon for people to find it
         _navMap.SetBeaconEnabled(uid, true);
 
         _itemSlots.SetLock(uid, component.DiskSlot, !component.Converted); // Goobstation
         if (!nukeXform.Anchored)
         {
+            // Admin command shenanigans, just make sure.
             _transform.AnchorEntity(uid, nukeXform);
         }
 
@@ -592,6 +632,9 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         UpdateAppearance(uid, component);
     }
 
+    /// <summary>
+    ///     Stop nuclear bomb timer
+    /// </summary>
     public void DisarmBomb(EntityUid uid, NukeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -606,6 +649,7 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         if (stationUid != null)
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnDeactivate, true, true, true);
 
+        // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-unarmed");
         var sender = Loc.GetString("nuke-component-announcement-sender");
         _chatSystem.DispatchStationAnnouncement(uid, announcement, sender, false);
@@ -614,14 +658,19 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.DisarmSound));
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
 
+        // reset nuke remaining time to either itself or the minimum time, whichever is higher
         component.RemainingTime = Math.Max(component.RemainingTime, component.MinimumTime);
 
+        // disable sound and reset it
         component.PlayedAlertSound = false;
         component.AlertAudioStream = _audio.Stop(component.AlertAudioStream);
 
+        // turn off the spinny light
         _pointLight.SetEnabled(uid, false);
+        // disable the navmap beacon now that its disarmed
         _navMap.SetBeaconEnabled(uid, false);
 
+        // start bomb cooldown
         _itemSlots.SetLock(uid, component.DiskSlot, false);
         component.Status = NukeStatus.COOLDOWN;
         component.CooldownTime = component.Cooldown;
@@ -630,6 +679,9 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         UpdateAppearance(uid, component);
     }
 
+    /// <summary>
+    ///     Toggle bomb arm button
+    /// </summary>
     public void ToggleBomb(EntityUid uid, NukeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -641,6 +693,9 @@ public sealed partial class NukeSystem : EntitySystem // Goob
             ArmBomb(uid, component);
     }
 
+    /// <summary>
+    ///     Force bomb to explode immediately
+    /// </summary>
     public void ActivateBomb(EntityUid uid, NukeComponent? component = null,
         TransformComponent? transform = null)
     {
@@ -667,6 +722,9 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         Del(uid);
     }
 
+    /// <summary>
+    ///     Set remaining time value
+    /// </summary>
     public void SetRemainingTime(EntityUid uid, float timer, NukeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -685,6 +743,9 @@ public sealed partial class NukeSystem : EntitySystem // Goob
         component.Code = code;
     }
 
+    /// <summary>
+    ///     Convert a bomb with a conversion kit so it can be armed without the authorization disk.
+    /// </summary>
     public void ConvertBomb(EntityUid uid, NukeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -777,8 +838,11 @@ public sealed class NukeExplodedEvent : EntityEventArgs
     public EntityUid? OwningStation;
 }
 
+/// <summary>
+///     Raised directed on the nuke when its disarm doafter is successful.
+///     So the game knows not to end.
+/// </summary>
 public sealed class NukeDisarmSuccessEvent : EntityEventArgs
 {
 
 }
-
