@@ -1,0 +1,12 @@
+- type: technology
+  id: TransferValveTech
+  name: research-technology-transfer-valve
+  icon:
+    sprite: _salemstation/tanktransfervalve.rsi
+    state: valve
+  discipline: Experimental
+  tier: 2
+  cost: 10000
+  position: 0,-3
+  recipeUnlocks:
+  - TransferValve

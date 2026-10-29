@@ -1,0 +1,7 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: TransferValve
+  result: TransferValve
+  materials:
+    Steel: 1500
+    Glass: 500

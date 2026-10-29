@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseItem
+  id: TransferValve
+  name: transfer valve
+  description: A device for combining the contents of two gas tanks. Attach a plasma tank, an oxygen tank, and a timer.
+  components:
+  - type: Sprite
+    sprite: _salemstation/tanktransfervalve.rsi
+    state: valve
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TransferValveVisuals.Assembled:
+        assembled:
+          False: { state: valve }
+          True: { state: ttv }
+  - type: Item
+    size: Normal
+  - type: TransferValve

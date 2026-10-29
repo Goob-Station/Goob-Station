@@ -164,6 +164,8 @@
       prob: 0.02
     - id: Shadowling # Goob
       prob: 0.02
+    - id: Jester
+      prob: 0.1
 
 - type: entity
   parent: BaseGameRule
@@ -383,6 +385,27 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+
+- type: entity
+  id: Jester
+  parent: BaseGameRule
+  components:
+  - type: JesterRule
+  - type: GameRule
+    minPlayers: 5
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Jester ]
+      fallbackRoles: [ Jester ]
+      min: 1
+      max: 1
+      blacklist:
+        components:
+        - CommandStaff
+        - AntagImmune
+      mindRoles:
+      - MindRoleJester
 
 - type: entity
   id: Revolutionary

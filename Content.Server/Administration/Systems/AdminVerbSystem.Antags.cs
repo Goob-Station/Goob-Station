@@ -87,6 +87,7 @@ using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
+using Content.Server._salemstation;
 using Content.Shared.Administration;
 using Content.Server.Clothing.Systems;
 using Content.Shared.Database;
@@ -112,6 +113,7 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId DefaultNukeOpRule = "LoneOpsSpawn";
     private static readonly EntProtoId DefaultRevsRule = "Revolutionary";
     private static readonly EntProtoId DefaultThiefRule = "Thief";
+        private static readonly EntProtoId DefaultJesterRule = "Jester";
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
@@ -237,6 +239,21 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", thiefName, Loc.GetString("admin-verb-make-thief")),
         };
         args.Verbs.Add(thief);
+
+        var jesterName = Loc.GetString("admin-verb-text-make-jester");
+        Verb jester = new()
+        {
+            Text = jesterName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Clown"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<JesterRuleComponent>(targetPlayer, DefaultJesterRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", jesterName, Loc.GetString("admin-verb-make-jester")),
+        };
+        args.Verbs.Add(jester);
 
         var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");
         Verb paradox = new()

@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseAction
+  id: ActionJesterGhostKill
+  name: Final Joke
+  description: Kill one living player from beyond the grave.
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    allowGhostAction: true
+    icon: Interface/Actions/scream.png
+  - type: TargetAction
+    checkCanAccess: false
+    range: -1
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    event: !type:JesterGhostKillActionEvent

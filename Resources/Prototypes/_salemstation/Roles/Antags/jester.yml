@@ -1,0 +1,7 @@
+- type: antag
+  id: Jester
+  name: Jester
+  antagonist: true
+  setPreference: true
+  objective: Die by the Tribunal and take one final life from beyond the grave.
+  components: []
