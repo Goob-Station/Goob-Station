@@ -15,6 +15,24 @@ chat-emote-name-trill = Trill
 chat-emote-name-warble = Warble
 chat-emote-name-wurble = Wurble
 chat-emote-name-mars = Mars
+chat-emote-name-blink = Blink
+chat-emote-name-scree = Scree
+chat-emote-name-call = Call
+chat-emote-name-squawk = Squawk
+chat-emote-name-quack = Quack
+chat-emote-name-snort = Snort
+chat-emote-name-squee = Squee
+chat-emote-name-stomp = Stomp
+chat-emote-name-gekker = Gekker
+chat-emote-name-yap = Yap
+chat-emote-name-gurgle = Gurgle
+chat-emote-name-liss = Liss
+chat-emote-name-lurr = Lurr
+chat-emote-name-snicker = Snicker
+chat-emote-name-multichirp = Chirp Chorus
+chat-emote-name-synth-laugh = Synthetic Laugh
+chat-emote-name-hum = Hum
+chat-emote-name-sniff = Sniff
 
 # Message
 chat-emote-msg-fart = farts.
@@ -26,6 +44,23 @@ chat-emote-msg-warble = warbles!
 chat-emote-msg-wurble = wurbles!
 chat-emote-msg-mars = mars.
 chat-emote-msg-bagawk = bagawks!
+chat-emote-msg-blink = blinks.
+chat-emote-msg-scree = screes!
+chat-emote-msg-call = calls out!
+chat-emote-msg-squawk = squawks!
+chat-emote-msg-quack = quacks.
+chat-emote-msg-snort = snorts.
+chat-emote-msg-squee = squees!
+chat-emote-msg-stomp = stomps {POSS-ADJ($entity)} foot.
+chat-emote-msg-gekker = gekkers!
+chat-emote-msg-yap = yaps!
+chat-emote-msg-gurgle = gurgles.
+chat-emote-msg-liss = lisses.
+chat-emote-msg-lurr = lurrs.
+chat-emote-msg-snicker = snickers.
+chat-emote-msg-multichirp = chirps in a chorus!
+chat-emote-msg-hum = hums.
+chat-emote-msg-sniff = sniffs.
 
 
 # Misc

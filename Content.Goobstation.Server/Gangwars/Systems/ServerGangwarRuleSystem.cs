@@ -20,20 +20,20 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Gangwars.Systems;
 
-public sealed class ServerGangwarRuleSystem : GameRuleSystem<GangwarRuleComponent>
+public sealed partial class ServerGangwarRuleSystem : GameRuleSystem<GangwarRuleComponent>
 {
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly AntagBetterRandomSpawnSystem _betterRandomSpawn = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NanoChatCartridgeSystem _nanoChatCartridge = default!;
-    [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private AntagBetterRandomSpawnSystem _betterRandomSpawn = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private NanoChatCartridgeSystem _nanoChatCartridge = default!;
+    [Dependency] private CartridgeLoaderSystem _cartridgeLoader = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedStationSystem _station = default!;
 
     public override void Initialize()
     {

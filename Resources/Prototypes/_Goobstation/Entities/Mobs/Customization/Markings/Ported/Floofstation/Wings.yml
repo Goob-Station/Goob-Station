@@ -1,0 +1,30 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: WingsDragon
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_SimpleStation/Mobs/Customization/wings64x34.rsi
+    state: dragon
+
+- type: marking
+  id: WingsHarpyBionic
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/wings64-32.rsi
+    state: bionic_wings_tone_1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/wings64-32.rsi
+    state: bionic_wings_tone_2
+
+- type: marking
+  id: WingsSkeleton
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Plasmaman]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/wings96x34.rsi
+    state: skeleton

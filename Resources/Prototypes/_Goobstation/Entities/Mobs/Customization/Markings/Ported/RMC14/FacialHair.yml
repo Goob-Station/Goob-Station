@@ -1,0 +1,9 @@
+# Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f
+
+- type: marking
+  id: RMCHumanFacialHairSoulfulSelleck
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/human_facial_hair.rsi
+    state: soulful_selleck

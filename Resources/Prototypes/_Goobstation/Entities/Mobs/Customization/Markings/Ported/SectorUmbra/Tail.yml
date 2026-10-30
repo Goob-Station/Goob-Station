@@ -1,0 +1,44 @@
+# Ported from https://github.com/Sector-Umbra/sector-umbra/tree/58f7e454941dc71e00166c60a09063b9e8378d56
+
+- type: marking
+  id: LizardTailSnake
+  wagging: LizardTailSnakeAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/snaketail.rsi
+    state: tail_snake_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/snaketail.rsi
+    state: tail_snake_secondary
+
+- type: marking
+  id: LizardTailSnakeAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/snaketail.rsi
+    state: tail_snake_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/snaketail.rsi
+    state: tail_snake_wag_secondary
+
+- type: marking
+  id: LizardTailSynthAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/tails.rsi
+    state: tail_synthliz_wagging
+
+- type: marking
+  id: MothWingsMembral
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Moth/tail.rsi
+    state: membral_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Moth/tail.rsi
+    state: membral_secondary

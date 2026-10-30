@@ -11,11 +11,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.ServerCurrency.UI
 {
-    public sealed class CurrencyEui : BaseEui
+    public sealed partial class CurrencyEui : BaseEui
     {
-        [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
-        [Dependency] private readonly IAdminNotesManager _notesMan = default!;
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
+        [Dependency] private ICommonCurrencyManager _currencyMan = default!;
+        [Dependency] private IAdminNotesManager _notesMan = default!;
+        [Dependency] private IPrototypeManager _protoMan = default!;
         public CurrencyEui()
         {
             IoCManager.InjectDependencies(this);

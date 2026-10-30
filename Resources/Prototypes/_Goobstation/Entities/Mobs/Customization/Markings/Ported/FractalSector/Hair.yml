@@ -1,0 +1,247 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: AurelianVoxHairLongQuills
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_hairs.rsi
+    state: vox_longquills
+
+- type: marking
+  id: AurelianVoxHairMohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_hairs.rsi
+    state: vox_mohawk
+
+- type: marking
+  id: AurelianVoxHairQuills
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_hairs.rsi
+    state: vox_quills
+
+- type: marking
+  id: AurelianVoxHairshortQuills
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_hairs.rsi
+    state: vox_shortquills
+
+- type: marking
+  id: MothHairHighPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_CD/Mobs/Customization/Moth/hair.rsi
+    state: highponytail
+
+- type: marking
+  id: MothHairShortCut
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_CD/Mobs/Customization/Moth/hair.rsi
+    state: shortcut
+
+- type: marking
+  id: MothHairShortMessy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_CD/Mobs/Customization/Moth/hair.rsi
+    state: shortmessy
+
+- type: marking
+  id: MothHairSidePonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_CD/Mobs/Customization/Moth/hair.rsi
+    state: sideponytail
+
+- type: marking
+  id: MothHairSideSwept
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_CD/Mobs/Customization/Moth/hair.rsi
+    state: sideswept
+
+- type: marking
+  id: MothHairTuft
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_CD/Mobs/Customization/Moth/hair.rsi
+    state: tuft
+
+- type: marking
+  id: NFHumanHairBighawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-bighawk
+
+- type: marking
+  id: NFHumanHairChub
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: goonstation-hair-chub
+
+- type: marking
+  id: NFHumanHairHalfshavedEmo
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-halfshaved-emo
+
+- type: marking
+  id: NFHumanHairHalfshavedTrim
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-halfshaved-trim
+
+- type: marking
+  id: NFHumanHairJensen
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-jensen
+
+- type: marking
+  id: NFHumanHairLeftSide
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-leftside
+
+- type: marking
+  id: NFHumanHairLeftSideTrim
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-leftside-trim
+
+- type: marking
+  id: NFHumanHairMohawkNaomi
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-mohawk-naomi
+
+- type: marking
+  id: NFHumanHairNebulaD
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-d
+
+- type: marking
+  id: NFHumanHairRecedingFront
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-thinningfront
+
+- type: marking
+  id: NFHumanHairRecedingRear
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-thinningrear
+
+- type: marking
+  id: NFHumanHairRightside
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-rightside
+
+- type: marking
+  id: NFHumanHairRightsideTrim
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-rightside-trim
+
+- type: marking
+  id: NFHumanHairShavedBun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-shavedbun
+
+- type: marking
+  id: NFHumanHairShavedpart
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-shavedpart
+
+- type: marking
+  id: NFHumanHairSlick
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-slick
+
+- type: marking
+  id: NFHumanHairStreak
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: goonstation-hair-streak
+
+- type: marking
+  id: NFHumanHairSweepshaved
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-sweepshaved
+
+- type: marking
+  id: NFHumanHairUndercutTrim
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/human_hair.rsi
+    state: nebula-hair-undercut-trim

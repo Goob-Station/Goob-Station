@@ -10,7 +10,7 @@
     icon:
       sprite: Objects/Consumable/Food/ingredients.rsi
       state: cheesewedge
-    useDelay: 1
+    useDelay: 120
     sound: !type:SoundPathSpecifier
       path: /Audio/Effects/pop.ogg
   - type: InstantAction

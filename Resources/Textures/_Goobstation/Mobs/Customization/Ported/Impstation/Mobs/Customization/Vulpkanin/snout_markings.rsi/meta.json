@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/DeltaV-Station/Delta-v/commit/65d35d0b3c20aa4e8a0e749a4de8392e53051e86, edited by ScarKy0 (Github/Discord). Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/Mobs/Customization/Vulpkanin/snout_markings.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "snout-top",
+      "directions": 4
+    },
+    {
+      "name": "vulpine-lines",
+      "directions": 4
+    }
+  ]
+}

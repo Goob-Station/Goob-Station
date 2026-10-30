@@ -6,6 +6,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <BoxContainer Name="Container"
                       Orientation="Horizontal">
-            <CheckBox Name="Checkbox" Access="Public"/>
+            <Button Name="Checkbox" Access="Public" ToggleMode="True" StyleClasses="HullTab" TextAlign="Left" HorizontalExpand="True"/> <!-- Goob -->
         </BoxContainer>
 </Control>

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Originally from https://github.com/NebulaSS13/Nebula, updated and edited for SS14 by Luweth (github) slick_s orginally by Flareguy, edited for avox pallet by Luweth. Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_WF/Mobs/Customization/aurelian_hairs.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "vox_longquills",
+      "directions": 4
+    },
+    {
+      "name": "vox_shortquills",
+      "directions": 4
+    },
+    {
+      "name": "vox_quills",
+      "directions": 4
+    },
+    {
+      "name": "vox_mohawk",
+      "directions": 4
+    }
+  ]
+}

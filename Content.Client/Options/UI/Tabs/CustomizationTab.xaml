@@ -1,0 +1,62 @@
+<tabs:CustomizationTab xmlns="https://spacestation14.io"
+                       xmlns:tabs="clr-namespace:Content.Client.Options.UI.Tabs"
+                       xmlns:ui="clr-namespace:Content.Client.Options.UI">
+    <BoxContainer Orientation="Vertical">
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Orientation="Vertical" Margin="8">
+                <Label Text="{Loc 'ui-options-customization-header-speech'}"
+                       StyleClasses="LabelKeyText"/>
+                <CheckBox Name="RunechatCheckBox" Text="{Loc 'ui-options-runechat'}" />
+                <ui:OptionSlider Name="RunechatFontSizeSlider" Title="{Loc 'ui-options-runechat-font-size'}" />
+                <ui:OptionSlider Name="RunechatOutlineSlider" Title="{Loc 'ui-options-runechat-outline'}" />
+                <Label Text="{Loc 'ui-options-runechat-preview'}" Margin="0 4 0 0" />
+                <PanelContainer Name="RunechatPreviewPanel" Margin="0 4 0 8">
+                    <BoxContainer Name="RunechatPreview" Orientation="Vertical" Margin="8" />
+                </PanelContainer>
+                <CheckBox Name="FancySpeechBubblesCheckBox" Text="{Loc 'ui-options-fancy-speech'}" />
+                <CheckBox Name="FancyNameBackgroundsCheckBox" Text="{Loc 'ui-options-fancy-name-background'}" />
+
+                <Label Text="{Loc 'ui-options-customization-header-chat'}"
+                       StyleClasses="LabelKeyText"
+                       Margin="0 10 0 0"/>
+                <ui:OptionColorSlider Name="HighlightsColorSlider"
+                                      Title="{Loc 'ui-options-highlights-color'}"
+                                      Example="{Loc 'ui-options-highlights-color-example'}"/>
+
+                <Label Text="{Loc 'ui-options-radio-channel-colors-header'}"
+                       StyleClasses="LabelKeyText"
+                       Margin="0 10 0 0"/>
+                <CheckBox Name="UseCustomRadioChannelColors"
+                          Text="{Loc 'ui-options-use-custom-radio-channel-colors'}"/>
+                <Collapsible Margin="0 5">
+                    <CollapsibleHeading Title="{Loc 'ui-options-radio-channel-colors-expand'}" DefaultCursorShape="Hand"/>
+                    <CollapsibleBody Margin="10 0 0 0">
+                        <BoxContainer Name="RadioChannelColorsContainer" Orientation="Vertical"/>
+                    </CollapsibleBody>
+                </Collapsible>
+
+                <Label Text="{Loc 'ui-options-interaction-outline-header'}"
+                       StyleClasses="LabelKeyText"
+                       Margin="0 10 0 0"/>
+                <CheckBox Name="UseCustomInteractionOutlineColors"
+                          Text="{Loc 'ui-options-use-custom-interaction-outline-color'}"/>
+                <Collapsible Margin="0 5">
+                    <CollapsibleHeading Title="{Loc 'ui-options-interaction-outline-color-expand'}" DefaultCursorShape="Hand"/>
+                    <CollapsibleBody Margin="10 0 0 0">
+                        <BoxContainer Orientation="Vertical">
+                            <Label Text="{Loc 'ui-options-interaction-outline-color-valid'}"
+                                   StyleClasses="LabelKeyText"/>
+                            <ui:OptionColorSlider Name="ValidInteractionOutlineColorSlider"
+                                                  Example="{Loc 'ui-options-interaction-outline-color-example'}"/>
+                            <Label Text="{Loc 'ui-options-interaction-outline-color-invalid'}"
+                                   StyleClasses="LabelKeyText"/>
+                            <ui:OptionColorSlider Name="InvalidInteractionOutlineColorSlider"
+                                                  Example="{Loc 'ui-options-interaction-outline-color-example'}"/>
+                        </BoxContainer>
+                    </CollapsibleBody>
+                </Collapsible>
+            </BoxContainer>
+        </ScrollContainer>
+        <ui:OptionsTabControlRow Name="Control" Access="Public" />
+    </BoxContainer>
+</tabs:CustomizationTab>

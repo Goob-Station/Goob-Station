@@ -138,7 +138,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     }
 
     // Prevents moving within the bag :)
-    private void OnInteractAttempt(EntityUid uid, PseudoItemComponent component, InteractionAttemptEvent args)
+    private void OnInteractAttempt(EntityUid uid, PseudoItemComponent component, ref InteractionAttemptEvent args)
     {
         if (args.Uid == args.Target && component.Active)
             args.Cancelled = true;

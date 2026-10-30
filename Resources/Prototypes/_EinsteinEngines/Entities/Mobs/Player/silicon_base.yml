@@ -259,6 +259,7 @@
       sprite: Objects/Misc/ensnare.rsi
     - type: Speech
       speechSounds: Pai
+      allowedEmotes: ['SyndieBorgLaugh'] # Goob
     - type: Vocal
       wilhelm: "/Audio/_EinsteinEngines/Voice/IPC/wilhelm.ogg"
       sounds:

@@ -1,0 +1,44 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      xmlns:paint="clr-namespace:Content.Goobstation.Client.Paint"
+                      Title="{Loc 'paint-window-title'}"
+                      MinSize="700 500"
+                      SetSize="840 560">
+    <BoxContainer Orientation="Horizontal" Margin="8" SeparationOverride="8">
+        <BoxContainer Orientation="Vertical" MinWidth="260" SeparationOverride="6">
+            <BoxContainer Name="EditPanel" Orientation="Vertical" SeparationOverride="6">
+                <Label Text="{Loc 'paint-window-tools'}" StyleClasses="LabelSubText" />
+                <BoxContainer Name="ToolButtons" Orientation="Horizontal" SeparationOverride="4" />
+                <Label Text="{Loc 'paint-window-brush'}" StyleClasses="LabelSubText" />
+                <BoxContainer Orientation="Horizontal">
+                    <BoxContainer Name="StyleButtons" Orientation="Horizontal" SeparationOverride="4" />
+                    <Control HorizontalExpand="True" />
+                    <Button Name="UndoButton" ToolTip="{Loc 'paint-window-undo'}" MinSize="38 34">
+                        <TextureRect TexturePath="/Textures/_Goobstation/Interface/Paint/undo.svg.192dpi.png"
+                                     Stretch="KeepAspectCentered"
+                                     SetSize="22 22"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center" />
+                    </Button>
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'paint-window-size'}" StyleClasses="LabelSubText" HorizontalExpand="True" />
+                    <Label Name="SizeLabel" StyleClasses="LabelSubText" />
+                </BoxContainer>
+                <Slider Name="SizeSlider" Rounded="True" MinValue="1" MaxValue="3" Value="1" />
+                <Label Text="{Loc 'paint-window-color'}" StyleClasses="LabelSubText" />
+                <PanelContainer Name="ColorSwatch" MinHeight="24" />
+                <ColorSelectorSliders Name="ColorPicker" Visible="False" />
+                <Label Text="{Loc 'paint-window-finish'}" StyleClasses="LabelSubText" Margin="0 6 0 0" />
+                <LineEdit Name="TitleEdit" PlaceHolder="{Loc 'paint-window-title-placeholder'}" />
+                <controls:ConfirmButton Name="FinishButton"
+                                        Text="{Loc 'paint-window-finish-button'}"
+                                        ConfirmationText="{Loc 'paint-window-finish-confirm'}" />
+            </BoxContainer>
+            <RichTextLabel Name="FinishedLabel" Visible="False" />
+            <Control VerticalExpand="True" />
+            <Label Name="StatusLabel" StyleClasses="LabelSubText" />
+        </BoxContainer>
+        <paint:PaintCanvasControl Name="Canvas" Access="Public" HorizontalExpand="True" VerticalExpand="True" />
+    </BoxContainer>
+</controls:FancyWindow>

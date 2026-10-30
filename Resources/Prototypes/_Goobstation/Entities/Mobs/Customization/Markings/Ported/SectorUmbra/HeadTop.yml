@@ -1,0 +1,64 @@
+# Ported from https://github.com/Sector-Umbra/sector-umbra/tree/58f7e454941dc71e00166c60a09063b9e8378d56
+
+- type: marking
+  id: LizardHeadAquaticFrills
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_Umbra/Mobs/Customization/aquaticheadfrills.rsi
+    state: AquaticHeadFrills
+
+- type: marking
+  id: SyntheticHornCurl
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_curl
+
+- type: marking
+  id: SyntheticHornSharp
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_sharp
+
+- type: marking
+  id: SyntheticHornShort
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_short
+
+- type: marking
+  id: SyntheticHornSlash
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_slash
+
+- type: marking
+  id: SyntheticHornThick
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_thick
+
+- type: marking
+  id: SyntheticHornTwin
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/antennas.rsi
+    state: horn_antenna_twin

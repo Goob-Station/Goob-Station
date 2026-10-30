@@ -12,11 +12,11 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 /// This handles the Lightning Storm ability.
 /// Lightning Storm creates a lightning ball that electrocutes everyone near a specific radius
 /// </summary>
-public sealed class ShadowlingLightningStormSystem : EntitySystem
+public sealed partial class ShadowlingLightningStormSystem : EntitySystem
 {
-    [Dependency] private readonly LightningSystem _lightningSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private LightningSystem _lightningSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {

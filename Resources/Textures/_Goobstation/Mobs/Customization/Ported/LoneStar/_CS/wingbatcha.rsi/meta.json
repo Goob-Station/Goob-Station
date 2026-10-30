@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "coyote-bayou. Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab/Resources/Textures/_CS/wingbatcha.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "m_insect_wings_dragon_alt_BEHIND_A",
+      "directions": 4
+    },
+    {
+      "name": "m_insect_wings_dragon_alt_FRONT_A",
+      "directions": 4
+    },
+    {
+      "name": "m_insect_wings_dragon_alt_BEHIND_B",
+      "directions": 4
+    },
+    {
+      "name": "m_insect_wings_dragon_alt_FRONT_B",
+      "directions": 4
+    },
+    {
+      "name": "m_insect_wings_sepulchre_BEHIND_B",
+      "directions": 4
+    },
+    {
+      "name": "m_insect_wings_sepulchre_FRONT_B",
+      "directions": 4
+    }
+  ]
+}
