@@ -178,7 +178,7 @@ public sealed class NewsSystem : SharedNewsSystem
         string? authorName = tryGetIdentityShortInfoEvent.Title;
 
         var title = FormattedMessage.EscapeText(msg.Title.Trim()); // Goob Sanitize Text
-        var content = FormattedMessage.EscapeText(msg.Content.Trim()); // Goob Sanitize Text
+        var content = msg.Content.Trim();
 
         if (TryAddNews(ent, title, content, out var article, authorName, msg.Actor))
         {
@@ -392,7 +392,7 @@ public sealed class NewsSystem : SharedNewsSystem
     private void OnNewsWriterDraftUpdatedMessage(Entity<NewsWriterComponent> ent, ref NewsWriterSaveDraftMessage args)
     {
         ent.Comp.DraftTitle = FormattedMessage.EscapeText(args.DraftTitle); // Goob Sanitize Text
-        ent.Comp.DraftContent = FormattedMessage.EscapeText(args.DraftContent); // Goob Sanitize Text
+        ent.Comp.DraftContent = args.DraftContent;
     }
 
     private void OnRequestArticleDraftMessage(Entity<NewsWriterComponent> ent, ref NewsWriterRequestDraftMessage msg)

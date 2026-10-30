@@ -1,0 +1,200 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: SynthLLegCore
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/legs.rsi
+    state: leg_core_l
+
+- type: marking
+  id: SynthLLegStreak
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/legs.rsi
+    state: leg_streak_l
+
+- type: marking
+  id: SynthRLegCore
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/legs.rsi
+    state: leg_core_r
+
+- type: marking
+  id: SynthRLegStreak
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/legs.rsi
+    state: leg_streak_r
+
+- type: marking
+  id: WFMeridianMarkingCorvidLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Harpy, Resomi]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: corvid_l_leg
+
+- type: marking
+  id: WFMeridianMarkingDatasharkLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Feroxi]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: datashark_l_leg
+
+- type: marking
+  id: WFMeridianMarkingDatasharkRLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Feroxi]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: datashark_r_leg
+
+- type: marking
+  id: WFMeridianMarkingHarpyClawsRFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: harpy_claws_r_foot
+
+- type: marking
+  id: WFMeridianMarkingHarpyLowerLegsLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: harpy_lower_legs_l_leg
+
+- type: marking
+  id: WFMeridianMarkingHarpyLowerLegsRFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: harpy_lower_legs_r_foot
+
+- type: marking
+  id: WFMeridianMarkingHarpyUpperLegsLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: harpy_upper_legs_l_leg
+
+- type: marking
+  id: WFMeridianMarkingHawkLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: hawk_l_leg
+
+- type: marking
+  id: WFMeridianMarkingHawkTalonLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: hawk_talon_l_leg
+
+- type: marking
+  id: WFMeridianMarkingWitchwingGrayscaleLFoot
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: witchwing_grayscale_l_foot
+
+- type: marking
+  id: WFMeridianMarkingWitchwingGrayscaleLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: witchwing_grayscale_l_leg
+
+- type: marking
+  id: WFMeridianMarkingWitchwingGrayscaleRLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: witchwing_grayscale_r_leg

@@ -104,6 +104,7 @@ public sealed partial class GrabIntentSystem : EntitySystem
         }
 
         Dirty(uid, component);
+        _modifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 
     private void OnCheckGrabbed(EntityUid uid, GrabbableComponent component, ref CheckGrabbedEvent args)

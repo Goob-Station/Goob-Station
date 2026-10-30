@@ -1,0 +1,1532 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: BunnyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: bunnytail
+
+- type: marking
+  id: BunnyTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: bunnytailalt
+
+- type: marking
+  id: DobleFur
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: doblefurtailtone1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: doblefurtailtone2
+
+- type: marking
+  id: FelinidTiger
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Shadowkin, Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Felinid/tiger_tail.rsi
+    state: m_tail_tiger_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Felinid/tiger_tail.rsi
+    state: m_tail_tiger_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Felinid/tiger_tail.rsi
+    state: m_tail_tiger_tertiary
+
+- type: marking
+  id: FluffyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: fluffytail
+
+- type: marking
+  id: FoxNineTails
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: foxninetailstone1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: foxninetailstone2
+
+- type: marking
+  id: FoxThreeTails
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: foxthreetailstone1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: foxthreetailstone2
+
+- type: marking
+  id: HorseTailCulty
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: horsetailculty
+
+- type: marking
+  id: HorseTailLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: horsetaillong
+
+- type: marking
+  id: SharkTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: sharktail
+
+- type: marking
+  id: Tail9sune
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin, Vulpkanin]
+  layering:
+    m_tail_9sune_BEHIND_primary: TailBehind
+    m_tail_9sune_BEHIND_secondary: TailBehind
+    m_tail_9sune_FRONT_primary: TailOversuit
+    m_tail_9sune_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_9sune_BEHIND_primary: m_tail_9sune_FRONT_primary
+    m_tail_9sune_BEHIND_secondary: m_tail_9sune_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_9sune_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_9sune_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_9sune_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_9sune_BEHIND_secondary
+
+- type: marking
+  id: TailAvian1
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy, Resomi, Vox]
+  layering:
+    m_tail_avian1_BEHIND_primary: TailBehind
+    m_tail_avian1_BEHIND_secondary: TailBehind
+    m_tail_avian1_FRONT_primary: TailOversuit
+    m_tail_avian1_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_avian1_BEHIND_primary: m_tail_avian1_FRONT_primary
+    m_tail_avian1_BEHIND_secondary: m_tail_avian1_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_avian1_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_avian1_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_avian1_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_avian1_BEHIND_secondary
+
+- type: marking
+  id: TailAvian2
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy, Resomi, Vox]
+  layering:
+    m_tail_avian2_BEHIND_primary: TailBehind
+    m_tail_avian2_BEHIND_secondary: TailBehind
+    m_tail_avian2_FRONT_primary: TailOversuit
+    m_tail_avian2_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_avian2_BEHIND_primary: m_tail_avian2_FRONT_primary
+    m_tail_avian2_BEHIND_secondary: m_tail_avian2_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_avian2_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_avian2_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_avian2_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_avian2_BEHIND_secondary
+
+- type: marking
+  id: TailAxolotl
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/tails32x32.rsi
+    state: axolotl
+
+- type: marking
+  id: TailBee
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid]
+  layering:
+    m_tail_bee_BEHIND_primary: TailBehind
+    m_tail_bee_BEHIND_secondary: TailBehind
+    m_tail_bee_FRONT_primary: TailOversuit
+    m_tail_bee_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_bee_BEHIND_primary: m_tail_bee_FRONT_primary
+    m_tail_bee_BEHIND_secondary: m_tail_bee_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_bee_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_bee_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_bee_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_bee_BEHIND_secondary
+
+- type: marking
+  id: TailBrushtip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_DEN/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+    state: brushtiptail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_DEN/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+    state: brushtiptail2
+
+- type: marking
+  id: TailCable
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC, Synth]
+  layering:
+    m_tail_cable_BEHIND_primary: TailBehind
+    m_tail_cable_BEHIND_secondary: TailBehind
+    m_tail_cable_FRONT_primary: TailOversuit
+    m_tail_cable_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_cable_BEHIND_primary: m_tail_cable_FRONT_primary
+    m_tail_cable_BEHIND_secondary: m_tail_cable_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_cable_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_cable_BEHIND_primary
+
+- type: marking
+  id: TailCatBig
+  wagging: TailCatBigWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Shadowkin, Tajaran]
+  layering:
+    m_tail_catbig_BEHIND: TailBehind
+    m_tail_catbig_FRONT: TailOversuit
+  colorLinks:
+    m_tail_catbig_BEHIND: m_tail_catbig_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_catbig_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_catbig_BEHIND
+
+- type: marking
+  id: TailCatBigWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Shadowkin, Tajaran]
+  layering:
+    m_waggingtail_catbig_BEHIND: TailBehind
+    m_waggingtail_catbig_FRONT: TailOversuit
+  colorLinks:
+    m_waggingtail_catbig_BEHIND: m_waggingtail_catbig_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_catbig_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_catbig_BEHIND
+
+- type: marking
+  id: TailCheesegal
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state: sergtail-1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state: sergtail-2
+
+- type: marking
+  id: TailCrow
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy, Resomi, Vox]
+  layering:
+    m_tail_crow_BEHIND_primary: TailBehind
+    m_tail_crow_FRONT_primary: TailOversuit
+  colorLinks:
+    m_tail_crow_BEHIND_primary: m_tail_crow_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_crow_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_crow_BEHIND_primary
+
+- type: marking
+  id: TailEasternDragon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/tails32x32.rsi
+    state: easternd_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/tails32x32.rsi
+    state: easternd_secondary
+
+- type: marking
+  id: TailEvolox
+  wagging: TailEvoloxWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_evolox_BEHIND_primary: TailBehind
+    m_tail_evolox_BEHIND_secondary: TailBehind
+    m_tail_evolox_FRONT_primary: TailOversuit
+    m_tail_evolox_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_evolox_BEHIND_primary: m_tail_evolox_FRONT_primary
+    m_tail_evolox_BEHIND_secondary: m_tail_evolox_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_evolox_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_evolox_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_evolox_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_evolox_BEHIND_secondary
+
+- type: marking
+  id: TailEvoloxWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_waggingtail_evolox_BEHIND_primary: TailBehind
+    m_waggingtail_evolox_BEHIND_secondary: TailBehind
+    m_waggingtail_evolox_FRONT_primary: TailOversuit
+    m_waggingtail_evolox_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_waggingtail_evolox_BEHIND_primary: m_waggingtail_evolox_FRONT_primary
+    m_waggingtail_evolox_BEHIND_secondary: m_waggingtail_evolox_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_evolox_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_evolox_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_evolox_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_evolox_BEHIND_secondary
+
+- type: marking
+  id: TailFennec
+  wagging: TailFennecWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_fennec_BEHIND_primary: TailBehind
+    m_tail_fennec_BEHIND_secondary: TailBehind
+    m_tail_fennec_FRONT_primary: TailOversuit
+    m_tail_fennec_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_fennec_BEHIND_primary: m_tail_fennec_FRONT_primary
+    m_tail_fennec_BEHIND_secondary: m_tail_fennec_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_fennec_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_fennec_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_fennec_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_fennec_BEHIND_secondary
+
+- type: marking
+  id: TailFennecWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_waggingtail_fennec_BEHIND_primary: TailBehind
+    m_waggingtail_fennec_BEHIND_secondary: TailBehind
+    m_waggingtail_fennec_FRONT_primary: TailOversuit
+    m_waggingtail_fennec_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_waggingtail_fennec_BEHIND_primary: m_waggingtail_fennec_FRONT_primary
+    m_waggingtail_fennec_BEHIND_secondary: m_waggingtail_fennec_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_fennec_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_fennec_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_fennec_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_fennec_BEHIND_secondary
+
+- type: marking
+  id: TailFish
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/tails32x32.rsi
+    state: fish_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/tails32x32.rsi
+    state: fish_secondary
+
+- type: marking
+  id: TailFox2
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_fox2_BEHIND_primary: TailBehind
+    m_tail_fox2_FRONT_primary: TailOversuit
+  colorLinks:
+    m_tail_fox2_BEHIND_primary: m_tail_fox2_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_fox2_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_fox2_BEHIND_primary
+
+- type: marking
+  id: TailFox3
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_fox3_BEHIND_primary: TailBehind
+    m_tail_fox3_FRONT_primary: TailOversuit
+  colorLinks:
+    m_tail_fox3_BEHIND_primary: m_tail_fox3_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_fox3_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_fox3_BEHIND_primary
+
+- type: marking
+  id: TailHusky
+  wagging: TailHuskyWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_husky_BEHIND_primary: TailBehind
+    m_tail_husky_BEHIND_secondary: TailBehind
+    m_tail_husky_FRONT_primary: Tail
+    m_tail_husky_FRONT_secondary: Tail
+  colorLinks:
+    m_tail_husky_BEHIND_primary: m_tail_husky_FRONT_primary
+    m_tail_husky_BEHIND_secondary: m_tail_husky_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_husky_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_husky_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_husky_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_husky_BEHIND_secondary
+
+- type: marking
+  id: TailHuskyWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_waggingtail_husky_BEHIND_primary: TailBehind
+    m_waggingtail_husky_BEHIND_secondary: TailBehind
+    m_waggingtail_husky_FRONT_primary: Tail
+    m_waggingtail_husky_FRONT_secondary: Tail
+  colorLinks:
+    m_waggingtail_husky_BEHIND_primary: m_waggingtail_husky_FRONT_primary
+    m_waggingtail_husky_BEHIND_secondary: m_waggingtail_husky_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_husky_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_husky_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_husky_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_husky_BEHIND_secondary
+
+- type: marking
+  id: TailLab
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_lab_BEHIND_primary: TailBehind
+    m_tail_lab_FRONT_primary: Tail
+  colorLinks:
+    m_tail_lab_BEHIND_primary: m_tail_lab_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_lab_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_lab_BEHIND_primary
+
+- type: marking
+  id: TailLunasune
+  wagging: TailLunasuneWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_lunasune_BEHIND: TailBehind
+    m_tail_lunasune_FRONT: Tail
+  colorLinks:
+    m_tail_lunasune_BEHIND: m_tail_lunasune_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_lunasune_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_lunasune_BEHIND
+
+- type: marking
+  id: TailLunasuneWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_waggingtail_lunasune_BEHIND: TailBehind
+    m_waggingtail_lunasune_FRONT: Tail
+  colorLinks:
+    m_waggingtail_lunasune_BEHIND: m_waggingtail_lunasune_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_lunasune_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_lunasune_BEHIND
+
+- type: marking
+  id: TailMurid
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_tail_murid_BEHIND_primary: TailBehind
+    m_tail_murid_FRONT_primary: TailOversuit
+  colorLinks:
+    m_tail_murid_BEHIND_primary: m_tail_murid_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_murid_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_murid_BEHIND_primary
+
+- type: marking
+  id: TailMuridTwo
+  wagging: TailMuridTwoWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_tail_murid_two_BEHIND_primary: TailBehind
+    m_tail_murid_two_FRONT_primary: TailOversuit
+  colorLinks:
+    m_tail_murid_two_BEHIND_primary: m_tail_murid_two_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_murid_two_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_murid_two_BEHIND_primary
+
+- type: marking
+  id: TailMuridTwoWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_waggingtail_murid_two_BEHIND_primary: TailBehind
+    m_waggingtail_murid_two_FRONT_primary: TailOversuit
+  colorLinks:
+    m_waggingtail_murid_two_BEHIND_primary: m_waggingtail_murid_two_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_murid_two_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_murid_two_BEHIND_primary
+
+- type: marking
+  id: TailOrca
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    m_tail_orca_BEHIND_primary: TailBehind
+    m_tail_orca_FRONT_primary: TailOversuit
+  colorLinks:
+    m_tail_orca_BEHIND_primary: m_tail_orca_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_orca_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_orca_BEHIND_primary
+
+- type: marking
+  id: TailPede
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid, Chitinid]
+  layering:
+    m_tail_leopard_BEHIND_primary: TailBehind
+    m_tail_leopard_BEHIND_secondary: TailBehind
+    m_tail_leopard_BEHIND_tertiary: TailBehind
+    m_tail_leopard_FRONT_primary: Tail
+    m_tail_leopard_FRONT_secondary: Tail
+    m_tail_leopard_FRONT_tertiary: Tail
+  colorLinks:
+    m_tail_leopard_BEHIND_primary: m_tail_leopard_FRONT_primary
+    m_tail_leopard_BEHIND_secondary: m_tail_leopard_FRONT_secondary
+    m_tail_leopard_BEHIND_tertiary: m_tail_leopard_FRONT_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_pede_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_pede_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_pede_FRONT_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_pede_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_pede_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_pede_BEHIND_tertiary
+
+- type: marking
+  id: TailPlugTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid, IPC, Synth]
+  layering:
+    m_tail_plugtail_BEHIND_primary: TailBehind
+    m_tail_plugtail_BEHIND_secondary: TailBehind
+    m_tail_plugtail_BEHIND_tertiary: TailBehind
+    m_tail_plugtail_FRONT_primary: TailOversuit
+    m_tail_plugtail_FRONT_secondary: TailOversuit
+    m_tail_plugtail_FRONT_tertiary: TailOversuit
+  colorLinks:
+    m_tail_plugtail_BEHIND_primary: m_tail_plugtail_FRONT_primary
+    m_tail_plugtail_BEHIND_secondary: m_tail_plugtail_FRONT_secondary
+    m_tail_plugtail_BEHIND_tertiary: m_tail_plugtail_FRONT_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_plugtail_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_plugtail_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_plugtail_FRONT_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_plugtail_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_plugtail_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_plugtail_BEHIND_tertiary
+
+- type: marking
+  id: TailQueenBee
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid]
+  layering:
+    m_tail_queenbee_BEHIND_primary: TailBehind
+    m_tail_queenbee_BEHIND_secondary: TailBehind
+    m_tail_queenbee_FRONT_primary: TailOversuit
+    m_tail_queenbee_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_queenbee_BEHIND_primary: m_tail_queenbee_FRONT_primary
+    m_tail_queenbee_BEHIND_secondary: m_tail_queenbee_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_queenbee_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_queenbee_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_queenbee_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_queenbee_BEHIND_secondary
+
+- type: marking
+  id: TailRabbit
+  wagging: TailRabbitWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_tail_rabbit_BEHIND_primary: TailBehind
+    m_tail_rabbit_FRONT_primary: Tail
+  colorLinks:
+    m_tail_rabbit_BEHIND_primary: m_tail_rabbit_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_rabbit_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_rabbit_BEHIND_primary
+
+- type: marking
+  id: TailRabbitAlt
+  wagging: TailRabbitAltWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_tail_rabbit_alt_FRONT_primary: Tail
+    m_tail_rabbit_alt_FRONT_secondary: Tail
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_rabbit_alt_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_rabbit_alt_FRONT_secondary
+
+- type: marking
+  id: TailRabbitAltWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_waggingtail_rabbit_alt_FRONT_primary: Tail
+    m_waggingtail_rabbit_alt_FRONT_secondary: Tail
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_rabbit_alt_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_rabbit_alt_FRONT_secondary
+
+- type: marking
+  id: TailRabbitWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_waggingtail_rabbit_BEHIND_primary: TailBehind
+    m_waggingtail_rabbit_FRONT_primary: Tail
+  colorLinks:
+    m_waggingtail_rabbit_BEHIND_primary: m_waggingtail_rabbit_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_rabbit_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_rabbit_BEHIND_primary
+
+- type: marking
+  id: TailRaccoon
+  wagging: TailRaccoonWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_tail_raccoon_BEHIND_primary: TailBehind
+    m_tail_raccoon_BEHIND_secondary: TailBehind
+    m_tail_raccoon_FRONT_primary: TailOversuit
+    m_tail_raccoon_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_raccoon_BEHIND_primary: m_tail_raccoon_FRONT_primary
+    m_tail_raccoon_BEHIND_secondary: m_tail_raccoon_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raccoon_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raccoon_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raccoon_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raccoon_BEHIND_secondary
+
+- type: marking
+  id: TailRaccoonWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_waggingtail_raccoon_BEHIND_primary: TailBehind
+    m_waggingtail_raccoon_BEHIND_secondary: TailBehind
+    m_waggingtail_raccoon_FRONT_primary: TailOversuit
+    m_waggingtail_raccoon_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_waggingtail_raccoon_BEHIND_primary: m_waggingtail_raccoon_FRONT_primary
+    m_waggingtail_raccoon_BEHIND_secondary: m_waggingtail_raccoon_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_raccoon_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_raccoon_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_raccoon_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_raccoon_BEHIND_secondary
+
+- type: marking
+  id: TailRaptor
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  layering:
+    m_tail_raptor_BEHIND_primary: TailBehind
+    m_tail_raptor_BEHIND_secondary: TailBehind
+    m_tail_raptor_BEHIND_tertiary: TailBehind
+    m_tail_raptor_FRONT_primary: Tail
+    m_tail_raptor_FRONT_secondary: Tail
+    m_tail_raptor_FRONT_tertiary: Tail
+  colorLinks:
+    m_tail_raptor_BEHIND_primary: m_tail_raptor_FRONT_primary
+    m_tail_raptor_BEHIND_secondary: m_tail_raptor_FRONT_secondary
+    m_tail_raptor_BEHIND_tertiary: m_tail_raptor_FRONT_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raptor_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raptor_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raptor_FRONT_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raptor_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raptor_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_raptor_BEHIND_tertiary
+
+- type: marking
+  id: TailReptileSlim
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  layering:
+    m_tail_reptileslim_BEHIND: TailBehind
+    m_tail_reptileslim_FRONT: Tail
+  colorLinks:
+    m_tail_reptileslim_BEHIND: m_tail_reptileslim_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_reptileslim_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_reptileslim_BEHIND
+
+- type: marking
+  id: TailSabresune
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_sabresune_BEHIND_primary: TailBehind
+    m_tail_sabresune_BEHIND_secondary: TailBehind
+    m_tail_sabresune_FRONT_primary: Tail
+    m_tail_sabresune_FRONT_secondary: Tail
+  colorLinks:
+    m_tail_sabresune_BEHIND_primary: m_tail_sabresune_FRONT_primary
+    m_tail_sabresune_BEHIND_secondary: m_tail_sabresune_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_sabresune_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_sabresune_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_sabresune_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_sabresune_BEHIND_secondary
+
+- type: marking
+  id: TailSegmentedTail
+  wagging: TailSegmentedTailWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, Rodentia]
+  layering:
+    m_tail_segmentedtail_BEHIND_primary: TailBehind
+    m_tail_segmentedtail_BEHIND_secondary: TailBehind
+    m_tail_segmentedtail_BEHIND_tertiary: TailBehind
+    m_tail_segmentedtail_FRONT_primary: Tail
+    m_tail_segmentedtail_FRONT_secondary: Tail
+    m_tail_segmentedtail_FRONT_tertiary: Tail
+  colorLinks:
+    m_tail_segmentedtail_BEHIND_primary: m_tail_segmentedtail_FRONT_primary
+    m_tail_segmentedtail_BEHIND_secondary: m_tail_segmentedtail_FRONT_secondary
+    m_tail_segmentedtail_BEHIND_tertiary: m_tail_segmentedtail_FRONT_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_segmentedtail_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_segmentedtail_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_segmentedtail_FRONT_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_segmentedtail_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_segmentedtail_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_segmentedtail_BEHIND_tertiary
+
+- type: marking
+  id: TailSegmentedTailWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, Rodentia]
+  layering:
+    m_waggingtail_segmentedtail_BEHIND_primary: TailBehind
+    m_waggingtail_segmentedtail_BEHIND_secondary: TailBehind
+    m_waggingtail_segmentedtail_BEHIND_tertiary: TailBehind
+    m_waggingtail_segmentedtail_FRONT_primary: Tail
+    m_waggingtail_segmentedtail_FRONT_secondary: Tail
+    m_waggingtail_segmentedtail_FRONT_tertiary: Tail
+  colorLinks:
+    m_waggingtail_segmentedtail_BEHIND_primary: m_waggingtail_segmentedtail_FRONT_primary
+    m_waggingtail_segmentedtail_BEHIND_secondary: m_waggingtail_segmentedtail_FRONT_secondary
+    m_waggingtail_segmentedtail_BEHIND_tertiary: m_waggingtail_segmentedtail_FRONT_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_segmentedtail_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_segmentedtail_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_segmentedtail_FRONT_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_segmentedtail_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_segmentedtail_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_segmentedtail_BEHIND_tertiary
+
+- type: marking
+  id: TailShark
+  wagging: TailSharkWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  layering:
+    m_tail_shark_BEHIND_primary: TailBehind
+    m_tail_shark_FRONT_primary: TailOversuit
+  colorLinks:
+    m_tail_shark_BEHIND_primary: m_tail_shark_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_shark_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_shark_BEHIND_primary
+
+- type: marking
+  id: TailSharkNoFin
+  wagging: TailSharkNoFinWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    m_tail_sharknofin_BEHIND_primary: TailBehind
+    m_tail_sharknofin_FRONT_primary: TailOversuit
+  colorLinks:
+    m_tail_sharknofin_BEHIND_primary: m_tail_sharknofin_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_sharknofin_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_sharknofin_BEHIND_primary
+
+- type: marking
+  id: TailSharkNoFinWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    m_waggingtail_sharknofin_BEHIND_primary: TailBehind
+    m_waggingtail_sharknofin_FRONT_primary: TailOversuit
+  colorLinks:
+    m_waggingtail_sharknofin_BEHIND_primary: m_waggingtail_sharknofin_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_sharknofin_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_sharknofin_BEHIND_primary
+
+- type: marking
+  id: TailSharkWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  layering:
+    m_waggingtail_shark_BEHIND_primary: TailBehind
+    m_waggingtail_shark_FRONT_primary: TailOversuit
+  colorLinks:
+    m_waggingtail_shark_BEHIND_primary: m_waggingtail_shark_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_shark_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_shark_BEHIND_primary
+
+- type: marking
+  id: TailShepherd
+  wagging: TailShepherdWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_shepherd_BEHIND_secondary: TailBehind
+    m_tail_shepherd_BEHIND_tertiary: TailBehind
+    m_tail_shepherd_FRONT_secondary: Tail
+    m_tail_shepherd_FRONT_tertiary: Tail
+  colorLinks:
+    m_tail_shepherd_BEHIND_secondary: m_tail_shepherd_FRONT_secondary
+    m_tail_shepherd_BEHIND_tertiary: m_tail_shepherd_FRONT_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_shepherd_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_shepherd_FRONT_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_shepherd_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_shepherd_BEHIND_tertiary
+
+- type: marking
+  id: TailShepherdWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_waggingtail_shepherd_BEHIND_secondary: TailBehind
+    m_waggingtail_shepherd_BEHIND_tertiary: TailBehind
+    m_waggingtail_shepherd_FRONT_secondary: Tail
+    m_waggingtail_shepherd_FRONT_tertiary: Tail
+  colorLinks:
+    m_waggingtail_shepherd_BEHIND_secondary: m_waggingtail_shepherd_FRONT_secondary
+    m_waggingtail_shepherd_BEHIND_tertiary: m_waggingtail_shepherd_FRONT_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_shepherd_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_shepherd_FRONT_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_shepherd_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_shepherd_BEHIND_tertiary
+
+- type: marking
+  id: TailSkunk
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia, Shadowkin, Vulpkanin]
+  layering:
+    m_tail_skunk_BEHIND_primary: TailBehind
+    m_tail_skunk_BEHIND_secondary: TailBehind
+    m_tail_skunk_BEHIND_tertiary: TailBehind
+    m_tail_skunk_FRONT_primary: Tail
+    m_tail_skunk_FRONT_secondary: Tail
+    m_tail_skunk_FRONT_tertiary: Tail
+  colorLinks:
+    m_tail_skunk_BEHIND_primary: m_tail_skunk_FRONT_primary
+    m_tail_skunk_BEHIND_secondary: m_tail_skunk_FRONT_secondary
+    m_tail_skunk_BEHIND_tertiary: m_tail_skunk_FRONT_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_skunk_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_skunk_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_skunk_FRONT_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_skunk_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_skunk_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_skunk_BEHIND_tertiary
+
+- type: marking
+  id: TailSnakeTail
+  wagging: TailSnakeTailWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  layering:
+    m_tail_snaketail_BEHIND: TailBehind
+    m_tail_snaketail_FRONT: Tail
+  colorLinks:
+    m_tail_snaketail_BEHIND: m_tail_snaketail_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_snaketail_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_snaketail_BEHIND
+
+- type: marking
+  id: TailSnakeTailWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  layering:
+    m_waggingtail_snaketail_BEHIND: TailBehind
+    m_waggingtail_snaketail_FRONT: Tail
+  colorLinks:
+    m_waggingtail_snaketail_BEHIND: m_waggingtail_snaketail_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_snaketail_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_snaketail_BEHIND
+
+- type: marking
+  id: TailSpade
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  layering:
+    m_tail_spade_BEHIND_primary: TailBehind
+    m_tail_spade_FRONT_primary: TailOversuit
+  colorLinks:
+    m_tail_spade_BEHIND_primary: m_tail_spade_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_spade_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_spade_BEHIND_primary
+
+- type: marking
+  id: TailSpikes
+  wagging: TailSpikesWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  layering:
+    m_tail_spikes_BEHIND: TailBehind
+    m_tail_spikes_FRONT: TailOversuit
+  colorLinks:
+    m_tail_spikes_BEHIND: m_tail_spikes_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_spikes_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_spikes_BEHIND
+
+- type: marking
+  id: TailSpikesWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  layering:
+    m_waggingtail_spikes_BEHIND: TailBehind
+    m_waggingtail_spikes_FRONT: TailOversuit
+  colorLinks:
+    m_waggingtail_spikes_BEHIND: m_waggingtail_spikes_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_spikes_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_spikes_BEHIND
+
+- type: marking
+  id: TailSquirrel
+  wagging: TailSquirrelWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_tail_squirrel_BEHIND: TailBehind
+    m_tail_squirrel_FRONT: Tail
+  colorLinks:
+    m_tail_squirrel_BEHIND: m_tail_squirrel_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_squirrel_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_squirrel_BEHIND
+
+- type: marking
+  id: TailSquirrelWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    m_waggingtail_squirrel_BEHIND: TailBehind
+    m_waggingtail_squirrel_FRONT: Tail
+  colorLinks:
+    m_waggingtail_squirrel_BEHIND: m_waggingtail_squirrel_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_squirrel_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_squirrel_BEHIND
+
+- type: marking
+  id: TailStraightTail
+  wagging: TailStraightTailWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, Rodentia]
+  layering:
+    m_tail_straighttail_BEHIND_primary: TailBehind
+    m_tail_straighttail_FRONT_primary: Tail
+  colorLinks:
+    m_tail_straighttail_BEHIND_primary: m_tail_straighttail_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_straighttail_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_straighttail_BEHIND_primary
+
+- type: marking
+  id: TailStraightTailWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian, Rodentia]
+  layering:
+    m_waggingtail_straighttail_BEHIND_primary: TailBehind
+    m_waggingtail_straighttail_FRONT_primary: Tail
+  colorLinks:
+    m_waggingtail_straighttail_BEHIND_primary: m_waggingtail_straighttail_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_straighttail_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_straighttail_BEHIND_primary
+
+- type: marking
+  id: TailStripe
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia, Shadowkin, Vulpkanin]
+  layering:
+    m_tail_stripe_BEHIND_primary: TailBehind
+    m_tail_stripe_BEHIND_secondary: TailBehind
+    m_tail_stripe_FRONT_primary: Tail
+    m_tail_stripe_FRONT_secondary: Tail
+  colorLinks:
+    m_tail_stripe_BEHIND_primary: m_tail_stripe_FRONT_primary
+    m_tail_stripe_BEHIND_secondary: m_tail_stripe_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_stripe_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_stripe_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_stripe_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_stripe_BEHIND_secondary
+
+- type: marking
+  id: TailSuccubus
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/tails32x32.rsi
+    state: succubus
+
+- type: marking
+  id: TailTentacle
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid, Diona, SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/tails32x32.rsi
+    state: tentacle
+
+- type: marking
+  id: TailThreeCat
+  wagging: TailThreeCatWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Shadowkin, Tajaran]
+  layering:
+    m_tail_threecat_BEHIND_primary: TailBehind
+    m_tail_threecat_FRONT_primary: Tail
+  colorLinks:
+    m_tail_threecat_BEHIND_primary: m_tail_threecat_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_threecat_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_threecat_BEHIND_primary
+
+- type: marking
+  id: TailThreeCatWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Shadowkin, Tajaran]
+  layering:
+    m_waggingtail_threecat_BEHIND_primary: TailBehind
+    m_waggingtail_threecat_FRONT_primary: Tail
+  colorLinks:
+    m_waggingtail_threecat_BEHIND_primary: m_waggingtail_threecat_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_threecat_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_threecat_BEHIND_primary
+
+- type: marking
+  id: TailTwoCat
+  wagging: TailTwoCatWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Shadowkin, Tajaran]
+  layering:
+    m_tail_twocat_BEHIND_primary: TailBehind
+    m_tail_twocat_FRONT_primary: Tail
+  colorLinks:
+    m_tail_twocat_BEHIND_primary: m_tail_twocat_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_twocat_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_twocat_BEHIND_primary
+
+- type: marking
+  id: TailTwoCatWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid, Shadowkin, Tajaran]
+  layering:
+    m_waggingtail_twocat_BEHIND_primary: TailBehind
+    m_waggingtail_twocat_FRONT_primary: Tail
+  colorLinks:
+    m_waggingtail_twocat_BEHIND_primary: m_waggingtail_twocat_FRONT_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_twocat_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_twocat_BEHIND_primary
+
+- type: marking
+  id: TailWah
+  wagging: TailWahWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_wah_BEHIND_primary: TailBehind
+    m_tail_wah_BEHIND_secondary: TailBehind
+    m_tail_wah_FRONT_primary: Tail
+    m_tail_wah_FRONT_secondary: Tail
+  colorLinks:
+    m_tail_wah_BEHIND_primary: m_tail_wah_FRONT_primary
+    m_tail_wah_BEHIND_secondary: m_tail_wah_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_wah_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_wah_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_wah_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_wah_BEHIND_secondary
+
+- type: marking
+  id: TailWahWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_waggingtail_wah_BEHIND_primary: TailBehind
+    m_waggingtail_wah_BEHIND_secondary: TailBehind
+    m_waggingtail_wah_FRONT_primary: Tail
+    m_waggingtail_wah_FRONT_secondary: Tail
+  colorLinks:
+    m_waggingtail_wah_BEHIND_primary: m_waggingtail_wah_FRONT_primary
+    m_waggingtail_wah_BEHIND_secondary: m_waggingtail_wah_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_wah_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_wah_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_wah_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_wah_BEHIND_secondary
+
+- type: marking
+  id: TailWolf
+  wagging: TailWolfWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_wolf_BEHIND: TailBehind
+    m_tail_wolf_FRONT: Tail
+  colorLinks:
+    m_tail_wolf_BEHIND: m_tail_wolf_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_wolf_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_wolf_BEHIND
+
+- type: marking
+  id: TailWolfWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_waggingtail_wolf_BEHIND: TailBehind
+    m_waggingtail_wolf_FRONT: Tail
+  colorLinks:
+    m_waggingtail_wolf_BEHIND: m_waggingtail_wolf_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_wolf_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_waggingtail_wolf_BEHIND
+
+- type: marking
+  id: TailZorgoia
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  layering:
+    m_tail_zorgoia_BEHIND_primary: TailBehind
+    m_tail_zorgoia_BEHIND_secondary: TailBehind
+    m_tail_zorgoia_BEHIND_tertiary: TailBehind
+    m_tail_zorgoia_FRONT_primary: Tail
+    m_tail_zorgoia_FRONT_secondary: Tail
+    m_tail_zorgoia_FRONT_tertiary: Tail
+  colorLinks:
+    m_tail_zorgoia_BEHIND_primary: m_tail_zorgoia_FRONT_primary
+    m_tail_zorgoia_BEHIND_secondary: m_tail_zorgoia_FRONT_secondary
+    m_tail_zorgoia_BEHIND_tertiary: m_tail_zorgoia_FRONT_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_zorgoia_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_zorgoia_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_zorgoia_FRONT_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_zorgoia_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_zorgoia_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyrattails.rsi
+    state: m_tail_zorgoia_BEHIND_tertiary
+
+- type: marking
+  id: TasselTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: tasseltailtone1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/kemonomimi-tails.rsi
+    state: tasseltailtone2

@@ -309,6 +309,27 @@
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
 
+- type: entity
+  parent: BaseItem
+  id: ToyKnife
+  name: toy knife
+  description: An aqua-colored plastic knife. Nap! Stab! Look!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toy_knife.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Objects/Fun/toy_knife.rsi
+
 ## Admin plushies go above the rest of the chuds.
 
 - type: entity
@@ -1011,7 +1032,6 @@
     size: Small
     sprite: _Goobstation/Heretic/Blades/eldrich_blade-toy-inhands.rsi
 
-
 - type: entity
   parent: BasePlushie
   id: PlushieTwofish
@@ -1087,7 +1107,7 @@
         Slash: 5
     biteSound:
       collection: VulpkaninSnarls
-      
+
 - type: entity
   parent: BasePlushie
   id: PlushieRouge
@@ -1388,7 +1408,7 @@
   parent: PlushieRedstonewolf
   id: EvilPlushieRedstonewolf
   suffix: Evil
-  
+
 - type: entity
   name: evil Rouge plush
   parent: PlushieRouge

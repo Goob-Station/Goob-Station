@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/NebulaSS13/Nebula and modified by Yatiyaya, robotics modified by Luweth. Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_WF/Mobs/Customization/aurelian_markings.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "arm_markings_left",
+      "directions": 4
+    },
+    {
+      "name": "arm_markings_right",
+      "directions": 4
+    },
+    {
+      "name": "beak",
+      "directions": 4
+    },
+    {
+      "name": "claws_feet_left",
+      "directions": 4
+    },
+    {
+      "name": "claws_feet_left_behind",
+      "directions": 4
+    },
+    {
+      "name": "claws_feet_right",
+      "directions": 4
+    },
+    {
+      "name": "claws_feet_right_behind",
+      "directions": 4
+    },
+    {
+      "name": "crest",
+      "directions": 4
+    },
+    {
+      "name": "neck_markings",
+      "directions": 4
+    },
+    {
+      "name": "scutes_arms_left",
+      "directions": 4
+    },
+    {
+      "name": "scutes_arms_right",
+      "directions": 4
+    },
+    {
+      "name": "scutes_legs_left",
+      "directions": 4
+    },
+    {
+      "name": "scutes_foot_left",
+      "directions": 4
+    },
+    {
+      "name": "scutes_legs_right",
+      "directions": 4
+    },
+    {
+      "name": "scutes_foot_right",
+      "directions": 4
+    },
+    {
+      "name": "robotic_arm_right",
+      "directions": 4
+    },
+    {
+      "name": "robotic_arm_left",
+      "directions": 4
+    },
+    {
+      "name": "robotic_hand_right",
+      "directions": 4
+    },
+    {
+      "name": "robotic_hand_left",
+      "directions": 4
+    },
+    {
+      "name": "robotic_leg_right",
+      "directions": 4
+    },
+    {
+      "name": "robotic_leg_left",
+      "directions": 4
+    },
+    {
+      "name": "robotic_foot_left",
+      "directions": 4
+    },
+    {
+      "name": "robotic_foot_right",
+      "directions": 4
+    },
+    {
+      "name": "robotic_head",
+      "directions": 4
+    },
+    {
+      "name": "robotic_tail",
+      "directions": 4
+    },
+    {
+      "name": "robotic_chest",
+      "directions": 4
+    }
+  ]
+}

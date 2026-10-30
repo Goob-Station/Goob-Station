@@ -20,3 +20,8 @@
   license: "CC-BY-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/tree/943f38bf7c5f9c048cc785deb0c537d57ee6ba77/sound/creatures/venus_trap_hurt.ogg"
+
+- files: [diona_sneeze.ogg]
+  license: "CC0-1.0"
+  copyright: "Made by shatterstars on freesound.org. Modified by Minemoder5000 on github by cropping, converting to mono, and re-encoding to Ogg Vorbis"
+  source: "https://freesound.org/people/shatterstars/sounds/651319/"

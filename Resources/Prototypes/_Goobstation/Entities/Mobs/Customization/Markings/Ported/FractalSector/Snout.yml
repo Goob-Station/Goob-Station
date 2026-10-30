@@ -1,0 +1,55 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: IPCsnoutysmile
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/wayfarer_ipc_screen.rsi
+    state: ipc_screen_snoutysmile
+
+- type: marking
+  id: synthliz_barless_basic
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/synthliz.rsi
+    state: m_snout_synthliz_barless_basic
+
+- type: marking
+  id: synthliz_basic
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/synthliz.rsi
+    state: m_snout_synthliz_basic
+
+- type: marking
+  id: synthliz_long
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/synthliz.rsi
+    state: m_snout_synthliz_long
+
+- type: marking
+  id: synthliz_thick
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/synthliz.rsi
+    state: m_snout_synthliz_thick
+
+- type: marking
+  id: synthliz_thicklong
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/synthliz.rsi
+    state: m_snout_synthliz_thicklong
