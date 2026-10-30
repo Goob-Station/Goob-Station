@@ -1,13 +1,14 @@
 # creds to the great yamldozer @killangenifer
 - type: entity
-  id: SpawnSupplyEmpty
-  name: SpawnSupplyEmpty
+  id: DropPod
+  name: drop pod
   categories: [ HideSpawnMenu ]
   components:
+  - type: DropPod
   - type: TimedDespawn
-    lifetime: 9.75
+    lifetime: 30
   - type: SpawnOnTrigger
-    proto: SpawnSupplypodAnimation
+    proto: DropPodPing
   - type: TriggerOnSpawn
   - type: Sprite
     sprite: Markers/cross.rsi
@@ -16,7 +17,7 @@
   - type: Marker
 
 - type: entity
-  id: SpawnSupplypodAnimation
+  id: DropPodPing
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -26,16 +27,16 @@
   - type: TimedDespawn
     lifetime: 1.75
   - type: SpawnOnTrigger
-    proto: SpawnSupplypodStartAnimationSound
+    proto: DropPodSoundIncoming
   - type: TriggerOnSpawn
   - type: SpawnOnDespawn
-    prototype: SpawnSupplypodPermaMarkerAnimation
+    prototype: DropPodMarker
   - type: Tag
     tags:
     - HideContextMenu
 
 - type: entity
-  id: SpawnSupplypodPermaMarkerAnimation
+  id: DropPodMarker
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -45,14 +46,14 @@
   - type: TimedDespawn
     lifetime: 2
   - type: SpawnOnTrigger
-    proto: SpawnSupplypodLandingAnimation
+    proto: DropPodLanding
   - type: TriggerOnSpawn
   - type: Tag
     tags:
     - HideContextMenu
 
 - type: entity
-  id: SpawnSupplypodStartAnimationSound
+  id: DropPodSoundIncoming
   categories: [ HideSpawnMenu ]
   components:
   - type: EmitSoundOnTrigger
@@ -63,7 +64,7 @@
   - type: TriggerOnSpawn
 
 - type: entity
-  id: SpawnSupplypodLandingAnimation
+  id: DropPodLanding
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -74,13 +75,13 @@
   - type: TimedDespawn
     lifetime: 1.8
   - type: SpawnOnDespawn
-    prototype: SpawnSupplypodLanded
+    prototype: DropPodLanded
   - type: Tag
     tags:
     - HideContextMenu
 
 - type: entity
-  id: SpawnSupplypodLanded
+  id: DropPodLanded
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn
@@ -95,13 +96,13 @@
   - type: TimedDespawn
     lifetime: 6
   - type: SpawnOnDespawn
-    prototype: SpawnSupplypodLandedOpening
+    prototype: DropPodOpened
   - type: Tag
     tags:
     - HideContextMenu
 
 - type: entity
-  id: SpawnSupplypodLandedOpening
+  id: DropPodOpened
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -112,7 +113,7 @@
   - type: TimedDespawn
     lifetime: 20
   - type: SpawnOnDespawn
-    prototype: SpawnSupplypodWooshSound
+    prototype: DropPodSoundDeparting
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Goobstation/DropPod/closet_open.ogg
@@ -124,7 +125,7 @@
     - HideContextMenu
 
 - type: entity
-  id: SpawnSupplypodWooshSound
+  id: DropPodSoundDeparting
   categories: [ HideSpawnMenu ]
   components:
   - type: EmitSoundOnTrigger
@@ -135,3 +136,50 @@
   - type: TriggerOnSpawn
   - type: TimedDespawn
     lifetime: 3
+
+- type: entity
+  parent: BaseItem
+  id: DropPodLauncher
+  name: drop pod
+  description: Place items you want players to recieve in the bag, activate it over where you want the pod to drop. Players cannot see the pod. To drop living beings, drag them into the pod (like strapping someone onto a chair).
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/item.rsi
+    state: DROPPOD
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    grid:
+    - 0,0,20,20
+    maxItemSize: Ginormous
+  - type: Visibility
+    layer: 2 #ghost layer
+  - type: DragInsertContainer
+    containerId: drop_pod_passengers
+    entryDelay: 0
+    useVerbs: false
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      drop_pod_passengers: !type:Container
+  - type: ExtendedContainer
+    containerName: drop_pod_passengers
+    deleteContentsOnBreak: false
+    capacity: 999
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: DropPodLauncher
+
+- type: entity
+  id: DropPodCommanderSpeaker
+  name: central command commander
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadioJobIconOverride
+    jobIcon: JobIconNanotrasen
+    jobName: department-drop-pod-commander-job
+  - type: TimedDespawn
+    lifetime: 5

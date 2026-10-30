@@ -383,6 +383,8 @@
     earliestStart: 15
     minimumPlayers: 15
     maxOccurrences: 2
+    chaos:
+      Infestation: 20
     eventType: Neutral
   - type: GameRule
     chaosScore: 0

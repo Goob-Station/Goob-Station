@@ -1,4 +1,6 @@
-﻿using System.Linq;
+using System.Linq;
+using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Shared.Roles;
 using Prometheus;
 
 namespace Content.Goobstation.Server.StationEvents.GameDirector;
@@ -7,12 +9,19 @@ public sealed partial class GameDirectorSystem
 {
     private static readonly Gauge EventsRunTotal = Metrics.CreateGauge(
         "game_director_events_run_total",
-        "Total number of station events run by the Game Director.",
-        "event_name");
+        "Total number of station events run by the Game Director this round.",
+        "event_name",
+        "beat_name");
 
     private static readonly Gauge StoryBeatChangesTotal = Metrics.CreateGauge(
         "game_director_story_beat_changes_total",
-        "Total number of story beat changes.",
+        "Total number of story beat changes this round.",
+        "story_name",
+        "beat_name");
+
+    private static readonly Gauge BeatInfo = Metrics.CreateGauge(
+        "game_director_beat_info",
+        "The story and beat the Game Director is currently running. Always 1.",
         "story_name",
         "beat_name");
 
@@ -26,47 +35,80 @@ public sealed partial class GameDirectorSystem
 
     private static readonly Gauge RoundstartAntagsSelectedTotal = Metrics.CreateGauge(
         "game_director_roundstart_antags_selected_total",
-        "Total number of roundstart antagonists selected.",
+        "Total number of roundstart antagonists selected this round.",
         "antag_name");
 
-    /// <summary>
-    /// Removes all labels from a gauge.
-    /// </summary>
-    /// <typeparam name="TChild"></typeparam>
-    /// <param name="gauge"></param>
+    private static readonly Gauge ChaosGauge = Metrics.CreateGauge(
+        "game_director_chaos",
+        "Measured chaos per metric at the last Game Director tick.",
+        "metric");
+
+    private static readonly Gauge PendingChaosGauge = Metrics.CreateGauge(
+        "game_director_pending_chaos",
+        "Expected chaos from recently fired events that the Game Director still counts towards each metric.",
+        "metric");
+
+    private static readonly Gauge GoalGauge = Metrics.CreateGauge(
+        "game_director_goal",
+        "Effective goal per metric for the current beat, after population scaling and escalation.",
+        "metric");
+
+    private static readonly Gauge DepartmentStaff = Metrics.CreateGauge(
+        "game_director_department_staff",
+        "Alive, connected crew per department.",
+        "department");
+
+    private static readonly Gauge DestructionBudgetGauge = Metrics.CreateGauge(
+        "game_director_destruction_budget",
+        "Destruction budget available to the Game Director.");
+
     private static void ResetGaugeLabels<TChild>(Collector<TChild> gauge) where TChild : ChildBase
     {
-        // Get all the label values currently in use
-        var labelValues = gauge.GetAllLabelValues().ToList();
-
-        // For each set of label values, remove that shit.
-        foreach (var labelSet in labelValues)
+        foreach (var labelSet in gauge.GetAllLabelValues().ToList())
             gauge.RemoveLabelled(labelSet);
     }
 
-    /// <summary>
-    /// Lists all the label values of a gauge. Useful for debugging!
-    /// </summary>
-    /// <typeparam name="TChild"></typeparam>
-    /// <param name="gauge"></param>
-    public void ListAllLabelValues<TChild>(Collector<TChild> gauge) where TChild : ChildBase
-    {
-        var labelValues = gauge.GetAllLabelValues();
-        foreach (var labelSet in labelValues)
-        foreach (var label in labelSet)
-            Log.Warning($"Label: {label}");
-    }
-
-    /// <summary>
-    /// Resets all metrics.
-    /// </summary>
     private static void ResetMetrics()
     {
         ActivePlayers.Set(0);
         ActiveGhosts.Set(0);
+        DestructionBudgetGauge.Set(0);
         ResetGaugeLabels(EventsRunTotal);
         ResetGaugeLabels(StoryBeatChangesTotal);
+        ResetGaugeLabels(BeatInfo);
         ResetGaugeLabels(RoundstartAntagsSelectedTotal);
+        ResetGaugeLabels(ChaosGauge);
+        ResetGaugeLabels(PendingChaosGauge);
+        ResetGaugeLabels(GoalGauge);
+        ResetGaugeLabels(DepartmentStaff);
     }
 
+    private void UpdateStaffingMetrics(PlayerCount count)
+    {
+        foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
+            DepartmentStaff.WithLabels(department.ID).Set(count.Staff(department.ID));
+    }
+
+    private static void SetBeatInfo(string storyName, string beatName)
+    {
+        ResetGaugeLabels(BeatInfo);
+        BeatInfo.WithLabels(storyName, beatName).Set(1);
+    }
+
+    private static void UpdateChaosMetrics(ChaosMetrics chaos, ChaosMetrics pending, ChaosMetrics goal, float destructionBudget)
+    {
+        foreach (var metric in Enum.GetValues<ChaosMetric>())
+        {
+            var label = metric.ToString();
+            ChaosGauge.WithLabels(label).Set(chaos.ChaosDict.GetValueOrDefault(metric));
+            PendingChaosGauge.WithLabels(label).Set(pending.ChaosDict.GetValueOrDefault(metric));
+
+            if (goal.ChaosDict.TryGetValue(metric, out var goalValue))
+                GoalGauge.WithLabels(label).Set(goalValue);
+            else
+                GoalGauge.RemoveLabelled(label);
+        }
+
+        DestructionBudgetGauge.Set(destructionBudget);
+    }
 }

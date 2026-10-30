@@ -135,7 +135,6 @@
     - CalmDynamic
     - SubGamemodesRule
     - RareIonStormScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
 
 - type: gamePreset
   id: TheGuide
@@ -150,7 +149,34 @@
     - CombatDynamic
     - SubGamemodesRule
     - IonStormScheduler
-    - SpaceTrafficControlEventScheduler
+
+- type: gamePreset
+  id: TheTempest
+  alias:
+    - tempest
+    - chaoticdynamic
+  name: tempest-title
+  description: tempest-description
+  showInVote: true
+  minPlayers: 40
+  rules:
+    - ChaoticDynamic
+    - SubGamemodesRule
+    - IonStormScheduler
+
+- type: gamePreset
+  id: TheWatcher
+  alias:
+    - watcher
+    - classicdynamic
+  name: watcher-title
+  description: watcher-description
+  showInVote: true
+  minPlayers: 15
+  rules:
+    - ClassicDynamic
+    - SubGamemodesRule
+    - IonStormScheduler
 
 - type: gamePreset
   id: SecretPlusLow
