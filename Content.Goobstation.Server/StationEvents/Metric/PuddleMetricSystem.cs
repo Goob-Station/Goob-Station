@@ -36,13 +36,17 @@ public sealed partial class PuddleMetricSystem : ChaosMetricSystem<PuddleMetricC
     protected override ChaosMetrics CalculateChaos(EntityUid uid, PuddleMetricComponent component, CalculateChaosEvent args)
     {
         // Add up the pain of all the puddles
-        var query = EntityQueryEnumerator<PuddleComponent, SolutionContainerManagerComponent>();
+        var query = EntityQueryEnumerator<PuddleComponent, SolutionContainerManagerComponent, TransformComponent>();
+        var stationGrids = GetEventStationGrids();
         double messChaos = 0;
         var puddleCount = 0;
         double totalPuddleVolume = 0;
 
-        while (query.MoveNext(out var puddleUid, out var puddle, out var solutionMgr))
+        while (query.MoveNext(out var puddleUid, out var puddle, out _, out var xform))
         {
+            if (!OnGrids(xform, stationGrids))
+                continue;
+
             puddleCount++;
 
             if (!_solutionContainerSystem.TryGetSolution(puddleUid, puddle.SolutionName, out var puddleSolution, out _))
@@ -71,5 +75,12 @@ public sealed partial class PuddleMetricSystem : ChaosMetricSystem<PuddleMetricC
             {ChaosMetric.Mess, messChaos},
         });
         return chaos;
+    }
+
+    protected override void ResetMetrics()
+    {
+        PuddlesTotal.Set(0);
+        PuddleVolumeTotal.Set(0);
+        MessChaosCalculated.Set(0);
     }
 }

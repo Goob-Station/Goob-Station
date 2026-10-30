@@ -22,6 +22,8 @@ soft_max_players = 85
 maxcharacterslots = 25
 round_end_pvs_overrides = false
 defaultpreset = "CombatDynamic"
+fallbackpreset = "TheGuide,TheWatcher,TheGhost"
+disabled_presets = "CosmicCult,SecretCosmicCult,Shadowling,Wizard,Changeling,Traitorling,NukeTraitor,NukeLing,RevTraitor,RevLing,Blob,Honkops,SecretPlusLow,SecretPlusMid,SecretPlusHigh,SecretPlusAdmeme,SurvivalPlusMid,Xenomorphs,OopsAllThieves,SecretPlusLowpop,Survival,KesslerSyndrome,AllAtOnce,AllerAtOnce,Extended,Greenshift,Dynamic,Secret,Traitor,Deathmatch,Nukeops,Revolutionary,Xenoborgs,Zombie,Zombieteors"
 ipintel_enabled = true
 ipintel_contact_email = "administrator@goobstation.com"
 

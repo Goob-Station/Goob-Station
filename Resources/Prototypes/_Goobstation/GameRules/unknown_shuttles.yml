@@ -16,8 +16,6 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 4
-    chaos:
-      Friend: -20
     eventType: FriendlySpawn
   - type: GameRule
     chaosScore: -80
