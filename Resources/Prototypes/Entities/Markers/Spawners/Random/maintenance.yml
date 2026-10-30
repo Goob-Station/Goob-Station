@@ -353,6 +353,7 @@
     - !type:GroupSelector
       weight: 5
       children:
+      - id: WeaponGlassSabre # Goobstation
       - id: Lighter
       - id: Matchbox
       - id: ClothingEyesBlindfold
