@@ -792,6 +792,21 @@
 
 - type: entity
   parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertTongue
+  name: Insert Tongue
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepInsertOrgan
+    - SurgeryStepSealOrganWound
+  - type: SurgeryOrganSlotCondition
+    organSlot: tongue
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Tongue
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertEyes
   name: Insert Eyes
   components:

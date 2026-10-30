@@ -25,9 +25,12 @@ namespace Content.Server.Speech.Muting
             SubscribeLocalEvent<MutedComponent, SpeakAttemptEvent>(OnSpeakAttempt);
             SubscribeLocalEvent<MutedComponent, EmoteEvent>(OnEmote, before: new[] { typeof(VocalSystem), typeof(MumbleAccentSystem) });
             SubscribeLocalEvent<MutedComponent, ScreamActionEvent>(OnScreamAction, before: new[] { typeof(VocalSystem) });
+            SubscribeLocalEvent<TonguelessComponent, SpeakAttemptEvent>(OnSpeakAttempt);
+            SubscribeLocalEvent<TonguelessComponent, EmoteEvent>(OnEmote, before: new[] { typeof(VocalSystem), typeof(MumbleAccentSystem) });
+            SubscribeLocalEvent<TonguelessComponent, ScreamActionEvent>(OnScreamAction, before: new[] { typeof(VocalSystem) });
         }
 
-        private void OnEmote(EntityUid uid, MutedComponent component, ref EmoteEvent args)
+        private void OnEmote(EntityUid uid, Component component, ref EmoteEvent args)
         {
             if (args.Handled)
                 return;
@@ -37,7 +40,7 @@ namespace Content.Server.Speech.Muting
                 args.Handled = true;
         }
 
-        private void OnScreamAction(EntityUid uid, MutedComponent component, ScreamActionEvent args)
+        private void OnScreamAction(EntityUid uid, Component component, ScreamActionEvent args)
         {
             if (args.Handled)
                 return;
@@ -51,8 +54,11 @@ namespace Content.Server.Speech.Muting
         }
 
 
-        private void OnSpeakAttempt(EntityUid uid, MutedComponent component, SpeakAttemptEvent args)
+        private void OnSpeakAttempt(EntityUid uid, Component component, SpeakAttemptEvent args)
         {
+            if (args.Cancelled)
+                return;
+
             // TODO something better than this.
 
             var language = _languages.GetLanguage(uid);
