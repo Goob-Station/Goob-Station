@@ -58,6 +58,7 @@ surgery-popup-procedure-SurgeryRemovePump-step-SurgeryStepRemoveOrgan = {$user} 
 surgery-popup-procedure-SurgeryRemoveLiver-step-SurgeryStepRemoveOrgan = {$user} is removing the liver from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveLungs-step-SurgeryStepRemoveOrgan = {$user} is removing the lungs from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveEyes-step-SurgeryStepRemoveOrgan = {$user} is removing the eyes from {$target}'s {$part}!
+surgery-popup-procedure-SurgeryRemoveTongue-step-SurgeryStepRemoveOrgan = {$user} is removing the tongue from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveStomach-step-SurgeryStepRemoveOrgan = {$user} is removing the stomach from {$target}'s {$part}!
 
 surgery-popup-procedure-SurgeryInsertBrain-step-SurgeryStepInsertOrgan = {$user} is inserting a brain into {$target}'s {$part}!
