@@ -26840,3 +26840,17 @@ Entries:
       message: Fixed juice that makes you hew not playing sounds.
   id: 3010
   time: '2026-10-29T17:18:09.0000000+00:00'
+- author: loksill
+  changes:
+    - type: Tweak
+      message: The Plasmaman helmet no longer requires a battery
+    - type: Tweak
+      message: >-
+        The flashlight on Plasmaman's helmet now shines in the color of
+        plasmaman
+    - type: Add
+      message: >-
+        Plasmamens now glow passively, but hardsuits and envirosuits suppress
+        this light
+  id: 3011
+  time: '2026-10-30T00:43:32.0000000+00:00'
