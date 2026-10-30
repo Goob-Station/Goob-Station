@@ -26860,3 +26860,17 @@ Entries:
       message: Fixed candy buckets fitting in bags.
   id: 3012
   time: '2026-10-30T12:48:34.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added two new game director modes, read the news post.
+    - type: Add
+      message: Added two new (helpful) midround events, read the news post.
+    - type: Tweak
+      message: >-
+        Various changes to game director to make it suck less, read the news
+        post.
+    - type: Tweak
+      message: Temporarily disabled non game director modes, read the news post.
+  id: 3013
+  time: '2026-10-30T19:04:20.0000000+00:00'
