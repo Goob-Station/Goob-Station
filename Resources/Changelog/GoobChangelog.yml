@@ -26854,3 +26854,9 @@ Entries:
         this light
   id: 3011
   time: '2026-10-30T00:43:32.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: Fixed candy buckets fitting in bags.
+  id: 3012
+  time: '2026-10-30T12:48:34.0000000+00:00'
