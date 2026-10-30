@@ -98,6 +98,7 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
         ActivePlayers.Set(count.Players);
         ActiveGhosts.Set(count.Ghosts);
         UpdateStaffingMetrics(count);
+        UpdateAntagMetrics();
 
         var beat = DetermineNextBeat(ent, chaos, count);
 

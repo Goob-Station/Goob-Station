@@ -15,6 +15,9 @@ public sealed partial class StationAtmosMetricComponent : Component
     public double ToxicTileCost = 0.25;
 
     [DataField]
+    public TimeSpan BaselineDelay = TimeSpan.FromMinutes(2);
+
+    [DataField]
     public float SpacedPressure = Atmospherics.HazardLowPressure;
 
     [DataField]

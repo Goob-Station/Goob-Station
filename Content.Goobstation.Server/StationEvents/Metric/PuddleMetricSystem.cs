@@ -56,10 +56,13 @@ public sealed partial class PuddleMetricSystem : ChaosMetricSystem<PuddleMetricC
             var currentPuddleVolume = puddleSolution.Value.Comp.Solution.Volume.Double();
             totalPuddleVolume += currentPuddleVolume;
 
+            if (currentPuddleVolume < component.MinPuddleVolume.Double())
+                continue;
+
             foreach (var substance in puddleSolution.Value.Comp.Solution.Contents)
             {
                 var substanceChaos = component.Puddles.GetValueOrDefault(substance.Reagent.Prototype, component.PuddleDefault).Double();
-                currentPuddleChaos += Math.Round(substanceChaos * substance.Quantity.Double());
+                currentPuddleChaos += substanceChaos * substance.Quantity.Double();
             }
 
             messChaos += currentPuddleChaos;

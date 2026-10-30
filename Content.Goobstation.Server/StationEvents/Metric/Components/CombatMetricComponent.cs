@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
@@ -14,6 +15,16 @@ public sealed partial class CombatMetricComponent : Component
 
     [DataField]
     public double FriendlyScore = 10.0f;
+
+    [DataField]
+    public double HostileNpcScore = 3.0f;
+
+    [DataField]
+    public HashSet<ProtoId<NpcFactionPrototype>> IgnoredHostileFactions = new()
+    {
+        "Mouse",
+        "SimpleNeutral",
+    };
 
     /// <summary>
     ///   Cost per point of medical damage for friendly entities

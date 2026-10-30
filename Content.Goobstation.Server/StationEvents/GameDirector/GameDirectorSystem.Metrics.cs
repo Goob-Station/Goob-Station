@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Server.Antag.Components;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Roles;
 using Prometheus;
 
@@ -35,7 +37,7 @@ public sealed partial class GameDirectorSystem
 
     private static readonly Gauge RoundstartAntagsSelectedTotal = Metrics.CreateGauge(
         "game_director_roundstart_antags_selected_total",
-        "Total number of roundstart antagonists selected this round.",
+        "Roundstart antag game rules the Game Director started this round (one per rule, not per player).",
         "antag_name");
 
     private static readonly Gauge ChaosGauge = Metrics.CreateGauge(
@@ -57,6 +59,11 @@ public sealed partial class GameDirectorSystem
         "game_director_department_staff",
         "Alive, connected crew per department.",
         "department");
+
+    private static readonly Gauge AntagsGauge = Metrics.CreateGauge(
+        "game_director_antags",
+        "Players assigned as antagonists by each active antag game rule, including rules started outside the Game Director.",
+        "rule");
 
     private static readonly Gauge DestructionBudgetGauge = Metrics.CreateGauge(
         "game_director_destruction_budget",
@@ -81,12 +88,30 @@ public sealed partial class GameDirectorSystem
         ResetGaugeLabels(PendingChaosGauge);
         ResetGaugeLabels(GoalGauge);
         ResetGaugeLabels(DepartmentStaff);
+        ResetGaugeLabels(AntagsGauge);
     }
 
     private void UpdateStaffingMetrics(PlayerCount count)
     {
         foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
             DepartmentStaff.WithLabels(department.ID).Set(count.Staff(department.ID));
+    }
+
+    private void UpdateAntagMetrics()
+    {
+        var counts = new Dictionary<string, int>();
+        var query = EntityQueryEnumerator<AntagSelectionComponent, ActiveGameRuleComponent, MetaDataComponent>();
+        while (query.MoveNext(out _, out var antag, out _, out var meta))
+        {
+            if (meta.EntityPrototype is not { } proto)
+                continue;
+
+            counts[proto.ID] = counts.GetValueOrDefault(proto.ID) + antag.AssignedMinds.Count;
+        }
+
+        ResetGaugeLabels(AntagsGauge);
+        foreach (var (rule, count) in counts)
+            AntagsGauge.WithLabels(rule).Set(count);
     }
 
     private static void SetBeatInfo(string storyName, string beatName)
