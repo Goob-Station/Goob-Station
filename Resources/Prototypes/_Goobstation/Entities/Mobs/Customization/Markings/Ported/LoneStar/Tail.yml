@@ -40,7 +40,7 @@
   id: CoyoteTailDatashark
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Feroxi]
   layering:
     m_tail_datashark_BEHIND_A: TailBehind
     m_tail_datashark_BEHIND_C: TailBehind
@@ -162,7 +162,7 @@
   id: CoyoteTailwagDatashark
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Feroxi]
   layering:
     m_tailwag_datashark_BEHIND_A: TailBehind
     m_tailwag_datashark_BEHIND_C: TailBehind

@@ -26824,3 +26824,19 @@ Entries:
         the tail wag action, instead of it being set per species.
   id: 3009
   time: '2026-10-29T02:09:01.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Ported several emotes from other forks
+    - type: Remove
+      message: >-
+        Hard nerfed harpies, they can no longer use all emotes, 500 harpy mains
+        crying in chat tonight.
+    - type: Remove
+      message: >-
+        Removed the emote spam system, if u guys get too uppity and start
+        spamming them i may return it.
+    - type: Fix
+      message: Fixed juice that makes you hew not playing sounds.
+  id: 3010
+  time: '2026-10-29T17:18:09.0000000+00:00'

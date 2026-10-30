@@ -47,6 +47,12 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Goob
+      collection: Belch
+    Hew: # Goob
+      collection: Hew
+    Trill: # Goob
+      collection: CatTrills
 
 - type: emoteSounds
   id: FemaleFelinid
@@ -95,3 +101,9 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Goob
+      collection: Belch
+    Hew: # Goob
+      collection: Hew
+    Trill: # Goob
+      collection: CatTrills

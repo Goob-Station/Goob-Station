@@ -38,6 +38,10 @@ public sealed class BodyEmotesSystem : EntitySystem
         {
             args.Handled = TryEmoteHands(uid, args.Emote, component);
         }
+        else if (cat == EmoteCategory.General) // Goob
+        {
+            args.Handled = _chat.TryPlayEmoteSound(uid, component.Sounds, args.Emote);
+        }
     }
 
     private bool TryEmoteHands(EntityUid uid, EmotePrototype emote, BodyEmotesComponent component)
