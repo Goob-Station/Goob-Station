@@ -138,11 +138,11 @@
   - type: Sprite
     layers:
     - state: security
-    - state: icon-tools
+    - state: icon-tools 
   - type: ItemBorgModule
     hands:
-    - item: StunbatonBorg
-    - item: WeaponDisabler
+    - item: StunbatonSEC
+    - item: WeaponDisablerSEC
     - item: CombatKnife
     - hand:
         emptyLabel: borg-slot-BolaEnergy-empty-goob

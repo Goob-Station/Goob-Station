@@ -82,7 +82,7 @@
   result: CyborgEndoskeletonSEC
   completetime: 4
   materials:
-    Steel: 1500
-    Gold: 200
-    Silver: 200
-    Uranium: 100
+    Steel: 8000
+    Gold: 1500
+    Silver: 1500
+    Uranium: 1000

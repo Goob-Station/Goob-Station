@@ -255,3 +255,13 @@
     sound: /Audio/_Goobstation/Weapons/Baton/woodhit.ogg
   - type: StaticPrice
     price: 65 # its a piece of wood
+
+- type: entity
+  parent: Stunbaton
+  id: StunbatonSEC
+  name: S.E.C. stun baton
+  description: A security-grade stun baton with a self-recharging cell, built for prolonged compliance operations.
+  components:
+  - type: BatterySelfRecharger
+    autoRechargeRate: 50
+    autoRechargePauseTime: 5
