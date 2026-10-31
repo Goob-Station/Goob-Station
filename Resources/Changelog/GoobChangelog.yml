@@ -26874,3 +26874,11 @@ Entries:
       message: Temporarily disabled non game director modes, read the news post.
   id: 3013
   time: '2026-10-30T19:04:20.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        Tempest is now limited to once every 3 rounds on LRP, and every 5 rounds
+        on MRP.
+  id: 3014
+  time: '2026-10-31T12:58:55.0000000+00:00'
