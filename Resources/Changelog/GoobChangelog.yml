@@ -26933,3 +26933,17 @@ Entries:
         for private conversations
   id: 3021
   time: '2026-10-31T23:00:49.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Tweak
+      message: The bluespace scripture beacon can now become any type of scripture.
+    - type: Tweak
+      message: >-
+        Ghostrole chaplains will spawn with a bluespace scripture beacon instead
+        of a bible.
+    - type: Remove
+      message: >-
+        Chaplains can no longer select their scripture in the lobby (due to the
+        scripture beacon doing the same thing)
+  id: 3022
+  time: '2026-10-31T23:05:00.0000000+00:00'
