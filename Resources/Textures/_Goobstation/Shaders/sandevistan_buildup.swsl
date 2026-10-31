@@ -1,0 +1,90 @@
+light_mode unshaded;
+
+uniform highp float progress;
+
+const highp vec3 AMBER   = vec3(1.00, 0.70, 0.10);
+const highp vec3 CYAN    = vec3(0.00, 0.94, 1.00);
+const highp vec3 MAGENTA = vec3(1.00, 0.16, 0.62);
+const highp vec3 WHITE   = vec3(1.00, 1.00, 1.00);
+
+highp float hash(highp float n)
+{
+    return fract(sin(n) * 43758.5453);
+}
+
+highp float hash2(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float tapA(highp vec2 px, highp vec2 offset)
+{
+    return zTexture(UV + offset * px).a;
+}
+
+highp float dilate(highp vec2 px, highp float radius)
+{
+    highp float acc = 0.0;
+    for (int i = 0; i < 16; i++)
+    {
+        highp float ang = float(i) * 0.3926991;
+        acc = max(acc, tapA(px, vec2(cos(ang), sin(ang)) * radius));
+    }
+    return acc;
+}
+
+highp float band(highp vec2 px, highp float body, highp float inner, highp float outer)
+{
+    return clamp(dilate(px, outer) - max(body, dilate(px, max(inner, 0.0))), 0.0, 1.0);
+}
+
+void fragment()
+{
+    highp vec2 px = TEXTURE_PIXEL_SIZE;
+    highp float t = TIME;
+    highp float p = clamp(progress, 0.0, 1.0);
+    highp float frame = floor(t * 12.0);
+    highp float glitch = smoothstep(0.7, 0.97, p);
+    highp float bandId = floor(UV.y / (px.y * 3.0));
+    highp float tearRoll = hash(bandId * 3.7 + frame * 17.0);
+    highp float tear = step(1.0 - 0.45 * glitch, tearRoll) * (tearRoll - 0.5) * 8.0 * glitch;
+    highp vec2 uv = UV + vec2(tear * px.x, 0.0);
+    highp vec4 sprite = zTexture(uv);
+    highp float body = sprite.a;
+    highp float split = 2.0 * glitch * (0.6 + 0.4 * hash(frame + 5.0));
+    highp float bodyL = zTexture(uv - vec2(split * px.x, 0.0)).a;
+    highp float bodyR = zTexture(uv + vec2(split * px.x, 0.0)).a;
+    highp float ease = p * p;
+    highp float radius = mix(2.75, 1.0, ease);
+    highp float ring = band(px, body, radius - 0.75, radius + 0.75) * (1.0 - glitch);
+    highp vec3 charge = mix(mix(AMBER, WHITE, smoothstep(0.45, 0.72, p)), CYAN, smoothstep(0.72, 0.95, p));
+    highp float ringStrength = 0.55 + 0.45 * ease;
+    highp vec2 block = floor(uv / (px * 2.0));
+    highp float roll = hash2(block + vec2(frame * 0.37, frame * 0.91));
+    highp float ejected = step(1.0 - 0.4 * glitch, roll);
+    highp vec2 fromCenter = uv - vec2(0.5);
+    highp float flyDist = (2.0 + 5.0 * roll) * glitch;
+    highp vec2 fly = length(fromCenter) > 0.001 ? normalize(fromCenter) * flyDist : vec2(0.0);
+    highp float debris = zTexture(uv - fly * px).a * ejected * (1.0 - body) * step(0.05, glitch);
+    highp float hole = ejected * glitch * 0.7;
+    highp float dim = 1.0 - 0.4 * (1.0 - ease);
+    highp float crawl = smoothstep(0.85, 1.0, sin(UV.y * 90.0 - t * 34.0)) * (0.15 + 0.35 * ease);
+    highp vec3 col = sprite.rgb * dim;
+    col = mix(col, charge, body * (0.05 + 0.15 * ease));
+    col = mix(col, charge, body * crawl);
+    highp float torn = step(0.001, abs(tear));
+    col = mix(col, mix(CYAN, MAGENTA, step(0.5, hash(bandId + frame))), body * torn * 0.6);
+    highp float splitL = clamp(bodyL - body, 0.0, 1.0);
+    highp float splitR = clamp(bodyR - body, 0.0, 1.0);
+    highp float flash = smoothstep(0.94, 1.0, p);
+    col = mix(col, WHITE, body * flash * 0.8);
+    col += charge * ring;
+    col += mix(CYAN, WHITE, 0.4) * debris;
+    col += CYAN * splitL + MAGENTA * splitR;
+    highp float alpha = body * (1.0 - hole);
+    alpha = max(alpha, ring * ringStrength);
+    alpha = max(alpha, debris * (0.9 - 0.4 * roll));
+    alpha = max(alpha, max(splitL, splitR) * 0.9);
+
+    COLOR = vec4(col, alpha);
+}
