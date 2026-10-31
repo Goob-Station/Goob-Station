@@ -198,6 +198,7 @@ public sealed partial class GameDirectorSystem
             || possibleEvent.Destruction > scheduler.DestructionBudget
             || possibleEvent.RequiredGhosts > count.Ghosts
             || beat.BlockedEventTypes.Contains(possibleEvent.EventType)
+            || beat.HelpOnly && possibleEvent.Chaos.ChaosDict.Values.Any(v => v > 0)
             || !HasResponders(scheduler, possibleEvent.Chaos, count)
             || possibleEvent.RequiresStaff.Any(d => count.Staff(d) < scheduler.MinResponders))
             return false;

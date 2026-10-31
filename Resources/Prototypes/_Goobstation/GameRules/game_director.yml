@@ -65,8 +65,6 @@
   parent: GameDirector
   categories: [ HideSpawnMenu ]
   components:
-  - type: GameRule
-    minPlayers: 15
   - type: GameDirector
     roundStartAntagsWeightTable: GameDirectorWatcher
     maxDestructionBudget: 2
@@ -292,9 +290,10 @@
   description: Minor chaos across a wide range
   goal:
     Anomaly: 40
-    Atmos: 40
+    Atmos: 100
+    Fire: 0
     Power: 30
-    Infestation: 20
+    Infestation: 40
     Medical: 60
     Hunger: 50
     Thirst: 50
@@ -311,11 +310,11 @@
   id: PowerIssues
   description: Create high engineering chaos
   goal:
-    Atmos: 250
+    Atmos: 400
     Power: 200
     Medical: 100
   endIfAnyWorse:
-    Atmos: 600
+    Atmos: 900
     Power: 600
   onWorse: RepairStation
   requiredDepartments:
@@ -351,7 +350,7 @@
   goal:
     Anomaly: 100
     Power: 50
-    Atmos: 50
+    Atmos: 150
     Medical: 80
   endIfAnyWorse:
     Anomaly: 300
@@ -390,7 +389,7 @@
   escalation:
     Hostile: 120
   endIfAnyWorse:
-    Atmos: 600
+    Atmos: 900
     Power: 600
     Medical: 500
     Death: 400
@@ -409,7 +408,7 @@
   escalation:
     Hostile: 40
   endIfAnyWorse:
-    Atmos: 400
+    Atmos: 700
     Power: 400
     Medical: 300
     Death: 300
@@ -429,9 +428,10 @@
     Hostile: 20
     Security: 0
     Atmos: 0
+    Fire: 0
     Medical: 0
   endIfAllBetter:
-    Atmos: 150
+    Atmos: 250
     Hostile: 60
     Security: 40
     Medical: 150
@@ -447,10 +447,11 @@
   description: Repair that station
   goal:
     Atmos: 0
+    Fire: 0
     Power: 0
     Medical: 0
   endIfAllBetter:
-    Atmos: 150
+    Atmos: 250
     Power: 150
   minSecs: 300
   maxSecs: 900
@@ -465,7 +466,8 @@
   goal:
     Hostile: 0
     Security: 0
-    Atmos: 0
+    Atmos: 120
+    Fire: 0
     Power: 0
     Medical: 0
   minSecs: 0
@@ -474,5 +476,6 @@
   eventDelayMax: 480
   maxDestruction: 0
   allowCalmEvents: false
+  helpOnly: true
   blockedEventTypes:
   - HostilesSpawn
