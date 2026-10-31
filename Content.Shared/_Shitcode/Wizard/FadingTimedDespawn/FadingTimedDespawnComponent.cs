@@ -26,4 +26,7 @@ public sealed partial class FadingTimedDespawnComponent : Component
     public bool FadeOutStarted;
 
     public const string AnimationKey = "fadeout";
+
+    [DataField]
+    public string MindswapText = "temporary";
 }
