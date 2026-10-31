@@ -15,13 +15,13 @@ namespace Content.Goobstation.Server.Traits;
 /// <summary>
 /// Makes whoever has this whine in looc that they have phantom pain.
 /// </summary>
-public sealed class PhantomPainSystem : EntitySystem
+public sealed partial class PhantomPainSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "backstabbed through lanternfly by crocodilecarousel (github) for impstation, Membral wings from https://github.com/Sector-Umbra/Sector-Umbra/commit/b770e0a3921c59b73d9fc1c808a1749588af052e sprited by Sadie-silly on GitHub. Ported from https://github.com/Sector-Umbra/sector-umbra/tree/58f7e454941dc71e00166c60a09063b9e8378d56/Resources/Textures/_CD/Mobs/Customization/Moth/tail.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "membral_primary",
+      "directions": 4
+    },
+    {
+      "name": "membral_secondary",
+      "directions": 4
+    }
+  ]
+}

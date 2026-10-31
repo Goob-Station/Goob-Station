@@ -1,0 +1,57 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: ResomiHeadFluff
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: head_fluff
+
+- type: marking
+  id: ResomiHeadFluffShort
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: head_fluff_short
+
+- type: marking
+  id: ResomiLowerEars
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: lower_ear
+
+- type: marking
+  id: ResomiUpperEars
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: upper_ear
+
+- type: marking
+  id: ResomiUpperEarsAlternate
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: upper_ear_alternate
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: upper_ear_alternate_earring
+
+- type: marking
+  id: ResomiUpperEarsShort
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: resomi_ears_short

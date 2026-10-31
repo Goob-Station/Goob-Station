@@ -1,0 +1,16 @@
+<BoxContainer
+    xmlns="https://spacestation14.io"
+    Orientation="Vertical"
+    VerticalExpand="True"
+    HorizontalExpand="True">
+    <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+        <BoxContainer Name="Entries" Orientation="Vertical" SeparationOverride="8" Margin="4 4 10 4" />
+    </ScrollContainer>
+    <Label Name="EmptyLabel"
+           Text="{Loc 'news-feed-empty'}"
+           StyleClasses="HullMuted"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           VerticalExpand="True"
+           Visible="False" />
+</BoxContainer>

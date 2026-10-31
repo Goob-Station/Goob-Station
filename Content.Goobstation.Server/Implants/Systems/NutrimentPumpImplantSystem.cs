@@ -9,11 +9,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
-public sealed class NutrimentPumpImplantSystem : EntitySystem
+public sealed partial class NutrimentPumpImplantSystem : EntitySystem
 {
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly ThirstSystem _thirst = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private HungerSystem _hunger = default!;
+    [Dependency] private ThirstSystem _thirst = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     public override void Update(float frameTime)
     {

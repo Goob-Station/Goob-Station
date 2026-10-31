@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/a92719210eb834cf284c571b3b3d94c2d82c26ea | Aspen from https://github.com/fulpstation/fulpstation/commit/b21af07f57c2c4fb1cdcdb4162ca222da97ed54c. Ported from https://github.com/Nyanotrasen/Nyanotrasen/tree/479c60ce44ae7e9286f09e1121a1e692f8811a84/Resources/Textures/Nyanotrasen/Mobs/Customization/moth_wings.rsi",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "plain",
+      "directions": 4
+    },
+    {
+      "name": "atlas",
+      "directions": 4
+    },
+    {
+      "name": "luna",
+      "directions": 4
+    },
+    {
+      "name": "monarch",
+      "directions": 4
+    },
+    {
+      "name": "reddish",
+      "directions": 4
+    },
+    {
+      "name": "lovers",
+      "directions": 4
+    },
+    {
+      "name": "deathshead",
+      "directions": 4
+    },
+    {
+      "name": "poison",
+      "directions": 4
+    },
+    {
+      "name": "ragged",
+      "directions": 4
+    },
+    {
+      "name": "snow",
+      "directions": 4
+    },
+    {
+      "name": "witchking",
+      "directions": 4
+    },
+    {
+      "name": "rosy",
+      "directions": 4
+    },
+    {
+      "name": "brown",
+      "directions": 4
+    },
+    {
+      "name": "aspen",
+      "directions": 4
+    }
+  ]
+}

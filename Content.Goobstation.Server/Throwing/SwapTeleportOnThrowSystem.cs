@@ -8,10 +8,10 @@ namespace Content.Goobstation.Server.Throwing;
 
 // This event is predicted incorrectly on the client because of physics,
 // that's why for now it stays only on server.
-public sealed class SwapTeleportOnThrowSystem : EntitySystem
+public sealed partial class SwapTeleportOnThrowSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

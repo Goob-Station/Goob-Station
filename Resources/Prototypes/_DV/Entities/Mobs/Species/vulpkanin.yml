@@ -22,6 +22,7 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
+    allowedEmotes: ['Squeak'] # Goob
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic

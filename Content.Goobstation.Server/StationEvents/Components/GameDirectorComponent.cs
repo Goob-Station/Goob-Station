@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.StationEvents.SecretPlus;
 using Content.Goobstation.Server.StationEvents.Metric;
 using Content.Shared.Random;
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -31,12 +33,18 @@ public sealed partial class GameDirectorComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ChaosMetrics CurrentChaos = new();
 
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public ChaosMetrics BeatStartChaos = new();
+
     /// <summary>
     ///   The story we are currently executing from stories (for easier debugging). Since it is for
     ///   debugging, it does not need a DataField.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<StoryPrototype> CurrentStoryName;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<StoryBeatPrototype>? CurrentBeat;
 
     /// <summary>
     ///   Remaining beats in the story we are currently executing (a list of beat IDs)
@@ -74,138 +82,86 @@ public sealed partial class GameDirectorComponent : Component
     /// </summary>
     [DataField]
     public List<PossibleEvent> PossibleEvents = new();
-    // Could have Chaos multipliers here, or multipliers per player (so stories are harder with more players).
+
+    [ViewVariables]
+    public List<FiredEvent> FiredEvents = new();
+
+    [DataField]
+    public TimeSpan PendingDuration = TimeSpan.FromMinutes(10);
+
+    [DataField]
+    public TimeSpan RepeatWindow = TimeSpan.FromMinutes(20);
+
+    [DataField]
+    public float RepeatFactor = 0.2f;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float DestructionBudget;
+
+    [DataField]
+    public float MaxDestructionBudget = 3f;
+
+    [DataField]
+    public float DestructionRegenPerMinute = 0.1f;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan LastBudgetUpdate;
+
+    [DataField]
+    public int ReferencePlayers = 50;
+
+    [DataField]
+    public float MinPopulationScale = 0.5f;
+
+    [DataField]
+    public float MaxPopulationScale = 1.5f;
+
+    [DataField]
+    public HashSet<ChaosMetric> PopulationScaledMetrics = new()
+    {
+        ChaosMetric.Hostile,
+        ChaosMetric.Friend,
+        ChaosMetric.Combat,
+        ChaosMetric.Death,
+        ChaosMetric.Medical,
+        ChaosMetric.Security,
+    };
+
+    [DataField]
+    public ProtoId<StoryBeatPrototype>? DenouementBeat = "Denouement";
+
+    [DataField]
+    public Dictionary<ChaosMetric, ProtoId<DepartmentPrototype>> Responders = new()
+    {
+        { ChaosMetric.Atmos, "Engineering" },
+        { ChaosMetric.Power, "Engineering" },
+        { ChaosMetric.Hostile, "Security" },
+        { ChaosMetric.Anomaly, "Science" },
+    };
+
+    [DataField]
+    public int MinResponders = 1;
+
+    [DataField]
+    public TimeSpan ReinforcementCooldown = TimeSpan.FromMinutes(15);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan LastReinforcement;
+
+    [ViewVariables]
+    public List<EntProtoId> RoundstartAntags = new();
+
+    [DataField]
+    public TimeSpan NoEventRetryDelay = TimeSpan.FromSeconds(60);
 
     /// <summary>
     /// All the possible roundstart antags.
     /// </summary>
+    [DataField]
     public ProtoId<WeightedRandomPrototype> RoundStartAntagsWeightTable = "GameDirector";
 }
 
-/// <summary>
-///   A series of named StoryBeats which we want to take the station through in the given sequence.
-///   Gated by various settings such as the number of players
-/// </summary>
-[DataDefinition]
-[Prototype("story")]
-public sealed partial class StoryPrototype : IPrototype
-{
-    [ViewVariables]
-    [IdDataField]
-    public string ID { get; private set; } = default!;
-
-    /// <summary>
-    ///   A human-readable description string for logging / admins
-    /// </summary>
-    [DataField]
-    public string Description;
-
-    /// <summary>
-    ///   Minimum number of players on the station to pick this story
-    /// </summary>
-    [DataField]
-    public int MinPlayers = -1;
-
-    /// <summary>
-    ///   Maximum number of players on the station to pick this story
-    /// </summary>
-    [DataField]
-    public int MaxPlayers = Int32.MaxValue;
-
-    /// <summary>
-    ///   List of beat-ids in this story.
-    /// </summary>
-    [DataField]
-    public ProtoId<StoryBeatPrototype>[]? Beats;
-}
-
-/// <summary>
-///   A point in the story of the station where the dynamic system tries to achieve a certain level of chaos
-///   for instance you want a battle (goal has lots of hostiles)
-///   then the next beat you might want a restoration of peace (goal has a balanced combat score)
-///   then you might want to have the station heal up (goal has low medical, atmos and power scores)
-///
-///   In each case you create a beat and string them together into a story.
-///
-///   EndIfAnyWorse might be used for a battle to trigger when the chaos has become high enough.
-///   endIfAllBetter is suitable for when you want the station to reach a given level of peace before you subject them to
-///   the next round of chaos.
-/// </summary>
-[DataDefinition]
-[Prototype("storyBeat")]
-public sealed partial class StoryBeatPrototype : IPrototype
-{
-    [ViewVariables]
-    [IdDataField]
-    public string ID { get; private set; } = default!;
-
-    /// <summary>
-    ///   A human-readable description string for logging / admins
-    /// </summary>
-    [DataField]
-    public string Description;
-
-    /// <summary>
-    ///   Which chaos levels we are driving in this beat and the values we are aiming for
-    /// </summary>
-    [DataField]
-    public ChaosMetrics Goal = new ChaosMetrics();
-
-    /// <summary>
-    ///   Early end if things deteriorate too much
-    ///
-    ///   If the current metrics get worse than any of these, end the story beat
-    ///   For instance, too many hostiles or too little atmos
-    /// </summary>
-    [DataField]
-    public ChaosMetrics EndIfAnyWorse = new ChaosMetrics();
-
-    /// <summary>
-    ///   Early end if life is good enough
-    ///
-    ///   If the current metrics get better than all of these, end the story beat
-    ///   For instance, medical, atmos, hostiles are all under control.
-    /// </summary>
-    [DataField]
-    public ChaosMetrics EndIfAllBetter = new ChaosMetrics();
-
-    /// <summary>
-    ///   The number of seconds that we will remain in this state at minimum
-    /// </summary>
-    [DataField]
-    public float MinSecs = 480.0f;
-
-    /// <summary>
-    ///   The number of seconds that we will remain in this state at maximum
-    /// </summary>
-    [DataField]
-    public float MaxSecs = 1200.0f;
-
-    /// <summary>
-    ///   Seconds between events during this beat (min)
-    ///   2 minute default (120)
-    /// </summary>
-    [DataField]
-    public float EventDelayMin = 120.0f;
-
-    /// <summary>
-    ///   Seconds between events during this beat (min)
-    ///   6 minute default (360)
-    /// </summary>
-    [DataField]
-    public float EventDelayMax = 360.0f;
-
-    /// <summary>
-    ///   How many different events we choose from (at random) when performing this StoryBeat
-    /// </summary>
-    ///
-    /// The director is making a priority pick. But to ensure it doesn't ALWAYS pick the very best we actually
-    ///  pick randomly from the top few events (RandomEventLimit).
-    /// By tuning RandomEventLimit you can decide on a per beat basis how much the director is "directing" and
-    ///  how much it's acting like a random system. Some randomness is often good to spice things up.
-    [DataField]
-    public int RandomEventLimit = 3;
-}
+public readonly record struct FiredEvent(EntProtoId Event, TimeSpan Time, ChaosMetrics Chaos);
 
 /// <summary>
 ///   Caches a possible StationEvent prototype with the chaos expected (from the game rule's data)
@@ -228,13 +184,43 @@ public sealed partial class PossibleEvent
     [DataField]
     public ChaosMetrics Chaos = new();
 
+    [DataField]
+    public float Weight = 1f;
+
+    [DataField]
+    public int Destruction;
+
+    [DataField]
+    public int RequiredGhosts;
+
+    [DataField]
+    public ProtoId<EventTypePrototype> EventType = "Neutral";
+
+    [DataField]
+    public HashSet<ProtoId<DepartmentPrototype>> Reinforces = new();
+
+    [DataField]
+    public int UnderstaffedBelow;
+
+    [DataField]
+    public HashSet<ProtoId<DepartmentPrototype>> RequiresStaff = new();
+
     public PossibleEvent()
     {
     }
 
-    public PossibleEvent(EntProtoId stationEvent, ChaosMetrics chaos)
+    public PossibleEvent(EntProtoId stationEvent,
+        ChaosMetrics chaos,
+        float weight,
+        int destruction,
+        int requiredGhosts,
+        ProtoId<EventTypePrototype> eventType)
     {
         StationEvent = stationEvent;
         Chaos = chaos;
+        Weight = weight;
+        Destruction = destruction;
+        RequiredGhosts = requiredGhosts;
+        EventType = eventType;
     }
 }

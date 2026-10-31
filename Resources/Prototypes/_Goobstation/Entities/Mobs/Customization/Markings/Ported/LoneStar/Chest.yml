@@ -1,0 +1,82 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: ResomiBackPatch
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_markings.rsi
+    state: back_patch
+
+- type: marking
+  id: ResomiBackPatchFull
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_markings.rsi
+    state: back_patch_full
+
+- type: marking
+  id: ResomiBelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_markings.rsi
+    state: belly
+
+- type: marking
+  id: ResomiBodyCoat
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_markings.rsi
+    state: body_coat
+
+- type: marking
+  id: ResomiBodyLines
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_markings.rsi
+    state: body_lines
+
+- type: marking
+  id: ResomiBodyRings
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_markings.rsi
+    state: body_rings
+
+- type: marking
+  id: ResomiBodyStripes
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_markings.rsi
+    state: body_stripes
+
+- type: marking
+  id: ResomiFluffGroin
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_markings.rsi
+    state: fluff_groin
+
+- type: marking
+  id: ResomiGroinStripes
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_markings.rsi
+    state: groin_stripes

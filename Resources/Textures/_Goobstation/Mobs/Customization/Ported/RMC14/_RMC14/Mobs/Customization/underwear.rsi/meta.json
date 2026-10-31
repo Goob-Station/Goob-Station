@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/884ab172389b6fc54ef063f5fbea5e8b0a0a2235/icons/mob/humans/underwear.dmi. Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f/Resources/Textures/_RMC14/Mobs/Customization/underwear.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "c_lowriders",
+      "directions": 4
+    },
+    {
+      "name": "c_briefs",
+      "directions": 4
+    },
+    {
+      "name": "c_satin",
+      "directions": 4
+    },
+    {
+      "name": "classic_tanga",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+<Document>
+  # New Lobby Design!!
+
+  After adding voice chat to Goob, I realized we had quite a few popups that would all stack on top of each other. So of course I went straight into building a news system to replace them.
+
+  Instantly, I ran into a problem, the old lobby was so fucking cluttered that I couldn't reasonably fit it in anywhere.
+
+  So I started cleaning up the lobby, and before I knew it I'd redesigned the entire thing. Halfway through, I started styling it like hull plating, cuz it's cool.
+
+  Then I figured the character customization screen should probably match the lobby, and went...
+
+  [bold]man.[/bold]
+  [italic]this shit sucks too.[/italic]
+
+  Picking markings and hair from a dropdown is so fucking bad. You have no clue what anything looks like until you click it, and slowly going through the list to find the one you want is [bold]ASS[/bold].
+
+  Fuck it, we making a new character customization screen too.
+
+  ## What's new
+
+  ### Lobby
+  - A news feed with pinned posts (ur reading it right now)
+  - Chat and News tabs
+  - Round info and ready status moved into the bottom side panel and made [italic]fancy[/italic]
+  - Links and the menu moved into dropdowns instead of a wall of buttons at the top
+
+  ### Character customization
+  - Hair, markings, and species all now have preview tiles instead of dropdowns.
+  - Skin and eye color swatches, and an age slider
+  - Ability to hide jobs you can't play yet
+  - A trait points bar
+
+  Here's what the new bits look like, (you can press them :-] ).
+
+  <NewsPanel Margin="4">
+    <Box Orientation="Vertical">
+      <Box>
+        <NewsSevenSegment Countdown="300" MinDigits="4" Caption="ui-lobby-lcd-starts-in" Margin="6"/>
+        <NewsHazardStripe Margin="6">
+          <NewsButton Style="Ready" Text="ui-lobby-ready-up-button" Margin="4"/>
+        </NewsHazardStripe>
+      </Box>
+      <Box>
+        <NewsFact Key="ui-lobby-fact-map" Value="news-new-lobby-demo-map" Margin="3"/>
+        <NewsFact Key="ui-lobby-fact-mode" Value="news-new-lobby-demo-mode" Margin="3"/>
+      </Box>
+      <Box>
+        <NewsButton Text="news-new-lobby-demo-plate" Margin="3"/>
+        <NewsButton Style="Tab" Text="news-new-lobby-demo-tab" Margin="3"/>
+        <NewsButton Style="Danger" Text="news-new-lobby-demo-danger" Margin="3"/>
+      </Box>
+    </Box>
+  </NewsPanel>
+
+  <ColorBox Color="#262a2e" OutlineColor="#4d535a" Margin="4">
+    <Box Orientation="Vertical" Margin="8">
+      The sprites are by our glorious leader, [bold]@Rouge2t7[/bold] on Discord.
+    </Box>
+  </ColorBox>
+
+  It's not quite finished yet
+
+  (need to replace the JOIN and SAVE buttons and the NT metal panel, maybe change up the seven segement to be real pixel art, etc.)
+
+  but I wanted to get it out so you guys can start giving feedback on it. Hope you like it!
+
+  <InfoLinkButton Link="Discord" Text="news-new-lobby-feedback"/>
+
+  <Box HorizontalAlignment="Right">
+    [italic]- Durk[/italic]
+  </Box>
+</Document>

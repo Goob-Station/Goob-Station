@@ -10,10 +10,10 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Goobstation.Shared.Radio;
 
-public sealed class RadioJobIconSystem : EntitySystem
+public sealed partial class RadioJobIconSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private SharedIdCardSystem _idCardSystem = default!;
 
     // These are static vars rather than being inlined so that the YAML linter can verify that they actually exist.
     private static readonly ProtoId<JobIconPrototype> JobIconAI = new("JobIconStationAi");
@@ -33,6 +33,13 @@ public sealed class RadioJobIconSystem : EntitySystem
     /// <returns>If <paramref name="ent"/> has a valid job icon, returns <see langword="true"/> and sets the out parameters. Otherwise returns <see langword="false"/>.</returns>
     public bool TryGetJobIcon(EntityUid ent, [NotNullWhen(true)] out ProtoId<JobIconPrototype>? jobIcon, out string? jobName)
     {
+        if (TryComp<RadioJobIconOverrideComponent>(ent, out var iconOverride))
+        {
+            jobIcon = iconOverride.JobIcon;
+            jobName = iconOverride.JobName is { } name ? Loc.GetString(name) : null;
+            return true;
+        }
+
         // If they're an AI/borg/other silicon, they get to return early and skip the `StatusIconComponent` check.
         if (TryGetSiliconIcon(ent, out jobIcon, out jobName))
             return true;

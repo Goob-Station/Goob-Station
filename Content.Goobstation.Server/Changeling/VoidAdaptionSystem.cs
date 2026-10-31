@@ -7,7 +7,7 @@ namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class VoidAdaptionSystem : SharedVoidAdaptionSystem
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 

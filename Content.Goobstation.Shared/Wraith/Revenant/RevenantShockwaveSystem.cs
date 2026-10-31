@@ -15,18 +15,18 @@ using System.Numerics;
 
 namespace Content.Goobstation.Shared.Wraith.Revenant;
 
-public sealed class RevenantShockwaveSystem : EntitySystem
+public sealed partial class RevenantShockwaveSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private EntityQuery<StatusEffectsComponent> _statusEffectsQuery;
 

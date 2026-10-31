@@ -1,0 +1,24 @@
+using Content.Shared.Humanoid.Prototypes;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Shared.Light
+{
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+    public sealed partial class WearerLightColorComponent : Component
+    {
+        /// <summary>
+        /// Only wearers of this species tint the light; null means any humanoid
+        /// </summary>
+        [DataField]
+        public ProtoId<SpeciesPrototype>? Species = "Plasmaman";
+
+        /// <summary>
+        /// Fallback color, copied from the entity's PointLight at MapInit
+        /// </summary>
+        public Color DefaultColor;
+
+        [AutoNetworkedField]
+        public bool LightSuppressed;
+    }
+}

@@ -7,10 +7,10 @@ namespace Content.Goobstation.Client.Gangwars;
 /// <summary>
 /// Client-only visual handling for the gang spray can.
 /// </summary>
-public sealed class ClientGangSprayCanSystem : EntitySystem
+public sealed partial class ClientGangSprayCanSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

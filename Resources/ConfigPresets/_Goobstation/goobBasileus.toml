@@ -1,5 +1,8 @@
 [game]
 hostname = "Goob Basileus 𝑀𝑅𝒫 ᴇᴜ-ᴡ"
 desc = "The illustrious Goob Station MRP, a resplendent sanctuary ordained solely for the most venerable and cultured denizens of our esteemed realm."
-defaultpreset = "SecretPlusLow"
-disabled_presets = "TheGuide,SecretPlusMid"
+defaultpreset = "TheWatcher"
+preset_round_cooldowns = "TheTempest:5"
+
+[goob]
+window_title = "Goob Basileus"

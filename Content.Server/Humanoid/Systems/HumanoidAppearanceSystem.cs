@@ -36,6 +36,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         }
 
         humanoid.MarkingSet.Remove(prototype.MarkingCategory, marking);
+        RaiseMarkingsChanged(uid); // Goob
 
         if (sync)
             Dirty(uid, humanoid);
@@ -60,6 +61,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         humanoid.MarkingSet.Remove(category, index);
         Dirty(uid, humanoid);
+        RaiseMarkingsChanged(uid); // Goob
     }
 
     /// <summary>
@@ -89,6 +91,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         humanoid.MarkingSet.Replace(category, index, marking);
         Dirty(uid, humanoid);
+        RaiseMarkingsChanged(uid); // Goob
     }
 
     /// <summary>

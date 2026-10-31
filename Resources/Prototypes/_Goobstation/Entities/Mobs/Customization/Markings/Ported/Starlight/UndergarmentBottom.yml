@@ -1,0 +1,43 @@
+# Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42
+
+- type: marking
+  id: UndergarmentBottomBoxersRodentia
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/undergarments.rsi
+    state: boxers_rodentia
+
+- type: marking
+  id: UndergarmentBottomBriefsRodentia
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/undergarments.rsi
+    state: briefs_rodentia
+
+- type: marking
+  id: UndergarmentBottomSatinRodentia
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/undergarments.rsi
+    state: satin_rodentia

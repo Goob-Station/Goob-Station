@@ -13,6 +13,7 @@
       Hostile: 400
       Medical: 400
       Death: 400
+    destruction: 2 # Goobstation
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 400

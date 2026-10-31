@@ -26122,3 +26122,814 @@ Entries:
       message: Lathes having issues with mats should be fixed, maybe??
   id: 2961
   time: '2026-10-06T18:28:17.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added new robotic species, Synths!
+  id: 2962
+  time: '2026-10-09T18:10:15.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: >-
+        Fixed burn ashing behavior with complex bodies only deleting the root
+        part, leaving them immortal.
+  id: 2963
+  time: '2026-10-09T18:16:57.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: >-
+        Secret+ no longer fails to start when a rolled antag doesn't have enough
+        players.
+    - type: Fix
+      message: Traitors no longer get conflicting help/protect objectives.
+    - type: Fix
+      message: Plasma cutters no longer lie about fitting in rechargers.
+    - type: Fix
+      message: Gemini clones no longer have a glitchy square around them.
+    - type: Fix
+      message: Armor penetration works again.
+    - type: Fix
+      message: >-
+        Borging someone now deconverts them from revs, cosmic cult, thralls and
+        gangs.
+    - type: Fix
+      message: Right-clicking a modsuit part no longer unequips it.
+    - type: Fix
+      message: Janitorial modsuit chestplate no longer shows an error sprite.
+    - type: Fix
+      message: Rusted walls no longer spawn rotated.
+    - type: Fix
+      message: Chitinid biolight works after an anomaly is removed.
+    - type: Fix
+      message: Lavaland bosses stop chasing you once you leave their range.
+    - type: Fix
+      message: Admin erase no longer floods chat with old messages.
+    - type: Fix
+      message: Regenerative stasis regrows missing organs.
+    - type: Fix
+      message: Losing hunger or thirst clears their alerts and slowdown.
+    - type: Fix
+      message: Headslugs can ghost again.
+    - type: Fix
+      message: Holopad voice only connects once the call is answered.
+    - type: Fix
+      message: >-
+        S.E.C. borgs have one Obey AI law, one View Laws action and a
+        self-recharging baton.
+    - type: Fix
+      message: Head revs no longer become enemies of the revolution on a rev win.
+    - type: Fix
+      message: Xenobio slime crates are back in cargo.
+    - type: Fix
+      message: >-
+        Zombified dionas no longer end up in nullspace when splitting into
+        nymphs.
+    - type: Fix
+      message: Abductors can't be converted by revs, shadowlings or cosmic cult.
+    - type: Fix
+      message: Cosmic cult can no longer convert rotten corpses.
+    - type: Fix
+      message: Gang duffel bags can't be deconstructed.
+    - type: Fix
+      message: Carpolin turns you into a carp again.
+    - type: Fix
+      message: >-
+        Holopads and sentry turrets no longer get stuck showing the maintenance
+        panel.
+    - type: Tweak
+      message: >-
+        Synths can't spawn for gamerules/ghost roles, e.g. nukies, ert, ninja,
+        etc.
+  id: 2964
+  time: '2026-10-09T20:00:39.0000000+00:00'
+- author: Mirrorcult, Durk
+  changes:
+    - type: Add
+      message: >-
+        Interacting with things now has animations, showing what you are
+        interacting with.
+    - type: Add
+      message: Hits, gunfire, explosions and gravity changes now shake the screen.
+    - type: Tweak
+      message: DoAfter bars now fade in, slide up and fade out.
+  id: 2965
+  time: '2026-10-09T22:52:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added a General option to resize or turn off the interaction icon that
+        shows above your head.
+    - type: Add
+      message: >-
+        Added species specific hand interaction sprites (code is there but
+        pending sprites, if u want to make some contact me and ill add them)
+    - type: Fix
+      message: >-
+        Interaction particles no longer give away pickpocketing, stealthed
+        players, or people hiding in lockers.
+    - type: Fix
+      message: Interacting while buckled no longer shows the target above your head.
+    - type: Fix
+      message: >-
+        Picking things up no longer shows two particles, and particles for
+        actions the server rejected now disappear.
+    - type: Fix
+      message: Colored DoAfter bars now fade in and out with the rest of the bar.
+  id: 2966
+  time: '2026-10-10T03:18:43.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added painting! Paint on canvases with crayons, paint cans or the
+        artist's palette. Several people can paint the same canvas at once.
+    - type: Add
+      message: >-
+        Added the photocopier, which copies a painting onto a blank canvas. Its
+        board is printed at the circuit imprinter.
+    - type: Add
+      message: >-
+        The art supplies crate now has canvases, frames, paint cans and an
+        artist's palette.
+    - type: Add
+      message: Added a Painting page to the guidebook.
+    - type: Fix
+      message: Fixed the crayon label showing an error instead of its charges.
+  id: 2967
+  time: '2026-10-11T04:00:56.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added achievements, have fun.
+    - type: Add
+      message: Patron's can now change their OOC icon!
+    - type: Tweak
+      message: Made it so admins no longer always have purple names in OOC.
+  id: 2968
+  time: '2026-10-12T01:26:59.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Cult colossus midround is now rarer.
+  id: 2969
+  time: '2026-10-14T19:04:52.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        Secret+ Light now has a small number of roundstart antags, drawn only
+        from solo antags (Traitor, Changeling, Heretic, Thief, Corporate Agent).
+    - type: Tweak
+      message: The old Secret+ Medium has been renamed to Secret+ High.
+    - type: Add
+      message: Added a new Secret+ Medium that sits between Light and High.
+  id: 2970
+  time: '2026-10-14T19:06:40.0000000+00:00'
+- author: Jvne
+  changes:
+    - type: Add
+      message: Added a green Hawaiian shirt!
+  id: 2971
+  time: '2026-10-14T19:08:02.0000000+00:00'
+- author: mrs
+  changes:
+    - type: Add
+      message: 'Shoukou: Added the radio station between HoP and the news room.'
+    - type: Add
+      message: 'Shoukou: Placed the spare captain''s ID in the captain''s room.'
+    - type: Add
+      message: >-
+        Shoukou: Round-start mats have been placed in secure crates inside
+        engineering, science, and armory.
+    - type: Add
+      message: 'Shoukou: The Entity.'
+    - type: Add
+      message: 'Shoukou: Added a TEG crate in atmos, have fun!'
+    - type: Add
+      message: >-
+        Shoukou: Added a space shutter to the artifact chamber for sane
+        scientists.
+    - type: Tweak
+      message: 'Shoukou: Replaced the disabler safe with a laser weapons safe.'
+    - type: Remove
+      message: 'Shoukou: The energy chem dispensers are gone. It''s all your fault.'
+    - type: Remove
+      message: >-
+        Shoukou: Removed the barrier. The Entity is now able to enter the
+        station >10pop to hunt crewmembers that have been alone for prolonged
+        periods.
+  id: 2972
+  time: '2026-10-14T19:10:04.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Fix
+      message: >-
+        Maintenance drones can now see how much power they have left in real
+        time (so now there is no excuse for running out of power)
+  id: 2973
+  time: '2026-10-14T19:12:02.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed chess
+  id: 2974
+  time: '2026-10-14T19:14:15.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: >-
+        Fixed stupid bullshit causing vital damage (and any other sources of
+        multi-target damage other than explosions) to split to the entire body
+        instead of only intended vital body parts.
+  id: 2975
+  time: '2026-10-14T19:19:31.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Decals on moving shuttles no longer jitter, including during FTL.
+    - type: Fix
+      message: Shuttles and the things on them move smoothly again.
+  id: 2976
+  time: '2026-10-14T19:30:06.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Fixed canvases and painting frames being uncraftable.
+  id: 2977
+  time: '2026-10-14T19:52:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added an intro for when you join a round.
+  id: 2978
+  time: '2026-10-16T17:33:18.0000000+00:00'
+- author: >-
+    Durk, EmoGarbage404, mirrorcult, Flareguy, mycobiota, YaraaraY,
+    jessicamaybe, adamsong
+  changes:
+    - type: Add
+      message: >-
+        You now turn to face whatever you're working on during a do-after, and
+        machines while their UI is open.
+    - type: Add
+      message: >-
+        Items with a use cooldown now show a cooldown circle around your mouse
+        cursor.
+    - type: Tweak
+      message: Popups are now slightly scattered, and stay on screen longer.
+    - type: Add
+      message: >-
+        Portable scrubbers, space heaters and J.R.P.A.C.M.A.N. generators can be
+        anchored by hand with an alt-click verb.
+    - type: Add
+      message: >-
+        New puddle sprites, with different looks for blood, vomit, water,
+        drinks, powders, acids and more.
+    - type: Add
+      message: >-
+        Interaction outline colors can now be customized in the Accessibility
+        options.
+    - type: Add
+      message: Vending machines now use a keypad UI.
+    - type: Add
+      message: >-
+        Speech now shows as SS13-style runechat, this will generate mald but idc
+        cuz i like it :-)
+    - type: Add
+      message: >-
+        Hold Alt (rebindable) to peek at the names and pronouns (wokestation14)
+        of people around you.
+    - type: Add
+      message: Radio channel colors can now be customized per channel.
+    - type: Add
+      message: Added a Customization tab to the options menu.
+    - type: Add
+      message: >-
+        Blood, vomit and spilled reagents now stain nearby walls. Stains can be
+        scrubbed off with a mop, rag or soap, and you can pour containers onto
+        walls.
+    - type: Add
+      message: Explosions now have new visuals.
+    - type: Add
+      message: >-
+        Welding masks can now be flipped up and down, and darkens your vision
+        while down.
+    - type: Add
+      message: >-
+        Meson goggles no longer protect you from welding, and can now toggle a
+        T-ray scanner and tints your vision while it's on.
+  id: 2979
+  time: '2026-10-16T22:08:14.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed surplus healing being applied multiple times.
+    - type: Fix
+      message: Fixed explosions being 5.5x stronger than intended.
+    - type: Tweak
+      message: As a result of the above, buffed the pizza bomb.
+    - type: Tweak
+      message: >-
+        As a result of the above above, buffed the hardlight bow explosive arrow
+        back to previous values.
+    - type: Tweak
+      message: >-
+        As a result of the above above above, tweaked explosion wounding
+        multipliers back to their previous value 4x from 2.5x.
+    - type: Tweak
+      message: >-
+        Explosions now do 1.5x damage to vital parts to compensate for woundmed
+        damage splits.
+  id: 2980
+  time: '2026-10-17T22:55:23.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed fire being realistic.
+  id: 2981
+  time: '2026-10-18T18:13:02.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added jiggle physics.
+    - type: Add
+      message: >-
+        Slimes can now regrow weakened limbs at the cost of hunger and blood
+        level. (temporary sprite for the action)
+    - type: Fix
+      message: Fixed animated emotes replaying when someone walks into range.
+  id: 2982
+  time: '2026-10-21T17:13:14.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Very spooky slasher variant.
+    - type: Fix
+      message: Fixed slasher tokens not getting the variant system.
+  id: 2983
+  time: '2026-10-22T22:25:28.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Atmospheric belts do not replace your jumpsuit anymore.
+  id: 2984
+  time: '2026-10-23T01:12:15.0000000+00:00'
+- author: OliverOtter
+  changes:
+    - type: Fix
+      message: Mitotrophin now metabolizes properly at a 0.5u rate.
+  id: 2985
+  time: '2026-10-23T01:12:54.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: nerfed full SMES sell price by ~50%
+  id: 2986
+  time: '2026-10-23T01:13:45.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed camera
+  id: 2987
+  time: '2026-10-23T01:14:30.0000000+00:00'
+- author: loksill
+  changes:
+    - type: Tweak
+      message: Smartlink is now exclusive to only traitors.
+  id: 2988
+  time: '2026-10-23T01:15:47.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Majority of ghost role raffles are now 30 seconds instead of 45.
+  id: 2989
+  time: '2026-10-23T01:16:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Guns and throwing are both predicted now.
+  id: 2990
+  time: '2026-10-23T02:10:42.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Fix
+      message: Fixed vox being unable to bagawk.
+    - type: Fix
+      message: >-
+        Fixed vox being poisoned by microplastics, they now heal from it
+        properly.
+  id: 2991
+  time: '2026-10-23T02:11:37.0000000+00:00'
+- author: mrs-teg
+  changes:
+    - type: Tweak
+      message: Atmospherics belts can now hold power drills!
+  id: 2992
+  time: '2026-10-23T02:12:38.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Remove
+      message: Removed the S.L.A.Y.E.R coat from the uplink
+  id: 2993
+  time: '2026-10-23T02:14:56.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: Increased maximum PTL power draw per shot 5MJ->100MJ
+    - type: Tweak
+      message: Decreased PTL speso/MJ generation by about 85%
+    - type: Tweak
+      message: Decreased PTL damage/MJ by 50%
+    - type: Tweak
+      message: Increased maximum PTL draw 5MJ->10MJ
+  id: 2994
+  time: '2026-10-23T02:29:17.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Tweak
+      message: Buff acceleration for dragon and carps 1 -> 1.5
+  id: 2995
+  time: '2026-10-23T02:29:50.0000000+00:00'
+- author: loksill
+  changes:
+    - type: Fix
+      message: Fixed the use of items from the bag on a xeno nest.
+  id: 2996
+  time: '2026-10-23T02:50:36.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: You can now surgically remove and reattach your ass!
+  id: 2997
+  time: '2026-10-23T18:21:16.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Mice can now become a swarm.
+    - type: Add
+      message: Mice can now gnaw off limbs of corpses.
+  id: 2998
+  time: '2026-10-23T18:22:03.0000000+00:00'
+- author: Jvne
+  changes:
+    - type: Add
+      message: Ported an upstream accessibility feature for old people like me. 👵
+  id: 2999
+  time: '2026-10-24T14:12:23.0000000+00:00'
+- author: cwestkaemper
+  changes:
+    - type: Tweak
+      message: Added Departmental request consoles to Kettle
+  id: 3000
+  time: '2026-10-24T22:06:48.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Synths resistances have been hard nerfed.
+    - type: Tweak
+      message: Metal rods now contain lead, like steel.
+    - type: Fix
+      message: Synths are no longer poisoned by the lead in steel and rods.
+    - type: Fix
+      message: Synths can no longer use patches or get hit by syringe guns.
+    - type: Tweak
+      message: Synths now get 0.25x their normal passive healing while crit.
+    - type: Add
+      message: >-
+        Added runechat options for font size and outline thickness, with a live
+        preview in the Customization settings.
+    - type: Fix
+      message: >-
+        Turning runechat off now also switches popups, point text and Alt names
+        back to the normal style.
+    - type: Fix
+      message: >-
+        Fixed healing items, chems and surgery sometimes doing nothing to wounds
+        until the patient took more damage.
+    - type: Fix
+      message: >-
+        Fixed surgeries not appearing until you closed and reopened the
+        incision.
+    - type: Fix
+      message: Fixed gauze sometimes refusing to work right.
+    - type: Fix
+      message: >-
+        Effects that stop bleeding now actually stop it, instead of it coming
+        back a second later.
+    - type: Fix
+      message: >-
+        Wounds no longer restart bleeding at full strength from extra damage
+        after hitting their severity cap.
+    - type: Fix
+      message: Borgs can be repaired with welders again.
+    - type: Fix
+      message: >-
+        Holding Alt no longer shows names when you're blind or flashed, on
+        stealthed people, or in places the AI's cameras can't see (when you're
+        AI, obviously.)
+    - type: Fix
+      message: >-
+        Switching modes on advanced surgery tools no longer puts them in slime
+        people's internal storage.
+  id: 3001
+  time: '2026-10-25T19:48:08.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: The flatpacker and industrial reagent grinder now come pre-automated.
+    - type: Fix
+      message: The S.L.A.Y.E.R. coat now protects hands and feet.
+    - type: Fix
+      message: Nuclear operative carps are now part of the carp faction.
+    - type: Fix
+      message: Bad markup in the station report no longer breaks the round-end summary.
+    - type: Fix
+      message: >-
+        The supermatter can no longer be instantly healed to full, damage now
+        builds up and heals over time.
+    - type: Fix
+      message: Achievements can no longer be earned after the round has ended.
+    - type: Fix
+      message: Thrown items no longer reveal hidden floor goblins.
+    - type: Fix
+      message: Butter can now be ground in a grinder.
+    - type: Fix
+      message: >-
+        Ore silos no longer stop linking after being linked to an invalid
+        machine.
+    - type: Fix
+      message: >-
+        Saying last words or ghosting in crit no longer clears asphyxiation
+        damage.
+    - type: Fix
+      message: Synths now spawn with a survival kit.
+    - type: Fix
+      message: Pills can no longer be fed through masks.
+    - type: Fix
+      message: Throwing someone out of a grab now properly resets your movement speed.
+    - type: Fix
+      message: >-
+        Shuttle timer screens now work on Serpentcrest and at CentComm when the
+        syndicate evac shuttle is used.
+    - type: Fix
+      message: Picking up a lit flare no longer resets its glow.
+    - type: Fix
+      message: Cybernetic augments now drain their power cell.
+    - type: Fix
+      message: >-
+        Chinese characters now display in the Autodoc and other newer UI
+        windows.
+    - type: Fix
+      message: IPCs can no longer roll as roundstart blob.
+    - type: Fix
+      message: The slime scanner now shows the correct colours for potential mutations.
+    - type: Fix
+      message: >-
+        Prying apart a maint altar now gives back the same budget insulated
+        gloves instead of rerolling them.
+    - type: Tweak
+      message: >-
+        Envirosuits now provide pressure protection, so plasmamen in a full
+        envirosuit are spaceproof.
+    - type: Fix
+      message: Command tracking implants turn back on after being hit by multiple EMPs.
+    - type: Fix
+      message: News articles now support text formatting.
+    - type: Fix
+      message: You can no longer be knocked down or go prone while buckled.
+    - type: Fix
+      message: >-
+        Healium, BZ, probital and other sleep-inducing chemicals now put you to
+        sleep again.
+    - type: Fix
+      message: IPCs and slimepeople can now be medically examined.
+    - type: Fix
+      message: Handcuffed people can no longer drive wheelchairs or other vehicles.
+    - type: Fix
+      message: Paradox clones of chefs now have CQC.
+    - type: Fix
+      message: >-
+        Explosions can no longer disarm an armed nuke by blowing out the floor
+        under it.
+    - type: Fix
+      message: Rust heretic's mansus grasp no longer destroys IPC brains.
+    - type: Fix
+      message: Sealing and unsealing a modsuit helmet no longer removes your face.
+    - type: Fix
+      message: Larvae hatching from monkeys no longer gib them.
+    - type: Fix
+      message: >-
+        The scram implant no longer teleports you onto asteroids or other
+        far-away grids.
+    - type: Fix
+      message: You can now respawn in deathmatch after visiting the thunderdome.
+    - type: Fix
+      message: Upgraded bingles now properly turn into zombies.
+    - type: Fix
+      message: Unwrenched pipes and atmos devices no longer block RPD placement.
+    - type: Fix
+      message: Restored the background panels on NTR and xenobiology consoles.
+    - type: Tweak
+      message: Zombies can no longer vent crawl.
+  id: 3002
+  time: '2026-10-25T19:48:23.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Shrapnel now has a limit of 3 instances. No more shrapnel in every limb.
+    - type: Tweak
+      message: Mice swarms can no longer tank big hits.
+    - type: Tweak
+      message: Mice have a two minute cooldown between laying eggs now.
+  id: 3003
+  time: '2026-10-26T03:10:12.0000000+00:00'
+- author: Sanyati
+  changes:
+    - type: Add
+      message: CMO now has a new insulated labcoat loadout option!
+  id: 3004
+  time: '2026-10-26T16:45:03.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Fix
+      message: carry client reload/crash bug
+  id: 3005
+  time: '2026-10-26T16:45:58.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added new LOBBY UI!!!!!
+  id: 3006
+  time: '2026-10-27T22:15:19.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: >-
+        Halloween is here! Get costumes inspired by your favorites at your local
+        autodrobe! Remember to check the contraband storage.
+    - type: Add
+      message: Candy can now spawn in maintenance lockers
+    - type: Add
+      message: >-
+        Candy and snacks now spawn in head lockers. Will you trick or treat your
+        employees?
+    - type: Add
+      message: Added a new borg skin!
+    - type: Add
+      message: >-
+        Added the candy bucket as a selectable trinket. Are you guys going trick
+        or treating?
+    - type: Add
+      message: Added candy buckets to the autodrobe in case you lose yours.
+    - type: Add
+      message: Readded the revenant for a limited time. Ooooooo....
+    - type: Tweak
+      message: Increased the amount of basic costumes in the autodrobe
+    - type: Tweak
+      message: Very slightly increased the spawnrate of vent spiders.
+    - type: Tweak
+      message: Reduced the price of the syndicate candy bundle to 90 TC from 100 TC.
+    - type: Tweak
+      message: slightly increased the spawnrate of skeletons.
+  id: 3007
+  time: '2026-10-28T19:42:18.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Trying a new font for the new lobby ui, if everyone hates it i will
+        revert it.
+    - type: Add
+      message: >-
+        added a super secret easter egg to the lobby UI, you totally wont find
+        it easily :smile:
+    - type: Tweak
+      message: >-
+        Made a lot of the UI in the character customization properly use our
+        sprites.
+  id: 3008
+  time: '2026-10-29T02:08:18.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added 2000 new markings!
+    - type: Add
+      message: Added ability to view animated markings in the customization menu.
+    - type: Tweak
+      message: >-
+        Any mob with a tail that has an animated variant now automatically gets
+        the tail wag action, instead of it being set per species.
+  id: 3009
+  time: '2026-10-29T02:09:01.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Ported several emotes from other forks
+    - type: Remove
+      message: >-
+        Hard nerfed harpies, they can no longer use all emotes, 500 harpy mains
+        crying in chat tonight.
+    - type: Remove
+      message: >-
+        Removed the emote spam system, if u guys get too uppity and start
+        spamming them i may return it.
+    - type: Fix
+      message: Fixed juice that makes you hew not playing sounds.
+  id: 3010
+  time: '2026-10-29T17:18:09.0000000+00:00'
+- author: loksill
+  changes:
+    - type: Tweak
+      message: The Plasmaman helmet no longer requires a battery
+    - type: Tweak
+      message: >-
+        The flashlight on Plasmaman's helmet now shines in the color of
+        plasmaman
+    - type: Add
+      message: >-
+        Plasmamens now glow passively, but hardsuits and envirosuits suppress
+        this light
+  id: 3011
+  time: '2026-10-30T00:43:32.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: Fixed candy buckets fitting in bags.
+  id: 3012
+  time: '2026-10-30T12:48:34.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added two new game director modes, read the news post.
+    - type: Add
+      message: Added two new (helpful) midround events, read the news post.
+    - type: Tweak
+      message: >-
+        Various changes to game director to make it suck less, read the news
+        post.
+    - type: Tweak
+      message: Temporarily disabled non game director modes, read the news post.
+  id: 3013
+  time: '2026-10-30T19:04:20.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        Tempest is now limited to once every 3 rounds on LRP, and every 5 rounds
+        on MRP.
+  id: 3014
+  time: '2026-10-31T12:58:55.0000000+00:00'
+- author: acatrw
+  changes:
+    - type: Tweak
+      message: Clown spiders inject crapotoxin.
+  id: 3015
+  time: '2026-10-31T22:35:11.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Remove
+      message: >-
+        Some entities that had binary comms (positronic brains, man-machine
+        interfaces, personal AIs, and a few others) no longer have it - it's now
+        (almost) entirely for AI, borgs... and vending machines too, because why
+        the hell not.
+  id: 3016
+  time: '2026-10-31T22:41:12.0000000+00:00'
+- author: Jvne
+  changes:
+    - type: Add
+      message: 'Added Chicken Nuggets to the chef''s repertoire '
+  id: 3017
+  time: '2026-10-31T22:43:24.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Round control tab buttons now require second press for confirmation
+  id: 3018
+  time: '2026-10-31T22:44:16.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Further changes to game director after a day of playtesting.
+  id: 3019
+  time: '2026-10-31T22:55:46.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Add
+      message: Added a golden MK58 for senior security officers.
+    - type: Tweak
+      message: Sidearms can be chosen from the loadout screen for security now.
+  id: 3020
+  time: '2026-10-31T22:57:21.0000000+00:00'
+- author: Anui-El
+  changes:
+    - type: Add
+      message: >-
+        New interface menu for handheld radios - Toggle the microphone and
+        speaker on or off and connect to any frequencies between 1000Hz-3000Hz
+        for private conversations
+  id: 3021
+  time: '2026-10-31T23:00:49.0000000+00:00'

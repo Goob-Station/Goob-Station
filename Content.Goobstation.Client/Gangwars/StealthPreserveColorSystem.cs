@@ -8,9 +8,9 @@ namespace Content.Goobstation.Client.Gangwars;
 /// leaving the RGB color untouched so another system (e.g. gang color) can manage it.
 /// Restores full opacity when the component is removed.
 /// </summary>
-public sealed class StealthPreserveColorSystem : EntitySystem
+public sealed partial class StealthPreserveColorSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
