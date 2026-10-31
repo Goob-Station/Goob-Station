@@ -1,0 +1,74 @@
+- type: storeTree
+  id: ChangelingEvolution
+  name: store-tree-changeling-title
+  home: 0,2.3
+  labels:
+  - text: store-ling-category-combat
+    position: 0,-0.6
+    color: "#d98c8c"
+  - text: store-ling-category-sting
+    position: 0,2
+    color: "#d98c8c"
+  - text: store-ling-category-utility
+    position: 0,3.6
+    color: "#d98c8c"
+  nodes:
+    # ChangelingAbilityCombat
+    EvolutionMenuCombatOrganicShield:
+      position: -2,0
+    EvolutionMenuCombatShriekDissonant:
+      position: -1,0
+    EvolutionMenuCombatShriekResonant:
+      position: 0,0
+    EvolutionMenuCombatMuscles:
+      position: 1,0
+    EvolutionMenuCombatDartGun:
+      position: 2,0
+    EvolutionMenuCombatBoneShard:
+      position: -2,1
+    EvolutionMenuCombatArmblade:
+      position: -1,1
+    EvolutionMenuCombatArmClaw:
+      position: 0,1
+    EvolutionMenuCombatArmHammer:
+      position: 1,1
+    EvolutionMenuCombatChitinousArmor:
+      position: 2,1
+    # ChangelingAbilitySting
+    EvolutionMenuStingBlind:
+      position: -2,2.6
+    EvolutionMenuStingCryo:
+      position: -1,2.6
+    EvolutionMenuStingMute:
+      position: 0,2.6
+    EvolutionMenuStingLethargic:
+      position: 1,2.6
+    EvolutionMenuStingFakeArmblade:
+      position: 2,2.6
+    # ChangelingAbilityUtility
+    EvolutionMenuUtilityInstinct:
+      position: -3,4.2
+    EvolutionMenuUtilityPanacea:
+      position: -2,4.2
+    EvolutionMenuUtilityLastResort:
+      position: -1,4.2
+    EvolutionMenuUtilityLesserForm:
+      position: 0,4.2
+    EvolutionMenuUtilityAbsorbBiomatter:
+      position: 1,4.2
+    EvolutionMenuUtilityEyesight:
+      position: 2,4.2
+    EvolutionMenuUtilityBiodegrade:
+      position: 3,4.2
+    EvolutionMenuUtilityChameleon:
+      position: -2.5,5.2
+    EvolutionMenuUtilityDarknessAdaption:
+      position: -1.5,5.2
+    EvolutionMenuUtilityVoidAdaption:
+      position: -0.5,5.2
+    EvolutionMenuUtilityOverdose:
+      position: 0.5,5.2
+    EvolutionMenuUtilityHivemindAccess:
+      position: 1.5,5.2
+    EvolutionMenuUtilityFleshmend:
+      position: 2.5,5.2

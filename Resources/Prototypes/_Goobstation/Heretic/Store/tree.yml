@@ -1,0 +1,208 @@
+- type: storeTree
+  id: HereticKnowledge
+  name: store-tree-heretic-title
+  home: 0,1.5
+  labels:
+  - text: store-heretic-path-ash
+    position: -3.75,-0.65
+    color: "#b48ae6"
+  - text: store-heretic-path-flesh
+    position: -2.25,-0.65
+    color: "#b48ae6"
+  - text: store-heretic-path-void
+    position: -0.75,-0.65
+    color: "#b48ae6"
+  - text: store-heretic-path-blade
+    position: 0.75,-0.65
+    color: "#b48ae6"
+  - text: store-heretic-path-rust
+    position: 2.25,-0.65
+    color: "#b48ae6"
+  - text: store-heretic-path-cosmos
+    position: 3.75,-0.65
+    color: "#b48ae6"
+  - text: store-heretic-path-side
+    position: 0,1.35
+    color: "#8a8aa0"
+  nodes:
+    # ash
+    HereticAshPath1:
+      position: -3.75,0
+    HereticAshPath2:
+      position: -3.75,1
+      parents: [ HereticAshPath1 ]
+    HereticAshPath3:
+      position: -3.75,2
+      parents: [ HereticAshPath2 ]
+    HereticAshPath4:
+      position: -3.75,3
+      parents: [ HereticAshPath3 ]
+    HereticAshPath5:
+      position: -3.75,4
+      parents: [ HereticAshPath4 ]
+    HereticAshPath6:
+      position: -3.75,5
+      parents: [ HereticAshPath5 ]
+    HereticAshPath7:
+      position: -3.75,6
+      parents: [ HereticAshPath6 ]
+    HereticAshPath8:
+      position: -3.75,7
+      parents: [ HereticAshPath7 ]
+    HereticAshPath9:
+      position: -3.75,8
+      parents: [ HereticAshPath8 ]
+    # flesh
+    KnowledgePathStartFlesh:
+      position: -2.25,0
+    HereticFleshPath2:
+      position: -2.25,1
+      parents: [ KnowledgePathStartFlesh ]
+    HereticFleshPath3:
+      position: -2.25,2
+      parents: [ HereticFleshPath2 ]
+    HereticFleshPath4:
+      position: -2.25,3
+      parents: [ HereticFleshPath3 ]
+    HereticFleshPath5:
+      position: -2.25,4
+      parents: [ HereticFleshPath4 ]
+    HereticFleshPath6:
+      position: -2.25,5
+      parents: [ HereticFleshPath5 ]
+    HereticFleshPath7:
+      position: -2.25,6
+      parents: [ HereticFleshPath6 ]
+    HereticFleshPath8:
+      position: -2.25,7
+      parents: [ HereticFleshPath7 ]
+    HereticFleshPath9:
+      position: -2.25,8
+      parents: [ HereticFleshPath8 ]
+    # void
+    HereticVoidPath1:
+      position: -0.75,0
+    HereticVoidPath2:
+      position: -0.75,1
+      parents: [ HereticVoidPath1 ]
+    HereticVoidPath3:
+      position: -0.75,2
+      parents: [ HereticVoidPath2 ]
+    HereticVoidPath4:
+      position: -0.75,3
+      parents: [ HereticVoidPath3 ]
+    HereticVoidPath5:
+      position: -0.75,4
+      parents: [ HereticVoidPath4 ]
+    HereticVoidPath6:
+      position: -0.75,5
+      parents: [ HereticVoidPath5 ]
+    HereticVoidPath7:
+      position: -0.75,6
+      parents: [ HereticVoidPath6 ]
+    HereticVoidPath8:
+      position: -0.75,7
+      parents: [ HereticVoidPath7 ]
+    HereticVoidPath9:
+      position: -0.75,8
+      parents: [ HereticVoidPath8 ]
+    # blade
+    KnowledgePathStartBlade:
+      position: 0.75,0
+    HereticBladePath2:
+      position: 0.75,1
+      parents: [ KnowledgePathStartBlade ]
+    HereticBladePath3:
+      position: 0.75,2
+      parents: [ HereticBladePath2 ]
+    HereticBladePath4:
+      position: 0.75,3
+      parents: [ HereticBladePath3 ]
+    HereticBladePath5:
+      position: 0.75,4
+      parents: [ HereticBladePath4 ]
+    HereticBladePath6:
+      position: 0.75,5
+      parents: [ HereticBladePath5 ]
+    HereticBladePath7:
+      position: 0.75,6
+      parents: [ HereticBladePath6 ]
+    HereticBladePath8:
+      position: 0.75,7
+      parents: [ HereticBladePath7 ]
+    HereticBladePath9:
+      position: 0.75,8
+      parents: [ HereticBladePath8 ]
+    # rust
+    HereticRustPath1:
+      position: 2.25,0
+    HereticRustPath2:
+      position: 2.25,1
+      parents: [ HereticRustPath1 ]
+    HereticRustPath3:
+      position: 2.25,2
+      parents: [ HereticRustPath2 ]
+    HereticRustPath4:
+      position: 2.25,3
+      parents: [ HereticRustPath3 ]
+    HereticRustPath5:
+      position: 2.25,4
+      parents: [ HereticRustPath4 ]
+    HereticRustPath6:
+      position: 2.25,5
+      parents: [ HereticRustPath5 ]
+    HereticRustPath7:
+      position: 2.25,6
+      parents: [ HereticRustPath6 ]
+    HereticRustPath8:
+      position: 2.25,7
+      parents: [ HereticRustPath7 ]
+    HereticRustPath9:
+      position: 2.25,8
+      parents: [ HereticRustPath8 ]
+    # cosmos
+    HereticCosmosPath1:
+      position: 3.75,0
+    HereticCosmosPath2:
+      position: 3.75,1
+      parents: [ HereticCosmosPath1 ]
+    HereticCosmosPath3:
+      position: 3.75,2
+      parents: [ HereticCosmosPath2 ]
+    HereticCosmosPath4:
+      position: 3.75,3
+      parents: [ HereticCosmosPath3 ]
+    HereticCosmosPath5:
+      position: 3.75,4
+      parents: [ HereticCosmosPath4 ]
+    HereticCosmosPath6:
+      position: 3.75,5
+      parents: [ HereticCosmosPath5 ]
+    HereticCosmosPath7:
+      position: 3.75,6
+      parents: [ HereticCosmosPath6 ]
+    HereticCosmosPath8:
+      position: 3.75,7
+      parents: [ HereticCosmosPath7 ]
+    HereticCosmosPath9:
+      position: 3.75,8
+      parents: [ HereticCosmosPath8 ]
+    # side knowledge
+    HereticSidePath3Armor:
+      position: -3,2
+    HereticSidePath3Flask:
+      position: -1.5,2
+    HereticSidePath3AshenEyes:
+      position: 0,2
+    HereticSidePath3VoidCloak:
+      position: 1.5,2
+    HereticSidePath3Shark:
+      position: 3,2
+    HereticSidePath6RustWalker:
+      position: -1.5,5
+    HereticSidePath6CarvingKnife:
+      position: 0,5
+    HereticSidePath6IceSpear:
+      position: 1.5,5
+    HereticSidePath8Cleave:
+      position: 0,7
