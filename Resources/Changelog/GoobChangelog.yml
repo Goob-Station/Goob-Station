@@ -26924,3 +26924,12 @@ Entries:
       message: Sidearms can be chosen from the loadout screen for security now.
   id: 3020
   time: '2026-10-31T22:57:21.0000000+00:00'
+- author: Anui-El
+  changes:
+    - type: Add
+      message: >-
+        New interface menu for handheld radios - Toggle the microphone and
+        speaker on or off and connect to any frequencies between 1000Hz-3000Hz
+        for private conversations
+  id: 3021
+  time: '2026-10-31T23:00:49.0000000+00:00'
