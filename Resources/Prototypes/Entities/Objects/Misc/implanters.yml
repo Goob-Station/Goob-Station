@@ -329,6 +329,10 @@
   components:
   - type: Implanter
     implant: MindShieldImplant
+  - type: Tag # Goobstation
+    tags:
+    - Trash
+    - MindShieldImplanter
 
 # Centcomm implanters
 
