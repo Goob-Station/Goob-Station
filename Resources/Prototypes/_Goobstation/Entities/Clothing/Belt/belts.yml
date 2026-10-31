@@ -169,9 +169,9 @@
   - type: Item
     size: Ginormous
   - type: Charger
-    slotId: [item;item2]
+    slotId: ["item", "item2"]
     portable: true
-    chargeRate: 25
+    chargeRate: 45
   - type: ItemSlots
     slots:
       item:
