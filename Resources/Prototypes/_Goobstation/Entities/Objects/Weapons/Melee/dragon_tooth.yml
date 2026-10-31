@@ -1,0 +1,33 @@
+- type: entity
+  name: dragon tooth
+  parent: [ BaseItem, BaseMinorContraband ]
+  id: WeaponDragonTooth
+  description: The rotting tooth of a space dragon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/dragon_tooth.rsi
+    state: icon
+  - type: Item
+    size: Huge
+    sprite: _Goobstation/Objects/Weapons/Melee/dragon_tooth.rsi
+  - type: Wieldable
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.25
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 40
+    soundHit:
+      collection: MetalThud
+  - type: DisarmMalus
+  - type: MeleeDash
+    force: 10
+    length: 2
+  - type: UseDelay
+    delay: 10
+  - type: DashSlam
+    range: 2
+    knockdownTime: 1
+    slamSound:
+      collection: MetalThud

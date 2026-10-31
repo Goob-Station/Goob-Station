@@ -1,0 +1,25 @@
+- type: entity
+  name: shark minnow fin
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: WeaponSharkMinnowFin
+  description: A razor-sharp fin torn from a shark minnow. Makes you friendly to carps, or at least...earns their respect.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/minnow_fin.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: _Goobstation/Objects/Weapons/Melee/minnow_fin.rsi
+  - type: Sharp
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 24
+      woundSeverityMultipliers:
+        Slash: 2
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DisarmMalus
+  - type: FactionWhileHeld
+    faction: Dragon
