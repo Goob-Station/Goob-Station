@@ -26947,3 +26947,25 @@ Entries:
         scripture beacon doing the same thing)
   id: 3022
   time: '2026-10-31T23:05:00.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: The Xenomorph queen now has a new roar action.
+    - type: Tweak
+      message: Facehuggers are now sentient.
+    - type: Tweak
+      message: Acid spit can now be toggled through an action.
+    - type: Tweak
+      message: The Xenomorph queen has less health but increased speed.
+    - type: Tweak
+      message: Xenomorphs now have weak space flight capabilities.
+    - type: Tweak
+      message: Xenomorphs are now slightly rarer.
+    - type: Fix
+      message: Fixed and readded Xenomorphs acid wall ability
+    - type: Fix
+      message: >-
+        Lizards can no longer drag others off of Xenomorph nests while being in
+        a nest themselves.
+  id: 3023
+  time: '2026-10-31T23:11:20.0000000+00:00'
