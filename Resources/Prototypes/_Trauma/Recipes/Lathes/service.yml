@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: RanchIncubatorCircuitboard
+  result: RanchIncubatorCircuitboard
+  icon:
+    sprite: _Trauma/Structures/Machines/ranchobjects.rsi
+    state: incubator
+
+- type: latheRecipe
+  id: ChickenCarrier
+  result: ChickenCarrier
+  materials:
+    Steel: 600
+    Plastic: 200

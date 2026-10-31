@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: WaterBalloonBase
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Misc/eggs.rsi
+    state: egg-balloon-blue
+  - type: SolutionContainerManager
+    solutions:
+      balloon:
+        maxVol: 20
+        reagents:
+        - ReagentId: Water
+          Quantity: 20
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyGlass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: balloon
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

@@ -1,0 +1,208 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectShink
+  name: shrunk
+  components:
+  - type: ShrunkStatusEffect
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectDamageMod
+  name: damage mod changed
+  components:
+  - type: ChangeDamageModiferSetStatusEffect
+
+- type: entity
+  parent: StatusEffectDamageMod
+  id: StatusEffectDamageModKnightEgg
+  components:
+  - type: ChangeDamageModiferSetStatusEffect
+    damageModifierSet: KnightChickenEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectDreamEgg
+  name: dream egg effect
+  components:
+  - type: StunnedStatusEffect
+  - type: StatusEffectAlert
+    alert: Stun
+  - type: KnockdownStatusEffect
+  - type: StatusEffectEffects
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Asphyxiation: -5
+          Blunt: -5
+          Heat: -5
+          Piercing: -5
+          Slash: -5
+          Cold: -5
+          Radiation: -2
+          Poison: -2
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectCockatricePower
+  name: cockatrice egg effect
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - CockatricePowerAction
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectMedusa
+  name: Turned into stone
+  components:
+  - type: StunnedStatusEffect
+  - type: AddShaderStatusEffect
+    shader: Greyscale
+  - type: StatusEffectEffectsApply
+    effectsOnApply:
+    - !type:PopupMessage
+      visualType: LargeCaution
+      type: Local
+      messages:
+      - medusa-popup
+    - !type:PlaySoundEffect
+      sound: /Audio/Effects/break_stone.ogg
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: SnowEggEffect
+  name: Snow trail!
+  components:
+  - type: Trail
+    color: "#ffffff"
+    lifetime: 1
+    sprite:
+      sprite: /Textures/_Trauma/Objects/Specific/egg-snow-effect.rsi
+      state: icon
+  - type: StatusEffectEffects
+    effects:
+    - !type:SpawnEntity
+      entity: WallRockSnow
+    - !type:HealthChange
+      damage:
+        types:
+          Cold: -5
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: DreamsicleEggEffect
+  name: Orange Dreamsicle High
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - ActionDashMoth
+  - type: StatusEffectEffects
+    effects:
+    - !type:Jitter
+    - !type:MovementSpeedModifier
+      walkSpeedModifier: 4
+      sprintSpeedModifier: 4
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectZappyPower
+  name: zappy egg effect
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - ZappyPowerAction
+    - ActionMutationShockTouch
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: SnowEggEffectNoDamage
+  name: Snow trail!
+  components:
+  - type: Trail
+    color: "#ffffff"
+    lifetime: 5
+    frequency: 0.05
+    sprite:
+      sprite: /Textures/_Trauma/Objects/Specific/egg-snow-effect.rsi
+      state: icon
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectPhoenixHeal
+  name: phoenix heal
+  components:
+  - type: StatusEffectEffects
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Blunt: -5
+          Heat: -5
+          Radiation: -5
+          Poison: -5
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectPhoenixPower
+  name: phoenix egg effect
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - ActionFireballPhoenix
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectDragonPower
+  name: dragon's power
+  components:
+  - type: TemporaryActionGrantEffect
+    actionPrototypes:
+    - ActionFireballPhoenix
+  - type: StatusEffectEffects
+    updateDelay: 5.5
+    effects:
+    - !type:PlaySoundEffect
+      sound: /Audio/Animals/space_dragon_roar.ogg
+    - !type:RelayNearby
+      compName: MobState
+      range: 2
+      blacklist:
+        components:
+        - BorgChassis # Borgs cant feel fear
+      effect: !type:PopupMessage
+        type: Local
+        visualType: LargeCaution
+        messages:
+        - entity-effect-popup-fear-affected
+    - !type:RelayNearby
+      compName: MobState
+      range: 2
+      blacklist:
+        components:
+        - BorgChassis
+      effect: !type:ModifyStatusEffect
+        effectProto: StatusEffectWoozy
+        time: 3
+    - !type:RelayNearby
+      compName: MobState
+      range: 2
+      blacklist:
+        components:
+        - BorgChassis
+      effect: !type:ModifyParalysis
+        time: 2
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: SugarRushEffect
+  name: sugar rush!
+  components:
+  - type: StatusEffectEffects
+    effects:
+    - !type:Jitter
+    - !type:MovementSpeedModifier
+      walkSpeedModifier: 3
+      sprintSpeedModifier: 3

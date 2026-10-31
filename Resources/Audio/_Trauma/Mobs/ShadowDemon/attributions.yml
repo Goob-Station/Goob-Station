@@ -1,0 +1,14 @@
+- files: ["shadowattack1.ogg",
+          "shadowattack2.ogg",
+          "shadowattack3.ogg",
+          "shadowattack4.ogg",
+          "shadowdeath.ogg",
+          "shadowhalluc1.ogg",
+          "shadowhalluc2.ogg",
+          "shadowhalluc3.ogg",
+          "shadownode.ogg",
+          "shadownodeambientt.ogg"
+          ]
+  license: "CC-BY-SA-3.0"
+  copyright: "Contrabang and Stoniest"
+  source: "https://github.com/ParadiseSS13/Paradise/tree/26ef96358bb0ee75ee953422e030ed966f6e22ef/sound/shadowdemon"

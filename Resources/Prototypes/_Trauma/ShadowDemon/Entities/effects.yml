@@ -1,0 +1,24 @@
+- type: entity
+  id: ShadowDemonPhaseIn
+  name: shadow demon jaunt
+  components:
+  - type: TimedDespawn
+    lifetime: 0.75
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: false
+    sprite: _Trauma/Mobs/ShadowDemon/demon.rsi
+    state: shadowwalk_appear
+    drawdepth: Effects
+
+- type: entity
+  id: ShadowDemonPhaseOut
+  name: shadow demon jaunt out
+  parent: ShadowDemonPhaseIn
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: _Trauma/Mobs/ShadowDemon/demon.rsi
+    state: shadowwalk_disappear
+    drawdepth: Effects
