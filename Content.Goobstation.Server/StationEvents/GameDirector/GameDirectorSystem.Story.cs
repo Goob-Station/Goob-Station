@@ -1,163 +1,140 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Server.StationEvents.Metric;
-using Content.Server.StationEvents.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.StationEvents.GameDirector;
 
 public sealed partial class GameDirectorSystem
 {
+    private const string NoStoryLabel = "None";
 
-    /// <summary>
-    ///   Build a list of events to use for the entire story
-    /// </summary>
-    private void SetupEvents(GameDirectorComponent scheduler, PlayerCount count, SelectedGameRulesComponent? selectedRules = null)
+    private enum BeatEnd : byte
     {
-        scheduler.PossibleEvents.Clear();
-
-        if (selectedRules != null)
-            SelectFromTable(scheduler, selectedRules);
-        else
-            SelectFromAllEvents(scheduler, count);
-
-        LogMessage("All possible events added");
+        None,
+        Timeout,
+        Worse,
+        Better,
     }
 
-    private void SelectFromAllEvents(GameDirectorComponent scheduler, PlayerCount count)
+    private StoryBeatPrototype DetermineNextBeat(Entity<GameDirectorComponent> ent, ChaosMetrics chaos, PlayerCount count)
     {
-        foreach (var proto in GameTicker.GetAllGameRulePrototypes())
+        var scheduler = ent.Comp;
+        UpdateDenouement(scheduler);
+
+        if (scheduler.CurrentBeat is { } currentId
+            && scheduler.RemainingBeats.Count > 0
+            && scheduler.RemainingBeats[0] == currentId)
         {
-            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory) || !stationEvent.IsSelectable)
-                continue;
+            var current = _prototypeManager.Index(currentId);
+            var end = CheckBeatEnd(scheduler, current, chaos, count);
+            if (end == BeatEnd.None)
+                return current;
 
-            // Gate here on players, but not on round runtime. The story will probably last long enough for the
-            // event to be ready to run again, we'll check CanRun again before we actually launch the event.
-            if (!_event.CanRun(proto, stationEvent, count.Players, TimeSpan.MaxValue))
-                continue;
-
-            scheduler.PossibleEvents.Add(new PossibleEvent(proto.ID, stationEvent.Chaos));
+            scheduler.RemainingBeats.RemoveAt(0);
+            scheduler.CurrentBeat = null;
+            BranchFrom(scheduler, current, end);
         }
+
+        SkipUnstaffedBeats(scheduler, count);
+
+        if (scheduler.RemainingBeats.Count == 0 && !TryStartNewStory(ent, count))
+            scheduler.RemainingBeats.Add(scheduler.FallbackBeatName);
+
+        return StartBeat(scheduler, chaos, scheduler.RemainingBeats[0]);
     }
 
-    private void SelectFromTable(GameDirectorComponent scheduler, SelectedGameRulesComponent? selectedRules)
+    private BeatEnd CheckBeatEnd(GameDirectorComponent scheduler, StoryBeatPrototype beat, ChaosMetrics chaos, PlayerCount count)
     {
-        if (selectedRules == null)
-            return;
-
-        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, _event.AvailableEvents(), out var possibleEvents))
-            return;
-
-        foreach (var (proto, stationEvent) in possibleEvents)
-        {
-            LogMessage(proto.ID);
-            scheduler.PossibleEvents.Add(new PossibleEvent(proto.ID, stationEvent.Chaos));
-        }
-    }
-
-    /// <summary>
-    ///   Sorts the possible events and then picks semi-randomly.
-    ///   when maxRandom is 1 it's always the "best" event picked. Higher values allow more events to be randomly selected.
-    /// </summary>
-    private RankedEvent SelectBest(List<RankedEvent> bestEvents, int maxRandom)
-    {
-        var ranked = bestEvents.OrderBy(ev => ev.Score).Take(maxRandom).ToList();
-
-        var rand = _random.NextFloat();
-        rand *= rand; // Square it, which leads to a front-weighted distribution
-        // Of 3 items, there is (50% chance of 1, 36% chance of 2 and 14% chance of 3)
-        rand *= ranked.Count - 1;
-
-        var rankedEvent = ranked[(int) Math.Round(rand)];
-
-        // Pick this event
-        var events = string.Join(", ", ranked.Select(r => r.PossibleEvent.StationEvent));
-        LogMessage($"Picked {rankedEvent.PossibleEvent.StationEvent} from best events (in sequence) {events}");
-        return rankedEvent;
-    }
-
-    /// <summary>
-    ///   Returns the StoryBeat that should be currently used to select events.
-    ///   Advances the current story and picks new stories when the current beat is complete.
-    /// </summary>
-    private StoryBeatPrototype DetermineNextBeat(GameDirectorComponent scheduler, ChaosMetrics chaos, PlayerCount count)
-    {
-        if (TryGetCurrentBeat(scheduler, chaos, out var currentBeat))
-            return currentBeat;
-
-        scheduler.BeatStart = _timing.CurTime;
-
-        if (TryGetNextBeatInStory(scheduler, out var nextBeat))
-            return nextBeat;
-
-        return TryStartNewStory(scheduler, count, out var firstBeat) ? firstBeat : GetFallbackBeat(scheduler);
-    }
-
-    /// <summary>
-    /// Checks if current beat should continue or if it's complete
-    /// </summary>
-    private bool TryGetCurrentBeat(GameDirectorComponent scheduler, ChaosMetrics chaos, out StoryBeatPrototype beat)
-    {
-        beat = null!;
-
-        if (scheduler.RemainingBeats.Count == 0)
-            return false;
-
-        var beatName = scheduler.RemainingBeats[0];
-        beat = _prototypeManager.Index(beatName);
-        var secsInBeat = (_timing.CurTime - scheduler.BeatStart).TotalSeconds / _event.EventSpeedup;
+        var secsInBeat = (_timing.CurTime - scheduler.BeatStart).TotalSeconds * _event.EventSpeedup;
         if (secsInBeat < beat.MinSecs)
-            return true;
+            return BeatEnd.None;
 
-        // Check completion conditions
+        var end = BeatEnd.None;
         if (secsInBeat > beat.MaxSecs)
-        {
-            _sawmill.Info($"StoryBeat {beatName} complete. Lasted {secsInBeat:F0}s (max {beat.MaxSecs}s).");
-            scheduler.RemainingBeats.RemoveAt(0);
-            return false;
-        }
+            end = BeatEnd.Timeout;
+        else if (!beat.EndIfAnyWorse.Empty && chaos.AnyWorseThan(ScaleForPopulation(scheduler, beat.EndIfAnyWorse, count)))
+            end = BeatEnd.Worse;
+        else if (!beat.EndIfAllBetter.Empty && chaos.AllBetterThan(ScaleForPopulation(scheduler, beat.EndIfAllBetter, count)))
+            end = BeatEnd.Better;
 
-        if (!beat.EndIfAnyWorse.Empty && chaos.AnyWorseThan(beat.EndIfAnyWorse))
-        {
-            _sawmill.Info($"StoryBeat {beatName} complete. Chaos exceeds threshold (EndIfAnyWorse).");
-            scheduler.RemainingBeats.RemoveAt(0);
-            return false;
-        }
+        if (end != BeatEnd.None)
+            LogMessage($"StoryBeat {beat.ID} complete after {secsInBeat:F0}s ({end}).", false);
 
-        if (beat.EndIfAllBetter.Empty || !chaos.AllBetterThan(beat.EndIfAllBetter))
-            return true;
-        _sawmill.Info($"StoryBeat {beatName} complete. Chaos below threshold (EndIfAllBetter).");
-        scheduler.RemainingBeats.RemoveAt(0);
-        return false;
-
-        // Beat continues
+        return end;
     }
 
-    /// <summary>
-    /// Gets the next beat in the current story if available
-    /// </summary>
-    private bool TryGetNextBeatInStory(GameDirectorComponent scheduler, out StoryBeatPrototype beat)
+    private void BranchFrom(GameDirectorComponent scheduler, StoryBeatPrototype beat, BeatEnd end)
     {
-        beat = null!;
+        var target = end switch
+        {
+            BeatEnd.Worse => beat.OnWorse,
+            BeatEnd.Better => beat.OnBetter,
+            _ => null,
+        };
 
-        if (scheduler.RemainingBeats.Count == 0)
-            return false;
+        if (target is not { } next
+            || next.Id == beat.ID
+            || scheduler.RemainingBeats.Count > 0 && scheduler.RemainingBeats[0] == next)
+            return;
 
-        var beatName = scheduler.RemainingBeats[0];
-        beat = _prototypeManager.Index(beatName);
-
-        StoryBeatChangesTotal.WithLabels(scheduler.CurrentStoryName.ToString(), beatName).Inc();
-        LogMessage($"New StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
-        return true;
+        scheduler.RemainingBeats.Insert(0, next);
+        LogMessage($"StoryBeat {beat.ID} ended {end}, branching to {next}");
     }
 
-    /// <summary>
-    /// Starts a new story that matches player count
-    /// </summary>
-    private bool TryStartNewStory(GameDirectorComponent scheduler, PlayerCount count, out StoryBeatPrototype beat)
+    private void UpdateDenouement(GameDirectorComponent scheduler)
     {
-        beat = null!;
+        if (scheduler.DenouementBeat is not { } denouement)
+            return;
 
+        var active = scheduler.RemainingBeats.Count > 0 && scheduler.RemainingBeats[0] == denouement;
+        var requested = _roundEnd.IsRoundEndRequested();
+
+        if (requested && !active)
+        {
+            scheduler.RemainingBeats.Insert(0, denouement);
+            LogMessage("Evacuation called, winding the story down");
+        }
+        else if (!requested && active)
+        {
+            scheduler.RemainingBeats.RemoveAt(0);
+            scheduler.CurrentBeat = null;
+            LogMessage("Evacuation recalled, resuming the story");
+        }
+    }
+
+    private void SkipUnstaffedBeats(GameDirectorComponent scheduler, PlayerCount count)
+    {
+        while (scheduler.RemainingBeats.Count > 0)
+        {
+            var beat = _prototypeManager.Index(scheduler.RemainingBeats[0]);
+            var missing = beat.RequiredDepartments.Where(d => count.Staff(d) < scheduler.MinResponders).ToList();
+            if (missing.Count == 0)
+                return;
+
+            LogMessage($"Skipping StoryBeat {beat.ID}, nobody available in {string.Join(", ", missing)}", false);
+            scheduler.RemainingBeats.RemoveAt(0);
+        }
+    }
+
+    private StoryBeatPrototype StartBeat(GameDirectorComponent scheduler, ChaosMetrics chaos, ProtoId<StoryBeatPrototype> beatId)
+    {
+        var beat = _prototypeManager.Index(beatId);
+        scheduler.CurrentBeat = beatId;
+        scheduler.BeatStart = _timing.CurTime;
+        scheduler.BeatStartChaos = new ChaosMetrics(chaos);
+
+        var storyName = scheduler.CurrentStoryName.Id ?? NoStoryLabel;
+        StoryBeatChangesTotal.WithLabels(storyName, beat.ID).Inc();
+        SetBeatInfo(storyName, beat.ID);
+        LogMessage($"New StoryBeat {beat.ID}: {beat.Description}. Goal is {beat.Goal}, escalation {beat.Escalation}");
+        return beat;
+    }
+
+    private bool TryStartNewStory(Entity<GameDirectorComponent> ent, PlayerCount count)
+    {
+        var scheduler = ent.Comp;
         if (scheduler.Stories == null)
             return false;
 
@@ -167,106 +144,60 @@ public sealed partial class GameDirectorSystem
         foreach (var storyName in stories)
         {
             var story = _prototypeManager.Index(storyName);
-
-            if (!IsStoryValid(story, count))
+            if (!IsStoryValid(scheduler, story, count))
                 continue;
 
-            // Initialize the new story
             scheduler.RemainingBeats.AddRange(story.Beats!);
+            SkipUnstaffedBeats(scheduler, count);
+            if (scheduler.RemainingBeats.Count == 0)
+                continue;
+
             scheduler.CurrentStoryName = storyName;
-            SetupEvents(scheduler, count);
-
-            _sawmill.Info($"New Story {storyName}: {story.Description}. {scheduler.PossibleEvents.Count} events.");
-
-            var beatName = scheduler.RemainingBeats[0];
-            beat = _prototypeManager.Index(beatName);
-
-            StoryBeatChangesTotal.WithLabels(storyName.ToString(), beatName).Inc();
-            LogMessage($"First StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
+            SetupEvents(ent);
+            LogMessage($"New Story {storyName}: {story.Description}. {scheduler.PossibleEvents.Count} events.");
             return true;
         }
 
         return false;
     }
 
-    /// <summary>
-    /// Checks if a story is valid for the current player count
-    /// </summary>
-    private static bool IsStoryValid(StoryPrototype story, PlayerCount count)
+    private static bool IsStoryValid(GameDirectorComponent scheduler, StoryPrototype story, PlayerCount count)
     {
-        return story.Beats != null
-               && story.MinPlayers <= count.Players
-               && story.MaxPlayers >= count.Players;
+        return story.Beats is { Length: > 0 }
+               && story.MinPlayers <= count.InGame
+               && story.MaxPlayers >= count.InGame
+               && !scheduler.RoundstartAntags.Any(story.BlockedRoundstartAntags.Contains);
     }
 
-    /// <summary>
-    /// Gets the fallback beat when no stories are available
-    /// </summary>
-    private StoryBeatPrototype GetFallbackBeat(GameDirectorComponent scheduler)
+    private float PopulationScale(GameDirectorComponent scheduler, PlayerCount count)
     {
-        scheduler.RemainingBeats.Add(scheduler.FallbackBeatName);
-        return _prototypeManager.Index(scheduler.FallbackBeatName);
+        if (scheduler.ReferencePlayers <= 0)
+            return 1f;
+
+        return Math.Clamp((float) count.Players / scheduler.ReferencePlayers,
+            scheduler.MinPopulationScale,
+            scheduler.MaxPopulationScale);
     }
 
-    private static float RankChaosDelta(ChaosMetrics chaos)
+    private ChaosMetrics ScaleForPopulation(GameDirectorComponent scheduler, ChaosMetrics metrics, PlayerCount count)
     {
-        // Just a sum of squares (trying to get close to 0 on every score)
-        //   Lower is better
-        // Note:  if the chaos value is above 655.36 then its square is above maxint (inside FixedPoint2) and it wraps
-        //        around. We need a full float range to handle the square.
-        return chaos.ChaosDict.Values.Sum(v => (float) v * (float) v);
-    }
-
-    private List<RankedEvent> ChooseEvents(GameDirectorComponent scheduler, StoryBeatPrototype beat, ChaosMetrics chaos, PlayerCount count)
-    {
-        // TODO : Potentially filter Chaos here using CriticalLevels & DangerLevels which force us to focus on
-        //        big problems (lots of hostiles, spacing) prior to smaller ones (food & drink)
-        var desiredChange = beat.Goal.ExclusiveSubtract(chaos);
-        var result = FilterAndScore(scheduler, chaos, desiredChange, count);
-        if (result.Count > 0)
-            return result;
-        // Fall back to improving all scores (not just the ones the beat is focused on)
-        //   Generally this means reducing chaos (unspecified scores are desired to be 0).
-        var allDesiredChange = beat.Goal - chaos;
-        result = FilterAndScore(scheduler, chaos, allDesiredChange, count, inclNoChaos:true);
-
-        return result;
-    }
-
-    /// <summary>
-    ///   Filter only to events which improve the chaos score in alignment with desiredChange.
-    ///   Score them (lower is better) in how well they do this.
-    /// </summary>
-    private List<RankedEvent> FilterAndScore(GameDirectorComponent scheduler, ChaosMetrics chaos, ChaosMetrics desiredChange, PlayerCount count, bool inclNoChaos = false)
-    {
-        var noEvent = RankChaosDelta(desiredChange);
-        var result = new List<RankedEvent>();
-
-        // Choose an event that specifically achieves chaos goals, focusing only on them.
-        foreach (var possibleEvent in scheduler.PossibleEvents)
+        var scale = PopulationScale(scheduler, count);
+        var scaled = new ChaosMetrics(metrics);
+        foreach (var (metric, value) in metrics.ChaosDict)
         {
-            // How much of the relevant chaos will be left after this event has occurred
-            var relevantChaosDelta = desiredChange.ExclusiveSubtract(possibleEvent.Chaos);
-            var rank = RankChaosDelta(relevantChaosDelta);
-
-            var allChaosAfter = chaos + possibleEvent.Chaos;
-            // Some events have no chaos score assigned. Treat them as if they change nothing and mix them in for flavor.
-            var noChaosEvent = inclNoChaos && possibleEvent.Chaos.Empty;
-
-            if (!(rank < noEvent) && !noChaosEvent)
-                continue;
-            // Look up this event's prototype and check it is ready to run.
-            var proto = _prototypeManager.Index<EntityPrototype>(possibleEvent.StationEvent);
-
-            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
-                continue;
-
-            if (!_event.CanRun(proto, stationEvent, count.Players, GameTicker.RoundDuration()))
-                continue;
-
-            result.Add(new RankedEvent(possibleEvent, allChaosAfter, rank));
+            if (scheduler.PopulationScaledMetrics.Contains(metric))
+                scaled.ChaosDict[metric] = value * scale;
         }
 
-        return result;
+        return scaled;
+    }
+
+    private ChaosMetrics EffectiveGoal(GameDirectorComponent scheduler, StoryBeatPrototype beat, PlayerCount count)
+    {
+        var goal = ScaleForPopulation(scheduler, beat.Goal, count);
+        foreach (var (metric, value) in ScaleForPopulation(scheduler, beat.Escalation, count).ChaosDict)
+            goal.ChaosDict[metric] = scheduler.BeatStartChaos.ChaosDict.GetValueOrDefault(metric) + value;
+
+        return goal;
     }
 }

@@ -2,9 +2,9 @@
   id: SpawnArmamentsCursader
   categories: [ HideSpawnMenu ]
   name: crusader armour
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingOuterArmorTemplar
@@ -14,9 +14,9 @@
   id: SpawnArmamentsStudent
   categories: [ HideSpawnMenu ]
   name: student robe
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingOuterArmorStudent
@@ -26,9 +26,9 @@
   id: SpawnArmamentsAncient
   categories: [ HideSpawnMenu ]
   name: ancient armour
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingOuterArmorAncient
@@ -38,9 +38,9 @@
   id: SpawnArmamentsWitchhunter
   categories: [ HideSpawnMenu ]
   name: witch hunter garb
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingOuterArmorWitchhunter
@@ -50,9 +50,9 @@
   id: SpawnArmamentsAdept
   categories: [ HideSpawnMenu ]
   name: adept robes
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table:
       id: ClothingOuterArmorAdept
 
@@ -60,9 +60,9 @@
   id: SpawnArmamentsClock
   categories: [ HideSpawnMenu ]
   name: forgotten armour
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingOuterArmorClock
@@ -72,9 +72,9 @@
   id: SpawnArmamentsMonk
   categories: [ HideSpawnMenu ]
   name: monk's habit
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingOuterArmorMonk
@@ -85,9 +85,9 @@
   id: SpawnArmamentsBishop
   categories: [ HideSpawnMenu ]
   name: bishop's robes
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingOuterArmorBishop
@@ -97,9 +97,9 @@
   id: SpawnArmamentsDraconic
   categories: [ HideSpawnMenu ]
   name: dragon suit
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingOuterArmorDragon
@@ -109,9 +109,9 @@
   id: SpawnArmamentsInquisitor
   categories: [ HideSpawnMenu ]
   name: inquisitor armour
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingHeadHatHelmetInquisitor
@@ -122,8 +122,8 @@
   id: SpawnSchemaMonk
   categories: [ HideSpawnMenu ]
   name: monastic vestments
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table:
       id: ClothingOuterSchemaMonk

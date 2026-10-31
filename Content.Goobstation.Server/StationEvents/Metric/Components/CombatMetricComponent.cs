@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.NPC.Prototypes;
+using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.StationEvents.Metric.Components;
 
@@ -12,6 +15,16 @@ public sealed partial class CombatMetricComponent : Component
 
     [DataField]
     public double FriendlyScore = 10.0f;
+
+    [DataField]
+    public double HostileNpcScore = 3.0f;
+
+    [DataField]
+    public HashSet<ProtoId<NpcFactionPrototype>> IgnoredHostileFactions = new()
+    {
+        "Mouse",
+        "SimpleNeutral",
+    };
 
     /// <summary>
     ///   Cost per point of medical damage for friendly entities
@@ -33,6 +46,18 @@ public sealed partial class CombatMetricComponent : Component
 
     [DataField]
     public double MaxItemThreat = 15.0f;
+
+    [DataField]
+    public ProtoId<DepartmentPrototype> SecurityDepartment = "Security";
+
+    [DataField]
+    public TimeSpan DeathFadeTime = TimeSpan.FromMinutes(30);
+
+    [DataField]
+    public double MinDeathFactor = 0.25;
+
+    [ViewVariables]
+    public Dictionary<EntityUid, TimeSpan> DeathTimes = new();
 
     /// <summary>
     ///   ItemThreat - evaluate based on item tags how powerful a player is

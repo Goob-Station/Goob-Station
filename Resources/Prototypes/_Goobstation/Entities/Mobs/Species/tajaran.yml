@@ -61,6 +61,7 @@
   - type: Speech
     speechVerb: Felinid
     speechSounds: Alto
+    allowedEmotes: ['Trill']
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - TauCetiBasic

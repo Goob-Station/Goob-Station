@@ -32,6 +32,9 @@ namespace Content.Server.GameTicking.Presets
         [DataField("maxPlayers")]
         public int? MaxPlayers;
 
+        [DataField] // Goob
+        public int? RoundCooldown;
+
         [DataField]
         public IReadOnlyList<EntProtoId> Rules { get; private set; } = Array.Empty<EntProtoId>();
 

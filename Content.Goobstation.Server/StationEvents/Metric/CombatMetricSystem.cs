@@ -2,19 +2,20 @@
 
 using System.Linq;
 using Content.Goobstation.Server.StationEvents.Metric.Components;
-using Content.Server.Station.Systems;
 using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.Tag;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Prometheus;
 using Content.Shared.Damage.Components;
 
@@ -37,7 +38,9 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 public sealed partial class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent>
 {
     [Dependency] private SharedRoleSystem _roles = default!;
-    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedJobSystem _jobs = default!;
+    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private NpcFactionSystem _faction = default!;
     public readonly string NanotrasenFactionId = "NanoTrasen";
@@ -86,6 +89,14 @@ public sealed partial class CombatMetricSystem : ChaosMetricSystem<CombatMetricC
         "game_director_metric_combat_death_chaos_calculated",
         "Calculated chaos value contributed by deaths.");
 
+    private static readonly Gauge SecurityStrengthTotal = Metrics.CreateGauge(
+        "game_director_metric_combat_security_strength",
+        "Combined strength of alive security members on station grids.");
+
+    private static readonly Gauge SecurityChaosCalculated = Metrics.CreateGauge(
+        "game_director_metric_combat_security_chaos_calculated",
+        "Hostile strength not matched by security.");
+
     private double InventoryPower(EntityUid uid, CombatMetricComponent component)
     {
         // Iterate through items to determine how powerful the entity is
@@ -106,7 +117,6 @@ public sealed partial class CombatMetricSystem : ChaosMetricSystem<CombatMetricC
         CombatMetricComponent combatMetric,
         CalculateChaosEvent args)
     {
-        // Add up the pain of all the puddles
         var query = EntityQueryEnumerator<MobStateComponent, DamageableComponent, TransformComponent>();
         var mindQuery = GetEntityQuery<MindContainerComponent>();
         var npcFacQ = GetEntityQuery<NpcFactionMemberComponent>();
@@ -116,7 +126,6 @@ public sealed partial class CombatMetricSystem : ChaosMetricSystem<CombatMetricC
         double medicalChaos = 0;
         double deathChaos = 0;
 
-        // Prometheus Metric Accumulators
         var hostileCount = 0;
         var friendlyCount = 0;
         var deadFriendlyCount = 0;
@@ -124,58 +133,86 @@ public sealed partial class CombatMetricSystem : ChaosMetricSystem<CombatMetricC
         var critFriendlyCount = 0;
         double hostileInventoryThreat = 0;
         double friendlyInventoryThreat = 0;
+        double securityStrength = 0;
 
-
-        // var humanoidQ = GetEntityQuery<HumanoidAppearanceComponent>();
-        var stationGrids = _stationSystem.GoobGetAllStationGrids();
+        var now = _timing.CurTime;
+        var seenDead = new HashSet<EntityUid>();
+        var stationGrids = GetEventStationGrids();
         while (query.MoveNext(out var uid, out var mobState, out var damage, out var transform))
         {
-            if (transform.GridUid == null || !stationGrids.Contains(transform.GridUid.Value))
+            if (!OnGrids(transform, stationGrids))
                 continue;
 
-            var isAntag = false;
-
-            if (mindQuery.TryGetComponent(uid, out var mind) && mind.Mind != null)
-                isAntag = _roles.MindIsAntagonist(mind.Mind);
-            else
+            if (mobState.CurrentState != MobState.Alive && _container.IsEntityInContainer(uid))
             {
-                if (!CalculateNPC(npcFacQ, uid, powerQ, ref isAntag))
-                    continue;
+                if (mobState.CurrentState == MobState.Dead)
+                    seenDead.Add(uid);
+                continue;
             }
 
-            powerQ.TryGetComponent(uid, out var power);
-            var threatMultiple = power?.Threat ?? 1.0f;
+            bool isAntag;
+            var isNpc = false;
+            if (mindQuery.TryGetComponent(uid, out var mind) && mind.Mind != null)
+                isAntag = _roles.MindIsAntagonist(mind.Mind);
+            else if (IsHostileNpc(npcFacQ, uid, combatMetric))
+                isAntag = isNpc = true;
+            else
+                continue;
 
             if (isAntag)
             {
                 if (mobState.CurrentState != MobState.Alive)
                 {
                     deadHostileCount++;
-                    deathChaos += combatMetric.DeadScore;
                     continue;
                 }
+
                 hostileCount++;
+            }
+            else if (mobState.CurrentState == MobState.Dead)
+            {
+                deadFriendlyCount++;
+                seenDead.Add(uid);
+                deathChaos += combatMetric.DeadScore * DeathFactor(combatMetric, uid, now);
+                continue;
             }
             else
             {
-                if (!CalculateFriendlyCount(combatMetric, mobState, damage, ref deadFriendlyCount, ref deathChaos, ref friendlyCount, ref medicalChaos, ref critFriendlyCount))
-                    continue;
+                friendlyCount++;
+                medicalChaos += damage.Damage.GetTotal().Double() * combatMetric.MedicalMultiplier;
+                if (mobState.CurrentState == MobState.Critical)
+                {
+                    critFriendlyCount++;
+                    medicalChaos += combatMetric.CritScore;
+                }
             }
 
-            // 4. Calculate Threat
+            var threatMultiple = powerQ.TryGetComponent(uid, out var power) ? power.Threat : 1.0;
             var entityThreat = InventoryPower(uid, combatMetric);
 
             if (isAntag)
             {
                 hostileInventoryThreat += entityThreat;
-                hostilesChaos += (entityThreat + combatMetric.HostileScore) * threatMultiple;
+                hostilesChaos += (entityThreat + (isNpc ? combatMetric.HostileNpcScore : combatMetric.HostileScore)) * threatMultiple;
             }
             else
             {
+                var strength = (entityThreat + combatMetric.FriendlyScore) * threatMultiple;
                 friendlyInventoryThreat += entityThreat;
-                friendliesChaos += (entityThreat + combatMetric.FriendlyScore) * threatMultiple;
+                friendliesChaos += strength;
+
+                if (mobState.CurrentState == MobState.Alive && IsSecurity(combatMetric, mind?.Mind))
+                    securityStrength += strength;
             }
         }
+
+        foreach (var tracked in combatMetric.DeathTimes.Keys.ToList())
+        {
+            if (!seenDead.Contains(tracked))
+                combatMetric.DeathTimes.Remove(tracked);
+        }
+
+        var securityChaos = Math.Max(0, hostilesChaos - securityStrength);
 
         HostileEntitiesTotal.Set(hostileCount);
         FriendlyEntitiesTotal.Set(friendlyCount);
@@ -188,7 +225,8 @@ public sealed partial class CombatMetricSystem : ChaosMetricSystem<CombatMetricC
         FriendChaosCalculated.Set(friendliesChaos);
         MedicalChaosCalculated.Set(medicalChaos);
         DeathChaosCalculated.Set(deathChaos);
-
+        SecurityStrengthTotal.Set(securityStrength);
+        SecurityChaosCalculated.Set(securityChaos);
 
         var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
         {
@@ -197,58 +235,55 @@ public sealed partial class CombatMetricSystem : ChaosMetricSystem<CombatMetricC
 
             {ChaosMetric.Death, deathChaos},
             {ChaosMetric.Medical, medicalChaos},
+            {ChaosMetric.Security, securityChaos},
         });
         return chaos;
     }
 
-    private bool CalculateNPC(
-        EntityQuery<NpcFactionMemberComponent> npcFacQ,
-        EntityUid uid,
-        EntityQuery<CombatPowerComponent> powerQ,
-        ref bool isAntag)
+    protected override void ResetMetrics()
     {
-        if (!npcFacQ.TryGetComponent(uid, out var fac))
-            return true;
-
-        var hasPower = powerQ.HasComponent(uid);
-        var isHostile = _faction.IsFactionHostile(NanotrasenFactionId, (uid, fac));
-
-        if (isHostile)
-        {
-            isAntag = true;
-            return !hasPower;
-        }
-
-        if (!hasPower)
-            return true;
-
-        isAntag = false;
-        return false;
+        HostileEntitiesTotal.Set(0);
+        FriendlyEntitiesTotal.Set(0);
+        DeadFriendlyEntitiesTotal.Set(0);
+        DeadHostileEntitiesTotal.Set(0);
+        CritFriendlyEntitiesTotal.Set(0);
+        HostileInventoryThreatTotal.Set(0);
+        FriendlyInventoryThreatTotal.Set(0);
+        HostileChaosCalculated.Set(0);
+        FriendChaosCalculated.Set(0);
+        MedicalChaosCalculated.Set(0);
+        DeathChaosCalculated.Set(0);
+        SecurityStrengthTotal.Set(0);
+        SecurityChaosCalculated.Set(0);
     }
 
-    private static bool CalculateFriendlyCount(CombatMetricComponent combatMetric,
-        MobStateComponent mobState,
-        DamageableComponent damage,
-        ref int deadFriendlyCount,
-        ref double deathChaos,
-        ref int friendlyCount,
-        ref double medicalChaos,
-        ref int critFriendlyCount)
+    private double DeathFactor(CombatMetricComponent combatMetric, EntityUid uid, TimeSpan now)
     {
-        if (mobState.CurrentState == MobState.Dead)
+        if (!combatMetric.DeathTimes.TryGetValue(uid, out var deathTime))
         {
-            deadFriendlyCount++;
-            deathChaos += combatMetric.DeadScore;
-            return false;
+            combatMetric.DeathTimes[uid] = now;
+            return 1.0;
         }
-        friendlyCount++;
-        var totalDamage = damage.Damage.GetTotal().Double();
-        medicalChaos += totalDamage * combatMetric.MedicalMultiplier;
-        if (mobState.CurrentState != MobState.Critical)
-            return true;
-        critFriendlyCount++;
-        medicalChaos += combatMetric.CritScore;
 
-        return true;
+        if (combatMetric.DeathFadeTime <= TimeSpan.Zero)
+            return 1.0;
+
+        var faded = 1.0 - (now - deathTime) / combatMetric.DeathFadeTime;
+        return Math.Max(combatMetric.MinDeathFactor, faded);
+    }
+
+    private bool IsSecurity(CombatMetricComponent combatMetric, EntityUid? mindId)
+    {
+        return _jobs.MindTryGetJobId(mindId, out var jobId)
+               && jobId is { } job
+               && _jobs.TryGetPrimaryDepartment(job.Id, out var department)
+               && department.ID == combatMetric.SecurityDepartment.Id;
+    }
+
+    private bool IsHostileNpc(EntityQuery<NpcFactionMemberComponent> npcFacQ, EntityUid uid, CombatMetricComponent combatMetric)
+    {
+        return npcFacQ.TryGetComponent(uid, out var fac)
+               && _faction.IsFactionHostile(NanotrasenFactionId, (uid, fac))
+               && !_faction.IsMemberOfAny((uid, fac), combatMetric.IgnoredHostileFactions);
     }
 }
