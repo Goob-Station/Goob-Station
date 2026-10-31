@@ -1,0 +1,34 @@
+# Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f
+
+- type: marking
+  id: FelinidCatSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Felinids/felinid_snouts.rsi
+    state: snout_cat
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Felinids/felinid_snouts.rsi
+    state: snout_cat_nose
+
+- type: marking
+  id: VulpSnoutShortAlt1
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/short_snout.rsi
+    state: m_snout_fscanidalt_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/short_snout.rsi
+    state: m_snout_fscanidalt_FRONT_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/short_snout.rsi
+    state: m_snout_fscanidalt_FRONT_tertiary
+
+- type: marking
+  id: VulpSnouted
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/parts.rsi
+    state: snout

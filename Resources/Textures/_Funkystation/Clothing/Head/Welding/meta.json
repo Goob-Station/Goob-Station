@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "By AraiMaia for Funky Station",
+  "size": {
+    "x": 1920,
+    "y": 1080
+  },
+  "states": [
+    {
+      "name": "weldingOverlay"
+    },
+    {
+      "name": "weldingOverlayWeak"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+- type: constructionGraph
+  id: PaintEaselGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: easel
+      steps:
+      - material: WoodPlank
+        amount: 4
+        doAfter: 3
+  - node: easel
+    entity: PaintEasel
+    edges:
+    - to: start
+      completed:
+      - !type:EmptyAllContainers
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 4
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+- type: constructionGraph
+  id: PaintCanvasGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: canvas
+      steps:
+      - material: WoodPlank
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+    - to: landscape
+      steps:
+      - material: WoodPlank
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 3
+        doAfter: 1
+    - to: small
+      steps:
+      - material: WoodPlank
+        amount: 1
+        doAfter: 1
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+  - node: canvas
+    entity: PaintCanvas
+  - node: landscape
+    entity: PaintCanvasLandscape
+  - node: small
+    entity: PaintCanvasSmall
+
+- type: constructionGraph
+  id: PaintingFrameWoodGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: WoodPlank
+        amount: 2
+        doAfter: 2
+  - node: frame
+    entity: PaintingFrameWood
+
+- type: constructionGraph
+  id: PaintingFrameIronGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+  - node: frame
+    entity: PaintingFrameIron
+
+- type: constructionGraph
+  id: PaintingFrameBambooGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: WoodPlank
+        amount: 3
+        doAfter: 2
+  - node: frame
+    entity: PaintingFrameBamboo
+
+- type: constructionGraph
+  id: PaintingFrameBonesGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Bones
+        amount: 2
+        doAfter: 2
+  - node: frame
+    entity: PaintingFrameBones
+
+- type: constructionGraph
+  id: PaintingFrameBronzeGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Brass
+        amount: 2
+        doAfter: 2
+  - node: frame
+    entity: PaintingFrameBronze
+
+- type: constructionGraph
+  id: PaintingFrameSilverGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Silver
+        amount: 2
+        doAfter: 2
+  - node: frame
+    entity: PaintingFrameSilver
+
+- type: constructionGraph
+  id: PaintingFrameGoldGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Gold
+        amount: 2
+        doAfter: 2
+  - node: frame
+    entity: PaintingFrameGold
+
+- type: constructionGraph
+  id: PaintingFrameDiamondGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Diamond
+        amount: 1
+        doAfter: 2
+  - node: frame
+    entity: PaintingFrameDiamond

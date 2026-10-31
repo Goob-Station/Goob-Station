@@ -1,0 +1,20 @@
+- type: entity
+  name: screenshake debug doohickey
+  parent: BaseItem
+  id: ESDebugScreenshake
+  description: ohhh my head horts
+  suffix: ES, DEBUG
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/debug.rsi
+    state: icon
+  - type: ESScreenshakeUserOnTrigger
+    # VV to have an effect
+    translation:
+      trauma: 0.4
+      decayRate: 1.4
+      frequency: 0.04
+  - type: TriggerOnUse
+  - type: Item
+    size: Tiny
+    sprite: Objects/Weapons/Melee/debug.rsi

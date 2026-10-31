@@ -1,0 +1,163 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: HumanTattooChurchdomes
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_churchdomes
+
+- type: marking
+  id: HumanTattooElysiumPatriotism
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_elysium_patriotism
+
+- type: marking
+  id: HumanTattooKarabel
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_karabel
+
+- type: marking
+  id: HumanTattooKrenelMercenary
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_KrenelMercenary
+
+- type: marking
+  id: HumanTattooNarsi
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_narsi
+
+- type: marking
+  id: HumanTattooRose
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_Rose
+
+- type: marking
+  id: HumanTattooSerpentTemptation
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_serpenttemptation
+
+- type: marking
+  id: HumanTattooSymbolElysium
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_symbol_elysium
+
+- type: marking
+  id: LizardChestUnderbellyFeminine
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Reptilian/underbellyfemale.rsi
+    state: body_underbelly
+
+- type: marking
+  id: NeckChestfluff
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_DEN/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+    state: chestfloof
+
+- type: marking
+  id: ReptilianDrawingSkeletBody
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_skelet_body
+
+- type: marking
+  id: ReptilianDrawingSkeleton
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_skeleton
+
+- type: marking
+  id: ReptilianDrawingSun
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_sun
+
+- type: marking
+  id: ReptilianDrawingWarpaint
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: drawing_warpaint
+
+- type: marking
+  id: SpeciesAdaptorFeroxiTorsoFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Feroxi, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/DeltaV/Mobs/Species/Feroxi/parts.rsi
+    state: torso_f
+
+- type: marking
+  id: SpeciesAdaptorReptilianTorsoMale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Species/Reptilian/parts.rsi
+    state: torso_m
+
+- type: marking
+  id: SpeciesAdaptorRodentiaTorsoFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Rodentia]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/DeltaV/Mobs/Species/Rodentia/parts.rsi
+    state: torso_f
+
+- type: marking
+  id: SpeciesAdaptorVulpkaninTorsoMale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/DeltaV/Mobs/Species/Vulpkanin/parts.rsi
+    state: torso_m

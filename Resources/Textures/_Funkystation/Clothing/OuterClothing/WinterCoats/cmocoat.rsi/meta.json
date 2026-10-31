@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from funky-station at commit https://github.com/funky-station/funky-station/pull/2213/commits/c2a7921b594228bcb8d2c97fbfb4de4e1515279a, small tweaks by Sanyati",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+        "name": "equipped-OUTERCLOTHING-reptilian",
+        "directions": 4
+    },
+	{
+        "name": "equipped-OUTERCLOTHING-vox",
+        "directions": 4
+    },
+	
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

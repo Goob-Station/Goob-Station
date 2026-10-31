@@ -1,0 +1,18 @@
+light_mode unshaded;
+
+uniform highp vec2 anchor;
+uniform highp vec2 spriteRight;
+uniform highp vec2 spriteUp;
+uniform highp vec2 cellSize;
+uniform highp vec2 jiggle;
+uniform highp float base;
+uniform highp float height;
+
+void fragment() {
+    highp vec2 rel = (UV - vec2(0.5)) / TEXTURE_PIXEL_SIZE - anchor;
+    highp vec2 cell = floor(vec2(dot(rel, spriteRight), dot(rel, spriteUp)) / cellSize);
+    highp float h = max((cell.y + 0.5 - base) / height, 0.0);
+    highp vec2 shift = floor(jiggle * h + 0.5);
+    highp vec2 delta = floor(-(spriteRight * shift.x * cellSize.x + spriteUp * shift.y * cellSize.y) + 0.5);
+    COLOR = zTexture(UV + delta * TEXTURE_PIXEL_SIZE);
+}

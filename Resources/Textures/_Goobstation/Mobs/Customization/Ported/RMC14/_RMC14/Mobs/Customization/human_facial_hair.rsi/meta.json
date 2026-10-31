@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/de8d4b8f26e3fbc43bcfea4452d2a8087fb3cc63/icons/mob/humans/human_facial.dmi, dwarf_alt edited by SharkSnake98 on GitHub. Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f/Resources/Textures/_RMC14/Mobs/Customization/human_facial_hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "soulful_selleck",
+      "directions": 4
+    }
+  ]
+}

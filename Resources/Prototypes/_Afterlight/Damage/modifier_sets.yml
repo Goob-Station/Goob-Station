@@ -1,0 +1,11 @@
+- type: damageModifierSet
+  id: Synth
+  coefficients:
+    Heat: 0.95
+    Cold: 0.8
+    Radiation: 0.9
+    Shock: 1.4
+    Blunt: 0.9
+    Slash: 1
+    Piercing: 1.1
+    Asphyxiation: 0

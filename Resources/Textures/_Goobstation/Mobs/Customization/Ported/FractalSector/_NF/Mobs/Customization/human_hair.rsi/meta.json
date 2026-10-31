@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from goonstation13 and nebulastation13 | edited by erhardsteinhauer (discord/github). Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_NF/Mobs/Customization/human_hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "goonstation-hair-chub",
+      "directions": 4
+    },
+    {
+      "name": "goonstation-hair-streak",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-bighawk",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-d",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-halfshaved-trim",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-halfshaved-emo",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-jensen",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-leftside",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-leftside-trim",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-mohawk-naomi",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-rightside",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-rightside-trim",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-shavedbun",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-shavedpart",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-slick",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-sweepshaved",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-thinningfront",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-thinningrear",
+      "directions": 4
+    },
+    {
+      "name": "nebula-hair-undercut-trim",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original drawn by @robustyanka on Discord, modified by @pspritechologist. Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42/Resources/Textures/_FarHorizons/Mobs/Customization/ipc/standard/standard_main.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "torso_m",
+      "directions": 4
+    }
+  ]
+}

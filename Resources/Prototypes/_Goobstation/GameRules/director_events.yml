@@ -1,0 +1,214 @@
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseDepartmentDropPod
+  components:
+  - type: StationEvent
+    weight: 5
+    reoccurrenceDelay: 20
+    earliestStart: 10
+    duration: 1
+    eventType: FreeStuffUseful
+
+- type: entity
+  parent: BaseDepartmentDropPod
+  id: DropPodMedical
+  components:
+  - type: StationEvent
+    chaos:
+      Medical: -150
+  - type: GameDirectorRequiresStaff
+    departments:
+    - Medical
+  - type: DepartmentDropPodRule
+    department: Medical
+    channel: Medical
+    problem: department-drop-pod-problem-injuries
+    supplies: department-drop-pod-supplies-medical
+    contents: !type:AllSelector
+      children:
+      - id: CrateMedicalSupplies
+      - id: CrateEmergencyBruteKit
+      - id: CrateEmergencyBurnKit
+      - id: CrateEmergencyAdvancedKit
+
+- type: entity
+  parent: BaseDepartmentDropPod
+  id: DropPodSecurityArmory
+  components:
+  - type: StationEvent
+    weight: 3
+    earliestStart: 20
+    chaos:
+      Hostile: -80
+      Security: -100
+  - type: GameDirectorRequiresStaff
+    departments:
+    - Security
+  - type: DepartmentDropPodRule
+    department: Security
+    channel: Security
+    problem: department-drop-pod-problem-hostiles
+    supplies: department-drop-pod-supplies-armory
+    contents: !type:AllSelector
+      children:
+      - id: CrateSecurityArmor
+      - id: CrateSecurityArmor
+      - id: CrateArmoryShotgun
+      - id: CrateArmoryLaser
+
+- type: entity
+  parent: BaseDepartmentDropPod
+  id: DropPodSecurityRiot
+  components:
+  - type: StationEvent
+    chaos:
+      Hostile: -30
+      Security: -40
+  - type: GameDirectorRequiresStaff
+    departments:
+    - Security
+  - type: DepartmentDropPodRule
+    department: Security
+    channel: Security
+    problem: department-drop-pod-problem-unrest
+    supplies: department-drop-pod-supplies-riot
+    contents: !type:AllSelector
+      children:
+      - id: CrateSecurityRiot
+      - id: CrateRestraints
+      - id: CrateSecurityNonlethal
+
+- type: entity
+  parent: BaseDepartmentDropPod
+  id: DropPodEngineeringRepair
+  components:
+  - type: StationEvent
+    chaos:
+      Power: -80
+      Atmos: -40
+  - type: GameDirectorRequiresStaff
+    departments:
+    - Engineering
+  - type: DepartmentDropPodRule
+    department: Engineering
+    channel: Engineering
+    problem: department-drop-pod-problem-repairs
+    supplies: department-drop-pod-supplies-repair
+    contents: !type:AllSelector
+      children:
+      - id: CrateEngineeringCableBulk
+      - id: CrateMaterialSteel
+      - id: CrateMaterialGlass
+      - id: CrateAirlockKit
+
+- type: entity
+  parent: BaseDepartmentDropPod
+  id: DropPodHullBreach
+  components:
+  - type: StationEvent
+    chaos:
+      Atmos: -150
+  - type: GameDirectorRequiresStaff
+    departments:
+    - Engineering
+  - type: DepartmentDropPodRule
+    department: Engineering
+    channel: Engineering
+    problem: department-drop-pod-problem-breaches
+    supplies: department-drop-pod-supplies-breach
+    contents: !type:AllSelector
+      children:
+      - id: CrateEmergencyInflatablewall
+      - id: CrateEmergencyInflatablewall
+      - id: CrateEmergencyInternalsLarge
+      - id: CrateEmergencyO2Kit
+
+- type: entity
+  parent: BaseDepartmentDropPod
+  id: DropPodFireFighting
+  components:
+  - type: StationEvent
+    chaos:
+      Atmos: -60
+      Medical: -20
+  - type: GameDirectorRequiresStaff
+    departments:
+    - Engineering
+  - type: DepartmentDropPodRule
+    department: Engineering
+    targetJobs:
+    - AtmosphericTechnician
+    channel: Engineering
+    problem: department-drop-pod-problem-fires
+    supplies: department-drop-pod-supplies-fire
+    contents: !type:AllSelector
+      children:
+      - id: CrateEmergencyFire
+      - id: CrateEmergencyFire
+      - id: CrateEmergencyBurnKit
+
+- type: entity
+  parent: BaseDepartmentDropPod
+  id: DropPodJanitorial
+  components:
+  - type: StationEvent
+    chaos:
+      Mess: -150
+  - type: GameDirectorRequiresStaff
+    departments:
+    - Civilian
+  - type: DepartmentDropPodRule
+    department: Civilian
+    targetJobs:
+    - Janitor
+    channel: Service
+    problem: department-drop-pod-problem-mess
+    supplies: department-drop-pod-supplies-janitorial
+    contents: !type:AllSelector
+      children:
+      - id: CrateServiceJanitorialSupplies
+      - id: CrateServiceReplacementLights
+
+- type: entity
+  parent: BaseDepartmentDropPod
+  id: DropPodCatering
+  components:
+  - type: StationEvent
+    chaos:
+      Hunger: -150
+      Thirst: -100
+  - type: GameDirectorRequiresStaff
+    departments:
+    - Civilian
+  - type: DepartmentDropPodRule
+    department: Civilian
+    targetJobs:
+    - Chef
+    - Bartender
+    channel: Service
+    problem: department-drop-pod-problem-hunger
+    supplies: department-drop-pod-supplies-food
+    contents: !type:AllSelector
+      children:
+      - id: CrateFoodPizza
+      - id: CrateFoodSoftdrinks
+      - id: CrateFoodBarSupply
+
+- type: entity
+  parent: BaseGameRule
+  id: EmergencyGridRestore
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-emergency-grid-restore-announcement
+    startAnnouncementColor: "#18abf5"
+    startAudio:
+      path: /Audio/Announcements/announce.ogg
+    weight: 4
+    reoccurrenceDelay: 25
+    earliestStart: 10
+    duration: 1
+    chaos:
+      Power: -200
+    eventType: FreeStuffUseful
+  - type: EmergencyGridRestoreRule

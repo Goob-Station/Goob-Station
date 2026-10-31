@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Skyrat. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_Floof/Mobs/Customization/skyratears.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "m_ears_faefox_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_faefox_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_faefox_tertiary",
+      "directions": 4
+    }
+  ]
+}

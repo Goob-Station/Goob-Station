@@ -1,0 +1,225 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: AndroidDefaultRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android_default.rsi
+    state: r_arm
+
+- type: marking
+  id: AndroidScrapArmRight
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: r_arm_scrap
+
+- type: marking
+  id: AndroidSyntArmRight
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: r_arm_synt
+
+- type: marking
+  id: BS2RArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bs2ipc_r_arm
+
+- type: marking
+  id: BSHRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bshipc_r_arm
+
+- type: marking
+  id: CyberlimbRArmBishop
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/bishop.rsi
+    state: r_arm
+
+- type: marking
+  id: CyberlimbRArmMorpheus
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/morpheus.rsi
+    state: r_arm
+
+- type: marking
+  id: CyberlimbRArmNanotrasen
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/nanotrasen.rsi
+    state: r_arm
+
+- type: marking
+  id: CyberlimbRArmXion
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Dwarf, Felinid, Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/xion.rsi
+    state: r_arm
+
+- type: marking
+  id: CyberlimbRArmZenghu
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/zenghu.rsi
+    state: r_arm
+
+- type: marking
+  id: HI2RArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: hi2ipc_r_arm
+
+- type: marking
+  id: HSIRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: hsiipc_r_arm
+
+- type: marking
+  id: IPCRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ipc_r_arm
+
+- type: marking
+  id: IPSRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ips_r_arm
+
+- type: marking
+  id: MCGRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: mcgipc_r_arm
+
+- type: marking
+  id: PawsitronsRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: pawsitrons_r_arm
+
+- type: marking
+  id: SGMRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: sgmipc_r_arm
+
+- type: marking
+  id: SteampunkRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: staripc_r_arm
+
+- type: marking
+  id: WTMRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: wtmipc_r_arm
+
+- type: marking
+  id: XMGRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: xmgipc_r_arm
+
+- type: marking
+  id: ZHPRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: zhpipc_r_arm

@@ -1,0 +1,17 @@
+- type: technology
+  id: SuperSalvageEquipment
+  name: research-technology-space-scanning
+  icon:
+    sprite: _Lavaland/Objects/Tools/handdrill_super.rsi
+    state: handdrill
+  discipline: Industrial
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - MiningDrillSuper
+  - WeaponSuperPlasmaCutter
+  # Goobstation R&D Console rework start
+  position: 0,-7
+  technologyPrerequisites:
+  - MassExcavation
+  # Goobstation R&D Console rework end

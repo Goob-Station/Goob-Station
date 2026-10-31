@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "State based copyright. Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42/Resources/Textures/_Starlight/Mobs/Customization/vox.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "voxplumage",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "voxshaggytail",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "leftlegfeathered",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "rightlegfeathered",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "bushtail",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "allseeingeyes",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "allseeingface",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "thirdeye",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "peafowltaileyes",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "peafowltailbase",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    },
+    {
+      "name": "severedtail",
+      "copyright": "Created by DogeyOT (Discord).",
+      "directions": 4
+    }
+  ]
+}

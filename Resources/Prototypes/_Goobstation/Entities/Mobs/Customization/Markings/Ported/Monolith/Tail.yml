@@ -1,0 +1,10 @@
+# Ported from https://github.com/Monolith-Station/Monolith/tree/b518fe44c0c6250b8339bfc4705f64abcd246d90
+
+- type: marking
+  id: ResomiTailBird
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Monolith/_Moffstation/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_bird

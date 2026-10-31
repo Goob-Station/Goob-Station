@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:cherreshnia & discord:prazat911. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_ADT/Mobs/Customization/Reptilian/custom.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "drawing_khar",
+      "directions": 4
+    },
+    {
+      "name": "drawing_skelet_body",
+      "directions": 4
+    },
+    {
+      "name": "drawing_skeleton",
+      "directions": 4
+    },
+    {
+      "name": "drawing_sun",
+      "directions": 4
+    },
+    {
+      "name": "drawing_warpaint",
+      "directions": 4
+    },
+    {
+      "name": "horns_baran",
+      "directions": 4
+    },
+    {
+      "name": "horns_bullhorns",
+      "directions": 4
+    },
+    {
+      "name": "horns_crown",
+      "directions": 4
+    },
+    {
+      "name": "horns_five",
+      "directions": 4
+    },
+    {
+      "name": "horns_highback",
+      "directions": 4
+    },
+    {
+      "name": "horns_jacksonchameleon",
+      "directions": 4
+    },
+    {
+      "name": "horns_long",
+      "directions": 4
+    },
+    {
+      "name": "horns_stagbeetle",
+      "directions": 4
+    },
+    {
+      "name": "horns_superlong",
+      "directions": 4
+    },
+    {
+      "name": "horns_twoago",
+      "directions": 4
+    },
+    {
+      "name": "lineeyes",
+      "directions": 4
+    },
+    {
+      "name": "tatto_skelet_arm_l",
+      "directions": 4
+    },
+    {
+      "name": "tatto_skelet_arm_r",
+      "directions": 4
+    },
+    {
+      "name": "tatto_skelet_leg_l",
+      "directions": 4
+    },
+    {
+      "name": "tatto_skelet_leg_r",
+      "directions": 4
+    }
+  ]
+}

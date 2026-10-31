@@ -1,0 +1,28 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                Name="SlotPanel"
+                StyleClasses="WindowBackground"
+                RectClipContent="True">
+    <LayoutContainer Name="SlotLayout">
+        <EntityPrototypeView Name="ItemSprite" />
+        <Label Name="CodeLabel" StyleClasses="DimNormal" />
+        <PanelContainer Name="AmountBadge" StyleClasses="StripeBack">
+            <Label Name="AmountLabel" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </PanelContainer>
+
+        <PanelContainer Name="SoldOverlay" Visible="False">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#451515" BorderColor="#802020" BorderThickness="0 1" />
+            </PanelContainer.PanelOverride>
+
+            <Label Name="SoldLabel"
+                   Text="{Loc 'vending-machine-keypad-sold-out'}"
+                   Align="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="0 -3 0 0"
+                   FontColorOverride="#ffffff" />
+        </PanelContainer>
+    </LayoutContainer>
+</PanelContainer>
