@@ -16,9 +16,13 @@
     - id: AstroNavCartridge
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
-    - id: SalvageJobBoardComputerCircuitboard # Goobstation - This doesn't really have a use right now but it's there incase it ever gets use again
     - id: CargoMegaphone # goob - loudspeaker
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -56,6 +60,11 @@
       conditions:
       - !type:PlayerCountCondition
         max: 15
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 # No laser table + Laser table
 - type: entityTable
@@ -142,6 +151,11 @@
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
     - id: CommandMegaphone # goob - loudspeakers
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -175,7 +189,6 @@
     - id: RubberStampCE
     - id: MetalFoamGrenade
     # Goobstation V
-    - id: SupermatterComputerCircuitboard
     - id: BaseHandheldStationMapSupermatterCe
     - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard
@@ -185,6 +198,11 @@
     - id: MachinePowerTransmissionLaserFlatpack
     - id: RCDRechargingCE
     - id: MaterialSiloFlatpack # Goob
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -244,6 +262,9 @@
     - id: RubberStampCMO
     # Goobstation Start
     - id: ChemistryHotplateFlatPack
+    - id: CloningpodFlatpack
+    - id: MedicalScannerFlatpack
+    - id: ComputerCloningConsoleFlatpack
     - id: BiomassReclaimerFlatpack
     - id: Multitool
     - id: MedTekCartridge
@@ -257,6 +278,11 @@
     # Virology
     - id: DiseaseDiagnoserFlatPack
     - id: VaccinatorFlatPack
+    - id: CandyBowlFilledLollypopsMystery # Happy Halloween!
+    - !type:NestedSelector # Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
     # Goobstation End
 
 # Hardsuit table, used for suit storage as well
@@ -316,8 +342,12 @@
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
-    - id: XenobiologyBountyComputerCircuitboard # Goobstation
     - id: MMI # Goobstation
+    - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -360,7 +390,7 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyMagnum
+   # - id: WeaponEnergyMagnum # Goobstation - Remove Energy Magnum
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -382,6 +412,7 @@
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
     - id: MaterialSiloFlatpack # Goob
+    - id: FoodPacketLollypopTrash # Goob - ...happy halloween?
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -431,6 +462,11 @@
     - id: BikeHorn
     - id: FoodMango #Goobstation
       prob: 0.65
+    - !type:NestedSelector # Goob - Happy Halloween!
+      tableId: RandomSnackTable
+      prob: 0.9
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
 
 - type: entity
   id: LockerFreezerVaultFilled

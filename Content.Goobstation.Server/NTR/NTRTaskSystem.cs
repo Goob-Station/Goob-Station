@@ -29,20 +29,20 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.NTR;
 
-public sealed class NtrTaskSystem : EntitySystem
+public sealed partial class NtrTaskSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private NameIdentifierSystem _nameIdentifier = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private const string NameIdentifierGroup = "Task";
 
@@ -249,7 +249,7 @@ public sealed class NtrTaskSystem : EntitySystem
     #endregion
 
     #region Document Processing
-    private void OnItemInsertAttempt(EntityUid uid, NtrTaskConsoleComponent component, ItemSlotInsertAttemptEvent args)
+    private void OnItemInsertAttempt(EntityUid uid, NtrTaskConsoleComponent component, ref ItemSlotInsertAttemptEvent args)
     {
         args.Cancelled = true;
         var item = args.Item;
@@ -551,7 +551,7 @@ public sealed class NtrTaskSystem : EntitySystem
     #endregion
 }
 
-public sealed class TaskFailedEvent : EntityEventArgs
+public sealed partial class TaskFailedEvent : EntityEventArgs
 {
     public EntityUid User;
     public NtrTaskData Task;

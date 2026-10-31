@@ -22,6 +22,10 @@
     {
       "name": "miner",
       "directions": 4
+    },
+    {
+      "name": "miner_moving",
+      "directions": 4
     }
   ]
 }

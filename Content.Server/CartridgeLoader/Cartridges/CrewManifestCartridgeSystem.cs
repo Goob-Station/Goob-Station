@@ -59,7 +59,7 @@ public sealed class CrewManifestCartridgeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var owningStation = _stationSystem.GetOwningStation(uid);
+        var owningStation = _stationSystem.GetOwningStation(loaderUid); // Goobstation Edit - fix-crew-manifest-open-refresh
 
         if (owningStation is null)
             return;

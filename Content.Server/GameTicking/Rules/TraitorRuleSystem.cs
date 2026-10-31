@@ -1,12 +1,8 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Goobstation.Common.Traitor;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.PDA.Ringer;
-using Content.Server.Roles;
 using Content.Server.Traitor.Uplink;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mind;
@@ -22,18 +18,12 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
-using Content.Server.Database;
 using Content.Shared.Clumsy;
-using Content.Server.Popups;
-using Content.Shared.CCVar;
 using Content.Goobstation.Common.CCVar;
-using Robust.Shared.Configuration;
 
 namespace Content.Server.GameTicking.Rules;
 
-// goobstation - heavily edited.
-// do not touch unless you want to shoot yourself in the leg
-public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
+public sealed partial class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent> // Goob - made partial
 {
     private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
 
@@ -47,9 +37,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!; // goob edit
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // goob edit
-    [Dependency] private readonly GoobCommonUplinkSystem _goobUplink = default!;
 
     public override void Initialize()
     {
@@ -89,8 +76,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
 
-        string? uplinkBriefing = null; // Goob
-        string? uplinkBriefingShort = null; // Goob
+        // <Goob>
+        string? uplinkBriefing = null;
+        string? uplinkBriefingShort = null;
+        // </Goob>
 
         if (component.GiveUplink)
         {
@@ -98,37 +87,18 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             // Calculate the amount of currency on the uplink.
             var startingBalance = component.StartingBalance;
             if (_jobs.MindTryGetJob(mindId, out var prototype))
-                // Goob Start
-                startingBalance = Math.Max(startingBalance - prototype.AntagAdvantage, 0);
-
-            var uplinkPreference = _goobUplink.GetUplinkPreference(mindId);
-
-            if (!_uplink.TryAddUplink(traitor, startingBalance, uplinkPreference, out _, out var setupEvent))
-                return false;
-
-            if (setupEvent != null)
             {
-                uplinkBriefing = setupEvent.Value.BriefingEntry;
-                uplinkBriefingShort = setupEvent.Value.BriefingEntryShort;
+                if (startingBalance < prototype.AntagAdvantage) // Can't use Math functions on FixedPoint2
+                    startingBalance = 0;
+                else
+                    startingBalance = startingBalance - prototype.AntagAdvantage;
             }
-            else // Fallback ooplink
-                // Goob End
-            {
-                uplinkBriefing = Loc.GetString("traitor-role-uplink-implant");
-                uplinkBriefingShort = Loc.GetString("traitor-role-uplink-implant-short");
-            }
-            /* Goob
-            Yeah idk apparently we arent using this check comment of me crashing out below.
-            todo goobstation clean up this whole file in relation to upstream version
-            pain
 
             // Choose and generate an Uplink, and return the uplink code if applicable
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink request start");
-            var uplinkParams = RequestUplink(traitor, startingBalance, briefing);
-            code = uplinkParams.Item1;
-            briefing = uplinkParams.Item2;
+            if (!RequestUplink(traitor, mindId, startingBalance, out uplinkBriefing, out uplinkBriefingShort)) // Goob
+                return false;
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink request completed");
-            */
         }
 
         string[]? codewords = null;
@@ -166,6 +136,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             // Goobstation Change - If you remove this, we lose ringtones and flavor in char menu. Upstream's version sucks.
             briefingComp.Briefing = GenerateBriefingCharacter(codewords, uplinkBriefingShort, issuer);
         }
+        else
+        {
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - did not get traitor briefing");
+        }
 
         var color = TraitorCodewordColor; // Fall back to a dark red Syndicate color if a prototype is not found
 
@@ -180,7 +154,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         // goob edit - clumsy antag no more
         var shouldRemoveClumsy = _cfg.GetCVar(GoobCVars.RemoveClumsyOnAntag);
-        if (TryComp<ClumsyComponent>(traitor, out var clumsy) && shouldRemoveClumsy)
+        if (TryComp(traitor, out ClumsyComponent? clumsy) && shouldRemoveClumsy)
         {
             // if not for the clown car i would've nuked it off the planet
             clumsy.ClumsyCatching = false;
@@ -244,6 +218,47 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     Goob end
     */
 
+    private (Note[]?, string) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing)
+    {
+        var pda = _uplink.FindUplinkTarget(traitor);
+        Note[]? code = null;
+
+        Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
+        var uplinked = _uplink.AddUplink(traitor, startingBalance, null, out _, out _, pda, true); // Goob
+
+        if (pda is not null && uplinked)
+        {
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
+            // Codes are only generated if the uplink is a PDA
+            var ev = new GenerateUplinkCodeEvent<Note[]>(); // Goob
+            RaiseLocalEvent(pda.Value, ref ev);
+
+            if (ev.Code is { } generatedCode)
+            {
+                code = generatedCode;
+
+                // If giveUplink is false the uplink code part is omitted
+                briefing = string.Format("{0}\n{1}",
+                    briefing,
+                    Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
+                return (code, briefing);
+            }
+
+            Log.Error($"MakeTraitor {ToPrettyString(traitor)} failed to generate an uplink code on {ToPrettyString(pda)}.");
+        }
+        else if (pda is null && uplinked)
+        {
+            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
+            briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
+        }
+        else
+        {
+            Log.Error($"MakeTraitor failed on {ToPrettyString(traitor)} - No uplink could be added");
+        }
+
+        return (null, briefing);
+    }
+
     // TODO: AntagCodewordsComponent
     private void OnObjectivesTextPrepend(EntityUid uid, TraitorRuleComponent comp, ref ObjectivesTextPrependEvent args)
     {
@@ -252,46 +267,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     }
 
     // TODO: figure out how to handle this? add priority to briefing event?
-    private string GenerateBriefing(string[]? codewords, string? uplinkBriefing, string objectiveIssuer)
+    private string GenerateBriefing(string[]? codewords, string? uplinkBriefing, string objectiveIssuer) // Goob
     {
         var issuer = objectiveIssuer.Replace(" ", "").ToLower();
         var sb = new StringBuilder();
-        sb.AppendLine(Loc.GetString($"traitor-{issuer}-intro"));
-
-        if (uplinkBriefing != null)
-        {
-            sb.AppendLine("\n" + Loc.GetString($"traitor-{issuer}-uplink"));
+        sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", issuer ?? Loc.GetString("objective-issuer-unknown"))));
+        if (codewords != null)
+            sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
+        if (uplinkBriefing != null) // Goob
             sb.AppendLine(uplinkBriefing);
-        }
-        else sb.AppendLine(Loc.GetString("traitor-role-nouplink"));
-
-        if (codewords != null)
-            sb.AppendLine("\n" + Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
-
-        sb.AppendLine("\n" + Loc.GetString("traitor-role-moreinfo"));
-
-        return sb.ToString();
-    }
-
-    // Goobstation Change - Readd the character briefing text.
-    private string GenerateBriefingCharacter(string[]? codewords, string? uplinkBriefingShort, string objectiveIssuer)
-    {
-        var issuer = objectiveIssuer.Replace(" ", "").ToLower();
-        var sb = new StringBuilder();
-        sb.AppendLine("\n" + Loc.GetString($"traitor-{issuer}-intro"));
-
-        if (uplinkBriefingShort != null)
-            sb.AppendLine(uplinkBriefingShort);
-        else sb.AppendLine("\n" + Loc.GetString($"traitor-role-nouplink"));
-
-        if (codewords != null)
-            sb.AppendLine("\n" + Loc.GetString($"traitor-role-codewords-short", ("codewords", string.Join(", ", codewords))));
-
-        sb.AppendLine("\n" + Loc.GetString($"traitor-role-allegiances"));
-        sb.AppendLine(Loc.GetString($"traitor-{issuer}-allies"));
-
-        sb.AppendLine("\n" + Loc.GetString($"traitor-role-notes"));
-        sb.AppendLine(Loc.GetString($"traitor-{issuer}-goal"));
+        else
+            sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
 
         return sb.ToString();
     }

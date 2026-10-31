@@ -20,14 +20,14 @@ using Content.Shared._EinsteinEngines.Language.Events;
 
 namespace Content.Goobstation.Server.Blob;
 
-public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
+public sealed partial class BlobCarrierSystem : SharedBlobCarrierSystem
 {
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly GhostRoleSystem _ghost = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private GhostRoleSystem _ghost = default!;
+    [Dependency] private BodySystem _bodySystem = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private LanguageSystem _language = default!;
 
     public override void Initialize()
     {
@@ -44,11 +44,9 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
         SubscribeLocalEvent<BlobCarrierComponent, MindRemovedMessage>(OnMindRemove);
     }
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string ActionTransformToBlob = "ActionTransformToBlob";
+    private static readonly EntProtoId ActionTransformToBlob = "ActionTransformToBlob";
 
-    [ValidatePrototypeId<LanguagePrototype>]
-    private const string BlobLang = "Blob";
+    private static readonly ProtoId<LanguagePrototype> BlobLang = "Blob";
 
     private void OnApplyLang(Entity<BlobCarrierComponent> ent, ref DetermineEntityLanguagesEvent args)
     {

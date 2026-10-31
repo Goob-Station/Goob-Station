@@ -216,7 +216,7 @@ public partial class TraumaSystem
 
         bool hasBrokenBones = false;
 
-        var rootPart = bodyComp.RootContainer.ContainedEntity;
+        var rootPart = bodyComp.RootContainer?.ContainedEntity;
         if (rootPart.HasValue)
         {
             foreach (var (_, woundable) in _wound.GetAllWoundableChildren(rootPart.Value))

@@ -1,9 +1,10 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.EntityConditions;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Random.Helpers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -19,6 +20,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly SharedEntityConditionsSystem _condition = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!; // Goobstation - Delete when engine update
 
     public override void Initialize()
     {
@@ -27,7 +29,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
 
     private void OnReactive(Entity<ReactiveComponent> entity, ref ReactionEntityEvent args)
     {
-        var scale = args.ReagentQuantity.Quantity.Float();
+        var scale = entity.Comp.ScaleOverride ?? args.ReagentQuantity.Quantity.Float(); // Trauma - Added Scale Override
 
         if (args.Reagent.ReactiveEffects != null && entity.Comp.ReactiveGroups != null)
         {

@@ -24,15 +24,17 @@
       - state: on-inhand-right
         shader: unshaded
 
-- type: entity
-  parent: ClothingHeadEnvirohelm
-  id: ClothingHeadEnvirohelmEmpty
-  suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+# Goob Station start
+#- type: entity
+#  parent: ClothingHeadEnvirohelm
+#  id: ClothingHeadEnvirohelmEmpty
+#  suffix: Empty
+#  components:
+#  - type: ItemSlots
+#    slots:
+#      cell_slot:
+#        name: power-cell-slot-component-slot-name-default
+# Goob Station end
 
 - type: entity
   parent: ClothingHeadEnvirohelmBase

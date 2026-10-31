@@ -5,7 +5,10 @@
   name: knowledge-path-ash-s1-name
   description: knowledge-path-ash-s1-desc
   icon: { sprite: _Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
-  productHereticKnowledge: NightwatcherSecret
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - NightwatcherSecret
   cost:
     KnowledgePoint: 1
   categories:
@@ -30,7 +33,10 @@
   name: knowledge-path-ash-s2-name
   description: knowledge-path-ash-s2-desc
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: GraspOfAsh
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - GraspOfAsh
   cost:
     KnowledgePoint: 1
   categories:
@@ -49,7 +55,10 @@
   name: knowledge-path-ash-s3-name
   description: knowledge-path-ash-s3-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashen_shift }
-  productHereticKnowledge: AshenShift
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - AshenShift
   cost:
     KnowledgePoint: 1
   categories:
@@ -67,7 +76,10 @@
   name: knowledge-path-ash-s4-name
   description: knowledge-path-ash-s4-desc
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: MarkOfAsh
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MarkOfAsh
   cost:
     KnowledgePoint: 2
   categories:
@@ -85,7 +97,10 @@
   name: knowledge-path-ash-s5-name
   description: knowledge-path-ash-s5-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: volcano_blast }
-  productHereticKnowledge: VolcanicBlast
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - VolcanicBlast
   cost:
     KnowledgePoint: 2
   categories:
@@ -104,7 +119,10 @@
   name: knowledge-path-ash-s6-name
   description: knowledge-path-ash-s6-desc
   icon: { sprite: _Goobstation/Heretic/mad_mask.rsi, state: icon }
-  productHereticKnowledge: MaskOfMadness
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MaskOfMadness
   cost:
     KnowledgePoint: 1
   categories:
@@ -122,7 +140,10 @@
   name: knowledge-path-ash-s7-name
   description: knowledge-path-ash-s7-desc
   icon: { sprite: _Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
-  productHereticKnowledge: FieryBlade
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - FieryBlade
   cost:
     KnowledgePoint: 2
   categories:
@@ -141,7 +162,10 @@
   name: knowledge-path-ash-s8-name
   description: knowledge-path-ash-s8-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: nightwatcher_rebirth }
-  productHereticKnowledge: NightwatcherRebirth
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - NightwatcherRebirth
   cost:
     KnowledgePoint: 1
   categories:
@@ -159,7 +183,10 @@
   name: knowledge-path-ash-s9-name
   description: knowledge-path-ash-s9-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashlord_rite1 }
-  productHereticKnowledge: AscensionAsh
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - AscensionAsh
   cost:
     KnowledgePoint: 3
   categories:

@@ -8,8 +8,8 @@ namespace Content.Goobstation.Shared.EntityEffects;
 
 public sealed partial class ChangeFactionNearbyEffectSystem : EntityEffectSystem<NpcFactionMemberComponent, ChangeFactionNearbyEffect>
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ChangeFactionStatusEffectSystem _faction = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ChangeFactionStatusEffectSystem _faction = default!;
 
     protected override void Effect(Entity<NpcFactionMemberComponent> entity, ref EntityEffectEvent<ChangeFactionNearbyEffect> args)
     {

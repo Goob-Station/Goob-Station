@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
@@ -9,66 +8,57 @@ using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Stunnable;
 using Content.Shared.Destructible;
-using Content.Shared.Destructible;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Destructible;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
-using Content.Shared.Humanoid;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Sprite;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Stunnable;
-using Content.Shared.Weapons.Melee.Events;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Bingle;
 
-public sealed class BinglePitSystem : EntitySystem
+public sealed partial class BinglePitSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly BingleSystem _bingle = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly StepTriggerSystem _step = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private BingleSystem _bingle = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private StepTriggerSystem _step = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ITileDefinitionManager _tiledef = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     private EntityQuery<BingleComponent> _query;
     private EntityQuery<BinglePitFallingComponent> _fallingQuery;
 
     private readonly List<Entity<BinglePitComponent>> _pits = new();
     public static readonly ProtoId<ContentTileDefinition> FloorTile = "FloorBingle";
+    public static readonly EntProtoId Bingle = "MobBingle";
 
     public override void Initialize()
     {
@@ -116,7 +106,17 @@ public sealed class BinglePitSystem : EntitySystem
 
         var coords = Transform(uid).Coordinates;
         for (var i = 0; i < component.StartingBingles; i++)
-            Spawn(component.GhostRoleToSpawn, coords);
+            SpawnGhostRoleMarker(component, coords);
+    }
+
+    private void SpawnGhostRoleMarker(BinglePitComponent component, EntityCoordinates coords)
+    {
+        var proto = _random.Prob(component.RareGhostRoleChance)
+            ? component.RareGhostRoleToSpawn
+            : component.GhostRoleToSpawn;
+
+        var role = Spawn(proto, coords);
+        component.BingleGhostRoles.Add(role);
     }
 
     private void OnStepTriggered(EntityUid uid, BinglePitComponent component, ref StepTriggeredOffEvent args)
@@ -177,7 +177,7 @@ public sealed class BinglePitSystem : EntitySystem
 
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
-        Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
+        SpawnGhostRoleMarker(component, Transform(uid).Coordinates);
         OnSpawnTile(uid, component.Level * 2);
 
         component.MinionsMade++;
@@ -237,10 +237,13 @@ public sealed class BinglePitSystem : EntitySystem
     {
         var query = EntityQueryEnumerator<GhostRoleMobSpawnerComponent>();
         while (query.MoveNext(out var queryGRMSUid, out var queryGRMScomp))
-            if (queryGRMScomp.Prototype == "MobBingle")
-                if (Transform(uid).Coordinates == Transform(queryGRMSUid).Coordinates)
+            if (queryGRMScomp.Prototype == Bingle)
+                if (component.BingleGhostRoles.Contains(queryGRMSUid))
                     QueueDel(queryGRMSUid); // remove any unspanned bingle when pit is destroyed
+
+        component.BingleGhostRoles.Clear();
     }
+
     private void OnAttacked(EntityUid uid, BinglePitComponent component, AttackedEvent args)
     {
         if (_containerSystem.ContainsEntity(uid, args.User))

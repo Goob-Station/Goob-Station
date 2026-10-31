@@ -20,11 +20,11 @@
       visible: false
   - type: PaperVisuals
     headerImagePath: "/Textures/_DV/Interface/Paper/paper_heading_warrant.svg.200dpi.png"
-    headerMargin: 0.0, 0.0, 10.0, 16.0
+    headerMargin: 0.0, 16.0, 10.0, 0.0
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
     backgroundModulate: "#e0bc99"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
-    contentMargin: 32.0, 16.0, 32.0, 0.0
+    contentMargin: 32.0, 0.0, 32.0, 16.0
 
 # contents set by FugitiveRule or a creative admeme
 - type: entity

@@ -52,20 +52,6 @@
     event: !type:SlasherCorporealizeEvent
 
 - type: entity
-  id: ActionSlasherBloodTrail
-  name: Blood Trail
-  description: Begin trailing blood in your wake with some funky music. Spooky!
-  components:
-  - type: Action
-    raiseOnUser: true
-    useDelay: 1
-    checkCanInteract: false
-    itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: BloodTrail }
-  - type: InstantAction
-    event: !type:ToggleBloodTrailEvent
-
-- type: entity
   id: ActionSlasherPossession
   name: Possession
   description: Use this on a person to begin to exact your control on them, giving you temporary control of their body for 45 seconds. Once time is up, both bodies return.

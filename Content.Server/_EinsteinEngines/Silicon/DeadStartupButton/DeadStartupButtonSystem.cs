@@ -22,6 +22,7 @@ using Content.Server.EUI;
 using Content.Shared.Mind;
 using Content.Server.Ghost;
 using Robust.Shared.Player;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._EinsteinEngines.Silicon.DeadStartupButton;
 

@@ -24,6 +24,8 @@
   contrabandSeverity: Minor
   flavor: bitter
   color: "#757245"
+  puddleSpriteSet: Powder # Goob
+  puddleColor: "#75724580" # Goob
   boilingPoint: 2977.0 # Aluminum oxide
   meltingPoint: 2030.0
   tileReactions:
@@ -59,6 +61,7 @@
   contrabandSeverity: Major
   flavor: bitter
   color: "#FA00AF"
+  puddleSpriteSet: Acid # Goob
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 5
@@ -101,6 +104,8 @@
   contrabandSeverity: Major
   flavor: bitter
   color: "#D4872A"
+  puddleSpriteSet: Acid # Goob
+  puddleColor: "#D4872A80" # Goob
   metabolisms:
     Poison:
       effects:
@@ -143,6 +148,7 @@
   contrabandSeverity: Major
   flavor: bitter
   color: "#FFC8C8"
+  puddleSpriteSet: Acid # Goob
   tileReactions:
   - !type:PryTileReaction
   metabolisms:
@@ -195,6 +201,7 @@
   physicalDesc: reagent-physical-desc-foamy
   flavor: bitter
   color: "#215263"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: 418.0 # I went with ammonium lauryl sulfate as the basis for this
   meltingPoint: 7.4 # I made this up
 
@@ -209,6 +216,7 @@
   flavor: bitter
   flavorMinimum: 0.01
   color: "#a76b1c"
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   boilingPoint: -84.7 # Acetylene. Close enough.
   meltingPoint: -80.7
@@ -246,5 +254,6 @@
   physicalDesc: reagent-physical-desc-opaque
   flavor: bitter
   color: "#9e6b38"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 190.0 # Perfluorooctanoic Acid.
   meltingPoint: 45.0

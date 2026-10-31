@@ -16,13 +16,13 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Blob;
 
-public sealed class BlobNodeSystem : EntitySystem
+public sealed partial class BlobNodeSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MapSystem _map = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private MobStateSystem _mob = default!;
 
     private EntityQuery<BlobTileComponent> _tileQuery;
 
@@ -35,6 +35,19 @@ public sealed class BlobNodeSystem : EntitySystem
         SubscribeLocalEvent<BlobNodeComponent, BlobNodePulseEvent>(OnNodePulse);
 
         _tileQuery = GetEntityQuery<BlobTileComponent>();
+    }
+
+    private float GetPulseFrequencyByChem(BlobChemType chemType)
+    {
+        switch (chemType)
+        {
+            case BlobChemType.SinewyTendons:
+                return 2.5f;
+            case BlobChemType.ChainCoating:
+                return 6.0f;
+            default:
+                return 4.0f;
+        }
     }
 
     private void OnNodePulse(Entity<BlobNodeComponent> ent, ref BlobNodePulseEvent args)
@@ -63,7 +76,7 @@ public sealed class BlobNodeSystem : EntitySystem
     private const double PulseJobTime = 0.005;
     private readonly JobQueue _pulseJobQueue = new(PulseJobTime);
 
-    public sealed class BlobPulse(
+    public sealed partial class BlobPulse(
         BlobNodeSystem system,
         Entity<BlobNodeComponent> ent,
         double maxTime,
@@ -158,6 +171,15 @@ public sealed class BlobNodeSystem : EntitySystem
         var blobNodeQuery = EntityQueryEnumerator<BlobNodeComponent, BlobTileComponent>();
         while (blobNodeQuery.MoveNext(out var ent, out var comp, out var blobTileComponent))
         {
+            if (blobTileComponent.Core != null && TryComp<BlobCoreComponent>(blobTileComponent.Core.Value, out var coreComp))
+                {
+                    comp.PulseFrequency = GetPulseFrequencyByChem(coreComp.CurrentChem);
+                }
+                else
+            {
+                comp.PulseFrequency = GetPulseFrequencyByChem(default);
+            }
+
             comp.NextPulse += frameTime;
             if (comp.PulseFrequency > comp.NextPulse)
                 continue;

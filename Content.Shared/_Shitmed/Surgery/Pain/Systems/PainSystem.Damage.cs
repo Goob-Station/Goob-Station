@@ -750,7 +750,9 @@ public partial class PainSystem
 
     private void UpdatePainConsciousness(EntityUid uid, NerveSystemComponent nerveSys)
     {
-        if (!TryComp<OrganComponent>(uid, out var organ) || organ.Body == null)
+        if (!TryComp<OrganComponent>(uid, out var organ)
+            || organ.Body == null
+            || !HasComp<ConsciousnessComponent>(organ.Body))
             return;
 
         _consciousness.SetConsciousnessModifier(

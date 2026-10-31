@@ -2,7 +2,8 @@
 
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using JetBrains.Annotations;
 
 namespace Content.Shared._Lavaland.MobPhases;
@@ -18,7 +19,7 @@ public sealed class MobPhasesSystem : EntitySystem
     }
 
     private void OnInit(Entity<MobPhasesComponent> ent, ref MapInitEvent args)
-        => ent.Comp.PhaseThresholds = ent.Comp.BasePhaseThresholds;
+        => ent.Comp.PhaseThresholds = new(ent.Comp.BasePhaseThresholds);
 
     private void OnDamage(Entity<MobPhasesComponent> ent, ref DamageChangedEvent args)
         => UpdatePhases(ent.Owner);
@@ -57,12 +58,12 @@ public sealed class MobPhasesSystem : EntitySystem
         if (!Resolve(ent.Owner, ref ent.Comp, false))
             return;
 
-        var thresholds = new Dictionary<FixedPoint2, int>(ent.Comp.PhaseThresholds.Reverse());
+        var thresholds = new Dictionary<FixedPoint2, int>(ent.Comp.PhaseThresholds);
+        ent.Comp.PhaseThresholds.Clear();
         foreach (var (damageThreshold, state) in thresholds)
         {
             // State stays the same, damage threshold is scaled.
-            ent.Comp.PhaseThresholds.Remove(damageThreshold);
-            ent.Comp.PhaseThresholds.Add(damageThreshold * scale, state);
+            ent.Comp.PhaseThresholds[damageThreshold * scale] = state;
         }
     }
 
@@ -75,7 +76,7 @@ public sealed class MobPhasesSystem : EntitySystem
         if (!Resolve(ent.Owner, ref ent.Comp, false))
             return;
 
-        ent.Comp.PhaseThresholds = ent.Comp.BasePhaseThresholds;
+        ent.Comp.PhaseThresholds = new(ent.Comp.BasePhaseThresholds);
     }
 
     [PublicAPI]

@@ -17,10 +17,11 @@
   rule: DragonSpawn
 
 # Goobstation - Revenant was disabled.
-#- type: ninjaHackingThreat
-#  id: Revenant
-#  announcement: terror-revenant
-#  rule: RevenantSpawn
+# Happy Halloween.
+- type: ninjaHackingThreat
+  id: Revenant
+  announcement: terror-revenant
+  rule: RevenantSpawn
 
 - type: ninjaHackingThreat # DeltaV start
   id: Colossus

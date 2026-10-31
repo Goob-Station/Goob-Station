@@ -7,6 +7,8 @@
   name: personal ai device
   description: Your electronic pal who's fun to be with!
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Robot
   - type: Instrument
     allowPercussion: false
     handheld: false
@@ -54,18 +56,13 @@
     stopSearchVerbPopup: pai-system-stopped-searching
   - type: Examiner
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
-  #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
-  - type: ActiveRadio
-    channels:
-    # - Binary # Goobstation - replaced with collective mind
-    - Common
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
+  - type: IntrinsicRadioTransmitter
     channels:
     - Binary
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter
   - type: Actions

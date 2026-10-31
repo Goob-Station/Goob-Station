@@ -1,5 +1,4 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Server.Codewords;
 using Content.Shared.Dataset;
 using Content.Shared.NPC.Prototypes;
@@ -28,13 +27,7 @@ public sealed partial class TraitorRuleComponent : Component
     public ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
 
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> CodewordAdjectives = "Adjectives";
-
-    [DataField]
-    public ProtoId<LocalizedDatasetPrototype> CodewordVerbs = "Verbs";
-
-    [DataField]
-    public ProtoId<LocalizedDatasetPrototype> ObjectiveIssuers = "TraitorCorporationsFlavor"; // Goobstation Change
+    public ProtoId<LocalizedDatasetPrototype> ObjectiveIssuers = "TraitorCorporationsFlavor"; // Goob - added flavor
 
     /// <summary>
     /// Give this traitor an Uplink on spawn.
@@ -84,5 +77,5 @@ public sealed partial class TraitorRuleComponent : Component
     /// The amount of TC traitors start with.
     /// </summary>
     [DataField]
-    public int StartingBalance = 100;
+    public FixedPoint2 StartingBalance = 100; // Goob - uplink inflation
 }

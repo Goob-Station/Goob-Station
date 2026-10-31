@@ -3,7 +3,6 @@
 - type: latheRecipePack
   id: IPCPartsStatic
   recipes:
-  - ChestIPC
   - GroinIPC
   - LeftArmIPC
   - RightArmIPC
@@ -44,6 +43,11 @@
   recipes:
   - BorgModuleAdvancedSurgery
   - BorgModuleLollypop
+
+- type: latheRecipePack
+  id: SecBorgParts
+  recipes:
+  - SecEndoskeleton
 
 - type: latheRecipePack
   id: PowerCages

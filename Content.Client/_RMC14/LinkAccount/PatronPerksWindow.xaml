@@ -58,5 +58,25 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             </PanelContainer>
         </BoxContainer>
         <!-- Goob end -->
+        <!-- Goob start - ooc icon selection -->
+        <BoxContainer Name="OocIconTab" Access="Public" Orientation="Vertical" Margin="5">
+            <Label Text="{Loc 'goob-ui-ooc-icon-description'}" />
+            <BoxContainer Orientation="Horizontal" Margin="0 10 0 0">
+                <Label Text="{Loc 'goob-ui-ooc-icon-selected'}" VerticalAlignment="Center" />
+                <AnimatedTextureRect Name="OocIconPreview" Access="Public" SetSize="32 32" Margin="8 0"
+                                     VerticalAlignment="Center" />
+                <Label Name="OocIconSelectedName" Access="Public" VerticalAlignment="Center" />
+            </BoxContainer>
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False" Margin="0 10 0 0">
+                <BoxContainer Name="OocIconList" Access="Public" Orientation="Vertical" />
+            </ScrollContainer>
+            <BoxContainer Orientation="Horizontal" Margin="0 10 0 0">
+                <Button Name="OocIconDefaultButton" Access="Public" Text="{Loc 'goob-ui-ooc-icon-default'}"
+                        HorizontalExpand="True" />
+                <Button Name="OocIconSaveButton" Access="Public" Text="{Loc 'rmc-ui-save'}"
+                        HorizontalExpand="True" Disabled="True" />
+            </BoxContainer>
+        </BoxContainer>
+        <!-- Goob end -->
     </TabContainer>
 </controls:PatronPerksWindow>

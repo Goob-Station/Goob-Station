@@ -181,3 +181,103 @@
   - type: Construction
     graph: BrassOutClot
     node: brassClot
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterArmorCombineElite
+  name: elite soldier costume
+  description: Citizens aren't supposed to have guns
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/elite.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/elite.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatEliteHelmet
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterArmorDeku
+  name: dorky hero costume
+  description: Number 1 hero from somewhere that isn't here. You feel like a loser wearing this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/dork.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/dork.rsi
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterArmorCommando
+  name: commando costume
+  description: Dual pistols not included.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/commando.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/commando.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatCommandoHelmet
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterArmorInvincible
+  name: unrobustable costume
+  description: Suprisingly robustable.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/unrobustable.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/unrobustable.rsi
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterArmorDivingSuit
+  name: diving suit costume
+  description: A replica diving suit from the days-gone submarine era of Europa.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/diver.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/diver.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatDivingSuitHelmet
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterArmorHuskDivingSuit
+  name: infected diving suit costume
+  description: A replica diving suit inhabiting a long-extinct alien parasite. Familiar.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/infected_diver.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/infected_diver.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHuskDivingSuitHelmet
+
+#Admeme
+- type: entity
+  parent: ClothingOuterHardsuitDeathsquad
+  id: ClothingOuterArmorCombineEliteAdmin
+  name: elite soldier armor
+  description: Admins arent supposed to suck dicks
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/elite.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/elite.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatEliteHelmetAdmin

@@ -1,13 +1,9 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Store;
 
-// goob edit - fuck newstore
-// do not touch unless you want to shoot yourself in the leg
 
 [Serializable, NetSerializable]
 public enum StoreUiKey : byte
@@ -18,7 +14,7 @@ public enum StoreUiKey : byte
 [Serializable, NetSerializable]
 public sealed class StoreUpdateState : BoundUserInterfaceState
 {
-    public readonly HashSet<ListingData> Listings;
+    public readonly HashSet<ListingDataWithCostModifiers> Listings;
 
     public readonly Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Balance;
 
@@ -26,7 +22,7 @@ public sealed class StoreUpdateState : BoundUserInterfaceState
 
     public readonly bool AllowRefund;
 
-    public StoreUpdateState(HashSet<ListingData> listings, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance, bool showFooter, bool allowRefund)
+    public StoreUpdateState(HashSet<ListingDataWithCostModifiers> listings, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance, bool showFooter, bool allowRefund)
     {
         Listings = listings;
         Balance = balance;
@@ -42,14 +38,9 @@ public sealed class StoreRequestUpdateInterfaceMessage : BoundUserInterfaceMessa
 }
 
 [Serializable, NetSerializable]
-public sealed class StoreBuyListingMessage : BoundUserInterfaceMessage
+public sealed class StoreBuyListingMessage(ProtoId<ListingPrototype> listing) : BoundUserInterfaceMessage
 {
-    public ListingData Listing;
-
-    public StoreBuyListingMessage(ListingData listing)
-    {
-        Listing = listing;
-    }
+    public ProtoId<ListingPrototype> Listing = listing;
 }
 
 [Serializable, NetSerializable]

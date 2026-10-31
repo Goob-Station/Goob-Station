@@ -13,7 +13,6 @@ public enum RadialSelectorUiKey : byte
 public sealed class RadialSelectorState(List<RadialSelectorEntry> entries, bool openCentered = false)
     : BoundUserInterfaceState
 {
-    [DataField(required: true)]
     public List<RadialSelectorEntry> Entries = entries;
 
     public bool OpenCentered { get; } = openCentered;
@@ -23,7 +22,6 @@ public sealed class RadialSelectorState(List<RadialSelectorEntry> entries, bool 
 public sealed class TrackedRadialSelectorState(List<RadialSelectorEntry> entries, NetEntity? trackedEntity = null)
     : BoundUserInterfaceState
 {
-    [DataField(required: true)]
     public List<RadialSelectorEntry> Entries = entries;
 
     public NetEntity? TrackedEntity { get; } = trackedEntity;

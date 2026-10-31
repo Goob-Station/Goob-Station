@@ -13,13 +13,13 @@
   - type: GhostTakeoverAvailable
   - type: GrantDisease
     baseDisease: DiseaseBaseMouse
-    complexity: 30
+    complexity: 40
     possibleTypes:
     - Bacterial
     - Viral
   - type: DiseaseOnHit
     spreadParams:
-      chance: 0.2 # higher chance for plague mice
+      chance: 0.33 # higher chance for plague mice
       power: 1
       spreadType: Blood
 

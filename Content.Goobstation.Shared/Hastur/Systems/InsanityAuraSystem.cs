@@ -12,13 +12,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Hastur.Systems;
 
-public sealed class InsanityAuraSystem : EntitySystem
+public sealed partial class InsanityAuraSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedInteractionSystem _interact = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedInteractionSystem _interact = default!;
 
     private readonly HashSet<Entity<MobStateComponent>> _mobCache = new();
 

@@ -10,14 +10,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Augments;
 
-public sealed class AugmentPowerCellSystem : SharedAugmentPowerCellSystem
+public sealed partial class AugmentPowerCellSystem : SharedAugmentPowerCellSystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly new PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private new PowerCellSystem _powerCell = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private TimeSpan _nextUpdate = TimeSpan.Zero;
     private static readonly TimeSpan _updateDelay = TimeSpan.FromSeconds(2);

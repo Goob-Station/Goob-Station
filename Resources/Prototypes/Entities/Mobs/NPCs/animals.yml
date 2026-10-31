@@ -356,7 +356,6 @@
   parent: FoodEgg
   suffix: Fertilized, Chicken
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobChicken
@@ -820,7 +819,6 @@
   parent: FoodEgg
   suffix: Fertilized, Duck
   components:
-    - type: Timer
     - type: TimedSpawner
       prototypes:
       - MobDuckMallard
@@ -1558,6 +1556,7 @@
     - VimPilot
     - DoorBumpOpener
     - AnomalyHost
+    - XenobioSlimeFavoriteFood # Goobstation
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -1580,6 +1579,7 @@
   - type: Crawler
   - type: StatusIcon
   - type: DiseaseCarrier # Goobstation
+  - type: XenovacTarget # Goobstation - Xenobio
 
 - type: entity
   name: monkey
@@ -1590,7 +1590,7 @@
   - type: NameIdentifier
     group: Monkey
   - type: Speech
-    speechSounds: Monkey
+    speechSounds: GoobMonkey # GoobStation
     speechVerb: Monkey
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
@@ -2111,6 +2111,9 @@
   - type: ActionGrant
     actions:
     - ActionMouseCall
+    - ActionMouseSwarm
+  - type: MouseSwarm
+  - type: LimbGnawer
   - type: MobCallSource
     whitelist:
       tags:
@@ -2193,6 +2196,8 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
+  - type: MouseSwarm # Goobstation
+    state: mouse-1
 
 - type: entity
   parent: MobMouse
@@ -2222,6 +2227,8 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
+  - type: MouseSwarm # Goobstation
+    state: mouse-2
 
 - type: entity
   name: cancer mouse
@@ -4082,6 +4089,12 @@
     understands:
     - RootSpeak
     - TauCetiBasic
+  - type: VentCrawler # goob
+  - type: Carriable # goob
+  - type: PseudoItem # goob
+    storedOffset: 0,3
+    shape:
+    - 0,0,3,3
 
 - type: entity
   parent: MobDionaNymph

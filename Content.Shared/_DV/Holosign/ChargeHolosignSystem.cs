@@ -76,6 +76,9 @@ public sealed class ChargeHolosignSystem : EntitySystem
             !TryComp<LimitedChargesComponent>(ent, out var charges))
             return;
 
+        if (ent.Comp.Signs.RemoveAll(s => TerminatingOrDeleted(s)) > 0)
+            Dirty(ent);
+
         // first check if there's any existing holofans to clear
         var coords = args.ClickLocation.SnapToGrid(EntityManager);
         var mapCoords = _transform.ToMapCoordinates(coords);

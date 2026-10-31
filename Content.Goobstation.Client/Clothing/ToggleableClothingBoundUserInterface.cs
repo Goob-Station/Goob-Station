@@ -7,10 +7,10 @@ using Robust.Client.UserInterface;
 
 namespace Content.Goobstation.Client.Clothing;
 
-public sealed class ToggleableClothingBoundUserInterface : BoundUserInterface
+public sealed partial class ToggleableClothingBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private IClyde _displayManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
 
     private IEntityManager _entityManager;
     private ToggleableClothingRadialMenu? _menu;

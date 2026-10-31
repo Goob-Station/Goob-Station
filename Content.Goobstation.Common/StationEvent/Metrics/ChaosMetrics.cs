@@ -29,6 +29,7 @@ public enum ChaosMetric
     Power,
     Atmos,
     Mess,
+    Infestation,
 
     // Metrics calculated from above by Game Director:
     Combat,   // Friend + Hostile - <0 if crew is strong. 0 if balanced (fighting). >0 indicates crew is losing.

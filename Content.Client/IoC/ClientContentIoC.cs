@@ -4,6 +4,7 @@ using Content.Client._RMC14.LinkAccount;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
+using Content.Client.Chat.UI; // Goob
 using Content.Client.Clickable;
 using Content.Client.DebugMon;
 using Content.Client.Eui;
@@ -66,6 +67,7 @@ namespace Content.Client.IoC
             collection.Register<TitleWindowManager>();
             collection.Register<LinkAccountManager>(); // RMC14
             collection.Register<ClientsidePlaytimeTrackingManager>();
+            collection.Register<RunechatFontCache>(); // Goob
         }
     }
 }

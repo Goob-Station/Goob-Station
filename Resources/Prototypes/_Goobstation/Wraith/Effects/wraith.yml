@@ -1,5 +1,6 @@
 - type: entity
   id: WraithDeathEffect
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/wraith.rsi

@@ -11,13 +11,13 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
-public sealed class SlasherKitSelectSystem : EntitySystem
+public sealed partial class SlasherKitSelectSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedStationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly SlasherIncorporealSystem _incorporeal = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedStationSpawningSystem _stationSpawning = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private SlasherIncorporealSystem _incorporeal = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
@@ -56,7 +56,8 @@ public sealed class SlasherKitSelectSystem : EntitySystem
                 kit.Gear,
                 Loc.GetString(nameKey),
                 string.IsNullOrEmpty(kit.Description) ? string.Empty : Loc.GetString(kit.Description),
-                kit.Sprite));
+                kit.Sprite,
+                kit.Guide));
         }
 
         _ui.SetUiState(ent.Owner, SlasherKitSelectUiKey.Key, new SlasherKitSelectBoundUserInterfaceState(kitInfos));
@@ -90,6 +91,10 @@ public sealed class SlasherKitSelectSystem : EntitySystem
 
         EntityManager.AddComponents(ent.Owner, ent.Comp.PostSelectionComponents);
 
+        EntityManager.AddComponents(ent.Owner, selectedKit.Components);
+
+        EntityManager.RemoveComponents(ent.Owner, selectedKit.RemoveComponents);
+
         _stationSpawning.EquipStartingGear(ent.Owner, selectedKit.Gear);
 
         if (TryComp<SlasherSummonMacheteComponent>(ent.Owner, out var summonComp))
@@ -98,19 +103,24 @@ public sealed class SlasherKitSelectSystem : EntitySystem
                 summonComp.MachetePrototype = macheteProto;
         }
 
-        if (TryComp<SlasherBloodTrailComponent>(ent.Owner, out var bloodTrail))
+        if (TryComp<SlasherFearComponent>(ent.Owner, out var fearComp))
         {
+            if (selectedKit.GrantedToVictimOnSight.Count > 0)
+                fearComp.GrantedToVictimOnSight = selectedKit.GrantedToVictimOnSight;
+
             if (selectedKit.BloodTrailMusic is { } bloodMusic)
-                bloodTrail.BloodTrailMusic = bloodMusic;
+                fearComp.BloodTrailMusic = bloodMusic;
 
             if (selectedKit.JumpscareSound is { } jumpscareSound)
-                bloodTrail.JumpscareSounds = new()
+                fearComp.JumpscareSounds = new()
                 {
                     jumpscareSound
                 };
 
             if (selectedKit.BloodTrailReagent is { } bloodReagent)
-                bloodTrail.BloodTrailReagent = bloodReagent;
+                fearComp.BloodTrailReagent = bloodReagent;
+
+            Dirty(ent.Owner, fearComp);
         }
 
         if (TryComp<SlasherSummonMeatSpikeComponent>(ent.Owner, out var meatSpikeComp))

@@ -9,13 +9,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Wraith.Systems;
 
-public sealed class SummonVoidCreatureSystem : EntitySystem
+public sealed partial class SummonVoidCreatureSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private MindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -51,7 +51,9 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
 
     private void OnSummonVoidCreatureSelected(Entity<ChooseVoidCreatureComponent> ent, ref RadialSelectorSelectedMessage args)
     {
-        if (args.SelectedItem is not { } proto || !_proto.TryIndex(proto, out _)
+        if (args.SelectedItem is not { } proto
+            || !IsAvailableSummon(ent.Comp.AvailableSummons, proto)
+            || !_proto.TryIndex(proto, out _)
             || !_mind.TryGetMind(ent.Owner, out var mindUid, out var mind))
             return;
 
@@ -66,5 +68,19 @@ public sealed class SummonVoidCreatureSystem : EntitySystem
 
         _ui.CloseUi(ent.Owner, RadialSelectorUiKey.Key, args.Actor);
         Del(ent.Owner);
+    }
+
+    private static bool IsAvailableSummon(List<RadialSelectorEntry> entries, string proto)
+    {
+        foreach (var entry in entries)
+        {
+            if (entry.Prototype == proto)
+                return true;
+
+            if (entry.Category != null && IsAvailableSummon(entry.Category.Entries, proto))
+                return true;
+        }
+
+        return false;
     }
 }

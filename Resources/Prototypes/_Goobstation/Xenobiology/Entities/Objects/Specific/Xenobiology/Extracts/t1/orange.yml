@@ -9,18 +9,13 @@
       state: core
       color: "#ff9f1a"
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:DoSmokeEntityEffect
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
+      - !type:DoSmokeEffect
         duration: 10
         spreadAmount: 75
         smokePrototype: Smoke
@@ -31,15 +26,13 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:IgniteNearbyEffect
-        radius: 3
-        fireStacks: 5
+      - !type:NestedEffect
+        proto: XenobioExtractReaction
+      - !type:RelayNearby
+        compName: Flammable
+        range: 3
+        effect: !type:NestedEffect
+          proto: Ignite5
       - !type:Flash
         maxRange: 7
         rangePerUnit: 1
@@ -47,15 +40,14 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:MakeUnreactiveEntityEffect
-      - !type:PopupMessage
-        type: Pvs
-        messages: [ "xeno-extract-reaction-reagent" ]
-      - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:AdjustReagent
-        reagent: CapsaicinOil
-        amount: 30
+      - !type:NestedEffect
+        proto: XenobioExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: CapsaicinOil
+          amount: 30
   - type: Tag
     tags:
     - XenobiologyOrangeExtract

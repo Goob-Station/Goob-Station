@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Surgery;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -346,7 +347,7 @@ public abstract partial class SharedSurgerySystem
 
         // Adding organs is generally done for a single one at a time, so we only need to check for the first.
         var firstOrgan = organComp.Organ.Values.FirstOrDefault();
-        if (firstOrgan == default)
+        if (firstOrgan.Component == null)
             return;
 
         if (!HasComp(args.Tool, firstOrgan.Component.GetType())
@@ -358,6 +359,9 @@ public abstract partial class SharedSurgerySystem
 
         if (insertedOrgan.OriginalBody == args.Body)
             return;
+
+        var transplantEv = new OrganTransplantedEvent(args.Body, args.Tool);
+        RaiseLocalEvent(args.User, ref transplantEv);
 
         var ev = new SurgeryStepDamageChangeEvent(args.User, args.Body, args.Part, ent);
             RaiseLocalEvent(ent, ref ev);
@@ -463,7 +467,7 @@ public abstract partial class SharedSurgerySystem
             return;
 
         var organType = ent.Comp.Organ.Values.FirstOrDefault();
-        if (organType == default)
+        if (organType.Component == null)
             return;
 
         var markingCategory = MarkingCategoriesConversion.FromHumanoidVisualLayers(ent.Comp.MarkingCategory);

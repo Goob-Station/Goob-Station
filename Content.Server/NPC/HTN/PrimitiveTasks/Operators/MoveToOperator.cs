@@ -189,7 +189,9 @@ public sealed partial class MoveToOperator : HTNOperator, IHtnConditionalShutdow
             // Goobstation
             comp.DirectMove = false;
 
-            if (blackboard.TryGetValue<EntityCoordinates>(NPCBlackboard.OwnerCoordinates, out var coordinates, _entManager))
+            if (blackboard.TryGetValue<EntityCoordinates>(NPCBlackboard.OwnerCoordinates, out var coordinates, _entManager)
+                && _entManager.EntityExists(coordinates.EntityId) // Goob - Fix (deleted target coordinates)
+                && _entManager.EntityExists(targetCoordinates.EntityId))
             {
                 var mapCoords = _transform.ToMapCoordinates(coordinates);
                 _steering.PrunePath(uid, mapCoords, _transform.ToMapCoordinates(targetCoordinates).Position - mapCoords.Position, result.Path);

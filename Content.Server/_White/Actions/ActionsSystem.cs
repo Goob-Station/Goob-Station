@@ -37,8 +37,18 @@ public sealed class ActionsSystem : EntitySystem
 
     private void OnSpawnTileEntityAction(SpawnTileEntityActionEvent args)
     {
-        if (!args.Handled && CreationTileEntity(args.Performer, args.Performer.ToCoordinates(), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
-            args.Handled = true;
+        if (args.Handled)
+            return;
+
+        var plasmaCost = CompOrNull<PlasmaCostActionComponent>(args.Action)?.PlasmaCost ?? FixedPoint2.Zero;
+        if (!_plasmaCost.HasEnoughPlasma(args.Performer, plasmaCost))
+            return;
+
+        if (!CreationTileEntity(args.Performer, args.Performer.ToCoordinates(), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
+            return;
+
+        _plasmaCost.DeductPlasma(args.Performer, plasmaCost);
+        args.Handled = true;
     }
 
     private void OnPlaceTileEntityEvent(PlaceTileEntityEvent args)

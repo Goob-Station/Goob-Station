@@ -19,7 +19,7 @@
     size: Normal
   - type: Storage
     grid:
-    - 0,0,7,1
+    - 0,0,8,1 #goob
     whitelist:
       tags:
         - Medal
@@ -35,3 +35,4 @@
         - id: ClothingNeckSciencemedal
         - id: ClothingNeckSecuritymedal
         - id: ClothingNeckClownmedal
+        - id: ClothingNeckMimemedal # goob

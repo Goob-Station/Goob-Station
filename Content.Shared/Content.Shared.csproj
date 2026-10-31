@@ -2,6 +2,7 @@
   <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <WarningsAsErrors>RA0032;nullable</WarningsAsErrors>
+    <NoWarn>RA0049,RA0051</NoWarn> <!-- Goob -->
   </PropertyGroup>
   <Import Project="../MSBuild/Content.props" />
   <ItemGroup>
@@ -20,4 +21,6 @@
 
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
+
+  <Import Project="..\RobustToolbox\MSBuild\Robust.EntitySystemSubscriptionsGenerator.targets" /> <!-- Goob Backport lul -->
 </Project>

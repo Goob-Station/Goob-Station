@@ -356,3 +356,133 @@
     sprite: _Goobstation/Clothing/Head/Hats/cowboyhat_centcom.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/cowboyhat_centcom.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatDeku
+  name: dorky hero helmet
+  description: Remarkably cool for a dork.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/dork.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/dork.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatInvincible
+  name: unrobustable mask
+  description: Suprisingly robustable.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/unrobustable.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/unrobustable.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCommandoHelmet
+  name: commando helmet
+  description: Rated to stand any risks of rain.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/commando.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/commando.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatEliteHelmet
+  name: elite soldier helmet
+  description: Will not protect you from crowbars.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/elite.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/elite.rsi
+      #layers:
+      #state: equipped-HELMET
+      #shader: unshaded - someone who is smarter than me can do this if they want El Oh El
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadHatCentcomcap
+  id: ClothingHeadHatEliteHelmetAdmin
+  name: elite soldier helmet
+  description: Will probably protect you from crowbars.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/elite.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/elite.rsi
+      #layers:
+      #state: equipped-HELMET
+    #shader: unshaded - someone who is smarter than me can do this if they want El Oh El
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatDivingSuitHelmet
+  name: diving suit helmet
+  description: Comes with a non-functional respirator!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/infected_diver.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/infected_diver.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHuskDivingSuitHelmet
+  name: infected diving suit helmet
+  description: Comes with a clogged respirator!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/diver.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/diver.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide

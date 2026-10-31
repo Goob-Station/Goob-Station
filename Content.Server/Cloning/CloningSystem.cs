@@ -94,7 +94,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
-            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist);
+            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist, settings.MakeEquipmentUnremoveable, settings.CopyStorage, settings.InternalContentsUnremoveable);
 
         // Copy storage on the mob itself as well.
         // This is needed for slime storage.
@@ -223,7 +223,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
         var slotEnumerator = _inventory.GetSlotEnumerator(original, slotFlags);
         while (slotEnumerator.NextItem(out var item, out var slot))
         {
-            var cloneItem = CopyItem(item, coords, whitelist, blacklist);
+            var cloneItem = CopyItem(item, coords, whitelist, blacklist, copyStorage);
 
             // Goob edit start
             if (cloneItem == null)

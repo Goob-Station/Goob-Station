@@ -24,7 +24,7 @@
     - id: KingRatMigration
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
-    #- id: RevenantSpawn
+    - id: RevenantSpawn # Happy Halloween!
     - id: SleeperAgents
    # - id: ZombieOutbreak removed for low pop too little sec
    # - id: LoneOpsSpawn removed for low pop too little sec

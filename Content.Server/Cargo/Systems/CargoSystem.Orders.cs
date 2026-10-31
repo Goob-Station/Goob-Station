@@ -2,6 +2,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Pirates;
+using Content.Goobstation.Common.AlmanacBlade; // Goobstation
 using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Station.Components;
@@ -713,10 +714,15 @@ namespace Content.Server.Cargo.Systems
 
             // Note that a market must be both on the station and on the console to be available.
             var markets = ent.Comp.AllowedGroups.Intersect(db.Markets).ToList();
+            var hiddenEv = new GetHiddenCargoProductsEvent(new HashSet<string>()); // Goobstation
+            RaiseLocalEvent(ref hiddenEv); // Goobstation
             foreach (var product in _protoMan.EnumeratePrototypes<CargoProductPrototype>())
             {
                 if (!markets.Contains(product.Group))
                     continue;
+
+                if (hiddenEv.Hidden.Contains(product.ID)) // Goobstation
+                    continue; // Goobstation
 
                 products.Add(product.ID);
             }

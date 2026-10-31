@@ -35,17 +35,21 @@
         stomach:
           maxVol: 50.0
         food:
-          maxVol: 10 # goob edit
+          maxVol: 15 # goob edit
           reagents:
             - ReagentId: GreyMatter
               Quantity: 5
             - ReagentId: Cognizine # goob edit
               Quantity: 5 # goob edit
+            - ReagentId: Slime #goob edit
+              Quantity: 5 #goob edit
         organ:
           reagents:
             - ReagentId: Slime
               Quantity: 10
             - ReagentId: Cognizine # goob edit
+              Quantity: 5 # goob edit
+            - ReagentId: GreyMatter #goob edit
               Quantity: 5 # goob edit
     - type: Item
       size: Small

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Speech.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Speech.Components;
 
@@ -21,8 +21,8 @@ public sealed partial class AddAccentClothingComponent : Component
     ///     What <see cref="ReplacementAccentPrototype"/> to use.
     ///     Will be applied only with <see cref="ReplacementAccentComponent"/>.
     /// </summary>
-    [DataField("replacement", customTypeSerializer: typeof(PrototypeIdSerializer<ReplacementAccentPrototype>))]
-    public string? ReplacementPrototype;
+    [DataField("replacement")]
+    public ProtoId<ReplacementAccentPrototype>? ReplacementPrototype;
 
     /// <summary>
     ///     Is that clothing is worn and affecting someones accent?

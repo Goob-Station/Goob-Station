@@ -18,7 +18,7 @@ public sealed class GridDraggingSystem : SharedGridDraggingSystem
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
@@ -101,7 +101,7 @@ public sealed class GridDraggingSystem : SharedGridDraggingSystem
 
         if (_dragging == null)
         {
-            if (!_mapManager.TryFindGridAt(mousePos, out var gridUid, out var grid))
+            if (!_mapSystem.TryFindGridAt(mousePos, out var gridUid, out var grid))
                 return;
 
             StartDragging(gridUid, Vector2.Transform(mousePos.Position, _transformSystem.GetInvWorldMatrix(gridUid)));

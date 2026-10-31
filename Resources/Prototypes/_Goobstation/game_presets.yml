@@ -135,7 +135,6 @@
     - CalmDynamic
     - SubGamemodesRule
     - RareIonStormScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
 
 - type: gamePreset
   id: TheGuide
@@ -144,13 +143,40 @@
     - combatdynamic
   name: guide-title
   description: guide-description
-  showInVote: false
+  showInVote: true
   minPlayers: 25
   rules:
     - CombatDynamic
     - SubGamemodesRule
     - IonStormScheduler
-    - SpaceTrafficControlEventScheduler
+
+- type: gamePreset
+  id: TheTempest
+  alias:
+    - tempest
+    - chaoticdynamic
+  name: tempest-title
+  description: tempest-description
+  showInVote: true
+  minPlayers: 40
+  rules:
+    - ChaoticDynamic
+    - SubGamemodesRule
+    - IonStormScheduler
+
+- type: gamePreset
+  id: TheWatcher
+  alias:
+    - watcher
+    - classicdynamic
+  name: watcher-title
+  description: watcher-description
+  showInVote: true
+  minPlayers: 15
+  rules:
+    - ClassicDynamic
+    - SubGamemodesRule
+    - IonStormScheduler
 
 - type: gamePreset
   id: SecretPlusLow
@@ -163,6 +189,7 @@
   showInVote: true
   rules:
     - SecretPlusLow
+    - MeteorSwarmMildScheduler
 
 - type: gamePreset
   id: SecretPlusMid
@@ -175,19 +202,31 @@
   showInVote: true
   rules:
     - SecretPlusMid
+    - MeteorSwarmScheduler
+
+- type: gamePreset
+  id: SecretPlusHigh
+  alias:
+    - secretplushigh
+  name: secretplus-high-title
+  description: secretplus-high-description
+  showInVote: true
+  rules:
+    - SecretPlusHigh
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: SecretPlusAdmeme
   alias:
     - secretplusadmeme
     - secretplusevil
-    - secretplushigh
     - chaos
   name: secretplus-admeme-title
   description: secretplus-admeme-description
   showInVote: false # 1984
   rules:
     - SecretPlusAdmeme
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: SurvivalPlusMid
@@ -200,6 +239,7 @@
   showInVote: true
   rules:
     - SecretPlusRampingMid
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: Xenomorphs
@@ -243,3 +283,4 @@
   maxPlayers: 40
   rules:
     - SecretPlusLowpop
+    - MeteorSwarmMildScheduler

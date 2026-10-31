@@ -82,7 +82,6 @@
         types:
           Slash: 25
           Structural: 50
-    - type: DemonicWhisper # allows the demon to demonic whisper
     - type: DemonicAccent # the accent
     - type: Puller
       needsHands: false

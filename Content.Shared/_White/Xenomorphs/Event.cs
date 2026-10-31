@@ -66,3 +66,5 @@ public sealed class PlasmaAmountChangeEvent(FixedPoint2 amount) : EntityEventArg
 {
     public FixedPoint2 Amount = amount;
 }
+
+public sealed class XenomorphsAnnouncedEvent : EntityEventArgs;

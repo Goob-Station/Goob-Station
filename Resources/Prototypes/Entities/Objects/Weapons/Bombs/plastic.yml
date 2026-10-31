@@ -77,6 +77,7 @@
   - type: DeviceLinkSink
     ports:
     - Trigger
+  - type: ExplosionEffect # Goob
   - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
     explosionType: DemolitionCharge
     totalIntensity: 60
@@ -158,6 +159,7 @@
   - type: DeviceLinkSink
     ports:
     - Trigger
+  - type: ExplosionEffect # Goob
   - type: Explosive
     explosionType: Cryo
     totalIntensity: 120

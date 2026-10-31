@@ -8,6 +8,7 @@ using Content.Shared.Body.Events;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Holopad;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Light;
@@ -212,6 +213,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("borg-mind-added", ("name", Identity.Name(chassis.Owner, EntityManager))), chassis.Owner);
 
         TryActivate(chassis);
+        GoobDeconvertMind(chassis, args.Mind); // Goob
 
         _access.SetAccessEnabled(chassis.Owner, true); // Needs a player so that scientists can't drag around an empty borg for free AA.
         _appearance.SetData(chassis.Owner, BorgVisuals.HasPlayer, true);
@@ -382,7 +384,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
     private void OnBrainPointAttempt(Entity<BorgBrainComponent> brain, ref PointAttemptEvent args)
     {
-        args.Cancel();
+        if (!HasComp<HolopadUserComponent>(brain)) // Goobstation
+            args.Cancel();
     }
 
     // Raised when the power cell is empty or removed from the borg.

@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Client.IconSmoothing;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
@@ -9,9 +8,8 @@ using Robust.Shared.Map;
 
 namespace Content.Client.Fluids;
 
-public sealed class PuddleSystem : SharedPuddleSystem
+public sealed partial class PuddleSystem : SharedPuddleSystem // Goob
 {
-    [Dependency] private readonly IconSmoothSystem _smooth = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
@@ -33,41 +31,7 @@ public sealed class PuddleSystem : SharedPuddleSystem
             volume = (float)volumeObj;
         }
 
-        // Update smoothing and sprite based on volume.
-        if (TryComp<IconSmoothComponent>(uid, out var smooth))
-        {
-            if (volume < LowThreshold)
-            {
-                _sprite.LayerSetRsiState((uid, args.Sprite), 0, $"{smooth.StateBase}a");
-                _smooth.SetEnabled(uid, false, smooth);
-            }
-            else if (volume < MediumThreshold)
-            {
-                _sprite.LayerSetRsiState((uid, args.Sprite), 0, $"{smooth.StateBase}b");
-                _smooth.SetEnabled(uid, false, smooth);
-            }
-            else
-            {
-                if (!smooth.Enabled)
-                {
-                    _sprite.LayerSetRsiState((uid, args.Sprite), 0, $"{smooth.StateBase}0");
-                    _smooth.SetEnabled(uid, true, smooth);
-                    _smooth.DirtyNeighbours(uid);
-                }
-            }
-        }
-
-        var baseColor = Color.White;
-
-        if (args.AppearanceData.TryGetValue(PuddleVisuals.SolutionColor, out var colorObj))
-        {
-            var color = (Color)colorObj;
-            _sprite.SetColor((uid, args.Sprite), color * baseColor);
-        }
-        else
-        {
-            _sprite.SetColor((uid, args.Sprite), args.Sprite.Color * baseColor);
-        }
+        UpdatePuddleSprite((uid, args.Sprite), volume, args.AppearanceData); // Goob
     }
 
     #region Spill

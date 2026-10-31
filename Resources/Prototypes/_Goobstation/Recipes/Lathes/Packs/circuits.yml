@@ -4,6 +4,8 @@
   id: SecurityBoardsStaticGoob
   recipes:
   - ContrabandDetectorCircuitboard
+  - CriminalRecordsComputerCircuitboard
+  - WeaponEnergyTurretSecurityMachineCircuitboard
 
 - type: latheRecipePack
   id: MedicalBoardsStaticGoob
@@ -14,6 +16,13 @@
   id: ServiceBoardsStaticGoob
   recipes:
   - StationRadioCircuitboard
+  - PhotocopierMachineCircuitboard
+
+- type: latheRecipePack
+  id: CargoBoardsStaticGoob
+  recipes:
+  - CargoBountyComputerCircuitboard
+  - SalvageJobBoardComputerCircuitboard
 
 ## Dynamic
 
@@ -21,6 +30,7 @@
   id: MedicalBoardsGoob
   recipes:
   - AutodocCircuitboard
+  - CrewMonitoringComputerCircuitboard
 
 - type: latheRecipePack
   id: EngineeringBoardsGoob
@@ -31,6 +41,10 @@
   - InteractorCircuitboard
   - PlumbingPumpCircuitboard
   - TelecomTransmitterCircuitboard
+  - PowerComputerCircuitboard
+  - AlertsComputerCircuitboard
+  - AtmosMonitoringComputerCircuitboard
+  - SupermatterComputerCircuitboard
 
 - type: latheRecipePack
   id: ServiceBoardsGoob

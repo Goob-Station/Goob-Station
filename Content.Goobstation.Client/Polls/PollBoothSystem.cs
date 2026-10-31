@@ -7,11 +7,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Polls;
 
-public sealed class PollBoothSystem : EntitySystem
+public sealed partial class PollBoothSystem : EntitySystem
 {
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly PollManager _polls = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private PollManager _polls = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private static readonly SpriteSpecifier AlertSprite =
         new SpriteSpecifier.Rsi(new ResPath("Structures/Storage/closet.rsi"), "cardboard_special");

@@ -11,6 +11,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared._Funkystation.WallStains; // Goob
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -132,6 +133,9 @@ public sealed class VomitSystem : EntitySystem
             // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
             solution.AddReagent(new ReagentId(VomitPrototype, _bloodstream.GetEntityBloodData((uid, bloodStream))), vomitAmount);
         }
+
+        var wallSplash = new SplashOnWallEvent(Transform(uid).Coordinates, solution.Clone()); // Goob
+        RaiseLocalEvent(ref wallSplash); // Goob
 
         if (_puddle.TrySpillAt(uid, solution, out var puddle, false))
         {

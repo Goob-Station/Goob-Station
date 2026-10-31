@@ -2,8 +2,8 @@
 
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Linq;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Chemistry.Reagent;
 
@@ -16,8 +16,8 @@ namespace Content.Shared.Chemistry.Reagent;
 public partial struct ReagentId : IEquatable<ReagentId>
 {
     // TODO rename data field.
-    [DataField("ReagentId", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>), required: true)]
-    public string Prototype { get; private set; }
+    [DataField("ReagentId", required: true)]
+    public ProtoId<ReagentPrototype> Prototype { get; private set; }
 
     /// <summary>
     /// Any additional data that is unique to this reagent type. E.g., for blood this could be DNA data.
@@ -62,8 +62,25 @@ public partial struct ReagentId : IEquatable<ReagentId>
         if (other.Data == null)
             return false;
 
-        if (Data.Except(other.Data).Any() || other.Data.Except(Data).Any() || Data.Count != other.Data.Count)
+        // Goob start
+        if (ReferenceEquals(Data, other.Data))
+            return true;
+
+        if (Data.Count != other.Data.Count)
             return false;
+
+        foreach (var data in Data)
+        {
+            if (!other.Data.Contains(data))
+                return false;
+        }
+
+        foreach (var data in other.Data)
+        {
+            if (!Data.Contains(data))
+                return false;
+        }
+        // Goob end
 
         return true;
     }

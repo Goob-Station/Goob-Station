@@ -13,7 +13,7 @@
       state: core
       color: "#828282"
   - type: Appearance
-  - type: SolutionContainerManager
+  - type: SolutionContainerManager # If you are removing this in favor of upstream, delete RelaySolution on every single xenobio extract rection
     solutions:
       extract:
         maxVol: 100
@@ -25,7 +25,7 @@
     solution: extract
   - type: SlimeExtract
   - type: Reactive
-    oneUnitReaction: true
+    scaleOverride: 1
   - type: StatusEffects # used for jittering and stuff
     allowed:
     - Jitter

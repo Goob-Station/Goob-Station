@@ -2,11 +2,11 @@
 
 using System.Linq;
 using System.Text.Json.Serialization;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Utility;
 using Robust.Shared.Serialization;
 
@@ -29,14 +29,14 @@ namespace Content.Shared.Damage
 
         // These exist solely so the wiki works. Please do not touch them or use them.
         [JsonPropertyName("types")]
-        [DataField("types", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<FixedPoint2, DamageTypePrototype>))]
+        [DataField("types")]
         [UsedImplicitly]
-        private Dictionary<string, FixedPoint2>? _damageTypeDictionary;
+        private Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>? _damageTypeDictionary;
 
         [JsonPropertyName("groups")]
-        [DataField("groups", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<FixedPoint2, DamageGroupPrototype>))]
+        [DataField("groups")]
         [UsedImplicitly]
-        private Dictionary<string, FixedPoint2>? _damageGroupDictionary;
+        private Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>? _damageGroupDictionary;
 
         /// <summary>
         ///     Main DamageSpecifier dictionary. Most DamageSpecifier functions exist to somehow modifying this.
@@ -55,8 +55,8 @@ namespace Content.Shared.Damage
         public float PartDamageVariation { get; set; }
 
         // Goobstation
-        [DataField(customTypeSerializer: typeof(PrototypeIdDictionarySerializer<FixedPoint2, DamageTypePrototype>))]
-        public Dictionary<string, FixedPoint2> WoundSeverityMultipliers { get; set; } = new();
+        [DataField]
+        public Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> WoundSeverityMultipliers { get; set; } = new();
 
         /// <summary>
         ///     Returns a sum of the damage values.
@@ -111,7 +111,7 @@ namespace Content.Shared.Damage
         // Goobstation
         public DamageSpecifier(float armorPenetration,
             float partVariation,
-            Dictionary<string, FixedPoint2> severityMultipliers)
+            Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> severityMultipliers)
         {
             ArmorPenetration = armorPenetration;
             PartDamageVariation = partVariation;

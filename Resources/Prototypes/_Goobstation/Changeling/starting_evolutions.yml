@@ -9,6 +9,7 @@
   - type: ChangelingChemical
   - type: ChangelingRegenerate
   - type: ChangelingStasis
+  - type: DamageGibImmune
   ## todo - handle starting currency here rather than in changelingrulesystem (??)
 
 ## unused for now
@@ -19,5 +20,6 @@
   - type: ChangelingChemical
   - type: ChangelingRegenerate
   - type: ChangelingStasis
+  - type: DamageGibImmune
   - type: VoidAdaption
   ## todo: component that has all of the changeling arms (this will start with an armblade)

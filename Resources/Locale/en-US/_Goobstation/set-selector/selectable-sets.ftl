@@ -252,3 +252,14 @@ selectable-set-research-director-modsuit-desc =
     A modular hardsuit armored perfectly to turn you into a research tank,
     not even the most dangerous of experiments will harm you in this,
     and the worst of assistants will think twice before breaking in sci.
+
+selectable-set-brigmedic-voidsuit-name = Brigmedic hardsuit
+selectable-set-brigmedic-voidsuit-desc =
+    The guardian angel of the brig's hardsuit. A medical take on the
+    security hardsuit, armored enough to drag the wounded out of a firefight.
+
+# idk dude i couldnt think of one im tired
+selectable-set-brigmedic-modsuit-name = Brigmedic's 'Larper' modsuit
+selectable-set-brigmedic-modsuit-desc =
+    A modular hardsuit built for patching up officers in the field,
+    sturdy enough to keep you standing while everyone else is bleeding.

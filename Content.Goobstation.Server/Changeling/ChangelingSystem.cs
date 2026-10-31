@@ -4,6 +4,7 @@ using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Body;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Conversion;
+using Content.Goobstation.Common.Gibbing;
 using Content.Goobstation.Common.Magic;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Medical;
@@ -87,46 +88,46 @@ namespace Content.Goobstation.Server.Changeling;
 public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
     // this is one hell of a star wars intro text
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IRobustRandom _rand = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly EmpSystem _emp = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PoweredLightSystem _light = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly GravitySystem _gravity = default!;
-    [Dependency] private readonly PullingSystem _pull = default!;
-    [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
-    [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
-    [Dependency] private readonly SharedInternalResourcesSystem _resources = default!;
-    [Dependency] private readonly EnsnareableSystem _snare = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private IRobustRandom _rand = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private StoreSystem _store = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private BloodstreamSystem _blood = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private EmpSystem _emp = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private PoweredLightSystem _light = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private GravitySystem _gravity = default!;
+    [Dependency] private PullingSystem _pull = default!;
+    [Dependency] private SharedCuffableSystem _cuffs = default!;
+    [Dependency] private SharedPuddleSystem _puddle = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private IComponentFactory _compFactory = default!;
+    [Dependency] private SelectableAmmoSystem _selectableAmmo = default!;
+    [Dependency] private ChangelingRuleSystem _changelingRuleSystem = default!;
+    [Dependency] private SharedInternalResourcesSystem _resources = default!;
+    [Dependency] private EnsnareableSystem _snare = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -176,7 +177,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         => _polymorph.CopyPolymorphComponent<ChangelingIdentityComponent>(ent, args.NewEntity);
 
     private void OnPolymorphedTakeTwo(Entity<ChangelingComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<ChangelingComponent>(ent, args.NewEntity);
+    {
+        _polymorph.CopyPolymorphComponent<ChangelingComponent>(ent, args.NewEntity);
+
+        if (HasComp<DamageGibImmuneComponent>(ent))
+            EnsureComp<DamageGibImmuneComponent>(args.NewEntity);
+    }
 
     private void OnLimbAmputation(Entity<ChangelingComponent> ent, ref BeforeAmputationDamageEvent args)
     {
@@ -290,7 +296,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void UpdateChemicals(Entity<ChangelingIdentityComponent> ent, float amount, ChangelingChemicalComponent? chemComp = null)
     {
-        if (!Resolve(ent, ref chemComp)
+        if (!Resolve(ent, ref chemComp, false)
             || chemComp.ResourceData == null)
             return;
 
@@ -312,7 +318,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false, ignoreResist: true);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
@@ -640,7 +646,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             typeof(Shared.Overlays.ThermalVisionComponent)
         };
         foreach (var type in types)
-            _polymorph.CopyPolymorphComponent(uid, newEnt, nameof(type));
+            _polymorph.CopyPolymorphComponent(uid, newEnt, type);
 
         // CopyPolymorphComponent fails to copy the HumanoidAppearanceComponent in TransformData
         // outside of the first list item so this has to be done manually unfortunately

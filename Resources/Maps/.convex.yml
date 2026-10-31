@@ -192612,7 +192612,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 152.5,92.5
       parent: 1
-    - type: Timer
   - uid: 18432
     components:
     - type: Transform

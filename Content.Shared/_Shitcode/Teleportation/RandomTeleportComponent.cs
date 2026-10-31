@@ -26,9 +26,16 @@ public partial class RandomTeleportComponent : Component
     ///     Will try harder to find a safe teleport.
     /// </summary>
     [DataField] public bool ForceSafeTeleport = true;
-    
-    [DataField] public bool TeleportPulledEntities = false;
 
-    [DataField] public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
-    [DataField] public SoundSpecifier DepartureSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
+    /// <summary>
+    ///     Whether teleporting should teleport pulled entity as well
+    /// </summary>
+    [DataField]
+    public bool TeleportPulled;
+
+    [DataField]
+    public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+
+    [DataField]
+    public SoundSpecifier DepartureSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
 }

@@ -20,6 +20,8 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -50,7 +52,6 @@ namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly INetManager _net = default!;
 
@@ -249,7 +250,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         var toCoords = coords;
 
         var fromMap = _transform.ToMapCoordinates(fromCoords);
-        var spawnCoords = _mapMan.TryFindGridAt(fromMap, out var gridUid, out _)
+        var spawnCoords = _map.TryFindGridAt(fromMap, out var gridUid, out _)
             ? _transform.WithEntityId(fromCoords, gridUid)
             : new(_map.GetMap(fromMap.MapId), fromMap.Position);
 
@@ -289,11 +290,10 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         if (toHeal != null)
         {
-            _dmg.TryChangeDamage(uid,
+            _dmg.ChangeDamage(uid,
                 toHeal,
                 true,
                 false,
-                uid.Comp1,
                 targetPart: TargetBodyPart.All,
                 splitDamage: SplitDamageBehavior.SplitEnsureAll);
         }
@@ -302,7 +302,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             TryComp<MobThresholdsComponent>(uid, out var thresholds);
             // do this so that the state changes when we set the damage
             _mobThreshold.SetAllowRevives(uid, true, thresholds);
-            _dmg.SetAllDamage(uid, uid.Comp1, 0);
+            _dmg.SetAllDamage(uid, 0);
             _mobThreshold.SetAllowRevives(uid, false, thresholds);
         }
 

@@ -30,21 +30,21 @@ using Content.Shared.Storage.Components;
 
 namespace Content.Goobstation.Server.Wraith;
 
-public sealed class SpookActionSystem : EntitySystem
+public sealed partial class SpookActionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
-    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
-    [Dependency] private readonly DoorSystem _door = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly SmokeSystem _smoke = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private PoweredLightSystem _poweredLight = default!;
+    [Dependency] private FlammableSystem _flammableSystem = default!;
+    [Dependency] private DoorSystem _door = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     private EntityQuery<PoweredLightComponent> _poweredLightQuery;
     private EntityQuery<DoorComponent> _doorQuery;

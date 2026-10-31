@@ -23,7 +23,7 @@ public sealed partial class HereticSystem
         RaiseLocalEvent(uid, (object) ev, true);
     }
 
-    public bool TryAddKnowledge(Entity<HereticComponent?> ent,
+    public override bool TryAddKnowledge(Entity<HereticComponent?> ent,
         ProtoId<HereticKnowledgePrototype> id,
         EntityUid? body = null)
     {

@@ -10,6 +10,8 @@
   - Medical
   flavor: medicine
   color: "#081a80"
+  puddleSpriteSet: Acid # Goob
+  puddleColor: "#081a8080" # Goob
   metabolisms:
     Medicine:
       effects:
@@ -28,6 +30,7 @@
   physicalDesc: reagent-physical-desc-translucent
   flavor: medicine
   color: "#3a1d8a"
+  puddleSpriteSet: Shiny # Goob
   metabolisms:
     Medicine:
       effects:
@@ -88,6 +91,7 @@
   physicalDesc: reagent-physical-desc-chalky
   flavor: medicine
   color: "#64ffe6"
+  puddleSpriteSet: Splotchy # Goob
   metabolisms:
     Medicine:
       effects:
@@ -224,6 +228,8 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: medicine
   color: "#0091ff"
+  puddleSpriteSet: Acid # Goob
+  puddleColor: "#0091ffCC" # Goob
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: -5
@@ -239,10 +245,10 @@
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
-          scaleByTemperature: # Shitmed Change
-            min: 100.0
-            max: 213.0
-            scale: 1.6
+          #scaleByTemperature: # Shitmed Change # TODO SHITMED add properly for EvenHealthChange
+          #  min: 100.0
+          #  max: 213.0
+          #  scale: 1.6
           damage:
           # todo scale with temp like SS13
           # Goob - Cryo buff till temp scaling is implemented
@@ -250,15 +256,25 @@
             Brute: -9 # Goob - Cryobuff
             Burn: -9 # Goob - Cryobuff
             Toxin: -6 # Goob - Cryobuff
-        - !type:GenericStatusEffect # Mono edit
+          # Omu Start -- add bloddloss back to cryox
+        - !type:ModifyBloodLevel
           conditions:
-          - !type:MetabolizerTypeCondition
-            type:
-            - Hydrakin # i hate them
           - !type:TemperatureCondition
             max: 213.0
-          key: ForcedSleep
-          component: ForcedSleeping
+          amount: 8
+        - !type:ModifyBleed
+          conditions:
+          - !type:TemperatureCondition
+            max: 213.0
+          amount: -1
+          #Omu End
+        - !type:ModifyStatusEffect # goob
+          conditions:
+          - !type:MetabolizerTypeCondition # Fuck you
+            type: [Hydrakin]
+          - !type:TemperatureCondition
+            max: 213.0
+          effectProto: StatusEffectForcedSleeping
           type: Add
 
 - type: reagent
@@ -286,14 +302,13 @@
                 Cellular: -2
             groups: # Frontier
                 Brute: 1 # Frontier
-        - !type:GenericStatusEffect # Mono edit
+        - !type:ModifyStatusEffect # goob
           conditions:
           - !type:MetabolizerTypeCondition # Fuck you
             type: [Hydrakin]
           - !type:TemperatureCondition
             max: 213.0
-          key: ForcedSleep
-          component: ForcedSleeping
+          effectProto: StatusEffectForcedSleeping
           type: Add
 
 - type: reagent
@@ -304,6 +319,8 @@
   physicalDesc: reagent-physical-desc-translucent
   flavor: medicine
   color: "#215263"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#21526370" # Goob
   metabolisms:
     Medicine:
       effects:
@@ -452,6 +469,7 @@
   physicalDesc: reagent-physical-desc-odorless
   flavor: medicine
   color: "#d2fffa"
+  puddleSpriteSet: Shiny # Goob
   metabolisms:
     Medicine:
       effects:
@@ -645,6 +663,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: medicine
   color: "#bf3d19"
+  puddleSpriteSet: Splotchy # Goob
   metabolisms:
     Medicine:
       effects:
@@ -680,6 +699,7 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: medicine
   color: "#ff7db5"
+  puddleSpriteSet: Splotchy # Goob
   metabolisms:
     Medicine:
       effects:
@@ -933,6 +953,7 @@
   physicalDesc: reagent-physical-desc-salty
   flavor: salty
   color: "#0064C8"
+  puddleSpriteSet: Water # Goob
   metabolisms:
     Drink:
       effects:
@@ -948,6 +969,10 @@
             type: [ Feroxi ]
           factor: 2
         - !type:ModifyBloodLevel
+          conditions: # Goob start - Afterlight synths
+          - !type:MetabolizerTypeCondition
+            type: [ Synth ]
+            inverted: true # Goob end
           amount: 12 # Goobstation - buffed by two times due to shitmed changes
 
 - type: reagent
@@ -1005,6 +1030,7 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: medicine
   color: "#d49a2f"
+  puddleSpriteSet: Splotchy # Goob
   metabolisms:
     Poison:
       effects:
@@ -1036,6 +1062,7 @@
   physicalDesc: reagent-physical-desc-viscous
   flavor: medicine
   color: "#ba7d7d"
+  puddleSpriteSet: Acid # Goob
   metabolisms:
     Medicine:
       effects:
@@ -1102,6 +1129,7 @@
   physicalDesc: reagent-physical-desc-soothing
   flavor: medicine
   color: "#fcf7f9"
+  puddleSpriteSet: Shiny # Goob
   metabolisms:
     Medicine:
       effects:
@@ -1122,7 +1150,7 @@
             Blunt: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
             Slash: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
             Piercing: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
-      - !type:ImmunityModifier #Goobstation
+      - !type:ImmunityModifier # Goobstation
         gainRateModifier: 0.0011 #3x stronger than Immurin
         strengthModifier: 0.0088888888888 #Twice as strong
         statusLifetime: 3
@@ -1193,6 +1221,8 @@
   physicalDesc: reagent-physical-desc-translucent
   flavor: medicine
   color: "#404040"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#40404050" # Goob
   metabolisms:
     Medicine:
       effects:
@@ -1438,6 +1468,7 @@
   physicalDesc: reagent-physical-desc-holy
   flavor: holy
   color: "#91C3F7"
+  puddleSpriteSet: Water # Goob
   metabolisms:
     Drink:
       effects:
@@ -1673,14 +1704,13 @@
               Brute: -5.0
               Burn: -5.0
               Toxin: -5.0
-        - !type:GenericStatusEffect # Mono edit
+        - !type:ModifyStatusEffect # goob
           conditions:
           - !type:MetabolizerTypeCondition # Fuck you
             type: [Hydrakin]
           - !type:TemperatureCondition
-            max: 217.15
-          key: ForcedSleep
-          component: ForcedSleeping
+            max: 213.0
+          effectProto: StatusEffectForcedSleeping
           type: Add
 
 
@@ -1696,7 +1726,8 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange
+      # - !type:EvenHealthChange # Goob, return Aloxadone to its pre-upstream strength
+      - !type:HealthChange
         conditions:
         - !type:TemperatureCondition
           max: 213.0
@@ -1705,16 +1736,19 @@
           max: 213.0
           scale: 1.6
         damage: # Goobstation - Cryo rebalance
-          Burn: -10.0
-      - !type:GenericStatusEffect # Mono edit
+          # Burn: -10.0
+          types: # Goob start; return Aloxadone to its pre-upstream strength
+            Heat: -10.0
+            Cold: -10.0
+            Shock: -10.0
+            Caustic: -10.0 # Goob end
+      - !type:ModifyStatusEffect # goob
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Hydrakin # i hate them
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
         - !type:TemperatureCondition
           max: 213.0
-        key: ForcedSleep
-        component: ForcedSleeping
+        effectProto: StatusEffectForcedSleeping
         type: Add
 
 - type: reagent
@@ -1793,6 +1827,7 @@
   physicalDesc: reagent-physical-desc-grainy
   flavor: medicine
   color: "#baa15d"
+  puddleSpriteSet: Powder # Goob
   metabolisms:
     Medicine:
       effects:
@@ -1825,6 +1860,8 @@
   physicalDesc: reagent-physical-desc-crystalline
   flavor: medicine
   color: "#27870a"
+  puddleSpriteSet: Powder # Goob
+  puddleColor: "#27870a50" # Goob
   metabolisms:
     Medicine:
       effects:
