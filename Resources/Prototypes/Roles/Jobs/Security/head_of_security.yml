@@ -63,11 +63,11 @@
     id: HoSPDA
     #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     ears: ClothingHeadsetAltSecurity
-    pocket1: WeaponPistolMk58
+    #pocket1: WeaponPistolMk58 - Goob, moved to loadouts
   storage:
     back:
     - Flash
-    - MagazinePistol
+    #- MagazinePistol - Goob, moved to loadouts
 
 - type: chameleonOutfit
   id: HeadOfSecurityChameleonOutfit
