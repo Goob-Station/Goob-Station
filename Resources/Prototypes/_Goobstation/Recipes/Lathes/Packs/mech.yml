@@ -52,6 +52,8 @@
   - GygaxRLeg
   - RipleyUpgradeKit
   - RipleyMKIIHarness
+  - MechEquipmentThruster
+  - MechEquipmentAirTank
 
 - type: latheRecipePack
   id: MechWeaponsSalvage
@@ -69,16 +71,17 @@
 - type: latheRecipePack
   id: MechBoardsSecurity
   recipes:
-#  - GygaxCentralElectronics
+  - GygaxCentralElectronics
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
-#  - DurandCentralElectronics
+  - DurandCentralElectronics
   - DurandPeripheralsElectronics
   - DurandTargetingElectronics
 
 - type: latheRecipePack
   id: MechBoardsCargo
   recipes:
+  - MechChargingStationCircuitboard
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - ClarkeCentralElectronics
@@ -94,5 +97,6 @@
 - type: latheRecipePack
   id: MechBoardsScience
   recipes:
+  - MechChargingStationCircuitboard
   - HamtrCentralElectronics
   - HamtrPeripheralsElectronics

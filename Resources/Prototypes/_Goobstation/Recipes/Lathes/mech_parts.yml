@@ -285,3 +285,24 @@
   materials:
     Steel: 1000
     Glass: 150
+
+- type: latheRecipe
+  id: MechEquipmentThruster
+  result: MechEquipmentThruster
+  categories:
+  - MechEquipment
+  completetime: 10
+  materials:
+    Steel: 1000
+    Glass: 300
+    Plasma: 200
+
+- type: latheRecipe
+  id: MechEquipmentAirTank
+  result: MechEquipmentAirTank
+  categories:
+  - MechEquipment
+  completetime: 10
+  materials:
+    Steel: 1200
+    Glass: 300

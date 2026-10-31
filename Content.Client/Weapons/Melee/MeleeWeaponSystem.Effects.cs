@@ -39,7 +39,7 @@ public sealed partial class MeleeWeaponSystem
         if (!_xformQuery.TryGetComponent(user, out var userXform) || userXform.MapID == MapId.Nullspace)
             return;
 
-        var animationUid = Spawn(animation, userXform.Coordinates);
+        var animationUid = Spawn(animation, TransformSystem.GetMoverCoordinates(user, userXform)); // Goobstation - Mech melee fix
 
         if (!TryComp<SpriteComponent>(animationUid, out var sprite)
             || !TryComp<WeaponArcVisualsComponent>(animationUid, out var arcComponent))
