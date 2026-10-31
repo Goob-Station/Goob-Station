@@ -295,7 +295,8 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 13
+        Heat: 17
+      armorPenetration: 0.1
   - type: HitscanBasicVisuals
     muzzleFlash:
       sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
@@ -333,8 +334,8 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 6
-        Radiation: 6
+        Heat: 7
+        Radiation: 8
   - type: HitscanBasicVisuals
     muzzleFlash:
       sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
@@ -353,8 +354,8 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 18
-      armorPenetration: -0.2
+        Heat: 25
+      armorPenetration: -0.1
   - type: IgniteOnCollide
     fireStacks: 0.35
   - type: HitscanBasicVisuals
@@ -375,7 +376,7 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 11.5
+        Heat: 13.5
       armorPenetration: 0.4
   - type: HitscanBasicVisuals
     muzzleFlash:
