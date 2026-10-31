@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# TODO move this to tiles once tile smoothing is supported
 - type: entity
   id: Catwalk
   name: catwalk
@@ -31,6 +30,7 @@
   - type: Tag
     tags:
       - Catwalk
+  - type: MaintsAreaMarker # Goobstation - maints sounds
   - type: Construction
     graph: Catwalk
     node: Catwalk
