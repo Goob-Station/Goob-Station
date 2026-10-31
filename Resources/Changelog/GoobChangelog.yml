@@ -26916,3 +26916,11 @@ Entries:
       message: Further changes to game director after a day of playtesting.
   id: 3019
   time: '2026-10-31T22:55:46.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Add
+      message: Added a golden MK58 for senior security officers.
+    - type: Tweak
+      message: Sidearms can be chosen from the loadout screen for security now.
+  id: 3020
+  time: '2026-10-31T22:57:21.0000000+00:00'
