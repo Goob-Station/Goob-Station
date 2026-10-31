@@ -159,6 +159,7 @@
   description: tempest-description
   showInVote: true
   minPlayers: 40
+  roundCooldown: 3
   rules:
     - ChaoticDynamic
     - SubGamemodesRule
