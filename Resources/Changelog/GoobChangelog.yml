@@ -26910,3 +26910,9 @@ Entries:
       message: Round control tab buttons now require second press for confirmation
   id: 3018
   time: '2026-10-31T22:44:16.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Further changes to game director after a day of playtesting.
+  id: 3019
+  time: '2026-10-31T22:55:46.0000000+00:00'
