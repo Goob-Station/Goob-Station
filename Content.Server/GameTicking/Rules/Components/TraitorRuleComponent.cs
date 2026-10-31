@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Server.Codewords;
 using Content.Shared.Dataset;
 using Content.Shared.NPC.Prototypes;

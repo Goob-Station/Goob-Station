@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._White.Xenomorphs;
 using Content.Shared._White.Xenomorphs.Plasma;
 using Content.Shared._White.Xenomorphs.Plasma.Components;

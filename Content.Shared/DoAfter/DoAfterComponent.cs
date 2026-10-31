@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Threading.Tasks;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 

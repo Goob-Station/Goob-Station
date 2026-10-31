@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Funkystation.WallStains;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;

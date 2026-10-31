@@ -13,7 +13,6 @@ public sealed class GoobModPack : ModulePack
         RequiredAssembly.Client("Content.Goobstation.Client"),
         RequiredAssembly.Client("Content.Goobstation.UIKit"),
         RequiredAssembly.Server("Content.Goobstation.Server"),
-        RequiredAssembly.Shared("Content.Goobstation.Maths"),
         RequiredAssembly.Shared("Content.Goobstation.Common"),
     };
 }

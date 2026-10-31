@@ -8,7 +8,7 @@ using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Effects;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Jittering;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;

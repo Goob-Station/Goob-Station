@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Actions;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;

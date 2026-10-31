@@ -1,7 +1,7 @@
 using Content.Goobstation.Common.Projectiles;
 using Content.Shared._ES.Camera;
 using Content.Goobstation.Common.Weapons.Penetration;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
