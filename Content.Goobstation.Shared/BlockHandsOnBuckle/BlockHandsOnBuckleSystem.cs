@@ -3,28 +3,28 @@
 using Content.Goobstation.Common.BlockHandsOnBuckle;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Inventory;
 using Content.Shared.Interaction.Events;
 
-namespace Content.Goobstation.Server.BlockHandsOnBuckle;
+namespace Content.Goobstation.Shared.BlockHandsOnBuckle;
+
 public sealed partial class BlockHandsOnBuckleSystem : EntitySystem
 {
-
     [Dependency] private SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private SharedHandsSystem _handsSystem = default!;
-    [Dependency] private InventorySystem _inventorySystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<BlockHandsOnBuckleComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<BlockHandsOnBuckleComponent, UnstrappedEvent>(OnUnstrapped);
 
         SubscribeLocalEvent<BuckleComponent, AttackAttemptEvent>(OnCanAttack);
+        SubscribeLocalEvent<BuckleComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeLocalEvent<BuckleComponent, ConsciousAttemptEvent>(OnConsciousAttempt);
+
     }
 
     private void OnBuckled(Entity<BlockHandsOnBuckleComponent> ent, ref StrappedEvent args)
@@ -44,12 +44,20 @@ public sealed partial class BlockHandsOnBuckleSystem : EntitySystem
     private void OnUnstrapped(Entity<BlockHandsOnBuckleComponent> ent, ref UnstrappedEvent args)
     {
         _virtualItem.DeleteInHandsMatching(args.Buckle.Owner, ent.Owner);
-
     }
 
-    private void OnCanAttack(EntityUid uid, BuckleComponent buckle, ref AttackAttemptEvent args)
+    private void OnInteractionAttempt(Entity<BuckleComponent> ent, ref InteractionAttemptEvent args)
     {
-        if (IsHandsBlocked(buckle))
+        if (ent.Comp.BuckledTo is { } buckled
+            && HasComp<BlockHandsOnBuckleComponent>(buckled)
+            && args.Target != null)
+            args.Cancelled = true;
+    }
+
+    private void OnCanAttack(Entity<BuckleComponent> ent, ref AttackAttemptEvent args)
+    {
+        if (ent.Comp.BuckledTo is { } buckled
+            && HasComp<BlockHandsOnBuckleComponent>(buckled))
             args.Cancel();
     }
 
@@ -63,4 +71,5 @@ public sealed partial class BlockHandsOnBuckleSystem : EntitySystem
     {
         return buckle.BuckledTo is { } strap && HasComp<BlockHandsOnBuckleComponent>(strap);
     }
+
 }
