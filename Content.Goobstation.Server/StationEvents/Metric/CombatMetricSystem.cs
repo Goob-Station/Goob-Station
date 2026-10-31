@@ -33,7 +33,7 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 ///   Hostile : about 10 points per hostile (those with antag roles) - varies per constants
 ///   Combat: friendlies + hostiles (to represent the balance of power)
 ///   Death: 20 per dead body,
-///   Medical: 10 for crit + 0.05 * damage (so 5 for 100 damage),
+///   Medical: 40 for crit + 0.2 * damage (so 20 for 100 damage),
 /// </summary>
 public sealed partial class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent>
 {

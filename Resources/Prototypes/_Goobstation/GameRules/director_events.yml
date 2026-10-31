@@ -130,7 +130,7 @@
   components:
   - type: StationEvent
     chaos:
-      Atmos: -60
+      Fire: -60
       Medical: -20
   - type: GameDirectorRequiresStaff
     departments:
