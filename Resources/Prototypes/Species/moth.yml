@@ -30,6 +30,7 @@
     TailBehindBackpack: MobHumanoidAnyMarking #imp
     Head: MobMothHead
     Face: MobHumanoidAnyMarking
+    Hair: MobHumanoidMarkingMatchSkin
     Snout: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
@@ -56,64 +57,80 @@
 
 - type: markingPoints
   id: MobMothMarkingLimits
-  onlyWhitelisted: true
   points:
     Hair:
-      points: 0
+      points: 1
       required: false
     FacialHair:
       points: 0
       required: false
+      onlyWhitelisted: true
     Tail:
       points: 1
       required: true
       defaultMarkings: [ MothWingsDefault ]
+      onlyWhitelisted: true
     Snout:
       points: 1
       required: false
+      onlyWhitelisted: true
     HeadTop:
       points: 6
       required: true
       defaultMarkings: [ MothAntennasDefault ]
+      onlyWhitelisted: true
     HeadSide:
       points: 8
       required: false
+      onlyWhitelisted: true
     Head:
       points: 1
       required: false
+      onlyWhitelisted: true
     UndergarmentTop:
       points: 1
       required: false
+      onlyWhitelisted: true
     UndergarmentBottom:
       points: 8
       required: false
+      onlyWhitelisted: true
     Chest:
       points: 8
       required: false
+      onlyWhitelisted: true
     RightLeg:
       points: 2
       required: false
+      onlyWhitelisted: true
     RightFoot:
       points: 2
       required: false
+      onlyWhitelisted: true
     LeftLeg:
       points: 2
       required: false
+      onlyWhitelisted: true
     LeftFoot:
       points: 2
       required: false
+      onlyWhitelisted: true
     RightArm:
       points: 2
       required: false
+      onlyWhitelisted: true
     RightHand:
       points: 2
       required: false
+      onlyWhitelisted: true
     LeftArm:
       points: 2
       required: false
+      onlyWhitelisted: true
     LeftHand:
       points: 2
       required: false
+      onlyWhitelisted: true
 
 - type: humanoidBaseSprite
   id: MobMothHead

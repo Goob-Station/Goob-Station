@@ -181,7 +181,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start 
-    default_neck: TailBehindBackpack
+    default_neck: HeadSide
     default_primary_behind: TailBehind
     default_primary_front: TailBehindBackpack
     default_secondary_behind: TailBehind
@@ -207,7 +207,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    charred_neck: TailBehindBackpack
+    charred_neck: HeadSide
     charred_primary_behind: TailBehind
     charred_primary_front: TailBehindBackpack
   colorLinks:
@@ -226,7 +226,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    dbushy_neck: TailBehindBackpack
+    dbushy_neck: HeadSide
     dbushy_primary_behind: TailBehind
     dbushy_primary_front: TailBehindBackpack
     dbushy_secondary_behind: TailBehind
@@ -252,7 +252,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    deathhead_neck: TailBehindBackpack
+    deathhead_neck: HeadSide
     deathhead_primary_behind: TailBehind
     deathhead_primary_front: TailBehindBackpack
     deathhead_secondary_behind: TailBehind
@@ -278,7 +278,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    fan_neck: TailBehindBackpack
+    fan_neck: HeadSide
     fan_primary_behind: TailBehind
     fan_primary_front: TailBehindBackpack
     fan_secondary_behind: TailBehind
@@ -304,7 +304,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    dfan_neck: TailBehindBackpack
+    dfan_neck: HeadSide
     dfan_primary_behind: TailBehind
     dfan_primary_front: TailBehindBackpack
     dfan_secondary_behind: TailBehind
@@ -330,7 +330,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    feathery_neck: TailBehindBackpack
+    feathery_neck: HeadSide
     feathery_primary_behind: TailBehind
     feathery_primary_front: TailBehindBackpack
   colorLinks:
@@ -349,7 +349,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    firewatch_neck: TailBehindBackpack
+    firewatch_neck: HeadSide
     firewatch_primary_behind: TailBehind
     firewatch_primary_front: TailBehindBackpack
     firewatch_secondary_behind: TailBehind
@@ -375,7 +375,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    gothic_neck: TailBehindBackpack
+    gothic_neck: HeadSide
     gothic_primary_behind: TailBehind
     gothic_primary_front: TailBehindBackpack
     gothic_secondary_behind: TailBehind
@@ -401,7 +401,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    jungle_neck: TailBehindBackpack
+    jungle_neck: HeadSide
     jungle_primary_behind: TailBehind
     jungle_primary_front: TailBehindBackpack
   colorLinks:
@@ -420,7 +420,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    ladybug_neck: TailBehindBackpack
+    ladybug_neck: HeadSide
     ladybug_primary_behind: TailBehind
     ladybug_primary_front: TailBehindBackpack
     ladybug_secondary_front: TailBehindBackpack
@@ -442,7 +442,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    maple_neck: TailBehindBackpack
+    maple_neck: HeadSide
     maple_primary_behind: TailBehind
     maple_primary_front: TailBehindBackpack
     maple_secondary_behind: TailBehind
@@ -468,8 +468,8 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    moffra_neck: TailBehindBackpack
-    moffra_neck_secondary: TailBehindBackpack
+    moffra_neck: HeadSide
+    moffra_neck_secondary: HeadSide
     moffra_primary_behind: TailBehind
     moffra_primary_front: TailBehindBackpack
     moffra_secondary_behind: TailBehind
@@ -498,7 +498,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    oakworm_neck: TailBehindBackpack
+    oakworm_neck: HeadSide
     oakworm_primary_behind: TailBehind
     oakworm_primary_front: TailBehindBackpack
   colorLinks:
@@ -517,7 +517,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    plasmafire_neck: TailBehindBackpack
+    plasmafire_neck: HeadSide
     plasmafire_primary_behind: TailBehind
     plasmafire_primary_front: TailBehindBackpack
     plasmafire_secondary_behind: TailBehind
@@ -543,7 +543,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    pointy_neck: TailBehindBackpack
+    pointy_neck: HeadSide
     pointy_primary_behind: TailBehind
     pointy_primary_front: TailBehindBackpack
   colorLinks:
@@ -562,7 +562,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    royal_neck: TailBehindBackpack
+    royal_neck: HeadSide
     royal_primary_behind: TailBehind
     royal_primary_front: TailBehindBackpack
     royal_secondary_behind: TailBehind
@@ -588,7 +588,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    stellar_neck: TailBehindBackpack
+    stellar_neck: HeadSide
     stellar_primary_behind: TailBehind
     stellar_primary_front: TailBehindBackpack
   colorLinks:
@@ -607,7 +607,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    striped_neck: TailBehindBackpack
+    striped_neck: HeadSide
     striped_primary_behind: TailBehind
     striped_primary_front: TailBehindBackpack
   colorLinks:
@@ -626,7 +626,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    swirly_neck: TailBehindBackpack
+    swirly_neck: HeadSide
     swirly_primary_behind: TailBehind
     swirly_primary_front: TailBehindBackpack
   colorLinks:
@@ -645,7 +645,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    whitefly_neck: TailBehindBackpack
+    whitefly_neck: HeadSide
     whitefly_primary_behind: TailBehind
     whitefly_primary_front: TailBehindBackpack
   colorLinks:
@@ -664,7 +664,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    witchwing_neck: TailBehindBackpack
+    witchwing_neck: HeadSide
     witchwing_primary_behind: TailBehind
     witchwing_primary_front: TailBehindBackpack
   colorLinks:
@@ -683,7 +683,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   layering: # imp edit start
-    underwing_neck: TailBehindBackpack
+    underwing_neck: HeadSide
     underwing_primary_behind: TailBehind
     underwing_primary_front: TailBehindBackpack
     underwing_secondary_behind: TailBehind
