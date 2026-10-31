@@ -25,6 +25,9 @@ public sealed partial class BossMusicPrototype : IPrototype
     [DataField]
     public float FadeOutTime = 5f;
 
+    [DataField]
+    public float StartDelay;
+
     /// <summary>
     /// Sets the playback position when the boss is defeated.
     /// </summary>
