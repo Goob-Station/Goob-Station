@@ -26969,3 +26969,13 @@ Entries:
         a nest themselves.
   id: 3023
   time: '2026-10-31T23:11:20.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Boogeyman now deals 60 fear on jumpscare instead of the usual 20.
+    - type: Fix
+      message: >-
+        Fixed the boogeymans shader. The engine update from a while back broke
+        it.
+  id: 3024
+  time: '2026-10-31T23:15:01.0000000+00:00'
