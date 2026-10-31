@@ -15,3 +15,9 @@
   flatReductions:
     Blunt: 5
   ignoreArmorPierceFlags: All # Goobstation
+
+- type: damageModifierSet
+  id: SupermatterImbued
+  coefficients:
+    Radiation: 0.0
+  ignoreArmorPierceFlags: All

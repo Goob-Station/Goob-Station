@@ -186,6 +186,13 @@ spellbook-smite-desc =
     This spell charges your hand with an unholy energy that can be used to cause a touched victim to violently explode.
     Requires wizard's robe and hat to cast.
 
+spellbook-summon-supermatter-name = Summon Supermatter
+spellbook-summon-supermatter-desc =
+    Summons an active supermatter crystal. Imbues you with some supermatter, giving you resistance to its ashing and radiation immunity.
+    Upgrading this spell takes one minute off its cooldown per level.
+    Cannot be refunded.
+    Requires wizards robe and hat to cast.
+
 spellbook-rathen-name = Rathen's Secret
 spellbook-rathen-desc =
     Summons a powerful shockwave around you that knocks everyone down, forcing them to defecate their appendix.
