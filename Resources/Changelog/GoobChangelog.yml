@@ -26904,3 +26904,9 @@ Entries:
       message: 'Added Chicken Nuggets to the chef''s repertoire '
   id: 3017
   time: '2026-10-31T22:43:24.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Round control tab buttons now require second press for confirmation
+  id: 3018
+  time: '2026-10-31T22:44:16.0000000+00:00'
