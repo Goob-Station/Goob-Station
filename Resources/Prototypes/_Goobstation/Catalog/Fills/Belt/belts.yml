@@ -93,6 +93,8 @@
     containers:
       item:
       - Justice
+      item2:
+      - WeaponEnergyGunLawbringer
 
 - type: entityTable
   id: BeltSecurityNoBatonEntityTable

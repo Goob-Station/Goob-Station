@@ -168,6 +168,10 @@
     sprite: _Goobstation/Clothing/Belt/hossheath.rsi
   - type: Item
     size: Ginormous
+  - type: Charger
+    slotId: [item;item2]
+    portable: true
+    chargeRate: 25
   - type: ItemSlots
     slots:
       item:
@@ -179,12 +183,21 @@
         whitelist:
           tags:
           - Justice
+      item2:
+        name: Lawbringer
+        ejectOnBeltInteract: true
+        insertVerbText: holster-insert-verb
+        ejectVerbText: holster-eject-verb
+        whitelist:
+          tags:
+          - WeaponEnergyGunLawbringer
   - type: ItemMapper
     mapLayers:
       sheath-sabre:
         whitelist:
           tags:
           - Justice
+          - WeaponEnergyGunLawbringer
   - type: Appearance
 
 - type: entity

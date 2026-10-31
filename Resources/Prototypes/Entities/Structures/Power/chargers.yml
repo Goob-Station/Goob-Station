@@ -14,7 +14,7 @@
     snapCardinals: true
   - type: Appearance
   - type: Charger
-    slotId: charger_slot
+    slotId: [charger_slot]
   - type: ApcPowerReceiver
     powerLoad: 1 # same as draw given in ChargerComponent.PassiveDraw; increased when it is actually charging something
   - type: Anchorable
@@ -101,7 +101,7 @@
   - type: PowerCellSlot
     cellSlotId: charger_slot
     # fitsInCharger is true i dont think this will ever affect anything negatively but it lets it function
-  - type: Charger #Goobstation
+  - type: [Charger] #Goobstation
     chargeRate: 25
   - type: ItemSlots
     slots:
@@ -317,7 +317,7 @@
         visible: false
   - type: Charger
     chargeRate: 30
-    slotId: entity_storage
+    slotId: [entity_storage]
     whitelist:
       components:
       - BorgChassis

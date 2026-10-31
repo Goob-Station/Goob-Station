@@ -446,7 +446,7 @@
     deleteAfterExplosion: false
     repeatable: true
   - type: BatterySelfRecharger
-    autoRechargeRate: 50
+    autoRechargeRate: 25
     autoRechargePauseTime: 40
 
 - type: entity
