@@ -26888,3 +26888,13 @@ Entries:
       message: Clown spiders inject crapotoxin.
   id: 3015
   time: '2026-10-31T22:35:11.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Remove
+      message: >-
+        Some entities that had binary comms (positronic brains, man-machine
+        interfaces, personal AIs, and a few others) no longer have it - it's now
+        (almost) entirely for AI, borgs... and vending machines too, because why
+        the hell not.
+  id: 3016
+  time: '2026-10-31T22:41:12.0000000+00:00'
