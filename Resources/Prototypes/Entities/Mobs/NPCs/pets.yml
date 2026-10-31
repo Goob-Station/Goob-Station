@@ -987,6 +987,10 @@
     rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost role requirements
+    - !type:RoleTimeRequirement
+      role: JobBartender
+      time: 54000 #15 hour
     mindRoles:
     - MindRoleGhostRoleNeutral
     job: Bartender # Goob
