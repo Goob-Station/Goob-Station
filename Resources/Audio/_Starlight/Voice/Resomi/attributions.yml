@@ -4,3 +4,8 @@
   copyright: "Bird Chirps by whiskeyecho, Taken from https://freesound.org/"
   license: "CC0-1.0"
   source: https://freesound.org/s/727256/
+
+- files: [resomi_call_1.ogg, resomi_call_2.ogg, resomi_scree_1.ogg, resomi_scree_2.ogg, resomi_squawk_1.ogg]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from public wildlife sound library xeno-canto.org, via Starlight"
+  source: "https://github.com/ss14Starlight/space-station-14/commit/901fa76a4a"

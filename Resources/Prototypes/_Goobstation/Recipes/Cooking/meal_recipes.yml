@@ -129,3 +129,29 @@
     FoodDoughPie: 1
     FoodGoldenApple: 2
     FoodPlateTin: 1
+
+- type: microwaveMealRecipe
+  id: RecipeNuggetBox
+  name: Chicken Nuggets
+  result: FoodBoxNugget
+  time: 15
+  group: Savory
+  solids:
+    MaterialCardboard1: 1
+  reagents:
+    UncookedAnimalProteins: 9
+    Fat: 9
+    Flour: 5
+    TableSalt: 2.5
+
+- type: microwaveMealRecipe
+  id: RecipeNugget
+  name: Chicken Nugget
+  result: FoodBakedNugget
+  time: 5
+  group: Savory
+  reagents:
+    UncookedAnimalProteins: 2.5
+    Fat: 2.5
+    Flour: 1
+    TableSalt: 1

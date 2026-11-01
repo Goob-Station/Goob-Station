@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Original sprites by @KillianKirilenko from vorestation at commit https://github.com/VOREStation/VOREStation/pull/14891 | split into layers and resprited in grey scale by erhardsteinhauer (discord/github)",
+  "copyright": "Original sprites by @KillianKirilenko from vorestation at commit https://github.com/VOREStation/VOREStation/pull/14891 | split into layers and resprited in grey scale by erhardsteinhauer (discord/github). Decor stripes and alt bottoms by Beanyboi69.",
   "size": {
     "x": 32,
     "y": 32
@@ -39,6 +39,15 @@
     },
     {
       "name": "icon-decor-shoulder-patch"
+    },
+    {
+      "name": "icon-base-bottom-alt"
+    },
+    {
+      "name": "icon-decor-stripe"
+    },
+    {
+      "name": "icon-decor-twostripe"
     },
     {
       "name": "equipped-base-bottom",
@@ -93,6 +102,18 @@
       "directions": 4
     },
     {
+      "name": "equipped-base-bottom-alt",
+      "directions": 4
+    },
+    {
+      "name": "equipped-decor-stripe",
+      "directions": 4
+    },
+    {
+      "name": "equipped-decor-twostripe",
+      "directions": 4
+    },
+    {
       "name": "inhand-left-base-bottom",
       "directions": 4
     },
@@ -137,6 +158,14 @@
       "directions": 4
     },
     {
+      "name": "inhand-left-decor-stripe",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left-decor-twostripe",
+      "directions": 4
+    },
+    {
       "name": "inhand-right-base-bottom",
       "directions": 4
     },
@@ -178,6 +207,14 @@
     },
     {
       "name": "inhand-right-decor-shoulder-patch",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-decor-stripe",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-decor-twostripe",
       "directions": 4
     },
     {

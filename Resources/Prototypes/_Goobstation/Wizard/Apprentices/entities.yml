@@ -54,6 +54,7 @@
     guaranteedActions:
     - ActionLesserSummonBees
     - ActionSummonSimians
+    - ActionSummonSupermatter
 
 - type: entity
   parent: MobHumanApprenticeBase

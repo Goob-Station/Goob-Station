@@ -1,0 +1,311 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: SnoutBigBeak
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Resomi, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_bigbeak_primary
+
+- type: marking
+  id: SnoutBigBeakShort
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Resomi, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_bigbeakshort_primary
+
+- type: marking
+  id: SnoutBird
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Resomi, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_bird_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_bird_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_bird_tertiary
+
+- type: marking
+  id: SnoutBirdSkull
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/snouts.rsi
+    state: skullbird
+
+- type: marking
+  id: SnoutBirdSmall
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Resomi, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_birdsmall_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_birdsmall_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_birdsmall_tertiary
+
+- type: marking
+  id: SnoutBug
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_bug_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_bug_secondary
+
+- type: marking
+  id: SnoutCanidAlt2
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_canid_alt2
+
+- type: marking
+  id: SnoutCheesegal
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state: sergsnoutredux-1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_DEN/Mobs/Customization/Vulpkanin/cheesegal.rsi
+    state: sergsnoutredux-2
+
+- type: marking
+  id: SnoutFLCanid
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_flcanid_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_flcanid_secondary
+
+- type: marking
+  id: SnoutFSCanid
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_fscanid_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_fscanid_secondary
+
+- type: marking
+  id: SnoutHAnubus
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_hanubus_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_hanubus_secondary
+
+- type: marking
+  id: SnoutHShark
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Feroxi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_hshark_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_hshark_secondary
+
+- type: marking
+  id: SnoutHSpots
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_hspots_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_hspots_secondary
+
+- type: marking
+  id: SnoutHookBeak
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Resomi, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_hookbeak_primary
+
+- type: marking
+  id: SnoutHusky
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_husky_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_husky_secondary
+
+- type: marking
+  id: SnoutLeporid
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_leporid_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_leporid_secondary
+
+- type: marking
+  id: SnoutMagusSkull
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/SimpleStation14/Mobs/Customization/snouts.rsi
+    state: extra_magus
+
+- type: marking
+  id: SnoutNTajaran
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_ntajaran
+
+- type: marking
+  id: SnoutOtie
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_otie_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_otie_secondary
+
+- type: marking
+  id: SnoutPede
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_pede_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_pede_secondary
+
+- type: marking
+  id: SnoutRat
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_rat_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_rat_tertiary
+
+- type: marking
+  id: SnoutRodent
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_rodent_primary
+
+- type: marking
+  id: SnoutRound
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_round
+
+- type: marking
+  id: SnoutShark
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Feroxi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_shark_primary
+
+- type: marking
+  id: SnoutSharkBlubber
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Feroxi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_sharkblubber_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_sharkblubber_secondary
+
+- type: marking
+  id: SnoutSharp
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_sharp
+
+- type: marking
+  id: SnoutSlimBeak
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Resomi, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_slimbeak_primary
+
+- type: marking
+  id: SnoutSlimBeakShort
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Resomi, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_slimbeakshort_primary
+
+- type: marking
+  id: SnoutToucan
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Harpy, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_toucan_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_toucan_tertiary
+
+- type: marking
+  id: SnoutWah
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_wah_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_wah_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/skyratsnouts.rsi
+    state: snout_wah_tertiary

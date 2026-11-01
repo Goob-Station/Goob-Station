@@ -7,11 +7,16 @@ using Content.Shared._White.Xenomorphs;
 using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Content.Shared.Damage; // Omu
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Mobs;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage.Systems; // Omu
 
@@ -25,13 +30,14 @@ public sealed class XenomorphLarvaSystem : EntitySystem
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!; // Omu
+    [Dependency] private readonly MobThresholdSystem _threshold = default!; // Goob
 
     public override void Initialize()
     {
         SubscribeLocalEvent<XenomorphLarvaComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<XenomorphLarvaComponent, EntGotRemovedFromContainerMessage>(OnGotRemovedFromContainer);
-        SubscribeLocalEvent<XenomorphLarvaComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
         SubscribeLocalEvent<XenomorphLarvaComponent, LarvaBurstDoAfterEvent>(OnLarvaBurstDoAfter);
+        SubscribeLocalEvent<XenomorphLarvaComponent, MindAddedMessage>(OnMindAdded);
     }
 
     private void OnShutdown(EntityUid uid, XenomorphLarvaComponent component, ComponentShutdown args)
@@ -46,12 +52,19 @@ public sealed class XenomorphLarvaSystem : EntitySystem
             RemComp<XenomorphLarvaVictimComponent>(component.Victim.Value);
     }
 
-    private void OnTakeGhostRole(EntityUid uid, XenomorphLarvaComponent component, TakeGhostRoleEvent args)
+    private void OnMindAdded(Entity<XenomorphLarvaComponent> ent, ref MindAddedMessage args)
     {
-        if (component.Victim is not {} victim)
+        if (ent.Comp.Victim.HasValue
+            && _container.TryGetContainingContainer(ent.Owner, out _))
+            StartBurst(ent);
+    }
+
+    private void StartBurst(Entity<XenomorphLarvaComponent> ent)
+    {
+        if (ent.Comp.Victim is not { } victim)
             return;
 
-        var doAfterEventArgs = new DoAfterArgs(EntityManager, uid, component.BurstDelay, new LarvaBurstDoAfterEvent(), uid, target: component.Victim)
+        var doAfterEventArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.BurstDelay, new LarvaBurstDoAfterEvent(), ent.Owner, target: ent.Comp.Victim)
         {
             NeedHand = false,
             BreakOnDamage = false,
@@ -70,7 +83,7 @@ public sealed class XenomorphLarvaSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("xenomorphs-burst-victim"), victim, victim, PopupType.MediumCaution);
         _popup.PopupEntity(Loc.GetString("xenomorphs-burst-other", ("victim", Identity.Entity(victim, EntityManager))), victim, Filter.PvsExcept(victim), true, PopupType.LargeCaution);
 
-        _jitter.DoJitter(victim, component.BurstDelay, true);
+        _jitter.DoJitter(victim, ent.Comp.BurstDelay, true);
     }
 
     private void OnLarvaBurstDoAfter(EntityUid uid, XenomorphLarvaComponent component, LarvaBurstDoAfterEvent args)
@@ -83,6 +96,14 @@ public sealed class XenomorphLarvaSystem : EntitySystem
         var damage = new DamageSpecifier(); // Omu start
         damage.DamageDict.Add("Blunt", 120);
         damage.DamageDict.Add("Piercing", 80);
+        if (_threshold.TryGetThresholdForState(victim, MobState.Dead, out var dead) // Goob - don't gib small mobs
+            && TryComp<DamageableComponent>(victim, out var damageable))
+        {
+            var needed = dead.Value - damageable.TotalDamage + 10;
+            var total = damage.GetTotal();
+            if (needed < total)
+                damage *= FixedPoint2.Max(needed, 0) / total;
+        }
         _damageableSystem.TryChangeDamage(victim, damage: damage, ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.Chest);
     }
 }

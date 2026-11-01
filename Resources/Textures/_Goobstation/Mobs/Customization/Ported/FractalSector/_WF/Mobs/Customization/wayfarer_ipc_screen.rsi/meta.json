@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Possum for Wayfarer. https://github.com/project-wayfarer/wayfarer-14. Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_WF/Mobs/Customization/wayfarer_ipc_screen.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ipc_screen_snoutysmile",
+      "directions": 4
+    }
+  ]
+}

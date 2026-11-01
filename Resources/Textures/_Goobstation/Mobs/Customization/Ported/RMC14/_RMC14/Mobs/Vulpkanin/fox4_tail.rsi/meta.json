@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Bubberstation at https://github.com/Bubberstation/Bubberstation/blob/40862b85a075d46417f73870663b0831b738edee/modular_skyrat/master_files/icons/mob/sprite_accessory/tails.dmi. Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f/Resources/Textures/_RMC14/Mobs/Vulpkanin/fox4_tail.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "m_tail_fox4_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_fox4_secondary",
+      "directions": 4
+    }
+  ]
+}

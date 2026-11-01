@@ -1,0 +1,10 @@
+# Security
+
+- type: loadoutGroup
+  id: TrinketsSecurity
+  name: loadout-group-trinkets-job
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityOfficerMk58
+  - WeaponPistolMk58Gold

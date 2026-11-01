@@ -9,3 +9,8 @@
   license: "CC0-1.0"
   copyright: '"Retro, Drop 02.wav" by MATRIXXX_ of Freesound.org. Mixed from stereo to mono and reversed.'
   source: "https://freesound.org/people/MATRIXXX_/sounds/415990/"
+
+- files: ["queen_roar_start.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by AudioPapkin, Modified by loltart"
+  source: "https://pixabay.com/sound-effects/horror-monster-roar-ps-oo7-306401/"

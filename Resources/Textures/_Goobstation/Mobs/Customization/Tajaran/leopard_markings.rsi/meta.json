@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Leopard markings taken from Wolfgate at https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f (Resources/Textures/_WF/MeridianMarkings). Original attribution: Taken from Meridian Rift at https://github.com/Aphelion-Moon/Meridian-Rift/tree/0fd8e40910402f2745e5e5e4adc7d37bd45fed40 (modular_nova/master_files/icons/mob/body_markings/akula_markings.dmi, modular_nova/master_files/icons/mob/body_markings/moth_grayscale_markings.dmi, modular_nova/master_files/icons/mob/body_markings/moth_markings.dmi, modular_nova/master_files/icons/mob/body_markings/other_markings.dmi, modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi, modular_nova/master_files/icons/mob/body_markings/synthliz_secondary.dmi, modular_nova/master_files/icons/mob/body_markings/synthliz_tertiary.dmi, modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi, modular_nova/master_files/icons/mob/body_markings/tertiary_markings.dmi, modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi), which carries the art of NovaSector, Skyrat-tg and tgstation. Layers merged per colour and centred for Wolfgate by Tools/_WF/MeridianMarkings/port.py.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "leopard_chest",
+      "directions": 4
+    },
+    {
+      "name": "leopard_alt_chest",
+      "directions": 4
+    },
+    {
+      "name": "leopard_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "leopard_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "leopard_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "leopard_r_hand",
+      "directions": 4
+    }
+  ]
+}

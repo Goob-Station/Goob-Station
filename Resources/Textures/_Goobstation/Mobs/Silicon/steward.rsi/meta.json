@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites made by Hardbassman for Goobstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "robot",
+      "directions": 4
+    },
+    {
+      "name": "robot_e_r",
+      "directions": 4
+    },
+    {
+      "name": "robot_e",
+      "directions": 4
+    },
+    {
+      "name": "robot_l",
+      "directions": 4
+    }
+  ]
+}

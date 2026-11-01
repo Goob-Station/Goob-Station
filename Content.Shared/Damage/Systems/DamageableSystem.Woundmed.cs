@@ -113,9 +113,9 @@ public sealed partial class DamageableSystem
         return true;
     }
 
-    private static bool IsNoOpHeal(DamageableComponent damageable, DamageSpecifier damage)
+    private bool IsNoOpHeal(Entity<DamageableComponent> ent, DamageSpecifier damage)
     {
-        var current = damageable.Damage.DamageDict;
+        var current = ent.Comp.Damage.DamageDict;
         foreach (var (type, value) in damage.DamageDict)
         {
             if (value > 0)
@@ -125,7 +125,33 @@ public sealed partial class DamageableSystem
                 return false;
         }
 
+        if (_woundableQuery.TryComp(ent, out var woundable))
+            return !HasWoundsHealedBy(ent, woundable, damage);
+
+        if (_bodyQuery.TryComp(ent, out var body) && body.BodyType == BodyType.Complex)
+        {
+            foreach (var (part, _) in _body.GetBodyChildren(ent, body))
+            {
+                if (_woundableQuery.TryComp(part, out var partWoundable)
+                    && HasWoundsHealedBy(part, partWoundable, damage))
+                    return false;
+            }
+        }
+
         return true;
+    }
+
+    private bool HasWoundsHealedBy(EntityUid uid, WoundableComponent woundable, DamageSpecifier damage)
+    {
+        foreach (var wound in _wounds.GetWoundableWounds(uid, woundable))
+        {
+            if (wound.Comp.WoundSeverityPoint > 0
+                && damage.DamageDict.TryGetValue(wound.Comp.DamageType, out var value)
+                && value < 0)
+                return true;
+        }
+
+        return false;
     }
 
     /// <summary>

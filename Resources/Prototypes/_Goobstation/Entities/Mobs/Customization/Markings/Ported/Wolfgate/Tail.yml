@@ -1,0 +1,1573 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: FoxTail
+  wagging: FoxTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    vulp_tail_BEHIND: TailBehind
+    vulp_tail_inner_BEHIND: TailBehind
+  colorLinks:
+    vulp_tail_BEHIND: vulp_tail_FRONT
+    vulp_tail_inner_BEHIND: vulp_tail_inner_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: vulp_tail_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: vulp_tail_inner_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: vulp_tail_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: vulp_tail_inner_BEHIND
+
+- type: marking
+  id: FoxTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    tail_fox_waggin_BEHIND: TailBehind
+    tail_fox_inner_waggin_BEHIND: TailBehind
+  colorLinks:
+    tail_fox_waggin_BEHIND: tail_fox_waggin_FRONT
+    tail_fox_inner_waggin_BEHIND: tail_fox_inner_waggin_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: tail_fox_waggin_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: tail_fox_inner_waggin_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: tail_fox_waggin_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: tail_fox_inner_waggin_BEHIND
+
+- type: marking
+  id: SynthTailComposite
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Synth]
+  layering:
+    factory_composite_BEHIND: TailBehind
+  colorLinks:
+    factory_composite_BEHIND: factory_composite_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_HL/Mobs/Customization/Synth/tail.rsi
+    state: factory_composite_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_HL/Mobs/Customization/Synth/tail.rsi
+    state: factory_composite_BEHIND
+
+- type: marking
+  id: SynthTailCore
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Synth]
+  layering:
+    core_BEHIND: TailBehind
+  colorLinks:
+    core_BEHIND: core_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_HL/Mobs/Customization/Synth/Orchids/tail.rsi
+    state: core_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_HL/Mobs/Customization/Synth/Orchids/tail.rsi
+    state: core_BEHIND
+
+- type: marking
+  id: SynthWingsDragon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Synth]
+  layering:
+    dragon_BEHIND: TailBehind
+  colorLinks:
+    dragon_BEHIND: dragon_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_HL/Mobs/Customization/Synth/wings.rsi
+    state: dragon_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_HL/Mobs/Customization/Synth/wings.rsi
+    state: dragon_BEHIND
+
+- type: marking
+  id: SynthWingsDragonLight
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Synth]
+  layering:
+    dragon_light_BEHIND: TailBehind
+  colorLinks:
+    dragon_light_BEHIND: dragon_light_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_HL/Mobs/Customization/Synth/wings.rsi
+    state: dragon_light_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_HL/Mobs/Customization/Synth/wings.rsi
+    state: dragon_light_BEHIND
+
+- type: marking
+  id: VulpTailVulp
+  wagging: VulpTailVulpAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    vulp_BEHIND: TailBehind
+    vulp-tip_BEHIND: TailBehind
+  colorLinks:
+    vulp_BEHIND: vulp_FRONT
+    vulp-tip_BEHIND: vulp-tip_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp-tip_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp-tip_BEHIND
+
+- type: marking
+  id: WFMeridianTailAcradorBig
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      acrador_big_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    acrador_big_primary_BEHIND: TailBehind
+    acrador_big_secondary_BEHIND: TailBehind
+  colorLinks:
+    acrador_big_primary_BEHIND: acrador_big_primary
+    acrador_big_secondary_BEHIND: acrador_big_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_big_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_big_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_big_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_big_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailAcradorMedium
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      acrador_medium_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    acrador_medium_primary_BEHIND: TailBehind
+    acrador_medium_secondary_BEHIND: TailBehind
+  colorLinks:
+    acrador_medium_primary_BEHIND: acrador_medium_primary
+    acrador_medium_secondary_BEHIND: acrador_medium_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_medium_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_medium_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_medium_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_medium_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailAcradorNarrowAndLong
+  wagging: WFMeridianTailAcradorNarrowAndLongAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      acrador_narrow_and_long_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    acrador_narrow_and_long_primary_BEHIND: TailBehind
+    acrador_narrow_and_long_secondary_BEHIND: TailBehind
+  colorLinks:
+    acrador_narrow_and_long_primary_BEHIND: acrador_narrow_and_long_primary
+    acrador_narrow_and_long_secondary_BEHIND: acrador_narrow_and_long_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_long_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_long_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_long_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_long_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailAcradorNarrowAndLongAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      acrador_narrow_and_long_wag_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    acrador_narrow_and_long_wag_primary_BEHIND: TailBehind
+    acrador_narrow_and_long_wag_secondary_BEHIND: TailBehind
+  colorLinks:
+    acrador_narrow_and_long_wag_primary_BEHIND: acrador_narrow_and_long_wag_primary
+    acrador_narrow_and_long_wag_secondary_BEHIND: acrador_narrow_and_long_wag_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_long_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_long_wag_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_long_wag_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_long_wag_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailAcradorNarrowAndVeryLong
+  wagging: WFMeridianTailAcradorNarrowAndVeryLongAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      acrador_narrow_and_very_long_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    acrador_narrow_and_very_long_primary_BEHIND: TailBehind
+    acrador_narrow_and_very_long_secondary_BEHIND: TailBehind
+  colorLinks:
+    acrador_narrow_and_very_long_primary_BEHIND: acrador_narrow_and_very_long_primary
+    acrador_narrow_and_very_long_secondary_BEHIND: acrador_narrow_and_very_long_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_very_long_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_very_long_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_very_long_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_very_long_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailAcradorNarrowAndVeryLongAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      acrador_narrow_and_very_long_wag_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    acrador_narrow_and_very_long_wag_primary_BEHIND: TailBehind
+    acrador_narrow_and_very_long_wag_secondary_BEHIND: TailBehind
+  colorLinks:
+    acrador_narrow_and_very_long_wag_primary_BEHIND: acrador_narrow_and_very_long_wag_primary
+    acrador_narrow_and_very_long_wag_secondary_BEHIND: acrador_narrow_and_very_long_wag_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_very_long_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_very_long_wag_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_very_long_wag_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: acrador_narrow_and_very_long_wag_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailChonkyFishInfusion
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    chonky_fish_infusion_BEHIND: TailBehind
+  colorLinks:
+    chonky_fish_infusion_BEHIND: chonky_fish_infusion
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: chonky_fish_infusion
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: chonky_fish_infusion_BEHIND
+
+- type: marking
+  id: WFMeridianTailCrescentFishInfusion
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    crescent_fish_infusion_BEHIND: TailBehind
+  colorLinks:
+    crescent_fish_infusion_BEHIND: crescent_fish_infusion
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: crescent_fish_infusion
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: crescent_fish_infusion_BEHIND
+
+- type: marking
+  id: WFMeridianTailDataSharkAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  coloring:
+    layers:
+      data_shark_wag_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      data_shark_wag_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    data_shark_wag_primary_BEHIND: TailBehind
+    data_shark_wag_secondary_BEHIND: TailBehind
+    data_shark_wag_tertiary_BEHIND: TailBehind
+  colorLinks:
+    data_shark_wag_primary_BEHIND: data_shark_wag_primary
+    data_shark_wag_secondary_BEHIND: data_shark_wag_secondary
+    data_shark_wag_tertiary_BEHIND: data_shark_wag_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: data_shark_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: data_shark_wag_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: data_shark_wag_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: data_shark_wag_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: data_shark_wag_secondary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: data_shark_wag_tertiary_BEHIND
+
+- type: marking
+  id: WFMeridianTailExperiment
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  coloring:
+    layers:
+      experiment_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    experiment_primary_BEHIND: TailBehind
+    experiment_secondary_BEHIND: TailBehind
+  colorLinks:
+    experiment_primary_BEHIND: experiment_primary
+    experiment_secondary_BEHIND: experiment_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: experiment_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: experiment_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: experiment_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: experiment_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailFish
+  wagging: WFMeridianTailFishAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    fish_primary_BEHIND: TailBehind
+  colorLinks:
+    fish_primary_BEHIND: fish_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fish_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fish_primary_BEHIND
+
+- type: marking
+  id: WFMeridianTailFishAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    fish_wag_primary_BEHIND: TailBehind
+  colorLinks:
+    fish_wag_primary_BEHIND: fish_wag_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fish_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fish_wag_primary_BEHIND
+
+- type: marking
+  id: WFMeridianTailFoxAlt3
+  wagging: WFMeridianTailFoxAlt3Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      fox_alt_3_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    fox_alt_3_primary_BEHIND: TailBehind
+    fox_alt_3_secondary_BEHIND: TailBehind
+  colorLinks:
+    fox_alt_3_primary_BEHIND: fox_alt_3_primary
+    fox_alt_3_secondary_BEHIND: fox_alt_3_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fox_alt_3_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fox_alt_3_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fox_alt_3_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fox_alt_3_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailFoxAlt3Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      fox_alt_3_wag_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    fox_alt_3_wag_primary_BEHIND: TailBehind
+    fox_alt_3_wag_secondary_BEHIND: TailBehind
+  colorLinks:
+    fox_alt_3_wag_primary_BEHIND: fox_alt_3_wag_primary
+    fox_alt_3_wag_secondary_BEHIND: fox_alt_3_wag_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fox_alt_3_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fox_alt_3_wag_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fox_alt_3_wag_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: fox_alt_3_wag_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailGecko
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      gecko_secondary:
+        type:
+          !type:SimpleColoring
+            color: "#FFFFFF"
+      gecko_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    gecko_primary_BEHIND: TailBehind
+    gecko_secondary_BEHIND: TailBehind
+    gecko_tertiary_BEHIND: TailBehind
+  colorLinks:
+    gecko_primary_BEHIND: gecko_primary
+    gecko_secondary_BEHIND: gecko_secondary
+    gecko_tertiary_BEHIND: gecko_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: gecko_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: gecko_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: gecko_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: gecko_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: gecko_secondary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: gecko_tertiary_BEHIND
+
+- type: marking
+  id: WFMeridianTailInsectUnderbelly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid, Chitinid]
+  coloring:
+    layers:
+      insect_underbelly_primary:
+        type:
+          !type:SimpleColoring
+            color: "#FFFFFF"
+      insect_underbelly_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    insect_underbelly_primary_BEHIND: TailBehind
+    insect_underbelly_secondary_BEHIND: TailBehind
+  colorLinks:
+    insect_underbelly_primary_BEHIND: insect_underbelly_primary
+    insect_underbelly_secondary_BEHIND: insect_underbelly_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: insect_underbelly_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: insect_underbelly_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: insect_underbelly_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: insect_underbelly_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailLongFishInfusion
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    long_fish_infusion_BEHIND: TailBehind
+  colorLinks:
+    long_fish_infusion_BEHIND: long_fish_infusion
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: long_fish_infusion
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: long_fish_infusion_BEHIND
+
+- type: marking
+  id: WFMeridianTailMonkeyColorable
+  wagging: WFMeridianTailMonkeyColorableAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    monkey_colorable_BEHIND: TailBehind
+  colorLinks:
+    monkey_colorable_BEHIND: monkey_colorable
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: monkey_colorable
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: monkey_colorable_BEHIND
+
+- type: marking
+  id: WFMeridianTailMonkeyColorableAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    monkey_colorable_wag_BEHIND: TailBehind
+  colorLinks:
+    monkey_colorable_wag_BEHIND: monkey_colorable_wag
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: monkey_colorable_wag
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: monkey_colorable_wag_BEHIND
+
+- type: marking
+  id: WFMeridianTailOtter
+  wagging: WFMeridianTailOtterAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    otter_primary_BEHIND: TailBehind
+  colorLinks:
+    otter_primary_BEHIND: otter_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: otter_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: otter_primary_BEHIND
+
+- type: marking
+  id: WFMeridianTailOtterAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  layering:
+    otter_wag_primary_BEHIND: TailBehind
+  colorLinks:
+    otter_wag_primary_BEHIND: otter_wag_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: otter_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: otter_wag_primary_BEHIND
+
+- type: marking
+  id: WFMeridianTailPeacock
+  wagging: WFMeridianTailPeacockAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    layers:
+      peacock_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      peacock_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    peacock_primary_BEHIND: TailBehind
+    peacock_secondary_BEHIND: TailBehind
+    peacock_tertiary_BEHIND: TailBehind
+  colorLinks:
+    peacock_primary_BEHIND: peacock_primary
+    peacock_secondary_BEHIND: peacock_secondary
+    peacock_tertiary_BEHIND: peacock_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_secondary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_tertiary_BEHIND
+
+- type: marking
+  id: WFMeridianTailPeacockAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    layers:
+      peacock_wag_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      peacock_wag_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    peacock_wag_primary_BEHIND: TailBehind
+    peacock_wag_secondary_BEHIND: TailBehind
+    peacock_wag_tertiary_BEHIND: TailBehind
+  colorLinks:
+    peacock_wag_primary_BEHIND: peacock_wag_primary
+    peacock_wag_secondary_BEHIND: peacock_wag_secondary
+    peacock_wag_tertiary_BEHIND: peacock_wag_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_wag_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_wag_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_wag_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_wag_secondary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: peacock_wag_tertiary_BEHIND
+
+- type: marking
+  id: WFMeridianTailRamatanThick
+  wagging: WFMeridianTailRamatanThickAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  layering:
+    ramatan_thick_primary_BEHIND: TailBehind
+  colorLinks:
+    ramatan_thick_primary_BEHIND: ramatan_thick_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: ramatan_thick_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: ramatan_thick_primary_BEHIND
+
+- type: marking
+  id: WFMeridianTailRamatanThickAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  layering:
+    ramatan_thick_wag_primary_BEHIND: TailBehind
+  colorLinks:
+    ramatan_thick_wag_primary_BEHIND: ramatan_thick_wag_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: ramatan_thick_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: ramatan_thick_wag_primary_BEHIND
+
+- type: marking
+  id: WFMeridianTailRattlesnake
+  wagging: WFMeridianTailRattlesnakeAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      rattlesnake_secondary:
+        type:
+          !type:SimpleColoring
+            color: "#FFFFFF"
+  layering:
+    rattlesnake_primary_BEHIND: TailBehind
+    rattlesnake_secondary_BEHIND: TailBehind
+  colorLinks:
+    rattlesnake_primary_BEHIND: rattlesnake_primary
+    rattlesnake_secondary_BEHIND: rattlesnake_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: rattlesnake_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: rattlesnake_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: rattlesnake_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: rattlesnake_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailRattlesnakeAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      rattlesnake_wag_secondary:
+        type:
+          !type:SimpleColoring
+            color: "#FFFFFF"
+  layering:
+    rattlesnake_wag_primary_BEHIND: TailBehind
+    rattlesnake_wag_secondary_BEHIND: TailBehind
+  colorLinks:
+    rattlesnake_wag_primary_BEHIND: rattlesnake_wag_primary
+    rattlesnake_wag_secondary_BEHIND: rattlesnake_wag_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: rattlesnake_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: rattlesnake_wag_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: rattlesnake_wag_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: rattlesnake_wag_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailRingTailLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      ring_tail_long_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    ring_tail_long_primary_BEHIND: TailBehind
+    ring_tail_long_secondary_BEHIND: TailBehind
+  colorLinks:
+    ring_tail_long_primary_BEHIND: ring_tail_long_primary
+    ring_tail_long_secondary_BEHIND: ring_tail_long_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: ring_tail_long_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: ring_tail_long_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: ring_tail_long_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: ring_tail_long_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailShadekinFluffy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  coloring:
+    layers:
+      shadekin_fluffy_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    shadekin_fluffy_primary_BEHIND: TailBehind
+    shadekin_fluffy_secondary_BEHIND: TailBehind
+  colorLinks:
+    shadekin_fluffy_primary_BEHIND: shadekin_fluffy_primary
+    shadekin_fluffy_secondary_BEHIND: shadekin_fluffy_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_64x32.rsi
+    state: shadekin_fluffy_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_64x32.rsi
+    state: shadekin_fluffy_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_64x32.rsi
+    state: shadekin_fluffy_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_64x32.rsi
+    state: shadekin_fluffy_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailShadekinStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  coloring:
+    layers:
+      shadekin_striped_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    shadekin_striped_primary_BEHIND: TailBehind
+    shadekin_striped_secondary_BEHIND: TailBehind
+  colorLinks:
+    shadekin_striped_primary_BEHIND: shadekin_striped_primary
+    shadekin_striped_secondary_BEHIND: shadekin_striped_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: shadekin_striped_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: shadekin_striped_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: shadekin_striped_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails_48x32.rsi
+    state: shadekin_striped_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailSharkFishInfusion
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    shark_fish_infusion_BEHIND: TailBehind
+  colorLinks:
+    shark_fish_infusion_BEHIND: shark_fish_infusion
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: shark_fish_infusion
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: shark_fish_infusion_BEHIND
+
+- type: marking
+  id: WFMeridianTailShortTwoTone
+  wagging: WFMeridianTailShortTwoToneAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      short_two_tone_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    short_two_tone_primary_BEHIND: TailBehind
+    short_two_tone_secondary_BEHIND: TailBehind
+  colorLinks:
+    short_two_tone_primary_BEHIND: short_two_tone_primary
+    short_two_tone_secondary_BEHIND: short_two_tone_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: short_two_tone_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: short_two_tone_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: short_two_tone_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: short_two_tone_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailShortTwoToneAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      short_two_tone_wag_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    short_two_tone_wag_primary_BEHIND: TailBehind
+    short_two_tone_wag_secondary_BEHIND: TailBehind
+  colorLinks:
+    short_two_tone_wag_primary_BEHIND: short_two_tone_wag_primary
+    short_two_tone_wag_secondary_BEHIND: short_two_tone_wag_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: short_two_tone_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: short_two_tone_wag_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: short_two_tone_wag_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: short_two_tone_wag_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianTailSimpleFishInfusion
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    simple_fish_infusion_BEHIND: TailBehind
+  colorLinks:
+    simple_fish_infusion_BEHIND: simple_fish_infusion
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: simple_fish_infusion
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: simple_fish_infusion_BEHIND
+
+- type: marking
+  id: WFMeridianTailStripedTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  coloring:
+    layers:
+      striped_tail_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      striped_tail_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    striped_tail_primary_BEHIND: TailBehind
+    striped_tail_secondary_BEHIND: TailBehind
+    striped_tail_tertiary_BEHIND: TailBehind
+  colorLinks:
+    striped_tail_primary_BEHIND: striped_tail_primary
+    striped_tail_secondary_BEHIND: striped_tail_secondary
+    striped_tail_tertiary_BEHIND: striped_tail_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: striped_tail_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: striped_tail_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: striped_tail_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: striped_tail_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: striped_tail_secondary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: striped_tail_tertiary_BEHIND
+
+- type: marking
+  id: WFMeridianTailTentacleAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid, SlimePerson]
+  layering:
+    tentacle_wag_primary_BEHIND: TailBehind
+  colorLinks:
+    tentacle_wag_primary_BEHIND: tentacle_wag_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: tentacle_wag_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: tentacle_wag_primary_BEHIND
+
+- type: marking
+  id: WFMeridianTailVoxPrimalisAlbinoTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    vox_primalis_albino_tail_BEHIND: TailBehind
+  colorLinks:
+    vox_primalis_albino_tail_BEHIND: vox_primalis_albino_tail
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: vox_primalis_albino_tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: vox_primalis_albino_tail_BEHIND
+
+- type: marking
+  id: WFMeridianTailVoxTail
+  wagging: WFMeridianTailVoxTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  layering:
+    vox_tail_BEHIND: TailBehind
+  colorLinks:
+    vox_tail_BEHIND: vox_tail
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: vox_tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: vox_tail_BEHIND
+
+- type: marking
+  id: WFMeridianTailVoxTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  layering:
+    vox_tail_wag_BEHIND: TailBehind
+  colorLinks:
+    vox_tail_wag_BEHIND: vox_tail_wag
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: vox_tail_wag
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/tails.rsi
+    state: vox_tail_wag_BEHIND
+
+- type: marking
+  id: WFMeridianWingsAngel
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    angel_BEHIND: TailBehind
+  colorLinks:
+    angel_BEHIND: angel
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: angel
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: angel_BEHIND
+
+- type: marking
+  id: WFMeridianWingsDragon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  layering:
+    dragon_BEHIND: TailBehind
+  colorLinks:
+    dragon_BEHIND: dragon
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: dragon
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: dragon_BEHIND
+
+- type: marking
+  id: WFMeridianWingsHalfSpiderlegsThick
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    half_spiderlegs_thick_primary_BEHIND: TailBehind
+    half_spiderlegs_thick_secondary_BEHIND: TailBehind
+  colorLinks:
+    half_spiderlegs_thick_primary_BEHIND: half_spiderlegs_thick_primary
+    half_spiderlegs_thick_secondary_BEHIND: half_spiderlegs_thick_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: half_spiderlegs_thick_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: half_spiderlegs_thick_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: half_spiderlegs_thick_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: half_spiderlegs_thick_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianWingsHarpyFluffyDualTone
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    layers:
+      harpy_fluffy_dual_tone_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    harpy_fluffy_dual_tone_primary_BEHIND: TailBehind
+    harpy_fluffy_dual_tone_secondary_BEHIND: TailBehind
+  colorLinks:
+    harpy_fluffy_dual_tone_primary_BEHIND: harpy_fluffy_dual_tone_primary
+    harpy_fluffy_dual_tone_secondary_BEHIND: harpy_fluffy_dual_tone_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: harpy_fluffy_dual_tone_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: harpy_fluffy_dual_tone_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: harpy_fluffy_dual_tone_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: harpy_fluffy_dual_tone_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianWingsMantaRay
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  coloring:
+    layers:
+      manta_ray_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    manta_ray_primary_BEHIND: TailBehind
+    manta_ray_secondary_BEHIND: TailBehind
+  colorLinks:
+    manta_ray_primary_BEHIND: manta_ray_primary
+    manta_ray_secondary_BEHIND: manta_ray_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: manta_ray_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: manta_ray_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: manta_ray_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: manta_ray_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianWingsMantisAltTop
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid]
+  coloring:
+    layers:
+      mantis_alt_top_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    mantis_alt_top_primary_BEHIND: TailBehind
+    mantis_alt_top_secondary_BEHIND: TailBehind
+  colorLinks:
+    mantis_alt_top_primary_BEHIND: mantis_alt_top_primary
+    mantis_alt_top_secondary_BEHIND: mantis_alt_top_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: mantis_alt_top_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: mantis_alt_top_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: mantis_alt_top_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: mantis_alt_top_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianWingsMothBluespace
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    moth_bluespace_BEHIND: TailBehind
+  colorLinks:
+    moth_bluespace_BEHIND: moth_bluespace
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_bluespace
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_bluespace_BEHIND
+
+- type: marking
+  id: WFMeridianWingsMothCitheronia
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    moth_citheronia_primary_BEHIND: TailBehind
+    moth_citheronia_secondary_BEHIND: TailBehind
+    moth_citheronia_tertiary_BEHIND: TailBehind
+  colorLinks:
+    moth_citheronia_primary_BEHIND: moth_citheronia_primary
+    moth_citheronia_secondary_BEHIND: moth_citheronia_secondary
+    moth_citheronia_tertiary_BEHIND: moth_citheronia_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_citheronia_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_citheronia_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_citheronia_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_citheronia_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_citheronia_secondary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_citheronia_tertiary_BEHIND
+
+- type: marking
+  id: WFMeridianWingsMothClockwork
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    moth_clockwork_BEHIND: TailBehind
+  colorLinks:
+    moth_clockwork_BEHIND: moth_clockwork
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_clockwork
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_clockwork_BEHIND
+
+- type: marking
+  id: WFMeridianWingsMothLightbearer
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    moth_lightbearer_BEHIND: TailBehind
+  colorLinks:
+    moth_lightbearer_BEHIND: moth_lightbearer
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_lightbearer
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_lightbearer_BEHIND
+
+- type: marking
+  id: WFMeridianWingsMothStrawberry
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    moth_strawberry_BEHIND: TailBehind
+  colorLinks:
+    moth_strawberry_BEHIND: moth_strawberry
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_strawberry
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: moth_strawberry_BEHIND
+
+- type: marking
+  id: WFMeridianWingsRobotic
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, IPC, Synth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    robotic_BEHIND: TailBehind
+  colorLinks:
+    robotic_BEHIND: robotic
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: robotic
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: robotic_BEHIND
+
+- type: marking
+  id: WFMeridianWingsSpiderlegsMechanical
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid, IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    spiderlegs_mechanical_primary_BEHIND: TailBehind
+    spiderlegs_mechanical_secondary_BEHIND: TailBehind
+    spiderlegs_mechanical_tertiary_BEHIND: TailBehind
+  colorLinks:
+    spiderlegs_mechanical_primary_BEHIND: spiderlegs_mechanical_primary
+    spiderlegs_mechanical_secondary_BEHIND: spiderlegs_mechanical_secondary
+    spiderlegs_mechanical_tertiary_BEHIND: spiderlegs_mechanical_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_mechanical_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_mechanical_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_mechanical_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_mechanical_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_mechanical_secondary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_mechanical_tertiary_BEHIND
+
+- type: marking
+  id: WFMeridianWingsSpiderlegsSegmented
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    spiderlegs_segmented_primary_BEHIND: TailBehind
+    spiderlegs_segmented_secondary_BEHIND: TailBehind
+    spiderlegs_segmented_tertiary_BEHIND: TailBehind
+  colorLinks:
+    spiderlegs_segmented_primary_BEHIND: spiderlegs_segmented_primary
+    spiderlegs_segmented_secondary_BEHIND: spiderlegs_segmented_secondary
+    spiderlegs_segmented_tertiary_BEHIND: spiderlegs_segmented_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_segmented_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_segmented_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_segmented_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_segmented_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_segmented_secondary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_segmented_tertiary_BEHIND
+
+- type: marking
+  id: WFMeridianWingsSpiderlegsStriped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    spiderlegs_striped_primary_BEHIND: TailBehind
+    spiderlegs_striped_secondary_BEHIND: TailBehind
+  colorLinks:
+    spiderlegs_striped_primary_BEHIND: spiderlegs_striped_primary
+    spiderlegs_striped_secondary_BEHIND: spiderlegs_striped_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_striped_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_striped_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_striped_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: spiderlegs_striped_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianWingsTarantula
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    tarantula_primary_BEHIND: TailBehind
+    tarantula_secondary_BEHIND: TailBehind
+  colorLinks:
+    tarantula_primary_BEHIND: tarantula_primary
+    tarantula_secondary_BEHIND: tarantula_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: tarantula_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: tarantula_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: tarantula_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings.rsi
+    state: tarantula_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianWingsTriWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid, Moth]
+  coloring:
+    layers:
+      tri_wings_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      tri_wings_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    tri_wings_primary_BEHIND: TailBehind
+    tri_wings_secondary_BEHIND: TailBehind
+    tri_wings_tertiary_BEHIND: TailBehind
+  colorLinks:
+    tri_wings_primary_BEHIND: tri_wings_primary
+    tri_wings_secondary_BEHIND: tri_wings_secondary
+    tri_wings_tertiary_BEHIND: tri_wings_tertiary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: tri_wings_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: tri_wings_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: tri_wings_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: tri_wings_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: tri_wings_secondary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/wings_48x32.rsi
+    state: tri_wings_tertiary_BEHIND
+
+- type: marking
+  id: WolfTail
+  wagging: WolfTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    wolf_tail_BEHIND: TailBehind
+    wolf_tail_inner_BEHIND: TailBehind
+  colorLinks:
+    wolf_tail_BEHIND: wolf_tail_FRONT
+    wolf_tail_inner_BEHIND: wolf_tail_inner_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: wolf_tail_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: wolf_tail_inner_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: wolf_tail_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: wolf_tail_inner_BEHIND
+
+- type: marking
+  id: WolfTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    tail_wolf_waggin_BEHIND: TailBehind
+    tail_wolf_inner_waggin_BEHIND: TailBehind
+  colorLinks:
+    tail_wolf_waggin_BEHIND: tail_wolf_waggin_FRONT
+    tail_wolf_inner_waggin_BEHIND: tail_wolf_inner_waggin_FRONT
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: tail_wolf_waggin_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: tail_wolf_inner_waggin_FRONT
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: tail_wolf_waggin_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/Genitals/Mobs/Customization/TailSplit/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi
+    state: tail_wolf_inner_waggin_BEHIND
