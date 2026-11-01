@@ -12,7 +12,6 @@ using Content.Server.Actions;
 using Content.Server.AlertLevel;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
-using Content.Server.RoundEnd;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
@@ -50,7 +49,6 @@ public sealed partial class BlobCoreSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private StationSystem _stationSystem = default!;
     [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private RoundEndSystem _roundEndSystem = default!;
     [Dependency] private MetaDataSystem _metaDataSystem = default!;
     [Dependency] private ActionsSystem _action = default!;
     [Dependency] private MapSystem _mapSystem = default!;
@@ -575,7 +573,6 @@ public sealed partial class BlobCoreSystem : EntitySystem
                 if(stationUid != null)
                     _alertLevelSystem.SetLevel(stationUid.Value, "green", true, true, true);
 
-                _roundEndSystem.CancelRoundEndCountdown(null, false);
                 blobRuleComp.Stage = BlobStage.Default;
             }
         }

@@ -18,3 +18,6 @@ ghost-role-information-xenomorph-queen-description = You're a xenomorph queen. P
 
 ghost-role-information-xenomorph-sentinel-name = xenomorph sentinel
 ghost-role-information-xenomorph-sentinel-description = You're a xenomorph sentinel. Help the praetorian defend the hive and attack the humanoids if necessary.
+
+ghost-role-information-xenomorph-facehugger-name = xenomorph facehugger
+ghost-role-information-xenomorph-facehugger-description = You're a xenomorph facehugger. Find humanoids to infect so your hive can grow stronger.
