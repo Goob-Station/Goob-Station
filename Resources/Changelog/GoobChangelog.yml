@@ -26995,3 +26995,15 @@ Entries:
       message: Mantis blades have been reworked and buffed.
   id: 3026
   time: '2026-10-31T23:51:56.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        Antags that block evac actually block it now instead of just instantly
+        recalling.
+    - type: Tweak
+      message: >-
+        Cosmic Cult now has 25 minutes after the monument reaches tier 3 to win,
+        otherwise evac unlocks again. (Effectively gives them 35 minutes total.)
+  id: 3027
+  time: '2026-11-01T00:07:15.0000000+00:00'
