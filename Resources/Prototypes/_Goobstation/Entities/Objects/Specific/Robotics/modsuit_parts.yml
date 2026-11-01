@@ -308,7 +308,7 @@
   id: ModsuitCoreStandard
   parent: PartModsuit
   name: MOD standard core
-  description: Growing in the most lush, fertile areas of the planet Sprout, there is a crystal known as the Heartbloom. These rare, organic piezoelectric crystals are of incredible cultural significance to the artist castes of the Ethereals, owing to their appearance; which is exactly similar to that of an Ethereal's heart. Which one you have in your suit is unclear, but either way, it's been repurposed to be an internal power source for a Modular Outerwear Device.
+  description: An internal power source for a Modular Outerwear Device, built around a rare piezoelectric crystal.
   components:
   - type: Sprite
     state: mod-core-standard
