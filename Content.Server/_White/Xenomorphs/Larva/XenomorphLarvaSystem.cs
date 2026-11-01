@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Ghost.Roles.Components;
@@ -12,13 +13,15 @@ using Content.Shared.Popups;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Content.Shared.Damage; // Omu
+using Content.Shared.Damage;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Body.Part;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage.Systems; // Omu
+using Content.Shared.Mobs.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 namespace Content.Server._White.Xenomorphs.Larva;
 
@@ -29,8 +32,12 @@ public sealed class XenomorphLarvaSystem : EntitySystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!; // Omu
-    [Dependency] private readonly MobThresholdSystem _threshold = default!; // Goob
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private readonly TraumaSystem _trauma = default!;
+
+    private const string BurstOrganDamageIdentifier = "LarvaBurst";
 
     public override void Initialize()
     {
@@ -93,9 +100,10 @@ public sealed class XenomorphLarvaSystem : EntitySystem
             return;
 
         _container.Remove(uid, container);
-        var damage = new DamageSpecifier(); // Omu start
+        var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 120);
         damage.DamageDict.Add("Piercing", 80);
+
         if (_threshold.TryGetThresholdForState(victim, MobState.Dead, out var dead) // Goob - don't gib small mobs
             && TryComp<DamageableComponent>(victim, out var damageable))
         {
@@ -104,6 +112,20 @@ public sealed class XenomorphLarvaSystem : EntitySystem
             if (needed < total)
                 damage *= FixedPoint2.Max(needed, 0) / total;
         }
-        _damageableSystem.TryChangeDamage(victim, damage: damage, ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.Chest);
+
+        _damageableSystem.TryChangeDamage(victim,
+            damage: damage,
+            ignoreResistances: true,
+            interruptsDoAfters: false,
+            origin: uid,
+            ignoreGlobalModifiers: true,
+            targetPart: TargetBodyPart.Chest,
+            canMiss: false);
+
+        foreach (var (chestId, chest) in _body.GetBodyChildrenOfType(victim, BodyPartType.Chest).ToList())
+            foreach (var (organId, organ) in _body.GetPartOrgans(chestId, chest).ToList())
+                _trauma.TrySetOrganDamageModifier(organId, organ.IntegrityCap, uid, BurstOrganDamageIdentifier, organ);
+
+        _mobState.ChangeMobState(victim, MobState.Dead, origin: uid);
     }
 }
