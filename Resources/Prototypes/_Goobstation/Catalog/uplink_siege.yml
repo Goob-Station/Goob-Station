@@ -1,0 +1,69 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Goobstation - nuke ops siege rework: defensive gear for holding a position
+
+- type: storeCategory
+  id: UplinkSiege
+  name: store-category-uplink-siege
+  priority: 8
+
+- type: listing
+  id: UplinkNukeConversionKit
+  name: uplink-nuke-conversion-kit-name
+  description: uplink-nuke-conversion-kit-desc
+  productEntity: NukeConversionKit
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkSiege
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkSyndicateDeployableBarrier
+  name: uplink-syndicate-barrier-name
+  description: uplink-syndicate-barrier-desc
+  productEntity: SyndicateDeployableBarrier
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkSiege
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkBarbedWire
+  name: uplink-barbed-wire-name
+  description: uplink-barbed-wire-desc
+  productEntity: BarbedWire
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkSiege
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkLandMineExplosive
+  name: uplink-land-mine-name
+  description: uplink-land-mine-desc
+  productEntity: LandMineExplosiveUnarmed
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkSiege
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
