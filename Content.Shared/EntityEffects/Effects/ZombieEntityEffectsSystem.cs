@@ -1,4 +1,5 @@
-﻿using Content.Shared.Mobs;
+﻿using Content.Goobstation.Common.Zombies; // Goob
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Zombies;
@@ -15,7 +16,8 @@ public sealed partial class CauseZombieInfectionEntityEffectsSystem : EntityEffe
     // MobState because you have to die to become a zombie...
     protected override void Effect(Entity<MobStateComponent> entity, ref EntityEffectEvent<CauseZombieInfection> args)
     {
-        if (HasComp<ZombieImmuneComponent>(entity) || HasComp<IncurableZombieComponent>(entity))
+        if (HasComp<ZombieImmuneComponent>(entity) || HasComp<IncurableZombieComponent>(entity)
+            || HasComp<SiliconZombieComponent>(entity)) // Goob
             return;
 
         EnsureComp<ZombifyOnDeathComponent>(entity);
@@ -33,7 +35,8 @@ public sealed partial class CureZombieInfectionEntityEffectsSystem : EntityEffec
     // MobState because you have to die to become a zombie...
     protected override void Effect(Entity<MobStateComponent> entity, ref EntityEffectEvent<CureZombieInfection> args)
     {
-        if (HasComp<IncurableZombieComponent>(entity))
+        if (HasComp<IncurableZombieComponent>(entity)
+            || HasComp<SiliconZombieComponent>(entity)) // Goob
             return;
 
         // <Goob> If check because new cure effects + popup
