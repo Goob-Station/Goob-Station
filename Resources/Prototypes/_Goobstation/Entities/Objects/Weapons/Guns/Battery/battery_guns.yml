@@ -445,8 +445,8 @@
     deleteAfterExplosion: false
     repeatable: true
   - type: BatterySelfRecharger
-    autoRechargeRate: 10
-    autoRechargePauseTime: 40
+    autoRechargeRate: 20
+    autoRechargePauseTime: 32
 
 - type: entity
   name: Ion Rifle

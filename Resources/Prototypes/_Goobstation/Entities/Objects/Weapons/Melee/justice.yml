@@ -152,8 +152,8 @@
           attackRate: 1.5
           damage:
             types:
-              Slash: 15
-              Heat: 10
+              Slash: 14
+              Heat: 8
               Structural: 25
             woundSeverityMultipliers:
               Slash: 2
@@ -188,9 +188,9 @@
           animation: WeaponArcThrust
           damage:
             types:
-              Slash: 65 #65555555555
+              Slash: 15 #65555555555
               Heat: 50
-              Structural: 50
+              Structural: 100
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
         soundStateActivate:
