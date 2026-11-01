@@ -171,7 +171,7 @@
   - type: Charger
     slotId: ["item", "item2"]
     portable: true
-    chargeRate: 45
+    chargeRate: 40
   - type: ItemSlots
     slots:
       item:

@@ -149,6 +149,7 @@
       types:
         Heat: 15
         Shock: 5
+        Structural: 25
 
 - type: entity
   id: BulletHotshot

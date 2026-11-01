@@ -84,6 +84,7 @@
           damage:
             types:
               Slash: 16
+              Structural: 12
             woundSeverityMultipliers:
               Slash: 2
           soundHit:
@@ -153,6 +154,7 @@
             types:
               Slash: 15
               Heat: 10
+              Structural: 25
             woundSeverityMultipliers:
               Slash: 2
           angle: 60
