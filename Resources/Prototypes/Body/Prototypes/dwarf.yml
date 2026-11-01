@@ -10,6 +10,7 @@
       connections:
       - chest
       organs:
+        tongue: OrganHumanTongue
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     chest:

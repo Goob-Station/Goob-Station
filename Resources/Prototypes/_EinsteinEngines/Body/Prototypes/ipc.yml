@@ -10,6 +10,7 @@
       connections:
       - chest
       organs:
+        tongue: OrganIPCTongue
         eyes: OrganIPCEyes
     chest:
       part: ChestIPC

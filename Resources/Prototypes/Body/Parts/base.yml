@@ -178,6 +178,8 @@
     partType: Head
     toolName: "a head" # Shitmed Change
     organs: # Shitmed Change
+      tongue:
+        id: tongue
       brain:
         id: brain
       eyes:

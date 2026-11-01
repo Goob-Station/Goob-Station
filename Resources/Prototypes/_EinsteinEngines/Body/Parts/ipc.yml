@@ -50,6 +50,8 @@
   components:
   - type: BodyPart
     organs: # posibrain is stored in the torso
+      tongue:
+        id: tongue
       eyes:
         id: "eyes"
 

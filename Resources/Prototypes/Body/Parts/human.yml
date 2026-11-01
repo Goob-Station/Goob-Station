@@ -56,14 +56,6 @@
   name: "human head"
   parent: [PartHuman, BaseHead]
   components:
-  - type: BodyPart
-    organs:
-      brain:
-        id: brain
-      eyes:
-        id: eyes
-      tongue:
-        id: tongue
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "head_m"

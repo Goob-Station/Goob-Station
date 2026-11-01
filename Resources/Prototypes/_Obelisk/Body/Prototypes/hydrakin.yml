@@ -10,6 +10,7 @@
       connections:
       - torso
       organs:
+        tongue: OrganHumanTongue
         brain: OrganHydrakinBrain
         eyes: OrganHumanEyes
     torso:

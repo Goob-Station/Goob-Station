@@ -258,6 +258,9 @@
   name: tongue
   description: "A fleshy muscle mostly used for lying."
   components:
+  - type: Tongue
+  - type: Organ
+    slotId: tongue
   - type: Sprite
     state: tongue
   - type: Tag # goob edit
