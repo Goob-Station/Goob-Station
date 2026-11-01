@@ -4,15 +4,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Common.Zombies;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class SiliconZombieComponent : Component
 {
-    [DataField]
-    public TimeSpan PendingSparkInterval = TimeSpan.FromSeconds(15);
-
-    [DataField, AutoPausedField]
-    public TimeSpan NextSpark;
-
     [DataField]
     public EntProtoId SparkEffect = "EffectSparks";
 

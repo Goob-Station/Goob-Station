@@ -9,10 +9,10 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Radio.Components;
 using Content.Shared.Zombies;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Zombies;
 
@@ -21,27 +21,18 @@ public sealed partial class SiliconZombieSystem : EntitySystem
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
-    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _proto = default!;
 
     private static readonly ProtoId<DamageTypePrototype> PoisonType = "Poison";
     private static readonly ProtoId<DamageTypePrototype> IonType = "Ion";
+    private static readonly LocId CorruptingPopup = "silicon-zombie-corrupting";
 
-    public override void Update(float frameTime)
+    [SubscribeLocalEvent]
+    private void OnSymptom(Entity<SiliconZombieComponent> ent, ref PendingZombieSymptomEvent args)
     {
-        base.Update(frameTime);
-
-        var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<PendingZombieComponent, SiliconZombieComponent>();
-        while (query.MoveNext(out var uid, out var pending, out var siliconZombie))
-        {
-            if (pending.GracePeriod > TimeSpan.Zero || now < siliconZombie.NextSpark)
-                continue;
-
-            siliconZombie.NextSpark = now + siliconZombie.PendingSparkInterval;
-            Spark((uid, siliconZombie));
-            _popup.PopupEntity(Loc.GetString("silicon-zombie-corrupting", ("target", uid)), uid, PopupType.SmallCaution);
-        }
+        Spark(ent);
+        args.Popup = CorruptingPopup;
+        args.Cough = false;
     }
 
     [SubscribeLocalEvent]
@@ -63,6 +54,9 @@ public sealed partial class SiliconZombieSystem : EntitySystem
             silicon.BatteryPowered = false;
 
         RemComp<SynthBatteryComponent>(ent);
+        RemComp<IntrinsicRadioTransmitterComponent>(ent);
+        RemComp<IntrinsicRadioReceiverComponent>(ent);
+        RemComp<ActiveRadioComponent>(ent);
         TintMarkings(ent);
         _popup.PopupEntity(Loc.GetString("silicon-zombie-zombified", ("target", ent.Owner)), ent, PopupType.LargeCaution);
     }
