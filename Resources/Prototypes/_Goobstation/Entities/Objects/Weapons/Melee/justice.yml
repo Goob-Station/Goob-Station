@@ -17,8 +17,8 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: BatterySelfRecharger
-    autoRechargeRate: 50
-    autoRechargePauseTime: 40
+    autoRechargeRate: 15
+    autoRechargePauseTime: 60
   - type: DisarmMalus
   - type: Tag
     tags:
@@ -36,7 +36,8 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 12
+        Slash: 16
+        Structural: 12
       woundSeverityMultipliers:
         Slash: 2
     soundHit:
@@ -83,7 +84,8 @@
           attackRate: 1.5
           damage:
             types:
-              Slash: 12
+              Slash: 16
+              Structural: 12
             woundSeverityMultipliers:
               Slash: 2
           soundHit:
@@ -128,8 +130,8 @@
           attackRate: 1.5
           damage:
             types:
-              Ion: 24
-              Shock: 3
+              Ion: 35
+              Shock: 5
           angle: 60
           animation: WeaponArcThrust
           soundHit:
@@ -151,8 +153,9 @@
           attackRate: 1.5
           damage:
             types:
-              Slash: 6
-              Heat: 12
+              Slash: 14
+              Heat: 8
+              Structural: 25
             woundSeverityMultipliers:
               Slash: 2
           angle: 60
@@ -186,8 +189,9 @@
           animation: WeaponArcThrust
           damage:
             types:
-              Slash: 25
-              Heat: 25
+              Slash: 15 #65555555555
+              Heat: 50
+              Structural: 100
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
         soundStateActivate:

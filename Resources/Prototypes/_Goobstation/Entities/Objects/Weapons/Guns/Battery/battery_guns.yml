@@ -391,7 +391,6 @@
     - BulletEnergyGunExecute
     - BulletEnergyGunHotshot
     - BulletEnergyGunSleepshot
-    - BulletEnergyGunBigshot
   - type: UserInterface
     interfaces:
       enum.AmmoSelectorUiKey.Key:
@@ -446,8 +445,8 @@
     deleteAfterExplosion: false
     repeatable: true
   - type: BatterySelfRecharger
-    autoRechargeRate: 50
-    autoRechargePauseTime: 40
+    autoRechargeRate: 20
+    autoRechargePauseTime: 32
 
 - type: entity
   name: Ion Rifle
