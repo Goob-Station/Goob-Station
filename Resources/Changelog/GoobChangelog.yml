@@ -26882,3 +26882,128 @@ Entries:
         on MRP.
   id: 3014
   time: '2026-10-31T12:58:55.0000000+00:00'
+- author: acatrw
+  changes:
+    - type: Tweak
+      message: Clown spiders inject crapotoxin.
+  id: 3015
+  time: '2026-10-31T22:35:11.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Remove
+      message: >-
+        Some entities that had binary comms (positronic brains, man-machine
+        interfaces, personal AIs, and a few others) no longer have it - it's now
+        (almost) entirely for AI, borgs... and vending machines too, because why
+        the hell not.
+  id: 3016
+  time: '2026-10-31T22:41:12.0000000+00:00'
+- author: Jvne
+  changes:
+    - type: Add
+      message: 'Added Chicken Nuggets to the chef''s repertoire '
+  id: 3017
+  time: '2026-10-31T22:43:24.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Round control tab buttons now require second press for confirmation
+  id: 3018
+  time: '2026-10-31T22:44:16.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Further changes to game director after a day of playtesting.
+  id: 3019
+  time: '2026-10-31T22:55:46.0000000+00:00'
+- author: Anui-ElXx
+  changes:
+    - type: Add
+      message: Added a golden MK58 for senior security officers.
+    - type: Tweak
+      message: Sidearms can be chosen from the loadout screen for security now.
+  id: 3020
+  time: '2026-10-31T22:57:21.0000000+00:00'
+- author: Anui-El
+  changes:
+    - type: Add
+      message: >-
+        New interface menu for handheld radios - Toggle the microphone and
+        speaker on or off and connect to any frequencies between 1000Hz-3000Hz
+        for private conversations
+  id: 3021
+  time: '2026-10-31T23:00:49.0000000+00:00'
+- author: 11BelowStudio
+  changes:
+    - type: Tweak
+      message: The bluespace scripture beacon can now become any type of scripture.
+    - type: Tweak
+      message: >-
+        Ghostrole chaplains will spawn with a bluespace scripture beacon instead
+        of a bible.
+    - type: Remove
+      message: >-
+        Chaplains can no longer select their scripture in the lobby (due to the
+        scripture beacon doing the same thing)
+  id: 3022
+  time: '2026-10-31T23:05:00.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: The Xenomorph queen now has a new roar action.
+    - type: Tweak
+      message: Facehuggers are now sentient.
+    - type: Tweak
+      message: Acid spit can now be toggled through an action.
+    - type: Tweak
+      message: The Xenomorph queen has less health but increased speed.
+    - type: Tweak
+      message: Xenomorphs now have weak space flight capabilities.
+    - type: Tweak
+      message: Xenomorphs are now slightly rarer.
+    - type: Fix
+      message: Fixed and readded Xenomorphs acid wall ability
+    - type: Fix
+      message: >-
+        Lizards can no longer drag others off of Xenomorph nests while being in
+        a nest themselves.
+  id: 3023
+  time: '2026-10-31T23:11:20.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Boogeyman now deals 60 fear on jumpscare instead of the usual 20.
+    - type: Fix
+      message: >-
+        Fixed the boogeymans shader. The engine update from a while back broke
+        it.
+  id: 3024
+  time: '2026-10-31T23:15:01.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Added the summon supermatter spell for wizards!
+    - type: Tweak
+      message: Removed buying limits for all wizard items.
+    - type: Tweak
+      message: Slaughter demon hearts now only cost 4 wiz coins.
+  id: 3025
+  time: '2026-10-31T23:30:40.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Mantis blades have been reworked and buffed.
+  id: 3026
+  time: '2026-10-31T23:51:56.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        Antags that block evac actually block it now instead of just instantly
+        recalling.
+    - type: Tweak
+      message: >-
+        Cosmic Cult now has 25 minutes after the monument reaches tier 3 to win,
+        otherwise evac unlocks again. (Effectively gives them 35 minutes total.)
+  id: 3027
+  time: '2026-11-01T00:07:15.0000000+00:00'

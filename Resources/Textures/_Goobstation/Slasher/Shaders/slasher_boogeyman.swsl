@@ -8,11 +8,12 @@ void fragment()
 {
     COLOR = zTexture(UV);
 
-    highp float brightness = max(max(lightSample.r, lightSample.g), lightSample.b);
+    highp vec3 light = texture2D(lightMap, SCREEN_UV).rgb;
 
+    highp vec3 perceived = zToSrgb(vec4(clamp(light, 0.0, 1.0), 1.0)).rgb;
+    highp float brightness = max(max(perceived.r, perceived.g), perceived.b);
     highp float visibility = smoothstep(darkThreshold, lightThreshold, brightness);
-
-    COLOR.a *= visibility;
+    COLOR *= visibility;
 
     lightSample = vec3(1.0);
 }

@@ -173,7 +173,6 @@
   name: watcher-title
   description: watcher-description
   showInVote: true
-  minPlayers: 15
   rules:
     - ClassicDynamic
     - SubGamemodesRule
