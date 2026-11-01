@@ -26,6 +26,10 @@
       storagebase: !type:Container
         ents: []
       mod-core: !type:ContainerSlot
+      mod-parts: !type:Container
+        ents: []
+      mod-modules: !type:Container
+        ents: []
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:

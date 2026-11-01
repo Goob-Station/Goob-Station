@@ -47,6 +47,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-chestplate
     sealDownPopup: modsuit-part-seal-down-chestplate
@@ -116,6 +119,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-chestplate
     sealDownPopup: modsuit-part-seal-down-chestplate
@@ -194,6 +200,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-chestplate
     sealDownPopup: modsuit-part-seal-down-chestplate
@@ -279,6 +288,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-chestplate
     sealDownPopup: modsuit-part-seal-down-chestplate
@@ -358,6 +370,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-chestplate
     sealDownPopup: modsuit-part-seal-down-chestplate
@@ -438,6 +453,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-chestplate
     sealDownPopup: modsuit-part-seal-down-chestplate
@@ -516,6 +534,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-chestplate
     sealDownPopup: modsuit-part-seal-down-chestplate
@@ -598,6 +619,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-chestplate
     sealDownPopup: modsuit-part-seal-down-chestplate
@@ -677,6 +701,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-chestplate
     sealDownPopup: modsuit-part-seal-down-chestplate

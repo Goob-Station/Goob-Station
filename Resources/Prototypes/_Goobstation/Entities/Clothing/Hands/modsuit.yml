@@ -50,6 +50,9 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-gauntlets
     sealDownPopup: modsuit-part-seal-down-gauntlets
@@ -86,6 +89,9 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-gauntlets
     sealDownPopup: modsuit-part-seal-down-gauntlets
@@ -125,6 +131,9 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-gauntlets
     sealDownPopup: modsuit-part-seal-down-gauntlets
@@ -172,6 +181,9 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-gauntlets
     sealDownPopup: modsuit-part-seal-down-gauntlets
@@ -220,6 +232,9 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-gauntlets
     sealDownPopup: modsuit-part-seal-down-gauntlets
@@ -270,6 +285,9 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-gauntlets
     sealDownPopup: modsuit-part-seal-down-gauntlets
@@ -321,6 +339,9 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-gauntlets
     sealDownPopup: modsuit-part-seal-down-gauntlets
@@ -374,6 +395,9 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-gauntlets
     sealDownPopup: modsuit-part-seal-down-gauntlets
@@ -423,6 +447,9 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
   - type: ModPart
     sealUpPopup: modsuit-part-seal-up-gauntlets
     sealDownPopup: modsuit-part-seal-down-gauntlets

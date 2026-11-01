@@ -422,6 +422,8 @@
     materialComposition:
       Plasma: 100
       Glass: 25
+  - type: StaticPrice
+    price: 75
 
 - type: entity
   parent: PartModsuit
