@@ -27007,3 +27007,13 @@ Entries:
         otherwise evac unlocks again. (Effectively gives them 35 minutes total.)
   id: 3027
   time: '2026-11-01T00:07:15.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: IPCs and Synths can now be zombified, they can be cured via EMP.
+    - type: Tweak
+      message: >-
+        People infected by zombies will now cough (or spark in the case of IPCs)
+        every few seconds.
+  id: 3028
+  time: '2026-11-01T21:21:02.0000000+00:00'
