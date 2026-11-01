@@ -396,6 +396,18 @@
   id: ModsuitCore
 
 - type: Tag
+  id: ModsuitModule
+
+- type: Tag
+  id: ModsuitModuleJetpack
+
+- type: Tag
+  id: ModsuitModuleStorage
+
+- type: Tag
+  id: ModsuitModuleVisor
+
+- type: Tag
   id: ModsuitGauntlets
 
 - type: Tag
@@ -406,6 +418,30 @@
 
 - type: Tag
   id: ModsuitPlatingExternal
+
+- type: Tag
+  id: ModsuitPlatingParamedic
+
+- type: Tag
+  id: ModsuitPlatingEngineer
+
+- type: Tag
+  id: ModsuitPlatingSecurity
+
+- type: Tag
+  id: ModsuitPlatingHeadOfSecurity
+
+- type: Tag
+  id: ModsuitPlatingCaptain
+
+- type: Tag
+  id: ModsuitPlatingRD
+
+- type: Tag
+  id: ModsuitPlatingAtmostech
+
+- type: Tag
+  id: ModsuitPlatingBrigMed
 
 - type: Tag
   id: ModsuitShell

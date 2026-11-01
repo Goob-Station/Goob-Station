@@ -49,27 +49,6 @@
     head: ClothingHeadHelmetVoidsuitSecurity
 
 - type: startingGear
-  id: SecurityOfficerModSuit
-  parent: SecurityOfficerGearDebug
-  equipment:
-    head: ClothingModsuitHelmetSecurity
-    shoes: ClothingModsuitBootsSecurity
-    gloves: ClothingModsuitGauntletsSecurity
-    outerClothing: ClothingModsuitChestplateSecurity
-    back: ClothingModsuitSecurityPowerCell
-
-- type: startingGear
-  id: SecurityHoSModSuit
-  parent: HoSGearDebug
-  equipment:
-    head: ClothingModsuitHelmetHeadOfSecurity
-    shoes: ClothingModsuitBootsHeadOfSecurity
-    gloves: ClothingModsuitGauntletsHeadOfSecurity
-    outerClothing: ClothingModsuitChestplateHeadOfSecurity
-    back: ClothingModsuitHeadOfSecurityPowerCell
-
-
-- type: startingGear
   id: SecurityHoSSuit
   parent: HoSGearDebug
   equipment:
@@ -129,15 +108,6 @@
     head: ClothingHeadHelmetHardsuitBlueshield
 
 - type: startingGear
-  id: BlueShieldOfficerGearModSuit
-  parent: BlueShieldOfficerGearDebug
-  equipment:
-    outerClothing: ClothingModsuitChestplatePraetorian
-    head: ClothingModsuitHelmetPraetorian
-    back: ClothingModsuitPraetorian
-    gloves: ClothingModsuitGauntletsPraetorian
-
-- type: startingGear
   id: WizardHardsuitGearDebug
   parent: WizardHardsuitGear
   equipment:
@@ -162,12 +132,3 @@
     outerClothing: ClothingOuterHardsuitCap
     head: ClothingHeadHelmetHardsuitCap
 
-- type: startingGear
-  id: CaptainModsuit
-  parent: VisitorCaptain
-  equipment:
-    back: ClothingModsuitCaptainPowerCell
-    outerClothing: ClothingModsuitChestplateCaptain
-    gloves: ClothingModsuitGauntletsCaptain
-    shoes: ClothingModsuitBootsCaptain
-    head: ClothingModsuitHelmetCaptain

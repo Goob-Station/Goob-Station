@@ -1,5 +1,4 @@
 using Content.Goobstation.Common.Augments;
-using Content.Goobstation.Common.Clothing.Systems;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.PowerCell.Components;
@@ -12,7 +11,7 @@ namespace Content.Shared.PowerCell.Components;
 /// </remarks>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(PowerCellSystem),
-    typeof(CommonAugmentPowerCellSystem), typeof(CommonPoweredSealableClothingSystem))] // Goob
+    typeof(CommonAugmentPowerCellSystem))] // Goob
 public sealed partial class PowerCellDrawComponent : Component
 {
     /// <summary>

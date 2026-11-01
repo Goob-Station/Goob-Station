@@ -118,3 +118,20 @@
   technologyPrerequisites:
   - HighEndSurgery
   position: -3, 9
+
+- type: technology
+  id: ModsuitMedicalTech
+  name: research-technology-modsuit-medical
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: health
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ModsuitPlatingParamedic
+  - ModsuitModuleHealthAnalyzer
+  - ModsuitModuleVisorMedical
+  position: 3,7
+  technologyPrerequisites:
+  - ModsuitsTech

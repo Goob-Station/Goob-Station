@@ -9,25 +9,30 @@
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/janitorial-responsory.rsi
-    - type: ToggleableClothing
-      clothingPrototypes:
+    - type: ModSuit
+      theme: ModThemeResponsory
+      parts:
         head: ClothingModsuitHelmetResponsoryJanitorial
         gloves: ClothingModsuitGauntletsResponsoryJanitorial
         outerClothing: ClothingModsuitChestplateResponsoryJanitorial
         shoes: ClothingModsuitBootsResponsoryJanitorial
+      startingModules:
+      - ModsuitModuleStorageBluespace
+      - ModsuitModuleFlashlight
+      - ModsuitModuleMagboots
+      inbuiltModules:
+      - ModsuitModuleBuiltinSecHud
+      - ModsuitModuleBuiltinMedHud
+      - ModsuitModuleBuiltinFlashProtection
     - type: ItemSlots
       slots:
-        cell_slot:
-          name: power-cell-slot-component-slot-name-default
-          startingItem: PowerCellMicroreactor # Since this is used by ERT they shouldnt need to stop to recharge.
+        mod-core:
+          name: modsuit-core-slot-name
+          startingItem: ModsuitCoreStandardMicroreactor
           whitelist:
             components:
-              - PowerCell
-    - type: Storage
-      maxItemSize: Huge
-      grid:
-        - 0,0,10,3
-    - type: SealableClothingVisuals
+            - ModCore
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         back:
@@ -42,7 +47,7 @@
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/janitorial-responsory.rsi
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         gloves:
@@ -91,9 +96,25 @@
         - Silicon
     - type: PointLight
       color: "#FFDF00"
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
+        head-hydrakin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-feroxi:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-vulpkanin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-resomi:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
         head:
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
@@ -101,6 +122,20 @@
         head-vox:
         - state: equipped-HEAD-sealed-vox
         - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
+    - type: Clothing
+      clothingVisuals:
+        head-vulpkanin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-feroxi:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-hydrakin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
           shader: unshaded
 - type: entity
   parent: ClothingModsuitChestplateStandard
@@ -131,9 +166,11 @@
           Caustic: 0.45
     - type: ExplosionResistance
       damageCoefficient: 0.45
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
+        outerClothing-resomi:
+        - state: equipped-OUTERCLOTHING-sealed
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
         outerClothing-vox:
@@ -154,7 +191,7 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         shoes:
@@ -163,14 +200,6 @@
         - state: equipped-FEET-sealed-vox
         - state: equipped-FEET-sealed-unshaded-vox
           shader: unshaded
-    - type: ItemToggle
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-      - type: NoSlip
-    - type: Magboots
-      enabledPrefix: null
     - type: ClothingSpeedModifier
       walkModifier: 0.95
       sprintModifier: 0.95

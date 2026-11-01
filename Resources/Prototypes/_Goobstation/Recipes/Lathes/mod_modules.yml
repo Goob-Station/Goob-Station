@@ -1,0 +1,164 @@
+- type: latheRecipe
+  abstract: true
+  id: BaseModsuitModuleRecipe
+  categories:
+  - ModsuitModules
+  completetime: 5
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitCoreStandard
+  result: ModsuitCoreStandard
+  materials:
+    Steel: 300
+    Glass: 200
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitCorePlasma
+  result: ModsuitCorePlasma
+  materials:
+    Steel: 300
+    Glass: 200
+    Plasma: 500
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleStorageCompact
+  result: ModsuitModuleStorageCompact
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 300
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleStorageLarge
+  result: ModsuitModuleStorageLarge
+  materials:
+    Steel: 1000
+    Glass: 100
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleStorageBluespace
+  result: ModsuitModuleStorageBluespace
+  completetime: 10
+  materials:
+    Steel: 1000
+    Glass: 100
+    Silver: 500
+    Plasma: 500
+    Uranium: 150
+    BSCrystal: 200
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleFlashlight
+  result: ModsuitModuleFlashlight
+  materials:
+    Steel: 300
+    Glass: 200
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleMouthhole
+  result: ModsuitModuleMouthhole
+  materials:
+    Steel: 300
+    Glass: 100
+    Plastic: 200
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleMagboots
+  result: ModsuitModuleMagboots
+  materials:
+    Steel: 600
+    Glass: 100
+    Silver: 300
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleWelding
+  result: ModsuitModuleWelding
+  materials:
+    Steel: 300
+    Glass: 400
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleThermalRegulator
+  result: ModsuitModuleThermalRegulator
+  materials:
+    Steel: 400
+    Glass: 200
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleGps
+  result: ModsuitModuleGps
+  materials:
+    Steel: 300
+    Glass: 300
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleHealthAnalyzer
+  result: ModsuitModuleHealthAnalyzer
+  materials:
+    Steel: 300
+    Glass: 300
+    Silver: 100
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleVisorMedical
+  result: ModsuitModuleVisorMedical
+  materials:
+    Steel: 300
+    Glass: 300
+    Silver: 100
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleVisorDiagnostic
+  result: ModsuitModuleVisorDiagnostic
+  materials:
+    Steel: 300
+    Glass: 300
+    Silver: 100
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleVisorSecurity
+  result: ModsuitModuleVisorSecurity
+  materials:
+    Steel: 300
+    Glass: 300
+    Silver: 100
+    Gold: 100
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleEmpShield
+  result: ModsuitModuleEmpShield
+  materials:
+    Steel: 500
+    Glass: 200
+    Uranium: 200
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleJetpack
+  result: ModsuitModuleJetpack
+  completetime: 10
+  materials:
+    Steel: 1000
+    Glass: 100
+    Plasma: 500
+    Silver: 300
+    Gold: 200

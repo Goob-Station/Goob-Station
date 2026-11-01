@@ -2,14 +2,11 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionClothingSeal
-  name: Seal clothing
-  description: Seals your current clothing.
+  id: ActionModSuitActivate
+  name: Toggle MOD activation
+  description: Seal or unseal your MODsuit. All parts must be deployed first.
   categories: [ HideSpawnMenu ]
   components:
-  - type: ConfirmableAction
-    confirmDelay: 0
-    primeTime: 2
   - type: Action
     checkCanInteract: true
     checkConsciousness: true
@@ -17,11 +14,33 @@
     icon:
       sprite: _Goobstation/Actions/modsuit.rsi
       state: activate
-    iconOn:
-      sprite: _Goobstation/Actions/modsuit.rsi
-      state: activate-ready
   - type: InstantAction
-    event: !type:SealClothingEvent {}
+    event: !type:ModSuitActivateActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionModSuitDeploy
+  name: Deploy MOD parts
+  description: Deploy or retract every part of your MODsuit.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: true
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ModSuitDeployActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionModModule
+  name: Use MOD module
+  description: Use or toggle this MODsuit module.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ModModuleActionEvent
 
 
 - type: entity

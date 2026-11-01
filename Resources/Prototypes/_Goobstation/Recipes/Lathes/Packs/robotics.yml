@@ -37,6 +37,30 @@
   - ModsuitGauntlets
   - ModsuitShell
   - ModsuitPlatingExternal
+  - ModsuitPlatingParamedic
+  - ModsuitPlatingEngineer
+  - ModsuitPlatingAtmostech
+
+- type: latheRecipePack
+  id: ModsuitModules
+  recipes:
+  - ModsuitCoreStandard
+  - ModsuitCorePlasma
+  - ModsuitModuleStorageCompact
+  - ModsuitModuleStorageLarge
+  - ModsuitModuleStorageBluespace
+  - ModsuitModuleFlashlight
+  - ModsuitModuleMouthhole
+  - ModsuitModuleMagboots
+  - ModsuitModuleWelding
+  - ModsuitModuleThermalRegulator
+  - ModsuitModuleGps
+  - ModsuitModuleHealthAnalyzer
+  - ModsuitModuleVisorMedical
+  - ModsuitModuleVisorDiagnostic
+  - ModsuitModuleVisorSecurity
+  - ModsuitModuleEmpShield
+  - ModsuitModuleJetpack
 
 - type: latheRecipePack
   id: BorgModulesGoob

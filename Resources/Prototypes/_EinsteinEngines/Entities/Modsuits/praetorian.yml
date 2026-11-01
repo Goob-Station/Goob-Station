@@ -15,32 +15,35 @@
         - state: equipped-BACKPACK
         back-resomi:
         - state: equipped-BACKPACK-resomi
-    - type: ToggleableClothing
-      clothingPrototypes:
+    - type: ModSuit
+      theme: ModThemePraetorian
+      parts:
         head: ClothingModsuitHelmetPraetorian
         gloves: ClothingModsuitGauntletsPraetorian
         outerClothing: ClothingModsuitChestplatePraetorian
         shoes: ClothingModsuitBootsPraetorian
+      startingModules:
+      - ModsuitModuleStorageLarge
+      - ModsuitModuleFlashlight
+      - ModsuitModuleMagboots
+      inbuiltModules:
+      - ModsuitModuleBuiltinFlashProtection
+      - ModsuitModuleBuiltinInsulation
     - type: ItemSlots
       slots:
-        cell_slot:
-          name: power-cell-slot-component-slot-name-default
-          startingItem: PowerCellHyper
+        mod-core:
+          name: modsuit-core-slot-name
+          startingItem: ModsuitCoreStandardHyper
           whitelist:
             components:
-              - PowerCell
-    - type: SealableClothingVisuals
+            - ModCore
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         back:
         - state: equipped-BACKPACK-sealed
         back-resomi:
         - state: equipped-BACKPACK-sealed-resomi
-    - type: Storage
-      grid:
-      - 0,0,1,3
-      - 3,0,6,3
-      - 8,0,9,3
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -51,7 +54,7 @@
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         gloves:
@@ -73,6 +76,10 @@
   components:
     - type: Clothing
       clothingVisuals:
+        head-hydrakin:
+        - state: equipped-HEAD
+        head-feroxi:
+        - state: equipped-HEAD
         head:
         - state: equipped-HEAD
         head-resomi:
@@ -107,9 +114,17 @@
     - type: FlashSoundSuppression # Goobstation
     - type: PointLight
       color: "#4d7ae3"
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
+        head-hydrakin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-feroxi:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
         head:
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
@@ -155,7 +170,7 @@
           Radiation: 0.5
           Heat: 0.45
           Caustic: 0.5
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         outerClothing:
@@ -188,7 +203,7 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         shoes:
@@ -197,14 +212,6 @@
         - state: equipped-FEET-sealed-vox
         shoes-reptilian:
         - state: equipped-FEET-sealed-reptilian
-    - type: ItemToggle
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-      - type: NoSlip
-    - type: Magboots
-      enabledPrefix: null
     - type: ClothingSpeedModifier
       walkModifier: 0.95
       sprintModifier: 0.9
