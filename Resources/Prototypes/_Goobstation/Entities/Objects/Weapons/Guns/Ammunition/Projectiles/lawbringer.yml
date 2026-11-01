@@ -147,8 +147,8 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 17
-        Radiation: 2
+        Heat: 15
+        Shock: 5
 
 - type: entity
   id: BulletHotshot
@@ -236,31 +236,3 @@
         - ReagentId: Haloperidol
           Quantity: 1.5
   - type: BlurOnCollide
-
-- type: entity
-  id: BulletBigshot
-  name: bigshot
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Reflective
-    reflective:
-    - Energy
-  - type: FlyBySound
-    sound:
-      collection: EnergyMiss
-      params:
-        volume: 5
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-    layers:
-    - state: omnilaser_greyscale
-      shader: unshaded
-  - type: Projectile
-    impactEffect: BulletImpactEffectKinetic
-    damage:
-      types:
-        Blunt: 2
-        Heat: 2
-        Structural: 100
-    ignoreResistances: true # This needs ProjectileDamageWhitelistComponent

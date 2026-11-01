@@ -391,7 +391,6 @@
     - BulletEnergyGunExecute
     - BulletEnergyGunHotshot
     - BulletEnergyGunSleepshot
-    - BulletEnergyGunBigshot
   - type: UserInterface
     interfaces:
       enum.AmmoSelectorUiKey.Key:

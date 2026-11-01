@@ -119,17 +119,6 @@
   protoId: BulletSleepshot
   fireCost: 60
 
-- type: selectableAmmo
-  id: BulletEnergyGunBigshot
-  desc: While dealing less damage to living creatures, this bolt is especially effective at tearing apart structures.
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
-    state: bigshot
-  color: gray
-  protoId: BulletBigshot
-  fireCost: 80
-
-
 # Pulse Rifle
 
 - type: selectableAmmo
