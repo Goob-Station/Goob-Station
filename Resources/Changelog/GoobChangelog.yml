@@ -27037,3 +27037,11 @@ Entries:
       message: Changelings and Heretics have new tree style shops.
   id: 3030
   time: '2026-11-02T01:06:36.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added twenty-four additional MODs for modsuits.
+    - type: Fix
+      message: Fixed two desync issues related to modsuits.
+  id: 3031
+  time: '2026-11-02T03:40:55.0000000+00:00'
