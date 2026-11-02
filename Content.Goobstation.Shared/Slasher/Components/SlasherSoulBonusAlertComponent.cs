@@ -1,6 +1,5 @@
 namespace Content.Goobstation.Shared.Slasher.Components;
 
-
 [RegisterComponent]
 public sealed partial class SlasherSoulBonusAlertComponent : Component
 {
