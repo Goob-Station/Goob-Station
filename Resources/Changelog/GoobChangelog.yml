@@ -27045,3 +27045,29 @@ Entries:
       message: Fixed two desync issues related to modsuits.
   id: 3031
   time: '2026-11-02T03:40:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added 8 modules and 2 modsuits to uplinks, balance larp pending
+    - type: Tweak
+      message: Clamp module now drops entities when its unequipped.
+    - type: Tweak
+      message: Hard hat module now properly applies blunt resistance to the helmet.
+    - type: Tweak
+      message: >-
+        All modules and plating are now printed at their respective departmental
+        lathes (except command plating, those stay in lockers.)
+    - type: Tweak
+      message: >-
+        You can no longer use microreactors in standard MOD cores, you must
+        instead print a microreactor MOD core.
+    - type: Tweak
+      message: >-
+        Most modules have had their power draw massively increased, notably
+        toggleable modules and the jetpack module.
+    - type: Tweak
+      message: >-
+        You will now see actions and martial arts combos on your cursor even if
+        the "show held item on cursor" setting is turned off.
+  id: 3032
+  time: '2026-11-02T21:50:38.0000000+00:00'
