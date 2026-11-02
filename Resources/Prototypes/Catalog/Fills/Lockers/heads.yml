@@ -145,12 +145,11 @@
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
-    - id: ComputerFundingAllocationFlatpack # Goobstation
-    - id: ComputerCargoRequestServiceFlatpack # Goobstation
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
     - id: CommandMegaphone # goob - loudspeakers
+    - id: ShredderFlatpack # Goob
     - id: CandyBowlFilledLollypopsMystery # Goob - Happy Halloween!
     - !type:NestedSelector # Goob - Happy Halloween!
       tableId: RandomSnackTable
