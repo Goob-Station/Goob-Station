@@ -65,6 +65,12 @@ public sealed partial class SlasherFearComponent : Component
     [DataField]
     public float JumpscareFear = 0.2f;
 
+    [DataField]
+    public float AscendedJumpscareFearBonus = 0.4f;
+
+    [ViewVariables, AutoNetworkedField]
+    public bool HasAscended;
+
     /// <summary>
     /// Movement speed bonus granted to the Slasher at full meter.
     /// </summary>

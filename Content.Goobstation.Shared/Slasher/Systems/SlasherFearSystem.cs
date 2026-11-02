@@ -50,6 +50,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
         SubscribeLocalEvent<SlasherFearComponent, ComponentShutdown>(OnFearShutdown);
         SubscribeLocalEvent<SlasherFearComponent, LocalPlayerDetachedEvent>(OnFearDetached);
         SubscribeLocalEvent<SlasherFearComponent, SlasherToggleFearMusicAlertEvent>(OnToggleMusic);
+        SubscribeLocalEvent<SlasherAscendedEvent>(OnAscended);
 
         SubscribeLocalEvent<SlasherVictimFearBuildupComponent, ComponentShutdown>(OnFearedShutdown);
         SubscribeLocalEvent<SlasherVictimFearBuildupComponent, LocalPlayerDetachedEvent>(OnFearedDetached);
@@ -62,6 +63,17 @@ public sealed partial class SlasherFearSystem : EntitySystem
 
         var mod = 1f + ent.Comp.MaxSpeedBonus;
         args.ModifySpeed(mod, mod);
+    }
+
+    private void OnAscended(SlasherAscendedEvent args)
+    {
+        if (!TryComp<SlasherFearComponent>(args.Slasher, out var fear))
+            return;
+
+        fear.HasAscended = true;
+        fear.CurrentMeter = fear.MaxMeter;
+        Dirty(args.Slasher, fear);
+        UpdateHuntEffects((args.Slasher, fear));
     }
 
     private void OnFearStartup(Entity<SlasherFearComponent> ent, ref ComponentStartup args)
@@ -135,7 +147,8 @@ public sealed partial class SlasherFearSystem : EntitySystem
             {
                 comp.NextJumpscare = now + comp.JumpscareCooldown;
                 comp.CurrentMeter = MathF.Min(comp.MaxMeter, comp.CurrentMeter + comp.MeterPerJumpscare);
-                victim.Fear = MathF.Min(1f, victim.Fear + comp.JumpscareFear);
+                var jumpscareFear = comp.JumpscareFear + (comp.HasAscended ? comp.AscendedJumpscareFearBonus : 0f);
+                victim.Fear = MathF.Min(1f, victim.Fear + jumpscareFear);
 
                 Jumpscare(uid, other, comp);
             }
@@ -151,7 +164,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
         if (!CanHunt(uid))
         {
             comp.Observing.Clear();
-            comp.CurrentMeter = MathF.Max(0f, comp.CurrentMeter - comp.MeterDecayPerSecond * dt);
+            comp.CurrentMeter = comp.HasAscended ? comp.MaxMeter : MathF.Max(0f, comp.CurrentMeter - comp.MeterDecayPerSecond * dt);
             Dirty(uid, comp);
             UpdateHuntEffects(ent);
             return;
@@ -166,6 +179,9 @@ public sealed partial class SlasherFearSystem : EntitySystem
         {
             comp.CurrentMeter = MathF.Max(0f, comp.CurrentMeter - comp.MeterDecayPerSecond * dt);
         }
+
+        if (comp.HasAscended)
+            comp.CurrentMeter = comp.MaxMeter;
 
         comp.Observing = seen;
         Dirty(uid, comp);
