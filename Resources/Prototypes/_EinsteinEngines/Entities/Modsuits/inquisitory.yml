@@ -5,7 +5,7 @@
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitInquisitory
   name: Inquisitory modsuit control unit
-  description: The main controller for a Inquisitory modsuit.
+  description: A blessed modular hardsuit carried by Inquisition ERT members. It seems to be blessed with some holy energy.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/inquisitory.rsi

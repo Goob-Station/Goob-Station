@@ -5,7 +5,7 @@
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryMedical
   name: Medical Responsory modsuit control unit
-  description: The main controller for a Medical Responsory modsuit.
+  description: A robust modular hardsuit made for a medical ERT. It has a glowing white pattern.
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/medical-responsory.rsi
