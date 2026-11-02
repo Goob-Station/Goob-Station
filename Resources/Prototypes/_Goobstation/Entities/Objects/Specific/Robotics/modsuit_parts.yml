@@ -401,6 +401,7 @@
   id: ModsuitCoreStandardMicroreactor
   name: MOD microreactor core
   description: A sealed MOD core built around a miniature reactor. It holds a modest charge that slowly regenerates on its own.
+  components:
   - type: Sprite
     state: mod-core-standard
     color: "#7dffb0"
