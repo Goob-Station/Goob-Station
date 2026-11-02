@@ -64,6 +64,10 @@
         - id: MaterialToothSpaceCarp1
           amount: 1
           maxAmount: 4
+        - id: MaterialCarpScales1 # Goobstation
+          amount: 1
+          prob: 0.02
+          maxAmount: 1
     - type: MeleeWeapon
       altDisarm: false
       angle: 0
@@ -280,6 +284,9 @@
           amount: 4
         - id: MaterialToothSharkminnow1
           amount: 3
+        - id: MaterialCarpScales1 # Goobstation
+          amount: 1
+          prob: 0.3
     - type: MeleeWeapon
       damage:
         types:

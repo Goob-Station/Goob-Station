@@ -182,6 +182,16 @@ public sealed partial class NpcFactionSystem : EntitySystem
             RefreshFactions((ent, ent.Comp));
     }
 
+    // goob start - returns a copy of the entity's factions
+    public HashSet<ProtoId<NpcFactionPrototype>> GetFactions(Entity<NpcFactionMemberComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return new HashSet<ProtoId<NpcFactionPrototype>>();
+
+        return new HashSet<ProtoId<NpcFactionPrototype>>(ent.Comp.Factions);
+    }
+    // goob end
+
     public IEnumerable<EntityUid> GetNearbyHostiles(Entity<NpcFactionMemberComponent?, FactionExceptionComponent?> ent, float range)
     {
         if (!Resolve(ent, ref ent.Comp1, false))

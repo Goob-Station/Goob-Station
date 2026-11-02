@@ -1,0 +1,4 @@
+- type: salvageMap
+  id: CarpNest
+  mapPath: /Maps/_Goobstation/Salvage/carp_nest.yml
+  sizeString: salvage-map-wreck-size-medium
