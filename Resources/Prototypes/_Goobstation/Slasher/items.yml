@@ -42,7 +42,7 @@
   - type: SlasherMassacreMachete
   - type: Prying
     pryPowered: True
-    speedModifier: 1.5
+    speedModifier: 3
   - type: ThrowingAngle
     angle: 225
 
