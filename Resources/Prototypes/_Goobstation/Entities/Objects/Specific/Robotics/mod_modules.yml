@@ -700,6 +700,7 @@
     requiredParts:
     - head
   - type: ModArmorModule
+    slot: head
     modifiers:
       coefficients:
         Blunt: 0.9

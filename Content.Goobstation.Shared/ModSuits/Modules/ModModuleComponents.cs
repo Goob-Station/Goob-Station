@@ -119,6 +119,9 @@ public sealed partial class ModArmorModuleComponent : Component
 {
     [DataField(required: true)]
     public DamageModifierSet Modifiers = new();
+
+    [DataField]
+    public string? Slot;
 }
 
 [RegisterComponent, NetworkedComponent]
