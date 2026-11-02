@@ -216,6 +216,7 @@
     - Genetics
     - XenobioPack
     - XenobagHoldingPack
+    - ExperimentalShieldingPack # Goobstation - So let me get this straight, this is inside goobmod, and yet people mark these with goob comments?
     # Einstein Engines Packs
     - Translators
     - TranslatorImplanters
