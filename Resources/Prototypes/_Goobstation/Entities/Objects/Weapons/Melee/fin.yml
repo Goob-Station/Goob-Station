@@ -47,7 +47,6 @@
     entity: WeaponSharkMinnowFin
 
 - type: construction
-  crafting: true
   id: SharkminnowFin
   graph: SharkminnowFin
   startNode: start
