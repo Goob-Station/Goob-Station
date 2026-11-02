@@ -1,0 +1,25 @@
+- type: entity
+  id: SandevistanVisionSlowdown
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SandevistanSlowdownVision
+
+- type: entity
+  id: SandevistanVisionStatveka
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SandevistanSlowdownVision
+  - type: AudioPitch
+
+- type: entity
+  id: SandevistanVisionTimestop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SandevistanTimestopVision
+  - type: AudioReverb
+
+- type: entity
+  id: SandevistanActivationTimestop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SandevistanTimestopBurst
