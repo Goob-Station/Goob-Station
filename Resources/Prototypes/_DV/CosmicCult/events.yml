@@ -10,6 +10,11 @@
     reoccurrenceDelay: 35
     minimumPlayers: 25
     duration: null
+    chaos: # Goobstation
+      Hostile: 100
+      Medical: 100
+      Death: 100
+    destruction: 2 # Goobstation
   - type: SpaceSpawnRule
   - type: AntagSpawner
     prototype: MobCosmicColossusLone

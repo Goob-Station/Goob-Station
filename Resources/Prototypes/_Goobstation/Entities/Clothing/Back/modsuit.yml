@@ -21,33 +21,28 @@
     quickEquip: false
     slots:
     - back
-  - type: Storage
-    grid:
-    - 0,0,1,3
-    - 3,0,6,3
-    - 8,0,9,3
-    maxItemSize: Huge
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
         ents: []
-      toggleable-clothing: !type:Container
-      cell_slot: !type:ContainerSlot
+      mod-core: !type:ContainerSlot
+      mod-parts: !type:Container
+        ents: []
+      mod-modules: !type:Container
+        ents: []
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
+      enum.ModSuitUiKey.Key:
+        type: ModSuitBoundUserInterface
   - type: UseDelay
     delay: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: ToggleableClothing
-    requiredSlot: back
-    blockUnequipWhenAttached: false # easier to use and now its fixed
-    replaceCurrentClothing: true
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeStandard
+    parts:
       head: ClothingModsuitHelmetStandard
       gloves: ClothingModsuitGauntletsStandard
       outerClothing: ClothingModsuitChestplateStandard
@@ -55,97 +50,21 @@
   - type: WiresPanel
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandard
         whitelist:
           components:
-            - PowerCell
+          - ModCore
   - type: ItemSlotsRequirePanel
     slots:
-      cell_slot: true
-  - type: PowerCellDraw
-    drawRate: 0.8 # Sealed draw rate
-    useCharge: 4 # Draw rate for sealing
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: false
+      mod-core: true
   - type: DoAfter
-  - type: SealableClothingControl
-  - type: SealableClothingRequiresPower
-  - type: SealableClothingVisuals
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       back:
       - state: equipped-BACKPACK-sealed
-  - type: Construction
-    graph: Modsuit
-    node: standard
-  - type: ClothingSpeedModifier
-    sprintModifier: 0.95
-    walkModifier: 0.95
-
-- type: entity
-  parent: Clothing
-  id: ClothingModsuitStandardNoStorage
-  name: standard modsuit control unit
-  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
-  components:
-  - type: Appearance
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Back/Modsuits/standard.rsi
-    layers:
-    - state: control
-  - type: Item
-    size: Ginormous
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-      toggleable-clothing: !type:Container
-      cell_slot: !type:ContainerSlot
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
-  - type: UseDelay
-    delay: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
-  - type: ToggleableClothing
-    requiredSlot: back
-    blockUnequipWhenAttached: false # easier to use and now its fixed
-    replaceCurrentClothing: true
-    clothingPrototypes:
-      head: ClothingModsuitHelmetStandard
-      gloves: ClothingModsuitGauntletsStandard
-      outerClothing: ClothingModsuitChestplateStandard
-      shoes: ClothingModsuitBootsStandard
-  - type: WiresPanel
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        whitelist:
-          components:
-            - PowerCell
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
-  - type: PowerCellDraw
-    drawRate: 0.8 # Sealed draw rate
-    useCharge: 4 # Draw rate for sealing
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: false
-  - type: DoAfter
-  - type: SealableClothingControl
-  - type: SealableClothingRequiresPower
   - type: Construction
     graph: Modsuit
     node: standard
@@ -160,12 +79,12 @@
   components:
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHighCapacity
         whitelist:
           components:
-            - PowerCell
+          - ModCore
 
 - type: entity
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
@@ -176,8 +95,9 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeSecurity
+    parts:
       head: ClothingModsuitHelmetSecurity
       gloves: ClothingModsuitGauntletsSecurity
       outerClothing: ClothingModsuitChestplateSecurity
@@ -185,7 +105,7 @@
   - type: Construction
     graph: Modsuit
     node: security
-  - type: SealableClothingVisuals
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       back:
@@ -198,12 +118,12 @@
   components:
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHighCapacity
         whitelist:
           components:
-            - PowerCell
+          - ModCore
 
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
@@ -220,16 +140,20 @@
       - state: equipped-BACKPACK-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeSafeguard
+    parts:
       head: ClothingModsuitHelmetHeadOfSecurity
       gloves: ClothingModsuitGauntletsHeadOfSecurity
       outerClothing: ClothingModsuitChestplateHeadOfSecurity
       shoes: ClothingModsuitBootsHeadOfSecurity
+    inbuiltModules:
+    - ModsuitModuleBuiltinInsulation
+    - ModsuitModuleBuiltinAutoInjector
   - type: Construction
     graph: Modsuit
     node: headofsecurity
-  - type: SealableClothingVisuals
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       back:
@@ -244,12 +168,12 @@
   components:
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHighCapacity
         whitelist:
           components:
-            - PowerCell
+          - ModCore
 
 - type: entity
   parent: [ClothingModsuitStandard, BaseMedicalContraband]
@@ -260,13 +184,9 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
-  - type: Storage
-    grid:
-    - 0,0,1,3
-    - 3,0,6,3
-    - 8,0,9,3
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeMedical
+    parts:
       head: ClothingModsuitHelmetParamedic
       gloves: ClothingModsuitGauntletsParamedic
       outerClothing: ClothingModsuitChestplateParamedic
@@ -274,7 +194,7 @@
   - type: Construction
     graph: Modsuit
     node: paramedic
-  - type: SealableClothingVisuals
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       back:
@@ -287,12 +207,12 @@
   components:
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHighCapacity
         whitelist:
           components:
-            - PowerCell
+          - ModCore
 
 - type: entity
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
@@ -303,16 +223,20 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/engineer.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeEngineering
+    parts:
       head: ClothingModsuitHelmetEngineer
       gloves: ClothingModsuitGauntletsEngineer
       outerClothing: ClothingModsuitChestplateEngineer
       shoes: ClothingModsuitBootsEngineer
+    inbuiltModules:
+    - ModsuitModuleBuiltinFlashProtection
+    - ModsuitModuleBuiltinInsulation
   - type: Construction
     graph: Modsuit
     node: engineer
-  - type: SealableClothingVisuals
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       back:
@@ -327,12 +251,12 @@
   components:
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHighCapacity
         whitelist:
           components:
-            - PowerCell
+          - ModCore
 
 - type: entity
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
@@ -343,16 +267,20 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/atmostech.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeAtmospheric
+    parts:
       head: ClothingModsuitHelmetAtmostech
       gloves: ClothingModsuitGauntletsAtmostech
       outerClothing: ClothingModsuitChestplateAtmostech
       shoes: ClothingModsuitBootsAtmostech
+    inbuiltModules:
+    - ModsuitModuleBuiltinFlashProtection
+    - ModsuitModuleBuiltinInsulation
   - type: Construction
     graph: Modsuit
     node: atmostech
-  - type: SealableClothingVisuals
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       back:
@@ -367,12 +295,12 @@
   components:
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHighCapacity
         whitelist:
           components:
-            - PowerCell
+          - ModCore
 
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
@@ -383,16 +311,19 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/researchdirector.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeResearch
+    parts:
       head: ClothingModsuitHelmetResearchDirector
       gloves: ClothingModsuitGauntletsResearchDirector
       outerClothing: ClothingModsuitChestplateResearchDirector
       shoes: ClothingModsuitBootsResearchDirector
+    inbuiltModules:
+    - ModsuitModuleBuiltinInsulation
   - type: Construction
     graph: Modsuit
     node: rd
-  - type: SealableClothingVisuals
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       back:
@@ -410,12 +341,12 @@
   components:
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHighCapacity
         whitelist:
           components:
-            - PowerCell
+          - ModCore
 
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
@@ -426,16 +357,19 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/captain.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeMagnate
+    parts:
       head: ClothingModsuitHelmetCaptain
       gloves: ClothingModsuitGauntletsCaptain
       outerClothing: ClothingModsuitChestplateCaptain
       shoes: ClothingModsuitBootsCaptain
+    inbuiltModules:
+    - ModsuitModuleBuiltinInsulation
   - type: Construction
     graph: Modsuit
     node: captain
-  - type: SealableClothingVisuals
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       back:
@@ -450,12 +384,12 @@
   components:
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHighCapacity
         whitelist:
           components:
-            - PowerCell
+          - ModCore
 
 - type: entity
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
@@ -466,16 +400,17 @@
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/brigmed.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeBrigMed
+    parts:
       head: ClothingModsuitHelmetBrigMed
       gloves: ClothingModsuitGauntletsBrigMed
       outerClothing: ClothingModsuitChestplateBrigMed
       shoes: ClothingModsuitBootsBrigMed
   - type: Construction
     graph: Modsuit
-    node: security
-  - type: SealableClothingVisuals
+    node: brigmed
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       back:
@@ -488,9 +423,9 @@
   components:
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHighCapacity
         whitelist:
           components:
-            - PowerCell
+          - ModCore

@@ -18,7 +18,7 @@ using Robust.Shared.Audio;
 namespace Content.Client.GameTicking.Managers
 {
     [UsedImplicitly]
-    public sealed class ClientGameTicker : SharedGameTicker
+    public sealed partial class ClientGameTicker : SharedGameTicker // Goob
     {
         [Dependency] private readonly IStateManager _stateManager = default!;
         [Dependency] private readonly IClientAdminManager _admin = default!;
@@ -152,6 +152,9 @@ namespace Content.Client.GameTicking.Managers
 
         private void JoinGame(TickerJoinGameEvent message)
         {
+            if (GoobJoinGameAttempt()) // Goob
+                return; // Goob
+
             _stateManager.RequestStateChange<GameplayState>();
         }
 

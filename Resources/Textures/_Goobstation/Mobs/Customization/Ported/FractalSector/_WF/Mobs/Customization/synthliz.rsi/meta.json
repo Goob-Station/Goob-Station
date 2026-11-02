@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites are from AGPL-3.0 licensed code, taken from Skyrat SS13 repo at https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/modular_skyrat/master_files/icons/mob/sprite_accessory/lizard_snouts.dmi. Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_WF/Mobs/Customization/synthliz.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "m_snout_synthliz_basic",
+      "directions": 4
+    },
+    {
+      "name": "m_snout_synthliz_long",
+      "directions": 4
+    },
+    {
+      "name": "m_snout_synthliz_thick",
+      "directions": 4
+    },
+    {
+      "name": "m_snout_synthliz_thicklong",
+      "directions": 4
+    },
+    {
+      "name": "m_snout_synthliz_barless_basic",
+      "directions": 4
+    }
+  ]
+}

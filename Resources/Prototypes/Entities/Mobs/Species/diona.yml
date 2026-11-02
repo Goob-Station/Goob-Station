@@ -93,7 +93,7 @@
           - MobLayer
   - type: Speech
     speechVerb: Plant
-    allowedEmotes: ['Chirp']
+    allowedEmotes: ['Chirp', 'Multichirp'] # Goob
   - type: Vocal
     sounds:
       Male: UnisexDiona

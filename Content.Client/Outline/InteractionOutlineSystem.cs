@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Content.Client._Funkystation.Outline; // Goob
 using Content.Client.ContextMenu.UI;
 using Content.Client.Gameplay;
 using Content.Client.Graphics;
@@ -34,6 +35,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
     [Dependency] private SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private InteractionOutlineColorSystem _outlineColor = default!; // Goob
 
     /// <summary>
     ///     Whether to currently draw the outline. The outline may be temporarily disabled by other systems
@@ -233,6 +235,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
     private void SetOutlinePostShader(Entity<SpriteComponent?> sprite, bool inRange, int renderScale)
     {
         var shader = GetShader(inRange, renderScale);
+        shader.SetParameter("outline_color", _outlineColor.GetOutlineColor(inRange)); // Goob
         if (_sprite.TryGetPostShader(sprite, ContentPostShaderIds.InteractionOutline, out var entry) &&
             entry.Shader == shader)
         {

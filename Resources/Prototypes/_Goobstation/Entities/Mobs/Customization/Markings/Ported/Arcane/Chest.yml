@@ -1,0 +1,302 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: AndroidTorsoFemaleStandart
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: body_f
+
+- type: marking
+  id: AndroidTorsoFemaleSynt
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: body_f_synt
+
+- type: marking
+  id: AndroidTorsoMale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: body_m
+
+- type: marking
+  id: AndroidTorsoMaleSynt
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: body_m_synt
+
+- type: marking
+  id: BS2Chest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bs2ipc_chest
+
+- type: marking
+  id: BSHChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bshipc_chest
+
+- type: marking
+  id: ChestBelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/body.rsi
+    state: belly
+
+- type: marking
+  id: CyberlimbTorsoBishop
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/bishop.rsi
+    state: torso
+
+- type: marking
+  id: CyberlimbTorsoHephaestus
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/hephaestus.rsi
+    state: torso
+
+- type: marking
+  id: CyberlimbTorsoHephaestusTitan
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/hephaestus_titan.rsi
+    state: torso
+
+- type: marking
+  id: CyberlimbTorsoMorpheus
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/morpheus.rsi
+    state: torso
+
+- type: marking
+  id: CyberlimbTorsoNanotrasen
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/nanotrasen.rsi
+    state: torso
+
+- type: marking
+  id: CyberlimbTorsoXion
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/xion.rsi
+    state: torso
+
+- type: marking
+  id: CyberlimbTorsoZenghu
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/zenghu.rsi
+    state: torso
+
+- type: marking
+  id: HI2Chest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: hi2ipc_chest
+
+- type: marking
+  id: HSIChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: hsiipc_chest
+
+- type: marking
+  id: IPCChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ipc_chest
+
+- type: marking
+  id: IPSChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ips_chest
+
+- type: marking
+  id: PawsitronsChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: pawsitrons_chest
+
+- type: marking
+  id: SGMChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: sgmipc_chest
+
+- type: marking
+  id: SteampunkChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: staripc_chest
+
+- type: marking
+  id: TajaranBelly1
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_chest.rsi
+    state: belly1
+
+- type: marking
+  id: TajaranBelly3
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_chest.rsi
+    state: belly3
+
+- type: marking
+  id: TajaranChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_chest.rsi
+    state: chest
+
+- type: marking
+  id: WTMChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: wtmipc_chest
+
+- type: marking
+  id: XM2Chest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: xm2ipc_chest
+
+- type: marking
+  id: XMGChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: xmgipc_chest

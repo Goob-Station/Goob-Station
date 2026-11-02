@@ -97,6 +97,7 @@
         type: HealthAnalyzerBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.HealthAnalyzerUiKey.Key
     requiresComplex: false

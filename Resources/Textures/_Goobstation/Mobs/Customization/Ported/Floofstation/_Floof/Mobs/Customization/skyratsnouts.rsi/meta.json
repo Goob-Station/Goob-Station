@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Skyrat. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_Floof/Mobs/Customization/skyratsnouts.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "snout_flcanid_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_flcanid_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_fscanid_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_fscanid_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_birdsmall_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_birdsmall_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_bird_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_bird_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_bird_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "snout_birdsmall_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "snout_husky_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_husky_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_canid_alt2",
+      "directions": 4
+    },
+    {
+      "name": "snout_wah_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_wah_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_wah_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "snout_otie_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_otie_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_bigbeak_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_toucan_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_toucan_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "snout_pede_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_pede_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_rodent_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_sharp",
+      "directions": 4
+    },
+    {
+      "name": "snout_round",
+      "directions": 4
+    },
+    {
+      "name": "snout_shark_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_bug_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_bug_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_hshark_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_hshark_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_hanubus_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_hanubus_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_hspots_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_hspots_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_sharkblubber_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_sharkblubber_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_rat_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_rat_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "snout_ntajaran",
+      "directions": 4
+    },
+    {
+      "name": "snout_leporid_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_leporid_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snout_bigbeakshort_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_slimbeak_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_slimbeakshort_primary",
+      "directions": 4
+    },
+    {
+      "name": "snout_hookbeak_primary",
+      "directions": 4
+    }
+  ]
+}

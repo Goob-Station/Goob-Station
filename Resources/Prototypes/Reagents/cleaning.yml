@@ -10,6 +10,7 @@
   - Chemist
   flavor: bitter
   color: "#a1000b"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 111.0
   meltingPoint: -5.0
   metabolisms:
@@ -53,6 +54,8 @@
   physicalDesc: reagent-physical-desc-lemony-fresh
   flavor: bitter
   color: "#c8ff69"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#c8ff6980" # Goob
   recognizable: true
   boilingPoint: 147.0 # Made this up, loosely based on bleach
   meltingPoint: -11.0
@@ -67,6 +70,7 @@
   physicalDesc: reagent-physical-desc-soapy
   flavor: clean
   color: "#c8dfc9"
+  puddleSpriteSet: Splotchy # Goob
   recognizable: true
   boilingPoint: 100.0
   meltingPoint: 60.0
@@ -112,6 +116,8 @@
   physicalDesc: reagent-physical-desc-shiny
   flavor: funny
   color: "#77b58e"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#77b58e80" # Goob
   recognizable: true
   boilingPoint: 290.0 # Glycerin
   meltingPoint: 18.2

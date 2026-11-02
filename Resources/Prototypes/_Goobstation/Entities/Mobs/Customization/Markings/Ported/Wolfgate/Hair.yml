@@ -1,0 +1,866 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: WFMeridianHairAfroHuge
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair_32x48.rsi
+    state: afro_huge
+
+- type: marking
+  id: WFMeridianHairAfroOverEyes
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: afro_over_eyes
+
+- type: marking
+  id: WFMeridianHairAllTheFuzz
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: all_the_fuzz
+
+- type: marking
+  id: WFMeridianHairAnimeProtagonist
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: anime_protagonist
+
+- type: marking
+  id: WFMeridianHairBedhead4x
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: bedhead_4x
+
+- type: marking
+  id: WFMeridianHairBiggerTails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: bigger_tails
+
+- type: marking
+  id: WFMeridianHairBobcutALT
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: bobcut_alt
+
+- type: marking
+  id: WFMeridianHairBobcutOverEye1
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: bobcut_over_eye_1
+
+- type: marking
+  id: WFMeridianHairBobcutOverEye2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: bobcut_over_eye_2
+
+- type: marking
+  id: WFMeridianHairBobcutOverEye3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: bobcut_over_eye_3
+
+- type: marking
+  id: WFMeridianHairBonnie
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: bonnie
+
+- type: marking
+  id: WFMeridianHairBonnieShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: bonnie_short
+
+- type: marking
+  id: WFMeridianHairBowlCutOverEyes
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: bowl_cut_over_eyes
+
+- type: marking
+  id: WFMeridianHairChinLengthBobCut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: chin_length_bob_cut
+
+- type: marking
+  id: WFMeridianHairChunkyPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: chunky_ponytail
+
+- type: marking
+  id: WFMeridianHairChunkyQuadBuns
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair_32x48.rsi
+    state: chunky_quad_buns
+
+- type: marking
+  id: WFMeridianHairChunkyTwinBuns
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: chunky_twin_buns
+
+- type: marking
+  id: WFMeridianHairClean
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: clean
+
+- type: marking
+  id: WFMeridianHairClown
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: clown
+
+- type: marking
+  id: WFMeridianHairCoily
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: coily
+
+- type: marking
+  id: WFMeridianHairComet
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: comet
+
+- type: marking
+  id: WFMeridianHairCountrySideBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: country_side_braid
+
+- type: marking
+  id: WFMeridianHairCurtains
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: curtains
+
+- type: marking
+  id: WFMeridianHairDawn
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: dawn
+
+- type: marking
+  id: WFMeridianHairDoubleDrills
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: double_drills
+
+- type: marking
+  id: WFMeridianHairDreadtail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: dreadtail
+
+- type: marking
+  id: WFMeridianHairElegantBun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: elegant_bun
+
+- type: marking
+  id: WFMeridianHairEmoShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: emo_short
+
+- type: marking
+  id: WFMeridianHairFingerwave
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: fingerwave
+
+- type: marking
+  id: WFMeridianHairFlowerchild
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: flowerchild
+
+- type: marking
+  id: WFMeridianHairFlowerchildNoPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: flowerchild_no_ponytail
+
+- type: marking
+  id: WFMeridianHairFlowerchildPonytailOnly
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: flowerchild_ponytail_only
+
+- type: marking
+  id: WFMeridianHairFluffball
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: fluffball
+
+- type: marking
+  id: WFMeridianHairFluffy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: fluffy
+
+- type: marking
+  id: WFMeridianHairFluffyLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: fluffy_long
+
+- type: marking
+  id: WFMeridianHairFluffyMess
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: fluffy_mess
+
+- type: marking
+  id: WFMeridianHairFluffyPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: fluffy_ponytail
+
+- type: marking
+  id: WFMeridianHairFrizzySidecut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: frizzy_sidecut
+
+- type: marking
+  id: WFMeridianHairGentlyBrushed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: gently_brushed
+
+- type: marking
+  id: WFMeridianHairGorgon
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: gorgon
+
+- type: marking
+  id: WFMeridianHairHalfBob
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: half_bob
+
+- type: marking
+  id: WFMeridianHairHalfShavedLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: half_shaved_long
+
+- type: marking
+  id: WFMeridianHairHightopSlant
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: hightop_slant
+
+- type: marking
+  id: WFMeridianHairKhmuro
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: khmuro
+
+- type: marking
+  id: WFMeridianHairKillmonger
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: killmonger
+
+- type: marking
+  id: WFMeridianHairKobeni1
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: kobeni_1
+
+- type: marking
+  id: WFMeridianHairKobeni2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: kobeni_2
+
+- type: marking
+  id: WFMeridianHairLongDreadsUp
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: long_dreads_up
+
+- type: marking
+  id: WFMeridianHairLongSidecut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: long_sidecut
+
+- type: marking
+  id: WFMeridianHairLongTwintails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: long_twintails
+
+- type: marking
+  id: WFMeridianHairLongWavy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: long_wavy
+
+- type: marking
+  id: WFMeridianHairLongerALT
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: longer_alt
+
+- type: marking
+  id: WFMeridianHairLowPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: low_ponytail
+
+- type: marking
+  id: WFMeridianHairManbun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: manbun
+
+- type: marking
+  id: WFMeridianHairMermaid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: mermaid
+
+- type: marking
+  id: WFMeridianHairMirroredHalfBob
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: mirrored_half_bob
+
+- type: marking
+  id: WFMeridianHairMisshapen
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: misshapen
+
+- type: marking
+  id: WFMeridianHairMohawkShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: mohawk_short
+
+- type: marking
+  id: WFMeridianHairMohawkTall
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair_32x48.rsi
+    state: mohawk_tall
+
+- type: marking
+  id: WFMeridianHairMoneyPiece
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: money_piece
+
+- type: marking
+  id: WFMeridianHairMorning
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: morning
+
+- type: marking
+  id: WFMeridianHairMullet
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: mullet
+
+- type: marking
+  id: WFMeridianHairMulletWithRatTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: mullet_with_rat_tail
+
+- type: marking
+  id: WFMeridianHairOverEar1
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: over_ear_1
+
+- type: marking
+  id: WFMeridianHairOverEye2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: over_eye_2
+
+- type: marking
+  id: WFMeridianHairPigtails4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: pigtails_4
+
+- type: marking
+  id: WFMeridianHairPigtails5
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: pigtails_5
+
+- type: marking
+  id: WFMeridianHairPigtailsAntenna
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: pigtails_antenna
+
+- type: marking
+  id: WFMeridianHairPonytailFeminine
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: ponytail_feminine
+
+- type: marking
+  id: WFMeridianHairPonytailFro
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: ponytail_fro
+
+- type: marking
+  id: WFMeridianHairPonytailScythe
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair_32x48.rsi
+    state: ponytail_scythe
+
+- type: marking
+  id: WFMeridianHairPonytailWavy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: ponytail_wavy
+
+- type: marking
+  id: WFMeridianHairRows1
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: rows_1
+
+- type: marking
+  id: WFMeridianHairRows2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: rows_2
+
+- type: marking
+  id: WFMeridianHairSadako
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: sadako
+
+- type: marking
+  id: WFMeridianHairSergeant
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: sergeant
+
+- type: marking
+  id: WFMeridianHairShaggy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: shaggy
+
+- type: marking
+  id: WFMeridianHairShortBangs2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: short_bangs_2
+
+- type: marking
+  id: WFMeridianHairShortTwintails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: short_twintails
+
+- type: marking
+  id: WFMeridianHairShortWavy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: short_wavy
+
+- type: marking
+  id: WFMeridianHairShorterBangs
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: shorter_bangs
+
+- type: marking
+  id: WFMeridianHairSidecutBang
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: sidecut_bang
+
+- type: marking
+  id: WFMeridianHairSimple
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: simple
+
+- type: marking
+  id: WFMeridianHairSimplePonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: simple_ponytail
+
+- type: marking
+  id: WFMeridianHairSimplePonytailAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: simple_ponytail_alt
+
+- type: marking
+  id: WFMeridianHairSingedBlownBack
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: singed_blown_back
+
+- type: marking
+  id: WFMeridianHairSingedPigtails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: singed_pigtails
+
+- type: marking
+  id: WFMeridianHairSlimeBlobby
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: slime_blobby
+
+- type: marking
+  id: WFMeridianHairSlimeFringeLong
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: slime_fringe_long
+
+- type: marking
+  id: WFMeridianHairSlimeJelly
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: slime_jelly
+
+- type: marking
+  id: WFMeridianHairSlimePonytailHigh
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: slime_ponytail_high
+
+- type: marking
+  id: WFMeridianHairSlimePonytailLow
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: slime_ponytail_low
+
+- type: marking
+  id: WFMeridianHairSlimeSpikes
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: slime_spikes
+
+- type: marking
+  id: WFMeridianHairSlimeTails
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: slime_tails
+
+- type: marking
+  id: WFMeridianHairSlimeTails2
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: slime_tails_2
+
+- type: marking
+  id: WFMeridianHairSlimeTendrils
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: slime_tendrils
+
+- type: marking
+  id: WFMeridianHairStraight
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: straight
+
+- type: marking
+  id: WFMeridianHairSwirlCurlsAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: swirl_curls_alt
+
+- type: marking
+  id: WFMeridianHairSwirlyCurls
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: swirly_curls
+
+- type: marking
+  id: WFMeridianHairTayama
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: tayama
+
+- type: marking
+  id: WFMeridianHairThickPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: thick_ponytail
+
+- type: marking
+  id: WFMeridianHairTwintailsWavy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: twintails_wavy
+
+- type: marking
+  id: WFMeridianHairUpwards
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: upwards
+
+- type: marking
+  id: WFMeridianHairVictory
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: victory
+
+- type: marking
+  id: WFMeridianHairWife
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: wife
+
+- type: marking
+  id: WFMeridianHairWolfcut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: wolfcut
+
+- type: marking
+  id: WFMeridianHairZeroPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/hair.rsi
+    state: zero_ponytail

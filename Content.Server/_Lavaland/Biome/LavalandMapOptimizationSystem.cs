@@ -16,7 +16,6 @@ public sealed class LavalandMapOptimizationSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BiomeOptimizeComponent, UnLoadChunkEvent>(OnChunkUnLoaded);
         SubscribeLocalEvent<BiomeOptimizeComponent, BeforeLoadChunkEvent>(OnChunkLoad);
         SubscribeLocalEvent<BiomeOptimizeComponent, MapInitEvent>(OnMapInit);
     }
@@ -30,13 +29,6 @@ public sealed class LavalandMapOptimizationSystem : EntitySystem
             var chunkOrigin = chunk * SharedBiomeSystem.ChunkSize;
             ent.Comp.LoadedChunks.Add(chunkOrigin.Value);
         }
-    }
-
-    private void OnChunkUnLoaded(Entity<BiomeOptimizeComponent> ent, ref UnLoadChunkEvent args)
-    {
-        // We don't unload chunks in the preloaded area since it's expensive.
-        if (ent.Comp.LoadedChunks.Contains(args.Chunk))
-            args.Cancelled = true;
     }
 
     private void OnChunkLoad(Entity<BiomeOptimizeComponent> ent, ref BeforeLoadChunkEvent args)

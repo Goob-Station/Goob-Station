@@ -1,0 +1,28 @@
+# Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42
+
+- type: marking
+  id: BodyHairRightLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Arachnid, Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/human_body_hair.rsi
+    state: hair_right_leg
+
+- type: marking
+  id: LegScarRight
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/Generic/scars.rsi
+    state: scar-leg-r
+
+- type: marking
+  id: VoxFeatheredLegRight
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: rightlegfeathered

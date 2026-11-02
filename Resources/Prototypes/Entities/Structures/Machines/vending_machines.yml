@@ -57,13 +57,14 @@
       - !type:EjectVendorItems
   - type: Repairable
     doAfterDelay: 8
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.VendingMachineUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.VendingMachineUiKey.Key:
-        type: VendingMachineBoundUserInterface
+        type: VendingMachineKeypadBoundUserInterface # Goob
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: WiresPanel
@@ -163,13 +164,14 @@
           collection: MetalGlassBreak
   - type: Repairable
     doAfterDelay: 8
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.VendingMachineUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.VendingMachineUiKey.Key:
-        type: VendingMachineBoundUserInterface
+        type: VendingMachineKeypadBoundUserInterface # Goob
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: WiresPanel

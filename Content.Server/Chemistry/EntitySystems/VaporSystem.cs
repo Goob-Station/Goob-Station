@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chemistry.Components;
+using Content.Shared._Funkystation.WallStains; // Goob
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -57,6 +58,12 @@ namespace Content.Server.Chemistry.EntitySystems
 
                 if (!ev.Protected)
                     _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes); // Goobstation - End
+
+                if ((args.OtherFixture.CollisionLayer & (int) CollisionGroup.Impassable) != 0 && args.OtherFixture.Hard && solution.Volume > 0) // Goob
+                {
+                    var wallSplash = new SplashOnWallEvent(Transform(entity.Owner).Coordinates, solution.Clone()); // Goob
+                    RaiseLocalEvent(ref wallSplash); // Goob
+                }
             }
 
             // Check for collision with a impassable object (e.g. wall) and stop
@@ -84,7 +91,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 _physics.SetLinearDamping(vapor, physics, 0f);
                 _physics.SetAngularDamping(vapor, physics, 0f);
 
-                _throwing.TryThrow(vapor, dir, speed, user: user);
+                _throwing.TryThrow(vapor, dir, speed, user: user,
+                    predicted: false); // Trauma
 
                 var distance = (target.Position - _transformSystem.GetWorldPosition(vaporXform)).Length();
                 var time = (distance / physics.LinearVelocity.Length());

@@ -1,0 +1,19 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: ResomiRArmCoat
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_arm_markings.rsi
+    state: r_arm_coat
+
+- type: marking
+  id: ResomiRShoulderFade
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_arm_markings.rsi
+    state: r_shoulder_fade

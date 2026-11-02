@@ -134,7 +134,8 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         foreach (var ent in _container.EmptyContainer(slime.Stomach)) // spew everything out jic
         {
             _container.TryRemoveFromContainer(ent, true);
-            _throwing.TryThrow(ent, _robustRandom.NextVector2() * 5);
+            _throwing.TryThrow(ent, _robustRandom.NextVector2() * 5,
+                predicted: false); // Trauma
         }
         QueueDel(toProcess);
     }

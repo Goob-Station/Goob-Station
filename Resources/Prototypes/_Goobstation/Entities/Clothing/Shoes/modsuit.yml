@@ -43,10 +43,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:
@@ -73,10 +76,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:
@@ -123,10 +129,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:
@@ -173,10 +182,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:
@@ -206,10 +218,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:
@@ -218,14 +233,6 @@
       - state: equipped-FEET-sealed-vox
       shoes-hydrakin:
       - state: equipped-FEET-sealed-hydrakin
-  - type: ItemToggle
-  - type: ToggleClothing
-    action: ActionToggleMagboots
-  - type: ComponentToggler
-    components:
-    - type: NoSlip
-  - type: Magboots
-    enabledPrefix: null
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -251,10 +258,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:
@@ -287,10 +297,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:
@@ -320,10 +333,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:
@@ -354,10 +370,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       shoes:

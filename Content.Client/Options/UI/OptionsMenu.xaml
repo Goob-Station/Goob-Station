@@ -14,5 +14,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <tabs:AccessibilityTab Name="AccessibilityTab" />
         <tabs:AdminOptionsTab Name="AdminOptionsTab" />
         <tabs:NetworkTab Name="NetworkTab" />
+        <tabs:CustomizationTab Name="CustomizationTab" /> <!-- Goob -->
     </TabContainer>
 </DefaultWindow>

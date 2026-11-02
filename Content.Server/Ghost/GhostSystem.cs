@@ -606,7 +606,10 @@ namespace Content.Server.Ghost
                     // Goob start - add check
                     if (GoobIsSuicideAllowedIC(playerEntity.Value))
                     {
-                        _damageable.ChangeDamage(playerEntity.Value, damage, true, targetPart: GoobGetShitmedSuicideTarget(playerEntity.Value)); // Goob - shitmed targeting
+                        if (damage.GetTotal() > 0)
+                            _damageable.ChangeDamage(playerEntity.Value, damage, true, targetPart: GoobGetShitmedSuicideTarget(playerEntity.Value)); // Goob - shitmed targeting
+                        if (!_mobState.IsDead(playerEntity.Value, mobState))
+                            _mobState.ChangeMobState(playerEntity.Value, MobState.Dead, mobState);
                     }
                     // Goob end
                 }

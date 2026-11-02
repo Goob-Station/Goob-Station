@@ -2,6 +2,7 @@
 
 using Content.Goobstation.Shared.Projectiles;
 using Content.Shared.Chat;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emoting;
@@ -11,6 +12,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Emoting;
@@ -35,7 +37,17 @@ public abstract partial class SharedAnimatedEmotesSystem : EntitySystem
 
     private void OnGetState(Entity<AnimatedEmotesComponent> ent, ref ComponentGetState args)
     {
-        args.State = new AnimatedEmotesComponentState(ent.Comp.Emote);
+        args.State = new AnimatedEmotesComponentState(ent.Comp.Emote, ent.Comp.EmoteTime);
+    }
+
+    public void SetEmote(Entity<AnimatedEmotesComponent?> ent, ProtoId<EmotePrototype>? emote)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        ent.Comp.Emote = emote;
+        ent.Comp.EmoteTime = _timing.CurTime;
+        Dirty(ent);
     }
 
     public override void Update(float frameTime)

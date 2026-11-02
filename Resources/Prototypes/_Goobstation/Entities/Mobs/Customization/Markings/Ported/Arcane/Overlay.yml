@@ -1,0 +1,120 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: CyberlimbLFootMorpheus
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/morpheus.rsi
+    state: l_foot
+
+- type: marking
+  id: CyberlimbLFootZenghu
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/zenghu.rsi
+    state: l_foot
+
+- type: marking
+  id: CyberlimbRFootMorpheus
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/morpheus.rsi
+    state: r_foot
+
+- type: marking
+  id: CyberlimbRFootZenghu
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/zenghu.rsi
+    state: r_foot
+
+- type: marking
+  id: PiercingBellybutton
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/piercing.rsi
+    state: piercing_bellybutton
+
+- type: marking
+  id: PiercingLeftEar
+  bodyPart: HeadSide
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni, Rodentia, Shadowkin, Tajaran, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/piercing.rsi
+    state: piercing_left_ear
+
+- type: marking
+  id: PiercingRightEar
+  bodyPart: HeadSide
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Felinid, Human, Oni, Rodentia, Shadowkin, Tajaran, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/piercing.rsi
+    state: piercing_right_ear
+
+- type: marking
+  id: TajaranBlotsBody
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_overlay.rsi
+    state: blots_body
+
+- type: marking
+  id: TajaranPatch
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_overlay.rsi
+    state: patch
+
+- type: marking
+  id: TajaranSkeletonBody
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_overlay.rsi
+    state: skeleton_body
+
+- type: marking
+  id: TajaranStripesBody
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_overlay.rsi
+    state: stripes_body

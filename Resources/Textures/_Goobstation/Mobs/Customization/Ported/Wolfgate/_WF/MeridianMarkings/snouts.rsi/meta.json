@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Meridian Rift at https://github.com/Aphelion-Moon/Meridian-Rift/tree/0fd8e40910402f2745e5e5e4adc7d37bd45fed40 (modular_nova/master_files/icons/mob/sprite_accessory/snouts.dmi, modular_nova/master_files/icons/mob/sprite_accessory/species/lizard.dmi, modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi, modular_nova/master_files/icons/mob/sprite_accessory/synthliz_snouts.dmi), which carries the art of NovaSector, Skyrat-tg and tgstation. Layers merged per colour and centred for Wolfgate by Tools/_WF/MeridianMarkings/port.py. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_WF/MeridianMarkings/snouts.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "acrador_1_normal_alt_primary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_1_normal_alt_secondary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_1_normal_alt_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "bug_no_antennae_below_hair_primary",
+      "directions": 4
+    },
+    {
+      "name": "bug_no_antennae_below_hair_secondary",
+      "directions": 4
+    },
+    {
+      "name": "canine_alt_primary",
+      "directions": 4
+    },
+    {
+      "name": "canine_alt_secondary",
+      "directions": 4
+    },
+    {
+      "name": "canine_alt_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "corvid_beak_primary",
+      "directions": 4
+    },
+    {
+      "name": "dragonfly_primary",
+      "directions": 4
+    },
+    {
+      "name": "dragonfly_secondary",
+      "directions": 4
+    },
+    {
+      "name": "mandibles_top_primary",
+      "directions": 4
+    },
+    {
+      "name": "ramatan_round_primary",
+      "directions": 4
+    },
+    {
+      "name": "ramatan_round_secondary",
+      "directions": 4
+    },
+    {
+      "name": "ramatan_round_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "round_dual_tone_primary",
+      "directions": 4
+    },
+    {
+      "name": "round_dual_tone_secondary",
+      "directions": 4
+    },
+    {
+      "name": "sharp_dual_tone_primary",
+      "directions": 4
+    },
+    {
+      "name": "sharp_dual_tone_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snaggletooth_primary",
+      "directions": 4
+    },
+    {
+      "name": "snaggletooth_secondary",
+      "directions": 4
+    },
+    {
+      "name": "snaggletooth_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "vulp_twoshade_primary",
+      "directions": 4
+    },
+    {
+      "name": "vulp_twoshade_secondary",
+      "directions": 4
+    }
+  ]
+}

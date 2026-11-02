@@ -15,6 +15,11 @@ public sealed partial class StationAiOverlay
 
     private readonly HashSet<Entity<StationAiWhitelistComponent>> _aiMachineViewCandidates = new();
 
+    public bool IsTileVisible(EntityUid gridUid, Vector2i tile)
+    {
+        return gridUid == _lastGridUid && _visibleTiles.Contains(tile);
+    }
+
     /// <summary>
     /// Renders with shader the sprite of every anchored, powered, AI-whitelisted machine that is hidden by the static.
     /// </summary>

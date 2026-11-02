@@ -5,5 +5,14 @@ SPDX-License-Identifier: MIT
 <Control Name="CFlavorText" xmlns="https://spacestation14.io">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True">
         <TextEdit Name="CFlavorTextInput" Access="Public" MinSize="220 100" Margin="10" HorizontalExpand="True" VerticalExpand="True" />
+        <!-- Goob start -->
+        <BoxContainer Orientation="Horizontal" Margin="10 0">
+            <Label Text="{Loc 'flavor-text-examine-preview'}" StyleClasses="HullSection" HorizontalExpand="True" />
+            <Label Name="CFlavorTextCount" StyleClasses="HullFieldLabel" />
+        </BoxContainer>
+        <PanelContainer StyleClasses="HullInset" Margin="10 4 10 10">
+            <RichTextLabel Name="CFlavorTextPreview" Margin="6" />
+        </PanelContainer>
+        <!-- Goob end -->
     </BoxContainer>
 </Control>

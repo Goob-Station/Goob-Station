@@ -26,16 +26,19 @@
 - type: htnCompound
   id: MouseCompound
   branches:
-    - tasks:
-        - !type:HTNCompoundTask
-          task: FoodCompound
-    # Goobstation - for retaliation; yes, they care about food more
+    # Goobstation - retaliation before food
     - tasks:
         - !type:HTNCompoundTask
           task: MeleeCombatCompound
     - tasks:
         - !type:HTNCompoundTask
           task: MoveCallTargetCompound # Goobstation - move to mousecall target
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FoodCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: GnawCorpseCompound # Goobstation - gnaw limbs off corpses
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound

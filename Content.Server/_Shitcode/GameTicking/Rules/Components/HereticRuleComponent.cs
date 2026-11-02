@@ -17,6 +17,9 @@ public sealed partial class HereticRuleComponent : Component
 
     public readonly List<EntityUid> Minds = new();
 
+    [DataField]
+    public ProtoId<StoreTreePrototype> StoreTree = "HereticKnowledge";
+
     public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {
         "HereticPathAsh",

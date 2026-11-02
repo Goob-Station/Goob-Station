@@ -21,7 +21,7 @@ using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.Hands
 {
-    public sealed class ShowHandItemOverlay : Overlay
+    public sealed partial class ShowHandItemOverlay : Overlay // Goob
     {
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IInputManager _inputManager = default!;
@@ -142,7 +142,8 @@ namespace Content.Client.Hands
             // Goob edit end
 
             var halfSize = _renderBackbuffer.Size / 2;
-            var uiScale = (args.ViewportControl as Control)?.UIScale ?? 1f;
+            var vpControl = args.ViewportControl as Control; // Goob
+            var uiScale = vpControl?.UIScale ?? 1f; // Goob
 
             screen.RenderInRenderTarget(_renderBackbuffer, () =>
             {
@@ -150,6 +151,8 @@ namespace Content.Client.Hands
             }, Color.Transparent);
 
             screen.DrawTexture(_renderBackbuffer.Texture, mousePos.Position - halfSize + offsetVec, Color.White.WithAlpha(0.75f));
+
+            DrawCooldown(args, handEntity.Value, mousePos.Position, vpControl); // Goob
         }
     }
 }

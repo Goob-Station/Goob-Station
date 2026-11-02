@@ -26,6 +26,10 @@ namespace Content.Server.Stack
         /// </summary>
         /// <param name="amount"> How much to move to the new entity. </param>
         /// <returns>Null if StackComponent doesn't resolve, or amount to move is greater than ent has available.</returns>
+        // Goob - implement the shared virtual so shared callers (predicted hand throwing) actually split stacks
+        public override EntityUid? Split(EntityUid uid, int amount, EntityCoordinates spawnPosition, StackComponent? stack = null)
+            => Split((uid, stack), amount, spawnPosition);
+
         [PublicAPI]
         public EntityUid? Split(Entity<StackComponent?> ent, int amount, EntityCoordinates spawnPosition)
         {

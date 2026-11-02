@@ -32,8 +32,10 @@ public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComp
             return;
 
         if (AppearanceSystem.TryGetData<string>(uid, ExpendableLightVisuals.Behavior, out var lightBehaviourID, args.Component)
+            && lightBehaviourID != comp.CurrentBehaviour // Goob
             && TryComp<LightBehaviourComponent>(uid, out var lightBehaviour))
         {
+            comp.CurrentBehaviour = lightBehaviourID; // Goob
             _lightBehavior.StopLightBehaviour((uid, lightBehaviour));
 
             if (!string.IsNullOrEmpty(lightBehaviourID))

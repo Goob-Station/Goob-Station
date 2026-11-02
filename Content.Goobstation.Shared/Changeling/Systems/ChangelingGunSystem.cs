@@ -57,7 +57,7 @@ public sealed partial class ChangelingGunSystem : EntitySystem
 
             _resource.TryUpdateResourcesAmount(parent, chemComp.ResourceData, -component.FireCost);
 
-            var shot = Spawn(component.Proto, args.Coordinates);
+            var shot = PredictedSpawnAtPosition(component.Proto, args.Coordinates); // Trauma - gun shooting is predicted
             args.Ammo.Add((shot, _guns.EnsureShootable(shot)));
         }
     }

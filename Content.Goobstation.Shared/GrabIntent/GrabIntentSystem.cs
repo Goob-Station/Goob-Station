@@ -100,10 +100,11 @@ public sealed partial class GrabIntentSystem : EntitySystem
             if (TryComp<VirtualItemComponent>(item, out var vi))
                 _virtualSystem.DeleteVirtualItem((item, vi), uid);
             else
-                QueueDel(item);
+                PredictedQueueDel(item); // Trauma - grab throwing is predicted now
         }
 
         Dirty(uid, component);
+        _modifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 
     private void OnCheckGrabbed(EntityUid uid, GrabbableComponent component, ref CheckGrabbedEvent args)

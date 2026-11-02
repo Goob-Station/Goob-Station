@@ -1,0 +1,29 @@
+# Ported from https://github.com/Simple-Station/Einstein-Engines/tree/10d41858d88d3ba9d36fdd9c98595d89701f1cbb
+
+- type: marking
+  id: LegDollJointsTattooLeftIPCONLY
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/EinsteinEngines/_Impstation/Mobs/Customization/tattoos.rsi
+    state: l_leg_doll
+
+- type: marking
+  id: LegDollJointsTattooRightIPCONLY
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/EinsteinEngines/_Impstation/Mobs/Customization/tattoos.rsi
+    state: r_leg_doll

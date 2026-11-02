@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Shared.ModSuits.Modules; // Goob
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
@@ -17,6 +18,9 @@ public sealed class JetpackSystem : SharedJetpackSystem
 
     protected override bool CanEnable(EntityUid uid, JetpackComponent component)
     {
+        if (HasComp<ModJetpackModuleComponent>(uid)) // Goob
+            return base.CanEnable(uid, component);
+
         return base.CanEnable(uid, component) &&
                TryComp<GasTankComponent>(uid, out var gasTank) &&
                !(gasTank.Air.TotalMoles < component.MoleUsage);

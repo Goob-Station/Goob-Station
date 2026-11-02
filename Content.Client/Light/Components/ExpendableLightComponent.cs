@@ -14,6 +14,9 @@ public sealed partial class ExpendableLightComponent : SharedExpendableLightComp
     /// <summary>
     /// The icon state used by expendable lights when the they have been completely expended.
     /// </summary>
+    [ViewVariables] // Goob
+    public string? CurrentBehaviour; // Goob
+
     [DataField("iconStateSpent")]
     public string? IconStateSpent;
 

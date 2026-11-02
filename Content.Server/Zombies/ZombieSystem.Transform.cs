@@ -148,7 +148,8 @@ public sealed partial class ZombieSystem
             Forced = true,
             Inventory = PolymorphInventoryChange.Transfer,
             RevertOnCrit = false,
-            RevertOnDeath = false
+            RevertOnDeath = false,
+            IgnoreAllowRepeatedMorphs = true, // Goob - zombify already-polymorphed mobs like upgraded bingles
         };
 
         if (_polymorph.PolymorphEntity(target, polyConfig) is not { } zombie)

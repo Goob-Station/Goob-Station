@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from S.P.L.U.R.T at commit https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/96703f76bccd8fe6a96b78524efb97a9af661767 | and https://github.com/Bubberstation/Bubberstation/commit/e9e0683c6e34512c125cef1a4c69976258ebfdce | snake_ tails adjusted by KittenColony (Github) and PuroSlavKing (Github). Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Orion/Mobs/Customization/tails32x32.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "snake",
+      "directions": 4
+    },
+    {
+      "name": "snake_wagging",
+      "directions": 4,
+      "delays": [
+        [
+          0.45,
+          0.45,
+          0.45
+        ],
+        [
+          0.45,
+          0.45,
+          0.45
+        ],
+        [
+          0.45,
+          0.45,
+          0.45
+        ],
+        [
+          0.45,
+          0.45,
+          0.45
+        ]
+      ]
+    },
+    {
+      "name": "snake_stripe_alt_wagging",
+      "directions": 4,
+      "delays": [
+        [
+          0.45,
+          0.45,
+          0.45
+        ],
+        [
+          0.45,
+          0.45,
+          0.45
+        ],
+        [
+          0.45,
+          0.45,
+          0.45
+        ],
+        [
+          0.45,
+          0.45,
+          0.45
+        ]
+      ]
+    },
+    {
+      "name": "snake_stripe_alt_secondary_wagging",
+      "directions": 4,
+      "delays": [
+        [
+          0.45,
+          0.45,
+          0.45
+        ],
+        [
+          0.45,
+          0.45,
+          0.45
+        ],
+        [
+          0.45,
+          0.45,
+          0.45
+        ],
+        [
+          0.45,
+          0.45,
+          0.45
+        ]
+      ]
+    }
+  ]
+}

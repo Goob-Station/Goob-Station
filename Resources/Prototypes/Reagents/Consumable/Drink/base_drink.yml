@@ -25,6 +25,7 @@
 
 - type: reagent
   id: BaseSoda
+  puddleSpriteSet: Shiny # Goob
   parent: BaseDrink
   abstract: true
   metabolisms:

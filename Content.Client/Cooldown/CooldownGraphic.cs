@@ -31,7 +31,6 @@ namespace Content.Client.Cooldown
 
         protected override void Draw(DrawingHandleScreen handle)
         {
-            Span<float> x = new float[10];
             Color color;
 
             var lerp = 1f - MathF.Abs(Progress); // for future bikeshedding purposes

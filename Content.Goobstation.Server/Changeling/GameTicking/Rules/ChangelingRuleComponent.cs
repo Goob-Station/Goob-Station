@@ -10,6 +10,9 @@ public sealed partial class ChangelingRuleComponent : Component
 {
     public readonly List<EntityUid> ChangelingMinds = new();
 
+    [DataField]
+    public ProtoId<StoreTreePrototype> StoreTree = "ChangelingEvolution";
+
     public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {
         "ChangelingAbilityCombat",

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:JayJacobs#1187. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_ADT/Mobs/Customization/Hair/hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "honor",
+      "directions": 4
+    },
+    {
+      "name": "shaved_female",
+      "directions": 4
+    }
+  ]
+}

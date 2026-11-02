@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client._Funkystation.Outline; // Goob
 using Content.Client.Graphics;
 using Content.Shared.Interaction;
 using Content.Shared.Whitelist;
@@ -29,6 +30,7 @@ public sealed partial class TargetOutlineSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery = default!;
     [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private InteractionOutlineColorSystem _outlineColor = default!; // Goob
 
     private bool _enabled = false;
 
@@ -176,7 +178,9 @@ public sealed partial class TargetOutlineSystem : EntitySystem
             }
 
             // highlight depending on whether its in or out of range
-            _sprite.SetPostShader(sprite, new SpriteComponent.PostShaderArgs(ContentPostShaderIds.TargetOutline, valid ? _shaderTargetValid! : _shaderTargetInvalid!)
+            var shader = valid ? _shaderTargetValid! : _shaderTargetInvalid!; // Goob
+            shader.SetParameter("outline_color", _outlineColor.GetOutlineColor(valid)); // Goob
+            _sprite.SetPostShader(sprite, new SpriteComponent.PostShaderArgs(ContentPostShaderIds.TargetOutline, shader) // Goob
             {
                 After = ContentPostShaderIds.AfterBaseEffects,
             });

@@ -46,7 +46,9 @@
     - Groin
     - Tail
     - Arm
+    - Hand
     - Leg
+    - Foot
     traumaDeductions:
       Dismemberment: 0.3
       OrganDamage: 0.3

@@ -31,6 +31,7 @@
         stomach: OrganHydrakinStomach
         liver: OrganHydrakinLiver
         kidneys: OrganHumanKidneys
+        butt: Butt # Goob
     right arm:
       part: RightArmHydrakin
       connections:

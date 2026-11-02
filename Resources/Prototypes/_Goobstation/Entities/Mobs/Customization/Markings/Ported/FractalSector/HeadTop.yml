@@ -1,0 +1,28 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: wfbangslong
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/misc_markings.rsi
+    state: bangs_long
+
+- type: marking
+  id: wfbangsshort
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/misc_markings.rsi
+    state: bangs_short
+
+- type: marking
+  id: wgbangsmed
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/misc_markings.rsi
+    state: bangs_medium

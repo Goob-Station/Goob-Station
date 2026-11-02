@@ -8,7 +8,6 @@
   whitelist:
     tags:
     - FelinidEmotes
-    - HarpyEmotes
     - ReptilianEmotes
   blacklist:
     components:
@@ -28,7 +27,6 @@
   whitelist:
     tags:
     - FelinidEmotes
-    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -53,7 +51,6 @@
   whitelist:
     tags:
     - FelinidEmotes
-    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -72,7 +69,6 @@
   whitelist:
     tags:
     - FelinidEmotes
-    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -91,7 +87,6 @@
   whitelist:
     tags:
     - FelinidEmotes
-    - HarpyEmotes
     - ReptilianEmotes # Omu
   blacklist:
     components:

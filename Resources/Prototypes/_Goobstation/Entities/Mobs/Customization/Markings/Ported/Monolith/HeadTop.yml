@@ -1,0 +1,12 @@
+# Ported from https://github.com/Monolith-Station/Monolith/tree/b518fe44c0c6250b8339bfc4705f64abcd246d90
+
+- type: marking
+  id: HydrakinEarsFinPainted
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Monolith/_Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_fin
+  - sprite: _Goobstation/Mobs/Customization/Ported/Monolith/_Obelisk/Mobs/Customization/hydrakin_parts.rsi
+    state: ears_fin_overlay

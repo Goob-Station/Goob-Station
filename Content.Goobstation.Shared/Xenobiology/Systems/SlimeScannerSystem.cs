@@ -70,9 +70,8 @@ public sealed partial class SlimeScannerSystem : EntitySystem
             var info = _proto.Index(mutations[i]);
 
             var color = "white";
-            // todo make the colors work
-            if (info.Components.TryGetComponent(nameof(SlimeComponent), out var sc))
-                color = ((SlimeComponent) sc).SlimeColor.ToHex();
+            if (info.Components.TryGetComponent<SlimeComponent>(Factory, out var sc))
+                color = sc.SlimeColor.ToHex();
 
             sb.Append($"[color={color}]{info.BreedName}[/color]");
 

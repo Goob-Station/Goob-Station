@@ -10,7 +10,7 @@
     keysIn:
     - timer
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Goob
     maxIntensity: 10
     intensitySlope: 3
     totalIntensity: 120 # about a ~4 tile radius
@@ -94,8 +94,9 @@
   - type: ExplodeOnTrigger
     keysIn:
     - timer
+  - type: ExplosionEffect # Goob
   - type: Explosive
-    explosionType: Minibomb
+    explosionType: TransparentMinibomb # Goob
     totalIntensity: 200
     intensitySlope: 30 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
     maxIntensity: 60
@@ -118,8 +119,9 @@
   - type: ExplodeOnTrigger
     keysIn:
     - timer
+  - type: ExplosionEffect # Goob
   - type: Explosive
-    explosionType: Minibomb
+    explosionType: TransparentMinibomb # Goob
     totalIntensity: 400
     intensitySlope: 30
     maxIntensity: 125

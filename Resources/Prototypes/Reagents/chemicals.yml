@@ -7,6 +7,7 @@
   physicalDesc: reagent-physical-desc-acidic
   flavor: bitter
   color: "#AF14B7"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: 55.5
   meltingPoint: -50.0
 
@@ -17,6 +18,7 @@
   physicalDesc: reagent-physical-desc-acidic
   flavor: bitter
   color: "#E7EA91"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: 55.5
   meltingPoint: -50.0
   metabolisms:
@@ -38,6 +40,7 @@
   desc: reagent-desc-charcoal
   physicalDesc: reagent-physical-desc-porous
   color: "#22282b"
+  puddleSpriteSet: Powder # Goob
   boilingPoint: 4200.0
   meltingPoint: 3550.0
   metabolisms:
@@ -57,6 +60,7 @@
   desc: reagent-desc-ash
   physicalDesc: reagent-physical-desc-powdery
   color: white
+  puddleSpriteSet: Powder # Goob
 
 - type: reagent
   id: Lye
@@ -65,6 +69,7 @@
   flavor: alkaline
   physicalDesc: reagent-physical-desc-alkaline
   color: "#e5420b"
+  puddleSpriteSet: Shiny # Goob
   metabolisms:
     Poison:
       effects:
@@ -79,6 +84,7 @@
   desc: reagent-desc-sodium-carbonate
   physicalDesc: reagent-physical-desc-powdery
   color: white
+  puddleSpriteSet: Powder # Goob
 
 - type: reagent
   id: Artifexium
@@ -126,6 +132,7 @@
   allowedJobs:
   - Chemist
   color: "#E7EA91"
+  puddleSpriteSet: Acid # Goob
   boilingPoint: 353.2
   meltingPoint: 278.7
   metabolisms:
@@ -146,6 +153,7 @@
   desc: reagent-desc-hydroxide
   physicalDesc: reagent-physical-desc-alkaline
   color: "white"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 1661.0
   meltingPoint: 596.0
 
@@ -155,6 +163,7 @@
   desc: reagent-desc-sodium-hydroxide
   physicalDesc: reagent-physical-desc-alkaline
   color: "white"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 1661.0
   meltingPoint: 596.0
   metabolisms:
@@ -218,6 +227,7 @@
   desc: reagent-desc-cellulose
   flavor: bitter
   color: "#E6E6DA"
+  puddleSpriteSet: Powder # Goob
   physicalDesc: reagent-physical-desc-crystalline
 
 - type: reagent

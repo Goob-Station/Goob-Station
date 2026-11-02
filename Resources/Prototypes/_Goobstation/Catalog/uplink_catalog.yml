@@ -881,7 +881,7 @@
   description: uplink-lollypop-bundle-big-desc
   productEntity: ClothingBackpackDuffelSyndicateFilledCandy
   cost:
-    Telecrystal: 100
+    Telecrystal: 90 #Happy Halloween!
   categories:
   - UplinkChemicals
 
@@ -1128,6 +1128,14 @@
     Telecrystal: 30
   categories:
   - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+      - LoneOpsUplink
+      - ContractorUplink
+      - ContravendUplink
 
 - type: listing
   id: UplinkAutosurgeonRecoilAbsorber

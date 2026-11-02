@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "eyebags, eyebrows, smile, twisting and vitiligo by crocodilecarousel (github). heavy by Sha-Seng (GitHub). twistingflipped edited by AftrLite (GitHub). shadow by maelines (Git). Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/_Impstation/Mobs/Customization/Humanoid/head.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "shadow",
+      "directions": 4
+    }
+  ]
+}

@@ -92,6 +92,7 @@
   - type: ExplodeOnTrigger
     keysIn:
     - timer
+  - type: ExplosionEffect # Goob
   - type: Explosive
     explosionType: DemolitionCharge
     totalIntensity: 450

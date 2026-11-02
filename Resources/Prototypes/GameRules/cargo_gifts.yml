@@ -245,6 +245,7 @@
     chaos: # Goobstation
       Hostile: -100
       Combat: -100
+      Security: -100
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule
@@ -271,6 +272,7 @@
     chaos: # Goobstation
       Hostile: -30
       Combat: -30
+      Security: -30
     eventType: FreeStuffUseful # Goobstation
   # Goobstation
   - type: GameRule

@@ -4,3 +4,5 @@ synth-battery-emp = Warning! Electromagnetic surge detected! Internal batteries 
 
 surgery-popup-procedure-SurgeryRemoveSynthPowerCell-step-SurgeryStepRemoveOrgan = {$user} is removing the power cell from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryInsertSynthPowerCell-step-SurgeryStepInsertOrgan = {$user} is inserting a power cell into {$target}'s {$part}!
+
+synth-injection-denied = The synthetic plating has no injection port!

@@ -186,6 +186,8 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             explosive.CanCreateVacuum,
             user);
 
+        RaiseExplosiveTriggered(uid); // Goob
+
         if (explosive.DeleteAfterExplosion ?? delete)
             QueueDel(uid);
     }

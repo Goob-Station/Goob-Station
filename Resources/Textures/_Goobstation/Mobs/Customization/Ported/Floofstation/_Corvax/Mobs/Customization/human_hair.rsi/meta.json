@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_Corvax/Mobs/Customization/human_hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "africanpigtails",
+      "directions": 4
+    },
+    {
+      "name": "afropuffdouble",
+      "directions": 4
+    },
+    {
+      "name": "afropuffleft",
+      "directions": 4
+    },
+    {
+      "name": "afropuffright",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:prazat911. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_ADT/Mobs/Customization/Human/custom.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "beard-beardchin",
+      "directions": 4
+    },
+    {
+      "name": "beard-beardlong",
+      "directions": 4
+    },
+    {
+      "name": "beard-beardthick",
+      "directions": 4
+    },
+    {
+      "name": "beard-beardviking",
+      "directions": 4
+    },
+    {
+      "name": "beard-bristle",
+      "directions": 4
+    },
+    {
+      "name": "hair-arabicgatheredhair",
+      "directions": 4
+    },
+    {
+      "name": "hair-combedfromside",
+      "directions": 4
+    },
+    {
+      "name": "hair-longhair",
+      "directions": 4
+    },
+    {
+      "name": "hair-pigtailtajaran",
+      "directions": 4
+    },
+    {
+      "name": "hair-womenbun",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_skelet_arm_l",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_skelet_arm_r",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_skelet_body",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_skelet_foot_l",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_skelet_foot_r",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_skelet_leg_l",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_skelet_leg_r",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_skull",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_skull_face",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_symbol_elysium",
+      "directions": 4
+    },
+    {
+      "name": "tattooarm-laza_l",
+      "directions": 4
+    },
+    {
+      "name": "tattooarm-laza_r",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_narsi",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_arm_imheartmom_l",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_arm_imheartmom_r",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_churchdomes",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_elysium_patriotism",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_fullskelet",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_karabel",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_KrenelMercenary",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_line_arm_l",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_line_arm_r",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_Rose",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_serpenttemptation",
+      "directions": 4
+    }
+  ]
+}

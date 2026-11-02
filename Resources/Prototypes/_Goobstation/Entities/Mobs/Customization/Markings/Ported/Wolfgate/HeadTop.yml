@@ -1,0 +1,1289 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: EarsFaeFox
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_Floof/Mobs/Customization/skyratears.rsi
+    state: m_ears_faefox_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_Floof/Mobs/Customization/skyratears.rsi
+    state: m_ears_faefox_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_Floof/Mobs/Customization/skyratears.rsi
+    state: m_ears_faefox_tertiary
+
+- type: marking
+  id: LizardFinTop
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Floof/Mobs/Customization/Reptilian/fin.rsi
+    state: primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Floof/Mobs/Customization/Reptilian/fin.rsi
+    state: secondary
+
+- type: marking
+  id: VulpEarSpaniel
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Vulpkanin/ear_markings.rsi
+    state: spaniel
+
+- type: marking
+  id: WFMeridianAntennaeDipped
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Chitinid, Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  layering:
+    dipped_BEHIND: TailBehind
+  colorLinks:
+    dipped_BEHIND: dipped
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/antennae.rsi
+    state: dipped
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/antennae.rsi
+    state: dipped_BEHIND
+
+- type: marking
+  id: WFMeridianEarsAcradorLongAlt1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    layers:
+      acrador_long_alt_1_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      acrador_long_alt_1_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: acrador_long_alt_1_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: acrador_long_alt_1_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: acrador_long_alt_1_tertiary
+
+- type: marking
+  id: WFMeridianEarsAcradorShortAlt1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    layers:
+      acrador_short_alt_1_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      acrador_short_alt_1_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: acrador_short_alt_1_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: acrador_short_alt_1_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: acrador_short_alt_1_tertiary
+
+- type: marking
+  id: WFMeridianEarsBasicAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: basic_antenna
+
+- type: marking
+  id: WFMeridianEarsBigWolf
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      big_wolf_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: big_wolf_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: big_wolf_secondary
+
+- type: marking
+  id: WFMeridianEarsBigWolfALT
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: big_wolf_alt_inner
+
+- type: marking
+  id: WFMeridianEarsCatBigColorableInner
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid, Human, Shadowkin, Tajaran]
+  coloring:
+    layers:
+      cat_big_colorable_inner_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    cat_big_colorable_inner_primary_BEHIND: TailBehind
+  colorLinks:
+    cat_big_colorable_inner_primary_BEHIND: cat_big_colorable_inner_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_big_colorable_inner_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_big_colorable_inner_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_big_colorable_inner_primary_BEHIND
+
+- type: marking
+  id: WFMeridianEarsCatFoldColorableInner
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid, Human, Shadowkin, Tajaran]
+  coloring:
+    layers:
+      cat_fold_colorable_inner_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    cat_fold_colorable_inner_primary_BEHIND: TailBehind
+  colorLinks:
+    cat_fold_colorable_inner_primary_BEHIND: cat_fold_colorable_inner_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_fold_colorable_inner_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_fold_colorable_inner_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_fold_colorable_inner_primary_BEHIND
+
+- type: marking
+  id: WFMeridianEarsCatLynxColorableInner
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid, Human, Shadowkin, Tajaran]
+  coloring:
+    layers:
+      cat_lynx_colorable_inner_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    cat_lynx_colorable_inner_primary_BEHIND: TailBehind
+  colorLinks:
+    cat_lynx_colorable_inner_primary_BEHIND: cat_lynx_colorable_inner_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_lynx_colorable_inner_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_lynx_colorable_inner_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_lynx_colorable_inner_primary_BEHIND
+
+- type: marking
+  id: WFMeridianEarsCatMiqoteColorableInner
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid, Human, Shadowkin, Tajaran]
+  coloring:
+    layers:
+      cat_miqo_te_colorable_inner_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    cat_miqo_te_colorable_inner_primary_BEHIND: TailBehind
+  colorLinks:
+    cat_miqo_te_colorable_inner_primary_BEHIND: cat_miqo_te_colorable_inner_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_miqo_te_colorable_inner_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_miqo_te_colorable_inner_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_miqo_te_colorable_inner_primary_BEHIND
+
+- type: marking
+  id: WFMeridianEarsCatRoundColorableInner
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid, Human, Shadowkin, Tajaran]
+  coloring:
+    layers:
+      cat_round_colorable_inner_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    cat_round_colorable_inner_primary_BEHIND: TailBehind
+  colorLinks:
+    cat_round_colorable_inner_primary_BEHIND: cat_round_colorable_inner_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_round_colorable_inner_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_round_colorable_inner_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: cat_round_colorable_inner_primary_BEHIND
+
+- type: marking
+  id: WFMeridianEarsCurvedRabbitEarsLarge
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Rodentia]
+  coloring:
+    layers:
+      curved_rabbit_ears_large_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      curved_rabbit_ears_large_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  layering:
+    curved_rabbit_ears_large_primary_BEHIND: TailBehind
+    curved_rabbit_ears_large_secondary_BEHIND: TailBehind
+  colorLinks:
+    curved_rabbit_ears_large_primary_BEHIND: curved_rabbit_ears_large_primary
+    curved_rabbit_ears_large_secondary_BEHIND: curved_rabbit_ears_large_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: curved_rabbit_ears_large_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: curved_rabbit_ears_large_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: curved_rabbit_ears_large_tertiary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: curved_rabbit_ears_large_primary_BEHIND
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: curved_rabbit_ears_large_secondary_BEHIND
+
+- type: marking
+  id: WFMeridianEarsEyeAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: eye_antenna
+
+- type: marking
+  id: WFMeridianEarsFennecLarge
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      fennec_large_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: fennec_large_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: fennec_large_secondary
+
+- type: marking
+  id: WFMeridianEarsFennecLargeFlatSharp
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      fennec_large_flat_sharp_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: fennec_large_flat_sharp_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: fennec_large_flat_sharp_secondary
+
+- type: marking
+  id: WFMeridianEarsFloppedRabbitEarsLarge
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Rodentia]
+  layering:
+    flopped_rabbit_ears_large_primary_BEHIND: TailBehind
+  colorLinks:
+    flopped_rabbit_ears_large_primary_BEHIND: flopped_rabbit_ears_large_primary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: flopped_rabbit_ears_large_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: flopped_rabbit_ears_large_primary_BEHIND
+
+- type: marking
+  id: WFMeridianEarsFloppy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Rodentia, Vulpkanin]
+  coloring:
+    layers:
+      floppy_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      floppy_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: floppy_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: floppy_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: floppy_tertiary
+
+- type: marking
+  id: WFMeridianEarsFourEars1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Arachnid, Chitinid]
+  coloring:
+    layers:
+      four_ears_1_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: four_ears_1_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: four_ears_1_tertiary
+
+- type: marking
+  id: WFMeridianEarsFourEars3
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Arachnid, Chitinid]
+  coloring:
+    layers:
+      four_ears_3_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: four_ears_3_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: four_ears_3_tertiary
+
+- type: marking
+  id: WFMeridianEarsGeniculateAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: geniculate_antenna
+
+- type: marking
+  id: WFMeridianEarsJackal
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      jackal_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: jackal_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: jackal_secondary
+
+- type: marking
+  id: WFMeridianEarsMediumSetaceousAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: medium_setaceous_antenna
+
+- type: marking
+  id: WFMeridianEarsRabbitLarge
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Rodentia]
+  coloring:
+    layers:
+      rabbit_large_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      rabbit_large_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: rabbit_large_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: rabbit_large_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: rabbit_large_tertiary
+
+- type: marking
+  id: WFMeridianEarsRamatan
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    layers:
+      ramatan_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_secondary
+
+- type: marking
+  id: WFMeridianEarsRamatanDroopy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    layers:
+      ramatan_droopy_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_droopy_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_droopy_secondary
+
+- type: marking
+  id: WFMeridianEarsRamatanFluffy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    layers:
+      ramatan_fluffy_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_fluffy_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_fluffy_secondary
+
+- type: marking
+  id: WFMeridianEarsRamatanLongFlop
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    layers:
+      ramatan_long_flop_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_long_flop_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_long_flop_secondary
+
+- type: marking
+  id: WFMeridianEarsRamatanSharp
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    layers:
+      ramatan_sharp_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_sharp_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_sharp_secondary
+
+- type: marking
+  id: WFMeridianEarsRamatanShort
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_short_primary
+
+- type: marking
+  id: WFMeridianEarsRamatanTall
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    layers:
+      ramatan_tall_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_tall_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: ramatan_tall_secondary
+
+- type: marking
+  id: WFMeridianEarsRoyalAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: royal_antenna
+
+- type: marking
+  id: WFMeridianEarsSandfoxLarge
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    layers:
+      sandfox_large_secondary:
+        type:
+          !type:SimpleColoring
+            color: "#FFFFFF"
+      sandfox_large_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: sandfox_large_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: sandfox_large_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: sandfox_large_tertiary
+
+- type: marking
+  id: WFMeridianEarsSetaceousAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Chitinid, IPC, Moth, Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: setaceous_antenna
+
+- type: marking
+  id: WFMeridianEarsStraightAntenna
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Chitinid, IPC, Moth, Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears.rsi
+    state: straight_antenna
+
+- type: marking
+  id: WFMeridianEarsTallTippedEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  coloring:
+    layers:
+      tall_tipped_ears_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+      tall_tipped_ears_tertiary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: tall_tipped_ears_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: tall_tipped_ears_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/ears_32x48.rsi
+    state: tall_tipped_ears_tertiary
+
+- type: marking
+  id: WFMeridianHeadDoubleHalo
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, IPC, Oni]
+  layering:
+    double_halo_BEHIND: TailBehind
+  colorLinks:
+    double_halo_BEHIND: double_halo
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories_32x48.rsi
+    state: double_halo
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories_32x48.rsi
+    state: double_halo_BEHIND
+
+- type: marking
+  id: WFMeridianHeadHalo
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, IPC, Oni]
+  layering:
+    halo_BEHIND: TailBehind
+  colorLinks:
+    halo_BEHIND: halo
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories_32x48.rsi
+    state: halo
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories_32x48.rsi
+    state: halo_BEHIND
+
+- type: marking
+  id: WFMeridianHornsAntlers
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    antlers_BEHIND: TailBehind
+  colorLinks:
+    antlers_BEHIND: antlers
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: antlers
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: antlers_BEHIND
+
+- type: marking
+  id: WFMeridianHornsAntlersPalmated
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: antlers_palmated
+
+- type: marking
+  id: WFMeridianHornsBroadCurls
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    broad_curls_BEHIND: TailBehind
+  colorLinks:
+    broad_curls_BEHIND: broad_curls
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: broad_curls
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: broad_curls_BEHIND
+
+- type: marking
+  id: WFMeridianHornsBroken
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: broken
+
+- type: marking
+  id: WFMeridianHornsBrokenLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: broken_left
+
+- type: marking
+  id: WFMeridianHornsBrokenRight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: broken_right
+
+- type: marking
+  id: WFMeridianHornsCrippledBull
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    crippled_bull_BEHIND: TailBehind
+  colorLinks:
+    crippled_bull_BEHIND: crippled_bull
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: crippled_bull
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: crippled_bull_BEHIND
+
+- type: marking
+  id: WFMeridianHornsCurly
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: curly
+
+- type: marking
+  id: WFMeridianHornsDragon
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: dragon
+
+- type: marking
+  id: WFMeridianHornsDrake
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: drake
+
+- type: marking
+  id: WFMeridianHornsHighRiseHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    high_rise_horns_BEHIND: TailBehind
+  colorLinks:
+    high_rise_horns_BEHIND: high_rise_horns
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: high_rise_horns
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: high_rise_horns_BEHIND
+
+- type: marking
+  id: WFMeridianHornsHopefulHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    hopeful_horns_BEHIND: TailBehind
+  colorLinks:
+    hopeful_horns_BEHIND: hopeful_horns
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: hopeful_horns
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: hopeful_horns_BEHIND
+
+- type: marking
+  id: WFMeridianHornsImpala
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    impala_BEHIND: TailBehind
+  colorLinks:
+    impala_BEHIND: impala
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: impala
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: impala_BEHIND
+
+- type: marking
+  id: WFMeridianHornsImpalaBig
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    impala_big_BEHIND: TailBehind
+  colorLinks:
+    impala_big_BEHIND: impala_big
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: impala_big
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: impala_big_BEHIND
+
+- type: marking
+  id: WFMeridianHornsKnight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: knight
+
+- type: marking
+  id: WFMeridianHornsLifted
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: lifted
+
+- type: marking
+  id: WFMeridianHornsOni
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    oni_BEHIND: TailBehind
+  colorLinks:
+    oni_BEHIND: oni
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: oni
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: oni_BEHIND
+
+- type: marking
+  id: WFMeridianHornsOniLarge
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    oni_large_BEHIND: TailBehind
+  colorLinks:
+    oni_large_BEHIND: oni_large
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: oni_large
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: oni_large_BEHIND
+
+- type: marking
+  id: WFMeridianHornsPaintedPoints
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    painted_points_BEHIND: TailBehind
+  colorLinks:
+    painted_points_BEHIND: painted_points
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: painted_points
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: painted_points_BEHIND
+
+- type: marking
+  id: WFMeridianHornsSideSweptBack
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: side_swept_back
+
+- type: marking
+  id: WFMeridianHornsTicketRack
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    ticket_rack_BEHIND: TailBehind
+  colorLinks:
+    ticket_rack_BEHIND: ticket_rack
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: ticket_rack
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: ticket_rack_BEHIND
+
+- type: marking
+  id: WFMeridianHornsUni
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    uni_BEHIND: TailBehind
+  colorLinks:
+    uni_BEHIND: uni
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: uni
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: uni_BEHIND
+
+- type: marking
+  id: WFMeridianHornsUpwards
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns.rsi
+    state: upwards
+
+- type: marking
+  id: WFMeridianHornsWhosHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Hydrakin, Oni, Reptilian]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#555555"
+  layering:
+    who_s_horns_BEHIND: TailBehind
+  colorLinks:
+    who_s_horns_BEHIND: who_s_horns
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: who_s_horns
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/horns_32x48.rsi
+    state: who_s_horns_BEHIND
+
+- type: marking
+  id: WFMeridianPodHairCabbage
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: cabbage
+
+- type: marking
+  id: WFMeridianPodHairFig
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: fig
+
+- type: marking
+  id: WFMeridianPodHairHibiscus
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: hibiscus
+
+- type: marking
+  id: WFMeridianPodHairIvy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: ivy
+
+- type: marking
+  id: WFMeridianPodHairOrchid
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: orchid
+
+- type: marking
+  id: WFMeridianPodHairPrayer
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: prayer
+
+- type: marking
+  id: WFMeridianPodHairRose
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: rose
+
+- type: marking
+  id: WFMeridianPodHairShrub
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: shrub
+
+- type: marking
+  id: WFMeridianPodHairSpinach
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: spinach
+
+- type: marking
+  id: WFMeridianPodHairVine
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/accessories.rsi
+    state: vine

@@ -1,0 +1,25 @@
+- type: entity
+  id: WallStain
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    visible: false
+    sprite: _Funkystation/Effects/wallstain.rsi
+    state: splatter
+  - type: WallStain
+  - type: SolutionContainerManager
+    solutions:
+      stain:
+        maxVol: 5
+  - type: Forensics
+  - type: Appearance
+
+- type: entity
+  parent: PuddleSparkle
+  id: WallStainSparkle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Overlays

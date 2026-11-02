@@ -1,0 +1,15 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: IronJaw
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Dwarf, Human, Oni]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/augments/headaugs.rsi
+    state: iron_jaw

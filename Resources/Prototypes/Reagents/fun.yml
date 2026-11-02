@@ -36,6 +36,7 @@
   physicalDesc: reagent-physical-desc-fibrous
   flavor: fiber
   color: "#808080"
+  puddleSpriteSet: Powder # Goob
   metabolisms:
     Food:
       effects:

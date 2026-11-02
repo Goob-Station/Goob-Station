@@ -1,0 +1,3 @@
+limb-gnaw-verb = Gnaw off limb
+limb-gnaw-start = You start gnawing on {THE($target)}...
+limb-gnaw-finish = {CAPITALIZE(THE($user))} gnaws off {THE($part)}!
