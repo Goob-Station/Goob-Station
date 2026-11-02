@@ -29,9 +29,11 @@ Fear is the Slashers power meter, shown by the [bold]Fear[/bold] alert.
   - [bold]Building it.[/bold] Your fear rises while the living have you in sight, and jumps each time you jumpscare a fresh victim. It slowly decays once no one has seen you for a while.
   - [bold]Speed.[/bold] At full fear you move faster. a rising panic that makes you harder to escape.
   - [bold]Presence.[/bold] When you build up your fear your theme song starts playing, and at a certain point, you start trailing blood. Click the [bold]Fear[/bold] alert to turn the theme off or back on for yourself; your victims still hear it.
-  - [bold]Dread.[/bold] Anyone you are actively hunting builds up fear of their own. At high fear they are (45)slowed and begin to take (90)damage.
+  - [bold]Dread.[/bold] Anyone you are actively hunting builds up fear of their own. The more afraid they are, the weaker their blows against you land, up to 30% less damage at full fear. At high fear (90) they begin to take damage.
+  - [bold]Mending.[/bold] While corporeal you slowly heal, from 0.2 damage per second with an empty meter up to 4 per second at full fear. Do try to not hide in your incorporeal form for too long.
+  - [bold]Ascendance.[/bold] Once you ascend your meter is aways maxed out, and your jumpscares give victims 40+ more fear than usual.
 
-Stay seen to build your power and terror.
+Stay seen to build your power and terror. Multiple abilities grow stronger with your fear meter.
 
   ## Abilities
 
@@ -58,6 +60,7 @@ Can only be used on an incapacitated or restrained target within close range. Fo
   - Living souls: +1.5 slash damage, +5% armor per soul
   - Dead souls: +0.75 slash damage, +2.5% armor per soul
   - Maximum armor: 70% damage reduction
+  - The [bold]Soul Bonus[/bold] alert shows your bonus slash damage (top) and bonus armor (bottom)
   - Unlocks [bold]Possession[/bold] after stealing 10 souls
   - Triggers [bold]Ascendance[/bold] at 15 total souls (station-wide announcement)
   - After ascending, lights periodically flicker and break around you
@@ -69,7 +72,13 @@ Can only be used on an incapacitated or restrained target within close range. Fo
   <Box Orientation="Vertical">
     ## Relentless Grab
 
-When activated, your next punch will instantly hard-grab your target. Perfect for securing your targets onto your meatspikes.
+Hit someone with this to instantly grab them. How hard you hold on depends on your fear meter. Perfect for securing your targets onto your meatspikes.
+
+  - Below 20 fear: soft grab
+  - 20 to 40 fear: hard grab
+  - 41 fear and above: hard grab and a short (1.5 second) stun
+
+If used on a door it instantly forces it open and stops it from shutting for 5 seconds. Welded doors cannot be forced open.
 
 [italic]Cooldown: 15 seconds.[/italic]
   </Box>
@@ -88,7 +97,7 @@ An incredibly powerful attack mode tied to your machete. Activating this makes i
   - The 13th consecutive hit decapitates your victim
   - Missing or switching targets resets the combo
   - Killing a victim with massacre grants a temporary speed boost and healing (scales with hit count)
-  - Chain ends automatically if 10 seconds pass without landing a hit
+  - Chain ends automatically if 10 seconds pass without landing a hit. A countdown next to your cursor shows the time left
 
 [italic]Cooldown: 20 seconds.[/italic]
   </Box>
@@ -154,7 +163,7 @@ Instantly summon an Ominious Meat Spike at your current position. Victims who ge
   <Box Orientation="Vertical">
     ## Stagger Area
 
-Release a wave of terror in a 3.5 tile radius around you, slowing all nearby enemies by 50% for 8 seconds. Very useful for catching fleeing victims.
+Release a wave of terror around you, slowing all nearby enemies by 50% for 8 seconds. The radius grows with your current fear meter, from 3.5 tiles with an empty meter up to 10 tiles at full fear.
 
 [italic]Cooldown: 20 seconds.[/italic]
   </Box>
@@ -191,6 +200,9 @@ A few kits change how you play. Those are marked with a [bold]?[/bold] button in
   - Their cooldowns freeze while incorporeal.
   - Group up and travel with others. the Slasher excels at picking off isolated targets.
   - If they hard grab you and attempt to put you on a meatspike you can cancel it by shoving them.
+  - They can force doors open even if they're bolted. Only welded doors will stop them.
+  - The more fear you have the less damage you deal to them. Capping out at 30% less damage.
+  - You can follow a slasher through their revive teleport by holding onto them.
   - They cannot use guns.
   - They have no critical state. They're either alive or dead.
 
