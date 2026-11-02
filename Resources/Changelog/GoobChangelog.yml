@@ -27017,3 +27017,17 @@ Entries:
         every few seconds.
   id: 3028
   time: '2026-11-01T21:21:02.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added mods to modsuits, including a few new mods, and sci research +
+        crafting for them.
+    - type: Add
+      message: Added modsuit plating to command and security lockers.
+    - type: Remove
+      message: >-
+        Removed voidsuit selectors. Everything has hardsuits by default now. If
+        you want a modsuit, get sci to craft you one.
+  id: 3029
+  time: '2026-11-02T01:06:32.0000000+00:00'
