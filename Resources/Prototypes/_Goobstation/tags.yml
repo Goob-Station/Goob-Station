@@ -782,3 +782,6 @@
 
 - type: Tag
   id: XenobioSlimeFavoriteFood
+
+- type: Tag
+  id: MechChargingStationBoard
