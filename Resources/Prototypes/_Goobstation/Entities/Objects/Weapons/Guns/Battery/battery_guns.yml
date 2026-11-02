@@ -256,6 +256,15 @@
     autoRechargeRate: 40
 
 - type: entity
+  name: disabler
+  parent: [ WeaponDisabler ]
+  id: WeaponDisablerSEC
+  description: The standard-issue compliance weapon for the S.E.C. cyborg. Its cell recharges automatically. # Goobstation
+  components:
+  - type: BatterySelfRecharger # Goobstation - S.E.C. cyborg
+    autoRechargeRate: 100
+
+- type: entity
   name: syndicate disabler
   parent: [ WeaponDisablerPractice, BaseSyndicateContraband ]
   id: WeaponDisablerSyndicate
