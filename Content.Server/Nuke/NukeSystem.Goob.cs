@@ -43,14 +43,12 @@ public sealed partial class NukeSystem
         if (stationUid != null && component.Status == NukeStatus.ARMED)
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnDeactivate, true, true, true);
 
-        // Goobstation
         var coords = _transform.GetMoverCoordinates(uid);
         var wreck = Spawn(component.WreckPrototype, coords);
         EnsureComp<NukeWreckCodeComponent>(wreck).Code = component.Code;
 
         SilentlyDeactivate(uid, component);
 
-        // Goobstation
         if (component.DiskSlot.HasItem)
         {
             _itemSlots.SetLock(uid, component.DiskSlot, false);
