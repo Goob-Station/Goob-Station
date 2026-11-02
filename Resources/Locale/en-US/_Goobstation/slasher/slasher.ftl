@@ -5,10 +5,38 @@ ghost-role-information-slasher-description = Slaughter and terrorize the living 
 
 slasher-round-end-agent-name = Slasher
 
-slasher-kit-select-title = Choose Your Kit
-slasher-kit-select-header = Choose a kit. Each one comes with a unique song and a unique look.
-slasher-kit-select-button = Select
-slasher-kit-guide-button = This variant plays differently - open its guidebook page.
+slasher-kit-store-sign = BLOOD
+slasher-kit-store-sign-accent = VIDEO
+slasher-kit-store-part = PART { $part }
+slasher-kit-store-originals = ORIGINALS
+
+# clown should get rated C but I'm not doing that right now
+
+slasher-kit-store-rated = R
+slasher-kit-store-sticker = OUT OF STOCK
+slasher-kit-store-original = ORIGINAL
+slasher-kit-store-original-sequels = ORIGINAL + { $count ->
+    [one] 1 SEQUEL IN THE BACK
+   *[other] { $count } SEQUELS IN THE BACK
+}
+slasher-kit-store-sequel-to = PART { $part }. SEQUEL TO { $kit }
+slasher-kit-store-plays-differently = PLAYS DIFFERENTLY
+slasher-kit-store-need = OUT OF STOCK. ASCEND AS { $kit } TO RESTOCK
+slasher-kit-store-now-playing = NOW PLAYING
+slasher-kit-store-trailer-tag = TRAILER
+slasher-kit-store-tape-not-found = TAPE NOT FOUND
+slasher-kit-store-trailer = PLAY TRAILER
+slasher-kit-store-trailer-stop = STOP TRAILER
+slasher-kit-store-guide = READ THE GUIDEBOOK
+slasher-kit-store-sequels = { $count ->
+    [one] SEQUEL ({ $count })
+   *[other] SEQUELS ({ $count })
+}
+slasher-kit-store-prequel = PREQUEL
+slasher-kit-store-no-sequels = NO SEQUELS
+slasher-kit-store-rent = RENT
+slasher-kit-store-rent-confirm = ARE YOU SURE?
+slasher-kit-store-unavailable = OUT OF STOCK
 
 slasher-kit-butcher = Butcher
 slasher-kit-butcher-desc = The classic. A welding mask and apron for a no nonsense killing machine.
