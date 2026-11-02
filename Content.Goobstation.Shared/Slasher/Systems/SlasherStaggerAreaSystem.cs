@@ -26,39 +26,35 @@ public sealed partial class SlasherStaggerAreaSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private MovementModStatusSystem _movemod = default!;
+    [Dependency] private SlasherFearSystem _fear = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SlasherStaggerAreaComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlasherStaggerAreaComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<SlasherStaggerAreaComponent, SlasherStaggerAreaEvent>(OnUse);
-    }
-
+    [SubscribeLocalEvent]
     private void OnMapInit(Entity<SlasherStaggerAreaComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
+    [SubscribeLocalEvent]
     private void OnShutdown(Entity<SlasherStaggerAreaComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Comp.ActionEnt);
     }
 
+    [SubscribeLocalEvent]
     private void OnUse(Entity<SlasherStaggerAreaComponent> ent, ref SlasherStaggerAreaEvent args)
     {
         if (args.Handled)
             return;
 
         var (uid, comp) = ent;
+        var range = MathHelper.Lerp(comp.Range, comp.MaxFearRange, _fear.GetFearFraction(uid));
 
-        foreach (var (targetUid, _) in _lookup.GetEntitiesInRange<StatusEffectsComponent>(Transform(uid).Coordinates, comp.Range, LookupFlags.Dynamic))
+        foreach (var (targetUid, _) in _lookup.GetEntitiesInRange<StatusEffectsComponent>(Transform(uid).Coordinates, range, LookupFlags.Dynamic))
         {
             if (targetUid == uid)
                 continue;
 
-            if (!_interact.InRangeUnobstructed(uid, targetUid, comp.Range))
+            if (!_interact.InRangeUnobstructed(uid, targetUid, range))
                 continue;
 
             _movemod.TryUpdateMovementSpeedModDuration(targetUid, EffectId, TimeSpan.FromSeconds(comp.SlowDuration), comp.SlowMultiplier, comp.SlowMultiplier);
@@ -71,7 +67,7 @@ public sealed partial class SlasherStaggerAreaSystem : EntitySystem
         _audio.PlayPredicted(comp.StaggerSound, uid, uid);
 
         var overlay = EnsureComp<SlasherStaggerOverlayComponent>(uid);
-        overlay.Range = comp.Range;
+        overlay.Range = range;
         overlay.ShockwaveShader = comp.ShockwaveShader;
         overlay.RingColor = comp.RingColor;
         Dirty(uid, overlay);

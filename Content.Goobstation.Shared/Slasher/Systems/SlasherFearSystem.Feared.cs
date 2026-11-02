@@ -110,10 +110,6 @@ public sealed partial class SlasherFearSystem
             return;
         }
 
-        if (comp.Fear >= comp.SlowThreshold)
-            _movementMod.TryUpdateMovementSpeedModDuration(
-                uid, comp.SlowEffect, comp.SlowRefresh, comp.SlowMultiplier, comp.SlowMultiplier);
-
         if (comp.Fear >= comp.DamageThreshold && _net.IsServer)
             _damageable.TryChangeDamage(uid, comp.DamagePerSecond, true);
 

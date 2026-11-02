@@ -37,7 +37,6 @@ public sealed partial class SlasherFearSystem : EntitySystem
     [Dependency] private SharedPuddleSystem _puddle = default!;
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private DamageableSystem _damageable = default!;
-    [Dependency] private MovementModStatusSystem _movementMod = default!;
     [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private StatusEffectsSystem _status = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
