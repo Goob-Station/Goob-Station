@@ -296,6 +296,21 @@ public sealed partial class LesserSummonGunsEvent : InstantActionEvent
     public EntProtoId Proto = "WeaponBoltActionEnchanted";
 }
 
+public sealed partial class SummonSupermatterEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "Supermatter";
+
+    /// <summary>
+    /// Whether the summoned crystal starts out active.
+    /// </summary>
+    [DataField]
+    public bool Activated = true;
+
+    [DataField]
+    public ProtoId<DamageModifierSetPrototype> RadiationModifier = "SupermatterImbued";
+}
+
 public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent
 {
     [DataField(required: true)]

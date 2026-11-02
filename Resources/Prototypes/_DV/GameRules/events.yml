@@ -39,6 +39,8 @@
     earliestStart: 15
     minimumPlayers: 15
     weight: 0.4 #this should be rare to throw people off, otherwise it happens every shift
+    chaos: # Goobstation
+      Anomaly: 20
     eventType: Neutral
     startAnnouncement: cosmiccult-announce-tier2-warning
     startAnnouncementColor: "#cae8e8"

@@ -180,6 +180,9 @@ namespace Content.Server.RoundEnd
             if (_countdownTokenSource != null)
                 return;
 
+            if (IsRoundEndRequestBlocked(requester)) // Goob
+                return;
+
             _countdownTokenSource = new();
             CantRecall = cantRecall;
 

@@ -26,6 +26,7 @@
     ActionScreamForMe: 1
     ActionLesserSummonBees: 2
     ActionSummonSimians: 2
+    ActionSummonSupermatter: 1
     ActionSanguineStrike: 2
     ActionSmite: 2
     ActionMagicMissile: 2
@@ -68,6 +69,7 @@
     ActionScreamForMe: 1
     ActionLesserSummonBees: 2
     ActionSummonSimians: 2
+    ActionSummonSupermatter: 1
     ActionSanguineStrike: 2
     ActionSmite: 2
     ActionMagicMissile: 2
@@ -100,6 +102,7 @@
     ActionScreamForMe: 1
     ActionLesserSummonBees: 2
     ActionSummonSimians: 2
+    ActionSummonSupermatter: 1
     ActionSmite: 2
 
 - type: weightedRandomEntity

@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Spreader;
 using Content.Shared.Anomaly.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Prometheus;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.StationEvents.Metric;
 
@@ -12,8 +13,10 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 ///
 ///   Writes this to the Anomaly chaos value.
 /// </summary>
-public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricComponent>
+public sealed partial class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricComponent>
 {
+    [Dependency] private SharedContainerSystem _container = default!;
+
     private static readonly Gauge AnomalyTotal = Metrics.CreateGauge(
         "game_director_metric_anomaly_total",
         "Total number of active anomalies.");
@@ -26,16 +29,13 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricCo
         "game_director_metric_anomaly_growing_total",
         "Total number of growing anomalies (stability > growth threshold).");
 
-    private static readonly Gauge KudzuTotal = Metrics.CreateGauge(
-        "game_director_metric_kudzu_total",
-        "Total number of kudzu patches.");
+    private static readonly Gauge ArtifactTotal = Metrics.CreateGauge(
+        "game_director_metric_artifact_total",
+        "Unsuppressed xenoartifacts on station grids outside of containers.");
 
     private static readonly Gauge AnomalyChaosCalculated = Metrics.CreateGauge(
         "game_director_metric_anomaly_chaos_calculated",
-        "Calculated chaos value contributed by anomalies and kudzu.");
-
-    private const float KudzuChaosValue = 0.25f;
-
+        "Calculated chaos value contributed by anomalies and artifacts.");
 
     protected override ChaosMetrics CalculateChaos(EntityUid metricUid,
         Components.AnomalyMetricComponent component,
@@ -45,12 +45,17 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricCo
         var anomalyCount = 0;
         var severeAnomalyCount = 0;
         var growingAnomalyCount = 0;
-        var kudzuCount = 0;
+        var artifactCount = 0;
+
+        var stationGrids = GetEventStationGrids();
 
         // Consider each anomaly and add its stability and growth to the accumulator
-        var anomalyQ = EntityQueryEnumerator<AnomalyComponent>();
-        while (anomalyQ.MoveNext(out _, out var anomaly))
+        var anomalyQ = EntityQueryEnumerator<AnomalyComponent, TransformComponent>();
+        while (anomalyQ.MoveNext(out _, out var anomaly, out var anomalyXform))
         {
+            if (!OnGrids(anomalyXform, stationGrids))
+                continue;
+
             anomalyCount++;
             if (anomaly.Severity > 0.8f)
             {
@@ -67,17 +72,20 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricCo
             anomalyChaos += component.BaseCost;
         }
 
-        var kudzuQ = EntityQueryEnumerator<KudzuComponent>();
-        while (kudzuQ.MoveNext(out _, out _))
+        var artifactQ = EntityQueryEnumerator<XenoArtifactComponent, TransformComponent>();
+        while (artifactQ.MoveNext(out var artifactUid, out var artifact, out var artifactXform))
         {
-            kudzuCount++;
-            anomalyChaos += KudzuChaosValue;
+            if (artifact.Suppressed || !OnGrids(artifactXform, stationGrids) || _container.IsEntityInContainer(artifactUid))
+                continue;
+
+            artifactCount++;
+            anomalyChaos += component.ArtifactCost;
         }
 
         AnomalyTotal.Set(anomalyCount);
         AnomalySevereTotal.Set(severeAnomalyCount);
         AnomalyGrowingTotal.Set(growingAnomalyCount);
-        KudzuTotal.Set(kudzuCount);
+        ArtifactTotal.Set(artifactCount);
         AnomalyChaosCalculated.Set(anomalyChaos);
 
         var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>
@@ -85,5 +93,14 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricCo
             {ChaosMetric.Anomaly, anomalyChaos},
         });
         return chaos;
+    }
+
+    protected override void ResetMetrics()
+    {
+        AnomalyTotal.Set(0);
+        AnomalySevereTotal.Set(0);
+        AnomalyGrowingTotal.Set(0);
+        ArtifactTotal.Set(0);
+        AnomalyChaosCalculated.Set(0);
     }
 }

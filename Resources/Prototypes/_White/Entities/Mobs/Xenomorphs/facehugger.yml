@@ -121,3 +121,30 @@
         layer:
         - LowImpassable
         hard: false
+  - type: Speech
+    speechSounds: Xenomorph
+    speechVerb: SmallMob
+  - type: ReplacementAccent
+    accent: xeno
+  - type: Vocal
+    sounds:
+      Male: Xenomorph
+      Female: Xenomorph
+      Unsexed: Xenomorph
+  - type: ShowXenoLarvaInfectionIcon
+  - type: TypingIndicator
+    proto: alien
+  - type: ZombieImmune
+  - type: NoSlip
+  - type: ShowHealthIcons
+  - type: VentCrawler
+  - type: Pinpointer
+    whitelist:
+      components:
+      - XenomorphQueen
+    alert: QueenFinder
+    isActive: true
+    canToggle: false
+    canEmag: false
+    canExamine: false
+  - type: FaceHuggerLeap

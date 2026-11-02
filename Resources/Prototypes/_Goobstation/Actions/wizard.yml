@@ -1163,3 +1163,34 @@
     effectedLevels:
       2: ActionRathenSpellII
       3: ActionRathenSpellIII
+
+- type: entity
+  parent: BaseAction
+  id: ActionSummonSupermatter
+  name: Summon Supermatter
+  description: Summons an active supermatter crystal. Imbues you with some supermatter, giving you resistance to its ashing and radiation immunity.
+  components:
+  - type: Sprite # For apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: summon_supermatter
+  - type: Action
+    raiseOnUser: true
+    useDelay: 300
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: summon_supermatter
+  - type: InstantAction
+    event: !type:SummonSupermatterEvent
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-supermatter
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+    school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSummonSupermatterII
+      3: ActionSummonSupermatterIII
+      4: ActionSummonSupermatterIV
+      5: ActionSummonSupermatterV
