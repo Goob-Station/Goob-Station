@@ -190,7 +190,7 @@
         Blunt: 4
         Structural: 15
   - type: VomitOnHit
-    chance: 0.25
+    chance: 0.15
   - type: Item
     storedSprite:
       state: world_icon

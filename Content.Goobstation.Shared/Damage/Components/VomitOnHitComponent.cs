@@ -7,25 +7,27 @@ namespace Content.Goobstation.Shared.Damage.Components;
 public sealed partial class VomitOnHitComponent : Component
 {
     /// <summary>
-    /// Chance (0-1) for each hit mob to vomit.
+    /// Chance to cause puking.
     /// </summary>
     [DataField]
     public float Chance = 0.5f;
 
     /// <summary>
-    /// How much thirst the vomit adds (negative drains it).
+    /// Make these positive if you don't want this to be super OP
+    /// Drains thrist if negative, adds if positive.
     /// </summary>
     [DataField]
     public float ThirstAdded = -40f;
 
     /// <summary>
-    /// How much hunger the vomit adds (negative drains it).
+    /// Make these positive if you don't want this to be super OP
+    /// Drains hunger if negative, adds if positive.
     /// </summary>
     [DataField]
     public float HungerAdded = -40f;
 
     /// <summary>
-    /// Whether the vomit ignores the usual checks (e.g. already being unable to vomit).
+    /// Force puke even if can't usually puke.
     /// </summary>
     [DataField]
     public bool Force;
