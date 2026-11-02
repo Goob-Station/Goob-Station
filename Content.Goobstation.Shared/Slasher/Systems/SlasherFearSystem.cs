@@ -51,6 +51,7 @@ public sealed partial class SlasherFearSystem : EntitySystem
         SubscribeLocalEvent<SlasherFearComponent, LocalPlayerDetachedEvent>(OnFearDetached);
         SubscribeLocalEvent<SlasherFearComponent, SlasherToggleFearMusicAlertEvent>(OnToggleMusic);
         SubscribeLocalEvent<SlasherAscendedEvent>(OnAscended);
+        SubscribeLocalEvent<SlasherFearComponent, DamageModifyEvent>(OnDamageModify);
 
         SubscribeLocalEvent<SlasherVictimFearBuildupComponent, ComponentShutdown>(OnFearedShutdown);
         SubscribeLocalEvent<SlasherVictimFearBuildupComponent, LocalPlayerDetachedEvent>(OnFearedDetached);

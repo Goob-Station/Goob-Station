@@ -1,5 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Slasher.Components;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -21,6 +24,24 @@ public sealed partial class SlasherFearSystem
 
         if (_net.IsServer)
             ClearFearStyle(ent);
+    }
+
+    private void OnDamageModify(Entity<SlasherFearComponent> ent, ref DamageModifyEvent args)
+    {
+        if (args.Damage.Empty
+            || args.Origin is not { } origin
+            || !TryComp<SlasherVictimFearBuildupComponent>(origin, out var victim)
+            || victim.Fear <= 0f)
+            return;
+
+        var factor = 1f - Math.Clamp(victim.Fear, 0f, 1f) * ent.Comp.MaxVictimDamageReduction;
+        foreach (var (type, value) in args.Damage.DamageDict.ToArray())
+        {
+            if (value <= FixedPoint2.Zero)
+                continue;
+
+            args.Damage.DamageDict[type] = value * factor;
+        }
     }
 
     private void UpdateVictimFearBuildup(TimeSpan now)
