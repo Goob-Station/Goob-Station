@@ -1,8 +1,8 @@
 - type: entity
-  name: shark minnow fin
+  name: sharkminnow fin
   parent: [ BaseItem, BaseMajorContraband ]
   id: WeaponSharkMinnowFin
-  description: A razor-sharp fin torn from a shark minnow. Makes you friendly to carps, or at least...earns their respect.
+  description: A razor-sharp fin torn from a sharkminnow. Makes you friendly to carps, or at least...earns their respect.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/minnow_fin.rsi
@@ -12,10 +12,11 @@
     sprite: _Goobstation/Objects/Weapons/Melee/minnow_fin.rsi
   - type: Sharp
   - type: MeleeWeapon
+    attackRate: 4
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 24
+        Slash: 7
       woundSeverityMultipliers:
         Slash: 2
     soundHit:
@@ -23,3 +24,34 @@
   - type: DisarmMalus
   - type: FactionWhileHeld
     faction: Dragon
+    iconToAdd: SleepingCarpFaction
+  - type: Construction
+    graph: SharkminnowFin
+    node: fin
+
+- type: constructionGraph
+  id: SharkminnowFin
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: fin
+      steps:
+      - material: SharkMinnowTooth
+        amount: 3
+        doAfter: 2
+      - material: CarpScales
+        amount: 5
+        doAfter: 2
+  - node: fin
+    entity: WeaponSharkMinnowFin
+
+- type: construction
+  crafting: true
+  id: SharkminnowFin
+  graph: SharkminnowFin
+  startNode: start
+  targetNode: fin
+  category: construction-category-weapons
+  objectType: Item
+  description: construction-recipe-sharkminnow-fin

@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Shared.Hands;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
@@ -33,6 +34,17 @@ public sealed partial class FactionWhileHeldSystem : EntitySystem
 
         _faction.ClearFactions(args.User);
         _faction.AddFaction(args.User, ent.Comp.Faction);
+
+        if (ent.Comp.IconToAdd is { } icon)
+        {
+            var icons = EnsureComp<CustomFactionIconsComponent>(args.User);
+
+            if (!icons.FactionIcons.Contains(icon))
+            {
+                icons.FactionIcons.Add(icon);
+                ent.Comp.IconAdded = true;
+            }
+        }
     }
 
     private void OnUnequipped(Entity<FactionWhileHeldComponent> ent, ref GotUnequippedHandEvent args)
@@ -44,6 +56,13 @@ public sealed partial class FactionWhileHeldSystem : EntitySystem
             return;
 
         ent.Comp.Stored = null;
+
+        if (ent.Comp.IconAdded && ent.Comp.IconToAdd is { } icon && TryComp<CustomFactionIconsComponent>(args.User, out var icons))
+        {
+            icons.FactionIcons.Remove(icon);
+        }
+
+        ent.Comp.IconAdded = false;
 
         _faction.ClearFactions(args.User);
         _faction.AddFactions(args.User, stored);
