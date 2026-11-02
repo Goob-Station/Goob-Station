@@ -162,7 +162,7 @@
     heat: -100000 # Genuinely no clue why this number needs to be so high, it just doesn't work otherwise.
   - type: Item
     storedSprite:
-      state: world_icon
+      state: world-icon
       sprite: _Goobstation/Objects/Weapons/Melee/ice_club.rsi
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Melee/ice_club.rsi
@@ -193,7 +193,7 @@
     chance: 0.15
   - type: Item
     storedSprite:
-      state: world_icon
+      state: world-icon
       sprite: _Goobstation/Objects/Weapons/Melee/flesh_club.rsi
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Melee/flesh_club.rsi
@@ -210,7 +210,7 @@
     - to: icecudgel
       steps:
       - tag: WoodCudgel
-        name: wood cudgel
+        name: construction-step-wood-cudgel
         icon:
           sprite: _Lavaland/Objects/Weapons/Melee/cudgel.rsi
           state: icon
@@ -230,13 +230,13 @@
     - to: fleshcudgel
       steps:
       - tag: WoodCudgel
-        name: wood cudgel
+        name: construction-step-wood-cudgel
         icon:
           sprite: _Lavaland/Objects/Weapons/Melee/cudgel.rsi
           state: icon
         doAfter: 1
       - tag: Meat
-        name: meat
+        name: construction-step-flesh-cudgel-meat
         doAfter: 3
   - node: fleshcudgel
     entity: WeaponCudgelFlesh
