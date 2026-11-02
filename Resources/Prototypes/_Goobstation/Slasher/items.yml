@@ -144,6 +144,8 @@
         Piercing: 0.90
         Heat: 0.90
         Caustic: 0.90
+  - type: Insulated
+    coefficient: 0.5
   - type: SelfUnremovableClothing
   - type: SelfEquipOnly
     unequipRequireConscious: false
