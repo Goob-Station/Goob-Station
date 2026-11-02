@@ -26,3 +26,8 @@
   id: XenobagHoldingPack
   recipes:
   - ClothingBeltChemBagXenobiologyHolding
+
+- type: latheRecipePack
+  id: ExperimentalShieldingPack
+  recipes:
+  - EEEShield

@@ -140,3 +140,19 @@
   position: -4,3
   technologyPrerequisites:
   - Xenobiology
+
+- type: technology
+  id: ExperimentalShielding 
+  name: research-technology-experimental-shielding
+  icon:
+    sprite: _Goobstation/Objects/Shields/ephemeral.rsi
+    state: eshield-on
+  discipline: Experimental
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - EEEShield # For the love of god someone find more stuff to add to this resaerch, and then raise its price.
+  position: -4,4
+  technologyPrerequisites:
+  - SalvageWeapons
+  - ExperimentalScience
