@@ -13,6 +13,7 @@ using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -383,13 +384,17 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnThrowHit(Entity<SlasherSoulStealMacheteBonusComponent> ent, ref ThrowDoHitEvent args)
     {
-        if (ent.Comp.SlashBonus <= 0 || TerminatingOrDeleted(args.Target))
+        if (ent.Comp.SlashBonus <= 0f
+            || TerminatingOrDeleted(args.Target)
+            || args.Target == args.Component.Thrower)
             return;
 
-        var dmgAdj = new DamageSpecifier();
+        var ignoreResistances = TryComp<DamageOtherOnHitComponent>(ent.Owner, out var throwDamage)
+                                && throwDamage.IgnoreResistances;
 
+        var dmgAdj = new DamageSpecifier();
         dmgAdj.DamageDict.Add("Slash", ent.Comp.SlashBonus);
-        _damageable.TryChangeDamage(args.Target, dmgAdj, true, origin: args.Component.Thrower);
+        _damageable.TryChangeDamage(args.Target, dmgAdj, ignoreResistances, origin: args.Component.Thrower);
     }
 
     /// <summary>
