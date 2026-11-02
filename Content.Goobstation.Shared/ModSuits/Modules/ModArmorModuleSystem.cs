@@ -3,7 +3,6 @@ using Content.Goobstation.Shared.ModSuits.Systems;
 using Content.Shared.Armor;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Inventory;
 
 namespace Content.Goobstation.Shared.ModSuits.Modules;
 
@@ -15,33 +14,36 @@ public sealed partial class ModArmorModuleSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnActivated(Entity<ModArmorModuleComponent> ent, ref ModModuleActivatedEvent args)
     {
-        RefreshPartArmor(args.Suit, ent.Comp.Slot);
+        RefreshArmor(args.Suit, ent.Comp.Slots);
     }
 
     [SubscribeLocalEvent]
     private void OnDeactivated(Entity<ModArmorModuleComponent> ent, ref ModModuleDeactivatedEvent args)
     {
-        RefreshPartArmor(args.Suit, ent.Comp.Slot);
+        RefreshArmor(args.Suit, ent.Comp.Slots);
     }
 
     [SubscribeLocalEvent]
-    private void OnDamageModify(Entity<ModSuitComponent> ent, ref InventoryRelayedEvent<DamageModifyEvent> args)
+    private void OnDamageModify(Entity<ModArmorModuleComponent> ent, ref DamageModifyEvent args)
     {
-        foreach (var module in ent.Comp.ModulesContainer.ContainedEntities)
+        if (ent.Comp.Slots.Count == 0)
+            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.Modifiers);
+    }
+
+    private void RefreshArmor(EntityUid suitUid, List<string> slots)
+    {
+        if (slots.Count == 0 || !TryComp<ModSuitComponent>(suitUid, out var suit))
+            return;
+
+        foreach (var slot in slots)
         {
-            if (TryComp<ModArmorModuleComponent>(module, out var armor)
-                && armor.Slot == null
-                && TryComp<ModModuleComponent>(module, out var moduleComp)
-                && moduleComp.Active)
-                args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, armor.Modifiers);
+            RefreshPartArmor((suitUid, suit), slot);
         }
     }
 
-    private void RefreshPartArmor(EntityUid suitUid, string? slot)
+    private void RefreshPartArmor(Entity<ModSuitComponent> suit, string slot)
     {
-        if (slot == null
-            || !TryComp<ModSuitComponent>(suitUid, out var suit)
-            || _modSuit.GetPart((suitUid, suit), slot) is not { } part
+        if (_modSuit.GetPart(suit, slot) is not { } part
             || TerminatingOrDeleted(part)
             || !TryComp<ArmorComponent>(part, out var armor)
             || MetaData(part).EntityPrototype is not { } proto
@@ -55,10 +57,10 @@ public sealed partial class ModArmorModuleSystem : EntitySystem
             IgnoreArmorPierceFlags = baseline.Modifiers.IgnoreArmorPierceFlags,
         };
 
-        foreach (var module in suit.ModulesContainer.ContainedEntities)
+        foreach (var module in suit.Comp.ModulesContainer.ContainedEntities)
         {
             if (!TryComp<ModArmorModuleComponent>(module, out var moduleArmor)
-                || moduleArmor.Slot != slot
+                || !moduleArmor.Slots.Contains(slot)
                 || !TryComp<ModModuleComponent>(module, out var moduleComp)
                 || !moduleComp.Active)
                 continue;

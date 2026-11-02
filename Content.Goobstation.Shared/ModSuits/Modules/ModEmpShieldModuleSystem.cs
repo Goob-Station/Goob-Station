@@ -13,9 +13,9 @@ public sealed partial class ModEmpShieldModuleSystem : EntitySystem
 
         foreach (var module in ent.Comp.ModulesContainer.ContainedEntities)
         {
-            if (!HasComp<ModEmpShieldModuleComponent>(module)
+            if (!TryComp<ModEmpShieldModuleComponent>(module, out var shield)
                 || !TryComp<ModModuleComponent>(module, out var moduleComp)
-                || !moduleComp.Active)
+                || shield.RequireActive && !moduleComp.Active)
                 continue;
 
             args.Cancelled = true;

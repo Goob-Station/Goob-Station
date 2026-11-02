@@ -1,4 +1,6 @@
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
+using Content.Shared.Item;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -85,7 +87,11 @@ public sealed partial class ModDeviceItemComponent : Component
 public sealed partial class ModJetpackModuleComponent : Component;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ModEmpShieldModuleComponent : Component;
+public sealed partial class ModEmpShieldModuleComponent : Component
+{
+    [DataField]
+    public bool RequireActive = true;
+}
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ModMouthholeModuleComponent : Component
@@ -121,7 +127,7 @@ public sealed partial class ModArmorModuleComponent : Component
     public DamageModifierSet Modifiers = new();
 
     [DataField]
-    public string? Slot;
+    public List<string> Slots = new();
 }
 
 [RegisterComponent, NetworkedComponent]
@@ -251,4 +257,138 @@ public sealed partial class ModInStasisComponent : Component
 {
     [DataField, AutoNetworkedField]
     public float Multiplier = 10f;
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ModSpeedModuleComponent : Component
+{
+    [DataField]
+    public float WalkModifier = 1f;
+
+    [DataField]
+    public float SprintModifier = 1f;
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ModStripComponentsModuleComponent : Component
+{
+    [DataField(required: true)]
+    public List<string> Components = new();
+}
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
+public sealed partial class ModEnergyShieldModuleComponent : Component
+{
+    [DataField]
+    public int MaxCharges = 1;
+
+    [DataField, AutoNetworkedField]
+    public int Charges = 1;
+
+    [DataField]
+    public TimeSpan RechargeDelay = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public TimeSpan ChargeIncrement = TimeSpan.FromSeconds(1);
+
+    [DataField, AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextCharge;
+
+    [DataField]
+    public float BlockPower = 30f;
+
+    [DataField]
+    public SoundSpecifier? BlockSound = new SoundPathSpecifier("/Audio/Weapons/block_metal1.ogg");
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ModPlateCompressionModuleComponent : Component
+{
+    [DataField]
+    public ProtoId<ItemSizePrototype> Size = "Normal";
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ModChameleonModuleComponent : Component
+{
+    [DataField(required: true)]
+    public ComponentRegistry Components = new();
+
+    [ViewVariables]
+    public bool Granted;
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ModEmpPulseModuleComponent : Component
+{
+    [DataField]
+    public float Range = 4f;
+
+    [DataField]
+    public float EnergyConsumption = 100000f;
+
+    [DataField]
+    public TimeSpan Duration = TimeSpan.FromSeconds(30);
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ModCloakModuleComponent : Component;
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class ModCloakedComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public EntityUid? Module;
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ModInjectModuleComponent : Component
+{
+    [DataField(required: true)]
+    public Solution Solution = new();
+
+    [DataField]
+    public bool ClearStuns;
+
+    [DataField]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Items/hypospray.ogg");
+}
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class ModDnaLockModuleComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public string? LockedDna;
+
+    [DataField]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Machines/id_swipe.ogg");
+}
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ModPowerKickModuleComponent : Component
+{
+    [DataField(required: true)]
+    public DamageSpecifier Damage = new();
+
+    [DataField]
+    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public TimeSpan ChargeTime = TimeSpan.FromSeconds(1);
+
+    [DataField]
+    public float ThrowSpeed = 12f;
+
+    [DataField]
+    public SoundSpecifier? ChargeSound = new SoundPathSpecifier("/Audio/Mecha/sound_mecha_hydraulic.ogg");
+
+    [DataField]
+    public SoundSpecifier? HitSound = new SoundPathSpecifier("/Audio/Weapons/punch3.ogg");
+}
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class ModPowerKickingComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public EntityUid? Module;
 }

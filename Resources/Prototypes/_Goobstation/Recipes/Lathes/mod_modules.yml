@@ -16,6 +16,18 @@
 
 - type: latheRecipe
   parent: BaseModsuitModuleRecipe
+  id: ModsuitCoreStandardMicroreactor
+  result: ModsuitCoreStandardMicroreactor
+  completetime: 10
+  materials:
+    Steel: 600
+    Glass: 400
+    Uranium: 300
+    Gold: 100
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
   id: ModsuitCorePlasma
   result: ModsuitCorePlasma
   materials:

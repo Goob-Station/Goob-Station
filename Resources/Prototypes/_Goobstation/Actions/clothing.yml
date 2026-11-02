@@ -42,6 +42,22 @@
   - type: InstantAction
     event: !type:ModModuleActionEvent
 
+- type: entity
+  parent: BaseAction
+  id: ActionModPowerKick
+  name: Power kick
+  description: Launch yourself at a target with a devastating kick.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+    checkCanInteract: true
+  - type: TargetAction
+    checkCanAccess: false
+    range: 7
+  - type: WorldTargetAction
+    event: !type:ModPowerKickActionEvent
+
 
 - type: entity
   parent: BaseAction

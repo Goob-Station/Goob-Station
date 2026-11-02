@@ -69,3 +69,23 @@
   id: ModThemePraetorian
   name: modsuit-theme-praetorian
   activationStepTime: 0.75
+
+- type: modTheme
+  id: ModThemeSyndicate
+  name: modsuit-theme-syndicate
+  complexityMax: 20
+  activationStepTime: 0.5
+  inbuiltModules:
+  - ModsuitModuleBuiltinFlashProtection
+  - ModsuitModuleBuiltinNightVision
+  - ModsuitModuleBuiltinInsulation
+
+- type: modTheme
+  id: ModThemeElite
+  name: modsuit-theme-elite
+  complexityMax: 19
+  activationStepTime: 0.5
+  inbuiltModules:
+  - ModsuitModuleBuiltinFlashProtection
+  - ModsuitModuleBuiltinNightVision
+  - ModsuitModuleBuiltinInsulation
