@@ -14,6 +14,7 @@ public sealed partial class SlasherPassiveHealSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SlasherFearSystem _fear = default!;
 
     public override void Update(float frameTime)
     {
@@ -34,22 +35,14 @@ public sealed partial class SlasherPassiveHealSystem : EntitySystem
                 || TryComp<SlasherIncorporealComponent>(uid, out var incorporeal) && incorporeal.IsIncorporeal)
                 continue;
 
-            var amount = FixedPoint2.New(GetHealPerSecond(uid, heal) * (float) heal.Interval.TotalSeconds);
+            var healPerSecond = MathHelper.Lerp(heal.MinHealPerSecond, heal.MaxHealPerSecond, _fear.GetFearFraction(uid));
+            var amount = FixedPoint2.New(healPerSecond * (float) heal.Interval.TotalSeconds);
             var spec = BuildHeal(damageable, amount);
             if (spec.Empty)
                 continue;
 
             _damageable.ChangeDamage((uid, damageable), spec, true, false, targetPart: TargetBodyPart.All, splitDamage: heal.SplitBehavior);
         }
-    }
-
-    private float GetHealPerSecond(EntityUid uid, SlasherPassiveHealComponent heal)
-    {
-        var fraction = 0f;
-        if (TryComp<SlasherFearComponent>(uid, out var fear) && fear.MaxMeter > 0f)
-            fraction = Math.Clamp(fear.CurrentMeter / fear.MaxMeter, 0f, 1f);
-
-        return MathHelper.Lerp(heal.MinHealPerSecond, heal.MaxHealPerSecond, fraction);
     }
 
     private static DamageSpecifier BuildHeal(DamageableComponent damageable, FixedPoint2 amount)

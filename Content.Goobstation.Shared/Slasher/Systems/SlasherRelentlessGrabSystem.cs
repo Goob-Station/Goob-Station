@@ -18,6 +18,7 @@ public sealed partial class SlasherRelentlessGrabSystem : EntitySystem
     [Dependency] private SharedDoorSystem _door = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SlasherFearSystem _fear = default!;
 
     [SubscribeLocalEvent]
     private void OnMapInit(Entity<SlasherRelentlessGrabComponent> ent, ref MapInitEvent args)
@@ -45,7 +46,7 @@ public sealed partial class SlasherRelentlessGrabSystem : EntitySystem
             return;
         }
 
-        var fear = TryComp<SlasherFearComponent>(ent.Owner, out var fearComp) ? fearComp.CurrentMeter : 0f;
+        var fear = _fear.GetFear(ent.Owner);
         var stage = fear >= ent.Comp.HardGrabFear ? GrabStage.Hard : GrabStage.Soft;
 
         if (!_pulling.CanPull(ent.Owner, target)
