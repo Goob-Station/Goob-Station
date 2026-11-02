@@ -11,14 +11,7 @@ public sealed partial class FactionWhileHeldSystem : EntitySystem
     [Dependency] private NpcFactionSystem _faction = default!;
     [Dependency] private INetManager _net = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<FactionWhileHeldComponent, GotEquippedHandEvent>(OnEquipped);
-        SubscribeLocalEvent<FactionWhileHeldComponent, GotUnequippedHandEvent>(OnUnequipped);
-    }
-
+    [SubscribeLocalEvent]
     private void OnEquipped(Entity<FactionWhileHeldComponent> ent, ref GotEquippedHandEvent args)
     {
         if (!_net.IsServer)
@@ -30,10 +23,11 @@ public sealed partial class FactionWhileHeldSystem : EntitySystem
         if (_faction.IsMember(args.User, ent.Comp.Faction))
             return;
 
-        ent.Comp.Stored = _faction.GetFactions(args.User);
+        var factionOverride = EnsureComp<FactionOverrideComponent>(args.User);
+        factionOverride.Factions.Clear();
+        factionOverride.Factions.Add(ent.Comp.Faction);
 
-        _faction.ClearFactions(args.User);
-        _faction.AddFaction(args.User, ent.Comp.Faction);
+        ent.Comp.Applied = true;
 
         if (ent.Comp.IconToAdd is { } icon)
         {
@@ -42,29 +36,31 @@ public sealed partial class FactionWhileHeldSystem : EntitySystem
             if (!icons.FactionIcons.Contains(icon))
             {
                 icons.FactionIcons.Add(icon);
+                Dirty(args.User, icons);
                 ent.Comp.IconAdded = true;
             }
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnUnequipped(Entity<FactionWhileHeldComponent> ent, ref GotUnequippedHandEvent args)
     {
         if (!_net.IsServer)
             return;
 
-        if (ent.Comp.Stored is not { } stored)
+        if (!ent.Comp.Applied)
             return;
 
-        ent.Comp.Stored = null;
+        ent.Comp.Applied = false;
+
+        RemCompDeferred<FactionOverrideComponent>(args.User);
 
         if (ent.Comp.IconAdded && ent.Comp.IconToAdd is { } icon && TryComp<CustomFactionIconsComponent>(args.User, out var icons))
         {
             icons.FactionIcons.Remove(icon);
+            Dirty(args.User, icons);
         }
 
         ent.Comp.IconAdded = false;
-
-        _faction.ClearFactions(args.User);
-        _faction.AddFactions(args.User, stored);
     }
 }

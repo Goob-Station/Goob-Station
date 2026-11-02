@@ -85,7 +85,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        return ent.Comp.Factions.Contains(faction);
+        return GetFactions(ent).Contains(faction); // Goobstation
     }
 
     /// <summary>
@@ -97,9 +97,11 @@ public sealed partial class NpcFactionSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
+        var entFactions = GetFactions(ent); // Goobstation
+
         foreach (var faction in factions)
         {
-            if (ent.Comp.Factions.Contains(faction))
+            if (entFactions.Contains(faction)) // Goobstation
                 return true;
         }
 
@@ -182,16 +184,6 @@ public sealed partial class NpcFactionSystem : EntitySystem
             RefreshFactions((ent, ent.Comp));
     }
 
-    // goob start - returns a copy of the entity's factions
-    public HashSet<ProtoId<NpcFactionPrototype>> GetFactions(Entity<NpcFactionMemberComponent?> ent)
-    {
-        if (!Resolve(ent, ref ent.Comp, false))
-            return new HashSet<ProtoId<NpcFactionPrototype>>();
-
-        return new HashSet<ProtoId<NpcFactionPrototype>>(ent.Comp.Factions);
-    }
-    // goob end
-
     public IEnumerable<EntityUid> GetNearbyHostiles(Entity<NpcFactionMemberComponent?, FactionExceptionComponent?> ent, float range)
     {
         if (!Resolve(ent, ref ent.Comp1, false))
@@ -228,7 +220,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
             if (ent.Owner == entity)
                 continue;
 
-            if (!factions.Overlaps(ent.Comp.Factions))
+            if (!factions.Overlaps(GetFactions(ent.Owner))) // Goob edit
                 continue;
 
             yield return ent.Owner;
@@ -243,7 +235,9 @@ public sealed partial class NpcFactionSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false) || !Resolve(other, ref other.Comp, false))
             return false;
 
-        return ent.Comp.Factions.Overlaps(other.Comp.Factions) || ent.Comp.FriendlyFactions.Overlaps(other.Comp.Factions);
+        var otherFactions = GetFactions(other); // Goobstation
+
+        return GetFactions(ent).Overlaps(otherFactions) || ent.Comp.FriendlyFactions.Overlaps(otherFactions); // Goob edit
     }
 
     public bool IsFactionFriendly([ForbidLiteral] string target, [ForbidLiteral] string with)
@@ -256,8 +250,8 @@ public sealed partial class NpcFactionSystem : EntitySystem
         if (!Resolve(with, ref with.Comp, false))
             return false;
 
-        return with.Comp.Factions.All(x => IsFactionFriendly(target, x)) ||
-               with.Comp.FriendlyFactions.Contains(target);
+        return GetFactions(with).All(x => IsFactionFriendly(target, x)) ||
+               with.Comp.FriendlyFactions.Contains(target); // Goob edit
     }
 
     public bool IsFactionHostile([ForbidLiteral] string target, [ForbidLiteral] string with)
@@ -270,8 +264,8 @@ public sealed partial class NpcFactionSystem : EntitySystem
         if (!Resolve(with, ref with.Comp, false))
             return false;
 
-        return with.Comp.Factions.All(x => IsFactionHostile(target, x)) ||
-               with.Comp.HostileFactions.Contains(target);
+        return GetFactions(with).All(x => IsFactionHostile(target, x)) ||
+               with.Comp.HostileFactions.Contains(target); // Goob edit
     }
 
     public bool IsFactionNeutral([ForbidLiteral] string target, [ForbidLiteral] string with)
