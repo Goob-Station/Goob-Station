@@ -15,7 +15,7 @@ public sealed partial class SlasherSoulBonusAlertSystem : EntitySystem
             || soulSteal.Alert != args.Alert)
             return;
 
-        SetRow(ent, ent.Comp.DamageDigitKeys, (int) soulSteal.TotalAppliedBruteBonus);
+        SetRow(ent, ent.Comp.DamageDigitKeys, soulSteal.TotalAppliedDamageBonus.GetTotal().Int());
         SetRow(ent, ent.Comp.ArmorDigitKeys, (int) soulSteal.ArmorPercent);
     }
 

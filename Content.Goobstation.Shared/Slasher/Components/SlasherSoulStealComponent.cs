@@ -1,4 +1,5 @@
 using Content.Shared.Alert;
+using Content.Shared.Damage;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -21,17 +22,17 @@ public sealed partial class SlasherSoulStealComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> Alert = "SlasherSoulBonus";
 
-    /// <summary>
-    /// Flat slash bonus per alive soul stolen (applied to machete melee and throw).
-    /// </summary>
     [DataField]
-    public float AliveBruteBonusPerSoul = 1.5f;
+    public DamageSpecifier AliveDamageBonusPerSoul = new()
+    {
+        DamageDict = new() { { "Slash", 1 } },
+    };
 
-    /// <summary>
-    /// Flat slash bonus per corpse soul stolen.
-    /// </summary>
     [DataField]
-    public float DeadBruteBonusPerSoul = 0.75f;
+    public DamageSpecifier DeadDamageBonusPerSoul = new()
+    {
+        DamageDict = new() { { "Slash", 0.5 } },
+    };
 
     /// <summary>
     /// Armor (percent damage reduction) granted per alive soul.
@@ -137,10 +138,10 @@ public sealed partial class SlasherSoulStealComponent : Component
     public int DeadSouls;
 
     /// <summary>
-    /// Cached applied brute bonus so we can reapply if machete is resummoned.
+    /// Cached applied damage bonus so we can reapply if machete is resummoned.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public float TotalAppliedBruteBonus;
+    public DamageSpecifier TotalAppliedDamageBonus = new();
 
     /// <summary>
     /// Last known machete entity to which we applied damage components.
