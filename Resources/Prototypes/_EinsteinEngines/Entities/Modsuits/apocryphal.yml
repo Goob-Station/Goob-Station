@@ -9,26 +9,34 @@
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
-    - type: ToggleableClothing
-      clothingPrototypes:
+    - type: ModSuit
+      theme: ModThemeApocryphal
+      parts:
         head: ClothingModsuitHelmetApocryphal
         gloves: ClothingModsuitGauntletsApocryphal
         outerClothing: ClothingModsuitChestplateApocryphal
         shoes: ClothingModsuitBootsApocryphal
+      startingModules:
+      - ModsuitModuleStorageBluespace
+      - ModsuitModuleFlashlight
+      - ModsuitModuleMagboots
+      inbuiltModules:
+      - ModsuitModuleBuiltinThermal
+      - ModsuitModuleBuiltinSecHud
+      - ModsuitModuleBuiltinMedHud
+      - ModsuitModuleBuiltinFlashProtection
+      - ModsuitModuleBuiltinInsulation
     - type: ItemSlots
       slots:
-        cell_slot:
-          name: power-cell-slot-component-slot-name-default
-          startingItem: PowerCellAntiqueProto
+        mod-core:
+          name: modsuit-core-slot-name
+          startingItem: ModsuitCoreStandardAntique
           whitelist:
             components:
-              - PowerCell
-    - type: Storage
-      grid:
-        - 0,0,7,6
+            - ModCore
     - type: ExplosionResistance
       damageCoefficient: 0.1
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         back:
@@ -43,7 +51,7 @@
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         gloves:
@@ -97,9 +105,25 @@
         - Biological
     - type: PointLight
       color: "#FFDF00"
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
+        head-hydrakin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-feroxi:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-vulpkanin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-resomi:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
         head:
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
@@ -107,6 +131,20 @@
         head-vox:
         - state: equipped-HEAD-sealed-vox
         - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
+    - type: Clothing
+      clothingVisuals:
+        head-vulpkanin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-feroxi:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-hydrakin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
           shader: unshaded
 - type: entity
   parent: ClothingModsuitChestplateStandard
@@ -137,9 +175,11 @@
           Cellular: 0.1
           Radiation: 0.1
           Caustic: 0.1
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
+        outerClothing-resomi:
+        - state: equipped-OUTERCLOTHING-sealed
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
         outerClothing-vox:
@@ -164,21 +204,13 @@
     - type: Appearance
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         shoes:
         - state: equipped-FEET-sealed
         shoes-vox:
         - state: equipped-FEET-sealed-vox
-    - type: ItemToggle
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-      - type: NoSlip
-    - type: Magboots
-      enabledPrefix: null
     - type: ClothingSpeedModifier
       walkModifier: 1.1
       sprintModifier: 1.1

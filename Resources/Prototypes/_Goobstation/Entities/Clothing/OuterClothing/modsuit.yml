@@ -47,10 +47,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -82,7 +85,7 @@
         Piercing: 0.85
         Heat: 0.85
         Radiation: 0.2
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -116,10 +119,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -160,7 +166,7 @@
         Piercing: 0.6
         Heat: 0.6
         Radiation: 0.6
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -194,10 +200,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -239,7 +248,7 @@
         Heat: 0.5
         Caustic: 0.5
         Radiation: 0.5
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -279,10 +288,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -319,7 +331,7 @@
         Heat: 0.8
         Caustic: 0.6
         Radiation: 0.3
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -358,10 +370,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -399,7 +414,7 @@
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.01
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -438,10 +453,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -477,7 +495,7 @@
         Piercing: 0.85
         Heat: 0.2
         Radiation: 0.05
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -516,10 +534,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -557,7 +578,7 @@
         Shock: 0.75
         Caustic: 0.25
         Radiation: 0.01
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -598,10 +619,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -638,7 +662,7 @@
         Heat: 0.5
         Radiation: 0.1
         Caustic: 0.5
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -677,10 +701,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -719,7 +746,7 @@
         Piercing: 0.6
         Heat: 0.6
         Radiation: 0.6
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3

@@ -239,3 +239,18 @@
   technologyPrerequisites:
   - AdvancedRiotControl
   - ExplosiveTechnology
+
+- type: technology
+  id: ModsuitSecurityTech
+  name: research-technology-modsuit-security
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: sechud_visor
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ModsuitModuleVisorSecurity
+  position: 4,1
+  technologyPrerequisites:
+  - ModsuitsTech

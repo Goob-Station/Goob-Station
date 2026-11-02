@@ -1,0 +1,71 @@
+- type: modTheme
+  id: ModThemeStandard
+  name: modsuit-theme-standard
+
+- type: modTheme
+  id: ModThemeEngineering
+  name: modsuit-theme-engineering
+
+- type: modTheme
+  id: ModThemeAtmospheric
+  name: modsuit-theme-atmospheric
+
+- type: modTheme
+  id: ModThemeMedical
+  name: modsuit-theme-medical
+  activationStepTime: 0.75
+
+- type: modTheme
+  id: ModThemeSecurity
+  name: modsuit-theme-security
+  activationStepTime: 0.75
+
+- type: modTheme
+  id: ModThemeSafeguard
+  name: modsuit-theme-safeguard
+  activationStepTime: 0.75
+
+- type: modTheme
+  id: ModThemeBrigMed
+  name: modsuit-theme-brigmed
+  activationStepTime: 0.75
+
+- type: modTheme
+  id: ModThemeResearch
+  name: modsuit-theme-research
+  complexityMax: 20
+
+- type: modTheme
+  id: ModThemeMagnate
+  name: modsuit-theme-magnate
+  complexityMax: 20
+  chargeDrain: 1.2
+
+- type: modTheme
+  id: ModThemeContractor
+  name: modsuit-theme-contractor
+  activationStepTime: 0.5
+
+- type: modTheme
+  id: ModThemeCorporate
+  name: modsuit-theme-corporate
+  complexityMax: 20
+  activationStepTime: 0.5
+
+- type: modTheme
+  id: ModThemeResponsory
+  name: modsuit-theme-responsory
+  complexityMax: 20
+  activationStepTime: 0.5
+
+- type: modTheme
+  id: ModThemeApocryphal
+  name: modsuit-theme-apocryphal
+  complexityMax: 25
+  chargeDrain: 1.2
+  activationStepTime: 0.5
+
+- type: modTheme
+  id: ModThemePraetorian
+  name: modsuit-theme-praetorian
+  activationStepTime: 0.75

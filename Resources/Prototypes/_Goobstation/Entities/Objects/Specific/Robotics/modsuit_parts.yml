@@ -104,14 +104,14 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:Container
-      core-container: !type:Container
+      mod-core: !type:Container
   - type: Construction
     graph: Modsuit
     node: start
     defaultTarget: standard
     containers:
     - cell_slot
-    - core-container
+    - mod-core
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
@@ -162,7 +162,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingParamedic
 
 - type: entity
   id: ModsuitPlatingEngineer
@@ -182,7 +182,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingEngineer
 
 - type: entity
   id: ModsuitPlatingSecurity
@@ -202,7 +202,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingSecurity
 
 - type: entity
   id: ModsuitPlatingHeadOfSecurity
@@ -222,7 +222,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingHeadOfSecurity
 
 - type: entity
   id: ModsuitPlatingCaptain
@@ -242,7 +242,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingCaptain
 
 - type: entity
   id: ModsuitPlatingRD
@@ -262,7 +262,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingRD
 
 - type: entity
   id: ModsuitPlatingAtmostech
@@ -282,13 +282,33 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingAtmostech
+
+- type: entity
+  id: ModsuitPlatingBrigMed
+  parent: PartModsuit
+  name: MOD standard security trauma plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingBrigMed
 
 - type: entity
   id: ModsuitCoreStandard
   parent: PartModsuit
   name: MOD standard core
-  description: Growing in the most lush, fertile areas of the planet Sprout, there is a crystal known as the Heartbloom. These rare, organic piezoelectric crystals are of incredible cultural significance to the artist castes of the Ethereals, owing to their appearance; which is exactly similar to that of an Ethereal's heart. Which one you have in your suit is unclear, but either way, it's been repurposed to be an internal power source for a Modular Outerwear Device.
+  description: An internal power source for a Modular Outerwear Device, built around a rare piezoelectric crystal.
   components:
   - type: Sprite
     state: mod-core-standard
@@ -302,3 +322,128 @@
     materialComposition:
       Plasma: 50
       Glass: 25
+  - type: ModCore
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        whitelist:
+          components:
+          - PowerCell
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+      cell_slot: !type:ContainerSlot
+
+- type: entity
+  parent: ModsuitCoreStandard
+  id: ModsuitCoreStandardHighCapacity
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+          - PowerCell
+
+- type: entity
+  parent: ModsuitCoreStandard
+  id: ModsuitCoreStandardHyper
+  suffix: Hyper-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+        whitelist:
+          components:
+          - PowerCell
+
+- type: entity
+  parent: ModsuitCoreStandard
+  id: ModsuitCoreStandardMicroreactor
+  suffix: Microreactor
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+        whitelist:
+          components:
+          - PowerCell
+
+- type: entity
+  parent: ModsuitCoreStandard
+  id: ModsuitCoreStandardAntique
+  suffix: Antique Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellAntiqueProto
+        whitelist:
+          components:
+          - PowerCell
+
+- type: entity
+  parent: PartModsuit
+  id: ModsuitCorePlasma
+  name: MOD plasma core
+  description: Nanotrasen's attempt at capitalizing on their plasma research. These plasma cores are refueled by feeding plasma sheets straight into the suit, though they hold less charge than a standard core.
+  components:
+  - type: Sprite
+    state: mod-core-standard
+    color: "#d07bff"
+  - type: Icon
+    state: mod-core-standard
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitCore
+  - type: ModCore
+  - type: Battery
+    maxCharge: 720
+    startingCharge: 720
+  - type: ModCoreRefuelable
+    fuel:
+      tags:
+      - SheetPlasma
+    chargePerFuel: 180
+  - type: PhysicalComposition
+    materialComposition:
+      Plasma: 100
+      Glass: 25
+  - type: StaticPrice
+    price: 75
+
+- type: entity
+  parent: PartModsuit
+  id: ModsuitCoreInfinite
+  name: MOD infinite core
+  suffix: Admeme
+  description: A fusion core using the rare Fixium to sustain enough energy for the lifetime of the MOD's user.
+  components:
+  - type: Sprite
+    state: mod-core-standard
+    color: "#7bffe1"
+  - type: Icon
+    state: mod-core-standard
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitCore
+  - type: ModCore
+  - type: Battery
+    maxCharge: 1000000
+    startingCharge: 1000000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 1000

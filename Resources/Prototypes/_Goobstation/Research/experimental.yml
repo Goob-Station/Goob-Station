@@ -34,9 +34,33 @@
   - ModsuitGauntlets
   - ModsuitShell
   - ModsuitPlatingExternal
+  - ModsuitCoreStandard
+  - ModsuitModuleStorageCompact
+  - ModsuitModuleFlashlight
   position: -4,-1
   technologyPrerequisites:
   - MagnetsTech
+
+- type: technology
+  id: ModsuitEquipmentTech
+  name: research-technology-modsuit-equipment
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: regulator
+  discipline: Experimental
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ModsuitCorePlasma
+  - ModsuitModuleStorageLarge
+  - ModsuitModuleWelding
+  - ModsuitModuleThermalRegulator
+  - ModsuitModuleGps
+  - ModsuitModuleMouthhole
+  - ModsuitModuleVisorDiagnostic
+  position: -5,-2
+  technologyPrerequisites:
+  - ModsuitsTech
 
 - type: technology
   id: Xenobiology

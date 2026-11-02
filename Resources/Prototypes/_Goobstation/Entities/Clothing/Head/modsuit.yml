@@ -2,7 +2,7 @@
 
 - type: entity
   abstract: true
-  # Used to put pressureProtection, layers blocker and etc components into ComponentToggler
+  # Used to put pressureProtection, layers blocker and etc components into ModSealedComponents
   id: BaseClothingModsuitHelmet
   name: base modsuit helmet
   categories: [ HideSpawnMenu ]
@@ -89,10 +89,13 @@
     slots:
     - Snout
     hideOnToggle: true
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
@@ -115,7 +118,7 @@
         Piercing: 0.85
         Heat: 0.85
         Radiation: 0.2
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -133,7 +136,6 @@
       - Snout
       - HeadTop
       - HeadSide
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -141,32 +143,6 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
   - type: Tag
     tags:
     - PlasmamanSafe
@@ -205,10 +181,13 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
@@ -237,7 +216,7 @@
         Piercing: 0.65
         Heat: 0.65
         Radiation: 0.6
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -254,7 +233,6 @@
       - Snout
       - HeadTop
       - HeadSide
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -262,33 +240,6 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
-
 
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
@@ -319,10 +270,13 @@
       map: [ "sealed" ]
   - type: IdentityBlocker
   - type: IngestionBlocker
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
@@ -352,7 +306,7 @@
         Heat: 0.55
         Caustic: 0.5
         Radiation: 0.5
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -361,7 +315,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -369,32 +322,6 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
 
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
@@ -413,16 +340,19 @@
       map: [ "sealed" ]
   - type: IdentityBlocker
   - type: IngestionBlocker
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
       head-resomi:
-      - state: equipped-HEAD-sealed-resomi
+      - state: equipped-HEAD-sealed
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
@@ -440,7 +370,7 @@
         Heat: 0.8
         Caustic: 0.6
         Radiation: 0.3
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -449,7 +379,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -457,32 +386,6 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
 
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
@@ -503,16 +406,19 @@
     hideOnToggle: true
   - type: IdentityBlocker
   - type: IngestionBlocker
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
       head-resomi:
-      - state: equipped-HEAD-sealed-resomi
+      - state: equipped-HEAD-sealed
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
@@ -532,7 +438,7 @@
         Caustic: 0.5
         Radiation: 0.01
   - type: EyeProtection # goob
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -541,7 +447,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -549,32 +454,6 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -607,10 +486,13 @@
       - state: equipped-HEAD-feroxi
       head-hydrakin:
       - state: equipped-HEAD-hydrakin
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
@@ -634,7 +516,7 @@
         Heat: 0.2
         Radiation: 0.05
   - type: EyeProtection # goob
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -650,7 +532,6 @@
       - Snout
       - HeadTop
       - HeadSide
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -658,32 +539,6 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
   - type: FireProtection
     reduction: 0.25
 
@@ -711,16 +566,19 @@
     hideOnToggle: true
   - type: IdentityBlocker
   - type: IngestionBlocker
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
       head-resomi:
-      - state: equipped-HEAD-sealed-resomi
+      - state: equipped-HEAD-sealed
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
@@ -739,9 +597,7 @@
         Shock: 0.75
         Caustic: 0.25
         Radiation: 0.01
-  - type: EyeProtection
-  - type: FlashImmunity
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -750,7 +606,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -758,32 +613,6 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -795,6 +624,10 @@
   - type: Appearance
   - type: Clothing
     clothingVisuals:
+      head-feroxi:
+      - state: equipped-HEAD
+      head-vulpkanin:
+      - state: equipped-HEAD
       head:
       - state: equipped-HEAD
       head-vox:
@@ -811,10 +644,13 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
@@ -844,7 +680,7 @@
         Heat: 0.6
         Radiation: 0.1
         Caustic: 0.55
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -861,7 +697,6 @@
       - Snout
       - HeadTop
       - HeadSide
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -869,32 +704,6 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -926,16 +735,19 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
       head-resomi:
-      - state: equipped-HEAD-sealed-resomi
+      - state: equipped-HEAD-sealed
       head-vox:
       - state: equipped-HEAD-sealed-vox
       head-vulpkanin:
@@ -958,7 +770,7 @@
         Piercing: 0.65
         Heat: 0.65
         Radiation: 0.6
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -975,7 +787,6 @@
       - Snout
       - HeadTop
       - HeadSide
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -983,32 +794,3 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
-  - type: ShowHealthBars
-  - type: ShowHealthIcons
-  - type: ShowDiseaseIcons

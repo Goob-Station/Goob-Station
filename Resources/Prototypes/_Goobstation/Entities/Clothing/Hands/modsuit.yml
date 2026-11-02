@@ -50,10 +50,13 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       gloves:
@@ -86,10 +89,13 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       gloves:
@@ -125,10 +131,13 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       gloves:
@@ -172,10 +181,13 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       gloves:
@@ -220,10 +232,13 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       gloves:
@@ -270,10 +285,13 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       gloves:
@@ -321,10 +339,13 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       gloves:
@@ -374,10 +395,13 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       gloves:
@@ -423,10 +447,13 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       gloves:

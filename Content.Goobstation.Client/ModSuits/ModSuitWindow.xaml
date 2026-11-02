@@ -1,0 +1,29 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+    Title="{Loc modsuit-ui-title}"
+    MinSize="440 480"
+    SetSize="460 560">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <Label Name="StatusLabel" />
+                <Label Name="CoreLabel" ClipText="True" />
+                <Label Name="ChargeLabel" />
+                <Label Name="ComplexityLabel" />
+            </BoxContainer>
+            <Button Name="ActivateButton" MinWidth="130" VerticalAlignment="Center" />
+        </BoxContainer>
+        <controls:HLine Color="#404040" Thickness="1" />
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc modsuit-ui-parts}" StyleClasses="LabelHeading" HorizontalExpand="True" />
+            <Button Name="ToggleAllButton" Text="{Loc modsuit-ui-toggle-all}" />
+        </BoxContainer>
+        <GridContainer Name="PartsGrid" Columns="2" HorizontalExpand="True" />
+        <controls:HLine Color="#404040" Thickness="1" />
+        <Label Text="{Loc modsuit-ui-modules}" StyleClasses="LabelHeading" />
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="ModulesList" Orientation="Vertical" SeparationOverride="4" />
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>
