@@ -61,6 +61,30 @@
   - ModsuitModuleVisorSecurity
   - ModsuitModuleEmpShield
   - ModsuitModuleJetpack
+  - ModsuitModuleQuickCarry
+  - ModsuitModuleInjector
+  - ModsuitModuleDefibrillator
+  - ModsuitModulePatientTransport
+  - ModsuitModuleThreadRipper
+  - ModsuitModuleTRay
+  - ModsuitModuleRadProtection
+  - ModsuitModuleHeadProtector
+  - ModsuitModuleTether
+  - ModsuitModuleMister
+  - ModsuitModuleResinMister
+  - ModsuitModuleHolster
+  - ModsuitModuleMegaphone
+  - ModsuitModulePepperShoulders
+  - ModsuitModuleRestraintAssist
+  - ModsuitModuleBulwark
+  - ModsuitModuleDrill
+  - ModsuitModuleOreBag
+  - ModsuitModuleClamp
+  - ModsuitModuleReagentScanner
+  - ModsuitModuleAntiGravity
+  - ModsuitModuleBikeHorn
+  - ModsuitModuleWaddle
+  - ModsuitModuleJanitorMister
 
 - type: latheRecipePack
   id: BorgModulesGoob

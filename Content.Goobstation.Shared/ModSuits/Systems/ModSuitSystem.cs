@@ -96,13 +96,13 @@ public sealed partial class ModSuitSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnSuitShutdown(Entity<ModSuitComponent> ent, ref ComponentShutdown args)
     {
-        if (_timing.ApplyingState)
+        if (_net.IsClient)
             return;
 
         foreach (var part in ent.Comp.PartEntities.Values)
         {
             if (!TerminatingOrDeleted(part))
-                PredictedQueueDel(part);
+                QueueDel(part);
         }
     }
 
@@ -119,7 +119,7 @@ public sealed partial class ModSuitSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnSuitEquipped(Entity<ModSuitComponent> ent, ref ClothingGotEquippedEvent args)
     {
-        if ((args.Clothing.InSlotFlag & ent.Comp.RequiredSlot) == 0)
+        if (_timing.ApplyingState || (args.Clothing.InSlotFlag & ent.Comp.RequiredSlot) == 0)
             return;
 
         SetWearer(ent, args.Wearer);
@@ -128,10 +128,12 @@ public sealed partial class ModSuitSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnSuitUnequipped(Entity<ModSuitComponent> ent, ref ClothingGotUnequippedEvent args)
     {
-        if (ent.Comp.Wearer != args.Wearer)
+        if (_timing.ApplyingState || ent.Comp.Wearer != args.Wearer)
             return;
 
-        if (!_timing.ApplyingState && !_toggleableClothing.IsInventoryTransferring(args.Wearer))
+        if (!_toggleableClothing.IsInventoryTransferring(args.Wearer)
+            && !TerminatingOrDeleted(ent)
+            && !TerminatingOrDeleted(args.Wearer))
         {
             if (ent.Comp.State != ModSuitState.Inactive)
                 ForceDeactivate(ent, true);

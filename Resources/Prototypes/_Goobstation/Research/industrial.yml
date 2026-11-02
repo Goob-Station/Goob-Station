@@ -95,6 +95,10 @@
   recipeUnlocks:
   - ModsuitPlatingEngineer
   - ModsuitModuleMagboots
+  - ModsuitModuleTRay
+  - ModsuitModuleTether
+  - ModsuitModuleMister
+  - ModsuitModuleHeadProtector
   position: -3,-4
   technologyPrerequisites:
   - ModsuitsTech
@@ -112,6 +116,26 @@
   - ModsuitPlatingAtmostech
   - ModsuitModuleJetpack
   - ModsuitModuleEmpShield
+  - ModsuitModuleRadProtection
+  - ModsuitModuleResinMister
+  - ModsuitModuleAntiGravity
   position: -3,-5
   technologyPrerequisites:
   - ModsuitEngineeringTech
+
+- type: technology
+  id: ModsuitSupplyTech
+  name: research-technology-modsuit-supply
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: drill
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ModsuitModuleDrill
+  - ModsuitModuleOreBag
+  - ModsuitModuleClamp
+  position: -4,-4
+  technologyPrerequisites:
+  - ModsuitsTech

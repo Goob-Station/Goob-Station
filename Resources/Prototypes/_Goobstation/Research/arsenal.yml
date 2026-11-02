@@ -251,6 +251,11 @@
   cost: 10000
   recipeUnlocks:
   - ModsuitModuleVisorSecurity
+  - ModsuitModuleHolster
+  - ModsuitModuleMegaphone
+  - ModsuitModulePepperShoulders
+  - ModsuitModuleRestraintAssist
+  - ModsuitModuleBulwark
   position: 4,1
   technologyPrerequisites:
   - ModsuitsTech

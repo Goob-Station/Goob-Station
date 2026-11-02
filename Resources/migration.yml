@@ -1027,3 +1027,4 @@ SpawnMobHumanSecurityOfficerModSuit: null
 SpawnMobHumanBSOModSuit: null
 SpawnMobHumanCaptainModsuit: null
 ClothingModsuitStandardNoStorage: ClothingModsuitStandard
+BlueshieldUndeterminedHardsuit: ClothingOuterHardsuitBlueshieldLight

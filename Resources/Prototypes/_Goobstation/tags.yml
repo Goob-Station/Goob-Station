@@ -396,6 +396,9 @@
   id: ModsuitModule
 
 - type: Tag
+  id: ModsuitModuleGravity
+
+- type: Tag
   id: ModsuitModuleJetpack
 
 - type: Tag
@@ -439,6 +442,9 @@
 
 - type: Tag
   id: ModsuitPlatingBrigMed
+
+- type: Tag
+  id: ModsuitPlatingPraetorian
 
 - type: Tag
   id: ModsuitShell

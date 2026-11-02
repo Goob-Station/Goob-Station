@@ -62,7 +62,7 @@
         - state: equipped-HAND-sealed-unshaded-vox
           shader: unshaded
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
+  parent: [ClothingModsuitHelmetStandard]
   id: ClothingModsuitHelmetResponsoryLeader
   name: Leader Responsory modsuit helmet
   description: A state-of-the-art helmet designed by NanoTrasen for the Leader Responsory modsuit. It includes a built-in HUD.
@@ -88,15 +88,8 @@
           Heat: 0.5
           Radiation: 0.2
           Caustic: 0.4
-    - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
       protectionRange: 0
-    - type: EyeProtection
-    - type: ShowHealthBars
-      damageContainers:
-        - Biological
-        - Inorganic
-        - Silicon
     - type: PointLight
       color: "#FFDF00"
     - type: ModSuitSealedVisuals

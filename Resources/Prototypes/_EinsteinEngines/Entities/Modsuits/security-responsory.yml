@@ -59,10 +59,9 @@
         - state: equipped-HAND-sealed-vox
         - state: equipped-HAND-sealed-unshaded-vox
           shader: unshaded          
-    - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
 
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
+  parent: [ClothingModsuitHelmetStandard]
   id: ClothingModsuitHelmetResponsorySecurity
   name: Security Responsory modsuit helmet
   description: A state-of-the-art helmet designed by NanoTrasen for the Security Responsory modsuit. It includes a built-in HUD.
@@ -88,15 +87,8 @@
           Heat: 0.5
           Radiation: 0.45
           Caustic: 0.45
-    - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
       protectionRange: 0
-    - type: EyeProtection
-    - type: ShowHealthBars
-      damageContainers:
-        - Biological
-        - Inorganic
-        - Silicon
     - type: PointLight
       color: "#FFDF00"
     - type: ModSuitSealedVisuals

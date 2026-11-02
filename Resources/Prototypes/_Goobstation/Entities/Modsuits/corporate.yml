@@ -70,17 +70,9 @@
         - state: equipped-HAND-sealed-vox
         - state: equipped-HAND-sealed-unshaded-vox
           shader: unshaded
-    - type: ModSealedComponents
-      components:
-      - type: Insulated
-      - type: GrabModifier
-        grabEscapeModifier: -0.1
-        grabEscapeMultiplier: 0.8
-        grabMoveSpeedMultiplier: 2
-        startingGrabStage: Hard
 
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
+  parent: [ClothingModsuitHelmetStandard, BaseCentcommContraband]
   id: ClothingModsuitHelmetCorporate
   name: Corporate modsuit helmet
   description: A state-of-the-art helmet designed by NanoTrasen for the Corporate modsuit. It includes a built-in HUD.
@@ -105,16 +97,8 @@
           Cellular: 0.1
           Radiation: 0
           Caustic: 0.1
-    - type: ThermalVision
-      isEquipment: true
-      color: "#bf8133"
-      lightRadius: 15
-    - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
       protectionRange: 0
-    - type: ShowHealthBars
-      damageContainers:
-        - Biological
     - type: PointLight
       color: "#fc8a00"
     - type: ModSuitSealedVisuals
@@ -241,12 +225,6 @@
       - type: ContainmentFieldIgnore
     - type: ModSealedComponents
       components:
-      - type: ClothingAutoInject
-        reagents:
-          Epinephrine: 10
-          Bicaridine: 10
-          TranexamicAcid: 5
-          Tramadol: 5
       - type: PressureProtection
         highPressureMultiplier: 0.3
         lowPressureMultiplier: 1000
@@ -353,7 +331,7 @@
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
 
 - type: entity
-  parent: [ClothingModsuitHelmetCorporate, ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
+  parent: [ClothingModsuitHelmetCorporate, ClothingModsuitHelmetStandard, BaseCentcommContraband]
   id: ClothingModsuitHelmetTrainer
   name: Corporate modsuit helmet
   description: A state-of-the-art helmet designed by NanoTrasen for the Career Trainer modsuit. It includes a built-in HUD.
@@ -361,10 +339,6 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
-    - type: ThermalVision
-      isEquipment: true
-      color: "#7c073b"
-      lightRadius: 15
     - type: PointLight
       color: "#fc0574"
     - type: Armor # mostly the same stats as HoS modsuit
