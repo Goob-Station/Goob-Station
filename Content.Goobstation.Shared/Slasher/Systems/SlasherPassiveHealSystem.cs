@@ -1,6 +1,8 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -15,6 +17,7 @@ public sealed partial class SlasherPassiveHealSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SlasherFearSystem _fear = default!;
+    [Dependency] private SharedBloodstreamSystem _blood = default!;
 
     public override void Update(float frameTime)
     {
@@ -30,18 +33,35 @@ public sealed partial class SlasherPassiveHealSystem : EntitySystem
             heal.NextHeal = curTime + heal.Interval;
             Dirty(uid, heal);
 
-            if (damageable.TotalDamage <= FixedPoint2.Zero
-                || _mobState.IsDead(uid)
+            if (_mobState.IsDead(uid)
                 || TryComp<SlasherIncorporealComponent>(uid, out var incorporeal) && incorporeal.IsIncorporeal)
                 continue;
 
-            var healPerSecond = MathHelper.Lerp(heal.MinHealPerSecond, heal.MaxHealPerSecond, _fear.GetFearFraction(uid));
-            var amount = FixedPoint2.New(healPerSecond * (float) heal.Interval.TotalSeconds);
-            var spec = BuildHeal(damageable, amount);
-            if (spec.Empty)
+            var fear = _fear.GetFearFraction(uid);
+            var seconds = (float) heal.Interval.TotalSeconds;
+
+            if (damageable.TotalDamage > FixedPoint2.Zero)
+            {
+                var amount = FixedPoint2.New(MathHelper.Lerp(heal.MinHealPerSecond, heal.MaxHealPerSecond, fear) * seconds);
+                var spec = BuildHeal(damageable, amount);
+                if (!spec.Empty)
+                    _damageable.ChangeDamage((uid, damageable), spec, true, false, targetPart: TargetBodyPart.All, splitDamage: heal.SplitBehavior);
+            }
+
+            if (!TryComp<BloodstreamComponent>(uid, out var bloodstream))
                 continue;
 
-            _damageable.ChangeDamage((uid, damageable), spec, true, false, targetPart: TargetBodyPart.All, splitDamage: heal.SplitBehavior);
+            if (bloodstream.BleedAmount > 0f)
+            {
+                var reduction = MathHelper.Lerp(heal.MinBleedReductionPerSecond, heal.MaxBleedReductionPerSecond, fear) * seconds;
+                _blood.TryModifyBleedAmount((uid, bloodstream), -MathF.Min(reduction, bloodstream.BleedAmount));
+            }
+
+            if (_blood.GetBloodLevel((uid, bloodstream)) < 1f)
+            {
+                var blood = MathHelper.Lerp(heal.MinBloodRestoredPerSecond, heal.MaxBloodRestoredPerSecond, fear) * seconds;
+                _blood.TryModifyBloodLevel((uid, bloodstream), FixedPoint2.New(blood));
+            }
         }
     }
 
