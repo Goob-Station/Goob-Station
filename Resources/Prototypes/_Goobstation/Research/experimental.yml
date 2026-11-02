@@ -58,6 +58,7 @@
   - ModsuitModuleGps
   - ModsuitModuleMouthhole
   - ModsuitModuleVisorDiagnostic
+  - ModsuitModuleReagentScanner
   position: -5,-2
   technologyPrerequisites:
   - ModsuitsTech

@@ -102,3 +102,17 @@ modsuit-theme-corporate = corporate
 modsuit-theme-responsory = responsory
 modsuit-theme-apocryphal = apocryphal
 modsuit-theme-praetorian = praetorian
+
+modsuit-holster-hands-full = Your hands are full!
+modsuit-holster-draw = You draw {THE($item)} from the holster.
+modsuit-holster-store = You holster {THE($item)}.
+modsuit-holster-empty = You have nothing to holster.
+modsuit-holster-invalid = {CAPITALIZE(THE($item))} won't fit in the holster.
+
+modsuit-clamp-examine = It's holding [color=yellow]{$count}[/color] out of [color=yellow]{$max}[/color] crates.
+modsuit-clamp-full = The clamp can't hold any more!
+modsuit-clamp-grab = You clamp onto {THE($item)}.
+
+modsuit-transport-already-linked = You're already transporting someone!
+
+shove-blocked-popup = {CAPITALIZE(THE($target))} doesn't budge!

@@ -62,10 +62,9 @@
         - state: equipped-HAND-sealed-vox
         - state: equipped-HAND-sealed-unshaded-vox
           shader: unshaded
-    - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
 
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
+  parent: [ClothingModsuitHelmetStandard]
   id: ClothingModsuitHelmetApocryphal
   name: Apocryphal modsuit helmet # Goob edit
   description: A state-of-the-art helmet designed by NanoTrasen for the Apocryphal modsuit. It includes a built-in HUD.
@@ -93,16 +92,8 @@
           Cellular: 0.1
           Radiation: 0.1
           Caustic: 0.1
-    - type: ThermalVision
-      isEquipment: true
-      color: "#98EEFB"
-      lightRadius: 15
-    - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
       protectionRange: 0
-    - type: ShowHealthBars
-      damageContainers:
-        - Biological
     - type: PointLight
       color: "#FFDF00"
     - type: ModSuitSealedVisuals

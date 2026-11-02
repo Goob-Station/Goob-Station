@@ -150,6 +150,13 @@
     activePower: 0.1
     requiredParts:
     - shoes
+    incompatible:
+      tags:
+      - ModsuitModuleGravity
+  - type: Tag
+    tags:
+    - ModsuitModule
+    - ModsuitModuleGravity
   - type: ModGrantComponentsModule
     slot: shoes
     toggleItem: true
@@ -247,7 +254,16 @@
     - type: EyeProtection
 
 - type: entity
+  abstract: true
   parent: BaseModsuitModule
+  id: BaseModsuitModuleDevice
+  components:
+  - type: ContainerContainer
+    containers:
+      mod-device: !type:ContainerSlot
+
+- type: entity
+  parent: BaseModsuitModuleDevice
   id: ModsuitModuleHealthAnalyzer
   name: MOD health analyzer module
   description: A module installed into the glove of the suit. This is a high-tech biological scanning suite, allowing the user indepth information on the vitals and injuries of others even at a distance.
@@ -264,7 +280,7 @@
     device: ModsuitDeviceHealthAnalyzer
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: BaseModsuitModuleDevice
   id: ModsuitModuleGps
   name: MOD internal GPS module
   description: This module uses common Nanotrasen technology to calculate the user's position anywhere in space, down to the exact coordinates.
@@ -374,64 +390,138 @@
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinThermal
   name: integrated thermal visor
-  description: Thermal imaging is built into the helmet's visor. It can be toggled from the helmet itself.
+  description: Thermal imaging built into the helmet's visor, letting the wearer see the heat signatures of living things through walls.
   components:
   - type: Sprite
     state: thermal_visor
+  - type: ModModule
+    moduleType: Toggle
+    removable: false
+    activePower: 0.2
+    requiredParts:
+    - head
+  - type: ModGrantComponentsModule
+    slot: head
+    components:
+    - type: ThermalVision
+      isEquipment: true
+      isActive: true
+      lightRadius: 15
 
 - type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinSecHud
-  name: integrated security HUD
+  name: integrated security visor
   description: A security heads-up display built into the helmet, showing job, mindshield and criminal record status.
   components:
   - type: Sprite
     state: sechud_visor
+  - type: ModModule
+    moduleType: Toggle
+    removable: false
+    activePower: 0.05
+    requiredParts:
+    - head
+  - type: ModGrantComponentsModule
+    slot: head
+    components:
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: ShowContrabandDetails
 
 - type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinMedHud
-  name: integrated medical HUD
+  name: integrated medical visor
   description: A medical heads-up display built into the helmet, showing the health of those around you.
   components:
   - type: Sprite
     state: medhud_visor
+  - type: ModModule
+    moduleType: Toggle
+    removable: false
+    activePower: 0.05
+    requiredParts:
+    - head
+  - type: ModGrantComponentsModule
+    slot: head
+    components:
+    - type: ShowHealthBars
+    - type: ShowHealthIcons
 
 - type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinFlashProtection
   name: integrated flash protection
-  description: The helmet's visor is polarized against flashes and welding arcs.
+  description: The helmet's visor is polarized against flashes and welding arcs while the suit is active.
   components:
   - type: Sprite
     state: welding
+  - type: ModModule
+    removable: false
+    requiredParts:
+    - head
+  - type: ModGrantComponentsModule
+    slot: head
+    components:
+    - type: FlashImmunity
+    - type: EyeProtection
 
 - type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinInsulation
   name: insulated gauntlets
-  description: The gauntlets are lined with insulation, protecting the wearer from electric shocks.
+  description: The gauntlets are lined with insulation, protecting the wearer from electric shocks even while the suit is off.
   components:
   - type: Sprite
     state: module
+  - type: ModModule
+    removable: false
+    allowFlags: Inactive
+    requiredParts:
+    - gloves
+  - type: ModGrantComponentsModule
+    slot: gloves
+    components:
+    - type: Insulated
 
 - type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinAutoInjector
   name: integrated auto-injector
-  description: An emergency auto-injector built into the chestplate, loaded with combat medicine.
+  description: An emergency auto-injector built into the chestplate. It doses the wearer with combat medicine when they fall into critical condition.
   components:
   - type: Sprite
     state: injector
+  - type: ModModule
+    removable: false
+    requiredParts:
+    - outerClothing
+  - type: ModGrantComponentsModule
+    slot: outerClothing
+    components:
+    - type: ClothingAutoInject
+      reagents:
+        Epinephrine: 10
+        Bicaridine: 10
+        TranexamicAcid: 5
+        Tramadol: 5
 
 - type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinChameleon
   name: chameleon projector
-  description: The control unit can disguise itself as another backpack.
+  description: A holographic projector that lets the control unit disguise itself as another backpack.
   components:
   - type: Sprite
     state: chameleon
+  - type: ModModule
+    moduleType: Usable
+    removable: false
+    allowFlags: Inactive
+  - type: ModOpenUiModule
+    key: enum.ChameleonUiKey.Key
 
 - type: entity
   parent: BaseModsuitModuleBuiltin
@@ -441,6 +531,14 @@
   components:
   - type: Sprite
     state: bikehorn
+  - type: ModModule
+    moduleType: Usable
+    removable: false
+    requiredParts:
+    - head
+  - type: ModOpenUiModule
+    key: enum.InstrumentUiKey.Key
+    slot: head
 
 - type: entity
   parent: BaseModsuitModuleBuiltin
@@ -450,3 +548,713 @@
   components:
   - type: Sprite
     state: clamp
+  - type: ModModule
+    removable: false
+    requiredParts:
+    - gloves
+  - type: ModGrantComponentsModule
+    slot: gloves
+    components:
+    - type: GrabModifier
+      grabEscapeModifier: -0.1
+      grabEscapeMultiplier: 0.8
+      grabMoveSpeedMultiplier: 2
+      startingGrabStage: Hard
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleQuickCarry
+  name: MOD quick carry module
+  description: A suite of advanced servos, redirecting power from the suit's arms to help carry the wounded; or simply for fun. However, Nanotrasen has locked the module's ability to assist in hand-to-hand combat.
+  components:
+  - type: Sprite
+    state: carry
+  - type: ModModule
+    complexity: 1
+    idlePower: 0.05
+    requiredParts:
+    - gloves
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: ModQuickCarry
+      multiplier: 0.4
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleInjector
+  name: MOD injector module
+  description: A module installed into the wrist of the suit, this functions as a high-capacity syringe, with a tip fine enough to locate the emergency injection ports on any suit of armor.
+  components:
+  - type: Sprite
+    state: injector
+  - type: ModModule
+    moduleType: Active
+    complexity: 1
+    activePower: 0.05
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceInjector
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleDefibrillator
+  name: MOD defibrillator module
+  description: A module built into the gauntlets of the suit; commonly known as the 'Healing Hands' by medical professionals. Onboard computers in the suit calculate the necessary voltage, and the wearer returns to Medical a hero.
+  components:
+  - type: Sprite
+    state: defibrillator
+  - type: ModModule
+    moduleType: Active
+    complexity: 2
+    activePower: 0.3
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceDefibrillator
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModulePatientTransport
+  name: MOD patient transport module
+  description: A module built into the forearm of the suit. Summonable with merely a gesture, the hardlight transport bag keeps a patient in stasis, but only holds together while the wearer drags it.
+  components:
+  - type: Sprite
+    state: patient_transport
+  - type: ModModule
+    moduleType: Active
+    complexity: 2
+    activePower: 0.2
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDevicePatientTransport
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleThreadRipper
+  name: MOD thread ripper module
+  description: A module that rips open and rethreads the fabric of a patient's clothing as needed, letting the wearer operate without undressing them first.
+  components:
+  - type: Sprite
+    state: thread_ripper
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 2
+    activePower: 0.1
+    requiredParts:
+    - gloves
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: SurgeryIgnoreClothing
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleTRay
+  name: MOD t-ray scan module
+  description: A module installed into the visor of the suit, allowing the user to use a pulse of terahertz radiation to essentially echolocate things beneath the floor, mostly cables and pipes.
+  components:
+  - type: Sprite
+    state: tray
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 1
+    activePower: 0.1
+    requiredParts:
+    - head
+  - type: ModGrantComponentsModule
+    slot: head
+    components:
+    - type: TrayScanner
+      enabled: true
+  - type: ModTrayScannerModule
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleRadProtection
+  name: MOD radiation protection module
+  description: A module utilizing polymers and reflective shielding to protect the user against ionizing radiation.
+  components:
+  - type: Sprite
+    state: radshield
+  - type: ModModule
+    complexity: 2
+    idlePower: 0.1
+  - type: ModArmorModule
+    modifiers:
+      coefficients:
+        Radiation: 0.2
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleHeadProtector
+  name: MOD safety-first head protection module
+  description: A series of dampening plates installed along the back and inside of the helmet, protecting the wearer from falling debris and the occasional blunt instrument.
+  components:
+  - type: Sprite
+    state: module
+  - type: ModModule
+    complexity: 1
+    requiredParts:
+    - head
+  - type: ModArmorModule
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleTether
+  name: MOD emergency tether module
+  description: A custom-built grappling-hook powered by a winch capable of hauling the user. While some older models of cargo-oriented grapples have capacities of a few tons, these are only capable of working in zero-gravity environments, a blessing to some Engineers.
+  components:
+  - type: Sprite
+    state: tether
+  - type: ModModule
+    moduleType: Active
+    complexity: 2
+    activePower: 0.1
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceTether
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleMister
+  name: MOD water mister module
+  description: A module containing a mister, able to spray water to extinguish fires. Refills itself slowly from the suit's internal reservoir.
+  components:
+  - type: Sprite
+    state: mister
+  - type: ModModule
+    moduleType: Active
+    complexity: 2
+    activePower: 0.1
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceMister
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleResinMister
+  name: MOD resin mister module
+  description: An atmospheric resin launcher that fires globs of quick-setting metal foam, patching breaches from a safe distance.
+  components:
+  - type: Sprite
+    state: mister
+    color: "#c0d6e8"
+  - type: ModModule
+    moduleType: Active
+    complexity: 2
+    activePower: 0.2
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceResinMister
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleHolster
+  name: MOD holster module
+  description: Based off typical storage compartments, this system allows the suit to holster a standard firearm across its surface and allow for extremely quick retrieval.
+  components:
+  - type: Sprite
+    state: holster
+  - type: ModModule
+    moduleType: Usable
+    complexity: 2
+    allowFlags: Inactive
+    cooldown: 0.5
+  - type: ModHolsterModule
+    whitelist:
+      components:
+      - Gun
+  - type: ContainerContainer
+    containers:
+      mod-holster: !type:ContainerSlot
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleMegaphone
+  name: MOD megaphone module
+  description: A microchip megaphone linked to a MODsuit, for very important purposes, like loudness.
+  components:
+  - type: Sprite
+    state: megaphone
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 1
+    activePower: 0.05
+    requiredParts:
+    - head
+  - type: Loudspeaker
+    isActive: true
+    affectChat: true
+    speechSounds: Loudspeaker
+  - type: ModLoudspeakerModule
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModulePepperShoulders
+  name: MOD pepper shoulders module
+  description: A module that attaches two pepper sprayers on shoulders of a MODsuit, releasing a cloud of capsaicin around the wearer on command.
+  components:
+  - type: Sprite
+    state: pepper_shoulder
+  - type: ModModule
+    moduleType: Usable
+    complexity: 1
+    usePower: 5
+    cooldown: 15
+  - type: ModSpawnModule
+    prototype: ModsuitPepperSmokeEffect
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleRestraintAssist
+  name: MOD restraint assist module
+  description: Enhanced gauntlet grip pads that help with placing individuals in restraints more quickly.
+  components:
+  - type: Sprite
+    state: module
+  - type: ModModule
+    complexity: 1
+    requiredParts:
+    - gloves
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: ModQuickCuff
+      multiplier: 0.5
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleBulwark
+  name: MOD bulwark module
+  description: Layers of hydraulic stabilizers in the suit's legs keep the wearer firmly planted, making them impossible to shove around.
+  components:
+  - type: Sprite
+    state: bulwark
+  - type: ModModule
+    complexity: 3
+    idlePower: 0.1
+    requiredParts:
+    - shoes
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: ModShoveBlocker
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleDrill
+  name: MOD drill module
+  description: An integrated drill, typically extending over the user's hand. While useful for drilling through rock, your drill is surely the one that both pierces and creates the heavens.
+  components:
+  - type: Sprite
+    state: drill
+  - type: ModModule
+    moduleType: Active
+    complexity: 1
+    activePower: 0.1
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceDrill
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleOreBag
+  name: MOD ore bag module
+  description: An integrated ore storage system installed into the gauntlets, magnetically pulling in nearby ore while active.
+  components:
+  - type: Sprite
+    state: ore
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 1
+    activePower: 0.05
+    requiredParts:
+    - gloves
+  - type: ModGrantComponentsModule
+    slot: gloves
+    components:
+    - type: Storage
+      grid:
+      - 0,0,9,5
+      quickInsert: true
+      areaInsert: true
+      whitelist:
+        tags:
+        - ArtifactFragment
+        - Ore
+    - type: MagnetPickup
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleClamp
+  name: MOD hydraulic clamp module
+  description: A series of actuators installed into both arms of the suit, boasting a lifting capacity of almost a ton. However, this design has been locked by Nanotrasen to be primarily utilized for lifting various crates.
+  components:
+  - type: Sprite
+    state: clamp
+  - type: ModModule
+    moduleType: Active
+    complexity: 3
+    activePower: 0.1
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceClamp
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleReagentScanner
+  name: MOD reagent scanner module
+  description: A module installed into the visor of the suit, this allows the user to see the chemical composition of any reagent container they look at.
+  components:
+  - type: Sprite
+    state: scanner
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 1
+    activePower: 0.05
+    requiredParts:
+    - head
+  - type: ModGrantComponentsModule
+    slot: head
+    components:
+    - type: SolutionScanner
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleAntiGravity
+  name: MOD anti-gravity module
+  description: A module that uses a gravitational core to make the user completely weightless, letting them float freely even with gravity on.
+  components:
+  - type: Sprite
+    state: antigrav
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 2
+    activePower: 0.3
+    incompatible:
+      tags:
+      - ModsuitModuleGravity
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: ModAntiGravity
+  - type: Tag
+    tags:
+    - ModsuitModule
+    - ModsuitModuleGravity
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleBikeHorn
+  name: MOD bike horn module
+  description: A shoulder-mounted piece of heavy sonic artillery, this module uses the finest femto-manipulator technology to precisely deliver an almost lethal squeeze to a bike horn.
+  components:
+  - type: Sprite
+    state: bikehorn
+  - type: ModModule
+    moduleType: Usable
+    complexity: 1
+    usePower: 1
+    cooldown: 1
+  - type: ModSoundModule
+    sound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleWaddle
+  name: MOD waddle module
+  description: Some of the most primitive technology in use by Honk Co. This module works off an automatic intention system, utilizing its sensitivity to the pilot's often-limited brainwaves to directly read their next step.
+  components:
+  - type: Sprite
+    state: waddle
+  - type: ModModule
+    complexity: 1
+    idlePower: 0.05
+    requiredParts:
+    - shoes
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: WaddleAnimation
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleJanitorMister
+  name: MOD janitorial mister module
+  description: A module containing a space cleaner mister, able to spray it on any surfaces to clean them. Refills itself slowly from the suit's internal reservoir.
+  components:
+  - type: Sprite
+    state: cleaner
+  - type: ModModule
+    moduleType: Active
+    complexity: 2
+    activePower: 0.1
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceJanitorMister
+
+- type: entity
+  parent: Syringe
+  id: ModsuitDeviceInjector
+  name: MOD injector
+  description: A high-capacity syringe extending from the suit's wrist.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PhysicalComposition
+    materialComposition: {}
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: DefibrillatorOneHandedUnpowered
+  id: ModsuitDeviceDefibrillator
+  name: MOD defibrillator paddles
+  description: Shock paddles extending from the suit's gauntlets, powered by the suit itself.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaticPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: BaseItem
+  id: ModsuitDevicePatientTransport
+  name: MOD hardlight bag projector
+  description: Use it on a patient to wrap them in a hardlight stasis bag. The bag only holds together while you drag it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: patient_transport
+  - type: Item
+    size: Normal
+  - type: PhysicalComposition
+    materialComposition: {}
+  - type: ModPatientTransport
+
+- type: entity
+  parent: BodyBag
+  id: ModsuitHardlightBag
+  name: hardlight transport bag
+  description: A weightless bag of solid light that keeps its contents in stasis. It dissipates the moment it's let go.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#7fd8ffcc"
+  - type: ModStasisContainer
+  - type: StaticPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: WeaponGrapplingGun
+  id: ModsuitDeviceTether
+  name: MOD emergency tether
+  description: A grappling winch extending from the suit's gauntlets.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaticPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: BaseItem
+  id: ModsuitDeviceMister
+  name: MOD water mister
+  description: A mister nozzle extending from the suit, fed by its internal reservoir.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 100
+  - type: SolutionRegeneration
+    solution: spray
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 5
+  - type: UseDelay
+  - type: Spray
+    solution: spray
+    transferAmount: 10
+    pushbackAmount: 60
+    spraySound:
+      path: /Audio/Effects/extinguish.ogg
+    sprayedPrototype: ExtinguisherSpray
+    vaporAmount: 3
+    vaporSpread: 90
+    sprayVelocity: 2.0
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: BaseItem
+  id: ModsuitDeviceJanitorMister
+  name: MOD janitorial mister
+  description: A space cleaner mister extending from the suit, fed by its internal reservoir.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/spraynozzle.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Guns/Basic/spraynozzle.rsi
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 100
+        reagents:
+        - ReagentId: SpaceCleaner
+          Quantity: 100
+  - type: SolutionRegeneration
+    solution: spray
+    generated:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 5
+  - type: UseDelay
+  - type: Spray
+    solution: spray
+    transferAmount: 10
+    sprayVelocity: 2
+    spraySound:
+      path: /Audio/Effects/spray2.ogg
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: BaseItem
+  id: ModsuitDeviceResinMister
+  name: MOD resin launcher
+  description: Fires globs of quick-setting metal foam. Recharges from the suit's internal reservoir.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
+    state: icon
+    color: "#c0d6e8"
+  - type: Item
+    sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
+    size: Normal
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ModsuitResinGlob
+    capacity: 5
+    count: 5
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 6
+    rechargeSound: null
+  - type: AmmoCounter
+  - type: PacifismAllowedGun
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: BaseBulletTrigger
+  id: ModsuitResinGlob
+  name: resin glob
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: cleanade
+      color: "#c0d6e8"
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 0
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 6
+    smokePrototype: AluminiumMetalFoam
+
+- type: entity
+  parent: BaseItem
+  id: ModsuitDeviceClamp
+  name: MOD hydraulic clamp
+  description: Hydraulic actuators for hauling crates. Use it on a crate to pick it up, and on the floor to set one down.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: clamp
+  - type: Item
+    size: Huge
+  - type: PhysicalComposition
+    materialComposition: {}
+  - type: ModClamp
+    whitelist:
+      components:
+      - EntityStorage
+  - type: ContainerContainer
+    containers:
+      mod-clamp: !type:Container
+
+- type: entity
+  parent: MiningDrill
+  id: ModsuitDeviceDrill
+  name: MOD drill
+  description: A drill extending over the suit's hand.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaticPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: AdminInstantEffectBase
+  id: ModsuitPepperSmokeEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SmokeOnTrigger
+    duration: 4
+    spreadAmount: 8
+    solution:
+      reagents:
+      - ReagentId: CapsaicinOil
+        Quantity: 30
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Effects/smoke.ogg

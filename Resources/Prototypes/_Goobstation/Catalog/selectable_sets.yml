@@ -401,28 +401,6 @@
   content:
     - ClothingBeltMilitaryWebbingBSOFilled
 
-# Blueshield hardsuits
-
-- type: selectableSet
-  id: BSOHardsuitLightSet
-  name: selectable-set-blueshield-hardsuit-light-name
-  description: selectable-set-blueshield-hardsuit-light-description
-  sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
-    state: icon
-  content:
-    - ClothingOuterHardsuitBlueshieldLight
-
-- type: selectableSet
-  id: BSOModsuitSet
-  name: selectable-set-blueshield-modsuit-name
-  description: selectable-set-blueshield-modsuit-description
-  sprite:
-    sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
-    state: control
-  content:
-    - ClothingModsuitPraetorian
-
 # ERT
 
 - type: selectableSet

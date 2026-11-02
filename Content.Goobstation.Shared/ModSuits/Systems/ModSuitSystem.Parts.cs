@@ -252,6 +252,8 @@ public sealed partial class ModSuitSystem
         if (_timing.ApplyingState
             || _movingParts.Contains(ent)
             || _toggleableClothing.IsInventoryTransferring(args.Equipee)
+            || TerminatingOrDeleted(ent)
+            || TerminatingOrDeleted(args.Equipee)
             || ent.Comp.Suit is not { } suitUid
             || TerminatingOrDeleted(suitUid)
             || !TryComp<ModSuitComponent>(suitUid, out var suit))

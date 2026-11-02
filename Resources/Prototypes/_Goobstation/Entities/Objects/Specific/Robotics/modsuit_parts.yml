@@ -305,6 +305,27 @@
     - ModsuitPlatingBrigMed
 
 - type: entity
+  id: ModsuitPlatingPraetorian
+  parent: PartModsuit
+  name: MOD praetorian plating
+  description: A part used in MOD construction. Issued to Blueshield Officers.
+  components:
+  - type: Sprite
+    state: standard-plating
+    color: "#9fb4ff"
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingPraetorian
+
+- type: entity
   id: ModsuitCoreStandard
   parent: PartModsuit
   name: MOD standard core

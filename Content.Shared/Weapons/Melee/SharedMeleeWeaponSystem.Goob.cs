@@ -1,6 +1,8 @@
 using Content.Goobstation.Common.Weapons;
 using Content.Shared._ES.Camera;
 using Content.Shared.Damage;
+using Content.Shared.IdentityManagement;
+using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Weapons.Melee;
@@ -29,6 +31,18 @@ public abstract partial class SharedMeleeWeaponSystem
 
         var abs = Math.Abs(ap);
         message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap / abs), ("abs", abs)));
+    }
+
+    private bool IsShoveBlocked(EntityUid target, EntityUid user)
+    {
+        var ev = new ShoveAttemptEvent(user);
+        RaiseLocalEvent(target, ref ev);
+        if (!ev.Cancelled)
+            return false;
+
+        _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), target, user);
+        PopupSystem.PopupPredicted(Loc.GetString("shove-blocked-popup", ("target", Identity.Entity(target, EntityManager))), target, user);
+        return true;
     }
 
     private bool IsHeavyAttackTargetBlocked(EntityUid target, EntityUid user, EntityUid weapon)

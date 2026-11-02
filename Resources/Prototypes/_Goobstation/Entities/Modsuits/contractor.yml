@@ -68,17 +68,9 @@
         - state: equipped-HAND-sealed-vox
         - state: equipped-HAND-sealed-unshaded-vox
           shader: unshaded
-    - type: ModSealedComponents
-      components:
-      - type: Insulated
-      - type: GrabModifier
-        grabEscapeModifier: -0.1
-        grabEscapeMultiplier: 0.8
-        grabMoveSpeedMultiplier: 2
-        startingGrabStage: Hard
 
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseSyndicateContraband]
+  parent: [ClothingModsuitHelmetStandard, BaseSyndicateContraband]
   id: ClothingModsuitHelmetContractor
   name: Contractor modsuit helmet
   description: A state-of-the-art helmet designed by the Syndicate for the Contractor modsuit. It includes a built-in HUD.
@@ -105,12 +97,8 @@
           Radiation: 0.0
     - type: FireProtection
       reduction: 0.2
-    - type: FlashImmunity
     - type: FlashSoundSuppression
       protectionRange: 0
-    - type: ShowHealthBars
-      damageContainers:
-        - Biological
     - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
@@ -162,7 +150,6 @@
         followEntity: true
     - type: ModSealedComponents
       components:
-      - type: EyeProtection
       - type: Instrument
         program: 62
       - type: SwappableInstrument
@@ -236,12 +223,6 @@
         - state: equipped-OUTERCLOTHING-sealed-vox
     - type: ModSealedComponents
       components:
-      - type: ClothingAutoInject
-        reagents:
-          Epinephrine: 10
-          Bicaridine: 10
-          TranexamicAcid: 5
-          Tramadol: 5
       - type: PressureProtection
         highPressureMultiplier: 0.3
         lowPressureMultiplier: 1000

@@ -132,6 +132,28 @@
   - ModsuitPlatingParamedic
   - ModsuitModuleHealthAnalyzer
   - ModsuitModuleVisorMedical
+  - ModsuitModuleQuickCarry
+  - ModsuitModuleInjector
+  - ModsuitModuleDefibrillator
+  - ModsuitModulePatientTransport
+  - ModsuitModuleThreadRipper
   position: 3,7
+  technologyPrerequisites:
+  - ModsuitsTech
+
+- type: technology
+  id: ModsuitServiceTech
+  name: research-technology-modsuit-service
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: bikehorn
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - ModsuitModuleBikeHorn
+  - ModsuitModuleWaddle
+  - ModsuitModuleJanitorMister
+  position: 4,7
   technologyPrerequisites:
   - ModsuitsTech
