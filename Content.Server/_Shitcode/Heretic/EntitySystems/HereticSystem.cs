@@ -2,13 +2,13 @@
 
 using Content.Server.Store.Systems;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Cinematic;
 using Content.Shared.Eye;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Server.Chat.Systems;
-using Robust.Shared.Audio;
 using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
@@ -48,31 +48,34 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticSystem : SharedHereticSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly HereticRitualSystem _ritual = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private StoreSystem _store = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private SharedJobSystem _job = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private ObjectivesSystem _objectives = default!;
+    [Dependency] private HereticRitualSystem _ritual = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private SharedCinematicSystem _cinematic = default!;
 
-    [Dependency] private readonly IRobustRandom _rand = default!;
-    [Dependency] private readonly IPlayerManager _playerMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IChatManager _chatMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IRobustRandom _rand = default!;
+    [Dependency] private IPlayerManager _playerMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IChatManager _chatMan = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private float _timer;
     private const float PassivePointCooldown = 20f * 60f;
     private bool _ascensionRequiresObjectives;
 
     private const int HereticVisFlags = (int) (VisibilityFlags.EldritchInfluence | VisibilityFlags.EldritchInfluenceSpent);
+
+    private const string AscensionCinematicPrefix = "HereticAscension";
 
     public static readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
@@ -485,13 +488,33 @@ public sealed partial class HereticSystem : SharedHereticSystem
         }
 
         var pathLoc = ent.Comp.CurrentPath.ToLower();
-        var ascendSound =
-            new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"),
             Name(uid),
-            true,
-            ascendSound,
-            Color.Pink);
+            false,
+            colorOverride: Color.Pink);
+
+        PlayAscensionCinematic(uid, ent.Comp.CurrentPath);
+    }
+
+    /// <summary>
+    /// Plays the paths ascension cinematic for every player on the heretics map.
+    /// </summary>
+    private void PlayAscensionCinematic(EntityUid heretic, string path)
+    {
+        var timeline = new ProtoId<CinematicPrototype>(AscensionCinematicPrefix + path);
+        if (!_proto.HasIndex(timeline))
+            return;
+
+        var mapId = Transform(heretic).MapID;
+        var subject = Name(heretic);
+
+        foreach (var session in _playerMan.Sessions)
+        {
+            if (session.AttachedEntity is not { } viewer || Transform(viewer).MapID != mapId)
+                continue;
+
+            _cinematic.TryStartCinematic(viewer, timeline, subject);
+        }
     }
 
     #endregion
