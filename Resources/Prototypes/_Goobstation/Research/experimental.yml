@@ -56,7 +56,6 @@
   - ModsuitModuleWelding
   - ModsuitModuleThermalRegulator
   - ModsuitModuleGps
-  - ModsuitModuleMouthhole
   - ModsuitModuleVisorDiagnostic
   - ModsuitModuleReagentScanner
   position: -5,-2

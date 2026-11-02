@@ -154,6 +154,7 @@
   - ModsuitModuleBikeHorn
   - ModsuitModuleWaddle
   - ModsuitModuleJanitorMister
+  - ModsuitModuleMouthhole
   position: 4,7
   technologyPrerequisites:
   - ModsuitsTech

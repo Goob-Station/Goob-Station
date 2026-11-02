@@ -693,8 +693,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: ContainerContainer
     containers:
       mod-part-stored: !type:ContainerSlot
@@ -735,10 +735,10 @@
     - Other
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
+        Blunt: 0.72
+        Slash: 0.72
+        Piercing: 0.72
+        Heat: 0.72
         Radiation: 0.6
   - type: ModSealedComponents
     components:

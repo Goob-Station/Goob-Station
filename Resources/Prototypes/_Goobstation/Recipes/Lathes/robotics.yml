@@ -82,6 +82,32 @@
     Plasma: 50
 
 - type: latheRecipe
+  id: ModsuitPlatingSecurity
+  result: ModsuitPlatingSecurity
+  categories:
+  - Modsuit
+  completetime: 5
+  materials:
+    Steel: 300
+    Plasteel: 100
+    Silver: 50
+    Glass: 50
+    Plasma: 50
+
+- type: latheRecipe
+  id: ModsuitPlatingBrigMed
+  result: ModsuitPlatingBrigMed
+  categories:
+  - Modsuit
+  completetime: 5
+  materials:
+    Steel: 300
+    Silver: 100
+    Plasteel: 50
+    Glass: 50
+    Plasma: 50
+
+- type: latheRecipe
   id: ModsuitPlatingAtmostech
   result: ModsuitPlatingAtmostech
   categories:
