@@ -10,8 +10,8 @@
       connections:
       - chest
       organs:
-        tongue: OrganHumanTongue
         brain: OrganHumanBrain
+        tongue: OrganHumanTongue
     chest:
       part: ChestHuman
       connections:

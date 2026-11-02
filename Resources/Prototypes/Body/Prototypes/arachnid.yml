@@ -10,9 +10,9 @@
       connections:
       - chest
       organs:
-        tongue: OrganArachnidTongue
         brain: OrganHumanBrain
         eyes: OrganArachnidEyes
+        tongue: OrganArachnidTongue
     chest:
       part: ChestArachnid
       organs:

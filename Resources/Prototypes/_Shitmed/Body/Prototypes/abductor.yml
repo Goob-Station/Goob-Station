@@ -10,9 +10,9 @@
       connections:
       - chest
       organs:
-        tongue: OrganHumanTongue
         brain: OrganAbductorBrain
         eyes: OrganAbductorEyes
+        tongue: OrganHumanTongue
     chest:
       part: ChestAbductor
       connections:

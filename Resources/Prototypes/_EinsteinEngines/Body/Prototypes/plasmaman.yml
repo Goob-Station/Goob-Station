@@ -8,9 +8,9 @@
       connections:
       - chest
       organs:
-        tongue: OrganPlasmamanTongue
         brain: OrganPlasmamanBrain
         eyes: OrganPlasmamanEyes
+        tongue: OrganPlasmamanTongue
     chest:
       part: ChestPlasmaman
       connections:

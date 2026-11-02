@@ -10,9 +10,9 @@
       connections:
       - chest
       organs:
-        tongue: OrganVoxTongueA
         brain: OrganHumanBrain
         eyes: OrganVoxEyes
+        tongue: OrganVoxTongueA
     chest: # Goob
       part: ChestVox
       connections:

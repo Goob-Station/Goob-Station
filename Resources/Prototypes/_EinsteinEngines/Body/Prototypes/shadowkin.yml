@@ -8,9 +8,9 @@
       connections:
       - chest
       organs:
-        tongue: OrganShadowkinTongue
         brain: OrganShadowkinBrain
         eyes: OrganShadowkinEyes
+        tongue: OrganShadowkinTongue
     chest:
       part: ChestShadowkin
       connections:

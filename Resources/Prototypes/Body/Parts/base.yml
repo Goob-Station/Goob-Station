@@ -178,12 +178,12 @@
     partType: Head
     toolName: "a head" # Shitmed Change
     organs: # Shitmed Change
-      tongue:
-        id: tongue
       brain:
         id: brain
       eyes:
         id: eyes
+      tongue:
+        id: tongue
   - type: Input
     context: "ghost"
   - type: Tag # Goobstation

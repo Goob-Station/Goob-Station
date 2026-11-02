@@ -8,9 +8,9 @@
       connections:
       - chest
       organs:
-        tongue: OrganAnimalTongue
         brain: OrganAnimalBrain
         eyes: OrganAnimalEyes
+        tongue: OrganAnimalTongue
     chest:
       part: ChestScurret
       connections:
