@@ -27031,3 +27031,9 @@ Entries:
         you want a modsuit, get sci to craft you one.
   id: 3029
   time: '2026-11-02T01:06:32.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Changelings and Heretics have new tree style shops.
+  id: 3030
+  time: '2026-11-02T01:06:36.0000000+00:00'
