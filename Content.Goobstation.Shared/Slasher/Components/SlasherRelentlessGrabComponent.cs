@@ -21,6 +21,21 @@ public sealed partial class SlasherRelentlessGrabComponent : Component
     [DataField]
     public TimeSpan DoorDisableDuration = TimeSpan.FromSeconds(5);
 
+    /// <summary>
+    /// Fear needed for the grab to be a hard grab instead of a soft one.
+    /// </summary>
+    [DataField]
+    public float HardGrabFear = 20f;
+
+    /// <summary>
+    /// Fear needed for the grab to also stun the victim.
+    /// </summary>
+    [DataField]
+    public float StunGrabFear = 41f;
+
+    [DataField]
+    public TimeSpan GrabStunDuration = TimeSpan.FromSeconds(1.5);
+
     [DataField]
     public EntProtoId? DoorJackEffect = "EffectSparks";
 }

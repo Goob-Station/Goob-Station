@@ -5,6 +5,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Stunnable;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
@@ -16,6 +17,7 @@ public sealed partial class SlasherRelentlessGrabSystem : EntitySystem
     [Dependency] private PullingSystem _pulling = default!;
     [Dependency] private SharedDoorSystem _door = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     [SubscribeLocalEvent]
     private void OnMapInit(Entity<SlasherRelentlessGrabComponent> ent, ref MapInitEvent args)
@@ -43,12 +45,18 @@ public sealed partial class SlasherRelentlessGrabSystem : EntitySystem
             return;
         }
 
+        var fear = TryComp<SlasherFearComponent>(ent.Owner, out var fearComp) ? fearComp.CurrentMeter : 0f;
+        var stage = fear >= ent.Comp.HardGrabFear ? GrabStage.Hard : GrabStage.Soft;
+
         if (!_pulling.CanPull(ent.Owner, target)
-            || !_pulling.TryStartPull(ent.Owner, target, grabStageOverride: GrabStage.Hard, force: true))
+            || !_pulling.TryStartPull(ent.Owner, target, grabStageOverride: stage, force: true))
         {
             _popup.PopupClient(Loc.GetString("slasher-relentless-grab-fail"), target, ent.Owner);
             return;
         }
+
+        if (fear >= ent.Comp.StunGrabFear)
+            _stun.TryUpdateStunDuration(target, ent.Comp.GrabStunDuration);
 
         args.Handled = true;
     }
