@@ -19,6 +19,8 @@
   # TODO: stabilizing serum for 400
   - id: BoxMarkerBeacons
     cost: 300
+  - id: RadAwayBag
+    cost: 300
   - id: LavalandJaunter
     cost: 300
   - id: Fulton
