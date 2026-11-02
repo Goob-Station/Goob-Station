@@ -54,3 +54,49 @@
       sprite: /Textures/Interface/Alerts/essence_counter.rsi
       state: "0"
       offset: 0.25, 0
+
+- type: alert
+  id: SlasherSoulBonus
+  icons:
+  - sprite: /Textures/_Goobstation/Slasher/Alerts/soul_bonus.rsi
+    state: icon
+  alertViewEntity: AlertSlasherSoulBonusSpriteView
+  name: alerts-slasher-soul-bonus-name
+  description: alerts-slasher-soul-bonus-desc
+
+- type: entity
+  id: AlertSlasherSoulBonusSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SlasherSoulBonusAlert
+  - type: Sprite
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+      sprite: /Textures/_Goobstation/Slasher/Alerts/soul_bonus.rsi
+      state: icon
+    # Damage row (top)
+    - map: [ "damage1" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      offset: 0.3125, 0.4375
+    - map: [ "damage10" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      offset: 0.1875, 0.4375
+    - map: [ "damage100" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      offset: 0.0625, 0.4375
+    # Armor row (bottom)
+    - map: [ "armor1" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      offset: 0.34375, 0.0625
+    - map: [ "armor10" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      offset: 0.21875, 0.0625
+    - map: [ "armor100" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      offset: 0.09375, 0.0625

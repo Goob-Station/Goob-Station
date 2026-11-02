@@ -100,3 +100,6 @@ slasher-fear-music-unmuted = Your theme plays again.
 
 alerts-slasher-fear-victim-name = Fear
 alerts-slasher-fear-victim-desc = The terror clawing at your mind as the slasher hunts you. The higher it climbs, the more it slows and wounds you. Break their line of sight to let it fade.
+
+alerts-slasher-soul-bonus-name = Soul Bonus
+alerts-slasher-soul-bonus-desc = Bonuses gained from harvesting souls. Top row is your extra damage, bottom row is your extra defense.
