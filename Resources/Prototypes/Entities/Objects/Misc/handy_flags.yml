@@ -23,6 +23,9 @@
     state: icon
   - type: Item
     sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
+  - type: Tag # Goobstation
+    tags:
+    - NTHandyFlag
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
@@ -35,6 +38,9 @@
     state: icon
   - type: Item
     sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi
+  - type: Tag # Goobstation
+    tags:
+    - SyndieHandyFlag
 
 - type: entity
   parent: BaseItem

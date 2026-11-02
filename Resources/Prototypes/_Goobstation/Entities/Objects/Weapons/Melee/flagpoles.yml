@@ -1,0 +1,220 @@
+- type: entity
+  name: Nanotrasen flagpole
+  parent: [ BaseItem, BaseMinorContraband ]
+  id: WeaponFlagpoleNanotrasen
+  description: To remind you which corporation you sold your soul to while poking stuff with the sharp end. Boosts regen of mindshielded personnel nearby.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/NT_pole.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,8,0
+    storedRotation: 45
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Sharp
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: MeleeWeapon
+    canWideSwing: false
+    range: 2.2
+    attackRate: 0.8
+    animationRotation: -135
+    wideAnimationRotation: -135
+    animation: WeaponArcThrust
+    angle: 0
+    damage:
+      types:
+        Piercing: 12
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 20
+  - type: UseDelay
+    delay: 180
+  - type: Flagpole
+    stackGroup: MindshieldHeal
+    range: 5
+    interval: 1
+    damage:
+      groups:
+        Brute: -1
+        Burn: -1
+    useRange: 5
+    applyOnCrit:
+      groups:
+        Brute: -40
+        Burn: -40
+    useSpeech: FlagpoleInspireSpeech
+  - type: Construction
+    graph: FlagpoleNanotrasen
+    node: flagpole
+
+- type: localizedDataset
+  id: FlagpoleInspireSpeech
+  values:
+    prefix: flagpole-inspire-
+    count: 3
+
+- type: entity
+  name: Syndicate flagpole
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: WeaponFlagpoleSyndicate
+  description: A spear flying the Syndicate colors, with an energy dagger lashed to its head. Deals terrible, terrible damage to mindshielded personnel.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/syndi_pole.rsi
+    layers:
+    - state: icon
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 2
+    color: "#ff5533"
+    netsync: false
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,8,0
+    storedRotation: 45
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Sharp
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: MeleeWeapon
+    canWideSwing: false
+    range: 2.2
+    attackRate: 0.8
+    animationRotation: -135
+    wideAnimationRotation: -135
+    animation: WeaponArcThrust
+    angle: 0
+    damage:
+      types:
+        Piercing: 10
+        Heat: 5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 24
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 5
+        Heat: 5
+  - type: UseDelay
+  - type: Flagpole
+    meleeDamage:
+      types:
+        Slash: 20
+  - type: Construction
+    graph: FlagpoleSyndicate
+    node: flagpole
+
+- type: construction
+  id: FlagpoleNanotrasen
+  graph: FlagpoleNanotrasen
+  startNode: start
+  targetNode: flagpole
+  category: construction-category-weapons
+  objectType: Item
+  description: construction-flagpole-nanotrasen-description
+
+- type: construction
+  id: FlagpoleSyndicate
+  graph: FlagpoleSyndicate
+  startNode: start
+  targetNode: flagpole
+  category: construction-category-weapons
+  objectType: Item
+  description: construction-flagpole-syndicate-description
+
+- type: constructionGraph
+  id: FlagpoleNanotrasen
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: flagpole
+      steps:
+      - tag: Spear
+        name: construction-step-flagpole-spear
+        icon:
+          sprite: Objects/Weapons/Melee/spear.rsi
+          state: spear
+      - tag: NTHandyFlag
+        name: construction-step-flagpole-nt-flag
+        icon:
+          sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
+          state: icon
+      - tag: MindShieldImplanter
+        name: construction-step-flagpole-mindshield-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter1
+      - tag: MindShieldImplanter
+        name: construction-step-flagpole-mindshield-implanter
+        icon:
+          sprite: Objects/Specific/Medical/implanter.rsi
+          state: implanter1
+  - node: flagpole
+    entity: WeaponFlagpoleNanotrasen
+
+- type: constructionGraph
+  id: FlagpoleSyndicate
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: flagpole
+      steps:
+      - tag: Spear
+        name: construction-step-flagpole-spear
+        icon:
+          sprite: Objects/Weapons/Melee/spear.rsi
+          state: spear
+      - tag: EnergyDagger
+        name: construction-step-flagpole-energy-dagger
+        icon:
+          sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
+          state: e_sword
+      - tag: SyndieHandyFlag
+        name: construction-step-flagpole-syndicate-flag
+        icon:
+          sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi
+          state: icon
+  - node: flagpole
+    entity: WeaponFlagpoleSyndicate
+
+- type: Tag
+  id: NTHandyFlag
+
+- type: Tag
+  id: SyndieHandyFlag
+
+- type: Tag
+  id: MindShieldImplanter
+
+- type: Tag
+  id: EnergyDagger
