@@ -22,7 +22,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Humanoid;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.EntityEffects;
 using Content.Shared.Movement.Components;

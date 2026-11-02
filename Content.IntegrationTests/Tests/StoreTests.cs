@@ -10,7 +10,7 @@ using Content.Shared.Store.Components;
 using Content.Shared.StoreDiscount.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Random;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.IntegrationTests.Tests;
 

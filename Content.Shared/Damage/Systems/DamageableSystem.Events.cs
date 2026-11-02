@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;

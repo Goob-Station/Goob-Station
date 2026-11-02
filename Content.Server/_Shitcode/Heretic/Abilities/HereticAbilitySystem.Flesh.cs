@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Body.Components;

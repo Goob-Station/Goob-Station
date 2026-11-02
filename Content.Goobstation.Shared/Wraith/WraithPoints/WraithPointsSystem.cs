@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Actions.Events;
 using Content.Shared.Alert;
 using Content.Shared.Mobs.Systems;

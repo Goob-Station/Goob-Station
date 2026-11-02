@@ -4,7 +4,7 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.PDA.Ringer;
 using Content.Server.Traitor.Uplink;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;

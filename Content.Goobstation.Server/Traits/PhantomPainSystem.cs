@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Shared.Traits.Components;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;

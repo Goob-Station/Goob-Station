@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
 

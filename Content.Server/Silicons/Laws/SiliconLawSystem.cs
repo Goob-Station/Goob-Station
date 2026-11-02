@@ -27,7 +27,7 @@ using Robust.Shared.Toolshed;
 
 // Goobstation usings
 using Content.Goobstation.Common.Silicons.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Shared.CustomLawboard;
 using Robust.Shared.Random;
 using Content.Shared.Random;

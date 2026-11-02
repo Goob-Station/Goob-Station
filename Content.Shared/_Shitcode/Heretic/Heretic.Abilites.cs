@@ -3,7 +3,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Polymorph;
