@@ -74,7 +74,8 @@ slasher-corporealize-fail-camera = You cannot corporealize when there's a camera
 slasher-corporealize-fail-nearby = You cannot corporealize while someone is nearby!
 slasher-corporealize-fail-inside-wall = You cannot corporealize while near a solid object!
 
-slasher-relentless-grab-activate = You prepare to grab your next victim!
+slasher-relentless-grab-fail = You can't grab that.
+slasher-relentless-grab-door-welded = The door is welded shut.
 
 reagent-name-slasherium = Slasherium
 reagent-desc-slasherium = Used by the Slasher to heal themselves.
