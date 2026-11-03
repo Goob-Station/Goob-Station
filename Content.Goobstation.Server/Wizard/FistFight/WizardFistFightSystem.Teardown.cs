@@ -94,9 +94,14 @@ public sealed partial class WizardFistFightSystem
                 continue;
 
             if (RandomStationSpawn(comp) is { } spawn)
+            {
                 Teleport(uid, spawn);
-            else
-                Log.Warning($"Wizard fist fight could not find anywhere on the station to evacuate {ToPrettyString(uid)} to.");
+                continue;
+            }
+
+            _container.TryRemoveFromContainer(uid, true);
+            _transform.DetachEntity(uid, xform);
+            Log.Warning($"Wizard fist fight could not find anywhere on the station to evacuate {ToPrettyString(uid)} to. They were sent to nullspace.");
         }
     }
 
