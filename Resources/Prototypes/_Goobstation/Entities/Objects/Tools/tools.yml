@@ -175,7 +175,7 @@
   - type: MultiHandedItem
 
 - type: entity
-  name: CentComm official handheld fax
+  name: Nanotrasen Representative handheld fax
   parent: HandheldFax
   id: HandheldFaxOfficial
   suffix: CentComm Official
