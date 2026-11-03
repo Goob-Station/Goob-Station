@@ -1,6 +1,5 @@
 using System.Text.RegularExpressions;
 using Content.Server.Body.Systems;
-using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Muting;
 using Content.Shared._Shitmed.Body.Organ;
@@ -18,7 +17,6 @@ public sealed class TongueSystem : EntitySystem
 {
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
 
     private static readonly Regex TonguelessLower = new("[gdntke]+", RegexOptions.Compiled);
     private static readonly Regex TonguelessUpper = new("[GDNTKE]+", RegexOptions.Compiled);
@@ -55,10 +53,6 @@ public sealed class TongueSystem : EntitySystem
 
     private void OnScreamAction(EntityUid uid, TonguelessComponent component, ScreamActionEvent args)
     {
-        if (args.Handled)
-            return;
-
-        _popup.PopupEntity(Loc.GetString("speech-muted"), uid, uid);
         args.Handled = true;
     }
 
