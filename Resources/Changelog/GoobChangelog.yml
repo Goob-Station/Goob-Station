@@ -27071,3 +27071,23 @@ Entries:
         the "show held item on cursor" setting is turned off.
   id: 3032
   time: '2026-11-02T21:50:38.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added the loader modsuit, with 3 new modules. Plating can be found in
+        QM's locker.
+    - type: Add
+      message: >-
+        Added mining modsuit, with 2 new modules. Plating can be printing in the
+        cargo fab after researching
+    - type: Add
+      message: Added balls.
+    - type: Fix
+      message: >-
+        Fixed modules not updating after swapping a dead battery out on a
+        modsuit without deactivating and reactivating the suit.
+    - type: Fix
+      message: Fixed AI being able fuck with modsuits' interfaces.
+  id: 3033
+  time: '2026-11-03T01:53:27.0000000+00:00'
