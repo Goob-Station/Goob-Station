@@ -167,6 +167,28 @@
     - type: Magboots
       enabledPrefix: null
     - type: NoSlip
+  - type: ModSpeedModule
+    walkModifier: 0.85
+    sprintModifier: 0.85
+
+- type: entity
+  parent: ModsuitModuleMagboots
+  id: ModsuitModuleMagbootsAdvanced
+  name: "MOD advanced magnetic stability module"
+  description: "These are powerful electromagnets fitted into the suit's boots, allowing users both excellent traction no matter the condition indoors, and to essentially hitch a ride on the exterior of a hull."
+  components:
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 3
+    activePower: 0.6
+    requiredParts:
+    - shoes
+    incompatible:
+      tags:
+      - ModsuitModuleGravity
+  - type: ModSpeedModule
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   abstract: true
@@ -378,10 +400,8 @@
   abstract: true
   parent: BaseModsuitModule
   id: BaseModsuitModuleBuiltin
-  categories: [ HideSpawnMenu ]
   components:
   - type: ModModule
-    removable: false
   - type: PhysicalComposition
     materialComposition: {}
 
@@ -395,7 +415,6 @@
     state: thermal_visor
   - type: ModModule
     moduleType: Toggle
-    removable: false
     activePower: 0.8
     requiredParts:
     - head
@@ -417,7 +436,6 @@
     state: night_visor
   - type: ModModule
     moduleType: Toggle
-    removable: false
     activePower: 0.4
     requiredParts:
     - head
@@ -438,7 +456,6 @@
     state: sechud_visor
   - type: ModModule
     moduleType: Toggle
-    removable: false
     activePower: 0.2
     requiredParts:
     - head
@@ -460,7 +477,6 @@
     state: medhud_visor
   - type: ModModule
     moduleType: Toggle
-    removable: false
     activePower: 0.2
     requiredParts:
     - head
@@ -479,7 +495,6 @@
   - type: Sprite
     state: welding
   - type: ModModule
-    removable: false
     requiredParts:
     - head
   - type: ModGrantComponentsModule
@@ -497,7 +512,6 @@
   - type: Sprite
     state: module
   - type: ModModule
-    removable: false
     allowFlags: Inactive
     requiredParts:
     - gloves
@@ -515,7 +529,6 @@
   - type: Sprite
     state: injector
   - type: ModModule
-    removable: false
     requiredParts:
     - outerClothing
   - type: ModGrantComponentsModule
@@ -538,7 +551,6 @@
     state: chameleon
   - type: ModModule
     moduleType: Usable
-    removable: false
     allowFlags: Inactive
   - type: ModOpenUiModule
     key: enum.ChameleonUiKey.Key
@@ -553,7 +565,6 @@
     state: bikehorn
   - type: ModModule
     moduleType: Usable
-    removable: false
     requiredParts:
     - head
   - type: ModOpenUiModule
@@ -569,7 +580,6 @@
   - type: Sprite
     state: clamp
   - type: ModModule
-    removable: false
     requiredParts:
     - gloves
   - type: ModGrantComponentsModule
@@ -1548,14 +1558,13 @@
 - type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinSphereTransform
-  name: sphere transform module
-  description: Rearranges the suit's plating around the wearer, compressing them into an armored sphere. Capable of plowing through rock with a drill module installed alongside it.
+  name: "MOD sphere transform module"
+  description: "A module able to move the suit's parts around, turning it and the user into a sphere. The sphere can move quickly and launch mining micromissiles to decimate terrain and fauna alike."
   components:
   - type: Sprite
     state: sphere
   - type: ModModule
     moduleType: Toggle
-    removable: false
     activePower: 1.6
     cooldown: 1
     requiredParts:
@@ -1608,15 +1617,24 @@
     color: "#89cff0"
 
 - type: entity
+  parent: ModsuitModuleBuiltinSphereTransform
+  id: ModsuitModuleBuiltinSphereTransformCorporate
+  suffix: Corporate
+  components:
+  - type: ModSphereTransformModule
+    primaryColor: "#254022"
+    darkColor: "#152413"
+    accentColor: "#bf8133"
+
+- type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinAshAccretion
-  name: ash accretion module
-  description: Collects ash from the terrain and from ash storms, covering the suit in a protective layer that also shields the wearer from the storm. The layer is lost when moving across standard terrain.
+  name: "MOD ash accretion module"
+  description: "A module that collects ash from the terrain, covering the suit in a protective layer, this layer is lost when moving across standard terrain."
   components:
   - type: Sprite
     state: ash_accretion
   - type: ModModule
-    removable: false
     requiredParts:
     - head
     - outerClothing
@@ -1665,15 +1683,13 @@
 - type: entity
   parent: BaseModsuitModuleDevice
   id: ModsuitModuleBuiltinLoaderClamp
-  name: loader hydraulic clamp module
-  description: A heavy-duty version of the hydraulic clamp built into the loader suit's manipulator arms. Holds more crates and grabs them faster.
-  categories: [ HideSpawnMenu ]
+  name: "MOD loader hydraulic clamp module"
+  description: "A series of actuators installed into both arms of the suit, boasting a lifting capacity of almost a ton. However, this design has been locked by Nanotrasen to be primarily utilized for lifting various crates. A lot of people would say that loading cargo is a dull job, but you could not disagree more."
   components:
   - type: Sprite
     state: clamp_loader
   - type: ModModule
     moduleType: Active
-    removable: false
     activePower: 0.4
     requiredParts:
     - outerClothing
@@ -1701,14 +1717,13 @@
 - type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinHydraulicArms
-  name: loader hydraulic arms module
-  description: A pair of powerful hydraulic arms. Charge them up to launch yourself at a target, bowling over anyone in the way.
+  name: "MOD loader hydraulic arms module"
+  description: "A pair of powerful hydraulic arms installed in a MODsuit."
   components:
   - type: Sprite
     state: launch_loader
   - type: ModModule
     moduleType: Usable
-    removable: false
     usePower: 60
     cooldown: 4
     action: ActionModHydraulicLaunch
@@ -1732,14 +1747,13 @@
 - type: entity
   parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinLoaderMagnet
-  name: loader hydraulic magnet module
-  description: A powerful hydraulic electromagnet. Yank crates and lockers over to you and start dragging them, or fling the one you're dragging at a target.
+  name: "MOD loader hydraulic magnet module"
+  description: "A powerful hydraulic electromagnet able to launch crates and lockers towards the user, and keep 'em attached."
   components:
   - type: Sprite
     state: magnet_loader
   - type: ModModule
     moduleType: Usable
-    removable: false
     usePower: 15
     cooldown: 1.5
     action: ActionModMagnet
@@ -1753,8 +1767,8 @@
 - type: entity
   parent: BaseModsuitModule
   id: ModsuitModuleCandelaSpool
-  name: MOD "Candela" beacon spool module
-  description: A set of tethers and connectors that automatically deploys marker beacons stored in the suit as you travel, lighting your way back.
+  name: "MOD \"Candela\" beacon spool module"
+  description: "A set of tethers and connectors, capable of automatically deploying \"Candela\" beacons from within a MODsuit."
   components:
   - type: Sprite
     state: candela_spool
@@ -1770,3 +1784,610 @@
     whitelist:
       tags:
       - MarkerBeacon
+
+- type: entity
+  parent: BaseModsuitModuleStorage
+  id: ModsuitModuleStorageCase
+  name: "MOD case storage module"
+  description: "Some concessions had to be made when creating a compressed modular suit core. As a result, Roseus Galactic equipped their suit with a slimline storage case. If you find this equipped to a standard modular suit, then someone has almost certainly shortchanged you on a proper storage module."
+  components:
+  - type: Sprite
+    state: storage_case
+  - type: ModModule
+    complexity: 0
+    allowFlags: Inactive
+    incompatible:
+      tags:
+      - ModsuitModuleStorage
+  - type: ModStorageModule
+    components:
+    - type: Storage
+      grid:
+      - 0,0,3,1
+      maxItemSize: Small
+
+- type: entity
+  parent: BaseModsuitModuleStorage
+  id: ModsuitModuleStorageHolding
+  name: "MOD storage module of holding"
+  description: "A prototype storage module utilizing the power of anomalous bluespace phenomena to store copious amounts of matter."
+  components:
+  - type: Sprite
+    state: storage_holding
+  - type: ModModule
+    complexity: 4
+    allowFlags: Inactive
+    incompatible:
+      tags:
+      - ModsuitModuleStorage
+  - type: ModStorageModule
+    components:
+    - type: Storage
+      grid:
+      - 0,0,14,5
+      maxItemSize: Huge
+
+- type: entity
+  parent: ModsuitModuleJetpack
+  id: ModsuitModuleJetpackAdvanced
+  name: "MOD advanced ion jetpack module"
+  description: "An improvement on the previous model of electric thrusters. This one achieves higher precision and spatial stability through mounting of more jets and application of red paint."
+  components:
+  - type: Sprite
+    state: jetpack_advanced
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 3
+    activePower: 10
+    requiredParts:
+    - outerClothing
+    incompatible:
+      tags:
+      - ModsuitModuleJetpack
+  - type: Jetpack
+    acceleration: 1.6
+    weightlessModifier: 1.6
+
+- type: entity
+  parent: ModsuitModuleBuiltinThermal
+  id: ModsuitModuleThermalVisor
+  name: "MOD thermal visor module"
+  description: "A heads-up display installed into the visor of the suit. This uses a small IR scanner to detect and identify the thermal radiation output of objects near the user. While it can detect the heat output of even something as small as a rodent, it still produces irritating red overlay. They say these also let you see behind you."
+  components:
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 2
+    activePower: 0.8
+    requiredParts:
+    - head
+    incompatible:
+      tags:
+      - ModsuitModuleVisor
+  - type: Tag
+    tags:
+    - ModsuitModule
+    - ModsuitModuleVisor
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Glass: 50
+
+- type: entity
+  parent: ModsuitModuleBuiltinNightVision
+  id: ModsuitModuleNightVisor
+  name: "MOD night visor module"
+  description: "A heads-up display installed into the visor of the suit. Typical for both civilian and military applications, this allows the user to perceive their surroundings while in complete darkness, enhancing the view by tenfold; yet brightening everything into a spooky green glow. They say these also let you see behind you."
+  components:
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 1
+    activePower: 0.4
+    requiredParts:
+    - head
+    incompatible:
+      tags:
+      - ModsuitModuleVisor
+  - type: Tag
+    tags:
+    - ModsuitModule
+    - ModsuitModuleVisor
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Glass: 50
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleQuickCarryAdvanced
+  name: "MOD advanced quick carry module"
+  description: "A suite of advanced servos, redirecting power from the suit's arms to help carry the wounded; or simply for fun. However, Nanotrasen has locked the module's ability to assist in hand-to-hand combat."
+  components:
+  - type: Sprite
+    state: carry
+  - type: ModModule
+    complexity: 2
+    idlePower: 0.2
+    requiredParts:
+    - gloves
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: ModQuickCarry
+      multiplier: 0.15
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleShockAbsorber
+  name: "MOD shock absorption module"
+  description: "A module that makes the user resistant to the knockdown and CNS disruption inflicted by Stun Batons."
+  components:
+  - type: Sprite
+    state: no_baton
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 2
+    activePower: 0.4
+    requiredParts:
+    - outerClothing
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: StaminaResistance
+      damageCoefficient: 0.6
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleBurgerDispenser
+  name: "MOD burger dispenser module"
+  description: "A rare piece of technology reverse-engineered from a prototype found in a Donk Company vessel. This can draw incredible amounts of power from the suit's charge to create edible organic matter in the palm of the wearer's glove; however, research seemed to have entirely stopped at burgers. Notably, all attempts to get it to dispense Earl Grey tea have failed."
+  components:
+  - type: Sprite
+    state: dispenser
+  - type: ModModule
+    moduleType: Usable
+    complexity: 1
+    usePower: 324
+    cooldown: 15
+    requiredParts:
+    - gloves
+  - type: ModSpawnModule
+    prototype: FoodBurgerPlain
+    toHand: true
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModulePaperDispenser
+  name: "MOD paper dispenser module"
+  description: "A simple module designed by the bureaucrats of Torch Bay. It dispenses 'warm, clean, and crisp sheets of paper' into the wearer's hand. Usually."
+  components:
+  - type: Sprite
+    state: paper_maker
+  - type: ModModule
+    moduleType: Usable
+    complexity: 1
+    usePower: 2
+    cooldown: 3
+    requiredParts:
+    - gloves
+  - type: ModSpawnModule
+    prototype: Paper
+    toHand: true
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleBalloonBlower
+  name: "MOD balloon blower module"
+  description: "A strange module invented years ago by some ingenious mimes. It blows balloons."
+  components:
+  - type: Sprite
+    state: bloon
+  - type: ModModule
+    moduleType: Usable
+    complexity: 1
+    usePower: 5
+    cooldown: 3
+    requiredParts:
+    - head
+  - type: ModSpawnModule
+    toHand: true
+    randomPrototypes:
+    - ModsuitBalloonRed
+    - ModsuitBalloonBlue
+    - ModsuitBalloonGreen
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleStamper
+  name: "MOD stamper module"
+  description: "A module installed into the wrist of the suit, this functions as a high-power stamp, able to switch between accept and deny modes."
+  components:
+  - type: Sprite
+    state: stamp
+  - type: ModModule
+    moduleType: Active
+    complexity: 1
+    activePower: 0.1
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceStampApproved
+  - type: ModDeviceSelector
+    entries:
+    - prototype: ModsuitDeviceStampApproved
+    - prototype: ModsuitDeviceStampDenied
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleFishingGlove
+  name: "MOD fishing glove module"
+  description: "A MOD module with a built-in fishing rod, enabling the user to fish without having to hold one."
+  components:
+  - type: Sprite
+    state: fishing_glove
+  - type: ModModule
+    moduleType: Active
+    complexity: 1
+    activePower: 0.1
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceFishingRod
+
+- type: entity
+  parent: RubberStampApproved
+  id: ModsuitDeviceStampApproved
+  name: MOD stamper (approved)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaticPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: RubberStampDenied
+  id: ModsuitDeviceStampDenied
+  name: MOD stamper (denied)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaticPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: FishingRod
+  id: ModsuitDeviceFishingRod
+  name: MOD fishing rod
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaticPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleKinesis
+  name: "MOD kinesis module"
+  description: "A modular plug-in to the forearm, this module was presumed lost for many years, despite the suits it used to be mounted on still seeing some circulation. This piece of technology allows the user to generate precise anti-gravity fields, letting them move objects as small as a titanium rod to as large as industrial machinery. Oddly enough, it doesn't seem to work on living creatures."
+  components:
+  - type: Sprite
+    state: kinesis
+  - type: ModModule
+    moduleType: Active
+    complexity: 3
+    activePower: 1.2
+    requiredParts:
+    - gloves
+  - type: ModKinesisModule
+    range: 8
+    grabPower: 10
+    blacklist:
+      components:
+      - MobState
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleJumpJet
+  name: "MOD ionic jump jet module"
+  description: "A specialised ionic thruster which provides a short but powerful forward boost, after which time it needs to recharge."
+  components:
+  - type: Sprite
+    state: jump_jet
+  - type: ModModule
+    moduleType: Usable
+    complexity: 3
+    usePower: 40
+    cooldown: 10
+    requiredParts:
+    - outerClothing
+  - type: ModJumpJetModule
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleEmpShieldAdvanced
+  name: "MOD advanced EMP shield module"
+  description: "An advanced field inhibitor installed into the suit, protecting it against feedback such as electromagnetic pulses that would otherwise damage the electronic systems of the suit or electronic devices on the wearer, including augmentations. However, it will take from the suit's power to do so."
+  components:
+  - type: Sprite
+    state: empshield
+  - type: ModModule
+    complexity: 2
+    idlePower: 0.8
+  - type: ModEmpShieldModule
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: ModEmpWard
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleJointTorsion
+  name: "MOD joint torsion ratchet module"
+  description: "A compact, weak AC generator that charges the suit's internal cell through the power of deambulation. It doesn't work in zero G. More than one can be installed."
+  components:
+  - type: Sprite
+    state: joint_torsion
+  - type: ModModule
+    complexity: 1
+    requiredParts:
+    - shoes
+  - type: ModJointTorsionModule
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleGloveTranslator
+  name: "MOD glove translator module"
+  description: "A module that adds motion sensors into the suit's gloves, which works in tandem with a short-range subspace transmitter, letting the audibly impaired use sign language over comms."
+  components:
+  - type: Sprite
+    state: signlang_radio
+  - type: ModModule
+    complexity: 1
+    idlePower: 0.2
+    requiredParts:
+    - gloves
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: ModSignRadio
+      languages:
+      - Sign
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModulePlasmaStabilizer
+  name: "MOD plasma stabilizer module"
+  description: "This system essentially forms an atmosphere of its own, within the suit, efficiently and quickly preventing oxygen from causing the user's head to burst into flame. This allows plasmamen to safely remove their helmet, allowing for easier equipping of any MODsuit-related equipment, or otherwise. The purple glass of the visor seems to be constructed for nostalgic purposes."
+  components:
+  - type: Sprite
+    state: plasma_stabilizer
+  - type: ModModule
+    complexity: 1
+    idlePower: 0.2
+    allowFlags: Inactive
+    requiredParts:
+    - head
+  - type: ModPlasmaStabilizerModule
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleHatStabilizer
+  name: "MOD hat stabilizer module"
+  description: "A simple set of deployable stands, directly atop one's head; these will deploy under a hat to keep it from falling off, allowing them to be worn atop the sealed helmet. You still need to take the hat off your head while the helmet deploys, though. This is a must-have for Nanotrasen Captains, enabling them to show off their authoritative hat even while in their MODsuit."
+  components:
+  - type: Sprite
+    state: hat_holder
+  - type: ModModule
+    complexity: 0
+    allowFlags: Inactive
+    requiredParts:
+    - head
+  - type: ModHatStabilizerModule
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleRecycler
+  name: "MOD recycler module"
+  description: "An innovative garbage collection module that recycles gathered trash into usable material. Doesn't work on debris and some items. Use the unload action to dump stored material."
+  components:
+  - type: Sprite
+    state: recycler
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 2
+    activePower: 0.4
+    requiredParts:
+    - outerClothing
+  - type: ModRecyclerModule
+    whitelist:
+      tags:
+      - Trash
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleDonkRecycler
+  name: MOD Donksoft recycler module
+  description: A Donk Co. take on the recycler that turns collected trash into foam darts. Use the unload action to dump them.
+  components:
+  - type: Sprite
+    state: donk_recycler
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 2
+    activePower: 0.4
+    requiredParts:
+    - outerClothing
+  - type: ModRecyclerModule
+    product: BulletFoam
+    whitelist:
+      tags:
+      - Trash
+
+- type: entity
+  parent: BaseModsuitModuleDevice
+  id: ModsuitModuleCriminalCapture
+  name: MOD criminal capture module
+  description: A security take on the patient transport. It wraps a suspect in a sealed hardlight holding bag that they can't get out of and that drags at full speed. It only holds together while the wearer drags it, and leaves them exhausted on the floor when it dissipates.
+  components:
+  - type: Sprite
+    state: criminal_capture
+  - type: ModModule
+    moduleType: Active
+    complexity: 2
+    activePower: 0.8
+    requiredParts:
+    - gloves
+  - type: ModDeviceModule
+    device: ModsuitDeviceCriminalCapture
+
+- type: entity
+  parent: ModsuitDevicePatientTransport
+  id: ModsuitDeviceCriminalCapture
+  name: MOD hardlight capture projector
+  description: Use it on a suspect to seal them in a hardlight holding bag. The bag only holds together while you drag it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: criminal_capture
+  - type: ModPatientTransport
+    bagPrototype: ModsuitCaptureBag
+    captureDelay: 3.5
+
+- type: entity
+  parent: BodyBag
+  id: ModsuitCaptureBag
+  name: hardlight holding bag
+  description: A sealed bag of solid light for hauling suspects around. It can't be opened from either side and dissipates the moment it's let go.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#ff7f7fcc"
+  - type: TileFrictionModifier
+    modifier: 0.1
+  - type: ModCaptureBag
+    captiveComponents:
+    - type: MumbleAccent
+  - type: StaticPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition: {}
+
+- type: entity
+  parent: RedBalloon
+  id: ModsuitBalloonRed
+  suffix: MOD, no cash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BlueBalloon
+  id: ModsuitBalloonBlue
+  suffix: MOD, no cash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: GreenBalloon
+  id: ModsuitBalloonGreen
+  suffix: MOD, no cash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleMagneticHarness
+  name: "MOD magnetic harness module"
+  description: "Based off old TerraGov harness kits, this magnetic harness automatically attaches dropped guns back to the wearer."
+  components:
+  - type: Sprite
+    state: mag_harness
+  - type: ModModule
+    complexity: 2
+    idlePower: 0.2
+    requiredParts:
+    - outerClothing
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: ModMagneticHarness
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleProjectileDampener
+  name: "MOD projectile dampener module"
+  description: "Using technology from peaceborgs, this module weakens all projectiles in nearby range."
+  components:
+  - type: Sprite
+    state: projectile_dampener
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 3
+    activePower: 15
+    cooldown: 1.5
+    requiredParts:
+    - outerClothing
+  - type: ModProjectileDampenerModule
+
+
+- type: entity
+  parent: BaseModsuitModule
+  id: ModsuitModuleShootingAssistant
+  name: "MOD shooting assistant module"
+  description: "A botched prototype meant to boost the TGMC crayon eaters' ability with firearms. It has only two modes available in its configurations: 'Quick Fire Stormtrooper' and 'Slow Ricochet Sharpshooter'."
+  components:
+  - type: Sprite
+    state: shooting_assistant
+  - type: ModModule
+    complexity: 3
+    idlePower: 0.4
+    requiredParts:
+    - gloves
+  - type: ModShootingAssistantModule

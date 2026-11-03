@@ -12,7 +12,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Emp;
 
-public abstract class SharedEmpSystem : EntitySystem
+public abstract partial class SharedEmpSystem : EntitySystem // Goob - partial
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -98,6 +98,9 @@ public abstract class SharedEmpSystem : EntitySystem
         var attemptEv = new EmpAttemptEvent();
         RaiseLocalEvent(uid, ref attemptEv);
         if (attemptEv.Cancelled)
+            return false;
+
+        if (IsEmpWardedByContainer(uid)) // Goob
             return false;
 
         return DoEmpEffects(uid, energyConsumption, duration, user);
