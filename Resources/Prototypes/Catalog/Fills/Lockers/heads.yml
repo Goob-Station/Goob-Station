@@ -4,6 +4,7 @@
   id: LockerFillQuarterMaster
   table: !type:AllSelector
     children:
+    - id: ModsuitPlatingLoader # Goob
     - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
     - id: BoxQMCircuitboards

@@ -102,6 +102,10 @@ modsuit-theme-corporate = corporate
 modsuit-theme-responsory = responsory
 modsuit-theme-apocryphal = apocryphal
 modsuit-theme-praetorian = praetorian
+modsuit-theme-mining = mining
+modsuit-theme-loader = loader
+modsuit-theme-syndicate = syndicate
+modsuit-theme-elite = elite
 
 modsuit-holster-hands-full = Your hands are full!
 modsuit-holster-draw = You draw {THE($item)} from the holster.
@@ -116,3 +120,21 @@ modsuit-clamp-grab = You clamp onto {THE($item)}.
 modsuit-transport-already-linked = You're already transporting someone!
 
 shove-blocked-popup = {CAPITALIZE(THE($target))} doesn't budge!
+
+modsuit-access-denied = The suit refuses your commands!
+modsuit-energy-shield-block = The energy shield flares, absorbing the attack!
+modsuit-energy-shield-examine = The shield has [color=cyan]{$charges}[/color] out of [color=cyan]{$max}[/color] charges.
+modsuit-cloak-broken = Your cloak flickers off!
+modsuit-dna-locked = The suit is now locked to your DNA.
+modsuit-dna-unlocked = The suit's DNA lock disengages.
+modsuit-dna-none = The lock can't read your DNA!
+modsuit-power-kick-charge = You start charging a kick!
+modsuit-power-kick-weightless = You need solid footing to kick!
+modsuit-sphere-no-gravity = There is no gravity to roll on!
+modsuit-sphere-buckled = You can't curl up while buckled!
+modsuit-sphere-missile-pressure = Too much pressure for the micromissiles!
+modsuit-hydraulic-charge = The hydraulic arms start whirring!
+modsuit-magnet-invalid = There's no crate or locker there to grab!
+modsuit-ash-full = The suit is fully covered in ash!
+modsuit-ash-empty = The suit ran out of ash!
+modsuit-candela-empty = The beacon spool is out of marker beacons!

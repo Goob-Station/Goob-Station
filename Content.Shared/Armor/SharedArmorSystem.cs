@@ -21,7 +21,7 @@ namespace Content.Shared.Armor;
 /// <summary>
 ///     This handles logic relating to <see cref="ArmorComponent" />
 /// </summary>
-public abstract class SharedArmorSystem : EntitySystem
+public abstract partial class SharedArmorSystem : EntitySystem // Goob - partial
 {
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
