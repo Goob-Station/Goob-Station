@@ -36,7 +36,7 @@ public sealed partial class ModPowerKickModuleSystem : EntitySystem
             return;
 
         _audio.PlayPredicted(ent.Comp.ChargeSound, user, user);
-        _popup.PopupPredicted(Loc.GetString("modsuit-power-kick-charge"), user, user);
+        _popup.PopupPredicted(Loc.GetString(ent.Comp.ChargePopup), user, user);
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.ChargeTime, new ModPowerKickDoAfterEvent(GetNetCoordinates(args.Target)), ent)
         {
             BreakOnMove = true,
@@ -54,6 +54,8 @@ public sealed partial class ModPowerKickModuleSystem : EntitySystem
         var user = args.User;
         if (IsWeightless(user))
             return;
+
+        _audio.PlayPredicted(ent.Comp.LaunchSound, user, user);
 
         var kicking = EnsureComp<ModPowerKickingComponent>(user);
         kicking.Module = ent;

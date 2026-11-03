@@ -1,9 +1,25 @@
 using Content.Goobstation.Shared.ModSuits.Components;
+using Content.Shared.Hands.Components;
 
 namespace Content.Goobstation.Shared.ModSuits.Systems;
 
 public sealed partial class ModSuitSystem
 {
+    [SubscribeLocalEvent]
+    private void OnUiMessageAttempt(Entity<ModSuitComponent> ent, ref BoundUserInterfaceMessageAttempt args)
+    {
+        if (args.UiKey is ModSuitUiKey && !CanUseInterface(ent, args.Actor))
+            args.Cancel();
+    }
+
+    public bool CanUseInterface(Entity<ModSuitComponent> ent, EntityUid user)
+    {
+        if (ent.Comp.Wearer is { } wearer)
+            return wearer == user;
+
+        return HasComp<HandsComponent>(user);
+    }
+
     [SubscribeLocalEvent]
     private void OnUiActivate(Entity<ModSuitComponent> ent, ref ModSuitActivateMessage args)
     {

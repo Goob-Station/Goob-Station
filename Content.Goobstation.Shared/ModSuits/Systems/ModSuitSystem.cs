@@ -8,6 +8,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -233,7 +234,7 @@ public sealed partial class ModSuitSystem : EntitySystem
             });
         }
 
-        if (user != wearer && !_interaction.InRangeUnobstructed(user, wearer))
+        if (user != wearer && (!HasComp<HandsComponent>(user) || !_interaction.InRangeUnobstructed(user, wearer)))
             return;
 
         var active = ent.Comp.State != ModSuitState.Inactive;
@@ -257,7 +258,7 @@ public sealed partial class ModSuitSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnGetAlternativeVerbs(Entity<ModSuitComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanAccess || !args.CanComplexInteract || ent.Comp.Wearer != null)
+        if (!args.CanAccess || !args.CanComplexInteract || ent.Comp.Wearer != null || !CanUseInterface(ent, args.User))
             return;
 
         var user = args.User;
