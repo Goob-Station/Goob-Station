@@ -115,6 +115,9 @@ public sealed partial class ModSuitSystem
         if (!TryComp<ModModuleComponent>(moduleUid, out var moduleComp))
             return false;
 
+        if (user != null && !CanAccess(ent, user.Value))
+            return false;
+
         var module = (moduleUid, moduleComp);
         if (!CanInstallModule(ent, module, out var reason))
         {
@@ -161,6 +164,9 @@ public sealed partial class ModSuitSystem
     public bool TryRemoveModule(Entity<ModSuitComponent> ent, EntityUid moduleUid, EntityUid? user)
     {
         if (!TryComp<ModModuleComponent>(moduleUid, out var moduleComp) || !ent.Comp.ModulesContainer.Contains(moduleUid))
+            return false;
+
+        if (user != null && !CanAccess(ent, user.Value))
             return false;
 
         if (!moduleComp.Removable)
@@ -250,6 +256,9 @@ public sealed partial class ModSuitSystem
 
         var suit = (suitUid, suitComp);
         var module = (moduleUid, moduleComp);
+
+        if (!CanAccess(suit, user))
+            return false;
 
         switch (moduleComp.Type)
         {
@@ -380,6 +389,45 @@ public sealed partial class ModSuitSystem
         }
 
         RefreshDrain(suit);
+    }
+
+    public bool CanAccess(Entity<ModSuitComponent> suit, EntityUid user)
+    {
+        var ev = new ModSuitAccessAttemptEvent(user);
+        foreach (var module in suit.Comp.ModulesContainer.ContainedEntities)
+        {
+            RaiseLocalEvent(module, ref ev);
+            if (!ev.Cancelled)
+                continue;
+
+            PopupFail(suit, user, "modsuit-access-denied");
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool TryStartModuleUse(EntityUid moduleUid, EntityUid user)
+    {
+        if (!TryComp<ModModuleComponent>(moduleUid, out var moduleComp) || !TryGetModuleSuit(moduleUid, out var suit))
+            return false;
+
+        var module = (moduleUid, moduleComp);
+        if (!CanAccess(suit, user) || !CanUseModule(suit, module, user))
+            return false;
+
+        TryUseCharge(suit, moduleComp.UsePower);
+        StartCooldown(module);
+        return true;
+    }
+
+    public void RelayToActiveModules(Entity<ModSuitComponent> suit, object ev)
+    {
+        foreach (var module in suit.Comp.ModulesContainer.ContainedEntities)
+        {
+            if (TryComp<ModModuleComponent>(module, out var moduleComp) && moduleComp.Active)
+                RaiseLocalEvent(module, ev);
+        }
     }
 
     public bool TryGetModuleSuit(EntityUid moduleUid, out Entity<ModSuitComponent> suit)

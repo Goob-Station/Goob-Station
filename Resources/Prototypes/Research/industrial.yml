@@ -296,6 +296,7 @@
   recipeUnlocks:
   - PowerCellMicroreactor
   - PowerCellHyper
+  - ModsuitCoreStandardMicroreactor # Goob
   technologyPrerequisites:
   - AdvancedToolsTechnology  # Goobstation R&D Console rework
   - AdvancedPowercells  # Goobstation R&D Console rework
