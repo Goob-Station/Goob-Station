@@ -49,13 +49,13 @@
     interval: 1
     damage:
       groups:
-        Brute: -1
-        Burn: -1
+        Brute: -0.5
+        Burn: -0.5
     useRange: 5
     applyOnCrit:
       groups:
-        Brute: -40
-        Burn: -40
+        Brute: -25
+        Burn: -25
     useSpeech: FlagpoleInspireSpeech
   - type: Construction
     graph: FlagpoleNanotrasen
