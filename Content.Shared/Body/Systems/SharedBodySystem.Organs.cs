@@ -288,7 +288,7 @@ public partial class SharedBodySystem
             return;
 
         // I hate having to hardcode these checks so much.
-        if (HasComp<EyesComponent>(organEnt) || HasComp<TongueComponent>(organEnt))
+        if (HasComp<EyesComponent>(organEnt))
         {
             var ev = new OrganEnabledEvent(organEnt);
             RaiseLocalEvent(organEnt, ref ev);
@@ -301,7 +301,7 @@ public partial class SharedBodySystem
             return;
 
         // I hate having to hardcode these checks so much.
-        if (HasComp<EyesComponent>(organEnt) || HasComp<TongueComponent>(organEnt))
+        if (HasComp<EyesComponent>(organEnt))
         {
             var ev = new OrganDisabledEvent(organEnt);
             RaiseLocalEvent(organEnt, ref ev);

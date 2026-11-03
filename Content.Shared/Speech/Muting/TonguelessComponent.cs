@@ -1,6 +1,4 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Shared.Speech.Muting;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class TonguelessComponent : Component;
