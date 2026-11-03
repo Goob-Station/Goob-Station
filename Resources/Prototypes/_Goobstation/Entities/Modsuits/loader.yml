@@ -2,7 +2,7 @@
   parent: [ ClothingModsuitStandard, BaseCargoContraband ]
   id: ClothingModsuitLoader
   name: loader modsuit control unit
-  description: An unsealed experimental motorized harness manufactured by Scarborough Arms for quick and efficient munition supplies. What it lacks in EVA protection, it makes up for in strength and flexibility.
+  description: "An unsealed experimental motorized harness manufactured by Scarborough Arms for quick and efficient munition supplies."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/loader.rsi
