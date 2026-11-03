@@ -37,54 +37,78 @@
   - ModsuitGauntlets
   - ModsuitShell
   - ModsuitPlatingExternal
-  - ModsuitPlatingParamedic
-  - ModsuitPlatingEngineer
-  - ModsuitPlatingAtmostech
 
 - type: latheRecipePack
   id: ModsuitModules
   recipes:
   - ModsuitCoreStandard
   - ModsuitCorePlasma
+  - ModsuitCoreStandardMicroreactor
   - ModsuitModuleStorageCompact
   - ModsuitModuleStorageLarge
   - ModsuitModuleStorageBluespace
   - ModsuitModuleFlashlight
-  - ModsuitModuleMouthhole
-  - ModsuitModuleMagboots
   - ModsuitModuleWelding
   - ModsuitModuleThermalRegulator
   - ModsuitModuleGps
+  - ModsuitModuleVisorDiagnostic
+  - ModsuitModuleReagentScanner
+
+
+- type: latheRecipePack
+  id: ModsuitEngineering
+  recipes:
+  - ModsuitPlatingEngineer
+  - ModsuitPlatingAtmostech
+  - ModsuitModuleMagboots
+  - ModsuitModuleTRay
+  - ModsuitModuleTether
+  - ModsuitModuleMister
+  - ModsuitModuleHeadProtector
+  - ModsuitModuleJetpack
+  - ModsuitModuleRadProtection
+  - ModsuitModuleResinMister
+  - ModsuitModuleAntiGravity
+
+- type: latheRecipePack
+  id: ModsuitMedical
+  recipes:
+  - ModsuitPlatingParamedic
   - ModsuitModuleHealthAnalyzer
   - ModsuitModuleVisorMedical
-  - ModsuitModuleVisorDiagnostic
-  - ModsuitModuleVisorSecurity
-  - ModsuitModuleEmpShield
-  - ModsuitModuleJetpack
   - ModsuitModuleQuickCarry
   - ModsuitModuleInjector
   - ModsuitModuleDefibrillator
   - ModsuitModulePatientTransport
   - ModsuitModuleThreadRipper
-  - ModsuitModuleTRay
-  - ModsuitModuleRadProtection
-  - ModsuitModuleHeadProtector
-  - ModsuitModuleTether
-  - ModsuitModuleMister
-  - ModsuitModuleResinMister
+
+- type: latheRecipePack
+  id: ModsuitSecurity
+  recipes:
+  - ModsuitPlatingSecurity
+  - ModsuitPlatingBrigMed
+  - ModsuitModuleVisorSecurity
   - ModsuitModuleHolster
   - ModsuitModuleMegaphone
   - ModsuitModulePepperShoulders
   - ModsuitModuleRestraintAssist
   - ModsuitModuleBulwark
-  - ModsuitModuleDrill
-  - ModsuitModuleOreBag
-  - ModsuitModuleClamp
-  - ModsuitModuleReagentScanner
-  - ModsuitModuleAntiGravity
+  - ModsuitModuleEmpShield
+
+- type: latheRecipePack
+  id: ModsuitService
+  recipes:
   - ModsuitModuleBikeHorn
   - ModsuitModuleWaddle
   - ModsuitModuleJanitorMister
+  - ModsuitModuleMouthhole
+
+- type: latheRecipePack
+  id: ModsuitSupply
+  recipes:
+  - ModsuitModuleDrill
+  - ModsuitModuleOreBag
+  - ModsuitModuleClamp
 
 - type: latheRecipePack
   id: BorgModulesGoob

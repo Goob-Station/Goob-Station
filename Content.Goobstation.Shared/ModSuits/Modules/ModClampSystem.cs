@@ -9,21 +9,38 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.ModSuits.Modules;
 
 public sealed partial class ModClampSystem : EntitySystem
 {
+    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     [SubscribeLocalEvent]
     private void OnInit(Entity<ModClampComponent> ent, ref ComponentInit args)
     {
         ent.Comp.Container = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnStored(Entity<ModClampComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    {
+        if (!_timing.ApplyingState && HasComp<ModDeviceModuleComponent>(args.Container.Owner))
+            DropAll(ent);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnTerminating(Entity<ModClampComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (!_timing.ApplyingState)
+            DropAll(ent);
     }
 
     [SubscribeLocalEvent]
@@ -94,6 +111,14 @@ public sealed partial class ModClampSystem : EntitySystem
         var item = ent.Comp.Container.ContainedEntities[^1];
         _container.Remove(item, ent.Comp.Container, destination: GetCoordinates(args.Coordinates));
         _audio.PlayPredicted(ent.Comp.Sound, ent, args.User);
+    }
+
+    private void DropAll(Entity<ModClampComponent> ent)
+    {
+        if (ent.Comp.Container == null || ent.Comp.Container.ContainedEntities.Count == 0)
+            return;
+
+        _container.EmptyContainer(ent.Comp.Container, true, _transform.GetMoverCoordinates(ent));
     }
 
     private bool CanGrab(Entity<ModClampComponent> ent, EntityUid target, EntityUid user)

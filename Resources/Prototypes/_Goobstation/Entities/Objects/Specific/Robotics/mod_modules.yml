@@ -131,7 +131,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 1
-    activePower: 0.1
+    activePower: 0.4
     requiredParts:
     - head
   - type: ModLightModule
@@ -147,7 +147,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 2
-    activePower: 0.1
+    activePower: 0.4
     requiredParts:
     - shoes
     incompatible:
@@ -176,7 +176,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 1
-    activePower: 0.05
+    activePower: 0.2
     requiredParts:
     - head
     incompatible:
@@ -244,13 +244,12 @@
     state: welding
   - type: ModModule
     complexity: 1
-    idlePower: 0.05
+    idlePower: 0.1
     requiredParts:
     - head
   - type: ModGrantComponentsModule
     slot: head
     components:
-    - type: FlashImmunity
     - type: EyeProtection
 
 - type: entity
@@ -273,7 +272,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 1
-    activePower: 0.05
+    activePower: 0.2
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -290,7 +289,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 1
-    activePower: 0.05
+    activePower: 0.2
   - type: ModDeviceModule
     device: ModsuitDeviceGps
 
@@ -306,7 +305,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 3
-    activePower: 0.5
+    activePower: 20
     requiredParts:
     - outerClothing
     incompatible:
@@ -330,7 +329,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 1
-    activePower: 0.3
+    activePower: 1.2
   - type: ModThermalRegulatorModule
 
 - type: entity
@@ -343,7 +342,7 @@
     state: empshield
   - type: ModModule
     complexity: 1
-    idlePower: 0.1
+    idlePower: 0.2
   - type: ModEmpShieldModule
 
 - type: entity
@@ -397,7 +396,7 @@
   - type: ModModule
     moduleType: Toggle
     removable: false
-    activePower: 0.2
+    activePower: 0.8
     requiredParts:
     - head
   - type: ModGrantComponentsModule
@@ -410,6 +409,27 @@
 
 - type: entity
   parent: BaseModsuitModuleBuiltin
+  id: ModsuitModuleBuiltinNightVision
+  name: integrated night vision
+  description: Light amplification built into the helmet's visor, letting the wearer see in the dark.
+  components:
+  - type: Sprite
+    state: night_visor
+  - type: ModModule
+    moduleType: Toggle
+    removable: false
+    activePower: 0.4
+    requiredParts:
+    - head
+  - type: ModGrantComponentsModule
+    slot: head
+    components:
+    - type: NightVision
+      isEquipment: true
+      isActive: true
+
+- type: entity
+  parent: BaseModsuitModuleBuiltin
   id: ModsuitModuleBuiltinSecHud
   name: integrated security visor
   description: A security heads-up display built into the helmet, showing job, mindshield and criminal record status.
@@ -419,7 +439,7 @@
   - type: ModModule
     moduleType: Toggle
     removable: false
-    activePower: 0.05
+    activePower: 0.2
     requiredParts:
     - head
   - type: ModGrantComponentsModule
@@ -441,7 +461,7 @@
   - type: ModModule
     moduleType: Toggle
     removable: false
-    activePower: 0.05
+    activePower: 0.2
     requiredParts:
     - head
   - type: ModGrantComponentsModule
@@ -571,7 +591,7 @@
     state: carry
   - type: ModModule
     complexity: 1
-    idlePower: 0.05
+    idlePower: 0.1
     requiredParts:
     - gloves
   - type: ModGrantComponentsModule
@@ -591,7 +611,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 1
-    activePower: 0.05
+    activePower: 0.2
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -608,7 +628,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 2
-    activePower: 0.3
+    activePower: 1.2
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -625,7 +645,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 2
-    activePower: 0.2
+    activePower: 0.8
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -642,7 +662,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 2
-    activePower: 0.1
+    activePower: 0.4
     requiredParts:
     - gloves
   - type: ModGrantComponentsModule
@@ -661,7 +681,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 1
-    activePower: 0.1
+    activePower: 0.4
     requiredParts:
     - head
   - type: ModGrantComponentsModule
@@ -681,7 +701,7 @@
     state: radshield
   - type: ModModule
     complexity: 2
-    idlePower: 0.1
+    idlePower: 0.2
   - type: ModArmorModule
     modifiers:
       coefficients:
@@ -700,6 +720,8 @@
     requiredParts:
     - head
   - type: ModArmorModule
+    slots:
+    - head
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -715,7 +737,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 2
-    activePower: 0.1
+    activePower: 0.4
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -732,7 +754,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 2
-    activePower: 0.1
+    activePower: 0.4
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -750,7 +772,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 2
-    activePower: 0.2
+    activePower: 0.8
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -788,7 +810,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 1
-    activePower: 0.05
+    activePower: 0.2
     requiredParts:
     - head
   - type: Loudspeaker
@@ -808,7 +830,7 @@
   - type: ModModule
     moduleType: Usable
     complexity: 1
-    usePower: 5
+    usePower: 15
     cooldown: 15
   - type: ModSpawnModule
     prototype: ModsuitPepperSmokeEffect
@@ -841,7 +863,7 @@
     state: bulwark
   - type: ModModule
     complexity: 3
-    idlePower: 0.1
+    idlePower: 0.2
     requiredParts:
     - shoes
   - type: ModGrantComponentsModule
@@ -860,7 +882,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 1
-    activePower: 0.1
+    activePower: 0.4
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -877,7 +899,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 1
-    activePower: 0.05
+    activePower: 0.2
     requiredParts:
     - gloves
   - type: ModGrantComponentsModule
@@ -909,7 +931,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 3
-    activePower: 0.1
+    activePower: 0.4
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -926,7 +948,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 1
-    activePower: 0.05
+    activePower: 0.2
     requiredParts:
     - head
   - type: ModGrantComponentsModule
@@ -945,7 +967,7 @@
   - type: ModModule
     moduleType: Toggle
     complexity: 2
-    activePower: 0.3
+    activePower: 1.2
     incompatible:
       tags:
       - ModsuitModuleGravity
@@ -969,7 +991,7 @@
   - type: ModModule
     moduleType: Usable
     complexity: 1
-    usePower: 1
+    usePower: 3
     cooldown: 1
   - type: ModSoundModule
     sound:
@@ -987,7 +1009,7 @@
     state: waddle
   - type: ModModule
     complexity: 1
-    idlePower: 0.05
+    idlePower: 0.1
     requiredParts:
     - shoes
   - type: ModGrantComponentsModule
@@ -1006,7 +1028,7 @@
   - type: ModModule
     moduleType: Active
     complexity: 2
-    activePower: 0.1
+    activePower: 0.4
     requiredParts:
     - gloves
   - type: ModDeviceModule
@@ -1258,3 +1280,260 @@
         Quantity: 30
   - type: EmitSoundOnTrigger
     sound: /Audio/Effects/smoke.ogg
+
+- type: entity
+  abstract: true
+  parent: [ BaseModsuitModule, BaseSyndicateContraband ]
+  id: BaseModsuitModuleSyndicate
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Glass: 50
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModuleArmorBooster
+  name: MOD armor booster module
+  description: A retrofitted series of retractable armor plates, allowing the suit to function as essentially power armor. However, the additional plating cannot deploy alongside the parts of the suit used for vacuum sealing, so the suit offers no protection from the void while it's active.
+  components:
+  - type: Sprite
+    state: armor_booster
+  - type: ModModule
+    complexity: 2
+    idlePower: 0.6
+  - type: ModArmorModule
+    slots:
+    - head
+    - outerClothing
+    - gloves
+    - shoes
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.7
+        Heat: 0.85
+  - type: ModSpeedModule
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: ModStripComponentsModule
+    components:
+    - PressureProtection
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModuleEnergyShield
+  name: MOD energy shield module
+  description: A personal, protective forcefield typically seen in military applications. It is capable of blocking nearly any incoming attack, but only once every few seconds; a grim reminder of the user's mortality.
+  components:
+  - type: Sprite
+    state: energy_shield
+  - type: ModModule
+    complexity: 3
+    idlePower: 0.8
+  - type: ModEnergyShieldModule
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModuleNoSlip
+  name: MOD anti slip module
+  description: A modified variant of standard magnetic boots, utilizing piezoelectric crystals on the soles to keep the wearer upright on slippery floors.
+  components:
+  - type: Sprite
+    state: noslip
+  - type: ModModule
+    complexity: 1
+    idlePower: 0.1
+    requiredParts:
+    - shoes
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: NoSlip
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModulePlateCompression
+  name: MOD plate compression module
+  description: A module that keeps the suit in a very tightly fit state, letting the control unit fit in a bag. Due to the pressure on all the parts, typical storage modules do not fit.
+  components:
+  - type: Sprite
+    state: plate_compression
+  - type: ModModule
+    complexity: 2
+    allowFlags: Inactive
+    incompatible:
+      tags:
+      - ModsuitModuleStorage
+  - type: ModPlateCompressionModule
+  - type: Tag
+    tags:
+    - ModsuitModule
+    - ModsuitModuleStorage
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModuleChameleon
+  name: MOD chameleon module
+  description: A module using chameleon technology to disguise the control unit as another backpack.
+  components:
+  - type: Sprite
+    state: chameleon
+  - type: ModModule
+    moduleType: Usable
+    complexity: 1
+    allowFlags:
+    - Inactive
+    - Unworn
+  - type: ModChameleonModule
+    components:
+    - type: ChameleonClothing
+      slot: [back]
+      default: ClothingModsuitStandard
+  - type: ModOpenUiModule
+    key: enum.ChameleonUiKey.Key
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModuleEmpPulse
+  name: MOD EMP pulse module
+  description: A suit-mounted EMP emitter that releases an electromagnetic pulse around the wearer. The suit's own systems are shielded from the blast.
+  components:
+  - type: Sprite
+    state: emp_pulse
+  - type: ModModule
+    moduleType: Usable
+    complexity: 1
+    usePower: 60
+    cooldown: 30
+  - type: ModEmpPulseModule
+  - type: ModEmpShieldModule
+    requireActive: false
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModuleCloak
+  name: MOD prototype cloaking module
+  description: A module that bends light around the wearer, rendering them nearly invisible while they stand still. Attacking, shooting or getting hit breaks the cloak.
+  components:
+  - type: Sprite
+    state: cloak_traitor
+  - type: ModModule
+    moduleType: Toggle
+    complexity: 2
+    activePower: 1.6
+    cooldown: 5
+  - type: ModCloakModule
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: Stealth
+      enabledOnDeath: false
+      enabledOnCrit: false
+    - type: StealthOnMove
+      passiveVisibilityRate: -0.4
+      movementVisibilityRate: 0.7
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModuleAdrenalineBoost
+  name: MOD adrenaline boost module
+  description: An emergency injector that floods the wearer with stimulants, shaking off stuns and pushing their body past its limits.
+  components:
+  - type: Sprite
+    state: adrenaline_boost
+  - type: ModModule
+    moduleType: Usable
+    complexity: 2
+    usePower: 90
+    cooldown: 120
+    allowFlags: Incapacitated
+  - type: ModInjectModule
+    clearStuns: true
+    solution:
+      reagents:
+      - ReagentId: Stimulants
+        Quantity: 10
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModuleDnaLock
+  name: MOD DNA lock module
+  description: A module which engages with the various locks and seals tied to the suit's systems, letting only the wearer whose DNA it has recorded activate or modify the suit.
+  components:
+  - type: Sprite
+    state: dnalock
+  - type: ModModule
+    moduleType: Usable
+    complexity: 1
+    allowFlags: Inactive
+  - type: ModDnaLockModule
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModuleInfiltrator
+  name: MOD infiltration core programs module
+  description: The primary stealth systems operating within the suit. Utilizing electromagnetic signals, the wearer's footsteps are silenced and their voice is masked.
+  components:
+  - type: Sprite
+    state: infiltrator
+  - type: ModModule
+    complexity: 1
+    requiredParts:
+    - head
+    - shoes
+  - type: ModGrantComponentsModule
+    target: Wearer
+    components:
+    - type: FootstepModifier
+    - type: VoiceOverride
+      nameOverride: Unknown
+
+- type: entity
+  parent: BaseModsuitModuleSyndicate
+  id: ModsuitModulePowerKick
+  name: MOD power kick module
+  description: This module uses high-power myomer to generate an incredible amount of energy, launching the wearer at a target with a devastating kick.
+  components:
+  - type: Sprite
+    state: power_kick
+  - type: ModModule
+    moduleType: Usable
+    complexity: 2
+    usePower: 45
+    cooldown: 5
+    action: ActionModPowerKick
+    requiredParts:
+    - shoes
+  - type: ModPowerKickModule
+    damage:
+      types:
+        Blunt: 20
+
+- type: entity
+  parent: [ BaseModsuitModuleDevice, BaseSyndicateContraband ]
+  id: ModsuitModuleMedbeam
+  name: MOD medical beamgun module
+  description: A wrist mounted variant of the medical beam gun, allowing the user to heal their allies without the risk of dropping it.
+  components:
+  - type: Sprite
+    state: chronogun
+  - type: ModModule
+    moduleType: Active
+    complexity: 1
+    activePower: 2
+  - type: ModDeviceModule
+    device: ModsuitDeviceMedbeam
+
+- type: entity
+  parent: MedicalBeamGun
+  id: ModsuitDeviceMedbeam
+  name: MOD medical beamgun
+  description: A medical beam gun extending from the suit's wrist.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaticPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition: {}

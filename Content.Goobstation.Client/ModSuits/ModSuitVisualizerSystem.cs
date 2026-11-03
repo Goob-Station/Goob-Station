@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Client.Clothing;
 using Content.Goobstation.Shared.ModSuits.Components;
 using Content.Shared.Clothing;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Robust.Client.GameObjects;
@@ -17,7 +18,8 @@ public sealed partial class ModSuitVisualizerSystem : VisualizerSystem<ModSuitSe
     {
         if (!TryComp(ent, out AppearanceComponent? appearance)
             || !AppearanceSystem.TryGetData<bool>(ent, ModSuitVisuals.Sealed, out var isSealed, appearance)
-            || !isSealed)
+            || !isSealed
+            || IsDisguised(ent))
             return;
 
         if (!ent.Comp.ClothingVisuals.TryGetValue(args.Slot, out var layers))
@@ -42,13 +44,22 @@ public sealed partial class ModSuitVisualizerSystem : VisualizerSystem<ModSuitSe
         }
     }
 
+    private bool IsDisguised(EntityUid uid)
+    {
+        if (!TryComp<ChameleonClothingComponent>(uid, out var chameleon))
+            return false;
+
+        var selected = chameleon.Default;
+        return selected != null && MetaData(uid).EntityPrototype?.ID != selected.Value.Id;
+    }
+
     protected override void OnAppearanceChange(EntityUid uid, ModSuitSealedVisualsComponent component, ref AppearanceChangeEvent args)
     {
         if (!AppearanceSystem.TryGetData<bool>(uid, ModSuitVisuals.Sealed, out var isSealed, args.Component))
             return;
 
         if (args.Sprite != null && SpriteSystem.LayerMapTryGet((uid, args.Sprite), component.SpriteLayer, out var layer, false))
-            SpriteSystem.LayerSetVisible((uid, args.Sprite), layer, isSealed);
+            SpriteSystem.LayerSetVisible((uid, args.Sprite), layer, isSealed && !IsDisguised(uid));
 
         _item.VisualsChanged(uid);
     }

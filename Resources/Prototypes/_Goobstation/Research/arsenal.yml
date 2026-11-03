@@ -256,6 +256,9 @@
   - ModsuitModulePepperShoulders
   - ModsuitModuleRestraintAssist
   - ModsuitModuleBulwark
+  - ModsuitModuleEmpShield
+  - ModsuitPlatingSecurity
+  - ModsuitPlatingBrigMed
   position: 4,1
   technologyPrerequisites:
   - ModsuitsTech
