@@ -1,4 +1,4 @@
-namespace Content.Shared._Shitcode.Wizard.FistFight;
+namespace Content.Goobstation.Shared.Wizard.FistFight;
 
 [RegisterComponent]
 public sealed partial class WizardFistFightCornerComponent : Component

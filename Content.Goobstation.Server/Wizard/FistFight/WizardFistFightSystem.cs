@@ -8,7 +8,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Spawners.Components;
 using Content.Server.Store.Systems;
 using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Shitcode.Wizard.FistFight;
+using Content.Goobstation.Shared.Wizard.FistFight;
 using Content.Shared.Actions.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Buckle;
@@ -43,7 +43,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
-namespace Content.Server._Shitcode.Wizard.FistFight;
+namespace Content.Goobstation.Server.Wizard.FistFight;
 
 public sealed partial class WizardFistFightSystem : GameRuleSystem<WizardFistFightRuleComponent>
 {
@@ -72,32 +72,9 @@ public sealed partial class WizardFistFightSystem : GameRuleSystem<WizardFistFig
     private const string Currency = "WizCoin";
     private const string PacifiedStatus = "Pacified";
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<MindContainerComponent, WizardFistFightEvent>(OnPurchased);
-        SubscribeLocalEvent<WizardFistFightRuleComponent, RuleLoadedGridsEvent>(OnGridsLoaded);
-        SubscribeLocalEvent<WizardFistFightChallengerComponent, MindAddedMessage>(OnChallengerMindAdded);
-
-        SubscribeLocalEvent<ActionComponent, BeforeCastSpellEvent>(OnBeforeCastSpell);
-
-        SubscribeLocalEvent<WizardFistFighterComponent, InteractionAttemptEvent>(OnFighterInteractAttempt);
-        SubscribeLocalEvent<WizardFistFighterComponent, UseAttemptEvent>(OnFighterBlockedAttempt);
-        SubscribeLocalEvent<WizardFistFighterComponent, PickupAttemptEvent>(OnFighterBlockedAttempt);
-        SubscribeLocalEvent<WizardFistFighterComponent, DropAttemptEvent>(OnFighterBlockedAttempt);
-        SubscribeLocalEvent<WizardFistFighterComponent, ThrowAttemptEvent>(OnFighterBlockedAttempt);
-        SubscribeLocalEvent<WizardFistFighterComponent, IsEquippingAttemptEvent>(OnFighterBlockedAttempt);
-        SubscribeLocalEvent<WizardFistFighterComponent, IsUnequippingAttemptEvent>(OnFighterBlockedAttempt);
-        SubscribeLocalEvent<WizardFistFighterComponent, PullAttemptEvent>(OnFighterPullAttempt);
-        SubscribeLocalEvent<WizardFistFighterComponent, AttackAttemptEvent>(OnFighterAttackAttempt);
-
-        SubscribeLocalEvent<WizardFistFighterComponent, PolymorphedEvent>(OnFighterPolymorphed);
-        SubscribeLocalEvent<WizardFistFightSpectatorComponent, PolymorphedEvent>(OnSpectatorPolymorphed);
-    }
-
     #region Setup
 
+    [SubscribeLocalEvent]
     private void OnPurchased(Entity<MindContainerComponent> ent, ref WizardFistFightEvent args)
     {
         var buyer = ent.Owner;
@@ -130,6 +107,7 @@ public sealed partial class WizardFistFightSystem : GameRuleSystem<WizardFistFig
         _adminLog.Add(LogType.EventRan, LogImpact.High, $"{ToPrettyString(buyer):player} started the wizard fist fight event.");
     }
 
+    [SubscribeLocalEvent]
     private void OnGridsLoaded(Entity<WizardFistFightRuleComponent> ent, ref RuleLoadedGridsEvent args)
     {
         var comp = ent.Comp;
@@ -155,6 +133,7 @@ public sealed partial class WizardFistFightSystem : GameRuleSystem<WizardFistFig
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnChallengerMindAdded(Entity<WizardFistFightChallengerComponent> ent, ref MindAddedMessage args)
     {
         if (!TryGetActiveRule(out var ruleUid, out var comp)
@@ -758,6 +737,7 @@ public sealed partial class WizardFistFightSystem : GameRuleSystem<WizardFistFig
     /// There's probably more than a few ways someone can polymorph a wiz that's fighting.
     /// Not gonna tattle tho.
     /// </summary>
+    [SubscribeLocalEvent]
     private void OnFighterPolymorphed(Entity<WizardFistFighterComponent> ent, ref PolymorphedEvent args)
     {
         if (args.OldEntity != ent.Owner || !TryGetActiveRule(out _, out var comp))
@@ -792,6 +772,7 @@ public sealed partial class WizardFistFightSystem : GameRuleSystem<WizardFistFig
         Teleport(args.NewEntity, FindCornerCoordinates(comp, fresh.Corner));
     }
 
+    [SubscribeLocalEvent]
     private void OnSpectatorPolymorphed(Entity<WizardFistFightSpectatorComponent> ent, ref PolymorphedEvent args)
     {
         if (args.OldEntity != ent.Owner)
@@ -820,6 +801,7 @@ public sealed partial class WizardFistFightSystem : GameRuleSystem<WizardFistFig
         return found;
     }
 
+    [SubscribeLocalEvent]
     private void OnBeforeCastSpell(Entity<ActionComponent> ent, ref BeforeCastSpellEvent args)
     {
         if (args.Cancelled)
@@ -832,21 +814,55 @@ public sealed partial class WizardFistFightSystem : GameRuleSystem<WizardFistFig
         _popup.PopupEntity(Loc.GetString("wizard-fistfight-no-magic"), args.Performer, args.Performer, PopupType.MediumCaution);
     }
 
+    [SubscribeLocalEvent]
     private void OnFighterInteractAttempt(Entity<WizardFistFighterComponent> ent, ref InteractionAttemptEvent args)
     {
         args.Cancelled = true;
     }
 
-    private void OnFighterBlockedAttempt(EntityUid uid, WizardFistFighterComponent comp, CancellableEntityEventArgs args)
+    [SubscribeLocalEvent]
+    private void OnFighterUseAttempt(Entity<WizardFistFighterComponent> ent, ref UseAttemptEvent args)
     {
         args.Cancel();
     }
 
+    [SubscribeLocalEvent]
+    private void OnFighterPickupAttempt(Entity<WizardFistFighterComponent> ent, ref PickupAttemptEvent args)
+    {
+        args.Cancel();
+    }
+
+    [SubscribeLocalEvent]
+    private void OnFighterDropAttempt(Entity<WizardFistFighterComponent> ent, ref DropAttemptEvent args)
+    {
+        args.Cancel();
+    }
+
+    [SubscribeLocalEvent]
+    private void OnFighterThrowAttempt(Entity<WizardFistFighterComponent> ent, ref ThrowAttemptEvent args)
+    {
+        args.Cancel();
+    }
+
+    [SubscribeLocalEvent]
+    private void OnFighterEquipAttempt(Entity<WizardFistFighterComponent> ent, ref IsEquippingAttemptEvent args)
+    {
+        args.Cancel();
+    }
+
+    [SubscribeLocalEvent]
+    private void OnFighterUnequipAttempt(Entity<WizardFistFighterComponent> ent, ref IsUnequippingAttemptEvent args)
+    {
+        args.Cancel();
+    }
+
+    [SubscribeLocalEvent]
     private void OnFighterPullAttempt(Entity<WizardFistFighterComponent> ent, ref PullAttemptEvent args)
     {
         args.Cancelled = true;
     }
 
+    [SubscribeLocalEvent]
     private void OnFighterAttackAttempt(Entity<WizardFistFighterComponent> ent, ref AttackAttemptEvent args)
     {
         if (args.Cancelled)
