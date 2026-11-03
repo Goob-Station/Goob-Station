@@ -132,7 +132,9 @@
   tier: 2
   cost: 7500
   recipeUnlocks:
+  - ModsuitPlatingMining
   - ModsuitModuleDrill
+  - ModsuitModuleCandelaSpool
   - ModsuitModuleOreBag
   - ModsuitModuleClamp
   position: -4,-4

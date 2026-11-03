@@ -384,6 +384,12 @@ public sealed partial class ModPowerKickModuleComponent : Component
 
     [DataField]
     public SoundSpecifier? HitSound = new SoundPathSpecifier("/Audio/Weapons/punch3.ogg");
+
+    [DataField]
+    public SoundSpecifier? LaunchSound;
+
+    [DataField]
+    public LocId ChargePopup = "modsuit-power-kick-charge";
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

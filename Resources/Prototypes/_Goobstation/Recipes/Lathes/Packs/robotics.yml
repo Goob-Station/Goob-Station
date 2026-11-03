@@ -106,6 +106,8 @@
 - type: latheRecipePack
   id: ModsuitSupply
   recipes:
+  - ModsuitPlatingMining
+  - ModsuitModuleCandelaSpool
   - ModsuitModuleDrill
   - ModsuitModuleOreBag
   - ModsuitModuleClamp

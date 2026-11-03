@@ -1,0 +1,222 @@
+uniform highp vec2 anchor;
+uniform highp vec2 spriteRight;
+uniform highp vec2 spriteUp;
+uniform highp vec2 cellSize;
+uniform highp vec3 rowX;
+uniform highp vec3 rowY;
+uniform highp vec3 rowZ;
+uniform highp vec4 primaryColor;
+uniform highp vec4 darkColor;
+uniform highp vec4 accentColor;
+uniform highp float morph;
+uniform highp float squash;
+uniform highp vec2 squashDir;
+
+const highp float RADIUS = 10.0;
+const highp float BOTTOM = -15.0;
+const highp float PLATE = 60.0;
+const highp float CAP = 50.0;
+const highp float BAND = 10.0;
+const highp vec3 LIGHT = vec3(-0.54259, 0.64124, 0.54259);
+
+highp vec2 spriteToUV(highp vec2 spritePx) {
+    highp vec2 snapped = floor(spritePx) + vec2(0.5);
+    highp vec2 screen = spriteRight * snapped.x * cellSize.x + spriteUp * snapped.y * cellSize.y + anchor;
+    return vec2(0.5) + screen * TEXTURE_PIXEL_SIZE;
+}
+
+highp float ballGrow() {
+    return smoothstep(0.1, 0.8, morph);
+}
+
+highp vec2 squashAxis() {
+    highp float len = length(squashDir);
+    if (len < 0.001) {
+        return vec2(0.0, -1.0);
+    }
+
+    return squashDir / len;
+}
+
+highp vec2 ballEllipse(highp vec2 p) {
+    highp float grow = max(ballGrow(), 0.001);
+    highp float amount = 0.14 * squash;
+    highp vec2 axis = squashAxis();
+    highp vec2 side = vec2(-axis.y, axis.x);
+    highp vec2 center = vec2(0.0, BOTTOM + RADIUS * grow) + axis * RADIUS * grow * amount;
+    highp vec2 d = p - center;
+    return vec2(dot(d, axis) / (RADIUS * grow * (1.0 - amount)), dot(d, side) / (RADIUS * grow * (1.0 + amount)));
+}
+
+bool ballNormal(highp vec2 p, out highp vec3 n) {
+    highp vec2 e = ballEllipse(p);
+    highp vec2 axis = squashAxis();
+    highp vec2 side = vec2(-axis.y, axis.x);
+    highp float r2 = dot(e, e);
+    n = vec3(axis * e.x + side * e.y, sqrt(max(1.0 - r2, 0.0)));
+    return r2 < 0.985;
+}
+
+highp float shellRegion(highp vec3 n, out highp float lon) {
+    highp vec3 m = vec3(dot(rowX, n), dot(rowY, n), dot(rowZ, n));
+    highp float lat = degrees(asin(clamp(m.y, -1.0, 1.0)));
+    lon = degrees(atan(m.x, m.z));
+
+    highp float lonOff = mod(lon + PLATE * 0.5, PLATE) - PLATE * 0.5;
+    highp float cosLat = cos(radians(lat));
+    highp float absLat = abs(lat);
+
+    if (abs(radians(absLat - CAP)) * RADIUS < 0.6 || abs(radians(absLat - BAND)) * RADIUS < 0.6) {
+        return 0.0;
+    }
+
+    if (absLat > CAP) {
+        return 1.0;
+    }
+
+    if (absLat < BAND) {
+        if (absLat < BAND * 0.7 && abs(radians(lonOff)) * cosLat * RADIUS < 0.8) {
+            return 3.0;
+        }
+        return 2.0;
+    }
+
+    if (abs(radians(lonOff)) * cosLat * RADIUS < 0.6) {
+        return 0.0;
+    }
+
+    return 4.0;
+}
+
+highp vec3 regionColor(highp float region, highp float lon) {
+    highp vec3 dark = zToSrgb(darkColor).rgb;
+    if (region < 0.5) {
+        return dark * 0.45;
+    }
+
+    if (region < 1.5) {
+        return dark;
+    }
+
+    if (region < 2.5) {
+        return mix(dark, zToSrgb(accentColor).rgb, 0.35);
+    }
+
+    highp vec3 primary = zToSrgb(primaryColor).rgb;
+    highp float plate = floor(mod(lon + 180.0 + PLATE * 0.5, 360.0) / PLATE);
+    if (mod(plate, 2.0) < 0.5) {
+        return primary;
+    }
+
+    return primary * 0.86;
+}
+
+highp vec3 finish(highp vec3 color, highp vec3 n) {
+    highp float t = 0.5 + 0.5 * dot(n, LIGHT);
+    highp float level = t < 0.30 ? 0.0 : (t < 0.52 ? 1.0 : 2.0);
+    if (level < 1.5 && dot(n.xy, n.xy) > 0.70 && n.y < -0.3) {
+        level += 1.0;
+    }
+
+    highp vec3 lit;
+    if (level < 0.5) {
+        lit = color * 0.50 + vec3(10.0, 10.0, 26.0) / 255.0;
+    } else if (level < 1.5) {
+        lit = color * 0.74 + vec3(4.0, 4.0, 12.0) / 255.0;
+    } else {
+        lit = color;
+    }
+    return clamp(lit, 0.0, 1.0);
+}
+
+highp vec3 shadeBall(highp vec2 p, highp vec3 n) {
+    highp float lon;
+    highp float region = shellRegion(n, lon);
+    if (region > 2.5 && region < 3.5) {
+        return mix(zToSrgb(accentColor).rgb, vec3(1.0), 0.2);
+    }
+
+    highp vec3 base = regionColor(region, lon);
+    if (region > 0.5) {
+        highp vec3 neighbour;
+        highp float neighbourLon;
+        if (ballNormal(p + vec2(0.0, 1.0), neighbour) && shellRegion(neighbour, neighbourLon) < 0.5) {
+            base = min(base * 1.3 + vec3(16.0 / 255.0), vec3(1.0));
+        } else if (ballNormal(p - vec2(0.0, 1.0), neighbour) && shellRegion(neighbour, neighbourLon) < 0.5) {
+            base *= 0.75;
+        }
+    }
+
+    return finish(base, n);
+}
+
+highp vec4 opaque(highp vec3 srgb) {
+    return zFromSrgb(vec4(srgb, 1.0));
+}
+
+highp vec4 sphereColor(highp vec2 p) {
+    highp vec4 result = vec4(0.0);
+    highp float grow = ballGrow();
+
+    if (grow > 0.0) {
+        highp vec2 e = vec2(p.x / (RADIUS * 0.92 * grow), (p.y - (BOTTOM - 0.2)) / 1.7);
+        highp float shadow = dot(e, e);
+        if (shadow < 0.5) {
+            result = vec4(0.0, 0.0, 0.0, 130.0 / 255.0);
+        } else if (shadow < 1.0) {
+            result = vec4(0.0, 0.0, 0.0, 75.0 / 255.0);
+        }
+    }
+
+    if (morph < 1.0) {
+        highp vec2 floorPoint = vec2(0.0, BOTTOM);
+        highp vec2 crouch = vec2(1.0 + 0.5 * morph, 1.0 + 1.6 * morph);
+        highp vec4 original = zTexture(spriteToUV(floorPoint + (p - floorPoint) * crouch));
+        original *= 1.0 - smoothstep(0.35, 0.9, morph);
+        result = original + result * (1.0 - original.a);
+    }
+
+    if (grow < 0.05) {
+        return result;
+    }
+
+    highp vec3 n;
+    if (ballNormal(p, n)) {
+        return opaque(shadeBall(p, n));
+    }
+
+    highp vec2 e = ballEllipse(p);
+    if (dot(e, e) < 1.6) {
+        highp vec3 sum = vec3(0.0);
+        highp float count = 0.0;
+        highp vec3 neighbour;
+        if (ballNormal(p + vec2(1.0, 0.0), neighbour)) {
+            sum += shadeBall(p + vec2(1.0, 0.0), neighbour);
+            count += 1.0;
+        }
+        if (ballNormal(p - vec2(1.0, 0.0), neighbour)) {
+            sum += shadeBall(p - vec2(1.0, 0.0), neighbour);
+            count += 1.0;
+        }
+        if (ballNormal(p + vec2(0.0, 1.0), neighbour)) {
+            sum += shadeBall(p + vec2(0.0, 1.0), neighbour);
+            count += 1.0;
+        }
+        if (ballNormal(p - vec2(0.0, 1.0), neighbour)) {
+            sum += shadeBall(p - vec2(0.0, 1.0), neighbour);
+            count += 1.0;
+        }
+        if (count > 0.0) {
+            highp vec3 average = sum / count;
+            return opaque(vec3(average.r * 0.32, average.g * 0.30, average.b * 0.36 + 6.0 / 255.0));
+        }
+    }
+
+    return result;
+}
+
+void fragment() {
+    highp vec2 rel = (UV - vec2(0.5)) / TEXTURE_PIXEL_SIZE - anchor;
+    highp vec2 p = floor(vec2(dot(rel, spriteRight), dot(rel, spriteUp)) / cellSize) + vec2(0.5);
+    COLOR = sphereColor(p);
+}

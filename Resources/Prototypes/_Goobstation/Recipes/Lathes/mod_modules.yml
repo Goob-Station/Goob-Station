@@ -339,6 +339,14 @@
 
 - type: latheRecipe
   parent: BaseModsuitModuleRecipe
+  id: ModsuitModuleCandelaSpool
+  result: ModsuitModuleCandelaSpool
+  materials:
+    Steel: 400
+    Glass: 100
+
+- type: latheRecipe
+  parent: BaseModsuitModuleRecipe
   id: ModsuitModuleClamp
   result: ModsuitModuleClamp
   materials:

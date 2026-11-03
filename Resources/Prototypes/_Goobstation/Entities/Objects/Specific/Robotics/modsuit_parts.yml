@@ -185,6 +185,46 @@
     - ModsuitPlatingEngineer
 
 - type: entity
+  id: ModsuitPlatingMining
+  parent: PartModsuit
+  name: MOD mining plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingMining
+
+- type: entity
+  id: ModsuitPlatingLoader
+  parent: PartModsuit
+  name: MOD loader plating
+  description: A part used in MOD construction. An experimental motorized harness plating from Scarborough Arms, issued to quartermasters.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingLoader
+
+- type: entity
   id: ModsuitPlatingSecurity
   parent: PartModsuit
   name: MOD standard security 'soldat' plating

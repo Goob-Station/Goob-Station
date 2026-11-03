@@ -71,6 +71,24 @@
   activationStepTime: 0.75
 
 - type: modTheme
+  id: ModThemeMining
+  name: modsuit-theme-mining
+  complexityMax: 13
+  chargeDrain: 1.6
+  inbuiltModules:
+  - ModsuitModuleBuiltinSphereTransform
+  - ModsuitModuleBuiltinAshAccretion
+
+- type: modTheme
+  id: ModThemeLoader
+  name: modsuit-theme-loader
+  complexityMax: 10
+  inbuiltModules:
+  - ModsuitModuleBuiltinHydraulicArms
+  - ModsuitModuleBuiltinLoaderClamp
+  - ModsuitModuleBuiltinLoaderMagnet
+
+- type: modTheme
   id: ModThemeSyndicate
   name: modsuit-theme-syndicate
   complexityMax: 20

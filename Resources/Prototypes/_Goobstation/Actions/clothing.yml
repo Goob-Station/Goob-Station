@@ -58,6 +58,57 @@
   - type: WorldTargetAction
     event: !type:ModPowerKickActionEvent
 
+- type: entity
+  parent: BaseAction
+  id: ActionModHydraulicLaunch
+  name: Hydraulic launch
+  description: Charge the hydraulic arms and launch yourself at a target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+    checkCanInteract: true
+  - type: TargetAction
+    checkCanAccess: false
+    range: 10
+  - type: WorldTargetAction
+    event: !type:ModPowerKickActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionModMagnet
+  name: Hydraulic magnet
+  description: Pull a crate or locker to you, or fling the one you're dragging at a target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+    checkCanInteract: true
+  - type: TargetAction
+    checkCanAccess: false
+    range: 7
+  - type: WorldTargetAction
+    event: !type:ModMagnetActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionModSphereMissiles
+  name: Launch micromissiles
+  description: Fire a volley of mining micromissiles at the target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+      state: mine_missile
+    useDelay: 3
+    checkCanInteract: false
+  - type: TargetAction
+    checkCanAccess: false
+    range: 8
+  - type: WorldTargetAction
+    event: !type:ModSphereMissileActionEvent
+
 
 - type: entity
   parent: BaseAction
