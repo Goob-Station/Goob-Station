@@ -32,7 +32,9 @@
 
 ## Spam letters
 
-delivery-spam-robust-toolboxes =    [color=blue][head=1]
+delivery-spam-1 =   Robust Toolbox - Special Offer!
+    .desc =         An advertisement for robust toolboxes.
+    .content =      [color=blue][head=1]
                         ░░▄▀░░
                         ░▄█▄▄▀ [head=3]ROBUST - TOOLBOXES AND TOOLS[/head]
                         ██▀░░░ [/head][/color]
@@ -49,7 +51,9 @@ delivery-spam-robust-toolboxes =    [color=blue][head=1]
                         -CHEAP! ONLY ONE ORGAN! THAT'S LESS THAN TWO ORGANS!
                         -DOESN'T HAVE TO BE YOUR ORGAN! WE DON'T JUDGE!
 
-delivery-spam-reasons-to-chose-nanotrasen =     {-delivery-header-nanotrasen}
+delivery-spam-2 =   Reasons to choose Nanotrasen!
+    .desc =         An advertisement for Nanotrasen.
+    .content =      {-delivery-header-nanotrasen}
 
                         {"[head=2]TOP THREE REASONS WHY THE SYNDICATE IS INCOMPETENT[/head]"}
 
@@ -62,7 +66,9 @@ delivery-spam-reasons-to-chose-nanotrasen =     {-delivery-header-nanotrasen}
                         {"[bold]NUMBER THREE[/bold]"}
                         THEIR LOGO IS HORRIBLE! THEY THINK THEY'RE COOL WITH THEIR LOGO! OOH, LOOK AT ME, I'M SO COOL! OOH, SNAKE THAT'S ALSO AN S! HOW CREATIVE! MY THREE YEAR OLD SON COULD DRAW A BETTER LOGO!
 
-delivery-spam-reasons-to-choose-syndicate = {-delivery-header-syndicate}
+delivery-spam-3 =   Reasons to choose The Syndicate!
+    .desc =         An advertisement for The Syndicate.
+    .content =      {-delivery-header-syndicate}
 
                         {"[head=2]TOP THREE REASONS WHY NANOTRASEN IS INCOMPETENT[/head]"}
 
@@ -75,7 +81,9 @@ delivery-spam-reasons-to-choose-syndicate = {-delivery-header-syndicate}
                         {"[bold]NUMBER THREE[/bold]"}
                         THEIR MURDER METHODS ARE UNINSPIRED! IT'S JUST GUN! THERE'S NO THROWING PEOPLE INTO DEEP SPACE, NO FEEDING PEOPLE INTO RECYCLERS WITH SAFETY MODE DISENGAGED, NO SLIPPING BOMBS INTO POCKETS! SO BORING!
 
-delivery-spam-tired-of-science =    [head=3]Science will LOVE you for this!!
+delivery-spam-4 =   Tired of science blowing up?
+    .desc =         Follow these simple steps to ensure it never happens again!
+    .content =      [head=3]Science will LOVE you for this!!
 
                         are [bold]YOU[/bold] Tired of your Station's Science Department blowing up withoutdoing any actual science?
                         Well Your in luck![/head]
@@ -91,7 +99,9 @@ delivery-spam-tired-of-science =    [head=3]Science will LOVE you for this!!
 
                         {"[color=lightgray]Note: Spider Clan is not responsible for any punishment issued by your supervisors.[/color]"}
 
-delivery-spam-free-all-access = [head=3]Have You ever wanted to have [italic][color=green]Free [bold]All Axcess!?!?[/bold][/color][/italic][/head]
+delivery-spam-5 =   FREE ALL AXCESS!!
+    .desc =         Did you ever want free all access?!
+    .content =      [head=3]Have You ever wanted to have [italic][color=green]Free [bold]All Axcess!?!?[/bold][/color][/italic][/head]
                         {"[head=2]Well NOW YOU CAN!![/head]!"}
 
                         All you need to do is call [color=blue]555-GOUR-LECKSSS[/color] and state your Staton ID# !!!
@@ -105,7 +115,9 @@ delivery-spam-free-all-access = [head=3]Have You ever wanted to have [italic][co
                     {"[bullet/]Note: We at Gour-Lecksss LMT. are not responsible if your station's HoP forces you to fill out an ACTUAL Free AA form if they find out about this letter"}
                     {"[/color]"}
 
-delivery-spam-centcomm-retribution =    [color=red] THIS IS AN OFICAL NOTICE FROM THE HEAD OF [color=blue]NANOTRASN[/color][/color]
+delivery-spam-6 =   NOTICE FROM NANOTRASN!!
+.desc =         An official notice from the CEO of Nanotrasn?!
+.content =      [color=red] THIS IS AN OFICAL NOTICE FROM THE HEAD OF [color=blue]NANOTRASN[/color][/color]
 
                     Dear Sir, Madam, or Other Insignificat station personell
 
@@ -115,7 +127,9 @@ delivery-spam-centcomm-retribution =    [color=red] THIS IS AN OFICAL NOTICE FRO
 
                     {"[head=2][color=red]IGNORE THIS ORDER AT RISK OF RETRIBUTON FROM [color=green]CENTCO[/color]!!!!![/head][/color]"}
 
-delivery-spam-alternate-timeline =  {-delivery-header-nanotrasen-alternate-timeline}
+delivery-spam-7 =   Send reinforcements!
+.desc =         An official notice from... an alternate timeline?
+.content =      {-delivery-header-nanotrasen-alternate-timeline}
                     {"[head=2]This is an official notice from the [color=red]Chief Security Officer[/color] at a Nanotrasen's Space Station 15.[/head]"}
 
                     To whoever receives this letter. I am Sergeant Rigel. My occupation is the CSO. We need immediate assistance.
@@ -126,7 +140,9 @@ delivery-spam-alternate-timeline =  {-delivery-header-nanotrasen-alternate-timel
 
                     Glory to Nanotrasen.
 
-delivery-spam-narsie-cult = [color=#134975][head=2]The Children of Nar'Sie[/head][/color]
+delivery-spam-8 =   The Children of Nar'Sie
+.desc =         A local cult is looking for recruits.
+.content =      [color=#134975][head=2]The Children of Nar'Sie[/head][/color]
                                                     The Beginning of a New Era
                     {"[bold]══──══──══──══──══──══──══──══──══──══──══[/bold]"}
 
@@ -143,7 +159,9 @@ delivery-spam-narsie-cult = [color=#134975][head=2]The Children of Nar'Sie[/head
 
                     All you have to do is say [color=#FF0000][italic]"Sas'so c'arta forbici!"[/italic][/color]
 
-delivery-spam-rage-cage =   [color=#aaaaaa]▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀[/color]
+delivery-spam-9 =   Do you want to fight?!
+.desc =         Advertisement for a local fighting club.
+.content =      [color=#aaaaaa]▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀[/color]
                                                 {"[bold][head=1]THE RAGE CAGE[/head][/bold]"}
                     {"[color=#aaaaaa]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]"}
                     {"[bold][color=#FF0000][head=3]DO YOU WANT TO FIGHT?[/head][/color][/bold]"}
@@ -162,7 +180,9 @@ delivery-spam-rage-cage =   [color=#aaaaaa]▀▀▀▀▀▀▀▀▀▀▀▀�
                     ──────────────────────────────────────────
                     No weapons, no armor, just pure unadulterated [bold]COMBAT[/bold]. Don't lose out and be a [bold]WIMP[/bold]. Win the glory of being your station's most robust fighter in the [color=#FF0000][bold]RAGE CAGE[/bold][/color] today!
 
-delivery-spam-evil-lizard = [color=#FF0000][bold][head=2]STOP[/head][/bold][/color]
+delivery-spam-10 =  DO NOT OPEN THIS MAIL
+.desc =         You have been cursed!
+.content =      [color=#FF0000][bold][head=2]STOP[/head][/bold][/color]
 
                     If yore reading this letter...[color=#FF0000][head=3]YOUR ALRAEDY CURSED!!![/head][/color]
 
@@ -201,7 +221,9 @@ delivery-spam-evil-lizard = [color=#FF0000][bold][head=2]STOP[/head][/bold][/col
                     ░░░░░░[color=#6EC543]████[/color]░░░░░░░░[color=#6EC543]████████[/color]░░░░░░░░
                     ░░░░░░░░░░░░░░░░░░░░[color=#6EC543]████[/color]░░░░░░░░░░
 
-delivery-spam-parents-need-money =  [bold]Hello Child,[/bold]
+delivery-spam-11 =  Help mom and dad!
+.desc =         Parents in need of financial support.
+.content =      [bold]Hello Child,[/bold]
                     This is your Parents writing to you: we are in need of money! Our taxes have been audited and we owe $100,000 in spesos to governnment! please help! they only want gift cards so you will need to send us 100 $1000 spesos Bisa gift cards.
 
                     please mail to:
@@ -215,7 +237,9 @@ delivery-spam-parents-need-money =  [bold]Hello Child,[/bold]
                     {"[bold]thank you and we love you,[/bold]"}
                     {"[italic]parents[/italic]"}
 
-delivery-spam-voyage-advertisement =    [head=2]Join us on the maiden voyage of the...[/head]
+delivery-spam-12 =  Join us on the maiden voyage!
+.desc =         Advertisement for a relaxing voyage.
+.content =      [head=2]Join us on the maiden voyage of the...[/head]
 
                         ░█▀▀░█▀▀░░░█▀▄░█▀▀░█░░░█▀█░█░█░█▀█░█▀▄
                         ░▀▀█░▀▀█░░░█▀▄░█▀▀░█░░░█▀█░▄▀▄░█░█░█▀▄
