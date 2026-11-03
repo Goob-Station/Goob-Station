@@ -9,12 +9,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.VoiceChat;
 
-public sealed class VoiceJoinPromptUIController : UIController, IOnStateEntered<LobbyState>, IOnStateEntered<GameplayState>
+public sealed partial class VoiceJoinPromptUIController : UIController, IOnStateEntered<LobbyState>, IOnStateEntered<GameplayState>
 {
-    [Dependency] private readonly IClientNetManager _net = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly VoiceChatManager _voice = default!;
+    [Dependency] private IClientNetManager _net = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private VoiceChatManager _voice = default!;
 
     private static readonly TimeSpan PromptDelay = TimeSpan.FromSeconds(3);
 

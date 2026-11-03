@@ -1,0 +1,20 @@
+- type: reaction
+  id: Nanites
+  requiredMixerCategories:
+  - Electrolysis
+  quantized: true
+  reactants:
+    Carbon:
+      amount: 5
+    Copper:
+      amount: 5
+    Fersilicite:
+      amount: 5
+    Hydrogen:
+      amount: 2
+    Oxygen:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    Nanites: 20

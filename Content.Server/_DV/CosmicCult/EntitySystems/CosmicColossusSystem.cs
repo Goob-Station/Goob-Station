@@ -6,6 +6,8 @@ using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -86,7 +88,8 @@ public sealed class CosmicColossusSystem : EntitySystem
         if (TryComp<StationDataComponent>(station, out var stationData))
         {
             var stationGrid = _station.GetLargestGrid((station.Value, stationData));
-            _throw.TryThrow(ent, Transform(stationGrid!.Value).Coordinates, baseThrowSpeed: 30, null, 0, 0, false, false, false, false, false);
+            _throw.TryThrow(ent, Transform(stationGrid!.Value).Coordinates, baseThrowSpeed: 30, null, 0, 0, false, false, false, false, false,
+                predicted: false); // Trauma
         }
         if (ent.Comp.Timed)
             _actions.AddAction(ent, ref ent.Comp.EffigyPlaceActionEntity, ent.Comp.EffigyPlaceAction, ent);

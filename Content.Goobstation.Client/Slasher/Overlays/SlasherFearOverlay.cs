@@ -9,13 +9,13 @@ namespace Content.Goobstation.Client.Slasher.Overlays;
 /// <summary>
 /// Handles the slasher fear overlay.
 /// </summary>
-public sealed class SlasherFearOverlay : Overlay
+public sealed partial class SlasherFearOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> FearShader = "SlasherFear";
 
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;

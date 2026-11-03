@@ -10,7 +10,7 @@ namespace Content.Goobstation.Shared.EntityEffects;
 
 public sealed partial class PlaySoundEffectSystem : EntityEffectSystem<ReactiveComponent, PlaySoundEffect>
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<PlaySoundEffect> args)
     {

@@ -9,11 +9,11 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Content.Goobstation.Shared.InternalResources.EntitySystems;
-public abstract class SharedInternalResourcesSystem : EntitySystem
+public abstract partial class SharedInternalResourcesSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
 
     private readonly TimeSpan _systemUpdateRate = TimeSpan.FromSeconds(1);
     private TimeSpan _systemNextUpdate = TimeSpan.Zero;

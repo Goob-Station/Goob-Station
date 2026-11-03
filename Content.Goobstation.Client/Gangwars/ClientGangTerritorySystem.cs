@@ -5,9 +5,9 @@ namespace Content.Goobstation.Client.Gangwars;
 /// <summary>
 /// Visibility is gated inside the overlay
 /// </summary>
-public sealed class ClientGangTerritorySystem : EntitySystem
+public sealed partial class ClientGangTerritorySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
 
     public override void Initialize()
     {

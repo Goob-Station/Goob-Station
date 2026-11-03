@@ -6,11 +6,11 @@ namespace Content.Goobstation.Shared.Wraith.Minions.Harbinger;
 /// <summary>
 /// This handles throwing the hooked entity towards the user
 /// </summary>
-public sealed class TentacleHookedSystem : EntitySystem
+public sealed partial class TentacleHookedSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

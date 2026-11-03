@@ -4,9 +4,9 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Client.Polls;
 
-public sealed class PollManager
+public sealed partial class PollManager
 {
-    [Dependency] private readonly IClientNetManager _net = default!;
+    [Dependency] private IClientNetManager _net = default!;
 
     private readonly Dictionary<int, PollData> _activePolls = [];
     private readonly Dictionary<int, List<PollVoteData>> _playerVotes = [];

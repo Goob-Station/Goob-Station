@@ -21,20 +21,21 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Actions.Components;
 using Content.Shared.Gravity;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.Vehicles;
 
 public abstract partial class SharedVehicleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambientSound = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
 
     private static readonly EntProtoId HornActionId = "ActionHorn";
     private static readonly EntProtoId SirenActionId = "ActionSiren";
@@ -126,6 +127,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         _audio.PlayPvs(component.HornSound, uid);
         args.Handled = true;
+
+        var hornedEv = new VehicleHornedEvent(args.Performer);
+        RaiseLocalEvent(uid, ref hornedEv);
     }
 
     private void OnSiren(EntityUid uid, VehicleComponent component, InstantActionEvent args)

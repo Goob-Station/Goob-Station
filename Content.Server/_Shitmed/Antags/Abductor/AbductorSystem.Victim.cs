@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Abductor;
 using Content.Server._Shitmed.GameTicking.Rules.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
@@ -28,6 +29,16 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     }
     private void OnSurgeryStepComplete(EntityUid uid, AbductorComponent comp, ref SurgeryStepEvent args)
     {
+        if (HasComp<SurgeryAddOrganStepComponent>(args.Step)
+            && args.Complete
+            && HasComp<AbductorOrganComponent>(args.Tool)
+            && TryComp<AbductorVictimComponent>(args.Body, out var priorVictim)
+            && priorVictim.Implanted)
+        {
+            var againEv = new AbductedAgainEvent();
+            RaiseLocalEvent(args.Body, ref againEv);
+        }
+
         if (!HasComp<SurgeryAddOrganStepComponent>(args.Step)
             || !args.Complete
             || HasComp<AbductorComponent>(args.Body)

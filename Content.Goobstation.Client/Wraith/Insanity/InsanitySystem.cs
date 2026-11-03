@@ -5,12 +5,12 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.Wraith.Insanity;
 
-public sealed class InsanitySystem : EntitySystem
+public sealed partial class InsanitySystem : EntitySystem
 {
     private InsanityOverlay _overlay = default!;
 
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

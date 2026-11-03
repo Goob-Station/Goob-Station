@@ -1,0 +1,21 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                MinWidth="340"
+                HorizontalAlignment="Center"
+                MouseFilter="Ignore">
+    <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="16 12" MouseFilter="Ignore">
+        <TextureRect Name="Icon"
+                     SetSize="64 64"
+                     Stretch="KeepAspectCentered"
+                     HorizontalAlignment="Center"
+                     MouseFilter="Ignore" />
+        <Label Name="NameLabel"
+               StyleClasses="LabelHeading"
+               Align="Center"
+               HorizontalAlignment="Center"
+               MouseFilter="Ignore" />
+        <BoxContainer Name="DescriptionBox"
+                      Orientation="Vertical"
+                      HorizontalAlignment="Center"
+                      MouseFilter="Ignore" />
+    </BoxContainer>
+</PanelContainer>

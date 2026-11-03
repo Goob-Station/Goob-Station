@@ -8,13 +8,13 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Silicon.SecurityCyborg;
 
-public sealed class SecurityCyborgSystem : EntitySystem
+public sealed partial class SecurityCyborgSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedExplosionSystem _explosion = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedExplosionSystem _explosion = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -31,7 +31,8 @@ public sealed class SecurityCyborgSystem : EntitySystem
             chassis.BrainContainer.ContainedEntity is { } brain)
         {
             _container.Remove(brain, chassis.BrainContainer);
-            _throwing.TryThrow(brain, _random.NextVector2() * 5, 5f);
+            _throwing.TryThrow(brain, _random.NextVector2() * 5, 5f,
+                predicted: false); // Trauma
         }
 
         _popup.PopupEntity(Loc.GetString("sec-borg-self-destruct-popup", ("chassis", Name(ent))), ent, PopupType.LargeCaution);

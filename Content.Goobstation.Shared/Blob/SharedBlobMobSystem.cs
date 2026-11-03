@@ -11,10 +11,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Blob;
 
-public abstract class SharedBlobMobSystem : EntitySystem
+public abstract partial class SharedBlobMobSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
     private EntityQuery<BlobTileComponent> _tileQuery;
     private EntityQuery<BlobMobComponent> _mobQuery;
 

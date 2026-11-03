@@ -7,9 +7,9 @@ using Content.Shared.Speech;
 
 namespace Content.Goobstation.Server.Speech;
 
-public sealed class GlorpAccentSystem : EntitySystem
+public sealed partial class GlorpAccentSystem : EntitySystem
 {
-    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
+    [Dependency] private ReplacementAccentSystem _replacement = default!;
     private static readonly string[] StartingLetters = { "n", "x", "z", "v", "g" };
     private static readonly string[] Suffixes = { "narp", "lorp", "leeb", "orp", "orple", "ip", "op", "eegle" };
     private static readonly string[] RandomInserts = { "Glupshitto", "Glorpshit" };

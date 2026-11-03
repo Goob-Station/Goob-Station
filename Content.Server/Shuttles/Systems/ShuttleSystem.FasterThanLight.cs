@@ -703,7 +703,8 @@ public sealed partial class ShuttleSystem
         if (throwDirection == Vector2.Zero)
             return;
 
-        _throwing.TryThrow(tossed, throwDirection.Normalized() * 10.0f, 50.0f);
+        _throwing.TryThrow(tossed, throwDirection.Normalized() * 10.0f, 50.0f,
+            predicted: false); // Trauma
     }
 
     /// <summary>
@@ -1014,6 +1015,7 @@ public sealed partial class ShuttleSystem
 
                 if (_bodyQuery.TryGetComponent(ent, out var mob))
                 {
+                    RaiseShuttleCrushed(ent, uid); // Goob
                     _logger.Add(LogType.Gib, LogImpact.Extreme, $"{ToPrettyString(ent):player} got gibbed by the shuttle" +
                                                                 $" {ToPrettyString(uid)} arriving from FTL at {xform.Coordinates:coordinates}");
                     var gibs = _bobby.GibBody(ent, body: mob);

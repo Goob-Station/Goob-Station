@@ -27,17 +27,17 @@ namespace Content.Goobstation.Shared.TableSlam;
 /// <summary>
 /// This handles the slamming of individuals onto the furniture known as tables.
 /// </summary>
-public sealed class TableSlamSystem : EntitySystem
+public sealed partial class TableSlamSystem : EntitySystem
 {
-    [Dependency] private readonly PullingSystem _pullingSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly ContestsSystem _contestsSystem = default!;
+    [Dependency] private PullingSystem _pullingSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private ThrowingSystem _throwingSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedStaminaSystem _staminaSystem = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private ContestsSystem _contestsSystem = default!;
 
     public override void Initialize()
     {

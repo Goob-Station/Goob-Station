@@ -7,7 +7,7 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
 
 public sealed partial class BindNullrodSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

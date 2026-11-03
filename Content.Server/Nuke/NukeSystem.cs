@@ -31,7 +31,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Nuke;
 
-public sealed class NukeSystem : EntitySystem
+public sealed partial class NukeSystem : EntitySystem // Goob
 {
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
@@ -307,6 +307,7 @@ public sealed class NukeSystem : EntitySystem
             return;
 
         DisarmBomb(uid, component);
+        GoobRaiseDisarmed(uid, args.User); // Goob
 
         var ev = new NukeDisarmSuccessEvent();
         RaiseLocalEvent(ev);

@@ -14,6 +14,7 @@
   - Diona # Goobstation - Lack of legs makes it weaker than other species in combat
   - Harpy # Goobstation - Same with Diona
   - Plasmaman # Goobstation - Do i need to fucking say it?
+  - Synth # Goob
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false

@@ -2,15 +2,16 @@
 
 using Content.Goobstation.Shared.Enchanting.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.Enchanting.Systems;
 
 /// <summary>
 /// Handles damage modifier events for <see cref="DamageModifyEnchantComponent"/>.
 /// </summary>
-public sealed class DamageModifyEnchantSystem : EntitySystem
+public sealed partial class DamageModifyEnchantSystem : EntitySystem
 {
-    [Dependency] private readonly EnchantingSystem _enchanting = default!;
+    [Dependency] private EnchantingSystem _enchanting = default!;
 
     public override void Initialize()
     {

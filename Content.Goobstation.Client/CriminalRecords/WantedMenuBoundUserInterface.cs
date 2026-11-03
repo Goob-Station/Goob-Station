@@ -7,10 +7,10 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Client.CriminalRecords;
 
-public sealed class WantedMenuBoundUserInterface : BoundUserInterface
+public sealed partial class WantedMenuBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPlayerManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPlayerManager _proto = default!;
     private readonly AccessReaderSystem _accessReader;
 
     private WantedMenu? _window;

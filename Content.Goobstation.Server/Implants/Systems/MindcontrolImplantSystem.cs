@@ -7,9 +7,9 @@ using Content.Shared.Implants;
 using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Implants.Systems;
-public sealed class MindcontrolImplantSystem : EntitySystem
+public sealed partial class MindcontrolImplantSystem : EntitySystem
 {
-    [Dependency] private readonly MindcontrolSystem _mindcontrol = default!;
+    [Dependency] private MindcontrolSystem _mindcontrol = default!;
     public override void Initialize()
     {
         base.Initialize();

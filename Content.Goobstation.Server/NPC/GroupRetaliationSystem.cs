@@ -10,11 +10,11 @@ namespace Content.Goobstation.Server.NPC;
 /// <summary>
 ///     Handles NPC which become aggressive after being attacked.
 /// </summary>
-public sealed class GroupRetaliationSystem : EntitySystem
+public sealed partial class GroupRetaliationSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly NPCRetaliationSystem _retaliation = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private NPCRetaliationSystem _retaliation = default!;
 
     /// <inheritdoc />
     public override void Initialize()

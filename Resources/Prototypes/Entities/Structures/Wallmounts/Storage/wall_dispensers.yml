@@ -101,6 +101,7 @@
       types:
         Heat: 20
   - type: PacifismDangerousAttack
+  - type: ExplosionEffect # Goob
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Goob
     totalIntensity: 50

@@ -31,13 +31,13 @@ namespace Content.Goobstation.Server.PlayerListener;
 ///     Fires faster if at least 1 out of 2 or more players has nothing in their body clothing slot.
 ///     This is called "expedited" here.
 /// </remarks>
-public sealed class DormNotifier : EntitySystem
+public sealed partial class DormNotifier : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IAfkManager _afk = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IAfkManager _afk = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private ChatSystem _chat = default!;
 
     private HashSet<CancellationTokenSource> _tokens = [];
 

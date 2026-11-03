@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -76,6 +76,7 @@ public sealed class DamageOverlayUiController : UIController
 
     private void ClearOverlay()
     {
+        _overlay.State = MobState.Alive; // Goob - stale crit state darkened the next body
         _overlay.DeadLevel = 0f;
         _overlay.CritLevel = 0f;
         _overlay.PainLevel = 0f;

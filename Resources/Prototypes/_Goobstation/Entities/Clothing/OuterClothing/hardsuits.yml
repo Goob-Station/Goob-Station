@@ -217,6 +217,7 @@
           Slash: 0.3
       interval: 1.0
       ignoreResistances: true
+      targetBodyPart: All
   - type: StaminaResistance
     damageCoefficient: 0.1
   - type: ModifyDelayedKnockdown

@@ -1,0 +1,91 @@
+- type: achievement
+  id: WelcomeAboard
+  name: achievement-welcome-aboard-name
+  description: achievement-welcome-aboard-desc
+  category: Milestones
+  icon: { entity: ClothingNeckBronzeheart }
+  condition: !type:SpawnCondition
+
+- type: achievement
+  id: Regular
+  name: achievement-regular-name
+  description: achievement-regular-desc
+  category: Milestones
+  icon: { entity: ClothingNeckCargomedal }
+  condition: !type:SpawnCondition
+    count: 50
+
+- type: achievement
+  id: Veteran
+  name: achievement-veteran-name
+  description: achievement-veteran-desc
+  category: Milestones
+  icon: { entity: ClothingNeckGoldmedal }
+  condition: !type:SpawnCondition
+    count: 250
+
+- type: achievement
+  id: PlaytimeTen
+  name: achievement-playtime-ten-name
+  description: achievement-playtime-ten-desc
+  category: Milestones
+  icon: { entity: Clock }
+  condition: !type:PlaytimeCondition
+    count: 10
+
+- type: achievement
+  id: PlaytimeHundred
+  name: achievement-playtime-hundred-name
+  description: achievement-playtime-hundred-desc
+  category: Milestones
+  icon: { entity: Clock }
+  condition: !type:PlaytimeCondition
+    count: 100
+
+- type: achievement
+  id: PlaytimeThousand
+  name: achievement-playtime-thousand-name
+  description: achievement-playtime-thousand-desc
+  category: Milestones
+  icon: { entity: Clock }
+  condition: !type:PlaytimeCondition
+    count: 1000
+
+- type: achievement
+  id: PlaytimeTenThousand
+  name: achievement-playtime-ten-thousand-name
+  description: achievement-playtime-ten-thousand-desc
+  category: Milestones
+  icon: { entity: Clock }
+  hidden: true
+  condition: !type:PlaytimeCondition
+    count: 10000
+
+- type: achievement
+  id: Collector
+  name: achievement-collector-name
+  description: achievement-collector-desc
+  category: Milestones
+  icon: { entity: MaterialDiamond1 }
+  condition: !type:AchievementCountCondition
+    count: 10
+
+- type: achievement
+  id: Completionist
+  name: achievement-completionist-name
+  description: achievement-completionist-desc
+  category: Milestones
+  icon: { entity: MaterialDiamond1 }
+  condition: !type:AchievementCountCondition
+    count: 30
+
+- type: achievement
+  id: HollyJollySpacemas
+  name: achievement-holly-jolly-spacemas-name
+  description: achievement-holly-jolly-spacemas-desc
+  category: Milestones
+  icon: { entity: ClothingHeadHatSantahat }
+  hidden: true
+  condition: !type:SpawnCondition
+    month: 12
+    day: 25

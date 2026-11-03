@@ -7,7 +7,7 @@ namespace Content.Goobstation.Server.TeleportOnStateChange;
 
 public sealed partial class TeleportOnStateChangeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -1,0 +1,118 @@
+- type: achievement
+  id: BossKiller
+  name: achievement-boss-killer-name
+  description: achievement-boss-killer-desc
+  category: Lavaland
+  icon: { entity: Pickaxe }
+  condition: !type:BossKillCondition
+    prototypes:
+    - MobHierophant
+    - LavalandBossColossus
+    - LavalandBossAshDrake
+    - LavalandBossBubblegum
+    - LavalandBossMegaLegion
+
+- type: achievement
+  id: HierophantKiller
+  name: achievement-hierophant-killer-name
+  description: achievement-hierophant-killer-desc
+  category: Lavaland
+  icon: { entity: MobHierophant }
+  condition: !type:BossKillCondition
+    prototypes:
+    - MobHierophant
+
+- type: achievement
+  id: ColossusKiller
+  name: achievement-colossus-killer-name
+  description: achievement-colossus-killer-desc
+  category: Lavaland
+  icon: { entity: LavalandBossColossus }
+  condition: !type:BossKillCondition
+    prototypes:
+    - LavalandBossColossus
+
+- type: achievement
+  id: DrakeKiller
+  name: achievement-drake-killer-name
+  description: achievement-drake-killer-desc
+  category: Lavaland
+  icon: { entity: LavalandBossAshDrake }
+  condition: !type:BossKillCondition
+    prototypes:
+    - LavalandBossAshDrake
+
+- type: achievement
+  id: BubblegumKiller
+  name: achievement-bubblegum-killer-name
+  description: achievement-bubblegum-killer-desc
+  category: Lavaland
+  icon: { entity: LavalandBossBubblegum }
+  condition: !type:BossKillCondition
+    prototypes:
+    - LavalandBossBubblegum
+
+- type: achievement
+  id: LegionKiller
+  name: achievement-legion-killer-name
+  description: achievement-legion-killer-desc
+  category: Lavaland
+  icon: { entity: LavalandBossMegaLegion }
+  condition: !type:BossKillCondition
+    prototypes:
+    - LavalandBossMegaLegion
+
+- type: achievement
+  id: LegendaryMiner
+  name: achievement-legendary-miner-name
+  description: achievement-legendary-miner-desc
+  category: Lavaland
+  icon: { entity: Pickaxe }
+  condition: !type:GatherCondition
+    count: 1000
+    whitelist:
+      components:
+      - MiningScannerViewable
+
+- type: achievement
+  id: GoneFishing
+  name: achievement-gone-fishing-name
+  description: achievement-gone-fishing-desc
+  category: Lavaland
+  icon: { entity: FishingRod }
+  condition: !type:FishCaughtCondition
+
+- type: achievement
+  id: LegendaryFisher
+  name: achievement-legendary-fisher-name
+  description: achievement-legendary-fisher-desc
+  category: Lavaland
+  icon: { entity: FishingRod }
+  condition: !type:FishCaughtCondition
+    count: 100
+
+- type: achievement
+  id: LavalandTourist
+  name: achievement-lavaland-tourist-name
+  description: achievement-lavaland-tourist-desc
+  category: Lavaland
+  icon: { entity: LavalandEquipmentExplorerSuit }
+  condition: !type:LavalandVisitCondition
+
+- type: achievement
+  id: ByThePowerOfTheLord
+  name: achievement-by-the-power-of-the-lord-name
+  description: achievement-by-the-power-of-the-lord-desc
+  category: Lavaland
+  icon: { entity: Bible }
+  condition: !type:BibleSmiteCondition
+    prototypes:
+    - LavalandBossColossus
+
+- type: achievement
+  id: LongWayDown
+  name: achievement-long-way-down-name
+  description: achievement-long-way-down-desc
+  category: Lavaland
+  icon: { entity: FloorChasmEntity }
+  condition: !type:ChasmFallCondition

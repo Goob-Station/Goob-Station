@@ -1,14 +1,40 @@
 using System.Linq;
 using Content.Shared.Chat;
+using Robust.Shared.Timing;
 
 namespace Content.Client.UserInterface.Systems.Chat.Widgets;
 
 public partial class ChatBox
 {
+    private readonly IGameTiming _timing = IoCManager.Resolve<IGameTiming>();
+    private GameTick _createdTick = IoCManager.Resolve<IGameTiming>().CurTick;
+
     private void UpdateCoalescence(bool value)
     {
         _coalescence = value;
         Repopulate();
+    }
+
+    public void Repopulate()
+    {
+        ClearContents();
+        AddHistory();
+    }
+
+    private void OnChannelFilter(ChatChannel channel, bool active)
+    {
+        ClearContents();
+        AddHistory();
+
+        if (active)
+        {
+            _controller.ClearUnfilteredUnreads(channel);
+        }
+    }
+
+    private void ClearContents()
+    {
+        Contents.Clear();
 
         foreach (var child in Contents.Children.ToArray())
         {
@@ -19,48 +45,17 @@ public partial class ChatBox
         }
     }
 
-        public void Repopulate()
+    private void AddHistory()
+    {
+        if (_timing.CurTick < _createdTick)
+            _createdTick = GameTick.Zero;
+
+        foreach (var (tick, message) in _controller.History)
         {
-            Contents.Clear();
+            if (tick < _createdTick)
+                continue;
 
-            // Goobstation start
-            foreach (var child in Contents.Children.ToArray())
-            {
-                if (child.Name != "_v_scroll")
-                {
-                    Contents.RemoveChild(child);
-                }
-            }
-            // Goobstation end
-
-            foreach (var message in _controller.History)
-            {
-                OnMessageAdded(message.Item2);
-            }
+            OnMessageAdded(message);
         }
-
-        private void OnChannelFilter(ChatChannel channel, bool active)
-        {
-            Contents.Clear();
-
-            // Goobstation start
-            foreach (var child in Contents.Children.ToArray())
-            {
-                if (child.Name != "_v_scroll")
-                {
-                    Contents.RemoveChild(child);
-                }
-            }
-            // Goobstation end
-
-            foreach (var message in _controller.History)
-            {
-                OnMessageAdded(message.Item2);
-            }
-
-            if (active)
-            {
-                _controller.ClearUnfilteredUnreads(channel);
-            }
-        }
+    }
 }

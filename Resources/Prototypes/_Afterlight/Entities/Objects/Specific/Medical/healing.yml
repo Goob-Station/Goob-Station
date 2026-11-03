@@ -1,0 +1,48 @@
+- type: entity
+  parent: BaseHealingItem
+  id: SynthBloodpack
+  name: synth blood pack
+  suffix: Full
+  description: Contains fullerene, a synthetic, carbon-based blood solution used by Synths.
+  components:
+  - type: Item
+    sprite: _Afterlight/Objects/Specific/Medical/medical.rsi
+    heldPrefix: synthpack
+  - type: Tag
+    tags:
+    - Bloodpack
+  - type: Sprite
+    sprite: _Afterlight/Objects/Specific/Medical/medical.rsi
+    state: synthpack
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Bloodloss: -0.5
+    delay: 1.6
+    modifyBloodLevel: -15
+    healingBeginSound:
+      path: /Audio/Items/Medical/brutepack_begin.ogg
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: /Audio/Items/Medical/brutepack_end.ogg
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: Stack
+    stackType: SynthBloodpack
+    count: 10
+  - type: StackPrice
+    price: 10
+
+- type: entity
+  parent: SynthBloodpack
+  id: SynthBloodpack1
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: SynthBloodpack
+    count: 1

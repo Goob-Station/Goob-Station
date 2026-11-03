@@ -3,6 +3,7 @@
 using Content.Goobstation.Shared.Enchanting.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Electrocution;
 using Content.Shared.Inventory;
 using Content.Shared.StepTrigger.Systems;
@@ -14,9 +15,9 @@ namespace Content.Goobstation.Shared.Enchanting.Components;
 /// <summary>
 /// Relays events from enchanted items to their enchants.
 /// </summary>
-public sealed class EnchantRelaySystem : EntitySystem
+public sealed partial class EnchantRelaySystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {

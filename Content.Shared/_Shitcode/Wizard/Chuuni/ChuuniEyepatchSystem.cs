@@ -10,6 +10,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Goobstation.Wizard.Chuuni;
 

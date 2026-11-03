@@ -894,18 +894,19 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     {
         var active = _activeChunks[component];
         List<(Vector2i, Tile)>? tiles = null;
+        TryComp<_Lavaland.Biome.BiomeOptimizeComponent>(gridUid, out var optimize); // Lavaland Change
 
         foreach (var chunk in component.LoadedChunks)
         {
-            // Lavaland Change start: optimization real
-            var ev = new _Lavaland.Procedural.UnLoadChunkEvent(chunk);
-            RaiseLocalEvent(gridUid, ref ev);
+            if (active.Contains(chunk))
+                continue;
 
-            if (ev.Cancelled)
+            // Lavaland Change start: preloaded chunks never unload
+            if (optimize != null && optimize.LoadedChunks.Contains(chunk))
                 continue;
             // Lavaland Change end
 
-            if (active.Contains(chunk) || !component.LoadedChunks.Remove(chunk))
+            if (!component.LoadedChunks.Remove(chunk))
                 continue;
 
             // Unload NOW!

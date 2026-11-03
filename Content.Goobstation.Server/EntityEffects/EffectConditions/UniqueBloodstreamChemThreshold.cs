@@ -9,7 +9,7 @@ namespace Content.Goobstation.Server.EntityEffects.EffectConditions;
 
 public sealed partial class UniqueBloodstreamChemThresholdSystem : EntityConditionSystem<BloodstreamComponent, UniqueBloodstreamChemThreshold>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
 
     protected override void Condition(Entity<BloodstreamComponent> entity, ref EntityConditionEvent<UniqueBloodstreamChemThreshold> args)
     {

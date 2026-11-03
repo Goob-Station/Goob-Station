@@ -83,6 +83,7 @@ public abstract partial class SharedGunSystem
             // BreakOnMove = true, // Goobstation - no
             BreakOnDamage = false,
             NeedHand = true,
+            FaceTarget = false, // Goob
         });
     }
 
@@ -201,7 +202,7 @@ public abstract partial class SharedGunSystem
         Audio.PlayPredicted(ent.Comp.SoundRack, ent, user);
 
         var shots = GetBallisticShots(ent.Comp);
-        Cycle(ent, coordinates);
+        Cycle(ent, coordinates, user); // Trauma - added user
 
         var text = Loc.GetString(shots == 0 ? "gun-ballistic-cycled-empty" : "gun-ballistic-cycled");
 
@@ -210,7 +211,7 @@ public abstract partial class SharedGunSystem
         UpdateAmmoCount(ent);
     }
 
-    protected abstract void Cycle(Entity<BallisticAmmoProviderComponent> ent, MapCoordinates coordinates);
+    // Trauma - Cycle moved to SharedGunSystem.Trauma.cs and predicted
 
     private void OnBallisticInit(Entity<BallisticAmmoProviderComponent> ent, ref ComponentInit args)
     {
@@ -254,7 +255,7 @@ public abstract partial class SharedGunSystem
             {
                 ent.Comp.UnspawnedCount--;
                 DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));
-                ammoEntity = Spawn(ent.Comp.Proto, args.Coordinates);
+                ammoEntity = PredictedSpawnAtPosition(ent.Comp.Proto, args.Coordinates); // Trauma - predicted
             }
 
             if (ammoEntity is not { } ammoEnt)

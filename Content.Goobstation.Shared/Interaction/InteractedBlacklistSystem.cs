@@ -4,10 +4,10 @@ using Content.Shared.Whitelist;
 namespace Content.Goobstation.Shared.Interaction;
 
 // taken out of RMCInteractionSystem and removed the light thing
-public sealed class InteractedBlacklistSystem : EntitySystem
+public sealed partial class InteractedBlacklistSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

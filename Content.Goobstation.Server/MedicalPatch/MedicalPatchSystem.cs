@@ -14,15 +14,15 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.MedicalPatch;
 
-public sealed class MedicalPatchSystem : EntitySystem
+public sealed partial class MedicalPatchSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly StickySystem _stickySystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
-    [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
-    [Dependency] protected readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private StickySystem _stickySystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainers = default!;
+    [Dependency] private ReactiveSystem _reactiveSystem = default!;
+    [Dependency] protected ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {

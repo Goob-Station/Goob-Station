@@ -68,9 +68,11 @@ public sealed partial class ParticleAcceleratorSystem
 
         var strength = comp.SelectedStrength;
 
-        FireEmitter(_multipartMachine.GetPartEntity(machine, AcceleratorParts.PortEmitter)!.Value, strength);
-        FireEmitter(_multipartMachine.GetPartEntity(machine, AcceleratorParts.ForeEmitter)!.Value, strength);
-        FireEmitter(_multipartMachine.GetPartEntity(machine, AcceleratorParts.StarboardEmitter)!.Value, strength);
+        foreach (var part in new[] { AcceleratorParts.PortEmitter, AcceleratorParts.ForeEmitter, AcceleratorParts.StarboardEmitter }) // Goob
+        {
+            if (_multipartMachine.GetPartEntity(machine, part) is { } emitter)
+                FireEmitter(emitter, strength);
+        }
     }
 
     public void SwitchOn(EntityUid uid, EntityUid? user = null, ParticleAcceleratorControlBoxComponent? comp = null)

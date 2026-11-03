@@ -43,9 +43,6 @@ public sealed class FlyingVisualizerSystem : EntitySystem
 
         if (animateLayer && layer is not null)
             entity.Comp.LayerSetShader(layer.Value, shader);
-
-        //entity.Comp.GetScreenTexture = shader is not null;
-        entity.Comp.RaiseShaderEvent = shader is not null;
     }
 
     /// <summary>

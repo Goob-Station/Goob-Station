@@ -12,12 +12,12 @@ namespace Content.Goobstation.Shared.Wraith.Curses;
 /// This handles applying curses to an entity.
 /// This system also handles entities that are not allowed to get curses
 /// </summary>
-public sealed class CursedActionSystem : EntitySystem
+public sealed partial class CursedActionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private const int MaxCursesBeforeFinal = 4;
     /// <inheritdoc/>

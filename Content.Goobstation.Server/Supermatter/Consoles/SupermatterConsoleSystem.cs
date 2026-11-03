@@ -14,11 +14,11 @@ using System.Linq;
 
 namespace Content.Goobstation.Server.Supermatter.Console.Systems;
 
-public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
+public sealed partial class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly NavMapSystem _navMapSystem = default!;
+    [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private NavMapSystem _navMapSystem = default!;
 
     private const float UpdateTime = 1.0f;
 

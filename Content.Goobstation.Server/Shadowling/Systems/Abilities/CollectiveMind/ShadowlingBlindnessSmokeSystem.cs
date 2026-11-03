@@ -14,12 +14,12 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 /// This handles the Blindness Smoke ability logic.
 /// The performer outputs a smoke that heals all Shadowlings and Thralls, but blinds anyone else.
 /// </summary>
-public sealed class ShadowlingBlindnessSmokeSystem : EntitySystem
+public sealed partial class ShadowlingBlindnessSmokeSystem : EntitySystem
 {
-    [Dependency] private readonly SmokeSystem _smoke = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

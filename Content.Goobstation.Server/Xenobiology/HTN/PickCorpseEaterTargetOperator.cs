@@ -17,7 +17,7 @@ namespace Content.Goobstation.Server.Xenobiology.HTN;
 
 public sealed partial class PickCorpseEaterTargetOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private IEntityManager _ent = default!;
     private NpcFactionSystem _factions = default!;
     private GoobHungerSystem _hunger = default!;
     private PathfindingSystem _pathfinding = default!;

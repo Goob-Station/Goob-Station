@@ -11,9 +11,9 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract partial class SharedChameleonSkinSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStealthSystem _stealth = default!;
 
     private EntityQuery<StealthComponent> _stealthQuery;
 

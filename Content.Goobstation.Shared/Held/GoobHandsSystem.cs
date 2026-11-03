@@ -7,9 +7,9 @@ using Content.Shared.Movement.Pulling.Events;
 
 namespace Content.Goobstation.Shared.Held;
 
-public sealed class GoobHandsSystem : EntitySystem
+public sealed partial class GoobHandsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {

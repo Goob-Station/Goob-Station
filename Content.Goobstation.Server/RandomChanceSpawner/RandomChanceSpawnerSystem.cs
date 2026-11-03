@@ -7,7 +7,7 @@ namespace Content.Goobstation.Server.RandomChanceSpawner;
 
 public sealed partial class RandomChanceSpawnerSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

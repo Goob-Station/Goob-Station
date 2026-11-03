@@ -13,7 +13,7 @@ namespace Content.Goobstation.Server.DeathSquad;
 /// </summary>
 public sealed partial class DeathSquadMemberSystem : EntitySystem
 {
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private MobThresholdSystem _threshold = default!;
     public override void Initialize()
     {
         base.Initialize();

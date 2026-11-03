@@ -13,13 +13,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public abstract class SharedDarknessAdaptionSystem : EntitySystem
+public abstract partial class SharedDarknessAdaptionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStealthSystem _stealth = default!;
 
     private EntityQuery<NightVisionComponent> _nvgQuery;
     private EntityQuery<StealthOnMoveComponent> _stealthOnMoveQuery;

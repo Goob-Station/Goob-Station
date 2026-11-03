@@ -156,7 +156,10 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
             _fixtures.FixtureUpdate(uid, manager: fixtures, body: physics);
 
         if (comp.OldBodyType != null)
+        {
             Physics.SetBodyType(uid, comp.OldBodyType.Value, fixtures, physics, xform);
+            RemComp<BlockMovementComponent>(uid); // This exists for debug purposes. otherwise will testfail due to Dynamic BodyType
+        }
     }
 
     private void IceCubeAdded(Entity<IceCubeComponent> ent, ref ComponentStartup args)
@@ -201,5 +204,6 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
 
         comp.OldBodyType = physics.BodyType;
         Physics.SetBodyType(uid, comp.FrozenBodyType, fixtures, physics, xform);
+        EnsureComp<BlockMovementComponent>(uid); // This exists for debug purposes. otherwise will testfail due to Dynamic BodyType
     }
 }

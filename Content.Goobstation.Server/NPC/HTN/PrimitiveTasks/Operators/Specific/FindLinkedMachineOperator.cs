@@ -13,7 +13,7 @@ namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class FindLinkedMachineOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private PathfindingSystem _pathfinding = default!;
 
     [DataField] public string RangeKey = NPCBlackboard.FillbotPickupRange;

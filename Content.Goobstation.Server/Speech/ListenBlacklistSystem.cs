@@ -8,9 +8,9 @@ namespace Content.Goobstation.Server.Speech;
 /// <summary>
 /// Handles <see cref="ListenAttemptEvent"/> for <see cref="ListenBlacklistComponent"/>.
 /// </summary>
-public sealed class ListenBlacklistSystem : EntitySystem
+public sealed partial class ListenBlacklistSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

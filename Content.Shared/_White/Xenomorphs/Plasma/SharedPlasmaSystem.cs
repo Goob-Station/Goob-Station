@@ -20,8 +20,10 @@ public abstract class SharedPlasmaSystem : EntitySystem
     private void OnPlasmaTransfer(EntityUid uid, PlasmaVesselComponent component, TransferPlasmaActionEvent args)
     {
         if (args.Handled
+            || args.Target == args.Performer
+            || !TryComp<PlasmaVesselComponent>(args.Performer, out var plasmaVesselPerformer)
             || !TryComp<PlasmaVesselComponent>(args.Target, out var plasmaVesselTarget)
-            || !ChangePlasmaAmount(uid, -args.Amount, component))
+            || !ChangePlasmaAmount(args.Performer, -args.Amount, plasmaVesselPerformer))
             return;
 
         ChangePlasmaAmount(args.Target, args.Amount, plasmaVesselTarget);

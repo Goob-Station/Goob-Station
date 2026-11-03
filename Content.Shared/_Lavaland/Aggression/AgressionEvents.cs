@@ -33,3 +33,11 @@ public sealed class AggressiveRemovedEvent(EntityUid aggressive) : EntityEventAr
 {
     public EntityUid Aggressive = aggressive;
 }
+
+/// <summary>
+/// Raised on the entity with AggressiveComponent when it dies, before its aggressors are cleared.
+/// </summary>
+public sealed class AggressiveKilledEvent(List<EntityUid> aggressors) : EntityEventArgs
+{
+    public readonly List<EntityUid> Aggressors = aggressors;
+}

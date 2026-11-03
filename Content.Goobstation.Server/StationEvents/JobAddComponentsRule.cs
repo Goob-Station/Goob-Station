@@ -11,11 +11,11 @@ using Robust.Server.Player;
 
 namespace Content.Goobstation.Server.StationEvents;
 
-public sealed class JobAddComponentsRule : StationEventSystem<JobAddComponentsRuleComponent>
+public sealed partial class JobAddComponentsRule : StationEventSystem<JobAddComponentsRuleComponent>
 {
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private SharedJobSystem _job = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     protected override void Started(EntityUid uid, JobAddComponentsRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

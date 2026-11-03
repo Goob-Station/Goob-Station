@@ -16,14 +16,14 @@ namespace Content.Goobstation.Shared.SlaughterDemon.Systems;
 /// Blood Crawl allows you to jaunt, as long as you activate it in a pool of blood.
 /// To exit the jaunt, you must also stand on a poll of blood.
 /// </summary>
-public abstract class SharedBloodCrawlSystem : EntitySystem
+public abstract partial class SharedBloodCrawlSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _netManager = default!;
 
     private EntityQuery<ActionsComponent> _actionQuery;
     private EntityQuery<PuddleComponent> _puddleQuery;

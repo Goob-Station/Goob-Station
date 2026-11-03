@@ -145,7 +145,7 @@ namespace Content.Client.Viewport
             EnsureViewportCreated();
 
             DebugTools.AssertNotNull(_viewport);
-
+            var transform = handle.DrawingHandleScreen.GetTransform(); //goobstation 
             _viewport!.Render();
 
             if (_queuedScreenshots.Count != 0)
@@ -166,6 +166,9 @@ namespace Content.Client.Viewport
             var drawBox = GetDrawBox();
             var drawBoxGlobal = drawBox.Translated(GlobalPixelPosition);
             _viewport.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
+            //goobstation edit - start
+            handle.DrawingHandleScreen.SetTransform(transform);
+            //goobstation edit - end
             handle.DrawingHandleScreen.DrawTextureRect(_viewport.RenderTarget.Texture, drawBox);
             _viewport.RenderScreenOverlaysAbove(handle, this, drawBoxGlobal);
         }

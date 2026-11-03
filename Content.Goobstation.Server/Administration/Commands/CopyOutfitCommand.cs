@@ -7,10 +7,10 @@ using Robust.Shared.Console;
 namespace Content.Goobstation.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class CopyOutfitCommand : LocalizedEntityCommands
+public sealed partial class CopyOutfitCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly CloningSystem _cloning = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private CloningSystem _cloning = default!;
+    [Dependency] private InventorySystem _inventory = default!;
     // No hands manipulation; rely on cloning system only
 
     public override string Command => "copyoutfit";

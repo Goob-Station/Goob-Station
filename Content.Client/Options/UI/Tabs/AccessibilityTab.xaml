@@ -23,9 +23,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <CheckBox Name="CensorNudityCheckBox" Text="{Loc 'ui-options-censor-nudity'}" />
                 <CheckBox Name="AutoFillHighlightsCheckBox" Text="{Loc 'ui-options-auto-fill-highlights'}" />
                 <CheckBox Name="HighlightSoundCheckBox" Text="{Loc 'ui-options-highlight-sound'}" /> <!-- Goobstation - Highlight chat sounds! -->
-                <ui:OptionColorSlider Name="HighlightsColorSlider"
-                    Title="{Loc 'ui-options-highlights-color'}"
-                    Example="{Loc 'ui-options-highlights-color-example'}"/>
+                <!-- Goob - highlight color & interaction outline options moved to CustomizationTab -->
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />

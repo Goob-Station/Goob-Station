@@ -9,6 +9,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: absinthe
   color: "#33EE00"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/absintheglass.rsi
     state: icon_empty
@@ -54,6 +55,7 @@
   physicalDesc: reagent-physical-desc-bubbly
   flavor: ale
   color: "#663100"
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/aleglass.rsi
@@ -71,6 +73,8 @@
   physicalDesc: reagent-physical-desc-bubbly
   flavor: beer
   color: "#e3e77b"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#e3e77b7C" # Goob
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/beerglass.rsi
@@ -88,6 +92,7 @@
   physicalDesc: reagent-physical-desc-aromatic
   flavor: bluecuracao
   color: "#0099FF"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/curacaoglass.rsi
     state: icon_empty
@@ -111,6 +116,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: cognac
   color: "#AB3C05"
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/cognacglass.rsi
@@ -135,6 +141,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: rum
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/rumglass.rsi
     state: icon_empty
@@ -158,6 +165,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: alcohol
   color: "#b05b3c"
+  puddleSpriteSet: Shiny # Goob
   boilingPoint: 78.2
   meltingPoint: -114.1
   metabolisms:
@@ -175,6 +183,7 @@
           - Yowie  # Goobstation - Yowie
           - Cybernetic # Shitmed - Cybernetic Organs
           - Oni # Goobstation, fixes Oni taking base ethanol poisoning on top of their specific ethanol poisoning
+          - Synth # Goob - Afterlight synths
           inverted: true
         damage:
           types:
@@ -245,6 +254,7 @@
           - Dwarf
           - Cybernetic # Shitmed - Cybernetic Organs
           - Yowie # Goobstation - Yowie
+          - Synth # Goob - Afterlight synths
           inverted: true
       - !type:Drunk
         boozePower: 2
@@ -257,6 +267,8 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: gin
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#664300CC" # Goob
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
@@ -311,6 +323,7 @@
   physicalDesc: reagent-physical-desc-sweet
   flavor: watermelon
   color: "#00FF33"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/emeraldglass.rsi
     state: icon_empty
@@ -326,6 +339,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: bitter
   color: "#7E4043"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/wineglass.rsi
     state: icon_empty
@@ -341,6 +355,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: bitter
   color: "#990066"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/pwineglass.rsi
     state: icon_empty
@@ -375,6 +390,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: rum
   color: "#f09f42"
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/rumglass.rsi
@@ -399,6 +415,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: sake
   color: "#DDDDDD"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/sakeglass.rsi
     state: icon_empty
@@ -422,6 +439,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: tequila
   color: "#d7d1d155"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/tequillaglass.rsi
     state: icon_empty
@@ -445,6 +463,8 @@
   physicalDesc: reagent-physical-desc-aromatic
   flavor: vermouth
   color: "#91FF91"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#91FF9140" # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/vermouthglass.rsi
     state: icon_empty
@@ -460,6 +480,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: vodka
   color: "#d1d1d155"
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
@@ -484,6 +505,8 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: whiskey
   color: "#ee7732"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#ee7732CC" # Goob
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/whiskeyglass.rsi
@@ -508,6 +531,7 @@
   physicalDesc: reagent-physical-desc-translucent
   flavor: shittywine
   color: "#7E4043"
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/wineglass.rsi
@@ -524,6 +548,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: champagne
   color: "#FCFCEE"
+  puddleSpriteSet: Shiny # Goob
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/champagneglass.rsi
@@ -551,6 +576,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: acidspit
   color: "#365000"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/acidspitglass.rsi
     state: icon_empty
@@ -581,6 +607,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: alliescocktail
   color: "#00664d"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/alliescocktail.rsi
     state: icon_empty
@@ -596,6 +623,7 @@
   physicalDesc: reagent-physical-desc-aromatic
   flavor: aloe
   color: "#192c00"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/aloe.rsi
     state: icon_empty
@@ -611,6 +639,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: amasec
   color: "#124da7"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/amasecglass.rsi
     state: icon_empty
@@ -626,6 +655,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: andalusia
   color: "#665700"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/andalusia.rsi
     state: icon_empty
@@ -644,6 +674,7 @@
   physicalDesc: reagent-physical-desc-translucent
   flavor: antifreeze
   color: "#ff7d63"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/antifreeze.rsi
     state: icon_empty
@@ -667,6 +698,7 @@
   physicalDesc: reagent-physical-desc-cloudy
   flavor: atomicbomb
   color: "#666300"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/atomicbombglass.rsi
     state: icon_empty
@@ -693,6 +725,7 @@
   physicalDesc: reagent-physical-desc-bubbly
   flavor: b52
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/b52glass.rsi
     state: icon_empty
@@ -761,6 +794,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: beepsky
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/beepskysmashglass.rsi
     state: icon_empty
@@ -785,6 +819,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: blackrussian
   color: "#360000"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/blackrussianglass.rsi
     state: icon_empty
@@ -808,6 +843,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: bloodymary
   color: "#df6a50"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/bloodymaryglass.rsi
     state: icon_empty
@@ -838,6 +874,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: bravebull
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/bravebullglass.rsi
     state: icon_empty
@@ -861,6 +898,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: bronx
   color: "#d68829"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/bronx.rsi
     state: icon_empty
@@ -876,6 +914,7 @@
   physicalDesc: reagent-physical-desc-milky
   flavor: coconutrum
   color: "#cccbc8"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coconutrum.rsi
     state: icon_empty
@@ -899,6 +938,7 @@
   physicalDesc: reagent-physical-desc-citric
   flavor: cosmopolitan
   color: "#f73030"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/cosmopolitan.rsi
     state: icon_empty
@@ -937,6 +977,7 @@
   physicalDesc: reagent-physical-desc-bubbly
   flavor: cubalibre
   color: "#3E1B00"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/cubalibreglass.rsi
     state: icon_empty
@@ -976,6 +1017,7 @@
   physicalDesc: reagent-physical-desc-ferrous
   flavor: demonsblood
   color: "#a70000"
+  puddleSpriteSet: Blood # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/demonsblood.rsi
     state: icon_empty
@@ -998,6 +1040,7 @@
   physicalDesc: reagent-physical-desc-ferrous
   flavor: devilskiss
   color: "#ff0033"
+  puddleSpriteSet: Blood # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/devilskiss.rsi
     state: icon_empty
@@ -1019,6 +1062,7 @@
   physicalDesc: reagent-physical-desc-soothing
   flavor: medicine
   color: "#FF8CFF"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/doctorsdelightglass.rsi
     state: icon_empty
@@ -1051,6 +1095,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: driestmartini
   color: "#2E6671"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/driestmartiniglass.rsi
     state: icon_empty
@@ -1120,6 +1165,7 @@
   physicalDesc: reagent-physical-desc-volatile
   flavor: gargleblaster
   color: "#9cc8b4"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/gargleblasterglass.rsi
     state: icon_empty
@@ -1143,6 +1189,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: ginfizz
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/ginfizzglass.rsi
     state: icon_empty
@@ -1167,6 +1214,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: gintonic
   color: "#004166"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/gintonicglass.rsi
     state: icon_empty
@@ -1191,6 +1239,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: gildlager
   color: "#FFFF91"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/gildlagerglass.rsi
     state: icon_empty
@@ -1214,6 +1263,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: grog
   color: "#e3e77b"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/beerstein.rsi
     state: icon_empty
@@ -1229,6 +1279,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: hippiesdelight
   color: "#6eaa0c"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/hippiesdelightglass.rsi
     state: icon_empty
@@ -1253,6 +1304,7 @@
   physicalDesc: reagent-physical-desc-bubbly
   flavor: icedbeer
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/iced_beerglass.rsi
     state: icon_empty
@@ -1368,6 +1420,7 @@
   physicalDesc: reagent-physical-desc-bubbly
   flavor: kalimotxo
   color: "#360606"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/kalimotxo.rsi
     state: icon_empty
@@ -1383,6 +1436,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: longisland
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/longislandicedteaglass.rsi
     state: icon_empty
@@ -1452,6 +1506,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: margarita
   color: "#8CFF8C"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/margaritaglass.rsi
     state: icon_empty
@@ -1467,6 +1522,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: martini
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/martiniglass.rsi
     state: icon_empty
@@ -1490,6 +1546,8 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: mead
   color: "#664300"
+  puddleSpriteSet: Shiny # Goob
+  puddleColor: "#664300CC" # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/beerstein.rsi
     state: icon_empty
@@ -1506,6 +1564,7 @@
   physicalDesc: reagent-physical-desc-refreshing
   flavor: mojito
   color: "#3ea99888"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/mojito.rsi
     state: icon_empty
@@ -1537,6 +1596,7 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: moonshine
   color: "#d1d7d155"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/moonshineglass.rsi
     state: icon_empty
@@ -1560,6 +1620,7 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: neurotoxin
   color: "#2E2E61"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/neurotoxinglass.rsi
     state: icon_empty
@@ -1593,6 +1654,7 @@
   physicalDesc: reagent-physical-desc-refreshing
   flavor: painkiller
   color: "#e6cb47"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/painkiller.rsi
     state: icon_empty
@@ -1616,6 +1678,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: patron
   color: "#585840"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/patronglass.rsi
     state: icon_empty
@@ -1639,6 +1702,7 @@
   physicalDesc: reagent-physical-desc-ferrous
   flavor: redmead
   color: "#bc5550"
+  puddleSpriteSet: Blood # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/red_meadglass.rsi
     state: icon_empty
@@ -1700,6 +1764,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: sbiten
   color: "#004166"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/sbitenglass.rsi
     state: icon_empty
@@ -1764,6 +1829,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: nothing
   color: "#878787"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/silencerglass.rsi
     state: icon_empty
@@ -1915,6 +1981,7 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: toxinsspecial
   color: "#665c00"
+  puddleColor: "#665c0055" # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/toxinsspecialglass.rsi
     state: icon_empty
@@ -1945,6 +2012,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: vodkamartini
   color: "#004666"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/martiniglass.rsi
     state: icon_empty
@@ -1968,6 +2036,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: vodkatonic
   color: "#0064C8"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/vodkatonicglass.rsi
     state: icon_empty
@@ -1992,6 +2061,7 @@
   physicalDesc: reagent-physical-desc-bubbly
   flavor: whiskeycola
   color: "#3E1B00"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/whiskeycolaglass.rsi
     state: icon_empty
@@ -2016,6 +2086,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: whiskeycola
   color: "#533600"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/whiskeysodaglass.rsi
     state: icon_empty
@@ -2058,6 +2129,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: whiterussian
   color: "#A68340"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/whiterussianglass.rsi
     state: icon_empty
@@ -2081,6 +2153,7 @@
   physicalDesc: reagent-physical-desc-bubbly
   flavor: vodkaredbool
   color: "#c4c27655"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi
     state: icon_empty
@@ -2143,6 +2216,7 @@
   physicalDesc: reagent-physical-desc-bubbly
   flavor: irishbool
   color: "#71672e99"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/beerglass.rsi
     state: icon_empty
@@ -2205,6 +2279,7 @@
   physicalDesc: reagent-physical-desc-sweet
   flavor: watermelonwakeup
   color: "#d49dca"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/champagneglass.rsi
     state: icon_empty
@@ -2236,6 +2311,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: rubberneck
   color: "#f0d74a"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/rubberneck.rsi
     state: icon_empty
@@ -2290,6 +2366,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: caipirinha
   color: "#E6EE9C"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/caipirinha.rsi
     state: icon_empty
@@ -2313,6 +2390,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: moscowmule
   color: "#CECBAD"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/moscowmule.rsi
     state: icon_empty
@@ -2339,6 +2417,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: mimeosa
   color: "#939393"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/mimeosa.rsi
     state: icon_empty
@@ -2365,6 +2444,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: mimosa
   color: "#FFCA48"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/mimosa.rsi
     state: icon_empty
@@ -2388,6 +2468,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: mayojito
   color: "#6FBE44"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/mayojito.rsi
     state: icon_empty
@@ -2444,6 +2525,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: empress75
   color: "#900296"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/empress75.rsi
     state: icon_empty
@@ -2467,6 +2549,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: espressomartini
   color: "#170a0c"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/espressomartini.rsi
     state: icon_empty
@@ -2490,6 +2573,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: daiquiri
   color: "#DAC865"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/daiquiri.rsi
     state: icon_empty
@@ -2513,6 +2597,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: thesunalsorises
   color: "#DCE2DE"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/thesunalsorises.rsi
     state: icon_empty
@@ -2536,6 +2621,7 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: whiskeysour
   color: "#8B7941"
+  puddleSpriteSet: Shiny # Goob
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/whiskeysour.rsi
     state: icon_empty

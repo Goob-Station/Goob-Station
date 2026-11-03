@@ -13,8 +13,8 @@ namespace Content.Goobstation.Shared.Traits.Systems;
 
 public sealed partial class MovementImpairedSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private INetManager _net = default!;
     public override void Initialize()
     {
         base.Initialize();

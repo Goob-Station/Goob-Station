@@ -15,13 +15,13 @@ namespace Content.Goobstation.Server.Hostname;
 /// <summary>
 /// This handles dynamically updating hostnames.
 /// </summary>
-public sealed class DynamicHostnameSystem : EntitySystem
+public sealed partial class DynamicHostnameSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IJoinQueueManager _queue = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IJoinQueueManager _queue = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     private static readonly ProtoId<LocalizedDatasetPrototype> _messagesProto = "MessageOfTheDay";
     private LocalizedDatasetPrototype? _messages;

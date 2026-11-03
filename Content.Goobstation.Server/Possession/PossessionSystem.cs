@@ -39,19 +39,19 @@ namespace Content.Goobstation.Server.Possession;
 
 public sealed partial class PossessionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly FollowerSystem _follower = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private ISharedAdminLogManager _admin = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private FollowerSystem _follower = default!;
 
     public override void Initialize()
     {

@@ -168,6 +168,8 @@ public abstract class SharedAutodocSystem : EntitySystem
         if (program.SkipFailed)
         {
             Say(ent, Loc.GetString("autodoc-error", ("error", error)));
+            ent.Comp.CurrentSurgery = null;
+            ent.Comp.Waiting = false;
             ent.Comp.ProgramStep++;
         }
         else
@@ -283,6 +285,17 @@ public abstract class SharedAutodocSystem : EntitySystem
             throw new AutodocError("missing-patient");
 
         return patient;
+    }
+
+    public bool IsPartAttached(EntityUid body, EntityUid part)
+    {
+        foreach (var child in _body.GetBodyChildren(body))
+        {
+            if (child.Id == part)
+                return true;
+        }
+
+        return false;
     }
 
     public EntityUid? FindPart(EntityUid patient, BodyPartType type, BodyPartSymmetry? symmetry)
@@ -478,7 +491,7 @@ public abstract class SharedAutodocSystem : EntitySystem
             if (ent.Comp2.CurrentSurgery is {} args)
             {
                 var (body, part, surgery) = args;
-                if (StartSurgeryOrThrow((ent.Owner, ent.Comp1), body, part, surgery))
+                if (IsPartAttached(body, part) && StartSurgeryOrThrow((ent.Owner, ent.Comp1), body, part, surgery))
                     return false;
 
                 // done with the surgery onto next step!!!
@@ -506,6 +519,7 @@ public abstract class SharedAutodocSystem : EntitySystem
             if (program.SkipFailed)
             {
                 Say(ent, Loc.GetString("autodoc-error", ("error", error)));
+                ent.Comp2.CurrentSurgery = null;
                 ent.Comp2.ProgramStep++;
             }
             else

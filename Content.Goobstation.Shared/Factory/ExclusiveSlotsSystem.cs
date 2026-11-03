@@ -9,10 +9,10 @@ namespace Content.Goobstation.Shared.Factory;
 /// <summary>
 /// Tracks port/machine state and prevents linking multiple machines to exclusive ports.
 /// </summary>
-public sealed class ExclusiveSlotsSystem : EntitySystem
+public sealed partial class ExclusiveSlotsSystem : EntitySystem
 {
-    [Dependency] private readonly AutomationSystem _automation = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _device = default!;
+    [Dependency] private AutomationSystem _automation = default!;
+    [Dependency] private SharedDeviceLinkSystem _device = default!;
 
     private EntityQuery<ExclusiveInputSlotComponent> _inputQuery;
     private EntityQuery<ExclusiveOutputSlotComponent> _outputQuery;

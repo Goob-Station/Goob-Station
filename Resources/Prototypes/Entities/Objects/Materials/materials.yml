@@ -314,6 +314,22 @@
   name: biomass
   suffix: Full
   components:
+  # Goob start - Afterlight synths
+  - type: Edible
+    requiresSpecialDigestion: true
+    solution: food
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - oily
+    - chalky
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+  # Goob end
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -418,6 +434,15 @@
     heldPrefix: diamond
   - type: Extractable
     grindableSolutionName: diamond
+  # Goob start - Afterlight synths
+  - type: Edible
+    requiresSpecialDigestion: true
+    solution: diamond
+  - type: FlavorProfile
+    flavors:
+    - nothing
+  - type: BadFood
+  # Goob end
   - type: SolutionContainerManager
     solutions:
       diamond:

@@ -41,7 +41,7 @@
     radius: 2
     energy: 1.6
     color: "#9dc5c9"
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
 
 - type: entity
@@ -80,7 +80,7 @@
     radius: 2
     energy: 1.6
     color: "#9dc5c9"
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
 
 - type: entity
@@ -120,7 +120,7 @@
     radius: 2
     energy: 1.6
     color: "#9dc5c9"
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
 
 - type: entity
@@ -161,7 +161,7 @@
     radius: 2
     energy: 1.6
     color: "#9dc5c9"
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
 
 - type: entity
@@ -205,5 +205,5 @@
     radius: 2
     energy: 1.6
     color: "#9dc5c9"
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true

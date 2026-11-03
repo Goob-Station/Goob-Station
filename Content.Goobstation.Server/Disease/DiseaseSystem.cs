@@ -16,8 +16,8 @@ namespace Content.Goobstation.Server.Disease;
 
 public sealed partial class DiseaseSystem : SharedDiseaseSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ContainerSystem _container = default!;
 
     public override void Initialize()
     {

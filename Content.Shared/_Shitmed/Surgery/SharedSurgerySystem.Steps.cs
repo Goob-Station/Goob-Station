@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Surgery;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -358,6 +359,9 @@ public abstract partial class SharedSurgerySystem
 
         if (insertedOrgan.OriginalBody == args.Body)
             return;
+
+        var transplantEv = new OrganTransplantedEvent(args.Body, args.Tool);
+        RaiseLocalEvent(args.User, ref transplantEv);
 
         var ev = new SurgeryStepDamageChangeEvent(args.User, args.Body, args.Part, ent);
             RaiseLocalEvent(ent, ref ev);

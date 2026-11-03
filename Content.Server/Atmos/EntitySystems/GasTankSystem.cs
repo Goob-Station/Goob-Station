@@ -122,7 +122,8 @@ namespace Content.Server.Atmos.EntitySystems
             }
             var strength = removed.TotalMoles * MathF.Sqrt(removed.Temperature);
             var dir = _random.NextAngle().ToWorldVec();
-            _throwing.TryThrow(gasTank, dir * strength, strength);
+            _throwing.TryThrow(gasTank, dir * strength, strength,
+                predicted: false); // Trauma
             if (gasTank.Comp.OutputPressure >= MinimumSoundValvePressure)
                 _audioSys.PlayPvs(gasTank.Comp.RuptureSound, gasTank);
         }

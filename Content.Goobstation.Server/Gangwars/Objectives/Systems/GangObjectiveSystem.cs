@@ -8,11 +8,11 @@ using Content.Shared.Objectives.Components;
 
 namespace Content.Goobstation.Server.Gangwars.Objectives.Systems;
 
-public sealed class GangObjectiveSystem : EntitySystem
+public sealed partial class GangObjectiveSystem : EntitySystem
 {
-    [Dependency] private readonly NumberObjectiveSystem _number = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly GangwarRuleSystem _gangwarRule = default!;
+    [Dependency] private NumberObjectiveSystem _number = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private GangwarRuleSystem _gangwarRule = default!;
 
     public override void Initialize()
     {

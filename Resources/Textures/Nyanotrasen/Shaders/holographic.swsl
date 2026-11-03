@@ -219,6 +219,8 @@ void fragment()
 
     highp float wrapped_hue = fract(hue);
     highp vec4 product = texture(TEXTURE, UV);
+    if (product.w > 0.0)
+        product.rgb /= product.w;
 
     // Colorize with wrapped hue
     highp vec3 hsv = rgb2hsv(product.rgb);
@@ -252,6 +254,6 @@ void fragment()
     // Alpha modulation
     product.w *= 0.9 - 0.4 * pingpong((TIME_OFFSET3 + TIME) * 0.36);
 
-    product.rgb = clamp(product.rgb, 0.0, 1.0);
+    product.rgb = clamp(product.rgb, 0.0, 1.0) * product.w;
     COLOR = product;
 }

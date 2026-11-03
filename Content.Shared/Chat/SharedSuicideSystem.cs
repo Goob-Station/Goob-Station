@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
-using System.Linq;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
@@ -55,8 +57,8 @@ public sealed class SharedSuicideSystem : EntitySystem
             appliedDamageSpecifier.DamageDict[key] = Math.Ceiling((double) (value * lethalAmountOfDamage / totalDamage));
         }
 
-        _damageableSystem.TryChangeDamage(target, appliedDamageSpecifier, true, origin: target, targetPart: TargetBodyPart.Chest); // Shitmed Change
-        Dirty(target, target.Comp);
+        _damageableSystem.ChangeDamage(target.AsNullable(), appliedDamageSpecifier, true, origin: target, targetPart: TargetBodyPart.Chest); // Goob - shitmed change
+        Dirty(target); // Goob - shitmed change .. ?
     }
 
     /// <summary>
@@ -83,12 +85,12 @@ public sealed class SharedSuicideSystem : EntitySystem
         }
 
         var damage = new DamageSpecifier(damagePrototype, lethalAmountOfDamage);
-        _damageableSystem.TryChangeDamage(target, damage, true, origin: target, targetPart: TargetBodyPart.Chest); // Shitmed Change
-        Dirty(target, target.Comp);
+        _damageableSystem.ChangeDamage(target.AsNullable(), damage, true, origin: target, targetPart: TargetBodyPart.Chest); // Goob - shitmed change
+        Dirty(target, target.Comp); // Goob - shitmed change .. ?
     }
 
     /// <summary>
-    ///     Kills a consciousness. lol
+    ///     Goob - Kills a consciousness. lol
     /// </summary>
     public void KillConsciousness(Entity<ConsciousnessComponent> target)
     {

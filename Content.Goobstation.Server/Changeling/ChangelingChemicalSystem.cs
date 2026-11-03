@@ -7,7 +7,7 @@ namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class ChangelingChemicalSystem : SharedChangelingChemicalSystem
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {

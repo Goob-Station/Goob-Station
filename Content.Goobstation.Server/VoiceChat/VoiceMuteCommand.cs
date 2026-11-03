@@ -6,10 +6,10 @@ using Robust.Shared.Console;
 namespace Content.Goobstation.Server.VoiceChat;
 
 [AdminCommand(AdminFlags.Moderator)]
-public sealed class VoiceMuteCommand : LocalizedEntityCommands
+public sealed partial class VoiceMuteCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly VoiceChatSystem _voiceChat = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private VoiceChatSystem _voiceChat = default!;
 
     public override string Command => "voicemute";
 

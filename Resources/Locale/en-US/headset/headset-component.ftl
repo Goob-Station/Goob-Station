@@ -24,11 +24,13 @@
 
 # Chat window radio wrap (prefix and postfix)
 # Einstein Engines - Languages begin (change text color based on language color set in handler)
-chat-radio-message-wrap = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}, "[/color][font="{$fontType}" size={$fontSize}][color={$languageColor}]{$message}[/color][/font][color={$color}]"[/color]
-chat-radio-message-wrap-bold = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}, "[/color][color={$languageColor}][font="{$fontType}" size={$fontSize}][bold]{$message}[/bold][/font][/color][color={$color}]"[/color]
+# Goob - radiochannel tags so players can customize channel colors
+chat-radio-message-wrap = [radiochannel="{$channelId}"]{$channel} [bold]{$name}[/bold] {$verb}, "[/radiochannel][font="{$fontType}" size={$fontSize}][radiochannel="{$channelId}" lang="{$languageOverride}"]{$message}[/radiochannel][/font][radiochannel="{$channelId}"]"[/radiochannel]
+chat-radio-message-wrap-bold = [radiochannel="{$channelId}"]{$channel} [bold]{$name}[/bold] {$verb}, "[/radiochannel][radiochannel="{$channelId}" lang="{$languageOverride}"][font="{$fontType}" size={$fontSize}][bold]{$message}[/bold][/font][/radiochannel][radiochannel="{$channelId}"]"[/radiochannel]
 # Einstein Engines - Languages end
 
-examine-headset-default-channel = Use {$prefix} for the default channel ([color={$color}]{$channel}[/color]).
+# Goob - radiochannel tags so players can customize channel colors
+examine-headset-default-channel = Use {$prefix} for the default channel ([radiochannel="{$channelId}"]{$channel}[/radiochannel]).
 
 chat-radio-common = Common
 chat-radio-centcom = CentComm

@@ -11,9 +11,9 @@ namespace Content.Goobstation.Shared.EntityEffects;
 public sealed partial class RandomSpeciesChangeSystem
     : EntityEffectSystem<HumanoidAppearanceComponent, RandomSpeciesChange>
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
 
     protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<RandomSpeciesChange> args)
     {

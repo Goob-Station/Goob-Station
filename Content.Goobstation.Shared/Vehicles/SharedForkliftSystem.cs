@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText...
+// SPDX-FileCopyrightText...
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -15,14 +15,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Vehicles;
 
-public sealed class ForkliftSystem : EntitySystem
+public sealed partial class ForkliftSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedActionsSystem _action = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedActionsSystem _action = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const string CrateContainerId = "crate_storage";
     private static readonly ProtoId<TagPrototype> CrateTag = "Crate";

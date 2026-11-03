@@ -112,4 +112,25 @@ public sealed partial class SlasherKit
     /// </summary>
     [DataField]
     public SoundSpecifier? AscendanceSound;
+
+    /// <summary>
+    /// Extra components added to the Slasher when this kit is selected. Used for kit-specific
+    /// mechanics like the boogeyman's shadow invisibility.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry Components = new();
+
+    /// <summary>
+    /// Components removed from the Slasher after the shared post-selection and kit components are
+    /// added. Used to strip shared abilities (like the incorporeal jaunt) from specific kits.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry RemoveComponents = new();
+
+    /// <summary>
+    /// Guidebook entry id for this kit. Set on kits whose gameplay differs from the default slasher;
+    /// the kit-select card shows a "?" that opens the guidebook to this page.
+    /// </summary>
+    [DataField]
+    public string? Guide;
 }

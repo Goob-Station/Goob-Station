@@ -9,13 +9,13 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 
 namespace Content.Goobstation.Shared.Wraith.Systems.Mobs;
-public sealed class RushdownSystem : EntitySystem
+public sealed partial class RushdownSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private readonly HashSet<Entity<StatusEffectsComponent>> _statusEffects = new();
     public override void Initialize()

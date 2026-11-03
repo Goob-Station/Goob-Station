@@ -415,6 +415,8 @@
       collection: Belch # Frontier
     Caw:
       collection: HarpyCaws
+    Bagawk:
+      path: /Audio/_Mono/Voice/bagawk.ogg 
     # Goob end
     #Gasp: # Goob
     #  path: /Audio/Effects/Gasp/vox_gasp.ogg

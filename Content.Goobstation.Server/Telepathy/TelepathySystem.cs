@@ -3,17 +3,13 @@
 using Content.Server.Administration;
 using Content.Shared.IdentityManagement;
 using Content.Server.Popups;
-using Content.Server.Prayer;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Content.Goobstation.Shared.Telepathy;
-using Content.Shared.Actions;
 using Content.Shared.Whitelist;
 using Content.Shared.Telepathy;
-using Content.Shared.Popups;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
-using Content.Server.Administration.Managers;
 using Content.Shared.Database;
 using Content.Server.Administration.Logs;
 
@@ -23,30 +19,22 @@ namespace Content.Goobstation.Server.Telepathy;
 /// This handles the Demonic Whisper logic.
 /// Demonic Whisper lets you send a subtle popup to someone.
 /// </summary>
-public sealed class TelepathySystem : SharedTelepathySystem
+public sealed partial class TelepathySystem : SharedTelepathySystem
 {
-    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private QuickDialogSystem _quickDialog = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
 
-    private EntityQuery<ActorComponent> _actorQuery;
+    [Dependency] private EntityQuery<ActorComponent> _actorQuery = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _actorQuery = GetEntityQuery<ActorComponent>();
-
-        SubscribeLocalEvent<TelepathyWhisperEvent>(OnTelepathyWhisper);
-    }
-
+    [SubscribeLocalEvent]
     private void OnTelepathyWhisper(TelepathyWhisperEvent args)
     {
-        EntityUid performer = args.Performer;
-        EntityUid target = args.Target;
+        var performer = args.Performer;
+        var target = args.Target;
 
         if (!TryComp(args.Action, out TelepathyActionComponent? telepathy)
             || !_whitelist.IsWhitelistPassOrNull(telepathy.TargetWhitelist, target)
@@ -75,7 +63,7 @@ public sealed class TelepathySystem : SharedTelepathySystem
                 ("message", FormattedMessage.EscapeText(message))),
                 performer, performer);
 
-            _adminLog.Add(LogType.AdminMessage, LogImpact.Medium, $"{ToPrettyString(target):player} received telepathic message from {ToPrettyString(performer):player}: {message}");
+            _adminLog.Add(LogType.Chat, LogImpact.Medium, $"{ToPrettyString(target):player} received telepathic message from {ToPrettyString(performer):player}: {message}");
         });
     }
 }

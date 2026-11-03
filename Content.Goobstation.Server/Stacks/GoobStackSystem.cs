@@ -9,10 +9,10 @@ namespace Content.Goobstation.Server.Stacks;
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class GoobStackSystem : GoobSharedStackSystem
+public sealed partial class GoobStackSystem : GoobSharedStackSystem
 {
 
-    [Dependency] private readonly StackSystem _stackSystem = default!;
+    [Dependency] private StackSystem _stackSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

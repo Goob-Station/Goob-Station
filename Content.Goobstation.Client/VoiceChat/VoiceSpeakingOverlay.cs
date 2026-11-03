@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.VoiceChat;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
+using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.VoiceChat;
 
@@ -17,7 +18,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
     private readonly IPlayerManager _player;
     private readonly VoiceChatSystem _voice;
     private readonly VoiceCanadianSystem _canadian;
-    private readonly SharedTransformSystem _transform;
+    private readonly TransformSystem _transform;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
@@ -26,7 +27,7 @@ public sealed class VoiceSpeakingOverlay : Overlay
         _entityManager = entityManager;
         _player = IoCManager.Resolve<IPlayerManager>();
         _voice = voice;
-        _transform = entityManager.System<SharedTransformSystem>();
+        _transform = entityManager.System<TransformSystem>();
         _canadian = entityManager.System<VoiceCanadianSystem>();
     }
 

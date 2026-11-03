@@ -13,8 +13,8 @@ namespace Content.Goobstation.Client.NTR.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TaskEntry : BoxContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     public Action? OnLabelButtonPressed;
     public Action? OnSkipButtonPressed;

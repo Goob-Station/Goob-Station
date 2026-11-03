@@ -11,9 +11,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Clothing.EntitySystems;
 
-public sealed class SealableClothingVisualizerSystem : VisualizerSystem<SealableClothingVisualsComponent>
+public sealed partial class SealableClothingVisualizerSystem : VisualizerSystem<SealableClothingVisualsComponent>
 {
-    [Dependency] private readonly SharedItemSystem _itemSystem = default!;
+    [Dependency] private SharedItemSystem _itemSystem = default!;
 
     public override void Initialize()
     {

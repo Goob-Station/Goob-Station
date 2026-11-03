@@ -13,9 +13,9 @@ namespace Content.Goobstation.Client.Slasher.UI;
 /// <summary>
 /// Horizontal kit selection window for the Slasher.
 /// </summary>
-public sealed class SlasherKitSelectMenu : FancyWindow
+public sealed partial class SlasherKitSelectMenu : FancyWindow
 {
-    [Dependency] private readonly EntityManager _entManager = default!;
+    [Dependency] private EntityManager _entManager = default!;
 
     private readonly SpriteSystem _spriteSystem = default!;
 

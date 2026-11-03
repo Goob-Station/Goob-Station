@@ -9,10 +9,10 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Shared.SmartLinkImplant;
 
-public sealed class SmartLinkSystem : EntitySystem
+public sealed partial class SmartLinkSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {

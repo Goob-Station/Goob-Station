@@ -4,14 +4,15 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Goobstation.Server.SecondSkin;
 
-public sealed class SecondSkinSystem : SharedSecondSkinSystem
+public sealed partial class SecondSkinSystem : SharedSecondSkinSystem
 {
-    [Dependency] private readonly DamageableSystem _dmg = default!;
+    [Dependency] private DamageableSystem _dmg = default!;
 
     public override void Update(float frameTime)
     {

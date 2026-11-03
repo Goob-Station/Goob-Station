@@ -18,8 +18,8 @@ namespace Content.Goobstation.Client.Chemistry.UI
     [GenerateTypedNameReferences]
     public sealed partial class EnergyReagentDispenserWindow : FancyWindow
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
 
         private float _batteryCharge;
         private float _batteryMaxCharge;

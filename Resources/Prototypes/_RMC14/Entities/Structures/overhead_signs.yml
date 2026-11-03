@@ -37,7 +37,7 @@
     energy: 5
     offset: "0,0"
     color: "#ECFFFF"
-    mask: /Textures/_RMC14/Effects/LightMasks/quad_cone.png
+    lightMask: ConeQuad
 
 # Neon Signs
 

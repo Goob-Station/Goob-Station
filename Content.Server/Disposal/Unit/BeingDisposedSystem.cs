@@ -25,7 +25,7 @@ public sealed class BeingDisposedSystem : EntitySystem
         }
     }
 
-    private void OnInhaleLocation(EntityUid uid, BeingDisposedComponent component, InhaleLocationEvent args)
+    private void OnInhaleLocation(EntityUid uid, BeingDisposedComponent component, ref InhaleLocationEvent args) // Goob - by-ref
     {
         if (TryComp<DisposalHolderComponent>(component.Holder, out var holder))
         {
@@ -33,7 +33,7 @@ public sealed class BeingDisposedSystem : EntitySystem
         }
     }
 
-    private void OnExhaleLocation(EntityUid uid, BeingDisposedComponent component, ExhaleLocationEvent args)
+    private void OnExhaleLocation(EntityUid uid, BeingDisposedComponent component, ref ExhaleLocationEvent args) // Goob - by-ref
     {
         if (TryComp<DisposalHolderComponent>(component.Holder, out var holder))
         {

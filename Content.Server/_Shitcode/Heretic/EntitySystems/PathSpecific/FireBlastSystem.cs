@@ -19,6 +19,7 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Utility;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._Shitcode.Heretic.EntitySystems.PathSpecific;
 
@@ -83,11 +84,10 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
             if (!dmgQuery.TryComp(uid, out var dmg))
                 continue;
 
-            Dmg.TryChangeDamage(uid,
+            Dmg.ChangeDamage((uid, dmg),
                 origin.Comp.FireBlastBonusDamage * Body.GetVitalBodyPartRatio(uid),
                 false,
                 false,
-                dmg,
                 targetPart: TargetBodyPart.All,
                 splitDamage: SplitDamageBehavior.SplitEnsureAll,
                 canMiss: false);
@@ -217,11 +217,10 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
             if (!dmgQuery.TryComp(ent.HitEntity, out var dmg))
                 continue;
 
-            Dmg.TryChangeDamage(ent.HitEntity,
+            Dmg.ChangeDamage((ent.HitEntity, dmg),
                 origin.Comp.FireBlastBeamCollideDamage * Body.GetVitalBodyPartRatio(ent.HitEntity),
                 false,
                 false,
-                dmg,
                 targetPart: TargetBodyPart.All,
                 splitDamage: SplitDamageBehavior.SplitEnsureAll,
                 canMiss: false);

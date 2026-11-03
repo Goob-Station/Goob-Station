@@ -1,0 +1,42 @@
+- type: entity
+  id: BaseInventorySynth
+  abstract: true
+  components:
+  - type: Inventory
+    speciesId: synth
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Afterlight/Species/Synth/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Afterlight/Species/Synth/displacement.rsi
+            state: outerclothing
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Afterlight/Species/Synth/displacement.rsi
+            state: shoes
+      head:
+        sizeMaps:
+          32:
+            sprite: _Afterlight/Species/Synth/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Afterlight/Species/Synth/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Afterlight/Species/Synth/displacement.rsi
+            state: neck
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Afterlight/Species/Synth/displacement.rsi
+            state: gloves

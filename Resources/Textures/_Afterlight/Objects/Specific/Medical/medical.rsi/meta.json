@@ -1,0 +1,22 @@
+{
+	"version": 1,
+	"license": "CC-BY-SA-3.0",
+    "copyright": "Blood pack redone by Ubaser, edited by Github NotLivyathan / Discord livyathan (298907041198637067)",
+	"size": {
+		"x": 32,
+		"y": 32
+	},
+	"states": [
+		{
+			"name": "synthpack"
+		},
+		{
+			"name": "synthpack-inhand-left",
+			"directions": 4
+		},
+		{
+			"name": "synthpack-inhand-right",
+			"directions": 4
+		}
+	]
+}

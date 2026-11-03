@@ -6,9 +6,9 @@ using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.PhaseShift;
 
-public sealed class PhaseShiftSystem : SharedPhaseShiftSystem
+public sealed partial class PhaseShiftSystem : SharedPhaseShiftSystem
 {
-    [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
+    [Dependency] private VisibilitySystem _visibilitySystem = default!;
 
     protected override void OnComponentStartup(Entity<PhaseShiftedComponent> ent, ref ComponentStartup args)
     {

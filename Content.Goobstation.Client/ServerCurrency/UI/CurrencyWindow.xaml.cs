@@ -19,10 +19,10 @@ namespace Content.Goobstation.Client.ServerCurrency.UI
     [GenerateTypedNameReferences]
     public sealed partial class CurrencyWindow : DefaultWindow
     {
-        [Dependency] private readonly ICommonCurrencyManager _serverCur = default!;
-        [Dependency] private readonly IClientAdminManager _adminManager = default!;
-        [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-        [Dependency] private readonly IPrototypeManager _protoManager = default!;
+        [Dependency] private ICommonCurrencyManager _serverCur = default!;
+        [Dependency] private IClientAdminManager _adminManager = default!;
+        [Dependency] private IClientConsoleHost _consoleHost = default!;
+        [Dependency] private IPrototypeManager _protoManager = default!;
         public event Action<ProtoId<TokenListingPrototype>>? OnBuy;
         private bool isAdmin = false;
         private Dictionary<Button, (DateTime LastClick, TokenListingPrototype Listing)> _buttonClickTimes = new();

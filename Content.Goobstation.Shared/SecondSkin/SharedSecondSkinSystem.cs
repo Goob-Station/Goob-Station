@@ -9,6 +9,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
@@ -19,19 +20,19 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.SecondSkin;
 
-public abstract class SharedSecondSkinSystem : EntitySystem
+public abstract partial class SharedSecondSkinSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedItemSystem _itemSys = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedItemSystem _itemSys = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
 
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedContainerSystem Container = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedContainerSystem Container = default!;
 
     public override void Initialize()
     {

@@ -4,10 +4,10 @@ using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Client.VoiceChat.UI;
 
-public sealed class VoiceChatGuideUIController : UIController
+public sealed partial class VoiceChatGuideUIController : UIController
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly VoiceChatManager _voice = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private VoiceChatManager _voice = default!;
 
     private VoiceChatGuideWindow? _window;
 

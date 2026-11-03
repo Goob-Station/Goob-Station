@@ -6,6 +6,7 @@ using Content.Goobstation.Shared.Particles;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
+using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Map;
@@ -21,14 +22,15 @@ namespace Content.Goobstation.Client.Particles;
 /// </summary>
 public sealed partial class ParticleSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IResourceCache _resource = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private IResourceCache _resource = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     private readonly List<ActiveEmitter> _emitters = new();
     private readonly List<(ProtoId<ParticleEffectPrototype> Id, MapCoordinates Coords)> _pendingSubEmitters = new();
@@ -386,6 +388,16 @@ public sealed partial class ParticleSystem : EntitySystem
         return emitter;
     }
 
+    private Box2 GetWorldViewport()
+    {
+        var size = (_eye.MainViewport as Control)?.PixelSize ?? _clyde.ScreenSize;
+        var a = _eye.ScreenToMap(Vector2.Zero).Position;
+        var b = _eye.ScreenToMap(new Vector2(size.X, 0)).Position;
+        var c = _eye.ScreenToMap(new Vector2(0, size.Y)).Position;
+        var d = _eye.ScreenToMap(new Vector2(size.X, size.Y)).Position;
+        return new Box2(Vector2.Min(Vector2.Min(a, b), Vector2.Min(c, d)), Vector2.Max(Vector2.Max(a, b), Vector2.Max(c, d)));
+    }
+
     public override void FrameUpdate(float frameTime)
     {
         _pendingSubEmitters.Clear();
@@ -413,7 +425,7 @@ public sealed partial class ParticleSystem : EntitySystem
         var currentMapId = eye.Position.MapId;
         var ageCheck = TimeSpan.FromSeconds(frameTime);
 
-        var viewport = _eye.GetWorldViewport();
+        var viewport = GetWorldViewport();
         var pad = MathF.Max(viewport.Width, viewport.Height) * (ViewBoundsPaddingFactor - 1f) * 0.5f;
         var viewBounds = viewport.Enlarged(pad);
 

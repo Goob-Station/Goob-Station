@@ -111,12 +111,14 @@
   - type: RoleplayObjective
 
 - type: entity
-  parent: BaseKeepAliveObjective
+  parent: BaseTargetObjective
   id: DarkPriestProtectObjective
   name: Protect Crewmember
   description: Protect a crewmember who has sparked your interest.
   components:
+  - type: KeepAliveCondition
   - type: Objective
+    unique: false
     difficulty: 2
     icon:
       sprite: Objects/Misc/folders.rsi

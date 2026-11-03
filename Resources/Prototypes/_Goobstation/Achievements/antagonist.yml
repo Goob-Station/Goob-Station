@@ -1,0 +1,266 @@
+- type: achievement
+  id: MissionComplete
+  name: achievement-mission-complete-name
+  description: achievement-mission-complete-desc
+  category: Antagonist
+  icon: { entity: RubberStampApproved }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:ObjectivesCompletedCondition
+
+- type: achievement
+  id: Expendable
+  name: achievement-expendable-name
+  description: achievement-expendable-desc
+  category: Antagonist
+  icon: { entity: Flash }
+  condition: !type:MobStateEnteredCondition
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - RevolutionaryRole
+
+- type: achievement
+  id: AshAscension
+  name: achievement-ash-ascension-name
+  description: achievement-ash-ascension-desc
+  category: Antagonist
+  icon: { entity: HereticBladeAsh }
+  hidden: true
+  condition: !type:HereticAscensionCondition
+    path: Ash
+
+- type: achievement
+  id: FleshAscension
+  name: achievement-flesh-ascension-name
+  description: achievement-flesh-ascension-desc
+  category: Antagonist
+  icon: { entity: HereticBladeFlesh }
+  hidden: true
+  condition: !type:HereticAscensionCondition
+    path: Flesh
+
+- type: achievement
+  id: RustAscension
+  name: achievement-rust-ascension-name
+  description: achievement-rust-ascension-desc
+  category: Antagonist
+  icon: { entity: HereticBladeRust }
+  hidden: true
+  condition: !type:HereticAscensionCondition
+    path: Rust
+
+- type: achievement
+  id: VoidAscension
+  name: achievement-void-ascension-name
+  description: achievement-void-ascension-desc
+  category: Antagonist
+  icon: { entity: HereticBladeVoid }
+  hidden: true
+  condition: !type:HereticAscensionCondition
+    path: Void
+
+- type: achievement
+  id: BladeAscension
+  name: achievement-blade-ascension-name
+  description: achievement-blade-ascension-desc
+  category: Antagonist
+  icon: { entity: HereticBladeBlade }
+  hidden: true
+  condition: !type:HereticAscensionCondition
+    path: Blade
+
+- type: achievement
+  id: CosmosAscension
+  name: achievement-cosmos-ascension-name
+  description: achievement-cosmos-ascension-desc
+  category: Antagonist
+  icon: { entity: HereticBladeCosmos }
+  hidden: true
+  condition: !type:HereticAscensionCondition
+    path: Cosmos
+
+- type: achievement
+  id: LockAscension
+  name: achievement-lock-ascension-name
+  description: achievement-lock-ascension-desc
+  category: Antagonist
+  icon: { entity: HereticBladeLock }
+  hidden: true
+  condition: !type:HereticAscensionCondition
+    path: Lock
+
+- type: achievement
+  id: ManyNamesManyFaces
+  name: achievement-many-names-many-faces-name
+  description: achievement-many-names-many-faces-desc
+  category: Antagonist
+  icon: { entity: ArmBladeChangeling }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - ChangelingRole
+    - !type:ObjectivesCompletedCondition
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:EscapingCondition
+
+- type: achievement
+  id: BlobEverywhere
+  name: achievement-blob-everywhere-name
+  description: achievement-blob-everywhere-desc
+  category: Antagonist
+  icon: { entity: MobBlobPod }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - BlobRole
+    - !type:ObjectivesCompletedCondition
+
+- type: achievement
+  id: ProfessionalThief
+  name: achievement-professional-thief-name
+  description: achievement-professional-thief-desc
+  category: Antagonist
+  icon: { entity: ToolboxThief }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - ThiefRole
+    - !type:ObjectivesCompletedCondition
+
+- type: achievement
+  id: LightsOut
+  name: achievement-lights-out-name
+  description: achievement-lights-out-desc
+  category: Antagonist
+  icon: { sprite: _EinsteinEngines/Mobs/shadowling_ascend.rsi, state: shadowling_ascend }
+  hidden: true
+  condition: !type:ShadowlingAscensionCondition
+
+- type: achievement
+  id: TheSlasher
+  name: achievement-the-slasher-name
+  description: achievement-the-slasher-desc
+  category: Antagonist
+  icon: { entity: Machete }
+  hidden: true
+  condition: !type:SlasherAscensionCondition
+
+- type: achievement
+  id: ChosenOne
+  name: achievement-chosen-one-name
+  description: achievement-chosen-one-desc
+  category: Antagonist
+  icon: { entity: ClothingHeadHatWizard }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - GoobWizardRole
+        - ApprenticeRole
+    - !type:ObjectivesCompletedCondition
+    - !type:MobStateCondition
+      mobstate: Alive
+
+- type: achievement
+  id: NotAgain
+  name: achievement-not-again-name
+  description: achievement-not-again-desc
+  category: Antagonist
+  icon: { entity: OrganAbductorHeart }
+  hidden: true
+  condition: !type:AbductedAgainCondition
+
+- type: achievement
+  id: Brains
+  name: achievement-brains-name
+  description: achievement-brains-desc
+  category: Antagonist
+  icon: { entity: FoodMeat }
+  condition: !type:ZombieVictoryCondition
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - InitialInfectedRole
+
+- type: achievement
+  id: HeyCanIHaveThis
+  name: achievement-hey-can-i-have-this-name
+  description: achievement-hey-can-i-have-this-desc
+  category: Antagonist
+  icon: { entity: ClothingHandsChameleonThief }
+  condition: !type:PickpocketCondition
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - ThiefRole
+
+- type: achievement
+  id: CanITalkToYou
+  name: achievement-can-i-talk-to-you-name
+  description: achievement-can-i-talk-to-you-desc
+  category: Antagonist
+  icon: { entity: Bible }
+  condition: !type:CausedMobStateCondition
+    mobStates:
+    - Critical
+    - Dead
+    requirements:
+    - !type:JobCondition
+      jobs:
+      - Chaplain
+    targetRequirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - HereticRole
+
+- type: achievement
+  id: HeyIKnowYou
+  name: achievement-hey-i-know-you-name
+  description: achievement-hey-i-know-you-desc
+  category: Antagonist
+  icon: { entity: ArmBladeChangeling }
+  condition: !type:HugCondition
+    sameName: true
+    huggerRequirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - ChangelingRole
+
+- type: achievement
+  id: IngloriousLife
+  name: achievement-inglorious-life-name
+  description: achievement-inglorious-life-desc
+  category: Antagonist
+  icon: { entity: CrateCoffin }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:ObjectiveFailedCondition
+      objective: DieObjective
+
+- type: achievement
+  id: YouAreMyFire
+  name: achievement-you-are-my-fire-name
+  description: achievement-you-are-my-fire-desc
+  category: Antagonist
+  icon: { entity: AcousticGuitarInstrument }
+  condition: !type:BandCondition
+    requireTwin: true
+    requirements:
+    - !type:MindRoleCondition
+      whitelist:
+        components:
+        - ParadoxCloneRole

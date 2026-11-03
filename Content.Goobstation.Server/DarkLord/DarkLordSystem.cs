@@ -4,10 +4,10 @@ using Content.Server.GameTicking;
 
 namespace Content.Goobstation.Server.DarkLord;
 
-public sealed class DarkLordSystem : EntitySystem
+public sealed partial class DarkLordSystem : EntitySystem
 {
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
     public override void Initialize()
     {
         base.Initialize();

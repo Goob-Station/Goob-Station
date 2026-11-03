@@ -10,8 +10,8 @@ namespace Content.Goobstation.Shared.DragDrop;
 
 public abstract partial class SharedGoobDragDropSystem : EntitySystem
 {
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

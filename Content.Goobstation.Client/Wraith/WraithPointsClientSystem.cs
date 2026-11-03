@@ -3,9 +3,9 @@ using Content.Shared.Alert.Components;
 
 namespace Content.Goobstation.Client.Wraith;
 
-public sealed class WraithPointsClientSystem : EntitySystem
+public sealed partial class WraithPointsClientSystem : EntitySystem
 {
-    [Dependency] private readonly WraithPointsSystem _wraithPointsSystem = default!;
+    [Dependency] private WraithPointsSystem _wraithPointsSystem = default!;
 
     public override void Initialize()
     {

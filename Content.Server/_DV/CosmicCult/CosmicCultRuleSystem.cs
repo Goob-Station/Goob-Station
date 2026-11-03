@@ -69,6 +69,8 @@ using Content.Shared.Cuffs.Components;
 using Content.Server.Cuffs;
 using Content.Shared.Light.Components;
 using Content.Shared.Roles.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -440,7 +442,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void EndRoundVoid(EntityUid player, EntityCoordinates spawnTgt, CosmicCultRuleComponent cultRule)
     {
-        if (!_mind.TryGetMind(player, out var mind, out _) || _mobStateSystem.IsDead(player))
+        if (TerminatingOrDeleted(player) || !_mind.TryGetMind(player, out var mind, out _) || _mobStateSystem.IsDead(player))
             return;
         if (cultRule.Cultists.Contains(player))
         {

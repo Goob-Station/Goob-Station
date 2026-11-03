@@ -12,8 +12,9 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Shared._Shitmed.Damage; // Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Damage;
+using Content.Shared.Damage.Systems;
 namespace Content.Shared._Lavaland.Body;
 
 // TODO: Use Shitmed instead of Shitcode

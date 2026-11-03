@@ -7,11 +7,11 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Body;
 
-public sealed class OrganActionsSystem : EntitySystem
+public sealed partial class OrganActionsSystem : EntitySystem
 {
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     private EntityQuery<OrganComponent> _organQuery;
 

@@ -15,13 +15,13 @@ namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.CollectiveMind
 /// The Collective Mind ability lets you gain new actions, and informs you
 /// how many Thralls are required to ascend. At the same time, it stuns all Thralls for a very short amount of time.
 /// </summary>
-public sealed class ShadowlingCollectiveMindSystem : EntitySystem
+public sealed partial class ShadowlingCollectiveMindSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popups = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

@@ -67,6 +67,15 @@
     price: 7.5
   - type: Extractable
     grindableSolutionName: rod
+  # Goob start - Afterlight synths
+  - type: Edible
+    requiresSpecialDigestion: true
+    solution: rod
+  - type: FlavorProfile
+    flavors:
+    - metallic
+  - type: BadFood
+  # Goob end
   - type: SolutionContainerManager
     solutions:
       rod:

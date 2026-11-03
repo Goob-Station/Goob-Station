@@ -21,3 +21,91 @@
   startNode: start
   targetNode: canvastile
   objectType: Item
+
+- type: construction
+  id: PaintCanvas
+  graph: PaintCanvasGraph
+  startNode: start
+  targetNode: canvas
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintCanvasLandscape
+  graph: PaintCanvasGraph
+  startNode: start
+  targetNode: landscape
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintCanvasSmall
+  graph: PaintCanvasGraph
+  startNode: start
+  targetNode: small
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintingFrameWood
+  graph: PaintingFrameWoodGraph
+  startNode: start
+  targetNode: frame
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintingFrameIron
+  graph: PaintingFrameIronGraph
+  startNode: start
+  targetNode: frame
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintingFrameBamboo
+  graph: PaintingFrameBambooGraph
+  startNode: start
+  targetNode: frame
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintingFrameBones
+  graph: PaintingFrameBonesGraph
+  startNode: start
+  targetNode: frame
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintingFrameBronze
+  graph: PaintingFrameBronzeGraph
+  startNode: start
+  targetNode: frame
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintingFrameSilver
+  graph: PaintingFrameSilverGraph
+  startNode: start
+  targetNode: frame
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintingFrameGold
+  graph: PaintingFrameGoldGraph
+  startNode: start
+  targetNode: frame
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: PaintingFrameDiamond
+  graph: PaintingFrameDiamondGraph
+  startNode: start
+  targetNode: frame
+  category: construction-category-misc
+  objectType: Item

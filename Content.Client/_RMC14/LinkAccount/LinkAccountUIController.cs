@@ -4,6 +4,8 @@ using System.Linq; // Goob - ghost cosmetics
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Common.Patrons; // Goob - ooc icon selection
+using Content.Goobstation.Shared.Patrons; // Goob - ooc icon selection
 using Content.Goobstation.Shared.GhostCosmetics; // Goob - ghost cosmetics
 using Content.Shared._RMC14.GhostColor; // Goob - ghost cosmetics
 using Content.Shared._RMC14.LinkAccount;
@@ -37,6 +39,7 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
     private LinkAccountWindow? _window;
     private PatronPerksWindow? _patronPerksWindow;
     private EntityUid? _cosmeticsPreviewGhost; // Goob - ghost cosmetics
+    private string? _selectedOocIcon; // Goob - ooc icon selection
     private TimeSpan _disableUntil;
 
     private Guid _code;
@@ -176,6 +179,13 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
             }
             // Goob end
 
+            // Goob start - ooc icon selection
+            SetTabTitle(_patronPerksWindow.OocIconTab, Loc.GetString("goob-ui-ooc-icon"));
+            SetTabVisible(_patronPerksWindow.OocIconTab, tier is { OocIcons: true });
+            if (tier is { OocIcons: true })
+                PopulateOocIcons(tier);
+            // Goob end
+
             UpdateExamples();
 
             for (var i = 0; i < _patronPerksWindow.Tabs.ChildCount; i++)
@@ -310,6 +320,116 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
             Hat = ToCosmeticProto(_patronPerksWindow.GhostHatButton.SelectedMetadata as string),
             Mask = ToCosmeticProto(_patronPerksWindow.GhostMaskButton.SelectedMetadata as string),
         });
+    }
+
+    private void PopulateOocIcons(SharedRMCPatronTier tier)
+    {
+        if (_patronPerksWindow == null || !_prototype.TryIndex(tier.Id, out var tierProto))
+            return;
+
+        var window = _patronPerksWindow;
+        window.OocIconList.RemoveAllChildren();
+        window.OocIconPreview.DisplayRect.Stretch = TextureRect.StretchMode.Scale;
+        _selectedOocIcon = _linkAccount.OocIcon;
+
+        var group = new ButtonGroup();
+        var icons = _prototype.GetAvailableOocIcons(tierProto).ToList();
+
+        foreach (var iconTier in tierProto.OocIconTiers)
+        {
+            var tierIcons = icons
+                .Where(icon => icon.Tier == iconTier)
+                .OrderBy(icon => Loc.GetString(icon.Name))
+                .ToList();
+
+            if (tierIcons.Count == 0)
+                continue;
+
+            var heading = _prototype.TryIndex(iconTier, out var iconTierProto)
+                ? Loc.GetString(iconTierProto.Name)
+                : iconTier.Id;
+
+            window.OocIconList.AddChild(new Label { Text = heading, StyleClasses = { "LabelHeading" }, Margin = new Thickness(0, 5, 0, 2) });
+            var grid = new GridContainer { Columns = 12 };
+            window.OocIconList.AddChild(grid);
+
+            foreach (var icon in tierIcons)
+            {
+                var button = new Button
+                {
+                    ToggleMode = true,
+                    Group = group,
+                    SetSize = new System.Numerics.Vector2(40, 40),
+                    ToolTip = Loc.GetString(icon.Name),
+                    Pressed = icon.ID == _selectedOocIcon,
+                };
+
+                var iconRect = new AnimatedTextureRect
+                {
+                    SetSize = new System.Numerics.Vector2(24, 24),
+                    HorizontalAlignment = Control.HAlignment.Center,
+                    VerticalAlignment = Control.VAlignment.Center,
+                };
+                iconRect.DisplayRect.Stretch = TextureRect.StretchMode.Scale;
+                iconRect.SetFromSpriteSpecifier(icon.Icon);
+                button.AddChild(iconRect);
+
+                var id = icon.ID;
+                button.OnPressed += _ =>
+                {
+                    _selectedOocIcon = id;
+                    UpdateOocIconPreview(tierProto);
+                };
+
+                grid.AddChild(button);
+            }
+        }
+
+        window.OocIconDefaultButton.OnPressed += _ =>
+        {
+            _selectedOocIcon = null;
+            foreach (var button in group.Buttons)
+            {
+                button.Pressed = false;
+            }
+
+            UpdateOocIconPreview(tierProto);
+        };
+
+        window.OocIconSaveButton.OnPressed += _ =>
+        {
+            _entityNet.SendSystemNetworkMessage(new ChangePatronOocIconEvent
+            {
+                Icon = _selectedOocIcon == null ? null : (ProtoId<OocIconPrototype>?) _selectedOocIcon,
+            });
+            window.OocIconSaveButton.Disabled = true;
+        };
+
+        UpdateOocIconPreview(tierProto, false);
+    }
+
+    private void UpdateOocIconPreview(PatronTierPrototype tier, bool changed = true)
+    {
+        if (_patronPerksWindow == null)
+            return;
+
+        var iconId = _selectedOocIcon ?? tier.Icon?.Id;
+        if (iconId != null && _prototype.TryIndex<OocIconPrototype>(iconId, out var icon))
+        {
+            _patronPerksWindow.OocIconPreview.Visible = true;
+            _patronPerksWindow.OocIconPreview.SetFromSpriteSpecifier(icon.Icon);
+            _patronPerksWindow.OocIconSelectedName.Text = _selectedOocIcon == null
+                ? Loc.GetString("goob-ui-ooc-icon-default-name", ("name", Loc.GetString(icon.Name)))
+                : Loc.GetString(icon.Name);
+        }
+        else
+        {
+            _patronPerksWindow.OocIconPreview.Visible = false;
+            _patronPerksWindow.OocIconSelectedName.Text = Loc.GetString("goob-ui-ooc-icon-none");
+        }
+
+        if (changed)
+            _patronPerksWindow.OocIconSaveButton.Disabled = false;
     }
 
     private static ProtoId<GhostCosmeticPrototype>? ToCosmeticProto(string? id)

@@ -9,11 +9,11 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.MisandryBox;
 
-public sealed class InputSwapResyncSystem : EntitySystem
+public sealed partial class InputSwapResyncSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _move = default!;
-    [Dependency] private readonly IClientGameStateManager _stateMan = default!;
-    [Dependency] private readonly ISharedPlayerManager _playMan = default!;
+    [Dependency] private MovementSpeedModifierSystem _move = default!;
+    [Dependency] private IClientGameStateManager _stateMan = default!;
+    [Dependency] private ISharedPlayerManager _playMan = default!;
 
     public override void Initialize()
     {

@@ -13,9 +13,9 @@ namespace Content.Goobstation.Server.DeviceNetwork;
 /// </summary>
 
 [AdminCommand(AdminFlags.Mapping)]
-public sealed class DeviceListSyncCommand : LocalizedCommands
+public sealed partial class DeviceListSyncCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
     public override string Command => "synchronizedevicelists";
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)

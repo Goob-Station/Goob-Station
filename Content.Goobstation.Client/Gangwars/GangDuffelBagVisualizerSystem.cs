@@ -4,9 +4,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Gangwars;
 
-public sealed class GangDuffelBagVisualizerSystem : EntitySystem
+public sealed partial class GangDuffelBagVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private static readonly string[] StateNames =
     [

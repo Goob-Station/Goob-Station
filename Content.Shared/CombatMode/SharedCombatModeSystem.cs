@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.DoAfter;
+using Content.Shared._ES.Interaction.ForcedFacing; // Goob
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.MouseRotator;
@@ -17,6 +18,7 @@ public abstract class SharedCombatModeSystem : EntitySystem
     [Dependency] private   readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     [Dependency] private   readonly SharedMindSystem  _mind = default!;
+    [Dependency] private   readonly ESForcedFacingSystem _forcedFacing = default!; // Goob
 
     public override void Initialize()
     {
@@ -94,15 +96,11 @@ public abstract class SharedCombatModeSystem : EntitySystem
     private void SetMouseRotatorComponents(EntityUid uid, bool value)
     {
         if (value)
-        {
             EnsureComp<MouseRotatorComponent>(uid);
-            EnsureComp<NoRotateOnMoveComponent>(uid);
-        }
         else
-        {
             RemComp<MouseRotatorComponent>(uid);
-            RemComp<NoRotateOnMoveComponent>(uid);
-        }
+
+        _forcedFacing.RefreshNoRotateOnMove(uid); // Goob
     }
 
     // todo: When we stop making fucking garbage abstract shared components, remove this shit too.

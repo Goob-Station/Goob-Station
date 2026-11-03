@@ -7,10 +7,10 @@ using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Blob;
 
-public sealed class BlobResourceSystem : EntitySystem
+public sealed partial class BlobResourceSystem : EntitySystem
 {
-    [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private BlobCoreSystem _blobCoreSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     private EntityQuery<BlobTileComponent> _blobTile;
     private EntityQuery<BlobCoreComponent> _blobCore;
 

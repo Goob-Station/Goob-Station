@@ -9,8 +9,8 @@ namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class DarknessAdaptionSystem : SharedDarknessAdaptionSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 

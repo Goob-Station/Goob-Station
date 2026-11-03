@@ -9,9 +9,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
-public sealed class RadioIconTag : BaseTextureTag, IMarkupTagHandler
+public sealed partial class RadioIconTag : BaseTextureTag, IMarkupTagHandler
 {
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private IResourceCache _cache = default!;
 
     public string Name => "radicon";
 

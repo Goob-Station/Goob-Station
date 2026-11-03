@@ -11,13 +11,13 @@ using Robust.Shared.Map;
 
 namespace Content.Goobstation.Shared.Chemistry;
 
-public sealed class SpillableMeleePuddleSystem : EntitySystem
+public sealed partial class SpillableMeleePuddleSystem : EntitySystem
 {
 
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedPuddleSystem _puddle = default!;
 
     public override void Initialize()
     {

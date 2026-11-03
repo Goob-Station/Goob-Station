@@ -35,9 +35,9 @@ public sealed partial class NitrousMovespeedModifier : EntityEffectBase<NitrousM
 /// <summary>
 /// Remove reagent at set rate, changes the movespeed modifiers and adds a MovespeedModifierMetabolismComponent if not already there.
 /// </summary>
-public sealed class NitrousMovespeedModifierEffectSystem : EntityEffectSystem<InputMoverComponent, NitrousMovespeedModifier>
+public sealed partial class NitrousMovespeedModifierEffectSystem : EntityEffectSystem<InputMoverComponent, NitrousMovespeedModifier>
 {
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    [Dependency] private MovementModStatusSystem _movementMod = default!;
 
     public static readonly EntProtoId StatusEffect = "NitrousStatusEffect";
 

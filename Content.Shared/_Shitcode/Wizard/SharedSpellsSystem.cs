@@ -87,6 +87,8 @@ using Robust.Shared.Timing;
 using Content.Shared.Actions.Components;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Goobstation.Wizard;
 
@@ -403,9 +405,8 @@ public abstract class SharedSpellsSystem : EntitySystem
 
             range = MathF.Max(1f, range);
 
-            Damageable.TryChangeDamage(target,
+            Damageable.ChangeDamage((target, damageable),
                 ev.Damage / range,
-                damageable: damageable,
                 origin: ev.Performer,
                 targetPart: TargetBodyPart.All);
 
@@ -769,7 +770,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (held != null && held == summons.Entity)
             return;
 
-        if (!Exists(summons.Entity) || !TryComp(summons.Entity.Value, out TransformComponent? xform))
+        if (!Exists(summons.Entity) || !TryComp(summons.Entity.Value, out TransformComponent? xform) || xform.MapID == MapId.Nullspace)
         {
             if (ItemValid(held))
                 MarkItem(held.Value);
@@ -1085,7 +1086,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
             Popup(ev.Performer, "spell-soul-tap-dead-message-user", PopupType.LargeCaution);
 
-            var dmg = Damageable.TryChangeDamage(ev.Performer,
+            var dmg = Damageable.ChangeDamage(ev.Performer,
                 new DamageSpecifier(ProtoMan.Index(ev.KillDamage), 666),
                 true);
             if ((dmg == null || dmg.GetTotal() < 1) && Timing.IsFirstTimePredicted)

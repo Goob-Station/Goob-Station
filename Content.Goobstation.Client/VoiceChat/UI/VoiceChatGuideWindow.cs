@@ -9,9 +9,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.VoiceChat.UI;
 
-public sealed class VoiceChatGuideWindow : FancyWindow
+public sealed partial class VoiceChatGuideWindow : FancyWindow
 {
-    [Dependency] private readonly IInputManager _input = default!;
+    [Dependency] private IInputManager _input = default!;
 
     private static readonly string[] Sections = { "talking", "radio", "station", "controls", "rules" };
 

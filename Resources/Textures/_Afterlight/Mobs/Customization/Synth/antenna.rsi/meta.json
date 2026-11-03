@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by GitHub NotLivyathan / Discord livyathan (298907041198637067)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "antenna_curl",
+      "directions": 4
+    },
+    {
+      "name": "antenna_curl_soft",
+      "directions": 4
+    },
+    {
+      "name": "antenna_light",
+      "directions": 4
+    },
+    {
+      "name": "antenna_majestic",
+      "directions": 4
+    },
+    {
+      "name": "antenna_sharp",
+      "directions": 4
+    },
+    {
+      "name": "antenna_slash",
+      "directions": 4
+    },
+    {
+      "name": "antenna_synth",
+      "directions": 4
+    },
+    {
+      "name": "antenna_thick",
+      "directions": 4
+    },
+    {
+      "name": "antenna_twin",
+      "directions": 4
+    }
+  ]
+}

@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileDamageWhitelist;
 
-public sealed class ProjectileDamageWhitelistSystem : EntitySystem
+public sealed partial class ProjectileDamageWhitelistSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
     public override void Initialize()
     {
         base.Initialize();

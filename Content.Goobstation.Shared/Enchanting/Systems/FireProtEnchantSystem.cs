@@ -10,9 +10,9 @@ namespace Content.Goobstation.Shared.Enchanting.Systems;
 /// <summary>
 /// Handles fire + temperature events for <see cref="FireProtEnchantComponent"/>.
 /// </summary>
-public sealed class FireProtEnchantSystem : EntitySystem
+public sealed partial class FireProtEnchantSystem : EntitySystem
 {
-    [Dependency] private readonly EnchantingSystem _enchanting = default!;
+    [Dependency] private EnchantingSystem _enchanting = default!;
 
     public override void Initialize()
     {

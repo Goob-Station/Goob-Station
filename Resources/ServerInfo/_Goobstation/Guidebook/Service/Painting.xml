@@ -1,0 +1,53 @@
+<Document>
+# Painting
+Anyone on the station can paint. Grab a canvas and something to paint with, and make some art for the halls.
+
+## Supplies
+  <Box>
+    <GuideEntityEmbed Entity="PaintCanvas"/>
+    <GuideEntityEmbed Entity="PaintCanvasLandscape"/>
+    <GuideEntityEmbed Entity="PaintCanvasSmall"/>
+    <GuideEntityEmbed Entity="PaintEasel"/>
+  </Box>
+Canvases come in three sizes: square, landscape and small. Craft them from a wood plank and some cloth, or order the art supplies crate from cargo. An easel, built from 4 wood planks, holds a canvas so you can paint it standing up.
+
+## Painting tools
+  <Box>
+    <GuideEntityEmbed Entity="CrayonRed"/>
+    <GuideEntityEmbed Entity="Paintbrush"/>
+    <GuideEntityEmbed Entity="PaintCan"/>
+    <GuideEntityEmbed Entity="PaintCanRed"/>
+  </Box>
+You can paint using crayons in their own colour, or print an empty paint can at an autolathe and fill it with any liquid.
+
+The artist's palette mixes any colour, has the biggest brushes, and is the only tool that can erase. You can only get one from cargo.
+
+## The painting window
+Use a painting tool on a canvas, or on an easel holding one, to open the window. To look at a canvas without painting, use it in your hand or activate it on the floor.
+
+Pick a tool from the top row of the left panel: brush, eraser, line, rectangle, ellipse or colour picker.
+The colour picker copies a colour off the canvas, but can ONLY be used with the palette or rainbow crayon. Once again, only the palette can erase.
+
+Below the tools are four brush styles (round, square, spray and calligraphy) and a size slider. How big you can go depends on what you're holding. Crayons are limited to 3 pixels, paint cans 6 and the palette 12.
+
+Ctrl+Z or the undo button takes back your own recent drawing.
+## Finishing and framing
+  <Box>
+    <GuideEntityEmbed Entity="PaintingFrameWood"/>
+    <GuideEntityEmbed Entity="PaintingFrameIron"/>
+    <GuideEntityEmbed Entity="PaintingFrameGold"/>
+    <GuideEntityEmbed Entity="PaintingFrameDiamond"/>
+  </Box>
+When you're done, give your painting a title and press [bold]Finish and sign[/bold]. A signed painting CAN NOT be changed, so make sure you're finished.
+
+Use a frame on a signed painting to frame it. Frames can be crafted from wood, steel, bones, brass, silver, gold or diamond.
+The clown and the mime each get a unique frame in their lockers, only one of them exists at a time so use them for something special!
+
+## Copies
+  <Box>
+    <GuideEntityEmbed Entity="Photocopier"/>
+  </Box>
+A photocopier copies a painting onto a blank canvas of the same size. Put a finished and blank canvas in and activate it.
+
+To build one, print a photocopier machine board at a circuit imprinter.
+</Document>

@@ -3,7 +3,7 @@
 using System.Linq;
 using Content.Server.Damage.Components;
 using Content.Server.Destructible;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.Rounding;
 using Robust.Shared.Prototypes;

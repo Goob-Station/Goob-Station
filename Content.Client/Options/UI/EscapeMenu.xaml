@@ -4,6 +4,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <ui1:EscapeMenu xmlns="https://spacestation14.io"
             xmlns:changelog="clr-namespace:Content.Client.Changelog"
+            xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
             xmlns:ui="clr-namespace:Content.Client.Voting.UI"
             xmlns:ui1="clr-namespace:Content.Client.Options.UI"
             Title="{Loc 'ui-escape-title'}"
@@ -18,6 +19,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <Button Access="Public" Name="GuidebookButton" Text="{Loc 'ui-escape-guidebook'}" />
         <Button Access="Public" Name="WikiButton" Text="{Loc 'ui-escape-wiki'}" />
         <Button Access="Public" Name="VoiceChatButton" Text="{Loc 'ui-escape-voice-chat'}" /> <!-- Goobstation - Voice chat -->
+        <cc:CommandButton Command="achievements" Text="{Loc 'achievements-button'}" /> <!-- Goobstation - Achievements -->
         <PanelContainer StyleClasses="LowDivider" Margin="0 2.5 0 2.5" />
         <Button Access="Public" Name="OptionsButton" Text="{Loc 'ui-escape-options'}" />
         <Button Access="Public" Name="CharacterButton" Text="{Loc 'ui-escape-character'}" /> <!-- Goobstation - Character customization in escape menu -->

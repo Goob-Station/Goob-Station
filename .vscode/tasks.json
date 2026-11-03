@@ -9,8 +9,9 @@
             "type": "shell",
             "args": [
                 "build",
-                "/property:GenerateFullPaths=true", // Ask dotnet build to generate full paths for file names.
-                "/consoleloggerparameters:'ForceNoAlign;NoSummary'" // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+                "/property:GenerateFullPaths=true",
+                "/property:WarningLevel=0",
+                "/consoleloggerparameters:ErrorsOnly" // i love not being able to find errors because 50000000 warnings
             ],
             "group": {
                 "kind": "build",

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Fluids.Components;
+using Content.Shared._Funkystation.WallStains; // Goob
 using Content.Server.Spreader;
 using Content.Goobstation.Common.Footprints;
 using Content.Shared.Chemistry;
@@ -476,6 +477,9 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         _color.RaiseEffect(spilled.GetColor(_prototypeManager), targets,
             Filter.Pvs(entity, entityManager: EntityManager));
+
+        var wallSplash = new SplashOnWallEvent(coordinates, spilled.Clone()); // Goob
+        RaiseLocalEvent(ref wallSplash); // Goob
 
         return TrySpillAt(coordinates, spilled, out puddleUid, sound);
     }
