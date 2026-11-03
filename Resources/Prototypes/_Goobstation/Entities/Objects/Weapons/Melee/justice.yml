@@ -191,7 +191,7 @@
             types:
               Slash: 15 #65555555555
               Heat: 50
-              Structural: 100
+              Structural: 300
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
         soundStateActivate:
