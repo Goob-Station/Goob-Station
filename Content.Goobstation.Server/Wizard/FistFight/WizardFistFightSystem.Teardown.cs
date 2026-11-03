@@ -23,17 +23,11 @@ public sealed partial class WizardFistFightSystem
                 TeleportHome(comp, uid, home);
         }
 
-        var spectators = new List<Entity<WizardFistFightSpectatorComponent>>();
+        var now = Timing.CurTime;
         var query = EntityQueryEnumerator<WizardFistFightSpectatorComponent>();
         while (query.MoveNext(out var uid, out var spectator))
         {
-            spectators.Add((uid, spectator));
-        }
-
-        var now = Timing.CurTime;
-        foreach (var (uid, spectator) in spectators)
-        {
-            RemComp<WizardFistFightSpectatorComponent>(uid);
+            RemCompDeferred<WizardFistFightSpectatorComponent>(uid);
             if (!spectator.WasPacified)
                 RemComp<PacifiedComponent>(uid);
             if (spectator.PacifiedUntil is { } until && until > now)
@@ -93,16 +87,12 @@ public sealed partial class WizardFistFightSystem
         if (comp.ArenaMap is not { } arena)
             return;
 
-        var stranded = new List<EntityUid>();
         var query = EntityQueryEnumerator<MindContainerComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var mind, out var xform))
         {
-            if (mind.HasMind && xform.MapID == arena)
-                stranded.Add(uid);
-        }
+            if (!mind.HasMind || xform.MapID != arena)
+                continue;
 
-        foreach (var uid in stranded)
-        {
             if (RandomStationSpawn(comp) is { } spawn)
                 Teleport(uid, spawn);
             else

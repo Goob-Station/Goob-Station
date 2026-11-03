@@ -139,7 +139,7 @@ public sealed partial class WizardFistFightSystem
 
     private int GatherSpectators(WizardFistFightRuleComponent comp, EntityUid caster, EntityUid challenger)
     {
-        var candidates = new List<EntityUid>();
+        var count = 0;
         var query = EntityQueryEnumerator<ActorComponent, MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var mob, out var xform))
         {
@@ -149,11 +149,7 @@ public sealed partial class WizardFistFightSystem
             if (!_mobState.IsAlive(uid, mob) || HasComp<StationAiHeldComponent>(uid))
                 continue;
 
-            candidates.Add(uid);
-        }
-
-        foreach (var uid in candidates)
-        {
+            count++;
             var spectator = EnsureComp<WizardFistFightSpectatorComponent>(uid);
             spectator.Home = SaveLocation(uid);
             if (_status.TryGetTime(uid, PacifiedStatus, out var pacifiedTime))
@@ -174,7 +170,7 @@ public sealed partial class WizardFistFightSystem
             _popup.PopupEntity(Loc.GetString("wizard-fistfight-spectator-popup"), uid, uid, PopupType.Medium);
         }
 
-        return candidates.Count;
+        return count;
     }
 
     private void ApplySpectatorProtection(EntityUid uid)
