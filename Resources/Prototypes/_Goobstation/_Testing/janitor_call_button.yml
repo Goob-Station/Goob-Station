@@ -1,0 +1,119 @@
+- type: entity
+  parent: JanitorServiceLight
+  id: JanitorCallButton
+  name: janitor call button
+  description: It's a button for activating something.
+  components:
+  - type: StationAiWhitelist
+  - type: Sprite
+    sprite: Structures/Wallmounts/service_light.rsi
+    drawdepth: WallMountedItems
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: base
+    - map: ["enum.PoweredLightLayers.Glow"]
+      state: glow
+      shader: unshaded
+    state: base
+  - type: PointLight
+    radius: 1.5
+    energy: 0.45
+    softness: 3
+    offset: "0, 0"
+    enabled: false
+  - type: PoweredLight
+    bulb: Bulb
+    on: false
+    hasLampOnSpawn: ServiceLightBulb
+#  - type: UseDelay
+#    delay: 0.5 # prevent light-toggling auto-clickers.
+#  - type: SignalSwitch
+#    onPort: Pressed
+#    offPort: Pressed
+#    statusPort: Pressed
+  - type: Rotatable
+  - type: Construction
+    graph: SignalButtonGraph
+    node: SignalButtonNode
+#  - type: DeviceNetwork
+#    deviceNetId: Wireless
+#  - type: WirelessNetworkConnection
+#    range: 200
+#  - type: DeviceLinkSource
+#    ports:
+#      - Pressed
+  - type: Transform
+    anchored: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
+
+- type: entity
+  id: JanitorCallButtonNoBulb
+  name: janitor call button
+  description: It's a button for activating something.
+  suffix: nobulb
+  components:
+  - type: StationAiWhitelist
+  - type: Sprite
+    sprite: Structures/Wallmounts/service_light.rsi
+    drawdepth: WallMountedItems
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: base
+    - map: ["enum.PoweredLightLayers.Glow"]
+      state: glow
+      shader: unshaded
+    state: base
+  - type: PointLight
+    radius: 1.5
+    energy: 0.45
+    softness: 3
+    offset: "0, 0"
+    enabled: true
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: SlimPoweredLight
+    enabled: true
+  - type: JanitorCallButton
+  - type: Rotatable
+  - type: Construction
+    graph: SignalButtonGraph
+    node: SignalButtonNode
+  - type: Transform
+    anchored: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
