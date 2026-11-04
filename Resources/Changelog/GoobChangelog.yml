@@ -27091,3 +27091,16 @@ Entries:
       message: Fixed AI being able fuck with modsuits' interfaces.
   id: 3033
   time: '2026-11-03T01:53:27.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added 26 new modsuit modules.
+    - type: Add
+      message: Added several basic modsuit modules to the uplink.
+    - type: Tweak
+      message: >-
+        Buffed power kick module, no longer cancel-able by movement or damage,
+        and launches you to where the person you aimed at is after the doafter
+        is over, not where you initially clicked.
+  id: 3034
+  time: '2026-11-03T23:43:00.0000000+00:00'

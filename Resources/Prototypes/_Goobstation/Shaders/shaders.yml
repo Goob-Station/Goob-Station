@@ -70,3 +70,8 @@
   id: ModSphere
   kind: source
   path: "/Textures/_Goobstation/Shaders/mod_sphere.swsl"
+
+- type: shader
+  id: ModDampenerField
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/mod_dampener_field.swsl"
