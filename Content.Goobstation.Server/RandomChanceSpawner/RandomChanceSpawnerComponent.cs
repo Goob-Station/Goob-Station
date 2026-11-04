@@ -15,7 +15,7 @@ public sealed partial class RandomChanceSpawnerComponent : Component
 
     /// <summary>
     /// If true, the spawner will put the item the hand of whoever holds it.
-    /// (e.g. when used in a starting gear's inhand list).
+    /// (e.g. when used in a starting gears inhand list).
     /// The spawner needs an Item component for this.
     /// </summary>
     [DataField]
