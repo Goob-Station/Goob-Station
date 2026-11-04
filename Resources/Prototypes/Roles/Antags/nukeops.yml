@@ -108,7 +108,7 @@
     #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
     ears: ClothingHeadsetAltSyndicateCommander # goob - loudspeaker
   inhand:
-  - NukeOpsDeclarationOfWar
+  - NukeOpsDeclarationOfWarSpawner # Goobstation
 
 - type: chameleonOutfit
   id: NukeopsCommanderOutfit

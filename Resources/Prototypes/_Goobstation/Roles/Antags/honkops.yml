@@ -34,7 +34,7 @@
     neck: SyndicateWhistle
     pocket2: BaseUplinkRadio350TC
   inhand:
-  - NukeOpsDeclarationOfWar
+  - NukeOpsDeclarationOfWarSpawner
 
 #Nuclear Operative Medic Gear
 - type: startingGear

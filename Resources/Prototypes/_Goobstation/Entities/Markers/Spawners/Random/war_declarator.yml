@@ -1,0 +1,15 @@
+- type: entity
+  id: NukeOpsDeclarationOfWarSpawner
+  name: war declarator spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Devices/declaration_of_war.rsi
+      state: declarator
+  - type: Item
+  - type: RandomChanceSpawner
+    putInHand: true
+    toSpawn:
+      NukeOpsDeclarationOfWar: 0.25
