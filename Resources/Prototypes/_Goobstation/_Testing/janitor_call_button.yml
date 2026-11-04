@@ -63,6 +63,7 @@
           collection: MetalBreak
           params:
             volume: -8
+            pitch: 1
 
 - type: entity
   id: JanitorCallButtonNoBulb
@@ -71,6 +72,8 @@
   suffix: nobulb
   components:
   - type: StationAiWhitelist
+  - type: Clickable
+  - type: InteractionOutline
   - type: Sprite
     sprite: Structures/Wallmounts/service_light.rsi
     drawdepth: WallMountedItems
@@ -97,7 +100,7 @@
     graph: SignalButtonGraph
     node: SignalButtonNode
   - type: Transform
-    anchored: false
+    anchored: true
   - type: Destructible
     thresholds:
     - trigger:
@@ -117,3 +120,8 @@
           collection: MetalBreak
           params:
             volume: -8
+            pitch: 1
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
