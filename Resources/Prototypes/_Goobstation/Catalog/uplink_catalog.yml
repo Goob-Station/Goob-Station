@@ -2108,6 +2108,110 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkModsuitModuleJetpack
+  productEntity: ModsuitModuleJetpack
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleJetpackAdvanced
+  productEntity: ModsuitModuleJetpackAdvanced
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleMagboots
+  productEntity: ModsuitModuleMagboots
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleMagbootsAdvanced
+  productEntity: ModsuitModuleMagbootsAdvanced
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleEmpShield
+  productEntity: ModsuitModuleEmpShield
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleEmpShieldAdvanced
+  productEntity: ModsuitModuleEmpShieldAdvanced
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleHolster
+  productEntity: ModsuitModuleHolster
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleWelding
+  productEntity: ModsuitModuleWelding
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleHealthAnalyzer
+  productEntity: ModsuitModuleHealthAnalyzer
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleNightVisor
+  productEntity: ModsuitModuleNightVisor
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleThermalVisor
+  productEntity: ModsuitModuleThermalVisor
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleMagneticHarness
+  productEntity: ModsuitModuleMagneticHarness
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkModsuitModuleJumpJet
+  productEntity: ModsuitModuleJumpJet
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: UplinkModsuitSyndicate
   productEntity: ClothingModsuitSyndicateFilled
   cost:

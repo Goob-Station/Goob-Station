@@ -1,5 +1,9 @@
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Systems;
+using Content.Shared.Cuffs;
+using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -19,6 +23,8 @@ public sealed partial class ModPatientTransportSystem : EntitySystem
 {
     [Dependency] private INetManager _net = default!;
     [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private SharedCuffableSystem _cuffable = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedEntityStorageSystem _entityStorage = default!;
@@ -63,6 +69,13 @@ public sealed partial class ModPatientTransportSystem : EntitySystem
             return;
 
         args.Handled = true;
+        if (ent.Comp.RequireRestrained
+            && !(TryComp<CuffableComponent>(target, out var cuffable) && _cuffable.IsCuffed((target, cuffable))))
+        {
+            _popup.PopupClient(Loc.GetString("modsuit-capture-not-restrained"), args.User, args.User);
+            return;
+        }
+
         if (ent.Comp.LinkedBag != null)
         {
             _popup.PopupClient(Loc.GetString("modsuit-transport-already-linked"), args.User, args.User);
@@ -155,6 +168,52 @@ public sealed partial class ModPatientTransportSystem : EntitySystem
     private void OnGetMetabolicMultiplier(Entity<ModInStasisComponent> ent, ref GetMetabolicMultiplierEvent args)
     {
         args.Multiplier *= ent.Comp.Multiplier;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnCaptureOpenAttempt(Entity<ModCaptureBagComponent> ent, ref StorageOpenAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnCaptureInserted(Entity<ModCaptureBagComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        if (_net.IsClient || args.Container.ID != SharedEntityStorageSystem.ContainerName || !HasComp<MobStateComponent>(args.Entity))
+            return;
+
+        var added = new List<string>();
+        foreach (var (name, entry) in ent.Comp.CaptiveComponents)
+        {
+            if (EntityManager.HasComponent(args.Entity, entry.Component.GetType()))
+                continue;
+
+            added.Add(name);
+        }
+
+        EntityManager.AddComponents(args.Entity, ent.Comp.CaptiveComponents, false);
+        ent.Comp.Added[args.Entity] = added;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnCaptureRemoved(Entity<ModCaptureBagComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        if (_net.IsClient || args.Container.ID != SharedEntityStorageSystem.ContainerName)
+            return;
+
+        if (ent.Comp.Added.Remove(args.Entity, out var added) && !TerminatingOrDeleted(args.Entity))
+        {
+            foreach (var name in added)
+            {
+                if (ent.Comp.CaptiveComponents.TryGetValue(name, out var entry))
+                    RemComp(args.Entity, entry.Component.GetType());
+            }
+        }
+
+        if (HasComp<MobStateComponent>(args.Entity)
+            && !TerminatingOrDeleted(args.Entity)
+            && TryComp<StaminaComponent>(args.Entity, out var stamina))
+            _stamina.TakeStaminaDamage(args.Entity, stamina.CritThreshold, stamina, ignoreResist: true);
     }
 
     private void Dissolve(EntityUid bag)

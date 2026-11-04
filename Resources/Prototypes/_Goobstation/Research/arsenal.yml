@@ -257,6 +257,12 @@
   - ModsuitModuleRestraintAssist
   - ModsuitModuleBulwark
   - ModsuitModuleEmpShield
+  - ModsuitModuleThermalVisor
+  - ModsuitModuleShockAbsorber
+  - ModsuitModuleCriminalCapture
+  - ModsuitModuleMagneticHarness
+  - ModsuitModuleProjectileDampener
+  - ModsuitModuleShootingAssistant
   - ModsuitPlatingSecurity
   - ModsuitPlatingBrigMed
   position: 4,1
