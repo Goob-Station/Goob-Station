@@ -34,6 +34,10 @@ public sealed partial class MartialArtsGrantSystem : EntitySystem
         SubscribeMartialArtGrant<GrantHellRipComponent>();
         SubscribeMartialArtGrant<GrantKungFuDragonComponent>();
         SubscribeMartialArtGrant<GrantNinjutsuComponent>();
+        SubscribeMartialArtGrant<GrantBearFuComponent>();
+        SubscribeMartialArtGrant<GrantPlasmaFistComponent>();
+        SubscribeMartialArtGrant<GrantMimejutsuComponent>();
+        SubscribeMartialArtGrant<GrantAdminFuComponent>();
         //SubscribeMartialArtGrant<GrantSleepingCarpComponent>(); // TODO : scroll doesnt actually use this system yet
     }
 

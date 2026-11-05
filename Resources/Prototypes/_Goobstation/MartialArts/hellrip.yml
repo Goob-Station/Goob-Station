@@ -8,6 +8,7 @@
   - HeadRip
   - Slam
   - TearDown
+  weight: 7
 
 - type: martialArtsCombo
   id: DropKick

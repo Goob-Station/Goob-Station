@@ -125,3 +125,44 @@ public sealed partial class GrantHellRipComponent : GrantMartialArtKnowledgeComp
     [DataField]
     public override LocId? LearnMessage { get; set; } = "hellrip-success-learned";
 }
+
+[RegisterComponent]
+public sealed partial class GrantBearFuComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "BearFu";
+
+    [DataField]
+    public override LocId? LearnMessage { get; set; } = "bearfu-success-learned";
+}
+
+[RegisterComponent]
+public sealed partial class GrantPlasmaFistComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "PlasmaFist";
+
+    [DataField]
+    public override LocId? LearnMessage { get; set; } = "plasmafist-success-learned";
+}
+
+[RegisterComponent]
+public sealed partial class GrantMimejutsuComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "Mimejutsu";
+
+    [DataField]
+    public override LocId? LearnMessage { get; set; } = "mimejutsu-success-learned";
+}
+
+[RegisterComponent]
+public sealed partial class GrantAdminFuComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "AdminFu";
+
+    [DataField]
+    public override LocId? LearnMessage { get; set; } = "adminfu-success-learned";
+}
+

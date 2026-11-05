@@ -43,7 +43,7 @@
     component: TemporaryBlindness
     type: Add
     time: 2
-  - !type:ModifyStatusEffect
+  - !type:GenericStatusEffect
     key: BlurryVision
     component: BlurryVision
     type: Add

@@ -31,8 +31,8 @@
   - Disarm
   - Disarm
   targetEffects:
-  - !type:MartialArtsThrow
-    thrownSpeed: 70
+  - !type:DoSmokeEffect
+    spreadAmount: 5
 
 - type: martialArtsCombo
   id: MimejutsuSilentPalm

@@ -38,9 +38,11 @@
   id: PlasmaFistThePlasmaFist
   name: The Plasma Fist
   attacks:
-  - Disarm
   - Harm
   - Disarm
+  - Disarm
+  - Disarm
+  - Harm
   userEffects:
   - !type:PlaySoundEffect
     sound: /Audio/Weapons/genhit3.ogg
@@ -50,4 +52,4 @@
   - !type:MartialArtsDamage
     damage:
       types:
-        Blunt: 1000
+        Blunt: 5000
