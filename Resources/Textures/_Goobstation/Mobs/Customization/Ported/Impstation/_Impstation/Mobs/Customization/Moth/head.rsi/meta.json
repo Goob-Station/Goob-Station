@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "burn, claw, and slash by Snavian. headtufts by meatsmall. rest by crocodilecarousel (github) for Impstation. Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/_Impstation/Mobs/Customization/Moth/head.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "headtuft",
+      "directions": 4
+    },
+    {
+      "name": "tuftbangs",
+      "directions": 4
+    },
+    {
+      "name": "verticaltuft",
+      "directions": 4
+    },
+    {
+      "name": "emotuft",
+      "directions": 4
+    },
+    {
+      "name": "tinytuft",
+      "directions": 4
+    }
+  ]
+}

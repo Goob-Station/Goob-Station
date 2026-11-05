@@ -35,6 +35,8 @@ public sealed class NotoFontFamilyStack(IResourceCache resCache, string variant 
     /// </remarks>
     private string _fontSymbols = "/Fonts/NotoSans/NotoSansSymbols-{2}.ttf";
 
+    private string _fontCjk = "/Fonts/NotoSans/NotoSansSC-{2}.ttf"; // Goob
+
     /// <summary>
     ///     The fallback font path, exactly. (no string substitutions.)
     /// </summary>
@@ -69,6 +71,7 @@ public sealed class NotoFontFamilyStack(IResourceCache resCache, string variant 
         {
             string.Format(_fontPrimary, kindStr, simpleKindStr, boldOrRegularStr),
             string.Format(_fontSymbols, kindStr, simpleKindStr, boldOrRegularStr),
+            string.Format(_fontCjk, kindStr, simpleKindStr, boldOrRegularStr), // Goob
         };
         fontList.AddRange(_extras);
         return fontList.ToArray();

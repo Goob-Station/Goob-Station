@@ -1,0 +1,41 @@
+# Ported from https://github.com/Sector-Umbra/sector-umbra/tree/58f7e454941dc71e00166c60a09063b9e8378d56
+
+- type: marking
+  id: SyntheticBodyLights
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_lights_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_lights_secondary
+
+- type: marking
+  id: SyntheticBodyPecs
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_pecs_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_pecs_secondary
+
+- type: marking
+  id: SyntheticBodyPlate
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_plate
+
+- type: marking
+  id: SyntheticBodyScute
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/Synthliz/body_markings.rsi
+    state: body_scute

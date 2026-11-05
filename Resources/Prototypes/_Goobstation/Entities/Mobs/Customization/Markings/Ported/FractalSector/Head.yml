@@ -1,0 +1,620 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: AurelianVoxBeak
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#bc7d3e"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: beak
+
+- type: marking
+  id: AurelianVoxCrest
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#bc7d3e"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: crest
+
+- type: marking
+  id: AurelianVoxNeckMarkings
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: neck_markings
+
+- type: marking
+  id: AurelianVoxRoboticHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: robotic_head
+
+- type: marking
+  id: BlinkingEyeBoth
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Arachnid, Chitinid, Diona, Dwarf, Felinid, Feroxi, Harpy, Human, Hydrakin, Moth, Oni, Reptilian, Resomi, Rodentia, Shadowkin, SlimePerson, Tajaran, Vox, Vulpkanin, Yowie]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/Eyes/blinking.rsi
+    state: blinking_eye_both
+
+- type: marking
+  id: BlinkingEyeLeft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Arachnid, Chitinid, Diona, Dwarf, Felinid, Feroxi, Harpy, Human, Hydrakin, Moth, Oni, Reptilian, Resomi, Rodentia, Shadowkin, SlimePerson, Tajaran, Vox, Vulpkanin, Yowie]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/Eyes/blinking.rsi
+    state: blinking_eye_l
+
+- type: marking
+  id: BlinkingEyeRight
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Arachnid, Chitinid, Diona, Dwarf, Felinid, Feroxi, Harpy, Human, Hydrakin, Moth, Oni, Reptilian, Resomi, Rodentia, Shadowkin, SlimePerson, Tajaran, Vox, Vulpkanin, Yowie]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/Eyes/blinking.rsi
+    state: blinking_eye_r
+
+- type: marking
+  id: FacepaintClown
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_clown
+
+- type: marking
+  id: FacepaintClownMinimal
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_clown_minimal
+
+- type: marking
+  id: FacepaintClownMinimalReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_clown_minimal
+
+- type: marking
+  id: FacepaintClownMinimalVulpkanin
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/vulpkanin.rsi
+    state: facepaint_clown_minimal
+
+- type: marking
+  id: FacepaintClownReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_clown
+
+- type: marking
+  id: FacepaintClownSad
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_clown_sad
+
+- type: marking
+  id: FacepaintClownSadReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_clown_sad
+
+- type: marking
+  id: FacepaintClownSadVulpkanin
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/vulpkanin.rsi
+    state: facepaint_clown_sad
+
+- type: marking
+  id: FacepaintClownSerious
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_clown_serious
+
+- type: marking
+  id: FacepaintClownSeriousReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian, Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_clown_serious
+
+- type: marking
+  id: FacepaintClownSmug
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_clown_smug
+
+- type: marking
+  id: FacepaintClownSmugReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_clown_smug
+
+- type: marking
+  id: FacepaintClownSmugVulpkanin
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/vulpkanin.rsi
+    state: facepaint_clown_smug
+
+- type: marking
+  id: FacepaintClownVulpkanin
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/vulpkanin.rsi
+    state: facepaint_clown
+
+- type: marking
+  id: FacepaintEyebrowsHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/shared.rsi
+    state: facepaint_eyebrows
+
+- type: marking
+  id: FacepaintLipstickSnout
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/shared.rsi
+    state: facepaint_lipstick_snout
+
+- type: marking
+  id: FacepaintMime
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_mime
+
+- type: marking
+  id: FacepaintMimeBlush
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_mime_blush
+
+- type: marking
+  id: FacepaintMimeBlushReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_mime_blush
+
+- type: marking
+  id: FacepaintMimeOdd
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_mime_odd
+
+- type: marking
+  id: FacepaintMimeOddReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_mime_odd
+
+- type: marking
+  id: FacepaintMimeOddVulpkanin
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/vulpkanin.rsi
+    state: facepaint_mime_odd
+
+- type: marking
+  id: FacepaintMimeReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_mime
+
+- type: marking
+  id: FacepaintMimeSad
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_mime_sad
+
+- type: marking
+  id: FacepaintMimeSadReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_mime_sad
+
+- type: marking
+  id: FacepaintMimeSadVulpkanin
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/vulpkanin.rsi
+    state: facepaint_mime_sad
+
+- type: marking
+  id: FacepaintMimeSerious
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_mime_serious
+
+- type: marking
+  id: FacepaintMimeSeriousVulpkanin
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/vulpkanin.rsi
+    state: facepaint_mime_serious
+
+- type: marking
+  id: FacepaintMimeVulpkanin
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/vulpkanin.rsi
+    state: facepaint_mime
+
+- type: marking
+  id: FacepaintWhite
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/human.rsi
+    state: facepaint_white
+
+- type: marking
+  id: FacepaintWhiteReptilian
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/reptilian.rsi
+    state: facepaint_white
+
+- type: marking
+  id: FacepaintWhiteVulpkanin
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_NF/Mobs/Customization/facepaints/vulpkanin.rsi
+    state: facepaint_white
+
+- type: marking
+  id: OniWarpaintDome
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/oni_markings.rsi
+    state: skulldome
+
+- type: marking
+  id: OniWarpaintJaw
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#000000"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/oni_markings.rsi
+    state: warpaint-jaw
+
+- type: marking
+  id: OniWarpaintSkull
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/oni_markings.rsi
+    state: warpaint-skull
+
+- type: marking
+  id: ScarEyeLeftSmall
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  followSkinColor: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/Mobs/Customization/scars.rsi
+    state: scar_eye_left_small
+
+- type: marking
+  id: ScarEyeRightSmall
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  followSkinColor: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/Mobs/Customization/scars.rsi
+    state: scar_eye_right_small

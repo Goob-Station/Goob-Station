@@ -271,6 +271,7 @@
 # Tail Markings
 - type: marking
   id: VulpTail
+  wagging: VulpTailWag # Goob
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
@@ -282,6 +283,7 @@
 
 - type: marking
   id: VulpTailTip
+  wagging: VulpTailWagTip # Goob
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
@@ -335,8 +337,9 @@
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp_alt-tip
 
-- type: marking
+- type: marking # Goob
   id: VulpTailLong
+  wagging: VulpTailLongWag
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
@@ -346,8 +349,20 @@
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: long-tip
 
+- type: marking # Goob
+  id: VulpTailLongWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: long-wagging
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: long-wagging-tip
+
 - type: marking
   id: VulpTailFox
+  wagging: VulpTailFoxWag # Goob
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
@@ -359,6 +374,7 @@
 
 - type: marking
   id: VulpTailFoxTip
+  wagging: VulpTailFoxWagTip # Goob
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
@@ -392,6 +408,7 @@
 
 - type: marking
   id: VulpTailBushy
+  wagging: VulpTailBushyWag # Goob
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
@@ -410,6 +427,7 @@
 
 - type: marking
   id: VulpTailCoyote
+  wagging: VulpTailCoyoteWag # Goob
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
@@ -426,6 +444,16 @@
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: coyote_wag
 
+- type: marking # Goob
+  id: VulpTailCorgi
+  wagging: VulpTailCorgiWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: corgi
+
 - type: marking
   id: VulpTailCorgiWag
   bodyPart: Tail
@@ -435,25 +463,51 @@
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: corgi_wag
 
-- type: marking
+- type: marking # Goob
   id: VulpTailHusky
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: husky-inner
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: husky-outer
-
-- type: marking
-  id: VulpTailHuskyAlt
+  wagging: VulpTailHuskyWag
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: husky
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: husky-inner
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: husky-outer
+
+- type: marking # Goob
+  id: VulpTailHuskyWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: husky-wagging
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: husky-wagging-inner
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: husky-wagging-outer
+
+- type: marking # Goob
+  id: VulpTailHuskyAlt
+  wagging: VulpTailHuskyAltWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: husky
+
+- type: marking # Goob
+  id: VulpTailHuskyAltWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: husky-wagging
 
 - type: marking
   id: VulpTailFox2
@@ -475,14 +529,28 @@
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox3-tip
 
-- type: marking
+- type: marking # Goob
   id: VulpTailFennec
+  wagging: VulpTailFennecWag
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fennec
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fennec-tip
+
+- type: marking # Goob
+  id: VulpTailFennecWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fennec-wagging
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fennec-wagging-tip
 
 - type: marking
   id: VulpTailOtie
@@ -493,14 +561,38 @@
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: otie
 
-- type: marking
+- type: marking # Goob
   id: VulpTailFluffy
+  wagging: VulpTailFluffyWag
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fluffy
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fluffy-tip
+
+- type: marking # Goob
+  id: VulpTailFluffyWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fluffy-wagging
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fluffy-wagging-tip
+
+- type: marking # Goob
+  id: VulpTailDalmatian
+  wagging: VulpTailDalmatianWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: dalmatian
 
 - type: marking
   id: VulpTailDalmatianWag

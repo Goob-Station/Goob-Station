@@ -1,0 +1,69 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: Beholder
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/augments/headaugs.rsi
+    state: beholder
+
+- type: marking
+  id: DionaPollenDust
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Diona]
+  forcedColoring: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dionapollendust
+
+- type: marking
+  id: HumanTattooSkull
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_skull
+
+- type: marking
+  id: HumanTattooSkullFace
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_skull_face
+
+- type: marking
+  id: Malstrem
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/augments/headaugs.rsi
+    state: malstrem
+
+- type: marking
+  id: ReptilianLineEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: lineeyes
+
+- type: marking
+  id: SingleAntenna
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Chitinid, IPC, Moth, Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/unique.rsi
+    state: singleantennaprimary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/unique.rsi
+    state: singleantennasecondary

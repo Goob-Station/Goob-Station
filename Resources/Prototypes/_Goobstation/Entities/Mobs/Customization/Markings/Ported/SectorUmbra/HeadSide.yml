@@ -1,0 +1,29 @@
+# Ported from https://github.com/Sector-Umbra/sector-umbra/tree/58f7e454941dc71e00166c60a09063b9e8378d56
+
+- type: marking
+  id: SyntheticAntennaLeft
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/synthetic.rsi
+    state: synthetic_antenna_left
+
+- type: marking
+  id: SyntheticAntennaRight
+  bodyPart: Head
+  markingCategory: HeadSide
+  speciesRestriction: [Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_CD/Mobs/Customization/synthetic.rsi
+    state: synthetic_antenna_right

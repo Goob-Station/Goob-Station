@@ -72,6 +72,7 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
         // Goobstation - end
 
         EntityCoordinates? targetCoords = null;
+        var userGrid = _transform.GetGrid(userCoords); // Goobstation
 
         for (var i = 0; i < tries; i++)
         {
@@ -89,7 +90,8 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
 
             if (!_turfSystem.TryGetTileRef(tempTargetCoords, out var tileRef)
                 || _turfSystem.IsSpace(tileRef.Value)
-                || _turfSystem.IsTileBlocked(tileRef.Value, (CollisionGroup)physicsComponent.CollisionMask))
+                || _turfSystem.IsTileBlocked(tileRef.Value, (CollisionGroup)physicsComponent.CollisionMask)
+                || userGrid != null && tileRef.Value.GridUid != userGrid) // Goobstation - stay on the same grid
                 continue;
 
             targetCoords = tempTargetCoords;

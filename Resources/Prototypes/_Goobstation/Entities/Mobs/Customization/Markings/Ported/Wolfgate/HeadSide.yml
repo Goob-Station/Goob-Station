@@ -1,0 +1,218 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: WFMeridianFluffDeathshead
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: deathshead
+
+- type: marking
+  id: WFMeridianFluffFirewatch
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: firewatch
+
+- type: marking
+  id: WFMeridianFluffHarpyFluff
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: harpy_fluff
+
+- type: marking
+  id: WFMeridianFluffInsectFemaleTertiary
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: insect_female_tertiary
+
+- type: marking
+  id: WFMeridianFluffInsectMaleTertiary
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: insect_male_tertiary
+
+- type: marking
+  id: WFMeridianFluffJungle
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: jungle
+
+- type: marking
+  id: WFMeridianFluffMoonFly
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: moon_fly
+
+- type: marking
+  id: WFMeridianFluffOakWorm
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: oak_worm
+
+- type: marking
+  id: WFMeridianFluffSnowDualColor
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Chitinid, Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: snow_dual_color_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: snow_dual_color_secondary
+
+- type: marking
+  id: WFMeridianFluffThick
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: thick
+
+- type: marking
+  id: WFMeridianFluffWhiteFly
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Chitinid, Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: white_fly
+
+- type: marking
+  id: WFMeridianFluffWitchWing
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/fluff.rsi
+    state: witch_wing
+
+- type: marking
+  id: WFMeridianFrillsHorns
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/frills.rsi
+    state: horns
+
+- type: marking
+  id: WFMeridianFrillsNeckFrills
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/frills.rsi
+    state: neck_frills
+
+- type: marking
+  id: WFMeridianFrillsRamatan
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/frills.rsi
+    state: ramatan_primary
+
+- type: marking
+  id: WFMeridianFrillsRamatanFluffy
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Hydrakin, Reptilian]
+  coloring:
+    layers:
+      ramatan_fluffy_secondary:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/frills.rsi
+    state: ramatan_fluffy_secondary
+
+- type: marking
+  id: WFMeridianFrillsRamatanSharp
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Hydrakin, Reptilian, Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/frills.rsi
+    state: ramatan_sharp_primary
+
+- type: marking
+  id: WFMeridianFrillsSplit
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/frills.rsi
+    state: split

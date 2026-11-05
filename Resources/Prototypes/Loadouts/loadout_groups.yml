@@ -6,6 +6,7 @@
   minLimit: 0
   maxLimit: 3
   loadouts:
+  - CandyBucket # Goobstation - Halloween
   - FlowerWreath
   - Hairflower
   - Headphones
@@ -522,20 +523,21 @@
   loadouts:
   - LizardPlushieChaplain
 
-- type: loadoutGroup
-  id: ChaplainBible
-  name: loadout-group-chaplain-bible
-  minLimit: 1
-  loadouts:
-  - Bible
-  - BibleNanoTrasen
-  - BibleDruid
-  - BibleSatanic
-  - BibleTanakh
-  - BibleQuran
-  - BibleHonk
-  - BibleRatvar
-  - BibleNarsie
+# Goobstation - redundant due to chaplains spawning with a bluespace scripture beacon
+#- type: loadoutGroup
+#  id: ChaplainBible
+#  name: loadout-group-chaplain-bible
+#  minLimit: 1
+#  loadouts:
+#  - Bible
+#  - BibleNanoTrasen
+#  - BibleDruid
+#  - BibleSatanic
+#  - BibleTanakh
+#  - BibleQuran
+#  - BibleHonk
+#  - BibleRatvar
+#  - BibleNarsie
 
 - type: loadoutGroup
   id: JanitorHead
@@ -1541,6 +1543,7 @@
   loadouts:
   - ChiefMedicalOfficerLabCoat
   - ChiefMedicalOfficerWintercoat
+  - ChiefMedicalOfficerLabCoatWinter # Funky Station
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerNeck

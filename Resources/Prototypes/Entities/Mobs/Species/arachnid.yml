@@ -67,7 +67,7 @@
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter']
+    allowedEmotes: ['Click', 'Chitter', 'Hiss'] # Goob
   - type: Vocal
     sounds:
       Male: UnisexArachnid

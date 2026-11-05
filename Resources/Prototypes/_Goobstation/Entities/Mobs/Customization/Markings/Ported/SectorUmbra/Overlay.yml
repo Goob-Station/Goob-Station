@@ -1,0 +1,29 @@
+# Ported from https://github.com/Sector-Umbra/sector-umbra/tree/58f7e454941dc71e00166c60a09063b9e8378d56
+
+- type: marking
+  id: MothMarkingRing
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_Umbra/Mobs/Customization/forehead.rsi
+    state: ring
+
+- type: marking
+  id: ReptilianDragonEye
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Reptilian]
+  coloring:
+    layers:
+      tattoo_eye_dragon_shadow:
+        type:
+          !type:SkinColoring
+      tattoo_eye_dragon_color:
+        type:
+          !type:EyeColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_Moffstation/Mobs/Customization/Reptilian/dragon_eye.rsi
+    state: tattoo_eye_dragon_shadow
+  - sprite: _Goobstation/Mobs/Customization/Ported/SectorUmbra/_Moffstation/Mobs/Customization/Reptilian/dragon_eye.rsi
+    state: tattoo_eye_dragon_color

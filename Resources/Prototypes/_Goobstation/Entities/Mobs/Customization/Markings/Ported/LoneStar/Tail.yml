@@ -1,0 +1,695 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: ArfelharpyTopWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_arfelharpy_top_front
+
+- type: marking
+  id: BatWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_bat_behind
+
+- type: marking
+  id: BeeWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_bee_behind
+
+- type: marking
+  id: BeetleWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_beetle_behind
+
+- type: marking
+  id: CoyoteTailDatashark
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    m_tail_datashark_BEHIND_A: TailBehind
+    m_tail_datashark_BEHIND_C: TailBehind
+    m_tail_datashark_FRONT_A: TailOversuit
+    m_tail_datashark_FRONT_C: TailOversuit
+  colorLinks:
+    m_tail_datashark_BEHIND_A: m_tail_datashark_FRONT_A
+    m_tail_datashark_BEHIND_C: m_tail_datashark_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_datashark_BEHIND_A
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_datashark_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_datashark_FRONT_A
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_datashark_FRONT_C
+
+- type: marking
+  id: CoyoteTailDownhusky
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_downhusky_BEHIND_B: TailBehind
+    m_tail_downhusky_BEHIND_C: TailBehind
+    m_tail_downhusky_FRONT_B: TailOversuit
+    m_tail_downhusky_FRONT_C: TailOversuit
+  colorLinks:
+    m_tail_downhusky_BEHIND_B: m_tail_downhusky_FRONT_B
+    m_tail_downhusky_BEHIND_C: m_tail_downhusky_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_downhusky_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_downhusky_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_downhusky_FRONT_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_downhusky_FRONT_C
+
+- type: marking
+  id: CoyoteTailEasternd
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_easternd_BEHIND_B: TailBehind
+    m_tail_easternd_BEHIND_C: TailBehind
+    m_tail_easternd_FRONT_B: TailOversuit
+    m_tail_easternd_FRONT_C: TailOversuit
+  colorLinks:
+    m_tail_easternd_BEHIND_B: m_tail_easternd_FRONT_B
+    m_tail_easternd_BEHIND_C: m_tail_easternd_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_easternd_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_easternd_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_easternd_FRONT_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_easternd_FRONT_C
+
+- type: marking
+  id: CoyoteTailPorkupine
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_porkupine_BEHIND_A: TailBehind
+    m_tail_porkupine_BEHIND_B: TailBehind
+    m_tail_porkupine_BEHIND_C: TailBehind
+    m_tail_porkupine_FRONT_A: TailOversuit
+    m_tail_porkupine_FRONT_B: TailOversuit
+    m_tail_porkupine_FRONT_C: TailOversuit
+  colorLinks:
+    m_tail_porkupine_BEHIND_A: m_tail_porkupine_FRONT_A
+    m_tail_porkupine_BEHIND_B: m_tail_porkupine_FRONT_B
+    m_tail_porkupine_BEHIND_C: m_tail_porkupine_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_porkupine_BEHIND_A
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_porkupine_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_porkupine_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_porkupine_FRONT_A
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_porkupine_FRONT_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_porkupine_FRONT_C
+
+- type: marking
+  id: CoyoteTailSam
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_sam_BEHIND_B: TailBehind
+    m_tail_sam_BEHIND_C: TailBehind
+    m_tail_sam_FRONT_B: TailOversuit
+    m_tail_sam_FRONT_C: TailOversuit
+  colorLinks:
+    m_tail_sam_BEHIND_B: m_tail_sam_FRONT_B
+    m_tail_sam_BEHIND_C: m_tail_sam_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_sam_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_sam_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_sam_FRONT_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tail_sam_FRONT_C
+
+- type: marking
+  id: CoyoteTailwagDatashark
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Feroxi]
+  layering:
+    m_tailwag_datashark_BEHIND_A: TailBehind
+    m_tailwag_datashark_BEHIND_C: TailBehind
+    m_tailwag_datashark_FRONT_A: TailOversuit
+    m_tailwag_datashark_FRONT_C: TailOversuit
+  colorLinks:
+    m_tailwag_datashark_BEHIND_A: m_tailwag_datashark_FRONT_A
+    m_tailwag_datashark_BEHIND_C: m_tailwag_datashark_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_datashark_BEHIND_A
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_datashark_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_datashark_FRONT_A
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_datashark_FRONT_C
+
+- type: marking
+  id: CoyoteTailwagDownhusky
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tailwag_downhusky_BEHIND_B: TailBehind
+    m_tailwag_downhusky_BEHIND_C: TailBehind
+    m_tailwag_downhusky_FRONT_B: TailOversuit
+    m_tailwag_downhusky_FRONT_C: TailOversuit
+  colorLinks:
+    m_tailwag_downhusky_BEHIND_B: m_tailwag_downhusky_FRONT_B
+    m_tailwag_downhusky_BEHIND_C: m_tailwag_downhusky_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_downhusky_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_downhusky_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_downhusky_FRONT_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_downhusky_FRONT_C
+
+- type: marking
+  id: CoyoteTailwagEasternd
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tailwag_easternd_BEHIND_B: TailBehind
+    m_tailwag_easternd_BEHIND_C: TailBehind
+    m_tailwag_easternd_FRONT_B: TailOversuit
+    m_tailwag_easternd_FRONT_C: TailOversuit
+  colorLinks:
+    m_tailwag_easternd_BEHIND_B: m_tailwag_easternd_FRONT_B
+    m_tailwag_easternd_BEHIND_C: m_tailwag_easternd_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_easternd_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_easternd_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_easternd_FRONT_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_easternd_FRONT_C
+
+- type: marking
+  id: CoyoteTailwagSam
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tailwag_sam_BEHIND_B: TailBehind
+    m_tailwag_sam_BEHIND_C: TailBehind
+    m_tailwag_sam_FRONT_B: TailOversuit
+    m_tailwag_sam_FRONT_C: TailOversuit
+  colorLinks:
+    m_tailwag_sam_BEHIND_B: m_tailwag_sam_FRONT_B
+    m_tailwag_sam_BEHIND_C: m_tailwag_sam_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_sam_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_sam_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_sam_FRONT_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_sam_FRONT_C
+
+- type: marking
+  id: CoyoteTailwagWah
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tailwag_wah_BEHIND_B: TailBehind
+    m_tailwag_wah_BEHIND_C: TailBehind
+    m_tailwag_wah_FRONT_B: TailOversuit
+    m_tailwag_wah_FRONT_C: TailOversuit
+  colorLinks:
+    m_tailwag_wah_BEHIND_B: m_tailwag_wah_FRONT_B
+    m_tailwag_wah_BEHIND_C: m_tailwag_wah_FRONT_C
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_wah_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_wah_BEHIND_C
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_wah_FRONT_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/cb_tails_batch_a.rsi
+    state: m_tailwag_wah_FRONT_C
+
+- type: marking
+  id: CoyoteWingsDragon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  layering:
+    m_insect_wings_dragon_alt_BEHIND_A: TailBehind
+    m_insect_wings_dragon_alt_BEHIND_B: TailBehind
+    m_insect_wings_dragon_alt_FRONT_A: TailOversuit
+    m_insect_wings_dragon_alt_FRONT_B: TailOversuit
+  colorLinks:
+    m_insect_wings_dragon_alt_BEHIND_A: m_insect_wings_dragon_alt_FRONT_A
+    m_insect_wings_dragon_alt_BEHIND_B: m_insect_wings_dragon_alt_FRONT_B
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/wingbatcha.rsi
+    state: m_insect_wings_dragon_alt_BEHIND_A
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/wingbatcha.rsi
+    state: m_insect_wings_dragon_alt_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/wingbatcha.rsi
+    state: m_insect_wings_dragon_alt_FRONT_A
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/wingbatcha.rsi
+    state: m_insect_wings_dragon_alt_FRONT_B
+
+- type: marking
+  id: CoyoteWingsSepulchre
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid, Moth]
+  layering:
+    m_insect_wings_sepulchre_BEHIND_B: TailBehind
+    m_insect_wings_sepulchre_FRONT_B: TailOversuit
+  colorLinks:
+    m_insect_wings_sepulchre_BEHIND_B: m_insect_wings_sepulchre_FRONT_B
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/wingbatcha.rsi
+    state: m_insect_wings_sepulchre_BEHIND_B
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/wingbatcha.rsi
+    state: m_insect_wings_sepulchre_FRONT_B
+
+- type: marking
+  id: Dragonalt1WingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_dragonalt1_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_dragonalt1_behind_secondary
+
+- type: marking
+  id: Dragonalt2WingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_dragonalt2_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_dragonalt2_behind_secondary
+
+- type: marking
+  id: DragonsynthWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_dragonsynth_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_dragonsynth_behind_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_dragonsynth_behind_tertiary
+
+- type: marking
+  id: ElysianLarge
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_LoneStar/Entities/Mobs/Markings/Wings/elysian.rsi
+    state: large_bottom
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_LoneStar/Entities/Mobs/Markings/Wings/elysian.rsi
+    state: large_top
+
+- type: marking
+  id: ElysianSmall
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_LoneStar/Entities/Mobs/Markings/Wings/elysian.rsi
+    state: small_bottom
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_LoneStar/Entities/Mobs/Markings/Wings/elysian.rsi
+    state: small_top
+
+- type: marking
+  id: ExtraSuccubusWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_extra_succubus_behind
+
+- type: marking
+  id: FairyWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Mobs/Customization/wings.rsi
+    state: fairy
+
+- type: marking
+  id: FairyWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_fairy_behind
+
+- type: marking
+  id: FeatheryWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy, Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_feathery_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_feathery_behind_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_feathery_behind_tertiary
+
+- type: marking
+  id: Featheryalt1WingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy, Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_featheryalt1_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_featheryalt1_behind_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_featheryalt1_behind_tertiary
+
+- type: marking
+  id: Featheryalt2WingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy, Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_featheryalt2_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_featheryalt2_behind_secondary
+
+- type: marking
+  id: HarpyTopWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpy_top_front
+
+- type: marking
+  id: HarpyWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpy_behind
+
+- type: marking
+  id: HarpyaltFlufflessWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpyalt_fluffless_behind
+
+- type: marking
+  id: HarpyaltWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpyalt_behind
+
+- type: marking
+  id: HarpybatFlufflessTopWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_fluffless_top_front_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_fluffless_top_front_secondary
+
+- type: marking
+  id: HarpybatFlufflessWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_fluffless_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_fluffless_behind_secondary
+
+- type: marking
+  id: HarpybatTopWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_top_front
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_top_front_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_top_front_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_top_front_tertiary
+
+- type: marking
+  id: HarpybatWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_behind_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_harpybat_behind_tertiary
+
+- type: marking
+  id: ImpVoxTailSplit
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: voxtailsplit
+
+- type: marking
+  id: InsectWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_insect_behind
+
+- type: marking
+  id: LowJewelTopWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_low_jewel_top_front_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_low_jewel_top_front_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_low_jewel_top_front_tertiary
+
+- type: marking
+  id: LowWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Chitinid, Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_low_behind
+
+- type: marking
+  id: MinifeatherWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy, Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_minifeather_behind
+
+- type: marking
+  id: PterodactylWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin, Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_pterodactyl_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_pterodactyl_behind_secondary
+
+- type: marking
+  id: RenamonWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_renamon_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_renamon_behind_secondary
+
+- type: marking
+  id: ResomiTailComplex
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_top
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_middle
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_bottom
+
+- type: marking
+  id: ResomiTailDamaged
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_damaged
+
+- type: marking
+  id: ResomiTailDamagedFeathered
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_damaged
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_feathers_damaged
+
+- type: marking
+  id: ResomiTailFeathered
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_feathers
+
+- type: marking
+  id: ResomiTailStubby
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_stubby
+
+- type: marking
+  id: ResomiTailStubbyFeathered
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_stubby
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_tail_markings.rsi
+    state: tail_feathers_stubby
+
+- type: marking
+  id: RobowingWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC, Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_robowing_behind_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_robowing_behind_secondary
+
+- type: marking
+  id: SpiderLegsWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_spider_legs_behind
+
+- type: marking
+  id: SuccubusWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Hydrakin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_succubus_behind_primary
+
+- type: marking
+  id: TinyfeatherWingsBubber
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy, Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Bubber/Mobs/Customization/wings.rsi
+    state: m_wings_tinyfeather_behind

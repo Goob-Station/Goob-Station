@@ -28,6 +28,9 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
         _clientLookup.Clear();
         _clientInformation.Clear();
 
+        if (ent.Comp.Clients.RemoveWhere(c => TerminatingOrDeleted(c) || !HasComp<OreSiloClientComponent>(c)) > 0) // Goob
+            Dirty(ent);
+
         var xform = Transform(ent);
 
         // Sneakily uses override with TComponent parameter

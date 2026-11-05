@@ -187,7 +187,7 @@ public sealed class SalvageJobBoardSystem : EntitySystem
             while (computerQuery.MoveNext(out var uid, out _))
             {
                 var message = Loc.GetString("job-board-radio-announce", ("rank", FormattedMessage.RemoveMarkupPermissive(Loc.GetString(newRank.Title))));
-                _radio.SendRadioMessage(uid, message, UnlockChannel, uid, null, false); // Einstein Engines - Language (Made it null, might need change later)
+                _radio.SendRadioMessage(uid, message, UnlockChannel, uid, null, null, false); // Einstein Engines - Language (Made it null, might need change later) | Nuclear-14 - Frequency
                 break;
             }
 

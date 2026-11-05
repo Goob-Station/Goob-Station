@@ -48,8 +48,8 @@
         component: StaminaModifierStatusEffect
         time: 3
         type: Add
-      - !type:GenericStatusEffect
-        key: ForcedSleep
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
       - !type:GenericStatusEffect

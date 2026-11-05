@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/VOREStation/VOREStation/commit/5cf2ba8be1b538636b7813bcca22c8f080191df3. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_HL/Mobs/Customization/Generic/neckfur.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "Neckfur",
+      "directions": 4
+    }
+  ]
+}

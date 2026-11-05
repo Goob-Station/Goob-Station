@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by PlazmaSpirit Discord: 300988469176434688. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/Floof/Mobs/Customization/Reptilian/fin.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "primary",
+      "directions": 4
+    },
+    {
+      "name": "secondary",
+      "directions": 4
+    }
+  ]
+}

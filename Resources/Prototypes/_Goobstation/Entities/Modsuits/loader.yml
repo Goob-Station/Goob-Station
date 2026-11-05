@@ -1,0 +1,178 @@
+- type: entity
+  parent: [ ClothingModsuitStandard, BaseCargoContraband ]
+  id: ClothingModsuitLoader
+  name: loader modsuit control unit
+  description: "An unsealed experimental motorized harness manufactured by Scarborough Arms for quick and efficient munition supplies."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/loader.rsi
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      - state: module-hydraulic
+  - type: ModSuit
+    theme: ModThemeLoader
+    parts:
+      head: ClothingModsuitHelmetLoader
+      gloves: ClothingModsuitGauntletsLoader
+      outerClothing: ClothingModsuitChestplateLoader
+      shoes: ClothingModsuitBootsLoader
+  - type: ModSuitSealedVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      - state: module-hydraulic
+  - type: Construction
+    graph: Modsuit
+    node: loader
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+
+- type: entity
+  parent: ClothingModsuitHelmetStandard
+  id: ClothingModsuitHelmetLoader
+  name: loader modsuit helmet
+  description: The helmet of a loader modsuit. It covers the face, but isn't airtight.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/loader.rsi
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-vox:
+      - state: equipped-HEAD
+      head-vulpkanin:
+      - state: equipped-HEAD
+      head-feroxi:
+      - state: equipped-HEAD
+      head-hydrakin:
+      - state: equipped-HEAD
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.95
+        Heat: 0.9
+        Caustic: 0.9
+  - type: ModSuitSealedVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD-sealed
+      - state: equipped-HEAD-sealed-unshaded
+        shader: unshaded
+      head-resomi:
+      - state: equipped-HEAD-sealed
+      - state: equipped-HEAD-sealed-unshaded
+        shader: unshaded
+      head-vox:
+      - state: equipped-HEAD-sealed
+      - state: equipped-HEAD-sealed-unshaded
+        shader: unshaded
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed
+      - state: equipped-HEAD-sealed-unshaded
+        shader: unshaded
+      head-feroxi:
+      - state: equipped-HEAD-sealed
+      - state: equipped-HEAD-sealed-unshaded
+        shader: unshaded
+      head-hydrakin:
+      - state: equipped-HEAD-sealed
+      - state: equipped-HEAD-sealed-unshaded
+        shader: unshaded
+  - type: ModSealedComponents
+    components:
+    - type: IdentityBlocker
+    - type: HideLayerClothing
+      slots:
+      - Hair
+      - Snout
+      - HeadTop
+      - HeadSide
+  - type: Tag
+    tags: []
+
+- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplateLoader
+  name: loader modsuit chestplate
+  description: The titanium exoskeleton of a loader modsuit. Its myomer-driven legs let the wearer run at full speed.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/loader.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.95
+        Heat: 0.9
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ModSuitSealedVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed
+  - type: ModSealedComponents
+    components: []
+
+- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsLoader
+  name: loader modsuit gauntlets
+  description: The gauntlets of a loader modsuit. Partially insulated against shocks from the myomer arms.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/loader.rsi
+  - type: Insulated
+    coefficient: 0.25
+
+- type: entity
+  parent: ClothingModsuitBootsStandard
+  id: ClothingModsuitBootsLoader
+  name: loader modsuit boots
+  description: The boots of a loader modsuit.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/loader.rsi

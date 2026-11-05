@@ -1,0 +1,11 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: MothStrippedArms
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/arms.rsi
+    state: stripped-arm-l

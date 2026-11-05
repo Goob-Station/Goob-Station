@@ -1,0 +1,25 @@
+<news:NewsReaderWindow
+    xmlns="https://spacestation14.io"
+    xmlns:news="clr-namespace:Content.Goobstation.Client.News.UI"
+    xmlns:hull="clr-namespace:Content.Goobstation.UIKit.UserInterface.Lobby;assembly=Content.Goobstation.UIKit"
+    MinSize="520 360"
+    SetSize="640 640">
+    <hull:HullPanel>
+        <BoxContainer Orientation="Vertical" Margin="12 9 12 22" SeparationOverride="8">
+            <hull:HazardStripe MinHeight="6" Margin="13 0 13 7" />
+            <BoxContainer Orientation="Vertical" Margin="4 0">
+                <Label Name="TitleLabel" StyleClasses="HullHeading" ClipText="True" />
+                <Label Name="DateLabel" StyleClasses="HullPostDate" Visible="False" />
+            </BoxContainer>
+            <PanelContainer StyleClasses="HullInset" VerticalExpand="True">
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="DocumentContainer" Orientation="Vertical" Margin="12 10 14 10" SeparationOverride="4" />
+                </ScrollContainer>
+            </PanelContainer>
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" SeparationOverride="8">
+                <Button Name="NeverButton" Text="{Loc 'news-reader-never'}" StyleClasses="HullPlate" Visible="False" />
+                <Button Name="DismissButton" Text="{Loc 'news-reader-close'}" StyleClasses="HullPlate" MinWidth="90" />
+            </BoxContainer>
+        </BoxContainer>
+    </hull:HullPanel>
+</news:NewsReaderWindow>

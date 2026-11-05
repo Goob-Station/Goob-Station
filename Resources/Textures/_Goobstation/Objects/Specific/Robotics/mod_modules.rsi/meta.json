@@ -1,0 +1,530 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/e18f017ddb9d002a15322cc57a4de783a45b5494/icons/obj/clothing/modsuit/mod_modules.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "module",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "mod_jet",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "line"
+        },
+        {
+            "name": "tether_projectile"
+        },
+        {
+            "name": "tether_latched"
+        },
+        {
+            "name": "net_beam",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "net_projectile",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "mine_missile",
+            "delays": [
+                [
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05
+                ]
+            ]
+        },
+        {
+            "name": "medhud_visor"
+        },
+        {
+            "name": "diaghud_visor"
+        },
+        {
+            "name": "sechud_visor"
+        },
+        {
+            "name": "meson_visor"
+        },
+        {
+            "name": "thermal_visor"
+        },
+        {
+            "name": "night_visor"
+        },
+        {
+            "name": "jetpack"
+        },
+        {
+            "name": "jetpack_advanced"
+        },
+        {
+            "name": "cloak"
+        },
+        {
+            "name": "cloak_ninja"
+        },
+        {
+            "name": "pathfinder"
+        },
+        {
+            "name": "pathfinder_empty"
+        },
+        {
+            "name": "drill"
+        },
+        {
+            "name": "regulator"
+        },
+        {
+            "name": "storage"
+        },
+        {
+            "name": "storage_large"
+        },
+        {
+            "name": "storage_syndi"
+        },
+        {
+            "name": "storage_case"
+        },
+        {
+            "name": "storage_bluespace",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "storage_holding"
+        },
+        {
+            "name": "storage_holding-core",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "constructor"
+        },
+        {
+            "name": "flashlight"
+        },
+        {
+            "name": "tether"
+        },
+        {
+            "name": "scanner"
+        },
+        {
+            "name": "magnet"
+        },
+        {
+            "name": "holster"
+        },
+        {
+            "name": "health"
+        },
+        {
+            "name": "gps"
+        },
+        {
+            "name": "ore"
+        },
+        {
+            "name": "radshield"
+        },
+        {
+            "name": "empshield"
+        },
+        {
+            "name": "infiltrator"
+        },
+        {
+            "name": "injector"
+        },
+        {
+            "name": "dnalock"
+        },
+        {
+            "name": "bikehorn"
+        },
+        {
+            "name": "microwave_beam"
+        },
+        {
+            "name": "armor_booster"
+        },
+        {
+            "name": "energy_shield"
+        },
+        {
+            "name": "clamp"
+        },
+        {
+            "name": "insignia",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "magic_neutralizer"
+        },
+        {
+            "name": "battlemage_shield"
+        },
+        {
+            "name": "apparatus"
+        },
+        {
+            "name": "organizer"
+        },
+        {
+            "name": "carry"
+        },
+        {
+            "name": "welding"
+        },
+        {
+            "name": "dispenser"
+        },
+        {
+            "name": "longfall"
+        },
+        {
+            "name": "magic_nullifier"
+        },
+        {
+            "name": "plasma_stabilizer"
+        },
+        {
+            "name": "tray"
+        },
+        {
+            "name": "atrocinator"
+        },
+        {
+            "name": "springlock"
+        },
+        {
+            "name": "rave_visor",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "tanning"
+        },
+        {
+            "name": "bloon"
+        },
+        {
+            "name": "noslip"
+        },
+        {
+            "name": "waddle"
+        },
+        {
+            "name": "chronogun"
+        },
+        {
+            "name": "rewinder",
+            "delays": [
+                [
+                    0.1,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "timestop",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "eradicationlock",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "timeline_jumper"
+        },
+        {
+            "name": "paper_maker"
+        },
+        {
+            "name": "teleporter"
+        },
+        {
+            "name": "teleporter-core"
+        },
+        {
+            "name": "antigrav"
+        },
+        {
+            "name": "antigrav-core"
+        },
+        {
+            "name": "kinesis"
+        },
+        {
+            "name": "kinesis-core"
+        },
+        {
+            "name": "hat_holder"
+        },
+        {
+            "name": "signlang_radio",
+            "delays": [
+                [
+                    0.5,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "stamp"
+        },
+        {
+            "name": "disposal"
+        },
+        {
+            "name": "clamp_loader"
+        },
+        {
+            "name": "launch_loader"
+        },
+        {
+            "name": "magnet_loader"
+        },
+        {
+            "name": "ash_accretion"
+        },
+        {
+            "name": "sphere"
+        },
+        {
+            "name": "mister"
+        },
+        {
+            "name": "flamethrower"
+        },
+        {
+            "name": "pepper_shoulder"
+        },
+        {
+            "name": "power_kick"
+        },
+        {
+            "name": "mag_harness"
+        },
+        {
+            "name": "chameleon"
+        },
+        {
+            "name": "plate_compression"
+        },
+        {
+            "name": "recall"
+        },
+        {
+            "name": "energy_net"
+        },
+        {
+            "name": "status"
+        },
+        {
+            "name": "hacker"
+        },
+        {
+            "name": "adrenaline_boost"
+        },
+        {
+            "name": "dnalock_ninja"
+        },
+        {
+            "name": "welding_camera"
+        },
+        {
+            "name": "emp_pulse"
+        },
+        {
+            "name": "megaphone"
+        },
+        {
+            "name": "criminal_capture"
+        },
+        {
+            "name": "patient_transport"
+        },
+        {
+            "name": "projectile_dampener"
+        },
+        {
+            "name": "mirage_grenade"
+        },
+        {
+            "name": "active_sonar"
+        },
+        {
+            "name": "thread_ripper"
+        },
+        {
+            "name": "defibrillator"
+        },
+        {
+            "name": "brain_hurties",
+            "delays": [
+                [
+                    0.5,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "joint_torsion"
+        },
+        {
+            "name": "recycler"
+        },
+        {
+            "name": "donk_recycler"
+        },
+        {
+            "name": "donk_safe_recycler"
+        },
+        {
+            "name": "shooting_assistant"
+        },
+        {
+            "name": "surgical_processor"
+        },
+        {
+            "name": "jump_jet"
+        },
+        {
+            "name": "bulwark"
+        },
+        {
+            "name": "no_baton",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "fishing_glove"
+        },
+        {
+            "name": "cloak_traitor",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "cleaner"
+        },
+        {
+            "name": "candela_spool"
+        }
+    ]
+}

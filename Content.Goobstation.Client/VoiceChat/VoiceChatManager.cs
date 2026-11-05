@@ -27,6 +27,8 @@ public sealed partial class VoiceChatManager
     public event Action<bool>? DeafenedChanged;
     public event Action? LinkChanged;
 
+    public const string NewsEntry = "VoiceChat";
+
     public bool WebConnected { get; private set; }
 
     public bool MicMuted { get; private set; }

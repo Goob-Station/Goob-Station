@@ -1,8 +1,10 @@
 using System.Numerics;
+using Content.Goobstation.Common.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.IdentityManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -13,15 +15,9 @@ namespace Content.Client.Chat.UI;
 /// </summary>
 public sealed class RunechatSpeechBubble : SpeechBubble
 {
-    public const string StyleClassNormal = "runechat";
-    public const string StyleClassLoud = "runechatLoud";
-    public const string StyleClassWhisper = "runechatWhisper";
-    public const int NormalSize = 12;
-    public const int LoudSize = 18;
-    private const float DesignPixelsPerEm = 8f;
     private const float RunechatMaxWidth = 200;
     private static readonly TimeSpan FadeInTime = TimeSpan.FromSeconds(0.15);
-    private static readonly Color LoocColor = Color.FromHex("#48d1cc");
+    public static readonly Color LoocColor = Color.FromHex("#48d1cc");
 
     private TimeSpan _spawnTime;
     private IGameTiming? _timing;
@@ -63,7 +59,7 @@ public sealed class RunechatSpeechBubble : SpeechBubble
 
         string text;
         var color = GetNameColor(header);
-        var size = NormalSize;
+        var loud = false;
 
         switch (type)
         {
@@ -80,16 +76,30 @@ public sealed class RunechatSpeechBubble : SpeechBubble
                     content = message.Message;
 
                 if (content.Contains("[bold]"))
-                    size = LoudSize;
+                    loud = true;
 
                 text = FormattedMessage.RemoveMarkupPermissive(content);
                 break;
         }
 
+        var cfg = IoCManager.Resolve<IConfigurationManager>();
+        return CreateLabel(text,
+            color,
+            type == SpeechType.Whisper,
+            loud,
+            cfg.GetCVar(GoobCVars.ChatRunechatFontSize),
+            cfg.GetCVar(GoobCVars.ChatRunechatOutlineScale));
+    }
+
+    public static RichTextLabel CreateLabel(string text, Color color, bool whisper, bool loud, int fontSize, float outlineScale)
+    {
+        fontSize = Math.Clamp(fontSize, RunechatStyle.MinFontSize, RunechatStyle.MaxFontSize);
+        var size = loud && !whisper ? RunechatStyle.GetLoudSize(fontSize) : fontSize;
+
         var msg = new FormattedMessage();
         msg.AddMarkupPermissive($"[color={color.ToHex()}]{FormattedMessage.EscapeText(text.Trim())}[/color]");
 
-        var outline = GetDesignPixelSize(size);
+        var outline = RunechatStyle.GetOutline(size, outlineScale);
         var pad = MathF.Ceiling(outline);
         var label = new RichTextLabel
         {
@@ -97,7 +107,7 @@ public sealed class RunechatSpeechBubble : SpeechBubble
             OutlineThicknessOverride = outline,
             OutlineColorOverride = Color.Black,
             Margin = new Thickness(pad, pad, pad, pad + 2),
-            StyleClasses = { type == SpeechType.Whisper ? StyleClassWhisper : size == LoudSize ? StyleClassLoud : StyleClassNormal },
+            Stylesheet = RunechatStyle.GetStylesheet(whisper ? RunechatStyle.WhisperFontPath : RunechatStyle.FontPath, size),
         };
         label.SetMessage(msg, AllowedTags);
 
@@ -117,11 +127,6 @@ public sealed class RunechatSpeechBubble : SpeechBubble
         var age = (float) ((_timing.RealTime - _spawnTime).TotalSeconds / FadeInTime.TotalSeconds);
         if (age < 1f)
             Modulate = Modulate.WithAlpha(Modulate.A * Math.Clamp(age, 0f, 1f));
-    }
-
-    private static float GetDesignPixelSize(int pointSize)
-    {
-        return pointSize * 96f / 72f / DesignPixelsPerEm;
     }
 
     public static Color GetNameColor(string name)

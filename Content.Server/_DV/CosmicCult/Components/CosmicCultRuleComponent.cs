@@ -152,6 +152,14 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? Tier2DelayTimer;
 
+    // Goob start
+    [DataField]
+    public TimeSpan EvacBlockDuration = TimeSpan.FromMinutes(25);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? EvacBlockEnd;
+    // Goob end
+
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? ExtraRiftTimer;
 

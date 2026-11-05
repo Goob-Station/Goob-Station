@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat13/blob/22c8cd930c4dedab170f588874384e0497176d41/modular_skyrat/icons/mob/synthliz/synthliz_tails.dmi, modifed by Github KittenColony / Discord kittencolony (297865728374210561). Ported from https://github.com/Sector-Umbra/sector-umbra/commit/58f7e454941dc71e00166c60a09063b9e8378d56",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tail_synthliz_wagging",
+      "directions": 4,
+      "delays": [[0.35, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.35, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1], [0.35, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.35, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1], [0.35, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.35, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1], [0.35, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.35, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+    },
+    {
+      "name": "tail_synthliz",
+      "directions": 4
+    }
+  ]
+}

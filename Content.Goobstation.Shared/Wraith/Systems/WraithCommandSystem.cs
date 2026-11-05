@@ -51,7 +51,8 @@ public sealed partial class WraithCommandSystem : EntitySystem
             if (_whitelist.IsWhitelistPassOrNull(ent.Comp.Blacklist, entity))
                 continue;
 
-            _throwingSystem.TryThrow(entity, Transform(args.Target).Coordinates, ent.Comp.ThrowSpeed, ent.Owner);
+            _throwingSystem.TryThrow(entity, Transform(args.Target).Coordinates, ent.Comp.ThrowSpeed, ent.Owner,
+                predicted: false); // Trauma - server only
         }
 
         args.Handled = true;

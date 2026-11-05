@@ -43,5 +43,15 @@ public abstract partial class SharedHumanoidAppearanceSystem
 
         _identity.QueueIdentityUpdate(target);
         Dirty(target, targetHumanoid);
+        RaiseMarkingsChanged(target);
+    }
+
+    protected void RaiseMarkingsChanged(EntityUid uid)
+    {
+        var ev = new HumanoidMarkingsChangedEvent();
+        RaiseLocalEvent(uid, ref ev);
     }
 }
+
+[ByRefEvent]
+public record struct HumanoidMarkingsChangedEvent;

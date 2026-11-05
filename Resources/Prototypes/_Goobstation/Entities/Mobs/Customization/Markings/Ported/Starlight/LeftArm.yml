@@ -1,0 +1,19 @@
+# Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42
+
+- type: marking
+  id: BodyHairLeftArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Arachnid, Dwarf, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/human_body_hair.rsi
+    state: hair_left_arm
+
+- type: marking
+  id: ScarLeftArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/Generic/scars.rsi
+    state: scar-arm-l

@@ -503,7 +503,7 @@
     sprite: _ShitChap/Clothing/Uniforms/monk.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/Uniforms/monk.rsi
-    
+
 #casual
 - type: entity
   parent: ClothingUniformBase
@@ -515,3 +515,154 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
+
+#lasher
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitLash
+  name: lasher's getup
+  description: Makes you feel like an asshole.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Other/lasher.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Other/lasher.rsi
+
+#toby slop
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChara
+  name: important person's shirt
+  description: Their love will become yours.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom-alt
+      color: "#5F2018"
+    - state: icon-base-top-turtleneck
+      color: "#40FF40"
+    - state: icon-decor-stripe
+      color: "#FFE9B0"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#5F2018"
+      - state: inhand-left-base-top-turtleneck
+        color: "#40FF40"
+      - state: inhand-left-decor-stripe
+        color: "#FFE9B0"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#5F2018"
+      - state: inhand-right-base-top-turtleneck
+        color: "#40FF40"
+      - state: inhand-right-decor-stripe
+        color: "#FFE9B0"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom-alt
+        color: "#5F2018"
+      - state: equipped-base-top-turtleneck
+        color: "#40FF40"
+      - state: equipped-decor-stripe
+        color: "#FFE9B0"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitKris #when did you start being yourself?
+  name: other important person's shirt
+  description: Your love will become theirs.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom-alt
+      color: "#3D120E"
+    - state: icon-base-top-turtleneck
+      color: "#B5E61D"
+    - state: icon-decor-stripe
+      color: "#FFF200"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#3D120E"
+      - state: inhand-left-base-top-turtleneck
+        color: "#B5E61D"
+      - state: inhand-left-decor-stripe
+        color: "#FFF200"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#3D120E"
+      - state: inhand-right-base-top-turtleneck
+        color: "#B5E61D"
+      - state: inhand-right-decor-stripe
+        color: "#FFF200"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom-alt
+        color: "#3D120E"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#B5E61D"
+      - state: equipped-decor-stripe
+        color: "#FFF200"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFrisk
+  name: determined shirt
+  description: Wearing this fills you with the power of determination.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom-alt
+      color: "#67A3E0"
+    - state: icon-base-top-turtleneck
+      color: "#67A3E0"
+    - state: icon-decor-twostripe
+      color: "#E806F8"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#67A3E0"
+      - state: inhand-left-base-top-turtleneck
+        color: "#67A3E0"
+      - state: inhand-left-decor-stripe
+        color: "#E806F8"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#67A3E0"
+      - state: inhand-right-base-top-turtleneck
+        color: "#67A3E0"
+      - state: inhand-right-decor-twostripe
+        color: "#E806F8"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom-alt
+        color: "#67A3E0"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#67A3E0"
+      - state: equipped-decor-twostripe
+        color: "#E806F8"
+
+#dragon fighter
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGoku
+  name: dragon fighter outfit
+  description: Let me handle this!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Other/dragon_fighter.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Other/dragon_fighter.rsi

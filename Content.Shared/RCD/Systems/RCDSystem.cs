@@ -499,7 +499,7 @@ public sealed class RCDSystem : EntitySystem
             // This is to prevent spamming objects on the same tile (e.g. lights)
             if (prototype.Prototype != null && MetaData(ent).EntityPrototype?.ID == prototype.Prototype)
             {
-                var isIdentical = true;
+                var isIdentical = Transform(ent).Anchored; // Goob - unwrenched copies don't block
 
                 if (prototype.AllowMultiDirection)
                 {

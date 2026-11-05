@@ -31,6 +31,7 @@
         stomach: OrganFeroxiStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
+        butt: Butt # Goob
     right arm:
       part: RightArmFeroxi
       connections:

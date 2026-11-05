@@ -1,0 +1,2923 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Nova Sector at https://github.com/NovaSector/NovaSector. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_Floof/Mobs/Customization/skyrattails.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "m_tail_lab_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_lab_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_fennec_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_fennec_BEHIND_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_fennec_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_fennec_FRONT_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_fennec_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_fennec_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_fennec_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_fennec_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_murid_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_murid_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_murid_two_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_murid_two_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_murid_two_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.120000005,
+          0.120000005,
+          1
+        ],
+        [
+          1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.120000005,
+          0.120000005,
+          1
+        ],
+        [
+          1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.120000005,
+          0.120000005,
+          1
+        ],
+        [
+          1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.120000005,
+          0.120000005,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_murid_two_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          0.1,
+          0.1,
+          0.1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          1
+        ],
+        [
+          1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          0.1,
+          0.1,
+          0.1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          1
+        ],
+        [
+          1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          0.1,
+          0.1,
+          0.1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          1
+        ],
+        [
+          1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          0.1,
+          0.1,
+          0.1,
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_raccoon_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_raccoon_BEHIND_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_raccoon_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_raccoon_FRONT_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_raccoon_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_raccoon_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_raccoon_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_raccoon_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_shark_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_shark_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_shark_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_shark_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_shepherd_BEHIND_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_shepherd_BEHIND_tertiary",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_shepherd_FRONT_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_shepherd_FRONT_tertiary",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_shepherd_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_shepherd_BEHIND_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_shepherd_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_shepherd_FRONT_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_wah_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_wah_BEHIND_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_wah_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_wah_FRONT_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          1,
+          0.3,
+          0.4,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_wah_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_wah_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_wah_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_wah_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_rabbit_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.1
+        ],
+        [
+          1,
+          0.1
+        ],
+        [
+          1,
+          0.1
+        ],
+        [
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_rabbit_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.1
+        ],
+        [
+          1,
+          0.1
+        ],
+        [
+          1,
+          0.1
+        ],
+        [
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_rabbit_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_rabbit_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_rabbit_alt_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_rabbit_alt_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_rabbit_alt_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.1,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_rabbit_alt_FRONT_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.1,
+          0.3
+        ],
+        [
+          0.3,
+          0.1,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_sabresune_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_sabresune_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_sabresune_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_sabresune_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_orca_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_orca_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_bee_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_bee_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_bee_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_bee_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_straighttail_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_straighttail_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_straighttail_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_straighttail_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_skunk_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_skunk_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_skunk_BEHIND_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_skunk_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_skunk_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_skunk_FRONT_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_crow_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_crow_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_twocat_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_twocat_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_twocat_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_twocat_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_9sune_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_9sune_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_9sune_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_9sune_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_sharknofin_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_sharknofin_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_sharknofin_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_sharknofin_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_raptor_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_raptor_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_raptor_FRONT_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_raptor_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_raptor_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_raptor_BEHIND_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_evolox_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_evolox_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_evolox_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_evolox_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_evolox_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_evolox_BEHIND_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_evolox_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_evolox_FRONT_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_husky_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_husky_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_husky_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_husky_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_husky_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_husky_BEHIND_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_husky_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_husky_FRONT_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_pede_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_pede_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_pede_BEHIND_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_pede_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_pede_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_pede_FRONT_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_stripe_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_stripe_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_stripe_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_stripe_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_wolf_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_wolf_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_wolf_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_wolf_FRONT",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_catbig_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_catbig_FRONT",
+      "directions": 4,
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_catbig_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_catbig_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_lunasune_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_lunasune_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_lunasune_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_lunasune_FRONT",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_squirrel_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_squirrel_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_squirrel_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          2,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          2,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          2,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          2,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_squirrel_FRONT",
+      "directions": 4,
+      "delays": [
+        [
+          2,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          2,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          2,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          2,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_spade_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_spade_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_fox2_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_fox2_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_fox3_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_fox3_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_avian1_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_avian1_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_avian1_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_avian1_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_avian2_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_avian2_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_avian2_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_avian2_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_cable_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_cable_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_plugtail_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_plugtail_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_plugtail_BEHIND_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_plugtail_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_plugtail_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_plugtail_FRONT_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_snaketail_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_snaketail_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          1
+        ],
+        [
+          0.1,
+          0.1,
+          1
+        ],
+        [
+          0.1,
+          0.1,
+          1
+        ],
+        [
+          0.1,
+          0.1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_snaketail_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_snaketail_FRONT",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          1
+        ],
+        [
+          0.1,
+          0.1,
+          1
+        ],
+        [
+          0.1,
+          0.1,
+          1
+        ],
+        [
+          0.1,
+          0.1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_zorgoia_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_zorgoia_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_zorgoia_BEHIND_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_zorgoia_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_zorgoia_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_zorgoia_FRONT_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_threecat_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_threecat_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_threecat_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_threecat_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_segmentedtail_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_segmentedtail_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_segmentedtail_BEHIND_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_segmentedtail_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_segmentedtail_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_segmentedtail_FRONT_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_segmentedtail_BEHIND_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_segmentedtail_BEHIND_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_segmentedtail_BEHIND_tertiary",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_segmentedtail_FRONT_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_segmentedtail_FRONT_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_segmentedtail_FRONT_tertiary",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ],
+        [
+          1.5,
+          0.15,
+          0.15,
+          0.15,
+          0.5,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_spikes_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_spikes_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "m_waggingtail_spikes_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_spikes_FRONT",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_tail_queenbee_BEHIND_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_queenbee_BEHIND_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_queenbee_FRONT_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_queenbee_FRONT_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_reptileslim_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "m_tail_reptileslim_BEHIND",
+      "directions": 4
+    }
+  ]
+}

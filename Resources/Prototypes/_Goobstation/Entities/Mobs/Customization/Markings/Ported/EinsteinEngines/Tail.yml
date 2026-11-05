@@ -1,0 +1,18 @@
+# Ported from https://github.com/Simple-Station/Einstein-Engines/tree/10d41858d88d3ba9d36fdd9c98595d89701f1cbb
+
+- type: marking
+  id: TailDatashark
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/EinsteinEngines/_ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+    state: datashark_ears_inner
+  - sprite: _Goobstation/Mobs/Customization/Ported/EinsteinEngines/_ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+    state: datashark_ears
+  - sprite: _Goobstation/Mobs/Customization/Ported/EinsteinEngines/_ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+    state: datashark_fin
+  - sprite: _Goobstation/Mobs/Customization/Ported/EinsteinEngines/_ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+    state: datashark_tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/EinsteinEngines/_ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
+    state: datashark_taildata

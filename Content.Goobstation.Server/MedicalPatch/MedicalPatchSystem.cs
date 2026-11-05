@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Popups;
+using Content.Shared._DV.Chemistry.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
@@ -29,6 +30,23 @@ public sealed partial class MedicalPatchSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<MedicalPatchComponent, EntityUnstuckEvent>(OnUnstuck);
         SubscribeLocalEvent<MedicalPatchComponent, EntityStuckEvent>(OnStuck);
+        SubscribeLocalEvent<MedicalPatchComponent, AttemptEntityStickEvent>(OnAttemptStick);
+    }
+
+    private void OnAttemptStick(Entity<MedicalPatchComponent> ent, ref AttemptEntityStickEvent args)
+    {
+        if (args.Cancelled
+            || !TryComp<BlockInjectionComponent>(args.Target, out var block)
+            || !block.BlockPatches)
+            return;
+
+        args.Cancelled = true;
+        _popupSystem.PopupEntity(Loc.GetString(block.DenyMessage), args.Target, args.User);
+    }
+
+    private bool IsPatchBlocked(EntityUid target)
+    {
+        return TryComp<BlockInjectionComponent>(target, out var block) && block.BlockPatches;
     }
     public override void Update(float frameTime)
     {
@@ -69,6 +87,9 @@ public sealed partial class MedicalPatchSystem : EntitySystem
         if (stickycomp.StuckTo == null)
             return false;
         var target = (EntityUid) stickycomp.StuckTo;
+
+        if (IsPatchBlocked(target))
+            return false;
 
         if (!_solutionContainers.TryGetSolution(uid, component.SolutionName, out var medicalPatchSoln, out var medicalPatchSolution) || medicalPatchSolution.Volume == 0)
         {

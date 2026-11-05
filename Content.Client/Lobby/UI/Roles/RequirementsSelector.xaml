@@ -7,6 +7,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
          Orientation="Horizontal">
     <!--Width set to slightly wider than the longest job name (NTR) to place the option buttons consistently.-->
     <Label Name="TitleLabel"
+           StyleClasses="HullText"
            Margin="5 0"
            SetWidth="220"
            MouseFilter="Stop"/>

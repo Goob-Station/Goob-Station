@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Bubberstation at https://github.com/Bubberstation/Bubberstation/blob/0d743182f9414baf8c6d497ddd98b181b1eb390e/modular_skyrat/master_files/icons/mob/sprite_accessory/tails.dmi. Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f/Resources/Textures/_RMC14/Mobs/Customization/snake_tail.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "m_waggingtail_snakestripe_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_snakestripe_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "m_waggingtail_snaketail",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

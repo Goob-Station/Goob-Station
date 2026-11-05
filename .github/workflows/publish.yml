@@ -37,9 +37,9 @@ jobs:
         submodules: 'recursive'
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v4.1.0
+      uses: actions/setup-dotnet@v6.0.0
       with:
-        dotnet-version: 10.0.x
+        dotnet-version: 10.0.403
 
     - name: Install dependencies
       run: dotnet restore

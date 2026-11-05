@@ -92,6 +92,7 @@
       steps:
       - tag: BudgetInsuls
         name: construction-graph-tag-budget-insuls
+        store: altar_offering
         doAfter: 3
     - to: NanotrasenAltarNode
       completed:
@@ -228,9 +229,8 @@
     edges:
     - to: AltarConvertNode
       completed:
-      - !type:SpawnPrototype
-        prototype: ClothingHandsGlovesColorYellowBudget
-        amount: 1
+      - !type:EmptyContainer
+        container: altar_offering
       steps:
       - tool: Prying
         doAfter: 1
