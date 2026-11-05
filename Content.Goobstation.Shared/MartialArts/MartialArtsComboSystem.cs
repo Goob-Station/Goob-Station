@@ -197,7 +197,11 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
         // will prevent bloat in ui and match code, only show them when theyre doing a valid combo
         if (!TryFindPotentialCombos(ev.Combos, ent.Comp.LastAttacks, out _))
         {
-            ent.Comp.LastAttacks.RemoveRange(0, ent.Comp.LastAttacks.Count - 1); // dont remove latest
+            // dont remove latest attack, unless it is the first attack and there is no resulting combo
+            if (ent.Comp.LastAttacks.Count > 1)
+                ent.Comp.LastAttacks.Clear();
+            else
+                ent.Comp.LastAttacks.RemoveRange(0, ent.Comp.LastAttacks.Count - 1);
             Dirty(ent);
             return;
         }
