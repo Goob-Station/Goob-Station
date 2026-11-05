@@ -199,9 +199,9 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
         {
             // dont remove latest attack, unless it is the first attack and there is no resulting combo
             if (ent.Comp.LastAttacks.Count > 1)
-                ent.Comp.LastAttacks.Clear();
-            else
                 ent.Comp.LastAttacks.RemoveRange(0, ent.Comp.LastAttacks.Count - 1);
+            else
+                ent.Comp.LastAttacks.Clear();
             Dirty(ent);
             return;
         }
