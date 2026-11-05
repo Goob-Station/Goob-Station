@@ -4,8 +4,8 @@ meta:
   engineVersion: 293.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/05/2026 10:28:21
-  entityCount: 15867
+  time: 11/05/2026 10:32:29
+  entityCount: 15872
 maps:
 - 1
 grids:
@@ -9028,7 +9028,7 @@ entities:
       pos: 28.5,-21.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -44502.332
+      secondsUntilStateChange: -44745.363
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -12345,6 +12345,11 @@ entities:
     - type: Transform
       parent: 2
       pos: 27.587091,6.7912045
+  - uid: 15428
+    components:
+    - type: Transform
+      parent: 2
+      pos: 13.424935,40.59751
 - proto: Biofabricator
   entities:
   - uid: 5175
@@ -46383,8 +46388,7 @@ entities:
     components:
     - type: Transform
       parent: 2
-      rot: 3.141592653589793 rad
-      pos: 7.5,4.5
+      pos: 17.5,34.5
     - type: Fixtures
       fixtures: {}
   - uid: 6748
@@ -46533,6 +46537,20 @@ entities:
     - type: Transform
       parent: 2
       pos: 34.5,2.5
+    - type: Fixtures
+      fixtures: {}
+  - uid: 15336
+    components:
+    - type: Transform
+      parent: 2
+      pos: 32.5,22.5
+    - type: Fixtures
+      fixtures: {}
+  - uid: 15337
+    components:
+    - type: Transform
+      parent: 2
+      pos: 8.5,11.5
     - type: Fixtures
       fixtures: {}
   - uid: 15497
@@ -69687,6 +69705,11 @@ entities:
     - type: Transform
       parent: 2
       pos: 59.4205,40.33362
+  - uid: 15525
+    components:
+    - type: Transform
+      parent: 2
+      pos: 37.537712,-3.9164145
 - proto: HarpInstrument
   entities:
   - uid: 10017
@@ -87458,6 +87481,11 @@ entities:
     - type: Transform
       parent: 2
       pos: 84.5,27.5
+  - uid: 15338
+    components:
+    - type: Transform
+      parent: 2
+      pos: 13.5,40.5
 - proto: TableReinforcedGlass
   entities:
   - uid: 6641
