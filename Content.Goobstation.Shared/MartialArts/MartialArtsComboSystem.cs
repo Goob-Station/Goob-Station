@@ -145,17 +145,13 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
 
         // Reset combos if we changed targets
         if (ent.Comp.CurrentTarget != null && ent.Comp.CurrentTarget != args.Target)
-        {
-            Log.Error("Changed targets!");
             ent.Comp.LastAttacks.Clear();
-        }
 
         // Make sure they attacked with their body
         // Todo let combos be performed with specific weapons
         // implement combo.WeaponWhitelist someehow
         if (args.Weapon != ent.Owner)
         {
-            Log.Error("Not body");
             ent.Comp.LastAttacks.Clear();
             Dirty(ent);
             return;
@@ -164,7 +160,6 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
         ent.Comp.CurrentTarget = args.Target;
         ent.Comp.ResetTime = _timing.CurTime + ent.Comp.LastAttacksResetDelay;
         ent.Comp.LastAttacks.Add(args.Type);
-        Log.Error($"adding {args.Type}");
         Dirty(ent);
 
         var ev = new AfterComboAttackPerformedEvent(ent, args.Target, args.Weapon, args.Type);
@@ -189,17 +184,11 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
         // TODO: perhaps could just give it to everyone since they still need a combo provider to use it..?
         var ev = new GetAvailableCombosEvent(args.Performer, args.Target, args.Weapon, []);
         RaiseLocalEvent(ent, ref ev);
-        Log.Error($"Available Combos: {ev.Combos.Count}");
-        foreach (var combo in ev.Combos)
-        {
-            Log.Error(combo.Id);
-        }
 
         // absolutely no possibly combos from our last attacks, clear!
         // will prevent bloat in ui and match code, only show them when theyre doing a valid combo
         if (!TryFindPotentialCombos(ev.Combos, ent.Comp.LastAttacks, out _))
         {
-            Log.Error("No potential!");
             ent.Comp.LastAttacks.RemoveRange(0, ent.Comp.LastAttacks.Count - 1); // dont remove latest
             Dirty(ent);
             return;

@@ -259,10 +259,7 @@ public sealed partial class MartialArtsSystem : EntitySystem
         {
             var art = _proto.Index(knowledgeEntry.MartialArtId);
             if (!HasMartialArtActive(ent, art))
-            {
-                Log.Error($"No has {art}");
                 continue;
-            }
             available.Add(art);
         }
         return available;

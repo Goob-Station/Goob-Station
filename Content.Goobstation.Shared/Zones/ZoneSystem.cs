@@ -61,7 +61,6 @@ public sealed partial class ZoneSystem : EntitySystem
     [PublicAPI]
     public bool IsWithinAny(Entity<TransformComponent?> ent, List<ProtoId<ZonePrototype>> zoneIds)
     {
-        Log.Error("Zone");
         List<ZonePrototype> resolvedZones = [];
         foreach (var zoneId in zoneIds)
         {
