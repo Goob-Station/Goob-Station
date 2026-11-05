@@ -49,6 +49,8 @@ krav-maga-ready = You ready a {$action}
 martial-arts-action-sender = You hit {$receiver} with {$move}
 martial-arts-action-receiver = {$performer} hit you with {$move}
 
+martial-arts-cant-perform-object = You can't perform this combo on an object!
+
 martial-arts-fail-prone = You can't use this combo while lying down!
 martial-arts-fail-target-down = You can't use this combo on downed targets!
 martial-arts-fail-target-standing = You can't use this combo on standing targets!

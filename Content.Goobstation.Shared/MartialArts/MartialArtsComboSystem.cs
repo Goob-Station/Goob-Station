@@ -4,12 +4,15 @@ using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Body.Components;
 using Content.Shared.Database;
 using Content.Shared.EntityConditions;
 using Content.Shared.EntityEffects;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -207,6 +210,12 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
 
         foreach (var combo in possibleCombos)
         {
+            if (!combo.PerformableOnObjects && (!HasComp<BodyComponent>(ent) || !HasComp<MobStateComponent>(ent)))
+            {
+                _popup.PopupClient(Loc.GetString("martial-arts-cant-perform-object"), ent, ent);
+                continue;
+            }
+
             // this is SLOP but entity conditions/effects arent advanced enough to work for martial arts without this
             // i would rather have this because it is still far cleaner and easier to work with than what we had before
             EnsureComp<MartialArtsComboPerformedComponent>(args.Performer).PerformedOn = args.Target;
@@ -233,8 +242,8 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
                     ("move", combo.Name)
                 );
 
-                _popup.PopupEntity(sPerformer, args.Performer, args.Performer);
-                _popup.PopupEntity(sReceiver, args.Target, args.Target);
+                _popup.PopupClient(sPerformer, args.Performer, args.Performer);
+                _popup.PopupClient(sReceiver, args.Target, args.Target);
 
                 _effects.ApplyEffects(args.Performer, combo.UserEffects);
                 _effects.ApplyEffects(args.Target, combo.TargetEffects);

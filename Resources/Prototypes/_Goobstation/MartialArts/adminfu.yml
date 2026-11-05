@@ -1,8 +1,10 @@
 - type: martialArt
   id: AdminFu
   combos:
-  - AdminFuDisarm
   - AdminFuHarm
+  - AdminFuGrab
+  - AdminFuDisarm
+  - AdminFuBegone
   - AdminFuHelp
   - AdminFuVaporize
   weight: 99999999
@@ -12,9 +14,10 @@
   name: Instant stun and weaken for twenty-five seconds
   attacks:
   - Disarm
+  - Disarm
   userEffects:
   - !type:PlaySoundEffect
-    sound: /Audio/Weapons/genhit3.ogg
+    sound: /Audio/Weapons/genhit2.ogg
   targetEffects:
   - !type:TakeStaminaDamage
     amount: 99999999
@@ -22,6 +25,22 @@
   - !type:ModifyKnockdown
     type: Set
     time: 25
+  - !type:MartialArtsThrow
+    thrownSpeed: 5
+
+- type: martialArtsCombo
+  id: AdminFuBegone
+  name: Begone
+  attacks:
+  - Disarm
+  - Grab
+  - Disarm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit1.ogg
+  targetEffects:
+  - !type:MartialArtsThrow
+    thrownSpeed: 200
 
 - type: martialArtsCombo
   id: AdminFuHarm
@@ -49,16 +68,16 @@
     sound: /Audio/Weapons/genhit3.ogg
   - !type:SetGrabStage
     stage: Suffocate
+    escapeIntentModifier: 0.001 # lol
 
 - type: martialArtsCombo
   id: AdminFuHelp
-  name: Instant rejuvenate
+  name: Divine Touch
   attacks:
-  - Grab
   - Hug
   userEffects:
   - !type:PlaySoundEffect
-    sound: /Audio/Weapons/genhit3.ogg
+    sound: /Audio/Effects/hallelujah.ogg
   targetEffects:
   - !type:Rejuvenate
 
@@ -66,6 +85,7 @@
   id: AdminFuVaporize
   name: Vaporize
   attacks:
+  - Disarm
   - Hug
   - Grab
   - Disarm
@@ -76,7 +96,7 @@
   - Harm
   userEffects:
   - !type:PlaySoundEffect
-    sound: /Audio/Weapons/genhit3.ogg
+    sound: /Audio/Weapons/genhit2.ogg
     #volume: 5
   - !type:PlaySoundEffect
     sound: /Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg

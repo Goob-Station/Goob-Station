@@ -39,38 +39,20 @@ public sealed partial class MartialArtsComboPrototype : IPrototype
     public EntityEffect[] TargetFailEffects = [];
 
     /// <summary>
-    /// Should the target drop items on knockdown?
-    /// </summary>
-    [DataField]
-    public bool DropItems = true;
-
-    /// <summary>
-    /// How much stamina damage should this move do on perform.
-    /// </summary>
-    [DataField]
-    public float StaminaDamage;
-
-    /// <summary>
-    /// Blunt, Slash, etc.
-    /// </summary>
-    [DataField]
-    public string DamageType = "Blunt";
-
-    /// <summary>
-    /// How fast people are thrown on combo
-    /// </summary>
-    [DataField]
-    public float ThrownSpeed = 7f;
-
-    /// <summary>
     /// Name of the move
     /// </summary>
     [DataField(required: true)]
     public string Name = string.Empty;
 
     /// <summary>
-    /// Is this combo performed on self only or only on other targets
+    /// Can this combo be used on non-mobs?
     /// </summary>
     [DataField]
-    public bool PerformOnSelf;
+    public bool PerformableOnObjects = false;
+
+    /// <summary>
+    /// Is this combo performed on self or on other targets
+    /// </summary>
+    [DataField]
+    public bool PerformOnSelf = false;
 }
