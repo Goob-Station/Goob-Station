@@ -42,7 +42,7 @@ public sealed partial class SiliconEmaggedConditionSystem : AchievementCondition
     }
 }
 
-public sealed class AbductedAgainConditionSystem : AchievementConditionSystem<AbductedAgainCondition>
+public sealed partial class AbductedAgainConditionSystem : AchievementConditionSystem<AbductedAgainCondition>
 {
     [SubscribeLocalEvent]
     private void OnAbductedAgainEvent(Entity<ActorComponent> ent, ref AbductedAgainEvent args)
