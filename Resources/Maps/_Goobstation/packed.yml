@@ -4,8 +4,8 @@ meta:
   engineVersion: 293.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/05/2026 10:21:15
-  entityCount: 15866
+  time: 11/05/2026 10:28:21
+  entityCount: 15867
 maps:
 - 1
 grids:
@@ -9028,7 +9028,7 @@ entities:
       pos: 28.5,-21.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -44471.176
+      secondsUntilStateChange: -44502.332
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -84014,6 +84014,13 @@ entities:
     - type: Transform
       parent: 2
       pos: 6.5,-5.5
+- proto: SpawnVehicleSecway
+  entities:
+  - uid: 15335
+    components:
+    - type: Transform
+      parent: 2
+      pos: 34.5,18.5
 - proto: SprayBottle
   entities:
   - uid: 12034
