@@ -3,13 +3,13 @@ using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.EntityConditions;
 using Content.Shared.EntityEffects;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -27,6 +27,7 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private MartialArtsSystem _martialArts = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
 
     /// <summary>
     /// Returns whether the second sequence could become first sequence in future with more attacks (or is equal).
@@ -237,6 +238,12 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
 
                 _effects.ApplyEffects(args.Performer, combo.UserEffects);
                 _effects.ApplyEffects(args.Target, combo.TargetEffects);
+
+                _adminLog.Add(
+                    LogType.MeleeHit,
+                    LogImpact.Medium,
+                    $"{ToPrettyString(args.Performer):player} performed combo '{combo.Name}' on {ToPrettyString(args.Target):player}"
+                );
 
                 // TODO: for proper implementation of failEffects must be moved outside of loop,
                 // however currently neck snap is a 1-move combo so this fucks it up by instantly clearing the comb

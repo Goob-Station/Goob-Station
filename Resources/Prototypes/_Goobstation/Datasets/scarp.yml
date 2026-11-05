@@ -7,5 +7,5 @@
 - type: localizedDataset
   id: SleepingCarpSayingsProne
   values:
-    prefix: carp-saying-prone
+    prefix: carp-saying-prone-
     count: 6
