@@ -1,13 +1,16 @@
 using Content.Server.Pinpointer;
-using Content.Shared.Chat;
+using Content.Server.Radio.EntitySystems;
 using Content.Goobstation.Shared.JanitorCallButton;
+using Content.Shared.Radio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.JanitorCallButton;
 
 public sealed partial class JanitorCallButtonSystem : EntitySystem
 {
     [Dependency] private NavMapSystem _navMap = default!;
-    [Dependency] private SharedChatSystem _chat = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
@@ -21,10 +24,11 @@ public sealed partial class JanitorCallButtonSystem : EntitySystem
             ? beacon.Value.Comp.Text!
             : "неизвестное место";
 
-        _chat.TrySendInGameICMessage(
+        var message = $"Called janitor near {stationBeacon}";
+        _radio.SendRadioMessage(
             ent.Owner,
-            $":s Called janitor near {stationBeacon}",
-            InGameICChatType.Speak,
-            ChatTransmitRange.Normal);
+            message,
+            _prototypeManager.Index<RadioChannelPrototype>("Service"),
+            ent.Owner);
     }
 }
