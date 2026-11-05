@@ -24,7 +24,8 @@
   targetEffects:
   - !type:MartialArtsDamage
     damage:
-      Blunt: 40
+      types:
+        Blunt: 40
   - !type:ModifyKnockdown
     type: Set
     time: 2
@@ -63,7 +64,8 @@
   targetEffects:
   - !type:MartialArtsDamage
     damage:
-      blunt: 15
+      types:
+        Blunt: 15
     conditions:
     - !type:ProneCondition # TODO check knockdown status instead
       inverted: true

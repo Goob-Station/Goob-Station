@@ -97,7 +97,8 @@
   targetEffects:
   - !type:MartialArtsDamage
     damage:
-      Blunt: 10
+      types:
+        Blunt: 10
     usesVelocityPower: true
   - !type:TakeStaminaDamage
     amount: 10
@@ -137,7 +138,8 @@
     time: 2
   - !type:MartialArtsDamage
     damage:
-      Blunt: 25
+      types:
+        Blunt: 25
     usesVelocityPower: true
   - !type:TakeStaminaDamage
     amount: 15
