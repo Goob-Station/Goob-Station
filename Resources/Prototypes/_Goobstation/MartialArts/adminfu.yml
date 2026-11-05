@@ -77,11 +77,11 @@
   userEffects:
   - !type:PlaySoundEffect
     sound: /Audio/Weapons/genhit3.ogg
-    volume: 5
+    #volume: 5
   - !type:PlaySoundEffect
     sound: /Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg
-    params:
-      volume: 3
+    #params:
+    #  volume: 3
   targetEffects:
   - !type:MartialArtsDamage
     damage:

@@ -6,7 +6,8 @@ namespace Content.Goobstation.Shared.EntityEffects;
 
 public sealed partial class SetStandingState : EntityEffectBase<SetStandingState>
 {
-    public bool Standing = true;
+    [DataField(required: true)]
+    public bool Standing;
 }
 
 public sealed partial class SetStandingEntityEffectSystem : EntityEffectSystem<TransformComponent, SetStandingState>

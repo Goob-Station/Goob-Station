@@ -1,8 +1,5 @@
 - type: martialArt
   id: HellRip
-  roundstartCombos: HellRipMoves
-  randomDamageModifier: True
-  damageModifierType: Slash
   combos:
   - DropKick
   - HeadRip
@@ -43,7 +40,7 @@
   - !type:ProneCondition
   targetConditions:
   - !type:MobStateCondition
-    state: Dead
+    mobstate: Dead
   userEffects:
   - !type:PlaySoundEffect
     sound: /Audio/Effects/gib1.ogg

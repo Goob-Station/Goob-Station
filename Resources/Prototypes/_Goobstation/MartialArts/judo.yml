@@ -229,8 +229,8 @@
     sound: /Audio/Weapons/genhit3.ogg
   - !type:PlaySoundEffect
     sound: /Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg
-    params:
-      volume: 10
+    #params:
+    #  volume: 10
   - !type:StopPulling
   - !type:HealthChange
     damage:

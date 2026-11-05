@@ -1,10 +1,7 @@
 - type: martialArt
   id: SleepingCarp
-  randomDamageModifier: True
-  baseDamageModifier: 5
-  damageModifierType: Slash
   componentGrant:
-  - SleepingCarpGnasher
+  - type: SleepingCarpGnasher
   combos: 
   - SleepingCarpGnashingTeeth
   - SleepingCarpKneeHaul
@@ -26,12 +23,12 @@
       types:
         Slash: 20
   - !type:SayEffect
-    dataset: SleepingCarpSayings
+    datasetId: SleepingCarpSayings
     conditions:
     - !type:ProneCondition
       inverted: true
   - !type:SayEffect
-    dataset: SleepingCarpSayingsProne
+    datasetId: SleepingCarpSayingsProne
     conditions:
     - !type:ProneCondition
 

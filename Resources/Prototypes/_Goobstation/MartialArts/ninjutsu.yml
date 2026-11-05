@@ -1,6 +1,5 @@
 - type: martialArt
   id: Ninjutsu
-  roundstartCombos: NinjutsuMoves
   componentGrant:
   - type: NinjutsuSneakAttack
   combos:
