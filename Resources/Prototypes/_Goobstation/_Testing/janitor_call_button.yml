@@ -94,6 +94,11 @@
   - type: ExtensionCableReceiver
   - type: SlimPoweredLight
     enabled: true
+  - type: Appearance
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      off: base
+      on: base
   - type: JanitorCallButton
   - type: Rotatable
   - type: Construction
