@@ -91,6 +91,7 @@
   attacks:
   - Disarm
   - Harm
+  userEffects:
   - !type:PlaySoundEffect
     sound: /Audio/Effects/Fluids/blood1.ogg
   - !type:PlaySoundEffect

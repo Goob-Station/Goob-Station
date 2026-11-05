@@ -90,4 +90,4 @@
     amount: 25
     immediate: true
   - !type:MartialArtsThrow
-    amount: 7
+    thrownSpeed: 7

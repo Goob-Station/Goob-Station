@@ -24,7 +24,7 @@
   targetEffects:
   - !type:MartialArtsDamage
     damage:
-      blunt: 40
+      Blunt: 40
   - !type:ModifyKnockdown
     type: Set
     time: 2

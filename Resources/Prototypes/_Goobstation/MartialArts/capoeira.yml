@@ -29,8 +29,6 @@
     amount: -30
     immediate: true
   - !type:StopPulling
-  event: !type:PushKickPerformedEvent
-    modifierSet:
   targetEffects:
   - !type:MartialArtsDamage
     damage:
