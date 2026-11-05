@@ -86,4 +86,3 @@
         Burn: 10
   - !type:AddFireStacks
     stacks: 1
-    maxStacks: 100 # todo testing

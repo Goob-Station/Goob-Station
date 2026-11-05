@@ -44,8 +44,10 @@
   userEffects:
   - !type:PlaySoundEffect
     sound: /Audio/Weapons/genhit3.ogg
+  - !type:SayEffect # PLASMA FIST!
+    locId: plasma-fist-plasma-fist
   targetEffects:
   - !type:MartialArtsDamage
     damage:
       types:
-        Blunt: 10000
+        Blunt: 1000

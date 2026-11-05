@@ -37,6 +37,8 @@ carp-saying-prone-4 = YOU CAN'T SEE ME!
 carp-saying-prone-5 = MY TIME IS NOW!!
 carp-saying-prone-6 = COWABUNGA!
 
+plasma-fist-plasma-fist = PLASMA FIST!
+
 krav-maga-ready = You ready a {$action}
 
 martial-arts-action-sender = You hit {$receiver} with {$move}
