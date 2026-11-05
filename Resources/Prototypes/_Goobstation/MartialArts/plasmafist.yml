@@ -16,7 +16,7 @@
   userEffects:
   - !type:PlaySoundEffect
     sound: /Audio/Weapons/genhit3.ogg
-    - !type:SayEffect
+  - !type:SayEffect
     locId: plasma-fist-tornado-sweep
   targetEffects:
   - !type:MartialArtsThrow
