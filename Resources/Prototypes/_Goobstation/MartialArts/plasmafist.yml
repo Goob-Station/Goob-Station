@@ -1,0 +1,51 @@
+- type: martialArt
+  id: PlasmaFist
+  combos:
+  - PlasmaFistTornadoSweep
+  - PlasmaFistThrowback
+  - PlasmaFistThePlasmaFist
+  weight: 6
+
+- type: martialArtsCombo
+  id: PlasmaFistTornadoSweep
+  name: Tornado Sweep
+  attacks:
+  - Harm
+  - Harm
+  - Disarm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:MartialArtsThrow
+    thrownSpeed: 70
+
+- type: martialArtsCombo
+  id: PlasmaFistThrowback
+  name: Throwback
+  attacks:
+  - Disarm
+  - Harm
+  - Disarm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:MartialArtsThrow
+    thrownSpeed: 70
+
+- type: martialArtsCombo
+  id: PlasmaFistThePlasmaFist
+  name: The Plasma Fist
+  attacks:
+  - Disarm
+  - Harm
+  - Disarm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 10000

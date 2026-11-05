@@ -545,3 +545,11 @@
     - !type:HasComponentCondition
       components:
       - type: Ghost
+
+- type: achievement
+  id: "65"
+  name: achievement-65-name
+  description: achievement-65-desc
+  category: General
+  icon: { sprite: _Goobstation/Clothing/Belt/judobelt.rsi, state: icon }
+  condition: !type:Performed65Condition

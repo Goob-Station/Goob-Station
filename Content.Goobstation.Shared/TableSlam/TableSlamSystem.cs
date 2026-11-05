@@ -21,6 +21,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Goobstation.Shared.Random;
 
 namespace Content.Goobstation.Shared.TableSlam;
 
@@ -38,6 +39,7 @@ public sealed partial class TableSlamSystem : EntitySystem
     [Dependency] private SharedStunSystem _stunSystem = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private ContestsSystem _contestsSystem = default!;
+    [Dependency] private PredictedRandomSystem _predictedRandom = default!;
 
     public override void Initialize()
     {
@@ -59,8 +61,8 @@ public sealed partial class TableSlamSystem : EntitySystem
 
     private void OnDisarmAttempt(Entity<PostTabledComponent> ent, ref DisarmAttemptEvent args)
     {
-        var rand = new Random(SharedRandomExtensions.HashCodeCombine(new List<int> { (int) _gameTiming.CurTick.Value, GetNetEntity(ent).Id }));
-        if (!rand.Prob(ent.Comp.ParalyzeChance) || !TryComp<GrabbableComponent>(ent, out var grabbable))
+        var random = _predictedRandom.Random(ent, args.DisarmerUid);
+        if (!random.Prob(ent.Comp.ParalyzeChance) || !TryComp<GrabbableComponent>(ent, out var grabbable))
             return;
 
         _stunSystem.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(grabbable.PostTabledDuration));
@@ -81,8 +83,8 @@ public sealed partial class TableSlamSystem : EntitySystem
 
         var massRatio = _contestsSystem.MassContest(ent.Owner, puller.Pulling.Value, bypassClamp: true);
         var chance = Math.Clamp(massRatio, 0f, 1f);
-        var rand = new Random(SharedRandomExtensions.HashCodeCombine(new List<int> { (int) _gameTiming.CurTick.Value, GetNetEntity(ent).Id }));
-        if (rand.Prob(chance))
+        var random = _predictedRandom.Random(ent, args.Weapon);
+        if (random.Prob(chance))
             TryTableSlam(puller.Pulling.Value, ent.Owner, target);
     }
 

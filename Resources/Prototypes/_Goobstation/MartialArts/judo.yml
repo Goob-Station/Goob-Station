@@ -1,94 +1,245 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: martialArt
   id: CorporateJudo
-  martialArtsForm: CorporateJudo
-  roundstartCombos: CorporateJudoMoves
-  baseDamageModifier: 5
-
-- type: comboList
-  id: CorporateJudoMoves
   combos:
-  - JudoThrow
+  - JudoDiscombobulate
+  - JudoEyePoke
+  - JudoGoldenBlast
   - JudoArmbar
-  - JudoDiscombobulate # Due to supercode this needs to be below Armbar, otherwise it takes priority
   - JudoWheelThrow
-  - JudoEyePoke # Same here, must be below WheelThrow
-  #- JudoGoldenBlast
+  - JudoSixtyFive
+  fistDamageMultiplier: 5
+  weight: 5
 
-- type: combo
+- type: martialArtsCombo
   id: JudoDiscombobulate
   name: Discombobulate
-  martialArtsForm: CorporateJudo
   attacks:
   - Disarm
   - Grab
-  event: !type:JudoDiscombobulatePerformedEvent
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  - !type:StopPulling
+  targetEffects:
+  - !type:MovementSpeedModifier
+    type: Set
+    time: 5
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+    effectProto: MartialArtsGenericSlowdownEffect  
 
-- type: combo
+- type: martialArtsCombo
   id: JudoEyePoke
   name: Eye Poke
-  martialArtsForm: CorporateJudo
   attacks:
   - Disarm
   - Harm
-  event: !type:JudoEyePokePerformedEvent
-  extraDamage: 5
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:GenericStatusEffect
+    key: TemporaryBlindness
+    component: TemporaryBlindness
+    type: Add
+    time: 2
+  - !type:ModifyStatusEffect
+    key: BlurryVision
+    component: BlurryVision
+    type: Add
+    time: 5
+  - !type:HealthChange
+    damage:
+      types:
+        Blunt: 5
 
-- type: combo
+- type: martialArtsCombo
   id: JudoThrow
   name: Judo Throw
-  martialArtsForm: CorporateJudo
   attacks:
   - Grab
   - Disarm
-  event: !type:JudoThrowPerformedEvent
-  paralyzeTime: 4
-  staminaDamage: 5
-  dropItems: false
-  canDoWhileProne: false
+  userConditions:
+  - !type:ProneCondition
+    inverted: true
+  targetEffects:
+  - !type:ModifyKnockdown
+    type: Set
+    time: 4
+  - !type:TakeStaminaDamage
+    amount: 5
+    immediate: true
 
-- type: combo
+- type: martialArtsCombo
   id: JudoArmbar
   name: Armbar
-  martialArtsForm: CorporateJudo
   attacks:
   - Disarm
   - Disarm
   - Grab
-  event: !type:JudoArmbarPerformedEvent
-  paralyzeTime: 5
-  staminaDamage: 10
-  dropItems: true
+  targetConditions:
+  - !type:HasComponentCondition
+    components:
+    - type: Armbarred
+    inverted: true
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 10
+    immediate: true
+  - !type:SetGrabStage
+    stage: Suffocate
+  - !type:ModifyKnockdown
+    type: Set
+    time: 5
 
-- type: combo
+- type: martialArtsCombo
   id: JudoWheelThrow
   name: Wheel Throw
-  martialArtsForm: CorporateJudo
   attacks:
   - Grab
   - Disarm
   - Harm
-  event: !type:JudoWheelThrowPerformedEvent
-  staminaDamage: 120
+  targetConditions:
+  - !type:HasComponentCondition
+    components:
+    - type: Armbarred
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  - !type:ModifyKnockdown
+    type: Remove
+    time: 5
+  - !type:SetStandingState
+    standing: true
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 120
+    immediate: true
+  - !type:MartialArtsThrow
+    thrownSpeed: 5
 
-# Conflicts with armbar + hugs don't seem to count?, to be implemented later
-#- type: combo
-#  id: JudoGoldenBlast
-#  name: Golden Blast
-#  martialArtsForm: CorporateJudo
-#  attacks:
-#  - Hug
-#  - Disarm
-#  - Hug
-#  - Grab
-#  - Disarm
-#  - Disarm
-#  - Grab
-#  - Hug
-#  - Disarm
-#  - Disarm
-#  - Grab
-#  - Hug
-#  event: !type:JudoGoldenBlastPerformedEvent
-#  paralyzeTime: 30
+- type: martialArtsCombo
+  id: JudoGoldenBlast
+  name: Golden Blast
+  attacks:
+  - Hug
+  - Disarm
+  - Hug
+  - Grab
+  - Disarm
+  - Disarm
+  - Grab
+  - Hug
+  - Disarm
+  - Disarm
+  - Grab
+  - Hug
+  - Harm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  - !type:PlaySoundEffect
+    sound: /Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg
+  - !type:StopPulling
+  targetEffects:
+  - !type:ModifyKnockdown
+    type: Set
+    time: 30
+  - !type:MartialArtsThrow
+    thrownSpeed: 50
+  - !type:HealthChange
+    damage:
+      types:
+        Holy: 0.65
+
+- type: martialArtsCombo
+  id: JudoSixtyFive
+  name: "65"
+  attacks:
+  - Grab
+  - Grab
+  - Harm
+  - Hug
+  - Hug
+  - Disarm
+  - Grab
+  - Harm
+  - Disarm
+  - Grab
+  - Hug
+  - Grab
+  - Grab
+  - Disarm
+  - Hug
+  - Grab
+  - Disarm
+  - Grab
+  - Harm
+  - Harm
+  - Hug
+  - Disarm
+  - Grab
+  - Disarm
+  - Harm
+  - Disarm
+  - Harm
+  - Grab
+  - Harm
+  - Hug
+  - Hug
+  - Hug
+  - Hug
+  - Hug
+  - Disarm
+  - Harm
+  - Grab
+  - Disarm
+  - Harm
+  - Grab
+  - Hug
+  - Disarm
+  - Grab
+  - Disarm
+  - Harm
+  - Grab
+  - Disarm
+  - Disarm
+  - Grab
+  - Harm
+  - Disarm
+  - Hug
+  - Hug
+  - Disarm
+  - Grab
+  - Disarm
+  - Harm
+  - Harm
+  - Grab
+  - Harm
+  - Disarm
+  - Grab
+  - Harm
+  - Harm
+  - Harm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  - !type:PlaySoundEffect
+    sound: /Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg
+    params:
+      volume: 10
+  - !type:StopPulling
+  - !type:HealthChange
+    damage:
+      types:
+        Holy: 6500
+        Blunt: 6500
+        Piercing: 6500
+        Toxin: 6500
+  - !type:Performed65 # i am so funny
+  targetEffects:
+  - !type:MartialArtsThrow
+    thrownSpeed: 200

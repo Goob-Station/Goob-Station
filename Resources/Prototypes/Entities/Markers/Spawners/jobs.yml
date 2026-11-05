@@ -184,6 +184,9 @@
     layers:
       - state: green
       - state: chef
+  - type: ZoneMarker # GOOB - temporary until zone markers mapped
+    zoneId: ZoneKitchen
+    range: 8
 
 - type: entity
   id: SpawnPointBotanist

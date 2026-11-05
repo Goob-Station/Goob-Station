@@ -36,10 +36,7 @@ public sealed partial class GrabIntentSystem
         if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)
             return GrabResistResult.TooSoon;
 
-        var seedArray = new List<int> { (int) _timing.CurTick.Value, GetNetEntity(pullable.Owner).Id };
-        var seed = SharedRandomExtensions.HashCodeCombine(seedArray);
-        var rand = new Random(seed);
-        if (rand.Prob(pullable.Comp.GrabEscapeChance))
+        if (_predictedRandom.Prob(pullable, null, pullable.Comp.GrabEscapeChance))
             return GrabResistResult.Succeeded;
 
         pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(pullable.Comp.EscapeAttemptCooldown));

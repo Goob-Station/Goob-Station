@@ -1,37 +1,52 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
-using Content.Shared.NPC.Prototypes;
-using Content.Shared.StatusIcon;
+using Content.Goobstation.Shared.Zones;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.MartialArts.Components;
+
+[Serializable, NetSerializable]
+[Flags]
+public enum MartialArtsGrantType
+{
+    OnlyMapInit,
+    Use,
+    Clothing
+}
 
 public abstract partial class GrantMartialArtKnowledgeComponent : Component
 {
     [DataField]
-    public virtual MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.CloseQuartersCombat;
+    public virtual ProtoId<MartialArtPrototype> MartialArtsForm { get; set; }
 
     [DataField]
     public virtual LocId? LearnMessage { get; set; } = null;
 
     [DataField]
-    public bool MultiUse;
+    public MartialArtsGrantType GrantType { get; set; } = MartialArtsGrantType.OnlyMapInit;
+
+    [DataField]
+    public bool MultiUse = false;
 
     [DataField]
     public string? SpawnedProto = "Ash";
 
     [DataField]
     public SoundSpecifier? SoundOnUse = new SoundPathSpecifier("/Audio/Effects/fire.ogg", AudioParams.Default.WithVolume(10));
+
+    [DataField]
+    public virtual List<ProtoId<ZonePrototype>> RestrictedZones { get; set; } = [];
 }
 
 [RegisterComponent]
 public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponent
 {
     [DataField]
-    public bool IsBlocked;
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "CloseQuartersCombat";
 
+    [DataField]
     public override LocId? LearnMessage { get; set; } = "cqc-success-learned";
 }
 
@@ -39,15 +54,16 @@ public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponen
 public sealed partial class GrantCorporateJudoComponent : GrantMartialArtKnowledgeComponent
 {
     [DataField]
-    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.CorporateJudo;
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "CorporateJudo";
 }
 
 [RegisterComponent]
 public sealed partial class GrantCapoeiraComponent : GrantMartialArtKnowledgeComponent
 {
     [DataField]
-    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Capoeira;
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "Capoeira";
 
+    [DataField]
     public override LocId? LearnMessage { get; set; } = "capoeira-success-learned";
 }
 
@@ -55,8 +71,9 @@ public sealed partial class GrantCapoeiraComponent : GrantMartialArtKnowledgeCom
 public sealed partial class GrantKungFuDragonComponent : GrantMartialArtKnowledgeComponent
 {
     [DataField]
-    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.KungFuDragon;
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "KungFuDragon";
 
+    [DataField]
     public override LocId? LearnMessage { get; set; } = "dragon-success-learned";
 }
 
@@ -64,8 +81,9 @@ public sealed partial class GrantKungFuDragonComponent : GrantMartialArtKnowledg
 public sealed partial class GrantNinjutsuComponent : GrantMartialArtKnowledgeComponent
 {
     [DataField]
-    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Ninjutsu;
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "Ninjutsu";
 
+    [DataField]
     public override LocId? LearnMessage { get; set; } = "ninjutsu-success-learned";
 }
 
@@ -73,40 +91,37 @@ public sealed partial class GrantNinjutsuComponent : GrantMartialArtKnowledgeCom
 public sealed partial class GrantSleepingCarpComponent : GrantMartialArtKnowledgeComponent
 {
     [DataField]
-    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.SleepingCarp;
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "SleepingCarp";
 
     [DataField]
-    public int MaximumUses = 1;
-    public int CurrentUses = 0;
+    public int MaximumMasters = 1;
 
-    [DataField]
-    public ProtoId<FactionIconPrototype> IconToAdd = "SleepingCarpFaction";
-
-    [DataField]
-    public ProtoId<NpcFactionPrototype> FactionToAdd = "Dragon";
+    [ViewVariables]
+    public int CurrentMasters = 0;
 }
 
 [RegisterComponent]
 public sealed partial class SleepingCarpStudentComponent : Component
 {
     [DataField]
-    public int Stage = 1;
+    public int LearnStage = 3;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables]
+    public int CurrentStage = 0;
+
+    [DataField]
+    public TimeSpan UseDelay = TimeSpan.FromSeconds(30);
+
+    [ViewVariables]
     public TimeSpan UseAgainTime = TimeSpan.Zero;
-
-    [DataField]
-    public int MaxUseDelay = 90;
-
-    [DataField]
-    public int MinUseDelay = 30;
 }
 
 [RegisterComponent]
 public sealed partial class GrantHellRipComponent : GrantMartialArtKnowledgeComponent
 {
     [DataField]
-    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.HellRip;
+    public override ProtoId<MartialArtPrototype> MartialArtsForm { get; set; } = "HellRip";
 
+    [DataField]
     public override LocId? LearnMessage { get; set; } = "hellrip-success-learned";
 }

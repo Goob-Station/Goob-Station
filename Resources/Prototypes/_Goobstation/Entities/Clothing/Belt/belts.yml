@@ -86,6 +86,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/judobelt.rsi
   - type: GrantCorporateJudo
+    grantType: Clothing
   - type: Storage
     grid:
     - 0,0,5,1 #you're not carrying a batong, if you want pure storage go with secbelt

@@ -1,0 +1,96 @@
+- type: martialArt
+  id: SleepingCarp
+  randomDamageModifier: True
+  baseDamageModifier: 5
+  damageModifierType: Slash
+  componentGrant:
+  - SleepingCarpGnasher
+  combos: 
+  - SleepingCarpGnashingTeeth
+  - SleepingCarpKneeHaul
+  - SleepingCarpCrashingWaves
+  weight: 9
+
+- type: martialArtsCombo
+  id: SleepingCarpGnashingTeeth
+  name: Gnashing Teeth
+  attacks:
+  - Harm
+  - Harm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit1.ogg
+  targetEffects:
+  - !type:SleepingCarpGnash
+    damage:
+      types:
+        Slash: 20
+  - !type:SayEffect
+    dataset: SleepingCarpSayings
+    conditions:
+    - !type:ProneCondition
+      inverted: true
+  - !type:SayEffect
+    dataset: SleepingCarpSayingsProne
+    conditions:
+    - !type:ProneCondition
+
+- type: martialArtsCombo
+  id: SleepingCarpKneeHaul
+  name: Knee Haul
+  attacks:
+  - Harm
+  - Grab
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit2.ogg
+  - !type:StopPulling
+  targetEffects:
+  - !type:ModifyKnockdown
+    type: Set
+    time: 6
+  # prone
+  - !type:TakeStaminaDamage
+    amount: 40
+    immediate: true
+    conditions:
+    - !type:ProneCondition
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 5
+    conditions:
+    - !type:ProneCondition
+  # not prone
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 10
+    conditions:
+    - !type:ProneCondition
+      inverted: true
+  - !type:TakeStaminaDamage
+    amount: 60
+    immediate: true
+    conditions:
+    - !type:ProneCondition
+      inverted: true
+
+- type: martialArtsCombo
+  id: SleepingCarpCrashingWaves
+  name: Crashing Waves
+  attacks:
+  - Harm
+  - Disarm
+  userConditions:
+  - !type:ProneCondition
+    inverted: true
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 25
+    immediate: true
+  - !type:MartialArtsThrow
+    amount: 7

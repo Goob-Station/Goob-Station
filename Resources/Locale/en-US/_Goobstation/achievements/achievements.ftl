@@ -283,3 +283,5 @@ achievement-inglorious-life-name = Inglorious Life
 achievement-inglorious-life-desc = They aren't going to take you back.
 achievement-you-are-my-fire-name = You are...
 achievement-you-are-my-fire-desc = My fire~
+achievement-65-name = 65
+achievement-65-desc = 65

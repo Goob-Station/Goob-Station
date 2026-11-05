@@ -1,0 +1,105 @@
+### CQC
+
+- type: entity
+  parent: MarkerBase
+  id: ZoneMarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    drawdepth: Overdoors
+
+## Chef
+
+- type: entity
+  parent: ZoneMarkerBase
+  id: ZoneMarkerCqcChefBase
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+      state: icon-alt
+    drawdepth: Overdoors
+  - type: ZoneMarker
+    zoneId: ZoneKitchen
+    range: 0
+
+- type: entity
+  parent: ZoneMarkerCqcChefBase
+  id: ZoneMarkerCqcChef1
+  name: CQC Marker [Chef] [1]
+  components:
+  - type: ZoneMarker
+    range: 1
+
+- type: entity
+  parent: ZoneMarkerCqcChefBase
+  id: ZoneMarkerCqcChef2
+  name: CQC Marker [Chef] [2]
+  components:
+  - type: ZoneMarker
+    range: 2
+
+- type: entity
+  parent: ZoneMarkerCqcChefBase
+  id: ZoneMarkerCqcChef4
+  name: CQC Marker [Chef] [4]
+  components:
+  - type: ZoneMarker
+    range: 4
+
+- type: entity
+  parent: ZoneMarkerCqcChefBase
+  id: ZoneMarkerCqcChef6
+  name: CQC Marker [Chef] [6]
+  components:
+  - type: ZoneMarker
+    range: 6
+
+- type: entity
+  parent: ZoneMarkerCqcChefBase
+  id: ZoneMarkerCqcChef8
+  name: CQC Marker [Chef] [8]
+  components:
+  - type: ZoneMarker
+    range: 8
+
+## CentComm
+
+- type: entity
+  parent: ZoneMarkerBase
+  id: ZoneMarkerCqcCentcommBase
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+      state: icon-hos
+    drawdepth: Overdoors
+  - type: ZoneMarker
+    zoneId: ZoneCentcommQuarters
+    range: 0
+
+- type: entity
+  parent: ZoneMarkerCqcCentcommBase
+  id: ZoneMarkerCentcomm4
+  name: CQC Marker [Centcomm Official] [4]
+  components:
+  - type: ZoneMarker
+    zoneId: ZoneCentcommQuarters
+    range: 4
+
+- type: entity
+  parent: ZoneMarkerCqcCentcommBase
+  id: ZoneMarkerCentcomm8
+  name: CQC Marker [Centcomm Official] [8]
+  components:
+  - type: ZoneMarker
+    zoneId: ZoneCentcommQuarters
+    range: 8

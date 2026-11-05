@@ -15,6 +15,7 @@
   - type: StaticPrice
     price: 3000
   - type: GrantCqc
+    grantType: Use
   - type: GuideHelp
     guides:
     - CQC
@@ -35,6 +36,7 @@
   - type: StaticPrice
     price: 3000
   - type: GrantSleepingCarp
+    grantType: Use
   - type: GuideHelp
     guides:
     - SleepingCarp
@@ -54,6 +56,7 @@
   - type: StaticPrice
     price: 3000
   - type: GrantCapoeira
+    grantType: Use
   - type: GuideHelp
     guides:
     - Capoeira

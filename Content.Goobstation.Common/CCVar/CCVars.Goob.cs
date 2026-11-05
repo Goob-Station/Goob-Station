@@ -780,4 +780,14 @@ public sealed partial class GoobCVars
         CVarDef.Create("interaction_outline.out_of_range_color", "#FF000055", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
+
+    #region Martial Arts
+
+    /// <summary>
+    /// If true, the martial arts overlay enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> MartialArtsOverlayEnabled =
+        CVarDef.Create("ui.martial_arts_overlay_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
 }

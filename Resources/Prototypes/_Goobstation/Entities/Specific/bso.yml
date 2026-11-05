@@ -15,6 +15,7 @@
   - type: StaticPrice
     price: 3000
   - type: GrantKungFuDragon
+    grantType: Use
   - type: GuideHelp
     guides:
     - DragonKungFu

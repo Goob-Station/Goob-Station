@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Content.Goobstation.Common.DoAfter;
+using Content.Goobstation.Shared.Random;
 using Content.Shared._White.Standing;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
@@ -31,6 +32,7 @@ public sealed partial class CombatDoAfterSystem : EntitySystem
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private PredictedRandomSystem _predictedRandom = default!;
 
     public override void Initialize()
     {
@@ -93,7 +95,7 @@ public sealed partial class CombatDoAfterSystem : EntitySystem
         if (!combatModeActivated)
             return;
 
-        var rand = new Random((int) _timing.CurTick.Value);
+        var rand = _predictedRandom.Random(user, item);
         var delay = rand.NextFloat(combatDoAfter.Delay - combatDoAfter.DelayVariation,
             combatDoAfter.Delay + combatDoAfter.DelayVariation);
 

@@ -1,0 +1,86 @@
+- type: martialArt
+  id: KungFuDragon
+  componentGrant:
+  - type: DragonKungFuTimer
+  combos:
+  - DragonStrike
+  - DragonTail
+  - DragonClaw
+  weight: 6
+
+- type: martialArtsCombo
+  id: DragonStrike
+  name: Dragon Strike
+  attacks:
+  - Disarm
+  - Harm
+  - Harm
+  targetConditions:
+  - !type:ProneCondition
+    inverted: true
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit1.ogg
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      blunt: 40
+  - !type:ModifyKnockdown
+    type: Set
+    time: 2
+
+- type: martialArtsCombo
+  id: DragonClaw
+  name: Dragon Claw
+  attacks:
+  - Disarm
+  - Disarm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 50
+    immediate: true
+  - !type:MovementSpeedModifier
+    type: Set
+    time: 2
+    walkSpeedModifier: 0.6
+    sprintSpeedModifier: 0.6
+    effectProto: MartialArtsGenericSlowdownEffect  
+
+- type: martialArtsCombo
+  id: DragonTail
+  name: Dragon Tail
+  attacks:
+  - Disarm
+  - Grab
+  - Harm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit2.ogg
+  - !type:StopPulling
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      blunt: 15
+    conditions:
+    - !type:ProneCondition # TODO check knockdown status instead
+      inverted: true
+  - !type:TakeStaminaDamage
+    amount: 30
+    immediate: true
+    conditions:
+    - !type:ProneCondition # TODO check knockdown status instead
+      inverted: true
+  - !type:ModifyKnockdown
+    type: Set
+    time: 6
+    conditions:
+    - !type:ProneCondition
+      inverted: true
+  - !type:ModifyKnockdown
+    type: Set
+    time: 1
+    conditions:
+    - !type:ProneCondition # no stunlocks # TODO check knockdown status instead

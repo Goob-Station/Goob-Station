@@ -1,0 +1,48 @@
+- type: martialArt
+  id: Mimejutsu
+  combos:
+  - MimejutsuMimechucks
+  - MimejutsuSmokeBomb
+  - MimejutsuSilentPalm
+  weight: 6
+
+- type: martialArtsCombo
+  id: MimejutsuMimechucks
+  name: Mimechucks
+  attacks:
+  - Disarm
+  - Harm
+  targetConditions:
+  - !type:ProneCondition
+    inverted: true
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 20
+    immediate: true
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 15
+
+- type: martialArtsCombo
+  id: MimejutsuSmokeBomb
+  name: Smoke Bomb
+  attacks:
+  - Disarm
+  - Disarm
+  targetEffects:
+  - !type:MartialArtsThrow
+    thrownSpeed: 70
+
+- type: martialArtsCombo
+  id: MimejutsuSilentPalm
+  name: Silent Palm
+  attacks:
+  - Grab
+  - Disarm
+  targetConditions:
+  - !type:ProneCondition
+    inverted: true
+  targetEffects:
+  - !type:MartialArtsThrow
+    thrownSpeed: 500
