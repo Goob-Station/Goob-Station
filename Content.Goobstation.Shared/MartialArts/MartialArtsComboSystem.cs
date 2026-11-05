@@ -185,6 +185,14 @@ public sealed partial class MartialArtsComboSystem : EntitySystem
         var ev = new GetAvailableCombosEvent(args.Performer, args.Target, args.Weapon, []);
         RaiseLocalEvent(ent, ref ev);
 
+        // no combos are available, maybe we left the kitchen with chef cqc
+        if (ev.Combos.Count == 0)
+        {
+            ent.Comp.LastAttacks.Clear();
+            Dirty(ent);
+            return;
+        }
+
         // absolutely no possibly combos from our last attacks, clear!
         // will prevent bloat in ui and match code, only show them when theyre doing a valid combo
         if (!TryFindPotentialCombos(ev.Combos, ent.Comp.LastAttacks, out _))
