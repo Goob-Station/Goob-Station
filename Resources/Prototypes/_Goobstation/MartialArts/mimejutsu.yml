@@ -13,7 +13,7 @@
   - Disarm
   - Harm
   targetConditions:
-  - !type:ProneCondition
+  - !type:StaminaCritCondition
     inverted: true
   targetEffects:
   - !type:TakeStaminaDamage
@@ -41,7 +41,7 @@
   - Grab
   - Disarm
   targetConditions:
-  - !type:ProneCondition
+  - !type:StaminaCritCondition
     inverted: true
   targetEffects:
   - !type:MartialArtsThrow

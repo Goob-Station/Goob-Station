@@ -1,0 +1,47 @@
+<Document>
+
+  # Plasma Fist
+
+  A long-forgotten martial art rumored to originate somewhere in Boron, a theory likely founded by observation of the users of this technique shouting "PLASMA FIST!" at the top of their lungs before violently gibbing their targets. 
+
+  ## Special abilities
+
+  None
+
+  ## Combo attacks
+
+  ### Tornado Sweep
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Repulses target and everyone back. This attack does no damage by itself, other than the two punches, but may cause collateral damage by flinging people into objects and other people. The user yells "TORNADO SWEEP!"
+  (Unfinished)
+
+  ### Throwback 
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+
+  </Box>
+
+  Throws the target and an item at them. Similar to Tornado Sweep, in that finishing the combo does no additional damage. The user yells "THROWBACK!"
+  (Unfinished)
+
+  ### The Plasma Fist
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  The namesake move. Instantly gibs the target's body. The user yells "PLASMA FIST!!!" 
+</Document>

@@ -42,7 +42,9 @@ carp-saying-prone-4 = YOU CAN'T SEE ME!
 carp-saying-prone-5 = MY TIME IS NOW!!
 carp-saying-prone-6 = COWABUNGA!
 
-plasma-fist-plasma-fist = PLASMA FIST!
+plasma-fist-tornado-sweep = TORNADO SWEEP!
+plasma-fist-throwback = THROWBACK!
+plasma-fist-plasma-fist = PLASMA FIST!!!
 
 krav-maga-ready = You ready a {$action}
 

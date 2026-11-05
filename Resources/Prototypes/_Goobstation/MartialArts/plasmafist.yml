@@ -16,6 +16,8 @@
   userEffects:
   - !type:PlaySoundEffect
     sound: /Audio/Weapons/genhit3.ogg
+    - !type:SayEffect
+    locId: plasma-fist-tornado-sweep
   targetEffects:
   - !type:MartialArtsThrow
     thrownSpeed: 70
@@ -30,6 +32,8 @@
   userEffects:
   - !type:PlaySoundEffect
     sound: /Audio/Weapons/genhit3.ogg
+  - !type:SayEffect
+    locId: plasma-fist-throwback
   targetEffects:
   - !type:MartialArtsThrow
     thrownSpeed: 70
