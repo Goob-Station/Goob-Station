@@ -89,11 +89,11 @@
     energy: 0.45
     softness: 3
     offset: "0, 0"
-    enabled: true
+    enabled: false
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: SlimPoweredLight
-    enabled: true
+    enabled: false
   - type: Appearance
   - type: PoweredLightVisuals
     spriteStateMap:
