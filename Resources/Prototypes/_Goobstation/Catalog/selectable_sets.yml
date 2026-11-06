@@ -108,6 +108,21 @@
 # Syndicate
 
 - type: selectableSet
+  id: SyndicateTimestopperSet
+  name: selectable-set-syndicate-timestopper-name
+  description: selectable-set-syndicate-timestopper-description
+  sprite:
+    sprite: _Goobstation/Clothing/Armor/brandostyle.rsi
+    state: icon
+  content:
+  - AutosurgeonTimestopperSandevistan
+  - BoxHoloparasite
+  - ThrowingKnivesKit
+  - ThrowingKnivesKit
+  - ClothingOuterArmorBrandostyle
+  - ClothingShoesBootsBrandostyle
+  
+- type: selectableSet
   id: SyndicateSpySet
   name: selectable-set-syndicate-spy-name
   description: selectable-set-syndicate-spy-description
