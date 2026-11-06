@@ -17,6 +17,7 @@
     - UplinkAllies
     - UplinkWearables
     - UplinkJob
+    - UplinkSiege # Goobstation - nuke ops siege rework
     - UplinkPointless
     currencyWhitelist:
     - Telecrystal
