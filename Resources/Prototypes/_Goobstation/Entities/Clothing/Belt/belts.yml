@@ -159,7 +159,7 @@
   parent: ClothingBeltSheath
   id: ClothingBeltSheathHeadOfSecurity
   name: head of security's sheath
-  description: A rugged sheath, designed to hold the Head of Security's custom energy sword.
+  description: A rugged belt featuring a sheath and holster designed to house the head of security's Justice and Lawbringer, as well as a miniaturized reactor to help recharge them faster.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/hossheath.rsi
@@ -168,6 +168,10 @@
     sprite: _Goobstation/Clothing/Belt/hossheath.rsi
   - type: Item
     size: Ginormous
+  - type: Charger
+    slotId: ["item", "item2"]
+    portable: true
+    chargeRate: 35
   - type: ItemSlots
     slots:
       item:
@@ -179,12 +183,21 @@
         whitelist:
           tags:
           - Justice
+      item2:
+        name: Lawbringer
+        ejectOnBeltInteract: true
+        insertVerbText: holster-insert-verb
+        ejectVerbText: holster-eject-verb
+        whitelist:
+          tags:
+          - WeaponEnergyGunLawbringer
   - type: ItemMapper
     mapLayers:
       sheath-sabre:
         whitelist:
           tags:
           - Justice
+          - WeaponEnergyGunLawbringer
   - type: Appearance
 
 - type: entity

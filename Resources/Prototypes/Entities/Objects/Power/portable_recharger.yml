@@ -22,7 +22,7 @@
     slots:
     - back
   - type: Charger
-    slotId: charger_slot
+    slotId: [charger_slot]
     portable: true
   - type: PowerChargerVisuals
   - type: StaticPrice

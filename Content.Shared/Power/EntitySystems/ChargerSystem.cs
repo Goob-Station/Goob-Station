@@ -48,31 +48,33 @@ public sealed class ChargerSystem : EntitySystem
         using (args.PushGroup(nameof(ChargerComponent)))
         {
             // rate at which the charger charges
-            args.PushMarkup(Loc.GetString("charger-examine", ("color", "yellow"), ("chargeRate", (int)component.ChargeRate)));
-
-            // try to get contents of the charger
-            if (!_container.TryGetContainer(uid, component.SlotId, out var container))
-                return;
-
-            if (HasComp<PowerCellSlotComponent>(uid))
-                return;
-
-            // if charger is empty and not a power cell type charger, add empty message
-            // power cells have their own empty message by default, for things like flash lights
-            if (container.ContainedEntities.Count == 0)
+            args.PushMarkup(Loc.GetString("charger-examine", ("color", "yellow"), ("chargeRate", (int) component.ChargeRate)));
+            foreach (var slot in component.SlotId)
             {
-                args.PushMarkup(Loc.GetString("charger-empty"));
-            }
-            else
-            {
-                // add how much each item is charged it
-                foreach (var contained in container.ContainedEntities)
+                // try to get contents of the charger
+                if (!_container.TryGetContainer(uid, slot, out var container))
+                    return;
+
+                if (HasComp<PowerCellSlotComponent>(uid))
+                    return;
+
+                // if charger is empty and not a power cell type charger, add empty message
+                // power cells have their own empty message by default, for things like flash lights
+                if (container.ContainedEntities.Count == 0)
                 {
-                    if (!_powerCell.TryGetBatteryFromEntityOrSlot(contained, out var battery))
-                        continue;
+                    args.PushMarkup(Loc.GetString("charger-empty"));
+                }
+                else
+                {
+                    // add how much each item is charged it
+                    foreach (var contained in container.ContainedEntities)
+                    {
+                        if (!_powerCell.TryGetBatteryFromEntityOrSlot(contained, out var battery))
+                            continue;
 
-                    var chargePercent = _battery.GetChargeLevel(battery.Value.AsNullable()) * 100;
-                    args.PushMarkup(Loc.GetString("charger-content", ("chargePercent", (int)chargePercent)));
+                        var chargePercent = _battery.GetChargeLevel(battery.Value.AsNullable()) * 100;
+                        args.PushMarkup(Loc.GetString("charger-content", ("chargePercent", (int) chargePercent)));
+                    }
                 }
             }
         }
@@ -89,7 +91,7 @@ public sealed class ChargerSystem : EntitySystem
         if (_timing.ApplyingState)
             return; // Already networked in the same gamestate
 
-        if (args.Container.ID != ent.Comp.SlotId)
+        if (!ent.Comp.SlotId.Contains(args.Container.ID))
             return;
 
         AddComp<InsideChargerComponent>(args.Entity);
@@ -103,7 +105,7 @@ public sealed class ChargerSystem : EntitySystem
         if (_timing.ApplyingState)
             return; // Already networked in the same gamestate
 
-        if (args.Container.ID != ent.Comp.SlotId)
+        if (!ent.Comp.SlotId.Contains(args.Container.ID))
             return;
 
         RemComp<InsideChargerComponent>(args.Entity);
@@ -120,7 +122,7 @@ public sealed class ChargerSystem : EntitySystem
         if (!component.Initialized)
             return;
 
-        if (args.Container.ID != component.SlotId)
+        if (!component.SlotId.Contains(args.Container.ID))
             return;
 
         if (!TryComp<PowerCellSlotComponent>(args.EntityUid, out var cellSlot))
@@ -135,7 +137,7 @@ public sealed class ChargerSystem : EntitySystem
         if (!component.Initialized || args.Cancelled)
             return;
 
-        if (args.Container.ID != component.SlotId)
+        if (!component.SlotId.Contains(args.Container.ID))
             return;
 
         if (!TryComp<PowerCellSlotComponent>(uid, out var cellSlot))
@@ -190,31 +192,44 @@ public sealed class ChargerSystem : EntitySystem
     private void RefreshAllBatteries(Entity<ChargerComponent> ent)
     {
         // try to get contents of the charger
-        if (!_container.TryGetContainer(ent.Owner, ent.Comp.SlotId, out var container))
-            return;
-
-        foreach (var item in container.ContainedEntities)
+        foreach (var slot in ent.Comp.SlotId)
         {
-            if (_powerCell.TryGetBatteryFromEntityOrSlot(item, out var battery))
-                _battery.RefreshChargeRate(battery.Value.AsNullable());
+            if (!_container.TryGetContainer(ent.Owner, slot, out var container))
+                continue;
+
+            foreach (var item in container.ContainedEntities)
+            {
+                if (_powerCell.TryGetBatteryFromEntityOrSlot(item, out var battery))
+                    _battery.RefreshChargeRate(battery.Value.AsNullable());
+            }
         }
     }
 
     private void UpdateStatus(Entity<ChargerComponent> ent)
     {
         TryComp<AppearanceComponent>(ent, out var appearance);
-
-        if (!_container.TryGetContainer(ent.Owner, ent.Comp.SlotId, out var container))
-            return;
-
-        _appearance.SetData(ent.Owner, CellVisual.Occupied, container.ContainedEntities.Count != 0, appearance);
-
+        int drawcount = 0;
+        foreach (var slot in ent.Comp.SlotId)
+        {
+            if (!_container.TryGetContainer(ent.Owner, slot, out var container))
+                continue;
+            _appearance.SetData(ent.Owner, CellVisual.Occupied, container.ContainedEntities.Count != 0, appearance);
+            foreach (var item in container.ContainedEntities)
+            {
+                if (_powerCell.TryGetBatteryFromEntityOrSlot(item, out var battery))
+                {
+                    if (battery.Value.Comp.LastCharge < battery.Value.Comp.MaxCharge)
+                        drawcount += 1;
+                }
+            }
+        }
         var status = GetStatus(ent);
         switch (status)
         {
             case CellChargerStatus.Charging:
-                // TODO: If someone ever adds chargers that can charge multiple batteries at once then set this to the total draw rate.
-                _receiver.SetLoad(ent.Owner, ent.Comp.ChargeRate);
+                // TODO: If someone ever adds chargers that can charge multiple batteries at multiple rates, adjust drawcount depending on something that would equate
+                //  to the total power draw of each recharging item
+                _receiver.SetLoad(ent.Owner, ent.Comp.ChargeRate * drawcount);
                 break;
             default:
                 // Don't set the load to 0 or the charger will be considered as powered even if the LV connection is unpowered.
@@ -235,20 +250,22 @@ public sealed class ChargerSystem : EntitySystem
 
         if (HasComp<EmpDisabledComponent>(ent))
             return CellChargerStatus.Off;
+        foreach (var slot in ent.Comp.SlotId)
+        {
+            if (!_container.TryGetContainer(ent.Owner, slot, out var container))
+                return CellChargerStatus.Off;
 
-        if (!_container.TryGetContainer(ent.Owner, ent.Comp.SlotId, out var container))
-            return CellChargerStatus.Off;
+            if (container.ContainedEntities.Count == 0)
+                return CellChargerStatus.Empty;
 
-        if (container.ContainedEntities.Count == 0)
-            return CellChargerStatus.Empty;
+            // Use the first stored battery for visuals. If someone ever makes a multi-slot charger then this will need to be changed.
+            // i ain't touching that as the multiple chargers aren't shown visibly
+            if (!_powerCell.TryGetBatteryFromEntityOrSlot(container.ContainedEntities[0], out var battery))
+                return CellChargerStatus.Off;
 
-        // Use the first stored battery for visuals. If someone ever makes a multi-slot charger then this will need to be changed.
-        if (!_powerCell.TryGetBatteryFromEntityOrSlot(container.ContainedEntities[0], out var battery))
-            return CellChargerStatus.Off;
-
-        if (_battery.IsFull(battery.Value.AsNullable()))
-            return CellChargerStatus.Charged;
-
+            if (_battery.IsFull(battery.Value.AsNullable()))
+                return CellChargerStatus.Charged;
+        }
         return CellChargerStatus.Charging;
     }
 }
