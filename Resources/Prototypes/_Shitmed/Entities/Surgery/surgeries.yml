@@ -782,6 +782,30 @@
     - type: Eyes
 
 - type: entity
+  parent: BaseSurgeryRemoveOrgan
+  id: SurgeryRemoveTongue
+  name: Remove Tongue
+  components:
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Tongue
+
+- type: entity
+  parent: BaseSurgeryInsertOrgan
+  id: SurgeryInsertTongue
+  name: Insert Tongue
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepInsertOrgan
+    - SurgeryStepSealOrganWound
+  - type: SurgeryOrganSlotCondition
+    organSlot: tongue
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Tongue
+
+- type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertEyes
   name: Insert Eyes

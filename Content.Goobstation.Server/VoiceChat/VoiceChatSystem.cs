@@ -985,7 +985,7 @@ public sealed partial class VoiceChatSystem : EntitySystem
         if (_ghostQuery.HasComp(uid))
             return true;
 
-        if (_mobState.IsIncapacitated(uid) || HasComp<MutedComponent>(uid) || IsMuzzled(uid))
+        if (_mobState.IsIncapacitated(uid) || HasComp<MutedComponent>(uid) || HasComp<TonguelessComponent>(uid) || IsMuzzled(uid))
             return false;
 
         return _speechQuery.TryComp(uid, out var speech) && speech.Enabled;

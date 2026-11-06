@@ -1,6 +1,22 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  id: OrganAnimalTongue
+  parent: BaseAnimalOrgan
+  name: animal tongue
+  components:
+  - type: Tongue
+  - type: Organ
+    slotId: tongue
+  - type: Sprite
+    state: tongue
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Tongue
+
+- type: entity
   id: OrganAnimalBrain
   parent: BaseAnimalOrganUnGibbable
   name: animal brain

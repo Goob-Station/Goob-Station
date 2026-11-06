@@ -12,6 +12,7 @@
       organs:
         brain: OrganAbductorBrain
         eyes: OrganAbductorEyes
+        tongue: OrganHumanTongue
     chest:
       part: ChestAbductor
       connections:
