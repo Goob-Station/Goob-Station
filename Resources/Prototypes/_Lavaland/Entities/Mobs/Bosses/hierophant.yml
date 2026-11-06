@@ -71,10 +71,11 @@
   - type: Aggressive
     forgiveRange: 25
   - type: MobPhases
-    phaseThresholds:
-      0:    1
-      1000: 2
-      2000: 3
+    phases:
+    - phase: 1
+      damage: 1000
+    - phase: 2
+      damage: 2000
   - type: BossMusic
     soundId: Hierophant
   - type: TileMovement
