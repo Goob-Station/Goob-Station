@@ -1,0 +1,59 @@
+light_mode unshaded;
+
+uniform highp vec2 res;
+uniform highp float time;
+uniform highp float fear;
+uniform highp float exhaustion;
+uniform highp float flash;
+uniform highp float fadeIn;
+
+highp float grainHash(highp vec2 p) {
+    return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+highp vec3 aces(highp vec3 x) {
+    return clamp((x * (2.51 * x + 0.03)) / (x * (2.43 * x + 0.59) + 0.14), 0.0, 1.0);
+}
+
+highp vec3 encodeSrgb(highp vec3 c) {
+    return mix(c * 12.92, 1.055 * pow(c, vec3(1.0 / 2.4)) - 0.055, step(vec3(0.0031308), c));
+}
+
+highp float bayer2(highp vec2 p) {
+    return mod(2.0 * p.x + 3.0 * p.y, 4.0);
+}
+
+highp float bayer4(highp vec2 pixel) {
+    highp vec2 p = mod(pixel, 4.0);
+    highp vec2 fine = mod(p, 2.0);
+    highp vec2 coarse = floor(p / 2.0);
+    return (4.0 * bayer2(fine) + bayer2(coarse)) / 16.0 - 0.5;
+}
+
+void fragment() {
+    highp vec2 uv = UV;
+    highp vec2 d = uv - 0.5;
+
+    highp float ca = fear * 0.006 * length(d) * 2.0;
+    highp vec3 col;
+    col.r = zTexture(uv + d * ca).r;
+    col.g = zTexture(uv).g;
+    col.b = zTexture(uv - d * ca).b;
+
+    col = aces(max(col, vec3(0.0)) * 1.4);
+    col = encodeSrgb(col);
+
+    highp vec2 pixel = floor(uv * res);
+    highp float grain = grainHash(pixel + fract(time * 13.7) * 91.0) - 0.5;
+    col += grain * (0.045 + fear * 0.05);
+
+    highp float r = length(d * vec2(res.x / res.y, 1.0)) * 0.9;
+    highp float vig = 1.0 - smoothstep(0.25 - exhaustion * 0.1, 0.85 - exhaustion * 0.25 - fear * 0.15, r);
+    col *= mix(0.35, 1.0, vig);
+
+    col += flash;
+    col *= fadeIn;
+
+    col = floor(col * 31.0 + 0.5 + bayer4(pixel)) / 31.0;
+    COLOR = zFromSrgb(vec4(clamp(col, 0.0, 1.0), 1.0));
+}

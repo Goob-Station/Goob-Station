@@ -1,0 +1,9 @@
+- type: shader
+  id: NullspaceSurface
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/nullspace_surface.swsl"
+
+- type: shader
+  id: NullspacePost
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/nullspace_post.swsl"

@@ -1,0 +1,104 @@
+- type: soundCollection
+  id: NullspaceStep
+  files:
+  - /Audio/_Goobstation/Nullspace/step_metal1.ogg
+  - /Audio/_Goobstation/Nullspace/step_metal2.ogg
+  - /Audio/_Goobstation/Nullspace/step_metal3.ogg
+  - /Audio/_Goobstation/Nullspace/step_metal4.ogg
+  - /Audio/_Goobstation/Nullspace/step_metal5.ogg
+  - /Audio/_Goobstation/Nullspace/step_metal6.ogg
+  - /Audio/_Goobstation/Nullspace/step_metal7.ogg
+  - /Audio/_Goobstation/Nullspace/step_metal8.ogg
+
+- type: soundCollection
+  id: NullspaceRun
+  files:
+  - /Audio/_Goobstation/Nullspace/run_metal1.ogg
+  - /Audio/_Goobstation/Nullspace/run_metal2.ogg
+  - /Audio/_Goobstation/Nullspace/run_metal3.ogg
+  - /Audio/_Goobstation/Nullspace/run_metal4.ogg
+  - /Audio/_Goobstation/Nullspace/run_metal5.ogg
+  - /Audio/_Goobstation/Nullspace/run_metal6.ogg
+  - /Audio/_Goobstation/Nullspace/run_metal7.ogg
+  - /Audio/_Goobstation/Nullspace/run_metal8.ogg
+
+- type: soundCollection
+  id: NullspaceBreath
+  files:
+  - /Audio/_Goobstation/Nullspace/breath1.ogg
+  - /Audio/_Goobstation/Nullspace/breath2.ogg
+  - /Audio/_Goobstation/Nullspace/breath3.ogg
+
+- type: soundCollection
+  id: NullspaceAmbient
+  files:
+  - /Audio/_Goobstation/Nullspace/ambient_a1.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a2.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a3.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a4.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a5.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a6.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a7.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a8.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a9.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a10.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_a11.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b1.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b2.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b3.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b4.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b5.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b6.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b7.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b8.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b9.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b10.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b11.ogg
+  - /Audio/_Goobstation/Nullspace/ambient_b12.ogg
+
+- type: soundCollection
+  id: NullspaceHorror
+  files:
+  - /Audio/_Goobstation/Nullspace/horror0.ogg
+  - /Audio/_Goobstation/Nullspace/horror1.ogg
+  - /Audio/_Goobstation/Nullspace/horror2.ogg
+  - /Audio/_Goobstation/Nullspace/horror3.ogg
+  - /Audio/_Goobstation/Nullspace/horror4.ogg
+  - /Audio/_Goobstation/Nullspace/horror5.ogg
+  - /Audio/_Goobstation/Nullspace/horror6.ogg
+  - /Audio/_Goobstation/Nullspace/horror7.ogg
+  - /Audio/_Goobstation/Nullspace/horror8.ogg
+  - /Audio/_Goobstation/Nullspace/horror9.ogg
+  - /Audio/_Goobstation/Nullspace/horror10.ogg
+  - /Audio/_Goobstation/Nullspace/horror11.ogg
+  - /Audio/_Goobstation/Nullspace/horror13.ogg
+  - /Audio/_Goobstation/Nullspace/horror14.ogg
+  - /Audio/_Goobstation/Nullspace/horror15.ogg
+  - /Audio/_Goobstation/Nullspace/horror16.ogg
+
+- type: audioPreset
+  id: NullspaceCorridor
+  createAuxiliary: true
+  density: 1.0000
+  diffusion: 1.0000
+  gain: 0.3162
+  gainHf: 0.4000
+  gainLf: 1.0000
+  decayTime: 3.6000
+  decayHfRatio: 0.4500
+  decayLfRatio: 1.0000
+  reflectionsGain: 0.2000
+  reflectionsDelay: 0.0120
+  reflectionsPan: 0,0,0
+  lateReverbGain: 1.4000
+  lateReverbDelay: 0.0300
+  lateReverbPan: 0,0,0
+  echoTime: 0.2500
+  echoDepth: 0.0000
+  modulationTime: 0.2500
+  modulationDepth: 0.0000
+  airAbsorptionGainHf: 0.9943
+  hfReference: 5000.0000
+  lfReference: 250.0000
+  roomRolloffFactor: 0.0000
+  decayHfLimit: 1
