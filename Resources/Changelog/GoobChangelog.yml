@@ -27120,3 +27120,9 @@ Entries:
       message: Fixed security borgs not having access to the Security radio channel
   id: 3035
   time: '2026-11-06T20:06:51.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Reverted PTL nerfs
+  id: 3036
+  time: '2026-11-06T20:08:25.0000000+00:00'
