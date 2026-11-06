@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.GameStates;
 

@@ -427,10 +427,8 @@ public sealed class StarGazerSystem : SharedStarGazerSystem
                 if (aLen <= 0.01f || bLen <= 0.01f)
                     continue;
 
-                var angleac = Goobstation.Maths.Vectors.GoobVector3.CalculateAngle(new Goobstation.Maths.Vectors.GoobVector3(-a),
-                    new Goobstation.Maths.Vectors.GoobVector3(-c));
-                var anglebc = Goobstation.Maths.Vectors.GoobVector3.CalculateAngle(new Goobstation.Maths.Vectors.GoobVector3(-b),
-                    new Goobstation.Maths.Vectors.GoobVector3(c));
+                var angleac = MathF.Acos(Vector2.Dot(a / aLen, cNorm));
+                var anglebc = MathF.Acos(Vector2.Dot(cNorm, b / -bLen));
 
                 var sinac = MathF.Sin(angleac);
                 var sinbc = MathF.Sin(anglebc);

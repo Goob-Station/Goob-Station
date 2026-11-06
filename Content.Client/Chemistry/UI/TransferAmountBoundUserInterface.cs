@@ -2,7 +2,7 @@
 
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 

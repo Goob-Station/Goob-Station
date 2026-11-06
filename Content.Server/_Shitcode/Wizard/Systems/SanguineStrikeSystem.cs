@@ -9,7 +9,7 @@ using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Body.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;

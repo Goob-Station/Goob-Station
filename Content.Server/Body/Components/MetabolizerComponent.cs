@@ -3,7 +3,7 @@
 using Content.Shared.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Body.Prototypes;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 

@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._White.Actions;
 using Content.Shared._White.Other;
 using Content.Shared._White.Xenomorphs.Acid.Components;

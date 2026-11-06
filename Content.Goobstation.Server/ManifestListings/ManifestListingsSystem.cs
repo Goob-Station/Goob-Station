@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Text;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Server.Store.Conditions;
 using Content.Goobstation.Shared.ManifestListings;
 using Content.Goobstation.Shared.Store;

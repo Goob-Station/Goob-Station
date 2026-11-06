@@ -2,7 +2,7 @@
 
 using System.Numerics;
 using Content.Shared.Atmos;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Map.Components;
 using static Content.Server.Explosion.Components.ExplosionAirtightGridComponent;
 using static Content.Server.Explosion.EntitySystems.ExplosionSystem;
