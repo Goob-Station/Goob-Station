@@ -209,6 +209,9 @@
     netsync: false
   - type: Reflect # Goob edit
     reflectProb: .25
+  - type: Tag # Goobstation
+    tags:
+    - EnergyDagger
 
 - type: entity
   name: pen
