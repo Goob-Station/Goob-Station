@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseMentalAction
+  id: ActionToggleObserverHud
+  name: Observer HUD
+  description: Open observer HUD options.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Interface/Actions/observer_hud.rsi
+      state: red_eye_32
+    priority: 9
+    clientExclusive: true
+    raiseOnUser: true
+  - type: InstantAction
+    event: !type:ToggleObserverHudActionEvent

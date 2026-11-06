@@ -81,6 +81,15 @@ public sealed partial class GhostComponent : Component
     public bool CanGhostInteract;
 
     /// <summary>
+    /// Whether this ghost can use the observer HUD options.
+    /// </summary>
+    /// <remarks>
+    /// Goobstation
+    /// </remarks>
+    [DataField, AutoNetworkedField]
+    public bool CanUseObserverHud;
+
+    /// <summary>
     /// Is this ghost player allowed to return to their original body?
     /// </summary>
     /// <remarks>
