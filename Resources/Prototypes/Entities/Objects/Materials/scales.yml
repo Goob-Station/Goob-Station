@@ -1,0 +1,55 @@
+- type: stack
+  id: CarpScales
+  name: construction-step-carp-scales
+  spawn: MaterialCarpScales
+  maxCount: 30
+  icon:
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: carp_scales
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialCarpScales
+  name: carp scales
+  description: Tough, shimmering scales from a space carp.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: carp_scales
+  - type: Item
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    size: Small
+  - type: Stack
+    stackType: CarpScales
+    count: 30
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: StackPrice
+    price: 20
+
+- type: entity
+  parent: MaterialCarpScales
+  id: MaterialCarpScales1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialCarpScales
+  id: MaterialCarpScales5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: MaterialCarpScales
+  id: MaterialCarpScales10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
