@@ -15,7 +15,7 @@
     threshold: 1
   - type: Item
     heldPrefix: empty
-    size: Normal
+    size: Huge #Goob
   - type: Appearance
   - type: GenericVisualizer
     visuals:

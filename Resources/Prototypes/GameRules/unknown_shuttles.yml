@@ -52,9 +52,6 @@
     earliestStart: 20 # Goobstation
     duration: 1
     maxOccurrences: 1
-    chaos: # Goobstation
-      Friend: -20
-      Power: -10 # can be salvaged for power
     eventType: FriendlySpawn # Goobstation
   # Goobstation
   - type: GameRule
@@ -66,6 +63,9 @@
   parent: BaseUnknownShuttleRule
   id: UnknownShuttleCargoLost
   components:
+  - type: GameDirectorReinforcement # Goobstation
+    departments:
+    - Cargo
   - type: StationEvent
     maxOccurrences: 2
   - type: LoadMapRule
@@ -99,6 +99,11 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2
+    chaos: # Goobstation
+      Mess: 40
+      Medical: 20
+      Security: 10
+    eventType: Chaotic # Goobstation
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/honki.yml
 
@@ -117,6 +122,10 @@
   id: UnknownShuttleNTQuark
   parent: BaseUnknownShuttleRule
   components:
+  - type: GameDirectorReinforcement # Goobstation
+    departments:
+    - Command
+    requiredGhosts: 2
   - type: StationEvent
     startAnnouncement: null # It should be silent.
     weight: .5 # Hopefully this is uncommon enough, it needs to be uncommon enough that people wont waste time metaknowledging it.
@@ -129,6 +138,9 @@
   id: UnknownShuttleCruiser
   parent: BaseUnknownShuttleRule
   components:
+  - type: GameDirectorReinforcement # Goobstation
+    departments:
+    - Engineering
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
@@ -157,6 +169,9 @@
   id: UnknownShuttleFlatline
   parent: BaseUnknownShuttleRule
   components:
+  - type: GameDirectorReinforcement # Goobstation
+    departments:
+    - Medical
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
   - type: LoadMapRule
@@ -176,6 +191,11 @@
   id: UnknownShuttleNTIncorporation
   parent: BaseUnknownShuttleRule
   components:
+  - type: GameDirectorReinforcement # Goobstation
+    departments:
+    - Security
+    - Medical
+    requiredGhosts: 3
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.

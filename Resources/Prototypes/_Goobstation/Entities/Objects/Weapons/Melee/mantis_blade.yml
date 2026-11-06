@@ -1,43 +1,65 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  categories: [ DoNotMap ]
-  parent: [BaseItem, BaseSyndicateContraband]
   id: MantisBlade
   name: mantis blade
-  description: They won’t see the steel until it’s too late.
+  description: A blade that snaps out of a cybernetic forearm.
+  categories: [ HideSpawnMenu ]
   components:
-  - type: Sharp
-  - type: Execution
-    doAfterDuration: 4.0
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi
     state: icon
   - type: MeleeWeapon
-    animationRotation: 120
-    swingLeft: true
-    wideAnimationRotation: 135
     attackRate: 1.5
+    animation: MantisBladeArc
+    animationRotation: 120
+    wideAnimation: MantisBladeArcStatic
     damage:
       types:
-        Slash: 10
-        Piercing: 4
-        Structural: 15
+        Slash: 9
+        Piercing: 3
+        Structural: 7.5
       woundSeverityMultipliers:
         Slash: 2.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  - type: Tag
-    tags:
-    - MantisBlade
   - type: Multihit
-    multihitWhitelist:
-      tags:
-      - MantisBlade
-  - type: ChangePrefixAfterDelay
-  - type: Item
-    size: Ginormous
-    heldPrefix: popout
-  - type: Tool
-    qualities:
-    - Slicing
+    damageMultiplier: 0.65
+    multihitDelay: 0.25
+
+- type: entity
+  id: MantisBladeArc
+  parent: WeaponArcThrust
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi
+    state: icon
+    drawdepth: Effects
+
+- type: entity
+  id: MantisBladeArcStatic
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi
+    state: icon
+    drawdepth: Effects
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleMantisBlades
+  name: Extend mantis blades
+  description: Snap the blades out of your forearms. While out, they cut alongside every strike you land.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 2
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:ToggleMantisBladesActionEvent

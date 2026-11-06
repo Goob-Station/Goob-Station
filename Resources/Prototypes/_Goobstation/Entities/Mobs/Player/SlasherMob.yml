@@ -144,6 +144,7 @@
           sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
           state: icon
         machetePrototype: SlasherKitchenKnife
+        jumpscareFear: 0.6
         bloodTrailMusic:
           path: /Audio/_Goobstation/Slasher/Music/halloween.ogg
           params:
@@ -160,6 +161,7 @@
           baseSprintSpeed: 5.0
     postSelectionComponents:
     - type: Slasher
+    - type: ForceHideIcons
     - type: SlasherSummonMachete
     - type: SlasherStaggerArea
     - type: SlasherRelentlessGrab

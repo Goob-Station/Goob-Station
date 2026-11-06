@@ -43,7 +43,8 @@
     - id: NitrogenTankFilled
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
-    - id: BlueshieldUndeterminedHardsuit
+    - id: ClothingOuterHardsuitBlueshieldLight
+    - id: ModsuitPlatingPraetorian
     - id: FlashlightSeclite
 
 - type: entity

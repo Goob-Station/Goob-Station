@@ -42,3 +42,12 @@
   summary: news-new-markings-summary
   date: 2026-10-28
   document: /ServerInfo/_Goobstation/News/NewMarkings.xml
+
+- type: newsEntry
+  id: GameDirectorRework
+  title: news-game-director-title
+  summary: news-game-director-summary
+  date: 2026-10-29
+  document: /ServerInfo/_Goobstation/News/GameDirectorRework.xml
+  popup:
+    frequency: Once

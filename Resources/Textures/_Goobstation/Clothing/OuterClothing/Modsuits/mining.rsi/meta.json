@@ -1,0 +1,97 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit 5ee81d6 (icons/obj/clothing/modsuit/mod_clothing.dmi, icons/mob/clothing/modsuit/mod_clothing.dmi) and icons/mob/clothing/modsuit/mod_modules.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "control"
+        },
+        {
+            "name": "control-sealed",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "helmet"
+        },
+        {
+            "name": "helmet-sealed"
+        },
+        {
+            "name": "chestplate"
+        },
+        {
+            "name": "chestplate-sealed"
+        },
+        {
+            "name": "gauntlets"
+        },
+        {
+            "name": "gauntlets-sealed"
+        },
+        {
+            "name": "boots"
+        },
+        {
+            "name": "boots-sealed"
+        },
+        {
+            "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACKPACK-sealed",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HEAD",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HEAD-sealed",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-sealed",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HAND",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HAND-sealed",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FEET",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FEET-sealed",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HEAD-sealed-unshaded",
+            "directions": 4
+        },
+        {
+            "name": "ash-coat",
+            "directions": 4
+        }
+    ]
+}

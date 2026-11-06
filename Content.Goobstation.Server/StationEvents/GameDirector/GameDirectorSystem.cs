@@ -1,13 +1,14 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Server.StationEvents.Metric;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules;
+using Content.Server.RoundEnd;
 using Content.Server.StationEvents;
 using Content.Shared.Database;
+using Content.Shared.EntityTable;
+using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using JetBrains.Annotations;
 using Robust.Server.Player;
@@ -18,10 +19,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.StationEvents.GameDirector;
 
-/// <summary>
-///   A scheduler which tries to keep station chaos within a set bound over time with the most suitable
-///   good or bad events to nudge it in the correct direction.
-/// </summary>
 [UsedImplicitly]
 public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 {
@@ -32,118 +29,160 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IComponentFactory _factory = default!;
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private ILogManager _log = default!;
     [Dependency] private IChatManager _chat = default!;
     [Dependency] private IConfigurationManager _configManager = default!;
-    private ISawmill _sawmill = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
     private int _gameDirectorDebugPlayerCount;
 
     public override void Initialize()
     {
         base.Initialize();
-        _sawmill = _log.GetSawmill("game_rule");
-        SubscribeLocalEvent<GameDirectorComponent, EntityUnpausedEvent>(OnUnpaused);
         Subs.CVar(_configManager, GoobCVars.GameDirectorDebugPlayerCount, x => _gameDirectorDebugPlayerCount = x, true);
     }
 
-    private static void OnUnpaused(EntityUid uid, GameDirectorComponent scheduler, ref EntityUnpausedEvent args)
+    [SubscribeLocalEvent]
+    private void OnUnpaused(Entity<GameDirectorComponent> ent, ref EntityUnpausedEvent args)
     {
+        var scheduler = ent.Comp;
         scheduler.BeatStart += args.PausedTime;
         scheduler.TimeNextEvent += args.PausedTime;
+        scheduler.LastBudgetUpdate += args.PausedTime;
+
+        if (scheduler.LastReinforcement != TimeSpan.Zero)
+            scheduler.LastReinforcement += args.PausedTime;
+
+        for (var i = 0; i < scheduler.FiredEvents.Count; i++)
+        {
+            var fired = scheduler.FiredEvents[i];
+            scheduler.FiredEvents[i] = fired with { Time = fired.Time + args.PausedTime };
+        }
+    }
+
+    [SubscribeLocalEvent]
+    private void OnRoundRestartCleanup(RoundRestartCleanupEvent args)
+    {
+        ResetMetrics();
     }
 
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
-        _sawmill.Info($"Game Director Spawned at {uid}");
+        Log.Info($"Game Director Spawned at {uid}");
         ResetMetrics();
-        TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
-        if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
-            SetupEvents(scheduler, CountActivePlayers(), selectedRules);
-        else
-            SetupEvents(scheduler, CountActivePlayers());
+        TrySpawnRoundstartAntags(scheduler);
     }
 
-    /// <summary>
-    ///   Decide what event to run next
-    /// </summary>
+    protected override void Ended(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    {
+        ResetMetrics();
+    }
+
     protected override void ActiveTick(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, float frameTime)
     {
         var currTime = _timing.CurTime;
         if (currTime < scheduler.TimeNextEvent)
             return;
 
-        var chaos = CalculateChaos(uid);
-        scheduler.CurrentChaos = chaos;
-        LogMessage($"Chaos is: {chaos}");
-
         if (scheduler.Stories is not { Length: > 0 })
         {
-            // No stories (e.g. dummy game rule for printing metrics), end game rule now
             GameTicker.EndGameRule(uid, gameRule);
             return;
         }
-        // Decide what story beat to work with (which sets chaos goals)
+
+        var ent = new Entity<GameDirectorComponent>(uid, scheduler);
+        var chaos = CalculateChaos(uid);
+        scheduler.CurrentChaos = chaos;
+        LogMessage($"Chaos is: {chaos}", false);
+
         var count = CountActivePlayers();
         ActivePlayers.Set(count.Players);
         ActiveGhosts.Set(count.Ghosts);
+        UpdateStaffingMetrics(count);
+        UpdateAntagMetrics();
 
-        var beat = DetermineNextBeat(scheduler, chaos, count);
+        var beat = DetermineNextBeat(ent, chaos, count);
 
-        // This is the first event, add an automatic delay
         if (scheduler.TimeNextEvent == TimeSpan.Zero)
         {
             var minimumTimeUntilFirstEvent = _configManager.GetCVar(GoobCVars.MinimumTimeUntilFirstEvent) / _event.EventSpeedup;
-            scheduler.TimeNextEvent = _timing.CurTime + TimeSpan.FromSeconds(minimumTimeUntilFirstEvent);
+            scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(minimumTimeUntilFirstEvent);
+            scheduler.LastBudgetUpdate = currTime;
             LogMessage($"Started, first event in {minimumTimeUntilFirstEvent} seconds");
             return;
         }
 
-        RankedEvent? chosenEvent = null;
-        // Pick the best events (which move the station towards the chaos desired by the beat)
-        var bestEvents = ChooseEvents(scheduler, beat, chaos, count);
+        RegenerateDestructionBudget(scheduler, currTime);
 
-        // Run the best event here, if we have any to pick from.
-        if (bestEvents.Count > 0)
+        var pending = CalculatePendingChaos(scheduler, currTime);
+        var effective = chaos + pending;
+        var goal = EffectiveGoal(scheduler, beat, count);
+        UpdateChaosMetrics(chaos, pending, goal, scheduler.DestructionBudget);
+
+        var chosenEvent = ChooseEvent(ent, beat, goal, effective, count);
+        if (chosenEvent == null)
         {
-            // Sorts the possible events and then picks semi-randomly.
-            // when beat.RandomEventLimit is 1 it's always the "best" event picked. Higher values
-            // allow more events to be randomly selected.
-            chosenEvent = SelectBest(bestEvents, beat.RandomEventLimit);
-
-            _event.RunNamedEvent(chosenEvent.PossibleEvent.StationEvent);
+            LogMessage($"No events ran (chaos {effective})", false);
+            scheduler.TimeNextEvent = currTime + scheduler.NoEventRetryDelay / _event.EventSpeedup;
+            return;
         }
 
-        if (chosenEvent != null)
-        {
-            EventsRunTotal.WithLabels(chosenEvent.PossibleEvent.StationEvent).Inc();
-            // 2 - 6 minutes until the next event is considered, can vary per beat
-            scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(_random.NextFloat(beat.EventDelayMin, beat.EventDelayMax) / _event.EventSpeedup);
-        }
-        else
-        {
-            // No events were run. Consider again in 30 seconds (current beat or chaos might change)
-            LogMessage($"Chaos is: {chaos} (No events ran)", false);
-            scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(30f);
-        }
+        RunEvent(ent, beat, chosenEvent, currTime);
+        scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(_random.NextFloat(beat.EventDelayMin, beat.EventDelayMax) / _event.EventSpeedup);
     }
 
-    private void LogMessage(string message, bool showChat=true)
+    private void RunEvent(Entity<GameDirectorComponent> ent, StoryBeatPrototype beat, PossibleEvent chosen, TimeSpan currTime)
     {
-        // TODO: LogMessage strings all require localization.
-        _adminLogger.Add(LogType.GameDirector, showChat?LogImpact.Medium:LogImpact.High, $"{message}");
+        var scheduler = ent.Comp;
+        _event.RunNamedEvent(chosen.StationEvent);
+
+        scheduler.FiredEvents.Add(new FiredEvent(chosen.StationEvent, currTime, chosen.Chaos));
+        scheduler.DestructionBudget = MathF.Max(0f, scheduler.DestructionBudget - chosen.Destruction);
+        EventsRunTotal.WithLabels(chosen.StationEvent, beat.ID).Inc();
+        DestructionBudgetGauge.Set(scheduler.DestructionBudget);
+    }
+
+    private void RegenerateDestructionBudget(GameDirectorComponent scheduler, TimeSpan currTime)
+    {
+        var minutes = (float) (currTime - scheduler.LastBudgetUpdate).TotalMinutes * _event.EventSpeedup;
+        scheduler.LastBudgetUpdate = currTime;
+        scheduler.DestructionBudget = MathF.Min(scheduler.MaxDestructionBudget,
+            scheduler.DestructionBudget + minutes * scheduler.DestructionRegenPerMinute);
+    }
+
+    private ChaosMetrics CalculatePendingChaos(GameDirectorComponent scheduler, TimeSpan currTime)
+    {
+        var keep = scheduler.PendingDuration > scheduler.RepeatWindow ? scheduler.PendingDuration : scheduler.RepeatWindow;
+        scheduler.FiredEvents.RemoveAll(fired => (currTime - fired.Time) * _event.EventSpeedup > keep);
+
+        var pending = new ChaosMetrics();
+        foreach (var fired in scheduler.FiredEvents)
+        {
+            var age = (currTime - fired.Time) * _event.EventSpeedup;
+            var remaining = 1.0 - age / scheduler.PendingDuration;
+            if (remaining <= 0)
+                continue;
+
+            foreach (var (metric, value) in fired.Chaos.ChaosDict)
+                pending.ChaosDict[metric] = pending.ChaosDict.GetValueOrDefault(metric) + value * remaining;
+        }
+
+        return pending;
+    }
+
+    private void LogMessage(string message, bool showChat = true)
+    {
+        _adminLogger.Add(LogType.GameDirector, showChat ? LogImpact.Medium : LogImpact.Low, $"{message}");
         if (showChat)
             _chat.SendAdminAnnouncement("GameDirector " + message);
     }
 
     public ChaosMetrics CalculateChaos(EntityUid uid)
     {
-        // Send an event to chaos metric components on the Game Director's entity.
         var calcEvent = new CalculateChaosEvent(new ChaosMetrics());
         RaiseLocalEvent(uid, ref calcEvent);
 
         var metrics = calcEvent.Metrics;
 
-        // Calculated metrics
         metrics.ChaosDict[ChaosMetric.Combat] = metrics.ChaosDict.GetValueOrDefault(ChaosMetric.Friend) +
                                                 metrics.ChaosDict.GetValueOrDefault(ChaosMetric.Hostile);
         return calcEvent.Metrics;
