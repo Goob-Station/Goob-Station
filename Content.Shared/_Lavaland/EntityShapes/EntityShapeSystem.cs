@@ -1,4 +1,4 @@
-﻿using Content.Shared._Lavaland.Anger.Systems;
+using Content.Shared._Lavaland.Anger.Systems;
 using Content.Shared._Lavaland.EntityShapes.Components;
 using Content.Shared._Lavaland.EntityShapes.Shapes;
 using Content.Shared._Lavaland.Megafauna.Events;
