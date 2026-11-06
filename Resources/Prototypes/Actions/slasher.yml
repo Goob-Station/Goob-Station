@@ -153,7 +153,7 @@
 - type: entity
   id: ActionSlasherRelentlessGrab
   name: Relentless Grab
-  description: Your next melee attack will grab your target.
+  description: Forcefully grab your target or force open a door.
   components:
   - type: Action
     raiseOnUser: true
@@ -161,5 +161,13 @@
     checkCanInteract: false
     itemIconStyle: BigAction
     icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: RelentlessGrab }
-  - type: InstantAction
+  - type: TargetAction
+    range: 1.5
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+      - Door
     event: !type:SlasherRelentlessGrabEvent
