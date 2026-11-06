@@ -1048,6 +1048,7 @@
   - type: SurgeryOrganOnAddCondition
     components:
       brain:
+      - type: Lobotomized
       - type: OhioAccent
       - type: RatvarianLanguage
       - type: Clumsy
@@ -1072,6 +1073,7 @@
   - type: SurgeryOrganOnAddCondition
     components:
       brain:
+      - type: Lobotomized
       - type: OhioAccent
       - type: RatvarianLanguage
       - type: Clumsy

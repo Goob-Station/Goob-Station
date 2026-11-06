@@ -147,6 +147,7 @@
   - type: ReplacementAccent
     accent: slaughterDemon
   - type: GrantHellRip
+    grantType: Use
   - type: WeakToHoly
     alwaysTakeHoly: true
   - type: Hands

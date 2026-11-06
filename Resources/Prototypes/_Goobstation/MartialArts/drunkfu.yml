@@ -1,0 +1,13 @@
+# TODO!!
+
+- type: martialArt
+  id: DrunkFu
+  combos: []
+  weight: 2
+
+# Intended effects:
+# Grab intent: 70% to fail
+# Harm intent: 72% to miss. 26% to deal 1-6 brute and stamina damage. 2% to uppercut for 14 damage
+# If 51 or more stamina damage:
+# Each attack has a percentage equal to the target's stamina damage to perform a haymaker,
+# knocking down the target and paralyzing for 10 seconds

@@ -28,8 +28,7 @@
   - !type:AddComponentSpecial
     components:
       - type: GrantCqc
-        startingStage: Hard
-        isBlocked: true
+        restrictedZones: [ ZoneKitchen ]
   - !type:AddImplantSpecial # Chefs speak space italian
     implants: [ SpaceItalianTranslatorImplant ]
 

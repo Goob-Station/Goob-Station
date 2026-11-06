@@ -1,0 +1,88 @@
+# TODO
+
+- type: martialArt
+  id: BearFu
+  combos:
+  - BearFuBearJaws
+  - BearFuPawSlam
+  - BearFuSmokey
+  weight: 8
+
+- type: martialArtsCombo
+  id: BearFuBearJaws
+  name: Bear Jaws
+  attacks:
+  - Harm
+  - Grab
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 10
+  - !type:MartialArtsDamage # extra if prone
+    damage:
+      types:
+        Blunt: 10
+    conditions:
+    - !type:ProneCondition
+
+- type: martialArtsCombo
+  id: BearFuPawSlam
+  name: Paw Slam
+  attacks:
+  - Disarm
+  - Harm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 10
+  - !type:MartialArtsDamage # if prone 10 extra blunt
+    damage:
+      types:
+        Blunt: 10
+    conditions:
+    - !type:ProneCondition
+  - !type:ModifyKnockdown # if not prone give 4 sec knockdown
+    type: Set
+    time: 4
+    conditions:
+    - !type:ProneCondition
+      inverted: true
+  - !type:MovementSpeedModifier # if not prone give 4 sec slowdown
+    type: Set
+    time: 6
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+    effectProto: MartialArtsGenericSlowdownEffect
+    conditions:
+    - !type:ProneCondition
+      inverted: true
+  - !type:MovementSpeedModifier # if prone 2 sec sowdown
+    type: Set
+    time: 2
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+    effectProto: MartialArtsGenericSlowdownEffect
+    conditions:
+    - !type:ProneCondition
+
+- type: martialArtsCombo
+  id: BearFuSmokey
+  name: Smokey
+  attacks:
+  - Disarm
+  - Disarm
+  userEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Burn: 10
+  - !type:AddFireStacks
+    stacks: 1

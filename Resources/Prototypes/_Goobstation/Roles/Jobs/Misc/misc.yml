@@ -110,8 +110,6 @@
   - !type:AddComponentSpecial
     components:
     - type: GrantCqc
-      startingStage: Hard
-      isBlocked: false
     - type: NpcFactionMember
       factions:
       - Syndicate
