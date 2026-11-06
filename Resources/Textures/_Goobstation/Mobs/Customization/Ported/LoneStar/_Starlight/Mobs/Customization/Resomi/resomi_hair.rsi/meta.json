@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Backstrage, BurstShort, Default, Droopy, Ears, Fluffymohawk, Hedge, Longway, Mane, ManeBeardless, Mohawk, Mushroom, Notree, Pointy, Spiky, Twies, Upright and Long taken from https://github.com/infinitystation/Baystation12/tree/master/infinity/icons/mob/human_races/species/resomi. Cube created by CoolioDudio with edits by Huaqas (GitHub). Samurai, Wedge created by Huaqas (GitHub). Colonel created by Davyei (Discord). Aerodynamic, bun, cowlick, crest, crowned, mohawk_alt, peel, ponytail sleep, soap, spiky_alt and sweptup taken from Polaris commit 4e9c367322a5a07604d120c0972adbc61fba9a25, with edits by Huaqas (GitHub). Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab/Resources/Textures/_Starlight/Mobs/Customization/Resomi/resomi_hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ResomiColonel",
+      "directions": 4
+    },
+    {
+      "name": "ResomiCube",
+      "directions": 4
+    },
+    {
+      "name": "ResomiWedge",
+      "directions": 4
+    },
+    {
+      "name": "ResomiSamurai",
+      "directions": 4
+    },
+    {
+      "name": "ResomiAerodynamic",
+      "directions": 4
+    },
+    {
+      "name": "ResomiBun",
+      "directions": 4
+    },
+    {
+      "name": "ResomiCowlick",
+      "directions": 4
+    },
+    {
+      "name": "ResomiCrest",
+      "directions": 4
+    },
+    {
+      "name": "ResomiCrowned",
+      "directions": 4
+    },
+    {
+      "name": "ResomiMohawk_Alt",
+      "directions": 4
+    },
+    {
+      "name": "ResomiPeel",
+      "directions": 4
+    },
+    {
+      "name": "ResomiPonytail",
+      "directions": 4
+    },
+    {
+      "name": "ResomiSleek",
+      "directions": 4
+    },
+    {
+      "name": "ResomiSoap",
+      "directions": 4
+    },
+    {
+      "name": "ResomiSpiky_Alt",
+      "directions": 4
+    },
+    {
+      "name": "ResomiSweptup",
+      "directions": 4
+    }
+  ]
+}

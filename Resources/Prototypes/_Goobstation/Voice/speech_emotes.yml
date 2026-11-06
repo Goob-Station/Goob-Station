@@ -286,3 +286,287 @@
     - hoot
     - hooting
     - hooted
+
+- type: emote
+  id: Scree
+  name: chat-emote-name-scree
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-scree"]
+  chatTriggers:
+    - scree
+    - screes
+    - screeing
+    - screed
+
+- type: emote
+  id: Call
+  name: chat-emote-name-call
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-call"]
+  chatTriggers:
+    - call
+    - calls
+    - calling
+    - called
+
+- type: emote
+  id: Squawk
+  name: chat-emote-name-squawk
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-squawk"]
+  chatTriggers:
+    - squawk
+    - squawks
+    - squawking
+    - squawked
+
+- type: emote
+  id: Quack
+  name: chat-emote-name-quack
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-quack"]
+  chatTriggers:
+    - quack
+    - quacks
+    - quacking
+    - quacked
+
+- type: emote
+  id: Snort
+  name: chat-emote-name-snort
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/sigh.png
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-snort"]
+  chatTriggers:
+    - snort
+    - snorts
+    - snorting
+    - snorted
+
+- type: emote
+  id: Squee
+  name: chat-emote-name-squee
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/squeak.png
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-squee"]
+  chatTriggers:
+    - squee
+    - squees
+    - squeeing
+    - squeed
+
+- type: emote
+  id: Stomp
+  name: chat-emote-name-stomp
+  category: Hands
+  available: false
+  icon: Interface/Emotes/tailslap.png
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-stomp"]
+  chatTriggers:
+    - stomp
+    - stomps
+    - stomping
+    - stomped
+
+- type: emote
+  id: Gekker
+  name: chat-emote-name-gekker
+  category: Vocal
+  icon: Interface/Emotes/laugh.png
+  whitelist:
+    tags:
+    - VulpEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-gekker"]
+  chatTriggers:
+    - gekker
+    - gekkers
+    - gekkering
+    - gekkered
+
+- type: emote
+  id: Yap
+  name: chat-emote-name-yap
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/bark.png
+  whitelist:
+    tags:
+    - VulpEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-yap"]
+  chatTriggers:
+    - yap
+    - yaps
+    - yapping
+    - yapped
+
+- type: emote
+  id: Gurgle
+  name: chat-emote-name-gurgle
+  category: Vocal
+  icon: Interface/Emotes/weh.png
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-gurgle"]
+  chatTriggers:
+    - gurgle
+    - gurgles
+    - gurgling
+    - gurgled
+
+- type: emote
+  id: Liss
+  name: chat-emote-name-liss
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/hiss.png
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-liss"]
+  chatTriggers:
+    - liss
+    - lisses
+    - lissing
+    - lissed
+
+- type: emote
+  id: Lurr
+  name: chat-emote-name-lurr
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/purr.png
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-lurr"]
+  chatTriggers:
+    - lurr
+    - lurrs
+    - lurring
+    - lurred
+
+- type: emote
+  id: Snicker
+  name: chat-emote-name-snicker
+  category: Vocal
+  icon: Interface/Emotes/laugh.png
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-snicker"]
+  chatTriggers:
+    - snicker
+    - snickers
+    - snickering
+    - snickered
+
+- type: emote
+  id: Multichirp
+  name: chat-emote-name-multichirp
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/chirp.png
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-multichirp"]
+  chatTriggers:
+    - chirps a chorus
+    - chirps in a chorus
+    - chorus of chirps
+
+- type: emote
+  id: SyndieBorgLaugh
+  name: chat-emote-name-synth-laugh
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/laugh.png
+  chatMessages: ["chat-emote-msg-laugh"]
+  chatTriggers:
+    - synlaugh
+    - synlaughs
+
+- type: emote
+  id: Hum
+  name: chat-emote-name-hum
+  category: Vocal
+  icon: Interface/Emotes/whistle.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+    - Silicon
+  chatMessages: ["chat-emote-msg-hum"]
+  chatTriggers:
+    - hum
+    - hums
+    - humming
+    - hummed
+
+- type: emote
+  id: Sniff
+  name: chat-emote-name-sniff
+  category: Vocal
+  icon: Interface/Emotes/sigh.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+    - Silicon
+  chatMessages: ["chat-emote-msg-sniff"]
+  chatTriggers:
+    - sniff
+    - sniffs
+    - sniffing
+    - sniffed

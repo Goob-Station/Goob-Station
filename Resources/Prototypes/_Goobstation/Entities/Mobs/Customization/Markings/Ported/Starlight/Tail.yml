@@ -1,0 +1,204 @@
+# Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42
+
+- type: marking
+  id: ExtraFluffyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: fluffy_tail_ex
+
+- type: marking
+  id: FoxlikeTailFennec
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: fennec
+
+- type: marking
+  id: FoxlikeTailFluffy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: fluffy
+
+- type: marking
+  id: FoxlikeTailLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: long
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: long-tip
+
+- type: marking
+  id: MothDSwirlWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/Moth/moth_wings.rsi
+    state: dswirl_wings_fluff
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/Moth/moth_wings.rsi
+    state: dswirl_wings
+
+- type: marking
+  id: SlimeTailGlassleaf
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/tail.rsi
+    state: glassleaf
+
+- type: marking
+  id: SlimeTailGummyCat
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/tail.rsi
+    state: gummy_cat
+
+- type: marking
+  id: SlimeTailHoppingSlime
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/tail.rsi
+    state: hopping_slime
+
+- type: marking
+  id: SlimeTailNudibranchi
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/tail.rsi
+    state: nudibranchi
+
+- type: marking
+  id: SlimeTailVulpish
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/tail.rsi
+    state: vulpish
+
+- type: marking
+  id: SlimeTailWaggableMassWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/tail.rsi
+    state: waggable_mass_wagging
+
+- type: marking
+  id: VoxBushTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: bushtail
+
+- type: marking
+  id: VoxPeafowlTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: peafowltailbase
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: peafowltaileyes
+
+- type: marking
+  id: VoxPlumage
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: voxplumage
+
+- type: marking
+  id: VoxSeveredTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: severedtail
+
+- type: marking
+  id: VoxShaggyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vox.rsi
+    state: voxshaggytail
+
+- type: marking
+  id: VulpTailPossum
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: possum
+
+- type: marking
+  id: VulpTailRaccoon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: raccoon
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: raccoon-stripes
+
+- type: marking
+  id: VulpTailSkunk
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: skunk
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi
+    state: skunk-top
+
+- type: marking
+  id: VulpTailVulpAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp-wagging
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp-wagging-tip
+
+- type: marking
+  id: VulpTailVulpFadeAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp-wagging
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp-wagging-fade

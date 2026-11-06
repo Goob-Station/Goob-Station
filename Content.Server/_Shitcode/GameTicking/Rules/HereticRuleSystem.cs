@@ -98,10 +98,11 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
         }
         store.CurrencyWhitelist.Add(Currency);
         store.Balance.Add(Currency, 2);
+        store.Tree = rule.StoreTree;
 
         rule.Minds.Add(mindId);
 
-        _ui.SetUi(mindId, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface", -1));
+        _ui.SetUi(mindId, StoreUiKey.Key, new InterfaceData("StoreTreeBoundUserInterface", -1));
         _ui.SetUi(mindId, HereticLivingHeartKey.Key, new InterfaceData("LivingHeartMenuBoundUserInterface", -1));
 
         return true;

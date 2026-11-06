@@ -1,0 +1,85 @@
+# Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116
+
+- type: marking
+  id: MothEmoTuft
+  bodyPart: HeadSide
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Moth/head.rsi
+    state: emotuft
+
+- type: marking
+  id: MothHeadTuft
+  bodyPart: HeadSide
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Moth/head.rsi
+    state: headtuft
+
+- type: marking
+  id: MothTinyTuft
+  bodyPart: HeadSide
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Moth/head.rsi
+    state: tinytuft
+
+- type: marking
+  id: MothTuftBangs
+  bodyPart: HeadSide
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Moth/head.rsi
+    state: tuftbangs
+
+- type: marking
+  id: MothVerticalTuft
+  bodyPart: HeadSide
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Moth/head.rsi
+    state: verticaltuft
+
+- type: marking
+  id: PrettyFly
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [Human]
+  forcedColoring: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Human/headtop.rsi
+    state: fly
+
+- type: marking
+  id: Shadow
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Human, SlimePerson]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#000000"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Humanoid/head.rsi
+    state: shadow
+
+- type: marking
+  id: TattooEyeVulpkaninLeft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_vulpkanin_l

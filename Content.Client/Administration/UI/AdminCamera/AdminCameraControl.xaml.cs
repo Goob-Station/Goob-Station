@@ -97,5 +97,7 @@ public sealed partial class AdminCameraControl : Control
 
         if (_entManager.TryGetComponent<EyeComponent>(CurrentCamera, out var eye))
             CameraView.Eye = eye.Eye ?? _defaultEye;
+
+        UpdateCustomView(); // Goob
     }
 }

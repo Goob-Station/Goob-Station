@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297/modular_skyrat/master_files/icons/mob/body_markings/tattoo_markings.dmi. eyeshadow_upper and eyeshadow_lower made by Flareguy for Space Station 14. Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/Mobs/Customization/tattoos.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tattoo_eye_vulpkanin_l",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "themageofmicrosoftpaints. Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42/Resources/Textures/_Afterlight/Mobs/Customization/SlimePerson/ears.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bunks",
+      "directions": 4
+    },
+    {
+      "name": "carblunkle",
+      "directions": 4
+    },
+    {
+      "name": "hoppers",
+      "directions": 4
+    },
+    {
+      "name": "stalks",
+      "directions": 4
+    },
+    {
+      "name": "stalks_small",
+      "directions": 4
+    },
+    {
+      "name": "thorns",
+      "directions": 4
+    }
+  ]
+}

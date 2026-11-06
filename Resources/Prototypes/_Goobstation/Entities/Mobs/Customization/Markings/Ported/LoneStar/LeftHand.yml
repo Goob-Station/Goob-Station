@@ -1,0 +1,21 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: ResomiLArmFade
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_arm_markings.rsi
+    state: l_arm_fade
+
+- type: marking
+  id: ResomiLArmFeathersComplex
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_arm_markings.rsi
+    state: l_hand_feathers_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_arm_markings.rsi
+    state: l_hand_feathers_secondary

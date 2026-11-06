@@ -13,7 +13,7 @@ ghost-role-information-apprentice-ethereal-name = Apprentice (Ethereal)
 ghost-role-information-apprentice-ethereal-desc = You are an apprentice proficient in the Ethereal Jaunt and Teleport spells. Protect the wizard who has summoned you at all costs.
 
 ghost-role-information-apprentice-summon-name = Apprentice (Summon)
-ghost-role-information-apprentice-summon-desc = You are an apprentice proficient in the Lesser Summon Bees and Summon Simians spells. Protect the wizard who has summoned you at all costs.
+ghost-role-information-apprentice-summon-desc = You are an apprentice proficient in the Lesser Summon Bees, Summon Simians and Summon Supermatter spells. Protect the wizard who has summoned you at all costs.
 
 ghost-role-information-apprentice-gun-name = Apprentice (Gunslinger)
 ghost-role-information-apprentice-gun-desc = You are an apprentice proficient in the Lesser Summon Guns, Smoke and Blink spells. Protect the wizard who has summoned you at all costs.

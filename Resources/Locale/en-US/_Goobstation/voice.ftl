@@ -19,43 +19,6 @@ voice-link-expiry = Leave the page open while you play. The code only works unti
 voice-link-loading = Getting your link...
 voice-link-open = Open in browser
 voice-link-copy = Copy link
-voice-link-close = Close
-
-voice-guide-title = Voice Chat
-voice-guide-unbound = (no key set)
-voice-guide-intro = Voice chat on this server works like talking in person. Your voice comes from your character, and only people close enough to hear them will hear you.
-voice-guide-talking-title = Talking
-voice-guide-talking =
-    The further away someone is, the quieter you get. Anything in the way, like a wall, a door or a window, muffles you.
-
-    Talk louder than you normally do and you'll shout, which can be heard further away. Whispers can only be heard by people a few tiles away.
-    Any situations in which you normally wouldn't be able to type in chat in SS14, like when you are muted, dead, etc, you will not be able to speak out loud.
-
-    Hold [bold]{$local}[/bold] to talk. If you'd rather not use PTT, switch to voice activation on the voice chat page.
-voice-guide-radio-title = Radio
-voice-guide-radio =
-    Hold [bold]{$radio}[/bold] to talk over the radio. Anyone nearby can still hear you as if you are speaking normally.
-
-    The radio button in chat is used to select your channel. If it's set to Local, [bold]{$radio}[/bold] uses the first channel on your headset. The same menu lets you mute channels you don't care about and turn the radio volume down.
-
-    On voice activation, picking a channel keeps you on the radio every time you speak, so set it back to Local when you're done. Handheld radios and intercoms with their mic switched on will pick you up too if you talk near them.
-voice-guide-station-title = Around the station
-voice-guide-station =
-    Phones and holopads pick up anyone nearby. Megaphones allow you to be heard from several tiles away. If you have access, a communications console lets you broadcast to the whole station.
-
-    The AI hears and talks through its cameras. Ghosts can talk to each other, but living players can't hear them.
-voice-guide-controls-title = Controls
-voice-guide-controls =
-    The mic and headphone icons next to the chat box mute your mic or deafen you. Right-click someone to mute them or turn them up or down.
-
-    Voice volume is in Options under Audio. You can rebind the push-to-talk keys under Controls.
-voice-guide-rules-title = Rules
-voice-guide-rules =
-    Voice chat has the same rules as text chat. With two exceptions:
-    1. Keep your microphone at a reasonable level. If you are intentonally micspamming/earraping, you will be muted or banned.
-    2. Only the clown can use soundboards.
-    Have fun!
-voice-guide-connect-title = Connect your mic
 
 cmd-voicemute-desc = Toggles whether a player's voice chat is muted.
 cmd-voicemute-help = Usage: voicemute <username>
@@ -81,9 +44,6 @@ voice-verb-category = Voice chat
 voice-verb-mute = Mute
 voice-verb-unmute = Unmute
 voice-verb-volume = Volume {$percent}%
-
-voice-prompt-later = Not now
-voice-prompt-never = Don't ask again
 
 voice-speaker-unknown = Unknown
 voice-route-radio = Radio

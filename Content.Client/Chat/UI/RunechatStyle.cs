@@ -1,7 +1,5 @@
 using Robust.Client.Graphics;
-using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Chat.UI;
 
@@ -13,33 +11,14 @@ public static class RunechatStyle
     public const int MaxFontSize = 24;
     private const float DesignPixelsPerEm = 8f;
 
-    private static readonly Dictionary<(string, int), Font> Fonts = new();
-    private static readonly Dictionary<(string, int), Stylesheet> Sheets = new();
-
     public static Font GetFont(string path, int size)
     {
-        if (Fonts.TryGetValue((path, size), out var font))
-            return font;
-
-        var cache = IoCManager.Resolve<IResourceCache>();
-        font = new VectorFont(cache.GetResource<FontResource>(path), size);
-        Fonts[(path, size)] = font;
-        return font;
+        return IoCManager.Resolve<RunechatFontCache>().GetFont(path, size);
     }
 
     public static Stylesheet GetStylesheet(string path, int size)
     {
-        if (Sheets.TryGetValue((path, size), out var sheet))
-            return sheet;
-
-        sheet = new Stylesheet(new[]
-        {
-            new StyleRule(
-                new SelectorElement(typeof(RichTextLabel), null, null, null),
-                new[] { new StyleProperty(Label.StylePropertyFont, GetFont(path, size)) }),
-        });
-        Sheets[(path, size)] = sheet;
-        return sheet;
+        return IoCManager.Resolve<RunechatFontCache>().GetStylesheet(path, size);
     }
 
     public static int ScaleSize(int baseSize, int fontSize)

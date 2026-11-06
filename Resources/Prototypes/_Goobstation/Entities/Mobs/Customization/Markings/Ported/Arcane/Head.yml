@@ -1,0 +1,228 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: AndroidDefaultHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android_default.rsi
+    state: head_f
+
+- type: marking
+  id: AndroidHeadFemaleSynt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android_heads.rsi
+    state: synt_f
+
+- type: marking
+  id: AnkylosaurusHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: ankylosaurus-head
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: ankylosaurus-head-eyes
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: ankylosaurus-head-spikes
+
+- type: marking
+  id: AxolotlHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: axolotl-head-himera
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: axolotl-head-himera-r
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: axolotl-antennas-himera-ins-l
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: axolotl-antennas-himera-ins-r
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: axolotl-antennas-himera-l
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: axolotl-antennas-himera-r
+
+- type: marking
+  id: IPSHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ips_head
+
+- type: marking
+  id: PachycephalosaurusHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: pachycephalosaurus-head
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: pachycephalosaurus-head-spikes
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: pachycephalosaurus-head-snout
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: pachycephalosaurus-head-spikes-snout
+
+- type: marking
+  id: PawsitronsHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: pawsitrons_head
+
+- type: marking
+  id: RaptorHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: raptor-head
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: raptor-feathers
+
+- type: marking
+  id: SGMHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: sgmipc_head
+
+- type: marking
+  id: SnakeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: snake-hood
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: snake-hood-inside
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: snake-snout
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: snake-snout-belly
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: snake-snout-teeth
+
+- type: marking
+  id: SteampunkHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: staripc_head
+
+- type: marking
+  id: TRexHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: t-rex-head
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: t-rex-head-eyes
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: t-rex-head-teeth
+
+- type: marking
+  id: TajaranEyeStripesHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: eye_stripes_head
+
+- type: marking
+  id: TajaranManeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: mane_head
+
+- type: marking
+  id: TajaranPatch2
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: patch_2
+
+- type: marking
+  id: TajaranRaccoon-head
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: raccoon-head
+
+- type: marking
+  id: TajaranStarHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: star_head
+
+- type: marking
+  id: TajaranTigerFace
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: tiger_face
+
+- type: marking
+  id: TajaranTigerHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: tiger_head
+
+- type: marking
+  id: TriceratopsHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: triceratops-head
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: triceratops-head-beak
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: triceratops-head-horn
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: triceratops-head-horns
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: triceratops-head-spikes

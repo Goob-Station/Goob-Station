@@ -1,0 +1,28 @@
+# Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116
+
+- type: marking
+  id: ArachnidCheliceraeBig
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Arachnid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Arachnid/headside.rsi
+    state: big
+
+- type: marking
+  id: ArachnidCheliceraeLongjaw
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Arachnid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Arachnid/headside.rsi
+    state: longjaw
+
+- type: marking
+  id: ArachnidCheliceraeSolifugid
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Arachnid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Impstation/_Impstation/Mobs/Customization/Arachnid/headside.rsi
+    state: solifugid

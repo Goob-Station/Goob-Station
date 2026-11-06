@@ -1,0 +1,157 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: SynthLArmCore
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/arms.rsi
+    state: arm_core_l
+
+- type: marking
+  id: SynthLArmStreak
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/arms.rsi
+    state: arm_streak_l
+
+- type: marking
+  id: SynthRArmCore
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/arms.rsi
+    state: arm_core_r
+
+- type: marking
+  id: SynthRArmStreak
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_HL/Mobs/Customization/Synth/Orchids/arms.rsi
+    state: arm_streak_r
+
+- type: marking
+  id: WFMeridianMarkingDatasharkLArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Feroxi]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: datashark_l_arm
+
+- type: marking
+  id: WFMeridianMarkingDatasharkRArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Feroxi]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: datashark_r_arm
+
+- type: marking
+  id: WFMeridianMarkingOakwormGrayscaleLArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: oakworm_grayscale_l_arm
+
+- type: marking
+  id: WFMeridianMarkingOakwormGrayscaleRArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: oakworm_grayscale_r_arm
+
+- type: marking
+  id: WFMeridianMarkingSynthCollarLightsLArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Synth]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: synth_collar_lights_l_arm
+
+- type: marking
+  id: WFMeridianMarkingSynthCollarLightsRArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Synth]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: synth_collar_lights_r_arm
+
+- type: marking
+  id: WFMeridianMarkingWitchwingGrayscaleLArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: witchwing_grayscale_l_arm
+
+- type: marking
+  id: WFMeridianMarkingWitchwingGrayscaleRArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_arms.rsi
+    state: witchwing_grayscale_r_arm

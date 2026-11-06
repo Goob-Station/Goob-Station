@@ -1,0 +1,73 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: HumanTattooArmImheartmomL
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_arm_imheartmom_l
+
+- type: marking
+  id: HumanTattooArmlazaL
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattooarm-laza_l
+
+- type: marking
+  id: HumanTattooLineArmL
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_line_arm_l
+
+- type: marking
+  id: HumanTattooSkeletarmL
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: tattoo_skelet_arm_l
+
+- type: marking
+  id: ReptilianTattoSkeletArmL
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Reptilian/custom.rsi
+    state: tatto_skelet_arm_l
+
+- type: marking
+  id: VulpPointsCrestArmL
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_crest-armsL
+
+- type: marking
+  id: VulpPointsFadeArmL
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_fade-armsL
+
+- type: marking
+  id: VulpPointsSharpArmL
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_sharp-armsL

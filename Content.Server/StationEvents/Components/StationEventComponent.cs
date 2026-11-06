@@ -109,6 +109,9 @@ public sealed partial class StationEventComponent : Component
     [DataField("chaos")]
     public ChaosMetrics Chaos = new ChaosMetrics();
 
+    [DataField]
+    public int Destruction;
+
     /// <summary>
     ///  What type of event is this.
     ///  Used by SecretPlus to determine whether it's allowed to fire this event.

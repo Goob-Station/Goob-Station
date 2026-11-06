@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from S.P.L.U.R.T at commit https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/96703f76bccd8fe6a96b78524efb97a9af661767. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/SimpleStation14/Mobs/Customization/tails32x32.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "axolotl",
+      "directions": 4
+    },
+    {
+      "name": "easternd_primary",
+      "directions": 4
+    },
+    {
+      "name": "easternd_secondary",
+      "directions": 4
+    },
+    {
+      "name": "fish_primary",
+      "directions": 4
+    },
+    {
+      "name": "fish_secondary",
+      "directions": 4
+    },
+    {
+      "name": "succubus",
+      "directions": 4
+    },
+    {
+      "name": "tentacle",
+      "directions": 4
+    }
+  ]
+}

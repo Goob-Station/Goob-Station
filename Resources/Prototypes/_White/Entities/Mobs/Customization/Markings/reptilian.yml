@@ -48,6 +48,7 @@
 # TAIL
 - type: marking
   id: SnakeLargeTail
+  wagging: SnakeLargeTailAnimated # Goob
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]

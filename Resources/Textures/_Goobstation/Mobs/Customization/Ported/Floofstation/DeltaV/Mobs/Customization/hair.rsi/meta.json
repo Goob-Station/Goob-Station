@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi modified by Adrian16199. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/DeltaV/Mobs/Customization/hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "short_bedhead",
+      "directions": 4
+    },
+    {
+      "name": "classic_bob",
+      "directions": 4
+    },
+    {
+      "name": "classic_messy",
+      "directions": 4
+    },
+    {
+      "name": "classic_gentle",
+      "directions": 4
+    },
+    {
+      "name": "classic_ombre",
+      "directions": 4
+    }
+  ]
+}

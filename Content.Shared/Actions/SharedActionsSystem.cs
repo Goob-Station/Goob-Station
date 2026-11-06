@@ -1054,7 +1054,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
     #region EquipHandlers
     private void OnDidEquip(Entity<ActionsComponent> ent, ref DidEquipEvent args)
     {
-        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
+        if (GameTiming.ApplyingState)
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment, args.SlotFlags);
@@ -1065,12 +1065,13 @@ public abstract partial class SharedActionsSystem : EntitySystem
 
         GrantActions((ent, ent), ev.Actions, args.Equipment);
 
-        LoadActions(args.Equipee); // Goobstation
+        if (GameTiming.IsFirstTimePredicted) // Goobstation
+            LoadActions(args.Equipee); // Goobstation
     }
 
     private void OnHandEquipped(Entity<ActionsComponent> ent, ref DidEquipHandEvent args)
     {
-        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
+        if (GameTiming.ApplyingState)
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Equipped);
@@ -1081,16 +1082,17 @@ public abstract partial class SharedActionsSystem : EntitySystem
 
         GrantActions((ent, ent), ev.Actions, args.Equipped);
 
-        LoadActions(args.User); // Goobstation
+        if (GameTiming.IsFirstTimePredicted) // Goobstation
+            LoadActions(args.User); // Goobstation
     }
 
     private void OnDidUnequip(EntityUid uid, ActionsComponent component, DidUnequipEvent args)
     {
-        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
+        if (GameTiming.ApplyingState)
             return;
 
         // Goobstation start
-        if (!TerminatingOrDeleted(args.Equipment))
+        if (GameTiming.IsFirstTimePredicted && !TerminatingOrDeleted(args.Equipment))
         {
             var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment, isEquipping: false); // Lavaland Change - added false for isEquipping
             RaiseLocalEvent(args.Equipment, ev);
@@ -1105,11 +1107,11 @@ public abstract partial class SharedActionsSystem : EntitySystem
 
     private void OnHandUnequipped(EntityUid uid, ActionsComponent component, DidUnequipHandEvent args)
     {
-        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
+        if (GameTiming.ApplyingState)
             return;
 
         // Goobstation start
-        if (!TerminatingOrDeleted(args.Unequipped))
+        if (GameTiming.IsFirstTimePredicted && !TerminatingOrDeleted(args.Unequipped))
         {
             var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Unequipped, isEquipping: false); // Lavaland Change - added false for isEquipping
             RaiseLocalEvent(args.Unequipped, ev);

@@ -1,0 +1,19 @@
+[game]
+hostname = "Goob Diadem 𝑀𝑅𝒫 ᴇᴜ-ᴡ | Voice Chat!"
+desc = "The illustrious Goob Station MRP, a resplendent sanctuary ordained solely for the most venerable and cultured denizens of our esteemed realm."
+defaultpreset = "TheWatcher"
+preset_round_cooldowns = "TheTempest:5"
+
+[voice]
+enabled = true
+ws_bind = "0.0.0.0:25591"
+trusted_proxies = "136.243.32.120"
+public_url = "https://diadem.goobstation.com/voice/"
+radio_enabled = true
+radio_common = false
+
+[news]
+pinned = "VoiceChat,PatreonSupport"
+
+[goob]
+window_title = "Goob Diadem"

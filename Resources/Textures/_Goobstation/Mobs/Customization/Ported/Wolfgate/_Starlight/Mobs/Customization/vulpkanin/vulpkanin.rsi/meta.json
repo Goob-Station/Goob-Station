@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Occulus-Eris (https://github.com/Occulus-Server/Occulus-Eris), modified and addendum by Ko4erga and MureixIoL, tail_fox_waggin and tail_wolf_waggin edited by Litogin. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_Starlight/Mobs/Customization/vulpkanin/vulpkanin.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pawsocks_arms",
+      "directions": 4
+    },
+    {
+      "name": "pawsocks_feet",
+      "directions": 4
+    },
+    {
+      "name": "vulp_belly-torso",
+      "directions": 4
+    }
+  ]
+}

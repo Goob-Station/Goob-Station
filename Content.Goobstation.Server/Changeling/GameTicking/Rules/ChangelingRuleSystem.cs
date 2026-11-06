@@ -88,6 +88,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
         store.Balance.Add(Currency, StartingCurrency);
+        store.Tree = rule.StoreTree;
 
         rule.ChangelingMinds.Add(mindId);
 

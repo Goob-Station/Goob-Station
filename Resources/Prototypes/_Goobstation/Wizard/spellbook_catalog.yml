@@ -343,6 +343,25 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
+- type: listing
+  id: SpellbookSummonSupermatter
+  productUpgradeId: SpellbookSummonSupermatterUpgrade
+  name: spellbook-summon-supermatter-name
+  description: spellbook-summon-supermatter-desc
+  productAction: ActionSummonSupermatter
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  disableRefund: true
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile
@@ -735,8 +754,6 @@
   categories:
   - SpellbookEquipment
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   - !type:BuyBeforeCondition
     whitelist:
     - SpellTiderBundle
@@ -832,7 +849,7 @@
   description: spellbook-demon-heart-desc
   productEntity: OrganMagicSlaughterHeart
   cost:
-    WizCoin: 6
+    WizCoin: 4
   categories:
   - SpellbookEquipment
   conditions:
@@ -855,9 +872,6 @@
     WizCoin: 2
   categories:
   - SpellbookSummons
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   disableRefund: true
 
 - type: listing
@@ -893,8 +907,6 @@
   categories:
   - SpellbookSummons
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 3
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
@@ -914,8 +926,6 @@
   categories:
   - SpellbookSummons
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 3
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
@@ -1022,8 +1032,6 @@
   categories:
   - SpellbookBundles
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookMimeMalaise
@@ -1041,8 +1049,6 @@
   categories:
   - SpellbookBundles
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   - !type:BuyBeforeCondition
     whitelistRequireAll: false
     whitelist:
@@ -1083,8 +1089,6 @@
   categories:
   - SpellbookBundles
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookHomingToolbox

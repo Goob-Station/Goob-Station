@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "Created for RMC-14/RMC-14 by @TadJohnson00 (GitHub). Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f/Resources/Textures/_RMC14/Mobs/Customization/ears.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "drow",
+      "directions": 4
+    }
+  ]
+}

@@ -3,5 +3,5 @@
   kind: source
   path: "/Textures/_Goobstation/Slasher/Shaders/slasher_boogeyman.swsl"
   params:
-    darkThreshold: 0.1
-    lightThreshold: 0.4
+    darkThreshold: 0.5 # Fully invisible at or below
+    lightThreshold: 0.85 # Fully visible at or above

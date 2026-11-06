@@ -1,0 +1,249 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: VulpClawsFootRight
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#e5e3d1"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: claws_r_foot
+
+- type: marking
+  id: VulpPointsCrestFootRight
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#e5e3d1"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: crest-foot-r
+
+- type: marking
+  id: VulpPointsFadeFootRight
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#e5e3d1"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/body_markings.rsi
+    state: points_fade-foot-r
+
+- type: marking
+  id: WFMeridianMarkingBovineRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Tajaran, Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: bovine_r_foot
+
+- type: marking
+  id: WFMeridianMarkingBovineSpotRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Tajaran, Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: bovine_spot_r_foot
+
+- type: marking
+  id: WFMeridianMarkingClawTipsRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Reptilian, Rodentia, Tajaran, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: claw_tips_r_foot
+
+- type: marking
+  id: WFMeridianMarkingDalmatianRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: dalmatian_r_foot
+
+- type: marking
+  id: WFMeridianMarkingDatasharkRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Feroxi]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: datashark_r_foot
+
+- type: marking
+  id: WFMeridianMarkingDogSpotRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: dog_spot_r_foot
+
+- type: marking
+  id: WFMeridianMarkingHyenaRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: hyena_r_foot
+
+- type: marking
+  id: WFMeridianMarkingPantherRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Felinid, Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: panther_r_foot
+
+- type: marking
+  id: WFMeridianMarkingPossumSockRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: possum_sock_r_foot
+
+- type: marking
+  id: WFMeridianMarkingRaggedGrayscaleRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Rodentia, Vulpkanin, Yowie]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: ragged_grayscale_r_foot
+
+- type: marking
+  id: WFMeridianMarkingReddishGrayscaleRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: reddish_grayscale_r_foot
+
+- type: marking
+  id: WFMeridianMarkingSabresuneRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: sabresune_r_foot
+
+- type: marking
+  id: WFMeridianMarkingSplotchesRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Rodentia, Tajaran, Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: splotches_r_foot
+
+- type: marking
+  id: WFMeridianMarkingTigerStripeRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Shadowkin, Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/body_legs.rsi
+    state: tiger_stripe_r_foot

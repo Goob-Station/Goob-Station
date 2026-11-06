@@ -1,0 +1,501 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/e507f9120bb0c3beecfe169d14193d90e7229a58/modular_skyrat/master_files/icons/mob/sprite_accessory , modified by github:Niki_. Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ipc_chest",
+      "directions": 4
+    },
+    {
+      "name": "ipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "ipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "ipc_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "ipc_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "ips_head",
+      "directions": 4
+    },
+    {
+      "name": "ips_chest",
+      "directions": 4
+    },
+    {
+      "name": "ips_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "ips_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "ips_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "ips_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "bshipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "bshipc_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "bshipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "bshipc_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "bshipc_chest",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "bs2ipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "bs2ipc_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "bs2ipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "bs2ipc_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "bs2ipc_chest",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "hsiipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "hsiipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "hsiipc_chest",
+      "directions": 4
+    },
+    {
+      "name": "hi2ipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "hi2ipc_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "hi2ipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "hi2ipc_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "hi2ipc_chest",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_chest",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_head",
+      "directions": 4
+    },
+    {
+      "name": "wtmipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "wtmipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "wtmipc_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "wtmipc_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "wtmipc_chest",
+      "directions": 4
+    },
+    {
+      "name": "xmgipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "xmgipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "xmgipc_chest",
+      "directions": 4
+    },
+    {
+      "name": "xm2ipc_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "xm2ipc_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "xm2ipc_chest",
+      "directions": 4
+    },
+    {
+      "name": "zhpipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "zhpipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "zhpipc_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "zhpipc_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "mcgipc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "mcgipc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "staripc_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "staripc_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "staripc_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "staripc_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "staripc_chest",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "staripc_head",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_head",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_r_leg",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_chest",
+      "directions": 4
+    },
+    {
+      "name": "hsiipc_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "ipc_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "ipc_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "staripc_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "staripc_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "wtmipc_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "wtmipc_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "xm2ipc_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "xm2ipc_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "zhpipc_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "zhpipc_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "hi2ipc_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "hi2ipc_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "staripc_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "staripc_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "bs2ipc_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "bs2ipc_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "bshipc_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "bshipc_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "ipc_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "ipc_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "ips_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "ips_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "mcgipc_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "mcgipc_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "pawsitrons_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "sgmipc_l_hand",
+      "directions": 4
+    }
+  ]
+}
