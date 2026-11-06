@@ -16,3 +16,5 @@ goobstation-ripley-bounty-name = Ripley MkII
 
 goobstation-gygax-bounty-desc = The Tranquility Assurance Force needs to enhance their Peacekeeping squadrons, we request a Gygax.
 goobstation-gygax-bounty-name = Gygax
+
+mech-fire-arc-blocked = That's outside the exosuit's firing arc. Turn to face it first.

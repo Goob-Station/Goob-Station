@@ -1,0 +1,9 @@
+- type: construction
+  id: MechChargingStationLattice
+  graph: MechChargingStation
+  startNode: start
+  targetNode: lattice
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
