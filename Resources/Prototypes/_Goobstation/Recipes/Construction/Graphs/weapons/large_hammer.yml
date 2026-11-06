@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: LargeHammer
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: largeHammer
+      steps:
+      - tag: Spear
+        name: construction-step-large-hammer-spear
+        icon:
+          sprite: Objects/Weapons/Melee/spear.rsi
+          state: spear
+      - tag: Hammer
+        name: construction-step-large-hammer-hammer
+      - material: Plasteel
+        amount: 15
+        doAfter: 5
+  - node: largeHammer
+    entity: WeaponLargeHammer
+
+- type: construction
+  id: LargeHammer
+  graph: LargeHammer
+  startNode: start
+  targetNode: largeHammer
+  category: construction-category-weapons
+  objectType: Item
+  description: construction-large-hammer-description
