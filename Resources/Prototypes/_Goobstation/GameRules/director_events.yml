@@ -131,7 +131,6 @@
   - type: StationEvent
     chaos:
       Fire: -60
-      Medical: -20
   - type: GameDirectorRequiresStaff
     departments:
     - Engineering

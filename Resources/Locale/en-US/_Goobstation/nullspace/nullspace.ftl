@@ -1,0 +1,10 @@
+cmd-nullspace-desc = Sends a player into nullspace, a first person maze with something in it.
+cmd-nullspace-help = Usage: nullspace [player] [clown delay in seconds]
+cmd-nullspace-hint-player = [player]
+cmd-nullspace-hint-delay = [clown delay in seconds]
+cmd-nullspace-no-player = No player named {$player}.
+cmd-nullspace-bad-delay = {$delay} is not a valid delay.
+cmd-nullspace-sent = Sent {$player} into nullspace.
+cmd-nullspace-not-in-game = That player is not in the game.
+cmd-nullspace-already = That player is already in nullspace.
+cmd-nullspace-no-mind = That player has no mind to send.

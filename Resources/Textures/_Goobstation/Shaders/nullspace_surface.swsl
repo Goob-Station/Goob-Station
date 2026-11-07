@@ -1,0 +1,152 @@
+light_mode unshaded;
+
+uniform highp vec3 camPos;
+uniform highp vec3 camForward;
+uniform highp vec3 camRight;
+uniform highp vec3 camUp;
+uniform highp float focal;
+uniform highp float aspect;
+uniform highp vec3 ambient;
+uniform highp vec3 lampColor;
+uniform highp vec4 lamp0;
+uniform highp vec4 lamp1;
+uniform highp vec4 lamp2;
+uniform highp vec4 lamp3;
+uniform highp vec3 spotColor;
+uniform highp vec2 spotCone;
+uniform highp vec4 spot0;
+uniform highp vec3 spot0Dir;
+uniform highp vec4 spot1;
+uniform highp vec3 spot1Dir;
+uniform highp vec4 spot2;
+uniform highp vec3 spot2Dir;
+uniform highp vec4 spot3;
+uniform highp vec3 spot3Dir;
+uniform highp vec3 fogColor;
+uniform highp float fogDensity;
+
+const highp float INV_PI = 0.3183098862;
+const highp float LAMP_RANGE = 5.8;
+const highp float SPOT_RANGE = 24.0;
+const highp float SHININESS = 20.0;
+const highp float BUMP = 3.0;
+
+highp float rangeFalloff(highp float dist, highp float range) {
+    highp float ratio = dist / range;
+    highp float window = clamp(1.0 - ratio * ratio * ratio * ratio, 0.0, 1.0);
+    return window * window / max(dist * dist, 0.01);
+}
+
+highp float maskBit(highp float mask, highp float bit) {
+    return mod(floor(mask / bit), 2.0);
+}
+
+highp float luma(highp vec2 uv) {
+    return dot(zTexture(uv).rgb, vec3(0.2126, 0.7152, 0.0722));
+}
+
+highp vec3 lightContribution(highp vec3 radiance, highp vec3 toLight, highp vec3 normal, highp vec3 albedo, highp vec3 specColor, highp vec3 view) {
+    highp float ndl = max(dot(normal, toLight), 0.0);
+    highp vec3 irradiance = radiance * ndl;
+    highp vec3 halfway = normalize(toLight + view);
+    highp float spec = (SHININESS + 2.0) * 0.125 * INV_PI * pow(max(dot(normal, halfway), 0.0), SHININESS);
+    return irradiance * (albedo * INV_PI + specColor * spec);
+}
+
+highp vec3 lamp(highp vec4 light, highp vec3 pos, highp vec3 normal, highp vec3 albedo, highp vec3 specColor, highp vec3 view) {
+    highp vec3 delta = light.xyz - pos;
+    highp float dist = length(delta);
+    highp vec3 radiance = lampColor * (light.w * rangeFalloff(dist, LAMP_RANGE));
+    return lightContribution(radiance, delta / max(dist, 0.0001), normal, albedo, specColor, view);
+}
+
+highp vec3 spot(highp vec4 light, highp vec3 dir, highp vec3 pos, highp vec3 normal, highp vec3 albedo, highp vec3 specColor, highp vec3 view) {
+    highp vec3 delta = light.xyz - pos;
+    highp float dist = length(delta);
+    highp vec3 toLight = delta / max(dist, 0.0001);
+    highp float cone = smoothstep(spotCone.x, spotCone.y, dot(-toLight, dir));
+    highp vec3 radiance = spotColor * (light.w * rangeFalloff(dist, SPOT_RANGE) * cone);
+    return lightContribution(radiance, toLight, normal, albedo, specColor, view);
+}
+
+void fragment() {
+    highp float invDepth = max(UV2.x, 0.0000001);
+    highp float depth = 1.0 / invDepth;
+    highp vec2 texCoord = UV / invDepth;
+    highp vec4 tex = zTexture(texCoord);
+    highp float encoded = floor(UV2.y + 0.5);
+    highp float material = mod(encoded, 16.0);
+    highp float mask = floor(encoded / 16.0);
+
+    highp vec2 screen = FRAGCOORD.xy * SCREEN_PIXEL_SIZE - vec2(0.5);
+    highp vec3 ray = camForward + camRight * (screen.x * aspect / focal) + camUp * (screen.y / focal);
+    highp vec3 pos = camPos + ray * depth;
+    highp vec3 view = normalize(camPos - pos);
+
+    highp vec3 normal = vec3(0.0, 0.0, 1.0);
+    highp vec3 tangent = vec3(1.0, 0.0, 0.0);
+    highp vec3 bitangent = vec3(0.0, 1.0, 0.0);
+    highp vec3 albedo = tex.rgb * 0.75;
+    highp vec3 specColor = mix(vec3(0.04), tex.rgb, 0.25);
+    highp vec3 emissive = vec3(0.0);
+    highp float alpha = 1.0;
+    highp float bumped = 1.0;
+
+    if (material > 0.5 && material < 1.5) {
+        normal = vec3(0.0, 0.0, -1.0);
+        albedo = tex.rgb * 0.254;
+        specColor = vec3(0.0);
+    } else if (material > 1.5 && material < 5.5) {
+        if (material < 2.5) {
+            normal = vec3(1.0, 0.0, 0.0);
+        } else if (material < 3.5) {
+            normal = vec3(-1.0, 0.0, 0.0);
+        } else if (material < 4.5) {
+            normal = vec3(0.0, 1.0, 0.0);
+        } else {
+            normal = vec3(0.0, -1.0, 0.0);
+        }
+        tangent = vec3(-normal.y, normal.x, 0.0);
+        bitangent = vec3(0.0, 0.0, 1.0);
+        albedo = tex.rgb * 0.9;
+        specColor = vec3(0.0);
+    } else if (material > 5.5 && material < 8.5 && (material < 6.5 || material > 7.5)) {
+        highp vec2 toCamera = camPos.xy - pos.xy;
+        normal = vec3(toCamera / max(length(toCamera), 0.0001), 0.0);
+        alpha = step(0.5, tex.a);
+        albedo = tex.rgb / max(tex.a, 0.0001);
+        specColor = vec3(0.0);
+        bumped = 0.0;
+        if (material < 6.5 && texCoord.y > 0.5625 && albedo.b > 0.262 && albedo.r < 0.156 && albedo.g < 0.262) {
+            emissive = vec3(0.58, 0.64, 1.0) * 0.35;
+        }
+    }
+
+    highp vec3 color;
+    if (material > 6.5 && material < 7.5) {
+        color = tex.rgb * MODULATE.rgb;
+    } else {
+        if (bumped > 0.5) {
+            highp float hl = luma(texCoord - vec2(TEXTURE_PIXEL_SIZE.x, 0.0));
+            highp float hr = luma(texCoord + vec2(TEXTURE_PIXEL_SIZE.x, 0.0));
+            highp float hd = luma(texCoord - vec2(0.0, TEXTURE_PIXEL_SIZE.y));
+            highp float hu = luma(texCoord + vec2(0.0, TEXTURE_PIXEL_SIZE.y));
+            normal = normalize(normal - tangent * ((hr - hl) * 0.5 * BUMP) - bitangent * ((hu - hd) * 0.5 * BUMP));
+        }
+
+        highp vec3 lit = ambient * albedo * INV_PI;
+        lit += lamp(lamp0, pos, normal, albedo, specColor, view) * maskBit(mask, 1.0);
+        lit += lamp(lamp1, pos, normal, albedo, specColor, view) * maskBit(mask, 2.0);
+        lit += lamp(lamp2, pos, normal, albedo, specColor, view) * maskBit(mask, 4.0);
+        lit += lamp(lamp3, pos, normal, albedo, specColor, view) * maskBit(mask, 8.0);
+        lit += spot(spot0, spot0Dir, pos, normal, albedo, specColor, view);
+        lit += spot(spot1, spot1Dir, pos, normal, albedo, specColor, view) * maskBit(mask, 16.0);
+        lit += spot(spot2, spot2Dir, pos, normal, albedo, specColor, view) * maskBit(mask, 32.0);
+        lit += spot(spot3, spot3Dir, pos, normal, albedo, specColor, view) * maskBit(mask, 64.0);
+        color = lit + emissive;
+    }
+
+    highp float fogAmount = 1.0 - exp(-fogDensity * fogDensity * depth * depth);
+    COLOR = vec4(mix(color, fogColor, fogAmount), alpha);
+    MODULATE = vec4(1.0);
+}
