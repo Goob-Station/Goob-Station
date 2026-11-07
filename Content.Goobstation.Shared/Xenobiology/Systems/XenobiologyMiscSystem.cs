@@ -17,12 +17,12 @@ namespace Content.Goobstation.Shared.Xenobiology.Systems;
 /// </summary>
 public sealed partial class XenobiologyMiscSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMagicSystem _magic = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMagicSystem _magic = default!;
 
     [SubscribeLocalEvent]
     private void OnMindTransference(MindTransferenceEvent ev)
