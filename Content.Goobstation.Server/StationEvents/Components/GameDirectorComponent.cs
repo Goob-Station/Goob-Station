@@ -148,6 +148,21 @@ public sealed partial class GameDirectorComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan LastReinforcement;
 
+    [DataField]
+    public TimeSpan HelpCooldown = TimeSpan.FromMinutes(12);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan LastHelp;
+
+    [DataField]
+    public float AntaglessChance;
+
+    [DataField]
+    public List<ProtoId<StoryPrototype>> AntaglessStories = new();
+
+    [ViewVariables]
+    public List<ProtoId<StoryPrototype>> OpeningStories = new();
+
     [ViewVariables]
     public List<EntProtoId> RoundstartAntags = new();
 

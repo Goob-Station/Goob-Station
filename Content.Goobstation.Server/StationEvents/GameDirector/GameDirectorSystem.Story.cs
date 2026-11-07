@@ -135,10 +135,21 @@ public sealed partial class GameDirectorSystem
     private bool TryStartNewStory(Entity<GameDirectorComponent> ent, PlayerCount count)
     {
         var scheduler = ent.Comp;
-        if (scheduler.Stories == null)
-            return false;
+        if (scheduler.OpeningStories.Count > 0)
+        {
+            var opening = scheduler.OpeningStories.ToList();
+            scheduler.OpeningStories.Clear();
+            if (TryStartStoryFrom(ent, opening, count))
+                return true;
+        }
 
-        var stories = scheduler.Stories.ToList();
+        return scheduler.Stories != null && TryStartStoryFrom(ent, scheduler.Stories, count);
+    }
+
+    private bool TryStartStoryFrom(Entity<GameDirectorComponent> ent, IEnumerable<ProtoId<StoryPrototype>> pool, PlayerCount count)
+    {
+        var scheduler = ent.Comp;
+        var stories = pool.ToList();
         _random.Shuffle(stories);
 
         foreach (var storyName in stories)
