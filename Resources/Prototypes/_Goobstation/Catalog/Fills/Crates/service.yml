@@ -426,3 +426,17 @@
       contents:
         - id: RadioHandheld
           amount: 5
+
+- type: entity
+  id: CrateCargoFlareBundle
+  parent: CratePlastic
+  name: flare bundle crate
+  description: Contains 2 flare guns, some muniton for the flare guns and a box of flares.
+  components:
+    - type: StorageFill
+      contents:
+        - id: WeaponFlareGun
+          amount: 2
+        - id: BoxShotgunFlare
+          amount: 2
+        - id: BoxFlare

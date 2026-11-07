@@ -105,3 +105,19 @@
     - id: AnomalyCoreElectricityInert
     - id: AnomalyCoreFloraInert
     - id: AnomalyCoreSantaInert
+
+- type: entity
+  id: CrateLARPerKit
+  parent: CrateGenericSteel
+  name: LARPing kit crate
+  description: Contains various bits of cardboard equipment and an improvised bow.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CardArmour
+      - id: ArrowCard
+        amount: 4
+      - id: CardHelmet
+      - id: CardShield
+      - id: CardSword
+      - id: BowImprovised
