@@ -16,8 +16,16 @@ public sealed partial class GameDirectorSystem
     private void TrySpawnRoundstartAntags(GameDirectorComponent scheduler)
     {
         scheduler.RoundstartAntags.Clear();
+        scheduler.OpeningStories.Clear();
         if (scheduler.NoRoundstartAntags)
             return;
+
+        if (scheduler.AntaglessStories.Count > 0 && _random.Prob(scheduler.AntaglessChance))
+        {
+            scheduler.OpeningStories.AddRange(scheduler.AntaglessStories);
+            LogMessage($"Skipping roundstart antags, opening with {string.Join(" or ", scheduler.AntaglessStories)}");
+            return;
+        }
 
         var playerCount = GetPlayerCount();
         LogMessage($"Total player count: {playerCount}", false);
@@ -74,6 +82,8 @@ public sealed partial class GameDirectorSystem
         LogMessage($"Roundstart antag chosen: {protoId}");
         RoundstartAntagsSelectedTotal.WithLabels(protoId).Inc();
         scheduler.RoundstartAntags.Add(protoId);
-        GameTicker.AddGameRule(protoId);
+        var rule = GameTicker.AddGameRule(protoId);
+        if (TryComp<GameRuleComponent>(rule, out var gameRule))
+            gameRule.CancelPresetOnTooFewPlayers = false;
     }
 }

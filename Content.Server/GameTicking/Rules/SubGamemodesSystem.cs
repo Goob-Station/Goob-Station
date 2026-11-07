@@ -14,7 +14,9 @@ public sealed class SubGamemodesSystem : GameRuleSystem<SubGamemodesComponent>
         foreach (var id in picked)
         {
             Log.Info($"Starting gamerule {id} as a subgamemode of {ToPrettyString(uid):rule}");
-            GameTicker.AddGameRule(id);
+            var subRule = GameTicker.AddGameRule(id); // Goob
+            if (TryComp<GameRuleComponent>(subRule, out var subGameRule)) // Goob
+                subGameRule.CancelPresetOnTooFewPlayers = false; // Goob
         }
     }
 }

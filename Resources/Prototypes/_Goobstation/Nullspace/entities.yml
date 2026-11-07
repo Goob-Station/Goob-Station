@@ -1,0 +1,174 @@
+- type: entity
+  id: MobNullspacePlayer
+  name: survivor
+  description: Somebody lost in nullspace.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_leg
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_leg
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_foot
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_foot
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: groin_m
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: chest_m
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_arm
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_arm
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_hand
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_hand
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: head_m
+    - sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+      state: equipped-INNERCLOTHING
+      color: "#4a4a4a"
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.12
+        density: 185
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Input
+    context: "human"
+  - type: InputMover
+  - type: MobMover
+  - type: Eye
+    drawFov: false
+  - type: MindContainer
+  - type: NullspacePlayer
+
+- type: entity
+  id: MobNullspaceClown
+  name: clown
+  description: It drains the lights it passes under.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_leg
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_leg
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_foot
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_foot
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: groin_m
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: chest_m
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_arm
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_arm
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_hand
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_hand
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: head_m
+    - sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Specific/clown.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Mask/clown.rsi
+      state: equipped-MASK
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 185
+        restitution: 0.0
+        mask:
+        - MobMask
+  - type: InputMover
+  - type: MobMover
+    stepSoundMoveDistanceRunning: 0.36
+    stepSoundMoveDistanceWalking: 0.36
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.72
+    baseSprintSpeed: 0.72
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+      params:
+        variation: 0.07
+  - type: HTN
+    rootTask:
+      task: NullspaceClownCompound
+    planCooldown: 0.2
+    blackboard:
+      VisionRadius: !type:Single
+        12
+      AggroVisionRadius: !type:Single
+        12
+      CatchRange: !type:Single
+        0.32
+      ArriveRange: !type:Single
+        0.3
+      HuntPauseMin: !type:Single
+        1
+      HuntPauseMax: !type:Single
+        3
+      PeekDelayMin: !type:Single
+        2.2
+      PeekDelayMax: !type:Single
+        3
+      Chasing: !type:Bool
+        false
+  - type: NullspaceClown
+
+- type: entity
+  id: NullspaceWall
+  name: wall
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: Structures/Walls/solid.rsi
+    drawdepth: Walls
+  - type: IconSmooth
+    key: walls
+    base: solid
+  - type: Occluder
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
