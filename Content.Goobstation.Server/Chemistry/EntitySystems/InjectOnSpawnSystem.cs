@@ -7,8 +7,8 @@ namespace Content.Goobstation.Shared.Chemistry;
 
 public sealed partial class InjectOnSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly ReactiveSystem _reactive = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private ReactiveSystem _reactive = default!;
 
     [SubscribeLocalEvent]
     private void OnInjectMapInit(Entity<InjectOnSpawnComponent> ent, ref MapInitEvent args)
