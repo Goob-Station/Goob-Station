@@ -52,6 +52,9 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
         if (scheduler.LastReinforcement != TimeSpan.Zero)
             scheduler.LastReinforcement += args.PausedTime;
 
+        if (scheduler.LastHelp != TimeSpan.Zero)
+            scheduler.LastHelp += args.PausedTime;
+
         for (var i = 0; i < scheduler.FiredEvents.Count; i++)
         {
             var fired = scheduler.FiredEvents[i];
@@ -136,6 +139,8 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
         _event.RunNamedEvent(chosen.StationEvent);
 
         scheduler.FiredEvents.Add(new FiredEvent(chosen.StationEvent, currTime, chosen.Chaos));
+        if (IsHelpEvent(chosen))
+            scheduler.LastHelp = currTime;
         scheduler.DestructionBudget = MathF.Max(0f, scheduler.DestructionBudget - chosen.Destruction);
         EventsRunTotal.WithLabels(chosen.StationEvent, beat.ID).Inc();
         DestructionBudgetGauge.Set(scheduler.DestructionBudget);
