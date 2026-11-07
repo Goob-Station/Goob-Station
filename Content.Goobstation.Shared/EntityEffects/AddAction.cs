@@ -19,7 +19,7 @@ public sealed partial class AddAction : EntityEffectBase<AddAction>
 
 public sealed partial class AddActionEntityEffectSystem : EntityEffectSystem<ActionsComponent, AddAction>
 {
-    [Dependency] private readonly SharedActionsSystem _action = default!;
+    [Dependency] private SharedActionsSystem _action = default!;
 
     protected override void Effect(Entity<ActionsComponent> entity, ref EntityEffectEvent<AddAction> args)
     {

@@ -6,7 +6,7 @@ namespace Content.Goobstation.Shared.Chemistry;
 
 public sealed partial class GoobReactiveSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEntityEffectsSystem _effect = default!;
+    [Dependency] private SharedEntityEffectsSystem _effect = default!;
 
     [SubscribeLocalEvent]
     private void OnReactionEntityDone(Entity<ReactiveComponent> ent, ref ReactionEntityDoneEvent args)
