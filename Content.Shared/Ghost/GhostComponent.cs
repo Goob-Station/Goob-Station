@@ -98,6 +98,9 @@ public sealed partial class GhostComponent : Component
 
     [DataField]
     public bool CanTakeGhostRoles = true;
+
+    [DataField]
+    public string MindswapText = "ghost";
     // Goobstation end
 }
 

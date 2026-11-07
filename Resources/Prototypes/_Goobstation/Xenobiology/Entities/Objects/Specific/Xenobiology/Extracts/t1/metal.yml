@@ -41,3 +41,37 @@
   - type: Tag
     tags:
     - XenobiologyMetalExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, MetalSlimeExtract ]
+  id: FilledMetalSlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:SpawnEntity
+        entity: SheetGlass1
+        number: 15
+      - !type:SpawnEntity
+        entity: SheetRGlass1
+        number: 5
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:SpawnEntity
+        entity: SheetSteel1
+        number: 15
+      - !type:SpawnEntity
+        entity: SheetPlasteel1
+        number: 5
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractFail

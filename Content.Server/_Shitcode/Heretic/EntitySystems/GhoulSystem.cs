@@ -55,6 +55,7 @@ using Content.Shared._Shitcode.Roles;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Roles.Components;
 using Content.Shared.Temperature.Components;
+using Content.Goobstation.Common.Magic;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -87,6 +88,7 @@ public sealed class GhoulSystem : EntitySystem
         SubscribeLocalEvent<GhoulComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<GhoulComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<GhoulComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<GhoulComponent, BeforeMindSwappedEvent>(OnBeforeMindSwapped);
 
         SubscribeLocalEvent<GhoulRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
@@ -320,5 +322,11 @@ public sealed class GhoulSystem : EntitySystem
         _body.GibBody(ent,
             body: body,
             contents: ent.Comp.DropOrgansOnDeath ? GibContentsOption.Drop : GibContentsOption.Skip);
+    }
+
+    private void OnBeforeMindSwapped(Entity<GhoulComponent> ent, ref BeforeMindSwappedEvent args)
+    {
+        args.Message = ent.Comp.MindswapText;
+        args.Cancelled = true;
     }
 }
