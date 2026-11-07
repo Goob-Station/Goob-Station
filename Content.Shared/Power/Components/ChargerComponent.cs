@@ -24,7 +24,7 @@ public sealed partial class ChargerComponent : Component
     /// The container ID that is holds the entities being charged.
     /// </summary>
     [DataField(required: true)]
-    public List<string> SlotId = new List<string>();
+    public List<string> SlotId = new List<string>(); //Goob, made so multiple item slots can be charged at one in a single charger
 
     /// <summary>
     /// A whitelist for what entities can be charged by this Charger.

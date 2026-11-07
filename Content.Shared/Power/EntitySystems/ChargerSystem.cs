@@ -49,6 +49,8 @@ public sealed class ChargerSystem : EntitySystem
         {
             // rate at which the charger charges
             args.PushMarkup(Loc.GetString("charger-examine", ("color", "yellow"), ("chargeRate", (int) component.ChargeRate)));
+            //Goob : checks each item slot assigned to the charger and either displays their respective charge level or tells if it's empty
+            //Goob : same principle as the older system with only one itemslot being able to be assigned per charger, except checks every item slot in the list, still works with only 1 itemslot
             foreach (var slot in component.SlotId)
             {
                 // try to get contents of the charger
@@ -192,6 +194,7 @@ public sealed class ChargerSystem : EntitySystem
     private void RefreshAllBatteries(Entity<ChargerComponent> ent)
     {
         // try to get contents of the charger
+        //Goob: does so for every itemslot of the charger
         foreach (var slot in ent.Comp.SlotId)
         {
             if (!_container.TryGetContainer(ent.Owner, slot, out var container))
@@ -208,6 +211,8 @@ public sealed class ChargerSystem : EntitySystem
     private void UpdateStatus(Entity<ChargerComponent> ent)
     {
         TryComp<AppearanceComponent>(ent, out var appearance);
+        //Goob: system checks for items in the slots of the charger, and when they find one update the power draw of the charger
+        // accordingly to its charge rate multiplied by the amount of items currently being charged inside the charger, ergo, two items charging, 2*chargerate
         int drawcount = 0;
         foreach (var slot in ent.Comp.SlotId)
         {
@@ -227,7 +232,7 @@ public sealed class ChargerSystem : EntitySystem
         switch (status)
         {
             case CellChargerStatus.Charging:
-                // TODO: If someone ever adds chargers that can charge multiple batteries at multiple rates, adjust drawcount depending on something that would equate
+                //Goob TODO: If someone ever adds chargers that can charge multiple batteries at multiple rates, adjust drawcount depending on something that would equate
                 //  to the total power draw of each recharging item
                 _receiver.SetLoad(ent.Owner, ent.Comp.ChargeRate * drawcount);
                 break;
@@ -250,6 +255,7 @@ public sealed class ChargerSystem : EntitySystem
 
         if (HasComp<EmpDisabledComponent>(ent))
             return CellChargerStatus.Off;
+        // Goob: checks each item slot assigned to charger and updates status for visuals on the charger
         foreach (var slot in ent.Comp.SlotId)
         {
             if (!_container.TryGetContainer(ent.Owner, slot, out var container))
@@ -259,7 +265,7 @@ public sealed class ChargerSystem : EntitySystem
                 return CellChargerStatus.Empty;
 
             // Use the first stored battery for visuals. If someone ever makes a multi-slot charger then this will need to be changed.
-            // i ain't touching that as the multiple chargers aren't shown visibly
+            //Goob: i didn't change it but aside from appearance status everything works
             if (!_powerCell.TryGetBatteryFromEntityOrSlot(container.ContainedEntities[0], out var battery))
                 return CellChargerStatus.Off;
 
