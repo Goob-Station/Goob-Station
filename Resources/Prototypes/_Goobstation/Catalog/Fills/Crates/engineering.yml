@@ -45,7 +45,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: SledgeHammer
+      - id: Sledgehammer
       - id: ClothingHeadHatHardhatYellow
       - id: ClothingOuterVestHazard
       - id: WeaponNailgun
