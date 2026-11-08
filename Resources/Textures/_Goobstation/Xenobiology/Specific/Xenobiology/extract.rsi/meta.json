@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from cev-eris at https://github.com/discordia-space/CEV-Eris/blob/2b969adc2dfd3e9621bf3597c5cbffeb3ac8c9f0/icons/obj/chemical.dmi, modified by Rubin for Xenobiology",
+  "copyright": "Taken from cev-eris at https://github.com/discordia-space/CEV-Eris/blob/2b969adc2dfd3e9621bf3597c5cbffeb3ac8c9f0/icons/obj/chemical.dmi, modified by Rubin for Xenobiology. rainbow-core taken from https://github.com/tgstation/tgstation/blob/master/icons/mob/simple/slimes.dmi",
   "size": {
     "x": 32,
     "y": 32
@@ -17,6 +17,31 @@
     {
       "name": "inhand-right",
       "directions": 4
+    },
+    {
+        "name": "rainbow-core",
+        "delays": [
+            [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+            ]
+        ]
     }
   ]
 }

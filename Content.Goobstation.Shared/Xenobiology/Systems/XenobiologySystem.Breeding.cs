@@ -160,11 +160,11 @@ public partial class XenobiologySystem
         PredictedQueueDel(ent);
     }
 
-    // <summary>
+    /// <summary>
     ///     Spawns a slime with a given mutation
     /// </summary>
     /// <param name="parent">The original entity.</param>
-    /// <param name="newEntityProto">The proto of the entity being spawned.</param>
+    /// <param name="newEntityProto">The prototype of the entity being spawned.</param>
     /// <param name="selectedBreed">The selected breed of the entity.</param>
     public Entity<SlimeComponent>? SpawnSlime(EntityUid parent, [ForbidLiteral] EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {

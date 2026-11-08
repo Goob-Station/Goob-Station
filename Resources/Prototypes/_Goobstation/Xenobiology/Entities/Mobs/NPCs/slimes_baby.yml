@@ -173,3 +173,4 @@
   components:
   - type: PendingSlimeSpawn
     breed: RainbowMutation
+    basePrototype: MobSlimeXenobioRainbowBaby

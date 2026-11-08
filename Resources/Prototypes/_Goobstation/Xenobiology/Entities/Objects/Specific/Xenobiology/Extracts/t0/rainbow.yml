@@ -6,8 +6,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
-      state: core
-      color: "#828282"
+      state: rainbow-core
   - type: Reactive
     reactions:
     - reagents: [ Water ]
@@ -59,7 +58,7 @@
               min: 5
               max: 100
         explosionType: Default
-    - reagents: [ Blood ] 
+    - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:NestedEffect

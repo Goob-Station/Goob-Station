@@ -23,8 +23,7 @@
   producedExtract: RainbowSlimeExtract
   components:
   - type: Slime
-    slimeColor: "#383936"
-    shouldHaveShader: true
+    defaultSlimeProto: MobSlimeXenobioRainbowBaby
     shader: XenoMetallic
     breed: RainbowMutation
     maxOffspring: 1
