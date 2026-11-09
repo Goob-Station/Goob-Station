@@ -36,6 +36,13 @@ public sealed partial class SlotDefinition
     public Vector2i StrippingWindowPos { get; private set; }
 
     [DataField("dependsOn")] public string? DependsOn { get; private set; }
+    // <Goob>
+    /// <summary>Slots that must ALL be occupied.</summary>
+    [DataField] public string[]? DependsOnAll { get; private set; }
+
+    /// <summary>At least one of these slots must be occupied.</summary>
+    [DataField] public string[]? DependsOnAny { get; private set; }
+    // </Goob>
 
     [DataField("dependsOnComponents")] public ComponentRegistry? DependsOnComponents { get; private set; }
 

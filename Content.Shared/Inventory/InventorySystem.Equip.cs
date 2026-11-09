@@ -241,6 +241,26 @@ public abstract partial class InventorySystem
             return false;
 
         DebugTools.Assert(slotDefinition.Name == slot);
+
+        // <Goob>
+        // At least one of the "Any" slots must be occupied by something that allows this item
+        if (slotDefinition.DependsOnAny != null)
+        {
+            var anyAllowed = false;
+            foreach (var anySlot in slotDefinition.DependsOnAny)
+            {
+                if (TryGetSlotEntity(target, anySlot, out var anyEnt, inventory) && DependencyAllowsItem(anyEnt.Value, slotDefinition, itemUid))
+                {
+                    anyAllowed = true;
+                    break;
+                }
+            }
+
+            if (!anyAllowed)
+                return false;
+        }
+        // </Goob>
+
         if (slotDefinition.DependsOn != null)
         {
             if (!TryGetSlotEntity(target, slotDefinition.DependsOn, out EntityUid? slotEntity, inventory))
@@ -459,7 +479,13 @@ public abstract partial class InventorySystem
 
         foreach (var slotDef in inventory.Slots)
         {
-            if (slotDef != slotDefinition && slotDef.DependsOn == slotDefinition.Name)
+            // <Goob>
+            // "Any" slots are dropped once none of their remaining options allow the item inside
+            if (slotDef != slotDefinition &&
+                (slotDef.DependsOn == slotDefinition.Name ||
+                 slotDef.DependsOnAny?.Contains(slotDefinition.Name) == true &&
+                 !AnyDependencyAllowsSlotItem(target, slotDef, inventory)))
+            // </Goob>
             {
                 //this recursive call might be risky
                 TryUnequip(actor, target, slotDef.Name, out _, ref itemsDropped, true, true, predicted, inventory, reparent: reparent);

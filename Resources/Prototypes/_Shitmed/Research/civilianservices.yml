@@ -154,6 +154,7 @@
   tier: 3
   cost: 10000
   recipeUnlocks:
+  - ClothingHandsGlovesEnviroglovesSurgical
   - ClothingHandsGlovesSurgical
   - AutodocUpgradeKitBluespace # Goobstation
   technologyPrerequisites:
