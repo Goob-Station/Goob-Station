@@ -37,10 +37,14 @@ public sealed partial class SlotDefinition
 
     [DataField("dependsOn")] public string? DependsOn { get; private set; }
     // <Goob>
-    /// <summary>Slots that must ALL be occupied.</summary>
+    /// <summary>
+    /// Slots that must ALL be occupied
+    /// </summary>
     [DataField] public string[]? DependsOnAll { get; private set; }
 
-    /// <summary>At least one of these slots must be occupied.</summary>
+    /// <summary>
+    /// At least one of these slots must be occupied
+    /// </summary>
     [DataField] public string[]? DependsOnAny { get; private set; }
     // </Goob>
 
