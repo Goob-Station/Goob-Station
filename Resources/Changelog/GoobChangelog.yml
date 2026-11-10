@@ -27138,3 +27138,9 @@ Entries:
       message: Gamemodes should no longer cancel for having too few players ready.
   id: 3037
   time: '2026-11-07T02:26:41.0000000+00:00'
+- author: bobbble
+  changes:
+    - type: Tweak
+      message: updated NTR handheld fax sprites.
+  id: 3038
+  time: '2026-11-10T19:34:13.0000000+00:00'
