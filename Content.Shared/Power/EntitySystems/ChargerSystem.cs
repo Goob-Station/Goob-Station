@@ -48,35 +48,31 @@ public sealed class ChargerSystem : EntitySystem
         using (args.PushGroup(nameof(ChargerComponent)))
         {
             // rate at which the charger charges
-            args.PushMarkup(Loc.GetString("charger-examine", ("color", "yellow"), ("chargeRate", (int) component.ChargeRate)));
-            //Goob : checks each item slot assigned to the charger and either displays their respective charge level or tells if it's empty
-            //Goob : same principle as the older system with only one itemslot being able to be assigned per charger, except checks every item slot in the list, still works with only 1 itemslot
-            foreach (var slot in component.SlotId)
+            args.PushMarkup(Loc.GetString("charger-examine", ("color", "yellow"), ("chargeRate", (int)component.ChargeRate)));
+
+            // try to get contents of the charger
+            if (!_container.TryGetContainer(uid, component.SlotId, out var container))
+                return;
+
+            if (HasComp<PowerCellSlotComponent>(uid))
+                return;
+
+            // if charger is empty and not a power cell type charger, add empty message
+            // power cells have their own empty message by default, for things like flash lights
+            if (container.ContainedEntities.Count == 0)
             {
-                // try to get contents of the charger
-                if (!_container.TryGetContainer(uid, slot, out var container))
-                    return;
-
-                if (HasComp<PowerCellSlotComponent>(uid))
-                    return;
-
-                // if charger is empty and not a power cell type charger, add empty message
-                // power cells have their own empty message by default, for things like flash lights
-                if (container.ContainedEntities.Count == 0)
+                args.PushMarkup(Loc.GetString("charger-empty"));
+            }
+            else
+            {
+                // add how much each item is charged it
+                foreach (var contained in container.ContainedEntities)
                 {
-                    args.PushMarkup(Loc.GetString("charger-empty"));
-                }
-                else
-                {
-                    // add how much each item is charged it
-                    foreach (var contained in container.ContainedEntities)
-                    {
-                        if (!_powerCell.TryGetBatteryFromEntityOrSlot(contained, out var battery))
-                            continue;
+                    if (!_powerCell.TryGetBatteryFromEntityOrSlot(contained, out var battery))
+                        continue;
 
-                        var chargePercent = _battery.GetChargeLevel(battery.Value.AsNullable()) * 100;
-                        args.PushMarkup(Loc.GetString("charger-content", ("chargePercent", (int) chargePercent)));
-                    }
+                    var chargePercent = _battery.GetChargeLevel(battery.Value.AsNullable()) * 100;
+                    args.PushMarkup(Loc.GetString("charger-content", ("chargePercent", (int)chargePercent)));
                 }
             }
         }
@@ -93,7 +89,7 @@ public sealed class ChargerSystem : EntitySystem
         if (_timing.ApplyingState)
             return; // Already networked in the same gamestate
 
-        if (!ent.Comp.SlotId.Contains(args.Container.ID))
+        if (args.Container.ID != ent.Comp.SlotId)
             return;
 
         AddComp<InsideChargerComponent>(args.Entity);
@@ -107,7 +103,7 @@ public sealed class ChargerSystem : EntitySystem
         if (_timing.ApplyingState)
             return; // Already networked in the same gamestate
 
-        if (!ent.Comp.SlotId.Contains(args.Container.ID))
+        if (args.Container.ID != ent.Comp.SlotId)
             return;
 
         RemComp<InsideChargerComponent>(args.Entity);
@@ -124,7 +120,7 @@ public sealed class ChargerSystem : EntitySystem
         if (!component.Initialized)
             return;
 
-        if (!component.SlotId.Contains(args.Container.ID))
+        if (args.Container.ID != component.SlotId)
             return;
 
         if (!TryComp<PowerCellSlotComponent>(args.EntityUid, out var cellSlot))
@@ -139,7 +135,7 @@ public sealed class ChargerSystem : EntitySystem
         if (!component.Initialized || args.Cancelled)
             return;
 
-        if (!component.SlotId.Contains(args.Container.ID))
+        if (args.Container.ID != component.SlotId)
             return;
 
         if (!TryComp<PowerCellSlotComponent>(uid, out var cellSlot))
@@ -194,47 +190,31 @@ public sealed class ChargerSystem : EntitySystem
     private void RefreshAllBatteries(Entity<ChargerComponent> ent)
     {
         // try to get contents of the charger
-        //Goob: does so for every itemslot of the charger
-        foreach (var slot in ent.Comp.SlotId)
-        {
-            if (!_container.TryGetContainer(ent.Owner, slot, out var container))
-                continue;
+        if (!_container.TryGetContainer(ent.Owner, ent.Comp.SlotId, out var container))
+            return;
 
-            foreach (var item in container.ContainedEntities)
-            {
-                if (_powerCell.TryGetBatteryFromEntityOrSlot(item, out var battery))
-                    _battery.RefreshChargeRate(battery.Value.AsNullable());
-            }
+        foreach (var item in container.ContainedEntities)
+        {
+            if (_powerCell.TryGetBatteryFromEntityOrSlot(item, out var battery))
+                _battery.RefreshChargeRate(battery.Value.AsNullable());
         }
     }
 
     private void UpdateStatus(Entity<ChargerComponent> ent)
     {
         TryComp<AppearanceComponent>(ent, out var appearance);
-        //Goob: system checks for items in the slots of the charger, and when they find one update the power draw of the charger
-        // accordingly to its charge rate multiplied by the amount of items currently being charged inside the charger, ergo, two items charging, 2*chargerate
-        int drawcount = 0;
-        foreach (var slot in ent.Comp.SlotId)
-        {
-            if (!_container.TryGetContainer(ent.Owner, slot, out var container))
-                continue;
-            _appearance.SetData(ent.Owner, CellVisual.Occupied, container.ContainedEntities.Count != 0, appearance);
-            foreach (var item in container.ContainedEntities)
-            {
-                if (_powerCell.TryGetBatteryFromEntityOrSlot(item, out var battery))
-                {
-                    if (battery.Value.Comp.LastCharge < battery.Value.Comp.MaxCharge)
-                        drawcount += 1;
-                }
-            }
-        }
+
+        if (!_container.TryGetContainer(ent.Owner, ent.Comp.SlotId, out var container))
+            return;
+
+        _appearance.SetData(ent.Owner, CellVisual.Occupied, container.ContainedEntities.Count != 0, appearance);
+
         var status = GetStatus(ent);
         switch (status)
         {
             case CellChargerStatus.Charging:
-                //Goob TODO: If someone ever adds chargers that can charge multiple batteries at multiple rates, adjust drawcount depending on something that would equate
-                //  to the total power draw of each recharging item
-                _receiver.SetLoad(ent.Owner, ent.Comp.ChargeRate * drawcount);
+                // TODO: If someone ever adds chargers that can charge multiple batteries at once then set this to the total draw rate.
+                _receiver.SetLoad(ent.Owner, ent.Comp.ChargeRate);
                 break;
             default:
                 // Don't set the load to 0 or the charger will be considered as powered even if the LV connection is unpowered.
@@ -255,23 +235,20 @@ public sealed class ChargerSystem : EntitySystem
 
         if (HasComp<EmpDisabledComponent>(ent))
             return CellChargerStatus.Off;
-        // Goob: checks each item slot assigned to charger and updates status for visuals on the charger
-        foreach (var slot in ent.Comp.SlotId)
-        {
-            if (!_container.TryGetContainer(ent.Owner, slot, out var container))
-                return CellChargerStatus.Off;
 
-            if (container.ContainedEntities.Count == 0)
-                return CellChargerStatus.Empty;
+        if (!_container.TryGetContainer(ent.Owner, ent.Comp.SlotId, out var container))
+            return CellChargerStatus.Off;
 
-            // Use the first stored battery for visuals. If someone ever makes a multi-slot charger then this will need to be changed.
-            //Goob: i didn't change it but aside from appearance status everything works
-            if (!_powerCell.TryGetBatteryFromEntityOrSlot(container.ContainedEntities[0], out var battery))
-                return CellChargerStatus.Off;
+        if (container.ContainedEntities.Count == 0)
+            return CellChargerStatus.Empty;
 
-            if (_battery.IsFull(battery.Value.AsNullable()))
-                return CellChargerStatus.Charged;
-        }
+        // Use the first stored battery for visuals. If someone ever makes a multi-slot charger then this will need to be changed.
+        if (!_powerCell.TryGetBatteryFromEntityOrSlot(container.ContainedEntities[0], out var battery))
+            return CellChargerStatus.Off;
+
+        if (_battery.IsFull(battery.Value.AsNullable()))
+            return CellChargerStatus.Charged;
+
         return CellChargerStatus.Charging;
     }
 }
