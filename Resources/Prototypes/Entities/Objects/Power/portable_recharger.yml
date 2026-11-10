@@ -22,7 +22,7 @@
     slots:
     - back
   - type: Charger
-    slotId: [charger_slot] #Goobstation - charger system for chargers charging multiple items at once
+    slotId: charger_slot
     portable: true
   - type: PowerChargerVisuals
   - type: StaticPrice
