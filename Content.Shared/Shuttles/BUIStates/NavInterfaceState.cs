@@ -72,8 +72,7 @@ public sealed class NavInterfaceState
 }
 
 [Serializable, NetSerializable]
-public enum 
-    RadarConsoleUiKey : byte
+public enum RadarConsoleUiKey : byte
 {
     Key
 }
