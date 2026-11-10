@@ -25,6 +25,11 @@ public sealed class NavInterfaceState
 
     public bool RotateWithEntity = true;
 
+    /// <summary>
+    /// Goobstation
+    /// </summary>
+    public bool RotateWithEye = false;
+
     // Frontier fields
 
     /// <summary>
@@ -67,7 +72,8 @@ public sealed class NavInterfaceState
 }
 
 [Serializable, NetSerializable]
-public enum RadarConsoleUiKey : byte
+public enum 
+    RadarConsoleUiKey : byte
 {
     Key
 }

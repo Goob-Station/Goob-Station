@@ -27,4 +27,10 @@ public sealed partial class RadarConsoleComponent : Component
     /// </summary>
     [DataField]
     public bool FollowEntity = false;
+
+    /// <summary>
+    /// If true, the radar will rotate with the camera.
+    /// Goobstation
+    /// </summary>
+    [DataField] public bool RotateWithEye = false;
 }
