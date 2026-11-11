@@ -27144,3 +27144,9 @@ Entries:
       message: updated NTR handheld fax sprites.
   id: 3038
   time: '2026-11-10T19:34:13.0000000+00:00'
+- author: Dummy
+  changes:
+    - type: Tweak
+      message: Buffed security's Taro to have the performance of a weaker revolver.
+  id: 3039
+  time: '2026-11-11T00:51:55.0000000+00:00'
