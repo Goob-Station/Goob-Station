@@ -33,3 +33,86 @@
   - type: Contraband
     severity: Syndicate
 
+
+- type: entity
+  id: BaseMinorEngineeringContraband
+  parent: BaseEngineeringContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Minor
+
+- type: entity
+  id: BaseMinorMedicalContraband
+  parent: BaseMedicalContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Minor
+
+- type: entity
+  id: BaseMinorCargoContraband
+  parent: BaseCargoContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Minor
+
+- type: entity
+  id: BaseMinorSecurityMedicalContraband
+  parent: BaseSecurityMedicalContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Minor
+
+- type: entity
+  id: BaseMajorSecurityContraband
+  parent: BaseSecurityContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Major
+
+- type: entity
+  id: BaseMajorSecurityMedicalContraband
+  parent: BaseSecurityMedicalContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Major
+
+- type: entity
+  id: BaseMajorSecurityCommandContraband
+  parent: BaseSecurityCommandContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Major
+    allowedJobs: [ BlueshieldOfficer ]
+
+- type: entity
+  id: BaseMajorCommandContraband
+  parent: BaseCommandContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Major
+
+- type: entity
+  id: BaseMajorScienceCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Major
+    allowedDepartments: [ Science, Command ]
+
+- type: entity
+  id: BaseMajorCargoCommandContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Major
+    allowedDepartments: [ Cargo, Command ]
