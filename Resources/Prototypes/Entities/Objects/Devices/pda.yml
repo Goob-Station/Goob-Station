@@ -645,6 +645,14 @@
   components:
   - type: Pda
     id: JanitorIDCard
+  - type: CartridgeLoader # Goobstation edit
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    - JanitorMapCartridge # Goobstation Janitor Map
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
