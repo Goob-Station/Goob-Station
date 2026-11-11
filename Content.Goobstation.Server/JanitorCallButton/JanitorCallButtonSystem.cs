@@ -20,15 +20,18 @@ public sealed partial class JanitorCallButtonSystem : EntitySystem
 
     private void OnButtonPressed(Entity<JanitorCallButtonComponent> ent, ref JanitorCallButtonPressedEvent args)
     {
-        var stationBeacon = _navMap.TryGetNearestBeacon(ent.Owner, out var beacon, out _)
-            ? beacon.Value.Comp.Text!
-            : "неизвестное место";
+        if (ent.Comp.enabled)
+        {
+            var stationBeacon = _navMap.TryGetNearestBeacon(ent.Owner, out var beacon, out _)
+                ? beacon.Value.Comp.Text!
+                : "неизвестное место";
 
-        var message = $"Called janitor near {stationBeacon}";
-        _radio.SendRadioMessage(
-            ent.Owner,
-            message,
-            _prototypeManager.Index<RadioChannelPrototype>("Service"),
-            ent.Owner);
+            var message = $"Called janitor near {stationBeacon}";
+            _radio.SendRadioMessage(
+                ent.Owner,
+                message,
+                _prototypeManager.Index<RadioChannelPrototype>("Service"),
+                ent.Owner);
+        }
     }
 }
