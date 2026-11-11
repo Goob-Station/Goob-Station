@@ -1,0 +1,55 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
+                      xmlns:nodeTree="clr-namespace:Content.Goobstation.UIKit.UserInterface.Controls.NodeTree;assembly=Content.Goobstation.UIKit"
+                      SetSize="1150 720"
+                      MinSize="720 460">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="10 6">
+            <RichTextLabel Name="BalanceLabel" HorizontalExpand="True" VerticalAlignment="Center"/>
+            <Button Name="RecenterButton" Text="{Loc 'store-tree-recenter-button'}" MinHeight="32"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+            <PanelContainer HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="3">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#0B0B0F"/>
+                </PanelContainer.PanelOverride>
+                <nodeTree:NodeTreeView Name="Tree" HorizontalExpand="True" VerticalExpand="True"/>
+            </PanelContainer>
+            <PanelContainer MinWidth="320" VerticalExpand="True" SizeFlagsStretchRatio="1">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+                </PanelContainer.PanelOverride>
+                <Label Name="NoSelectionLabel"
+                       Text="{Loc 'store-tree-no-selection'}"
+                       StyleClasses="LabelWeak"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                <BoxContainer Name="InfoPanel" Orientation="Vertical" Margin="12" Visible="False">
+                    <BoxContainer Orientation="Horizontal">
+                        <TextureRect Name="InfoIcon"
+                                     SetSize="64 64"
+                                     Stretch="KeepAspectCentered"
+                                     VerticalAlignment="Center"/>
+                        <BoxContainer Orientation="Vertical" VerticalAlignment="Center" HorizontalExpand="True" Margin="10 0 0 0">
+                            <RichTextLabel Name="InfoName"/>
+                            <Label Name="InfoCategory" StyleClasses="LabelWeak" ClipText="True"/>
+                        </BoxContainer>
+                    </BoxContainer>
+                    <customControls:HSeparator Margin="0 10"/>
+                    <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                        <RichTextLabel Name="InfoDescription" HorizontalExpand="True"/>
+                    </ScrollContainer>
+                    <customControls:HSeparator Margin="0 10"/>
+                    <RichTextLabel Name="InfoCost"/>
+                    <RichTextLabel Name="InfoStatus"/>
+                    <Button Name="BuyButton"
+                            Text="{Loc 'store-tree-buy-button'}"
+                            MinHeight="36"
+                            Margin="0 8 0 0"/>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -71,6 +71,8 @@ public sealed partial class StoreSystem
         if (!TryComp<ActorComponent>(user, out var actor))
             return;
 
+        EnsureTreeInterface((storeEnt, component)); // Goob
+
         if (!_ui.TryToggleUi(storeEnt, StoreUiKey.Key, actor.PlayerSession))
             return;
 
@@ -117,6 +119,9 @@ public sealed partial class StoreSystem
 
         // TODO: if multiple users are supposed to be able to interact with a single BUI & see different
         // stores/listings, this needs to use session specific BUI states.
+
+        if (TrySetTreeUiState((store, component), allCurrency)) // Goob
+            return;
 
         // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store);

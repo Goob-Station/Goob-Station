@@ -199,6 +199,7 @@ public sealed partial class GameDirectorSystem
             || possibleEvent.RequiredGhosts > count.Ghosts
             || beat.BlockedEventTypes.Contains(possibleEvent.EventType)
             || beat.HelpOnly && possibleEvent.Chaos.ChaosDict.Values.Any(v => v > 0)
+            || IsHelpEvent(possibleEvent) && OnHelpCooldown(scheduler)
             || !HasResponders(scheduler, possibleEvent.Chaos, count)
             || possibleEvent.RequiresStaff.Any(d => count.Staff(d) < scheduler.MinResponders))
             return false;
@@ -206,6 +207,17 @@ public sealed partial class GameDirectorSystem
         var proto = _prototypeManager.Index(possibleEvent.StationEvent);
         return proto.TryComp<StationEventComponent>(out var stationEvent, _factory)
                && _event.CanRun(proto, stationEvent, count.InGame, roundDuration);
+    }
+
+    private static bool IsHelpEvent(PossibleEvent possibleEvent)
+    {
+        return !possibleEvent.Chaos.Empty && possibleEvent.Chaos.ChaosDict.Values.All(v => v <= 0);
+    }
+
+    private bool OnHelpCooldown(GameDirectorComponent scheduler)
+    {
+        return scheduler.LastHelp != TimeSpan.Zero
+               && (_timing.CurTime - scheduler.LastHelp) * _event.EventSpeedup < scheduler.HelpCooldown;
     }
 
     private static bool HasResponders(GameDirectorComponent scheduler, ChaosMetrics chaos, PlayerCount count)

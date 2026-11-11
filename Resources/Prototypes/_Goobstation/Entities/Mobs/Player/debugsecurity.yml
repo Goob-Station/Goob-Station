@@ -19,36 +19,6 @@
 - type: entity
   categories: [ ]
   parent: MobHumanSecurityBase
-  id: MobHumanSecurityOfficerModSuit
-  name: Security Officer ModSuit
-  components:
-  - type: Loadout
-    prototypes: [ SecurityOfficerModSuit ]
-    roleLoadout: [ RoleSurvivalSecurity ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirst
-    - NamesLast
-    nameFormat: name-format-standard
-
-- type: entity
-  categories: [ ]
-  parent: MobHumanSecurityBase
-  id: MobHumanHosModSuit
-  name: Head Of Security ModSuit
-  components:
-  - type: Loadout
-    prototypes: [ SecurityHoSModSuit ]
-    roleLoadout: [ RoleSurvivalSecurity ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirst
-    - NamesLast
-    nameFormat: name-format-standard
-
-- type: entity
-  categories: [ ]
-  parent: MobHumanSecurityBase
   id: MobHumanHoSSuit
   name: Head Of Security Suit
   components:
@@ -255,22 +225,3 @@
     - MindShieldImplant
     #adding bluespace implanter would be stupid
 
-- type: entity
-  categories: [ ]
-  parent: MobHuman
-  id: MobHumanBSOModSuit
-  name: Blueshield Officer
-  suffix: DEBUG
-  components:
-  - type: Loadout
-    prototypes: [ BlueShieldOfficerGearModSuit ]
-    roleLoadout: [ RoleSurvivalSecurity ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesFirst
-    - NamesLast
-    nameFormat: name-format-standard
-  - type: AutoImplant
-    implants:
-    - MindShieldImplant
-    #adding bluespace implanter would be stupid

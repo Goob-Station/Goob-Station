@@ -34,7 +34,7 @@
       baseWalkSpeed: 4
       baseSprintSpeed: 3
     - type: MindControllable # Goobstation - shadowling
-    - type: ZombieImmune
+    - type: SiliconZombie # Goob
     - type: DoAfter
     - type: RotationVisuals
       defaultRotation: 90

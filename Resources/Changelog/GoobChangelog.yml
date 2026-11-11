@@ -27007,3 +27007,146 @@ Entries:
         otherwise evac unlocks again. (Effectively gives them 35 minutes total.)
   id: 3027
   time: '2026-11-01T00:07:15.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: IPCs and Synths can now be zombified, they can be cured via EMP.
+    - type: Tweak
+      message: >-
+        People infected by zombies will now cough (or spark in the case of IPCs)
+        every few seconds.
+  id: 3028
+  time: '2026-11-01T21:21:02.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added mods to modsuits, including a few new mods, and sci research +
+        crafting for them.
+    - type: Add
+      message: Added modsuit plating to command and security lockers.
+    - type: Remove
+      message: >-
+        Removed voidsuit selectors. Everything has hardsuits by default now. If
+        you want a modsuit, get sci to craft you one.
+  id: 3029
+  time: '2026-11-02T01:06:32.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Changelings and Heretics have new tree style shops.
+  id: 3030
+  time: '2026-11-02T01:06:36.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added twenty-four additional MODs for modsuits.
+    - type: Fix
+      message: Fixed two desync issues related to modsuits.
+  id: 3031
+  time: '2026-11-02T03:40:55.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added 8 modules and 2 modsuits to uplinks, balance larp pending
+    - type: Tweak
+      message: Clamp module now drops entities when its unequipped.
+    - type: Tweak
+      message: Hard hat module now properly applies blunt resistance to the helmet.
+    - type: Tweak
+      message: >-
+        All modules and plating are now printed at their respective departmental
+        lathes (except command plating, those stay in lockers.)
+    - type: Tweak
+      message: >-
+        You can no longer use microreactors in standard MOD cores, you must
+        instead print a microreactor MOD core.
+    - type: Tweak
+      message: >-
+        Most modules have had their power draw massively increased, notably
+        toggleable modules and the jetpack module.
+    - type: Tweak
+      message: >-
+        You will now see actions and martial arts combos on your cursor even if
+        the "show held item on cursor" setting is turned off.
+  id: 3032
+  time: '2026-11-02T21:50:38.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added the loader modsuit, with 3 new modules. Plating can be found in
+        QM's locker.
+    - type: Add
+      message: >-
+        Added mining modsuit, with 2 new modules. Plating can be printing in the
+        cargo fab after researching
+    - type: Add
+      message: Added balls.
+    - type: Fix
+      message: >-
+        Fixed modules not updating after swapping a dead battery out on a
+        modsuit without deactivating and reactivating the suit.
+    - type: Fix
+      message: Fixed AI being able fuck with modsuits' interfaces.
+  id: 3033
+  time: '2026-11-03T01:53:27.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added 26 new modsuit modules.
+    - type: Add
+      message: Added several basic modsuit modules to the uplink.
+    - type: Tweak
+      message: >-
+        Buffed power kick module, no longer cancel-able by movement or damage,
+        and launches you to where the person you aimed at is after the doafter
+        is over, not where you initially clicked.
+  id: 3034
+  time: '2026-11-03T23:43:00.0000000+00:00'
+- author: IvanKuvalda
+  changes:
+    - type: Add
+      message: Added secmask hail actions to secborg
+    - type: Add
+      message: Added new recharging stunbaton to secborg
+    - type: Add
+      message: Added secborg resprite
+    - type: Remove
+      message: martyr has removed, no fun at this server
+    - type: Tweak
+      message: tweaked some laws in secborg
+    - type: Fix
+      message: Fixed security borgs not having access to the Security radio channel
+  id: 3035
+  time: '2026-11-06T20:06:51.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: Reverted PTL nerfs
+  id: 3036
+  time: '2026-11-06T20:08:25.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Drop pods now have a global cooldown and should spam less.
+    - type: Tweak
+      message: >-
+        Tempest now chooses between having several roundstart antags, or
+        building up to lots of midrounds.
+    - type: Fix
+      message: Gamemodes should no longer cancel for having too few players ready.
+  id: 3037
+  time: '2026-11-07T02:26:41.0000000+00:00'
+- author: bobbble
+  changes:
+    - type: Tweak
+      message: updated NTR handheld fax sprites.
+  id: 3038
+  time: '2026-11-10T19:34:13.0000000+00:00'
+- author: Dummy
+  changes:
+    - type: Tweak
+      message: Buffed security's Taro to have the performance of a weaker revolver.
+  id: 3039
+  time: '2026-11-11T00:51:55.0000000+00:00'
