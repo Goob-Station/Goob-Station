@@ -66,6 +66,9 @@ public sealed partial class ModSphereTransformModuleComponent : Component
     public float KnockdownSpeedMultiplier = 0.8f;
 
     [DataField]
+    public float KnockdownStaminaDamage = 35f;
+
+    [DataField]
     public float ExplosionCoefficient = 0.8f;
 
     [DataField]

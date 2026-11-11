@@ -106,7 +106,8 @@
       - HeadTop
       - HeadSide
   - type: Tag
-    tags: []
+    tags:
+    - PlasmamanSafe
 
 - type: entity
   parent: ClothingModsuitChestplateStandard
