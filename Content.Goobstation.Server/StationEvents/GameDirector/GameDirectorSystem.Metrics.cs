@@ -37,7 +37,7 @@ public sealed partial class GameDirectorSystem
 
     private static readonly Gauge RoundstartAntagsSelectedTotal = Metrics.CreateGauge(
         "game_director_roundstart_antags_selected_total",
-        "Roundstart antag game rules the Game Director started this round (one per rule, not per player).",
+        "Antags the Game Director planned for each roundstart antag game rule this round.",
         "antag_name");
 
     private static readonly Gauge ChaosGauge = Metrics.CreateGauge(
@@ -65,6 +65,15 @@ public sealed partial class GameDirectorSystem
         "Players assigned as antagonists by each active antag game rule, including rules started outside the Game Director.",
         "rule");
 
+    private static readonly Gauge ThreatGauge = Metrics.CreateGauge(
+        "game_director_threat",
+        "Antag threat points: live antags, purchases still waiting on players, and the current beat's target.",
+        "kind");
+
+    private static readonly Gauge RelaxGauge = Metrics.CreateGauge(
+        "game_director_relaxing",
+        "1 while the Game Director is holding off harmful events because the station is under heavy strain.");
+
     private static readonly Gauge DestructionBudgetGauge = Metrics.CreateGauge(
         "game_director_destruction_budget",
         "Destruction budget available to the Game Director.");
@@ -80,6 +89,7 @@ public sealed partial class GameDirectorSystem
         ActivePlayers.Set(0);
         ActiveGhosts.Set(0);
         DestructionBudgetGauge.Set(0);
+        RelaxGauge.Set(0);
         ResetGaugeLabels(EventsRunTotal);
         ResetGaugeLabels(StoryBeatChangesTotal);
         ResetGaugeLabels(BeatInfo);
@@ -89,6 +99,7 @@ public sealed partial class GameDirectorSystem
         ResetGaugeLabels(GoalGauge);
         ResetGaugeLabels(DepartmentStaff);
         ResetGaugeLabels(AntagsGauge);
+        ResetGaugeLabels(ThreatGauge);
     }
 
     private void UpdateStaffingMetrics(PlayerCount count)
@@ -112,6 +123,13 @@ public sealed partial class GameDirectorSystem
         ResetGaugeLabels(AntagsGauge);
         foreach (var (rule, count) in counts)
             AntagsGauge.WithLabels(rule).Set(count);
+    }
+
+    private static void UpdateThreatMetrics(ThreatState threat)
+    {
+        ThreatGauge.WithLabels("live").Set(threat.Live);
+        ThreatGauge.WithLabels("pending").Set(threat.Pending);
+        ThreatGauge.WithLabels("target").Set(threat.Target);
     }
 
     private static void SetBeatInfo(string storyName, string beatName)
