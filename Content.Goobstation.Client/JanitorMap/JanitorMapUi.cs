@@ -1,11 +1,16 @@
 using System.Numerics;
 using Content.Client.Pinpointer.UI;
 using Content.Client.UserInterface.Fragments;
+using Content.Goobstation.Shared.JanitorCallButton;
+using Content.Shared.Light.Components;
 using Content.Shared.Station;
+using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Map;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.JanitorMap;
 
@@ -39,7 +44,7 @@ public sealed class JanitorMapUiFragment : BoxContainer
         VerticalExpand = true;
         RectClipContent = true;
 
-        var map = new NavMapControl
+        var map = new JanitorMapNavMapControl(entities)
         {
             SetSize = new Vector2(540, 340),
             HorizontalExpand = true,
@@ -62,5 +67,38 @@ public sealed class JanitorMapUiFragment : BoxContainer
 
         map.TrackedCoordinates.Add(new EntityCoordinates(playerEntity, Vector2.Zero), (true, Color.Cyan));
         map.ForceNavMapUpdate();
+    }
+}
+
+public sealed class JanitorMapNavMapControl : NavMapControl
+{
+    private readonly IEntityManager _entities;
+    private readonly SpriteSystem _spriteSystem;
+    private readonly Texture _blipTexture;
+
+    public JanitorMapNavMapControl(IEntityManager entities)
+    {
+        _entities = entities;
+        _spriteSystem = entities.System<SpriteSystem>();
+        _blipTexture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_circle.png")));
+    }
+
+    protected override void UpdateNavMap()
+    {
+        base.UpdateNavMap();
+        TrackedEntities.Clear();
+
+        if (MapUid is not { } grid)
+            return;
+
+        var query = _entities.EntityQueryEnumerator<JanitorCallButtonComponent, SlimPoweredLightComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var light, out var transform))
+        {
+            if (transform.GridUid != grid || !_entities.TryGetNetEntity(uid, out var netEntity) || netEntity == null)
+                continue;
+
+            var color = light.Enabled ? Color.Red : Color.Green;
+            TrackedEntities[netEntity.Value] = new NavMapBlip(new EntityCoordinates(uid, Vector2.Zero), _blipTexture, color, false, false);
+        }
     }
 }
