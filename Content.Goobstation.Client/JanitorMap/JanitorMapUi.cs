@@ -37,9 +37,11 @@ public sealed class JanitorMapUiFragment : BoxContainer
         Orientation = LayoutOrientation.Vertical;
         HorizontalExpand = true;
         VerticalExpand = true;
+        RectClipContent = true;
 
         var map = new NavMapControl
         {
+            SetSize = new Vector2(540, 340),
             HorizontalExpand = true,
             VerticalExpand = true,
         };
