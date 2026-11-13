@@ -1,0 +1,56 @@
+- type: alert
+  id: MechPower
+  category: MechPower
+  icons:
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery0
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery1
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery2
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery3
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery4
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery5
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery6
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery7
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery8
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery9
+  - sprite: /Textures/Interface/Alerts/battery.rsi
+    state: battery10
+  name: alerts-mech-power-name
+  description: alerts-mech-power-desc
+  minSeverity: 0
+  maxSeverity: 10
+
+- type: alert
+  id: MechIntegrity
+  category: MechIntegrity
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/mech_integrity.rsi
+    state: integrity0
+  - sprite: /Textures/_Goobstation/Interface/Alerts/mech_integrity.rsi
+    state: integrity1
+  - sprite: /Textures/_Goobstation/Interface/Alerts/mech_integrity.rsi
+    state: integrity2
+  - sprite: /Textures/_Goobstation/Interface/Alerts/mech_integrity.rsi
+    state: integrity3
+  name: alerts-mech-integrity-name
+  description: alerts-mech-integrity-desc
+  minSeverity: 0
+  maxSeverity: 3
+
+- type: alert
+  id: MechCharging
+  category: MechCharging
+  icons:
+  - sprite: /Textures/_Goobstation/Structures/Power/mech_charging_station.rsi
+    state: port
+  name: alerts-mech-charging-name
+  description: alerts-mech-charging-desc

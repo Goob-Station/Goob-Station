@@ -1,0 +1,91 @@
+- type: constructionGraph
+  id: MechChargingStation
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: lattice
+      completed:
+      - !type:SetAnchor
+        value: false
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 2.5
+
+  - node: lattice
+    entity: MechChargingStationLattice
+    edges:
+    - to: boardInserted
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tag: MechChargingStationBoard
+        store: board
+        name: construction-graph-tag-mech-charging-station-board
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "charger_APC"
+
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: boardInserted
+    entity: MechChargingStationOpen
+    edges:
+    - to: wired
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: Cable
+        amount: 5
+
+    - to: lattice
+      conditions:
+      - !type:EntityAnchored {}
+      completed:
+      - !type:EmptyAllContainers {}
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: wired
+    entity: MechChargingStationOpen
+    edges:
+    - to: port
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+        doAfter: 1
+
+    - to: boardInserted
+      conditions:
+      - !type:EntityAnchored {}
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 5
+      steps:
+      - tool: Cutting
+        doAfter: 1
+
+  - node: port
+    entity: MechChargingStation
+    edges:
+    - to: wired
+      conditions:
+      - !type:WirePanel {}
+      steps:
+      - tool: Prying
+        doAfter: 2

@@ -6,11 +6,38 @@
   abstract: true
   components:
   - type: MobMover
+  - type: TileMovement # Goobstation
+  - type: NoRotateOnMove # Goobstation
+  - type: NoRotateOnInteract # Goobstation
   - type: Mech
     pilotBlacklist: # Goobstation Change
       components:
       - Zombie
       - ZombieBlob
+    batteryWhitelist: # Goobstation
+      tags:
+      - PowerCage
+  - type: ZapPowerOnInsert # Goobstation mech rework start
+    containerId: mech-battery-slot
+    chargeLoss: 1350 # half a medium cage
+  - type: MechPowerDrain
+    idleDrain: 0.3
+    perTileMovementDrain: 1.4
+  - type: MechPilotAlerts
+  - type: MechOverclock
+  - type: MechLock
+  - type: MechTurning
+  - type: MechFiringArc
+  - type: GiveMechPilot
+    components:
+    - type: AudioReverb
+      preset: MechCabin
+    - type: RestrictFov
+      fovDegrees: 180
+  - type: Lock
+    locked: false
+    unlockOnClick: false
+  # Goobstation - mech rework end
   - type: MechAir
   - type: AirFilter
     # everything except oxygen and nitrogen
@@ -167,6 +194,10 @@
   name: Ripley APLU
   description: Versatile and lightly armored, the Ripley is useful for almost any heavy work scenario. The "APLU" stands for Autonomous Power Loading Unit.
   components:
+  - type: MechLock # Goobstation
+    requiredAccess:
+    - Cargo
+    - Research
   - type: Sprite
     drawdepth: Mobs
     noRot: true
@@ -204,7 +235,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageHigh # Goobstation
 
 - type: entity
   parent: [ BaseMech, SpecialMech, BaseCivilianContraband ] # Goobstation
@@ -245,7 +276,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageHigh # Goobstation
 
 - type: entity
   parent: [ BaseMech, SmallMech ] # Goobstation
@@ -292,7 +323,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageHigh # Goobstation
 
 # Vim!!!!!!!
 
@@ -360,4 +391,4 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageHigh # Goobstation

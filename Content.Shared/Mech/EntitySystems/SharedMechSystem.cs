@@ -3,7 +3,6 @@
 using System.Linq;
 using Content.Goobstation.Common.CCVar; // Goob Edit
 using Content.Goobstation.Common.Mech; // Goobstation
-using Content.Shared._vg.TileMovement; // Goobstation
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -14,6 +13,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Lock;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Movement.Components;
@@ -44,6 +44,7 @@ public abstract partial class SharedMechSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -157,8 +158,6 @@ public abstract partial class SharedMechSystem : EntitySystem
 
         var rider = EnsureComp<MechPilotComponent>(pilot);
 
-        if (HasComp<TileMovementComponent>(pilot)) // Goob change - Prevent mech jank.
-            EnsureComp<TileMovementComponent>(mech);
 
         // Warning: this bypasses most normal interaction blocking components on the user, like drone laws and the like.
         var irelay = EnsureComp<InteractionRelayComponent>(pilot);
@@ -179,9 +178,6 @@ public abstract partial class SharedMechSystem : EntitySystem
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
     {
-        if (HasComp<TileMovementComponent>(mech)) // Goob change - Prevent mech jank.
-            RemComp<TileMovementComponent>(mech);
-
         if (!RemComp<MechPilotComponent>(pilot))
             return;
         RemComp<RelayInputMoverComponent>(pilot);
@@ -243,6 +239,9 @@ public abstract partial class SharedMechSystem : EntitySystem
             _popup.PopupEntity(popupString, uid);
 
         Dirty(uid, component);
+
+        var changed = new MechSelectedEquipmentChangedEvent(); // Goobstation
+        RaiseLocalEvent(uid, ref changed);
     }
 
     /// <summary>
@@ -386,6 +385,9 @@ public abstract partial class SharedMechSystem : EntitySystem
     public bool CanInsert(EntityUid uid, EntityUid toInsert, MechComponent? component = null)
     {
         if (!Resolve(uid, ref component))
+            return false;
+
+        if (_lock.IsLocked(uid)) // Goobstation
             return false;
 
         return IsEmpty(component) && _actionBlocker.CanMove(toInsert);

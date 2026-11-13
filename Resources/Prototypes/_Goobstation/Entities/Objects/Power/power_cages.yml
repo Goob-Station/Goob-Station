@@ -1,0 +1,19 @@
+- type: entity
+  id: PowerCageMilitary
+  parent: BasePowerCage
+  name: military-grade power cage
+  description: A classified high-density power cage. Holds several times the charge of anything a station can print.
+  components:
+  - type: Sprite
+    sprite: Objects/Power/power_cages.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: high
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 31000 # ~30 min of usage
+    startingCharge: 31000
+  - type: StaticPrice
+    price: 5000
