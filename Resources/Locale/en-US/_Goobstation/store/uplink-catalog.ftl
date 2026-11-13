@@ -146,6 +146,12 @@ uplink-combat-shotgun-desc = A pump action shotgun when you need to repel target
 uplink-he1sg8-bundle-name = HE1S-G8 Bundle
 uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
 
+uplink-contractor-muramasa-name = H.F. Muramasa
+uplink-contractor-muramasa-desc = Allows you to double jump! Also serves as a deadly sword as a bonus. Dash up to two times in a row, leaving a trail of flames behind.
+
+uplink-weapon-ecrowbar-name = Energy crowbar
+uplink-weapon-ecrowbar-desc = For all your prying needs, whether it be a door or a skull.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade (40mm)
