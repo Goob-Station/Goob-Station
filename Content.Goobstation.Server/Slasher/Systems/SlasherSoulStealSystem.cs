@@ -10,6 +10,7 @@ using Content.Server.Ghost;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -21,8 +22,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
-using Content.Shared.Throwing;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weather;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -52,6 +51,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedSlasherSoulStealSystem _sharedSoulSteal = default!;
     [Dependency] private DevilContractSystem _devilContractSystem = default!;
     [Dependency] private SharedMindSystem _mindSystem = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -68,31 +68,21 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     [Dependency] private SlasherRegenerateSystem _regenerate = default!;
     [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private SharedStationSpawningSystem _spawning = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SlasherSoulStealComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlasherSoulStealComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSoulStealEvent>(OnSoulSteal);
-        SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSoulStealDoAfterEvent>(OnSoulStealDoAfterComplete);
-        SubscribeLocalEvent<SlasherSoulStealMacheteBonusComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
-        SubscribeLocalEvent<SlasherSoulStealMacheteBonusComponent, ThrowDoHitEvent>(OnThrowHit);
-        SubscribeLocalEvent<SlasherSoulStealComponent, SlasherSummonMacheteEvent>(OnSummonMachete);
-        SubscribeLocalEvent<SlasherSoulStealComponent, DidEquipHandEvent>(OnDidEquipHand);
-        SubscribeLocalEvent<SlasherSoulStealComponent, DamageModifyEvent>(OnDamageModify);
-    }
-
+    [SubscribeLocalEvent]
     private void OnMapInit(Entity<SlasherSoulStealComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
         Dirty(ent);
     }
 
+    [SubscribeLocalEvent]
     private void OnShutdown(Entity<SlasherSoulStealComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Comp.ActionEntity);
+        _alerts.ClearAlert(ent.Owner, ent.Comp.Alert);
     }
 
     /// <summary>
@@ -100,6 +90,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     /// </summary>
     /// <param name="ent">Owner of the SlasherSoulStealComponent</param>
     /// <param name="args">SlasherSoulStealEvent</param>
+    [SubscribeLocalEvent]
     private void OnSoulSteal(Entity<SlasherSoulStealComponent> ent, ref SlasherSoulStealEvent args)
     {
         if (args.Handled || !args.Target.Valid)
@@ -171,6 +162,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     /// </summary>
     /// <param name="ent">SlasherSoulStealComponent</param>
     /// <param name="ev">SlasherSoulStealDoAfterEvent</param>
+    [SubscribeLocalEvent]
     private void OnSoulStealDoAfterComplete(Entity<SlasherSoulStealComponent> ent, ref SlasherSoulStealDoAfterEvent ev)
     {
         if (ev.Cancelled || ev.Args.Target == null)
@@ -188,7 +180,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
 
         var alive = _mobState.IsAlive(target);
 
-        var bruteBonus = alive ? comp.AliveBruteBonusPerSoul : comp.DeadBruteBonusPerSoul;
+        var damageBonus = alive ? comp.AliveDamageBonusPerSoul : comp.DeadDamageBonusPerSoul;
         var armorBonus = alive ? comp.AliveArmorPercentPerSoul : comp.DeadArmorPercentPerSoul;
 
         if (alive)
@@ -216,7 +208,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
 
         //TryFlavorTwistLimbs(user, target); // TODO Originally intended to take off their limbs and replace them with limbs from random species but I couldn't get it working properly
         ApplyArmorBonus(user, armorBonus, comp);
-        ApplyMacheteBonus(user, bruteBonus, comp);
+        ApplyMacheteBonus(user, damageBonus, comp);
 
         var totalSouls = comp.AliveSouls + comp.DeadSouls;
 
@@ -313,17 +305,18 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
         if (percent <= 0f)
             return;
 
-        comp.ArmorReduction = MathF.Min(comp.ArmorReduction + percent, comp.ArmorCap);
+        comp.ArmorPercent = MathF.Min(comp.ArmorPercent + percent, comp.ArmorCap);
     }
 
+    [SubscribeLocalEvent]
     private void OnDamageModify(Entity<SlasherSoulStealComponent> ent, ref DamageModifyEvent args)
     {
-        var reduction = ent.Comp.ArmorReduction;
+        var reduction = ent.Comp.ArmorPercent;
         if (reduction <= 0f || args.Damage.Empty)
             return;
 
         var pairs = args.Damage.DamageDict.ToArray();
-        var factor = 1f - reduction;
+        var factor = 1f - reduction / 100f;
         foreach (var kv in pairs)
         {
             var type = kv.Key;
@@ -352,48 +345,20 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
         return null;
     }
 
-    // Apply brute bonus to machete
-    private void ApplyMacheteBonus(EntityUid user, float bruteBonus, SlasherSoulStealComponent comp)
+    // Apply damage bonus to machete
+    private void ApplyMacheteBonus(EntityUid user, DamageSpecifier damageBonus, SlasherSoulStealComponent comp)
     {
-        if (bruteBonus <= 0f)
+        if (damageBonus.Empty)
             return;
 
         var machete = GetMachete(user);
         if (machete == null)
             return;
 
-        var bonusComp = EnsureComp<SlasherSoulStealMacheteBonusComponent>(machete.Value);
-        bonusComp.SlashBonus += bruteBonus;
-        comp.TotalAppliedBruteBonus += bruteBonus;
+        comp.TotalAppliedDamageBonus += damageBonus;
         comp.LastMachete = machete.Value;
-        Dirty(machete.Value, bonusComp);
-    }
-
-    /// <summary>
-    /// Slasher - Handles the machete bonus damage from stealing souls
-    /// </summary>
-    /// <param name="ent">SlasherSoulStealMacheteBonusComponent</param>
-    /// <param name="args">GetMeleeDamageEvent</param>
-    private void OnGetMeleeDamage(Entity<SlasherSoulStealMacheteBonusComponent> ent, ref GetMeleeDamageEvent args)
-    {
-        if (ent.Comp.SlashBonus <= 0f)
-            return;
-
-        var add = new DamageSpecifier();
-
-        add.DamageDict.Add("Slash", ent.Comp.SlashBonus);
-        args.Damage += add;
-    }
-
-    private void OnThrowHit(Entity<SlasherSoulStealMacheteBonusComponent> ent, ref ThrowDoHitEvent args)
-    {
-        if (ent.Comp.SlashBonus <= 0f || TerminatingOrDeleted(args.Target))
-            return;
-
-        var dmgAdj = new DamageSpecifier();
-
-        dmgAdj.DamageDict.Add("Slash", ent.Comp.SlashBonus);
-        _damageable.TryChangeDamage(args.Target, dmgAdj, true, origin: args.Component.Thrower);
+        Dirty(user, comp);
+        _sharedSoulSteal.SetBonus(machete.Value, comp.TotalAppliedDamageBonus);
     }
 
     /// <summary>
@@ -401,6 +366,7 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
     /// </summary>
     /// <param name="ent">SlasherSoulStealComponent</param>
     /// <param name="args">SlasherSummonMacheteEvent</param>
+    [SubscribeLocalEvent]
     private void OnSummonMachete(Entity<SlasherSoulStealComponent> ent, ref SlasherSummonMacheteEvent args)
     {
         var machete = GetMachete(ent.Owner);
@@ -409,17 +375,14 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
         {
             ent.Comp.LastMachete = machete.Value;
 
-            if (ent.Comp.TotalAppliedBruteBonus > 0f)
-            {
-                var bonusComp = EnsureComp<SlasherSoulStealMacheteBonusComponent>(machete.Value);
-                bonusComp.SlashBonus = ent.Comp.TotalAppliedBruteBonus;
-                Dirty(machete.Value, bonusComp);
-            }
+            if (!ent.Comp.TotalAppliedDamageBonus.Empty)
+                _sharedSoulSteal.SetBonus(machete.Value, ent.Comp.TotalAppliedDamageBonus);
 
             Dirty(ent);
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnDidEquipHand(Entity<SlasherSoulStealComponent> ent, ref DidEquipHandEvent args)
     {
         if (!HasComp<SlasherMassacreMacheteComponent>(args.Equipped))
@@ -427,12 +390,8 @@ public sealed partial class SlasherSoulStealSystem : EntitySystem
 
         ent.Comp.LastMachete = args.Equipped;
 
-        if (ent.Comp.TotalAppliedBruteBonus > 0f)
-        {
-            var bonusComp = EnsureComp<SlasherSoulStealMacheteBonusComponent>(args.Equipped);
-            bonusComp.SlashBonus = ent.Comp.TotalAppliedBruteBonus;
-            Dirty(args.Equipped, bonusComp);
-        }
+        if (!ent.Comp.TotalAppliedDamageBonus.Empty)
+            _sharedSoulSteal.SetBonus(args.Equipped, ent.Comp.TotalAppliedDamageBonus);
 
         Dirty(ent);
     }

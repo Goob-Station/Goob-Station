@@ -18,12 +18,12 @@ public sealed partial class SlasherStaggerOverlayComponent : Component
     [ViewVariables]
     public TimeSpan? LocalStartTime;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Range = 3.5f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public string ShockwaveShader = "SlasherStagger";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Color RingColor = new(0.22f, 0.02f, 0.34f);
 }

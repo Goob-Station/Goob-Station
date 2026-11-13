@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Slasher.Components;
 
 /// <summary>
-/// When activated, the slasher's next melee hit will hard grab the target.
+/// Forcefully grabs a mob or forces a door open.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlasherRelentlessGrabComponent : Component
@@ -18,9 +18,24 @@ public sealed partial class SlasherRelentlessGrabComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEnt;
 
+    [DataField]
+    public TimeSpan DoorDisableDuration = TimeSpan.FromSeconds(5);
+
     /// <summary>
-    /// Whether the grab is ready.
+    /// Fear needed for the grab to be a hard grab instead of a soft one.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool Ready = false;
+    [DataField]
+    public float HardGrabFear = 20f;
+
+    /// <summary>
+    /// Fear needed for the grab to also stun the victim.
+    /// </summary>
+    [DataField]
+    public float StunGrabFear = 41f;
+
+    [DataField]
+    public TimeSpan GrabStunDuration = TimeSpan.FromSeconds(1.5);
+
+    [DataField]
+    public EntProtoId? DoorJackEffect = "EffectSparks";
 }

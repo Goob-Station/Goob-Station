@@ -27,7 +27,11 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 30
+        Slash: 15
+        Structural: 15
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: Item
     size: Large
     storedSprite:
@@ -42,7 +46,7 @@
   - type: SlasherMassacreMachete
   - type: Prying
     pryPowered: True
-    speedModifier: 1.5
+    speedModifier: 3
   - type: ThrowingAngle
     angle: 225
 
@@ -140,6 +144,8 @@
         Piercing: 0.90
         Heat: 0.90
         Caustic: 0.90
+  - type: Insulated
+    coefficient: 0.5
   - type: SelfUnremovableClothing
   - type: SelfEquipOnly
     unequipRequireConscious: false
