@@ -66,12 +66,15 @@
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying
   - type: DiseaseGenericEffect
-    timeScale: false
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     component: GravityWell
     defaults:
-      BaseTangentialAcceleration: 6
+      BaseTangentialAcceleration: 2
+      maxRange: 2
   - type: GravityWell
-    maxRange: 4
+    maxRange: 2
 
 - type: entity
   id: DiseaseBehaviorGravitosisB
@@ -82,12 +85,15 @@
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying
   - type: DiseaseGenericEffect
-    timeScale: false
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     component: GravityWell
     defaults:
-      BaseRadialAcceleration: 6
+      BaseRadialAcceleration: 2
+      maxRange: 2
   - type: GravityWell
-    maxRange: 4
+    maxRange: 2
 
 - type: entity
   id: DiseaseBehaviorGravitosisC
@@ -98,12 +104,63 @@
   - type: DiseaseEffect
     complexity: 14 # doesn't do that much but very annoying
   - type: DiseaseGenericEffect
-    timeScale: false
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     component: GravityWell
     defaults:
-      BaseRadialAcceleration: -6
+      BaseRadialAcceleration: -2
+      maxRange: 2
   - type: GravityWell
-    maxRange: 4
+    maxRange: 2
+
+- type: entity
+  id: DiseaseBehaviorDelusion
+  parent: DiseaseBehaviorBase
+  name: Delusion
+  description: Symptom that makes you talk nonsense.
+  components:
+  - type: DiseaseEffect
+    complexity: 14
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: BackwardsAccent
+
+- type: entity
+  id: DiseaseBehaviorClumsy
+  parent: DiseaseBehaviorBase
+  name: Clumsy
+  description: Symptom that makes you clumsy.
+  components:
+  - type: DiseaseEffect
+    complexity: 10
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: Clumsy
+
+- type: entity
+  id: DiseaseBehaviorCursed
+  parent: DiseaseBehaviorBase
+  name: Curse
+  description: Symptom that... oh fuck...
+  components:
+  - type: DiseaseEffect
+    complexity: 15
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: TileMovement
+
+- type: entity
+  id: DiseaseBehaviorMute
+  parent: DiseaseBehaviorBase
+  name: Mute
+  description: ...
+  components:
+  - type: DiseaseEffect
+    complexity: 15
+  - type: DiseaseGrantComponentEffect
+    components:
+    - type: Muted
 
 - type: entity
   id: DiseaseBehaviorOwO
@@ -116,6 +173,7 @@
   - type: DiseaseGrantComponentEffect
     components:
     - type: OwOAccent
+
 
 - type: entity
   id: DiseaseBehaviorBlindness
@@ -145,6 +203,7 @@
     - !type:ModifyStatusEffect
       effectProto: PainNumbnessTraitStatusEffect
       time: 20
+    - !type:SuppressPain
 
 - type: entity
   id: DiseaseBehaviorDeaf
@@ -201,7 +260,9 @@
   - type: DiseaseEffect
     complexity: 5
   - type: DiseaseReagentEffect
-    timeScale: false
+    severityScale: false  
+    timeScale: false  
+    progressScale: false 
     effects:
     - !type:ModifyStatusEffect
       effectProto: StatusEffectSeeingRainbow
@@ -227,19 +288,77 @@
     minProgress: 0.5
 
 - type: entity
-  id: DiseaseBehaviorBS
+  id: DiseaseBehaviorWeakness
   parent: DiseaseBehaviorBase
-  name: Bluespace Instability
-  description: Extremely rare symptom that causes you to teleport erratically.
+  name: Weakness
+  description: Symptom that gradually lowers stamina.
   components:
   - type: DiseaseEffect
-    complexity: 40 #there is a chance of ending up in a wall or in space
-  - type: DiseaseGrantComponentEffect
-    components:
-    - type: ChaoticJump
-      jumpMinInterval: 0
-      jumpMaxInterval: 60
-      rangeMin: 0.2
-      rangeMax: 2
+    complexity: 25
+  - type: DiseaseReagentEffect
+    timeScale: true
+    effects:
+    - !type:TakeStaminaDamage
+        amount: 5
+        probability: 0.1
   - type: DiseaseProgressCondition
-    minProgress: 0.5
+    minProgress: 0.8
+  - type: DiseasePeriodicCondition
+    delayMin: 0
+    delayMax: 4
+
+- type: entity
+  id: DiseaseBehaviorAsthenia
+  parent: DiseaseBehaviorBase
+  name: Asthenia
+  description: Symptom that drastically and severely reduces stamina.
+  components:
+  - type: DiseaseEffect
+    complexity: 30
+  - type: DiseaseReagentEffect
+    timeScale: true
+    effects:
+    - !type:TakeStaminaDamage
+        amount: 50
+        probability: 0.05
+  - type: DiseaseProgressCondition
+    minProgress: 0.8
+  - type: DiseasePeriodicCondition
+    delayMin: 10
+    delayMax: 35
+
+- type: entity
+  id: DiseaseBehaviorParasitism
+  parent: DiseaseBehaviorBase
+  name: Parasitism
+  description: Symptom that accelerates hunger.
+  components:
+  - type: DiseaseEffect
+    complexity: 20
+  - type: DiseaseReagentEffect
+    timeScale: false
+    effects:
+    - !type:SatiateHunger
+      factor: -0.5
+
+- type: entity
+  id: DiseaseBehaviorDisorientation
+  parent: DiseaseBehaviorBase
+  name: Disorientation
+  description: Symptom that... what?
+  components:
+  - type: DiseaseEffect
+    complexity: 40
+  - type: DiseaseReagentEffect
+    timeScale: false  
+    progressScale: false 
+    effects:
+    - !type:MovementSpeedModifier
+      walkSpeedModifier: -1
+      sprintSpeedModifier: -1
+      time: 5
+  - type: DiseaseProgressCondition
+    minProgress: 0.8
+  - type: DiseasePeriodicCondition
+    delayMin: 2
+    delayMax: 25
