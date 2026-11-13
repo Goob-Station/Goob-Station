@@ -1,0 +1,28 @@
+- type: constructionGraph
+  id: SpikedShield
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: shield
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 5
+      - tag: Knife
+        name: construction-step-spiked-shield-knife
+      - tag: Knife
+        name: construction-step-spiked-shield-knife
+      - tag: Knife
+        name: construction-step-spiked-shield-knife
+  - node: shield
+    entity: SpikedShield
+
+- type: construction
+  id: SpikedShield
+  graph: SpikedShield
+  startNode: start
+  targetNode: shield
+  category: construction-category-weapons
+  objectType: Item
+  description: construction-spiked-shield-description
