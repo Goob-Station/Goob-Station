@@ -34,6 +34,7 @@
   - Revolutionary
   - BlobGameMode
   - CosmicCult
+  - Devil #This would feel the worst for nukeops if this ever happened again
 
 - type: incompatibleModes
   id: Honkops
@@ -44,6 +45,7 @@
   - Revolutionary
   - BlobGameMode
   - CosmicCult
+  - Devil # same vein
 
 - type: incompatibleModes
   id: Wizard
