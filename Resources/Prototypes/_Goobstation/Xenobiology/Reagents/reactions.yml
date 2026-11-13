@@ -1,0 +1,19 @@
+- type: reaction
+  id: Rainbowine
+  reactants:
+    XenobioJellyPurple:
+      amount: 3
+    XenobioJellyBlue:
+      amount: 3
+    XenobioJellyDarkBlue:
+      amount: 3
+    XenobioJellyCerulean:
+      amount: 3
+    XenobioJellyRed:
+      amount: 3
+    XenobioJellyGreen:
+      amount: 3
+    XenobioJellyPink:
+      amount: 3
+  products:
+    Rainbowine: 0.35

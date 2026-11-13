@@ -46,3 +46,43 @@
   - type: Tag
     tags:
     - XenobiologyGreenExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, GreenSlimeExtract ]
+  id: FilledGreenSlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ] # lol
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioFelinidToxin # EVIL
+          amount: 10
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioJellyGreen
+          amount: 10
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioHumanToxin
+          amount: 10

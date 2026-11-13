@@ -43,3 +43,40 @@
   - type: Tag
     tags:
     - XenobiologyGreyExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, GreySlimeExtract ]
+  id: FilledGreySlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: Epinephrine
+          amount: 15
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractEvil
+      - !type:Jitter
+        time: 3
+        frequency: 20
+      - !type:SpawnEntity
+        entity: MobSlimeXenobioBabyGreySpawner
+        number: 3
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:SpawnEntity
+        entity: MonkeyCube
+        number: 3

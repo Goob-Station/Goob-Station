@@ -27,6 +27,12 @@ public sealed partial class ReactiveComponent : Component
     /// </summary>
     [DataField]
     public float? ScaleOverride;
+
+    /// <summary>
+    /// Goobstation - Use this to determine what would happen after entity's <see cref="Reactions"/> already happened
+    /// </summary>
+    [DataField]
+    public EntityEffect[]? Effects = default!;
 }
 
 [DataDefinition]

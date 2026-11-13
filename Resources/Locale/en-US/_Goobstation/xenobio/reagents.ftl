@@ -33,3 +33,12 @@ xenobio-reagent-toxin-advanced-desc = Turns any humanoid that ingests enough of 
 
 xenobio-reagent-genderfluid-name = Gender fluid
 xenobio-reagent-genderfluid-desc = Swaps genders of the person ingesting it. If this existed 100 years ago, humankind would probably have achieved world peace.
+
+xenobio-reagent-rainbow-jelly-name = Rainbowine
+xenobio-reagent-rainbow-jelly-desc = Mysterious liquid that can summon a rainbow slime.
+
+reagent-name-permutazine = Permutazine
+reagent-desc-permutazine = Experimental compound that can permanently swap minds. Beware of it's side effect!
+
+reagent-name-levitane = Levitane
+reagent-desc-levitane = Experimental compound that can make you able to fly.

@@ -199,4 +199,38 @@
   - type: StaticPrice
     price: 10000 # goida
 
-# todo mind transfer potion
+- type: entity
+  parent: ChemistryEmptyVialSmall
+  id: PermutazineChemistryVial
+  suffix: Permutazine
+  components:
+  - type: Label
+    currentLabel: reagent-name-permutazine
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+          - ReagentId: Permutazine
+            Quantity: 10
+  - type: Tag
+    tags:
+    - Vial
+
+- type: entity
+  parent: ChemistryEmptyVialSmall
+  id: LevitaneChemistryVial
+  suffix: Levitane
+  components:
+  - type: Label
+    currentLabel: reagent-name-levitane
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+          - ReagentId: Levitane
+            Quantity: 10
+  - type: Tag
+    tags:
+    - Vial
