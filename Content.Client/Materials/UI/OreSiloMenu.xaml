@@ -13,12 +13,39 @@
                       HorizontalExpand="True"
                       Orientation="Vertical"
                       SizeFlagsStretchRatio="3">
-            <Label Text="{Loc 'ore-silo-ui-label-clients'}" Margin="5 5 5 5" HorizontalAlignment="Center" StyleClasses="LabelKeyText"/>
+            <Label Name="ClientsLabel" Text="{Loc 'ore-silo-ui-label-clients'}" Margin="5 5 5 5" HorizontalAlignment="Center" StyleClasses="LabelKeyText"/>
             <PanelContainer VerticalExpand="True">
                 <PanelContainer.PanelOverride>
                     <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
                 </PanelContainer.PanelOverride>
                 <ItemList Name="ClientList" SelectMode="Button" VerticalExpand="True"/>
+            </PanelContainer>
+        </BoxContainer>
+        <BoxContainer Name="TransferPanel"
+                      Visible="False"
+                      HorizontalExpand="True"
+                      Orientation="Vertical">
+            <Label Text="{Loc 'ore-silo-ui-label-transfer'}" Margin="5 5 5 5" HorizontalAlignment="Center" StyleClasses="LabelKeyText"/>
+            <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" Margin="6 6 6 6" SeparationOverride="4">
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                        <Label Text="{Loc 'ore-silo-ui-transfer-target'}" MinWidth="80"/>
+                        <OptionButton Name="TransferTarget" HorizontalExpand="True"/>
+                    </BoxContainer>
+                    <Label Name="TransferTargetStock" StyleClasses="LabelSubText" ClipText="True"/>
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                        <Label Text="{Loc 'ore-silo-ui-transfer-material'}" MinWidth="80"/>
+                        <OptionButton Name="TransferMaterial" HorizontalExpand="True"/>
+                    </BoxContainer>
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                        <Label Text="{Loc 'ore-silo-ui-transfer-amount'}" MinWidth="80"/>
+                        <SpinBox Name="TransferAmount" HorizontalExpand="True"/>
+                        <Button Name="TransferButton" Text="{Loc 'ore-silo-ui-transfer-send'}" MinWidth="80"/>
+                    </BoxContainer>
+                </BoxContainer>
             </PanelContainer>
         </BoxContainer>
         <BoxContainer VerticalExpand="True"

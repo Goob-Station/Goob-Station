@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoProduct
+  id: MaterialSiloMaster
+  icon:
+    sprite: _Goobstation/Structures/Machines/master_silo.rsi
+    state: silo
+  product: CrateMaterialSiloMaster
+  cost: 7500
+  category: cargoproduct-category-name-materials
+  group: market

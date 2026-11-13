@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateMaterialSiloMaster
+  name: master material silo crate
+  description: A package including all the materials to create a master material silo.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MasterMaterialSiloMachineCircuitboard
+        - id: SheetSteel1
+          amount: 10
+        - id: MicroManipulatorStockPart
+          amount: 4
+        - id: CableApcStack1
+          amount: 2

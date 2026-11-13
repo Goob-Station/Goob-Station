@@ -59,6 +59,8 @@ public sealed partial class OreSiloMenu : FancyWindow
             if (entTextDict.TryGetValue(ent, out var text))
                 enumerator.Current.Text = text;
         }
+
+        UpdateTransfer(state); // Goob
     }
 }
 

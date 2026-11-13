@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Materials.OreSilo; // Goob
 using Content.Shared.Materials.OreSilo;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
@@ -16,6 +17,16 @@ public sealed class OreSiloBoundUserInterface(EntityUid owner, Enum uiKey) : Bou
 
         _menu = this.CreateWindow<OreSiloMenu>();
         _menu.SetEntity(Owner);
+
+        // Goob
+        if (EntMan.TryGetComponent<OreSiloComponent>(Owner, out var silo) && silo.MasterSilo)
+            _menu.SetMasterSilo(Owner);
+
+        _menu.OnTransferPressed += (target, material, sheets) =>
+        {
+            SendMessage(new OreSiloTransferMessage(target, material, sheets));
+        };
+        // Goob
 
         _menu.OnClientEntryPressed += netEnt =>
         {

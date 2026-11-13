@@ -24,12 +24,19 @@ public sealed partial class OreSiloComponent : Component
     /// </remarks>
     [DataField, AutoNetworkedField]
     public float Range = 40f; // Goob - 20->40
+
+    // Goob
+    [DataField, AutoNetworkedField]
+    public bool MasterSilo;
+    // Goob
 }
 
 [Serializable, NetSerializable]
 public sealed class OreSiloBuiState : BoundUserInterfaceState
 {
     public readonly HashSet<(NetEntity, string, string)> Clients;
+
+    public List<(NetEntity Entity, string Name, Dictionary<string, int> Materials)> Targets = new();
 
     public OreSiloBuiState(HashSet<(NetEntity, string, string)> clients)
     {

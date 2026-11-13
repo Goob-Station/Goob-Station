@@ -164,3 +164,17 @@
       Uranium: 15
       Steel: 15
       Cable: 5
+
+- type: entity
+  id: MasterMaterialSiloMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: master material silo machine board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: MachineMaterialSiloMaster
+    stackRequirements:
+      Manipulator: 4
+      Steel: 5
+      Cable: 1

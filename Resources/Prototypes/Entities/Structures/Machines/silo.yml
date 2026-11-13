@@ -17,6 +17,7 @@
           True: { state: silo_active }
           False: { state: silo }
   - type: OreSilo
+  - type: OreSiloClient # Goob
   - type: MaterialStorage
     whitelist:
       tags:

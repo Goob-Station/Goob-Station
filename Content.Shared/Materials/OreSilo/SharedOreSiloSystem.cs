@@ -11,6 +11,7 @@ public abstract class SharedOreSiloSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private EntityQuery<OreSiloClientComponent> _clientQuery;
+    private EntityQuery<OreSiloComponent> _siloQuery; // Goob
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -29,6 +30,7 @@ public abstract class SharedOreSiloSystem : EntitySystem
         SubscribeLocalEvent<OreSiloClientComponent, ComponentShutdown>(OnClientShutdown);
 
         _clientQuery = GetEntityQuery<OreSiloClientComponent>();
+        _siloQuery = GetEntityQuery<OreSiloComponent>(); // Goob
     }
 
     private void OnToggleOreSiloClient(Entity<OreSiloComponent> ent, ref ToggleOreSiloClientMessage args)
@@ -52,7 +54,16 @@ public abstract class SharedOreSiloSystem : EntitySystem
             if (!CanTransmitMaterials((ent, ent), client))
                 return;
 
+            // Goob
+            if (clientComp.Silo != null)
+                return;
+
             var clientMats = _materialStorage.GetStoredMaterials(client, true);
+
+            // Goob
+            if (ent.Comp.MasterSilo)
+                clientMats.Clear();
+
             var inverseMats = new Dictionary<string, int>();
             foreach (var (mat, amount) in clientMats)
             {
@@ -100,6 +111,9 @@ public abstract class SharedOreSiloSystem : EntitySystem
         if (ent.Comp.Silo is not { } silo)
             return;
 
+        if (_siloQuery.HasComp(ent)) // Goob
+            return;
+
         if (!CanTransmitMaterials(silo, ent))
             return;
 
@@ -124,14 +138,27 @@ public abstract class SharedOreSiloSystem : EntitySystem
         if (ent.Comp.Silo is not { } silo || !TryComp<MaterialStorageComponent>(silo, out var materialStorage))
             return;
 
+        if (_siloQuery.HasComp(ent)) // Goob
+            return;
+
         if (!CanTransmitMaterials(silo, ent))
             return;
 
         foreach (var (mat, amount) in args.Materials)
         {
-            if (!_materialStorage.TryChangeMaterialAmount(silo, mat, amount, materialStorage))
+            // Goob
+            var change = amount;
+            if (amount < 0)
+            {
+                change = -Math.Min(-amount, _materialStorage.GetMaterialAmount(silo, mat, materialStorage));
+                if (change == 0)
+                    continue;
+            }
+
+            if (!_materialStorage.TryChangeMaterialAmount(silo, mat, change, materialStorage))
                 continue;
-            args.Materials[mat] = 0;
+            args.Materials[mat] = amount - change;
+            // Goob
         }
     }
 
@@ -154,6 +181,9 @@ public abstract class SharedOreSiloSystem : EntitySystem
         if (!Resolve(silo, ref silo.Comp))
             return false;
 
+        if (!IsValidClient((silo.Owner, silo.Comp), client)) // Goob
+            return false;
+
         if (!_powerReceiver.IsPowered(silo.Owner))
             return false;
 
@@ -165,4 +195,18 @@ public abstract class SharedOreSiloSystem : EntitySystem
 
         return true;
     }
+
+    // Goob
+    [PublicAPI]
+    public bool IsValidClient(Entity<OreSiloComponent> silo, EntityUid client)
+    {
+        if (client == silo.Owner)
+            return false;
+
+        if (!_siloQuery.TryComp(client, out var clientSilo))
+            return !silo.Comp.MasterSilo;
+
+        return silo.Comp.MasterSilo && !clientSilo.MasterSilo;
+    }
+    // Goob
 }

@@ -7,7 +7,7 @@ using Robust.Shared.Player;
 namespace Content.Server.Materials;
 
 /// <inheritdoc/>
-public sealed class OreSiloSystem : SharedOreSiloSystem
+public sealed partial class OreSiloSystem : SharedOreSiloSystem // Goob
 {
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
@@ -42,6 +42,10 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
             if (client.Comp.Silo is not null)
                 continue;
 
+            // Goob
+            if (!CanTransmitMaterials((ent, ent), client))
+                continue;
+
             var netEnt = GetNetEntity(client);
             var name = Identity.Name(client, EntityManager);
             var beacon = _navMap.GetNearestBeaconString(client.Owner, onlyName: true);
@@ -72,12 +76,19 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
             _clientInformation.Add((netEnt, txt, beacon));
         }
 
-        _userInterface.SetUiState(ent.Owner, OreSiloUiKey.Key, new OreSiloBuiState(_clientInformation));
+        // Goob
+        var state = new OreSiloBuiState(_clientInformation);
+        if (ent.Comp.MasterSilo)
+            AddTransferTargets(ent, state);
+
+        _userInterface.SetUiState(ent.Owner, OreSiloUiKey.Key, state);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        UpdateMasterSilos(frameTime); // Goob
 
         // Solving an annoying problem: we need to send the silo to people who are near the silo so that
         // Things don't start wildly mispredicting. We do this as cheaply as possible via grid-based local-pos checks.
@@ -90,9 +101,12 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
             _silosToRemove.Clear();
 
             var clientQuery = EntityQueryEnumerator<OreSiloClientComponent, TransformComponent>();
-            while (clientQuery.MoveNext(out _, out var clientComp, out var clientXform))
+            while (clientQuery.MoveNext(out var clientUid, out var clientComp, out var clientXform)) // Goob
             {
                 if (clientComp.Silo == null)
+                    continue;
+
+                if (HasComp<OreSiloComponent>(clientUid)) // Goob
                     continue;
 
                 // We limit it to same-grid checks only for peak perf

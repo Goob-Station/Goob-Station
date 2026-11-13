@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#@Paul44ur
+- type: entity
+  id: MachineMaterialSiloMaster
+  parent: MachineMaterialSilo
+  name: master material silo
+  description: A bluespace material silo exclusive to cargo. Being able to send materials to other silos wirelessly. DO NOT DECONSTRUCT #Description is ass i know
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/master_silo.rsi #Placeholder Sprite till i make a better one. Maybe blue and green stuff :<
+    layers:
+    - state: silo
+      map: [ "base" ]
+  - type: OreSilo
+    masterSilo: true
+    range: 512   # Might need tweakin
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access: [["Cargo"]]
+  - type: Machine
+    board: MasterMaterialSiloMachineCircuitboard #Should work as expected
+  - type: StaticPrice
+    price: 3000
