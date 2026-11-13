@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Afterlight.Silicons.Synths.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;

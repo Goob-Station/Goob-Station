@@ -2,7 +2,7 @@
 using System.Collections.Frozen;
 using System.Linq;
 using System.Text.Json.Serialization;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Contraband;

@@ -54,7 +54,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mech.Components;
 using Content.Server.Mech.Systems;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 
 namespace Content.Server.Zombies;

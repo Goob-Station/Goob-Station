@@ -1,4 +1,4 @@
-﻿using Content.Goobstation.Maths.FixedPoint;
+﻿using Content.Shared.FixedPoint;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;

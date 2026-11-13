@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Server.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Body.Components;

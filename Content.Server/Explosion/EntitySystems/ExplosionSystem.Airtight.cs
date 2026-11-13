@@ -9,7 +9,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Explosion;
 using Robust.Shared.Collections;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;

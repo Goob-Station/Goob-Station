@@ -1,7 +1,7 @@
 using System.Text;
 using Content.Server.Destructible;
 using Content.Shared.Speech.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
 using Content.Shared.Damage.Components;

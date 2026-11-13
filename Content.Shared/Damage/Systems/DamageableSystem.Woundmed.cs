@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Damage;

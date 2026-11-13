@@ -18,7 +18,7 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Components; // DeltaV - Melee Stamina Resistance Override
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Lavaland.Weapons;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;

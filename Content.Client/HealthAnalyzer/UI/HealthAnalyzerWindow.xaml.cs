@@ -7,7 +7,7 @@ using Content.Client.UserInterface.Controls;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Shared.Disease;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;

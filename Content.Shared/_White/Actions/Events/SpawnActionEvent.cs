@@ -6,7 +6,7 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Goobstation.Maths.FixedPoint; // Goobstation
+using Content.Shared.FixedPoint; // Goobstation
 
 
 namespace Content.Shared._White.Actions.Events;
