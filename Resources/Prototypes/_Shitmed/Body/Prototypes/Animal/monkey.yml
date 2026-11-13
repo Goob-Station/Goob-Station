@@ -12,6 +12,7 @@
       organs:
         brain: OrganAnimalBrain
         eyes: OrganAnimalEyes
+        tongue: OrganAnimalTongue
     chest:
       part: ChestMonkey
       connections:

@@ -43,9 +43,11 @@
   name: vocal modulator
   description: "A vocal modulator, used to produce speech."
   components:
+  - type: Tongue
   - type: Sprite
     state: tongue
   - type: Organ
+    slotId: tongue
   - type: Tag
     tags:
     - Organ
