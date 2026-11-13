@@ -60,6 +60,29 @@ namespace Content.Server.Nuke
         [DataField("disarmDoafterLength")]
         public float DisarmDoAfterLength = 30.0f;
 
+        // Goobstation start - nuke ops siege rework
+        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool Converted;
+
+        [DataField("convertedTimer")]
+        public int ConvertedTimer = 720;
+
+        [DataField("diskTimerReduction")]
+        public int DiskTimerReduction = 300;
+
+        [DataField("diskReductionMinTime")]
+        public int DiskReductionMinTime = 60;
+
+        public EntityUid? LastDiskInserter;
+
+        [DataField("conversionDoafterLength")]
+        public float ConversionDoAfterLength = 10f;
+
+        [DataField]
+        public EntProtoId WreckPrototype = "NuclearBombWreck";
+        // Goobstation end
+
         [DataField("alertLevelOnActivate")] public string AlertLevelOnActivate = default!;
         [DataField("alertLevelOnOverride")] public string AlertLevelOnOverride = default!; // Goobstation
         [DataField("alertLevelOnDeactivate")] public string AlertLevelOnDeactivate = default!;

@@ -52,10 +52,19 @@ namespace Content.Shared.Nuke
         public int EnteredCodeLength;
         public int MaxCodeLength;
         public bool AllowArm;
+
+        // Goobstation - nuke ops siege rework
+        public bool Converted;
     }
 
     [Serializable, NetSerializable]
     public sealed partial class NukeDisarmDoAfterEvent : SimpleDoAfterEvent
+    {
+    }
+
+    // Goobstation - nuke ops siege rework
+    [Serializable, NetSerializable]
+    public sealed partial class NukeConversionDoAfterEvent : SimpleDoAfterEvent
     {
     }
 }

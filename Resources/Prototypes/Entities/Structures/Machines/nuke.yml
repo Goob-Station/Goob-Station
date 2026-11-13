@@ -122,6 +122,20 @@
       - GhostOnlyWarp
   - type: FTLSmashImmune
   - type: SupermatterImmune # Goobstation
+  - type: Damageable # Goobstation - siege rework: the bomb can be smashed in melee
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: NuclearBomb

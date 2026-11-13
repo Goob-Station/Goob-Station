@@ -1,0 +1,149 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Goobstation - nuke ops siege rework: defensive arsenal for holding a position
+
+- type: entity
+  name: syndicate deployable barrier
+  id: SyndicateDeployableBarrier
+  description: A compact syndicate barricade. Flip it open to deploy a solid barrier.
+  parent: BaseStructure
+  components:
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Syndicate/barrier_syndicate.rsi
+    layers:
+    - state: idle
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+  - type: Appearance
+  - type: LockVisuals
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      base:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 75
+        mask:
+        - MachineMask
+      barrier:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        layer:
+        - WallLayer
+  - type: DeployableBarrier
+    fixture: barrier
+  # Goobstation - a lock without access restrictions just drives the deploy toggle
+  - type: Lock
+    locked: false
+    lockOnClick: true
+    useAccess: false
+    showExamine: false
+    lockTime: 0
+    unlockTime: 0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 3
+            max: 5
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    enabled: false
+    radius: 3
+    color: red
+  - type: StaticPrice
+    price: 200
+
+- type: entity
+  parent: BaseItem
+  id: BarbedWire
+  name: barbed wire
+  description: A coil of barbed wire. Use in hand to string it across the ground and slow down anyone trying to push through.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/barbed_wire.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: TrapDeploy
+    deployedPrototype: BarbedWireDeployed
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  id: BarbedWireDeployed
+  name: barbed wire
+  suffix: deployed
+  description: A stretch of barbed wire. Crossing it will hurt and slow you down.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: FloorObjects
+    sprite: _Goobstation/Objects/Misc/barbed_wire.rsi
+    state: icon
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.1,0.4,0.1"
+        hard: false
+        layer:
+        - LowImpassable
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    stepOn: true
+    triggerGroups: # Goobstation
+      types:
+      - Landmine
+  - type: StepTrap
+    staminaDamage: 25
+    slowdownDuration: 4
+    slowdownModifier: 0.5
+    damage:
+      types:
+        Slash: 5
+        Piercing: 5
+    sound:
+      path: /Audio/Effects/glass_step.ogg
+  - type: TrapPickup
+    itemPrototype: BarbedWire
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
