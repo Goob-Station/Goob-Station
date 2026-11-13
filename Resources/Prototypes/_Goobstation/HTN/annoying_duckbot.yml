@@ -1,0 +1,63 @@
+- type: htnCompound
+  id: AnnoyingDuckBotCompound
+  branches:
+  - preconditions:
+    - !type:IsEmaggedPrecondition
+    tasks:
+    - !type:HTNCompoundTask
+      task: AnnoyingDuckBotChaseCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: AnnoyingDuckBotChaseCompound
+  branches:
+  - tasks:
+    # Pick someone to annoy.
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyPersonForAnnoyingDuckBot
+
+    # Run up to them.
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        pathfindInPlanning: true
+        removeKeyOnFinish: false
+        targetKey: TargetCoordinates
+        pathfindKey: TargetPathfind
+        rangeKey: MeleeRange
+
+    # HONK.
+    - !type:HTNPrimitiveTask
+      operator: !type:RaiseEventForOwnerOperator
+        args: !type:AnnoyingDuckBotHonkEvent
+        targetKey: Target
+
+    # Short pause before picking the next target.
+    - !type:HTNPrimitiveTask
+      operator: !type:SetFloatOperator
+        targetKey: IdleTime
+        amount: 2
+    - !type:HTNPrimitiveTask
+      operator: !type:WaitOperator
+        key: IdleTime
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+
+- type: utilityQuery
+  id: NearbyPersonForAnnoyingDuckBot
+  query:
+  - !type:ComponentQuery
+    components:
+    - type: HumanoidAppearance
+      species: Human
+  considerations:
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+  - !type:TargetAccessibleCon
+    curve: !type:BoolCurve
+  - !type:TargetInLOSOrCurrentCon
+    curve: !type:BoolCurve

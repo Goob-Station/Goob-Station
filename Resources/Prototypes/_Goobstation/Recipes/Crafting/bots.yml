@@ -1,0 +1,7 @@
+- type: construction
+  id: annoyingduckbot
+  graph: AnnoyingDuckBot
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item

@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: AnnoyingDuckBotSounds
+  files:
+  - /Audio/Animals/duck_quack_happy.ogg
+  - /Audio/_Goobstation/Animals/amusingduck.ogg

@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: AnnoyingDuckBotAd
+  values:
+    prefix: advertisement-annoying-duck-bot-
+    count: 4
+
+- type: localizedDataset
+  id: AnnoyingDuckBotEmaggedAd
+  values:
+    prefix: advertisement-emagged-duck-bot-
+    count: 1

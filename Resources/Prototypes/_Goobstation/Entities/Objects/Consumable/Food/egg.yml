@@ -1,0 +1,3 @@
+- type: entity
+  parent: [ FoodEgg, PresentRandom ]
+  id: FoodEggAnnoyingDuck
