@@ -19,3 +19,13 @@
   license: "CC-BY-SA-3.0"
   copyright: "stolen from unknown source by loltart, converted to mono by @deltanedas (github)"
   source: "https://goida.zip/unknown"
+
+- files: ["amusingduck.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/blob/94bc47423e31578390517ce1b2ad485db2a37d00/sound/misc/amusingduck.ogg"
+
+- files: ["children_yay_sound.ogg"]
+  license: Custom
+  copyright: "Scott Cawthon allows it"
+  source: "https://youtu.be/5gsp7eNmT-c?is=Bk4673RzDzi5VrIQ"
