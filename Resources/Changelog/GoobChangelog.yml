@@ -27150,3 +27150,17 @@ Entries:
       message: Buffed security's Taro to have the performance of a weaker revolver.
   id: 3039
   time: '2026-11-11T00:51:55.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: >-
+        Sphere module now kicks you out of sphere mode if you are bolad or
+        stamcrit, running people over deals stamina to you
+    - type: Tweak
+      message: >-
+        Diona and harpies can now use modsuits, yowie can no longer use
+        modsuits.
+    - type: Fix
+      message: Fixed new vend UI not showing reagent colors (i.e., chemvend jugs)
+  id: 3040
+  time: '2026-11-13T00:28:43.0000000+00:00'
