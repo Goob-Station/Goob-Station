@@ -1,0 +1,18 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                HorizontalExpand="True"
+                Margin="0 0 0 3">
+    <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BackgroundColor="#25252a" />
+    </PanelContainer.PanelOverride>
+    <BoxContainer Orientation="Horizontal" Margin="4">
+        <TextureRect Name="IconRect" MinSize="32 32" Stretch="KeepAspectCentered" VerticalAlignment="Center" Margin="0 0 6 0" />
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <RichTextLabel Name="TitleLabel" HorizontalExpand="True" />
+            <RichTextLabel Name="DescriptionLabel" HorizontalExpand="True" Modulate="#aaaaaa" />
+            <Label Name="InfoLabel" StyleClasses="LabelSubText" />
+        </BoxContainer>
+        <controls:ConfirmButton Name="RemoveButton" Text="{Loc admin-objectives-remove}" VerticalAlignment="Center" Margin="6 0 0 0" />
+    </BoxContainer>
+</PanelContainer>
