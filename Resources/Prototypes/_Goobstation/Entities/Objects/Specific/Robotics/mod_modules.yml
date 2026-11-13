@@ -137,7 +137,7 @@
   - type: ModLightModule
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorEngineeringContraband ]
   id: ModsuitModuleMagboots
   name: MOD magnetic stability module
   description: These are powerful electromagnets fitted into the suit's boots, allowing users both excellent traction no matter the condition indoors, and to essentially hitch a ride on the exterior of a hull.
@@ -210,7 +210,7 @@
     - ModsuitModuleVisor
 
 - type: entity
-  parent: BaseModsuitModuleVisor
+  parent: [ BaseModsuitModuleVisor, BaseMinorMedicalContraband ]
   id: ModsuitModuleVisorMedical
   name: MOD medical visor module
   description: A heads-up display installed into the visor of the suit. This cross-references suit sensor data with a modern biological scanning suite, allowing the user to visualize the current health of organic lifeforms.
@@ -225,7 +225,7 @@
     - type: ShowDiseaseIcons
 
 - type: entity
-  parent: [BaseModsuitModuleVisor, BaseSecurityContraband]
+  parent: [ BaseModsuitModuleVisor, BaseMajorSecurityContraband ]
   id: ModsuitModuleVisorSecurity
   name: MOD security visor module
   description: A heads-up display installed into the visor of the suit. This module is a heavily-retrofitted targeting system, plugged into various criminal databases to be able to view arrest records, command simple security-oriented robots, and generally know who to shoot.
@@ -284,7 +284,7 @@
       mod-device: !type:ContainerSlot
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMinorMedicalContraband ]
   id: ModsuitModuleHealthAnalyzer
   name: MOD health analyzer module
   description: A module installed into the glove of the suit. This is a high-tech biological scanning suite, allowing the user indepth information on the vitals and injuries of others even at a distance.
@@ -316,7 +316,7 @@
     device: ModsuitDeviceGps
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorEngineeringContraband ]
   id: ModsuitModuleJetpack
   name: MOD ion jetpack module
   description: A series of electric thrusters installed across the suit, this is a module highly anticipated by trainee Engineers. Rather than using gasses for combustion thrust, these jets are capable of accelerating ions using charge from the suit's charge.
@@ -355,7 +355,7 @@
   - type: ModThermalRegulatorModule
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModuleEmpShield
   name: MOD EMP shield module
   description: A field inhibitor installed into the suit, protecting it against feedback such as electromagnetic pulses that would otherwise damage the electronic systems of the suit.
@@ -592,7 +592,7 @@
       startingGrabStage: Hard
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorMedicalContraband ]
   id: ModsuitModuleQuickCarry
   name: MOD quick carry module
   description: A suite of advanced servos, redirecting power from the suit's arms to help carry the wounded; or simply for fun. However, Nanotrasen has locked the module's ability to assist in hand-to-hand combat.
@@ -611,7 +611,7 @@
       multiplier: 0.4
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMinorMedicalContraband ]
   id: ModsuitModuleInjector
   name: MOD injector module
   description: A module installed into the wrist of the suit, this functions as a high-capacity syringe, with a tip fine enough to locate the emergency injection ports on any suit of armor.
@@ -628,7 +628,7 @@
     device: ModsuitDeviceInjector
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMinorMedicalContraband ]
   id: ModsuitModuleDefibrillator
   name: MOD defibrillator module
   description: A module built into the gauntlets of the suit; commonly known as the 'Healing Hands' by medical professionals. Onboard computers in the suit calculate the necessary voltage, and the wearer returns to Medical a hero.
@@ -645,7 +645,7 @@
     device: ModsuitDeviceDefibrillator
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMinorMedicalContraband ]
   id: ModsuitModulePatientTransport
   name: MOD patient transport module
   description: A module built into the forearm of the suit. Summonable with merely a gesture, the hardlight transport bag keeps a patient in stasis, but only holds together while the wearer drags it.
@@ -662,7 +662,7 @@
     device: ModsuitDevicePatientTransport
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorMedicalContraband ]
   id: ModsuitModuleThreadRipper
   name: MOD thread ripper module
   description: A module that rips open and rethreads the fabric of a patient's clothing as needed, letting the wearer operate without undressing them first.
@@ -681,7 +681,7 @@
     - type: SurgeryIgnoreClothing
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorEngineeringContraband ]
   id: ModsuitModuleTRay
   name: MOD t-ray scan module
   description: A module installed into the visor of the suit, allowing the user to use a pulse of terahertz radiation to essentially echolocate things beneath the floor, mostly cables and pipes.
@@ -702,7 +702,7 @@
   - type: ModTrayScannerModule
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorEngineeringContraband ]
   id: ModsuitModuleRadProtection
   name: MOD radiation protection module
   description: A module utilizing polymers and reflective shielding to protect the user against ionizing radiation.
@@ -718,7 +718,7 @@
         Radiation: 0.2
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorEngineeringContraband ]
   id: ModsuitModuleHeadProtector
   name: MOD safety-first head protection module
   description: A series of dampening plates installed along the back and inside of the helmet, protecting the wearer from falling debris and the occasional blunt instrument.
@@ -737,7 +737,7 @@
         Blunt: 0.9
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMinorEngineeringContraband ]
   id: ModsuitModuleTether
   name: MOD emergency tether module
   description: A custom-built grappling-hook powered by a winch capable of hauling the user. While some older models of cargo-oriented grapples have capacities of a few tons, these are only capable of working in zero-gravity environments, a blessing to some Engineers.
@@ -754,7 +754,7 @@
     device: ModsuitDeviceTether
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMinorEngineeringContraband ]
   id: ModsuitModuleMister
   name: MOD water mister module
   description: A module containing a mister, able to spray water to extinguish fires. Refills itself slowly from the suit's internal reservoir.
@@ -771,7 +771,7 @@
     device: ModsuitDeviceMister
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMinorEngineeringContraband ]
   id: ModsuitModuleResinMister
   name: MOD resin mister module
   description: An atmospheric resin launcher that fires globs of quick-setting metal foam, patching breaches from a safe distance.
@@ -789,7 +789,7 @@
     device: ModsuitDeviceResinMister
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModuleHolster
   name: MOD holster module
   description: Based off typical storage compartments, this system allows the suit to holster a standard firearm across its surface and allow for extremely quick retrieval.
@@ -810,7 +810,7 @@
       mod-holster: !type:ContainerSlot
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModuleMegaphone
   name: MOD megaphone module
   description: A microchip megaphone linked to a MODsuit, for very important purposes, like loudness.
@@ -830,7 +830,7 @@
   - type: ModLoudspeakerModule
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModulePepperShoulders
   name: MOD pepper shoulders module
   description: A module that attaches two pepper sprayers on shoulders of a MODsuit, releasing a cloud of capsaicin around the wearer on command.
@@ -846,7 +846,7 @@
     prototype: ModsuitPepperSmokeEffect
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModuleRestraintAssist
   name: MOD restraint assist module
   description: Enhanced gauntlet grip pads that help with placing individuals in restraints more quickly.
@@ -864,7 +864,7 @@
       multiplier: 0.5
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModuleBulwark
   name: MOD bulwark module
   description: Layers of hydraulic stabilizers in the suit's legs keep the wearer firmly planted, making them impossible to shove around.
@@ -882,7 +882,7 @@
     - type: ModShoveBlocker
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMinorCargoContraband ]
   id: ModsuitModuleDrill
   name: MOD drill module
   description: An integrated drill, typically extending over the user's hand. While useful for drilling through rock, your drill is surely the one that both pierces and creates the heavens.
@@ -906,7 +906,7 @@
       - MiningScannerViewable
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorCargoContraband ]
   id: ModsuitModuleOreBag
   name: MOD ore bag module
   description: An integrated ore storage system installed into the gauntlets, magnetically pulling in nearby ore while active.
@@ -938,7 +938,7 @@
           type: StorageBoundUserInterface
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMinorCargoContraband ]
   id: ModsuitModuleClamp
   name: MOD hydraulic clamp module
   description: A series of actuators installed into both arms of the suit, boasting a lifting capacity of almost a ton. However, this design has been locked by Nanotrasen to be primarily utilized for lifting various crates.
@@ -974,7 +974,7 @@
     - type: SolutionScanner
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorEngineeringContraband ]
   id: ModsuitModuleAntiGravity
   name: MOD anti-gravity module
   description: A module that uses a gravitational core to make the user completely weightless, letting them float freely even with gravity on.
@@ -1765,7 +1765,7 @@
       - EntityStorage
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorCargoContraband ]
   id: ModsuitModuleCandelaSpool
   name: "MOD \"Candela\" beacon spool module"
   description: "A set of tethers and connectors, capable of automatically deploying \"Candela\" beacons from within a MODsuit."
@@ -1849,7 +1849,7 @@
     weightlessModifier: 1.6
 
 - type: entity
-  parent: ModsuitModuleBuiltinThermal
+  parent: [ ModsuitModuleBuiltinThermal, BaseMajorSecurityContraband ]
   id: ModsuitModuleThermalVisor
   name: "MOD thermal visor module"
   description: "A heads-up display installed into the visor of the suit. This uses a small IR scanner to detect and identify the thermal radiation output of objects near the user. While it can detect the heat output of even something as small as a rodent, it still produces irritating red overlay. They say these also let you see behind you."
@@ -1873,7 +1873,7 @@
       Glass: 50
 
 - type: entity
-  parent: ModsuitModuleBuiltinNightVision
+  parent: [ ModsuitModuleBuiltinNightVision, BaseMinorSecurityMedicalContraband ]
   id: ModsuitModuleNightVisor
   name: "MOD night visor module"
   description: "A heads-up display installed into the visor of the suit. Typical for both civilian and military applications, this allows the user to perceive their surroundings while in complete darkness, enhancing the view by tenfold; yet brightening everything into a spooky green glow. They say these also let you see behind you."
@@ -1897,7 +1897,7 @@
       Glass: 50
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorMedicalContraband ]
   id: ModsuitModuleQuickCarryAdvanced
   name: "MOD advanced quick carry module"
   description: "A suite of advanced servos, redirecting power from the suit's arms to help carry the wounded; or simply for fun. However, Nanotrasen has locked the module's ability to assist in hand-to-hand combat."
@@ -1916,7 +1916,7 @@
       multiplier: 0.15
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModuleShockAbsorber
   name: "MOD shock absorption module"
   description: "A module that makes the user resistant to the knockdown and CNS disruption inflicted by Stun Batons."
@@ -2092,7 +2092,7 @@
       - MobState
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorEngineeringContraband ]
   id: ModsuitModuleJumpJet
   name: "MOD ionic jump jet module"
   description: "A specialised ionic thruster which provides a short but powerful forward boost, after which time it needs to recharge."
@@ -2109,7 +2109,7 @@
   - type: ModJumpJetModule
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMinorEngineeringContraband ]
   id: ModsuitModuleEmpShieldAdvanced
   name: "MOD advanced EMP shield module"
   description: "An advanced field inhibitor installed into the suit, protecting it against feedback such as electromagnetic pulses that would otherwise damage the electronic systems of the suit or electronic devices on the wearer, including augmentations. However, it will take from the suit's power to do so."
@@ -2230,7 +2230,7 @@
       - Trash
 
 - type: entity
-  parent: BaseModsuitModuleDevice
+  parent: [ BaseModsuitModuleDevice, BaseMajorSecurityContraband ]
   id: ModsuitModuleCriminalCapture
   name: MOD criminal capture module
   description: A security take on the patient transport. It wraps a suspect in a sealed hardlight holding bag that they can't get out of and that drags at full speed. It only holds together while the wearer drags it, and leaves them exhausted on the floor when it dissipates.
@@ -2342,7 +2342,7 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModuleMagneticHarness
   name: "MOD magnetic harness module"
   description: "Based off old TerraGov harness kits, this magnetic harness automatically attaches dropped guns back to the wearer."
@@ -2360,7 +2360,7 @@
     - type: ModMagneticHarness
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModuleProjectileDampener
   name: "MOD projectile dampener module"
   description: "Using technology from peaceborgs, this module weakens all projectiles in nearby range."
@@ -2378,7 +2378,7 @@
 
 
 - type: entity
-  parent: BaseModsuitModule
+  parent: [ BaseModsuitModule, BaseMajorSecurityContraband ]
   id: ModsuitModuleShootingAssistant
   name: "MOD shooting assistant module"
   description: "A botched prototype meant to boost the TGMC crayon eaters' ability with firearms. It has only two modes available in its configurations: 'Quick Fire Stormtrooper' and 'Slow Ricochet Sharpshooter'."
