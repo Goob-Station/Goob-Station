@@ -1,0 +1,103 @@
+- type: entity
+  name: tactical tonfa
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: WeaponTacticalTonfa
+  description: A sturdy side-handle baton. Hits hard enough to hurt, and may knock whatever the target is holding out of their hands.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/tactical_tonfa.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Weapons/Melee/tactical_tonfa.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/tactical_tonfa.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: MeleeWeapon
+    attackRate: 1.2
+    wideAnimationRotation: -90
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: DisarmMalus
+  - type: DisarmOnHit
+    chance: 0.1
+
+- type: entity
+  name: tactical mancatcher
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: WeaponTacticalMancatcher
+  description: A long pole ending in a spring-loaded pusher. Good for pushing assailants away, and making them drop what they are holding.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/tactical_catcher.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: _Goobstation/Objects/Weapons/Melee/tactical_catcher.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/tactical_catcher.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - SuitStorage
+  - type: MeleeWeapon
+    attackRate: 0.5
+    range: 2.0
+    canWideSwing: false
+    animation: WeaponArcThrust
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 2
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    speed: 10
+    distance: 2
+  - type: DisarmMalus
+  - type: DisarmOnHit
+    chance: 0.25
+
+- type: entity
+  name: tactical ram
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: WeaponTacticalRam
+  description: A portable battering ram. Works for bashing doors and walls, but not much else.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/tactical_ram.rsi
+    state: icon
+  - type: Item
+    size: Huge
+    sprite: _Goobstation/Objects/Weapons/Melee/tactical_ram.rsi
+  - type: MeleeWeapon
+    attackRate: 0.7
+    wideAnimationRotation: -90
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: MeleeRequiresWield
+  - type: DisarmMalus
+  - type: StructureBreaker
+    delay: 5
+    damage:
+      types:
+        Structural: 150
+    hitSound:
+      collection: MetalThud
+    whitelist:
+      tags:
+      - Wall
+      - Airlock

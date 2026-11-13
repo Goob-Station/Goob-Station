@@ -57,6 +57,9 @@
   - WeaponLaserCellSniper
   - ClothingBackpackLMGBattery
   - ClothingEyesGlassesSecurityContraDetect
+  - WeaponTacticalTonfa
+  - WeaponTacticalMancatcher
+  - WeaponTacticalRam
 
 - type: latheRecipePack
   id: SecurityAmmoGoob
