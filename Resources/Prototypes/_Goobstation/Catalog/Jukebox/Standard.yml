@@ -233,3 +233,9 @@
   name: deerdestroyer - Chudshift
   path:
     path: /Audio/Lobby/CHUDSHIFT.ogg
+
+- type: jukebox
+  id: wizard_fistfight
+  name: Wizard Fist Fight
+  path:
+    path: /Audio/_Goobstation/Wizard/wizard_fistfight.ogg
