@@ -1,6 +1,7 @@
 using Content.Goobstation.Common.Abductor;
 using Content.Goobstation.Common.Materials;
 using Content.Goobstation.Common.Nuke;
+using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Goobstation.Shared.Supermatter.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Chasm;
@@ -21,92 +22,68 @@ public sealed partial class ChasmFallCondition : AchievementCondition;
 
 public sealed partial class RecyclerGibbedCondition : AchievementCondition;
 
-public sealed class SupermatterConsumedConditionSystem : AchievementConditionSystem<SupermatterConsumedCondition>
+public sealed partial class Performed65Condition : AchievementCondition;
+
+public sealed partial class SupermatterConsumedConditionSystem : AchievementConditionSystem<SupermatterConsumedCondition>
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ActorComponent, SupermatterConsumedEvent>(OnSupermatterConsumedEvent);
-    }
-
+    [SubscribeLocalEvent]
     private void OnSupermatterConsumedEvent(Entity<ActorComponent> ent, ref SupermatterConsumedEvent args)
     {
         ProgressAll(ent);
     }
 }
 
-public sealed class SiliconEmaggedConditionSystem : AchievementConditionSystem<SiliconEmaggedCondition>
+public sealed partial class SiliconEmaggedConditionSystem : AchievementConditionSystem<SiliconEmaggedCondition>
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ActorComponent, SiliconEmaggedEvent>(OnSiliconEmaggedEvent);
-    }
-
+    [SubscribeLocalEvent]
     private void OnSiliconEmaggedEvent(Entity<ActorComponent> ent, ref SiliconEmaggedEvent args)
     {
         ProgressAll(ent);
     }
 }
 
-public sealed class AbductedAgainConditionSystem : AchievementConditionSystem<AbductedAgainCondition>
+public sealed partial class AbductedAgainConditionSystem : AchievementConditionSystem<AbductedAgainCondition>
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ActorComponent, AbductedAgainEvent>(OnAbductedAgainEvent);
-    }
-
+    [SubscribeLocalEvent]
     private void OnAbductedAgainEvent(Entity<ActorComponent> ent, ref AbductedAgainEvent args)
     {
         ProgressAll(ent);
     }
 }
 
-public sealed class NukeDisarmConditionSystem : AchievementConditionSystem<NukeDisarmCondition>
+public sealed partial class NukeDisarmConditionSystem : AchievementConditionSystem<NukeDisarmCondition>
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ActorComponent, NukeDisarmedByEvent>(OnNukeDisarmedByEvent);
-    }
-
+    [SubscribeLocalEvent]
     private void OnNukeDisarmedByEvent(Entity<ActorComponent> ent, ref NukeDisarmedByEvent args)
     {
         ProgressAll(ent);
     }
 }
 
-public sealed class ChasmFallConditionSystem : AchievementConditionSystem<ChasmFallCondition>
+public sealed partial class ChasmFallConditionSystem : AchievementConditionSystem<ChasmFallCondition>
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ChasmFallingComponent, ComponentStartup>(OnComponentStartup);
-    }
-
+    [SubscribeLocalEvent]
     private void OnComponentStartup(Entity<ChasmFallingComponent> ent, ref ComponentStartup args)
     {
         ProgressAll(ent);
     }
 }
 
-public sealed class RecyclerGibbedConditionSystem : AchievementConditionSystem<RecyclerGibbedCondition>
+public sealed partial class RecyclerGibbedConditionSystem : AchievementConditionSystem<RecyclerGibbedCondition>
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<BodyComponent, RecyclerGibbedEvent>(OnRecyclerGibbedEvent);
-    }
-
+    [SubscribeLocalEvent]
     private void OnRecyclerGibbedEvent(Entity<BodyComponent> ent, ref RecyclerGibbedEvent args)
     {
         ProgressAll(ent);
+    }
+}
+
+public sealed partial class Performed65ConditionSystem : AchievementConditionSystem<SupermatterConsumedCondition>
+{
+    [SubscribeLocalEvent]
+    private void OnPerformed65(Entity<ActorComponent> ent, ref Performed65Event args)
+    {
+        ProgressAll(ent);
+        ProgressAll(args.PerformedOn);
     }
 }

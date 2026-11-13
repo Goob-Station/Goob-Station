@@ -65,10 +65,10 @@ public sealed partial class SprinterComponent : Component
     public TimeSpan TimeBetweenSprints = TimeSpan.FromSeconds(3);
 
     /// <summary>
-    ///     When did we last sprint?
+    ///     When is the next time we are allowed to sprint?
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public TimeSpan LastSprint = TimeSpan.Zero;
+    public TimeSpan NextSprintAllowed = TimeSpan.Zero;
 
     /// <summary>
     ///     What string do we use to tag stamina drain?
@@ -141,4 +141,7 @@ public sealed class SprintToggleEvent(bool isSprinting) : EntityEventArgs
 public sealed class SprintStartEvent : EntityEventArgs;
 
 [ByRefEvent]
-public sealed class SprintAttemptEvent : CancellableEntityEventArgs;
+public sealed class SprintAttemptEvent : CancellableEntityEventArgs
+{
+    public LocId? FailLoc { get; set; } = null;
+}

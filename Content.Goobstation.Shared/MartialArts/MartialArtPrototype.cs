@@ -1,46 +1,27 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Goobstation.Common.Grab;
-using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
-[Prototype("martialArt")]
+
+[Prototype]
 public sealed partial class MartialArtPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
 
     [DataField]
-    public MartialArtsForms MartialArtsForm = MartialArtsForms.CloseQuartersCombat;
+    public List<ProtoId<MartialArtsComboPrototype>> Combos;
+
+    // todo cleaner yamley way to handle intent modifiers
+    [DataField]
+    public float FistDamageMultiplier = 1;
 
     [DataField]
-    public int MinRandomDamageModifier;
+    public float FistStaminaDamage = 0;
 
     [DataField]
-    public int MaxRandomDamageModifier = 5;
+    public ComponentRegistry ComponentGrant = [];
 
-    [DataField]
-    public FixedPoint2 BaseDamageModifier;
-
-    [DataField]
-    public ProtoId<DamageTypePrototype> DamageModifierType = "Blunt";
-
-    [DataField]
-    public bool RandomDamageModifier;
-
-    [DataField]
-    public ProtoId<ComboListPrototype> RoundstartCombos = "CQCMoves";
-
-    [DataField]
-    public List<LocId> RandomSayings = [];
-
-    [DataField]
-    public List<LocId> RandomSayingsDowned = [];
-
-    [DataField]
-    public GrabStage StartingStage = GrabStage.Soft;
+    [DataField(required: true)]
+    public float Weight = 0;
 }

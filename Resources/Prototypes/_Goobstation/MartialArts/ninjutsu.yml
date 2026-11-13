@@ -1,51 +1,85 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: martialArt
   id: Ninjutsu
-  martialArtsForm: Ninjutsu
-  roundstartCombos: NinjutsuMoves
-
-- type: comboList
-  id: NinjutsuMoves
+  componentGrant:
+  - type: NinjutsuSneakAttack
   combos:
+  - NinjutsuTakedown
   - BiteTheDust
   - DirtyKill
+  weight: 6
 
-# Removed from yaml as a combo move since Hug clutters combo counter
-#- type: combo
-#  id: NinjutsuTakedown
-#  name: Ninjutsu Takedown
-#  martialArtsForm: Ninjutsu
-#  attacks:
-#  - Hug
-#  event: !type:NinjutsuTakedownPerformedEvent
-#    sound:
-#      path: /Audio/Weapons/genhit3.ogg
-#  extraDamage: 10
-#  paralyzeTime: 2
+- type: martialArtsCombo # TODO readd backstab multiplier or something
+  id: NinjutsuTakedown
+  name: Ninjutsu Takedown
+  attacks:
+  - Hug
+  userConditions:
+  - !type:ProneCondition
+    inverted: true
+  - !type:StatusEffectCondition
+    effect: StatusEffectNinjutsuLossOfSurprise
+    inverted: true
+  targetConditions:
+  - !type:ProneCondition
+    inverted: true
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit1.ogg
+  - !type:ModifyKnockdown
+    type: Set
+    time: 2
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 10
 
-- type: combo
+- type: martialArtsCombo
   id: BiteTheDust
   name: Bite The Dust
-  martialArtsForm: Ninjutsu
   attacks:
   - Harm
   - Grab
-  event: !type:BiteTheDustPerformedEvent
-    sound:
-      path: /Audio/Weapons/genhit3.ogg
-  extraDamage: 10
-  paralyzeTime: 9
+  userConditions:
+  - !type:ProneCondition
+    inverted: true
+  targetConditions:
+  - !type:ProneCondition
+    inverted: true
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  - !type:StopPulling
+  targetEffects:
+  - !type:ModifyKnockdown
+    type: Set
+    time: 9
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 10
 
-- type: combo
+- type: martialArtsCombo
   id: DirtyKill
   name: Dirty Kill
-  martialArtsForm: Ninjutsu
   attacks:
   - Disarm
   - Disarm
-  event: !type:DirtyKillPerformedEvent
-    sound:
-      path: /Audio/Weapons/genhit2.ogg
-  extraDamage: 20
-  paralyzeTime: 7
+  userConditions:
+  - !type:ProneCondition
+    inverted: true
+  - !type:StatusEffectCondition
+    effect: StatusEffectNinjutsuLossOfSurprise
+    inverted: true
+  targetConditions:
+  - !type:ProneCondition
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit2.ogg
+  targetEffects:
+  - !type:ModifyKnockdown
+    type: Set
+    time: 7
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 20

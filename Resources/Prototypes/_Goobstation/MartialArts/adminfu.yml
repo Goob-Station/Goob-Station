@@ -1,0 +1,115 @@
+- type: martialArt
+  id: AdminFu
+  combos:
+  - AdminFuHarm
+  - AdminFuGrab
+  - AdminFuDisarm
+  - AdminFuBegone
+  - AdminFuHelp
+  - AdminFuVaporize
+  weight: 99999999
+
+- type: martialArtsCombo
+  id: AdminFuDisarm
+  name: Instant stun and weaken for twenty-five seconds
+  attacks:
+  - Disarm
+  - Disarm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit2.ogg
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 99999999
+    immediate: true
+  - !type:ModifyKnockdown
+    type: Set
+    time: 25
+  - !type:MartialArtsThrow
+    thrownSpeed: 5
+
+- type: martialArtsCombo
+  id: AdminFuBegone
+  name: Begone
+  attacks:
+  - Disarm
+  - Grab
+  - Disarm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit1.ogg
+  targetEffects:
+  - !type:MartialArtsThrow
+    thrownSpeed: 200
+
+- type: martialArtsCombo
+  id: AdminFuHarm
+  name: Instant death
+  attacks:
+  - Harm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:SetMobState
+    state: Dead
+
+- type: martialArtsCombo
+  id: AdminFuGrab
+  name: Instant neck-grab
+  attacks:
+  - Grab
+  userConditions:
+  - !type:GrabStageCondition
+    stage: Suffocate
+    inverted: true
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  - !type:SetGrabStage
+    stage: Suffocate
+    escapeIntentModifier: 0.001 # lol
+
+- type: martialArtsCombo
+  id: AdminFuHelp
+  name: Divine Touch
+  attacks:
+  - Hug
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Effects/hallelujah.ogg
+  targetEffects:
+  - !type:Rejuvenate
+
+- type: martialArtsCombo
+  id: AdminFuVaporize
+  name: Vaporize
+  attacks:
+  - Disarm
+  - Hug
+  - Grab
+  - Disarm
+  - Harm
+  - Harm
+  - Hug
+  - Grab
+  - Harm
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit2.ogg
+    #volume: 5
+  - !type:PlaySoundEffect
+    sound: /Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg
+    #params:
+    #  volume: 3
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 99999999
+        Slash: 99999999
+        Piercing: 99999999
+        Poison: 99999999
+        Genetic: 99999999
+        Holy: 99999999
+        Asphyxiation: 99999999
