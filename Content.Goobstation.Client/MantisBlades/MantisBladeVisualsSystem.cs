@@ -11,6 +11,11 @@ public sealed partial class MantisBladeVisualsSystem : EntitySystem
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private IGameTiming _timing = default!;
 
+    /// <summary>
+    /// Users whose blades could not be resolved yet (not received / not attached to an arm yet).
+    /// </summary>
+    private readonly HashSet<EntityUid> _unresolved = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -39,6 +44,8 @@ public sealed partial class MantisBladeVisualsSystem : EntitySystem
 
     private void OnRemove(Entity<MantisBladeUserComponent> ent, ref ComponentRemove args)
     {
+        _unresolved.Remove(ent);
+
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
@@ -59,7 +66,7 @@ public sealed partial class MantisBladeVisualsSystem : EntitySystem
         var query = EntityQueryEnumerator<MantisBladeUserComponent, SpriteComponent>();
         while (query.MoveNext(out var uid, out var user, out var sprite))
         {
-            if (user.IsExtended && user.AnimationPlayed != IsAnimationPlayed(user))
+            if (user.IsExtended && (user.AnimationPlayed != IsAnimationPlayed(user) || _unresolved.Contains(uid)))
                 UpdateLayers((uid, user), sprite);
         }
     }
@@ -71,18 +78,31 @@ public sealed partial class MantisBladeVisualsSystem : EntitySystem
     {
         var left = false;
         var right = false;
+        var unresolved = false;
 
         if (ent.Comp.IsExtended)
             foreach (var blade in ent.Comp.Blades)
             {
-                if (!TryComp<BodyPartComponent>(Transform(blade).ParentUid, out var part))
+                // Blades is an auto-networked entity list: on the client an entry can be EntityUid.Invalid
+                // (blade not received through PVS yet, or deleted), so don't use Transform() here.
+                // Its arm may also not be attached yet; retry from FrameUpdate until it resolves.
+                if (!TryComp(blade, out TransformComponent? bladeXform)
+                    || !TryComp<BodyPartComponent>(bladeXform.ParentUid, out var part))
+                {
+                    unresolved = true;
                     continue;
+                }
 
                 if (part.Symmetry == BodyPartSymmetry.Left)
                     left = true;
                 else
                     right = true;
             }
+
+        if (unresolved)
+            _unresolved.Add(ent);
+        else
+            _unresolved.Remove(ent);
 
         ent.Comp.AnimationPlayed = IsAnimationPlayed(ent.Comp);
         var prefix = ent.Comp.AnimationPlayed ? "inhand" : "popout-inhand";
