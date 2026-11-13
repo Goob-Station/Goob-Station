@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ UndeterminedWeaponShaftMiner, BaseSecurityContraband ]
+  id: UndeterminedGlovesWarden
+  name: warden gloves selector
+  components:
+  - type: SetSelector
+    possibleSets:
+    - KravMagGloves
+    - KravMagaEnvirogloves
+    maxSelectedSets: 1
