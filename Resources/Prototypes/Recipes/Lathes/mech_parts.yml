@@ -41,6 +41,9 @@
   result: RipleyHarness
   categories:
   - Ripley # Goobstation
+  materials:
+    Steel: 3000
+    Glass: 1200
 
 - type: latheRecipe
   parent: BaseRipleyLimbRecipe
