@@ -1,3 +1,4 @@
+using System.Linq; // Goobstation
 using System.Numerics;
 using Content.Goobstation.Common.Projectiles;
 using Content.Goobstation.Common.Weapons.Ranged;
@@ -6,6 +7,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Trauma.Projectiles;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
+using Content.Shared.Physics; // Goobstation
 using Content.Shared.Projectiles;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Weapons.Hitscan.Components;
@@ -15,6 +17,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
+using Robust.Shared.Physics; // Goobstation
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -85,16 +88,45 @@ public abstract partial class SharedGunSystem
 
         userImpulse = true;
 
+        /* Goobstation - moved lower
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromEnt = MapSystem.TryFindGridAt(fromMap, out var gridUid, out _)
             ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
             : new EntityCoordinates(MapSystem.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
+        */
 
         var toMapBeforeRecoil = toMap; // Goobstation
 
         // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
+
+        // Goobstation Start
+        // Start the shot at a muzzle offset instead of the shooter's center, so walls behind the shooter aren't hit.
+        // If something solid is in the way, keep the shooter's center so shots can't pass through adjacent walls.
+        if (gun.Comp.MuzzleDistance > 0f && mapDirection.LengthSquared() > 0f)
+        {
+            var muzzleDir = mapDirection.Normalized();
+            var muzzleRay = new CollisionRay(fromMap.Position, muzzleDir,
+                (int) (CollisionGroup.Impassable | CollisionGroup.BulletImpassable));
+            var blocked = Physics.IntersectRay(fromMap.MapId, muzzleRay, gun.Comp.MuzzleDistance, user, false).Any();
+
+            if (!blocked)
+            {
+                var muzzlePos = fromMap.Position + muzzleDir * gun.Comp.MuzzleDistance;
+                fromMap = new MapCoordinates(muzzlePos, fromMap.MapId);
+                fromCoordinates = TransformSystem.ToCoordinates(fromMap);
+            }
+        }
+        // Goobstation End
+
+        // Goobstation Start (moved lower)
+        // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
+        var fromEnt = MapSystem.TryFindGridAt(fromMap, out var gridUid, out _)
+            ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
+            : new EntityCoordinates(MapSystem.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
+        // Goobstation End
+
         var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
 
         // camera recoil goes opposite of where you shoot
