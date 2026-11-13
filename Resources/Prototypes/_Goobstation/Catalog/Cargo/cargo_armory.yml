@@ -29,3 +29,33 @@
   cost: 30000
   category: cargoproduct-category-name-armory
   group: market
+
+- type: cargoProduct
+  id: CrateArmorySpearBundle
+  icon:
+    sprite: Objects/Weapons/Melee/spear.rsi
+    state: spear
+  product: CrateSpearBundle
+  cost: 2100
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: CrateArmoryHunterArcher
+  icon:
+    sprite: Objects/Weapons/Guns/Bow/bow.rsi
+    state: unwielded
+  product: CrateHunterArcher
+  cost: 3000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: CrateCombatKnifeBundle
+  icon:
+    sprite: Objects/Weapons/Melee/combat_knife.rsi
+    state: icon
+  product: CrateCombatKnives
+  cost: 3000
+  category: cargoproduct-category-name-armory
+  group: market

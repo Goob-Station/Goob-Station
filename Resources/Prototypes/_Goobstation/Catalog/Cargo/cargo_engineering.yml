@@ -19,3 +19,23 @@
   cost: 20000
   category: cargoproduct-category-name-engineering
   group: market
+
+- type: cargoProduct
+  id: CargoAtmosAxeKit
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/fireaxe.rsi
+    state: icon
+  product: CrateAtmosFireaxe
+  cost: 10000
+  category: cargoproduct-category-name-engineering
+  group: market
+
+- type: cargoProduct
+  id: CrateConstructionEquipment
+  icon:
+    sprite: Objects/Weapons/Melee/sledgehammer.rsi
+    state: icon
+  product: CrateConstructionEquipment
+  cost: 2000
+  category: cargoproduct-category-name-armory
+  group: market

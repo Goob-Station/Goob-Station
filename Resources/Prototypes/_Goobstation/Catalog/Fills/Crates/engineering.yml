@@ -21,3 +21,32 @@
       - id: TegCirculatorFlatpack
       - id: TegMiddleFlatpack
       - id: ToyFigurineAtmosTech
+
+- type: entity
+  id: CrateAtmosFireaxe
+  parent: CrateEngineeringSecure
+  name: atmospherics back-up fire axe crate
+  description: Contains an atmos fire suit and mask, a fireaxe and 2 air grenades.
+  components:
+  - type: StorageFill
+    contents:
+      - id: FireAxe
+      - id: ClothingHeadHelmetAtmosFire
+      - id: ClothingOuterSuitAtmosFire
+      - id: ClothingMaskGasAtmos
+      - id: AirGrenade
+        amount: 2
+
+- type: entity
+  id: CrateConstructionEquipment
+  parent: CrateGenericSteel
+  name: construction equipment crate
+  description: Contains construction equipment, protective gear, and a nailgun with a magazine.
+  components:
+  - type: StorageFill
+    contents:
+      - id: Sledgehammer
+      - id: ClothingHeadHatHardhatYellow
+      - id: ClothingOuterVestHazard
+      - id: WeaponNailgun
+      - id: MagazineNailgun
