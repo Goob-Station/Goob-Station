@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Shredder;
 
-public sealed class ShredderSystem : EntitySystem
+public sealed partial class ShredderSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private SharedPowerReceiverSystem _power = default!;

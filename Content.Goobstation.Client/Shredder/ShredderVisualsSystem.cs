@@ -5,7 +5,7 @@ using Robust.Client.GameObjects;
 
 namespace Content.Goobstation.Client.Shredder;
 
-public sealed class ShredderVisualsSystem : EntitySystem
+public sealed partial class ShredderVisualsSystem : EntitySystem
 {
     [Dependency] private AnimationPlayerSystem _player = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
