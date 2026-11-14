@@ -124,9 +124,9 @@
   cost: 15000
   recipeUnlocks:
   - CburnSpearCrew
-  technologyPrerequisites: # Goobstation R&D Console rework
+  technologyPrerequisites:
   - DualWieldingTechnology
-  position: 6, 4 # Goobstation R&D Console rework
+  position: 6, 4
 
 # Tier 3
 
