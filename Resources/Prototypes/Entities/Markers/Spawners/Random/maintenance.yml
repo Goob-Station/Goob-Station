@@ -353,6 +353,7 @@
     - !type:GroupSelector
       weight: 5
       children:
+      - id: ClothingShoeGasPipe # Goob, Psychological weapon
       - id: Lighter
       - id: Matchbox
       - id: ClothingEyesBlindfold
