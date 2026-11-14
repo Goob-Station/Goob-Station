@@ -69,8 +69,24 @@ namespace Content.Shared.Localizations
              */
             var cultureEn = new CultureInfo("en-US");
 
+            // When the primary culture above isn't en-US, the English fallback culture still
+            // needs to be loaded before we can register functions on it (and so it can serve
+            // as a fallback source for any keys missing from the primary culture). Without this
+            // a non-English Culture crashes on startup, because the functions below are
+            // registered against an en-US culture that was never loaded.
+            if (!_loc.HasCulture(cultureEn))
+                _loc.LoadCulture(cultureEn);
+
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
+
+            // Some non-English strings also use these helpers, so register them on the primary
+            // culture too when it isn't en-US (otherwise rendering those strings throws).
+            if (Culture != "en-US")
+            {
+                _loc.AddFunction(culture, "MAKEPLURAL", FormatMakePlural);
+                _loc.AddFunction(culture, "MANY", FormatMany);
+            }
         }
 
         private ILocValue FormatMany(LocArgs args)
