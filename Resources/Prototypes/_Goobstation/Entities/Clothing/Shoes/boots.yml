@@ -322,3 +322,20 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+
+- type: entity
+  parent: [ClothingShoesClown, BaseMinorContraband]
+  id: ClothingShoeGasPipe
+  name: gas pipe shoes
+  description: STOMP STOMP STOMP
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/pipe_shoes.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/pipe_shoes.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: PipeShoes
+      params:
+        variation: 0.17
+  - type: WaddleWhenWorn
