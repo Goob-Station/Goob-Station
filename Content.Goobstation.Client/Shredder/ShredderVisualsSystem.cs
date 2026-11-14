@@ -7,8 +7,8 @@ namespace Content.Goobstation.Client.Shredder;
 
 public sealed class ShredderVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _player = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AnimationPlayerSystem _player = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

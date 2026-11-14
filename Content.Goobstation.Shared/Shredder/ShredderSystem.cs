@@ -10,12 +10,12 @@ namespace Content.Goobstation.Shared.Shredder;
 
 public sealed class ShredderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
 
     public override void Initialize()
     {
@@ -40,7 +40,7 @@ public sealed class ShredderSystem : EntitySystem
             if (shredder.StoredEntity is { } item)
             {
                 if (!HasComp<BodyComponent>(item))
-                    PredictedQueueDel(item);
+                    QueueDel(item);
                 else
                     _body.GibBody(item);
 
