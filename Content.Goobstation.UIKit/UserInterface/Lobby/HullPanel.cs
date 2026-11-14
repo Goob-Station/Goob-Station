@@ -37,6 +37,9 @@ public sealed class HullPanel : PanelContainer
         base.Draw(handle);
 
         var size = PixelSize;
+        if (size.X < 2 || size.Y < 2)
+            return;
+
         var inner = UIBox2.FromDimensions(new Vector2(1, 1), new Vector2(size.X - 2, size.Y - 2));
 
         handle.DrawLine(inner.TopLeft, new Vector2(inner.Right, inner.Top), HighlightColor);

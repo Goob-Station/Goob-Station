@@ -194,6 +194,8 @@
       enum.ToggleClothingUiKey.Key:
         type: ToggleableClothingBoundUserInterface
   - type: GroupExamine
+  - type: GlowShielding # Goobstation - hardsuit strongly dims the plasmaman body glow
+    reduction: 0.7
   - type: Tag
     tags:
     - Hardsuit

@@ -20,8 +20,6 @@
   chatTriggers:
   - boops
   whitelist:
-    tags:
-    - HarpyEmotes # Goob - more harpy emotes
     components:
     - Silicon
     - BorgChassis
@@ -34,8 +32,6 @@
   chatTriggers:
   - whirrs
   whitelist:
-    tags:
-    - HarpyEmotes # Goob - more harpy emotes
     components:
     - Silicon
     - BorgChassis
@@ -47,7 +43,6 @@
   whitelist:
     tags:
     - ShadowkinEmotes
-    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis

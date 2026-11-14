@@ -26,9 +26,30 @@ public sealed partial class MetalPanelHatch : Control
 
     private static readonly SoundSpecifier RatchetSound = new SoundPathSpecifier("/Audio/Items/ratchet.ogg");
     private static readonly SoundSpecifier LandSound = new SoundPathSpecifier("/Audio/Effects/metal_slam2.ogg");
+    private static readonly SoundSpecifier PeelSound = new SoundPathSpecifier("/Audio/_Goobstation/Items/handling/paper_pickup.ogg");
+    private static readonly SoundSpecifier TearSound = new SoundPathSpecifier("/Audio/Effects/unwrap.ogg");
+    private static readonly SoundSpecifier WindSound = new SoundPathSpecifier("/Audio/Effects/space_wind.ogg");
+
+    private const string NotePath = "/Textures/_Goobstation/Interface/Lobby/Note";
+    private const float PeelFrameSeconds = 0.07f;
+    private const float TornHoldSeconds = 0.75f;
+    private const float WindAcceleration = 1500f;
+
+    private static readonly UIBox2 NoteCorner = new(133, 141, 182, 169);
+    private static readonly Vector2[] PieceOffsets =
+    {
+        new(20, 1), new(35, 2), new(55, 10), new(9, 26), new(18, 34),
+        new(55, 44), new(77, 45), new(11, 63), new(37, 64), new(71, 67),
+    };
 
     private readonly Texture _panel;
     private readonly Texture _under;
+    private readonly Texture _note;
+    private readonly Texture _noteHover;
+    private readonly Texture _tinyNote;
+    private readonly Texture[] _peel;
+    private readonly Texture[] _pieces;
+    private readonly Vector2 _canvasOffset;
     private readonly Texture _bolt;
     private readonly Vector2[] _boltPositions;
     private readonly int[] _turns = new int[4];
@@ -38,6 +59,10 @@ public sealed partial class MetalPanelHatch : Control
     private TimeSpan? _fallStart;
     private TimeSpan? _landedAt;
     private float _groundOffset;
+    private TimeSpan? _tornAt;
+    private bool _tearPlayed;
+    private bool _windPlayed;
+    private bool _noteHovered;
 
     public bool WrenchHeld { get; set; }
 
@@ -49,8 +74,19 @@ public sealed partial class MetalPanelHatch : Control
         MouseFilter = MouseFilterMode.Stop;
 
         _panel = Load("metal_panel");
-        _under = Load("under_metal_panel");
+        _under = Load("frame_under_panel");
         _bolt = Load("bolt");
+        _note = LoadNote("note");
+        _noteHover = LoadNote("note_hover");
+        _tinyNote = LoadNote("tiny_note");
+        _peel = new[] { LoadNote("note_anim1"), LoadNote("note_anim2"), LoadNote("note_anim3"), LoadNote("note_anim4") };
+        _pieces = new Texture[PieceOffsets.Length];
+        for (var i = 0; i < _pieces.Length; i++)
+        {
+            _pieces[i] = LoadNote($"note_piece_{i}");
+        }
+
+        _canvasOffset = (Vector2) _panel.Size - (Vector2) _note.Size;
 
         var size = (Vector2) _panel.Size;
         var bolt = (Vector2) _bolt.Size;
@@ -67,6 +103,8 @@ public sealed partial class MetalPanelHatch : Control
 
     private bool Fallen => _fallStart != null;
 
+    private bool NoteInteractive => _landedAt != null && _tornAt == null;
+
     public void Reset()
     {
         Array.Clear(_turns);
@@ -75,6 +113,10 @@ public sealed partial class MetalPanelHatch : Control
         _fallStart = null;
         _landedAt = null;
         _groundOffset = 0;
+        _tornAt = null;
+        _tearPlayed = false;
+        _windPlayed = false;
+        _noteHovered = false;
         WrenchHeld = false;
     }
 
@@ -85,11 +127,24 @@ public sealed partial class MetalPanelHatch : Control
 
     private void OnClicked(GUIBoundKeyEventArgs args)
     {
-        if (args.Function != EngineKeyFunctions.UIClick || !WrenchHeld || Fallen)
+        if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
         var position = args.RelativePixelPosition / UIScale;
         var now = _timing.RealTime;
+
+        if (NoteInteractive && OverNote(position))
+        {
+            _tornAt = now;
+            _noteHovered = false;
+            _entMan.System<SharedAudioSystem>().PlayGlobal(PeelSound, Filter.Local(), false);
+            args.Handle();
+            return;
+        }
+
+        if (!WrenchHeld || Fallen)
+            return;
+
         for (var i = 0; i < _boltPositions.Length; i++)
         {
             if (_turns[i] >= TurnsToRemove)
@@ -118,6 +173,20 @@ public sealed partial class MetalPanelHatch : Control
     {
         base.FrameUpdate(args);
 
+        _noteHovered = NoteInteractive && OverNote((UserInterfaceManager.MousePositionScaled.Position - GlobalPosition));
+
+        if (_tornAt is { } peeled && !_tearPlayed && _timing.RealTime >= peeled + TimeSpan.FromSeconds(PeelFrameSeconds * _peel.Length))
+        {
+            _tearPlayed = true;
+            _entMan.System<SharedAudioSystem>().PlayGlobal(TearSound, Filter.Local(), false);
+        }
+
+        if (_tornAt is { } torn && !_windPlayed && _timing.RealTime >= torn + TimeSpan.FromSeconds(WindStartSeconds))
+        {
+            _windPlayed = true;
+            _entMan.System<SharedAudioSystem>().PlayGlobal(WindSound, Filter.Local(), false);
+        }
+
         if (_fallStart is not { } start || _landedAt != null || _timing.RealTime < start)
             return;
 
@@ -137,6 +206,10 @@ public sealed partial class MetalPanelHatch : Control
 
         var scale = UIScale;
         handle.DrawTextureRect(_under, UIBox2.FromDimensions(Vector2.Zero, (Vector2) _under.Size * scale));
+        DrawCanvas(handle, _tinyNote, scale);
+
+        if (_tornAt == null)
+            DrawCanvas(handle, _noteHovered ? _noteHover : _note, scale);
 
         var now = _timing.RealTime;
         if (_fallStart is not { } start || now < start)
@@ -153,6 +226,8 @@ public sealed partial class MetalPanelHatch : Control
 
         var baseTransform = handle.GetTransform();
         handle.SetTransform(Matrix3x2.CreateTranslation(pixelOffset) * baseTransform);
+
+        DrawTornNote(handle, now, scale);
 
         if (_fallStart is { } start && now >= start)
         {
@@ -234,6 +309,68 @@ public sealed partial class MetalPanelHatch : Control
         handle.SetTransform(parent);
     }
 
+    private float WindStartSeconds => PeelFrameSeconds * _peel.Length + TornHoldSeconds;
+
+    private bool OverNote(Vector2 position)
+    {
+        return NoteCorner.Contains(position - _canvasOffset);
+    }
+
+    private void DrawCanvas(DrawingHandleScreen handle, Texture texture, float scale)
+    {
+        handle.DrawTextureRect(texture, UIBox2.FromDimensions(_canvasOffset * scale, (Vector2) texture.Size * scale));
+    }
+
+    private void DrawTornNote(DrawingHandleScreen handle, TimeSpan now, float scale)
+    {
+        if (_tornAt is not { } torn)
+            return;
+
+        var seconds = (float) (now - torn).TotalSeconds;
+        var frame = (int) (seconds / PeelFrameSeconds);
+        if (frame < _peel.Length)
+        {
+            DrawCanvas(handle, _peel[frame], scale);
+            return;
+        }
+
+        var baseTransform = handle.GetTransform();
+        var right = UserInterfaceManager.RootControl.PixelSize.X - GlobalPixelPosition.X;
+        var wind = seconds - WindStartSeconds;
+
+        for (var i = 0; i < _pieces.Length; i++)
+        {
+            var texture = _pieces[i];
+            var size = (Vector2) texture.Size * scale;
+            var position = (_canvasOffset + PieceOffsets[i]) * scale;
+            var angle = 0f;
+
+            var t = wind - Noise(i, 1) * 0.25f;
+            if (t > 0)
+            {
+                var push = WindAcceleration * (0.7f + Noise(i, 2) * 0.6f);
+                position += new Vector2(
+                    0.5f * push * t * t,
+                    -(30f + Noise(i, 3) * 50f) * t + MathF.Sin(t * (5f + Noise(i, 4) * 4f) + i) * 8f) * scale;
+                angle = t * (Noise(i, 5) * 8f - 4f);
+            }
+
+            if (position.X > right)
+                continue;
+
+            handle.SetTransform(Matrix3x2.CreateRotation(angle, position + size / 2f) * baseTransform);
+            handle.DrawTextureRect(texture, UIBox2.FromDimensions(position, size));
+        }
+
+        handle.SetTransform(baseTransform);
+    }
+
+    private static float Noise(int index, int salt)
+    {
+        var value = MathF.Sin(index * 12.9898f + salt * 78.233f) * 43758.547f;
+        return value - MathF.Floor(value);
+    }
+
     private bool AllBoltsRemoved()
     {
         foreach (var detached in _detached)
@@ -249,6 +386,11 @@ public sealed partial class MetalPanelHatch : Control
     {
         var seconds = (float) (_timing.RealTime - start).TotalSeconds;
         return 0.5f * Gravity * UIScale * seconds * seconds;
+    }
+
+    private Texture LoadNote(string name)
+    {
+        return _cache.GetResource<TextureResource>($"{NotePath}/{name}.png").Texture;
     }
 
     private Texture Load(string name)

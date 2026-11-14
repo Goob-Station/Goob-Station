@@ -47,4 +47,12 @@ public sealed partial class RadioChannelPrototype : IPrototype
 
     [DataField]
     public EntityWhitelist? ReceiveWhitelist = null;
+
+    // Frontier: radio channel frequencies
+    /// <summary>
+    /// If true, the frequency of the message being sent will be appended to the chat message
+    /// </summary>
+    [DataField, ViewVariables]
+    public bool ShowFrequency = false;
+    // End Frontier
 }

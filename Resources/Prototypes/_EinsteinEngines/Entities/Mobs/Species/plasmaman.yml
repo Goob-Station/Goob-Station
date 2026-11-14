@@ -180,6 +180,15 @@
       243: 0.8
   - type: Fart
     gas: Plasma
+  # Goobstation start.  Passive body glow: tinted with the body color and dimmed by worn clothing.
+  - type: PointLight
+    enabled: true
+    radius: 3
+    energy: 1.5
+  - type: BodyGlow
+    baseRadius: 3
+    baseEnergy: 1.5
+  # Goobstation end
 
 - type: entity
   parent: BaseSpeciesDummy

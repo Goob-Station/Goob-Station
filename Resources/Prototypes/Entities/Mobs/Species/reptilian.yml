@@ -33,7 +33,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump']
+    allowedEmotes: ['Thump', 'Chirp'] # Goob
   - type: TypingIndicator
     proto: lizard
   - type: Vocal

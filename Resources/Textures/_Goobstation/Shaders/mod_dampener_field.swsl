@@ -1,0 +1,35 @@
+light_mode unshaded;
+blend_mode add;
+
+uniform highp vec4 fieldColor;
+uniform highp float pixels;
+uniform highp float seed;
+
+highp vec4 fieldPixel(highp vec2 uv) {
+    highp float steps = max(pixels, 1.0);
+    highp vec2 snapped = (floor(uv * steps) + vec2(0.5)) / steps;
+    highp vec2 c = snapped * 2.0 - vec2(1.0);
+    highp float d = length(c);
+
+    if (d > 1.0) {
+        return vec4(0.0);
+    }
+
+    highp float t = TIME + seed;
+    highp float angle = atan(c.y, c.x);
+
+    highp float rim = smoothstep(0.86, 0.97, d) * (1.0 - smoothstep(0.97, 1.0, d));
+    highp float shimmer = 0.6 + 0.4 * sin(angle * 6.0 + t * 1.7);
+    highp float ripple = pow(0.5 + 0.5 * sin(d * 22.0 - t * 4.0), 6.0) * smoothstep(0.15, 0.85, d);
+    highp float fill = 0.09 + 0.02 * sin(t * 2.0);
+
+    highp float detail = ripple * 0.16 + rim * 0.75 * shimmer;
+    detail = floor(detail * 12.0 + 0.5) / 12.0;
+    highp float intensity = fill + detail;
+
+    return vec4(fieldColor.rgb * intensity, intensity * fieldColor.a);
+}
+
+void fragment() {
+    COLOR = fieldPixel(UV);
+}

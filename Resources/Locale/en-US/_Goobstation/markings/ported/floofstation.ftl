@@ -1072,8 +1072,6 @@ marking-VulpPointsSharpLegL-points_sharp-legsL = Color
 marking-VulpPointsSharpLegR = Vulpkanin Points (Sharp, Right Leg)
 marking-VulpPointsSharpLegR-points_sharp-legsR = Color
 
-marking-WingsBigArmWings = Feathery Wings (Harpy Style)
-marking-WingsBigArmWings-harpy = Wings
 
 marking-WingsDragon = Wings Dragon
 marking-WingsDragon-dragon = Wings

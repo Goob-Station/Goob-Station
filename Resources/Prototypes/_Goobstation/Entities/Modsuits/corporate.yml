@@ -9,26 +9,41 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
-    - type: ToggleableClothing
-      clothingPrototypes:
+    - type: ModSuit
+      theme: ModThemeCorporate
+      parts:
         head: ClothingModsuitHelmetCorporate
         gloves: ClothingModsuitGauntletsCorporate
         outerClothing: ClothingModsuitChestplateCorporate
         shoes: ClothingModsuitBootsCorporate
+      startingModules:
+      - ModsuitModuleStorageLarge
+      - ModsuitModuleFlashlight
+      - ModsuitModuleMagboots
+      inbuiltModules:
+      - ModsuitModuleBuiltinThermal
+      - ModsuitModuleBuiltinSecHud
+      - ModsuitModuleBuiltinMedHud
+      - ModsuitModuleBuiltinFlashProtection
+      - ModsuitModuleBuiltinInsulation
+      - ModsuitModuleBuiltinAutoInjector
+      - ModsuitModuleBuiltinInstrument
+      - ModsuitModuleBuiltinGrip
+      - ModsuitModuleBuiltinSphereTransformCorporate
     - type: ItemSlots
       slots:
-        cell_slot:
-          name: power-cell-slot-component-slot-name-default
-          startingItem: PowerCellAntiqueProto
+        mod-core:
+          name: modsuit-core-slot-name
+          startingItem: ModsuitCoreStandardAntique
           whitelist:
             components:
-              - PowerCell
+            - ModCore
     - type: Storage
       grid:
         - 0,0,7,6
     - type: ExplosionResistance
       damageCoefficient: 0.1
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         back:
@@ -45,7 +60,7 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         gloves:
@@ -56,17 +71,9 @@
         - state: equipped-HAND-sealed-vox
         - state: equipped-HAND-sealed-unshaded-vox
           shader: unshaded
-    - type: ComponentToggler
-      components:
-      - type: Insulated
-      - type: GrabModifier
-        grabEscapeModifier: -0.1
-        grabEscapeMultiplier: 0.8
-        grabMoveSpeedMultiplier: 2
-        startingGrabStage: Hard
 
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
+  parent: [ClothingModsuitHelmetStandard, BaseCentcommContraband]
   id: ClothingModsuitHelmetCorporate
   name: Corporate modsuit helmet
   description: A state-of-the-art helmet designed by NanoTrasen for the Corporate modsuit. It includes a built-in HUD.
@@ -91,21 +98,25 @@
           Cellular: 0.1
           Radiation: 0
           Caustic: 0.1
-    - type: ThermalVision
-      isEquipment: true
-      color: "#bf8133"
-      lightRadius: 15
-    - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
       protectionRange: 0
-    - type: ShowHealthBars
-      damageContainers:
-        - Biological
     - type: PointLight
       color: "#fc8a00"
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
+        head-hydrakin:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-feroxi:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-resomi:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
         head:
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
@@ -128,7 +139,7 @@
       interfaces:
         enum.InstrumentUiKey.Key:
           type: InstrumentBoundUserInterface
-    - type: ComponentToggler
+    - type: ModSealedComponents
       components:
       - type: Instrument
         program: 62
@@ -152,6 +163,14 @@
       - type: IdentityBlocker
       - type: IngestionBlocker
         blockSmokeIngestion: True
+    - type: Clothing
+      clothingVisuals:
+        head-vulpkanin:
+        - state: equipped-HEAD
+        head-feroxi:
+        - state: equipped-HEAD
+        head-hydrakin:
+        - state: equipped-HEAD
 
 - type: entity
   parent: [ClothingModsuitChestplateStandard, BaseCentcommContraband]
@@ -182,9 +201,11 @@
           Cellular: 0.1
           Radiation: 0
           Caustic: 0.1
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
+        outerClothing-resomi:
+        - state: equipped-OUTERCLOTHING-sealed
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
         outerClothing-vox:
@@ -203,14 +224,8 @@
           tags:
           - Tesla
       - type: ContainmentFieldIgnore
-    - type: ComponentToggler
+    - type: ModSealedComponents
       components:
-      - type: ClothingAutoInject
-        reagents:
-          Epinephrine: 10
-          Bicaridine: 10
-          TranexamicAcid: 5
-          Tramadol: 5
       - type: PressureProtection
         highPressureMultiplier: 0.3
         lowPressureMultiplier: 1000
@@ -231,7 +246,7 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: SealableClothingVisuals
+    - type: ModSuitSealedVisuals
       spriteLayer: sealed
       clothingVisuals:
         shoes:
@@ -242,16 +257,8 @@
         - state: equipped-FEET-sealed-vox
         - state: equipped-FEET-sealed-unshaded-vox
           shader: unshaded
-    - type: ItemToggle
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-      - type: NoSlip
     - type: ModifyStandingUpTime
       multiplier: .25
-    - type: Magboots
-      enabledPrefix: null
     - type: ClothingSpeedModifier
       walkModifier: 1.1
       sprintModifier: 1.1
@@ -296,12 +303,23 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
-    - type: ToggleableClothing
-      clothingPrototypes:
+    - type: ModSuit
+      theme: ModThemeCorporate
+      parts:
         head: ClothingModsuitHelmetTrainer
         gloves: ClothingModsuitGauntletsTrainer
         outerClothing: ClothingModsuitChestplateTrainer
         shoes: ClothingModsuitBootsTrainer
+      startingModules:
+      - ModsuitModuleStorageLarge
+      - ModsuitModuleFlashlight
+      inbuiltModules:
+      - ModsuitModuleBuiltinThermal
+      - ModsuitModuleBuiltinSecHud
+      - ModsuitModuleBuiltinMedHud
+      - ModsuitModuleBuiltinFlashProtection
+      - ModsuitModuleBuiltinInsulation
+      - ModsuitModuleBuiltinGrip
 
 - type: entity
   parent: [ClothingModsuitGauntletsCorporate, ClothingModsuitGauntletsStandard, BaseCentcommContraband]
@@ -314,7 +332,7 @@
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
 
 - type: entity
-  parent: [ClothingModsuitHelmetCorporate, ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
+  parent: [ClothingModsuitHelmetCorporate, ClothingModsuitHelmetStandard, BaseCentcommContraband]
   id: ClothingModsuitHelmetTrainer
   name: Corporate modsuit helmet
   description: A state-of-the-art helmet designed by NanoTrasen for the Career Trainer modsuit. It includes a built-in HUD.
@@ -322,10 +340,6 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
-    - type: ThermalVision
-      isEquipment: true
-      color: "#7c073b"
-      lightRadius: 15
     - type: PointLight
       color: "#fc0574"
     - type: Armor # mostly the same stats as HoS modsuit
@@ -345,6 +359,24 @@
           Radiation: 0.0
     - type: FireProtection
       reduction: 0.2
+    - type: Clothing
+      clothingVisuals:
+        head-vulpkanin:
+        - state: equipped-HEAD
+        head-feroxi:
+        - state: equipped-HEAD
+        head-hydrakin:
+        - state: equipped-HEAD
+    - type: ModSuitSealedVisuals
+      clothingVisuals:
+        head-resomi:
+        - state: equipped-HEAD-sealed
+        head-vulpkanin:
+        - state: equipped-HEAD-sealed
+        head-feroxi:
+        - state: equipped-HEAD-sealed
+        head-hydrakin:
+        - state: equipped-HEAD-sealed
 
 - type: entity
   parent: [ClothingModsuitChestplateCorporate, ClothingModsuitChestplateStandard, BaseCentcommContraband]
@@ -376,6 +408,10 @@
       damageCoefficient: 0.7
     - type: FireProtection
       reduction: 0.8
+    - type: ModSuitSealedVisuals
+      clothingVisuals:
+        outerClothing-resomi:
+        - state: equipped-OUTERCLOTHING-sealed
 
 - type: entity
   parent: [ClothingModsuitBootsCorporate, ClothingModsuitBootsStandard, BaseCentcommContraband]

@@ -22,7 +22,7 @@
           - id: GlowstickGreen
         # Low-chance items
         - id: FoodSnackChocolate
-          prob: 0.25 # Goobstation - Happy Halloween!
+          prob: 0.15
         - id: HarmonicaInstrument
           prob: 0.15
 

@@ -146,7 +146,7 @@
   - type: SynthShock
     batteryChargeMultiplier: 10.8
     cellularDamageMultiplier: 0.2
-  - type: ZombieImmune
+  - type: SiliconZombie
   - type: BlockInjection
     blockPatches: true
     denyMessage: synth-injection-denied
