@@ -1,7 +1,7 @@
 - type: entity
   parent: MobSiliconBase
   id: MobAnnoyingDuckBot
-  name: annoying duckbot
+  name: annoying duck
   description: The happiest duck on the station! It thinks it's a real duck. Not annoying at all.
   components:
   - type: Sprite
