@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by FairlySadPanda (GitHub/Discord), based off of sprites taken from https://github.com/DeltaV-Station/Delta-v/commit/65d35d0b3c20aa4e8a0e749a4de8392e53051e86. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/Mobs/Customization/Vulpkanin/body_markings.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "claws_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "claws_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "claws_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "claws_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "crest-leg-l",
+      "directions": 4
+    },
+    {
+      "name": "crest-leg-r",
+      "directions": 4
+    },
+    {
+      "name": "crest-foot-l",
+      "directions": 4
+    },
+    {
+      "name": "crest-foot-r",
+      "directions": 4
+    },
+    {
+      "name": "crest-arm-l",
+      "directions": 4
+    },
+    {
+      "name": "crest-arm-r",
+      "directions": 4
+    },
+    {
+      "name": "crest-hand-l",
+      "directions": 4
+    },
+    {
+      "name": "crest-hand-r",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-arm-l",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-arm-r",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-hand-l",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-hand-r",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-leg-l",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-leg-r",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-foot-l",
+      "directions": 4
+    },
+    {
+      "name": "points_fade-foot-r",
+      "directions": 4
+    },
+    {
+      "name": "points_sharp-arm-l",
+      "directions": 4
+    },
+    {
+      "name": "points_sharp-arm-r",
+      "directions": 4
+    },
+    {
+      "name": "points_sharp-arm-long-l",
+      "directions": 4
+    },
+    {
+      "name": "points_sharp-arm-long-r",
+      "directions": 4
+    },
+    {
+      "name": "points_sharp-leg-l",
+      "directions": 4
+    },
+    {
+      "name": "points_sharp-leg-r",
+      "directions": 4
+    }
+  ]
+}

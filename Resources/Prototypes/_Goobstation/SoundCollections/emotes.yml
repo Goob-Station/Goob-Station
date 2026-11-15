@@ -99,3 +99,99 @@
   - /Audio/_Goobstation/Voice/Diona/dionasigh.ogg
 
 
+
+- type: soundCollection
+  id: ResomiScrees
+  files:
+  - /Audio/_Starlight/Voice/Resomi/resomi_scree_1.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_scree_2.ogg
+
+- type: soundCollection
+  id: ResomiCalls
+  files:
+  - /Audio/_Starlight/Voice/Resomi/resomi_call_1.ogg
+  - /Audio/_Starlight/Voice/Resomi/resomi_call_2.ogg
+
+- type: soundCollection
+  id: ResomiSquawks
+  files:
+  - /Audio/_Starlight/Voice/Resomi/resomi_squawk_1.ogg
+
+- type: soundCollection
+  id: HarpySquawks
+  files:
+  - /Audio/Animals/chicken_cluck_happy.ogg
+  - /Audio/Animals/parrot_raught.ogg
+  - /Audio/Animals/penguin_squawk.ogg
+
+- type: soundCollection
+  id: HarpyQuacks
+  files:
+  - /Audio/Animals/duck_quack_happy.ogg
+  - /Audio/Animals/goose_honk.ogg
+
+- type: soundCollection
+  id: CatGrowls
+  files:
+  - /Audio/_Starlight/Voice/Felionoid/cat_growl1.ogg
+  - /Audio/_Starlight/Voice/Felionoid/cat_growl2.ogg
+
+- type: soundCollection
+  id: CatTrills
+  files:
+  - /Audio/_Starlight/Voice/Felionoid/cat_trill1.ogg
+  - /Audio/_Starlight/Voice/Felionoid/cat_trill2.ogg
+  - /Audio/_Starlight/Voice/Felionoid/cat_trill3.ogg
+
+- type: soundCollection
+  id: LagomorphSnorts
+  files:
+  - /Audio/_Starlight/Voice/Lagomorph/snort1.ogg
+  - /Audio/_Starlight/Voice/Lagomorph/snort2.ogg
+
+- type: soundCollection
+  id: LagomorphSqueaks
+  files:
+  - /Audio/_Starlight/Voice/Lagomorph/squeak1.ogg
+  - /Audio/_Starlight/Voice/Lagomorph/squeak2.ogg
+
+- type: soundCollection
+  id: ReptilianChirps
+  files:
+  - /Audio/_Funkystation/Voice/Reptilian/lizardchirp1.ogg
+  - /Audio/_Funkystation/Voice/Reptilian/lizardchirp2.ogg
+  - /Audio/_Funkystation/Voice/Reptilian/lizardchirp3.ogg
+  - /Audio/_Impstation/Voice/Reptilian/reptilian_chirp1.ogg
+  - /Audio/_Impstation/Voice/Reptilian/reptilian_chirp2.ogg
+
+- type: soundCollection
+  id: ReptilianGurgles
+  files:
+  - /Audio/_Funkystation/Voice/Reptilian/lizardgurgle1.ogg
+  - /Audio/_Funkystation/Voice/Reptilian/lizardgurgle2.ogg
+  - /Audio/_Funkystation/Voice/Reptilian/lizardgurgle3.ogg
+
+- type: soundCollection
+  id: ReptilianLisses
+  files:
+  - /Audio/_Starlight/Voice/Reptilian/lizard_hiss1.ogg
+  - /Audio/_Starlight/Voice/Reptilian/lizard_hiss2.ogg
+  - /Audio/_Starlight/Voice/Reptilian/lizard_hiss3.ogg
+
+- type: soundCollection
+  id: VoxCoos
+  files:
+  - /Audio/_Impstation/Voice/Vox/voxcoo1.ogg
+  - /Audio/_Impstation/Voice/Vox/voxcoo2.ogg
+
+- type: soundCollection
+  id: MaleHums
+  files:
+  - /Audio/_Starlight/Voice/Thaven/thavenMhum1.ogg
+  - /Audio/_Starlight/Voice/Thaven/thavenMhum2.ogg
+
+- type: soundCollection
+  id: FemaleHums
+  files:
+  - /Audio/_Starlight/Voice/Thaven/thavenFhum1.ogg
+  - /Audio/_Starlight/Voice/Thaven/thavenFhum2.ogg

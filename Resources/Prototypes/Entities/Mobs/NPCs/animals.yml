@@ -2941,6 +2941,12 @@
       spawned:
         - id: MaterialBananium1
           amount: 1
+    - type: SolutionRegeneration
+      solution: melee
+      generated:
+        reagents:
+        - ReagentId: CrapoToxin
+          Quantity: 1
     - type: DamageStateVisuals
       states:
         Alive:

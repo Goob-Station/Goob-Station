@@ -1,5 +1,7 @@
-﻿using System.Linq;
+using Content.Shared.Ghost;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Roles.Jobs;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 
@@ -7,6 +9,9 @@ namespace Content.Goobstation.Server.StationEvents.GameDirector;
 
 public sealed partial class GameDirectorSystem
 {
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedJobSystem _jobs = default!;
 
     /// <summary>
     ///   Count the active players and ghosts on the server.
@@ -15,21 +20,39 @@ public sealed partial class GameDirectorSystem
     /// </summary>
     private PlayerCount CountActivePlayers()
     {
-        var allPlayers = Enumerable.ToList<ICommonSession>(_playerManager.Sessions);
         var count = new PlayerCount();
-        foreach (var player in allPlayers)
+        foreach (var player in _playerManager.Sessions)
         {
-            if (player.AttachedEntity == null)
+            if (player.AttachedEntity is not { } entity)
                 continue;
-            var ev = new GetCharactedDeadIcEvent();
-            RaiseLocalEvent(player.AttachedEntity.Value, ref ev);
-            if (ev.Dead is not true)
-                count.Players++;
-            else
+
+            count.InGame++;
+
+            if (HasComp<GhostComponent>(entity))
+            {
                 count.Ghosts++;
+                continue;
+            }
+
+            var ev = new GetCharactedDeadIcEvent();
+            RaiseLocalEvent(entity, ref ev);
+            if (ev.Dead is true || _mobState.IsDead(entity))
+                continue;
+
+            count.Players++;
+
+            if (!_mind.TryGetMind(entity, out var mindId, out _)
+                || !_jobs.MindTryGetJobId(mindId, out var jobId)
+                || jobId is not { } job
+                || !_jobs.TryGetAllDepartments(job.Id, out var departments))
+                continue;
+
+            foreach (var department in departments)
+                count.Departments[department.ID] = count.Departments.GetValueOrDefault(department.ID) + 1;
         }
 
         count.Players += _event.PlayerCountBias;
+        count.InGame += _event.PlayerCountBias;
 
         return count;
     }

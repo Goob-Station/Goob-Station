@@ -118,3 +118,50 @@
   technologyPrerequisites:
   - HighEndSurgery
   position: -3, 9
+
+- type: technology
+  id: ModsuitMedicalTech
+  name: research-technology-modsuit-medical
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: health
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ModsuitPlatingParamedic
+  - ModsuitModuleHealthAnalyzer
+  - ModsuitModuleVisorMedical
+  - ModsuitModuleQuickCarry
+  - ModsuitModuleInjector
+  - ModsuitModuleDefibrillator
+  - ModsuitModulePatientTransport
+  - ModsuitModuleThreadRipper
+  - ModsuitModuleQuickCarryAdvanced
+  - ModsuitModuleNightVisor
+  position: 3,7
+  technologyPrerequisites:
+  - ModsuitsTech
+
+- type: technology
+  id: ModsuitServiceTech
+  name: research-technology-modsuit-service
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: bikehorn
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - ModsuitModuleBikeHorn
+  - ModsuitModuleWaddle
+  - ModsuitModuleJanitorMister
+  - ModsuitModuleMouthhole
+  - ModsuitModuleBurgerDispenser
+  - ModsuitModulePaperDispenser
+  - ModsuitModuleBalloonBlower
+  - ModsuitModuleStamper
+  - ModsuitModuleFishingGlove
+  position: 4,7
+  technologyPrerequisites:
+  - ModsuitsTech

@@ -1,0 +1,65 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: ResomiForehead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: forehead
+
+- type: marking
+  id: ResomiHeadCoat
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: head_coat
+
+- type: marking
+  id: ResomiHeadStripes
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: head_stripes
+
+- type: marking
+  id: ResomiHeadWar
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: head_war
+
+- type: marking
+  id: ResomiTattooEyeLeft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  coloring:
+    layers:
+      eye_left:
+        type:
+          !type:EyeColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_eyes.rsi
+    state: eye_left
+
+- type: marking
+  id: ResomiTattooEyeRight
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  coloring:
+    layers:
+      eye_right:
+        type:
+          !type:EyeColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_eyes.rsi
+    state: eye_right

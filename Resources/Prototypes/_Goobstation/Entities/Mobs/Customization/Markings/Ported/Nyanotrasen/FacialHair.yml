@@ -1,0 +1,10 @@
+# Ported from https://github.com/Nyanotrasen/Nyanotrasen/tree/479c60ce44ae7e9286f09e1121a1e692f8811a84
+
+- type: marking
+  id: VoxFacialHairRuffBeard
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Nyanotrasen/Mobs/Customization/vox_facial_hair.rsi
+    state: vox_ruff_beard_s

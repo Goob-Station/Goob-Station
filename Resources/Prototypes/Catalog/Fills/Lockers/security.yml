@@ -139,7 +139,7 @@
     - id: BoxSyringe
     - id: BoxBodyBag
       # Goob end
-    - id: UndeterminedVoidsuitBrigMed
+    - id: ClothingOuterHardsuitBrigmedic
     - id: ClothingUniformJumpskirtOfLife
       prob: 0.1
 

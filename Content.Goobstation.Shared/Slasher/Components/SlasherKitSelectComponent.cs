@@ -65,6 +65,13 @@ public sealed partial class SlasherKit
     public SoundSpecifier? JumpscareSound;
 
     /// <summary>
+    /// Optional override for how much fear (0-1) a victim gains when jumpscared by this kit.
+    /// If null, the default on SlasherFearComponent is kept.
+    /// </summary>
+    [DataField]
+    public float? JumpscareFear;
+
+    /// <summary>
     /// Optional extra component added alongside the fear status effect.
     /// If null, nothing gets added.
     /// </summary>
