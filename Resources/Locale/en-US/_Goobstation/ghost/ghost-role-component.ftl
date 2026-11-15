@@ -36,7 +36,7 @@ ghost-role-information-homunculus-description = Obey the one who has created you
 ghost-role-information-fillbot-name = fillbot
 ghost-role-information-fillbot-description = Serve the one who has created you, if there are nowhere to be found, do as you will.
 
-ghost-role-information-annoying-duckbot-name = Annoying Duckbot
+ghost-role-information-annoying-duckbot-name = Annoying Duck
 ghost-role-information-annoying-duckbot-description = You are a real duck. You are happy. Quack at everyone. Annoy everyone.
 
 ghost-role-information-huborg-name = Urist McBorg
