@@ -1,8 +1,8 @@
 - type: entity
   parent: MobSiliconBase
   id: MobAnnoyingDuckBot
-  name: annoying duck bot
-  description: The happiest duck on the station! It thinks it's a real duck.
+  name: annoying duckbot
+  description: The happiest duck on the station! It thinks it's a real duck. Not annoying at all.
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Silicon/Bots/annoying_duckbot.rsi
