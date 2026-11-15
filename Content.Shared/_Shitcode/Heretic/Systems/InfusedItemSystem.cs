@@ -13,6 +13,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Content.Server.Heretic.Components;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
 
@@ -76,6 +77,9 @@ public sealed class InfusedItemSystem : EntitySystem
         var success = false;
         foreach (var target in args.HitEntities)
         {
+            if (HasComp<HereticMarkImmuneComponent>(target))
+                continue;
+
             if (target == args.User)
                 continue;
 

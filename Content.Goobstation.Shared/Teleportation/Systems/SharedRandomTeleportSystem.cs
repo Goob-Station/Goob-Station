@@ -18,6 +18,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Goobstation.Common.BlockTeleport;
 
 namespace Content.Goobstation.Shared.Teleportation.Systems;
 
@@ -47,6 +48,9 @@ public sealed partial class SharedRandomTeleportSystem : EntitySystem
 
     private void OnUseInHand(Entity<RandomTeleportOnUseComponent> ent, ref UseInHandEvent args)
     {
+        if (HasComp<BlockTeleportComponent>(args.User))
+            return;
+
         if (args.Handled)
             return;
 
@@ -76,6 +80,9 @@ public sealed partial class SharedRandomTeleportSystem : EntitySystem
     public bool RandomTeleport(EntityUid target, RandomTeleportComponent rtp, out Vector2? finalWorldPos, bool sound = true, EntityUid? user = null)
     {
         finalWorldPos = null;
+
+        if (HasComp<BlockTeleportComponent>(target))
+            return false;
 
         if (!_teleport.CanTeleport(target))
             return false;
