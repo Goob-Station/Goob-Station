@@ -1,9 +1,14 @@
 - type: DistantGridSpawner
   entries:
   - path: /Maps/_Goobstation/Deepspace/syndicate_research_outpost_small.yml
-    chance: 0.3
+    chance: 0.1
 
 - type: DistantGridSpawner
   entries:
-  - path: /Maps/_Goobstation/Deepspace/syndicate_outpost_medium.yml
+  - path: /Maps/_Goobstation/Deepspace/syndicate_outpost_large.yml
     chance: 0.05
+
+- type: DistantGridSpawner
+  entries:
+  - path: /Maps/_Goobstation/Deepspace/syndicate_outpost_listening.yml
+    chance: 0.2
