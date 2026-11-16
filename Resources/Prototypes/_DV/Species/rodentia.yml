@@ -67,10 +67,10 @@
     HeadTop:
       points: 8
       required: false
+      defaultMarkings: [ RodentiaHeadTopEarDefault ]
     HeadSide:
       points: 8
       required: true
-      defaultMarkings: [ RodentiaHeadTopEarDefault ]
     Chest:
       points: 10
       required: false
