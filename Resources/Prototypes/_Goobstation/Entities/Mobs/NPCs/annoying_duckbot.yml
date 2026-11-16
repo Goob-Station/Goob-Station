@@ -13,7 +13,7 @@
     sound:
       collection: AnnoyingDuckBotSounds
       params:
-        variation: 0.125
+        variation: 0.050
   - type: HTN
     rootTask:
       task: AnnoyingDuckBotCompound
