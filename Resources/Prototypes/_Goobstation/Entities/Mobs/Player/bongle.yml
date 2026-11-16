@@ -1,0 +1,163 @@
+- type: entity
+  name: bongle
+  id: MobBongle
+  parent: MobSpaceBasic
+  description: bongle!!!!!!!
+  components:
+  - type: Bingle
+    upgradedID: MobBongleUpgraded
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-bongle-name
+    description: ghost-role-information-bongle-description
+    rules: ghost-role-information-bongle-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Bongle/Entities/bongle.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: bongle
+    - map: ["enum.BingleVisual.Upgraded"]
+      state: bongle_armor
+      visible: false
+    - map: ["enum.BingleVisual.Combat"]
+      state: bongle_combat
+      visible: false
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bongle
+      Dead:
+        Base: bongle_dead
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Nitrogen
+        Quantity: 250
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcPunch
+    damage:
+      groups:
+        Brute: 20
+      types:
+        Structural: 25
+        Ion: 15
+    bluntStaminaDamageFactor: 2.0
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.7
+    baseSprintSpeed : 3.8
+  - type: Sprinter
+    staminaDrainRate: 30
+  - type: Stamina
+    baseCritThreshold: 200
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bingle
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: 3
+  - type: TypingIndicator
+    proto: alien
+  - type: Speech
+    speechVerb: Bingle
+    speechSounds: Slime
+  - type: LanguageKnowledge
+    speaks:
+    - Bingle
+    understands:
+    - TauCetiBasic
+  - type: CollectiveMind
+    defaultChannel: Binglemind
+    respectAccents: true
+    channels:
+    - Binglemind
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Poison: -2
+      groups:
+        Brute: -1
+        Burn: -1
+  - type: NightVision
+    color: "#FF0000"
+    activateSound: null
+    deactivateSound: null
+  - type: Insulated
+  - type: FlashImmunity
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBingle # TO DO: Change meat later
+      amount: 3
+
+- type: entity
+  id: MobBonglePrime
+  parent: MobBingle
+  suffix: Prime
+  components:
+  - type: Bingle
+    prime: true
+
+- type: entity
+  id: MobBongleUpgraded
+  parent: MobBingle
+  suffix: Upgraded
+  components:
+  - type: Bingle
+    upgraded: true
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Bongle/Entities/bongle.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: bongle_armor
+    - map: [ "enum.BingleVisual.Combat" ]
+      state: bongle_armor_combat
+      visible: false
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bongle_armor
+      Dead:
+        Base: armor_dead
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcPunch
+    damage:
+      groups:
+        Brute: 30
+      types:
+        Structural: 50
+        Ion: 20
+    bluntStaminaDamageFactor: 2.0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead # Yes. High. But it was requested.
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: BingleUpgraded
