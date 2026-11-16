@@ -123,3 +123,40 @@
     size: Normal
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  name: flash shield
+  parent: [ BaseRepairableShield, BaseSecurityContraband ]
+  id: FlashShield
+  description: A ballistic shield with a built-in flash. Slightly weaker than its ballistic counterpart.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Shields/flashshield.rsi
+      state: ballistic-icon
+    - type: Item
+      sprite: _Goobstation/Objects/Shields/flashshield.rsi
+      heldPrefix: flash
+    - type: Flash
+    - type: LimitedCharges
+      maxCharges: 15
+    - type: MeleeWeapon
+      wideAnimationRotation: 180
+      damage:
+        types:
+          Blunt: 0
+      angle: 10
+    - type: UseDelay
+      delay: 4
+    - type: UseDelayOnMeleeHit
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Piercing: 0.65
+      activeBlockModifier:
+        coefficients:
+          Piercing: 0.45
+        flatReductions:
+          Piercing: 1
+    - type: Tag
+      tags:
+      - Flash
