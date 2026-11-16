@@ -4,7 +4,7 @@ using Content.Shared.Dataset;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Bots; pitch variation
+namespace Content.Goobstation.Shared.Bots;
 
 /// <summary>
 /// Replaces the annoying duck bot's sounds and egg laying timings.
