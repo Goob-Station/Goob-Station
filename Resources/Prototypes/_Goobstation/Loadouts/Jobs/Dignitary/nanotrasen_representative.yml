@@ -40,6 +40,24 @@
 
 
 - type: loadout
+  id: NanotrasenRepresentativeCCCap
+  equipment:
+    head: ClothingHeadHatCentcomcap
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+
+- type: loadout
+  id: NanotrasenRepresentativeCCHat
+  equipment:
+    head: ClothingHeadHatCentcom
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+
+- type: loadout
   id: NanotrasenRepresentativeEnvirohelm
   equipment:
     head: ClothingHeadEnvirohelmNanotrasenRepresentative
@@ -110,10 +128,81 @@
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
 
 - type: loadout
-  id: NTRMJ
+  id: NanotrasenRepresentativeMilitaryJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryNTR
 
+- type: loadout
+  id: NanotrasenRepresentativeLiaisonSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentralCommandLiaison
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativeCasualSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualCentcom
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativeOfficerSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativeAgentSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativeAgentSkirt
+  equipment:
+    jumpsuit: CentcomAgentSkirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativeOfficialSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativeFormalOfficialSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomFormal
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativeFormalOfficialDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCentcomFormalDress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativePencilSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCentcomPencilSkirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterNTR
 
 - type: loadout
   id: NanotrasenRepresentativeEnvirosuit

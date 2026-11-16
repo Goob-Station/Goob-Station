@@ -955,6 +955,8 @@
   - NanotrasenRepresentativeBowler
   - NanotrasenRepresentativeOutlaw
   - NanotrasenRepresentativeMAA
+  - NanotrasenRepresentativeCCCap
+  - NanotrasenRepresentativeCCHat
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeNeck
@@ -979,8 +981,17 @@
   loadouts:
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
-  - NTRMJ
+  - NanotrasenRepresentativeMilitaryJumpsuit
   - NanotrasenRepresentativeFancyJumpsuit
+  - NanotrasenRepresentativeLiaisonSuit
+  - NanotrasenRepresentativeCasualSuit
+  - NanotrasenRepresentativeOfficerSuit
+  - NanotrasenRepresentativeAgentSuit
+  - NanotrasenRepresentativeAgentSkirt
+  - NanotrasenRepresentativeOfficialSuit
+  - NanotrasenRepresentativeFormalOfficialSuit
+  - NanotrasenRepresentativeFormalOfficialDress
+  - NanotrasenRepresentativePencilSkirt
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBelt
