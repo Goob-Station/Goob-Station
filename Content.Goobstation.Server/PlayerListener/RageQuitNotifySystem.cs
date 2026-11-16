@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Common.PlayerListener;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Events;
 using Content.Shared.Chat;
@@ -23,9 +24,9 @@ namespace Content.Goobstation.Server.PlayerListener;
 /// </summary>
 public sealed partial class RageQuitNotifySystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IServerNetManager _network = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IServerNetManager _network = default!;
+    [Dependency] private IChatManager _chat = default!;
 
     private EntityUid _ent;
     private bool _notify = true;
@@ -58,7 +59,12 @@ public sealed partial class RageQuitNotifySystem : EntitySystem
 
     private void OnDisconnect(object? sender, NetChannelArgs args)
     {
-        if (!_notify || !IsPendingRageQuit(args.Channel.UserId))
+        if (!IsPendingRageQuit(args.Channel.UserId))
+            return;
+
+        RaiseLocalEvent(new PlayerRageQuitEvent(args.Channel.UserId));
+
+        if (!_notify)
             return;
 
         var callout = GetCallout(args.Channel);

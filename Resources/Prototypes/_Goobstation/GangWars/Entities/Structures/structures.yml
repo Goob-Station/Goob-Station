@@ -218,6 +218,13 @@
     - node: crate
       entity: CrateGang
 
+- type: constructionGraph
+  id: GangDuffelBag
+  start: bag
+  graph:
+    - node: bag
+      entity: GangDuffelBag
+
 - type: damageModifierSet
   id: GangCrate
   flatReductions:
@@ -387,6 +394,10 @@
       map: ["enum.StorageVisualLayers.Base"]
   - type: Damageable
     damageModifierSet: GangCrate
+  - type: Construction
+    graph: GangDuffelBag
+    node: bag
+    deconstructionTarget: null
   - type: GangDuffelBag
   - type: EntityStorage
     capacity: 60

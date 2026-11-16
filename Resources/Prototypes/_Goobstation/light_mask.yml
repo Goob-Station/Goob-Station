@@ -1,0 +1,34 @@
+- type: lightMask
+  id: ConeQuad
+  maskPath: /Textures/_RMC14/Effects/LightMasks/quad_cone.png
+  lightCones:
+  - direction: 0
+    innerWidth: 30
+    outerWidth: 60
+  - direction: 90
+    innerWidth: 30
+    outerWidth: 60
+  - direction: 180
+    innerWidth: 30
+    outerWidth: 60
+  - direction: 270
+    innerWidth: 30
+    outerWidth: 60
+
+- type: lightMask
+  id: Sparkle
+  maskPath: /Textures/Effects/LightMasks/sparklemask.png
+  lightCones: []
+
+- type: lightMask
+  id: CosmicCult
+  maskPath: /Textures/_DV/CosmicCult/LightMasks/cosmic.png
+  lightCones: []
+
+- type: lightMask
+  id: WizardRay
+  maskPath: /Textures/_Goobstation/Wizard/Effects/LightMasks/ray.png
+  lightCones:
+  - direction: 0
+    innerWidth: 10
+    outerWidth: 20

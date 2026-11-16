@@ -1,3 +1,8 @@
+// <Trauma>
+using Content.Shared._Trauma.Projectiles;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
+// </Trauma>
 using System.Numerics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
@@ -16,6 +21,10 @@ namespace Content.Shared.Weapons.Hitscan.Systems;
 
 public sealed class HitscanBasicRaycastSystem : EntitySystem
 {
+    // <Trauma>
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    // </Trauma>
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
@@ -53,7 +62,8 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
 
         // Do visuals without an event. They should always happen and putting it on the attempt event is weird!
         // If more stuff gets added here, it should probably be turned into an event.
-        FireEffects(args.FromCoordinates, distanceTried, args.ShotDirection.ToAngle(), ent.Owner);
+        // Trauma - pass whoever predicted the shot, reflections keep the original shooter
+        FireEffects(args.FromCoordinates, distanceTried, args.ShotDirection.ToAngle(), ent.Owner, CompOrNull<PredictedShooterComponent>(ent)?.Shooter);
 
         // Admin logging
         if (result?.HitEntity != null)
@@ -88,7 +98,8 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     /// <param name="distance">Distance of the hitscan shot.</param>
     /// <param name="shotAngle">Angle of the shot.</param>
     /// <param name="hitscanUid">The hitscan entity itself.</param>
-    private void FireEffects(EntityCoordinates fromCoordinates, float distance, Angle shotAngle, EntityUid hitscanUid)
+    private void FireEffects(EntityCoordinates fromCoordinates, float distance, Angle shotAngle, EntityUid hitscanUid,
+        EntityUid? predictingUser) // Trauma
     {
         if (distance == 0 || !_visualsQuery.TryComp(hitscanUid, out var vizComp))
             return;
@@ -141,10 +152,23 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
 
         if (sprites.Count > 0)
         {
-            RaiseNetworkEvent(new SharedGunSystem.HitscanEvent
+            // <Trauma> - raise it locally on the client that predicted the shot
+            var ev = new SharedGunSystem.HitscanEvent
             {
                 Sprites = sprites,
-            }, Filter.Pvs(fromCoordinates, entityMan: EntityManager));
+            };
+            if (_net.IsServer)
+            {
+                var filter = Filter.Pvs(fromCoordinates, entityMan: EntityManager);
+                if (predictingUser != null)
+                    filter.RemovePlayerByAttachedEntity(predictingUser.Value);
+                RaiseNetworkEvent(ev, filter);
+            }
+            else if (_timing.IsFirstTimePredicted) // don't spam multiple hitscan effects
+            {
+                RaiseLocalEvent(ev);
+            }
+            // </Trauma>
         }
     }
 }

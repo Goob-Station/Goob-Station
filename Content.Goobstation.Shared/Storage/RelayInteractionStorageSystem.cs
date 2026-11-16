@@ -6,10 +6,10 @@ using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Shared.Storage;
 
-public sealed class RelayInteractionStorageSystem : EntitySystem
+public sealed partial class RelayInteractionStorageSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
     public override void Initialize()
     {
         base.Initialize();

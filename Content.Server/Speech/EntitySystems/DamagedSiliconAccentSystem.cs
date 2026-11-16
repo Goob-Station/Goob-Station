@@ -1,11 +1,10 @@
 using System.Text;
 using Content.Server.Destructible;
 using Content.Shared.Speech.Components;
-using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
+using Content.Shared.Damage.Components;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
 

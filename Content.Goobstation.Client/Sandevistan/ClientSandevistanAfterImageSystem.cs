@@ -7,10 +7,10 @@ using DrawDepthEnum = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Goobstation.Client.Sandevistan;
 
-public sealed class ClientSandevistanAfterimageSystem : EntitySystem
+public sealed partial class ClientSandevistanAfterimageSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
 
     private static readonly ProtoId<TagPrototype> HideContextMenuTag = "HideContextMenu";
 
@@ -32,7 +32,7 @@ public sealed class ClientSandevistanAfterimageSystem : EntitySystem
         _sprite.CopySprite((ent.Comp.SourceEntity, userSprite), (ent.Owner, afterimageSprite));
         _sprite.SetDrawDepth((ent.Owner, afterimageSprite), (int) DrawDepthEnum.FloorEffects);
         _sprite.SetColor((ent.Owner, afterimageSprite), Color.FromHsv(new Vector4(ent.Comp.Hue, 1, 1, 0.7f)));
-        afterimageSprite.PostShader = null;
+        _sprite.ClearPostShaders((ent.Owner, afterimageSprite));
         afterimageSprite.RenderOrder = 0;
         afterimageSprite.EnableDirectionOverride = true;
         afterimageSprite.DirectionOverride = ent.Comp.DirectionOverride;

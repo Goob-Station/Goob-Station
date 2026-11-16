@@ -14,16 +14,16 @@ namespace Content.Goobstation.Server.Wraith;
 /// <summary>
 /// This handles evolving into a higher form with Wraith.
 /// </summary>
-public sealed class WraithEvolveSystem : EntitySystem
+public sealed partial class WraithEvolveSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
-    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private SharedPopupSystem _popups = default!;
+    [Dependency] private ISharedAdminLogManager _admin = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

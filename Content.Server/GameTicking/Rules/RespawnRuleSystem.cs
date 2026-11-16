@@ -15,6 +15,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
+using Content.Goobstation.Shared.MisandryBox.Mind; // Goob
+
 namespace Content.Server.GameTicking.Rules;
 
 /// <summary>
@@ -51,6 +53,9 @@ public sealed class RespawnRuleSystem : GameRuleSystem<RespawnDeadRuleComponent>
                     continue;
 
                 if (!_playerManager.TryGetSessionById(player, out var session))
+                    continue;
+
+                if (HasComp<TemporaryMindComponent>(session.AttachedEntity)) // Goob - wait until they leave the thunderdome
                     continue;
 
                 if (session.GetMind() is { } mind && TryComp<MindComponent>(mind, out var mindComp) && mindComp.OwnedEntity.HasValue)

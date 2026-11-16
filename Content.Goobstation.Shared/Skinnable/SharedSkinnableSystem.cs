@@ -6,7 +6,7 @@ namespace Content.Goobstation.Shared.Skinnable;
 
 public abstract partial class SharedSkinnableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
+    [Dependency] private SharedAppearanceSystem _appearance = null!;
     protected void ChangeVisuals(Entity<SkinnableComponent> ent)
     {
         if (!TryComp<AppearanceComponent>(ent, out var appearance))

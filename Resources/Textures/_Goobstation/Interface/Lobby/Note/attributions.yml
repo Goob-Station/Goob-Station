@@ -1,0 +1,9 @@
+- files: ["note.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Aidenkrz (GitHub) for Goob Station"
+  source: "https://github.com/Goob-Station/Goob-Station"
+
+- files: ["note_hover.png", "note_anim1.png", "note_anim2.png", "note_anim3.png", "note_anim4.png", "tiny_note.png", "note_piece_0.png", "note_piece_1.png", "note_piece_2.png", "note_piece_3.png", "note_piece_4.png", "note_piece_5.png", "note_piece_6.png", "note_piece_7.png", "note_piece_8.png", "note_piece_9.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by @Rouge2t7 (Discord) for Goob Station"
+  source: "https://discord.gg/goobstation"

@@ -36,6 +36,7 @@ public abstract partial class SharedGunSystem
                                         prototypes.Weights.Count == 0))
             return;
         // Goobstation end
+        var rand = GetRandom(ent); // Trauma
 
         for (var i = 0; i < args.Shots; i++)
         {
@@ -46,8 +47,8 @@ public abstract partial class SharedGunSystem
                 ent.Comp.Count--;
 
             // Goob edit start
-            EntProtoId proto = ent.Comp.Proto ?? prototypes!.Pick(Random).Id;
-            var ammoEnt = Spawn(proto, args.Coordinates);
+            EntProtoId proto = ent.Comp.Proto ?? prototypes!.Pick(rand).Id; // Trauma - predicted random
+            var ammoEnt = PredictedSpawnAtPosition(proto, args.Coordinates); // Trauma - predicted
             // Goob edit end
             args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));
         }

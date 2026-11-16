@@ -33,7 +33,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump']
+    allowedEmotes: ['Thump', 'Chirp'] # Goob
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
@@ -78,7 +78,6 @@
       301: 0.9
       295: 0.8
       285: 0.7
-  - type: Wagging
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start

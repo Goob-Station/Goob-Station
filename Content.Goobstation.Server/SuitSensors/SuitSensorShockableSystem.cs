@@ -8,12 +8,12 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.SuitSensors;
 
-public sealed class SuitSensorShockableSystem : EntitySystem
+public sealed partial class SuitSensorShockableSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SuitSensorSystem _suitSensorSystem = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SuitSensorSystem _suitSensorSystem = default!;
 
     public override void Initialize()
     {

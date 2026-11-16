@@ -23,6 +23,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -258,7 +259,8 @@ public sealed partial class ShuttleSystem
             if (direction.LengthSquared() > minsq)
             {
                 _stuns.TryCrawling(ent.Owner, knockdownTime);
-                _throwing.TryThrow(ent, direction, ent.Comp, Transform(ent), _projQuery, direction.Length(), playSound: false);
+                _throwing.TryThrow(ent, direction, ent.Comp, Transform(ent), _projQuery, direction.Length(), playSound: false,
+                    predicted: false); // Trauma
             }
             else
             {
@@ -398,7 +400,7 @@ public sealed partial class ShuttleSystem
                     damageSpec.DamageDict["Blunt"] = scaledDamage;
                     damageSpec.DamageDict["Structural"] = scaledDamage * _structuralDamage;
 
-                    _damageSys.TryChangeDamage(localEnt, damageSpec, damageable: damageable);
+                    _damageSys.ChangeDamage((localEnt, damageable), damageSpec);
                 }
                 // might've been destroyed
                 if (TerminatingOrDeleted(localEnt) || EntityManager.IsQueuedForDeletion(localEnt))
@@ -416,7 +418,8 @@ public sealed partial class ShuttleSystem
                 else
                 {
                     var direction = throwDirection * tileData.DistanceFactor;
-                    _throwing.TryThrow(localEnt, direction, physics, localEnt.Comp, _projQuery, direction.Length(), playSound: false);
+                    _throwing.TryThrow(localEnt, direction, physics, localEnt.Comp, _projQuery, direction.Length(), playSound: false,
+                        predicted: false); // Trauma
                 }
             }
 

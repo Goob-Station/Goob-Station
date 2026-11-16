@@ -115,7 +115,7 @@ public sealed partial class ProjectileComponent : Component
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
     public int NoPenetrateMask = 0;
 
-    [NonSerialized]
+    [AutoNetworkedField] // Trauma - networked for prediction
     public List<EntityUid> IgnoredEntities = new();
 
     [DataField]

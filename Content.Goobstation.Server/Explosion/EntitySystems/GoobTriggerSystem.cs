@@ -13,11 +13,11 @@ using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Server.Explosion.EntitySystems;
 
-public sealed class GoobTriggerSystem : EntitySystem
+public sealed partial class GoobTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
+    [Dependency] private InventorySystem _inventory = default!;
     public override void Initialize()
     {
         base.Initialize();

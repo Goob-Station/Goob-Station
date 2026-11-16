@@ -19,15 +19,15 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Mindcontrol;
 
-public sealed class MindcontrolSystem : EntitySystem
+public sealed partial class MindcontrolSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
-    [Dependency] private readonly RoleSystem _roleSystem = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IAdminLogManager _adminLogManager = default!;
+    [Dependency] private RoleSystem _roleSystem = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     static EntProtoId mindRole = "MindRoleBrainwashed";
 

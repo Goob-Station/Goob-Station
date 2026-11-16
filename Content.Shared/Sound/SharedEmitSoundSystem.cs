@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Trauma.Hands; // Goob
 using Content.Shared.Audio;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
@@ -40,6 +41,7 @@ public abstract class SharedEmitSoundSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly PredictedHandsSystem _predictedHands = default!; // Goob
 
     public override void Initialize()
     {
@@ -64,6 +66,7 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         if (_whitelistSystem.IsWhitelistFail(component.Blacklist, args.User))
         {
             TryEmitSound(uid, component, args.User);
+            args.InteractionParticle = true; // Goob
         }
     }
 
@@ -99,8 +102,8 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         if (xform.GridUid != xform.MapUid && _turf.IsSpace(tile))
             return;
 
-        // hand throwing not predicted sadly
-        TryEmitSound(uid, component, args.User, false);
+        // Trauma - throwing is predicted by the thrower now
+        TryEmitSound(uid, component, args.User, predict: args.User != null);
     }
 
     private void OnEmitSoundOnUseInHand(EntityUid uid, EmitSoundOnUseComponent component, UseInHandEvent args)
@@ -133,6 +136,9 @@ public abstract class SharedEmitSoundSystem : EntitySystem
 
     private void OnEmitSoundOnDrop(EntityUid uid, EmitSoundOnDropComponent component, DroppedEvent args)
     {
+        if (_predictedHands.ThrowDropping == uid) // Goob
+            return;
+
         TryEmitSound(uid, component, args.User);
     }
 

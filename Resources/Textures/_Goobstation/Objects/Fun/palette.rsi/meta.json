@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/d91390a4474e511279b6ee7525c5982266b9a858/icons/obj/art/artstuff.dmi; in-hands from https://github.com/tgstation/tgstation/blob/39308f9dc61c70043781301e096117a7a421dae2/icons/mob/inhands/equipment/palette_lefthand.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

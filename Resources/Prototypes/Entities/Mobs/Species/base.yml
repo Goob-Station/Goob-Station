@@ -92,6 +92,7 @@
     horizontalRotation: 90
   - type: HumanoidAppearance
     species: Human
+  - type: Wagging # Goob
   - type: TypingIndicator
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -142,7 +143,6 @@
     - Vulgarity # Goobstation - add Profanol
     - Brainrotted # Goobstation - skibidi rizz ohio update
     - Adrenaline
-    - Brainrotted # Goobstation - skibidi rizz ohio update
     - Dementia # Goobstation - Amnestic spray!
   - type: Body
     prototype: Human

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TGStation at commit https://github.com/tgstation/tgstation/commit/e9cc620e9f908e18949031c6e1b5811e3fc5af4e | skeleton modified by Skubman. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_SimpleStation/Mobs/Customization/wings64x34.rsi",
+  "size": {
+    "x": 64,
+    "y": 34
+  },
+  "states": [
+    {
+      "name": "dragon",
+      "directions": 4
+    }
+  ]
+}

@@ -9,8 +9,8 @@ namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class ChangelingRegenerateSystem : SharedChangelingRegenerateSystem
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private SharedBodySystem _body = default!;
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 

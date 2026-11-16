@@ -21,6 +21,7 @@ using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -124,7 +125,8 @@ public sealed class DeconversionSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-notcorrupted", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
             _popup.PopupCoordinates(Loc.GetString("cleanse-deconvert-attempt-rebound"), targetPosition, PopupType.MediumCaution);
             _damageable.TryChangeDamage(args.User, censer.FailedDeconversionDamage, true);
-            _damageable.TryChangeDamage(args.Target, censer.FailedDeconversionDamage, true);
+            if (args.Target is not null) // Goob edit for new damageable and lazy
+                _damageable.TryChangeDamage(args.Target.Value, censer.FailedDeconversionDamage, true);
         }
         args.Handled = true;
     }

@@ -82,3 +82,65 @@
   position: 1,-7
   technologyPrerequisites:
   - IndustrialEngineering
+
+- type: technology
+  id: ModsuitEngineeringTech
+  name: research-technology-modsuit-engineering
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: magnet
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ModsuitPlatingEngineer
+  - ModsuitModuleMagboots
+  - ModsuitModuleTRay
+  - ModsuitModuleTether
+  - ModsuitModuleMister
+  - ModsuitModuleHeadProtector
+  position: -3,-4
+  technologyPrerequisites:
+  - ModsuitsTech
+
+- type: technology
+  id: ModsuitAdvancedEngineeringTech
+  name: research-technology-modsuit-advanced-engineering
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: jetpack
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ModsuitPlatingAtmostech
+  - ModsuitModuleJetpack
+  - ModsuitModuleRadProtection
+  - ModsuitModuleResinMister
+  - ModsuitModuleAntiGravity
+  - ModsuitModuleJetpackAdvanced
+  - ModsuitModuleMagbootsAdvanced
+  - ModsuitModuleJumpJet
+  - ModsuitModuleEmpShieldAdvanced
+  position: -3,-5
+  technologyPrerequisites:
+  - ModsuitEngineeringTech
+
+- type: technology
+  id: ModsuitSupplyTech
+  name: research-technology-modsuit-supply
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: drill
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ModsuitPlatingMining
+  - ModsuitModuleDrill
+  - ModsuitModuleCandelaSpool
+  - ModsuitModuleOreBag
+  - ModsuitModuleClamp
+  position: -4,-4
+  technologyPrerequisites:
+  - ModsuitsTech

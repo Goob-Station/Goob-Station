@@ -68,11 +68,6 @@
 
 # S.E.C. cyborg
 - type: siliconLaw
-  id: SECborg1
-  order: 1
-  lawString: law-secborg-1
-
-- type: siliconLaw
   id: SECborg2
   order: 2
   lawString: law-secborg-2
@@ -87,18 +82,11 @@
   order: 4
   lawString: law-secborg-4
 
-- type: siliconLaw
-  id: SECborg5
-  order: 5
-  lawString: law-secborg-5
-
 - type: siliconLawset
   id: SECborgLawset
   name: law-secborg-name
   laws:
-  - SECborg1
   - SECborg2
   - SECborg3
   - SECborg4
-  - SECborg5
   obeysTo: laws-owner-station-ai

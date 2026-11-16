@@ -1,0 +1,157 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: AndroidScrapHandLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: l_hand_scrap
+
+- type: marking
+  id: AndroidSyntHandLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: l_hand_synt
+
+- type: marking
+  id: BS2LHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bs2ipc_l_hand
+
+- type: marking
+  id: BSHLHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bshipc_l_hand
+
+- type: marking
+  id: CyberlimbLHandHephaestusTitan
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Dwarf, Felinid, Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/hephaestus_titan.rsi
+    state: l_hand
+
+- type: marking
+  id: CyberlimbLHandMorpheus
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/morpheus.rsi
+    state: l_hand
+
+- type: marking
+  id: CyberlimbLHandXion
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Dwarf, Felinid, Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/xion.rsi
+    state: l_hand
+
+- type: marking
+  id: CyberlimbLHandZenghu
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/zenghu.rsi
+    state: l_hand
+
+- type: marking
+  id: IPCLHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ipc_l_hand
+
+- type: marking
+  id: IPSLHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ips_l_hand
+
+- type: marking
+  id: MCGLHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: mcgipc_l_hand
+
+- type: marking
+  id: PawsitronsLHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: pawsitrons_l_hand
+
+- type: marking
+  id: SGMLHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: sgmipc_l_hand
+
+- type: marking
+  id: SteampunkLHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: staripc_l_hand

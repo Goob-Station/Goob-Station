@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Downwards made by PixelTheKermit (github) for SS14. Inwards made by Nairodian (github) for SS14. Both lightened to match spiders on Impstation by Sha-Seng (github). Small made by Sha-Seng (github). Big, Solifugid, and Longjaw made by Entings (github) for Impstation. Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/_Impstation/Mobs/Customization/Arachnid/headside.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "big",
+      "directions": 4
+    },
+    {
+      "name": "longjaw",
+      "directions": 4
+    },
+    {
+      "name": "solifugid",
+      "directions": 4
+    }
+  ]
+}

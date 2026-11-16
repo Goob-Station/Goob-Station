@@ -8,10 +8,10 @@ using Robust.Shared.ContentPack;
 
 namespace Content.Goobstation.Server.VoiceChat;
 
-public sealed class VoiceLogManager
+public sealed partial class VoiceLogManager
 {
-    [Dependency] private readonly IResourceManager _resources = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private IResourceManager _resources = default!;
+    [Dependency] private ILogManager _logManager = default!;
 
     private const string DirectoryName = "voice_logs";
     private const string FileExtension = ".vlog";
@@ -449,7 +449,7 @@ public sealed class VoiceLogManager
         index.TotalFrames++;
     }
 
-    private sealed class Writer(FileStream stream) : IDisposable
+    private sealed partial class Writer(FileStream stream) : IDisposable
     {
         public readonly BinaryWriter Output = new(stream);
         public string? Name;
@@ -461,7 +461,7 @@ public sealed class VoiceLogManager
         }
     }
 
-    private sealed class TrackIndex
+    private sealed partial class TrackIndex
     {
         public string Username = string.Empty;
         public long Parsed;
@@ -472,7 +472,7 @@ public sealed class VoiceLogManager
         public readonly List<SegmentIndex> Segments = new();
     }
 
-    private sealed class SegmentIndex(long startMs, ushort firstSequence, VoiceLogFlags flags, string name, string channel)
+    private sealed partial class SegmentIndex(long startMs, ushort firstSequence, VoiceLogFlags flags, string name, string channel)
     {
         public readonly long StartMs = startMs;
         public readonly ushort FirstSequence = firstSequence;

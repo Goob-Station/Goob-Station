@@ -32,6 +32,8 @@ public sealed class InteractUsingEvent : HandledEntityEventArgs
     /// </summary>
     public EntityCoordinates ClickLocation { get; }
 
+    public bool InteractionParticle = true; // Goob
+
     public InteractUsingEvent(EntityUid user, EntityUid used, EntityUid target, EntityCoordinates clickLocation)
     {
         // Interact using should not have the same used and target.

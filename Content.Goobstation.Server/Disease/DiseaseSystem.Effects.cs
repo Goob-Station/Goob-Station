@@ -15,9 +15,9 @@ namespace Content.Goobstation.Server.Disease;
 
 public sealed partial class DiseaseSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
 
     // cache for field setters for DiseaseGenericEffectComponent
     private readonly Dictionary<(Type, string), Action<Component, float>> _setterCache = new();
@@ -51,7 +51,7 @@ public sealed partial class DiseaseSystem
         if (ent.Comp.WithChat)
             _chat.TryEmoteWithChat(args.Ent, emote, forceEmote: true);
         else
-            _chat.TryEmoteWithoutChat(args.Ent, emote, voluntary: false);
+            _chat.TryEmoteWithoutChat(args.Ent, emote);
     }
 
     private void OnGenericEffect(Entity<DiseaseGenericEffectComponent> ent, ref DiseaseEffectEvent args)

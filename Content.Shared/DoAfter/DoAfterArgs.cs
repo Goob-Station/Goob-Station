@@ -153,6 +153,9 @@ public sealed partial class DoAfterArgs
     [DataField]
     public bool BreakOnDamage;
 
+    [DataField]
+    public bool FaceTarget = true; // Goob
+
     /// <summary>
     ///     Threshold for user damage. This damage has to be dealt in a single event, not over time.
     /// </summary>
@@ -295,6 +298,7 @@ public sealed partial class DoAfterArgs
         BlockDuplicate = other.BlockDuplicate;
         CancelDuplicate = other.CancelDuplicate;
         DuplicateCondition = other.DuplicateCondition;
+        FaceTarget = other.FaceTarget; // Goob
         ShowTo = other.ShowTo; // Goobstation - Show doAfter popup to another entity
 
         MultiplyDelay = other.MultiplyDelay; // Goobstation

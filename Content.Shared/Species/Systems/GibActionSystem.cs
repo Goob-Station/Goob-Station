@@ -67,8 +67,8 @@ public sealed partial class GibActionSystem : EntitySystem
         // Goobstation end
 
         // When they use the action, gib them.
-        _popupSystem.PopupClient(Loc.GetString(comp.PopupText, ("name", uid)), uid, uid);
-        _bodySystem.GibBody(uid, true);
+        _popupSystem.PopupClient(Loc.GetString(comp.PopupText, ("name", args.Performer)), args.Performer, args.Performer); // Goob
+        _bodySystem.GibBody(args.Performer, true); // Goob - the action container can be a polymorph's stored original in nullspace
     }
 
 

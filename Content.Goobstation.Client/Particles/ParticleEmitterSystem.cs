@@ -8,10 +8,10 @@ namespace Content.Goobstation.Client.Particles;
 /// Spawns a particle effect on this client when an entity with
 /// <see cref="ParticleEmitterComponent"/> enters the local view (MapInitEvent).
 /// </summary>
-public sealed class ParticleEmitterSystem : EntitySystem
+public sealed partial class ParticleEmitterSystem : EntitySystem
 {
-    [Dependency] private readonly ParticleSystem _particles = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ParticleSystem _particles = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

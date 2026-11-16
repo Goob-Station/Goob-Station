@@ -120,18 +120,24 @@ public sealed partial class AnchorableSystem : EntitySystem
         if (args.Cancelled || args.Used is not { } used)
             return;
 
+        UnanchorEntity((uid, component), args.User, used); // Goob
+    }
+
+    public void UnanchorEntity(Entity<AnchorableComponent> ent, EntityUid user, EntityUid used) // Goob
+    {
+        var uid = ent.Owner; // Goob
         var xform = Transform(uid);
 
-        RaiseLocalEvent(uid, new BeforeUnanchoredEvent(args.User, used));
+        RaiseLocalEvent(uid, new BeforeUnanchoredEvent(user, used)); // Goob
         _transformSystem.Unanchor(uid, xform);
-        RaiseLocalEvent(uid, new UserUnanchoredEvent(args.User, used));
+        RaiseLocalEvent(uid, new UserUnanchoredEvent(user, used)); // Goob
 
-        _popup.PopupClient(Loc.GetString("anchorable-unanchored"), uid, args.User);
+        _popup.PopupClient(Loc.GetString("anchorable-unanchored"), uid, user); // Goob
 
         _adminLogger.Add(
             LogType.Unanchor,
             LogImpact.Low,
-            $"{ToPrettyString(args.User):user} unanchored {ToPrettyString(uid):anchored} using {ToPrettyString(used):using}"
+            $"{ToPrettyString(user):user} unanchored {ToPrettyString(uid):anchored} using {ToPrettyString(used):using}" // Goob
         );
     }
 
@@ -140,11 +146,17 @@ public sealed partial class AnchorableSystem : EntitySystem
         if (args.Cancelled || args.Used is not { } used)
             return;
 
+        AnchorEntity((uid, component), args.User, used); // Goob
+    }
+
+    public void AnchorEntity(Entity<AnchorableComponent> ent, EntityUid user, EntityUid used) // Goob
+    {
+        var (uid, component) = ent; // Goob
         var xform = Transform(uid);
         if (TryComp<PhysicsComponent>(uid, out var anchorBody) &&
             !TileFree(xform.Coordinates, anchorBody))
         {
-            _popup.PopupClient(Loc.GetString("anchorable-occupied"), uid, args.User);
+            _popup.PopupClient(Loc.GetString("anchorable-occupied"), uid, user); // Goob
             return;
         }
 
@@ -164,26 +176,26 @@ public sealed partial class AnchorableSystem : EntitySystem
 
             if (AnyUnstackable(uid, coordinates))
             {
-                _popup.PopupClient(Loc.GetString("construction-step-condition-no-unstackable-in-tile"), uid, args.User);
+                _popup.PopupClient(Loc.GetString("construction-step-condition-no-unstackable-in-tile"), uid, user); // Goob
                 return;
             }
 
             _transformSystem.SetCoordinates(uid, coordinates);
         }
 
-        RaiseLocalEvent(uid, new BeforeAnchoredEvent(args.User, used));
+        RaiseLocalEvent(uid, new BeforeAnchoredEvent(user, used)); // Goob
 
         if (!xform.Anchored)
             _transformSystem.AnchorEntity(uid, xform);
 
-        RaiseLocalEvent(uid, new UserAnchoredEvent(args.User, used));
+        RaiseLocalEvent(uid, new UserAnchoredEvent(user, used)); // Goob
 
-        _popup.PopupClient(Loc.GetString("anchorable-anchored"), uid, args.User);
+        _popup.PopupClient(Loc.GetString("anchorable-anchored"), uid, user); // Goob
 
         _adminLogger.Add(
             LogType.Anchor,
             LogImpact.Low,
-            $"{ToPrettyString(args.User):user} anchored {ToPrettyString(uid):anchored} using {ToPrettyString(used):using}"
+            $"{ToPrettyString(user):user} anchored {ToPrettyString(uid):anchored} using {ToPrettyString(used):using}" // Goob
         );
     }
 

@@ -2,6 +2,7 @@
 
 using Robust.Client.UserInterface.RichText; // Goob
 using System.Numerics;
+using Content.Goobstation.Common.CCVar; // Goob
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Speech;
@@ -81,6 +82,9 @@ namespace Content.Client.Chat.UI
 
         public static SpeechBubble CreateSpeechBubble(SpeechType type, ChatMessage message, EntityUid senderEntity)
         {
+            if (IoCManager.Resolve<IConfigurationManager>().GetCVar(GoobCVars.ChatRunechat)) // Goob
+                return new RunechatSpeechBubble(message, senderEntity, type); // Goob
+
             switch (type)
             {
                 case SpeechType.Emote:

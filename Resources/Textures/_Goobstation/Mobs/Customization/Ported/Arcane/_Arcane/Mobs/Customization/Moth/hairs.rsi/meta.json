@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by bulbo44kkey (Discord). Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Arcane/Mobs/Customization/Moth/hairs.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "braid",
+      "directions": 4
+    },
+    {
+      "name": "curly",
+      "directions": 4
+    },
+    {
+      "name": "neat",
+      "directions": 4
+    },
+    {
+      "name": "wild_long",
+      "directions": 4
+    },
+    {
+      "name": "wild",
+      "directions": 4
+    },
+    {
+      "name": "wings",
+      "directions": 4
+    }
+  ]
+}

@@ -8,9 +8,9 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Redial;
 
-public sealed class RedialUserOnTriggerSystem : EntitySystem
+public sealed partial class RedialUserOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly RedialManager _redial = default!;
+    [Dependency] private RedialManager _redial = default!;
 
     public override void Initialize()
     {
@@ -19,7 +19,7 @@ public sealed class RedialUserOnTriggerSystem : EntitySystem
         SubscribeLocalEvent<RedialUserOnTriggerComponent, TriggerEvent>(OnTrigger);
     }
 
-    private void OnTrigger(EntityUid uid, RedialUserOnTriggerComponent component, TriggerEvent args)
+    private void OnTrigger(EntityUid uid, RedialUserOnTriggerComponent component, ref TriggerEvent args)
     {
         if (!TryComp(args.User, out ActorComponent? actor) || component.Address == string.Empty)
             return;

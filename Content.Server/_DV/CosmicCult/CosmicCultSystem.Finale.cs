@@ -1,6 +1,4 @@
 using Content.Server._DV.CosmicCult.Components;
-using Content.Server.RoundEnd;
-using Content.Server.Shuttles.Systems;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Audio;
@@ -14,9 +12,6 @@ namespace Content.Server._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _evac = default!;
-
     /// <summary>
     ///     Used to calculate when the finale song should start playing
     /// </summary>
@@ -111,7 +106,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         Dirty(uid, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));
 
-        if (!_evac.EmergencyShuttleArrived && _roundEnd.IsRoundEndRequested()) _roundEnd.CancelRoundEndCountdown(forceRecall: true);
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var cultComp))
         {

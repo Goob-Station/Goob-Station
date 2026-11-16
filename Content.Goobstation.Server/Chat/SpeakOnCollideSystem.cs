@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Events;
 using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
 using Content.Goobstation.Shared.Speech;
@@ -9,12 +9,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Chat;
 
-public sealed class SpeakOnCollideSystem : EntitySystem
+public sealed partial class SpeakOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
     public override void Initialize()
     {
         base.Initialize();

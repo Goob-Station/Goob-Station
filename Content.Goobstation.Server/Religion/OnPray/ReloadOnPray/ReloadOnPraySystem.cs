@@ -9,8 +9,8 @@ namespace Content.Goobstation.Server.Religion.OnPray.ReloadOnPray;
 
 public sealed partial class ReloadOnPraySystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
     public override void Initialize()
     {
         base.Initialize();

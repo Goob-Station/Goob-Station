@@ -10,13 +10,13 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Contraband;
 
-public sealed class ContrabandDetectorSystem : SharedContrabandDetectorSystem
+public sealed partial class ContrabandDetectorSystem : SharedContrabandDetectorSystem
 {
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

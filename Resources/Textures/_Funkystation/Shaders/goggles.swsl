@@ -1,0 +1,41 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform lowp vec4 color;
+uniform lowp float reducedMotion;
+
+const highp float DISTORTION_STRENGTH = 0.04;
+const highp float SCANLINE_FREQUENCY = 240.0;
+const highp float SCANLINE_DEPTH = 0.15;
+const highp float FLICKER_SPEED = 45.0;
+const highp float FLICKER_INTENSITY = 0.008;
+const highp float BEAM_SPEED = 0.25;
+const highp float BEAM_WIDTH = 0.3;
+const highp float BEAM_MIN_BRIGHTNESS = 0.6;
+
+void fragment() {
+    highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
+
+    highp float warp = DISTORTION_STRENGTH * (1.0 - reducedMotion);
+    highp vec2 toCenter = uv - 0.5;
+    highp float distSq = dot(toCenter, toCenter);
+    highp vec2 distortedUv = uv + toCenter * distSq * warp;
+
+    distortedUv = clamp(distortedUv, 0.001, 0.999);
+
+    lowp vec4 texColor = texture2D(SCREEN_TEXTURE, distortedUv);
+
+    lowp vec3 tinted = texColor.rgb * color.rgb;
+
+    highp float scanWave = sin(distortedUv.y * SCANLINE_FREQUENCY);
+    highp float scanline = mix(1.0 - SCANLINE_DEPTH, 1.0, (scanWave + 1.0) * 0.5);
+
+    highp float flickerNoise = 1.0 + sin(TIME * FLICKER_SPEED) * FLICKER_INTENSITY;
+    highp float flicker = mix(flickerNoise, 1.0, reducedMotion);
+
+    highp float beamCycle = fract(distortedUv.y - TIME * BEAM_SPEED);
+    highp float beamGlow = smoothstep(0.0, BEAM_WIDTH, beamCycle);
+    highp float beam = mix(BEAM_MIN_BRIGHTNESS, 1.0, beamGlow);
+
+    lowp vec3 finalColor = tinted * scanline * flicker * beam;
+
+    COLOR = vec4(finalColor, texColor.a * color.a);
+}

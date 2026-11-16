@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Drawn by Carousel for Impstation; Moth scars drawn by Snavian for Impstation. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_Impstation/Mobs/Customization/scars.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "foot_l_prosthetic",
+      "directions": 4
+    },
+    {
+      "name": "foot_r_prosthetic",
+      "directions": 4
+    },
+    {
+      "name": "leg_l_prosthetic",
+      "directions": 4
+    },
+    {
+      "name": "leg_r_prosthetic",
+      "directions": 4
+    }
+  ]
+}

@@ -174,9 +174,20 @@ public abstract class SharedFlightSystem : EntitySystem
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
             foreach (var (key, originalMask) in component.ChangedFixtures)
                 if (fixtureComponent.Fixtures.TryGetValue(key, out var fixture))
-                    _physics.SetCollisionMask(uid, key, fixture, originalMask, fixtureComponent);
+                    _physics.SetCollisionMask(uid, key, fixture, UndoFlightMask(fixture.CollisionMask, originalMask), fixtureComponent);
 
         component.ChangedFixtures.Clear();
+    }
+
+    private static int UndoFlightMask(int currentMask, int originalMask)
+    {
+        var restored = currentMask
+            | (originalMask & (int) (CollisionGroup.HighImpassable | CollisionGroup.MidImpassable));
+
+        if ((originalMask & (int) CollisionGroup.InteractImpassable) == 0)
+            restored &= (int) ~CollisionGroup.InteractImpassable;
+
+        return restored;
     }
 
     private void UpdateHands(EntityUid uid, bool flying)
@@ -311,7 +322,7 @@ public abstract class SharedFlightSystem : EntitySystem
         ToggleActive(uid, false, component, gracefulStop: false);
     }
 
-    private void OnAttemptClimb(EntityUid uid, FlightComponent component, AttemptClimbEvent args)
+    private void OnAttemptClimb(EntityUid uid, FlightComponent component, ref AttemptClimbEvent args)
     {
         if (!component.On)
             return;

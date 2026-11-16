@@ -801,3 +801,36 @@
   - type: Tag
     tags:
       - SummonSimiansMaxLevelAction
+
+# Summon Supermatter
+- type: entity
+  parent: ActionSummonSupermatter
+  id: ActionSummonSupermatterII
+  name: Summon Supermatter II
+  components:
+  - type: Action
+    useDelay: 240
+
+- type: entity
+  parent: ActionSummonSupermatter
+  id: ActionSummonSupermatterIII
+  name: Summon Supermatter III
+  components:
+  - type: Action
+    useDelay: 180
+
+- type: entity
+  parent: ActionSummonSupermatter
+  id: ActionSummonSupermatterIV
+  name: Summon Supermatter IV
+  components:
+  - type: Action
+    useDelay: 120
+
+- type: entity
+  parent: ActionSummonSupermatter
+  id: ActionSummonSupermatterV
+  name: Summon Supermatter V
+  components:
+  - type: Action
+    useDelay: 60

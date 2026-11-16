@@ -10,8 +10,9 @@
   - type: Battery
     pricePerJoule: 0.15
   - type: PowerCell
+  - type: ExplosionEffect # Goob
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Goob
     maxIntensity: 200
     intensitySlope: 1.5
   - type: Sprite

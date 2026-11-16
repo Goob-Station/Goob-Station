@@ -11,13 +11,13 @@ namespace Content.Goobstation.Server.Sound;
 /// <summary>
 /// periodically plays the sound from RandomIntervalSoundComponent (server-only).
 /// </summary>
-public sealed class RandomIntervalSoundSystem : EntitySystem
+public sealed partial class RandomIntervalSoundSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

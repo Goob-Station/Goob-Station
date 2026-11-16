@@ -20,7 +20,7 @@ namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class PickNearbyFillableItemOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private EntityWhitelistSystem _whitelistSystem = default!;
     private SharedMaterialStorageSystem _sharedMaterialStorage = default!;

@@ -8,11 +8,11 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.AlmanacBlade;
 
-public sealed class AlmanacBladeSystem : SharedAlmanacBladeSystem
+public sealed partial class AlmanacBladeSystem : SharedAlmanacBladeSystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     private bool _inRussia;
 

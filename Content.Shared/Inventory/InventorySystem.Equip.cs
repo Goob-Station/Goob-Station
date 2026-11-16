@@ -154,6 +154,9 @@ public abstract partial class InventorySystem
             return false;
         }
 
+        if (force && slotDefinition.StrictWhitelist && (_whitelistSystem.IsWhitelistFail(slotDefinition.Whitelist, itemUid) || _whitelistSystem.IsWhitelistPass(slotDefinition.Blacklist, itemUid))) // Goob
+            return false;
+
         if (checkDoafter &&
             clothing != null &&
             clothing.EquipDelay > TimeSpan.Zero &&
@@ -171,6 +174,7 @@ public abstract partial class InventorySystem
             {
                 BreakOnMove = !clothing.EquipWhileMoving,
                 NeedHand = true,
+                FaceTarget = false, // Goob
             };
 
             _doAfter.TryStartDoAfter(args);
@@ -442,6 +446,7 @@ public abstract partial class InventorySystem
             {
                 BreakOnMove = !clothing.EquipWhileMoving,
                 NeedHand = true,
+                FaceTarget = false, // Goob
             };
 
             _doAfter.TryStartDoAfter(args);
@@ -560,7 +565,7 @@ public abstract partial class InventorySystem
     {
         foreach (var item in _handsSystem.EnumerateHeld(uid))
         {
-            _interactionSystem.DoContactInteraction(uid, item);
+            _interactionSystem.DoContactInteraction(uid, item, null, true); // Goob
         }
     }
 }

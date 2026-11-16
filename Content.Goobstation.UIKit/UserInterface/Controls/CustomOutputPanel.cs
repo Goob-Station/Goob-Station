@@ -9,10 +9,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.UIKit.UserInterface.Controls;
 
-public sealed class CustomOutputPanel : Control
+public sealed partial class CustomOutputPanel : Control
 {
-    [Dependency] private readonly MarkupTagManager _tagManager = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private MarkupTagManager _tagManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public const string StylePropertyStyleBox = "stylebox";
 

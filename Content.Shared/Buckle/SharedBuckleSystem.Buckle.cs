@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.BlockHandsOnBuckle;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Alert;
@@ -50,6 +51,7 @@ public abstract partial class SharedBuckleSystem
 
         SubscribeLocalEvent<BuckleComponent, PreventCollideEvent>(OnBucklePreventCollide);
         SubscribeLocalEvent<BuckleComponent, DownAttemptEvent>(OnBuckleDownAttempt);
+        SubscribeLocalEvent<BuckleComponent, KnockDownAttemptEvent>(OnBuckleKnockDownAttempt); // Goob
         SubscribeLocalEvent<BuckleComponent, StandAttemptEvent>(OnBuckleStandAttempt);
         SubscribeLocalEvent<BuckleComponent, ThrowPushbackAttemptEvent>(OnBuckleThrowPushbackAttempt);
         SubscribeLocalEvent<BuckleComponent, UpdateCanMoveEvent>(OnBuckleUpdateCanMove);
@@ -73,6 +75,11 @@ public abstract partial class SharedBuckleSystem
     {
         // Prevent people pulling the chair they're on, etc.
         if (ent.Comp.BuckledTo == args.Pulled && !ent.Comp.PullStrap)
+            args.Cancel();
+
+        // Goobstation
+        if (ent.Comp.BuckledTo is { } buckled
+            && HasComp<BlockHandsOnBuckleComponent>(buckled))
             args.Cancel();
     }
 
@@ -215,6 +222,14 @@ public abstract partial class SharedBuckleSystem
         if (component.Buckled)
             args.Cancel();
     }
+
+    // Goob start
+    private void OnBuckleKnockDownAttempt(Entity<BuckleComponent> ent, ref KnockDownAttemptEvent args)
+    {
+        if (ent.Comp.Buckled)
+            args.Cancelled = true;
+    }
+    // Goob end
 
     private void OnBuckleStandAttempt(EntityUid uid, BuckleComponent component, StandAttemptEvent args)
     {

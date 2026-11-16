@@ -11,3 +11,48 @@
         targetKey: CallTarget
         rangeKey: MeleeRange
         removeKeyOnFinish: true
+
+- type: htnCompound
+  id: GnawCorpseCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:HungryPrecondition
+        minHungerState: Peckish
+      operator: !type:UtilityOperator
+        proto: NearbyGnawableCorpse
+
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        pathfindInPlanning: true
+        removeKeyOnFinish: false
+        targetKey: TargetCoordinates
+        pathfindKey: TargetPathfind
+        rangeKey: MeleeRange
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      operator: !type:AltInteractOperator
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+      operator: !type:WaitOperator
+        key: IdleTime
+
+- type: utilityQuery
+  id: NearbyGnawableCorpse
+  query:
+  - !type:ComponentQuery
+    components:
+    - type: GnawableCorpse
+  considerations:
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+  - !type:TargetAccessibleCon
+    curve: !type:BoolCurve

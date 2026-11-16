@@ -12,11 +12,11 @@ namespace Content.Goobstation.Shared.Enchanting.Systems;
 /// <summary>
 /// Handles upgrading enchanted item tier when a player-controlled mob is sacrificed on top of an altar with it.
 /// </summary>
-public sealed class EnchantSacrificeSystem : EntitySystem
+public sealed partial class EnchantSacrificeSystem : EntitySystem
 {
-    [Dependency] private readonly EnchantingSystem _enchanting = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private EnchantingSystem _enchanting = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private EntityQuery<CondemnedComponent> _condemnedQuery;
 

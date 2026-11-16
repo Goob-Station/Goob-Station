@@ -8,6 +8,7 @@ slasher-round-end-agent-name = Slasher
 slasher-kit-select-title = Choose Your Kit
 slasher-kit-select-header = Choose a kit. Each one comes with a unique song and a unique look.
 slasher-kit-select-button = Select
+slasher-kit-guide-button = This variant plays differently - open its guidebook page.
 
 slasher-kit-butcher = Butcher
 slasher-kit-butcher-desc = The classic. A welding mask and apron for a no nonsense killing machine.
@@ -35,6 +36,9 @@ slasher-kit-glutton-desc = Something hungry stalks the halls. It wears a skin th
 
 slasher-kit-hockey = Hockey Mask
 slasher-kit-hockey-desc = A hockey mask and a machete. What more could you want?
+
+slasher-kit-boogeyman = Boogeyman
+slasher-kit-boogeyman-desc = "I wonder, if perhaps.. The Boogeyman is able to actually move through shadows.."
 
 slasher-machete-no-hands = You have no hands!
 slasher-machete-hands-full = Your hands are full!

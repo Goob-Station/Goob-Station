@@ -1,6 +1,7 @@
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Timing;
 

@@ -8,7 +8,7 @@ namespace Content.Goobstation.Server.Devil.Objectives.Systems;
 
 public sealed partial class DevilObjectiveSystem : EntitySystem
 {
-    [Dependency] private readonly NumberObjectiveSystem _number = default!;
+    [Dependency] private NumberObjectiveSystem _number = default!;
 
     public override void Initialize()
     {

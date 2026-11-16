@@ -15,11 +15,11 @@ namespace Content.Goobstation.Server.EntityEffects;
 
 public sealed partial class RandomTeleportNearbySystem : EntityEffectSystem<ReactiveComponent, RandomTeleportNearby>
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ExamineSystemShared _occlusion = default!;
-    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ExamineSystemShared _occlusion = default!;
+    [Dependency] private SharedRandomTeleportSystem _teleport = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<RandomTeleportNearby> args)
     {

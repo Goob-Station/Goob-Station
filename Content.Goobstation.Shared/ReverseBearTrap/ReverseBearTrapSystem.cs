@@ -30,26 +30,27 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.ReverseBearTrap;
 
 public sealed partial class ReverseBearTrapSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
-    [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedToolSystem _toolSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private WoundSystem _wound = default!; // Shitmed Change
+    [Dependency] private SharedBodySystem _body = default!; // Shitmed Change
     public override void Initialize()
     {
         base.Initialize();
@@ -287,7 +288,7 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Heat", 50);
-        _damageable.TryChangeDamage(trap.Wearer, damage, true, origin: args.Used, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
+        _damageable.TryChangeDamage(trap.Wearer.Value, damage, true, origin: args.Used, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
 
         _popup.PopupEntity(Loc.GetString("reverse-bear-trap-component-trap-fall-observer",
                     ("user", Identity.Name(trap.Wearer.Value, EntityManager))),
@@ -409,7 +410,7 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 300);
-        _damageable.TryChangeDamage(wearer, damage, true, origin: uid, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
+        _damageable.TryChangeDamage(wearer.Value, damage, true, origin: uid, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
         var head = _body.GetBodyChildrenOfType(wearer.Value, BodyPartType.Head).FirstOrDefault();
         if (head != default
             && TryComp<WoundableComponent>(head.Id, out var woundable)

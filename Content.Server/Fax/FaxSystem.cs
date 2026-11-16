@@ -351,6 +351,17 @@ public sealed class FaxSystem : EntitySystem
 
     private void OnCopyButtonPressed(EntityUid uid, FaxMachineComponent component, FaxCopyMessage args)
     {
+        // Goobstation start
+        if (component.PaperSlot.Item != null)
+        {
+            var copiedEv = new GettingFaxedCopiedEvent((uid, component), args);
+            RaiseLocalEvent(component.PaperSlot.Item.Value, ref copiedEv);
+
+            if (copiedEv.Handled)
+                return;
+        }
+        // Goobstation end
+
         if (HasComp<MobStateComponent>(component.PaperSlot.Item))
             _faxecute.Faxecute(uid, component); // when button pressed it will hurt the mob.
         else if (component.PaperSlot.Item != null && TryComp<FaxableObjectComponent>(component.PaperSlot.Item, out var faxcomp) && !faxcomp.Copyable) // goobstation

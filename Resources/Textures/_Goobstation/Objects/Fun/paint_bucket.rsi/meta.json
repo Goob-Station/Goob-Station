@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/4397d63a55dac7d0536eb9bcc0a0f68634858c50/icons/obj/art/paint.dmi; in-hands from https://github.com/tgstation/tgstation/blob/12eed0aa70a932e1ff0474b58525e37372b32c3e/icons/mob/inhands/items_lefthand.dmi; paint_fill1 derived from paint_neutral",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "paint_black"
+        },
+        {
+            "name": "paint_white"
+        },
+        {
+            "name": "paint_yellow"
+        },
+        {
+            "name": "paint_green"
+        },
+        {
+            "name": "paint_red"
+        },
+        {
+            "name": "paint_violet"
+        },
+        {
+            "name": "paint_blue"
+        },
+        {
+            "name": "paint_neutral"
+        },
+        {
+            "name": "paint_empty"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "paint_fill1"
+        }
+    ]
+}

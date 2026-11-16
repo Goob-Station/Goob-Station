@@ -15,6 +15,7 @@
   name: disposable ballistic turret
   suffix: Syndicate, Disposable
   components:
+  - type: ExplosionEffect # Goob
   - type: NpcFactionMember
     factions:
     - Syndicate

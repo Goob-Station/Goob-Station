@@ -12,7 +12,9 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Players;
@@ -170,12 +172,12 @@ public sealed partial class MindTests
                         continue;
                     }
 
-                    damageableSystem.SetDamage(woundable, wdc, new DamageSpecifier(prototype, FixedPoint2.New(100)));
+                    damageableSystem.SetDamage((woundable, wdc), new DamageSpecifier(prototype, FixedPoint2.New(100)));
                 }
             }
 
             // Goob End
-            damageableSystem.SetDamage(entity, damageable, new DamageSpecifier(prototype, FixedPoint2.New(401)));
+            damageableSystem.SetDamage((entity, damageable), new DamageSpecifier(prototype, FixedPoint2.New(401)));
             Assert.That(mindSystem.GetMind(entity, mindContainerComp), Is.EqualTo(mindId));
         });
 

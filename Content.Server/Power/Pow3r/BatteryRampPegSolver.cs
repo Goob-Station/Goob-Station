@@ -457,7 +457,7 @@ namespace Content.Server.Power.Pow3r
 
         private record struct UpdateNetworkJob : IParallelRobustJob
         {
-            public int BatchSize => 4;
+            public int BatchSize => 64; // Goob
 
             public BatteryRampPegSolver Solver;
             public PowerState State;

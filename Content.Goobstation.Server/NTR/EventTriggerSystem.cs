@@ -4,9 +4,9 @@ using Content.Server.GameTicking;
 
 namespace Content.Goobstation.Server.NTR
 {
-    public sealed class EventTriggerSystem : EntitySystem
+    public sealed partial class EventTriggerSystem : EntitySystem
     {
-        [Dependency] private readonly GameTicker _gt = default!;
+        [Dependency] private GameTicker _gt = default!;
 
         public override void Initialize()
         {

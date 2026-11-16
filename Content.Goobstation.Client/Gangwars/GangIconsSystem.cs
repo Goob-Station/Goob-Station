@@ -8,9 +8,9 @@ namespace Content.Goobstation.Client.Gangwars;
 /// <summary>
 /// Draws gang role icons (head / member / locker) on entities, colored with their gangs color.
 /// </summary>
-public sealed class GangIconsSystem : EntitySystem
+public sealed partial class GangIconsSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

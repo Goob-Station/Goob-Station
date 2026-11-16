@@ -71,12 +71,11 @@ public sealed class CosmicMonumentSystem : EntitySystem
 
     private void OnCosmicMoveMonument(Entity<CosmicCultLeadComponent> uid, ref EventCosmicMoveMonument args)
     {
-
-        args.Handled = true;
         if (_cultRule.AssociatedGamerule(uid) is not { } cult
             || !VerifyPlacement(uid, out var pos))
             return;
 
+        args.Handled = true;
         cult.Comp.MonumentMoved = true;
         var leadQuery = EntityQueryEnumerator<CosmicCultLeadComponent>(); // If there are ever multiple leaders for some reason, they all use the action once it's used.
         while (leadQuery.MoveNext(out var lead, out var leadComp))

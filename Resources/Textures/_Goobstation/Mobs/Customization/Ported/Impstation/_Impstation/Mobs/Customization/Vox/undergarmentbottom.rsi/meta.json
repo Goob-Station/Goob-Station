@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "boxers, briefs2, and classic taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/884ab172389b6fc54ef063f5fbea5e8b0a0a2235/icons/mob/humans/undershirt.dmi. tanga and lowriders also made by Sha-Seng. rest by crocodilecarousel (github) for impstation. Ported from https://github.com/impstation/imp-station-14/tree/9e3e131bf85485c10e48889761b3966681ede116/Resources/Textures/_Impstation/Mobs/Customization/Vox/undergarmentbottom.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "briefs",
+      "directions": 4
+    },
+    {
+      "name": "highwaisted",
+      "directions": 4
+    },
+    {
+      "name": "lowriders",
+      "directions": 4
+    },
+    {
+      "name": "strappy1",
+      "directions": 4
+    },
+    {
+      "name": "strappy2",
+      "directions": 4
+    },
+    {
+      "name": "strappy3",
+      "directions": 4
+    },
+    {
+      "name": "tanga",
+      "directions": 4
+    }
+  ]
+}
