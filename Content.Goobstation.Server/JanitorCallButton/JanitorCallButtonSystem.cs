@@ -24,9 +24,9 @@ public sealed partial class JanitorCallButtonSystem : EntitySystem
         {
             var stationBeacon = _navMap.TryGetNearestBeacon(ent.Owner, out var beacon, out _)
                 ? beacon.Value.Comp.Text!
-                : "неизвестное место";
+                : Loc.GetString("janitor-call-button-unknown-location");
 
-            var message = $"Called janitor near {stationBeacon}";
+            var message = Loc.GetString("janitor-call-button-message", ("location", stationBeacon));
             _radio.SendRadioMessage(
                 ent.Owner,
                 message,
