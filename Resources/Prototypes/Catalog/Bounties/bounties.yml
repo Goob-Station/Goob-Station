@@ -382,11 +382,11 @@
 
 - type: cargoBounty
   id: BountySpear
-  reward: 8000
+  reward: 1000 # Goob edit
   description: bounty-description-spear
   entries:
   - name: bounty-item-spear
-    amount: 5
+    amount: 1 # Goob edit
     whitelist:
       tags:
       - Spear
