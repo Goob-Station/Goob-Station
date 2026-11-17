@@ -11,6 +11,7 @@ public sealed class PlayerCount
     public int Players;
     public int Ghosts;
     public int InGame;
+    public int Connected;
     public Dictionary<ProtoId<DepartmentPrototype>, int> Departments = new();
 
     public int Staff(ProtoId<DepartmentPrototype> department)

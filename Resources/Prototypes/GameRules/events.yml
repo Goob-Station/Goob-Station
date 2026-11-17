@@ -136,7 +136,7 @@
     weight: 8
     duration: 35
     chaos: # Goobstation
-      Anomaly: 30
+      Anomaly: 15
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
@@ -173,7 +173,7 @@
     earliestStart: 1
     duration: 1
     chaos: # Goobstation
-      Anomaly: 10
+      Anomaly: 5
     eventType: Neutral # Goobstation
   # Goobstation
   - type: GameRule
@@ -189,7 +189,7 @@
     duration: 1
     minimumPlayers: 15
     chaos: # Goobstation
-      Power: 20
+      Power: 30
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
@@ -496,8 +496,8 @@
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
     chaos: # Goobstation
-      Atmos: 20
-      Medical: 50
+      Atmos: 25
+      Medical: 15
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
@@ -514,8 +514,8 @@
     weight: 7
     duration: 240
     chaos: # Goobstation
-      Infestation: 60
-      Medical: 30
+      Infestation: 10
+      Medical: 15
     destruction: 1 # Goobstation
     eventType: Maintenance # Goobstation
   # Goobstation
@@ -537,6 +537,8 @@
         volume: -4
     duration: 60
     maxDuration: 120
+    chaos: # Goobstation
+      Power: 150
     eventType: Interference # Goobstation
   # Goobstation
   - type: GameRule
@@ -614,8 +616,8 @@
     weight: 7 # Goobstation - was 5
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
-      Hostile: 20
-      Medical: 50
+      Hostile: 25
+      Medical: 15
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
@@ -639,7 +641,7 @@
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
-      Medical: 50
+      Medical: 15
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
@@ -665,7 +667,7 @@
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
-      Medical: 50
+      Medical: 15
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
@@ -688,7 +690,7 @@
     duration: 30 # DeltaV: was 60, used as a delay now
     chaos: # Goobstation
       Hostile: 20
-      Medical: 50
+      Medical: 15
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
@@ -863,7 +865,7 @@
     chaos: # Goobstation
       Hostile: 10
       Friend: 20
-      Mess: 30
+      Mess: 20
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
@@ -880,7 +882,7 @@
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
     chaos: # Goobstation
-      Hostile: 20 # for when they're actually properly hostile
+      Hostile: 15 # for when they're actually properly hostile
     eventType: Neutral # Goobstation
   # Goobstation
   - type: GameRule
@@ -898,8 +900,8 @@
     minimumPlayers: 25
     reoccurrenceDelay: 20
     chaos: # Goobstation
-      Atmos: 15
-      Mess: 30
+      Atmos: 35
+      Mess: 80
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
