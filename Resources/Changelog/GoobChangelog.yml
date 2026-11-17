@@ -27164,3 +27164,13 @@ Entries:
       message: Fixed new vend UI not showing reagent colors (i.e., chemvend jugs)
   id: 3040
   time: '2026-11-13T00:28:43.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        Massive changes to game director once again, im too lazy to type it all
+        out but antag spawning should be better as well as several other event
+        related shits, still getting metrics once again (kill
+        me)...................................... 
+  id: 3041
+  time: '2026-11-17T01:57:42.0000000+00:00'
