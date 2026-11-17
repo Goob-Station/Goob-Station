@@ -595,6 +595,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
+    - id: MaterialBrullbarFur1
+      amount: 1
     - id: AnomalyCoreIce
       amount: 1
       prob: 0.01
@@ -631,6 +633,8 @@
     spawned:
     - id: FoodMeat
       amount: 3
+    - id: MaterialBrullbarFur1
+      amount: 2
     - id: AnomalyCoreIce
       amount: 1
       prob: 0.2

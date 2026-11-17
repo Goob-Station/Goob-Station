@@ -27,6 +27,9 @@
     slots:
     - belt
   - type: UndetectableContraband
+  - type: Tag
+    tags:
+    - WoodCudgel
 
 - type: entity
   name: wood cudgel
@@ -132,3 +135,126 @@
   - type: Construction
     graph: AshwoodCudgel
     node: incompleteCudgel
+
+- type: Tag
+  id: WoodCudgel
+ 
+- type: entity
+  name: ice cudgel
+  parent: WeaponCudgelBase
+  id: WeaponCudgelIce
+  description: A wood cudgel wrapped in brullbar fur. It's freezing to the touch.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/ice_club.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 9
+        Structural: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 4
+        Structural: 15
+  - type: ChangeTemperatureOnHit
+    heat: -100000 # Genuinely no clue why this number needs to be so high, it just doesn't work otherwise.
+  - type: Item
+    storedSprite:
+      state: world-icon
+      sprite: _Goobstation/Objects/Weapons/Melee/ice_club.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/ice_club.rsi
+  - type: Construction
+    graph: IceCudgel
+    node: icecudgel
+ 
+- type: entity
+  name: flesh cudgel
+  parent: WeaponCudgelBase
+  id: WeaponCudgelFlesh
+  description: A wood cudgel caked in rotten meat. The smell alone is a weapon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/flesh_club.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 9
+        Structural: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 4
+        Structural: 15
+  - type: VomitOnHit
+    chance: 0.15
+  - type: Item
+    storedSprite:
+      state: world-icon
+      sprite: _Goobstation/Objects/Weapons/Melee/flesh_club.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/flesh_club.rsi
+  - type: Construction
+    graph: FleshCudgel
+    node: fleshcudgel
+ 
+- type: constructionGraph
+  id: IceCudgel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icecudgel
+      steps:
+      - tag: WoodCudgel
+        name: construction-step-wood-cudgel
+        icon:
+          sprite: _Lavaland/Objects/Weapons/Melee/cudgel.rsi
+          state: icon
+        doAfter: 1
+      - material: BrullbarFur
+        amount: 3
+        doAfter: 3
+  - node: icecudgel
+    entity: WeaponCudgelIce
+ 
+- type: constructionGraph
+  id: FleshCudgel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: fleshcudgel
+      steps:
+      - tag: WoodCudgel
+        name: construction-step-wood-cudgel
+        icon:
+          sprite: _Lavaland/Objects/Weapons/Melee/cudgel.rsi
+          state: icon
+        doAfter: 1
+      - tag: Meat
+        name: construction-step-flesh-cudgel-meat
+        doAfter: 3
+  - node: fleshcudgel
+    entity: WeaponCudgelFlesh
+ 
+- type: construction
+  id: IceCudgel
+  graph: IceCudgel
+  startNode: start
+  targetNode: icecudgel
+  category: construction-category-weapons
+  objectType: Item
+  description: construction-recipe-ice-cudgel
+ 
+- type: construction
+  id: FleshCudgel
+  graph: FleshCudgel
+  startNode: start
+  targetNode: fleshcudgel
+  category: construction-category-weapons
+  objectType: Item
+  description: construction-recipe-flesh-cudgel

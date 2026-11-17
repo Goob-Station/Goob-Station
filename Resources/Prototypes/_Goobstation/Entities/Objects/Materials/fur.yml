@@ -1,0 +1,55 @@
+- type: stack
+  id: BrullbarFur
+  name: construction-step-brullbar-fur
+  spawn: MaterialBrullbarFur
+  maxCount: 30
+  icon:
+    sprite: _Goobstation/Objects/Materials/brullbar_fur.rsi
+    state: brullbar-fur
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialBrullbarFur
+  name: Brullbar fur
+  description: Fur from the snow beasts. Still cold to the touch.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/brullbar_fur.rsi
+    state: brullbar-fur
+  - type: Item
+    sprite: _Goobstation/Objects/Materials/brullbar_fur.rsi
+    size: Small
+  - type: Stack
+    stackType: BrullbarFur
+    count: 30
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: StackPrice
+    price: 100
+
+- type: entity
+  parent: MaterialBrullbarFur
+  id: MaterialBrullbarFur1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialBrullbarFur
+  id: MaterialBrullbarFu5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: MaterialBrullbarFur
+  id: MaterialBrullbarFur10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
