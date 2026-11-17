@@ -41,3 +41,37 @@
   - type: Tag
     tags:
     - XenobiologyBluespaceExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, BluespaceSlimeExtract ]
+  id: FilledBluespaceSlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:SpawnEntity
+        entity: FloorTileItemBluespace30
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:SpawnEntity
+        entity: MaterialBSCrystal1
+        number: 5
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:RelayNearby
+        compName: MobState
+        blacklist:
+          components:
+          - BorgBrain # no teleporting MMIs
+        range: 7
+        effect: !type:RandomTeleport

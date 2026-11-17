@@ -158,6 +158,13 @@ public sealed partial class SlimeComponent : Component
     public SoundPathSpecifier EatSound = new("/Audio/Voice/Talk/slime.ogg");
 
     /// <summary>
+    /// Used for ModifySlimeComponent
+    /// Can this slime component be modified by said entity effect?
+    /// </summary>
+    [DataField]
+    public bool CanBeModified = true;
+
+    /// <summary>
     /// This is mostly for slime to find their favorite food tag
     /// </summary>
     [DataField]

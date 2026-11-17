@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Magic;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
@@ -19,7 +20,7 @@ public abstract class SharedFadingTimedDespawnSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<FadingTimedDespawnComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
-
+        SubscribeLocalEvent<FadingTimedDespawnComponent, BeforeMindSwappedEvent>(OnBeforeMindSwapped);
         UpdatesOutsidePrediction = true;
     }
 
@@ -27,6 +28,12 @@ public abstract class SharedFadingTimedDespawnSystem : EntitySystem
     {
         if (ent.Comp.FadeOutStarted)
             FadeOut(ent);
+    }
+
+    private void OnBeforeMindSwapped(Entity<FadingTimedDespawnComponent> ent, ref BeforeMindSwappedEvent args)
+    {
+        args.Message = ent.Comp.MindswapText;
+        args.Cancelled = true;
     }
 
     public override void Update(float frameTime)

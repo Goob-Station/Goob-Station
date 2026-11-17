@@ -8,4 +8,11 @@ namespace Content.Shared.Ghost;
 /// Marker component to identify "ghostly" entities.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class SpectralComponent : Component { }
+public sealed partial class SpectralComponent : Component
+{
+    /// <summary>
+    /// Goobstation - Only used for mindswap cancel text
+    /// </summary>
+    [DataField]
+    public string MindswapText = "ghost";
+}

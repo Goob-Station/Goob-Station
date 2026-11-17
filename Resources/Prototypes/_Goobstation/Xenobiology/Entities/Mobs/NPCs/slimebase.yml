@@ -219,6 +219,28 @@
         sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
         displayName: adult
 
+# Rainbow slime
+# How to add slime that use custom rsi.
+# 1. Copy paste this yaml below.
+# 2. On breed prototype, point the defaultSlimeProto to said id
+# 3. On PendingSlime yaml, point the basePrototype to said id
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioRainbowBaby
+  description: The myth, the legend.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: rainbow
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: rainbow
+      Dead:
+        Base: rainbow-dead
+
 - type: entity
   abstract: true
   parent: MarkerBase

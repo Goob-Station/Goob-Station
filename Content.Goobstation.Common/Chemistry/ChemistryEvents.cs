@@ -13,3 +13,9 @@ public sealed partial class SolutionReactedEvent : EntityEventArgs;
 /// </summary>
 [ByRefEvent]
 public sealed partial class BeforeSolutionReactEvent : CancellableEntityEventArgs;
+
+/// <summary>
+/// Raised after entity already processed all of it's reagent reaction
+/// </summary>
+[ByRefEvent]
+public record struct ReactionEntityDoneEvent();

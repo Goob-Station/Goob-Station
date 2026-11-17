@@ -46,3 +46,43 @@
   - type: Tag
     tags:
     - XenobiologyLightPinkExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, LightPinkSlimeExtract ]
+  id: FilledLightPinkSlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:DoSmokeEffect
+        duration: 15
+        spreadAmount: 50
+        smokePrototype: Foam
+        solution:
+          reagents:
+          - ReagentId: Pax
+            Quantity: 30
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: Cognizine
+          amount: 10
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:RelayNearby
+        compName: Dna
+        range: 30
+        effect: !type:ScrambleDna

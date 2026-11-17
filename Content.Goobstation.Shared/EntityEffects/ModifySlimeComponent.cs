@@ -12,6 +12,10 @@ public sealed partial class ModifySlimeComponentSystem : EntityEffectSystem<Slim
     {
         var slime = entity.Comp;
         var effect = args.Effect;
+        var modify = entity.Comp.CanBeModified;
+
+        if (!modify)
+            return;
 
         slime.ExtractsProduced += effect.ExtractBonus ?? 0;
         slime.MaxOffspring += effect.OffspringBonus ?? 0;

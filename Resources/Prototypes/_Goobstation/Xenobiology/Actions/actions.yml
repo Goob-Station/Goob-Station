@@ -46,3 +46,33 @@
       - Body
     canTargetSelf: false
     event: !type:EatCorpseEvent
+
+- type: entity
+  parent: BaseEntitySpellAction
+  id: ActionMindTransfer
+  name: Mind Transference
+  description: Transfer your mind to someone's else but with a cost.
+  components:
+  - type: Action
+    useDelay: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/staff_animation.ogg
+    raiseOnUser: true
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: mindswap
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+        - MobState
+        - Body # this also allows borgs because that supercode uses Body for no reason
+        - PAI # intended to mindswap pAIs and AIs
+        - StationAiCore
+        - MindContainer
+    event: !type:MindTransferenceEvent
+      sound:
+        path: /Audio/_Goobstation/Wizard/mandswap.ogg
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: mindswap
