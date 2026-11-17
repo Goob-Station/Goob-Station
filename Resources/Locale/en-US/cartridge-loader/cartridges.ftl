@@ -43,6 +43,9 @@ log-probe-printout-entry = #{$number} / {$time} / {$accessor}
 
 astro-nav-program-name = AstroNav
 
+# Goobstation edit: janitor map program name.
+janitor-map-program-name = Janitor station map
+
 med-tek-program-name = MedTek
 
 # NanoTask cartridge

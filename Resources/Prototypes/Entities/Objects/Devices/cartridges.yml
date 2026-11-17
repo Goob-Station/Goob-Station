@@ -175,3 +175,20 @@
         sprite: Objects/Devices/gps.rsi
         state: icon
     - type: AstroNavCartridge
+
+# Goobstation edit: janitor station-map cartridge.
+- type: entity
+  parent: BasePDACartridge
+  id: JanitorMapCartridge
+  name: janitor map cartridge
+  description: A program that displays a map of the station.
+  components:
+  - type: Sprite
+    state: cart-nav
+  - type: UIFragment
+    ui: !type:JanitorMapUi
+  - type: Cartridge
+    programName: janitor-map-program-name
+    icon:
+      sprite: Objects/Devices/gps.rsi
+      state: icon
