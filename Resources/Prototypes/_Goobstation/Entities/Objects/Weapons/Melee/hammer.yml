@@ -33,3 +33,41 @@
   - type: Construction
     graph: Hammer
     node: hammer
+
+- type: entity
+  name: large hammer
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: WeaponLargeHammer
+  description: Large enough to put a sledgehammer to shame, this hammer deals tremendous damage to shields and structures.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/large_hammer.rsi
+    state: icon
+  - type: Item
+    size: Huge
+    sprite: _Goobstation/Objects/Weapons/Melee/large_hammer.rsi
+  - type: MeleeWeapon
+    attackRate: 0.7
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 14
+        Structural: 50
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 6
+  - type: ExtraDamageVsHeld
+    whitelist:
+      components:
+      - Blocking
+    damage:
+      types:
+        Blunt: 28
+  - type: Construction
+    graph: LargeHammer
+    node: largeHammer
+  - type: DisarmMalus
