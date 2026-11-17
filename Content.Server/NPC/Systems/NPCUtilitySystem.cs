@@ -37,7 +37,7 @@ using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Body.Systems;
-using Content.Goobstation.Maths.FixedPoint; // Goobstation start
+using Content.Shared.FixedPoint; // Goobstation start
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Body.Systems;

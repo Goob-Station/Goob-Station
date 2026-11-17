@@ -10,6 +10,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <Import Project="../MSBuild/Content.props" />
 
     <ItemGroup>
+        <ProjectReference Include="..\Content.Common\Content.Common.csproj" />
         <ProjectReference Include="..\Content.ModuleManager\Content.ModuleManager.csproj" />
     </ItemGroup>
 
