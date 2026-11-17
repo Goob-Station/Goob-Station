@@ -1,0 +1,14 @@
+- type: entity
+  id: DistantGridsDeepSpace
+  abstract: true
+  components:
+  - type: DistantGridSpawner
+    entries:
+    - path: /Maps/_Goobstation/Deepspace/syndicate_research_outpost_small.yml
+      chance: 0.2
+    - path: /Maps/_Goobstation/Deepspace/syndicate_outpost_large.yml
+      chance: 0.05
+    - path: /Maps/_Goobstation/Deepspace/syndicate_outpost_listening.yml
+      chance: 0.2
+    - path: /Maps/_Goobstation/Deepspace/carp_temple.yml
+      chance: 0.5
