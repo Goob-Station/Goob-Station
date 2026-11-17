@@ -1,0 +1,434 @@
+# Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d
+
+- type: marking
+  id: ADTAllShavedFemale
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Hair/hair.rsi
+    state: shaved_female
+
+- type: marking
+  id: ADTAllhonor
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Hair/hair.rsi
+    state: honor
+
+- type: marking
+  id: HumanFembun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-womenbun
+
+- type: marking
+  id: HumanHairAfricanPigtails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Corvax/Mobs/Customization/human_hair.rsi
+    state: africanpigtails
+
+- type: marking
+  id: HumanHairAfropuffDouble
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Corvax/Mobs/Customization/human_hair.rsi
+    state: afropuffdouble
+
+- type: marking
+  id: HumanHairAfropuffLeft
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Corvax/Mobs/Customization/human_hair.rsi
+    state: afropuffleft
+
+- type: marking
+  id: HumanHairAfropuffRight
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Corvax/Mobs/Customization/human_hair.rsi
+    state: afropuffright
+
+- type: marking
+  id: HumanHairArabicGathered
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-arabicgatheredhair
+
+- type: marking
+  id: HumanHairBobClassic
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/DeltaV/Mobs/Customization/hair.rsi
+    state: classic_bob
+
+- type: marking
+  id: HumanHairBuzzhawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/human_hair.rsi
+    state: buzzhawk
+
+- type: marking
+  id: HumanHairClassicGentle
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/DeltaV/Mobs/Customization/hair.rsi
+    state: classic_gentle
+
+- type: marking
+  id: HumanHairClassicLong1
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/human_hair.rsi
+    state: classiclong1
+
+- type: marking
+  id: HumanHairClassicOmbre
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/DeltaV/Mobs/Customization/hair.rsi
+    state: classic_ombre
+
+- type: marking
+  id: HumanHairFlyboy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/human_hair.rsi
+    state: flyboy
+
+- type: marking
+  id: HumanHairFullshave
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/human_hair.rsi
+    state: fullshave
+
+- type: marking
+  id: HumanHairLong4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-longhair
+
+- type: marking
+  id: HumanHairMessyClassic
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/DeltaV/Mobs/Customization/hair.rsi
+    state: classic_messy
+
+- type: marking
+  id: HumanHairModernFlipped
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/human_hair.rsi
+    state: modern_flipped
+
+- type: marking
+  id: HumanHairOutwardponytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/human_hair.rsi
+    state: outwardponytail
+
+- type: marking
+  id: HumanHairOvereyeponytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/human_hair.rsi
+    state: overeyeponytail
+
+- type: marking
+  id: HumanHairPigtailTajaran
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-pigtailtajaran
+
+- type: marking
+  id: HumanHairPolseSpecial
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Floof/Mobs/Customization/human_hair.rsi
+    state: polsespecial
+
+- type: marking
+  id: HumanHairSergeantcut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/human_hair.rsi
+    state: sergeantcut
+
+- type: marking
+  id: HumanHairShavedbun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_EE/Mobs/Customization/human_hair.rsi
+    state: loosebunshaved
+
+- type: marking
+  id: HumanHairShortBedhead
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/DeltaV/Mobs/Customization/hair.rsi
+    state: short_bedhead
+
+- type: marking
+  id: HumanHairShoulderLengthOverEye
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/Mobs/Customization/human_hair.rsi
+    state: shoulderlengthovereye
+
+- type: marking
+  id: HumanHairSideComb
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_ADT/Mobs/Customization/Human/custom.rsi
+    state: hair-combedfromside
+
+- type: marking
+  id: ZetaHairFaded
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: faded
+
+- type: marking
+  id: ZetaHairFrontSpikes
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: front_spikes
+
+- type: marking
+  id: ZetaHairHalfShavedBraids
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: half_shaved_braids
+
+- type: marking
+  id: ZetaHairHalfsies
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: halfsies
+
+- type: marking
+  id: ZetaHairJohnny
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: the_johnny
+
+- type: marking
+  id: ZetaHairLoneTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: lone_tail
+
+- type: marking
+  id: ZetaHairLongSpikehair
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: long_spikehair
+
+- type: marking
+  id: ZetaHairManageableMess
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: manageable_mess
+
+- type: marking
+  id: ZetaHairMattedSpikes
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: matted_spikes
+
+- type: marking
+  id: ZetaHairMessyPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: messy_ponytail
+
+- type: marking
+  id: ZetaHairMiniMattedSpikes
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: mini_matted_spikes
+
+- type: marking
+  id: ZetaHairMonk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: monk
+
+- type: marking
+  id: ZetaHairNaturalMessLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: natural_mess_long
+
+- type: marking
+  id: ZetaHairNaturalMessShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: natural_mess_short
+
+- type: marking
+  id: ZetaHairNerfish
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: nerfish
+
+- type: marking
+  id: ZetaHairOverShoulderBraids
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: over_shoulder_braids
+
+- type: marking
+  id: ZetaHairOverTheShoulder
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: over_the_shoulder
+
+- type: marking
+  id: ZetaHairPlantpoofs
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: plantish_poofs
+
+- type: marking
+  id: ZetaHairPolitical
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: the_political
+
+- type: marking
+  id: ZetaHairPorcupine
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: porcupine
+
+- type: marking
+  id: ZetaHairQuadspike
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: quadspike
+
+- type: marking
+  id: ZetaHairRattyRoyalty
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: ratty_royalty
+
+- type: marking
+  id: ZetaHairShortMessy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: short_and_messy
+
+- type: marking
+  id: ZetaHairShortSpikehair
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: short_spikehair
+
+- type: marking
+  id: ZetaHairSpikehawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: spikehawk
+
+- type: marking
+  id: ZetaHairStandardAsymmetry
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: standard_asymmetry
+
+- type: marking
+  id: ZetaHairZetaBasicBraids
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Floofstation/_Nuclear14/Mobs/Customization/hair.rsi
+    state: zeta_basic_braids

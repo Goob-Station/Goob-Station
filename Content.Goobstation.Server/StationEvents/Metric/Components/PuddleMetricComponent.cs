@@ -46,4 +46,7 @@ public sealed partial class PuddleMetricComponent : Component
     [DataField]
     public FixedPoint2 PuddleDefault = 0.1f;
 
+    [DataField]
+    public FixedPoint2 MinPuddleVolume = 5;
+
 }

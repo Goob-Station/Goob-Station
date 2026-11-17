@@ -12,6 +12,11 @@
     - BorgChassis
     - Silicon
   chatMessages: ["chat-emote-msg-belch"]
+  event: !type:JiggleEmoteEvent # Goobstation
+    pulses:
+    - impulse: 0,-22
+    - delay: 0.15
+      impulse: 0,40
   chatTriggers:
     - belch
     - belch.

@@ -1,0 +1,30 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: AurelianVoxArmMarkingsLeft
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: arm_markings_left
+
+- type: marking
+  id: AurelianVoxRoboticArmLeft
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: robotic_arm_left
+
+- type: marking
+  id: DwarfArmHair
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Dwarf]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dwarfarmhair

@@ -3,6 +3,17 @@
 - type: inventoryTemplate
   id: diona
   slots:
+    - name: shoes # Goob - hidden slot so MOD boots can deploy
+      slotFlags: FEET
+      stripTime: 6
+      showInWindow: false
+      uiWindowPos: 1,0
+      strippingWindowPos: 1,3
+      displayName: Shoes
+      strictWhitelist: true
+      whitelist:
+        components:
+        - ModPart
     - name: jumpsuit
       slotTexture: uniform
       slotFlags: INNERCLOTHING
@@ -65,7 +76,6 @@
       strippingWindowPos: 0,4
       dependsOn: jumpsuit
       displayName: Pocket 1
-      stripHidden: true
     - name: pocket2
       slotTexture: pocket
       fullTextureName: template_small
@@ -76,7 +86,6 @@
       strippingWindowPos: 1,4
       dependsOn: jumpsuit
       displayName: Pocket 2
-      stripHidden: true
     - name: suitstorage
       slotTexture: suit_storage
       slotFlags:   SUITSTORAGE

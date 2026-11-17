@@ -211,6 +211,17 @@ public sealed class HealingSystem : EntitySystem
 
     // Shitmed Change Start
 
+    private bool IsWoundableBleeding(EntityUid woundable, WoundableComponent comp)
+    {
+        foreach (var wound in _wounds.GetWoundableWounds(woundable, comp))
+        {
+            if (TryComp<BleedInflicterComponent>(wound, out var bleeds) && bleeds.IsBleeding)
+                return true;
+        }
+
+        return false;
+    }
+
     private string? GetDamageGroupByType(string id)
         => (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault();
 
@@ -391,7 +402,7 @@ public sealed class HealingSystem : EntitySystem
 
                 if (canHeal)
                 {
-                    if (healing.BloodlossModifier == 0 && healing.ModifyBloodLevel >= 0 && woundableComp2.Bleeds > 0)  // If the healing item has no bleeding heals, and its bleeding, we raise the alert. Goobstation edit
+                    if (healing.BloodlossModifier == 0 && healing.ModifyBloodLevel >= 0 && IsWoundableBleeding(targetedWoundable, woundableComp2))
                     {
                         leftoverHealAndBleed = true;
                         continue;

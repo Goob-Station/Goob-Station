@@ -9,9 +9,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     MinSize="50 50">
     <GridContainer
         Columns="3">
-        <cc:CommandButton Command="startround" Text="{Loc administration-ui-round-tab-start-round}" />
-        <cc:CommandButton Command="endround" Text="{Loc administration-ui-round-tab-end-round}" />
-        <cc:CommandButton Command="restartround" Text="{Loc administration-ui-round-tab-restart-round}" />
-        <cc:CommandButton Command="restartroundnow" Text="{Loc administration-ui-round-tab-restart-round-now}" />
+        <cc:CommandButton Command="startround" Text="{Loc administration-ui-round-tab-start-round}" NeedsConfirm="True" /> <!-- Goob - add confirm -->
+        <cc:CommandButton Command="endround" Text="{Loc administration-ui-round-tab-end-round}" NeedsConfirm="True" /> <!-- Goob - add confirm -->
+        <cc:CommandButton Command="restartround" Text="{Loc administration-ui-round-tab-restart-round}" NeedsConfirm="True" /> <!-- Goob - add confirm -->
+        <cc:CommandButton Command="restartroundnow" Text="{Loc administration-ui-round-tab-restart-round-now}" NeedsConfirm="True" /> <!-- Goob - add confirm -->
     </GridContainer>
 </Control>

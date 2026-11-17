@@ -183,7 +183,7 @@
   table: !type:AllSelector
     children:
     - id: OxygenTankFilled
-    - id: UndeterminedVoidsuitSecurity # Goob edit
+    - id: ClothingOuterVoidsuitSecurity # Goob edit
     - id: ClothingMaskBreath
 
 #CE's hardsuit

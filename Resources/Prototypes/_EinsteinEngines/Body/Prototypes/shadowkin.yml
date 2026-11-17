@@ -29,6 +29,7 @@
         stomach: OrganShadowkinStomach
         liver:  OrganShadowkinLiver
         kidneys: OrganShadowkinKidneys
+        butt: Butt # Goob
     right arm:
       part: RightArmShadowkin
       connections:

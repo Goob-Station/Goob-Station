@@ -56,12 +56,12 @@
     stopSearchVerbPopup: pai-system-stopped-searching
   - type: Examiner
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
+  #- type: IntrinsicRadioTransmitter # Goobstation - Remove binary from certain silicons
+  #  channels:
+  #  - Binary
   - type: ActiveRadio
     channels:
-    - Binary
+    #- Binary # Goobstation
     - Common
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter

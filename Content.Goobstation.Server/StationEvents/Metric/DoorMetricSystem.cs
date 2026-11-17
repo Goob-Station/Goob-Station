@@ -3,7 +3,6 @@
 using System.Linq;
 using Content.Goobstation.Server.StationEvents.Metric.Components;
 using Content.Server.Power.Components;
-using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Doors.Components;
 using Content.Goobstation.Maths.FixedPoint;
@@ -15,12 +14,9 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 ///   Uses doors and firelocks to sample station chaos across the station
 ///
 ///   Emag - EmagCost per emaged door
-///   Power - PowerCost per door or firelock with no power
-///   Atmos - PressureCost for holding spacing or FireCost for holding back fire
 /// </summary>
 public sealed partial class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 {
-    [Dependency] private StationSystem _stationSystem = default!;
 
     private static readonly Gauge DoorsTotal = Metrics.CreateGauge(
         "game_director_metric_door_total",
@@ -54,14 +50,6 @@ public sealed partial class DoorMetricSystem : ChaosMetricSystem<DoorMetricCompo
         "game_director_metric_door_security_chaos_calculated",
         "Calculated chaos value contributed by security status (emagged doors).");
 
-    private static readonly Gauge AtmosChaosCalculated = Metrics.CreateGauge(
-        "game_director_metric_door_atmos_chaos_calculated",
-        "Calculated chaos value contributed by atmospheric status (fire/pressure).");
-
-    private static readonly Gauge PowerChaosCalculated = Metrics.CreateGauge(
-        "game_director_metric_door_power_chaos_calculated",
-        "Calculated chaos value contributed by power status.");
-
 
     protected override ChaosMetrics CalculateChaos(
         EntityUid metricUid,
@@ -81,12 +69,12 @@ public sealed partial class DoorMetricSystem : ChaosMetricSystem<DoorMetricCompo
 
         // Add up the pain of all the doors
         // Restrict to just doors on the main station
-        var stationGrids = _stationSystem.GoobGetAllStationGrids();
+        var stationGrids = GetEventStationGrids();
 
         var queryFirelock = EntityQueryEnumerator<DoorComponent, ApcPowerReceiverComponent, TransformComponent>();
         while (queryFirelock.MoveNext(out var uid, out var door, out var power, out var transform))
         {
-            if (transform.GridUid == null || !stationGrids.Contains(transform.GridUid.Value))
+            if (!OnGrids(transform, stationGrids))
                 continue;
 
             fireCount = CalculateFirelock(firelockQ, uid, fireCount, ref pressureCount, ref firelockCounter);
@@ -95,18 +83,8 @@ public sealed partial class DoorMetricSystem : ChaosMetricSystem<DoorMetricCompo
         }
 
         double emagChaos = 0;
-        double atmosChaos = 0;
-        double powerChaos = 0;
-        // Calculate each stat as a fraction of all doors in the station.
-        // That way the metrics do not "scale up"  on large stations.
-
         if (airlockCounter > 0)
             emagChaos = Math.Round((emagWeightedCount / airlockCounter) * component.EmagCost);
-        if (firelockCounter > 0)
-            atmosChaos = Math.Round(fireCount / firelockCounter * component.FireCost
-                                    + pressureCount / firelockCounter * component.PressureCost);
-        if (doorCounter > 0)
-            powerChaos = Math.Round(powerCount / doorCounter * component.PowerCost);
 
         DoorsTotal.Set(doorCounter);
         FirelocksTotal.Set(firelockCounter);
@@ -116,17 +94,24 @@ public sealed partial class DoorMetricSystem : ChaosMetricSystem<DoorMetricCompo
         EmaggedAirlocksWeighted.Set(emagWeightedCount);
         UnpoweredDoors.Set(powerCount);
         SecurityChaosCalculated.Set(emagChaos);
-        AtmosChaosCalculated.Set(atmosChaos);
-        PowerChaosCalculated.Set(powerChaos);
-
 
         var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
         {
             {ChaosMetric.Security, emagChaos},
-            {ChaosMetric.Atmos, atmosChaos},
-            {ChaosMetric.Power, powerChaos},
         });
         return chaos;
+    }
+
+    protected override void ResetMetrics()
+    {
+        DoorsTotal.Set(0);
+        FirelocksTotal.Set(0);
+        AirlocksTotal.Set(0);
+        FirelocksHoldingFire.Set(0);
+        FirelocksHoldingPressure.Set(0);
+        EmaggedAirlocksWeighted.Set(0);
+        UnpoweredDoors.Set(0);
+        SecurityChaosCalculated.Set(0);
     }
 
     private static double CalculateDoorPower(ApcPowerReceiverComponent power, double powerCount, ref double doorCounter)

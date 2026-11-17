@@ -97,6 +97,9 @@
     LeftHand:
       points: 3
       required: false
+    Wings: # Goob
+      points: 1
+      required: false
 
 - type: humanoidBaseSprite
   id: MobReptilianHead

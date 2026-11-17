@@ -34,6 +34,9 @@ public sealed partial class SynthBloodstreamComponent : Component
     public float BleedReductionAmount = 0.1f;
 
     [DataField]
+    public float CritRepairMultiplier = 0.25f;
+
+    [DataField]
     public SynthBloodstreamRegeneration BloodRegeneration = new();
 
     [DataField]

@@ -447,7 +447,8 @@ public abstract partial class InteractionTest
     {
         var actualTarget = SEntMan.GetCoordinates(target ?? TargetCoords);
         var result = false;
-        await Server.WaitPost(() => result = HandSys.ThrowHeldItem(SEntMan.GetEntity(Player), actualTarget, minDistance));
+        // Trauma - use PredictedHands
+        await Server.WaitPost(() => result = PredictedHands.ThrowHeldItem(SEntMan.GetEntity(Player), actualTarget, minDistance));
         return result;
     }
 

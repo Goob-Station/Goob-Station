@@ -136,6 +136,10 @@ public sealed partial class AutoDodgeSystem : EntitySystem
         ent.Comp.NextEffectTime = _timing.CurTime + ent.Comp.EffectCooldown;
         Dirty(ent);
 
+        // Trauma - projectile hits are predicted now, only the server can send effects
+        if (_net.IsClient)
+            return;
+
         var direction = ComputeDodgeDirection(shotDirection, flipSide);
 
         var ev = new AutoDodgeEffectEvent(GetNetEntity(ent), new Vector2(MathF.Sign(direction.X), 0f));

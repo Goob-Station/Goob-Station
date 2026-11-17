@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "made by chlymerine(SS14)/kaminukurumi(github). Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_DEN/Mobs/Customization/Vulpkanin/vulpkanin.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "brushtiptail",
+      "directions": 4
+    },
+    {
+      "name": "brushtiptail2",
+      "directions": 4
+    },
+    {
+      "name": "chestfloof",
+      "directions": 4
+    }
+  ]
+}

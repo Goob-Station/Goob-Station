@@ -1,0 +1,2285 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Meridian Rift at https://github.com/Aphelion-Moon/Meridian-Rift/tree/0fd8e40910402f2745e5e5e4adc7d37bd45fed40 (icons/mob/human/fish_features.dmi, modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi, modular_nova/master_files/icons/mob/sprite_accessory/tails.dmi, modular_nova/master_files/icons/mob/sprite_accessory/vox_tails.dmi, modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi, modular_nova/modules/better_vox/icons/accessories/vox_tail.dmi), which carries the art of NovaSector, Skyrat-tg and tgstation. Layers merged per colour and centred for Wolfgate by Tools/_WF/MeridianMarkings/port.py. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_WF/MeridianMarkings/tails.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "acrador_big_primary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_big_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "acrador_big_secondary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_big_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "acrador_medium_primary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_medium_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "acrador_medium_secondary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_medium_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "acrador_narrow_and_long_primary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_narrow_and_long_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "acrador_narrow_and_long_secondary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_narrow_and_long_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "acrador_narrow_and_long_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    },
+    {
+      "name": "acrador_narrow_and_long_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    },
+    {
+      "name": "acrador_narrow_and_long_wag_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    },
+    {
+      "name": "acrador_narrow_and_long_wag_secondary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    },
+    {
+      "name": "acrador_narrow_and_very_long_primary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_narrow_and_very_long_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "acrador_narrow_and_very_long_secondary",
+      "directions": 4
+    },
+    {
+      "name": "acrador_narrow_and_very_long_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "acrador_narrow_and_very_long_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    },
+    {
+      "name": "acrador_narrow_and_very_long_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    },
+    {
+      "name": "acrador_narrow_and_very_long_wag_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    },
+    {
+      "name": "acrador_narrow_and_very_long_wag_secondary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ],
+        [
+          1.4,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12
+        ]
+      ]
+    },
+    {
+      "name": "crescent_fish_infusion",
+      "directions": 4
+    },
+    {
+      "name": "crescent_fish_infusion_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "data_shark_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "data_shark_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "data_shark_wag_secondary",
+      "directions": 4
+    },
+    {
+      "name": "data_shark_wag_secondary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "data_shark_wag_tertiary",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "data_shark_wag_tertiary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "experiment_primary",
+      "directions": 4
+    },
+    {
+      "name": "experiment_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "experiment_secondary",
+      "directions": 4
+    },
+    {
+      "name": "experiment_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "fish_primary",
+      "directions": 4
+    },
+    {
+      "name": "fish_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "fish_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ]
+      ]
+    },
+    {
+      "name": "fish_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ],
+        [
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16,
+          0.16
+        ]
+      ]
+    },
+    {
+      "name": "fox_alt_3_primary",
+      "directions": 4
+    },
+    {
+      "name": "fox_alt_3_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "fox_alt_3_secondary",
+      "directions": 4
+    },
+    {
+      "name": "fox_alt_3_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "fox_alt_3_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fox_alt_3_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fox_alt_3_wag_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fox_alt_3_wag_secondary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "gecko_primary",
+      "directions": 4
+    },
+    {
+      "name": "gecko_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "gecko_secondary",
+      "directions": 4
+    },
+    {
+      "name": "gecko_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "gecko_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "gecko_tertiary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "insect_underbelly_primary",
+      "directions": 4
+    },
+    {
+      "name": "insect_underbelly_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "insect_underbelly_secondary",
+      "directions": 4
+    },
+    {
+      "name": "insect_underbelly_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "monkey_colorable",
+      "directions": 4
+    },
+    {
+      "name": "monkey_colorable_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "monkey_colorable_wag",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "monkey_colorable_wag_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "otter_primary",
+      "directions": 4
+    },
+    {
+      "name": "otter_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "otter_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08
+        ],
+        [
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08
+        ],
+        [
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08
+        ],
+        [
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08
+        ]
+      ]
+    },
+    {
+      "name": "otter_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08
+        ],
+        [
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08
+        ],
+        [
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08
+        ],
+        [
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.03,
+          0.08,
+          0.05,
+          0.08,
+          0.08,
+          0.08
+        ]
+      ]
+    },
+    {
+      "name": "peacock_primary",
+      "directions": 4
+    },
+    {
+      "name": "peacock_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "peacock_secondary",
+      "directions": 4
+    },
+    {
+      "name": "peacock_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "peacock_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "peacock_tertiary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "peacock_wag_primary",
+      "directions": 4
+    },
+    {
+      "name": "peacock_wag_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "peacock_wag_secondary",
+      "directions": 4
+    },
+    {
+      "name": "peacock_wag_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "peacock_wag_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "peacock_wag_tertiary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "ramatan_thick_primary",
+      "directions": 4
+    },
+    {
+      "name": "ramatan_thick_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "ramatan_thick_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "ramatan_thick_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rattlesnake_primary",
+      "directions": 4
+    },
+    {
+      "name": "rattlesnake_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "rattlesnake_secondary",
+      "directions": 4
+    },
+    {
+      "name": "rattlesnake_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "rattlesnake_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rattlesnake_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rattlesnake_wag_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rattlesnake_wag_secondary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "shark_fish_infusion",
+      "directions": 4
+    },
+    {
+      "name": "shark_fish_infusion_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "short_two_tone_primary",
+      "directions": 4
+    },
+    {
+      "name": "short_two_tone_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "short_two_tone_secondary",
+      "directions": 4
+    },
+    {
+      "name": "short_two_tone_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "short_two_tone_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "short_two_tone_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "short_two_tone_wag_secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "short_two_tone_wag_secondary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "simple_fish_infusion",
+      "directions": 4
+    },
+    {
+      "name": "simple_fish_infusion_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "striped_tail_primary",
+      "directions": 4
+    },
+    {
+      "name": "striped_tail_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "striped_tail_secondary",
+      "directions": 4
+    },
+    {
+      "name": "striped_tail_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "striped_tail_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "striped_tail_tertiary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "tentacle_wag_primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tentacle_wag_primary_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "vox_primalis_albino_tail",
+      "directions": 4
+    },
+    {
+      "name": "vox_primalis_albino_tail_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "vox_tail",
+      "directions": 4
+    },
+    {
+      "name": "vox_tail_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "vox_tail_wag",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "vox_tail_wag_BEHIND",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}

@@ -81,7 +81,8 @@ namespace Content.Server.Medical.BiomassReclaimer
                     {
                         var thrown = Spawn(_robustRandom.Pick(reclaimer.SpawnedEntities).PrototypeId, Transform(uid).Coordinates);
                         var direction = new Vector2(_robustRandom.Next(-30, 30), _robustRandom.Next(-30, 30));
-                        _throwing.TryThrow(thrown, direction, _robustRandom.Next(1, 10));
+                        _throwing.TryThrow(thrown, direction, _robustRandom.Next(1, 10),
+                            predicted: false); // Trauma
                     }
                     reclaimer.RandomMessTimer += (float) reclaimer.RandomMessInterval.TotalSeconds;
                 }
@@ -218,7 +219,8 @@ namespace Content.Server.Medical.BiomassReclaimer
             if (!CanGib(reclaimer, args.Climber))
             {
                 var direction = new Vector2(_robustRandom.Next(-2, 2), _robustRandom.Next(-2, 2));
-                _throwing.TryThrow(args.Climber, direction, 0.5f);
+                _throwing.TryThrow(args.Climber, direction, 0.5f,
+                    predicted: false); // Trauma
                 return;
             }
             _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Instigator):player} used a biomass reclaimer to gib {ToPrettyString(args.Climber):target} in {ToPrettyString(reclaimer):reclaimer}");

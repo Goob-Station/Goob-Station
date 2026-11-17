@@ -1,0 +1,528 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: ADTFoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+            category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_ADT/Mobs/Customization/fox_parts.rsi
+    state: tail_fox_wag_stripes_prime
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_ADT/Mobs/Customization/fox_parts.rsi
+    state: tail_fox_wag_stripes_second
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_ADT/Mobs/Customization/fox_parts.rsi
+    state: tail_fox_wag_stripes_third
+
+- type: marking
+  id: AndroidCatTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+    layers:
+      cat_tail_led:
+        type:
+          !type:CategoryColoring
+            category: Special
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: cat_tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: cat_tail_led
+
+- type: marking
+  id: AnkylosaurusTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: ankylosaurus-tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: ankylosaurus-tail-spikes
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: ankylosaurus-tail-mace
+
+- type: marking
+  id: AxolotlTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: axolotl-tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: axolotl-tail-fin
+
+- type: marking
+  id: CrocodileTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: crocodile-tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: crocodile-tail-belly
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: crocodile-tail-spikes
+
+- type: marking
+  id: DeadheadWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: deadhead-wings1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: deadhead-wings2
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: deadhead-skull
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/body.rsi
+    state: deadhead-collar
+
+- type: marking
+  id: DragonTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: dragon-tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: dragon-tail-inside
+
+- type: marking
+  id: IPCTailClawTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: claw_tail
+
+- type: marking
+  id: IPCTailClawTailAnim
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: claw_tail_anim
+
+- type: marking
+  id: IPCTailCordOutlet
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: cord_outlet
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: cord_outlet_plug
+
+- type: marking
+  id: IPCTailCutWire
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: cut_wire
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: cut_wire_copper
+
+- type: marking
+  id: IPCTailHologram
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: hologram_base
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: hologram_sparkles
+
+- type: marking
+  id: IPCTailJST
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: jst_tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: jst_plug
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: jst_wire1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: jst_wire2
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: jst_wire3
+
+- type: marking
+  id: IPCTailMiniJack
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: mini_jack_base
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: mini_jack_plug
+
+- type: marking
+  id: IPCTailRat
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: rat_tail
+
+- type: marking
+  id: IPCTailSegmented
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: segmented_base
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: segmented_cover
+
+- type: marking
+  id: IPCTailUSB
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: usb_tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi
+    state: usb_plug
+
+- type: marking
+  id: KangarooTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/reptilian_64x32.rsi
+    state: kangaroo
+
+- type: marking
+  id: LeopardWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: leopard-wings
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: leopard-spots
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: leopard-ass
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/body.rsi
+    state: leopard-collar
+
+- type: marking
+  id: LizardTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: lizard-tail
+
+- type: marking
+  id: MelancholicWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: melancholic-wings
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: melancholic-wings-spots
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/body.rsi
+    state: melancholic-collar
+
+- type: marking
+  id: MoonWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: moon_wings
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: moon_spots
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/body.rsi
+    state: moon-collar
+
+- type: marking
+  id: PentadactylaWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: pentadactyla-wings
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: pentadactyla-fluff
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/body.rsi
+    state: pentadactyla-collar
+
+- type: marking
+  id: RaptorTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: raptor-tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: raptor-tail-fluff
+
+- type: marking
+  id: RodentiaTailJerboa
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Rodentia/long_tails.rsi
+    state: tail_jerboa
+
+- type: marking
+  id: RodentiaTailMouse2
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Rodentia]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Rodentia/tail.rsi
+    state: mouse_tail
+
+- type: marking
+  id: StegosaurusTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/tail.rsi
+    state: stegasaurus-tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/tail.rsi
+    state: stegasaurus-tail-spikes
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/tail.rsi
+    state: stegasaurus-tail-back-spikes
+
+- type: marking
+  id: TRexTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: t-rex-tail
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: t-rex-tail-feathers
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/long_tails.rsi
+    state: t-rex-tail-feath
+
+- type: marking
+  id: TailRingAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_m_wagging
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_ring_wagging
+
+- type: marking
+  id: TailSkeletonAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_m_wagging
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_skeleton_wagging
+
+- type: marking
+  id: TailSnake
+  wagging: TailSnakeAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/tails32x32.rsi
+    state: snake
+
+- type: marking
+  id: TailSnakeAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/tails32x32.rsi
+    state: snake_wagging
+
+- type: marking
+  id: TailSnakeStripeAltAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/tails32x32.rsi
+    state: snake_stripe_alt_wagging
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/tails32x32.rsi
+    state: snake_stripe_alt_secondary_wagging
+
+- type: marking
+  id: TailTipAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_m_wagging
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_tip_wagging
+
+- type: marking
+  id: TailWingler1Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_fluffy_wagging
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: wingler_1_wagging
+
+- type: marking
+  id: TailWingler3Animated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_fluffy_wagging
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: wingler_3_wagging
+
+- type: marking
+  id: TajaranFluffyTailAnim
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tails.rsi
+    state: tail_fluffy_anim
+
+- type: marking
+  id: TajaranTailFluffy
+  wagging: TajaranTailFluffyAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_fluffy
+
+- type: marking
+  id: TajaranTailFluffyAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_fluffy_wagging
+
+- type: marking
+  id: TajaranTailM
+  wagging: TajaranTailMWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_m
+
+- type: marking
+  id: TajaranTailMWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Tajaran/tajaran_tail.rsi
+    state: tail_m_wagging
+
+- type: marking
+  id: WesternDragonTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/reptilian_64x32.rsi
+    state: western_dragon
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/reptilian_64x32.rsi
+    state: western_dragon_overlay
+
+- type: marking
+  id: WhiteWings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+          negative: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/wings.rsi
+    state: white-moth-wings
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/body.rsi
+    state: white-moth-collar

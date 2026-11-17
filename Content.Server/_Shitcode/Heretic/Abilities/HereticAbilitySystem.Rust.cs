@@ -284,7 +284,8 @@ public sealed partial class HereticAbilitySystem
             var dir = _transform.GetWorldPosition(xform) - mapCoords.Position;
             if (dir.LengthSquared() < 0.001f)
                 continue;
-            _throw.TryThrow(entity, dir.Normalized() * args.ThrowRange, args.ThrowSpeed);
+            _throw.TryThrow(entity, dir.Normalized() * args.ThrowRange, args.ThrowSpeed,
+                predicted: false); // Trauma
             _stun.KnockdownOrStun(entity, args.KnockdownTime, true);
             if (entity != args.Performer)
                 _dmg.TryChangeDamage(entity, args.Damage, targetPart: TargetBodyPart.All);

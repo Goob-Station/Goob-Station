@@ -141,6 +141,9 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         args.Affected = true;
         args.Disabled = true;
 
+        if (HasComp<EmpDisabledComponent>(ent)) // Goob
+            return;
+
         ent.Comp.PreviousMode = ent.Comp.Mode;
         SetSensor(ent.AsNullable(), SuitSensorMode.SensorOff, null);
 

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "sprites by Cephalopod2/Lizalopod. Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_CD/Mobs/Customization/Moth/hair.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "highponytail",
+      "directions": 4
+    },
+    {
+      "name": "shortcut",
+      "directions": 4
+    },
+    {
+      "name": "sideponytail",
+      "directions": 4
+    },
+    {
+      "name": "shortmessy",
+      "directions": 4
+    },
+    {
+      "name": "sideswept",
+      "directions": 4
+    },
+    {
+      "name": "tuft",
+      "directions": 4
+    }
+  ]
+}

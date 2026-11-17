@@ -219,6 +219,15 @@
   - type: Construction
     graph: AltarsGraph
     node: MaintsAltarNode
+    containers: # Goob
+    - altar_offering
+  - type: ContainerContainer # Goob
+    containers:
+      altar_offering: !type:Container
+  - type: ContainerFill # Goob
+    containers:
+      altar_offering:
+      - ClothingHandsGlovesColorYellowBudget
 
 - type: entity
   id: AltarConvertBlue
