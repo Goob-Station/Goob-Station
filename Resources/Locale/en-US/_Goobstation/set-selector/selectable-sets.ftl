@@ -160,16 +160,6 @@ selectable-set-blueshield-syringe-description =
     Includes: An explosive resistant chestrig, a combat injector, and
     several vials of medicine.
 
-# Blueshield hardsuits
-
-selectable-set-blueshield-hardsuit-light-name = blueshield hardsuit
-selectable-set-blueshield-hardsuit-light-description =
-    An armoured hardsuit, allowing for more speed at the cost of protection.
-
-selectable-set-blueshield-modsuit-name = blueshield modsuit
-selectable-set-blueshield-modsuit-description =
-    A custom modular hardsuit, allowing for more customisation, at the cost of requiring power.
-
 # ERT
 
 selectable-set-ert-ballistic-name = ballistics set

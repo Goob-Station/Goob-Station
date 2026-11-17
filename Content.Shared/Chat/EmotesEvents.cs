@@ -32,7 +32,7 @@ public sealed class BeforeEmoteEvent(EntityUid source, EmotePrototype emote)
 /// Use it to play sound, change sprite or something else.
 /// </summary>
 [ByRefEvent]
-public record struct EmoteEvent(EmotePrototype Emote, bool Voluntary) // Goob - emotespam
+public record struct EmoteEvent(EmotePrototype Emote)
 {
     /// <summary>
     /// The used emote.
@@ -43,8 +43,6 @@ public record struct EmoteEvent(EmotePrototype Emote, bool Voluntary) // Goob - 
     /// If this message has already been "handled" by a previous system.
     /// </summary>
     public bool Handled;
-
-    public bool Voluntary = Voluntary; // Goob - emotespam
 }
 
 /// <summary>

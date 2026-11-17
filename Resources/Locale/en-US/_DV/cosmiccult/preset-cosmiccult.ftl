@@ -212,7 +212,7 @@ cosmiccult-silicon-colossus-briefing =
 
 # Goobstation
 
-cult-alert-recall-shuttle = High concentrations of Λ-CDM of unknown origin detected aboard the station. All anomalous presences must be purged or restrained before evacuation can be authorized.
+cult-alert-block-shuttle = High concentrations of Λ-CDM of unknown origin detected aboard the station. All anomalous presences must be purged or restrained before evacuation can be authorized.
 
 cosmiccult-vote-lone-steward-title = The Lone Cultist
 cosmiccult-vote-lone-steward-briefing =

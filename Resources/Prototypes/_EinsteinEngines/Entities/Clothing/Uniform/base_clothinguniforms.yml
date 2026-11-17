@@ -121,6 +121,8 @@
     whitelist:
       tags:
       - GasTank
+  - type: GlowShielding # Goobstation - envirosuit strongly dims the plasmaman body glow
+    reduction: 0.6
 
 - type: entity
   abstract: true

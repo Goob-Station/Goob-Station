@@ -75,6 +75,8 @@
         variation: 0
     Belch: # Frontier
       collection: Belch # Frontier
+    SyndieBorgLaugh: # Goob
+      path: /Audio/Voice/Silicon/syndieborg_laugh.ogg
 
 - type: emoteSounds
   id: MaleShadowkin
@@ -123,6 +125,12 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Gasp: # Goob
+      collection: MaleGasp
+    DefaultDeathgasp: # Goob
+      collection: MaleDeathGasp
+    Hew: # Goob
+      collection: Hew
 
 - type: emoteSounds
   id: FemaleShadowkin
@@ -171,3 +179,9 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Gasp: # Goob
+      collection: FemaleGasp
+    DefaultDeathgasp: # Goob
+      collection: FemaleDeathGasp
+    Hew: # Goob
+      collection: Hew

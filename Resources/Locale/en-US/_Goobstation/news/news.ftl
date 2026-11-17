@@ -32,3 +32,7 @@ news-new-lobby-demo-danger = Danger
 news-new-markings-title = New Markings
 news-new-markings-summary = 2,073 new markings.
 news-new-markings-feedback = Tell me which markings are fucked, on Discord
+
+news-game-director-title = Game Director Fixed (Real?)
+news-game-director-summary = NO MORE GUIDE SLOP!!!
+news-game-director-feedback = Give feedback on Discord

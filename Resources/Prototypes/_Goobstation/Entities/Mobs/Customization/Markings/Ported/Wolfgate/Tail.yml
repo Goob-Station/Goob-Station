@@ -728,7 +728,7 @@
   wagging: WFMeridianTailRamatanThickAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Reptilian]
   layering:
     ramatan_thick_primary_BEHIND: TailBehind
   colorLinks:
@@ -743,7 +743,7 @@
   id: WFMeridianTailRamatanThickAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Reptilian]
   layering:
     ramatan_thick_wag_primary_BEHIND: TailBehind
   colorLinks:
@@ -916,7 +916,7 @@
   wagging: WFMeridianTailShortTwoToneAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Reptilian]
   coloring:
     layers:
       short_two_tone_secondary:
@@ -945,7 +945,7 @@
   id: WFMeridianTailShortTwoToneAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Reptilian]
   coloring:
     layers:
       short_two_tone_wag_secondary:

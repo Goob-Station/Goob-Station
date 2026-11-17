@@ -91,6 +91,36 @@ public sealed partial class HumanoidProfileEditor
         [(int) JobPriority.High] = HullPalette.Red,
     };
 
+    private void EnsureAppearanceForSpecies()
+    {
+        if (Profile == null)
+            return;
+
+        var appearance = HumanoidCharacterAppearance.EnsureValid(Profile.Appearance, Profile.Species, Profile.Sex);
+
+        if (!SpeciesAllows(MarkingCategories.Hair, appearance.HairStyleId, HairStyles.DefaultHairStyle))
+            appearance = appearance.WithHairStyleName(HairStyles.DefaultHairStyle);
+
+        if (!SpeciesAllows(MarkingCategories.FacialHair, appearance.FacialHairStyleId, HairStyles.DefaultFacialHairStyle))
+            appearance = appearance.WithFacialHairStyleName(HairStyles.DefaultFacialHairStyle);
+
+        Profile = Profile.WithCharacterAppearance(appearance);
+    }
+
+    private bool SpeciesAllows(MarkingCategories category, string styleId, string defaultStyle)
+    {
+        if (Profile == null || styleId == defaultStyle)
+            return true;
+
+        var species = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
+        if (_prototypeManager.TryIndex(species.MarkingPoints, out var points)
+            && points.Points.TryGetValue(category, out var categoryPoints)
+            && categoryPoints.Points == 0)
+            return false;
+
+        return _markingManager.MarkingsByCategoryAndSpecies(category, Profile.Species).ContainsKey(styleId);
+    }
+
     private void InitializeHairGoob()
     {
         HideLockedJobsCheck.OnToggled += _ => ApplyJobFilter();

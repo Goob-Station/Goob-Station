@@ -601,6 +601,9 @@ namespace Content.Server.Voting.Managers
                 if (ticker.IsPresetDisabled(preset))
                     continue;
 
+                if (ticker.IsPresetOnRoundCooldown(preset)) // Goob
+                    continue;
+
                 if(_playerManager.PlayerCount < (preset.MinPlayers ?? int.MinValue))
                     continue;
 
