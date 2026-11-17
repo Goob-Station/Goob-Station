@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.GameStates;
@@ -32,6 +32,9 @@ public sealed partial class SynthBloodstreamComponent : Component
 
     [DataField]
     public float BleedReductionAmount = 0.1f;
+
+    [DataField]
+    public float CritRepairMultiplier = 0.25f;
 
     [DataField]
     public SynthBloodstreamRegeneration BloodRegeneration = new();

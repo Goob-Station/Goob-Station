@@ -1,0 +1,14 @@
+<BoxContainer
+    xmlns="https://spacestation14.io"
+    Orientation="Vertical"
+    SeparationOverride="2"
+    HorizontalExpand="True">
+    <Label Name="DateLabel" StyleClasses="HullPostDate" />
+    <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+        <Label Name="TitleLabel" StyleClasses="HullPostTitle" />
+        <Label Name="NewLabel" Text="{Loc 'news-post-new'}" StyleClasses="HullPostNew" VAlign="Center" Visible="False" />
+    </BoxContainer>
+    <BoxContainer Name="SummaryContainer" Orientation="Vertical" />
+    <Button Name="ReadMoreButton" Text="{Loc 'news-read-more'}" StyleClasses="HullPlate" HorizontalAlignment="Left" Margin="0 2 0 0" />
+    <PanelContainer StyleClasses="LowDivider" Margin="0 6 0 0" />
+</BoxContainer>

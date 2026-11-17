@@ -359,7 +359,7 @@
             Poison: 0.25 #should be 0.02, dealt ~30 dmg (less due to Good code)
         conditions:
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
+          type: [ Yowie, Vox ]
           inverted: true
       - !type:Vomit
         probability: 0.1
@@ -368,7 +368,7 @@
           reagent: Microplastics
           min: 10
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
+          type: [ Yowie, Vox ]
           inverted: true
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.90
@@ -388,7 +388,6 @@
         conditions:
         - !type:MetabolizerTypeCondition # Goob, Vox are stinky
           type: [ Vox ]
-          inverted: true
 
 - type: reagent
   id: Caffeine

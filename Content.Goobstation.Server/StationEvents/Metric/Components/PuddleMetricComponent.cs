@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
 namespace Content.Goobstation.Server.StationEvents.Metric.Components;
@@ -45,5 +45,8 @@ public sealed partial class PuddleMetricComponent : Component
 
     [DataField]
     public FixedPoint2 PuddleDefault = 0.1f;
+
+    [DataField]
+    public FixedPoint2 MinPuddleVolume = 5;
 
 }

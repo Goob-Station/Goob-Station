@@ -1,80 +1,74 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos;
-using Content.Shared.Atmos.Prototypes;
-using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Emoting;
 
-// use as a template
-//[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationNameEmoteEvent : EntityEventArgs { }
-
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class FartComponent : Component
 {
-    [DataField]
-    public ProtoId<EmotePrototype>? Emote;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextFart;
 
     [DataField]
-    public bool FartTimeout;
+    public TimeSpan Cooldown = TimeSpan.FromMinutes(1);
+
+    [DataField, AutoNetworkedField]
+    public bool Inhaled;
+
+    [DataField, AutoNetworkedField]
+    public bool Buttless;
 
     [DataField]
-    public bool FartInhale;
+    public Gas Gas = Gas.Ammonia;
 
     [DataField]
-    public bool SuperFarted;
+    public float Moles = 5f;
 
     [DataField]
-    public float MolesAmmoniaPerFart = 5f;
+    public float SuperFartMolesMultiplier = 2f;
 
     [DataField]
-    public Gas GasToFart = Gas.Ammonia;
+    public EntProtoId ButtPrototype = "Butt";
 
-    /// <summary>
-    ///     Path to the sound when you get bible smited
-    /// </summary>
     [DataField]
-    [Access(Other = AccessPermissions.ReadWriteExecute)]
-    public SoundSpecifier BibleSmiteSnd = new SoundPathSpecifier("/Audio/_Goobstation/Effects/thunder_clap.ogg");
+    public float ButtThrowDistance = 2f;
+
+    [DataField]
+    public float ShakeRange = 10f;
+
+    [DataField]
+    public float SuperFartShakeIntensity = 0.75f;
+
+    [DataField]
+    public float BibleSmiteShakeIntensity = 1.5f;
+
+    [DataField]
+    public float BibleSmiteRange = 0.4f;
+
+    [DataField]
+    public SoundSpecifier FartSound = new SoundCollectionSpecifier("Fart");
+
+    [DataField]
+    public SoundSpecifier InhaleSound = new SoundCollectionSpecifier("FartInhale");
+
+    [DataField]
+    public SoundSpecifier SuperFartSound = new SoundCollectionSpecifier("SuperFart");
+
+    [DataField]
+    public SoundSpecifier BibleSmiteSound = new SoundPathSpecifier("/Audio/_Goobstation/Effects/thunder_clap.ogg");
 }
+
+[ByRefEvent]
+public readonly record struct PostFartEvent(bool SuperFart);
 
 [Serializable, NetSerializable]
-public sealed partial class FartComponentState : ComponentState
+public sealed class BibleFartSmiteEvent(NetEntity bible) : EntityEventArgs
 {
-    public ProtoId<EmotePrototype>? Emote;
-    public bool FartTimeout;
-    public bool FartInhale;
-    public bool SuperFarted;
-
-    public FartComponentState(ProtoId<EmotePrototype>? emote, bool fartTimeout, bool fartInhale, bool superFarted)
-    {
-        Emote = emote;
-        FartTimeout = fartTimeout;
-        FartInhale = fartInhale;
-        SuperFarted = superFarted;
-    }
-}
-
-/// <summary>
-///     Triggers after a fart 🦍💨
-/// </summary>
-public sealed class PostFartEvent : EntityEventArgs
-{
-    public readonly EntityUid Uid;
-    public readonly bool SuperFart;
-    public PostFartEvent(EntityUid uid, bool IsSuperFart = false)
-    {
-        Uid = uid;
-        SuperFart = IsSuperFart;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class BibleFartSmiteEvent(NetEntity uid) : EntityEventArgs
-{
-    public NetEntity Bible = uid;
+    public readonly NetEntity Bible = bible;
 }

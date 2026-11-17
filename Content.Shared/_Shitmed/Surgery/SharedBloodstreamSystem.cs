@@ -6,7 +6,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Part;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
@@ -308,7 +308,7 @@ public abstract partial class SharedBloodstreamSystem
             || !TryComp<WoundableComponent>(args.Component.HoldingWoundable, out var woundable)
             || !woundable.CanBleed
             || args.NewSeverity < component.SeverityThreshold
-            || args.NewSeverity < args.OldSeverity)
+            || args.NewSeverity <= args.OldSeverity)
             return;
 
         component.BleedingAmountRaw = args.NewSeverity * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);

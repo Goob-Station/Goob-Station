@@ -6,7 +6,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
@@ -68,7 +68,10 @@ public sealed partial class WoundSystem
             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
                 continue;
 
+            bleeds.BleedingAmountRaw = 0;
+            bleeds.Scaling = 0;
             bleeds.IsBleeding = false;
+            Dirty(wound, bleeds);
         }
 
         return true;

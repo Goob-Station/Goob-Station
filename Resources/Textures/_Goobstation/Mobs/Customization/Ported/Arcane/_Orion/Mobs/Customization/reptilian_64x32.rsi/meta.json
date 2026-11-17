@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Taken from: https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/modular_splurt/icons/mob/64_mam_tails.dmi | Reshade by vetochka_igrit (Discord) | Edited and resprited by PuroSlavKing (Github). Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Orion/Mobs/Customization/reptilian_64x32.rsi",
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "western_dragon",
+      "directions": 4
+    },
+    {
+      "name": "western_dragon_overlay",
+      "directions": 4
+    },
+    {
+      "name": "kangaroo",
+      "directions": 4
+    }
+  ]
+}

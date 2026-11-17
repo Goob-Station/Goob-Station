@@ -9,7 +9,7 @@ using Robust.Client.UserInterface.Controls;
 namespace Content.Client.Administration.UI.CustomControls
 {
     [Virtual]
-    public class CommandButton : Button, IDocumentTag
+    public partial class CommandButton : Button, IDocumentTag // Goob - partial for confirm
     {
         public string? Command { get; set; }
 
@@ -34,6 +34,11 @@ namespace Content.Client.Administration.UI.CustomControls
 
         protected virtual void Execute(ButtonEventArgs obj)
         {
+            // <Goob> add ability to a confirm to a button
+            if (!GoobConfirmPressCheck())
+                return;
+            // </Goob>
+
             // Default is to execute command
             if (!string.IsNullOrEmpty(Command))
                 IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(Command);

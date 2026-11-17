@@ -31,6 +31,7 @@
         stomach: OrganResomiStomach # Goobstation - classic furries can eat everything except chocolate :)
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
+        butt: Butt # Goob
     right arm:
       part: RightArmResomi
       connections:

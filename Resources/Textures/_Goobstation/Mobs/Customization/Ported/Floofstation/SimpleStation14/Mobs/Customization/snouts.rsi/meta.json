@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from S.P.L.U.R.T at commit https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/02617f9b08d7767e2feb137a8c96650342bd3c0a. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/SimpleStation14/Mobs/Customization/snouts.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "extra_magus",
+      "directions": 4
+    },
+    {
+      "name": "skullbird",
+      "directions": 4
+    }
+  ]
+}

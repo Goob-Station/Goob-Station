@@ -1,0 +1,41 @@
+- type: entity
+  id: EffectConfettiBurst
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 2.5
+  - type: ParticleEmitter
+    effect: ConfettiBurst
+
+- type: particleEffect
+  id: ConfettiBurst
+  renderLayer: 10
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: dot
+  shader: unshaded
+  colorOverLifetime:
+  - time: 0.0
+    color: "#FF4FA3FF"
+  - time: 0.35
+    color: "#FFE14DFF"
+  - time: 0.7
+    color: "#4DDCFFFF"
+  - time: 1.0
+    color: "#4DDCFF00"
+  lifetime: 0.8
+  lifetimeVariance: 0.3
+  speed: 15.5
+  speedVariance: 5.5
+  particleSize: 0.4
+  sizeVariance: 0.08
+  emissionRate: 0
+  maxCount: 65
+  burst: true
+  gravity: 3.0
+  drag: 5.0
+  spreadAngle: 360
+  emitAngle: 0
+  shape:
+    type: CircleFill
+    radius: 0.15

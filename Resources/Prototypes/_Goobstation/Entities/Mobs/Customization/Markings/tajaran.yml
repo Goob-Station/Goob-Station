@@ -3,6 +3,7 @@
 
 - type: marking
   id: TajaranTailRetro
+  wagging: TajaranTailAnim
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Tajaran]
@@ -21,6 +22,7 @@
 
 - type: marking
   id: TajaranTailRetroRings
+  wagging: TajaranTailAnimRings
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Tajaran]
@@ -288,3 +290,99 @@
     state: wide_outer
   - sprite: _Goobstation/Mobs/Customization/Tajaran/felinid_ears.rsi
     state: wide_inner
+
+- type: marking
+  id: TajaranLeopardChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_markings.rsi
+    state: leopard_chest
+
+- type: marking
+  id: TajaranLeopardAltChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_markings.rsi
+    state: leopard_alt_chest
+
+- type: marking
+  id: TajaranLeopardLArm
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_markings.rsi
+    state: leopard_l_arm
+
+- type: marking
+  id: TajaranLeopardRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_markings.rsi
+    state: leopard_r_arm
+
+- type: marking
+  id: TajaranLeopardLHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_markings.rsi
+    state: leopard_l_hand
+
+- type: marking
+  id: TajaranLeopardRHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Tajaran]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SkinColoring
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_markings.rsi
+    state: leopard_r_hand

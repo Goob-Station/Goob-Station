@@ -1,0 +1,9 @@
+- files: ["ballin.ogg", "ballout.ogg", "sonic_jackhammer.ogg", "loader_charge.ogg", "loader_launch.ogg", "gravhit.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation at commit 5ee81d6, converted to mono"
+  source: "https://github.com/tgstation/tgstation/tree/5ee81d6/sound"
+
+- files: ["rolling_ball_loop.ogg"]
+  license: "CC0-1.0"
+  copyright: "Rolling ball loop by SquirmTheVerm. Converted to mono, cleaned up and made seamless by @Gaming420 on Discord."
+  source: "https://freesound.org/people/SquirmTheVerm/sounds/260778/"

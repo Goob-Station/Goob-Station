@@ -88,7 +88,8 @@ public sealed class CosmicColossusSystem : EntitySystem
         if (TryComp<StationDataComponent>(station, out var stationData))
         {
             var stationGrid = _station.GetLargestGrid((station.Value, stationData));
-            _throw.TryThrow(ent, Transform(stationGrid!.Value).Coordinates, baseThrowSpeed: 30, null, 0, 0, false, false, false, false, false);
+            _throw.TryThrow(ent, Transform(stationGrid!.Value).Coordinates, baseThrowSpeed: 30, null, 0, 0, false, false, false, false, false,
+                predicted: false); // Trauma
         }
         if (ent.Comp.Timed)
             _actions.AddAction(ent, ref ent.Comp.EffigyPlaceActionEntity, ent.Comp.EffigyPlaceAction, ent);

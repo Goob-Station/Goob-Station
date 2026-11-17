@@ -10,6 +10,7 @@ spell-fail-not-dead = Target must be dead.
 spell-fail-target-borg = Can't cast on borgs.
 spell-fail-target-silicon = Can't cast on silicons.
 spell-fail-no-held-entity = Any item should be in your hands to cast this spell.
+spell-fail-no-grid = You need solid ground beneath you to cast this spell.
 spell-fail-no-soul = You don't have a soul!
 spell-fail-unremoveable = {CAPITALIZE($item)} is stuck to your hand - it wouldn't be a wise idea to place your soul into it.
 spell-fail-soul-item-not-suitable = {CAPITALIZE($item)} is not suitable for emplacement of your fragile soul.
