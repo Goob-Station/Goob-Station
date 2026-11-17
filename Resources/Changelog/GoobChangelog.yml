@@ -27174,3 +27174,11 @@ Entries:
         me)...................................... 
   id: 3041
   time: '2026-11-17T01:57:42.0000000+00:00'
+- author: charcuteriesampler
+  changes:
+    - type: Tweak
+      message: >-
+        The handheld mass scanner will now rotate with the camera, instead of
+        being fixed to the cardinal directions.
+  id: 3042
+  time: '2026-11-17T02:25:42.0000000+00:00'
