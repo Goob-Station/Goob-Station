@@ -3,7 +3,7 @@
 using Content.Shared._Shitmed.StatusEffects;
 using Content.Shared.Teleportation;
 using Content.Goobstation.Shared.Teleportation.Systems;
-using Content.Goobstation.Shared.Teleportation.Components;
+using Content.Goobstation.Common.BlockTeleport;
 
 namespace Content.Server._Shitmed.StatusEffects;
 
@@ -16,6 +16,9 @@ public sealed class ScrambleLocationEffectSystem : EntitySystem
     }
     private void OnInit(EntityUid uid, ScrambleLocationEffectComponent component, ComponentInit args)
     {
+        if (HasComp<BlockTeleportComponent>(uid)) // Goobstation - block teleports
+            return;
+
         // TODO: Add the teleport component via onAdd:
         var teleport = EnsureComp<RandomTeleportComponent>(uid);
         _teleportSys.RandomTeleport(uid, teleport);

@@ -5,6 +5,7 @@ using Content.Goobstation.Common.Religion;
 using Content.Server.Chat.Systems;
 using Content.Server.Heretic.Abilities;
 using Content.Server.Heretic.Components;
+using Content.Shared.Heretic.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
@@ -175,8 +176,14 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         }
 
         // upgraded grasp
-        if (!TryApplyGraspEffectAndMark(user, hereticComp, target, grasp, out var triggerGrasp))
-            return false;
+        var triggerGrasp = true;
+        if (!HasComp<HereticMarkImmuneComponent>(target))
+        {
+            if (!TryApplyGraspEffectAndMark(user, hereticComp, target, grasp, out triggerGrasp))
+            {
+                return false;
+            }
+        }
 
         if (triggerGrasp && TryComp(target, out StatusEffectsComponent? status))
         {

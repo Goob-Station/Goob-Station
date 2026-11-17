@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos.Components;
+using Content.Goobstation.Common.BlockTeleport;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -33,6 +34,9 @@ public sealed partial class HereticAbilitySystem
     private void OnJaunt(EventHereticAshenShift args)
     {
         if (!TryUseAbility(args))
+            return;
+
+        if (HasComp<BlockTeleportComponent>(args.Performer))
             return;
 
         Spawn("PolymorphAshJauntAnimation", Transform(args.Performer).Coordinates);

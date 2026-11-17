@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Shared.Mobs;
 using Robust.Shared.Map;
 
@@ -20,6 +21,9 @@ public sealed partial class TeleportOnStateChangeSystem : EntitySystem
             return;
 
         if (comp.Coordinates == null)
+            return;
+
+        if (HasComp<BlockTeleportComponent>(uid))
             return;
 
         var mapCoordinates = _transformSystem.ToMapCoordinates(comp.Coordinates.Value);
