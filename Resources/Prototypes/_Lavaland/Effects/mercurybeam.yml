@@ -1,0 +1,97 @@
+- type: entity
+  id: ORTBeamWarning
+  name: High energy buildup
+  description: Get out of the way!!!
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5, -0.5, 0.5, 0.5"
+        density: 100
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable  
+  - type: Transform
+    noRot: true    
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/beam.rsi
+    state: beam_ring
+    drawdepth: BelowMobs
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 1.1
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+    castShadows: false
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - ORTBeamSmall
+    intervalSeconds: 1
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+    ignoreWhitelist:
+      components:
+      - Fauna
+
+- type: entity
+  id: ORTBeamSmall
+  name: beam
+  components:
+  - type: Transform
+    noRot: true    
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/beam.rsi
+    state: beam_fire
+    drawdepth: BelowMobs
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35, -0.8, 0.35, 0.5"
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable
+  - type: PointLight
+    radius: 4
+    energy: 3
+    color: Green
+    castShadows: false
+  - type: FadingTimedDespawn
+    lifetime: 0.5
+    fadeOutTime: 0.4
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      groups:
+        Genetic: 15
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: MercuryBeam
+      params:
+        volume: -2

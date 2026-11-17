@@ -169,3 +169,37 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-ruin-snow-biodome
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconORTArenaEntrance
+  suffix: Spider of Mercury Arena
+  components:
+  - type: ChasmTeleportBeacon
+  - type: NavMapBeacon
+    defaultText: station-beacon-mercury-arena
+  - type: GenericVisualizer
+    visuals: {}
+  - type: Sprite
+    drawdepth: LowFloors
+    sprite: _Lavaland/Effects/particle.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: solarparticle
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconORTArenaExit
+  suffix: Bottomless pit entrance
+  components:
+  - type: SeaOfFantasyTreesExitBeacon
+  - type: NavMapBeacon
+    defaultText: station-beacon-bottomless-pit
+  - type: GenericVisualizer
+    visuals: {}
+  - type: Sprite
+    drawdepth: LowFloors
+    sprite: _Lavaland/Effects/particle.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: solarparticle
