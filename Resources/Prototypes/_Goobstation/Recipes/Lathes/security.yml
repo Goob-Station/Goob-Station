@@ -747,3 +747,15 @@
     Plastic: 250
     Cloth: 200
 
+# Weapons
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: CburnSpearCrew
+  result: CburnSpearCrew
+  completetime: 10
+  materials:
+    Steel: 2000
+    Plastic: 1000
+    Plasma: 1000
+    Uranium: 500
