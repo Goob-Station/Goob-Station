@@ -9,7 +9,7 @@ using Content.Goobstation.Common.Magic;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Medical;
 using Content.Goobstation.Common.Mind;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling;

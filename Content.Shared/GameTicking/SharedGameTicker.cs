@@ -10,7 +10,7 @@ using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
-using Content.Goobstation.Maths.FixedPoint; // Goob Station - Round End Screen
+using Content.Shared.FixedPoint; // Goob Station - Round End Screen
 using Content.Shared.Mobs; // Goob Station - Round End Screen
 
 namespace Content.Shared.GameTicking

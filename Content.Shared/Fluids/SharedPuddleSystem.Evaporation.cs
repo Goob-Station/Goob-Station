@@ -3,7 +3,7 @@
 using System.Linq;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Prototypes;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Chemistry.Reagent;
 
