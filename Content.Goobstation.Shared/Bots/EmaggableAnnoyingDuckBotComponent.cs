@@ -7,7 +7,8 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Bots;
 
 /// <summary>
-/// Replaces the annoying duck bot's sound, quack/egg timings and honk sound when emagged.
+/// Replaces the annoying duck bot's sounds and egg laying timings.
+/// Changes the pitch and variation of the sounds, and changes the Ad Dataset.
 /// </summary>
 [RegisterComponent]
 public sealed partial class EmaggableAnnoyingDuckBotComponent : Component

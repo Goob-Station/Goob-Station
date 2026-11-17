@@ -39,6 +39,9 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
         var query = QueryAllRules();
         while (query.MoveNext(out var uid, out _, out var gameRule))
         {
+            if (HasComp<EndedGameRuleComponent>(uid)) // Goob
+                continue; // Goob
+
             var minPlayers = gameRule.MinPlayers;
             var name = ToPrettyString(uid);
 

@@ -1,5 +1,6 @@
 using Content.Goobstation.Common.StationEvents.SecretPlus;
 using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Shared.EntityTable;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
@@ -42,7 +43,90 @@ public sealed partial class StoryPrototype : IPrototype
     public ProtoId<StoryBeatPrototype>[]? Beats;
 
     [DataField]
-    public HashSet<EntProtoId> BlockedRoundstartAntags = new();
+    public float Threat = 1f;
+
+    [DataField]
+    public float RoundstartThreat;
+
+    [DataField]
+    public List<RoundstartSlot> Roundstart = new();
+
+    [DataField]
+    public List<ProtoId<AntagPoolPrototype>> Midround = new();
+
+    [DataField]
+    public ProtoId<EntityTablePrototype>? Events;
+}
+
+[DataDefinition]
+public sealed partial class RoundstartSlot
+{
+    [DataField(required: true)]
+    public ProtoId<AntagPoolPrototype> Pool;
+
+    [DataField]
+    public float? Share;
+
+    [DataField]
+    public float Prob = 1f;
+}
+
+[Prototype]
+public sealed partial class AntagPoolPrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; private set; } = default!;
+
+    [DataField(required: true)]
+    public List<AntagPoolEntry> Rules = new();
+}
+
+[DataDefinition]
+public sealed partial class AntagPoolEntry
+{
+    [DataField(required: true)]
+    public EntProtoId Id;
+
+    [DataField]
+    public float? Weight;
+
+    [DataField]
+    public int? Min;
+
+    [DataField]
+    public int? Max;
+}
+
+[Prototype]
+public sealed partial class DirectorEventGroupPrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; private set; } = default!;
+
+    [DataField(required: true)]
+    public List<EntProtoId> Events = new();
+
+    [DataField]
+    public TimeSpan Window = TimeSpan.FromMinutes(15);
+
+    [DataField]
+    public float Factor = 0.4f;
+}
+
+[Prototype]
+public sealed partial class AntagThreatPrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; private set; } = default!;
+
+    [DataField]
+    public Dictionary<EntProtoId, float> Rules = new();
+
+    [DataField]
+    public float Default = 2f;
+
+    [DataField]
+    public float Convert = 1f;
 }
 
 /// <summary>
@@ -79,6 +163,9 @@ public sealed partial class StoryBeatPrototype : IPrototype
 
     [DataField]
     public ChaosMetrics Escalation = new ChaosMetrics();
+
+    [DataField]
+    public float Threat;
 
     /// <summary>
     ///   Early end if things deteriorate too much

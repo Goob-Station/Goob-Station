@@ -384,7 +384,7 @@
     minimumPlayers: 15
     maxOccurrences: 2
     chaos:
-      Infestation: 20
+      Infestation: 5
     eventType: Neutral
   - type: GameRule
     chaosScore: 0
@@ -604,6 +604,7 @@
           - type: SlasherStaggerArea
           - type: SlasherRelentlessGrab
           - type: SlasherRegenerate
+          - type: SlasherPassiveHeal
           - type: SlasherFear
           - type: SlasherIncorporeal
           - type: SlasherSoulSteal
