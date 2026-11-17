@@ -61,27 +61,6 @@ public sealed partial class SlasherVictimFearBuildupComponent : Component
     public TimeSpan OwnershipTimeout = TimeSpan.FromSeconds(1);
 
     /// <summary>
-    /// At or above this fear, the victim is slowed.
-    /// </summary>
-    [DataField]
-    public float SlowThreshold = 0.45f;
-
-    /// <summary>
-    /// Movement multiplier applied while slowed (walk and sprint).
-    /// </summary>
-    [DataField]
-    public float SlowMultiplier = 0.7f;
-
-    /// <summary>
-    /// How long the slow is refreshed for on each update the victim stays above the slow threshold.
-    /// </summary>
-    [DataField]
-    public TimeSpan SlowRefresh = TimeSpan.FromSeconds(1.5);
-
-    [DataField]
-    public EntProtoId SlowEffect = "SlasherSlowdownStatusEffect";
-
-    /// <summary>
     /// At or above this fear, the victim takes periodic damage.
     /// </summary>
     [DataField]

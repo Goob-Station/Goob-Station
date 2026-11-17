@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.CursorTimer;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
@@ -52,6 +53,7 @@ public sealed partial class SlasherMassacreSystem : EntitySystem
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private StatusEffectsSystem _status = default!;
     [Dependency] private MovementModStatusSystem _movementModStatus = default!;
+    [Dependency] private CursorTimerSystem _cursorTimer = default!;
 
 
     public override void Initialize()
@@ -97,6 +99,7 @@ public sealed partial class SlasherMassacreSystem : EntitySystem
             ent.Comp.HitCount = 0;
             ent.Comp.CurrentVictim = null;
             ent.Comp.LastAttackTime = _timing.CurTime;
+            RestartChainTimer(ent.Owner, ent.Comp);
 
             _popup.PopupPredicted(Loc.GetString("slasher-massacre-start"), ent.Owner, ent.Owner, PopupType.MediumCaution);
             _audio.PlayPredicted(ent.Comp.MassacreIntro, ent.Owner, ent.Owner);
@@ -133,7 +136,13 @@ public sealed partial class SlasherMassacreSystem : EntitySystem
         comp.HitCount = 0;
         comp.CurrentVictim = null;
         comp.LastAttackTime = null;
+        _cursorTimer.ClearTimer(uid);
         Dirty(uid, comp);
+    }
+
+    private void RestartChainTimer(EntityUid uid, SlasherMassacreUserComponent comp)
+    {
+        _cursorTimer.SetTimer(uid, _timing.CurTime + TimeSpan.FromSeconds(comp.ChainTimeoutSeconds));
     }
 
     private void OnVictimMobStateChanged(EntityUid uid, SlasherMassacreVictimComponent comp, MobStateChangedEvent args)
@@ -215,6 +224,7 @@ public sealed partial class SlasherMassacreSystem : EntitySystem
         userComp.CurrentVictim = victim.Value;
         userComp.HitCount++;
         userComp.LastAttackTime = _timing.CurTime;
+        RestartChainTimer(args.User, userComp);
 
         // Add the victim tracking component to monitor mob state changes
         var victimComp = EnsureComp<SlasherMassacreVictimComponent>(victim.Value);

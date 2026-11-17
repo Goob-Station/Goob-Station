@@ -23,21 +23,19 @@ public sealed partial class SlasherRegenerateSystem : EntitySystem
     [Dependency] private INetManager _net = default!;
     [Dependency] private MobStateSystem _mobState = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SlasherRegenerateComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlasherRegenerateComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<SlasherRegenerateComponent, SlasherRegenerateEvent>(OnRegenerate);
-    }
-
-    private void OnMapInit(Entity<SlasherRegenerateComponent> ent, ref MapInitEvent args)
+    [SubscribeLocalEvent]
+    private void OnStartup(Entity<SlasherRegenerateComponent> ent, ref ComponentStartup args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
-        Dirty(ent);
+        UpdateActionState(ent);
     }
 
+    private void UpdateActionState(Entity<SlasherRegenerateComponent> ent)
+    {
+        _actions.SetEnabled(ent.Comp.ActionEnt, ent.Comp.HasSoulAvailable);
+    }
+
+    [SubscribeLocalEvent]
     private void OnShutdown(Entity<SlasherRegenerateComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Comp.ActionEnt);
@@ -49,6 +47,7 @@ public sealed partial class SlasherRegenerateSystem : EntitySystem
     /// <param name="uid">Slasher UID</param>
     /// <param name="comp">SlasherRegenerateComponent</param>
     /// <param name="args">SlasherRegenerateEvent</param>
+    [SubscribeLocalEvent]
     private void OnRegenerate(EntityUid uid, SlasherRegenerateComponent comp, SlasherRegenerateEvent args)
     {
         if (args.Handled)
@@ -80,6 +79,7 @@ public sealed partial class SlasherRegenerateSystem : EntitySystem
 
         // Consume the soul
         comp.HasSoulAvailable = false;
+        UpdateActionState((uid, comp));
         Dirty(uid, comp);
 
         args.Handled = true;
@@ -128,6 +128,7 @@ public sealed partial class SlasherRegenerateSystem : EntitySystem
             return;
 
         comp.HasSoulAvailable = true;
+        UpdateActionState((uid, comp));
         Dirty(uid, comp);
     }
 }
