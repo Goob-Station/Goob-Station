@@ -27182,3 +27182,9 @@ Entries:
         being fixed to the cardinal directions.
   id: 3042
   time: '2026-11-17T02:25:42.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: guns now fire slightly farther from your character's center
+  id: 3043
+  time: '2026-11-17T02:30:22.0000000+00:00'
