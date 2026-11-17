@@ -23,6 +23,12 @@ public sealed partial class SlasherStaggerAreaComponent : Component
     public float Range = 3.5f;
 
     /// <summary>
+    /// Radius of the aura effect with a full fear meter.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float MaxFearRange = 10f;
+
+    /// <summary>
     /// Shader the shockwave ring draws with.
     /// </summary>
     [DataField]
