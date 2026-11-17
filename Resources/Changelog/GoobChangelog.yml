@@ -27264,3 +27264,9 @@ Entries:
       message: Fixed minor mispredicts with slashers soulsteal bonuses.
   id: 3048
   time: '2026-11-17T02:49:33.0000000+00:00'
+- author: Miruneko72
+  changes:
+    - type: Fix
+      message: Fixed spam mail appearing as generic text.
+  id: 3049
+  time: '2026-11-17T03:01:46.0000000+00:00'
