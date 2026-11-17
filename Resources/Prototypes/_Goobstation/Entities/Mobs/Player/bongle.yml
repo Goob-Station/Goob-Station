@@ -4,8 +4,22 @@
   parent: MobSpaceBasic
   description: bongle!!!!!!!
   components:
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+    color: Red
   - type: Bingle
     upgradedID: MobBongleUpgraded
+    linkToPit: false
+  - type: Bongle
+    hillProto: BongleHill
+    ascendComponents:
+    - type: Devourer
+      devourAction: ActionDevour
+      structureDevourTime: 8
+      whitelist:
+        tags:
+        - Wall
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bongle-name
@@ -100,30 +114,50 @@
         Brute: -1
         Burn: -1
   - type: NightVision
-    color: "#FF0000"
+    color: Red
     activateSound: null
     deactivateSound: null
   - type: Insulated
   - type: FlashImmunity
-  - type: Butcherable
-    spawned:
-    - id: FoodMeatBingle # TO DO: Change meat later
-      amount: 3
+  - type: ChargedHeadbutt
+    damage:
+      groups:
+        Brute: 15
+      types:
+        Structural: 100
+        Ion: 60 # Absolutely brutal damage against bingles, mechs, borgs, you name it. Mostly useless otherwise.
+  - type: Puller
+    needsHands: false
+  - type: Swallower
+    chewBlacklist:
+      components:
+      - HumanoidAppearance # This gets ignored on ascension, just so bongle isnt too op.
+    capacity: 3
+    spitCount: 3
+    spitDamage:
+      types:
+        Blunt: 30
+  - type: ActionGrant
+    actions:
+    - ActionChargedHeadbutt
+    - ActionSwallowerSpit
+    - ActionSwallowerRegurgitate
 
 - type: entity
   id: MobBonglePrime
-  parent: MobBingle
+  parent: MobBongle
   suffix: Prime
   components:
-  - type: Bingle
+  - type: Bongle
     prime: true
 
 - type: entity
   id: MobBongleUpgraded
-  parent: MobBingle
+  parent: MobBongle
   suffix: Upgraded
   components:
   - type: Bingle
+    linkToPit: false
     upgraded: true
   - type: Sprite
     drawdepth: Mobs
@@ -161,3 +195,6 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: BingleUpgraded
+  - type: ActionGrant
+    actions:
+    - ActionSwallowerChew
