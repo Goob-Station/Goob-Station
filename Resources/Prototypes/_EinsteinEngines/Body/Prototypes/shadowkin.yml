@@ -10,6 +10,7 @@
       organs:
         brain: OrganShadowkinBrain
         eyes: OrganShadowkinEyes
+        tongue: OrganShadowkinTongue
     chest:
       part: ChestShadowkin
       connections:

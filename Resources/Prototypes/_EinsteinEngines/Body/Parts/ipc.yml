@@ -52,6 +52,8 @@
     organs: # posibrain is stored in the torso
       eyes:
         id: "eyes"
+      tongue:
+        id: tongue
 
 - type: entity
   parent: [ PartIPCBase, BaseLeftArm ]

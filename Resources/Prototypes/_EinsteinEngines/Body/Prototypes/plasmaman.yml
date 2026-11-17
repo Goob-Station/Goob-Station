@@ -10,6 +10,7 @@
       organs:
         brain: OrganPlasmamanBrain
         eyes: OrganPlasmamanEyes
+        tongue: OrganPlasmamanTongue
     chest:
       part: ChestPlasmaman
       connections:
