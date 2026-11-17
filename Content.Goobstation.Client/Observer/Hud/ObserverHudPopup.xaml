@@ -1,0 +1,20 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<controls:ObserverHudPopup
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Goobstation.Client.Observer.Hud">
+    <PanelContainer StyleClasses="BorderedWindowPanel">
+        <BoxContainer
+            Orientation="Vertical"
+            SeparationOverride="4"
+            Margin="10 8"
+            MinWidth="170">
+            <Label Text="{Loc 'observer-hud-popup-title'}" />
+            <CheckBox Name="JobMindshieldCheckBox" Text="{Loc 'observer-hud-job-mindshield'}" />
+            <CheckBox Name="HealthCheckBox" Text="{Loc 'observer-hud-health'}" />
+            <CheckBox Name="CriminalRecordsCheckBox" Text="{Loc 'observer-hud-criminal-records'}" />
+        </BoxContainer>
+    </PanelContainer>
+</controls:ObserverHudPopup>
