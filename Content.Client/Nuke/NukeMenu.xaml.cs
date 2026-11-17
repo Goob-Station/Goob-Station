@@ -106,6 +106,11 @@ namespace Content.Client.Nuke
             FirstStatusLabel.Text = firstMsg;
             SecondStatusLabel.Text = secondMsg;
 
+            // Goobstation
+            ConvertedPanel.Visible = state.Converted;
+            if (state.Converted)
+                ConvertedLabel.Text = Loc.GetString("nuke-user-interface-converted");
+
             EjectButton.Disabled = !state.DiskInserted || state.Status == NukeStatus.ARMED || !state.IsAnchored;
             AnchorButton.Disabled = state.Status == NukeStatus.ARMED;
             AnchorButton.Pressed = state.IsAnchored;

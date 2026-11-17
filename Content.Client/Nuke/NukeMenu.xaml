@@ -24,6 +24,15 @@ SPDX-License-Identifier: MIT
             </PanelContainer.PanelOverride>
             <Label Name="SecondStatusLabel"/>
         </PanelContainer>
+        <!-- Goobstation -->
+        <PanelContainer Name="ConvertedPanel"
+                        Margin="0 0 0 5"
+                        Visible="False">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#2b001c" />
+            </PanelContainer.PanelOverride>
+            <Label Name="ConvertedLabel"/>
+        </PanelContainer>
         <BoxContainer Orientation="Horizontal" >
             <GridContainer Columns="3"
                            Name="KeypadGrid">
@@ -48,3 +57,4 @@ SPDX-License-Identifier: MIT
         </BoxContainer>
     </BoxContainer>
 </DefaultWindow>
+
