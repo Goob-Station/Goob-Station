@@ -1,0 +1,49 @@
+<Document>
+
+  # Admin-fu
+
+  An infinitely powerful art.
+
+  ## Special abilities
+
+  None
+
+  ## Combo attacks
+
+  ### Instant stun and weaken for twenty-five seconds
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  ### Begone
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  ### Instant death
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Similar to a wand of death, as it causes no injuries, not even cardiac arrest, and the target can be resuscitated with no damage of any type, provided you are feeling merciful. 
+
+  ### Instant neck-grab
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  ### Instant rejuvenate
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHelp" Caption=""/>
+  </Box>
+
+  Similar to a staff of resurrection, in that the mob is revived and fully restored. 
+</Document>

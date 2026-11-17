@@ -1,9 +1,7 @@
 using System.Linq;
 using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
-using Content.Shared._White.Grab;
-using Content.Shared.Alert;
-using Content.Shared.CombatMode;
+using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory.VirtualItem;
@@ -12,12 +10,10 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Standing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.GrabIntent;
 
@@ -68,10 +64,7 @@ public sealed partial class GrabIntentSystem
             || !TryComp<GrabbableComponent>(args.User, out var grabbable))
             return;
 
-        var seedArray = new List<int> { (int) _timing.CurTick.Value, GetNetEntity(uid).Id };
-        var seed = SharedRandomExtensions.HashCodeCombine(seedArray);
-        var rand = new Random(seed);
-        if (rand.Prob(grabbable.GrabEscapeChance))
+        if (_predictedRandom.Prob(uid, null, grabbable.GrabEscapeChance))
             TryLowerGrabStage(args.User, uid, true);
     }
 

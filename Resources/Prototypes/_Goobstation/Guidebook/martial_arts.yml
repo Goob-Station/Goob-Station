@@ -51,3 +51,23 @@
   id: DragonKungFu
   name: guide-entry-dragon-kung-fu
   text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/DragonKungFu.xml"
+
+- type: guideEntry
+  id: BearFu
+  name: guide-entry-bearfu
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/BearFu.xml"
+
+- type: guideEntry
+  id: Mimejutsu
+  name: guide-entry-mimejutsu
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/Mimejutsu.xml"
+
+- type: guideEntry
+  id: PlasmaFist
+  name: guide-entry-plasmafist
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/PlasmaFist.xml"
+
+- type: guideEntry
+  id: AdminFu
+  name: guide-entry-adminfu
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/AdminFu.xml"

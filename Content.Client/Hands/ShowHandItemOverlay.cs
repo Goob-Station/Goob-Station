@@ -27,14 +27,9 @@ namespace Content.Client.Hands
         [Dependency] private readonly IInputManager _inputManager = default!;
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly IEntityManager _entMan = default!;
-        [Dependency] private readonly IPlayerManager _player = default!; // Goobstation
         [Dependency] private readonly IPrototypeManager _protoMan = default!; // Goobstation
-        [Dependency] private readonly IResourceCache _resourceCache = default!; // Goobstation
 
         private readonly SpriteSystem _sprite; // Goobstation
-
-        private static readonly ResPath ComboAttackRsi =
-            new ResPath("/Textures/_Goobstation/Interface/Misc/intents.rsi"); // Goobstation
 
         private HandsSystem? _hands;
         private readonly IRenderTexture _renderBackbuffer;
@@ -93,33 +88,6 @@ namespace Content.Client.Hands
             var handEntity = EntityOverride ?? (_cfg.GetCVar(CCVars.HudHeldItemShow) ? _hands.GetActiveHandEntity() : null); // Goob
 
             // Goob edit start
-            if (_player.LocalEntity != null)
-            {
-                var comboEv = new GetPerformedAttackTypesEvent(null);
-                _entMan.EventBus.RaiseLocalEvent(_player.LocalEntity.Value, ref comboEv);
-                if (comboEv.AttackTypes is { Count: > 0 })
-                {
-                    var color = Color.White.WithAlpha(0.75f);
-                    for (var i = 0; i < comboEv.AttackTypes.Count; i++)
-                    {
-                        var rsiActual = _resourceCache.GetResource<RSIResource>(ComboAttackRsi).RSI;
-                        if (!rsiActual.TryGetState(comboEv.AttackTypes[i].ToString().ToLower(), out var state))
-                            continue;
-
-                        var texture = state.Frame0;
-
-                        var size = texture.Size;
-
-                        var offsetVec2 = new Vector2(-offsetVec.X,
-                            (2f * i + 1f - comboEv.AttackTypes.Count) * texture.Size.Y / 1.8f);
-
-                        screen.DrawTextureRect(texture,
-                            UIBox2.FromDimensions(mousePos.Position - size / 2 + offsetVec2, size),
-                            color);
-                    }
-                }
-            }
-
             if (handEntity == null)
                 return;
 

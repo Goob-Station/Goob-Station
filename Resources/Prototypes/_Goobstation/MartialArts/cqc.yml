@@ -1,71 +1,173 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: martialArt
   id: CloseQuartersCombat
-  martialArtsForm: CloseQuartersCombat
-  roundstartCombos: CQCMoves
-
-- type: comboList
-  id: CQCMoves
   combos:
+  - CQCNeckSnap
+  - CQCLegSweep
   - CQCConsecutive
   - CQCPressure
   - CQCRestrain
-  - CQCKick
   - CQCSlam
+  - CQCKick
+  weight: 6
 
-- type: combo
+# todo ifff we wanna port intent stuff modifiers
+# disarm, deals 15 stamina while temporary slurring speech
+# grab intent, immobalizes for a second on grab
+# harm intent, 0x blunt but +20 base stamina, +10 while prone
+
+- type: martialArtsCombo
   id: CQCSlam
   name: Slam
-  martialArtsForm: CloseQuartersCombat
   attacks:
   - Grab
   - Harm
-  event: !type:CqcSlamPerformedEvent { }
-  extraDamage: 10 #
-  paralyzeTime: 12 # in seconds
+  targetConditions:
+  - !type:ProneCondition
+    inverted: true
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit3.ogg
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 10
+  - !type:TakeStaminaDamage
+    amount: 30
+    immediate: true
+  - !type:ModifyKnockdown
+    type: Set
+    time: 12
 
-
-- type: combo
+- type: martialArtsCombo
   id: CQCKick
   name: Kick
-  martialArtsForm: CloseQuartersCombat
   attacks:
   - Harm
   - Harm
-  event: !type:CqcKickPerformedEvent
-  extraDamage: 10
-  staminaDamage: 25
+  performableOnObjects: true
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit2.ogg
+  - !type:StopPulling
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 10
+  - !type:TakeStaminaDamage
+    amount: 25
+    immediate: true
+  - !type:TakeStaminaDamage # bonus if prone
+    conditions:
+    - !type:ProneCondition
+    amount: 15
+    immediate: true
+  - !type:MartialArtsThrow # if youre wondering how this works, its Magic!
+    thrownSpeed: 7
 
-- type: combo
+- type: martialArtsCombo
   id: CQCRestrain
   name: Restrain
-  martialArtsForm: CloseQuartersCombat
   attacks:
   - Grab
   - Grab
-  event: !type:CqcRestrainPerformedEvent
-  paralyzeTime: 10
-  staminaDamage: 30
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 30
+    immediate: true
+  - !type:ModifyKnockdown
+    type: Set
+    time: 10
 
-- type: combo
+- type: martialArtsCombo
   id: CQCPressure
   name: Pressure
-  martialArtsForm: CloseQuartersCombat
   attacks:
   - Disarm
   - Grab
-  event: !type:CqcPressurePerformedEvent
-  staminaDamage: 65
+  userEffects:
+  - !type:MartialArtsStealItem
+  - !type:StopPulling
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 65
+    immediate: true
 
-- type: combo
+- type: martialArtsCombo
   id: CQCConsecutive
   name: Consecutive
-  martialArtsForm: CloseQuartersCombat
   attacks:
   - Disarm
   - Disarm
   - Harm
-  event: !type:CqcConsecutivePerformedEvent
-  extraDamage: 10
-  staminaDamage: 70
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Weapons/genhit1.ogg
+  - !type:StopPulling
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 10
+  - !type:TakeStaminaDamage # lotta stamina damage if not prone
+    conditions:
+    - !type:ProneCondition
+      inverted: true
+    amount: 70
+    immediate: true
+  - !type:TakeStaminaDamage # if prone, gg
+    conditions:
+    - !type:ProneCondition
+    amount: 145
+    immediate: true
+
+- type: martialArtsCombo
+  id: CQCNeckSnap
+  name: Neck Snap
+  attacks:
+  - Harm
+  userConditions:
+  - !type:ProneCondition
+    inverted: true
+  - !type:GrabStageCondition
+    stage: Suffocate
+  targetConditions:
+  - !type:StaminaCritCondition
+  - !type:MobStateCondition # no magic gib tech
+    mobstate: Dead
+    inverted: true
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 200
+    targetPart: Chest
+  - !type:ModifyStatusEffect
+    conditions:
+    - !type:ProneCondition
+    type: Set
+    time: 10
+    effectProto: StatusEffectForcedSleeping
+
+- type: martialArtsCombo
+  id: CQCLegSweep
+  name: Leg Sweep
+  attacks:
+  - Harm
+  userConditions:
+  - !type:ProneCondition
+  targetConditions:
+  - !type:ProneCondition
+    inverted: true
+  userEffects:
+  - !type:ModifyKnockdown
+    type: Remove
+    time: 5
+  - !type:SetStandingState
+    standing: true
+  - !type:StopPulling
+  targetEffects:
+  - !type:ModifyKnockdown
+    type: Set
+    time: 5

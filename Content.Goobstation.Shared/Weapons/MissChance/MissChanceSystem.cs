@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Random;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
@@ -12,6 +13,7 @@ public sealed partial class MissChanceSystem : EntitySystem
 {
     [Dependency] private INetManager _netManager = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PredictedRandomSystem _predictedRandom = default!;
 
     public override void Initialize()
     {
@@ -22,7 +24,7 @@ public sealed partial class MissChanceSystem : EntitySystem
     private void PreventCollide(Entity<MissChanceComponent> ent, ref PreventCollideEvent args)
     {
         // This piece of goidacode guarantees synchronized random
-        var random = new Random((int) _timing.CurTick.Value + (int) GetNetEntity(ent));
+        var random = _predictedRandom.Random(ent, args.OtherEntity);
 
         if (args.Cancelled
         || !HasComp<MobStateComponent>(args.OtherEntity)

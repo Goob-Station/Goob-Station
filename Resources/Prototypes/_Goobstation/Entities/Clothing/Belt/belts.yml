@@ -76,51 +76,6 @@
     damageCoefficient: 0.05
 
 - type: entity
-  parent: ClothingBeltSecurity
-  id: ClothingBeltCorporateJudo
-  name: Corporate Judo Belt
-  description: Teaches the wearer NT Corporate Judo.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
-  - type: GrantCorporateJudo
-  - type: Storage
-    grid:
-    - 0,0,5,1 #you're not carrying a batong, if you want pure storage go with secbelt
-    whitelist:
-      tags:
-      - CigPack
-      - Taser
-      - SecBeltEquip
-      - Radio
-      - Sidearm
-      - MagazinePistol
-      - MagazineMagnum
-      - CombatKnife
-      - Truncheon
-      - BolaEnergy
-      - EnergySpeedloader
-      - MilitaryPowerCell
-      - EnergyMagAmmo
-      - HandGrenade
-      components:
-      - FlashOnTrigger
-      - SmokeOnTrigger
-      - Flash
-      - Handcuff
-      - BallisticAmmoProvider
-      - CartridgeAmmo
-      - DoorRemote
-      - Whistle
-      - BalloonPopper
-      - ScatteringGrenade
-  - type: GuideHelp
-    guides:
-    - CorporateJudo
-
-- type: entity
   parent: [ ChemBag, BaseSyndicateContraband ]
   id: ClothingBeltChemBagSyndi
   name: syndicate medical pouch

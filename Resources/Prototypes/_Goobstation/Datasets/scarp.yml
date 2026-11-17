@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: SleepingCarpSayings
+  values:
+    prefix: carp-saying-
+    count: 9
+
+- type: localizedDataset
+  id: SleepingCarpSayingsProne
+  values:
+    prefix: carp-saying-prone-
+    count: 6

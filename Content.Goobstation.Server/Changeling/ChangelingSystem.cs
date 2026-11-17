@@ -721,7 +721,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemComp<ThirstComponent>(ent);
         RemComp<CanHostGuardianComponent>(ent);
         RemComp<MartialArtsKnowledgeComponent>(ent);
-        RemComp<CanPerformComboComponent>(ent);
+        RemComp<ComboPerformerComponent>(ent);
         EnsureComp<ZombieImmuneComponent>(ent);
 
         // add actions

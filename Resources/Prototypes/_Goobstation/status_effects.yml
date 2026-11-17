@@ -45,11 +45,6 @@
   alert: DragonPower
   alwaysAllowed: true
 
-- type: statusEffect
-  id: LossOfSurprise
-  alert: LossOfSurprise
-  alwaysAllowed: true
-
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectStaminaResistanceModifier
@@ -63,3 +58,12 @@
   name: melee vulnerability
   components:
   - type: MeleeVulnerabilityStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectNinjutsuLossOfSurprise
+  name: loss of surprise
+  components:
+  - type: StatusEffectAlert
+    alert: LossOfSurprise
+

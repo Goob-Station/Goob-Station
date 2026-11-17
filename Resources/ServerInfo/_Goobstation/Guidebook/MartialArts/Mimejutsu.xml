@@ -1,0 +1,40 @@
+<Document>
+
+  # Mimejutsu
+
+  A technique only practiced by the most robust of mimes.
+
+  ## Special abilities
+
+  None
+
+  ## Combo attacks
+
+  ### Mimechucks
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+ Hits the target with an invisible pair of nunchucks, dealing some stamina damage. Will fail if the target is stunned.
+
+  ### Smoke Bomb 
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+
+  </Box>
+
+  Creates smoke on and around your target, lasting 5 seconds.
+
+  ### Silent Palm
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Throws the target up to 200 tiles away with only a slight touch. Will fail if the target is stunned. 
+</Document>

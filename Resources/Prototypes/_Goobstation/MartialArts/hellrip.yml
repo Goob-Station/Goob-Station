@@ -1,66 +1,110 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: martialArt
   id: HellRip
-  martialArtsForm: HellRip
-  roundstartCombos: HellRipMoves
-  randomDamageModifier: True
-  damageModifierType: Slash
-
-- type: comboList
-  id: HellRipMoves
   combos:
   - DropKick
   - HeadRip
   - Slam
   - TearDown
+  weight: 7
 
-- type: combo
+- type: martialArtsCombo
   id: DropKick
   name: Flying DropKick
-  martialArtsForm: HellRip
   attacks:
   - Disarm
   - Disarm
-  event: !type:HellRipDropKickPerformedEvent
-  damageType: Slash
-  paralyzeTime: 6
-  staminaDamage: 80
-  canDoWhileProne: false
+  userConditions:
+  - !type:ProneCondition
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Effects/demon_attack1.ogg
+  targetEffects:
+  - !type:MartialArtsThrow
+    thrownSpeed: 25
+  - !type:TakeStaminaDamage
+    amount: 80
+    immediate: true
+  - !type:ModifyKnockdown
+    type: Set
+    time: 6
 
-- type: combo
+- type: martialArtsCombo
   id: HeadRip
   name: Head Rip
-  martialArtsForm: HellRip
   attacks:
   - Harm
   - Harm
   - Harm
   - Grab
-  event: !type:HellRipHeadRipPerformedEvent
-  damageType: Slash
-  extraDamage: 100
-  canDoWhileProne: false
+  userConditions:
+  - !type:ProneCondition
+  targetConditions:
+  - !type:MobStateCondition
+    mobstate: Dead
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Effects/gib1.ogg
+  - !type:PlaySoundEffect
+    sound: /Audio/Effects/demon_attack1.ogg
+  - !type:StopPulling
+  targetEffects:
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Slash: 100
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Blunt: 300
+    targetPart: Head
+  - !type:AmputatePart # we make sure
+    partType: Head
 
-- type: combo
+- type: martialArtsCombo
   id: TearDown
   name: Tear Down
-  martialArtsForm: HellRip
   attacks:
   - Harm
   - Disarm
   - Grab
-  event: !type:HellRipTearDownPerformedEvent
-  staminaDamage: 50
-  extraDamage: 60
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Effects/Fluids/blood1.ogg
+  - !type:PlaySoundEffect
+    sound: /Audio/Effects/demon_attack1.ogg
+  - !type:StopPulling
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 40
+    immediate: true
+  - !type:MartialArtsDamage
+    damage:
+      types:
+        Slash: 50
+  - !type:ModifyKnockdown
+    type: Set
+    time: 6
 
-- type: combo
+- type: martialArtsCombo
   id: Slam
   name: Hellish Slam
-  martialArtsForm: HellRip
   attacks:
   - Disarm
   - Harm
-  event: !type:HellRipSlamPerformedEvent
-  paralyzeTime: 8
-  staminaDamage: 100
+  userEffects:
+  - !type:PlaySoundEffect
+    sound: /Audio/Effects/Fluids/blood1.ogg
+  - !type:PlaySoundEffect
+    sound: /Audio/Effects/metal_slam5.ogg
+  - !type:ModifyKnockdown
+    type: Remove
+    time: 5
+  - !type:SetStandingState
+    standing: true
+  targetEffects:
+  - !type:TakeStaminaDamage
+    amount: 100
+    immediate: true
+  - !type:ModifyKnockdown
+    type: Set
+    time: 8

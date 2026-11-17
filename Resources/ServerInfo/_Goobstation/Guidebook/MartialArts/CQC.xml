@@ -3,7 +3,7 @@
   # Close Quarters Combat
 
   <Box>
-    <GuideEntityEmbed Entity="CQCManual" Caption=""/>
+    <GuideEntityEmbed Entity="CQCManualSyndicate" Caption=""/>
   </Box>
 
   Close Quarters Combat, or simply CQC, is a [textlink="martial art" link="MartialArts"] that focuses on swiftly and efficiently

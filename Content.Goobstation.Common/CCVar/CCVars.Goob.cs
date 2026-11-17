@@ -805,6 +805,15 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Martial Arts
+
+    /// <summary>
+    /// If true, the martial arts overlay enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> MartialArtsOverlayEnabled =
+        CVarDef.Create("ui.martial_arts_overlay_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+    #endregion
+
     #region Gun Prediction
 
     /// <summary>

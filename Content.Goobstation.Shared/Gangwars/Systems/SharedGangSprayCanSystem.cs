@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Gangwars.Components;
 using Content.Goobstation.Shared.Gangwars.Events;
+using Content.Goobstation.Shared.Random;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
@@ -26,6 +27,7 @@ public sealed partial class SharedGangSprayCanSystem : EntitySystem
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedChargesSystem _charges = default!;
+    [Dependency] private PredictedRandomSystem _predictedRandom = default!;
 
     public override void Initialize()
     {
@@ -160,8 +162,7 @@ public sealed partial class SharedGangSprayCanSystem : EntitySystem
     private void PlaceSign(ProtoId<WeightedRandomPrototype> signPrototypes, EntityCoordinates location, Color color, EntityUid sprayCan)
     {
         var signs = _proto.Index(signPrototypes);
-        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(sprayCan).Id);
-        var signProto = signs.Pick(new Random(seed));
+        var signProto = signs.Pick(_predictedRandom.Random(sprayCan, null));
         var uid = PredictedSpawnAtPosition(signProto, location);
 
         var gangColor = EnsureComp<GangColorComponent>(uid);

@@ -1,0 +1,46 @@
+<Document>
+
+  # Rage of the Space Bear
+
+  Putting on the pelt connects your mind and body with the raging inferno within the spirits of Foh'Sie and Smoh'Kie.
+  You become immune to fire and your hardened will reduces stuns dealt to you by 20%. (Unfinished)
+  Wild bears are no longer hostile to you as they respect your power. (Unfinished)
+  Your fists grow stronger and nails turn into claws, letting you deal 10 brute damage while replenishing 20 stamina damage with each punch. (Unfinished)
+  Striking a combo only leaves you with newfound adrenaline that reduces the amount of stamina damage you get by 25%.  (Unfinished)
+
+  ## Special abilities
+
+  None
+
+  ## Combo attacks
+
+  ### Bear Jaws
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Bite your opponent like a true lunatic, with even more savagery against knocked down targets. Deals 10 brute damage to standing opponents. If the opponent is knocked down, instead deal 20 damage and regenerate an extra 20 stamina.
+
+  ### Paw Slam 
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+
+  </Box>
+
+  Slap an opponent with a mighty paw, knocking them down. Deals 10 brute damage, 4 seconds of knockdown, and 6 seconds of slowdown. If the opponent is knocked down, instead deal 20 brute damage and 2 seconds of slowdown.
+
+  ### The Smokey
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Mentally channel the occultic fury of Smoh'Kie to set your opponent on fire! Also deals 10 burn damage.
+</Document>

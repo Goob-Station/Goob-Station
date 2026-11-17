@@ -1605,7 +1605,7 @@
   id: UplinkCQCManual
   name: uplink-cqc-name
   description: uplink-cqc-desc
-  productEntity: CQCManual
+  productEntity: CQCManualSyndicate
   cost:
     Telecrystal: 60
   categories:
@@ -1621,7 +1621,7 @@
   id: UplinkCQCManualChef
   name: uplink-cqc-name
   description: uplink-cqc-desc
-  productEntity: CQCManual
+  productEntity: CQCManualSyndicate
   cost:
     Telecrystal: 60
   categories:

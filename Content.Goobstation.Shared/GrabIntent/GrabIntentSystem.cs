@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Grab;
+using Content.Goobstation.Shared.Random;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._White.Grab;
 using Content.Shared.ActionBlocker;
@@ -50,6 +51,7 @@ public sealed partial class GrabIntentSystem : EntitySystem
     [Dependency] private PullingSystem _pulling = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private GrabThrownSystem _grabThrown = default!;
+    [Dependency] private PredictedRandomSystem _predictedRandom = default!;
 
     private readonly SoundPathSpecifier _thudswoosh = new("/Audio/Effects/thudswoosh.ogg");
 

@@ -1,0 +1,237 @@
+- type: entity
+  parent: BaseItem
+  id: CQCManual
+  name: old manual
+  description: A small, blue manual. There are drawn instructions of tactical hand-to-hand combat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    layers:
+    - state: icon-alt
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 3000
+  - type: GrantCqc
+    grantType: Use
+  - type: GuideHelp
+    guides:
+    - CQC
+
+- type: entity
+  parent: [CQCManual, BaseSyndicateContraband]
+  id: CQCManualSyndicate
+  name: old manual
+  description: A small, black manual. There are drawn instructions of tactical hand-to-hand combat.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+
+- type: entity
+  parent: [CQCManual, BaseCommandContraband, BaseGrandTheftContraband]
+  id: CQCManualHOS
+  name: old manual
+  description: A small, red manual. There are drawn instructions of tactical hand-to-hand combat.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-hos
+
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: CapoeiraManual
+  name: choreography manual
+  description: Choreography manual — or so it claims. Every second page ends with someone on the floor, not dancing.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/martial_arts.rsi
+    layers:
+    - state: capoeira
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 3000
+  - type: GrantCapoeira
+    grantType: Use
+  - type: GuideHelp
+    guides:
+    - Capoeira
+
+- type: entity
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: NinjutsuScroll
+  name: ninjutsu scroll
+  description: A green scroll containing some Japanese script. Its lessons are written for those who strike unseen.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/martial_arts.rsi
+    layers:
+    - state: ninjutsu
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 3000
+  - type: GrantNinjutsu
+    grantType: Use
+  - type: GuideHelp
+    guides:
+    - Ninjutsu
+
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: HellRipScroll
+  name: hell ripte scroll
+  description: A dark scroll written in blood. Its text is brief, yet seems endless. You feel an urge to tear flesh and rip heads just by looking at it.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: contract-written
+  - type: Item
+    sprite: _Goobstation/Objects/Misc/devil_contract.rsi
+    size: Small
+  - type: StaticPrice
+    price: 50000
+  - type: GrantHellRip
+  - type: GuideHelp
+    guides:
+    - HellRip
+
+- type: entity
+  parent: [BaseItem, BaseCentcommContraband]
+  id: BSOManual
+  name: Nanotrasen Dragon Kung Fu manual
+  description: A manual with instructions of Dragon Kung Fu, Nanotrasen-approved martial art for elite bodyguards.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/martial_arts.rsi
+    layers:
+    - state: dragon
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 3000
+  - type: GrantKungFuDragon
+    grantType: Use
+  - type: GuideHelp
+    guides:
+    - DragonKungFu
+
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ClothingBeltCorporateJudo
+  name: Corporate Judo Belt
+  description: Teaches the wearer NT Corporate Judo.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+  - type: GrantCorporateJudo
+    grantType: Clothing
+  - type: Storage
+    grid:
+    - 0,0,5,1 #you're not carrying a batong, if you want pure storage go with secbelt
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      - BolaEnergy
+      - EnergySpeedloader
+      - MilitaryPowerCell
+      - EnergyMagAmmo
+      - HandGrenade
+      components:
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - BalloonPopper
+      - ScatteringGrenade
+  - type: GuideHelp
+    guides:
+    - CorporateJudo
+
+- type: entity
+  parent: [ BaseItem ]
+  id: BaseMartialArtsScroll
+  abstract: true
+  name: mysterious scroll
+  description: A scroll filled with strange markings. It seems to be drawings of some sort of martial art.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    layers:
+    - state: scroll2
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    size: Small
+  - type: StaticPrice
+    price: 3000
+
+- type: entity
+  parent: [ BaseMartialArtsScroll, BaseSyndicateContraband ]
+  id: SleepingCarpScroll
+  suffix: Sleeping Carp
+  components:
+  - type: GrantSleepingCarp
+    grantType: Use
+  - type: GuideHelp
+    guides:
+    - SleepingCarp
+
+### unused scrolls, admin spawn:
+
+- type: entity
+  parent: BaseMartialArtsScroll
+  id: CorporateJudoScroll
+  suffix: Corporate Judo
+  components:
+  - type: GrantCorporateJudo
+    grantType: Use
+
+- type: entity
+  parent: BaseMartialArtsScroll
+  id: PlasmaFistScroll
+  suffix: Plasma Fist
+  components:
+  - type: GrantPlasmaFist
+    grantType: Use
+
+- type: entity
+  parent: BaseMartialArtsScroll
+  id: MimejutsuScroll
+  suffix: Mimejutsu
+  components:
+  - type: GrantMimejutsu
+    grantType: Use
+
+- type: entity
+  parent: BaseMartialArtsScroll
+  id: BearFuScroll
+  suffix: Rage of the Space Bear
+  components:
+  - type: GrantBearFu
+    grantType: Use
+
+- type: entity
+  parent: BaseMartialArtsScroll
+  id: AdminFuScroll
+  suffix: Admin Fu
+  name: admin fu scorll
+  description: Debugb duebug debug dbeubgu K
+  components:
+  - type: GrantAdminFu
+    grantType: Use

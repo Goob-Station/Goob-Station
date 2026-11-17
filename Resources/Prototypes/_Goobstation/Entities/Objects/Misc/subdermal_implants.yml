@@ -103,6 +103,29 @@
 
 - type: entity
   parent: BaseSubdermalImplant
+  id: CQCImplant
+  name: cqc implant
+  description: This implant allows the user to perform various CQC moves.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ComponentsImplant
+    added:
+    - type: GrantCqc
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: CQCImplantCentcomm
+  name: cqc implant
+  description: This implant allows the user to perform various CQC moves inside restricted CentComm areas.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ComponentsImplant
+    added:
+    - type: GrantCqc
+      restrictedZones: [ ZoneCentcommQuarters ]
+
+- type: entity
+  parent: BaseSubdermalImplant
   id: AutoinjectorImplant
   name: autoinjector implant
   description: This implant allows the user to inject themselves with a chemical on use. Ephedrine by default.
