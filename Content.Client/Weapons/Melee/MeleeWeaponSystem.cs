@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using System.Numerics;
 using Content.Client.Gameplay;
 using Content.Goobstation.Common.Weapons;
+using Content.Goobstation.Common.Weapons.DelayedDash;
 using Content.Goobstation.Common.Weapons.MeleeDash;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._White.Blink;
@@ -11,6 +10,7 @@ using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
@@ -27,6 +27,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using System.Linq;
+using System.Numerics;
 
 namespace Content.Client.Weapons.Melee;
 
@@ -43,10 +45,12 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!; // Goobstation
 
     private EntityQuery<TransformComponent> _xformQuery;
 
     private const string MeleeLungeKey = "melee-lunge";
+    private bool _delayedDashHeld; // Goobstation
 
     public override void Initialize()
     {
@@ -75,6 +79,11 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         var entity = entityNull.Value;
+
+        if (_inputSystem.CmdStates.GetState(EngineKeyFunctions.UseSecondary) != BoundKeyState.Down)
+        {
+            _delayedDashHeld = false;
+        }
 
         if (TryComp<EntropicPlumeAffectedComponent>(entity, out var affected) &&
             affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
@@ -178,6 +187,19 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                     RaisePredictiveEvent(new MeleeDashEvent(GetNetEntity(weaponUid), direction));
                 return;
             }
+
+            // Goob - Delayed dash
+            if (TryComp(weaponUid, out DelayedDashComponent? _) && _toggle.IsActivated(weaponUid))
+            {
+                if (!_delayedDashHeld)
+                {
+                    _delayedDashHeld = true;
+                    RaisePredictiveEvent(new DelayedDashRequestEvent(GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
+                }
+
+                return;
+            }
+            // Goob end
 
             // Helper func
             Vector2 GetDirection()
