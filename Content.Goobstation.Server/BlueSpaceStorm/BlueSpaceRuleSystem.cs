@@ -19,11 +19,11 @@ namespace Content.Goobstation.Server.StationEvents.Events;
 public sealed partial class BluespaceStormRuleSystem :
     StationEventSystem<BluespaceRuleComponent>
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly SharedMapSystem _mapsys = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private SharedMapSystem _mapsys = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     protected override void Started(EntityUid uid, BluespaceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

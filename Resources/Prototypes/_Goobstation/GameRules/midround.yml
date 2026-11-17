@@ -743,7 +743,7 @@
     weight: 1
     earliestStart: 30
     minimumPlayers: 20
-    maxOccurrences: 2
+    maxOccurrences: 1
     eventType: Chaotic
   - type: GameRule
     chaosScore: 250

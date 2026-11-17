@@ -28,25 +28,25 @@ using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.BluespaceStorm;
 
-public sealed class BluespaceStormSystem : EntitySystem
+public sealed partial class BluespaceStormSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly StepTriggerSystem _step = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!; 
-    [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private StepTriggerSystem _step = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ITileDefinitionManager _tiledef = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private GunSystem _gun = default!;
 
     private HashSet<EntityUid> _entities = new(); 
     private EntityQuery<PhysicsComponent> _physQuery; 
@@ -144,7 +144,7 @@ public sealed class BluespaceStormSystem : EntitySystem
                     for (int i = 0; i < _random.Next(2, 7); i++)
                     {
                         EntityUid spawnedMaterial = new();
-                        switch (_random.Next(0, 11))
+                        switch (_random.Next(0, 4))
                         {
                             case 0:
                                 spawnedMaterial = Spawn("Ash", origin);
@@ -157,27 +157,6 @@ public sealed class BluespaceStormSystem : EntitySystem
                                 break;
                             case 3:
                                 spawnedMaterial = Spawn("OreCoal", origin);
-                                break;
-                            case 4:
-                                spawnedMaterial = Spawn("CrystalGreen", origin);
-                                break;
-                            case 5:
-                                spawnedMaterial = Spawn("CrystalPink", origin);
-                                break;
-                            case 6:
-                                spawnedMaterial = Spawn("CrystalOrange", origin);
-                                break;
-                            case 7:
-                                spawnedMaterial = Spawn("CrystalBlack", origin);
-                                break;
-                            case 8:
-                                spawnedMaterial = Spawn("CrystalBlue", origin);
-                                break;
-                            case 9:
-                                spawnedMaterial = Spawn("CrystalYellow", origin);
-                                break;
-                            case 10:
-                                spawnedMaterial = Spawn("CrystalCyan", origin);
                                 break;
                         }
                         _physics.ApplyLinearImpulse(spawnedMaterial, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
