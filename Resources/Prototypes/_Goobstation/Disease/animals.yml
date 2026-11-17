@@ -17,6 +17,7 @@
     possibleTypes:
     - Bacterial
     - Viral
+    - Parasite
   - type: DiseaseOnHit
     spreadParams:
       chance: 0.33 # higher chance for plague mice
@@ -34,4 +35,18 @@
     spreadParams:
       chance: 1
       power: 2
+      spreadType: Blood
+
+- type: entity
+  name: bee
+  suffix: Angry, disease, Beesease
+  parent: [ MobAngryBee ]
+  id: MobDiseaseAngryBee
+  description: How nice a bee. Oh no, it looks angry and wants my pizza.
+  components:
+  - type: DiseaseOnHit
+    disease: DiseaseBeesease
+    spreadParams:
+      chance: 0.2
+      power: 1
       spreadType: Blood
