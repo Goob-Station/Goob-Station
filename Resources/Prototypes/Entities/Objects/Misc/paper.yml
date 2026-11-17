@@ -5,7 +5,8 @@
   id: BasePaper
   abstract: true
   components:
-  # Goobstation edit start
+  # <Goob>
+  - type: Shreddable
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/paper_pickup.ogg
@@ -31,7 +32,7 @@
       path: /Audio/_Goobstation/Items/handling/paper_throw.ogg
       params:
         volume: -6
-  # Goobstation edit end
+  # </Goob>
   - type: Tag
     tags:
     - Document
