@@ -497,3 +497,54 @@
   - type: Battery
     maxCharge: 800
     startingCharge: 800
+
+- type: entity
+  name: PM-9 Peacemaker Smart Rifle
+  parent: [BaseWeaponBattery, BaseSecurityContraband]
+  id: WeaponEnergyRiflePeacemaker
+  description: A research-grade smart rifle with selectable firing modes. Fires proprietary SR rounds.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/peacemaker.rsi # TO DO: New sprite
+    layers:
+    - state: icon
+      map:
+      - enum.GunVisualLayers.Base
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/peacemaker.rsi
+  - type: Item
+    size: Huge
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: GunRequiresWield
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatteryAmmoProvider
+    proto: BulletEnergyGunLaser
+    fireCost: 100
+  - type: AmmoSelector
+    prototypes:
+    - BulletEnergyGunLaser
+    - BulletEnergyGunDetain
+    - BulletEnergyGunHotshot
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    wieldToggle: false
+  - type: ItemToggleColor
+  - type: Appearance
+  - type: StaticPrice
+    price: 600
