@@ -1,0 +1,107 @@
+- type: entity
+  abstract: true
+  id: BaseSpaceDragonSkeleton
+  parent: BaseStructure
+  name: space dragon skeleton
+  description: The picked-clean remains of a space dragon. Its teeth are still intact.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/spacedragon_skeleton.rsi
+    state: dragon-skeleton
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+
+- type: entity
+  parent: BaseSpaceDragonSkeleton
+  id: SpaceDragonSkeleton
+  suffix: dragon tooth, 100%
+  components:
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: WeaponDragonTooth
+      amount: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          WeaponDragonTooth:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts:
+        - Destruction
+
+- type: entity
+  parent: BaseSpaceDragonSkeleton
+  id: SpaceDragonSkeleton25
+  suffix: dragon tooth, 25%
+  components:
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: WeaponDragonTooth
+      amount: 1
+      prob: 0.25
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          DragonToothSpawner25:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts:
+        - Destruction
+
+- type: entity
+  parent: BaseSpaceDragonSkeleton
+  id: SpaceDragonSkeleton0
+  components:
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: WeaponDragonTooth
+      amount: 1
+      prob: 0
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts:
+        - Destruction
+
+# Bcuz no % chance in spawnbehavior
+- type: entity
+  parent: MarkerBase
+  id: DragonToothSpawner25
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - WeaponDragonTooth
+    chance: 0.25
+    offset: 0.2
