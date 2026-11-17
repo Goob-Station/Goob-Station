@@ -27188,3 +27188,17 @@ Entries:
       message: guns now fire slightly farther from your character's center
   id: 3043
   time: '2026-11-17T02:30:22.0000000+00:00'
+- author: TechnicFighter
+  changes:
+    - type: Add
+      message: Added Plasmaman insuls
+    - type: Add
+      message: Added Plasmaman bluespace gloves
+    - type: Add
+      message: Added Plasmaman Krav Maga gloves
+    - type: Tweak
+      message: The Engivend now has plasmamen envirogloves insuls
+    - type: Fix
+      message: Plasmamen are no longer unable to put weapons in their suitStorage
+  id: 3044
+  time: '2026-11-17T02:40:57.0000000+00:00'
