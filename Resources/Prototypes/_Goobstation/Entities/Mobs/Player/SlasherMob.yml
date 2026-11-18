@@ -166,6 +166,7 @@
     - type: SlasherStaggerArea
     - type: SlasherRelentlessGrab
     - type: SlasherRegenerate
+    - type: SlasherPassiveHeal
     - type: SlasherFear
     - type: SlasherSoulSteal
     - type: SlasherSummonMeatSpike

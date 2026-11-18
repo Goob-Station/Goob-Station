@@ -13,14 +13,25 @@ namespace Content.Goobstation.Server.StationEvents.GameDirector;
 public sealed partial class GameDirectorSystem
 {
     private static readonly ProtoId<EventTypePrototype> HostilesSpawnEventType = "HostilesSpawn";
+    private static readonly List<DirectorEventGroupPrototype> NoGroups = new();
 
-    private void SetupEvents(Entity<GameDirectorComponent> ent)
+    private Dictionary<EntProtoId, List<DirectorEventGroupPrototype>>? _eventGroups;
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        if (args.WasModified<DirectorEventGroupPrototype>())
+            _eventGroups = null;
+    }
+
+    private void SetupEvents(Entity<GameDirectorComponent> ent, StoryPrototype story)
     {
         var scheduler = ent.Comp;
         scheduler.PossibleEvents.Clear();
 
-        if (TryComp<SelectedGameRulesComponent>(ent, out var selectedRules))
-            SelectFromTable(scheduler, selectedRules);
+        if (story.Events is { } events)
+            SelectFromTable(scheduler, _entityTable.GetSpawns(_prototypeManager.Index(events)));
+        else if (TryComp<SelectedGameRulesComponent>(ent, out var selectedRules))
+            SelectFromTable(scheduler, _entityTable.GetSpawns(selectedRules.ScheduledGameRules));
         else
             SelectFromAllEvents(scheduler);
 
@@ -32,17 +43,18 @@ public sealed partial class GameDirectorSystem
     {
         foreach (var (proto, stationEvent) in _event.AllEvents())
         {
-            if (stationEvent.IsSelectable)
+            if (stationEvent.IsSelectable && !IsThreatRule(scheduler, proto.ID))
                 scheduler.PossibleEvents.Add(CreatePossibleEvent(proto, stationEvent));
         }
     }
 
-    private void SelectFromTable(GameDirectorComponent scheduler, SelectedGameRulesComponent selectedRules)
+    private void SelectFromTable(GameDirectorComponent scheduler, IEnumerable<EntProtoId> spawns)
     {
         var seen = new HashSet<EntProtoId>();
-        foreach (var id in _entityTable.GetSpawns(selectedRules.ScheduledGameRules))
+        foreach (var id in spawns)
         {
             if (!seen.Add(id)
+                || IsThreatRule(scheduler, id)
                 || !_prototypeManager.TryIndex(id, out var proto)
                 || proto.Abstract
                 || !proto.TryComp<StationEventComponent>(out var stationEvent, _factory))
@@ -91,23 +103,43 @@ public sealed partial class GameDirectorSystem
         return required;
     }
 
-    private static float Score(ChaosMetrics chaos)
+    private float Benefit(GameDirectorComponent scheduler, ChaosMetrics desired, ChaosMetrics change, float popScale)
     {
-        return chaos.ChaosDict.Values.Sum(v => (float) v * (float) v);
+        var benefit = 0f;
+        foreach (var (metric, want) in desired.ChaosDict)
+        {
+            var scale = MetricScale(scheduler, metric, popScale);
+            var wanted = (float) want / scale;
+            var residual = wanted - (float) change.ChaosDict.GetValueOrDefault(metric) / scale;
+            var penalty = residual != 0f && MathF.Sign(residual) != MathF.Sign(wanted) ? scheduler.OvershootPenalty : 1f;
+            benefit += wanted * wanted - penalty * residual * residual;
+        }
+
+        return benefit;
+    }
+
+    private static float MetricScale(GameDirectorComponent scheduler, ChaosMetric metric, float popScale)
+    {
+        var scale = scheduler.MetricScales.GetValueOrDefault(metric, 100f);
+        if (scheduler.PopulationScaledMetrics.Contains(metric))
+            scale *= popScale;
+
+        return MathF.Max(1f, scale);
     }
 
     private PossibleEvent? ChooseEvent(Entity<GameDirectorComponent> ent,
         StoryBeatPrototype beat,
         ChaosMetrics goal,
         ChaosMetrics chaos,
-        PlayerCount count)
+        PlayerCount count,
+        bool relaxing)
     {
         var scheduler = ent.Comp;
-        if (beat.AllowReinforcements && TryChooseReinforcement(scheduler, beat, count) is { } reinforcement)
+        if ((beat.AllowReinforcements || relaxing) && TryChooseReinforcement(scheduler, beat, count, relaxing) is { } reinforcement)
             return reinforcement;
 
         var desiredChange = goal.ExclusiveSubtract(chaos);
-        var noEventScore = Score(desiredChange);
+        var popScale = PopulationScale(scheduler, count);
         var now = _timing.CurTime;
         var roundDuration = GameTicker.RoundDuration();
 
@@ -117,29 +149,29 @@ public sealed partial class GameDirectorSystem
         foreach (var possibleEvent in scheduler.PossibleEvents)
         {
             if (possibleEvent.Reinforces.Count > 0
-                || !CanDirectorRun(scheduler, beat, possibleEvent, count, roundDuration))
+                || !CanDirectorRun(scheduler, beat, possibleEvent, count, roundDuration, relaxing))
                 continue;
 
             var repeat = RepeatMultiplier(scheduler, possibleEvent.StationEvent, now);
 
             if (possibleEvent.Chaos.Empty)
             {
-                if (beat.AllowCalmEvents && possibleEvent.EventType != HostilesSpawnEventType)
+                if (beat.AllowCalmEvents && !relaxing && possibleEvent.EventType != HostilesSpawnEventType)
                     calm.Add(new RankedEvent(possibleEvent, possibleEvent.Weight * repeat));
                 continue;
             }
 
-            var benefit = noEventScore - Score(desiredChange.ExclusiveSubtract(possibleEvent.Chaos));
+            var benefit = Benefit(scheduler, desiredChange, possibleEvent.Chaos, popScale);
             if (benefit <= 0)
                 continue;
 
-            ranked.Add(new RankedEvent(possibleEvent, benefit * repeat));
+            ranked.Add(new RankedEvent(possibleEvent, benefit * repeat * SpotlightMultiplier(scheduler, possibleEvent, count, now)));
         }
 
         if (ranked.Count > 0)
         {
             var best = ranked.OrderByDescending(r => r.Score).Take(beat.RandomEventLimit).ToList();
-            var picked = PickWeighted(best, r => r.Score * r.PossibleEvent.Weight);
+            var picked = PickWeighted(best, r => r.Score * r.PossibleEvent.Weight).PossibleEvent;
             LogMessage($"Picked {picked.StationEvent} from best events (in sequence) {string.Join(", ", best.Select(r => r.PossibleEvent.StationEvent))}");
             return picked;
         }
@@ -147,12 +179,12 @@ public sealed partial class GameDirectorSystem
         if (calm.Count == 0)
             return null;
 
-        var calmPick = PickWeighted(calm, r => r.Score);
+        var calmPick = PickWeighted(calm, r => r.Score).PossibleEvent;
         LogMessage($"Picked calm event {calmPick.StationEvent}, nothing moves chaos towards the goal");
         return calmPick;
     }
 
-    private PossibleEvent? TryChooseReinforcement(GameDirectorComponent scheduler, StoryBeatPrototype beat, PlayerCount count)
+    private PossibleEvent? TryChooseReinforcement(GameDirectorComponent scheduler, StoryBeatPrototype beat, PlayerCount count, bool relaxing)
     {
         var now = _timing.CurTime;
         if (scheduler.LastReinforcement != TimeSpan.Zero
@@ -171,7 +203,7 @@ public sealed partial class GameDirectorSystem
 
             var threshold = Math.Max(1, (int) MathF.Round(possibleEvent.UnderstaffedBelow * scale));
             var understaffed = possibleEvent.Reinforces.Where(d => count.Staff(d) < threshold).ToList();
-            if (understaffed.Count == 0 || !CanDirectorRun(scheduler, beat, possibleEvent, count, roundDuration))
+            if (understaffed.Count == 0 || !CanDirectorRun(scheduler, beat, possibleEvent, count, roundDuration, relaxing))
                 continue;
 
             needed.UnionWith(understaffed);
@@ -182,7 +214,7 @@ public sealed partial class GameDirectorSystem
         if (candidates.Count == 0)
             return null;
 
-        var picked = PickWeighted(candidates, r => r.Score);
+        var picked = PickWeighted(candidates, r => r.Score).PossibleEvent;
         scheduler.LastReinforcement = now;
         LogMessage($"Understaffed: {string.Join(", ", needed.Select(d => $"{d} ({count.Staff(d)})"))}. Sending {picked.StationEvent}");
         return picked;
@@ -192,13 +224,14 @@ public sealed partial class GameDirectorSystem
         StoryBeatPrototype beat,
         PossibleEvent possibleEvent,
         PlayerCount count,
-        TimeSpan roundDuration)
+        TimeSpan roundDuration,
+        bool relaxing)
     {
         if (possibleEvent.Destruction > beat.MaxDestruction
             || possibleEvent.Destruction > scheduler.DestructionBudget
             || possibleEvent.RequiredGhosts > count.Ghosts
             || beat.BlockedEventTypes.Contains(possibleEvent.EventType)
-            || beat.HelpOnly && possibleEvent.Chaos.ChaosDict.Values.Any(v => v > 0)
+            || (beat.HelpOnly || relaxing) && possibleEvent.Chaos.ChaosDict.Values.Any(v => v > 0)
             || IsHelpEvent(possibleEvent) && OnHelpCooldown(scheduler)
             || !HasResponders(scheduler, possibleEvent.Chaos, count)
             || possibleEvent.RequiresStaff.Any(d => count.Staff(d) < scheduler.MinResponders))
@@ -235,33 +268,96 @@ public sealed partial class GameDirectorSystem
 
     private float RepeatMultiplier(GameDirectorComponent scheduler, EntProtoId stationEvent, TimeSpan now)
     {
+        var groups = EventGroups(stationEvent);
         var multiplier = 1f;
         foreach (var fired in scheduler.FiredEvents)
         {
-            if (fired.Event != stationEvent)
+            var age = (now - fired.Time) * _event.EventSpeedup;
+            if (fired.Event == stationEvent)
+            {
+                multiplier *= Recovery(scheduler.RepeatFactor, age, scheduler.RepeatWindow);
                 continue;
+            }
 
-            var progress = (float) Math.Clamp((now - fired.Time) * _event.EventSpeedup / scheduler.RepeatWindow, 0.0, 1.0);
-            multiplier *= scheduler.RepeatFactor + (1f - scheduler.RepeatFactor) * progress;
+            foreach (var group in groups)
+            {
+                if (group.Events.Contains(fired.Event))
+                    multiplier *= Recovery(group.Factor, age, group.Window);
+            }
         }
 
         return multiplier;
     }
 
-    private PossibleEvent PickWeighted(List<RankedEvent> events, Func<RankedEvent, float> weight)
+    private static float Recovery(float factor, TimeSpan age, TimeSpan window)
     {
-        var total = events.Sum(e => Math.Max(0f, weight(e)));
-        if (total <= 0f)
-            return _random.Pick(events).PossibleEvent;
+        var progress = (float) Math.Clamp(age / window, 0.0, 1.0);
+        return factor + (1f - factor) * progress;
+    }
 
-        var roll = _random.NextFloat(total);
-        foreach (var rankedEvent in events)
+    private List<DirectorEventGroupPrototype> EventGroups(EntProtoId stationEvent)
+    {
+        if (_eventGroups == null)
         {
-            roll -= Math.Max(0f, weight(rankedEvent));
-            if (roll <= 0f)
-                return rankedEvent.PossibleEvent;
+            _eventGroups = new Dictionary<EntProtoId, List<DirectorEventGroupPrototype>>();
+            foreach (var group in _prototypeManager.EnumeratePrototypes<DirectorEventGroupPrototype>())
+            {
+                foreach (var member in group.Events)
+                {
+                    if (!_eventGroups.TryGetValue(member, out var list))
+                        _eventGroups[member] = list = new List<DirectorEventGroupPrototype>();
+
+                    list.Add(group);
+                }
+            }
         }
 
-        return events[^1].PossibleEvent;
+        return _eventGroups.TryGetValue(stationEvent, out var groups) ? groups : NoGroups;
+    }
+
+    private TimeSpan MaxGroupWindow()
+    {
+        var max = TimeSpan.Zero;
+        foreach (var group in _prototypeManager.EnumeratePrototypes<DirectorEventGroupPrototype>())
+        {
+            if (group.Window > max)
+                max = group.Window;
+        }
+
+        return max;
+    }
+
+    private float SpotlightMultiplier(GameDirectorComponent scheduler, PossibleEvent possibleEvent, PlayerCount count, TimeSpan now)
+    {
+        var idle = 0f;
+        foreach (var (metric, value) in possibleEvent.Chaos.ChaosDict)
+        {
+            if (value <= 0
+                || !scheduler.SpotlightDepartments.TryGetValue(metric, out var department)
+                || count.Staff(department) < scheduler.MinResponders
+                || !scheduler.LastSpotlight.TryGetValue(department, out var last))
+                continue;
+
+            idle = MathF.Max(idle, (float) Math.Clamp((now - last) * _event.EventSpeedup / scheduler.SpotlightWindow, 0.0, 1.0));
+        }
+
+        return 1f + scheduler.SpotlightBonus * idle;
+    }
+
+    private T PickWeighted<T>(IReadOnlyList<T> items, Func<T, float> weight)
+    {
+        var total = items.Sum(e => Math.Max(0f, weight(e)));
+        if (total <= 0f)
+            return _random.Pick(items);
+
+        var roll = _random.NextFloat(total);
+        foreach (var item in items)
+        {
+            roll -= Math.Max(0f, weight(item));
+            if (roll <= 0f)
+                return item;
+        }
+
+        return items[^1];
     }
 }
