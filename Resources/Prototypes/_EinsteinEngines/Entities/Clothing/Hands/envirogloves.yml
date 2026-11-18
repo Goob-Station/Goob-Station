@@ -693,13 +693,21 @@
     fiberColor: fibers-red
 
 - type: entity
-  parent: [ ClothingHandsGlovesColorYellowBase, ClothingHandsGlovesEnviroglovesBase ]
+  parent: [ ClothingHandsGlovesEnviroglovesBase, ClothingHandsGlovesColorYellowBase ]
   id: ClothingHandsGlovesEnviroglovesColorYellow
   name: insulated envirogloves
   description: These gloves will protect the wearer from electric shocks. Covers up those scandalous boney hands.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Shock: 0.75
 
 - type: entity
-  parent: [ ClothingHandsGlovesSurgical, ClothingHandsGlovesEnviroglovesBase ]
+  parent: [ ClothingHandsGlovesEnviroglovesBase, ClothingHandsGlovesSurgical ]
   id: ClothingHandsGlovesEnviroglovesSurgical
   name: bluespace surgical envirogloves
   description: These experimental gloves utilize bluespace technology to allow their user to perform surgery through clothing. Covers up those scandalous boney hands.
@@ -708,7 +716,7 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/surgery_gloves.rsi
 
 - type: entity
-  parent: [ ClothingHandsGlovesKravMaga, ClothingHandsGlovesEnviroglovesBase ]
+  parent: [ ClothingHandsGlovesEnviroglovesBase, ClothingHandsGlovesKravMaga ]
   id: ClothingHandsGlovesEnviroglovesKravMaga
   name: Krav Maga envirogloves
   description: These gloves can teach you to perform Krav Maga using nanochips for as long as you're wearing them. Covers up those scandalous boney hands.
