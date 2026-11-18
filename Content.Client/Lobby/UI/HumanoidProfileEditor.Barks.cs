@@ -18,7 +18,7 @@ public sealed partial class HumanoidProfileEditor
             PlayPreviewBark();
         };
 
-        BarkVoicePlayButton.OnPressed += _ => PlayPreviewBark();
+        BarkVoiceButton.OnPlayPressed += id => PlayPreviewBark(_barkPrototypes[id]);
     }
 
     private void UpdateBarkVoice()
@@ -53,12 +53,11 @@ public sealed partial class HumanoidProfileEditor
         SetBarkVoice(_barkPrototypes[selectedBarkId]);
     }
 
-    private void PlayPreviewBark()
+    private void PlayPreviewBark(BarkPrototype? bark = null)
     {
         if (Profile is null)
             return;
-
-        var ev = new PreviewBarkEvent(Profile.BarkVoice);
+        var ev = new PreviewBarkEvent(bark?.ID ?? Profile.BarkVoice.Id);
         _entManager.EventBus.RaiseEvent(EventSource.Local, ref ev);
     }
 }

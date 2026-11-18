@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "dragon eyes sprites created by Cinnabar-Furrofin (GitHub). Ported from https://github.com/Sector-Umbra/sector-umbra/tree/58f7e454941dc71e00166c60a09063b9e8378d56/Resources/Textures/_Moffstation/Mobs/Customization/Reptilian/dragon_eye.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tattoo_eye_dragon_shadow",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_eye_dragon_color",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise edited by Floofers, extra fluffy tail by orsonik. possum, raccoon-down, raccoon-up, skunk, by hanz5579 (Discord). Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42/Resources/Textures/_Starlight/Mobs/Customization/vulpkanin/tail_markings.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "long",
+      "directions": 4
+    },
+    {
+      "name": "long-tip",
+      "directions": 4
+    },
+    {
+      "name": "fennec",
+      "directions": 4
+    },
+    {
+      "name": "fluffy",
+      "directions": 4
+    },
+    {
+      "name": "fluffy_tail_ex",
+      "directions": 4
+    },
+    {
+      "name": "possum",
+      "directions": 4
+    },
+    {
+      "name": "raccoon",
+      "directions": 4
+    },
+    {
+      "name": "raccoon-stripes",
+      "directions": 4
+    },
+    {
+      "name": "skunk",
+      "directions": 4
+    },
+    {
+      "name": "skunk-top",
+      "directions": 4
+    }
+  ]
+}

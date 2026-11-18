@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by Discord gravastardragon (662064921151930389). Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_HL/Mobs/Customization/Synth/Orchids/head.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "core",
+      "directions": 4
+    },
+    {
+      "name": "fracture",
+      "directions": 4
+    },
+    {
+      "name": "streak",
+      "directions": 4
+    }
+  ]
+}

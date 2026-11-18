@@ -57,6 +57,7 @@
   target: Woundable
   blocksHealing: true
   traumaEntity: TraumaShrapnel
+  maxPerBody: 3
   causes:
   - !type:ExplosionCause
     minDamage: 40

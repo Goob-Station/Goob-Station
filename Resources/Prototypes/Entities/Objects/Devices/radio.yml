@@ -9,7 +9,10 @@
   - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: Handheld
+    toggleOnInteract: false # Nuclear-14
+    frequency: 1330 # Nuclear-14
   - type: RadioSpeaker
+    toggleOnInteract: false # Nuclear-14
     channels:
     - Handheld
   - type: ListenBlacklist # Goobstation - annoying as shit
@@ -30,6 +33,12 @@
   - type: Tag
     tags:
     - Radio
+  - type: ActivatableUI # Nuclear-14 start
+    key: enum.HandheldRadioUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HandheldRadioUiKey.Key:
+        type: HandheldRadioBoundUserInterface # Nuclear-14 start
 
 - type: entity
   name: security radio

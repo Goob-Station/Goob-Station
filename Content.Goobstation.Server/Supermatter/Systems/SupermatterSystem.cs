@@ -391,7 +391,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
         var moles = absorbedGas.TotalMoles;
 
-        var totalDamage = 0f;
+        var totalDamage = sm.Damage;
 
         var tempThreshold = Atmospherics.T0C + sm.HeatPenaltyThreshold;
 
@@ -440,7 +440,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             break;
         }
 
-        sm.Damage = Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DelaminationPoint, totalDamage);
+        sm.Damage = Math.Max(Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DelaminationPoint, totalDamage), 0f);
 
         // Return the manipulated gas back to the mix
         _atmosphere.Merge(mix, absorbedGas);

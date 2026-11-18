@@ -77,7 +77,7 @@ namespace Content.Server._DV.CosmicCult;
 /// <summary>
 /// Where all the main stuff for Cosmic Cultists happens.
 /// </summary>
-public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponent>
+public sealed partial class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponent> // Goob - partial
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
@@ -218,6 +218,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (component.Tier3DelayTimer is { } tier3Timer && _timing.CurTime >= tier3Timer)
         {
             component.Tier3DelayTimer = null;
+            component.EvacBlockEnd = _timing.CurTime + component.EvacBlockDuration; // Goob
 
             //do spooky things
             var query = EntityQueryEnumerator<CosmicCultComponent>();
@@ -287,17 +288,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _monument.SetCanTierUp(component.MonumentInGame, true);
             UpdateCultData(component.MonumentInGame); //instantly go up a tier if they manage it
             _ui.SetUiState(component.MonumentInGame.Owner, MonumentKey.Key, new MonumentBuiState(component.MonumentInGame.Comp)); //not sure if this is needed but I'll be safe
-        }
-        //  Goobstation: Recalls Shuttle if Tier 3 and Cultists Alive
-        if (component.CurrentTier >= 3
-            && _roundEnd.ExpectedCountdownEnd != null
-            && CultistsAlive()) // Goobstation - Check for cultists alive (prevent infinite recall)
-        {
-            foreach (var station in _station.GetStations())
-            {
-                _roundEnd.CancelRoundEndCountdown(forceRecall: true);
-                _chatSystem.DispatchStationAnnouncement(station, Loc.GetString("cult-alert-recall-shuttle"), colorOverride: Color.FromHex("#4cabb3"));
-            }
         }
     }
 

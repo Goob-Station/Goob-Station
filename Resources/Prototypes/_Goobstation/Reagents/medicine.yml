@@ -91,7 +91,7 @@
           min: 20
         key: Stutter
         component: StutteringAccent
-      - !type:GenericStatusEffect # go to sleep once cycle elapses
+      - !type:ModifyStatusEffect # go to sleep once cycle elapses
         conditions:
         - !type:StaminaDamageThreshold
           min: 100
@@ -101,8 +101,7 @@
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [ Yowie ]
           inverted: true
-        key: ForcedSleep
-        component: ForcedSleeping
+        effectProto: StatusEffectForcedSleeping
         type: Add
         time: 10
       - !type:TakeStaminaDamage

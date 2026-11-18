@@ -1,0 +1,41 @@
+# Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f
+
+- type: marking
+  id: RMCUnderwearBriefs
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/underwear.rsi
+    state: c_briefs
+
+- type: marking
+  id: RMCUnderwearLowriders
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/underwear.rsi
+    state: c_lowriders
+
+- type: marking
+  id: RMCUnderwearSatin
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/underwear.rsi
+    state: c_satin
+
+- type: marking
+  id: RMCUnderwearTanga
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  forcedColoring: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/underwear.rsi
+    state: classic_tanga

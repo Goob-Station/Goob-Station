@@ -28,6 +28,8 @@
     reoccurrenceDelay: 30
     minimumPlayers: 4
     duration: null
+    chaos:
+      Hostile: 25
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner

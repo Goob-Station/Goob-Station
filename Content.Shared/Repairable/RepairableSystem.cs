@@ -34,7 +34,7 @@ public sealed partial class RepairableSystem : EntitySystem
             return;
 
         var ipcSaysMoreRepairies = false; // Goob
-        var isBody = HasComp<BodyComponent>(ent); // Goob
+        var isBody = UsesPartRepair(ent); // Goob
         if (isBody) // Goob
             ipcSaysMoreRepairies = GoobTryRepairIPC(ent, args.User);
         else if (ent.Comp.DamageValue != null)

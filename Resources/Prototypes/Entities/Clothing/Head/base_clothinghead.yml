@@ -203,6 +203,8 @@
       NerveDamage: 0
   - type: GroupExamine
   - type: IngestionBlocker
+  - type: GlowShielding # Goobstation - hardsuit helmet moderately dims the plasmaman body glow
+    reduction: 0.3
   - type: Tag
     tags:
     - WhitelistChameleon

@@ -1,0 +1,10 @@
+#Secoff
+- type: loadout
+  id: SecurityOfficerMk58
+  dummyEntity: WeaponPistolMk58
+  equipment:
+    pocket1: WeaponPistolMk58
+  storage:
+    back:
+    - MagazinePistol
+  groupBy: "Main weapon"

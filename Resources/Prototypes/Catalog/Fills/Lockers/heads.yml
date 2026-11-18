@@ -4,6 +4,7 @@
   id: LockerFillQuarterMaster
   table: !type:AllSelector
     children:
+    - id: ModsuitPlatingLoader # Goob
     - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
     - id: BoxQMCircuitboards
@@ -34,6 +35,7 @@
   id: LockerFillCaptainNoLaser
   table: !type:AllSelector
     children:
+    - id: ModsuitPlatingCaptain # Goob
     - id: CaptainIDCard
     - id: CigarGoldCase
       prob: 0.25
@@ -70,7 +72,7 @@
   id: FillCaptainHardsuit
   table: !type:AllSelector
     children:
-    - id: UndeterminedVoidsuitCaptain # Goobstation - Modsuit Update
+    - id: ClothingOuterHardsuitCap
     - id: ClothingMaskGasCaptain
     - id: JetpackCaptainFilled
     - id: OxygenTankFilled
@@ -135,12 +137,11 @@
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
-    - id: ComputerFundingAllocationFlatpack # Goobstation
-    - id: ComputerCargoRequestServiceFlatpack # Goobstation
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
     - id: CommandMegaphone # goob - loudspeakers
+    - id: ShredderFlatpack # Goob
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -301,6 +302,7 @@
   id: LockerFillResearchDirectorNoHardsuit
   table: !type:AllSelector
     children:
+    - id: ModsuitPlatingRD # Goob
     - id: Intellicard
     - id: BoxEncryptionKeyScience
     - id: BoxRDCircuitboards
@@ -325,7 +327,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskBreath
-    - id: UndeterminedVoidsuitRD
+    - id: ClothingOuterHardsuitRd
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
 
@@ -360,6 +362,7 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
+    - id: ModsuitPlatingHeadOfSecurity # Goob
    # - id: WeaponEnergyMagnum # Goobstation - Remove Energy Magnum
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
@@ -389,7 +392,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: UndeterminedVoidsuitHeadOfSecurity # Goob edit
+    - id: ClothingOuterHardsuitSecurityRed
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
     - id: NitrogenTankFilled

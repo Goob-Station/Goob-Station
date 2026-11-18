@@ -8,6 +8,7 @@ using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Camera;
+using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
@@ -49,6 +50,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IStateManager _state = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -225,11 +227,13 @@ public sealed partial class GunSystem : SharedGunSystem
 
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
 
+
         RaisePredictiveEvent(new RequestShootEvent
         {
             Target = target,
             Coordinates = GetNetCoordinates(coordinates),
             Gun = GetNetEntity(gun),
+            Continuous = _cfg.GetCVar(CCVars.ControlHoldToAttackRanged),
         });
     }
 

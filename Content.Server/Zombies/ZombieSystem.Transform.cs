@@ -54,7 +54,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mech.Components;
 using Content.Server.Mech.Systems;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 
 namespace Content.Server.Zombies;
@@ -148,7 +148,8 @@ public sealed partial class ZombieSystem
             Forced = true,
             Inventory = PolymorphInventoryChange.Transfer,
             RevertOnCrit = false,
-            RevertOnDeath = false
+            RevertOnDeath = false,
+            IgnoreAllowRepeatedMorphs = true, // Goob - zombify already-polymorphed mobs like upgraded bingles
         };
 
         if (_polymorph.PolymorphEntity(target, polyConfig) is not { } zombie)

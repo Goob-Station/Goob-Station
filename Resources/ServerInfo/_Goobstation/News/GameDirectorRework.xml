@@ -1,0 +1,43 @@
+<Document>
+  # The Game Director Got Fixed (Hopefully)
+
+  [italic]TL;DR: The Guide was a complete piece of shit and was spamming meteors and rods constantly, would never actually run its attacks, and ended most rounds early. It has been rebuilt to read the station properly, pace rounds toward about 90 minutes, and actually send help when your department is getting fucked. There are two new director modes, The Tempest and The Watcher. [bold]Every other gamemode is temporarily disabled[/bold] so I can collect clean metrics on the director and keep improving it. Let me know how your rounds feel![/italic]
+
+  ## What's changing for you
+
+  - [bold]Four director modes are in rotation:[/bold] The Guide (standard), The Ghost (calm, no roundstart antags), The Tempest (new, harder, builds to big attacks, 40+ players), and The Watcher (new, one roundstart antag and smaller events, 15+ players).
+  - [bold]Every other gamemode is off for now.[/bold] This is temporary, but may stick around permenantly if we can get game director into a good state. We want rounds run entirely by the director so we can see what it actually does and tune it. The other modes are coming back if it doesn't work out.
+  - [bold]Rounds should run longer and make more sense now.[/bold] Calmer starts followed by harder events in the middle, and time to recover after.
+  - [bold]Recovery periods that dont suck ass[/bold] If your department is struggling, drop pod supplies may be sent straight to you. If power gets fucked, CentComm may restore power remotely. If a department gets wiped, a crew shuttle may show up with replacements.
+
+  ## Why the old director sucked
+
+  I went through the server metrics from 58 rounds of The Guide. Most of the issues were caused by pure shitcode:
+
+  - It didn't use its own event list. After the first few seconds of a round it started picking from every event in the game, including meteor swarms, rods, etc that were never meant to be on it. Almost half of everything it ran wasn't on the list. That came out to be roughly 3.5 meteor swarms and 1.7 rods per round, so much fun!!!!!!1!
+  - It couldn't tell when it had already wrecked your shit. It measured station damage through firelocks, which barely react. A large meteor swarm registered as about 1/30th of the damage it expected, so it kept deciding to spam more meteors and rods to try and reach its goal.
+  - It had no memory. Once it fired an event it forgot about it, and could fire the same thing again a couple of minutes later before the first one even played out.
+  - Attacks didn't attack. The attack stage aims for a fixed number of antags, and roundstart antags already covered it, so instead of spawning midrounds it tried to hand security free gear to deal with said non-existant midrounds.
+  - Stories never finished. The calm opening always ran a full 20 minutes, and the big combat climax happened in 5 out of 20 rounds. Most rounds ended around 52 minutes, in the middle of the meteor stage.
+  - Literally NONE of its metrics worked right. It counted puddles anywhere in the game, not just on the station. It counted morgued bodies as fresh deaths forever. It didn't count xenos and space spiders as antags, but somehow also counted every mouse as crew (gem). It also counted ghosts as alive, so it never knew if anyone could take a ghost role.
+  - Its only help was cargo gifts. It randomly picked a cargo gift from a pool, even if it had nothing to fuckin due with what was going on on the station, and also had the issue of cargo having to do their jobs and deliver them.
+
+  ## How it's better now
+
+  - It actually uses its own event list now. Destructive events are rated by how much they fuck up the station, and the director has a destruction budget that refills slowly. Rods can happen at most about once every 30 minutes, and only during engineering focused story beats. With this setup, meteors should only happen 1-2 times a shift, and rods once every few shifts.
+  - It actually fuckin measures station metrics in a sane way. Atmos is measured from the actual air (spaced rooms, fires, toxic gas), power from APCs, plus pest infestations, whether security can handle the current threat, and artifacts. Bodies count for less as time passes, and only shit happening on the station counts.
+  - It remembers what it sent, so it doesn't stack events while they're still playing out.
+  - Attacks escalate from what the state of the station is, scaled to how many people are playing.
+  - Stories are paced for about 90 minutes and react to how the round is going. If an attack (antag spawn, etc) fucks up the station more than expected, it switches to a recovery stage instead of piling on. Once evac is called it stops sending threats and only sends help. It won't stack its big combat stories on top of nukies, revs, zombies, blob, cult, or wizard.
+  - Events are based on departmental staff. No engineering disasters with no engineers, no attacks with no security, no anomalies with no science. Ghost roles only spawn if there are ghosts to take them, and crew shuttles come in if everyone in a department is dead.
+  - Recovery/Help phases should actually do shit now. Drop pods get sent to the department that needs them (med gets medical supplies, sec gets riot gear, engineering gets breach kits, and so on), and emergency grid restores fix power temporarily by refilling APCs and SMES.
+  - No more fucking clowns shuttles. I'm so fucking sick of playing sec and 8 clowns show up and start constantly fucking shit up. They are now a negative event that can spawn in the calmer modes.
+
+  This is the FIRST PASS over this. After a few days of metrics, I will be trying to tune the director to be better. If you notice it doing some stupid shit, let me know.
+
+  <InfoLinkButton Link="Discord" Text="news-game-director-feedback"/>
+
+  <Box HorizontalAlignment="Right">
+    [italic]- Durk[/italic]
+  </Box>
+</Document>

@@ -1,0 +1,213 @@
+- type: utilityQuery
+  id: NullspaceVisibleQuarry
+  query:
+  - !type:ComponentQuery
+    components:
+    - type: NullspacePlayer
+  considerations:
+  - !type:TargetInLOSCon
+    curve: !type:BoolCurve
+
+- type: htnCompound
+  id: NullspaceClownCompound
+  branches:
+  - preconditions:
+    - !type:TimePassedPrecondition
+      key: NextPeek
+    - !type:KeyBoolEqualsPrecondition
+      key: Chasing
+      value: false
+    - !type:KeyNotExistsPrecondition
+      key: SpawnIdle
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:SetRandomTimeOperator
+        targetKey: NextPeek
+        minSeconds: 35
+        maxSeconds: 70
+    - !type:HTNPrimitiveTask
+      operator: !type:NullspaceClownStateOperator
+        state: Peek
+    - !type:HTNPrimitiveTask
+      operator: !type:RaiseEventForOwnerOperator
+        targetKey: HuntTarget
+        args: !type:NullspaceSilenceRequest
+    - !type:HTNPrimitiveTask
+      operator: !type:RandomOperator
+        targetKey: PeekDelay
+        minKey: PeekDelayMin
+        maxKey: PeekDelayMax
+    - !type:HTNPrimitiveTask
+      operator: !type:WaitOperator
+        key: PeekDelay
+    - !type:HTNPrimitiveTask
+      operator: !type:PeekAtTargetOperator
+        targetKey: HuntTarget
+        minRange: 5
+        maxRange: 9
+        duration: 10
+        lookAwayAngle: 55
+        vanishDistance: 3
+        vanishMinRange: 8
+        vanishMaxRange: 14
+
+  - preconditions:
+    - !type:TimePassedPrecondition
+      key: NextHonk
+    - !type:KeyBoolEqualsPrecondition
+      key: Chasing
+      value: true
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:PlaySoundEffectOperator
+        effect: NullspaceCorridor
+        sound:
+          path: /Audio/Items/bikehorn.ogg
+          params:
+            volume: 0.41
+            pitch: 0.97
+            variation: 0.03
+            referenceDistance: 2
+            maxDistance: 24
+    - !type:HTNPrimitiveTask
+      operator: !type:SetRandomTimeOperator
+        targetKey: NextHonk
+        minSeconds: 6
+        maxSeconds: 14
+
+  - preconditions:
+    - !type:TimePassedPrecondition
+      key: NextHonk
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:PlaySoundEffectOperator
+        effect: NullspaceCorridor
+        sound:
+          path: /Audio/Items/bikehorn.ogg
+          params:
+            volume: 1.46
+            pitch: 0.685
+            variation: 0.05
+            referenceDistance: 2
+            maxDistance: 24
+    - !type:HTNPrimitiveTask
+      operator: !type:SetRandomTimeOperator
+        targetKey: NextHonk
+        minSeconds: 18
+        maxSeconds: 35
+
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NullspaceVisibleQuarry
+    - !type:HTNPrimitiveTask
+      operator: !type:NullspaceClownStateOperator
+        state: Chase
+    - !type:HTNCompoundTask
+      task: NullspaceClownChaseStartCompound
+    - !type:HTNPrimitiveTask
+      operator: !type:ChaseTargetOperator
+        rangeKey: CatchRange
+        lostCoordinatesKey: SearchCoordinates
+        lostUntilKey: SearchUntil
+        lostFreshKey: SearchFresh
+        memory: 12
+    - !type:HTNPrimitiveTask
+      operator: !type:RaiseEventForOwnerOperator
+        targetKey: Target
+        args: !type:NullspaceCatchEvent
+
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: SearchCoordinates
+    - !type:TimePassedPrecondition
+      key: SearchUntil
+      passed: false
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:SetBoolOperator
+        targetKey: Chasing
+        value: false
+    - !type:HTNPrimitiveTask
+      operator: !type:NullspaceClownStateOperator
+        state: Search
+    - !type:HTNPrimitiveTask
+      operator: !type:PickNearOperator
+        originCoordinatesKey: SearchCoordinates
+        targetKey: WanderCoordinates
+        exactKey: SearchFresh
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        targetKey: WanderCoordinates
+        rangeKey: ArriveRange
+
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: SpawnIdle
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:SetBoolOperator
+        targetKey: Chasing
+        value: false
+    - !type:HTNPrimitiveTask
+      operator: !type:NullspaceClownStateOperator
+        state: Hunt
+    - !type:HTNPrimitiveTask
+      operator: !type:WaitOperator
+        key: SpawnIdle
+
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:SetBoolOperator
+        targetKey: Chasing
+        value: false
+    - !type:HTNPrimitiveTask
+      operator: !type:NullspaceClownStateOperator
+        state: Hunt
+    - !type:HTNPrimitiveTask
+      operator: !type:PickNearOperator
+        originEntityKey: HuntTarget
+        targetKey: HuntCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        targetKey: HuntCoordinates
+        rangeKey: ArriveRange
+    - !type:HTNPrimitiveTask
+      operator: !type:RandomOperator
+        targetKey: HuntPause
+        minKey: HuntPauseMin
+        maxKey: HuntPauseMax
+    - !type:HTNPrimitiveTask
+      operator: !type:WaitOperator
+        key: HuntPause
+
+- type: htnCompound
+  id: NullspaceClownChaseStartCompound
+  branches:
+  - preconditions:
+    - !type:KeyBoolEqualsPrecondition
+      key: Chasing
+      value: false
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:SetBoolOperator
+        targetKey: Chasing
+        value: true
+    - !type:HTNPrimitiveTask
+      operator: !type:PlaySoundEffectOperator
+        effect: NullspaceCorridor
+        sound:
+          path: /Audio/Items/bikehorn.ogg
+          params:
+            volume: 1.14
+            pitch: 0.85
+            referenceDistance: 2
+            maxDistance: 24
+    - !type:HTNPrimitiveTask
+      operator: !type:SetRandomTimeOperator
+        targetKey: NextHonk
+        minSeconds: 5
+        maxSeconds: 9
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:NoOperator
