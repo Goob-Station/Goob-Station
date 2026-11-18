@@ -137,12 +137,11 @@
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
-    - id: ComputerFundingAllocationFlatpack # Goobstation
-    - id: ComputerCargoRequestServiceFlatpack # Goobstation
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
     - id: CommandMegaphone # goob - loudspeakers
+    - id: ShredderFlatpack # Goob
 
 - type: entity
   id: LockerHeadOfPersonnelFilled

@@ -2,7 +2,6 @@
 
 using Content.Goobstation.Common.StationEvents.SecretPlus;
 using Content.Goobstation.Server.StationEvents.Metric;
-using Content.Shared.Random;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -53,23 +52,11 @@ public sealed partial class GameDirectorComponent : Component
     public List<ProtoId<StoryBeatPrototype>> RemainingBeats = new();
 
     /// <summary>
-    /// Does this round start with multiple antags.
-    /// </summary>
-    [DataField]
-    public bool DualAntags;
-
-    /// <summary>
-    /// Does this round start with antags at all?.
-    /// </summary>
-    [DataField]
-    public bool NoRoundstartAntags;
-
-    /// <summary>
     ///   Which stories the director can choose from (so we can change flavor of director by loading different stories)
     ///   One of these get picked randomly each time the current story is exhausted.
     /// </summary>
     [DataField]
-    public ProtoId<StoryPrototype>[]? Stories;
+    public Dictionary<ProtoId<StoryPrototype>, float> Stories = new();
 
     /// <summary>
     ///   A beat name we always use when we cannot find any stories to use.
@@ -155,28 +142,186 @@ public sealed partial class GameDirectorComponent : Component
     public TimeSpan LastHelp;
 
     [DataField]
-    public float AntaglessChance;
-
-    [DataField]
-    public List<ProtoId<StoryPrototype>> AntaglessStories = new();
-
-    [ViewVariables]
-    public List<ProtoId<StoryPrototype>> OpeningStories = new();
-
-    [ViewVariables]
-    public List<EntProtoId> RoundstartAntags = new();
-
-    [DataField]
     public TimeSpan NoEventRetryDelay = TimeSpan.FromSeconds(60);
 
-    /// <summary>
-    /// All the possible roundstart antags.
-    /// </summary>
     [DataField]
-    public ProtoId<WeightedRandomPrototype> RoundStartAntagsWeightTable = "GameDirector";
+    public float ThreatPerPlayer = 0.35f;
+
+    [DataField]
+    public float RoundstartThreatScale = 1f;
+
+    [DataField]
+    public float MinRoundstartThreat = 2f;
+
+    [DataField]
+    public ProtoId<AntagThreatPrototype> ThreatTable = "Default";
+
+    [DataField]
+    public float BaseThreatCap = 4f;
+
+    [DataField]
+    public float ThreatCapPerSecurity = 6f;
+
+    [DataField]
+    public float MinThreatPurchase = 1.5f;
+
+    [DataField]
+    public TimeSpan PendingThreatTime = TimeSpan.FromMinutes(5);
+
+    [DataField]
+    public TimeSpan RoundstartPendingTime = TimeSpan.FromMinutes(20);
+
+    [DataField]
+    public float CountStretch = 2f;
+
+    [DataField]
+    public float OutOfRangePenalty = 0.5f;
+
+    [ViewVariables]
+    public List<ThreatPurchase> Purchases = new();
+
+    [ViewVariables]
+    public int RoundstartPopulation;
+
+    [DataField]
+    public Dictionary<ChaosMetric, float> MetricScales = new()
+    {
+        { ChaosMetric.Hostile, 200f },
+        { ChaosMetric.Friend, 500f },
+        { ChaosMetric.Combat, 500f },
+        { ChaosMetric.Death, 70f },
+        { ChaosMetric.Medical, 190f },
+        { ChaosMetric.Security, 130f },
+        { ChaosMetric.Atmos, 540f },
+        { ChaosMetric.Fire, 20f },
+        { ChaosMetric.Power, 150f },
+        { ChaosMetric.Infestation, 75f },
+        { ChaosMetric.Mess, 1550f },
+        { ChaosMetric.Anomaly, 90f },
+        { ChaosMetric.Hunger, 80f },
+        { ChaosMetric.Thirst, 75f },
+        { ChaosMetric.Charge, 50f },
+    };
+
+    [DataField]
+    public float OvershootPenalty = 2.5f;
+
+    [DataField]
+    public TimeSpan SettleTime = TimeSpan.FromMinutes(3);
+
+    [DataField]
+    public TimeSpan EffectDelay = TimeSpan.FromMinutes(10);
+
+    [DataField]
+    public HashSet<ChaosMetric> RelaxMetrics = new()
+    {
+        ChaosMetric.Atmos,
+        ChaosMetric.Fire,
+        ChaosMetric.Power,
+        ChaosMetric.Medical,
+        ChaosMetric.Death,
+        ChaosMetric.Security,
+    };
+
+    [DataField]
+    public float RelaxStrain = 2f;
+
+    [DataField]
+    public TimeSpan RelaxTime = TimeSpan.FromMinutes(6);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan RelaxUntil;
+
+    [DataField]
+    public Dictionary<ChaosMetric, ProtoId<DepartmentPrototype>> SpotlightDepartments = new()
+    {
+        { ChaosMetric.Atmos, "Engineering" },
+        { ChaosMetric.Fire, "Engineering" },
+        { ChaosMetric.Power, "Engineering" },
+        { ChaosMetric.Hostile, "Security" },
+        { ChaosMetric.Security, "Security" },
+        { ChaosMetric.Anomaly, "Science" },
+        { ChaosMetric.Medical, "Medical" },
+        { ChaosMetric.Death, "Medical" },
+        { ChaosMetric.Infestation, "Civilian" },
+        { ChaosMetric.Mess, "Civilian" },
+        { ChaosMetric.Hunger, "Civilian" },
+        { ChaosMetric.Thirst, "Civilian" },
+    };
+
+    [DataField]
+    public TimeSpan SpotlightWindow = TimeSpan.FromMinutes(20);
+
+    [DataField]
+    public float SpotlightBonus = 1f;
+
+    [ViewVariables]
+    public Dictionary<ProtoId<DepartmentPrototype>, TimeSpan> LastSpotlight = new();
+
+    [DataField]
+    public int LowPopPlayers = 20;
+
+    [DataField]
+    public float MaxLowPopDelayScale = 2.5f;
+
+    [DataField]
+    public List<EntProtoId> ArmedResponses = new()
+    {
+        "UnknownShuttleNTIncorporation",
+        "SpawnERTSecurity",
+    };
+
+    [DataField]
+    public float ArmedResponseThreshold = 150f;
+
+    [DataField]
+    public TimeSpan ArmedResponseDelay = TimeSpan.FromMinutes(5);
+
+    [DataField]
+    public TimeSpan ArmedResponseCooldown = TimeSpan.FromMinutes(20);
+
+    [DataField]
+    public int MaxArmedResponses = 2;
+
+    [DataField]
+    public int ArmedResponseGhosts = 3;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan OverwhelmedSince;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan LastArmedResponse;
+
+    [ViewVariables]
+    public int ArmedResponseCount;
+
+    [DataField]
+    public TimeSpan SpawnerLifetime = TimeSpan.FromMinutes(20);
 }
 
-public readonly record struct FiredEvent(EntProtoId Event, TimeSpan Time, ChaosMetrics Chaos);
+public sealed class FiredEvent
+{
+    public EntProtoId Event;
+    public EntityUid? Rule;
+    public TimeSpan Time;
+    public ChaosMetrics Chaos = new();
+    public ChaosMetrics Before = new();
+    public bool EffectLogged;
+}
+
+public sealed class ThreatPurchase
+{
+    public EntityUid Rule;
+    public EntProtoId Proto;
+    public float Threat;
+    public int Count;
+    public int MinCount;
+    public int MaxCount;
+    public TimeSpan Time;
+    public bool Roundstart;
+    public bool GhostRole;
+    public bool SpawnersCleared;
+}
 
 /// <summary>
 ///   Caches a possible StationEvent prototype with the chaos expected (from the game rule's data)
