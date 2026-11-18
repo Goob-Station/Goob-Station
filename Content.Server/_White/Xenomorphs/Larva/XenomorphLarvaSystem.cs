@@ -17,7 +17,7 @@ using Content.Shared.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Body.Part;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
