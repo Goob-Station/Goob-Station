@@ -61,6 +61,29 @@
           min: 25
 
 - type: reagent
+  id: BongleJuice
+  name: reagent-name-bonglejuice
+  group: Toxins
+  desc: reagent-desc-bonglejuice
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: bitter
+  color: "#1a6ac1"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:PopupMessage
+          type: Local
+          messages: [ "reagent-popup-bonglejuice" ]
+          probability: 0.2
+      - !type:Polymorph
+        prototype: Bongle
+        conditions:
+        - !type:ReagentCondition
+          reagent: BongleJuice
+          min: 100
+
+- type: reagent
   id: Carpolin
   name: reagent-name-carpolin
   group: Toxins
@@ -215,3 +238,41 @@
         showInGuidebook: true
         force: true
         probability: 1
+
+- type: reagent
+  id: BingleBlood
+  name: reagent-name-bingleblood
+  group: Biological
+  desc: reagent-desc-bingleblood
+  physicalDesc: reagent-physical-desc-ferrous
+  flavor: metallic
+  color: "#1a6ac1"
+  recognizable: true
+
+- type: reagent
+  id: BongleBlood
+  name: reagent-name-bongleblood
+  group: Biological
+  desc: reagent-desc-bongleblood
+  physicalDesc: reagent-physical-desc-ferrous
+  flavor: metallic
+  color: "#c1281a"
+  recognizable: true
+
+- type: reaction
+  id: BingleBongleBloodExplosion
+  impact: High
+  priority: 20
+  conserveEnergy: false
+  reactants:
+    BingleBlood:
+      amount: 5
+    BongleBlood:
+      amount: 5
+  effects:
+    - !type:Explosion
+      explosionType: Default
+      intensityPerUnit: 1
+      maxTotalIntensity: 300
+      intensitySlope: 4
+      maxIntensity: 20

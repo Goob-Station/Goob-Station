@@ -58,6 +58,17 @@ public sealed partial class BongleHillSystem : EntitySystem
         comp.Points += GetPoints(comp, tripper);
         _audio.PlayPredicted(comp.SuckedInSound, ent, ent);
 
+        if (_mob.IsDead(tripper) && _whitelist.IsWhitelistPass(comp.TriumphWhitelist, tripper) && !_whitelist.IsWhitelistPass(comp.TriumphBlacklist, tripper))
+        {
+            comp.Corpses++;
+
+            if (comp.Corpses >= comp.CorpsesForTriumph)
+            {
+                comp.Corpses -= comp.CorpsesForTriumph;
+                _bongle.BoostBongles(comp.CapacityIncrease, comp.SpitIncrease);
+            }
+        }
+
         if (comp.Points < comp.PointsToSpread)
             return;
 

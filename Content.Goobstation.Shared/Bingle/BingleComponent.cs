@@ -17,6 +17,22 @@ public sealed partial class BingleComponent : Component
     public EntityUid? MyPit;
     [DataField]
     public EntProtoId? UpgradedID;
+
+    /// <summary>
+    /// Will receive SeethingComponent if valid whitelist passing entity is within this range.
+    /// </summary>
+    [DataField]
+    public float RageRange = 12f;
+
+    [DataField]
+    public TimeSpan RageCheckInterval = TimeSpan.FromSeconds(5);
+    public TimeSpan NextRageCheck;
+
+    /// <summary>
+    /// Component added when nearby valid whitelist passing entity.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry CompToAdd = new();
 }
 
 [Serializable, NetSerializable]

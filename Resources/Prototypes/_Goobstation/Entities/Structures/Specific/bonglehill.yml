@@ -7,6 +7,15 @@
     mode: SnapgridCenter
   components:
   - type: BongleHill
+    triumphWhitelist:
+      components:
+      - Bingle
+    triumphBlacklist:
+      components:
+      - Bongle
+    corpsesForTriumph: 3
+    capacityIncrease: 1
+    spitIncrease: 1
     hillProto: BongleHill
     bongleProto: MobBongle
     pointsToSpread: 50
@@ -87,3 +96,5 @@
       groups:
         Brute: -3
   - type: AntiRottingContainer
+  - type: SpawnOnDespawn
+    prototype: CrateFunBingleLoot

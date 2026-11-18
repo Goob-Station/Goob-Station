@@ -72,6 +72,12 @@
   color: "#386a9b"
 
 - type: collectiveMind
+  id: Bonglemind
+  name: collective-mind-bongle
+  keycode: 'b'
+  color: red
+
+- type: collectiveMind
   id: Shadowmind
   name: collective-mind-shadow-mind
   keycode: 'q'

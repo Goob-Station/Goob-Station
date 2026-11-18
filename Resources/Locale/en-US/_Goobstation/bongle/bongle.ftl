@@ -20,3 +20,20 @@ swallower-chew = You begin to chew the contents of your mouth.
 swallower-chew-others = { $user } begins to chew the contents of { POSS-ADJ($user) } mouth.
 
 heretic-ascension-bongle = bangle
+
+collective-mind-bongle = Bonglemind
+
+reagent-name-bonglejuice = bongle juice
+reagent-desc-bonglejuice = BONGLE!!!
+reagent-popup-bonglejuice = Are you capable of handling all this rage?
+
+reagent-name-bingleblood = bingle blood
+reagent-desc-bingleblood = bingle
+reagent-name-bongleblood = bongle blood
+reagent-desc-bongleblood = bangle!!!
+
+seething-popup = You seethe in the presence of the Adversary.
+
+bongle-triumph = One of many has been captured. You feel your mouth capacity increasing, and your wounds healing...
+
+bingle-triumph = The pit feasts on the Adversary. Point production is boosted!

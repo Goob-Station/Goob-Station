@@ -55,6 +55,30 @@ public sealed partial class BongleHillComponent : Component
     public float SpreadMaxRange = 6f;
 
     /// <summary>
+    /// Dead bingles. Gotta pass the whitelist and also not be in the blacklist or else this wont work.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? TriumphWhitelist;
+
+    [DataField]
+    public EntityWhitelist? TriumphBlacklist;
+
+    // bingle corpses
+    public int Corpses;
+
+    /// <summary>
+    /// Triumph over the adversary increases mouth capacity and spit count.
+    /// </summary>
+    [DataField]
+    public int CorpsesForTriumph = 3;
+
+    [DataField]
+    public int CapacityIncrease = 1;
+
+    [DataField]
+    public int SpitIncrease = 1;
+
+    /// <summary>
     /// Numbers of hills needed to spawn before bongles ascend.
     /// </summary>
     [DataField]

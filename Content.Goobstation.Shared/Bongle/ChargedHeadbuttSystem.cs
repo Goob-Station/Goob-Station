@@ -52,7 +52,10 @@ public sealed partial class ChargedHeadbuttSystem : EntitySystem
 
         _audio.PlayPredicted(comp.ChargeSound, uid, uid);
 
-        args.Handled = true;
+        if (!HasComp<SeethingComponent>(uid)) // No cooldown on headbutt while seething because idk it sounds cool
+        {
+            args.Handled = true;
+        }
     }
 
     private void OnDoAfter(Entity<ChargedHeadbuttComponent> ent, ref ChargedHeadbuttDoAfterEvent args)

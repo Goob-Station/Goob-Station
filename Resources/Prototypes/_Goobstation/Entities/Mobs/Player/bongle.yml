@@ -9,6 +9,22 @@
     energy: 2
     color: Red
   - type: Bingle
+    rageRange: 15
+    rageCheckInterval: 5 # Increase if too perf intense
+    compToAdd:
+    - type: Seething
+      visibleWhitelist:
+        components:
+        - Bingle
+      visibleBlacklist:
+        components:
+        - Bongle
+      duration: 30
+      heartbeatInterval: 2
+      popupInterval: 10
+      popup: seething-popup
+      heartbeatSound:
+        path: /Audio/_Goobstation/Heretic/heartbeat.ogg
     upgradedID: MobBongleUpgraded
     linkToPit: false
   - type: Bongle
@@ -58,7 +74,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: Nitrogen
+      - ReagentId: BongleBlood
         Quantity: 250
   - type: MeleeWeapon
     altDisarm: false
@@ -96,14 +112,14 @@
     speechSounds: Slime
   - type: LanguageKnowledge
     speaks:
-    - Bingle
+    - Bongle
     understands:
     - TauCetiBasic
   - type: CollectiveMind
-    defaultChannel: Binglemind
+    defaultChannel: Bonglemind
     respectAccents: true
     channels:
-    - Binglemind
+    - Bonglemind
   - type: PassiveDamage #passive Healing
     allowedStates:
     - Alive
@@ -117,6 +133,10 @@
     color: Red
     activateSound: null
     deactivateSound: null
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBongle
+      amount: 4
   - type: Insulated
   - type: FlashImmunity
   - type: ChargedHeadbutt
@@ -125,7 +145,7 @@
         Brute: 15
       types:
         Structural: 100
-        Ion: 60 # Absolutely brutal damage against bingles, mechs, borgs, you name it. Mostly useless otherwise.
+        Ion: 50 # Absolutely brutal damage against bingles, mechs, borgs, you name it. Mostly useless otherwise.
   - type: Puller
     needsHands: false
   - type: Swallower

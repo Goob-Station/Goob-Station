@@ -2,6 +2,8 @@ using Content.Goobstation.Shared.Bingle;
 using Content.Goobstation.Shared.Bongle;
 using Content.Shared.Actions.Events;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Polymorph;
+using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -12,6 +14,7 @@ public sealed partial class BongleSystem : EntitySystem
 {
     [Dependency] private MobStateSystem _mob = default!;
     [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private readonly List<Entity<BongleComponent>> _bongles = new();
 
@@ -20,6 +23,7 @@ public sealed partial class BongleSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BongleComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<BongleComponent, PolymorphedEvent>(OnPolymorphed);
     }
 
     private void OnMapInit(Entity<BongleComponent> ent, ref MapInitEvent args)
@@ -73,6 +77,40 @@ public sealed partial class BongleSystem : EntitySystem
 
             EntityManager.AddComponents(uid, comp.AscendComponents);
         }
+    }
+
+    /// <summary>
+    /// BONGLE!!!!!!!!!!!!!
+    /// TL: Full heal, increase spit and carry capacity.
+    /// </summary>
+    public void BoostBongles(int capacityIncrease, int spitIncrease)
+    {
+        CollectBongles();
+
+        foreach (var (uid, _) in _bongles)
+        {
+            RaiseLocalEvent(uid, new RejuvenateEvent());
+
+            //_popup.PopupEntity(Loc.GetString("bongle-triumph"), uid, uid); Popup is kinda annoying
+
+            if (!TryComp<SwallowerComponent>(uid, out var swallower))
+                continue;
+
+            swallower.Capacity += capacityIncrease;
+            swallower.SpitCount += spitIncrease;
+            Dirty(uid, swallower);
+        }
+    }
+
+    // so they don't lose theys shit when polymorphin yo
+    private void OnPolymorphed(Entity<BongleComponent> ent, ref PolymorphedEvent args)
+    {
+        if (args.IsRevert || !TryComp<SwallowerComponent>(args.OldEntity, out var oldSwallower) || !TryComp<SwallowerComponent>(args.NewEntity, out var newSwallower))
+            return;
+
+        newSwallower.Capacity = oldSwallower.Capacity;
+        newSwallower.SpitCount = oldSwallower.SpitCount;
+        Dirty(args.NewEntity, newSwallower);
     }
 
     private void CollectBongles()
