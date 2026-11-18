@@ -66,3 +66,6 @@ ascension_requires_objectives = false
 random_characters = false
 random_species_weights = ""
 ssd_sleep_time = 3600
+
+[voice]
+enabled = true

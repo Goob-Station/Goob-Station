@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Meridian Rift at https://github.com/Aphelion-Moon/Meridian-Rift/tree/0fd8e40910402f2745e5e5e4adc7d37bd45fed40 (icons/mob/human/species/misc/bodypart_overlay_simple.dmi, modular_nova/master_files/icons/mob/body_markings/akula_markings.dmi, modular_nova/master_files/icons/mob/body_markings/moth_grayscale_markings.dmi, modular_nova/master_files/icons/mob/body_markings/moth_markings.dmi, modular_nova/master_files/icons/mob/body_markings/other_markings.dmi, modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi, modular_nova/master_files/icons/mob/body_markings/tertiary_markings.dmi), which carries the art of NovaSector, Skyrat-tg and tgstation. Layers merged per colour and centred for Wolfgate by Tools/_WF/MeridianMarkings/port.py. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_WF/MeridianMarkings/body_head.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "back_stripe_head",
+      "directions": 4
+    },
+    {
+      "name": "clown_cross_head",
+      "directions": 4
+    },
+    {
+      "name": "clown_lips_head",
+      "directions": 4
+    },
+    {
+      "name": "corgi_head",
+      "directions": 4
+    },
+    {
+      "name": "corvid_head",
+      "directions": 4
+    },
+    {
+      "name": "dalmatian_head",
+      "directions": 4
+    },
+    {
+      "name": "dog_spot_head",
+      "directions": 4
+    },
+    {
+      "name": "drake_eyes_head",
+      "directions": 4
+    },
+    {
+      "name": "ears_head",
+      "directions": 4
+    },
+    {
+      "name": "eevee_head",
+      "directions": 4
+    },
+    {
+      "name": "fennec_head",
+      "directions": 4
+    },
+    {
+      "name": "fox_head",
+      "directions": 4
+    },
+    {
+      "name": "guilmon_mark_head",
+      "directions": 4
+    },
+    {
+      "name": "harlequin_reversed_head",
+      "directions": 4
+    },
+    {
+      "name": "hawk_head",
+      "directions": 4
+    },
+    {
+      "name": "hyena_head",
+      "directions": 4
+    },
+    {
+      "name": "hyena_side_head",
+      "directions": 4
+    },
+    {
+      "name": "insect_antennae_head",
+      "directions": 4
+    },
+    {
+      "name": "large_eyes_head",
+      "directions": 4
+    },
+    {
+      "name": "lightbearer_head",
+      "directions": 4
+    },
+    {
+      "name": "monster_mouth_head",
+      "directions": 4
+    },
+    {
+      "name": "monster_mouth_white_eye_compatible_head",
+      "directions": 4
+    },
+    {
+      "name": "orca_head",
+      "directions": 4
+    },
+    {
+      "name": "otie_head",
+      "directions": 4
+    },
+    {
+      "name": "otie_spot_head",
+      "directions": 4
+    },
+    {
+      "name": "otter_head",
+      "directions": 4
+    },
+    {
+      "name": "otter_head_head",
+      "directions": 4
+    },
+    {
+      "name": "panther_head",
+      "directions": 4
+    },
+    {
+      "name": "pilot_head",
+      "directions": 4
+    },
+    {
+      "name": "pilot_jaw_head",
+      "directions": 4
+    },
+    {
+      "name": "possum_head",
+      "directions": 4
+    },
+    {
+      "name": "raccoon_head",
+      "directions": 4
+    },
+    {
+      "name": "raccoon_spot_head",
+      "directions": 4
+    },
+    {
+      "name": "rat_spot_head",
+      "directions": 4
+    },
+    {
+      "name": "red_panda_head",
+      "directions": 4
+    },
+    {
+      "name": "red_panda_head_head",
+      "directions": 4
+    },
+    {
+      "name": "sabresune_head",
+      "directions": 4
+    },
+    {
+      "name": "sclera_head",
+      "directions": 4
+    },
+    {
+      "name": "scolipede_head",
+      "directions": 4
+    },
+    {
+      "name": "shark_head",
+      "directions": 4
+    },
+    {
+      "name": "shepherd_spot_head",
+      "directions": 4
+    },
+    {
+      "name": "skunk_head",
+      "directions": 4
+    },
+    {
+      "name": "sloth_head_head",
+      "directions": 4
+    },
+    {
+      "name": "splotches_head",
+      "directions": 4
+    },
+    {
+      "name": "splotches_swapped_head",
+      "directions": 4
+    },
+    {
+      "name": "tajaran_head",
+      "directions": 4
+    },
+    {
+      "name": "three_eyes_head",
+      "directions": 4
+    },
+    {
+      "name": "tiger_spot_head",
+      "directions": 4
+    },
+    {
+      "name": "tiger_stripe_head",
+      "directions": 4
+    },
+    {
+      "name": "wolf_head",
+      "directions": 4
+    },
+    {
+      "name": "wolf_spot_head",
+      "directions": 4
+    }
+  ]
+}

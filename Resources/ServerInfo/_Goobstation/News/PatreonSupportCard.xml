@@ -1,0 +1,7 @@
+<Document>
+  Your support helps us keep the servers running, fund development, and continue improving the game.
+  <Box>
+    <InfoLinkButton Link="Patreon" Text="news-patreon-visit"/>
+    <NewsOpenButton Entry="PatreonSupport" Text="news-patreon-perks"/>
+  </Box>
+</Document>

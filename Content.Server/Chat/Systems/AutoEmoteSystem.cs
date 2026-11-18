@@ -57,7 +57,7 @@ public sealed class AutoEmoteSystem : EntitySystem
                 }
                 else
                 {
-                    _chatSystem.TryEmoteWithoutChat(uid, autoEmotePrototype.EmoteId, voluntary: false);
+                    _chatSystem.TryEmoteWithoutChat(uid, autoEmotePrototype.EmoteId);
                 }
             }
         }

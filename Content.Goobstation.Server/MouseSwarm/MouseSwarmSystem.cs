@@ -60,23 +60,34 @@ public sealed partial class MouseSwarmSystem : EntitySystem
             && !_thresholds.TryGetThresholdForState(ent, MobState.Dead, out limit, thresholds))
             return;
 
-        if (_thresholds.CheckVitalDamage(ent, args.Damageable) < limit.Value)
+        var vital = _thresholds.CheckVitalDamage(ent, args.Damageable);
+        if (vital < limit.Value)
             return;
 
-        var member = ent.Comp.Members[^1];
-        ent.Comp.Members.RemoveAt(ent.Comp.Members.Count - 1);
+        var killed = (int) MathF.Floor((vital / limit.Value).Float());
+        var overflow = killed > ent.Comp.Members.Count;
+        killed = Math.Min(killed, ent.Comp.Members.Count);
+
+        var coords = _transform.GetMapCoordinates(ent);
+        for (var i = 0; i < killed; i++)
+        {
+            var member = ent.Comp.Members[^1];
+            ent.Comp.Members.RemoveAt(ent.Comp.Members.Count - 1);
+
+            if (member.Prototype is { } proto)
+                _pendingDrops.Add((proto, ent.Owner, coords));
+        }
         Dirty(ent);
 
         if (TryComp<MeleeWeaponComponent>(ent, out var melee))
         {
-            melee.Damage -= ent.Comp.DamagePerMember;
+            melee.Damage -= ent.Comp.DamagePerMember * (float) killed;
             Dirty(ent, melee);
         }
 
-        if (member.Prototype is { } proto)
-            _pendingDrops.Add((proto, ent.Owner, _transform.GetMapCoordinates(ent)));
+        if (!overflow)
+            _damageable.SetAllDamage((ent, args.Damageable), 0);
 
-        _damageable.SetAllDamage((ent, args.Damageable), 0);
         _popup.PopupEntity(Loc.GetString("mouse-swarm-lost"), ent, ent);
     }
 

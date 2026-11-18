@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from S.P.L.U.R.T ears.dmi at commit https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/8b4abffbe538fbded19b44b989ebc6808748f31f. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dragonlong",
+      "directions": 4
+    },
+    {
+      "name": "easternd_ears",
+      "directions": 4
+    },
+    {
+      "name": "easternd_horns",
+      "directions": 4
+    },
+    {
+      "name": "magus_ears",
+      "directions": 4
+    },
+    {
+      "name": "magus_neck",
+      "directions": 4
+    },
+    {
+      "name": "lovelox_primary",
+      "directions": 4
+    },
+    {
+      "name": "lovelox_secondary",
+      "directions": 4
+    },
+    {
+      "name": "lovelox_tertiary",
+      "directions": 4
+    }
+  ]
+}

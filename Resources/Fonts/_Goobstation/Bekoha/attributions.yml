@@ -1,0 +1,9 @@
+- files: ["Freezeframe-Cond.ttf"]
+  license: "CC0-1.0"
+  copyright: "Created by Bekoha"
+  source: "https://bekoha.itch.io/fonts"
+
+- files: ["Freezeframe-Cond-Bold.ttf", "Freezeframe-Cond-Italic.ttf", "Freezeframe-Cond-BoldItalic.ttf"]
+  license: "CC0-1.0"
+  copyright: "Created by Bekoha, bold and italic variants derived from Freezeframe Condensed for Goob Station"
+  source: "https://bekoha.itch.io/fonts"

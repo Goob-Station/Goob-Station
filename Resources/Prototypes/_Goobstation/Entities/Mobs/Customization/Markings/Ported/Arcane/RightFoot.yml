@@ -1,0 +1,110 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: AndroidDefaultRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android_default.rsi
+    state: r_foot
+
+- type: marking
+  id: AndroidScrapFootRight
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: r_foot_scrap
+
+- type: marking
+  id: AndroidSyntFootRight
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: r_foot_synt
+
+- type: marking
+  id: HI2RFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: hi2ipc_r_foot
+
+- type: marking
+  id: IPCRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ipc_r_foot
+
+- type: marking
+  id: PawsitronsRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: pawsitrons_r_foot
+
+- type: marking
+  id: SGMRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: sgmipc_r_foot
+
+- type: marking
+  id: SteampunkRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: staripc_r_foot
+
+- type: marking
+  id: WTMRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: wtmipc_r_foot
+
+- type: marking
+  id: XM2RFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: xm2ipc_r_foot
+
+- type: marking
+  id: ZHPRFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: zhpipc_r_foot

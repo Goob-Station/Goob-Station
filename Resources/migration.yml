@@ -1013,3 +1013,32 @@ HandheldHealthAnalyzerEmpty: HandheldHealthAnalyzer
 
 #2026-01-09
 BorgModuleAdvancedChemical: BorgModuleAdvancedTopical
+
+# 2026-10-31 Goob - MODsuit refactor
+UndeterminedVoidsuitParamedic: ClothingOuterHardsuitVoidParamed
+UndeterminedVoidsuitSecurity: ClothingOuterVoidsuitSecurity
+UndeterminedVoidsuitHeadOfSecurity: ClothingOuterHardsuitSecurityRed
+UndeterminedVoidsuitEngineer: ClothingOuterHardsuitEngineering
+UndeterminedVoidsuitCaptain: ClothingOuterHardsuitCap
+UndeterminedVoidsuitRD: ClothingOuterHardsuitRd
+UndeterminedVoidsuitBrigMed: ClothingOuterHardsuitBrigmedic
+SpawnMobHumanHosModSuit: null
+SpawnMobHumanSecurityOfficerModSuit: null
+SpawnMobHumanBSOModSuit: null
+SpawnMobHumanCaptainModsuit: null
+ClothingModsuitStandardNoStorage: ClothingModsuitStandard
+BlueshieldUndeterminedHardsuit: ClothingOuterHardsuitBlueshieldLight
+
+#2026-11-03
+MailRobustToolsSpam: MailSpamLetter
+MailNanotrasenSpam: MailSpamLetter
+MailSyndicateSpam: MailSpamLetter
+MailAlternativeDimensionSpam: MailSpamLetter
+MailNarsieCultSpam: MailSpamLetter
+MailRageCageSpam: MailSpamLetter
+MailVoyageAdvertisementSpam: MailSpamLetter
+MailScienceSpiderClanSpam: MailSpamLetter
+MailAllAccessSpam: MailSpamLetter
+MailCentcommRetributionSpam: MailSpamLetter
+MailEvilLizardSpam: MailSpamLetter
+MailParentsNeedMoneySpam: MailSpamLetter

@@ -1,0 +1,54 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: HumanFacialHairFullMessy
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/arcane_human_facial_hair.rsi
+    state: fullmessy
+
+- type: marking
+  id: TajaranBeard
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_facial_hairs.rsi
+    state: beard
+
+- type: marking
+  id: TajaranCheeks
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_facial_hairs.rsi
+    state: cheeks
+
+- type: marking
+  id: TajaranMustache
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_facial_hairs.rsi
+    state: mustache
+
+- type: marking
+  id: TajaranMustache2
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_facial_hairs.rsi
+    state: mustache_2
+
+- type: marking
+  id: TajaranMustache3
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_facial_hairs.rsi
+    state: mustache_3

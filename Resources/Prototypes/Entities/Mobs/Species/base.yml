@@ -92,6 +92,7 @@
     horizontalRotation: 90
   - type: HumanoidAppearance
     species: Human
+  - type: Wagging # Goob
   - type: TypingIndicator
   - type: SlowOnDamage
     speedModifierThresholds:

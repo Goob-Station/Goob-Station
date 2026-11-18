@@ -1,0 +1,4 @@
+<Document>
+  <VoiceChatStatusCard/>
+  <NewsOpenButton Entry="VoiceChat" Text="news-voice-guide"/>
+</Document>
