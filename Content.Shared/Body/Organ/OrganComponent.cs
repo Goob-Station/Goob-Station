@@ -4,7 +4,7 @@ using Content.Shared.Body.Systems;
 using Robust.Shared.GameStates;
 
 // Shitmed Change
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
