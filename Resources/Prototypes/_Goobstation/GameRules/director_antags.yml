@@ -1,0 +1,202 @@
+- type: antagThreat
+  id: Default
+  default: 2
+  convert: 1
+  rules:
+    Thief: 1
+    Traitor: 2
+    Changeling: 3
+    Heretic: 3
+    Devil: 2
+    Revolutionary: 4
+    Zombie: 4
+    CosmicCult: 3
+    Shadowling: 5
+    BlobGameMode: 10
+    Wizard: 8
+    Nukeops: 4
+    Honkops: 3
+    Xenoborgs: 2
+    SleeperAgents: 2
+    ParadoxCloneSpawn: 2
+    LoneAbductorSpawn: 2
+    DuoAbductorSpawn: 2
+    NinjaSpawn: 4
+    DragonSpawn: 8
+    LoneOpsSpawn: 5
+    SpacePirates: 6
+    PiratesSpawn: 1.5
+    VoxRaidersMidround: 2
+    SingulothKnightsMidround: 2
+    XenomorphsInfestation: 3
+    XenomorphsInfestationRoundstart: 3
+    SlasherSpawn: 4
+    MimeAssassinMidround: 3
+    ColossusSpawn: 6
+    SlaughterDemonMidround: 6
+    LaughterDemonSummon: 3
+    BingleSpawn: 5
+    BlobSpawn: 8
+    ZombieOutbreak: 4
+    TunnelClownMidround: 1
+    DarkPriestMidround: 3
+    WraithMidround: 4
+    DerelictCyborgSyndicateSpawn: 2
+    DerelictSyndicateAssaultCyborgSpawn: 3
+    ApprenticeRule: 3
+    TraitorReinforcement: 1
+    TokenNinjaSpawn: 4
+    TokenDragonSpawn: 8
+    TokenLoneOpsSpawn: 5
+    TokenDerelictCyborgSyndicateSpawn: 2
+    TokenBingleSpawn: 5
+    TokenAncientRogueKingSpawn: 4
+    TokenBlobMidround: 8
+    TokenLoneAbductorSpawn: 2
+    TokenWizard: 8
+    TokenSlaughterDemon: 6
+    TokenLaughterDemon: 3
+    TokenSlasherSpawn: 4
+    TokenContractorSpawn: 2
+    AbductorVictim: 0
+    DerelictEngineerCyborgSpawn: 0
+    DerelictJanitorCyborgSpawn: 0
+    DerelictMedicalCyborgSpawn: 0
+    DerelictMiningCyborgSpawn: 0
+    DerelictGenericCyborgSpawn: 0
+
+- type: antagPool
+  id: CrewAntags
+  rules:
+  - id: Traitor
+    weight: 5
+  - id: Changeling
+    weight: 2
+  - id: Heretic
+    weight: 2
+  - id: Thief
+    weight: 1
+  - id: Devil
+    weight: 0.3
+    max: 1
+
+- type: antagPool
+  id: CrewAntagsMinor
+  rules:
+  - id: Thief
+    weight: 3
+  - id: Traitor
+    weight: 3
+  - id: Changeling
+    weight: 1
+  - id: Heretic
+    weight: 1
+
+- type: antagPool
+  id: ConversionAntags
+  rules:
+  - id: Revolutionary
+    weight: 3
+  - id: CosmicCult
+    weight: 3
+  - id: Shadowling
+    weight: 1
+    max: 1
+
+- type: antagPool
+  id: OutbreakAntags
+  rules:
+  - id: Zombie
+  - id: BlobGameMode
+    max: 1
+
+- type: antagPool
+  id: RaidAntags
+  rules:
+  - id: Nukeops
+    weight: 6
+  - id: Honkops
+    weight: 1
+  - id: Xenoborgs
+    weight: 2
+
+- type: antagPool
+  id: WizardAntags
+  rules:
+  - id: Wizard
+    max: 1
+
+- type: antagPool
+  id: InfiltratorMidrounds
+  rules:
+  - id: SleeperAgents
+    weight: 5
+  - id: ParadoxCloneSpawn
+    weight: 2
+  - id: LoneAbductorSpawn
+    weight: 1
+  - id: MimeAssassinMidround
+    weight: 1
+  - id: TunnelClownMidround
+    weight: 0.5
+
+- type: antagPool
+  id: ScienceMidrounds
+  rules:
+  - id: LoneAbductorSpawn
+    weight: 2
+  - id: DuoAbductorSpawn
+    weight: 2
+  - id: ParadoxCloneSpawn
+    weight: 2
+  - id: SleeperAgents
+    weight: 2
+  - id: ColossusSpawn
+    weight: 1
+    max: 1
+
+- type: antagPool
+  id: RaiderMidrounds
+  rules:
+  - id: SpacePirates
+    weight: 2
+  - id: VoxRaidersMidround
+    weight: 2
+  - id: LoneOpsSpawn
+    weight: 2
+    max: 1
+  - id: NinjaSpawn
+    weight: 2
+  - id: SingulothKnightsMidround
+    weight: 1
+  - id: DuoAbductorSpawn
+    weight: 1
+  - id: DerelictSyndicateAssaultCyborgSpawn
+    weight: 1
+  - id: DerelictCyborgSyndicateSpawn
+    weight: 1
+
+- type: antagPool
+  id: MonsterMidrounds
+  rules:
+  - id: SlasherSpawn
+    weight: 2
+  - id: XenomorphsInfestation
+    weight: 1
+  - id: ColossusSpawn
+    weight: 1
+    max: 1
+  - id: SlaughterDemonMidround
+    weight: 1
+    max: 1
+  - id: DragonSpawn
+    weight: 0.7
+    max: 1
+  - id: BingleSpawn
+    weight: 0.7
+  - id: BlobSpawn
+    weight: 0.3
+  - id: ZombieOutbreak
+    weight: 0.3
+  - id: DarkPriestMidround
+    weight: 0.1

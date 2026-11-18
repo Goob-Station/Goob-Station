@@ -111,7 +111,7 @@
     earliestStart: 2
     minimumPlayers: 0
     chaos: # Goobstation
-      Atmos: 5
+      Atmos: 25
   - type: MeteorSwarm
     announcement: null
     announcementSound: null
@@ -134,7 +134,7 @@
     minimumPlayers: 0
     chaos: # Goobstation
       Power: 5
-      Atmos: 10
+      Atmos: 25
     destruction: 1 # Goobstation
   - type: MeteorSwarm
     announcement: station-event-space-dust-start-announcement
@@ -158,7 +158,7 @@
     minimumPlayers: 15
     chaos: # Goobstation
       Power: 5
-      Atmos: 15
+      Atmos: 50
     destruction: 1 # Goobstation
   - type: MeteorSwarm
     meteors:
@@ -173,7 +173,7 @@
     weight: 10
     chaos: # Goobstation
       Power: 10
-      Atmos: 25
+      Atmos: 150
     destruction: 2 # Goobstation
   - type: MeteorSwarm
     meteors:
@@ -188,8 +188,8 @@
   - type: StationEvent
     weight: 5
     chaos: # Goobstation
-      Power: 15
-      Atmos: 40
+      Power: 60
+      Atmos: 150
     destruction: 3 # Goobstation
   - type: MeteorSwarm
     meteors:
@@ -229,8 +229,8 @@
     earliestStart: 30
     minimumPlayers: 25
     chaos: # Goobstation
-      Power: 10
-      Atmos: 80
+      Power: 30
+      Atmos: 150
     destruction: 3 # Goobstation
   - type: ImmovableRodRule
     rodPrototypes:

@@ -48,7 +48,7 @@
     #- id: NetworkConfigurator # Goobstation?
     - id: Binoculars
     - id: WeaponEnergyShotgun # Goobstation?
-    - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+    - id: UndeterminedGlovesWarden # Goobstation - Martial Arts
     - id: BoxLethalInjection # Goobstation
     - id: ClothingHeadsetAltWarden # Goobstation
     - id: Multitool # Goobstation
