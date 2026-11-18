@@ -39,7 +39,7 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Popups;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.Body.Systems;
 

@@ -2,7 +2,7 @@ using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Guidebook;
 using Robust.Shared.GameStates;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.Atmos.Components;
 
