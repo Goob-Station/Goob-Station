@@ -134,6 +134,9 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("codewordFaction");
             _prototypeManager.RegisterIgnore("story"); // Goobstation
             _prototypeManager.RegisterIgnore("storyBeat"); // Goobstation
+            _prototypeManager.RegisterIgnore("antagPool"); // Goobstation
+            _prototypeManager.RegisterIgnore("antagThreat"); // Goobstation
+            _prototypeManager.RegisterIgnore("directorEventGroup"); // Goobstation
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();

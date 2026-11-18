@@ -6,7 +6,7 @@ using Content.Shared.Examine;
 using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
 using Robust.Shared.Timing;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.Charges.Systems;
 

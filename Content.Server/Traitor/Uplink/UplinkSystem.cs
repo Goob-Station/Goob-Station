@@ -4,7 +4,7 @@ using Content.Server.StoreDiscount.Systems;
 // </Goob>
 using Content.Goobstation.Common.Traitor;
 using Content.Server.Store.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;

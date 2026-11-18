@@ -39,7 +39,7 @@ public sealed partial class GameDirectorSystem
 
         SkipUnstaffedBeats(scheduler, count);
 
-        if (scheduler.RemainingBeats.Count == 0 && !TryStartNewStory(ent, count))
+        if (scheduler.RemainingBeats.Count == 0 && !TryStartNewStory(ent, count.Connected, count))
             scheduler.RemainingBeats.Add(scheduler.FallbackBeatName);
 
         return StartBeat(scheduler, chaos, scheduler.RemainingBeats[0]);
@@ -95,6 +95,7 @@ public sealed partial class GameDirectorSystem
         {
             scheduler.RemainingBeats.Insert(0, denouement);
             LogMessage("Evacuation called, winding the story down");
+            CleanupSpawners(scheduler, _timing.CurTime, true);
         }
         else if (!requested && active)
         {
@@ -132,52 +133,43 @@ public sealed partial class GameDirectorSystem
         return beat;
     }
 
-    private bool TryStartNewStory(Entity<GameDirectorComponent> ent, PlayerCount count)
+    private bool TryStartNewStory(Entity<GameDirectorComponent> ent, int connected, PlayerCount? staffing)
     {
         var scheduler = ent.Comp;
-        if (scheduler.OpeningStories.Count > 0)
+        var candidates = new List<KeyValuePair<ProtoId<StoryPrototype>, float>>();
+        foreach (var candidate in scheduler.Stories)
         {
-            var opening = scheduler.OpeningStories.ToList();
-            scheduler.OpeningStories.Clear();
-            if (TryStartStoryFrom(ent, opening, count))
-                return true;
+            if (candidate.Value > 0 && IsStoryValid(_prototypeManager.Index(candidate.Key), connected))
+                candidates.Add(candidate);
         }
 
-        return scheduler.Stories != null && TryStartStoryFrom(ent, scheduler.Stories, count);
-    }
-
-    private bool TryStartStoryFrom(Entity<GameDirectorComponent> ent, IEnumerable<ProtoId<StoryPrototype>> pool, PlayerCount count)
-    {
-        var scheduler = ent.Comp;
-        var stories = pool.ToList();
-        _random.Shuffle(stories);
-
-        foreach (var storyName in stories)
+        while (candidates.Count > 0)
         {
-            var story = _prototypeManager.Index(storyName);
-            if (!IsStoryValid(scheduler, story, count))
-                continue;
+            var picked = PickWeighted(candidates, c => c.Value);
+            candidates.Remove(picked);
 
+            var story = _prototypeManager.Index(picked.Key);
             scheduler.RemainingBeats.AddRange(story.Beats!);
-            SkipUnstaffedBeats(scheduler, count);
+            if (staffing != null)
+                SkipUnstaffedBeats(scheduler, staffing);
+
             if (scheduler.RemainingBeats.Count == 0)
                 continue;
 
-            scheduler.CurrentStoryName = storyName;
-            SetupEvents(ent);
-            LogMessage($"New Story {storyName}: {story.Description}. {scheduler.PossibleEvents.Count} events.");
+            scheduler.CurrentStoryName = picked.Key;
+            SetupEvents(ent, story);
+            LogMessage($"New Story {picked.Key}: {story.Description}. {scheduler.PossibleEvents.Count} events.");
             return true;
         }
 
         return false;
     }
 
-    private static bool IsStoryValid(GameDirectorComponent scheduler, StoryPrototype story, PlayerCount count)
+    private static bool IsStoryValid(StoryPrototype story, int connected)
     {
         return story.Beats is { Length: > 0 }
-               && story.MinPlayers <= count.InGame
-               && story.MaxPlayers >= count.InGame
-               && !scheduler.RoundstartAntags.Any(story.BlockedRoundstartAntags.Contains);
+               && story.MinPlayers <= connected
+               && story.MaxPlayers >= connected;
     }
 
     private float PopulationScale(GameDirectorComponent scheduler, PlayerCount count)

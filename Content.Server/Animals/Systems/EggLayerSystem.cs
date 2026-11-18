@@ -19,7 +19,7 @@ namespace Content.Server.Animals.Systems;
 ///     Gives the ability to lay eggs/other things;
 ///     produces endlessly if the owner does not have a HungerComponent.
 /// </summary>
-public sealed class EggLayerSystem : EntitySystem
+public sealed partial class EggLayerSystem : EntitySystem // Goob - Made Partial
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;

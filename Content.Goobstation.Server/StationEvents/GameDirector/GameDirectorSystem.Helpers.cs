@@ -53,6 +53,7 @@ public sealed partial class GameDirectorSystem
 
         count.Players += _event.PlayerCountBias;
         count.InGame += _event.PlayerCountBias;
+        count.Connected = Math.Max(GetPlayerCount(), count.InGame);
 
         return count;
     }
