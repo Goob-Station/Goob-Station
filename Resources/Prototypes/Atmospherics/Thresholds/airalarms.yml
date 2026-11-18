@@ -101,6 +101,15 @@
   id: danger # just any gas you don't want at all
   upperBound: !type:AlarmThresholdSetting
     threshold: 0.0001
+    
+# Goobstation Start
+- type: alarmThreshold
+  id: stationBZ
+  upperBound: !type:AlarmThresholdSetting
+    threshold: 0.002 # 0.2%
+  upperWarnAround: !type:AlarmThresholdSetting
+    threshold: 0.5 # 0.1%
+# Goobstation End
 
 - type: alarmThreshold
   id: voxOxygen

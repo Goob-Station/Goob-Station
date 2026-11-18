@@ -692,9 +692,9 @@
         # Goob end
         effectProto: StatusEffectSeeingRainbow
         type: Add
-        time: 500
+        time: 30 # Goobstation - Lowered from 500 to 30.
       - !type:Drunk
-        boozePower: 500
+        boozePower: 30 # Goobstation - Lowered from 500 to 30.
         minScale: 1
         # Goob start
         conditions:
