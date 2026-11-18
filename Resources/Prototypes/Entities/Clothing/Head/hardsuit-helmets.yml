@@ -508,6 +508,19 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  # Goobstation, cmo helmet acts as a biohood now :D
+  - type: DiseaseProtection
+    # full prot with even a normal mask
+    incoming:
+      powerModifiers:
+        Aerial: -0.8
+      chanceMultipliers:
+        Aerial: 0.5
+    outgoing:
+      powerModifiers:
+        Aerial: -0.8
+      chanceMultipliers:
+        Aerial: 0.5
 
 #Research Director's Hardsuit
 - type: entity

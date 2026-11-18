@@ -664,6 +664,15 @@
     - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  # Goobstation; come on why the fuck was the cmo in hardsuit with internals on subject to infection
+  - type: DiseaseProtection
+    # full prot
+    incoming:
+      powerModifiers:
+        Blood: -1 # immune to plague mice
+      chanceMultipliers:
+        Blood: 0.5
+
 
 #Research Director's Hardsuit
 - type: entity
