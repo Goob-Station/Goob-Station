@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -55,6 +55,9 @@ public sealed partial class TraumaTypePrototype : IPrototype
     /// </summary>
     [DataField]
     public List<TraumaCause>? Causes;
+
+    [DataField]
+    public int? MaxPerBody;
 
     /// <summary>
     /// How this trauma can be treated / removed. Null means it is not treatable on its own (e.g. it clears when the underlying bone/organ heals).

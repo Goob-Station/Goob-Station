@@ -131,6 +131,10 @@ marking-VulpTailLong-long = Long tail (base)
 marking-VulpTailLong-long-tip = Long tail (tip)
 marking-VulpTailLong = Vulpkanin Long
 
+marking-VulpTailLongWag-long-wagging = Long tail (base)
+marking-VulpTailLongWag-long-wagging-tip = Long tail (tip)
+marking-VulpTailLongWag = Vulpkanin Long (wag)
+
 marking-VulpTailFox-fox = Fox tail (base)
 marking-VulpTailFox-fox-fade = Fox tail (fade)
 marking-VulpTailFox = Vulpkanin Fox
@@ -159,15 +163,26 @@ marking-VulpTailCoyote = Vulpkanin Coyote
 marking-VulpTailCoyoteWag-coyote_wag = Coyote tail
 marking-VulpTailCoyoteWag = Vulpkanin Coyote (wag)
 
+marking-VulpTailCorgi-corgi = Corgi tail
+marking-VulpTailCorgi = Vulpkanin Corgi
 marking-VulpTailCorgiWag-corgi_wag = Crogi tail
 marking-VulpTailCorgiWag = Vulpkanin Corgi (wag)
 
+marking-VulpTailHusky-husky = Husky tail (base)
 marking-VulpTailHusky-husky-inner = Husky tail (inner)
 marking-VulpTailHusky-husky-outer = Husky tail (outer)
 marking-VulpTailHusky = Vulpkanin Husky
 
+marking-VulpTailHuskyWag-husky-wagging = Husky tail (base)
+marking-VulpTailHuskyWag-husky-wagging-inner = Husky tail (inner)
+marking-VulpTailHuskyWag-husky-wagging-outer = Husky tail (outer)
+marking-VulpTailHuskyWag = Vulpkanin Husky (wag)
+
 marking-VulpTailHuskyAlt-husky = Husky tail
 marking-VulpTailHuskyAlt = Vulpkanin Husky (alt)
+
+marking-VulpTailHuskyAltWag-husky-wagging = Husky tail
+marking-VulpTailHuskyAltWag = Vulpkanin Husky (alt) (wag)
 
 marking-VulpTailFox2-fox2 = Fox tail
 marking-VulpTailFox2 = Vulpkanin Fox 2
@@ -176,15 +191,27 @@ marking-VulpTailFox3-fox3 = Fox tail (base)
 marking-VulpTailFox3-fox3-tip = Fox tail (tip)
 marking-VulpTailFox3 = Vulpkanin Fox 3
 
-marking-VulpTailFennec-fennec = Fennec tail
+marking-VulpTailFennec-fennec = Fennec tail (base)
+marking-VulpTailFennec-fennec-tip = Fennec tail (tip)
 marking-VulpTailFennec = Vulpkanin Fennec
+
+marking-VulpTailFennecWag-fennec-wagging = Fennec tail (base)
+marking-VulpTailFennecWag-fennec-wagging-tip = Fennec tail (tip)
+marking-VulpTailFennecWag = Vulpkanin Fennec (wag)
 
 marking-VulpTailOtie-otie = Otie tail
 marking-VulpTailOtie = Vulpkanin Otie
 
-marking-VulpTailFluffy-fluffy = Fluffy tail
+marking-VulpTailFluffy-fluffy = Fluffy tail (base)
+marking-VulpTailFluffy-fluffy-tip = Fluffy tail (tip)
 marking-VulpTailFluffy = Vulpkanin Fluffy
 
+marking-VulpTailFluffyWag-fluffy-wagging = Fluffy tail (base)
+marking-VulpTailFluffyWag-fluffy-wagging-tip = Fluffy tail (tip)
+marking-VulpTailFluffyWag = Vulpkanin Fluffy (wag)
+
+marking-VulpTailDalmatian-dalmatian = Dalmatian tail
+marking-VulpTailDalmatian = Vulpkanin Dalmatian
 marking-VulpTailDalmatianWag-dalmatian_wag = Dalmatian tail
 marking-VulpTailDalmatianWag = Vulpkanin Dalmatian (wag)
 

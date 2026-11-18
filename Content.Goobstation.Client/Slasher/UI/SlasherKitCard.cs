@@ -1,8 +1,11 @@
+using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Goobstation.Shared.Slasher.UI;
+using Content.Shared.Guidebook;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Slasher.UI;
@@ -87,9 +90,33 @@ public sealed class SlasherKitCard : Control
         {
             Text = kit.Name,
             HorizontalAlignment = HAlignment.Left,
+            HorizontalExpand = true,
             FontColorOverride = textColor,
             StyleClasses = { "StatusFieldTitle" }
         };
+
+        var headerRow = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            HorizontalExpand = true,
+        };
+        headerRow.AddChild(name);
+
+        if (kit.Guide is { } guideId)
+        {
+            var guideButton = new Button
+            {
+                Text = "?",
+                ToolTip = Loc.GetString("slasher-kit-guide-button"),
+                MinSize = new System.Numerics.Vector2(24, 24),
+                VerticalAlignment = VAlignment.Center,
+                StyleBoxOverride = insetTexture,
+            };
+            guideButton.Label.HorizontalAlignment = HAlignment.Center;
+            guideButton.Label.FontColorOverride = textColor;
+            guideButton.OnPressed += _ => OpenGuide(guideId);
+            headerRow.AddChild(guideButton);
+        }
 
         var headerAccent = new PanelContainer
         {
@@ -204,7 +231,7 @@ public sealed class SlasherKitCard : Control
             StyleClasses = { "OpenBoth" }
         };
 
-        headerColumn.AddChild(name);
+        headerColumn.AddChild(headerRow);
         headerColumn.AddChild(headerAccent);
         headerPanel.AddChild(headerColumn);
 
@@ -228,5 +255,12 @@ public sealed class SlasherKitCard : Control
         bodyPanel.AddChild(column);
         outerPanel.AddChild(bodyPanel);
         AddChild(outerPanel);
+    }
+
+    private static void OpenGuide(string guideId)
+    {
+        IoCManager.Resolve<IUserInterfaceManager>()
+            .GetUIController<GuidebookUIController>()
+            .OpenGuidebook(selected: new ProtoId<GuideEntryPrototype>(guideId));
     }
 }

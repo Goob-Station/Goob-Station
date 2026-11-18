@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Drawn and coded by Carousel for Impstation. Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_Impstation/Mobs/Customization/animatedmarkings.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dionapollendust",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    }
+  ]
+}

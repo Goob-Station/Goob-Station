@@ -1,0 +1,39 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: CrocodileSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: crocodile-snout
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: crocodile-snout-chin
+
+- type: marking
+  id: TajaranMuzzle
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: muzzle
+
+- type: marking
+  id: TajaranMuzzleinears
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: muzzleinears
+
+- type: marking
+  id: TajaranNose
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Orion/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: nose

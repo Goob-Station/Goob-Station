@@ -28,7 +28,7 @@ public sealed partial class XenomorphsRuleComponent : Component
             new SoundPathSpecifier("/Audio/_Goobstation/Music/Black_Swarm_Short.ogg")
             {
                 Params = AudioParams.Default
-                    .WithVolume(-8f)
+                    .WithVolume(-16f)
             };
 
     [DataField] // Goobstation - play music on announcement

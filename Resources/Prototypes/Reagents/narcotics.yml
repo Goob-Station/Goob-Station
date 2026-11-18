@@ -736,9 +736,9 @@
         key: Drowsiness
         time: 10
         type: Remove
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
-        key: ForcedSleep
+        effectProto: StatusEffectForcedSleeping # Goob
         type: Remove
         time: 10
       - !type:HealthChange

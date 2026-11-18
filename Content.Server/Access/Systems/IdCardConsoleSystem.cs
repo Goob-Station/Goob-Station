@@ -264,7 +264,8 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
             var item = slot.Item.Value;
             if (_container.Remove(item, slot.ContainerSlot))
             {
-                _throwing.TryThrow(item, _random.NextVector2(), baseThrowSpeed: 5f);
+                _throwing.TryThrow(item, _random.NextVector2(), baseThrowSpeed: 5f,
+                    predicted: false); // Trauma
                 didEject = true;
             }
         }

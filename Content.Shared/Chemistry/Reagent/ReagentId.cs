@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 using System.Linq;
 using Robust.Shared.Prototypes;
@@ -62,8 +62,25 @@ public partial struct ReagentId : IEquatable<ReagentId>
         if (other.Data == null)
             return false;
 
-        if (Data.Except(other.Data).Any() || other.Data.Except(Data).Any() || Data.Count != other.Data.Count)
+        // Goob start
+        if (ReferenceEquals(Data, other.Data))
+            return true;
+
+        if (Data.Count != other.Data.Count)
             return false;
+
+        foreach (var data in Data)
+        {
+            if (!other.Data.Contains(data))
+                return false;
+        }
+
+        foreach (var data in other.Data)
+        {
+            if (!Data.Contains(data))
+                return false;
+        }
+        // Goob end
 
         return true;
     }

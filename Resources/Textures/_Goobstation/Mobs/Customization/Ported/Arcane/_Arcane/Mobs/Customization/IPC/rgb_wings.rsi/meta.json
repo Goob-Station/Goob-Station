@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Nyanotrasen at commit https://github.com/Nyanotrasen/Nyanotrasen/commit/3d493907ce374916d8bd0806ad72c8d9f2d70a19 & tail taken from tgstation at commit https://github.com/tgstation/tgstation/commit/e9cc620e9f908e18949031c6e1b5811e3fc5af4e and modified by github:Morb0, Niki_. Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Arcane/Mobs/Customization/IPC/rgb_wings.rsi",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "robotic_light_rgb",
+      "directions": 4,
+      "delays": [
+        [
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5
+        ]
+      ]
+    }
+  ]
+}

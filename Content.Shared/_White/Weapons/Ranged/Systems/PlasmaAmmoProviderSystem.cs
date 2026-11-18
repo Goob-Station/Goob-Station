@@ -29,7 +29,7 @@ public sealed class PlasmaAmmoProviderSystem : EntitySystem
             if (!_plasma.ChangePlasmaAmount(uid, -component.FireCost, plasmaVessel))
                 return;
 
-            var shot = Spawn(component.Proto, args.Coordinates);
+            var shot = PredictedSpawnAtPosition(component.Proto, args.Coordinates); // Trauma - gun shooting is predicted
             args.Ammo.Add((shot, _gun.EnsureShootable(shot)));
         }
     }

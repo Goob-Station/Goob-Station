@@ -1,0 +1,82 @@
+# Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42
+
+- type: marking
+  id: MothAntennaeBushyAlt
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/Moth/moth_antennae.rsi
+    state: bushyalt
+
+- type: marking
+  id: MothAntennaeEnlarged
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/Moth/moth_antennae.rsi
+    state: enlarged
+
+- type: marking
+  id: SlimeEarsBunks
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/ears.rsi
+    state: bunks
+
+- type: marking
+  id: SlimeEarsCarblunkle
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/ears.rsi
+    state: carblunkle
+
+- type: marking
+  id: SlimeEarsHoppers
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/ears.rsi
+    state: hoppers
+
+- type: marking
+  id: SlimeEarsStalks
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/ears.rsi
+    state: stalks
+
+- type: marking
+  id: SlimeEarsStalksSmall
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/ears.rsi
+    state: stalks_small
+
+- type: marking
+  id: SlimeEarsThorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Afterlight/Mobs/Customization/SlimePerson/ears.rsi
+    state: thorns
+
+- type: marking
+  id: VulpEarPossum
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/ear_markings.rsi
+    state: possum

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Hanz5579 (Discord). Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42/Resources/Textures/_Starlight/Mobs/Customization/Generic/scars.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "scar-arm-l",
+      "directions": 4
+    },
+    {
+      "name": "scar-arm-r",
+      "directions": 4
+    },
+    {
+      "name": "scar-head-l",
+      "directions": 4
+    },
+    {
+      "name": "scar-head-r",
+      "directions": 4
+    },
+    {
+      "name": "scar-leg-l",
+      "directions": 4
+    },
+    {
+      "name": "scar-leg-r",
+      "directions": 4
+    }
+  ]
+}

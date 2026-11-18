@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Dragon wings by Github KittenColony / Discord kittencolony (297865728374210561), Visor by mrgreen06 on Discord. Ported from https://github.com/Sector-Umbra/sector-umbra/tree/58f7e454941dc71e00166c60a09063b9e8378d56/Resources/Textures/_CD/Mobs/Customization/reptilian_parts.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "head_ledvisor_primary",
+      "directions": 4
+    },
+    {
+      "name": "head_ledvisor_secondary",
+      "directions": 4
+    },
+    {
+      "name": "head_ledvisor_tertiary",
+      "directions": 4
+    }
+  ]
+}

@@ -15,6 +15,7 @@
       Combat: 200
       Death: 200
       Medical: 200
+    destruction: 2
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 600

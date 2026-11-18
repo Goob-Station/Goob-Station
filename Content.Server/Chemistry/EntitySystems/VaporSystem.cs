@@ -6,7 +6,7 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Physics;
 using Content.Shared.Throwing;
 using Content.Shared.Chemistry.EntitySystems;
@@ -91,7 +91,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 _physics.SetLinearDamping(vapor, physics, 0f);
                 _physics.SetAngularDamping(vapor, physics, 0f);
 
-                _throwing.TryThrow(vapor, dir, speed, user: user);
+                _throwing.TryThrow(vapor, dir, speed, user: user,
+                    predicted: false); // Trauma
 
                 var distance = (target.Position - _transformSystem.GetWorldPosition(vaporXform)).Length();
                 var time = (distance / physics.LinearVelocity.Length());

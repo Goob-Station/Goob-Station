@@ -9,3 +9,9 @@ trusted_proxies = "136.243.32.120"
 public_url = "https://sigma.goobstation.com/voice/"
 radio_enabled = true
 radio_common = false
+
+[news]
+pinned = "VoiceChat,PatreonSupport"
+
+[goob]
+window_title = "Goob Sigma"

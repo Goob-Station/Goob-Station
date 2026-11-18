@@ -17,7 +17,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
@@ -606,7 +606,10 @@ namespace Content.Server.Ghost
                     // Goob start - add check
                     if (GoobIsSuicideAllowedIC(playerEntity.Value))
                     {
-                        _damageable.ChangeDamage(playerEntity.Value, damage, true, targetPart: GoobGetShitmedSuicideTarget(playerEntity.Value)); // Goob - shitmed targeting
+                        if (damage.GetTotal() > 0)
+                            _damageable.ChangeDamage(playerEntity.Value, damage, true, targetPart: GoobGetShitmedSuicideTarget(playerEntity.Value)); // Goob - shitmed targeting
+                        if (!_mobState.IsDead(playerEntity.Value, mobState))
+                            _mobState.ChangeMobState(playerEntity.Value, MobState.Dead, mobState);
                     }
                     // Goob end
                 }

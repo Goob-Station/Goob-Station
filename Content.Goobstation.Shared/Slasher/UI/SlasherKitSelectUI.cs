@@ -22,10 +22,16 @@ public sealed class SlasherKitSelectedMessage(int index) : BoundUserInterfaceMes
 }
 
 [Serializable, NetSerializable]
-public sealed class SlasherKitInfo(string id, string name, string description, SpriteSpecifier sprite)
+public sealed class SlasherKitInfo(
+    string id,
+    string name,
+    string description,
+    SpriteSpecifier sprite,
+    string? guide)
 {
     public string Id = id;
     public string Name = name;
     public string Description = description;
     public SpriteSpecifier Sprite = sprite;
+    public string? Guide = guide;
 }

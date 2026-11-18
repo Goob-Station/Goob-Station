@@ -18,6 +18,7 @@ using Content.Shared.Item.ItemToggle;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared._Trauma.Hands; // Trauma
 using Robust.Client.Input;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
@@ -124,6 +125,7 @@ public abstract partial class InteractionTest
     protected SharedUserInterfaceSystem SUiSys = default!;
     protected SharedCombatModeSystem SCombatMode = default!;
     protected SharedGunSystem SGun = default!;
+    protected PredictedHandsSystem PredictedHands = default!; // Trauma
 
     // CLIENT dependencies
     protected IEntityManager CEntMan = default!;
@@ -198,6 +200,7 @@ public abstract partial class InteractionTest
         SUiSys = SEntMan.System<SharedUserInterfaceSystem>();
         SCombatMode = SEntMan.System<SharedCombatModeSystem>();
         SGun = SEntMan.System<SharedGunSystem>();
+        PredictedHands = SEntMan.System<PredictedHandsSystem>(); // Trauma
 
         // client dependencies
         CEntMan = Client.ResolveDependency<IEntityManager>();

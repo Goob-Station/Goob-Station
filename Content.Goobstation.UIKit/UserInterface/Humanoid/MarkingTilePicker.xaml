@@ -1,0 +1,29 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:hull="clr-namespace:Content.Goobstation.UIKit.UserInterface.Lobby;assembly=Content.Goobstation.UIKit"
+              Orientation="Vertical"
+              HorizontalExpand="True"
+              VerticalExpand="True"
+              SeparationOverride="6">
+    <BoxContainer Name="ColorRow" Orientation="Horizontal" SeparationOverride="4">
+        <Label Text="{Loc 'marking-tiles-color'}" StyleClasses="HullFieldLabel" MinWidth="60" VAlign="Center" />
+        <BoxContainer Name="Swatches" Orientation="Horizontal" SeparationOverride="4" />
+        <Button Name="CustomButton" ToggleMode="True" StyleClasses="HullTab" Text="{Loc 'marking-tiles-custom'}" />
+        <Control HorizontalExpand="True" />
+        <Button Name="MatchButton" Access="Public" ToggleMode="True" StyleClasses="HullTab" Visible="False"
+                Text="{Loc 'humanoid-profile-editor-match-hair-colors'}" />
+    </BoxContainer>
+    <BoxContainer Name="ColorSelectorContainer" Orientation="Vertical" SeparationOverride="4" Visible="False" />
+    <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+        <LineEdit Name="Search" StyleClasses="HullField" PlaceHolder="{Loc 'markings-search'}" HorizontalExpand="True" />
+        <Button Name="AllButton" ToggleMode="True" Pressed="True" StyleClasses="HullTab" Text="{Loc 'marking-tiles-all'}" />
+        <Button Name="FavouritesButton" ToggleMode="True" StyleClasses="HullTab" ToolTip="{Loc 'marking-tiles-favourites-tooltip'}" />
+    </BoxContainer>
+    <PanelContainer StyleClasses="HullInset" VerticalExpand="True">
+        <ScrollContainer Name="Scroll" HScrollEnabled="False" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical">
+                <hull:TileFlowContainer Name="Grid" Separation="6" CrossSeparation="6" Margin="4" HorizontalExpand="True" />
+                <Label Name="EmptyLabel" StyleClasses="HullMuted" HorizontalAlignment="Center" Margin="0 12" Visible="False" />
+            </BoxContainer>
+        </ScrollContainer>
+    </PanelContainer>
+</BoxContainer>

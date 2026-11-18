@@ -68,10 +68,7 @@ namespace Content.Client.Hands
 
         protected override bool BeforeDraw(in OverlayDrawArgs args)
         {
-            if (!_cfg.GetCVar(CCVars.HudHeldItemShow))
-                return false;
-
-            return base.BeforeDraw(in args);
+            return base.BeforeDraw(in args); // Goob
         }
 
         protected override void Draw(in OverlayDrawArgs args)
@@ -93,7 +90,7 @@ namespace Content.Client.Hands
             }
 
             _hands ??= _entMan.System<HandsSystem>();
-            var handEntity = _hands.GetActiveHandEntity();
+            var handEntity = EntityOverride ?? (_cfg.GetCVar(CCVars.HudHeldItemShow) ? _hands.GetActiveHandEntity() : null); // Goob
 
             // Goob edit start
             if (_player.LocalEntity != null)

@@ -2,7 +2,7 @@
 
 using System.Numerics;
 using Content.Goobstation.Common.Footprints;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Fluids.Components;

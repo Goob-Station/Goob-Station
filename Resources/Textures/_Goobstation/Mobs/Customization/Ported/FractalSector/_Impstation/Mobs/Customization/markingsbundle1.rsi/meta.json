@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Drawn by Carousel for Impstation. Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_Impstation/Mobs/Customization/markingsbundle1.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dwarfchesthair",
+      "directions": 4
+    },
+    {
+      "name": "dwarfarmhair",
+      "directions": 4
+    },
+    {
+      "name": "dwarfleghair",
+      "directions": 4
+    }
+  ]
+}
