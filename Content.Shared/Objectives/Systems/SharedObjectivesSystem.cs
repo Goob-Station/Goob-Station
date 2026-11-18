@@ -57,7 +57,10 @@ public abstract class SharedObjectivesSystem : EntitySystem
     /// The objective is not added to the mind's objectives, mind system does that in TryAddObjective.
     /// If the objective could not be assigned the objective is deleted and null is returned.
     /// </summary>
-    public EntityUid? TryCreateObjective(EntityUid mindId, MindComponent mind, string proto)
+    // Goob edit: ignoreRequirements skips CanBeAssigned, beforeAssign is invoked with the spawned objective before
+    // ObjectiveAssignedEvent so callers can preset things like a target (used by the admin objectives panel).
+    public EntityUid? TryCreateObjective(EntityUid mindId, MindComponent mind, string proto,
+        bool ignoreRequirements = false, Action<EntityUid>? beforeAssign = null) // Goob edit
     {
         if (!_protoMan.HasIndex<EntityPrototype>(proto))
             return null;
@@ -70,11 +73,14 @@ public abstract class SharedObjectivesSystem : EntitySystem
             return null;
         }
 
-        if (!CanBeAssigned(uid, mindId, mind, comp))
+        if (!ignoreRequirements && !CanBeAssigned(uid, mindId, mind, comp)) // Goob edit
         {
             Log.Warning($"Objective {proto} did not match the requirements for {_mind.MindOwnerLoggingString(mind)}, deleted it");
+            Del(uid); // Goob edit: don't leak the spawned entity
             return null;
         }
+
+        beforeAssign?.Invoke(uid); // Goob edit
 
         var ev = new ObjectiveAssignedEvent(mindId, mind);
         RaiseLocalEvent(uid, ref ev);
@@ -166,4 +172,17 @@ public abstract class SharedObjectivesSystem : EntitySystem
 
         comp.Icon = icon;
     }
+
+    // Goob edit start
+    /// <summary>
+    /// Sets the objective's issuer, used for the header it is grouped under.
+    /// </summary>
+    public void SetIssuer(EntityUid uid, LocId issuer, ObjectiveComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.Issuer = issuer;
+    }
+    // Goob edit end
 }
