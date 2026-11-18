@@ -91,11 +91,11 @@
 
 - type: selectableAmmo
   id: BulletEnergyGunExecute
-  desc: A highly damaging, and slightly radioactive bolt. Great for putting things down.
+  desc: A highly damaging energy bolt made to take targets down.
   icon:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: execute
-  color: green
+  color: red
   protoId: BulletExecute
   fireCost: 80
 
@@ -105,7 +105,7 @@
   icon:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: hotshot
-  color: red
+  color: orange
   protoId: BulletHotshot
   fireCost: 80
 
@@ -118,17 +118,6 @@
   color: pink
   protoId: BulletSleepshot
   fireCost: 60
-
-- type: selectableAmmo
-  id: BulletEnergyGunBigshot
-  desc: While dealing less damage to living creatures, this bolt is especially effective at tearing apart structures.
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
-    state: bigshot
-  color: gray
-  protoId: BulletBigshot
-  fireCost: 80
-
 
 # Pulse Rifle
 
