@@ -326,9 +326,8 @@
   result: PowerCellIRRevolver
   materials:
     Steel: 200
-    Gold: 100
     Glass: 100
-    Plasma: 100
+    Plasma: 50
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -366,28 +365,28 @@
   id: PowerCellIRSMG
   result: PowerCellIRSMG
   materials:
-    Steel: 400
-    Gold: 200
+    Steel: 200
+    Gold: 100
     Glass: 200
-    Plasma: 200
+    Plasma: 100
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: PowerCellIonSMG
   result: PowerCellIonSMG
   materials:
-    Steel: 400
-    Gold: 200
+    Steel: 200
+    Gold: 100
     Glass: 200
-    Plasma: 200
+    Plasma: 100
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: PowerCellXraySMG
   result: PowerCellXraySMG
   materials:
-    Steel: 400
-    Gold: 200
+    Steel: 200
+    Gold: 100
     Glass: 200
     Plasma: 200
     Uranium: 200
@@ -397,8 +396,8 @@
   id: PowerCellOverchargedSMG
   result: PowerCellOverchargedSMG
   materials:
-    Steel: 400
-    Gold: 200
+    Steel: 200
+    Gold: 100
     Glass: 400
     Plasma: 1000
 
@@ -407,41 +406,41 @@
   id: PowerCellIRSniper
   result: PowerCellIRSniper
   materials:
-    Steel: 600
-    Gold: 300
-    Glass: 300
-    Plasma: 300
+    Steel: 500
+    Gold: 200
+    Glass: 200
+    Plasma: 200
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: PowerCellIonSniper
   result: PowerCellIonSniper
   materials:
-    Steel: 600
-    Gold: 300
-    Glass: 300
-    Plasma: 300
+    Steel: 500
+    Gold: 200
+    Glass: 200
+    Plasma: 200
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: PowerCellXraySniper
   result: PowerCellXraySniper
   materials:
-    Steel: 600
-    Gold: 300
-    Glass: 300
-    Plasma: 300
-    Uranium: 300
+    Steel: 500
+    Gold: 200
+    Glass: 200
+    Plasma: 200
+    Uranium: 200
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: PowerCellOverchargedSniper
   result: PowerCellOverchargedSniper
   materials:
-    Steel: 600
-    Gold: 300
-    Glass: 600
-    Plasma: 1500
+    Steel: 500
+    Gold: 200
+    Glass: 200
+    Plasma: 1000
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -491,8 +490,7 @@
     Steel: 400
     Gold: 300
     Glass: 300
-    Plasma: 500
-    Uranium: 300
+    Plasma: 1000
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
