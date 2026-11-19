@@ -194,6 +194,6 @@
     damage:
       types:
         Heat: 30
-        armorPenetration: -0.2
+      armorPenetration: -0.2
     soundHit:
       collection: MeatLaserImpact
