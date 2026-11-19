@@ -161,7 +161,7 @@
 - type: entity
   name: overcharge rifle energy bolt # stronger vs unarmored
   id: RifleBulletEnergyGunOverchargeLethal
-  parent: BaseBulletIncendiary
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective
