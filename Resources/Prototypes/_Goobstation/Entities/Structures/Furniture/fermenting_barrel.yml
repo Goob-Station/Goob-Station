@@ -1,0 +1,90 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: FermentingBarrel
+  name: wooden barrel
+  description: A big wooden barrel. Seal crops inside and they'll slowly ferment into something to drink.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Furniture/fermenting_barrel.rsi
+    noRot: true
+    layers:
+    - state: closed
+      map: [ "lid" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FermentingBarrelVisuals.Open:
+        lid:
+          True: { state: open }
+          False: { state: closed }
+  - type: FermentingBarrel
+    drinks:
+      FoodAloe: Tequila
+      FoodBanana: BananaHonk
+      FoodMimana: Silencer
+      FoodSoybeans: Soysauce
+      FoodBerries: Gin
+      FoodGrape: Wine
+      WheatBushel: Beer
+      OatBushel: Ale
+      RiceBushel: Sake
+      FoodCorn: Whiskey
+      FoodPoppy: Vermouth
+      FoodPotato: Vodka
+      Sugarcane: Rum
+      FoodTomato: Enzyme
+      FoodBloodTomato: BloodyMary
+      FoodBlueTomato: Laughter
+      FoodExtradimensionalOrange: MindbreakerToxin
+  - type: ContainerContainer
+    containers:
+      produce: !type:Container
+  - type: SolutionContainerManager
+    solutions:
+      barrel:
+        maxVol: 600
+  - type: DrainableSolution
+    solution: barrel
+  - type: RefillableSolution
+    solution: barrel
+  - type: ExaminableSolution
+    solution: barrel
+  - type: Anchorable
+  - type: Pullable
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 3
+            max: 6
+  - type: Construction
+    graph: FermentingBarrel
+    node: barrel
+  - type: StaticPrice
+    price: 80

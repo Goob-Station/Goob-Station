@@ -5,3 +5,6 @@
 
 reagent-name-triple-citrus = triple citrus
 reagent-desc-triple-citrus = Three citruses a day keep liver failure at bay! Also helps with keeping your patrons in bar for longer.
+
+reagent-name-fruit-wine = fruit wine
+reagent-desc-fruit-wine = Wine made from whatever fruit was around. Sweet and a bit sharp.

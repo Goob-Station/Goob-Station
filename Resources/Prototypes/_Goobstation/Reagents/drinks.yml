@@ -23,3 +23,18 @@
       - !type:DiseaseProgressChange
         affectedType: Viral
         progressModifier: -0.0041666666666 #1/8th of devirate
+
+- type: reagent
+  id: FruitWine
+  name: reagent-name-fruit-wine
+  parent: BaseAlcohol
+  desc: reagent-desc-fruit-wine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: fruity
+  color: "#a8455a"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/wineglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true

@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: FermentingBarrel
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DestroyEntity {}
+    edges:
+    - to: barrel
+      steps:
+      - material: WoodPlank
+        amount: 8
+        doAfter: 3
+  - node: barrel
+    entity: FermentingBarrel
+    edges:
+    - to: start
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:GivePrototype
+        prototype: MaterialWoodPlank1
+        amount: 8
+      steps:
+      - tool: Prying
+        doAfter: 3
