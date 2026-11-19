@@ -23,6 +23,9 @@ public sealed class FermentingBarrelTest : InteractionTest
     [TestCase("WheatBushel", "Beer")]
     [TestCase("FoodApple", "Cider")]
     [TestCase("FoodLemon", "FruitWine")]
+    [TestCase("FoodCherry", "Maraschino")]
+    [TestCase("FoodOrange", "TripleSec")]
+    [TestCase("FoodLily", "Vermouth")]
     public async Task CropFerments(string crop, string drink)
     {
         await SpawnTarget("FermentingBarrel");
@@ -76,6 +79,16 @@ public sealed class FermentingBarrelTest : InteractionTest
     {
         await SpawnTarget("FermentingBarrel");
         await InteractUsing("FoodPotato");
+
+        await Server.WaitAssertion(() => Assert.That(Crops(STarget!.Value), Is.Empty));
+    }
+
+    [Test]
+    public async Task OnlyFoodCropsGoIn()
+    {
+        await SpawnTarget("FermentingBarrel");
+        await Interact();
+        await InteractUsing("Log");
 
         await Server.WaitAssertion(() => Assert.That(Crops(STarget!.Value), Is.Empty));
     }

@@ -39,9 +39,14 @@
     unfermentable:
     - MeatwheatBushel
     - LeavesTea
+    - LeavesTeaDried
     drinks:
       FoodAloe: Tequila
       FoodApple: Cider
+      FoodCherry: Maraschino
+      FoodOrange: TripleSec
+      FoodCocoaPod: CremeDeCacao
+      LeavesTobacco: CremeDeMenthe
       FoodBanana: BananaHonk
       FoodMimana: Silencer
       FoodSoybeans: Soysauce
@@ -52,6 +57,7 @@
       RiceBushel: Sake
       FoodCorn: Whiskey
       FoodPoppy: Vermouth
+      FoodLily: Vermouth
       FoodPotato: Vodka
       Sugarcane: Rum
       FoodTomato: Enzyme

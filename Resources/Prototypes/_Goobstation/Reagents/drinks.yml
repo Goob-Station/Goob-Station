@@ -53,3 +53,39 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+
+- type: reagent
+  id: Maraschino
+  name: reagent-name-maraschino
+  parent: BaseAlcohol
+  desc: reagent-desc-maraschino
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: cherry
+  color: "#DDDDDD"
+
+- type: reagent
+  id: TripleSec
+  name: reagent-name-triple-sec
+  parent: BaseAlcohol
+  desc: reagent-desc-triple-sec
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: orange
+  color: "#FFCC66"
+
+- type: reagent
+  id: CremeDeCacao
+  name: reagent-name-creme-de-cacao
+  parent: BaseAlcohol
+  desc: reagent-desc-creme-de-cacao
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: chocolate
+  color: "#350900"
+
+- type: reagent
+  id: CremeDeMenthe
+  name: reagent-name-creme-de-menthe
+  parent: BaseAlcohol
+  desc: reagent-desc-creme-de-menthe
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: minty
+  color: "#467446"
