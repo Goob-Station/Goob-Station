@@ -23,3 +23,85 @@
       - !type:DiseaseProgressChange
         affectedType: Viral
         progressModifier: -0.0041666666666 #1/8th of devirate
+
+- type: reagent
+  id: FruitWine
+  name: reagent-name-fruit-wine
+  parent: BaseAlcohol
+  desc: reagent-desc-fruit-wine
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: fruity
+  color: "#a8455a"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/wineglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+
+- type: reagent
+  id: Cider
+  name: reagent-name-cider
+  parent: BaseAlcohol
+  desc: reagent-desc-cider
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: apple
+  color: "#CD6839"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/whiskeyglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+
+- type: reagent
+  id: Maraschino
+  name: reagent-name-maraschino
+  parent: BaseAlcohol
+  desc: reagent-desc-maraschino
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: cherry
+  color: "#DDDDDD"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: TripleSec
+  name: reagent-name-triple-sec
+  parent: BaseAlcohol
+  desc: reagent-desc-triple-sec
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: orange
+  color: "#FFCC66"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+
+- type: reagent
+  id: CremeDeCacao
+  name: reagent-name-creme-de-cacao
+  parent: BaseAlcohol
+  desc: reagent-desc-creme-de-cacao
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: chocolate
+  color: "#350900"
+
+- type: reagent
+  id: CremeDeMenthe
+  name: reagent-name-creme-de-menthe
+  parent: BaseAlcohol
+  desc: reagent-desc-creme-de-menthe
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: minty
+  color: "#467446"

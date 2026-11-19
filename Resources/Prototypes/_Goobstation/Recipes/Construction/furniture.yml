@@ -33,3 +33,15 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+- type: construction
+  id: FermentingBarrel
+  graph: FermentingBarrel
+  startNode: start
+  targetNode: barrel
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
