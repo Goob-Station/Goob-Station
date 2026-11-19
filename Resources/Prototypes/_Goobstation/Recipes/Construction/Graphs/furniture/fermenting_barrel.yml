@@ -12,7 +12,7 @@
       steps:
       - material: WoodPlank
         amount: 8
-        doAfter: 3
+        doAfter: 5
   - node: barrel
     entity: FermentingBarrel
     edges:

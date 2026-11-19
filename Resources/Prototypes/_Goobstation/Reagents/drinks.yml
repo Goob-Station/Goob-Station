@@ -38,3 +38,18 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+
+- type: reagent
+  id: Cider
+  name: reagent-name-cider
+  parent: BaseAlcohol
+  desc: reagent-desc-cider
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: apple
+  color: "#CD6839"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/whiskeyglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true

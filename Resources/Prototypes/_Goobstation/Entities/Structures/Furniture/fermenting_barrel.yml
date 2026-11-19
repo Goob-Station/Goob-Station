@@ -20,8 +20,28 @@
           True: { state: open }
           False: { state: closed }
   - type: FermentingBarrel
+    openSound:
+      path: /Audio/_Goobstation/Items/handling/cardboardbox_pickup.ogg
+      params:
+        volume: -12
+    closeSound:
+      path: /Audio/_Goobstation/Effects/woodclaw2.ogg
+      params:
+        volume: -12
+    openComponents:
+    - type: RefillableSolution
+      solution: barrel
+    - type: ExaminableSolution
+      solution: barrel
+    closedComponents:
+    - type: DrainableSolution
+      solution: barrel
+    unfermentable:
+    - MeatwheatBushel
+    - LeavesTea
     drinks:
       FoodAloe: Tequila
+      FoodApple: Cider
       FoodBanana: BananaHonk
       FoodMimana: Silencer
       FoodSoybeans: Soysauce
@@ -45,12 +65,12 @@
     solutions:
       barrel:
         maxVol: 600
-  - type: DrainableSolution
-    solution: barrel
-  - type: RefillableSolution
-    solution: barrel
-  - type: ExaminableSolution
-    solution: barrel
+  - type: AmbientSound
+    enabled: false
+    volume: -12
+    range: 5
+    sound:
+      path: /Audio/_Goobstation/Effects/bubbles2.ogg
   - type: Anchorable
   - type: Pullable
   - type: Physics
@@ -73,7 +93,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 300
       behaviors:
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior

@@ -15,3 +15,4 @@ fermenting-barrel-examine-waiting = { $count ->
     [one] One crop is waiting to ferment.
    *[other] {$count} crops are waiting to ferment.
 }
+fermenting-barrel-cant-ferment = That won't ferment.
