@@ -3,10 +3,73 @@
 # Chest
 
 - type: marking
-  id: ArachnidOverlayFluffy
+  id: PlasmamanEyesCylon
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ Plasmaman ]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
-    state: fluffy
+    state: cylon
+
+- type: marking
+  id: PlasmamanEyesCyclop
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Plasmaman ]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: cyclop
+
+- type: marking
+  id: PlasmamanEyesExecutor
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Plasmaman ]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: executor
+
+- type: marking
+  id: PlasmamanEyesSubordinate
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Plasmaman ]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: subordinate
+
+- type: marking
+  id: PlasmamanEyesCompound
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Plasmaman ]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: compound
+
+- type: marking
+  id: PlasmamanEyesBig
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Plasmaman ]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: big
+
+- type: marking
+  id: PlasmamanEyesAngry
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Plasmaman ]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: angry
+
+- type: marking
+  id: PlasmamanEyesAnalytical
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Plasmaman ]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: analytical
