@@ -27,6 +27,7 @@ namespace Content.Goobstation.Server.Botany;
 public sealed partial class FermentingBarrelSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -40,13 +41,13 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<FermentingBarrelComponent>();
-        while (query.MoveNext(out var uid, out var barrel))
+        var query = EntityQueryEnumerator<ActiveFermentingBarrelComponent, FermentingBarrelComponent>();
+        while (query.MoveNext(out var uid, out var active, out var barrel))
         {
-            if (barrel.Open || _timing.CurTime < barrel.NextFerment)
+            if (_timing.CurTime < active.NextFerment)
                 continue;
 
-            barrel.NextFerment = _timing.CurTime + barrel.TimePerCrop;
+            active.NextFerment = _timing.CurTime + barrel.TimePerCrop;
             FermentNext((uid, barrel));
         }
     }
@@ -75,7 +76,7 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
         if (args.Handled || !ent.Comp.Open)
             return;
 
-        if (IsCrop(args.Used))
+        if (IsCrop(ent, args.Used))
         {
             args.Handled = true;
             if (TryAddCrop(ent, args.Used, args.User))
@@ -83,13 +84,14 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
             return;
         }
 
-        if (!TryComp<StorageComponent>(args.Used, out var bag))
+        if (!IsBag(ent, args.Used) || !TryComp<StorageComponent>(args.Used, out var bag))
             return;
 
+        args.Handled = true;
         var added = 0;
         foreach (var item in bag.Container.ContainedEntities.ToList())
         {
-            if (!IsCrop(item))
+            if (!IsCrop(ent, item))
                 continue;
 
             if (!TryAddCrop(ent, item, args.User))
@@ -98,11 +100,8 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
             added++;
         }
 
-        if (added == 0)
-            return;
-
-        args.Handled = true;
-        _popup.PopupEntity(Loc.GetString("fermenting-barrel-added", ("count", added)), ent, args.User);
+        if (added > 0)
+            _popup.PopupEntity(Loc.GetString("fermenting-barrel-added", ("count", added)), ent, args.User);
     }
 
     [SubscribeLocalEvent]
@@ -141,58 +140,71 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
     private void SetLid(Entity<FermentingBarrelComponent> ent, bool open)
     {
         ent.Comp.Open = open;
-        ent.Comp.NextFerment = _timing.CurTime + ent.Comp.TimePerCrop;
         EntityManager.RemoveComponents(ent, open ? ent.Comp.ClosedComponents : ent.Comp.OpenComponents);
         EntityManager.AddComponents(ent, open ? ent.Comp.OpenComponents : ent.Comp.ClosedComponents);
         _appearance.SetData(ent, FermentingBarrelVisuals.Open, open);
-        UpdateBubbling(ent);
+
+        if (open)
+            StopFermenting(ent);
+        else
+            StartFermenting(ent);
+    }
+
+    private void StartFermenting(Entity<FermentingBarrelComponent> ent)
+    {
+        if (ent.Comp.Open || IsFull(ent) || Crops(ent).ContainedEntities.Count == 0)
+            return;
+
+        EnsureComp<ActiveFermentingBarrelComponent>(ent).NextFerment = _timing.CurTime + ent.Comp.TimePerCrop;
+        _ambient.SetAmbience(ent, true);
+    }
+
+    private void StopFermenting(Entity<FermentingBarrelComponent> ent)
+    {
+        RemComp<ActiveFermentingBarrelComponent>(ent);
+        _ambient.SetAmbience(ent, false);
     }
 
     private void FermentNext(Entity<FermentingBarrelComponent> ent)
     {
         var crops = Crops(ent);
-        if (crops.ContainedEntities.Count == 0
+        if (ent.Comp.Open || IsFull(ent) || crops.ContainedEntities.Count == 0
             || !_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out var barrelSolution, out var barrelContents))
+        {
+            StopFermenting(ent);
             return;
+        }
 
         var crop = crops.ContainedEntities[0];
-        var fermented = new Solution();
         if (_solution.TryGetSolution(crop, CropSolution, out var cropSolution, out var cropContents))
         {
-            fermented = _solution.SplitSolution(cropSolution.Value, cropContents.Volume);
+            var fermented = _solution.SplitSolution(cropSolution.Value, cropContents.Volume);
             FixedPoint2 drink = 0;
-            foreach (var reagent in ent.Comp.Fermentable)
+            foreach (var reagent in FermentableIn(ent, crop))
             {
                 drink += fermented.RemoveReagent(reagent.Id, fermented.GetTotalPrototypeQuantity(reagent));
             }
 
             if (drink > 0)
                 fermented.AddReagent(DrinkFor(ent, crop).Id, drink);
+
+            // Whatever doesn't fit is lost with the crop.
+            _solution.TryAddSolution(barrelSolution.Value, fermented.SplitSolution(barrelContents.AvailableVolume));
         }
 
-        // No room yet: put it back and try again once some has been drawn off.
-        if (fermented.Volume > barrelContents.AvailableVolume)
-        {
-            if (cropSolution != null)
-                _solution.TryAddSolution(cropSolution.Value, fermented);
-        }
-        else
-        {
-            _solution.TryAddSolution(barrelSolution.Value, fermented);
-            _container.Remove(crop, crops);
-            QueueDel(crop);
-        }
+        _container.Remove(crop, crops);
+        QueueDel(crop);
 
-        UpdateBubbling(ent);
+        if (IsFull(ent) || crops.ContainedEntities.Count == 0)
+            StopFermenting(ent);
     }
 
-    /// <summary>
-    /// Bubbles away while it has crops to work through and room for them.
-    /// </summary>
-    private void UpdateBubbling(Entity<FermentingBarrelComponent> ent)
+    private IEnumerable<ProtoId<ReagentPrototype>> FermentableIn(Entity<FermentingBarrelComponent> ent, EntityUid crop)
     {
-        var full = _solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var contents) && contents.AvailableVolume <= 0;
-        _ambient.SetAmbience(ent, !ent.Comp.Open && !full && Crops(ent).ContainedEntities.Count > 0);
+        if (MetaData(crop).EntityPrototype is { } proto && ent.Comp.FermentFrom.TryGetValue(proto.ID, out var reagents))
+            return reagents;
+
+        return ent.Comp.Fermentable;
     }
 
     private ProtoId<ReagentPrototype> DrinkFor(Entity<FermentingBarrelComponent> ent, EntityUid crop)
@@ -204,14 +216,14 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
     }
 
     /// <summary>
-    /// Puts a crop in to wait, if it can ferment and everything waiting would still fit once fermented.
+    /// Puts a crop in to wait, if what's already in the barrel and waiting leaves room for it.
     /// </summary>
     private bool TryAddCrop(Entity<FermentingBarrelComponent> ent, EntityUid crop, EntityUid user)
     {
         if (!_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var barrelContents))
             return false;
 
-        var waiting = CropVolume(crop);
+        var waiting = FixedPoint2.Zero;
         foreach (var other in Crops(ent).ContainedEntities)
         {
             waiting += CropVolume(other);
@@ -232,12 +244,42 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
         return _container.Insert(crop, Crops(ent));
     }
 
-    /// <summary>
-    /// Only food crops go in; logs, cotton and nettles don't.
-    /// </summary>
-    private bool IsCrop(EntityUid uid)
+    private bool IsFull(Entity<FermentingBarrelComponent> ent)
     {
-        return HasComp<ProduceComponent>(uid) && HasComp<EdibleComponent>(uid);
+        return _solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var contents) && contents.AvailableVolume <= 0;
+    }
+
+    /// <summary>
+    /// Food crops go in; logs, cotton and the like don't.
+    /// </summary>
+    private bool IsCrop(Entity<FermentingBarrelComponent> ent, EntityUid uid)
+    {
+        if (!HasComp<ProduceComponent>(uid) || IsAny(uid, ent.Comp.NotCrops))
+            return false;
+
+        return HasComp<EdibleComponent>(uid) || IsAny(uid, ent.Comp.ExtraCrops);
+    }
+
+    private bool IsBag(Entity<FermentingBarrelComponent> ent, EntityUid uid)
+    {
+        return IsAny(uid, ent.Comp.Bags);
+    }
+
+    /// <summary>
+    /// Whether the entity's prototype, or one it inherits from, is in the list.
+    /// </summary>
+    private bool IsAny(EntityUid uid, List<EntProtoId> ids)
+    {
+        if (ids.Count == 0 || MetaData(uid).EntityPrototype is not { } proto)
+            return false;
+
+        foreach (var parent in _proto.EnumerateParents<EntityPrototype>(proto, includeSelf: true))
+        {
+            if (ids.Contains(parent.ID))
+                return true;
+        }
+
+        return false;
     }
 
     private FixedPoint2 CropVolume(EntityUid crop)

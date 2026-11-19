@@ -9,7 +9,7 @@ namespace Content.Goobstation.Server.Botany;
 /// <summary>
 /// A barrel that slowly ferments the crops sealed inside it into drinks.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent]
 public sealed partial class FermentingBarrelComponent : Component
 {
     /// <summary>
@@ -31,13 +31,13 @@ public sealed partial class FermentingBarrelComponent : Component
     public bool Open;
 
     /// <summary>
-    /// Added while the lid is off and removed when it's shut: pouring in, and seeing what's inside.
+    /// Components the barrel has while the lid is off.
     /// </summary>
     [DataField]
     public ComponentRegistry OpenComponents = new();
 
     /// <summary>
-    /// Added while the lid is shut and removed when it's off: the tap.
+    /// Components the barrel has while the lid is on.
     /// </summary>
     [DataField]
     public ComponentRegistry ClosedComponents = new();
@@ -61,16 +61,40 @@ public sealed partial class FermentingBarrelComponent : Component
     public ProtoId<ReagentPrototype> DefaultDrink = "FruitWine";
 
     /// <summary>
+    /// The reagents in a crop that turn into its drink. Everything else goes in as it is.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<ReagentPrototype>> Fermentable = new() { "Nutriment", "Vitamin", "Flour", "Oats", "Rice", "Sugar", "Cornmeal" };
+
+    /// <summary>
+    /// Crops whose drink comes from other reagents than <see cref="Fermentable"/>, because they hold no food.
+    /// </summary>
+    [DataField]
+    public Dictionary<EntProtoId, List<ProtoId<ReagentPrototype>>> FermentFrom = new();
+
+    /// <summary>
     /// Crops that won't ferment at all.
     /// </summary>
     [DataField]
     public List<EntProtoId> Unfermentable = new();
 
     /// <summary>
-    /// The reagents in a crop that turn into its drink. Everything else goes in as it is.
+    /// Produce that isn't a food crop and doesn't go in, even though it can be eaten here.
     /// </summary>
     [DataField]
-    public List<ProtoId<ReagentPrototype>> Fermentable = new() { "Nutriment", "Vitamin", "Flour", "Oats", "Rice", "Sugar" };
+    public List<EntProtoId> NotCrops = new();
+
+    /// <summary>
+    /// Food crops that go in even though they can't be eaten here.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> ExtraCrops = new();
+
+    /// <summary>
+    /// Bags that can tip their crops in.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> Bags = new();
 
     /// <summary>
     /// Played when the lid comes off.
@@ -83,10 +107,4 @@ public sealed partial class FermentingBarrelComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? CloseSound;
-
-    /// <summary>
-    /// When the next crop ferments.
-    /// </summary>
-    [ViewVariables, AutoPausedField]
-    public TimeSpan NextFerment;
 }
