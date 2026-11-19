@@ -54,16 +54,17 @@ public sealed partial class FermentingBarrelComponent : Component
     public ProtoId<ReagentPrototype> DefaultDrink = "FruitWine";
 
     /// <summary>
-    /// The reagents in a crop that turn into its drink. Everything else goes in as it is.
+    /// The reagents in a crop that turn into its drink, and how much of each does. Everything else goes in as it is.
     /// </summary>
     [DataField]
-    public List<ProtoId<ReagentPrototype>> Fermentable = new() { "Nutriment", "Vitamin" };
+    public Dictionary<ProtoId<ReagentPrototype>, float> Fermentable = new() { ["Nutriment"] = 1f, ["Vitamin"] = 1f };
 
     /// <summary>
-    /// Crops whose drink comes from other reagents than <see cref="Fermentable"/>, like grains that hold flour.
+    /// Crops that hold something else where tg's hold nutriment, like grains that hold flour, with what of theirs
+    /// ferments in place of <see cref="Fermentable"/>.
     /// </summary>
     [DataField]
-    public Dictionary<EntProtoId, List<ProtoId<ReagentPrototype>>> FermentFrom = new();
+    public Dictionary<EntProtoId, Dictionary<ProtoId<ReagentPrototype>, float>> FermentFrom = new();
 
     /// <summary>
     /// Crops that won't ferment at all.

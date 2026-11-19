@@ -57,11 +57,13 @@
   - type: AmbientSound
     enabled: false
     volume: -12
-    range: 5
+    range: 8
     sound:
       collection: FermentingBarrelBubbling
   - type: ItemToggle
     onUse: false
+    verbToggleOn: fermenting-barrel-verb-open
+    verbToggleOff: fermenting-barrel-verb-close
     soundActivate:
       collection: FermentingBarrelLidOff
       params:
@@ -80,14 +82,13 @@
     - type: DrainableSolution
       solution: barrel
     fermentFrom:
-      FoodAloe: [ Aloe ]
-      LeavesTobacco: [ Nicotine ]
-      LeavesTobaccoDried: [ Nicotine ]
-      WheatBushel: [ Nutriment, Vitamin, Flour ]
-      OatBushel: [ Nutriment, Vitamin, Oats ]
-      RiceBushel: [ Nutriment, Vitamin, Rice ]
-      FoodCorn: [ Nutriment, Vitamin, Cornmeal ]
-      Sugarcane: [ Nutriment, Vitamin, Sugar ]
+      FoodAloe: { Aloe: 1, SilverSulfadiazine: 1 }
+      LeavesTobacco: { Nicotine: 0.5 }
+      LeavesTobaccoDried: { Nicotine: 0.5 }
+      WheatBushel: { Nutriment: 1, Vitamin: 1, Flour: 1 }
+      OatBushel: { Nutriment: 1, Vitamin: 1, Oats: 1 }
+      RiceBushel: { Nutriment: 1, Vitamin: 1, Rice: 1 }
+      Sugarcane: { Sugar: 0.29 }
     notCrops:
     - CottonBol
     - PyrottonBol

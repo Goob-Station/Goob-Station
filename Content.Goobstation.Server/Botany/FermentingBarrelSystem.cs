@@ -181,9 +181,9 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
         {
             var fermented = _solution.SplitSolution(cropSolution.Value, cropContents.Volume);
             FixedPoint2 drink = 0;
-            foreach (var reagent in FermentableIn(ent, crop))
+            foreach (var (reagent, share) in FermentableIn(ent, crop))
             {
-                drink += fermented.RemoveReagent(reagent.Id, fermented.GetTotalPrototypeQuantity(reagent));
+                drink += fermented.RemoveReagent(reagent.Id, fermented.GetTotalPrototypeQuantity(reagent) * share);
             }
 
             if (drink > 0)
@@ -200,7 +200,7 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
             StopFermenting(ent);
     }
 
-    private IEnumerable<ProtoId<ReagentPrototype>> FermentableIn(Entity<FermentingBarrelComponent> ent, EntityUid crop)
+    private Dictionary<ProtoId<ReagentPrototype>, float> FermentableIn(Entity<FermentingBarrelComponent> ent, EntityUid crop)
     {
         if (MetaData(crop).EntityPrototype is { } proto && ent.Comp.FermentFrom.TryGetValue(proto.ID, out var reagents))
             return reagents;

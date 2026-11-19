@@ -14,3 +14,5 @@ fermenting-barrel-examine-waiting = { $count ->
    *[other] {$count} crops are waiting to ferment.
 }
 fermenting-barrel-cant-ferment = That won't ferment.
+fermenting-barrel-verb-open = Take the lid off
+fermenting-barrel-verb-close = Put the lid on

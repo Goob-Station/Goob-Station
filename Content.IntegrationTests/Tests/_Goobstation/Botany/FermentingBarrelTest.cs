@@ -10,6 +10,9 @@ using Content.Shared.Audio;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Stacks;
@@ -57,25 +60,6 @@ public sealed class FermentingBarrelTest : InteractionTest
             Assert.That(SEntMan.GetComponent<AmbientSoundComponent>(barrel).Enabled, Is.False, "Should stop bubbling once done");
             Assert.That(SEntMan.HasComponent<ActiveFermentingBarrelComponent>(barrel), Is.False);
             Assert.That(Contents(barrel).GetTotalPrototypeQuantity(drink).Float(), Is.GreaterThan(0));
-        });
-    }
-
-    [Test]
-    public async Task CornTurnsWhollyToWhiskey()
-    {
-        await SpawnTarget("FermentingBarrel");
-        var barrel = STarget!.Value;
-
-        await Interact();
-        await InteractUsing("FoodCorn");
-        await Interact();
-        await RunSeconds(5);
-
-        await Server.WaitAssertion(() =>
-        {
-            Assert.That(Contents(barrel).GetTotalPrototypeQuantity("Whiskey").Float(), Is.GreaterThan(0));
-            Assert.That(Contents(barrel).GetTotalPrototypeQuantity("Cornmeal").Float(), Is.EqualTo(0));
-            Assert.That(Contents(barrel).GetTotalPrototypeQuantity("Nutriment").Float(), Is.EqualTo(0));
         });
     }
 
@@ -250,8 +234,67 @@ public sealed class FermentingBarrelTest : InteractionTest
 
         await Activate(); // shut the lid; a click would put in another leaf
         await RunSeconds(5);
-        // A spawned leaf holds none of the nicotine a harvested one would, so just check it fermented away.
-        await Server.WaitAssertion(() => Assert.That(Crops(barrel), Is.Empty));
+        await Server.WaitAssertion(() =>
+        {
+            Assert.That(Crops(barrel), Is.Empty);
+            Assert.That(Contents(barrel).GetTotalPrototypeQuantity("CremeDeMenthe").Float(), Is.GreaterThan(0));
+            Assert.That(Contents(barrel).GetTotalPrototypeQuantity("Nicotine"),
+                Is.EqualTo(Contents(barrel).GetTotalPrototypeQuantity("CremeDeMenthe")), "Half the nicotine stays");
+        });
+    }
+
+    [Test]
+    [TestCase("Sugarcane", "Rum", "Sugar", 0.29f)]
+    [TestCase("FoodCorn", "Whiskey", "Nutriment", 1f)]
+    [TestCase("FoodAloe", "Tequila", "Aloe", 1f)]
+    public async Task CropsMakeTgsShareOfDrink(string crop, string drink, string source, float share)
+    {
+        await SpawnTarget("FermentingBarrel");
+        var barrel = STarget!.Value;
+        await Interact();
+        await InteractUsing(crop);
+
+        FixedPoint2 expected = 0, total = 0;
+        await Server.WaitAssertion(() =>
+        {
+            Assert.That(SEntMan.System<SharedSolutionContainerSystem>().TryGetSolution(Crops(barrel)[0], "food", out _, out var contents));
+            expected = contents!.GetTotalPrototypeQuantity(source) * share;
+            if (crop == "FoodAloe")
+                expected += contents.GetTotalPrototypeQuantity("SilverSulfadiazine");
+            total = contents.Volume;
+        });
+
+        await Interact();
+        await RunSeconds(5);
+        await Server.WaitAssertion(() =>
+        {
+            Assert.That(Contents(barrel).GetTotalPrototypeQuantity(drink), Is.EqualTo(expected));
+            Assert.That(Contents(barrel).Volume, Is.EqualTo(total), "Nothing is lost");
+        });
+    }
+
+    [Test]
+    public async Task BreakingItLosesTheCrops()
+    {
+        await SpawnTarget("FermentingBarrel");
+        var barrel = STarget!.Value;
+        await Interact();
+        await InteractUsing("FoodGrape");
+
+        await Server.WaitPost(() =>
+        {
+            var blunt = new DamageSpecifier(ProtoMan.Index<DamageTypePrototype>("Blunt"), 400);
+            SEntMan.System<DamageableSystem>().TryChangeDamage(barrel, blunt, ignoreResistances: true);
+        });
+        await RunTicks(5);
+
+        await Server.WaitAssertion(() =>
+        {
+            Assert.That(SEntMan.Deleted(barrel));
+            var left = SEntMan.AllEntities<MetaDataComponent>()
+                .Count(e => e.Comp.EntityPrototype?.ID is "FoodGrape" or "MaterialWoodPlank1" or "MaterialWoodPlank");
+            Assert.That(left, Is.Zero, "Nothing drops");
+        });
     }
 
     [Test]
