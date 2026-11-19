@@ -51,6 +51,16 @@
     rules: ghost-role-information-freeagent-rules
 
 - type: entity
+  id: SpawnPointGhostBonglePrimeToken
+  parent: SpawnPointGhostBonglePrime
+  suffix: Prime
+  components:
+  - type: GhostRole
+    name: ghost-role-information-bongle-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-freeagent-rules
+
+- type: entity
   id: SpawnPointGhostBlobRatToken
   name: Mouse Blob Spawn Point
   suffix: Blob Ghostrole, Token

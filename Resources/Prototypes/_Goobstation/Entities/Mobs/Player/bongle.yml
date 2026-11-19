@@ -155,9 +155,11 @@
   - type: Puller
     needsHands: false
   - type: Swallower
-    chewBlacklist:
+    chewBlacklist: # If there's anything really important that I forgot, add it here
       components:
       - HumanoidAppearance # This gets ignored on ascension, just so bongle isnt too op.
+      - NukeDisk
+      #- Gun Uncomment this to nerf these muttasuckas
     capacity: 3
     spitCount: 3
     spitDamage:

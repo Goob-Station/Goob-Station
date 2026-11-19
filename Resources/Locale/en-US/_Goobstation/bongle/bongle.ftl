@@ -41,3 +41,8 @@ bingle-triumph = The pit feasts on the Adversary. Point production is boosted!
 language-Bongle-name = Bongle
 chat-language-Bongle-name = Bongle
 language-Bongle-description = BONG BANG BONGLE!!!
+
+ghost-role-information-bongle-name-token = Bongle (Token)
+ghost-role-information-bongle-name = Bongle
+ghost-role-information-bongle-description = Filled with UNFATHOMABLE RAGE for the Adversary. The hill commands.
+ghost-role-information-bongle-rules = You are a [color=red][bold]Solo Antagonist[/bold][/color] , but may work with other Bongles.
