@@ -62,6 +62,14 @@
   physicalDesc: reagent-physical-desc-translucent
   flavor: cherry
   color: "#DDDDDD"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
 
 - type: reagent
   id: TripleSec
@@ -71,6 +79,14 @@
   physicalDesc: reagent-physical-desc-aromatic
   flavor: orange
   color: "#FFCC66"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
 
 - type: reagent
   id: CremeDeCacao

@@ -10,6 +10,9 @@ using Content.Shared.Audio;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.FixedPoint;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Stacks;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
 using NUnit.Framework;
@@ -40,7 +43,7 @@ public sealed class FermentingBarrelTest : InteractionTest
         await InteractUsing(crop);
         await Server.WaitAssertion(() =>
         {
-            Assert.That(SEntMan.GetComponent<FermentingBarrelComponent>(barrel).Open);
+            Assert.That(SEntMan.System<ItemToggleSystem>().IsActivated(barrel), "The lid should be off");
             Assert.That(Crops(barrel), Has.Count.EqualTo(1));
         });
 
@@ -188,6 +191,111 @@ public sealed class FermentingBarrelTest : InteractionTest
             var tip = verbs.Single(v => v.Text == Loc.GetString("fermenting-barrel-empty-verb"));
             tip.Act!.Invoke();
             Assert.That(Crops(barrel), Is.Empty);
+        });
+    }
+
+    [Test]
+    public async Task DrinkMatchesTheFoodInTheCrop()
+    {
+        await SpawnTarget("FermentingBarrel");
+        var barrel = STarget!.Value;
+        await Interact();
+        await InteractUsing("FoodGrape");
+
+        FixedPoint2 food = 0, other = 0;
+        await Server.WaitAssertion(() =>
+        {
+            Assert.That(SEntMan.System<SharedSolutionContainerSystem>().TryGetSolution(Crops(barrel)[0], "food", out _, out var crop));
+            food = crop!.GetTotalPrototypeQuantity("Nutriment") + crop.GetTotalPrototypeQuantity("Vitamin");
+            other = crop.Volume - food;
+        });
+
+        await Interact();
+        await RunSeconds(5);
+
+        await Server.WaitAssertion(() =>
+        {
+            Assert.That(Contents(barrel).GetTotalPrototypeQuantity("Wine"), Is.EqualTo(food));
+            Assert.That(Contents(barrel).Volume - Contents(barrel).GetTotalPrototypeQuantity("Wine"), Is.EqualTo(other), "Everything else goes in as it is");
+        });
+    }
+
+    [Test]
+    public async Task OnlyGrainsFermentTheirSugar()
+    {
+        await SpawnTarget("FermentingBarrel");
+        var barrel = STarget!.Value;
+        await Interact();
+        await InteractUsing("FoodLaughinPeaPod");
+        await Interact();
+        await RunSeconds(5);
+
+        await Server.WaitAssertion(() => Assert.That(Contents(barrel).GetTotalPrototypeQuantity("Sugar").Float(), Is.GreaterThan(0), "Peas keep their sugar"));
+    }
+
+    [Test]
+    public async Task DriedTobaccoGoesInALeafAtATime()
+    {
+        await SpawnTarget("FermentingBarrel");
+        var barrel = STarget!.Value;
+        await Interact();
+        var leaves = await PlaceInHands("LeavesTobaccoDried", 3);
+        await Interact();
+
+        await Server.WaitAssertion(() =>
+        {
+            Assert.That(Crops(barrel), Has.Count.EqualTo(1));
+            Assert.That(SEntMan.GetComponent<StackComponent>(SEntMan.GetEntity(leaves)).Count, Is.EqualTo(2));
+        });
+
+        await Activate(); // shut the lid; a click would put in another leaf
+        await RunSeconds(5);
+        // A spawned leaf holds none of the nicotine a harvested one would, so just check it fermented away.
+        await Server.WaitAssertion(() => Assert.That(Crops(barrel), Is.Empty));
+    }
+
+    [Test]
+    public async Task OverflowIsLostAndFermentingStops()
+    {
+        await SpawnTarget("FermentingBarrel");
+        var barrel = STarget!.Value;
+        await Interact();
+        await InteractUsing("FoodGrape");
+        await InteractUsing("FoodGrape");
+
+        await Server.WaitAssertion(() =>
+        {
+            var solutions = SEntMan.System<SharedSolutionContainerSystem>();
+            Assert.That(solutions.TryGetSolution(barrel, "barrel", out var solution, out var contents));
+            solutions.TryAddReagent(solution!.Value, "Water", contents!.AvailableVolume - 1, out _);
+        });
+
+        await Interact();
+        await RunSeconds(5);
+        await Server.WaitAssertion(() =>
+        {
+            Assert.That(Contents(barrel).AvailableVolume, Is.EqualTo(FixedPoint2.Zero));
+            Assert.That(Crops(barrel), Has.Count.EqualTo(1), "Fermenting stops once it's full");
+            Assert.That(SEntMan.HasComponent<ActiveFermentingBarrelComponent>(barrel), Is.False);
+        });
+    }
+
+    [Test]
+    public async Task OpeningStopsFermenting()
+    {
+        await SpawnTarget("FermentingBarrel");
+        var barrel = STarget!.Value;
+        await Interact();
+        await InteractUsing("FoodGrape");
+        await Interact();
+        await Server.WaitAssertion(() => Assert.That(SEntMan.HasComponent<ActiveFermentingBarrelComponent>(barrel)));
+
+        await Interact();
+        await RunSeconds(5);
+        await Server.WaitAssertion(() =>
+        {
+            Assert.That(SEntMan.HasComponent<ActiveFermentingBarrelComponent>(barrel), Is.False);
+            Assert.That(Crops(barrel), Has.Count.EqualTo(1));
         });
     }
 

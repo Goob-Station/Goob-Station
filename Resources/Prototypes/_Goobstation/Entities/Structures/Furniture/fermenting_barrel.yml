@@ -4,7 +4,7 @@
   parent: BaseStructureDynamic
   id: FermentingBarrel
   name: wooden barrel
-  description: A big wooden barrel. Seal crops inside and they'll slowly ferment into something to drink.
+  description: Seal crops in this wooden barrel and they'll slowly ferment into something to drink.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Furniture/fermenting_barrel.rsi
@@ -15,19 +15,62 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.FermentingBarrelVisuals.Open:
+      enum.ToggleableVisuals.Enabled:
         lid:
           True: { state: open }
           False: { state: closed }
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Anchorable
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ContainerContainer
+    containers:
+      produce: !type:Container
+  - type: SolutionContainerManager
+    solutions:
+      barrel:
+        maxVol: 600
+  - type: DrainableSolution
+    solution: barrel
+  - type: AmbientSound
+    enabled: false
+    volume: -12
+    range: 5
+    sound:
+      collection: FermentingBarrelBubbling
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      collection: FermentingBarrelLidOff
+      params:
+        volume: -12
+    soundDeactivate:
+      collection: FermentingBarrelLidOn
+      params:
+        volume: -12
   - type: FermentingBarrel
-    openSound:
-      path: /Audio/_Goobstation/Items/handling/cardboardbox_pickup.ogg
-      params:
-        volume: -12
-    closeSound:
-      path: /Audio/_Goobstation/Effects/FermentingBarrel/woodclaw2.ogg
-      params:
-        volume: -12
     openComponents:
     - type: RefillableSolution
       solution: barrel
@@ -39,11 +82,18 @@
     fermentFrom:
       FoodAloe: [ Aloe ]
       LeavesTobacco: [ Nicotine ]
+      LeavesTobaccoDried: [ Nicotine ]
+      WheatBushel: [ Nutriment, Vitamin, Flour ]
+      OatBushel: [ Nutriment, Vitamin, Oats ]
+      RiceBushel: [ Nutriment, Vitamin, Rice ]
+      FoodCorn: [ Nutriment, Vitamin, Cornmeal ]
+      Sugarcane: [ Nutriment, Vitamin, Sugar ]
     notCrops:
     - CottonBol
     - PyrottonBol
     extraCrops:
     - DeathNettle
+    - LeavesTobaccoDried
     bags:
     - PlantBag
     unfermentable:
@@ -57,6 +107,7 @@
       FoodOrange: TripleSec
       FoodCocoaPod: CremeDeCacao
       LeavesTobacco: CremeDeMenthe
+      LeavesTobaccoDried: CremeDeMenthe
       FoodBanana: BananaHonk
       FoodMimana: Silencer
       FoodSoybeans: Soysauce
@@ -74,51 +125,6 @@
       FoodBloodTomato: BloodyMary
       FoodBlueTomato: Laughter
       FoodExtradimensionalOrange: MindbreakerToxin
-  - type: ContainerContainer
-    containers:
-      produce: !type:Container
-  - type: SolutionContainerManager
-    solutions:
-      barrel:
-        maxVol: 600
-  - type: AmbientSound
-    enabled: false
-    volume: -12
-    range: 5
-    sound:
-      path: /Audio/_Goobstation/Effects/FermentingBarrel/bubbles2.ogg
-  - type: Anchorable
-  - type: Pullable
-  - type: Physics
-    bodyType: Dynamic
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 200
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Wood
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:EmptyAllContainersBehaviour
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          MaterialWoodPlank1:
-            min: 3
-            max: 6
   - type: Construction
     graph: FermentingBarrel
     node: barrel

@@ -9,3 +9,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/blob/7784693238703411f51396693fe29fd2a146a7ec/sound/effects/footstep/woodclaw2.ogg"
+
+- files: ["cardboardbox_pickup.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation"
+  source: "https://github.com/tgstation/tgstation/blob/7784693238703411f51396693fe29fd2a146a7ec/sound/items/handling/cardboard_box/cardboardbox_pickup.ogg"

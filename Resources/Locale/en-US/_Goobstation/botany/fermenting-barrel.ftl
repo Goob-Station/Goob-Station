@@ -5,8 +5,6 @@ fermenting-barrel-added = { $count ->
    *[other] You tip {$count} crops into the barrel.
 }
 fermenting-barrel-full = There isn't room in the barrel for that.
-fermenting-barrel-opened = You lift the lid off the barrel.
-fermenting-barrel-closed = You seal the lid on the barrel. Time to wait.
 fermenting-barrel-empty-verb = Tip out crops
 fermenting-barrel-emptied = You tip the waiting crops out of the barrel.
 fermenting-barrel-examine-open = The lid is off. Crops can go in.

@@ -1,20 +1,21 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Botany;
 using Content.Server.Botany.Components;
+using Content.Server.Stack;
 using Content.Shared.Audio;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
+using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -22,18 +23,18 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Server.Botany;
 
 /// <summary>
-/// Ferments the crops sealed in a barrel into drinks, one at a time.
+/// Ferments the crops sealed in a barrel into drinks, one at a time. The lid is an item toggle: on means open.
 /// </summary>
 public sealed partial class FermentingBarrelSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedAmbientSoundSystem _ambient = default!;
-    [Dependency] private SharedAppearanceSystem _appearance = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
 
     private const string CropSolution = "food";
 
@@ -41,39 +42,38 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        var curTime = _timing.CurTime;
         var query = EntityQueryEnumerator<ActiveFermentingBarrelComponent, FermentingBarrelComponent>();
         while (query.MoveNext(out var uid, out var active, out var barrel))
         {
-            if (_timing.CurTime < active.NextFerment)
+            if (curTime < active.NextFerment)
                 continue;
 
-            active.NextFerment = _timing.CurTime + barrel.TimePerCrop;
+            active.NextFerment += barrel.TimePerCrop;
             FermentNext((uid, barrel));
         }
     }
 
+    /// <summary>
+    /// The lid decides which way liquid goes: in while it's off, out of the tap while it's on.
+    /// </summary>
     [SubscribeLocalEvent]
-    private void OnMapInit(Entity<FermentingBarrelComponent> ent, ref MapInitEvent args)
+    private void OnToggled(Entity<FermentingBarrelComponent> ent, ref ItemToggledEvent args)
     {
-        SetLid(ent, ent.Comp.Open);
-    }
+        var open = args.Activated;
+        EntityManager.RemoveComponents(ent, open ? ent.Comp.ClosedComponents : ent.Comp.OpenComponents);
+        EntityManager.AddComponents(ent, open ? ent.Comp.OpenComponents : ent.Comp.ClosedComponents);
 
-    [SubscribeLocalEvent]
-    private void OnInteractHand(Entity<FermentingBarrelComponent> ent, ref InteractHandEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        args.Handled = true;
-        SetLid(ent, !ent.Comp.Open);
-        _audio.PlayPvs(ent.Comp.Open ? ent.Comp.OpenSound : ent.Comp.CloseSound, ent);
-        _popup.PopupEntity(Loc.GetString(ent.Comp.Open ? "fermenting-barrel-opened" : "fermenting-barrel-closed"), ent, args.User);
+        if (open)
+            StopFermenting(ent);
+        else
+            StartFermenting(ent);
     }
 
     [SubscribeLocalEvent]
     private void OnInteractUsing(Entity<FermentingBarrelComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled || !ent.Comp.Open)
+        if (args.Handled || !IsOpen(ent))
             return;
 
         if (IsCrop(ent, args.Used))
@@ -84,7 +84,7 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
             return;
         }
 
-        if (!IsBag(ent, args.Used) || !TryComp<StorageComponent>(args.Used, out var bag))
+        if (!IsAny(args.Used, ent.Comp.Bags) || !TryComp<StorageComponent>(args.Used, out var bag))
             return;
 
         args.Handled = true;
@@ -94,10 +94,21 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
             if (!IsCrop(ent, item))
                 continue;
 
-            if (!TryAddCrop(ent, item, args.User))
-                break;
+            // A stack goes in one at a time, so keep going until it has all left the bag.
+            var full = false;
+            do
+            {
+                if (!TryAddCrop(ent, item, args.User))
+                {
+                    full = true;
+                    break;
+                }
 
-            added++;
+                added++;
+            } while (!TerminatingOrDeleted(item) && bag.Container.Contains(item));
+
+            if (full)
+                break;
         }
 
         if (added > 0)
@@ -107,7 +118,7 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnGetAltVerbs(Entity<FermentingBarrelComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || !ent.Comp.Open || Crops(ent).ContainedEntities.Count == 0)
+        if (!args.CanAccess || !args.CanInteract || !IsOpen(ent) || Crops(ent).ContainedEntities.Count == 0)
             return;
 
         var user = args.User;
@@ -125,34 +136,24 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnExamined(Entity<FermentingBarrelComponent> ent, ref ExaminedEvent args)
     {
+        var open = IsOpen(ent);
         using (args.PushGroup(nameof(FermentingBarrelComponent)))
         {
-            args.PushMarkup(Loc.GetString(ent.Comp.Open ? "fermenting-barrel-examine-open" : "fermenting-barrel-examine-closed"));
+            args.PushMarkup(Loc.GetString(open ? "fermenting-barrel-examine-open" : "fermenting-barrel-examine-closed"));
             var waiting = Crops(ent).ContainedEntities.Count;
-            if (ent.Comp.Open && waiting > 0)
+            if (open && waiting > 0)
                 args.PushMarkup(Loc.GetString("fermenting-barrel-examine-waiting", ("count", waiting)));
         }
     }
 
-    /// <summary>
-    /// The lid decides which way liquid goes: in while it's off, out of the tap while it's on.
-    /// </summary>
-    private void SetLid(Entity<FermentingBarrelComponent> ent, bool open)
+    private bool IsOpen(Entity<FermentingBarrelComponent> ent)
     {
-        ent.Comp.Open = open;
-        EntityManager.RemoveComponents(ent, open ? ent.Comp.ClosedComponents : ent.Comp.OpenComponents);
-        EntityManager.AddComponents(ent, open ? ent.Comp.OpenComponents : ent.Comp.ClosedComponents);
-        _appearance.SetData(ent, FermentingBarrelVisuals.Open, open);
-
-        if (open)
-            StopFermenting(ent);
-        else
-            StartFermenting(ent);
+        return _toggle.IsActivated(ent.Owner);
     }
 
     private void StartFermenting(Entity<FermentingBarrelComponent> ent)
     {
-        if (ent.Comp.Open || IsFull(ent) || Crops(ent).ContainedEntities.Count == 0)
+        if (IsOpen(ent) || IsFull(ent) || Crops(ent).ContainedEntities.Count == 0)
             return;
 
         EnsureComp<ActiveFermentingBarrelComponent>(ent).NextFerment = _timing.CurTime + ent.Comp.TimePerCrop;
@@ -168,7 +169,7 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
     private void FermentNext(Entity<FermentingBarrelComponent> ent)
     {
         var crops = Crops(ent);
-        if (ent.Comp.Open || IsFull(ent) || crops.ContainedEntities.Count == 0
+        if (IsOpen(ent) || IsFull(ent) || crops.ContainedEntities.Count == 0
             || !_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out var barrelSolution, out var barrelContents))
         {
             StopFermenting(ent);
@@ -216,7 +217,7 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
     }
 
     /// <summary>
-    /// Puts a crop in to wait, if what's already in the barrel and waiting leaves room for it.
+    /// Puts a crop in to wait, if what's already in the barrel and waiting leaves room for it. One at a time off a stack.
     /// </summary>
     private bool TryAddCrop(Entity<FermentingBarrelComponent> ent, EntityUid crop, EntityUid user)
     {
@@ -241,6 +242,12 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
             return false;
         }
 
+        if (TryComp<StackComponent>(crop, out var stack) && stack.Count > 1
+            && _stack.Split((crop, stack), 1, Transform(ent).Coordinates) is { } single)
+        {
+            crop = single;
+        }
+
         return _container.Insert(crop, Crops(ent));
     }
 
@@ -254,15 +261,10 @@ public sealed partial class FermentingBarrelSystem : EntitySystem
     /// </summary>
     private bool IsCrop(Entity<FermentingBarrelComponent> ent, EntityUid uid)
     {
-        if (!HasComp<ProduceComponent>(uid) || IsAny(uid, ent.Comp.NotCrops))
+        if (IsAny(uid, ent.Comp.NotCrops))
             return false;
 
-        return HasComp<EdibleComponent>(uid) || IsAny(uid, ent.Comp.ExtraCrops);
-    }
-
-    private bool IsBag(Entity<FermentingBarrelComponent> ent, EntityUid uid)
-    {
-        return IsAny(uid, ent.Comp.Bags);
+        return IsAny(uid, ent.Comp.ExtraCrops) || HasComp<ProduceComponent>(uid) && HasComp<EdibleComponent>(uid);
     }
 
     /// <summary>
