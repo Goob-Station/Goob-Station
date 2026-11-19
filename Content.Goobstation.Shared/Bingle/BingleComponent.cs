@@ -33,6 +33,12 @@ public sealed partial class BingleComponent : Component
     /// </summary>
     [DataField]
     public ComponentRegistry CompToAdd = new();
+
+    /// <summary>
+    /// If false don't link to pit and don't spawn a pit.
+    /// </summary>
+    [DataField]
+    public bool LinkToPit = true;
 }
 
 [Serializable, NetSerializable]

@@ -44,6 +44,9 @@ public sealed partial class BingleSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args)
     {
+        if (!component.LinkToPit)
+            return;
+
         var cords = Transform(uid).Coordinates;
         if (!cords.IsValid(EntityManager) || cords.Position == Vector2.Zero)
             return;
