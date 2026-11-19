@@ -139,6 +139,9 @@
       amount: 4
   - type: Insulated
   - type: FlashImmunity
+  - type: NpcFactionMember
+    factions:
+    - Bongle
   - type: ChargedHeadbutt
     damage:
       groups:

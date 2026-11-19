@@ -127,6 +127,9 @@
     spawned:
     - id: FoodMeatBingle
       amount: 3
+  - type: NpcFactionMember
+    factions:
+    - Bingle
 
 - type: entity
   id: MobBinglePrime

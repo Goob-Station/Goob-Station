@@ -143,7 +143,7 @@
 
 - type: entity
   name: raw bongle meat
-  parent: FoodMeatRawBase
+  parent: [ FoodMeatRawBase, BaseMinorContraband ]
   id: FoodMeatBongle
   description: Smells like RAGE!!!!!.
   components:
@@ -167,7 +167,7 @@
 
 - type: entity
   name: bongle steak
-  parent: FoodMeatBase
+  parent: [ FoodMeatBase, BaseMinorContraband ]
   id: FoodMeatBongleCooked
   description: Still smells like RAW, SEETHING RAGE!!!!!
   components:
@@ -188,7 +188,7 @@
         - ReagentId: Protein
           Quantity: 9
         - ReagentId: BongleJuice
-          Quantity: 2
+          Quantity: 5
   - type: Construction
     graph: BongleSteak
     node: bongle steak
