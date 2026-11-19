@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Chest
+
+- type: marking
+  id: ArachnidOverlayFluffy
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Plasmaman ]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: fluffy
