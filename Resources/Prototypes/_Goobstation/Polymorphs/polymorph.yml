@@ -97,3 +97,25 @@
     forced: true
     duration: 180
     attachToGridOrMap: true
+
+- type: polymorph
+  id: Bongle
+  configuration:
+    entity: MobBongle
+    forced: true
+    transferName: false
+    transferHumanoidAppearance: false
+    inventory: Drop
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: BonglePolymorph
+  configuration:
+    entity: MobBongleUpgraded
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    inventory: Drop
+    revertOnDeath: false
+    revertOnCrit: false

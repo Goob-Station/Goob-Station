@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "bongle (only the alive) sprite by George Gimme, rest of sprites by Crevex",
+  "size": {
+        "x": 32,
+        "y": 32
+  },
+  "states": [
+    {
+        "name": "bongle",
+        "directions": 4
+    },
+    {
+        "name": "bongle_dead"
+    },
+    {
+        "name": "bongle_armor",
+        "directions": 4
+    },
+    {
+        "name": "armor_dead"
+    },
+    {
+        "name": "bongle_combat",
+        "directions": 4
+    },
+    {
+        "name": "bongle_armor_combat",
+        "directions": 4
+    }
+  ]
+}

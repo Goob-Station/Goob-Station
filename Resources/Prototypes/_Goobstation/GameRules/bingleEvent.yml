@@ -21,3 +21,51 @@
     chaosScore: 600
   - type: RandomSpawnRule
     prototype: SpawnPointGhostBinglePrime
+
+# bongle
+
+- type: entity
+  id: BongleSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 50
+    weight: 3
+    duration: 50
+    minimumPlayers: 50
+    chaos:
+      Hostile: 200
+      Friend: 20
+      Combat: 200
+      Death: 200
+      Medical: 200
+    destruction: 2
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 600
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostBonglePrime
+
+- type: entity
+  id: BingleBongleSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 50
+    weight: 2.5
+    duration: 50
+    minimumPlayers: 50
+    chaos:
+      Hostile: 400
+      Friend: 40
+      Combat: 400
+      Death: 400
+      Medical: 400
+    destruction: 4
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 1200
+  - type: ChainRulesRule
+    rules:
+    - BingleSpawn
+    - BongleSpawn

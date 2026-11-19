@@ -116,6 +116,15 @@
     isSelectable: false
 
 - type: entity
+  parent: BongleSpawn
+  id: TokenBongleSpawn
+  components:
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostBonglePrimeToken
+  - type: StationEvent
+    isSelectable: false
+
+- type: entity
   parent: SpawnPointGhostAncientRogueKing
   id: TokenAncientRogueKingSpawn
   components:

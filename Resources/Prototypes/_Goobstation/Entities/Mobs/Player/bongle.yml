@@ -1,0 +1,228 @@
+- type: entity
+  name: bongle
+  id: MobBongle
+  parent: MobSpaceBasic
+  description: bongle!!!!!!!
+  components:
+  - type: ContainerContainer
+    containers:
+      swallower_stomach: !type:Container
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+    color: Red
+  - type: Bingle
+    rageRange: 15
+    rageCheckInterval: 5 # Increase if too perf intense
+    compToAdd:
+    - type: Seething
+      visibleWhitelist:
+        components:
+        - Bingle
+      visibleBlacklist:
+        components:
+        - Bongle
+      duration: 30
+      heartbeatInterval: 2
+      popupInterval: 10
+      popup: seething-popup
+      heartbeatSound:
+        path: /Audio/_Goobstation/Heretic/heartbeat.ogg
+    upgradedID: MobBongleUpgraded
+    linkToPit: false
+  - type: Bongle
+    hillProto: BongleHill
+    ascendComponents:
+    - type: Devourer
+      devourAction: ActionDevour
+      structureDevourTime: 8
+      whitelist:
+        tags:
+        - Wall
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-bongle-name
+    description: ghost-role-information-bongle-description
+    rules: ghost-role-information-bongle-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Bongle/Entities/bongle.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: bongle
+    - map: ["enum.BingleVisual.Upgraded"]
+      state: bongle_armor
+      visible: false
+    - map: ["enum.BingleVisual.Combat"]
+      state: bongle_combat
+      visible: false
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bongle
+      Dead:
+        Base: bongle_dead
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BongleBlood
+        Quantity: 250
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcPunch
+    damage:
+      groups:
+        Brute: 20
+      types:
+        Structural: 25
+        Ion: 15
+    bluntStaminaDamageFactor: 2.0
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.7
+    baseSprintSpeed : 3.8
+  - type: Sprinter
+    staminaDrainRate: 30
+  - type: Stamina
+    baseCritThreshold: 200
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bingle
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: 3
+  - type: TypingIndicator
+    proto: alien
+  - type: Speech
+    speechVerb: Bingle
+    speechSounds: Slime
+  - type: LanguageKnowledge
+    speaks:
+    - Bongle
+    understands:
+    - TauCetiBasic
+  - type: CollectiveMind
+    defaultChannel: Bonglemind
+    respectAccents: true
+    channels:
+    - Bonglemind
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Poison: -2
+      groups:
+        Brute: -1
+        Burn: -1
+  - type: NightVision
+    color: Red
+    activateSound: null
+    deactivateSound: null
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBongle
+      amount: 4
+  - type: Insulated
+  - type: FlashImmunity
+  - type: NpcFactionMember
+    factions:
+    - Bongle
+  - type: ChargedHeadbutt
+    damage:
+      groups:
+        Brute: 15
+      types:
+        Structural: 100
+        Ion: 50 # Absolutely brutal damage against bingles, mechs, borgs, you name it. Mostly useless otherwise.
+  - type: Puller
+    needsHands: false
+  - type: Swallower
+    chewBlacklist: # If there's anything really important that I forgot, add it here
+      components:
+      - HumanoidAppearance # This gets ignored on ascension, just so bongle isnt too op.
+      - NukeDisk
+      #- Gun Uncomment this to nerf these muttasuckas
+    capacity: 3
+    spitCount: 3
+    spitDamage:
+      types:
+        Blunt: 30
+  - type: ActionGrant
+    actions:
+    - ActionChargedHeadbutt
+    - ActionSwallowerSpit
+    - ActionSwallowerRegurgitate
+
+- type: entity
+  id: MobBonglePrime
+  parent: MobBongle
+  suffix: Prime
+  components:
+  - type: Bongle
+    prime: true
+
+- type: entity
+  id: MobBongleUpgraded
+  parent: MobBongle
+  suffix: Upgraded
+  components:
+  - type: Bingle
+    linkToPit: false
+    upgraded: true
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Bongle/Entities/bongle.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: bongle_armor
+    - map: [ "enum.BingleVisual.Combat" ]
+      state: bongle_armor_combat
+      visible: false
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bongle_armor
+      Dead:
+        Base: armor_dead
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcPunch
+    damage:
+      groups:
+        Brute: 30
+      types:
+        Structural: 50
+        Ion: 20
+    bluntStaminaDamageFactor: 2.0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead # Yes. High. But it was requested.
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: BingleUpgraded
+  - type: ActionGrant
+    actions:
+    - ActionSwallowerChew

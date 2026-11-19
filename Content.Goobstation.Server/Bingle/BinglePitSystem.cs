@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
+using Content.Goobstation.Shared.Bongle;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
@@ -13,14 +13,14 @@ using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Stunnable;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Sprite;
+using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -29,6 +29,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Numerics;
 
 namespace Content.Goobstation.Server.Bingle;
 
@@ -149,6 +150,13 @@ public sealed partial class BinglePitSystem : EntitySystem
 
     private void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
     {
+        if (HasComp<BongleComponent>(tripper) && _mob.IsDead(tripper))
+        {
+            component.PointMultiplier = component.BongleMultiplier;
+        }
+
+        var pointsBefore = component.BinglePoints;
+
         if (!_mob.IsDead(tripper))
             component.BinglePoints += component.PointsForAlive;
         else
@@ -158,6 +166,12 @@ public sealed partial class BinglePitSystem : EntitySystem
 
         if (_query.HasComp(tripper))
             component.BinglePoints += (component.SpawnNewAt * component.Level) / 4; //recycling a bingle returns a quarter bingle.
+
+        // Bongle
+        if (HasComp<BongleComponent>(tripper) && _mob.IsDead(tripper) && component.PointMultiplier != component.BongleMultiplier)
+        {
+            component.PointMultiplier = component.BongleMultiplier;
+        }
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(tripper, pullable, ignoreGrab: true);

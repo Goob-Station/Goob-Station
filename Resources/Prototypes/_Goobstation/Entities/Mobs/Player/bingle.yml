@@ -8,6 +8,19 @@
   description: bingle
   components:
   - type: Bingle
+    rageRange: 15
+    rageCheckInterval: 5 # Increase if too perf intense
+    compToAdd:
+    - type: Seething
+      visibleWhitelist:
+        components:
+        - Bongle
+      duration: 30
+      heartbeatInterval: 2
+      popupInterval: 10
+      popup: seething-popup
+      heartbeatSound:
+        path: /Audio/_Goobstation/Heretic/heartbeat.ogg
     upgradedID: MobBingleUpgraded
   - type: GhostTakeoverAvailable
   - type: GhostRole
@@ -47,7 +60,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: Nitrogen # by request
+      - ReagentId: BingleBlood
         Quantity: 100
   - type: MeleeWeapon
     altDisarm: false
@@ -114,6 +127,9 @@
     spawned:
     - id: FoodMeatBingle
       amount: 3
+  - type: NpcFactionMember
+    factions:
+    - Bingle
 
 - type: entity
   id: MobBinglePrime

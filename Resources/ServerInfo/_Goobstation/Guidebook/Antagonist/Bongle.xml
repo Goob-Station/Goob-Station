@@ -1,0 +1,44 @@
+<Document>
+  # Bongle
+
+  Where bingles thrive in the power of many, bongles thrive in the power of few. A lone bongle already posses more of a threat than a handful of bingles, and if the hills grow in number, that old saying of "running for the hills" won't save you either.
+
+  <Box>
+    <GuideEntityEmbed Entity="MobBongle" Caption="Bongle"/>
+    <GuideEntityEmbed Entity="BongleHill" Caption="Bongle Hill"/>
+  </Box>
+
+  A bongle is a midround antagonist that spawns alone along with its hill. Bongles and bingles are mortal enemies.
+
+  ## Playing As A Bongle
+
+  - Bongles can't drag things. Trying to drag something starts swallowing it instead, most things can be swallowed, but living things that aren't critical or dead cannot be swallowed. Regurgitate whatever you swallow onto the hill to gain points.
+
+  - Headbutt: charge up, then dash forward and headbutt the first thing you hit. It is brutal against structures, mechs, borgs and bingles, and mostly useless against everything else, but useful for surprise attacks around corners.
+
+  - Spit: shoot what you hold in your mouth out as projectiles. Spitting several things at once fans them out like a shotgun. Deals a ton of damage, but in practice, you only get to do this once per fight, so use it wisely.
+
+  - The hill takes anything stepped onto it. Items are worth a little, materials and ores are worth more, and people and bingles are worth premium. With enough points another hill grows nearby and a new bongle emerges from it.
+
+  - Every time a new hill grows, every living bongle becomes an armored bongle, and learns to chew. Chewing gibs bodies and crushes items into their materials, but not humanoids. Chewing a bingle fully heals you.
+
+  - Bring three bingle corpses to a hill and every bongle is fully healed and gets stronger. Drop a bongle corpse into a bingle pit and the pit will earn more from then on, so be careful with your dead. Unlike bingles, you may take bongle corpses back to your hill for safekeeping.
+
+  - Once five hills are up, the station is doomed. Bongles get a massive power spike, becoming capable of gibbing anything in their mouths, and can also chew through walls.
+
+  ## Playing Against Bongles
+
+  Bongles are far stronger than bingles one on one, and their numbers grow slowly, so killing a bongle before its hill spreads is the best plan. Stay out of their reach, and be ready to dodge their projectiles.
+  Once a bongle spits, it cannot do so again until it swallows more stuff, so abuse that window of time to pulverize the helpless bongle.
+
+  <Box>
+    <GuideEntityEmbed Entity="WeaponRifleLecter"/>
+    <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
+  </Box>
+
+  The hill is tough but not invincible. The downside is that you have to destroy all hills to fully elimate bongles.
+  Being close to a bingle drives bongles into a rage, and the same happens to the bingle, so a bingle infestation on the same station can work in your favour. Let them fight...
+
+  It is in your best interest to not let bingles grab bongle corpses and vice-versa, as both of them get considerable power ups when doing so.
+
+</Document>

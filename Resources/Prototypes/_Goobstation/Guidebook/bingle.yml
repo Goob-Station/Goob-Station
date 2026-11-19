@@ -4,3 +4,8 @@
   id: Bingle
   name: "Bingle"
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Bingle.xml"
+
+- type: guideEntry
+  id: Bongle
+  name: "Bongle"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Bongle.xml"

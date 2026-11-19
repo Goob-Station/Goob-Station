@@ -27,3 +27,17 @@
       - minTemperature: 345
   - node: bingle steak
     entity: FoodMeatBingleCooked
+
+- type: constructionGraph
+  id: BongleSteak
+  graph:
+  - node: start
+    edges:
+    - to: bongle steak
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 345
+  - node: bongle steak
+    entity: FoodMeatBongleCooked

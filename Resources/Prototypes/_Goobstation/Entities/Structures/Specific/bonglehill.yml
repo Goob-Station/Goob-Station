@@ -1,0 +1,103 @@
+- type: entity
+  id: BongleHill
+  categories: [ Spawner ]
+  name: bonglehill
+  description: Stands tall
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ContainerContainer # Test fails...
+    containers:
+      hill: !type:Container
+  - type: BongleHill
+    triumphWhitelist:
+      components:
+      - Bingle
+    triumphBlacklist:
+      components:
+      - Bongle
+    corpsesForTriumph: 3
+    capacityIncrease: 1
+    spitIncrease: 1
+    hillProto: BongleHill
+    bongleProto: MobBongle
+    pointsToSpread: 50
+    ascensionHillCount: 5
+    pointValues:
+    - whitelist:
+        components:
+        - HumanoidAppearance
+      points: 10
+    - whitelist:
+        components:
+        - Bingle
+      points: 10
+    - whitelist:
+        components:
+        - Material
+      points: 2
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.4
+    triggerGroups:
+      types:
+      - Chasm
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - WallLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Sprite
+    drawdepth: HighFloorObjects
+    layers:
+    - sprite: _Goobstation/Bongle/Entities/hill.rsi
+      state: bongle_hill
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 900 # Tougher than bingle pit cause less defenders
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+  - type: RequireProjectileTarget
+  - type: SolutionContainerManager
+    solutions:
+      drainBuffer:
+        maxVol: 1000
+  - type: Drain
+    unitsPerSecond: 10
+    unitsDestroyedPerSecond: 10
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: PassiveDamage #passive Healing
+    damage:
+      types:
+        Heat: -1
+        Shock: -1
+        Structural: -1
+      groups:
+        Brute: -3
+  - type: AntiRottingContainer
+  - type: SpawnOnDespawn
+    prototype: CrateFunBingleLoot

@@ -1,0 +1,59 @@
+- type: entity
+  id: ActionChargedHeadbutt
+  parent: BaseAction
+  name: Headbutt
+  description: Charge up, then headbutt.
+  components:
+  - type: Action
+    useDelay: 10
+    icon:
+      sprite: _Goobstation/Bongle/Actions/actions.rsi
+      state: bongle_headbutt
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:ChargedHeadbuttEvent
+
+- type: entity
+  id: ActionSwallowerRegurgitate
+  parent: BaseAction
+  name: Regurgitate
+  description: Let out everything in your mouth onto the floor.
+  components:
+  - type: Action
+    useDelay: 2
+    icon:
+      sprite: _Goobstation/Bongle/Actions/actions.rsi
+      state: bongle_regurgitate
+  - type: InstantAction
+    event: !type:SwallowerRegurgitateEvent
+
+- type: entity
+  id: ActionSwallowerSpit
+  parent: BaseAction
+  name: Spit
+  description: Spit out what you are holding in your mouth at high speed.
+  components:
+  - type: Action
+    useDelay: 8
+    icon:
+      sprite: _Goobstation/Bongle/Actions/actions.rsi
+      state: bongle_spit
+  - type: TargetAction
+    range: 12
+  - type: WorldTargetAction
+    event: !type:SwallowerSpitEvent
+
+- type: entity
+  id: ActionSwallowerChew
+  parent: BaseAction
+  name: Chew
+  description: Crush whatever is in your mouth. Will refine ores, recycle items and gib bodies.
+  components:
+  - type: Action
+    useDelay: 5
+    icon:
+      sprite: _Goobstation/Bongle/Actions/actions.rsi
+      state: bongle_chew
+  - type: InstantAction
+    event: !type:SwallowerChewEvent

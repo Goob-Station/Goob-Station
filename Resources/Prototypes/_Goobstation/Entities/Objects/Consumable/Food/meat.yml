@@ -140,3 +140,55 @@
       Burger: FSE_FoodMeatVoxFried
       Taco: FSE_FoodMeatVoxFried
       Skewer: FSE_FoodMeatVoxFriedSkewer
+
+- type: entity
+  name: raw bongle meat
+  parent: [ FoodMeatRawBase, BaseMinorContraband ]
+  id: FoodMeatBongle
+  description: Smells like RAGE!!!!!.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Bongle/Entities/meat.rsi
+    state: bongle_meat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
+        - ReagentId: Fat
+          Quantity: 9
+        - ReagentId: BongleJuice
+          Quantity: 1
+  - type: Construction
+    graph: BongleSteak
+    node: start
+    defaultTarget: bongle steak
+
+- type: entity
+  name: bongle steak
+  parent: [ FoodMeatBase, BaseMinorContraband ]
+  id: FoodMeatBongleCooked
+  description: Still smells like RAW, SEETHING RAGE!!!!!
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bingle.rsi
+    state: cookedbinglemeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Protein
+          Quantity: 9
+        - ReagentId: BongleJuice
+          Quantity: 5
+  - type: Construction
+    graph: BongleSteak
+    node: bongle steak
