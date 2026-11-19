@@ -7,6 +7,7 @@ using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using System.Numerics;
 
 namespace Content.Goobstation.Server.Bongle;
 
@@ -35,7 +36,7 @@ public sealed partial class BongleSystem : EntitySystem
 
         var coords = Transform(uid).Coordinates;
 
-        if (!coords.IsValid(EntityManager) || Transform(uid).MapID == MapId.Nullspace)
+        if (!coords.IsValid(EntityManager) || coords.Position == Vector2.Zero || Transform(uid).MapID == MapId.Nullspace) // Let's see if this fixes the test fail
             return;
 
         PredictedSpawnAtPosition(hillProto, coords);

@@ -4,6 +4,9 @@
   parent: MobSpaceBasic
   description: bongle!!!!!!!
   components:
+  - type: ContainerContainer
+    containers:
+      swallower_stomach: !type:Container
   - type: PointLight
     radius: 1.5
     energy: 2

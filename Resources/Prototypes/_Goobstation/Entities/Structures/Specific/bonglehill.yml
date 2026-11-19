@@ -6,6 +6,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: ContainerContainer # Test fails...
+    containers:
+      hill: !type:Container
   - type: BongleHill
     triumphWhitelist:
       components:
