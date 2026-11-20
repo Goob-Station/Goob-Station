@@ -73,3 +73,12 @@
   sprites:
   - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
     state: analytical
+
+- type: marking
+  id: PlasmamanEyesNose
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Plasmaman ]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: nose
