@@ -43,3 +43,9 @@ public record struct ModSuitWearerChangedEvent(EntityUid? OldWearer, EntityUid? 
 
 [ByRefEvent]
 public record struct ModSuitUpdatedEvent;
+
+[ByRefEvent]
+public record struct ModSuitAccessAttemptEvent(EntityUid User)
+{
+    public bool Cancelled;
+}

@@ -134,6 +134,30 @@
         - tool: Anchoring
           doAfter: 1
 
+    - to: mining
+      steps:
+        - tag: ModsuitPlatingMining
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+    - to: loader
+      steps:
+        - tag: ModsuitPlatingLoader
+          name: construction-graph-tag-mod-plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
     - to: atmostech
       steps:
         - tag: ModsuitPlatingAtmostech
@@ -235,6 +259,12 @@
 
   - node: atmostech
     entity: ClothingModsuitAtmostech
+
+  - node: mining
+    entity: ClothingModsuitMining
+
+  - node: loader
+    entity: ClothingModsuitLoader
 
   - node: rd
     entity: ClothingModsuitResearchDirector

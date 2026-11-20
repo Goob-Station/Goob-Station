@@ -6,7 +6,9 @@ using Content.Shared.Clothing;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -232,7 +234,7 @@ public sealed partial class ModSuitSystem : EntitySystem
             });
         }
 
-        if (user != wearer && !_interaction.InRangeUnobstructed(user, wearer))
+        if (user != wearer && (!HasComp<HandsComponent>(user) || !_interaction.InRangeUnobstructed(user, wearer)))
             return;
 
         var active = ent.Comp.State != ModSuitState.Inactive;
@@ -256,7 +258,7 @@ public sealed partial class ModSuitSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnGetAlternativeVerbs(Entity<ModSuitComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanAccess || !args.CanComplexInteract || ent.Comp.Wearer != null)
+        if (!args.CanAccess || !args.CanComplexInteract || ent.Comp.Wearer != null || !CanUseInterface(ent, args.User))
             return;
 
         var user = args.User;
@@ -357,10 +359,23 @@ public sealed partial class ModSuitSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnSpeedRefresh(Entity<ModSuitComponent> ent, ref InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
+        RelayToActiveModules(ent, args.Args);
+
         if (ent.Comp.State != ModSuitState.Active || ent.Comp.Powered)
             return;
 
         args.Args.ModifySpeed(ent.Comp.UnpoweredSpeedModifier);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnDamageModify(Entity<ModSuitComponent> ent, ref InventoryRelayedEvent<DamageModifyEvent> args)
+    {
+        RelayToActiveModules(ent, args.Args);
+    }
+
+    public void RefreshWearerSpeed(Entity<ModSuitComponent> ent)
+    {
+        RefreshSpeed(ent);
     }
 
     private void RefreshSpeed(Entity<ModSuitComponent> ent)

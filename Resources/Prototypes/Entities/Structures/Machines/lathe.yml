@@ -503,6 +503,7 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
+    - ModsuitSecurity # Goob
     # Goobstation
     - SecurityWeaponsGoob
     - RestraintTechnology
@@ -604,6 +605,7 @@
     - SyringeCase
     dynamicPacks:
     - Chemistry
+    - ModsuitMedical # Goob
     # Goobstation Packs
     - Surgery
     - MedicalCybernetics

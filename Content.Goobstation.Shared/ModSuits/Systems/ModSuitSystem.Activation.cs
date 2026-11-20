@@ -11,6 +11,9 @@ public sealed partial class ModSuitSystem
         switch (ent.Comp.State)
         {
             case ModSuitState.Inactive:
+                if (user != null && !CanAccess(ent, user.Value))
+                    return false;
+
                 return TryStartActivation(ent, user);
             case ModSuitState.Active:
                 StartDeactivation(ent);

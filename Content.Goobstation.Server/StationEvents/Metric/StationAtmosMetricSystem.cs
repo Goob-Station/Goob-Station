@@ -91,7 +91,7 @@ public sealed partial class StationAtmosMetricSystem : ChaosMetricSystem<Station
 
         var atmosChaos = spaced * component.SpacedTileCost
                          + toxic * component.ToxicTileCost;
-        var fireChaos = fire * component.FireTileCost;
+        var fireChaos = Math.Max(0, fire - component.FireLeewayTiles) * component.FireTileCost;
 
         TilesTotal.Set(tiles);
         BaselineTiles.Set(component.BaselineTiles.Count);

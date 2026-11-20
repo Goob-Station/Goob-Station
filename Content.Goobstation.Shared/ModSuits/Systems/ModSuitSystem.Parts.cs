@@ -5,6 +5,9 @@ namespace Content.Goobstation.Shared.ModSuits.Systems;
 
 public sealed partial class ModSuitSystem
 {
+    private const string OuterClothingSlot = "outerClothing";
+    private const string SuitStorageSlot = "suitstorage";
+
     private void SpawnParts(Entity<ModSuitComponent> ent)
     {
         if (ent.Comp.PartsContainer.ContainedEntities.Count != 0)
@@ -46,7 +49,7 @@ public sealed partial class ModSuitSystem
 
     public void ToggleAllParts(Entity<ModSuitComponent> ent, EntityUid user)
     {
-        if (ent.Comp.Wearer == null || ent.Comp.DeployQueue.Count > 0)
+        if (ent.Comp.Wearer == null || ent.Comp.DeployQueue.Count > 0 || !CanAccess(ent, user))
             return;
 
         if (ent.Comp.State != ModSuitState.Inactive)
@@ -118,6 +121,9 @@ public sealed partial class ModSuitSystem
 
     public void TogglePart(Entity<ModSuitComponent> ent, string slot, EntityUid user)
     {
+        if (!CanAccess(ent, user))
+            return;
+
         if (IsPartDeployed(ent, slot))
             TryRetractPart(ent, slot, user);
         else
@@ -138,12 +144,21 @@ public sealed partial class ModSuitSystem
             return false;
         }
 
+        if (!CanFitWearer(ent, wearer))
+        {
+            if (!silent)
+                PopupFail(ent, user, "modsuit-wearer-incompatible");
+            return false;
+        }
+
+        var suitStorage = StashSuitStorage(wearer, slot);
         if (_inventory.TryGetSlotEntity(wearer, slot, out var current))
         {
             if (partComp.StoredContainer.ContainedEntity != null
                 || !_inventory.TryUnequip(wearer, wearer, slot, out var removed, silent: true, predicted: true)
                 || !_container.Insert(removed.Value, partComp.StoredContainer))
             {
+                RestoreSuitStorage(wearer, suitStorage);
                 if (user != null && !silent)
                     _popup.PopupClient(Loc.GetString("modsuit-part-slot-occupied", ("item", current.Value)), ent, user.Value);
                 return false;
@@ -157,10 +172,27 @@ public sealed partial class ModSuitSystem
         if (!equipped)
         {
             RestoreStoredClothing((part, partComp), wearer, slot);
+            RestoreSuitStorage(wearer, suitStorage);
             return false;
         }
 
+        RestoreSuitStorage(wearer, suitStorage);
         Dirty(ent);
+        return true;
+    }
+
+    public bool CanFitWearer(Entity<ModSuitComponent> ent, EntityUid wearer)
+    {
+        foreach (var (slot, part) in ent.Comp.PartEntities)
+        {
+            if (!_inventory.TryGetSlot(wearer, slot, out var slotDef))
+                return false;
+
+            if (slotDef.StrictWhitelist
+                && (_whitelist.IsWhitelistFail(slotDef.Whitelist, part) || _whitelist.IsWhitelistPass(slotDef.Blacklist, part)))
+                return false;
+        }
+
         return true;
     }
 
@@ -181,6 +213,7 @@ public sealed partial class ModSuitSystem
             SetPartSealed((part, partComp), ent, false, true);
 
         var wearer = ent.Comp.Wearer;
+        var suitStorage = wearer != null ? StashSuitStorage(wearer.Value, slot) : null;
         _movingParts.Add(part);
         if (wearer != null && _inventory.TryGetSlotEntity(wearer.Value, slot, out var worn) && worn == part)
             _inventory.TryUnequip(wearer.Value, wearer.Value, slot, silent: silent, force: true, predicted: true);
@@ -188,7 +221,10 @@ public sealed partial class ModSuitSystem
         _movingParts.Remove(part);
 
         if (wearer != null)
+        {
             RestoreStoredClothing((part, partComp), wearer.Value, slot);
+            RestoreSuitStorage(wearer.Value, suitStorage);
+        }
         else
             DropStoredClothing((part, partComp));
 
@@ -227,6 +263,25 @@ public sealed partial class ModSuitSystem
 
         _container.Remove(stored, part.Comp.StoredContainer);
         if (!_inventory.TryEquip(wearer, wearer, stored, slot, silent: true, force: true, predicted: true))
+            _hands.PickupOrDrop(wearer, stored);
+    }
+
+    private EntityUid? StashSuitStorage(EntityUid wearer, string slot)
+    {
+        if (slot != OuterClothingSlot
+            || !_inventory.TryGetSlotEntity(wearer, SuitStorageSlot, out var item)
+            || !_inventory.TryUnequip(wearer, wearer, SuitStorageSlot, silent: true, force: true, predicted: true))
+            return null;
+
+        return item;
+    }
+
+    private void RestoreSuitStorage(EntityUid wearer, EntityUid? item)
+    {
+        if (item is not { } stored || TerminatingOrDeleted(stored))
+            return;
+
+        if (!_inventory.TryEquip(wearer, wearer, stored, SuitStorageSlot, silent: true, predicted: true))
             _hands.PickupOrDrop(wearer, stored);
     }
 

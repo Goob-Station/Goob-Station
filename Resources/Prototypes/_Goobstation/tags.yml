@@ -426,6 +426,12 @@
   id: ModsuitPlatingEngineer
 
 - type: Tag
+  id: ModsuitPlatingMining
+
+- type: Tag
+  id: ModsuitPlatingLoader
+
+- type: Tag
   id: ModsuitPlatingSecurity
 
 - type: Tag

@@ -35,6 +35,12 @@ public sealed partial class ModCoreSystem : EntitySystem
     }
 
     [SubscribeLocalEvent]
+    private void OnPowerCellChanged(Entity<ModCoreComponent> ent, ref PowerCellChangedEvent args)
+    {
+        RelayToSuit(ent, ref args);
+    }
+
+    [SubscribeLocalEvent]
     private void OnEmpAttempt(Entity<ModCoreComponent> ent, ref EmpAttemptEvent args)
     {
         RelayToSuit(ent, ref args);

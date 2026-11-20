@@ -30,14 +30,20 @@ public sealed partial class ModWearerEffectsSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnAntiGravityStartup(Entity<ModAntiGravityComponent> ent, ref ComponentStartup args)
     {
-        _gravity.RefreshWeightless(ent.Owner);
+        RefreshWeightless(ent);
     }
 
     [SubscribeLocalEvent]
     private void OnAntiGravityShutdown(Entity<ModAntiGravityComponent> ent, ref ComponentShutdown args)
     {
         if (!TerminatingOrDeleted(ent))
-            _gravity.RefreshWeightless(ent.Owner);
+            RefreshWeightless(ent);
+    }
+
+    private void RefreshWeightless(EntityUid uid)
+    {
+        if (TryComp<GravityAffectedComponent>(uid, out var gravity))
+            _gravity.RefreshWeightless((uid, gravity));
     }
 
     [SubscribeLocalEvent]

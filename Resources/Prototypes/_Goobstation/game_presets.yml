@@ -133,7 +133,6 @@
   minPlayers: 5
   rules:
     - CalmDynamic
-    - SubGamemodesRule
     - RareIonStormScheduler
 
 - type: gamePreset
@@ -147,7 +146,6 @@
   minPlayers: 25
   rules:
     - CombatDynamic
-    - SubGamemodesRule
     - IonStormScheduler
 
 - type: gamePreset
@@ -162,7 +160,6 @@
   roundCooldown: 3
   rules:
     - ChaoticDynamic
-    - SubGamemodesRule
     - IonStormScheduler
 
 - type: gamePreset
@@ -175,7 +172,6 @@
   showInVote: true
   rules:
     - ClassicDynamic
-    - SubGamemodesRule
     - IonStormScheduler
 
 - type: gamePreset

@@ -13,14 +13,8 @@ public sealed partial class ParticleEmitterSystem : EntitySystem
     [Dependency] private ParticleSystem _particles = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ParticleEmitterComponent, MapInitEvent>(OnMapInit);
-    }
-
-    private void OnMapInit(Entity<ParticleEmitterComponent> ent, ref MapInitEvent args)
+    [SubscribeLocalEvent]
+    private void OnStartup(Entity<ParticleEmitterComponent> ent, ref ComponentStartup args)
     {
         var coords = _transform.GetMapCoordinates(ent.Owner);
         var emitter = _particles.SpawnEffect(ent.Comp.Effect, coords, ent.Owner, ent.Comp.ColorOverride);
