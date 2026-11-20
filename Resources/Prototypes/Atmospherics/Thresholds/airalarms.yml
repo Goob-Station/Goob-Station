@@ -106,9 +106,9 @@
 - type: alarmThreshold
   id: stationBZ
   upperBound: !type:AlarmThresholdSetting
-    threshold: 0.002 # 0.2%
+    threshold: 0.001 # 0.1%
   upperWarnAround: !type:AlarmThresholdSetting
-    threshold: 0.5 # 0.1%
+    threshold: 0.5 # 0.05%
 # Goobstation End
 
 - type: alarmThreshold
