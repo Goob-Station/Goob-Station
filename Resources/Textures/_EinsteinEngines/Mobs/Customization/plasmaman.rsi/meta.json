@@ -42,6 +42,10 @@
     {
       "name": "subordinate",
       "directions": 4
+    },
+    {
+      "name": "nose",
+      "directions": 4
     }
   ]
 }
