@@ -48,7 +48,7 @@
       points: 0
       required: false
     Tail:
-      points: 0
+      points: 1
       required: false
     HeadTop:
       points: 1

@@ -10,6 +10,42 @@
     {
       "name": "eyes",
       "directions": 4
+    },
+    {
+      "name": "analytical",
+      "directions": 4
+    },
+    {
+      "name": "angry",
+      "directions": 4
+    },
+    {
+      "name": "big",
+      "directions": 4
+    },
+    {
+      "name": "compound",
+      "directions": 4
+    },
+    {
+      "name": "cyclop",
+      "directions": 4
+    },
+    {
+      "name": "cylon",
+      "directions": 4
+    },
+    {
+      "name": "executor",
+      "directions": 4
+    },
+    {
+      "name": "subordinate",
+      "directions": 4
+    },
+    {
+      "name": "nose",
+      "directions": 4
     }
   ]
 }
