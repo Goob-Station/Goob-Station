@@ -16,6 +16,7 @@
   - type: StorageFill
     contents:
     - id: PlushieBongle
+    - id: PlushieBongleGiraffe
 
 - type: entity
   id: CrateFunBongleAdmeme

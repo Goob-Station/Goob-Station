@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "bongle (only the alive) sprite by George Gimme, rest of sprites by Crevex",
+  "copyright": "bongle (only the alive) sprite by George Gimme, rest of sprites by Crevex, seething by Yummi, directional seething sprites by OnsenCapy",
   "size": {
         "x": 32,
         "y": 32
@@ -27,6 +27,10 @@
     },
     {
         "name": "bongle_armor_combat",
+        "directions": 4
+    },
+    {
+        "name": "bongle_seethe",
         "directions": 4
     }
   ]
