@@ -46,6 +46,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     public bool ShowIFFShuttles { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
     public bool RotateWithEntity { get; set; } = true;
+    public bool RotateWithEye { get; set; } = false; // Goobstation
 
     public float MaximumIFFDistance { get; set; } = -1f; // Frontier
     public bool HideCoords { get; set; } = false; // Frontier
@@ -221,6 +222,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         ActualRadarRange = Math.Clamp(ActualRadarRange, WorldMinRange, WorldMaxRange);
 
         RotateWithEntity = state.RotateWithEntity;
+        RotateWithEye = state.RotateWithEye; // Goobstation
 
         // Frontier
         if (state.MaxIffRange != null)
@@ -259,6 +261,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
         var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
         var ourEntRot = RotateWithEntity ? _transform.GetWorldRotation(xform) : _rotation.Value;
+        ourEntRot = RotateWithEye ? -IoCManager.Resolve<IEyeManager>().CurrentEye.Rotation : ourEntRot; // Goobstation
         var ourEntMatrix = Matrix3Helpers.CreateTransform(_transform.GetWorldPosition(xform), ourEntRot);
         var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
         Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);

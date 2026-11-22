@@ -3,7 +3,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 0.55
+    lifetime: 0.6
   - type: Sprite
     drawdepth: Effects
     noRot: true
@@ -12,7 +12,7 @@
       map: [ "enum.EffectLayers.Unshaded" ]
       sprite: _Goobstation/Effects/slasher_jaunt.rsi
       state: SlasherJauntDissapear
-      autoAnimated: false
+      loop: false
   - type: EffectVisuals
   - type: Tag
     tags:
@@ -33,7 +33,7 @@
       map: [ "enum.EffectLayers.Unshaded" ]
       sprite: _Goobstation/Effects/slasher_jaunt.rsi
       state: SlasherJauntAppear
-      autoAnimated: false
+      loop: false
   - type: EffectVisuals
   - type: Tag
     tags:
