@@ -127,7 +127,7 @@
     deleteOnDeath: true
     table: !type:AllSelector
       children:
-      - id: MobMegafaunaORTUFOORTUFO
+      - id: MobMegafaunaORTUFO
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -141,7 +141,6 @@
     energy: 1.5
     color: cyan
   - type: MegafaunaAnchor
-    anchored: false
 
 - type: entity
   name: UFO
@@ -240,4 +239,3 @@
     energy: 5
     color: gold
   - type: MegafaunaAnchor
-    anchored: false
