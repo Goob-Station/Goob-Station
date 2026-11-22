@@ -1,0 +1,243 @@
+- type: entity
+  name: Spider of Mercury
+  id: BaseORT
+  parent: LavalandMobBase
+  description:
+  abstract: true
+  components:
+  - type: StatusEffects
+    allowed:
+    - RadiationProtection
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - FootstepSound
+  - type: Appearance
+  - type: InputMover
+  - type: MobMover
+  - type: NoSlip
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Megafauna
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Structural: 9999
+  - type: Fauna
+  - type: Aggressive
+    forgiveRange: 1000 # You woke it up, no more running.
+  - type: CombatPower
+    factor: 9999
+
+- type: entity
+  name: pulsing exoskeleton
+  id: MobMegafaunaORTForming
+  parent: BaseORT
+  description: The air trembles around it...
+  categories: [ Spawner ]
+  components:
+  - type: PointLight
+    radius: 5
+    energy: 1.5
+    color: cyan
+  - type: RadiationSource
+    intensity: 3
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Bosses/mercury.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mercury-skeleton
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: AngerPlayerScaling
+    angerScale: 1.2
+    hpScale: 1.2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: ORTCombatAnimation
+
+- type: entity
+  name: Spider of Mercury
+  id: MobMegafaunaORTCombatForm
+  parent: BaseORT
+  description: Its body is not flesh. It is not metal. You don't have a clue as to what it is.
+  components:
+  - type: RadiationSource
+    intensity: 2
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Bosses/mercury.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mercury
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mercury-walking
+    noMovementLayers:
+      movement:
+        state: mercury
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Dead
+  - type: AngerPlayerScaling
+    angerScale: 1.3
+    hpScale: 1.3
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: MobMegafaunaORTUFOORTUFO
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: BossMusic
+    soundId: ORT
+  - type: PointLight
+    radius: 5
+    energy: 1.5
+    color: cyan
+  - type: MegafaunaAnchor
+    anchored: false
+
+- type: entity
+  name: UFO
+  id: MobMegafaunaORTUFO
+  parent: BaseORT
+  description: The spider was only an empty shell. The true body was above all along.
+  components:
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2,0,2,1"
+        density: 10000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: SingularityDistortion
+    intensity: 5
+    falloffPower: 5
+  - type: RadiationSource
+    intensity: 4
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Bosses/mercury.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: UFO-spin
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: AngerPlayerScaling
+    angerScale: 2
+    hpScale: 1.5
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: ORTUFODeathAnimation
+  - type: PointLight
+    radius: 4
+    energy: 1.5
+    color: green
+  - type: BossMusic
+    soundId: ORT
+
+- type: entity
+  name: The ultimate one
+  id: MobMegafaunaORTXibalba
+  parent: BaseORT
+  description: Long-range weaponry analyzed. Adaptation complete.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-1,0.5,1.5"
+        density: 10000
+        hard: true
+        layer:
+        - BulletImpassable
+  - type: RadiationSource
+    intensity: 1
+  - type: Sprite
+    sprite: _Lavaland/Mobs/Bosses/xibalba.rsi
+    state: adapted_ranged
+    drawdepth: OverMobs
+    noRot: true
+  - type: CombatMode
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Dead
+  - type: AngerPlayerScaling
+    angerScale: 2
+    hpScale: 1.5
+  - type: BossMusic
+    soundId: UltimateOne
+  - type: PointLight
+    radius: 10
+    energy: 5
+    color: gold
+  - type: MegafaunaAnchor
+    anchored: false

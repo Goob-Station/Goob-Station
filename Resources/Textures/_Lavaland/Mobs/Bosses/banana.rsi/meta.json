@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by OnsenCapy @NamelessName338 on Discord",
+  "size": {
+    "x": 118,
+    "y": 84
+  },
+  "states": [
+    {
+      "name": "phase_0",
+      "delays": [
+        [
+          4.0,
+          2.0
+        ]
+      ]
+    },
+    {
+        "name": "phase_1",
+        "directions": 4
+    },
+    {
+        "name": "phase_2",
+        "directions": 4
+    },
+    {
+        "name": "phase_3",
+        "directions": 4
+    }
+  ]
+}

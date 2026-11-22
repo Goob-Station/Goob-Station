@@ -1,6 +1,6 @@
 - type: entity
   parent: MarkerBase
-  id: SpawnMobHierophant
+  id: SpawnMobMegafaunaHierophant
   name: Hierophant Spawner
   components:
   - type: Sprite
@@ -9,4 +9,4 @@
     - state: ai
   - type: ConditionalSpawner
     prototypes:
-    - MobHierophant
+    - MobMegafaunaHierophant

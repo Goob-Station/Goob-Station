@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-3.0",
+  "copyright": "Sprited by OnsenCapy (Github)",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "adapted_melee"
+    },
+    {
+      "name": "adapted_ranged"
+    },
+    {
+      "name": "mercury_ring"
+    },
+    {
+      "name": "warp_in",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}

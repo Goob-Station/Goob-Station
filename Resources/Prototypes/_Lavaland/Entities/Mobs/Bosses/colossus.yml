@@ -1,6 +1,6 @@
 - type: entity
   name: Colossus
-  id: LavalandBossColossus
+  id: MobMegafaunaColossus
   parent: LavalandMobBase
   description: A monstrous creature protected by heavy shielding.
   components:
@@ -68,7 +68,7 @@
       2500: Dead
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
   - type: Advertise
     pack: ColossusWords
     minimumWait: 15

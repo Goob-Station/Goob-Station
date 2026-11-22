@@ -1,0 +1,107 @@
+- type: entity
+  id: MobMegafaunaSerpentGod
+  name: serpent god
+  description: What happens when an oni consumes the essence of a eight-headed serpent.
+  components:
+  - type: Vocal
+    sounds:
+      Female: FemaleHuman
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon
+  - type: Speech
+    speechVerb: Oni
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.6,0.35,0.6"
+        density: 10000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/serpent.rsi
+    noRot: true
+    state: phase_3
+  - type: Clickable
+  - type: InteractionOutline
+  - type: LagCompensation
+  - type: Actions
+  - type: Appearance
+  - type: InputMover
+  - type: MobMover
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: Examiner
+  - type: Eye
+  - type: ContentEye
+  - type: RequireProjectileTarget
+    active: False
+  - type: CombatMode
+  - type: MobState
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Megafauna
+  - type: NoSlip
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: DamageOnCollide # To prevent getting stuck on objects.
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Structural: 1000
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      3000: Dead
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 30
+        Piercing: 15
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: Fauna
+  - type: Anger
+    totalHp: 2600
+  - type: Aggressive
+    forgiveRange: 25
+  - type: BossMusic
+    soundId: SerpentGod
+  - type: AngerPlayerScaling
+    angerScale: 1.5
+    hpScale: 1.2
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: cyan
+  - type: MegafaunaAnchor # Keeps anchored until fight starts
+  - type: MegafaunaGodmode # Godmode against any damage not coming from player
+  - type: MegafaunaRejuvenate # Regens on fight over

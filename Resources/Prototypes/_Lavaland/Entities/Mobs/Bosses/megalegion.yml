@@ -1,6 +1,6 @@
 - type: entity
   name: Legion
-  id: LavalandBossMegaLegion
+  id: MobMegafaunaMegaLegion
   parent: LavalandMobBase
   description: One of many.
   components:
@@ -60,7 +60,7 @@
       700: Dead
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
   - type: TileMovement
   - type: BossMusic
     soundId: AshDrake

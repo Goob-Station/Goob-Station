@@ -1,6 +1,6 @@
 - type: entity
   name: Bubblegum
-  id: LavalandBossBubblegum
+  id: MobMegafaunaBubblegum
   parent: LavalandMobBase
   description: In what passes for a hierarchy among slaughter demons, this one is king.
   components:
@@ -57,7 +57,7 @@
       2500: Dead
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BossImpactFootstep

@@ -39,3 +39,28 @@
   license: "CC-BY-SA-3.0"
   copyright: "Created by qwertyquerty"
   source: "https://www.youtube.com/watch?v=Zafd-0ehSpQ"
+
+- files: ["childishoni.ogg"]
+  license: "Custom"
+  copyright: "Made by Sonican"
+  source: "https://pixabay.com/music/upbeat-action-fight-239712/"
+
+- files: ["SerpentGod.ogg"]
+  license: "Custom"
+  copyright: "Made by Karl Casey @ White Bat Audio"
+  source: "https://www.youtube.com/watch?v=oORJz5HxRpA"
+
+- files: ["Retribution.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Bolgarich"
+  source: "https://www.youtube.com/watch?v=zdrWnPp74V0"
+
+- files: ["Finale.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by QwertyQwerty"
+  source: "https://hitz.me/album/f2cf4301-a736-43a7-8066-b5d25333ef37"
+
+- files: ["Xibalba.ogg"]
+  license: "Custom"
+  copyright: "Made by Psychronic"
+  source: "https://pixabay.com/music/techno-trance-alien-dance-party-293052/"

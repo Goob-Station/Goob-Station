@@ -91,7 +91,7 @@ entities:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
-- proto: SpawnMobHierophant
+- proto: SpawnMobMegafaunaHierophant
   entities:
   - uid: 2
     components:
