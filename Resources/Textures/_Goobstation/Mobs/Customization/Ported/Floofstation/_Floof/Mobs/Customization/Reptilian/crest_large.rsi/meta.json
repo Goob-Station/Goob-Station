@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Ported from https://github.com/Fansana/floofstation1/tree/eff4e2d97f9094bf9cb0019c47bd058cfd6a9f3d/Resources/Textures/_Floof/Mobs/Customization/Reptilian/crest_large.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "primary",
+      "directions": 4
+    },
+    {
+      "name": "secondary",
+      "directions": 4
+    }
+  ]
+}

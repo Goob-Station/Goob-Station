@@ -1,0 +1,58 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: Photocopier
+  name: photocopier
+  description: Copies a painting onto a blank canvas of the same size. Insert both, then switch it on.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/photocopier.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PhotocopierVisuals.State:
+        base:
+          Idle: { state: icon }
+          Scanning: { state: scan }
+          Printing: { state: print }
+  - type: ApcPowerReceiver
+    powerLoad: 300
+  - type: Photocopier
+  - type: ItemSlots
+    slots:
+      canvas_a:
+        name: paint-slot-canvas
+        swap: false
+        whitelist:
+          components:
+          - PaintCanvasVisuals
+      canvas_b:
+        name: paint-slot-canvas
+        swap: false
+        whitelist:
+          components:
+          - PaintCanvasVisuals
+  - type: ContainerContainer
+    containers:
+      canvas_a: !type:ContainerSlot
+      canvas_b: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Machine
+    board: PhotocopierMachineCircuitboard

@@ -15,16 +15,16 @@ namespace Content.Goobstation.Shared.Shadowling.Systems.Abilities.PreAscension;
 /// <summary>
 /// This handles the Glare ability
 /// </summary>
-public sealed class ShadowlingGlareSystem : EntitySystem
+public sealed partial class ShadowlingGlareSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedShadowlingSystem _shadowling = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StatusEffectsSystem _effects = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedShadowlingSystem _shadowling = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private StatusEffectsSystem _effects = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private MovementModStatusSystem _movementMod = default!;
 
     public static readonly EntProtoId SlingGlareSlowEffect = "ShadowlingGlareSlowdownEffect";
 

@@ -491,3 +491,39 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi
+
+# Chaplain
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMonk
+  name: monk's trousers
+  description: Simple pants, not much better than an old sack.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Uniforms/monk.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Uniforms/monk.rsi
+    
+#casual
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitHawaiGreen
+  name: green hawaiian shirt
+  description: Central Command™ Green.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaigreen.rsi
+
+#FlavourVille
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitHawaiFire
+  name: flaming hawaiian shirt
+  description: A souvenir from Flavour Town
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaifire.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hawaifire.rsi

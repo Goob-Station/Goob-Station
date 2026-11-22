@@ -661,6 +661,36 @@
     radius: 1.5
     energy: 4.0
     color: "#1f8c28"
+  # Shitmed
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: crew
+    - map: ["computerLayerKeys"]
+      state: med_key
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: generic_panel_open
+  - type: Speech
+  - type: BodyScanner
+  - type: HealthAnalyzer
+    hasSpeaker: true
+  - type: ActivatableUI
+    key: enum.HealthAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+  - type: DeviceLinkSink
+    ports:
+    - OperatingTableReceiver
+
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -682,6 +712,7 @@
       state: generic_panel_open
   - type: AccessReader
     access: [[ "Command" ]]
+  - type: VoiceBroadcastConsole # Goobstation
   - type: CommunicationsConsole
     title: comms-console-announcement-title-station
   - type: DeviceNetwork
@@ -725,6 +756,7 @@
       state: generic_panel_open
   - type: AccessReader
     access: [[ "NuclearOperative" ]]
+  - type: VoiceBroadcastConsole # Goobstation
   - type: CommunicationsConsole
     title: comms-console-announcement-title-nukie
     color: "#ff0000"
@@ -759,6 +791,7 @@
       state: generic_panel_open
   - type: AccessReader
     access: [[ "Wizard" ]]
+  - type: VoiceBroadcastConsole # Goobstation
   - type: CommunicationsConsole
     title: comms-console-announcement-title-wizard
     color: "#ff00ff"
@@ -793,6 +826,7 @@
       state: generic_panel_open
   - type: AccessReader
     access: [[ "CentralCommand" ]]
+  - type: VoiceBroadcastConsole # Goobstation
   - type: CommunicationsConsole
     title: comms-console-announcement-title-centcom
     color: "#1d8bad"
@@ -1555,7 +1589,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: RoboticsConsole
-    allowBorgControl: false
+    allowBorgControl: true #Goobstation - Allow AI to destroy cyborg
   - type: ActiveRadio
     channels:
     - Science

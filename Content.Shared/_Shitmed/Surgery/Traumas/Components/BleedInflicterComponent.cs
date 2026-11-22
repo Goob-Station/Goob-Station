@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
@@ -36,9 +36,6 @@ public sealed partial class BleedInflicterComponent : Component
 
     [DataField]
     public FixedPoint2 ScalingSpeed = FixedPoint2.New(1);
-
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public FixedPoint2 SeverityPenalty = FixedPoint2.New(1);
 
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public FixedPoint2 Scaling = FixedPoint2.New(1);

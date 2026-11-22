@@ -8,9 +8,9 @@ using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Server.Explosion.EntitySystems;
 
-public sealed class ExplodeOnMeleeHitSystem : EntitySystem
+public sealed partial class ExplodeOnMeleeHitSystem : EntitySystem
 {
-    [Dependency] private readonly ExplosionSystem _explosions = default!;
+    [Dependency] private ExplosionSystem _explosions = default!;
 
     public override void Initialize()
     {

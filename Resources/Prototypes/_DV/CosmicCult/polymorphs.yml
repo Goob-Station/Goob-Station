@@ -2,6 +2,7 @@
   id: CosmicLapseMobHuman
   configuration:
     entity: CosmicPolymorphEntHuman
+    allowMovement: false # Goobstation
     forced: true
     inventory: None
     transferName: false
@@ -13,6 +14,7 @@
   id: CosmicLapseMobArachnid
   configuration:
     entity: CosmicPolymorphEntArachnid
+    allowMovement: false # Goobstation
     forced: true
     inventory: None
     transferName: false
@@ -24,6 +26,7 @@
   id: CosmicLapseMobDiona
   configuration:
     entity: CosmicPolymorphEntDiona
+    allowMovement: false # Goobstation
     forced: true
     inventory: None
     transferName: false
@@ -35,6 +38,7 @@
   id: CosmicLapseMobMoth
   configuration:
     entity: CosmicPolymorphEntMoth
+    allowMovement: false # Goobstation
     forced: true
     inventory: None
     transferName: false
@@ -47,6 +51,7 @@
   id: CosmicLapseMobVox
   configuration:
     entity: CosmicPolymorphEntVox
+    allowMovement: false # Goobstation
     forced: true
     inventory: None
     transferName: false
@@ -58,6 +63,7 @@
   id: CosmicLapseMobSnail
   configuration:
     entity: CosmicPolymorphEntSnail
+    allowMovement: false # Goobstation
     forced: true
     inventory: None
     transferName: false
@@ -69,6 +75,7 @@
   id: CosmicLapseMobDecapoid
   configuration:
     entity: CosmicPolymorphEntDecapoid
+    allowMovement: false # Goobstation
     forced: true
     inventory: None
     transferName: false

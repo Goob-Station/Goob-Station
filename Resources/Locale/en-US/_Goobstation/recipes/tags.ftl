@@ -45,3 +45,6 @@ construction-graph-tag-ushanka = ushanka
 construction-graph-tag-baseball-bat = baseball bat
 construction-graph-tag-heart = heart
 construction-graph-tag-camera-electronics = surveillance camera electronics
+construction-graph-tag-stunbaton = a stun baton
+construction-graph-tag-disabler = a disabler
+construction-graph-tag-combat-knife = a combat knife

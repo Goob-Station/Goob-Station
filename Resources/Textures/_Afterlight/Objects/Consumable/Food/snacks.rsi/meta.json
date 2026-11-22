@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by GitHub ItsDzordz / Discord dzordz (310775535984836609), inhands by Github NotLivyathan / Discord livyathan (298907041198637067)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "coalcrunch"
+    },
+    {
+      "name": "coalcrunch-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "coalcrunch-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "coalcrunch-trash"
+    }
+  ]
+}

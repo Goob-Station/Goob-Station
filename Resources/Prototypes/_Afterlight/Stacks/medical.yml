@@ -1,0 +1,6 @@
+- type: stack
+  parent: BaseTopicalStack
+  id: SynthBloodpack
+  name: stack-synthbloodpack
+  icon: { sprite: "_Afterlight/Objects/Specific/Medical/medical.rsi", state: synthpack }
+  spawn: SynthBloodpack

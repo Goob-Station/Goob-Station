@@ -372,10 +372,10 @@ DefaultStationBeaconTeslaEngine: null
 FoodBoxDonkpocketGondola: FoodBoxDonkpocketPizza
 
 # 2024-01-31
-SpyCrewMonitor: null
-SpyCrewMonitorEmpty: null
-SyndiCrewMonitor: null
-SyndiCrewMonitorEmpty: null
+# SpyCrewMonitor: null Trauma - Re-add Antag Crew Monitors
+# SpyCrewMonitorEmpty: null Trauma - Re-add Antag Crew Monitors
+# SyndiCrewMonitor: null Trauma - Re-add Antag Crew Monitors
+# SyndiCrewMonitorEmpty: null Trauma - Re-add Antag Crew Monitors
 
 #SpawnVehicleWheelchair: null Goobstation - Re-add vehicles
 #SpawnVehicleWheelchairFolded: null Goobstation - Re-add vehicles
@@ -423,7 +423,7 @@ FoodDonutJellyBlumpkin: FoodDonutJellyBluePumpkin
 SolarAssemblyPart: SolarAssemblyFlatpack
 AmePart: AmePartFlatpack
 AmePartStealObjective: AmePartFlatpackStealObjective
-Observationskit: null
+# Observationskit: null Trauma - Re-add Antag Crew Monitors
 
 # 2024-02-26
 CrateBaseWeldable: CrateGenericSteel
@@ -1013,3 +1013,32 @@ HandheldHealthAnalyzerEmpty: HandheldHealthAnalyzer
 
 #2026-01-09
 BorgModuleAdvancedChemical: BorgModuleAdvancedTopical
+
+# 2026-10-31 Goob - MODsuit refactor
+UndeterminedVoidsuitParamedic: ClothingOuterHardsuitVoidParamed
+UndeterminedVoidsuitSecurity: ClothingOuterVoidsuitSecurity
+UndeterminedVoidsuitHeadOfSecurity: ClothingOuterHardsuitSecurityRed
+UndeterminedVoidsuitEngineer: ClothingOuterHardsuitEngineering
+UndeterminedVoidsuitCaptain: ClothingOuterHardsuitCap
+UndeterminedVoidsuitRD: ClothingOuterHardsuitRd
+UndeterminedVoidsuitBrigMed: ClothingOuterHardsuitBrigmedic
+SpawnMobHumanHosModSuit: null
+SpawnMobHumanSecurityOfficerModSuit: null
+SpawnMobHumanBSOModSuit: null
+SpawnMobHumanCaptainModsuit: null
+ClothingModsuitStandardNoStorage: ClothingModsuitStandard
+BlueshieldUndeterminedHardsuit: ClothingOuterHardsuitBlueshieldLight
+
+#2026-11-03
+MailRobustToolsSpam: MailSpamLetter
+MailNanotrasenSpam: MailSpamLetter
+MailSyndicateSpam: MailSpamLetter
+MailAlternativeDimensionSpam: MailSpamLetter
+MailNarsieCultSpam: MailSpamLetter
+MailRageCageSpam: MailSpamLetter
+MailVoyageAdvertisementSpam: MailSpamLetter
+MailScienceSpiderClanSpam: MailSpamLetter
+MailAllAccessSpam: MailSpamLetter
+MailCentcommRetributionSpam: MailSpamLetter
+MailEvilLizardSpam: MailSpamLetter
+MailParentsNeedMoneySpam: MailSpamLetter

@@ -35,6 +35,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: WiresPanel
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.LatheUiKey.Key
   - type: ActivatableUIRequiresPower
@@ -386,8 +387,10 @@
     # Goobstation Packs
     - MechPartsGoob
     - Modsuits
+    - ModsuitModules
     - PowerCages
     - BorgModulesGoob
+    - SecBorgParts # Goob
     - BasicCybernetics
     - MedicalCybernetics
     - AdvancedCybernetics
@@ -500,6 +503,7 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
+    - ModsuitSecurity # Goob
     # Goobstation
     - SecurityWeaponsGoob
     - RestraintTechnology
@@ -601,6 +605,7 @@
     - SyringeCase
     dynamicPacks:
     - Chemistry
+    - ModsuitMedical # Goob
     # Goobstation Packs
     - Surgery
     - MedicalCybernetics
@@ -609,6 +614,7 @@
     - MedicalMiscRestricted
     - MedicalVehiclesAdvanced
     - MedicalBoards
+    - MedicalBoardsGoob
     - Janitor
     - Genetics
     - MedicalCloning
@@ -772,6 +778,7 @@
     - type: MiningPointsLathe # DeltaV
     - type: MaterialStorageMagnetPickup # Frontier
     - type: OreSiloClient
+    - type: AlmanacOreCounter # Goobstation
 
 - type: entity
   parent: OreProcessor

@@ -8,9 +8,9 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileRequiresWhitelist;
 
-public sealed class ProjectileRequireWhitelistSystem : EntitySystem
+public sealed partial class ProjectileRequireWhitelistSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
     public override void Initialize()
     {
         base.Initialize();

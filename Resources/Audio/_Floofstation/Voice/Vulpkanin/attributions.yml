@@ -1,0 +1,9 @@
+- files: [gekker.ogg]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Floofstation"
+  source: "https://github.com/Fansana/floofstation1/commit/4b95c3baec02bf531e1a6d07fb09fd7b1a9a7e39"
+
+- files: [yap.ogg]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Floofstation"
+  source: "https://github.com/Fansana/floofstation1/commit/1ecad048c2931dd65bfc72abc274f97e4322af31"

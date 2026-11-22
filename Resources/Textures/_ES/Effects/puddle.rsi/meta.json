@@ -1,0 +1,404 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Default, water, and powdery made by Flareguy for Ephemeral Space, blood taken from tgstation at https://github.com/tgstation/tgstation/blob/b4061f1800152a832ea62feca841350412ad1617/icons/effects/blood.dmi, vomit, pie, and acid taken from tgstation at https://github.com/tgstation/tgstation/blob/b4061f1800152a832ea62feca841350412ad1617 and modified by Flareguy, egg taken from tgstation at https://github.com/tgstation/tgstation/blob/b4061f1800152a832ea62feca841350412ad1617/icons/effects/tomatodecal.dmi ",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "small-1"
+    },
+    {
+      "name": "small-2"
+    },
+    {
+      "name": "small-3"
+    },
+    {
+      "name": "small-4"
+    },
+    {
+      "name": "small-5"
+    },
+    {
+      "name": "medium-1"
+    },
+    {
+      "name": "medium-2"
+    },
+    {
+      "name": "medium-3"
+    },
+    {
+      "name": "medium-4"
+    },
+    {
+      "name": "medium-5"
+    },
+    {
+      "name": "large-1"
+    },
+    {
+      "name": "large-2"
+    },
+    {
+      "name": "large-3"
+    },
+    {
+      "name": "large-4"
+    },
+    {
+      "name": "large-5"
+    },
+    {
+      "name": "large-6"
+    },
+    {
+      "name": "large-7"
+    },
+    {
+      "name": "splotchy-small-1"
+    },
+    {
+      "name": "splotchy-small-2"
+    },
+    {
+      "name": "splotchy-small-3"
+    },
+    {
+      "name": "splotchy-small-4"
+    },
+    {
+      "name": "splotchy-small-5"
+    },
+    {
+      "name": "blood-small-1"
+    },
+    {
+      "name": "blood-small-2"
+    },
+    {
+      "name": "blood-small-3"
+    },
+    {
+      "name": "blood-small-4"
+    },
+    {
+      "name": "blood-small-5"
+    },
+    {
+      "name": "blood-medium-1"
+    },
+    {
+      "name": "blood-medium-2"
+    },
+    {
+      "name": "blood-medium-3"
+    },
+    {
+      "name": "blood-medium-4"
+    },
+    {
+      "name": "blood-medium-5"
+    },
+    {
+      "name": "blood-large-1"
+    },
+    {
+      "name": "blood-large-2"
+    },
+    {
+      "name": "blood-large-3"
+    },
+    {
+      "name": "blood-large-4"
+    },
+    {
+      "name": "blood-large-5"
+    },
+    {
+      "name": "blood-large-6"
+    },
+    {
+      "name": "blood-large-7"
+    },
+    {
+      "name": "vomit-small-1"
+    },
+    {
+      "name": "vomit-small-2"
+    },
+    {
+      "name": "vomit-small-3"
+    },
+    {
+      "name": "vomit-small-4"
+    },
+    {
+      "name": "vomit-small-5"
+    },
+    {
+      "name": "vomit-medium-1"
+    },
+    {
+      "name": "vomit-medium-2"
+    },
+    {
+      "name": "vomit-medium-3"
+    },
+    {
+      "name": "vomit-medium-4"
+    },
+    {
+      "name": "vomit-medium-5"
+    },
+    {
+      "name": "vomit-large-1"
+    },
+    {
+      "name": "vomit-large-2"
+    },
+    {
+      "name": "vomit-large-3"
+    },
+    {
+      "name": "vomit-large-4"
+    },
+    {
+      "name": "vomit-large-5"
+    },
+    {
+      "name": "vomit-large-6"
+    },
+    {
+      "name": "vomit-large-7"
+    },
+    {
+      "name": "acid-small-1"
+    },
+    {
+      "name": "acid-small-2"
+    },
+    {
+      "name": "acid-small-3"
+    },
+    {
+      "name": "acid-small-4"
+    },
+    {
+      "name": "acid-small-5"
+    },
+    {
+      "name": "acid-medium-1"
+    },
+    {
+      "name": "acid-medium-2"
+    },
+    {
+      "name": "acid-medium-3"
+    },
+    {
+      "name": "acid-medium-4"
+    },
+    {
+      "name": "acid-medium-5"
+    },
+    {
+      "name": "acid-large-1"
+    },
+    {
+      "name": "acid-large-2"
+    },
+    {
+      "name": "acid-large-3"
+    },
+    {
+      "name": "acid-large-4"
+    },
+    {
+      "name": "acid-large-5"
+    },
+    {
+      "name": "acid-large-6"
+    },
+    {
+      "name": "acid-large-7"
+    },
+    {
+      "name": "water-small-1"
+    },
+    {
+      "name": "water-small-2"
+    },
+    {
+      "name": "water-small-3"
+    },
+    {
+      "name": "water-small-4"
+    },
+    {
+      "name": "water-small-5"
+    },
+    {
+      "name": "water-medium-1"
+    },
+    {
+      "name": "water-medium-2"
+    },
+    {
+      "name": "water-medium-3"
+    },
+    {
+      "name": "water-medium-4"
+    },
+    {
+      "name": "water-medium-5"
+    },
+    {
+      "name": "water-large-1"
+    },
+    {
+      "name": "water-large-2"
+    },
+    {
+      "name": "water-large-3"
+    },
+    {
+      "name": "water-large-4"
+    },
+    {
+      "name": "water-large-5"
+    },
+    {
+      "name": "water-large-6"
+    },
+    {
+      "name": "water-large-7"
+    },
+    {
+      "name": "shiny-small-1"
+    },
+    {
+      "name": "shiny-small-2"
+    },
+    {
+      "name": "shiny-small-3"
+    },
+    {
+      "name": "shiny-small-4"
+    },
+    {
+      "name": "shiny-small-5"
+    },
+    {
+      "name": "shiny-medium-1"
+    },
+    {
+      "name": "shiny-medium-2"
+    },
+    {
+      "name": "shiny-medium-3"
+    },
+    {
+      "name": "shiny-medium-4"
+    },
+    {
+      "name": "shiny-medium-5"
+    },
+    {
+      "name": "shiny-large-1"
+    },
+    {
+      "name": "shiny-large-2"
+    },
+    {
+      "name": "shiny-large-3"
+    },
+    {
+      "name": "shiny-large-4"
+    },
+    {
+      "name": "shiny-large-5"
+    },
+    {
+      "name": "shiny-large-6"
+    },
+    {
+      "name": "shiny-large-7"
+    },
+    {
+      "name": "powdery-small-1"
+    },
+    {
+      "name": "powdery-small-2"
+    },
+    {
+      "name": "powdery-small-3"
+    },
+    {
+      "name": "powdery-small-4"
+    },
+    {
+      "name": "powdery-small-5"
+    },
+    {
+      "name": "powdery-medium-1"
+    },
+    {
+      "name": "powdery-medium-2"
+    },
+    {
+      "name": "powdery-medium-3"
+    },
+    {
+      "name": "powdery-medium-4"
+    },
+    {
+      "name": "powdery-medium-5"
+    },
+    {
+      "name": "powdery-large-1"
+    },
+    {
+      "name": "powdery-large-2"
+    },
+    {
+      "name": "powdery-large-3"
+    },
+    {
+      "name": "powdery-large-4"
+    },
+    {
+      "name": "powdery-large-5"
+    },
+    {
+      "name": "powdery-large-6"
+    },
+    {
+      "name": "powdery-large-7"
+    },
+    {
+      "name": "pie-small"
+    },
+    {
+      "name": "pie-medium"
+    },
+    {
+      "name": "pie-large"
+    },
+    {
+      "name": "egg-1"
+    },
+    {
+      "name": "egg-2"
+    },
+    {
+      "name": "egg-3"
+    },
+    {
+      "name": "egg-4"
+    }
+  ]
+}

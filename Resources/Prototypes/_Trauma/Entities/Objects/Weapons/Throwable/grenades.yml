@@ -1,0 +1,49 @@
+- type: entity
+  parent: ExGrenade
+  id: StickyGrenade
+  name: sticky grenade
+  description: A grenade that sticks to whatever it's thrown at, then explodes after 3 seconds.
+  components:
+  - type: EmbeddableProjectile
+    removalTime: 1.5
+  - type: ThrowingAngle
+    angle: 0
+  - type: LandAtCursor
+  - type: TriggerOnEmbed
+  - type: TimerTrigger
+    delay: 3
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 8
+    intensitySlope: 3
+    totalIntensity: 90
+    canCreateVacuum: false
+
+- type: entity
+  parent: [ ScatteringGrenadeBase, TimerGrenadeBase, BaseSyndicateContraband ]
+  id: KudzuGrenade
+  name: kudzu grenade
+  description: A diona's favorite grenade.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Weapons/Grenades/kudzugrenade.rsi
+    layers:
+    - state: icon
+      map: [ "Base" ]
+  - type: ScatteringGrenade
+    fillPrototype: SyndicateKudzu
+    distance: 4
+  - type: TimerTrigger
+    delay: 2
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 3
+    initialBeepDelay: 0
+    beepInterval: 16
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }

@@ -153,6 +153,9 @@
   - FloorDirt
   - PlatingRCD
   - FloorHullReinforced
+  - FloorBasaltLavaland
+  - FloorPlanetAsh
+  - FloorPlanetGrassLight
 
 - type: tile
   id: FloorSteel

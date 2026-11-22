@@ -1,4 +1,4 @@
-﻿using Content.Goobstation.Maths.FixedPoint;
+﻿using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -18,6 +18,15 @@ public sealed partial class BoneComponent : Component
 
     [AutoNetworkedField, ViewVariables]
     public BoneSeverity BoneSeverity = BoneSeverity.Normal;
+
+    [DataField]
+    public Dictionary<BoneSeverity, FixedPoint2> HealSeverityFloor = new()
+    {
+        { BoneSeverity.Normal, 0 },
+        { BoneSeverity.Damaged, 5 },
+        { BoneSeverity.Cracked, 10 },
+        { BoneSeverity.Broken, 30 },
+    };
 
     [DataField]
     public SoundSpecifier BoneBreakSound = new SoundCollectionSpecifier("BoneGone");

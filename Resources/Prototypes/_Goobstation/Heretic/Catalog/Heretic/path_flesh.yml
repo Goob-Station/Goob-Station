@@ -5,7 +5,10 @@
   name: knowledge-path-flesh-s1-name
   description: knowledge-path-flesh-s1-desc
   icon: { sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
-  productHereticKnowledge: PrincipleOfHunger
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - PrincipleOfHunger
   cost:
     KnowledgePoint: 1
   categories:
@@ -30,7 +33,10 @@
   name: knowledge-path-flesh-s2-name
   description: knowledge-path-flesh-s2-desc
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: GraspOfFlesh
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - GraspOfFlesh
   cost:
     KnowledgePoint: 1
   categories:
@@ -49,7 +55,10 @@
   name: knowledge-path-flesh-s3-name
   description: knowledge-path-flesh-s3-desc
   icon: { sprite: Objects/Specific/Hydroponics/poppy.rsi, state: dead }
-  productHereticKnowledge: ImperfectRitual
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - ImperfectRitual
   cost:
     KnowledgePoint: 1
   categories:
@@ -67,7 +76,10 @@
   name: knowledge-path-flesh-s4-name
   description: knowledge-path-flesh-s4-desc
   icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  productHereticKnowledge: MarkOfFlesh
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MarkOfFlesh
   cost:
     KnowledgePoint: 2
   categories:
@@ -85,7 +97,10 @@
   name: knowledge-path-flesh-s5-name
   description: knowledge-path-flesh-s5-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: flesh_surgery }
-  productHereticKnowledge: KnittingOfFlesh
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - KnittingOfFlesh
   cost:
     KnowledgePoint: 2
   categories:
@@ -104,7 +119,10 @@
   name: knowledge-path-flesh-s6-name
   description: knowledge-path-flesh-s6-desc
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: raw_prophet }
-  productHereticKnowledge: RawRitual
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - RawRitual
   cost:
     KnowledgePoint: 1
   categories:
@@ -122,7 +140,10 @@
   name: knowledge-path-flesh-s7-name
   description: knowledge-path-flesh-s7-desc
   icon: { sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
-  productHereticKnowledge: BleedingSteel
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - BleedingSteel
   cost:
     KnowledgePoint: 2
   categories:
@@ -141,7 +162,10 @@
   name: knowledge-path-flesh-s8-name
   description: knowledge-path-flesh-s8-desc
   icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: stalker }
-  productHereticKnowledge: LonelyRitual
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - LonelyRitual
   cost:
     KnowledgePoint: 1
   categories:
@@ -159,7 +183,10 @@
   name: knowledge-path-flesh-s9-name
   description: knowledge-path-flesh-s9-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: final_hymn }
-  productHereticKnowledge: AscensionFlesh
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - AscensionFlesh
   cost:
     KnowledgePoint: 3
   categories:

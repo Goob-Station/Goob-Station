@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: AmbienceSpaceChill
+  files:
+    - /Audio/Ambience/constellations.ogg
+    - /Audio/Ambience/starlight.ogg
+    - /Audio/Ambience/drifting.ogg

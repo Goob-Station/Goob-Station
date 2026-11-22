@@ -6,6 +6,7 @@ using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -15,17 +16,17 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Blob;
 
-public sealed class BlobbernautSystem : SharedBlobbernautSystem
+public sealed partial class BlobbernautSystem : SharedBlobbernautSystem
 {
-    [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private EntityLookupSystem _entityLookupSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
 
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EmpSystem _empSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EmpSystem _empSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private TransformSystem _transform = default!;
     //private EntityQuery<MapGridComponent> _mapGridQuery;
     private EntityQuery<BlobTileComponent> _tileQuery;
     private EntityQuery<BlobCoreComponent> _coreQuery;
@@ -98,6 +99,13 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
             case BlobChemType.ExplosiveLattice:
                 _explosionSystem.QueueExplosion(args.HitEntities.FirstOrDefault(), blobCoreComponent.BlobExplosive, 4, 1, 2, maxTileBreak: 0);
                 break;
+
+            case BlobChemType.ChainCoating:
+            {
+                _damageableSystem.SetDamageModifierSetId(uid, "BlobBlobbernautChainCoating");
+                break;
+            }
+
             case BlobChemType.ElectromagneticWeb:
             {
                 var xform = Transform(args.HitEntities.FirstOrDefault());
@@ -111,6 +119,6 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
     private DamageSpecifier? TryChangeDamage(string msg, EntityUid ent, DamageSpecifier dmg)
     {
         _popup.PopupEntity(Loc.GetString(msg), ent, ent, PopupType.LargeCaution);
-        return _damageableSystem.TryChangeDamage(ent, dmg);
+        return _damageableSystem.ChangeDamage(ent, dmg);
     }
 }

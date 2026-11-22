@@ -37,7 +37,7 @@ namespace Content.Shared.Humanoid;
 ///     you still need a local copy so that players can set up their
 ///     characters.
 /// </summary>
-public abstract class SharedHumanoidAppearanceSystem : EntitySystem
+public abstract partial class SharedHumanoidAppearanceSystem : EntitySystem //goob edit
 {
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly INetManager _netManager = default!;
@@ -184,6 +184,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         _identity.QueueIdentityUpdate(target);
         Dirty(target, targetHumanoid);
+        RaiseMarkingsChanged(target); // Goob
     }
 
     /// <summary>
@@ -280,6 +281,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.MarkingSet.EnsureSpecies(species, humanoid.SkinColor, _markingManager);
         var oldMarkings = humanoid.MarkingSet.GetForwardEnumerator().ToList();
         humanoid.MarkingSet = new(oldMarkings, prototype.MarkingPoints, _markingManager, _proto);
+        RaiseMarkingsChanged(uid); // Goob
 
         if (sync)
             Dirty(uid, humanoid);
@@ -590,6 +592,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
+        RaiseMarkingsChanged(uid); // Goob
 
         if (sync)
             Dirty(uid, humanoid);
@@ -624,6 +627,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var markingObject = new Marking(marking, colors);
         markingObject.Forced = forced;
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
+        RaiseMarkingsChanged(uid); // Goob
 
         if (sync)
             Dirty(uid, humanoid);

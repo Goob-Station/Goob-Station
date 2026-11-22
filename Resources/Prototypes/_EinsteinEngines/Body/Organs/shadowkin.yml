@@ -8,6 +8,23 @@
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
     state: brain
+  - type: SolutionContainerManager #Goob
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Cognizine #telepathic species has big Thought.
+          Quantity: 10
+        - ReagentId: GreyMatter
+          Quantity: 5
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
 
 - type: entity
   id: OrganShadowkinEyes
@@ -131,7 +148,6 @@
     metabolizerTypes: [Shadowkin]
     groups:
     - id: Alcohol
-      rateModifier: 0.1
   - type: FoodSequenceElement #Goob
     entries:
       Burger: FSE_OrganShadowkinLiver

@@ -8,8 +8,8 @@ namespace Content.Goobstation.Shared.Stunnable;
 
 public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -51,7 +51,7 @@ public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
     {
         var damage = ent.Comp.Amount / ent.Comp.Delta;
 
-        _stamina.TakeStaminaDamage(ent, damage, immediate: false, visual: false);
+        _stamina.TakeStaminaDamage(ent, damage, immediate: false, visual: false, ignoreResist: true); // Ignore resists, we calculated in resists already
 
         ent.Comp.Damage -= damage;
 

@@ -9,10 +9,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Projectiles;
 
-public sealed class ProjectileImmunitySystem : EntitySystem
+public sealed partial class ProjectileImmunitySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
 
     public override void Initialize()
     {
@@ -96,10 +96,10 @@ public sealed class ProjectileImmunitySystem : EntitySystem
         args.Reflected = true;
 
         if (ent.Comp.StaminaCostPerDodge > 0)
-            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false);
+            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false, ignoreResist: true);
 
         if (ent.Comp.DodgeEffect != null)
-            SpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero));
+            PredictedSpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero)); // Trauma - predicted
     }
 
     private void TryHandleDodge(Entity<ProjectileImmunityComponent> ent, EntityUid projectile)
@@ -111,9 +111,9 @@ public sealed class ProjectileImmunitySystem : EntitySystem
             return;
 
         if (ent.Comp.StaminaCostPerDodge > 0)
-            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false);
+            _stamina.TakeStaminaDamage(ent, ent.Comp.StaminaCostPerDodge, logDamage: false, ignoreResist: true);
 
         if (ent.Comp.DodgeEffect != null)
-            SpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero));
+            PredictedSpawnAttachedTo(ent.Comp.DodgeEffect.Value, new EntityCoordinates(ent, Vector2.Zero)); // Trauma - predicted
     }
 }

@@ -1,0 +1,29 @@
+- type: achievementCategory
+  id: Milestones
+  name: achievement-category-milestones
+  priority: 0
+
+- type: achievementCategory
+  id: General
+  name: achievement-category-general
+  priority: 10
+
+- type: achievementCategory
+  id: Survival
+  name: achievement-category-survival
+  priority: 20
+
+- type: achievementCategory
+  id: Medical
+  name: achievement-category-medical
+  priority: 30
+
+- type: achievementCategory
+  id: Lavaland
+  name: achievement-category-lavaland
+  priority: 40
+
+- type: achievementCategory
+  id: Antagonist
+  name: achievement-category-antagonist
+  priority: 50

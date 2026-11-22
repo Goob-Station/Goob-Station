@@ -15,7 +15,7 @@ public sealed class EntityShapeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 
     private EntityQuery<ShapeSpawnerComponent> _spawnerQuery;
     private EntityQuery<ShapeSpawnerCounterComponent> _counterQuery;
@@ -61,7 +61,7 @@ public sealed class EntityShapeSystem : EntitySystem
     public void SpawnEntityShape(EntityShape shape, EntityUid target, EntProtoId spawnId, out List<EntityUid> spawned, bool alignTile = false)
     {
         var coords = alignTile
-            ? Transform(target).Coordinates.AlignWithClosestGridTile(1.5f, EntityManager, _mapMan)
+            ? Transform(target).Coordinates.AlignWithClosestGridTile(1.5f, EntityManager)
             : Transform(target).Coordinates;
 
         SpawnEntityShape(shape, coords, spawnId, out spawned);

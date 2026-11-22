@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from S.P.L.U.R.T at commit https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/96703f76bccd8fe6a96b78524efb97a9af661767. Ported from https://github.com/Simple-Station/Einstein-Engines/tree/10d41858d88d3ba9d36fdd9c98595d89701f1cbb/Resources/Textures/_ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "datashark_ears_inner",
+      "directions": 4
+    },
+    {
+      "name": "datashark_ears",
+      "directions": 4
+    },
+    {
+      "name": "datashark_fin",
+      "directions": 4
+    },
+    {
+      "name": "datashark_tail",
+      "directions": 4
+    },
+    {
+      "name": "datashark_taildata",
+      "directions": 4
+    }
+  ]
+}

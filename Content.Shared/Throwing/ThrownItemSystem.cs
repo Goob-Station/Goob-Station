@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared._Trauma.Throwing; // Trauma
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -19,7 +20,7 @@ namespace Content.Shared.Throwing
     /// <summary>
     ///     Handles throwing landing and collisions.
     /// </summary>
-    public sealed class ThrownItemSystem : EntitySystem
+    public sealed partial class ThrownItemSystem : EntitySystem // Goob
     {
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly INetManager _netMan = default!;
@@ -68,6 +69,9 @@ namespace Content.Shared.Throwing
                 return;
 
             if (args.OtherEntity == component.Thrower)
+                return;
+
+            if (TryDeferCollision(args.OurEntity, args.OtherEntity)) // Goob
                 return;
 
             ThrowCollideInteraction(component, args.OurEntity, args.OtherEntity);
@@ -119,6 +123,10 @@ namespace Content.Shared.Throwing
             var ev = new StopThrowEvent(thrownItemComponent.Thrower);
             RaiseLocalEvent(uid, ref ev);
             RemComp<ThrownItemComponent>(uid);
+            // <Trauma> - tell clients to stop predicting physics once server finishes the throw
+            if (_netMan.IsServer)
+                RemComp<PredictedThrownItemComponent>(uid);
+            // </Trauma>
         }
 
         public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound)
@@ -169,6 +177,8 @@ namespace Content.Shared.Throwing
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
+
+            ProcessDeferredCollisions(); // Goob
 
             var query = EntityQueryEnumerator<ThrownItemComponent, PhysicsComponent>();
             var frozenQuery = GetEntityQuery<FrozenComponent>(); // Goobstation

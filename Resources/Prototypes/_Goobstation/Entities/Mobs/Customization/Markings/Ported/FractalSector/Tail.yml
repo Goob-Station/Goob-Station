@@ -1,0 +1,94 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: AurelianVoxRoboticTail
+  bodyPart: TailBehind
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: robotic_tail
+
+- type: marking
+  id: AurelianVoxTail
+  bodyPart: TailBehind
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  forcedColoring: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Species/AurelianVox/parts.rsi
+    state: tail
+
+- type: marking
+  id: MothWingsClassicSelene
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_DV/Mobs/Customization/Moth/moth_wings.rsi
+    state: selene
+
+- type: marking
+  id: RMCLizardChestDragonwings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_RMC14/Mobs/Customization/reptilian.rsi
+    state: body_dragonwings
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_RMC14/Mobs/Customization/reptilian.rsi
+    state: body_dragonwings_membrane
+
+- type: marking
+  id: TailAussieShep
+  wagging: TailAussieShepWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_tail_australianshepherd_BEHIND_primary: TailBehind
+    m_tail_australianshepherd_BEHIND_secondary: TailBehind
+    m_tail_australianshepherd_FRONT_primary: TailOversuit
+    m_tail_australianshepherd_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_tail_australianshepherd_BEHIND_primary: m_tail_australianshepherd_FRONT_primary
+    m_tail_australianshepherd_BEHIND_secondary: m_tail_australianshepherd_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/tail_australianshepherd.rsi
+    state: m_tail_australianshepherd_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/tail_australianshepherd.rsi
+    state: m_tail_australianshepherd_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/tail_australianshepherd.rsi
+    state: m_tail_australianshepherd_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/tail_australianshepherd.rsi
+    state: m_tail_australianshepherd_FRONT_secondary
+
+- type: marking
+  id: TailAussieShepWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  layering:
+    m_waggingtail_australianshepherd_BEHIND_primary: TailBehind
+    m_waggingtail_australianshepherd_BEHIND_secondary: TailBehind
+    m_waggingtail_australianshepherd_FRONT_primary: TailOversuit
+    m_waggingtail_australianshepherd_FRONT_secondary: TailOversuit
+  colorLinks:
+    m_waggingtail_australianshepherd_BEHIND_primary: m_waggingtail_australianshepherd_FRONT_primary
+    m_waggingtail_australianshepherd_BEHIND_secondary: m_waggingtail_australianshepherd_FRONT_secondary
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/tail_australianshepherd.rsi
+    state: m_waggingtail_australianshepherd_BEHIND_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/tail_australianshepherd.rsi
+    state: m_waggingtail_australianshepherd_BEHIND_secondary
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/tail_australianshepherd.rsi
+    state: m_waggingtail_australianshepherd_FRONT_primary
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/tail_australianshepherd.rsi
+    state: m_waggingtail_australianshepherd_FRONT_secondary

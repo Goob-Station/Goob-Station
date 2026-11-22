@@ -10,6 +10,7 @@ using Content.Shared.Audio;
 using Content.Shared.CombatMode;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -41,6 +42,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
 using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Shared._Trauma.Projectiles; // Trauma
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -57,7 +59,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly DamageableSystem Damageable = default!;
     [Dependency] protected readonly ExamineSystemShared Examine = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly IMapManager MapManager = default!;
+    [Dependency] protected readonly SharedMapSystem MapSystem = default!;
     [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] protected readonly ISharedAdminLogManager Logs = default!;
@@ -162,11 +164,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         var user = args.SenderSession.AttachedEntity;
 
         if (user == null ||
-            !_combatMode.IsInCombatMode(user) ||
-            !TryGetGun(user.Value, out var gun))
-        {
+            !_combatMode.IsInCombatMode(user))
             return;
-        }
+
+        // Goobstation - mechs
+        if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
+            user = mechPilot.Mech;
+
+        if (!TryGetGun(user.Value, out var gun) ||
+            HasComp<ItemComponent>(user)) // Goobstation - carryable entities (e.g. felinids) can't shoot while held
+            return;
 
         if (gun.Owner != GetEntity(msg.Gun))
             return;
@@ -178,20 +185,27 @@ public abstract partial class SharedGunSystem : EntitySystem
             gun.Comp.Target = potentialTarget;
         // Goob edit end
         AttemptShoot(user.Value, gun);
+        if (msg.Continuous)
+            gun.Comp.ShotCounter = 0;
     }
 
     private void OnStopShootRequest(RequestStopShootEvent ev, EntitySessionEventArgs args)
     {
         var gunUid = GetEntity(ev.Gun);
 
-        if (args.SenderSession.AttachedEntity == null ||
-            !TryComp<GunComponent>(gunUid, out var gun) ||
-            !TryGetGun(args.SenderSession.AttachedEntity.Value, out var userGun))
-        {
-            return;
-        }
+        var user = args.SenderSession.AttachedEntity;
 
-        if (userGun != (gunUid, gun))
+        if (user == null)
+            return;
+
+        // Goobstation - mechs
+        if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
+            user = mechPilot.Mech;
+
+        if (!TryGetGun(user.Value, out var userGun))
+            return;
+
+        if (userGun.Owner != gunUid)
             return;
 
         StopShooting(userGun);
@@ -214,6 +228,15 @@ public abstract partial class SharedGunSystem : EntitySystem
     public bool TryGetGun(EntityUid entity, out Entity<GunComponent> gun)
     {
         gun = default;
+
+        // Goobstation - mech equipment guns
+        if (TryComp<MechComponent>(entity, out var mech) &&
+            mech.CurrentSelectedEquipment.HasValue &&
+            TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
+        {
+            gun = (mech.CurrentSelectedEquipment.Value, mechGun);
+            return true;
+        }
 
         if (_hands.GetActiveItem(entity) is { } held &&
             TryComp(held, out GunComponent? gunComp))
@@ -456,6 +479,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         RaiseLocalEvent(gun, ref shotEv);
         var shotBodyEv = new GunShotBodyEvent(gun, gun); // Shitmed Change
         RaiseLocalEvent(user, shotBodyEv); // Shitmed Change
+        GunScreenshake(user, gun); // Goob
 
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
             return true;
@@ -483,14 +507,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         Shoot(gun, new List<(EntityUid? Entity, IShootable Shootable)>(1) { (ammo, shootable) }, fromCoordinates, toCoordinates, out userImpulse, user, throwItems);
     }
 
-    public abstract void Shoot(
-        Entity<GunComponent> gun,
-        List<(EntityUid? Entity, IShootable Shootable)> ammo,
-        EntityCoordinates fromCoordinates,
-        EntityCoordinates toCoordinates,
-        out bool userImpulse,
-        EntityUid? user = null,
-        bool throwItems = false);
+    // Trauma - moved server Shoot to SharedGunSystem.Trauma.cs and predicted it
 
     public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = ProjectileSpeed, Vector2? targetCoordinates = null) // Goob targetcoordinates
     {
@@ -508,9 +525,27 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (shooter != null)
             Projectiles.SetShooter(uid, projectile, shooter.Value);
 
+        Physics.UpdateIsPredicted(uid, physics); // Trauma - predict this shit
+
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
         if (targetCoordinates.HasValue) // Goobstation
             projectile.TargetCoordinates = targetCoordinates.Value; // Goobstation
+
+        // <Trauma>
+        if (user is {} userUid)
+        {
+            // so you can't shoot yourself if you are moving fast enough to catch up with it
+            // Goob - unless you are aiming at yourself on purpose, IgnoredEntities is checked before GunCanAimShooter
+            if (!TryComp<TargetedProjectileComponent>(uid, out var targeted) || targeted.Target != userUid)
+            {
+                projectile.IgnoredEntities.Add(userUid);
+                Dirty(uid, projectile);
+            }
+
+            var ev = new PlayerShotProjectileEvent(uid, userUid);
+            RaiseLocalEvent(ref ev);
+        }
+        // </Trauma>
     }
 
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
@@ -541,18 +576,24 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// Drops a single cartridge / shell
     /// </summary>
     protected void EjectCartridge(
+        // <Trauma>
+        IRobustRandom rand, // predicted random instance for the gun
+        EntityUid? user,
+        // </Trauma>
         EntityUid entity,
         Angle? angle = null,
         bool playSound = true)
     {
         // TODO: Sound limit version.
-        var offsetPos = Random.NextVector2(EjectOffset);
+        // <Trauma> - use predicted random from params
+        var offsetPos = rand.NextAngle().RotateVec(new Vector2(rand.NextFloat(0, EjectOffset), 0));
         var xform = Transform(entity);
 
         var coordinates = xform.Coordinates;
         coordinates = coordinates.Offset(offsetPos);
 
-        TransformSystem.SetLocalRotation(entity, Random.NextAngle(), xform);
+        TransformSystem.SetLocalRotation(entity, rand.NextAngle(), xform);
+        // </Trauma>
         TransformSystem.SetCoordinates(entity, xform, coordinates);
 
         // decides direction the casing ejects and only when not cycling
@@ -564,7 +605,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
         if (playSound && TryComp<CartridgeAmmoComponent>(entity, out var cartridge))
         {
-            Audio.PlayPvs(cartridge.EjectSound, entity, AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-1f));
+            Audio.PlayPredicted(cartridge.EjectSound, entity, user, AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-1f)); // Trauma - predicted
         }
     }
 
@@ -745,7 +786,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);
 
-    public abstract void PlayImpactSound(EntityUid otherEntity, DamageSpecifier? modifiedDamage, SoundSpecifier? weaponSound, bool forceWeaponSound);
+    // Trauma - PlayImpactSound made concrete in SharedGunSystem.Trauma.cs
 
     /// <summary>
     /// Used for animated effects on the client.

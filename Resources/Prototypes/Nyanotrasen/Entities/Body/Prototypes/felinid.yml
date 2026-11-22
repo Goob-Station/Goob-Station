@@ -31,6 +31,7 @@
         stomach: OrganVulpkaninStomach
         liver:  OrganAnimalLiver
         kidneys: OrganHumanKidneys
+        butt: Butt # Goob
     right arm:
       part: RightArmFelinid
       connections:

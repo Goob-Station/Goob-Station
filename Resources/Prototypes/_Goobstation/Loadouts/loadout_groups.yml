@@ -351,6 +351,15 @@
   loadouts:
   - AtmosEnvirogloves
 
+- type: loadoutGroup
+  id: AtmosphericTechnicianBelt
+  minLimit: 1
+  maxLimit: 1
+  name: loadout-group-atmospheric-technician-belt
+  loadouts:
+  - AtmosphericTechnicianUtilityBelt
+  - AtmosphericTechnicianAtmosBelt
+
 # Chief Engineer
 
 - type: loadoutGroup
@@ -658,6 +667,7 @@
   maxLimit: 1
   loadouts:
   - WhiteEnvirogloves
+
 
 # Janitor
 
@@ -990,6 +1000,12 @@
   - NanotrasenRepresentativeHeels
 
 - type: loadoutGroup
+  id: NanotrasenRepresentativeJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieNTR
+
+- type: loadoutGroup
   id: NanotrasenRepresentativeGloves
   name: loadout-group-ntr-gloves
   loadouts:
@@ -1080,6 +1096,12 @@
   - SnowjacksBso
 
 - type: loadoutGroup
+  id: BlueshieldOfficerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieBSO
+
+- type: loadoutGroup
   id: BlueshieldOfficerEnvirohelm
   name: loadout-group-bso-envirohelm
   minLimit: 1
@@ -1162,6 +1184,12 @@
   loadouts:
   - NanotrasenTrainerBoots
   - NanotrasenTrainerShoes
+
+- type: loadoutGroup
+  id: NanotrasenTrainerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieCC
 
 # Reporter
 
@@ -1467,6 +1495,13 @@
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup
+  id: BrigmedicJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieBrigmedic
+  - SecStar
+
+- type: loadoutGroup
   id: BrigmedicBackpack
   name: loadout-group-brigmedic-backpack
   loadouts:
@@ -1631,6 +1666,12 @@
    - VirologistPDA
 
 - type: loadoutGroup
+  id: VirologistJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieVirologist
+
+- type: loadoutGroup
   id: VirologyEnvirohelm
   name: loadout-group-virology-envirohelm
   minLimit: 1
@@ -1663,6 +1704,7 @@
   loadouts:
   - JumpsuitHawaiBlack
   - JumpsuitHawaiBlue
+  - JumpsuitHawaiGreen
   - JumpsuitHawaiRed
   - JumpsuitHawaiYellow
 
@@ -1685,3 +1727,9 @@
   - ShaftMinerJumpskirt
   - ShaftMinerOveralls
   - ShaftMinerMJ
+
+- type: loadoutGroup
+  id: ShaftMinerJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - LizardPlushieShaftMiner

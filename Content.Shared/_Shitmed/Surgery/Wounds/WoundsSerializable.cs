@@ -1,5 +1,5 @@
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds;
@@ -98,7 +98,7 @@ public record struct WoundableIntegrityChangedOnBodyEvent(Entity<WoundableCompon
 public record struct WoundableSeverityChangedEvent(WoundableSeverity OldSeverity, WoundableSeverity NewSeverity);
 
 [ByRefEvent]
-public record struct WoundHealAttemptEvent(Entity<WoundableComponent> Woundable, bool IgnoreBlockers = false, bool Cancelled = false);
+public record struct WoundHealAttemptEvent(Entity<WoundableComponent> Woundable, bool IgnoreBlockers = false, bool Cancelled = false, FixedPoint2 SeverityFloor = default);
 
 [ByRefEvent]
 public record struct WoundHealAttemptOnWoundableEvent(Entity<WoundComponent> Wound, bool Cancelled = false);

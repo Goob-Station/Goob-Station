@@ -94,6 +94,29 @@
     roleType: SoloAntagonist
     subtype: role-subtype-contractor
 
+# Gang Wars
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleGangLeader
+  name: Gang Leader Role
+  components:
+  - type: MindRole
+    antagPrototype: GangLeader
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+    subtype: role-subtype-gang-leader
+  - type: GangRole
+
+- type: entity
+  parent: MindRoleGangLeader
+  id: MindRoleGangMember
+  name: Gang Member Role
+  components:
+  - type: MindRole
+    antagPrototype: GangMember
+    exclusiveAntag: false
+    subtype: role-subtype-gang-member
+  - type: GangRole
 # Gemini
 
 - type: entity

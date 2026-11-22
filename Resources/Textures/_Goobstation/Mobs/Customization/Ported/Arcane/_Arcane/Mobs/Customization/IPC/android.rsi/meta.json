@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made with love by Misha_Unity and Melissandra >//<; Syth sprites are made by Admiral Eisenberger. Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Arcane/Mobs/Customization/IPC/android.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "body_f",
+      "directions": 4
+    },
+    {
+      "name": "body_m",
+      "directions": 4
+    },
+    {
+      "name": "temple_led",
+      "directions": 4
+    },
+    {
+      "name": "cat_tail",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cat_tail_led",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "head_antenna_l",
+      "directions": 4
+    },
+    {
+      "name": "head_antenna_r",
+      "directions": 4
+    },
+    {
+      "name": "head_bulbs",
+      "directions": 4
+    },
+    {
+      "name": "l_arm_scrap",
+      "directions": 4
+    },
+    {
+      "name": "r_arm_scrap",
+      "directions": 4
+    },
+    {
+      "name": "l_hand_scrap",
+      "directions": 4
+    },
+    {
+      "name": "r_hand_scrap",
+      "directions": 4
+    },
+    {
+      "name": "l_leg_scrap",
+      "directions": 4
+    },
+    {
+      "name": "r_leg_scrap",
+      "directions": 4
+    },
+    {
+      "name": "l_foot_scrap",
+      "directions": 4
+    },
+    {
+      "name": "r_foot_scrap",
+      "directions": 4
+    },
+    {
+      "name": "body_f_synt",
+      "directions": 4
+    },
+    {
+      "name": "body_m_synt",
+      "directions": 4
+    },
+    {
+      "name": "l_arm_synt",
+      "directions": 4
+    },
+    {
+      "name": "r_arm_synt",
+      "directions": 4
+    },
+    {
+      "name": "l_hand_synt",
+      "directions": 4
+    },
+    {
+      "name": "r_hand_synt",
+      "directions": 4
+    },
+    {
+      "name": "l_leg_synt",
+      "directions": 4
+    },
+    {
+      "name": "r_leg_synt",
+      "directions": 4
+    },
+    {
+      "name": "l_foot_synt",
+      "directions": 4
+    },
+    {
+      "name": "r_foot_synt",
+      "directions": 4
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   id: ProjectileFireball
   name: fireball
   description: You better GITTAH WEIGH.
-  parent: BaseBullet
+  parent: BulletRocket
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -20,14 +20,12 @@
     layers:
     - state: fireball
       shader: unshaded
-  - type: TriggerOnCollide
-    fixtureID: projectile
-    maxTriggers: 1
+  - type: ExplosionEffect # Goob
   - type: Explosive
-    explosionType: Default
-    maxIntensity: 3.5 # Goob edit
-    intensitySlope: 3 # Goob edit
-    totalIntensity: 28 # Gobo edit
+    explosionType: Transparent # Goob
+    maxIntensity: 40
+    intensitySlope: 6
+    totalIntensity: 200
     maxTileBreak: 0
   - type: IgnitionSource
     temperature: 400
@@ -72,6 +70,7 @@
   - type: RepeatingTrigger
     delay: 0.5 # line of fire as well as if it hits something
   - type: ExplodeOnTrigger
+  - type: ExplosionEffect # Goob
   - type: Explosive
     explosionType: FireBomb
     totalIntensity: 5 # low intensity, the point is to burn attackers not to break open walls, dragons can just eat them
@@ -94,6 +93,7 @@
     reflective: Magic
   - type: TimedDespawn
     lifetime: 30
+  - type: ExplosionEffect # Goob
   - type: Explosive
     explosionType: Default
     maxIntensity: 100

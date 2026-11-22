@@ -1,0 +1,185 @@
+# creds to the great yamldozer @killangenifer
+- type: entity
+  id: DropPod
+  name: drop pod
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DropPod
+  - type: TimedDespawn
+    lifetime: 30
+  - type: SpawnOnTrigger
+    proto: DropPodPing
+  - type: TriggerOnSpawn
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: red
+    drawdepth: FloorObjects
+  - type: Marker
+
+- type: entity
+  id: DropPodPing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/marker.rsi
+    state: marker_ping
+    drawdepth: FloorObjects
+  - type: TimedDespawn
+    lifetime: 1.75
+  - type: SpawnOnTrigger
+    proto: DropPodSoundIncoming
+  - type: TriggerOnSpawn
+  - type: SpawnOnDespawn
+    prototype: DropPodMarker
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: DropPodMarker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/marker.rsi
+    state: marker
+    drawdepth: FloorObjects
+  - type: TimedDespawn
+    lifetime: 2
+  - type: SpawnOnTrigger
+    proto: DropPodLanding
+  - type: TriggerOnSpawn
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: DropPodSoundIncoming
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/DropPod/supplypodlandig.ogg
+      params:
+        maxDistance: 5
+  - type: TriggerOnSpawn
+
+- type: entity
+  id: DropPodLanding
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/landingpod.rsi
+    state: landing
+    offset: -1.7, 4.3
+    drawdepth: FloorObjects
+  - type: TimedDespawn
+    lifetime: 1.8
+  - type: SpawnOnDespawn
+    prototype: DropPodLanded
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: DropPodLanded
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 1
+  - type: Sprite
+    offset: 0, 0.25
+    sprite: _Goobstation/Objects/Specific/DropPod/supplypod.rsi
+    state: landed
+    drawdepth: FloorObjects
+  - type: TimedDespawn
+    lifetime: 6
+  - type: SpawnOnDespawn
+    prototype: DropPodOpened
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: DropPodOpened
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    offset: 0, 0.25
+    sprite: _Goobstation/Objects/Specific/DropPod/supplypod.rsi
+    state: landed-opened
+    drawdepth: FloorObjects
+  - type: TimedDespawn
+    lifetime: 20
+  - type: SpawnOnDespawn
+    prototype: DropPodSoundDeparting
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/DropPod/closet_open.ogg
+      params:
+        maxDistance: 5
+  - type: TriggerOnSpawn
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: DropPodSoundDeparting
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/DropPod/podwoosh.ogg
+      params:
+        maxDistance: 5
+  - type: TriggerOnSpawn
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  parent: BaseItem
+  id: DropPodLauncher
+  name: drop pod
+  description: Place items you want players to recieve in the bag, activate it over where you want the pod to drop. Players cannot see the pod. To drop living beings, drag them into the pod (like strapping someone onto a chair).
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/item.rsi
+    state: DROPPOD
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    grid:
+    - 0,0,20,20
+    maxItemSize: Ginormous
+  - type: Visibility
+    layer: 2 #ghost layer
+  - type: DragInsertContainer
+    containerId: drop_pod_passengers
+    entryDelay: 0
+    useVerbs: false
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      drop_pod_passengers: !type:Container
+  - type: ExtendedContainer
+    containerName: drop_pod_passengers
+    deleteContentsOnBreak: false
+    capacity: 999
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: DropPodLauncher
+
+- type: entity
+  id: DropPodCommanderSpeaker
+  name: central command commander
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadioJobIconOverride
+    jobIcon: JobIconNanotrasen
+    jobName: department-drop-pod-commander-job
+  - type: TimedDespawn
+    lifetime: 5

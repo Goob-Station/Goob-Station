@@ -3,7 +3,7 @@
 using Content.Server.Botany.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.Botany.Systems;
 
@@ -21,6 +21,10 @@ public sealed partial class BotanySystem
             if (mutation.AppliesToProduce)
                 _entityEffects.TryApplyEffect(uid, mutation.Effect);
         }
+
+        // GoobStation - growable spaceshrooms
+        if (seed.Chemicals.Count == 0)
+            return;
 
         if (!_solutionContainerSystem.EnsureSolution(uid,
                 produce.SolutionName,

@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.CursorTimer;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
@@ -22,7 +23,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Humanoid;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.EntityEffects;
 using Content.Shared.Movement.Components;
@@ -34,24 +35,25 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// <summary>
 /// System for the massacre action. Can be re-used for other similar weapons(Like the gang weapon if that ever gets made).
 /// </summary>
-public sealed class SlasherMassacreSystem : EntitySystem
+public sealed partial class SlasherMassacreSystem : EntitySystem
 {
     public static EntProtoId SlasherEffect = "SlasherStatusEffectKillSpeed";
 
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly WoundSystem _wounds = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementModStatus = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private WoundSystem _wounds = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutions = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private MovementModStatusSystem _movementModStatus = default!;
+    [Dependency] private CursorTimerSystem _cursorTimer = default!;
 
 
     public override void Initialize()
@@ -97,6 +99,7 @@ public sealed class SlasherMassacreSystem : EntitySystem
             ent.Comp.HitCount = 0;
             ent.Comp.CurrentVictim = null;
             ent.Comp.LastAttackTime = _timing.CurTime;
+            RestartChainTimer(ent.Owner, ent.Comp);
 
             _popup.PopupPredicted(Loc.GetString("slasher-massacre-start"), ent.Owner, ent.Owner, PopupType.MediumCaution);
             _audio.PlayPredicted(ent.Comp.MassacreIntro, ent.Owner, ent.Owner);
@@ -133,7 +136,13 @@ public sealed class SlasherMassacreSystem : EntitySystem
         comp.HitCount = 0;
         comp.CurrentVictim = null;
         comp.LastAttackTime = null;
+        _cursorTimer.ClearTimer(uid);
         Dirty(uid, comp);
+    }
+
+    private void RestartChainTimer(EntityUid uid, SlasherMassacreUserComponent comp)
+    {
+        _cursorTimer.SetTimer(uid, _timing.CurTime + TimeSpan.FromSeconds(comp.ChainTimeoutSeconds));
     }
 
     private void OnVictimMobStateChanged(EntityUid uid, SlasherMassacreVictimComponent comp, MobStateChangedEvent args)
@@ -215,6 +224,7 @@ public sealed class SlasherMassacreSystem : EntitySystem
         userComp.CurrentVictim = victim.Value;
         userComp.HitCount++;
         userComp.LastAttackTime = _timing.CurTime;
+        RestartChainTimer(args.User, userComp);
 
         // Add the victim tracking component to monitor mob state changes
         var victimComp = EnsureComp<SlasherMassacreVictimComponent>(victim.Value);

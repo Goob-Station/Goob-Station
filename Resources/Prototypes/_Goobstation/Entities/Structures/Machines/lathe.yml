@@ -47,6 +47,7 @@
     - EngineeringWeapons
     - PowerCells
     - Equipment
+    - ModsuitEngineering
     # - ServiceWeapons
     - SpecOpsGoogles
     - EngineeringBoards
@@ -57,6 +58,7 @@
     - BluespaceTheory
     - ScienceClothing
     - UpgradeKits
+    - AdvancedEmitters        # Omu - advanced emitters
   - type: EmagLatheRecipes
     emagStaticPacks:
     - NailgunEvilStatic
@@ -99,6 +101,7 @@
     - ToolsStatic
     - SharedBoardsStatic
     - CargoBoardsStatic
+    - CargoBoardsStaticGoob
     - CablesStatic
     - PartsStatic
     - LatheMiscStatic
@@ -109,8 +112,10 @@
     dynamicPacks:
     - AdvancedTools
     - Mining
+    - MiningLavaland # Lavaland Change
     - PowerCells
     - Equipment
+    - ModsuitSupply
     # - ServiceWeapons
     - MiningWeapons
     - MiningBoards
@@ -196,6 +201,7 @@
     - Janitor
     - Equipment
     - MedicalBoards #Goob
+    - ModsuitService
     # - ServiceWeapons
     - Surgery
     - SpecOpsGoogles
@@ -269,6 +275,7 @@
     - Janitor
     - Instruments
     - FauxTiles
+    - ModsuitService
     # - ServiceWeapons
     - MedicalMisc
     - MechBoardsCivilian

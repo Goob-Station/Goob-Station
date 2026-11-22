@@ -396,6 +396,10 @@
       - CombatKnife
       - Truncheon
       - HandGrenade
+      - MilitaryPowerCellSMG # Goob edit start
+      - MilitaryPowerCellSniper
+      - MilitaryPowerCellRevolver
+      - EnergyMagAmmo # Goob edit end
       components:
       - Stunbaton
       - FlashOnTrigger

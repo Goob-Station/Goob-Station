@@ -58,13 +58,13 @@
   parent: ClothingEyesBase # goobstation - tider nation - no longer contra
   id: ClothingEyesGlassesMeson
   name: meson goggles # goobstation - they're called MESONS!!!!
-  description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
+  description: Green-tinted engineering goggles that use THz radiation and mesons to reveal sub-floor infrastructure. # Goob
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: EyeProtection
+  # Goob - EyeProtection removed, mesons are T-ray scanners now
   - type: IdentityBlocker
     coverage: EYES
   - type: Tag
@@ -73,6 +73,14 @@
     - MesonGoggles
     - WhitelistChameleon
     - PetWearable # Goobstation?
+  - type: TrayScanner # Goob
+  - type: TrayScannerToggle # Goob
+    soundOn: # Goob
+      path: /Audio/Items/flashlight_on.ogg # Goob
+    soundOff: # Goob
+      path: /Audio/Items/flashlight_off.ogg # Goob
+  - type: GoggleShader # Goob
+    color: '#5AB43CCC' # Goob
 
 - type: entity
   parent: ClothingEyesBase

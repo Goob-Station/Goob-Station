@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._White.Xenomorphs.Caste;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
@@ -31,6 +31,16 @@ public sealed partial class XenomorphEvolutionDoAfterEvent : DoAfterEvent
 
 [Serializable, NetSerializable]
 public sealed partial class LarvaBurstDoAfterEvent : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class QueenRoarDoAfterEvent : SimpleDoAfterEvent;
+
+public sealed partial class ToggleAcidSpitEvent : InstantActionEvent;
+
+public sealed partial class FaceHuggerLeapActionEvent : WorldTargetActionEvent;
+
+public sealed partial class QueenRoarActionEvent : InstantActionEvent;
+
 
 public sealed partial class TransferPlasmaActionEvent : EntityTargetActionEvent
 {
@@ -66,3 +76,5 @@ public sealed class PlasmaAmountChangeEvent(FixedPoint2 amount) : EntityEventArg
 {
     public FixedPoint2 Amount = amount;
 }
+
+public sealed class XenomorphsAnnouncedEvent : EntityEventArgs;

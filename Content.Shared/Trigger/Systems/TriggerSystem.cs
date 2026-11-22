@@ -89,6 +89,12 @@ public sealed partial class TriggerSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
+        // Goob - Adding a networked component while the client is applying state mutates
+        // MetaDataComponent.NetComponents mid-enumeration in ResetPredictedEntities, which throws.
+        // The server activates the timer and networks ActiveTimerTriggerComponent regardless.
+        if (_timing.ApplyingState)
+            return false;
+
         if (HasComp<ActiveTimerTriggerComponent>(ent))
             return false; // already activated
 

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.GameStates;
@@ -16,6 +16,9 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? SourceEntityUid;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? VictimEntityUid;
 
     /// <summary>
     /// How many units from target's bloodstream would be sucked per tick
@@ -34,12 +37,6 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 ToxinUnits = 0.15;
-
-    [DataField]
-    public TimeSpan Interval = TimeSpan.FromSeconds(1);
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan NextTickTime = TimeSpan.Zero;
 
     [DataField]
     public DamageSpecifier Damage = new()

@@ -13,6 +13,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor
+    traumaDeductions: # Highly Trained Professional.
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.7
@@ -160,6 +166,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor
+    traumaDeductions: # Honestly i'll do something different here
+      Dismemberment: 0.7
+      OrganDamage: 0.2
+      BoneDamage: -0.6
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.8

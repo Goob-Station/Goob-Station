@@ -120,7 +120,10 @@ public abstract partial class SharedHandsSystem
             return;
 
         if (ContainerSystem.TryGetContainer(ent, handName, out var container))
+        {
+            ContainerSystem.EmptyContainer(container, force: true); // Goob - fix glued item deleted on hand remove
             ContainerSystem.ShutdownContainer(container);
+        }
 
         ent.Comp.SortedHands.Remove(handName);
         if (ent.Comp.ActiveHandId == handName)

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/31d6576ba8102135d058ef49c3cb6ecbe8db8a79, -Reptilian sprite by Zethine / @synthetic_086 (discord) at Goobstation., vulp masks taken from DeltaV https://github.com/DeltaV-Station/Delta-v/pull/517",
+    "copyright": "Taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/31d6576ba8102135d058ef49c3cb6ecbe8db8a79, -Reptilian sprite by Zethine / @synthetic_086 (discord) at Goobstation., vulp masks taken from DeltaV https://github.com/DeltaV-Station/Delta-v/pull/517 Synth states from Afterlight.",
     "size": {
         "x": 32,
         "y": 32
@@ -75,6 +75,14 @@
         },
         {
             "name": "up-equipped-HELMET-feroxi",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HELMET-synth",
+            "directions": 4
+        },
+        {
+            "name": "up-equipped-HELMET-synth",
             "directions": 4
         }
     ]

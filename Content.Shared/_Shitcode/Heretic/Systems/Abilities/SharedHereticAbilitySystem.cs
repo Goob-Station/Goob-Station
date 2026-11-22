@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Body;
@@ -8,6 +8,7 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -19,6 +20,8 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -49,7 +52,6 @@ namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly INetManager _net = default!;
 
@@ -248,7 +250,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         var toCoords = coords;
 
         var fromMap = _transform.ToMapCoordinates(fromCoords);
-        var spawnCoords = _mapMan.TryFindGridAt(fromMap, out var gridUid, out _)
+        var spawnCoords = _map.TryFindGridAt(fromMap, out var gridUid, out _)
             ? _transform.WithEntityId(fromCoords, gridUid)
             : new(_map.GetMap(fromMap.MapId), fromMap.Position);
 
@@ -288,11 +290,10 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         if (toHeal != null)
         {
-            _dmg.TryChangeDamage(uid,
+            _dmg.ChangeDamage(uid,
                 toHeal,
                 true,
                 false,
-                uid.Comp1,
                 targetPart: TargetBodyPart.All,
                 splitDamage: SplitDamageBehavior.SplitEnsureAll);
         }
@@ -301,7 +302,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
             TryComp<MobThresholdsComponent>(uid, out var thresholds);
             // do this so that the state changes when we set the damage
             _mobThreshold.SetAllowRevives(uid, true, thresholds);
-            _dmg.SetAllDamage(uid, uid.Comp1, 0);
+            _dmg.SetAllDamage(uid, 0);
             _mobThreshold.SetAllowRevives(uid, false, thresholds);
         }
 
@@ -366,15 +367,18 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
                         uid.Comp3.NerveSystem.Comp);
                 }
 
-                foreach (var nerve in uid.Comp3.NerveSystem.Comp.Nerves)
+                foreach (var nerveEnt in uid.Comp3.NerveSystem.Comp.Nerves)
                 {
-                    foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
+                    if (!TryComp<NerveComponent>(nerveEnt, out var nerve))
+                        continue;
+
+                    foreach (var painFeelsModifier in nerve.PainFeelingModifiers)
                     {
                         // Idk what it does, just remove it
                         _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
                             painFeelsModifier.Key.Item2,
-                            nerve.Key,
-                            nerve.Value);
+                            nerveEnt,
+                            nerve);
                     }
                 }
             }

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/NebulaSS13/Nebula and modified by Yatiyaya. Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816/Resources/Textures/_WF/Mobs/Species/AurelianVox/parts.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "l_foot_behind",
+      "directions": 4
+    },
+    {
+      "name": "r_foot_behind",
+      "directions": 4
+    },
+    {
+      "name": "tail",
+      "directions": 4
+    }
+  ]
+}

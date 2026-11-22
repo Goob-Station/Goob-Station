@@ -9,6 +9,8 @@
   id: BaseMobXenomorph
   abstract: true
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Alien
   - type: Xenomorph
     weedHeal: # Goobstation - nerfed healing
       groups:
@@ -41,6 +43,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 4.5
+  - type: MovementAlwaysTouching
   - type: NpcFactionMember
     factions:
     - Xeno
@@ -65,9 +68,8 @@
       Dead: XenomorphDead
   - type: SlowOnDamage
     speedModifierThresholds:
-      105: 0.9
-      125: 0.7
-      150: 0.6
+      125: 0.9
+      150: 0.8
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Xenomorph

@@ -4,7 +4,7 @@ using System.Linq;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -14,7 +14,9 @@ using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems; // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Goobstation.Wizard.SanguineStrike;
 
@@ -101,34 +103,7 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
         if (Resolve(uid, ref consciousness, false))
         {
             if (consciousness.NerveSystem != default)
-            {
-                foreach (var painModifier in consciousness.NerveSystem.Comp.Modifiers)
-                {
-                    _pain.TryRemovePainModifier(consciousness.NerveSystem.Owner,
-                        painModifier.Key.Item1,
-                        painModifier.Key.Item2,
-                        consciousness.NerveSystem.Comp);
-                }
-
-                foreach (var painMultiplier in consciousness.NerveSystem.Comp.Multipliers)
-                {
-                    _pain.TryRemovePainMultiplier(consciousness.NerveSystem.Owner,
-                        painMultiplier.Key,
-                        consciousness.NerveSystem.Comp);
-                }
-
-
-                foreach (var nerve in consciousness.NerveSystem.Comp.Nerves)
-                {
-                    foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
-                    {
-                        _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
-                            painFeelsModifier.Key.Item2,
-                            nerve.Key,
-                            nerve.Value);
-                    }
-                }
-            }
+                _pain.RemoveAllPainEffects(consciousness.NerveSystem);
 
             foreach (var multiplier in
                      consciousness.Multipliers.Where(multiplier => multiplier.Value.Type == ConsciousnessModType.Pain))
@@ -153,11 +128,10 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
         else
             toHeal = damageable.Damage;
 
-        _damageable.TryChangeDamage(uid,
+        _damageable.ChangeDamage(uid,
             -toHeal,
             true,
             false,
-            damageable,
             null,
             false,
             targetPart: TargetBodyPart.All,

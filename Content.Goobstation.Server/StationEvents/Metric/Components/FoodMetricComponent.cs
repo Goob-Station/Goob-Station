@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
@@ -29,8 +29,8 @@ public sealed partial class FoodMetricComponent : Component
     public Dictionary<float, FixedPoint2> ChargeScores =
         new()
         {
-            { 0.80f, 1.0f },
-            { 0.35f, 2.0f },
+            { 0.50f, 1.0f },
+            { 0.25f, 2.0f },
             { 0.10f, 5.0f },
         };
 

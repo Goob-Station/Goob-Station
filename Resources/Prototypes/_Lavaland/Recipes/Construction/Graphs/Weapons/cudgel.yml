@@ -1,0 +1,71 @@
+- type: constructionGraph
+  id: WoodenCudgel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: incompleteCudgel
+      steps:
+      - material: WoodPlank
+        amount: 6
+        doAfter: 4
+
+  - node: incompleteCudgel
+    entity: IncompleteWoodCudgel
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 6
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Prying
+        doAfter: 1
+    - to: cudgel
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
+      steps:
+      - tool: Slicing
+        doAfter: 4
+
+  - node: cudgel
+    entity: WeaponCudgelWood
+
+- type: constructionGraph
+  id: AshwoodCudgel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: incompleteCudgel
+      steps:
+      - material: AshwoodPlank
+        amount: 6
+        doAfter: 4
+
+  - node: incompleteCudgel
+    entity: IncompleteAshwoodCudgel
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialAshwoodPlank1
+        amount: 6
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Prying
+        doAfter: 1
+    - to: cudgel
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
+      steps:
+      - tool: Slicing
+        doAfter: 4
+
+  - node: cudgel
+    entity: WeaponCudgelAshwood

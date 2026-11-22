@@ -7,6 +7,7 @@ using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
@@ -17,24 +18,32 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Shadowling.Systems;
 
-public abstract class SharedShadowlingSystem : EntitySystem
+public abstract partial class SharedShadowlingSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedLightDetectionDamageSystem _lightDamage = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedLightDetectionDamageSystem _lightDamage = default!;
+    [Dependency] private SharedHumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MovementModStatusSystem _movementMod = default!;
+    // <Trauma>
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    // </Trauma>
 
     public override void Initialize()
     {
@@ -46,6 +55,26 @@ public abstract class SharedShadowlingSystem : EntitySystem
         SubscribeLocalEvent<ShadowlingComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<ShadowlingComponent, DamageModifyEvent>(OnDamageModify);
         SubscribeLocalEvent<ShadowlingComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ShadowlingComponent, SelfBeforeGunShotEvent>(BeforeGunShot); // Trauma - moved from server
+    }
+
+    /// <summary>
+    /// Trauma - moved from server and predicted since shooting is predicted
+    /// </summary>
+    private void BeforeGunShot(Entity<ShadowlingComponent> ent, ref SelfBeforeGunShotEvent args)
+    {
+        // Slings cant shoot guns
+        if (args.Gun.Comp.ClumsyProof)
+            return;
+
+        if (!SharedRandomExtensions.PredictedProb(_timing, 0.5f, GetNetEntity(args.Gun)))
+            return;
+
+        _damageable.TryChangeDamage(ent.Owner, ent.Comp.GunShootFailDamage, origin: ent);
+
+        _stun.TryUpdateParalyzeDuration(ent, ent.Comp.GunShootFailStunTime);
+
+        args.Cancel();
     }
 
     #region Event Handlers
@@ -109,7 +138,7 @@ public abstract class SharedShadowlingSystem : EntitySystem
 
     protected virtual void StartHatchingProgress(Entity<ShadowlingComponent> ent) { }
 
-    private void BeforeDamageChanged(EntityUid uid, ShadowlingComponent comp, BeforeDamageChangedEvent args)
+    private void BeforeDamageChanged(EntityUid uid, ShadowlingComponent comp, ref BeforeDamageChangedEvent args)
     {
         // Can't take damage during hatching
         if (comp.IsHatching)

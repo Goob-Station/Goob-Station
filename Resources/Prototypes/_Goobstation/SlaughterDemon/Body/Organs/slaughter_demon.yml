@@ -9,11 +9,11 @@
     sprite: _Goobstation/SlaughterDemon/heart.rsi
     state: demon_heart
   - type: Organ
-    intCap: 21
-    integrity: 21
+    intCap: 105
+    integrity: 105
     integrityThresholds:
-      Normal: 21
-      Damaged: 12
+      Normal: 105
+      Damaged: 60
       Destroyed: 0
     onAdd:
     - type: BloodCrawl
@@ -82,7 +82,6 @@
         types:
           Slash: 25
           Structural: 50
-    - type: DemonicWhisper # allows the demon to demonic whisper
     - type: DemonicAccent # the accent
     - type: Puller
       needsHands: false

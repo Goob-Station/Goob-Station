@@ -2,7 +2,7 @@
 using System.Linq;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
@@ -36,6 +36,9 @@ public partial class ConsciousnessSystem
     {
         nerveSys = null;
         if (!TryComp<ConsciousnessComponent>(body, out var consciousness))
+            return false;
+
+        if (consciousness.NerveSystem.Comp is null || TerminatingOrDeleted(consciousness.NerveSystem.Owner))
             return false;
 
         nerveSys = consciousness.NerveSystem;
@@ -113,9 +116,9 @@ public partial class ConsciousnessSystem
         if (!Resolve(uid, ref consciousness))
             return;
 
-        var totalDamage
-            = consciousness.Modifiers.Aggregate(FixedPoint2.Zero,
-                (current, modifier) => current + modifier.Value.Change * consciousness.Multiplier);
+        var totalDamage = FixedPoint2.Zero;
+        foreach (var modifier in consciousness.Modifiers)
+            totalDamage += modifier.Value.Change;
 
         consciousness.RawConsciousness = consciousness.Cap + totalDamage;
 

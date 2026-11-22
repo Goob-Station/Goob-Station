@@ -29,6 +29,7 @@
         - TabletopMachineMask
         layer:
         - TabletopMachineLayer
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.FaxUiKey.Key
   - type: ActivatableUIRequiresPower

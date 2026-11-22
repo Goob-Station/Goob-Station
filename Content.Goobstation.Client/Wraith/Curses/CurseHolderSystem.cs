@@ -4,9 +4,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Wraith.Curses;
 
-public sealed class CurseHolderSystem : SharedCurseHolderSystem
+public sealed partial class CurseHolderSystem : SharedCurseHolderSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

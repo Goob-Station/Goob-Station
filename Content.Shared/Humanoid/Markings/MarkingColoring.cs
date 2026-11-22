@@ -33,7 +33,8 @@ public static class MarkingColoring
         MarkingPrototype prototype,
         Color? skinColor,
         Color? eyeColor,
-        MarkingSet markingSet
+        MarkingSet markingSet,
+         List<string>? ignores = null // Floof
     )
     {
         var colors = new List<Color>();

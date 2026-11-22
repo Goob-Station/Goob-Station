@@ -1,14 +1,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Numerics;
 using Content.Client.Animations;
-using Content.Client.Gameplay;
+using Content.Client.Clickable;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Camera;
+using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Mech.Components; // Goobstation
 using Content.Shared.Weapons.Ranged;
@@ -16,6 +20,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Client.Animations;
+using Robust.Client.ComponentTrees;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -23,9 +28,12 @@ using Robust.Client.Player;
 using Robust.Client.State;
 using Robust.Shared.Animations;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
+using Robust.Shared.Graphics;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using SharedGunSystem = Content.Shared.Weapons.Ranged.Systems.SharedGunSystem;
@@ -42,12 +50,17 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IStateManager _state = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly SpriteTreeSystem _spriteTree = default!;
+    [Dependency] private readonly ClickableSystem _clickable = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public static readonly EntProtoId HitscanProto = "HitscanEffect";
+    private GunTargetEntityComparer _comparer = default!;
 
     public bool SpreadOverlay
     {
@@ -87,10 +100,12 @@ public sealed partial class GunSystem : SharedGunSystem
         SubscribeAllEvent<MuzzleFlashEvent>(OnMuzzleFlash);
 
         // Plays animated effects on the client.
-        SubscribeNetworkEvent<HitscanEvent>(OnHitscan);
+        SubscribeAllEvent<HitscanEvent>(OnHitscan); // Trauma - all instead of network, predicted shots raise it locally
 
         InitializeMagazineVisuals();
         InitializeSpentAmmo();
+
+        _comparer = new GunTargetEntityComparer();
     }
 
 
@@ -206,92 +221,30 @@ public sealed partial class GunSystem : SharedGunSystem
         }
 
         // Define target coordinates relative to gun entity, so that network latency on moving grids doesn't fuck up the target location.
+        var target = GetBestTarget(_eyeManager.CurrentEye, mousePos);
+
         var coordinates = TransformSystem.ToCoordinates(entity, mousePos);
 
-        NetEntity? target = null;
-        if (_state.CurrentState is GameplayStateBase screen)
-            target = GetNetEntity(screen.GetDamageableClickedEntity(mousePos)); // Goob edit
-
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
+
 
         RaisePredictiveEvent(new RequestShootEvent
         {
             Target = target,
             Coordinates = GetNetCoordinates(coordinates),
             Gun = GetNetEntity(gun),
+            Continuous = _cfg.GetCVar(CCVars.ControlHoldToAttackRanged),
         });
     }
 
-    public override void Shoot(Entity<GunComponent> gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
-        EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false)
-    {
-        userImpulse = true;
+    // Trauma - Shoot is predicted in shared now
 
-        // Rather than splitting client / server for every ammo provider it's easier
-        // to just delete the spawned entities. This is for programmer sanity despite the wasted perf.
-        // This also means any ammo specific stuff can be grabbed as necessary.
-        var direction = TransformSystem.ToMapCoordinates(fromCoordinates).Position - TransformSystem.ToMapCoordinates(toCoordinates).Position;
-        var worldAngle = direction.ToAngle().Opposite();
-
-        foreach (var (ent, shootable) in ammo)
-        {
-            if (throwItems)
-            {
-                Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                if (IsClientSide(ent!.Value))
-                    Del(ent.Value);
-                else
-                    RemoveShootable(ent.Value);
-                continue;
-            }
-
-            // TODO: Clean this up in a gun refactor at some point - too much copy pasting
-            switch (shootable)
-            {
-                case CartridgeAmmoComponent cartridge:
-                    if (!cartridge.Spent)
-                    {
-                        SetCartridgeSpent(ent!.Value, cartridge, true);
-                        MuzzleFlash(gun, cartridge, worldAngle, user);
-                        Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
-                        Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                        // TODO: Can't predict entity deletions.
-                        //if (cartridge.DeleteOnSpawn)
-                        //    Del(cartridge.Owner);
-                    }
-                    else
-                    {
-                        userImpulse = false;
-                        Audio.PlayPredicted(gun.Comp.SoundEmpty, gun, user);
-                    }
-
-                    if (IsClientSide(ent!.Value))
-                        Del(ent.Value);
-
-                    break;
-                case AmmoComponent newAmmo:
-                    MuzzleFlash(gun, newAmmo, worldAngle, user);
-                    Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
-                    Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                    if (IsClientSide(ent!.Value))
-                        Del(ent.Value);
-                    else
-                        RemoveShootable(ent.Value);
-                    break;
-                case HitscanAmmoComponent:
-                    Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
-                    Recoil(user, direction, gun.Comp.CameraRecoilScalarModified);
-                    break;
-            }
-        }
-    }
-
-    private void Recoil(EntityUid? user, Vector2 recoil, float recoilScalar)
+    protected override void Recoil(EntityUid? user, Vector2 recoil, float recoilScalar) // Trauma - override shared virtual
     {
         if (!Timing.IsFirstTimePredicted || user == null || recoil == Vector2.Zero || recoilScalar == 0)
             return;
 
-        _recoil.KickCamera(user.Value, recoil.Normalized() * 0.5f * recoilScalar);
+        _recoil.KickCamera(user.Value, recoil.Normalized() * 0.13f * recoilScalar); // Goob
     }
 
     protected override void Popup(string message, EntityUid? uid, EntityUid? user)
@@ -417,6 +370,132 @@ public sealed partial class GunSystem : SharedGunSystem
         _animPlayer.Play((gunUid, uidPlayer), animTwo, "muzzle-flash-light");
     }
 
-    // TODO: Move RangedDamageSoundComponent to shared so this can be predicted.
-    public override void PlayImpactSound(EntityUid otherEntity, DamageSpecifier? modifiedDamage, SoundSpecifier? weaponSound, bool forceWeaponSound) { }
+    /// <remarks>We use our own sorting algorithm separate from the default for smarter configurability.</remarks>
+    private NetEntity? GetBestTarget(IEye eye, MapCoordinates coordinates)
+    {
+        // Find all the entities intersecting our click
+        var entities = _spriteTree.QueryAabb(coordinates.MapId, Box2.CenteredAround(coordinates.Position, new Vector2(1, 1)));
+
+        // Check the entities against whether or not we can click them
+        var foundEntities = new List<(EntityUid, bool, bool, int, uint, float, float)>(entities.Count);
+
+        foreach (var entity in entities)
+        {
+            // Don't add the target if we can't shoot the target!
+            if (!CheckFixtures(entity.Uid))
+                continue;
+
+            var entry = CheckTarget((entity.Uid, entity.Component, entity.Transform), eye, coordinates);
+            foundEntities.Add(entry);
+        }
+
+        if (foundEntities.Count == 0)
+            return null;
+
+        // Do drawdepth & y-sorting. First index is the top-most sprite (opposite of normal render order).
+        foundEntities.Sort(_comparer);
+        var (target, alive, occluded, _, _, _, _) = foundEntities.FirstOrDefault();
+
+        // Prevents us from just selecting a random target nearby our cursor. It must either be alive, or our cursor must be on top of it!
+        if (!occluded && !alive)
+            return null;
+
+        return GetNetEntity(target);
+    }
+
+    private (EntityUid, bool, bool, int, uint, float, float) CheckTarget(Entity<SpriteComponent, TransformComponent> target, IEye eye, MapCoordinates coordinates)
+    {
+        var occluded = _clickable.CheckClick((target.Owner, null, target.Comp1, target.Comp2),
+            coordinates.Position,
+            eye,
+            true,
+            out var drawDepthClicked,
+            out var renderOrder,
+            out var bottom);
+
+        var difference = (target.Comp2.Coordinates.Position - coordinates.Position).LengthSquared();
+
+        return (target.Owner, _mobState.IsAlive(target.Owner), occluded, drawDepthClicked, renderOrder, bottom, difference);
+    }
+
+    /// <summary>
+    /// This Comparer takes a list of Entities that we can hit and orders them by which target the player is probably trying to shoot.
+    /// We organize based on these criteria in this order:
+    /// alive means the entity has a MobState and is currently alive. We check it first since they typically shoot back.
+    /// occluded is whether the cursor is above the sprite or just near it.
+    /// depth is the order in which sprites are layered, bigger number means its rendered above others.
+    /// renderOrder is used to indicate if a sprite should be visually more important, typically this value is 0.
+    /// bottom indicates which sprite is visually the lowest on the screen and therefore typically above other sprites.
+    /// distance indicates the distance from the entity's coordinates to our mouse.
+    /// If all of those tie, then we organize by whichever entity has the highest EntityUid.
+    /// </summary>
+    private sealed class GunTargetEntityComparer : IComparer<(EntityUid clicked, bool alive, bool occluded, int depth, uint renderOrder, float bottom, float distance)>
+    {
+        public int Compare((EntityUid clicked, bool alive, bool occluded, int depth, uint renderOrder, float bottom, float distance) x,
+            (EntityUid clicked, bool alive, bool occluded, int depth, uint renderOrder, float bottom, float distance) y)
+        {
+            var cmp = y.occluded.CompareTo(x.occluded);
+
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            cmp = y.alive.CompareTo(x.alive);
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            cmp = y.depth.CompareTo(x.depth);
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            cmp = y.renderOrder.CompareTo(x.renderOrder);
+
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            cmp = -y.bottom.CompareTo(x.bottom);
+
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            cmp = -y.distance.CompareTo(x.distance);
+
+            if (cmp != 0)
+            {
+                return cmp;
+            }
+
+            return y.clicked.CompareTo(x.clicked);
+        }
+    }
+
+    private bool CheckFixtures(Entity<FixturesComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
+
+        // TODO: Maybe also check that our cursor is intersecting a valid fixture?
+        foreach (var fix in entity.Comp.Fixtures)
+        {
+            if (!fix.Value.Hard || (fix.Value.CollisionLayer & (int)CollisionGroup.BulletImpassable) == 0)
+                continue;
+
+            // Only need to check if we're hitting one fixture
+            return true;
+        }
+
+        // If we cannot collide then we absolutely do not want to target it!
+        return false;
+    }
+
+    // Trauma - PlayImpactSound is predicted in shared
 }

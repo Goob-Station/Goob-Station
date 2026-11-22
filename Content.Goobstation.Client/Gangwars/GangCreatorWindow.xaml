@@ -1,0 +1,14 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="{Loc gang-creator-title}"
+               MinSize="320 340">
+    <BoxContainer Orientation="Vertical" SeparationOverride="6" Margin="4">
+        <Label Text="{Loc gang-creator-color-label}" Margin="0 0 0 4"/>
+        <ColorSelectorSliders Name="ColorSelector" SelectorType="Hsv"/>
+        <PanelContainer Name="PreviewSwatch" MinSize="0 32" HorizontalExpand="True" Margin="0 4"/>
+        <Label Name="TooSimilarWarning" Text="{Loc gang-color-already-taken}" FontColorOverride="#FF0000" Visible="False"/>
+        <Label Text="{Loc gang-creator-name-label}" Margin="0 4 0 0"/>
+        <LineEdit Name="NameInput" PlaceHolder="{Loc gang-creator-name-placeholder}" HorizontalExpand="True"/>
+        <Label Name="NameWarning" FontColorOverride="#FF0000" Visible="False"/>
+        <Button Name="ConfirmButton" Text="{Loc gang-creator-confirm}" HorizontalExpand="True" Disabled="True"/>
+    </BoxContainer>
+</DefaultWindow>

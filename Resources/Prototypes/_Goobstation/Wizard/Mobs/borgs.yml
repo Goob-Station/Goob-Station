@@ -77,11 +77,11 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModuleSyndicateDartgun
+        - BorgModuleSyndicateTopical
+        - BorgModuleSyndicateSurgery
+        - BorgModuleSyndicateRescue
         - BorgModuleOperative
-        - BorgModuleAdvancedSurgery
-        - BorgModuleChemical
-        - BorgModuleRescue
-        - BorgModuleTopicals
   - type: ItemSlots
     slots:
       cell_slot:

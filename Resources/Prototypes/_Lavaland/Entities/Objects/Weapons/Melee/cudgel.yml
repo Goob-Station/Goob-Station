@@ -1,0 +1,134 @@
+- type: entity
+  abstract: true
+  name: base cudgel
+  parent: [ BaseItem, BaseMinorContraband ]
+  id: WeaponCudgelBase
+  description: A piece of wood sharpened for easier grip. A primitive hunters favorite, perfect for barbaric destruction!
+  components:
+  - type: MeleeWeapon
+    animationRotation: -135
+    heavyStaminaCost: 15
+    wideAnimationRotation: -135
+    attackRate: 0.8
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: Wieldable
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,0,3
+  - type: Tool
+    qualities:
+    - Rolling
+    speedModifier: 0.6 # a bit unwieldly but does the job
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Melee/cudgel.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: UndetectableContraband
+
+- type: entity
+  name: wood cudgel
+  parent: WeaponCudgelBase
+  id: WeaponCudgelWood
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/cudgel.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 9
+        Structural: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 4
+        Structural: 15
+  - type: Item
+    storedSprite:
+      state: world_icon
+      sprite: _Lavaland/Objects/Weapons/Melee/cudgel.rsi
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Melee/cudgel.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 300
+  - type: Construction
+    graph: WoodenCudgel
+    node: cudgel
+
+- type: entity
+  name: ashwood cudgel
+  parent: WeaponCudgelBase
+  id: WeaponCudgelAshwood
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/ashwood_cudgel.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+        Structural: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 6
+        Structural: 15
+  - type: Item
+    storedRotation: 90
+    storedSprite:
+      state: world_icon
+      sprite: _Lavaland/Objects/Weapons/Melee/ashwood_cudgel.rsi
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Melee/ashwood_cudgel.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Ashwood: 300
+  - type: Construction
+    graph: WoodenCudgel
+    node: cudgel
+
+- type: entity
+  name: incomplete wooden cudgel
+  parent: [ BaseItem, BaseMinorContraband ]
+  id: IncompleteWoodCudgel
+  description: A few planks of wood stuck together.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,3
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+  - type: Construction
+    graph: WoodenCudgel
+    node: incompleteCudgel
+
+- type: entity
+  name: incomplete ashwood cudgel
+  parent: [ BaseItem, BaseMinorContraband ]
+  id: IncompleteAshwoodCudgel
+  description: A few planks of wood stuck together.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,3
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+  - type: Construction
+    graph: AshwoodCudgel
+    node: incompleteCudgel

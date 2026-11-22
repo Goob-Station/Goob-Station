@@ -10,59 +10,19 @@
     Laugh:
       collection: HarpyLaugh
     Sneeze:
-      collection: MaleSneezes
+      collection: FemaleSneezes # Goob - harpy emotes fix
     Cough:
-      collection: MaleCoughs
+      collection: FemaleCoughs # Goob - harpy emotes fix
     Sigh:
-      collection: MaleSigh
+      collection: HarpySigh # Goob - harpy emotes fix
     Crying:
       collection: HarpyCry
     Whistle:
       collection: Whistles
-    Hiss:
-      collection: HarpyHisses
-    Meow:
-      collection: HarpyMeows
-    Mew:
-      collection: HarpyMews
-    Growl:
-      collection: HarpyGrowls
-    Purr:
-      collection: HarpyPurrs
-    Ring:
-      collection: HarpyRings
-    Pew:
-      collection: HarpyPews
-    Bang:
-      collection: HarpyBangs
-    Beep:
-      collection: HarpyBeeps
-    Rev:
-      collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
-    Chitter:
-      collection: HarpyChitter
-    Squeak:
-      collection: HarpySqueak
     Caw:
       collection: HarpyCaws
     Chirp:
       collection: HarpyChirps
-    Snarl:
-      collection: VulpkaninSnarls
-    Bark:
-      collection: VulpkaninBarks
-    Whine:
-      collection: VulpkaninWhines
-    Howl:
-      collection: VulpkaninHowls
-    Awoo:
-      collection: VulpkaninHowls
-    Honk:
-      collection: HarpyHonks
-    Weh:
-      collection: Weh
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
     Coo: #Floofstation
@@ -75,8 +35,6 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Trill:
       collection: Trill
-    Yip:
-      collection: Yip
     Warble:
       collection: Warble
     Wurble:
@@ -85,6 +43,28 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+# Goobstation start
+    Yawn:
+      collection: HarpyYawn 
+    Bagawk:
+      path: /Audio/_Mono/Voice/bagawk.ogg 
+    Flap: 
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg 
+    Hoot: 
+      path: /Audio/_Goobstation/Voice/Harpy/owl_hoot.ogg 
+    Hew:
+      collection: Hew
+# Goobstation end 
+    Scree: # Goob
+      collection: ResomiScrees
+    Call: # Goob
+      collection: ResomiCalls
+    Squawk: # Goob
+      collection: HarpySquawks
+    Quack: # Goob
+      collection: HarpyQuacks
+    Snore: # Goob
+      collection: Snores
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -100,55 +80,15 @@
     Cough:
       collection: MaleCoughs
     Sigh:
-      collection: MaleSigh
+      collection: HarpySigh # Goob - harpy emotes fix
     Crying:
       collection: HarpyCry
     Whistle:
       collection: Whistles
-    Hiss:
-      collection: HarpyHisses
-    Meow:
-      collection: HarpyMeows
-    Mew:
-      collection: HarpyMews
-    Growl:
-      collection: HarpyGrowls
-    Purr:
-      collection: HarpyPurrs
-    Ring:
-      collection: HarpyRings
-    Pew:
-      collection: HarpyPews
-    Bang:
-      collection: HarpyBangs
-    Beep:
-      collection: HarpyBeeps
-    Rev:
-      collection: HarpyRevs
-#    Click:
-#      collection: HarpyClicks
-    Chitter:
-      collection: HarpyChitter
-    Squeak:
-      collection: HarpySqueak
     Caw:
       collection: HarpyCaws
     Chirp:
       collection: HarpyChirps
-    Snarl:
-      collection: VulpkaninSnarls
-    Bark:
-      collection: VulpkaninBarks
-    Whine:
-      collection: VulpkaninWhines
-    Howl:
-      collection: VulpkaninHowls
-    Awoo:
-      collection: VulpkaninHowls
-    Honk:
-      collection: HarpyHonks
-    Weh:
-      collection: Weh
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
     Coo: #Floofstation
@@ -161,18 +101,36 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Trill:
       collection: Trill
-    Yip:
-      collection: Yip
     Warble:
       collection: Warble
     Wurble:
       collection: Wurble
-    Mars:
-      collection: Mars
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+# Goobstation start
+    Yawn:
+      collection: HarpyYawn 
+    Bagawk:
+      path: /Audio/_Mono/Voice/bagawk.ogg 
+    Flap: 
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg 
+    Hoot: 
+      path: /Audio/_Goobstation/Voice/Harpy/owl_hoot.ogg 
+    Hew:
+      collection: Hew
+# Goobstation End
+    Scree: # Goob
+      collection: ResomiScrees
+    Call: # Goob
+      collection: ResomiCalls
+    Squawk: # Goob
+      collection: HarpySquawks
+    Quack: # Goob
+      collection: HarpyQuacks
+    Snore: # Goob
+      collection: Snores
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -225,6 +183,14 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Hew: # Goob
+      collection: Hew
+    Gekker: # Goob
+      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+    Yap: # Goob
+      path: /Audio/_Floofstation/Voice/Vulpkanin/yap.ogg
+    Squeak: # Goob
+      path: /Audio/_DV/Voice/Kitsune/fox_squeal1.ogg
 
 - type: emoteSounds
   id: MaleVulpkanin
@@ -277,6 +243,14 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Hew: # Goob
+      collection: Hew
+    Gekker: # Goob
+      path: /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+    Yap: # Goob
+      path: /Audio/_Floofstation/Voice/Vulpkanin/yap.ogg
+    Squeak: # Goob
+      path: /Audio/_DV/Voice/Kitsune/fox_squeal1.ogg
 
 - type: emoteSounds
   id: MobDog
@@ -337,6 +311,12 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Hew: # Goob
+      collection: Hew
+    Snort: # Goob
+      collection: LagomorphSnorts
+    Squee: # Goob
+      collection: LagomorphSqueaks
 
 - type: emoteSounds
   id: FemaleRodentia
@@ -379,6 +359,12 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Hew: # Goob
+      collection: Hew
+    Snort: # Goob
+      collection: LagomorphSnorts
+    Squee: # Goob
+      collection: LagomorphSqueaks
 
 - type: emoteSounds
   id: UnisexChitinid

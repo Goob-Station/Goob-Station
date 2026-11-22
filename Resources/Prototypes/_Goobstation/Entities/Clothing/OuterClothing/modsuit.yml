@@ -47,16 +47,19 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
       outerClothing-resomi:
-      - state: equipped-OUTERCLOTHING-sealed-resomi   
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: Armor
@@ -82,7 +85,7 @@
         Piercing: 0.85
         Heat: 0.85
         Radiation: 0.2
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -116,10 +119,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -128,6 +134,8 @@
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
       - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -158,7 +166,7 @@
         Piercing: 0.6
         Heat: 0.6
         Radiation: 0.6
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -168,7 +176,6 @@
       heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
-
 
 - type: entity
   parent: ClothingOuterBase
@@ -193,10 +200,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -204,7 +214,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -236,7 +248,7 @@
         Heat: 0.5
         Caustic: 0.5
         Radiation: 0.5
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -246,12 +258,6 @@
       heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
-  - type: ClothingAutoInject
-    reagents:
-      Epinephrine: 10
-      Bicaridine: 10
-      TranexamicAcid: 5
-      Tramadol: 5
 
 - type: entity
   parent: ClothingOuterBase
@@ -276,10 +282,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -287,7 +296,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
@@ -314,7 +325,7 @@
         Heat: 0.8
         Caustic: 0.6
         Radiation: 0.3
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -353,10 +364,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -364,7 +378,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: Armor
@@ -392,7 +408,7 @@
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.01
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -431,10 +447,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -442,7 +461,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.45
   - type: Armor
@@ -468,7 +489,7 @@
         Piercing: 0.85
         Heat: 0.2
         Radiation: 0.05
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -507,10 +528,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -518,7 +542,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Armor
@@ -546,7 +572,7 @@
         Shock: 0.75
         Caustic: 0.25
         Radiation: 0.01
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -587,10 +613,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
     spriteLayer: sealed
     clothingVisuals:
       outerClothing:
@@ -598,7 +627,9 @@
       outerClothing-resomi:
       - state: equipped-OUTERCLOTHING-sealed-resomi
       outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox     
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
@@ -625,7 +656,7 @@
         Heat: 0.5
         Radiation: 0.1
         Caustic: 0.5
-  - type: ComponentToggler
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -638,5 +669,84 @@
     knockdownTimeDelta: -3
   - type: StaminaResistance
     damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.5
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingModsuitChestplateBrigMed
+  name: trauma modsuit chestplate
+  description: A robust modular suit cover with white ceramic inserts for extra drip.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/brigmed.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ outerClothing ]
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: ModifyDelayedKnockdown
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    modifiers:
+      coefficients:
+        Blunt: 0.72
+        Slash: 0.72
+        Piercing: 0.72
+        Heat: 0.72
+        Radiation: 0.6
+  - type: ModSealedComponents
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5

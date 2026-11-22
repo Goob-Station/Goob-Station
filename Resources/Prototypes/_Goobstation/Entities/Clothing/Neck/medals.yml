@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMimemedal
+  name: medal of mimery
+  description: Given to crewmates who display excellent mimery.
+  components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Medals/mimemedal.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Medals/mimemedal.rsi
+  - type: Tag
+    tags:
+      - Medal
+      - WhitelistChameleon

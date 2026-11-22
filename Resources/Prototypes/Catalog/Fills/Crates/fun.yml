@@ -240,8 +240,19 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
-        id: CrayonBox
+      entity_storage: !type:AllSelector # Goobstation edit start
+        children:
+        - id: CrayonBox
+        - id: Paintbrush
+        - id: PaintCanvas
+          amount: 2
+        - id: PaintCanvasLandscape
+        - id: PaintCanvasSmall
+        - id: PaintingFrameWood
+          amount: 2
+        - id: PaintCanRed
+        - id: PaintCanYellow
+        - id: PaintCanBlue # Goobstation edit end
 
 - type: entity
   parent: CrateGenericSteel

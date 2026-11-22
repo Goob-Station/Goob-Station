@@ -1,0 +1,51 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: BigCollarlHead
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: big-collar
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: big-collar-inside1
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: big-collar-inside2
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: big-collar-inside3
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: big-collar-inside4
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: big-collar-inside5
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: big-collar-inside6
+
+- type: marking
+  id: CheekSpikesHead
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: cheek-spikes
+
+- type: marking
+  id: FeathersHeadSide
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: feathers-back-head
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Reptilian/head.rsi
+    state: feathers-back-head-tassels
+
+- type: marking
+  id: FluffyCheeks
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Moth/face.rsi
+    state: fluffy-cheeks

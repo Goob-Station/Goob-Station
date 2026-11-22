@@ -82,6 +82,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: energydrink
   color: "#ffffbf"
+  puddleColor: "#ffffbf60" # Goob
   metabolisms:
     Drink:
       effects:
@@ -94,6 +95,9 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.1
+      - !type:AdjustReagent # Goobstation: Caffeine
+        reagent: Caffeine
+        amount: 1.0
   fizziness: 0.4
 
 - type: reagent

@@ -183,21 +183,16 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    #- Binary # Goob
+    - Binary
     - Common
     - Science
     - CosmicRadio
   - type: ActiveRadio
     channels:
-    #- Binary # Goob
+    - Binary
     - Common
     - Science
     - CosmicRadio
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: ZombieImmune
   - type: UserInterface
     interfaces:
@@ -253,6 +248,8 @@
   - type: GuideHelp
     guides:
     - CosmicColossus
+  - type: WeakToHoly # Holy Dmg
+    alwaysTakeHoly: true
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
@@ -393,4 +390,4 @@
     - !type:HealthChange
       damage:
         types:
-          Cold: 12.5
+          Cold: 15 # Goobstation - 7 hits to kill instead of 8

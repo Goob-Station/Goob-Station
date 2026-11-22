@@ -44,7 +44,7 @@
   recipeUnlocks:
   - ClothingMaskMuzzleSecure
   - ClothingMaskMuzzleShock
-  position: 1,1
+  position: 1,2
   technologyPrerequisites:
   - SalvageWeapons
 
@@ -223,3 +223,48 @@
   - WeaponLaserCellLMGTech
   - WeaponLaserCellSniperTech
   position: 7, -1
+
+- type: technology
+  id: SecurityCyborgTechnology
+  name: research-technology-security-cyborg
+  icon:
+    sprite: _Goobstation/Mobs/Silicon/sec_chassis.rsi
+    state: sec
+  discipline: Arsenal
+  tier: 2
+  cost: 20000
+  recipeUnlocks:
+  - SecEndoskeleton
+  position: 5,2
+  technologyPrerequisites:
+  - AdvancedRiotControl
+  - ExplosiveTechnology
+
+- type: technology
+  id: ModsuitSecurityTech
+  name: research-technology-modsuit-security
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: sechud_visor
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ModsuitModuleVisorSecurity
+  - ModsuitModuleHolster
+  - ModsuitModuleMegaphone
+  - ModsuitModulePepperShoulders
+  - ModsuitModuleRestraintAssist
+  - ModsuitModuleBulwark
+  - ModsuitModuleEmpShield
+  - ModsuitModuleThermalVisor
+  - ModsuitModuleShockAbsorber
+  - ModsuitModuleCriminalCapture
+  - ModsuitModuleMagneticHarness
+  - ModsuitModuleProjectileDampener
+  - ModsuitModuleShootingAssistant
+  - ModsuitPlatingSecurity
+  - ModsuitPlatingBrigMed
+  position: 4,1
+  technologyPrerequisites:
+  - ModsuitsTech

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Gauze sprites by Github KittenColony / Discord kittencolony (297865728374210561), gauze_head by github:DreamlyJack(624946166152298517), Vulpkanin gauze sprites modified by Minemoder5000 on Github. Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42/Resources/Textures/Mobs/Customization/gauze.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "gauze_vulp_abdomen",
+      "directions": 4
+    },
+    {
+      "name": "gauze_vulp_boxerwrap_l",
+      "directions": 4
+    },
+    {
+      "name": "gauze_vulp_boxerwrap_r",
+      "directions": 4
+    },
+    {
+      "name": "gauze_vulp_leftarm",
+      "directions": 4
+    },
+    {
+      "name": "gauze_vulp_lowerarm_r",
+      "directions": 4
+    },
+    {
+      "name": "gauze_vulp_lowerleg_l",
+      "directions": 4
+    },
+    {
+      "name": "gauze_vulp_lowerleg_r",
+      "directions": 4
+    },
+    {
+      "name": "gauze_vulp_shoulder",
+      "directions": 4
+    }
+  ]
+}

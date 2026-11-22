@@ -4,7 +4,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Bloodstream;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.Teleportation.Systems;
 using Content.Goobstation.Shared.Religion;
@@ -208,7 +208,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         var xform = Transform(ev.Performer);
         var mapCoords = TransformSystem.GetMapCoordinates(ev.Performer, xform);
 
-        if (!MapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
+        if (!Map.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
             !Map.TryGetTileRef(gridUid, grid, xform.Coordinates, out var tileRef) ||
             tileRef.Tile.IsEmpty)
             return;
@@ -708,9 +708,9 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
             Stun.KnockdownOrStun(target, stunTime, true);
 
-            if (!fart.SuperFarted)
+            if (!fart.Buttless)
             {
-                fart.FartInhale = true;
+                fart.Inhaled = true;
                 _chat.TryEmoteWithChat(target, "FartSuper", ignoreActionBlocker: true, forceEmote: true);
             }
             else

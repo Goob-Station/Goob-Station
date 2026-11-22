@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "set_base, and move_base Taken from Goonstation, toggle_overlay made by goidaYAMLWarrior, invite made by asardonicsailor",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "set_base"
+        },
+        {
+            "name": "move_base"
+        },
+        {
+            "name": "toggle_overlay"
+        },
+        {
+              "name": "invite"
+        }
+    ]
+}

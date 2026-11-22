@@ -157,7 +157,7 @@
     - id: ClothingHeadHelmetAtmosFire
     - id: GasAnalyzer
     - id: MedkitOxygenFilled
-    - id: HolofanProjector
+    - id: HolofanProjector 
     - id: RCD
     - id: RCDAmmo
     - id: AirGrenade
@@ -165,15 +165,15 @@
     - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
     - id: RPD #funkystation
     - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+    - id: trayScanner # Goobstation - new belt 
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
   table: !type:AllSelector
     children:
-    #- id: ClothingOuterHardsuitAtmos # Goob
+    - id: ClothingOuterHardsuitAtmos
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
-    - id: ClothingModsuitAtmostechPowerCell # Goob edit
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -214,8 +214,7 @@
   id: FillEngineerHardsuit
   table: !type:AllSelector
     children:
-    #- id: ClothingOuterHardsuitEngineering
-    - id: UndeterminedVoidsuitEngineer # Goob edit
+    - id: ClothingOuterHardsuitEngineering
     - id: OxygenTankFilled
     - id: ClothingShoesBootsMag
     - id: ClothingMaskBreath

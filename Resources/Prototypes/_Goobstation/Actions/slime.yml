@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionSlimeRegrowLimb
+  name: Regrow Limb
+  description: Push some of your jelly into a missing limb and regrow it. Costs nutrition and blood, and the new limb starts out bruised.
+  components:
+  - type: Action
+    useDelay: 300
+    itemIconStyle: BigAction
+    icon: { sprite: Mobs/Species/Slime/parts.rsi, state: r_arm }
+  - type: InstantAction
+    event: !type:SlimeRegrowLimbActionEvent

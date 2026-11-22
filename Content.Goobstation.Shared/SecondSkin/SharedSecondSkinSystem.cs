@@ -9,6 +9,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
@@ -19,19 +20,19 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.SecondSkin;
 
-public abstract class SharedSecondSkinSystem : EntitySystem
+public abstract partial class SharedSecondSkinSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedItemSystem _itemSys = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedItemSystem _itemSys = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
 
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedContainerSystem Container = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedContainerSystem Container = default!;
 
     public override void Initialize()
     {
@@ -100,7 +101,6 @@ public abstract class SharedSecondSkinSystem : EntitySystem
     private void OnGetDeduction(Entity<SecondSkinUserComponent> ent, ref GetSecondSkinDeductionEvent args)
     {
         var coverage = (BodyPartType) args.Coverage;
-        var type = (TraumaType) args.TraumaType;
 
         if (!Exists(ent.Comp.SecondSkin) || !TryComp(ent.Comp.SecondSkin, out ArmorComponent? comp))
             return;
@@ -108,7 +108,7 @@ public abstract class SharedSecondSkinSystem : EntitySystem
         if (!comp.ArmorCoverage.Contains(coverage))
             return;
 
-        args.Deduction += comp.TraumaDeductions[type].Float();
+        args.Deduction += comp.TraumaDeductions.GetValueOrDefault(args.TraumaType).Float();
     }
 
     private void OnModifyDamage(Entity<SecondSkinUserComponent> ent, ref DamageModifyEvent args)

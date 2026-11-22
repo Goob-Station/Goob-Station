@@ -16,6 +16,7 @@
     access: [["Bar"]]
   - type: ActivatableUIRequiresPower
   - type: ActivatableUIRequiresAccess
+  - type: ESForcedFacingUi # Goob
   - type: ActivatableUI
     key: enum.BarSignUiKey.Key
   - type: UserInterface

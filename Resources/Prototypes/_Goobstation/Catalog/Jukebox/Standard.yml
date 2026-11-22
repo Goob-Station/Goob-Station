@@ -227,3 +227,9 @@
   name: mrjajkes - One Against All
   path:
     path: /Audio/StationEvents/one_against_all.ogg
+
+- type: jukebox
+  id: Chudshift
+  name: deerdestroyer - Chudshift
+  path:
+    path: /Audio/Lobby/CHUDSHIFT.ogg

@@ -14,24 +14,13 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 8
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
-    - type: LoadedMap
   - uid: 201
     components:
     - type: MetaData
       name: Prospector
     - type: Transform
       pos: 0.13793182,0.67738855
-      parent: 8
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:

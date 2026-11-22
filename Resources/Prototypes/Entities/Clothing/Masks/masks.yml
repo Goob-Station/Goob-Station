@@ -975,6 +975,8 @@
   - type: IdentityBlocker
   - type: FlashImmunity
   - type: EyeProtection
+  - type: WeldingMaskOverlay # Goob
+    texture: /Textures/_Funkystation/Clothing/Head/Welding/weldingOverlayWeak.png # Goob
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150

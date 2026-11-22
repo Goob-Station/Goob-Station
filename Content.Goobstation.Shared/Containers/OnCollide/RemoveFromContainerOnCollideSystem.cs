@@ -11,13 +11,13 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Containers.OnCollide;
 
-public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
+public sealed partial class RemoveFromContainerOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckleSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private ThrowingSystem _throwingSystem = default!;
+    [Dependency] private SharedBuckleSystem _buckleSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -44,7 +44,7 @@ public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
         if (component.RemoveStrapped && TryComp<StrapComponent>(uid, out var strapComponent)
            && strapComponent.BuckledEntities.Count != 0)
         {
-            foreach (var buckled in strapComponent.BuckledEntities)
+            foreach (var buckled in strapComponent.BuckledEntities.ToList())
             {
                 _buckleSystem.TryUnbuckle(buckled, buckled, true);
                 toRemove.Add(buckled);
@@ -57,7 +57,8 @@ public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
         // remove, paralyze and throw randomly everything in toRemove
         foreach (var removing in toRemove)
         {
-            _containerSystem.Remove(removing, container);
+            if (container.Contains(removing))
+                _containerSystem.Remove(removing, container);
 
             if (component.EjectAfterRemove)
             {

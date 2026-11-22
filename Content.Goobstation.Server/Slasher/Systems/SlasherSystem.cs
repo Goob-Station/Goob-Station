@@ -11,10 +11,10 @@ namespace Content.Goobstation.Server.Slasher.Systems;
 /// <summary>
 /// Moves the slasher's brain from the head into the chest
 /// </summary>
-public sealed class SlasherSystem : EntitySystem
+public sealed partial class SlasherSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {

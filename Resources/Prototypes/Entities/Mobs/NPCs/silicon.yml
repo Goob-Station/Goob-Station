@@ -87,18 +87,13 @@
     tags:
     - BasicSilicon
   - type: IntrinsicRadioReceiver
-  #- type: IntrinsicRadioTransmitter
+  #- type: IntrinsicRadioTransmitter # Goobstation - Remove binary from certain silicons
   #  channels:
-  #  - Binary # Goobstation - replaced with collective mind
+  #  - Binary
   - type: ActiveRadio
     channels:
     - Common
-    # - Binary # Goobstation - replaced with collective mind
-  # Goobstation
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
+    #- Binary # Goobstation
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: HealthExaminable
     examinableTypes:
@@ -517,7 +512,7 @@
     enabled: false
     radius: 3.5
     softness: 2
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
   - type: FootstepModifier
     footstepSoundCollection:
@@ -530,7 +525,7 @@
     - Unimplantable
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
+    - Binary
     - Common
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon

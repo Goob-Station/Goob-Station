@@ -180,7 +180,45 @@
   - type: SurgeryRepeatableStep
   - type: SurgeryTraumaTreatmentStep
     traumaType: OrganDamage
-    amount: 17
+    amount: 30
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepExtractForeignBody
+  name: Extract foreign body
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Hemostat
+    duration: 7
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
+  - type: SurgeryStepPainInflicter
+    amount: 20
+    painType: TraumaticPain
+    sleepModifier: 0
+  - type: SurgeryTraumaExtractStep
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRepairBrain
+  name: Repair the brain
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Tending
+    duration: 12
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
+  - type: SurgeryStepPainInflicter
+    amount: 40
+    painType: TraumaticPain
+    sleepModifier: 0
+  - type: SurgeryTraumaTreatmentStep
+    traumaType: Braindeath
+    amount: 60
 
 - type: entity
   parent: SurgeryStepBase

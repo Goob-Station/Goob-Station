@@ -7,10 +7,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.MiscSignaller;
 
-public sealed class MiscSignallerSystem : EntitySystem
+public sealed partial class MiscSignallerSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _link = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private DeviceLinkSystem _link = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -22,7 +22,7 @@ public sealed class MiscSignallerSystem : EntitySystem
     private void OnInit(EntityUid uid, MiscSignallerComponent component, ComponentInit args)
         => _link.EnsureSourcePorts(uid, component.Port);
 
-    private void OnTrigger(EntityUid uid, MiscSignallerComponent component, TriggerEvent args)
+    private void OnTrigger(EntityUid uid, MiscSignallerComponent component, ref TriggerEvent args)
     {
         if (component.NextActivationWindow > _timing.CurTime)
         {

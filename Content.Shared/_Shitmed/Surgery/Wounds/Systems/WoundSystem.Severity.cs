@@ -5,7 +5,8 @@ using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
@@ -27,6 +28,7 @@ public sealed partial class WoundSystem
             return;
 
         var old = wound.WoundSeverityPoint;
+        var holdingWoundable = wound.HoldingWoundable;
 
         var upperLimit = wound.WoundSeverityPoint + woundable.WoundableIntegrity;
         wound.WoundSeverityPoint =
@@ -37,6 +39,9 @@ public sealed partial class WoundSystem
             var ev = new WoundSeverityPointChangedEvent(wound, old, wound.WoundSeverityPoint);
             RaiseLocalEvent(uid, ref ev);
         }
+
+        if (TerminatingOrDeleted(uid) || wound.HoldingWoundable != holdingWoundable)
+            return;
 
         CheckSeverityThresholds(uid, wound.HoldingWoundable, wound, woundable);
         Dirty(uid, wound);
@@ -61,6 +66,7 @@ public sealed partial class WoundSystem
             return;
 
         var old = wound.WoundSeverityPoint;
+        var holdingWoundable = wound.HoldingWoundable;
         var rawValue = severity > 0
             ? old + ApplySeverityModifiers(wound.HoldingWoundable, severity)
             : old + severity;
@@ -79,6 +85,9 @@ public sealed partial class WoundSystem
             && wound.MangleSeverity != null
             && HasWoundsExceedingMangleSeverity(wound.HoldingWoundable))
             _trauma.ApplyMangledTraumas(wound.HoldingWoundable, uid, severity, woundable);
+
+        if (TerminatingOrDeleted(uid) || wound.HoldingWoundable != holdingWoundable)
+            return;
 
         CheckSeverityThresholds(uid, wound.HoldingWoundable, wound, woundable);
     }

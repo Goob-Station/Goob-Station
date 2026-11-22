@@ -36,11 +36,17 @@ public partial class ConsciousnessSystem
 
             consciousness.NextConsciousnessUpdate = _timing.CurTime + consciousness.ConsciousnessUpdateTime;
 
-            foreach (var modifier in consciousness.Modifiers.Where(modifier => modifier.Value.Time < _timing.CurTime))
-                RemoveConsciousnessModifier(ent, modifier.Key.Item1, modifier.Key.Item2, consciousness);
+            foreach (var (key, modifier) in consciousness.Modifiers)
+            {
+                if (modifier.Time < _timing.CurTime)
+                    RemoveConsciousnessModifier(ent, key.Item1, key.Item2, consciousness);
+            }
 
-            foreach (var multiplier in consciousness.Multipliers.Where(multiplier => multiplier.Value.Time < _timing.CurTime))
-                RemoveConsciousnessMultiplier(ent, multiplier.Key.Item1, multiplier.Key.Item2, consciousness);
+            foreach (var (key, multiplier) in consciousness.Multipliers)
+            {
+                if (multiplier.Time < _timing.CurTime)
+                    RemoveConsciousnessMultiplier(ent, key.Item1, key.Item2, consciousness);
+            }
 
             if (consciousness.PassedOutTime < _timing.CurTime && consciousness.PassedOut)
             {
@@ -76,22 +82,7 @@ public partial class ConsciousnessSystem
     private void OnRejuvenate(EntityUid uid, ConsciousnessComponent component, RejuvenateEvent args)
     {
         if (component.NerveSystem != default)
-        {
-            foreach (var painModifier in component.NerveSystem.Comp.Modifiers)
-                _pain.TryRemovePainModifier(component.NerveSystem.Owner,
-                    painModifier.Key.Item1,
-                    painModifier.Key.Item2,
-                    component.NerveSystem.Comp);
-
-            foreach (var painMultiplier in component.NerveSystem.Comp.Multipliers)
-                _pain.TryRemovePainMultiplier(component.NerveSystem.Owner,
-                    painMultiplier.Key,
-                    component.NerveSystem.Comp);
-
-            foreach (var nerve in component.NerveSystem.Comp.Nerves)
-                foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
-                    _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1, painFeelsModifier.Key.Item2, nerve.Key, nerve.Value);
-        }
+            _pain.RemoveAllPainEffects(component.NerveSystem);
 
         foreach (var multiplier in
                  component.Multipliers.Where(multiplier => multiplier.Value.Type == ConsciousnessModType.Pain))

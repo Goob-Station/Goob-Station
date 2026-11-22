@@ -8,7 +8,7 @@ namespace Content.Goobstation.Shared.ManifestListings;
 public sealed partial class MindListingsComponent : Component
 {
     [DataField]
-    public Dictionary<int, List<ListingData>> Listings = new();
+    public Dictionary<int, List<ListingDataWithCostModifiers>> Listings = new();
 
     [DataField]
     public SpriteSpecifier.Texture DefaultTexture = new(new ResPath("/Textures/Interface/Actions/shop.png"));

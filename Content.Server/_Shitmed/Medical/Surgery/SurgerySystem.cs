@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
@@ -7,19 +8,18 @@ using Content.Shared.Body.Part;
 using Content.Server.Popups;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
-using Content.Shared.Weapons.Melee.Events;
-using System.Linq;
+using Robust.Shared.Timing;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
 
@@ -28,12 +28,14 @@ public sealed class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly WoundSystem _wounds = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
-    private readonly Dictionary<NetEntity, List<EntProtoId>> _surgeries = new();
+    private static readonly TimeSpan UiRefreshInterval = TimeSpan.FromSeconds(1);
+    private TimeSpan _nextUiRefresh;
+    private readonly List<Entity<BleedInflicterComponent>> _suppressedBleeds = new();
 
     public override void Initialize()
     {
@@ -47,9 +49,33 @@ public sealed class SurgerySystem : SharedSurgerySystem
         SubscribeLocalEvent<SurgeryStepSpawnEffectComponent, SurgeryStepEvent>(OnStepSpawnComplete);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_gameTiming.CurTime < _nextUiRefresh)
+            return;
+
+        _nextUiRefresh = _gameTiming.CurTime + UiRefreshInterval;
+
+        var query = EntityQueryEnumerator<SurgeryTargetComponent, UserInterfaceComponent>();
+        while (query.MoveNext(out var uid, out _, out _))
+        {
+            RefreshUI(uid, true);
+        }
+    }
+
     protected override void RefreshUI(EntityUid body)
     {
-        _surgeries.Clear();
+        RefreshUI(body, false);
+    }
+
+    private void RefreshUI(EntityUid body, bool onlyIfChanged)
+    {
+        if (!_ui.IsUiOpen(body, SurgeryUIKey.Key))
+            return;
+
+        var surgeries = new Dictionary<NetEntity, List<EntProtoId>>();
         foreach (var part in _body.GetBodyChildren(body))
         {
             var valid = new List<EntProtoId>();
@@ -66,9 +92,15 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
                 valid.Add(surgery);
             }
-            _surgeries[GetNetEntity(part.Id)] = valid;
+            surgeries[GetNetEntity(part.Id)] = valid;
         }
-        _ui.SetUiState(body, SurgeryUIKey.Key, new SurgeryBuiState(_surgeries));
+
+        if (onlyIfChanged
+            && _ui.TryGetUiState<SurgeryBuiState>(body, SurgeryUIKey.Key, out var current)
+            && ChoicesEqual(current.Choices, surgeries))
+            return;
+
+        _ui.SetUiState(body, SurgeryUIKey.Key, new SurgeryBuiState(surgeries));
         /*
             Reason we do this is because when applying a BUI State, it rolls back the state on the entity temporarily,
             which just so happens to occur right as we're checking for step completion, so we end up with the UI
@@ -77,9 +109,18 @@ public sealed class SurgerySystem : SharedSurgerySystem
         _ui.ServerSendUiMessage(body, SurgeryUIKey.Key, new SurgeryBuiRefreshMessage());
     }
 
-    private DamageGroupPrototype? GetDamageGroupByType(string id)
+    private static bool ChoicesEqual(Dictionary<NetEntity, List<EntProtoId>> a, Dictionary<NetEntity, List<EntProtoId>> b)
     {
-        return (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group).FirstOrDefault();
+        if (a.Count != b.Count)
+            return false;
+
+        foreach (var (part, surgeries) in a)
+        {
+            if (!b.TryGetValue(part, out var other) || !surgeries.SequenceEqual(other))
+                return false;
+        }
+
+        return true;
     }
 
     private void SetDamage(EntityUid body,
@@ -92,15 +133,34 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (!TryComp<BodyPartComponent>(part, out var partComp))
             return;
 
-        // kinda funky but still works
-        // TODO: Also the scar treating surgery too, fuck. I hate this system and by every second I have to spend working with THIS I want to kill myself more and more
-        _wounds.TryHaltAllBleeding(part, force: true);
+        _suppressedBleeds.Clear();
+        foreach (var wound in _wounds.GetWoundableWounds(part))
+        {
+            wound.Comp.CanBeHealed = true;
+            if (TryComp<BleedInflicterComponent>(wound, out var bleeds) && bleeds.IsBleeding)
+            {
+                bleeds.IsBleeding = false;
+                _suppressedBleeds.Add((wound, bleeds));
+            }
+        }
+
         _damageable.TryChangeDamage(body,
             damage,
             true,
             origin: user,
             partMultiplier: partMultiplier,
             targetPart: affectAll ? TargetBodyPart.All : _body.GetTargetBodyPart(partComp));
+
+        foreach (var (wound, bleeds) in _suppressedBleeds)
+        {
+            if (TerminatingOrDeleted(wound) || bleeds.BleedingAmount <= 0)
+                continue;
+
+            bleeds.IsBleeding = true;
+            Dirty(wound, bleeds);
+        }
+
+        _suppressedBleeds.Clear();
     }
 
     private void OnSurgeryStepDamage(Entity<SurgeryTargetComponent> ent, ref SurgeryStepDamageEvent args) =>

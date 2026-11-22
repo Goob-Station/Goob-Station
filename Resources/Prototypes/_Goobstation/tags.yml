@@ -32,6 +32,9 @@
   id: BolaEnergy
 
 - type: Tag
+  id: BorgModuleSEC
+
+- type: Tag
   id: BudgetInsuls
 
 - type: Tag
@@ -348,9 +351,6 @@
   id: MagazineSmart
 
 - type: Tag
-  id: MantisBlade
-
-- type: Tag
   id: Mask
 
 - type: Tag
@@ -393,6 +393,21 @@
   id: ModsuitCore
 
 - type: Tag
+  id: ModsuitModule
+
+- type: Tag
+  id: ModsuitModuleGravity
+
+- type: Tag
+  id: ModsuitModuleJetpack
+
+- type: Tag
+  id: ModsuitModuleStorage
+
+- type: Tag
+  id: ModsuitModuleVisor
+
+- type: Tag
   id: ModsuitGauntlets
 
 - type: Tag
@@ -403,6 +418,39 @@
 
 - type: Tag
   id: ModsuitPlatingExternal
+
+- type: Tag
+  id: ModsuitPlatingParamedic
+
+- type: Tag
+  id: ModsuitPlatingEngineer
+
+- type: Tag
+  id: ModsuitPlatingMining
+
+- type: Tag
+  id: ModsuitPlatingLoader
+
+- type: Tag
+  id: ModsuitPlatingSecurity
+
+- type: Tag
+  id: ModsuitPlatingHeadOfSecurity
+
+- type: Tag
+  id: ModsuitPlatingCaptain
+
+- type: Tag
+  id: ModsuitPlatingRD
+
+- type: Tag
+  id: ModsuitPlatingAtmostech
+
+- type: Tag
+  id: ModsuitPlatingBrigMed
+
+- type: Tag
+  id: ModsuitPlatingPraetorian
 
 - type: Tag
   id: ModsuitShell
@@ -615,6 +663,9 @@
   id: WeaponDisabler
 
 - type: Tag
+  id: WeaponRifleLecter
+
+- type: Tag
   id: Flash
 
 - type: Tag
@@ -776,3 +827,6 @@
 
 - type: Tag
   id: ContractorUplink
+
+- type: Tag
+  id: XenobioSlimeFavoriteFood

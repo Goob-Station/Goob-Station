@@ -179,13 +179,25 @@
 
 - type: entity
   id: ClothingBeltMilitaryWebbingFilled
-  parent: ClothingBeltMilitaryWebbing
-  suffix: Filled, BSO
+  parent: ClothingBeltMilitaryWebbingBSO
+  suffix: Filled, Assault
   components:
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:NestedSelector
         tableId: BeltAssaultBSOEntityTable
+
+# Gives ERT their proper chest rig instead of sharing the BSO's
+# Note that the Chosen One will still retain the BSO's chest rig to prevent merge conflicts
+- type: entity
+  id: ClothingBeltMilitaryWebbingFilledERT
+  parent: ClothingBeltMilitaryWebbingERT
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltAssaultBSOEntityTable # ERT is meant to use this table anyhow, no need to make a new one
 
 - type: entity
   parent: ChemBag
@@ -260,3 +272,20 @@
     - id: SupermatterGrenade
     - id: SyndieMiniBomb
       amount: 2
+
+- type: entity
+  id: ClothingBeltUtilityAtmosFilled
+  parent: ClothingBeltUtilityAtmos
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: CrowbarYellow
+    - id: Wrench
+    - id: Screwdriver
+    - id: Wirecutter
+    - id: Welder
+    - id: RPD
+    - id: HolofanProjector
+    - id: GasAnalyzer
+    - id: NetworkConfigurator

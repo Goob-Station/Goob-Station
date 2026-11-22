@@ -33,7 +33,6 @@
         whitelist:
           requireAll: true
           tags:
-          - VehicleKey
           - BikeHorn
         insertSound:
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
@@ -51,7 +50,7 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     radius: 3.5
     softness: 2

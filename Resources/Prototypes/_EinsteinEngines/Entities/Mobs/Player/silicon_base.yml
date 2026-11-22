@@ -6,6 +6,8 @@
   parent: [BaseMob, MobDamageable, MobCombat, MobAtmosExposed, MobFlammable]
   abstract: true
   components:
+    - type: VoiceChatEffect # Goobstation - Voice chat
+      effect: Robot
     - type: ContentEye
     - type: CameraRecoil
     - type: Reactive
@@ -32,7 +34,7 @@
       baseWalkSpeed: 4
       baseSprintSpeed: 3
     - type: MindControllable # Goobstation - shadowling
-    - type: ZombieImmune
+    - type: SiliconZombie # Goob
     - type: DoAfter
     - type: RotationVisuals
       defaultRotation: 90
@@ -257,6 +259,7 @@
       sprite: Objects/Misc/ensnare.rsi
     - type: Speech
       speechSounds: Pai
+      allowedEmotes: ['SyndieBorgLaugh'] # Goob
     - type: Vocal
       wilhelm: "/Audio/_EinsteinEngines/Voice/IPC/wilhelm.ogg"
       sounds:
@@ -341,3 +344,4 @@
     - type: CombatMode
       canDisarm: true
     - type: ExaminableCharacter # WWDP
+    - type: CosmicCenserTarget # DeltaV - Cosmic Cult

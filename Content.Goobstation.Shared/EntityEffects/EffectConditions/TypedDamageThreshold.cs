@@ -2,12 +2,11 @@
 
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.EntityEffects;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.EntityConditions;
-using Content.Shared.EntityConditions.Conditions;
 using Content.Shared.Localizations;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Components;
 
 namespace Content.Goobstation.Shared.EntityEffects.EffectConditions;
 
@@ -49,7 +48,7 @@ public sealed partial class TypedDamageThresholdEntityConditionSystem : EntityCo
 
             if (entity.Comp.Damage.TryGetDamageInGroup(group, out var total) && total > groupDamage)
             {
-                args.Result = !args.Condition.Inverse;
+                args.Result = true;
                 return;
             }
 
@@ -68,7 +67,7 @@ public sealed partial class TypedDamageThresholdEntityConditionSystem : EntityCo
         }
         comparison.ExclusiveAdd(-entity.Comp.Damage);
         comparison = -comparison;
-        args.Result = comparison.AnyPositive() ^ args.Condition.Inverse;
+        args.Result = comparison.AnyPositive();
     }
 }
 
@@ -77,9 +76,6 @@ public sealed partial class TypedDamageThresholdCondition : EntityConditionBase<
 {
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;
-
-    [DataField]
-    public bool Inverse = false;
 
     public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
@@ -133,7 +129,7 @@ public sealed partial class TypedDamageThresholdCondition : EntityConditionBase<
         }
 
         return Loc.GetString("reagent-effect-condition-guidebook-typed-damage-threshold",
-                ("inverse", Inverse),
+                ("inverse", Inverted),
                 ("changes", ContentLocalizationManager.FormatList(damages))
                 );
     }

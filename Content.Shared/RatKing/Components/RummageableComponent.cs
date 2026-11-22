@@ -15,12 +15,14 @@ namespace Content.Shared.RatKing.Components;
 [AutoGenerateComponentState]
 public sealed partial class RummageableComponent : Component
 {
+    /* Goobstation - Kill this in favor of cooldown rummaging
     /// <summary>
     /// Whether or not this entity has been rummaged through already.
     /// </summary>
     [DataField("looted"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public bool Looted;
+    */
 
     /// <summary>
     /// DeltaV: Last time the object was looted, used to check if cooldown has expired

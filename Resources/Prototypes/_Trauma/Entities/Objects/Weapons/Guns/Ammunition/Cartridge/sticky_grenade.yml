@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseGrenade
+  id: CartridgeStickyGrenade
+  name: sticky grenade round
+  description: Sticks to whatever it hits, then explodes after 3 seconds.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CartridgeAmmo
+    proto: BulletStickyGrenade
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: frag
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag

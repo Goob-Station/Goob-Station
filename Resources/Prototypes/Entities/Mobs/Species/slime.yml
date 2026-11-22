@@ -52,6 +52,11 @@
     allowedEmotes: ['Squish', 'Bubble', 'Pop'] # Imp: add Bubble, Pop
   - type: TypingIndicator
     proto: slime
+  - type: Jiggle # Goobstation
+  - type: SlimeRegrowth # Goobstation
+    damage:
+      types:
+        Blunt: 35
   - type: Vocal
     sounds:
       Male: MaleSlime
@@ -114,7 +119,7 @@
         - !type:HasComponentOnEquipmentCondition # goob edit - make suits protect slimes from water damage
           components:
           - type: PressureProtection
-          invert: true
+          inverted: true
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -124,7 +129,7 @@
         - !type:HasComponentOnEquipmentCondition # goob edit - make suits protect slimes from water damage
           components:
           - type: PressureProtection
-          invert: true
+          inverted: true
   - type: Butcherable
     butcheringType: Spike
     spawned:
