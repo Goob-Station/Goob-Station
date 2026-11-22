@@ -1,7 +1,5 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# The Old janitor service light
-
 - type: entity
   id: JanitorServiceLight
   name: janitorial service light
