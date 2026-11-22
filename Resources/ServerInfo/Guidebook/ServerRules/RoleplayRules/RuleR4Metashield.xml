@@ -66,6 +66,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Chameleon items are shielded.
   Being suspicious of an item being fake or stolen is not shielded, but testing items or calling them chameleon is covered by this shield.
 
+  Chameleon items are revealed if you witness the item changing form. Gloves leave behind fibres, only the detective can prove this.
+
   ## Stealth Items
 
   The fact that an item can be something other than what its visual appearance and examine description indicate is shielded.
