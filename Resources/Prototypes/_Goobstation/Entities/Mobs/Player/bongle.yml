@@ -294,7 +294,7 @@
     damage:
       groups:
         Brute: 25
-        Heat: 15
+        Burn: 15
       types:
         Structural: 50
         Ion: 30
