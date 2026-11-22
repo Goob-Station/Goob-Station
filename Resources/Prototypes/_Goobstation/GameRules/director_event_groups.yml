@@ -1,0 +1,91 @@
+- type: directorEventGroup
+  id: SpaceRocks
+  window: 15m
+  factor: 0.3
+  events:
+  - GameRuleSpaceDustMinor
+  - GameRuleSpaceDustMajor
+  - GameRuleMeteorSwarmSmall
+  - GameRuleMeteorSwarmMedium
+  - GameRuleMeteorSwarmLarge
+  - ImmovableRodSpawn
+
+- type: directorEventGroup
+  id: PowerTrouble
+  window: 12m
+  factor: 0.4
+  events:
+  - BreakerFlip
+  - PowerGridCheck
+  - SolarFlare
+
+- type: directorEventGroup
+  id: Vermin
+  window: 12m
+  factor: 0.4
+  events:
+  - MouseMigration
+  - CockroachMigration
+  - SnailMigration
+  - SnailMigrationLowPop
+  - KingRatMigration
+  - ClownGoblinMigration
+  - MothroachSpawn
+  - KudzuGrowth
+
+- type: directorEventGroup
+  id: Creatures
+  window: 12m
+  factor: 0.4
+  events:
+  - SlimesSpawn
+  - SnakeSpawn
+  - SpiderSpawn
+  - SpiderClownSpawn
+  - MimicVendorRule
+
+- type: directorEventGroup
+  id: Anomalies
+  window: 12m
+  factor: 0.5
+  events:
+  - AnomalySpawn
+  - BluespaceArtifact
+  - BluespaceLocker
+  - MalignRiftSpawn
+
+- type: directorEventGroup
+  id: Paperwork
+  window: 20m
+  factor: 0.3
+  events:
+  - ClericalError
+  - BureaucraticError
+  - JobDistributionError
+
+- type: directorEventGroup
+  id: Visitors
+  window: 25m
+  factor: 0.3
+  events:
+  - UnknownShuttleTravelingCuisine
+  - UnknownShuttleDisasterEvacPod
+  - UnknownShuttleHonki
+  - UnknownShuttleCryptid
+  - UnknownShuttleEternal
+  - UnknownShuttleGym
+  - UnknownShuttleJoe
+  - UnknownShuttleLambordeere
+  - UnknownShuttleMeatZone
+  - UnknownShuttleMicroshuttle
+  - UnknownShuttleSpacebus
+  - UnknownShuttleFrontierProspector
+  - UnknownShuttleAlienTourist
+
+- type: directorEventGroup
+  id: Abductors
+  window: 25m
+  factor: 0.3
+  events:
+  - LoneAbductorSpawn
+  - DuoAbductorSpawn
