@@ -3,6 +3,7 @@
   id: MobMegafaunaMegaLegion
   parent: LavalandMobBase
   description: One of many.
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: EmitSoundOnSpawn
     sound:

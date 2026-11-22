@@ -163,7 +163,7 @@
   id: ORTXibalbaWarpIn
   parent: BaseORTAnimation
   name: ???
-  suffix: Spawns Xibalba
+  categories: [HideSpawnMenu]
   description: It's still not over?
   components:
   - type: PointLight

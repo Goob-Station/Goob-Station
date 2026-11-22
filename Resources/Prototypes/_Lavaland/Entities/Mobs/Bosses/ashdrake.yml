@@ -3,6 +3,7 @@
   id: MobMegafaunaAshDrake
   parent: LavalandMobBase
   description: Guardian of the Necropolis.
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: Physics
     bodyType: KinematicController

@@ -2,6 +2,7 @@
   id: MobMegafaunaSerpentGod
   name: serpent god
   description: What happens when an oni consumes the essence of a eight-headed serpent.
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: Vocal
     sounds:

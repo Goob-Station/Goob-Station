@@ -43,6 +43,7 @@
   parent: BaseORT
   description: The air trembles around it...
   categories: [ Spawner ]
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: PointLight
     radius: 5
@@ -84,6 +85,7 @@
   name: Spider of Mercury
   id: MobMegafaunaORTCombatForm
   parent: BaseORT
+  categories: [HideSpawnMenu]
   description: Its body is not flesh. It is not metal. You don't have a clue as to what it is.
   components:
   - type: RadiationSource
@@ -146,6 +148,7 @@
   name: UFO
   id: MobMegafaunaORTUFO
   parent: BaseORT
+  categories: [HideSpawnMenu]
   description: The spider was only an empty shell. The true body was above all along.
   components:
   - type: Transform
@@ -206,6 +209,7 @@
   id: MobMegafaunaORTXibalba
   parent: BaseORT
   description: Long-range weaponry analyzed. Adaptation complete.
+  suffix: DO NOT MAP, FINAL FORM
   components:
   - type: Fixtures
     fixtures:

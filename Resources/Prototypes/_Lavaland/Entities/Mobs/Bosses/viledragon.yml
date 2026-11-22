@@ -3,6 +3,7 @@
   id: MobMegafaunaVileDragon
   parent: LavalandMobBase
   description: Oh, terror incarnate!
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: Physics
     bodyType: KinematicController

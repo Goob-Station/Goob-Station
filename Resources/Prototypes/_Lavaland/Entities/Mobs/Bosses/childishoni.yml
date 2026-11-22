@@ -2,6 +2,7 @@
   id: MobMegafaunaChildishOni
   name: Childish oni
   description: The oni of the demonic capital.
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: Vocal
     sounds:
@@ -32,7 +33,7 @@
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/banana.rsi
     noRot: true
-    state: phase_0
+    state: phase_3
   - type: Clickable
   - type: InteractionOutline
   - type: LagCompensation

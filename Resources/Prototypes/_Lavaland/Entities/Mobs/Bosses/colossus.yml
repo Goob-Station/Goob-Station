@@ -3,6 +3,7 @@
   id: MobMegafaunaColossus
   parent: LavalandMobBase
   description: A monstrous creature protected by heavy shielding.
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: Physics
     bodyType: KinematicController
