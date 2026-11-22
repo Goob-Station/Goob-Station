@@ -74,8 +74,6 @@
     weight: 2
   - id: Heretic
     weight: 2
-  - id: Thief
-    weight: 1
   - id: Devil
     weight: 0.3
     max: 1
@@ -83,10 +81,10 @@
 - type: antagPool
   id: CrewAntagsMinor
   rules:
-  - id: Thief
-    weight: 3
   - id: Traitor
     weight: 3
+  - id: Thief
+    weight: 1
   - id: Changeling
     weight: 1
   - id: Heretic

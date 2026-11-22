@@ -172,6 +172,9 @@ public sealed partial class GameDirectorComponent : Component
     public TimeSpan RoundstartPendingTime = TimeSpan.FromMinutes(20);
 
     [DataField]
+    public TimeSpan MidroundEarliestStart = TimeSpan.FromMinutes(15);
+
+    [DataField]
     public float CountStretch = 2f;
 
     [DataField]
@@ -231,6 +234,21 @@ public sealed partial class GameDirectorComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan RelaxUntil;
+
+    [DataField]
+    public TimeSpan RelaxCooldown = TimeSpan.FromMinutes(10);
+
+    [DataField]
+    public float RelaxReferenceRate = 0.25f;
+
+    [ViewVariables]
+    public Dictionary<ChaosMetric, float> RelaxReference = new();
+
+    [ViewVariables]
+    public Dictionary<ChaosMetric, TimeSpan> RelaxCooldowns = new();
+
+    [ViewVariables]
+    public bool RelaxEnded;
 
     [DataField]
     public Dictionary<ChaosMetric, ProtoId<DepartmentPrototype>> SpotlightDepartments = new()

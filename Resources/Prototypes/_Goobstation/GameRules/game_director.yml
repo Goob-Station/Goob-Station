@@ -22,7 +22,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameDirector
-    threatPerPlayer: 0.4
+    threatPerPlayer: 0.45
     stories:
       RelaxedAttack: 3
       ScienceAttack: 2
@@ -46,7 +46,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameDirector
-    threatPerPlayer: 0.5
+    threatPerPlayer: 0.55
     referencePlayers: 40
     maxDestructionBudget: 4
     destructionRegenPerMinute: 0.15
@@ -70,7 +70,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameDirector
-    threatPerPlayer: 0.25
+    threatPerPlayer: 0.18
     maxDestructionBudget: 2
     destructionRegenPerMinute: 0.075
     repeatWindow: 25m
@@ -179,11 +179,12 @@
 - type: story
   id: RelaxedAttack
   description: Mostly calm with a couple of minor problems.
-  roundstartThreat: 0.6
+  roundstartThreat: 0.85
   roundstart:
   - pool: CrewAntags
-    share: 0.7
+    share: 0.75
   - pool: CrewAntagsMinor
+    prob: 0.5
   midround:
   - InfiltratorMidrounds
   beats:
@@ -195,11 +196,12 @@
   id: ScienceAttack
   description: Science, minor attack and then engineering issues
   minPlayers: 30
-  roundstartThreat: 0.6
+  roundstartThreat: 0.85
   roundstart:
   - pool: CrewAntags
-    share: 0.7
+    share: 0.75
   - pool: CrewAntagsMinor
+    prob: 0.5
   midround:
   - ScienceMidrounds
   beats:
@@ -234,11 +236,12 @@
   id: SlowBurn
   description: A long quiet shift with some science trouble and a late scuffle
   minPlayers: 20
-  roundstartThreat: 0.6
+  roundstartThreat: 0.85
   roundstart:
   - pool: CrewAntags
-    share: 0.7
+    share: 0.75
   - pool: CrewAntagsMinor
+    prob: 0.5
   midround:
   - InfiltratorMidrounds
   beats:
@@ -256,6 +259,7 @@
   threat: 1.2
   midround:
   - RaiderMidrounds
+  - MonsterMidrounds
   beats:
     - Peace
     - AttackMild
@@ -269,11 +273,12 @@
   id: Infestation
   description: Pests and overgrowth, followed by something hiding among them
   minPlayers: 15
-  roundstartThreat: 0.6
+  roundstartThreat: 0.85
   roundstart:
   - pool: CrewAntags
-    share: 0.7
+    share: 0.75
   - pool: CrewAntagsMinor
+    prob: 0.5
   midround:
   - MonsterMidrounds
   beats:
@@ -287,13 +292,15 @@
   id: Blackout
   description: The grid falls apart and someone takes advantage of it
   minPlayers: 25
-  roundstartThreat: 0.6
+  roundstartThreat: 0.85
   roundstart:
   - pool: CrewAntags
-    share: 0.7
+    share: 0.75
   - pool: CrewAntagsMinor
+    prob: 0.5
   midround:
   - RaiderMidrounds
+  - MonsterMidrounds
   beats:
     - Peace
     - Brownout
@@ -306,7 +313,7 @@
   id: SkeletonCrew
   description: A short-staffed shift with small problems
   maxPlayers: 35
-  roundstartThreat: 0.6
+  roundstartThreat: 0.85
   roundstart:
   - pool: CrewAntagsMinor
   midround:
@@ -321,11 +328,12 @@
 - type: story
   id: QuietShift
   description: Maintenance trouble with no attackers
-  roundstartThreat: 0.6
+  roundstartThreat: 0.85
   roundstart:
   - pool: CrewAntags
-    share: 0.7
+    share: 0.75
   - pool: CrewAntagsMinor
+    prob: 0.5
   beats:
     - Peace
     - Vermin
@@ -345,6 +353,7 @@
     share: 0.85
   - pool: CrewAntagsMinor
     share: 0.15
+    prob: 0.5
   beats:
     - Peace
     - PowerIssues
@@ -362,6 +371,7 @@
     share: 0.8
   - pool: CrewAntagsMinor
     share: 0.2
+    prob: 0.5
   beats:
     - Peace
     - Vermin
@@ -379,6 +389,7 @@
     share: 0.8
   - pool: CrewAntagsMinor
     share: 0.2
+    prob: 0.5
   beats:
     - Peace
     - Brownout
@@ -442,7 +453,7 @@
   maxSecs: 720
   eventDelayMin: 150
   eventDelayMax: 300
-  maxDestruction: 3
+  maxDestruction: 4
   blockedEventTypes:
   - HostilesSpawn
 
@@ -525,7 +536,7 @@
 - type: storyBeat
   id: AttackMild
   description: Drive medium combat
-  threat: 0.75
+  threat: 0.9
   escalation:
     Hostile: 20
   endIfAnyWorse:

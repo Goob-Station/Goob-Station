@@ -64,6 +64,9 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
         if (scheduler.RelaxUntil != TimeSpan.Zero)
             scheduler.RelaxUntil += args.PausedTime;
 
+        foreach (var metric in scheduler.RelaxCooldowns.Keys.ToList())
+            scheduler.RelaxCooldowns[metric] += args.PausedTime;
+
         if (scheduler.OverwhelmedSince != TimeSpan.Zero)
             scheduler.OverwhelmedSince += args.PausedTime;
 

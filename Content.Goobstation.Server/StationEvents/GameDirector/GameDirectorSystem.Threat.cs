@@ -160,7 +160,7 @@ public sealed partial class GameDirectorSystem
         {
             if (!seen.Add(entry.Id)
                 || !_prototypeManager.TryIndex(entry.Id, out var proto)
-                || !CanPurchaseMidround(proto, count, roundDuration))
+                || !CanPurchaseMidround(scheduler, proto, count, roundDuration))
                 continue;
 
             var repeat = RepeatMultiplier(scheduler, entry.Id, now);
@@ -191,13 +191,24 @@ public sealed partial class GameDirectorSystem
         return true;
     }
 
-    private bool CanPurchaseMidround(EntityPrototype proto, PlayerCount count, TimeSpan roundDuration)
+    private bool CanPurchaseMidround(GameDirectorComponent scheduler, EntityPrototype proto, PlayerCount count, TimeSpan roundDuration)
     {
-        if (proto.TryComp<GameRuleComponent>(out var gameRule, _factory) && gameRule.MinPlayers > count.InGame)
+        if (roundDuration * _event.EventSpeedup < scheduler.MidroundEarliestStart
+            || proto.TryComp<GameRuleComponent>(out var gameRule, _factory) && gameRule.MinPlayers > count.InGame)
             return false;
 
-        return !proto.TryComp<StationEventComponent>(out var stationEvent, _factory)
-               || _event.CanRun(proto, stationEvent, count.InGame, roundDuration);
+        if (!proto.TryComp<StationEventComponent>(out var stationEvent, _factory))
+            return true;
+
+        var checkTime = roundDuration;
+        if (_event.TimeSinceLastEvent(proto) == TimeSpan.Zero)
+        {
+            var earliest = TimeSpan.FromMinutes(stationEvent.EarliestStart / _event.EventSpeedup);
+            if (earliest > checkTime)
+                checkTime = earliest;
+        }
+
+        return _event.CanRun(proto, stationEvent, count.InGame, checkTime);
     }
 
     private AntagPick? EvaluateAntag(GameDirectorComponent scheduler,

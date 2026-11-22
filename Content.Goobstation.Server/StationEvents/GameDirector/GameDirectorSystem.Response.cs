@@ -15,24 +15,48 @@ public sealed partial class GameDirectorSystem
     private bool UpdateRelax(GameDirectorComponent scheduler, ChaosMetrics chaos, PlayerCount count, TimeSpan now)
     {
         var popScale = PopulationScale(scheduler, count);
+        var wasRelaxing = scheduler.RelaxUntil != TimeSpan.Zero && now < scheduler.RelaxUntil;
         ChaosMetric? worst = null;
         var worstStrain = 0f;
+
         foreach (var metric in scheduler.RelaxMetrics)
         {
-            var strain = (float) chaos.ChaosDict.GetValueOrDefault(metric) / MetricScale(scheduler, metric, popScale);
-            if (strain <= worstStrain)
+            var value = (float) chaos.ChaosDict.GetValueOrDefault(metric);
+            if (!scheduler.RelaxReference.TryGetValue(metric, out var reference))
+            {
+                scheduler.RelaxReference[metric] = value;
+                continue;
+            }
+
+            if (wasRelaxing)
+                continue;
+
+            if (scheduler.RelaxEnded)
+            {
+                scheduler.RelaxReference[metric] = value;
+                continue;
+            }
+
+            var strain = (value - reference) / MetricScale(scheduler, metric, popScale);
+            scheduler.RelaxReference[metric] = reference + (value - reference) * scheduler.RelaxReferenceRate;
+
+            if (strain <= worstStrain
+                || scheduler.RelaxCooldowns.TryGetValue(metric, out var cooldown) && now < cooldown)
                 continue;
 
             worstStrain = strain;
             worst = metric;
         }
 
-        if (worst != null && worstStrain >= scheduler.RelaxStrain)
-        {
-            if (now >= scheduler.RelaxUntil)
-                LogMessage($"Station under heavy strain ({worst} at {worstStrain:F1}x normal), only sending help for {scheduler.RelaxTime.TotalMinutes:F0} minutes");
+        if (!wasRelaxing)
+            scheduler.RelaxEnded = false;
 
+        if (!wasRelaxing && worst is { } trigger && worstStrain >= scheduler.RelaxStrain)
+        {
             scheduler.RelaxUntil = now + scheduler.RelaxTime / _event.EventSpeedup;
+            scheduler.RelaxCooldowns[trigger] = scheduler.RelaxUntil + scheduler.RelaxCooldown / _event.EventSpeedup;
+            scheduler.RelaxEnded = true;
+            LogMessage($"Station under heavy strain ({trigger} jumped {worstStrain:F1}x normal), only sending help for {scheduler.RelaxTime.TotalMinutes:F0} minutes");
         }
 
         var relaxing = now < scheduler.RelaxUntil;

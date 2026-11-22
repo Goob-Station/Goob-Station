@@ -190,7 +190,7 @@
     chaos: # Goobstation
       Power: 60
       Atmos: 150
-    destruction: 3 # Goobstation
+    destruction: 4 # Goobstation
   - type: MeteorSwarm
     meteors:
       MeteorSmall: 2
