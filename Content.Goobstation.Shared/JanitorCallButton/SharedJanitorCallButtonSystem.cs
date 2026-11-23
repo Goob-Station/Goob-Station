@@ -1,5 +1,5 @@
-using Content.Shared.Light;
 using Content.Shared.Interaction;
+using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 
@@ -10,38 +10,38 @@ public sealed partial class SharedJanitorCallButtonSystem : EntitySystem
     [Dependency] private SlimPoweredLightSystem _light = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<JanitorCallButtonComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<JanitorCallButtonComponent, InteractHandEvent>(OnInteractHand);
-    }
-
+    [SubscribeLocalEvent]
     private void OnMapInit(Entity<JanitorCallButtonComponent> ent, ref MapInitEvent args)
     {
         if (TryComp<SlimPoweredLightComponent>(ent.Owner, out var light))
             UpdateVisuals(ent.Owner, light.Enabled);
     }
 
+    [SubscribeLocalEvent]
     private void OnInteractHand(Entity<JanitorCallButtonComponent> ent, ref InteractHandEvent args)
     {
-        var comp = Comp<JanitorCallButtonComponent>(ent.Owner);
+        if (args.Handled)
+            return;
 
-        if (TryComp<JanitorCallButtonComponent>(ent.Owner, out var button))
-            comp.enabled = !comp.enabled;
-
-        if (args.Handled || !TryComp<SlimPoweredLightComponent>(ent.Owner, out var light))
+        if (!TryComp<SlimPoweredLightComponent>(ent.Owner, out var light))
             return;
 
         var enabled = !light.Enabled;
+
         _light.SetEnabled((ent.Owner, light), enabled);
         UpdateVisuals(ent.Owner, enabled);
+
+        ent.Comp.Enabled = enabled;
+
         RaiseLocalEvent(ent.Owner, new JanitorCallButtonPressedEvent());
         args.Handled = true;
     }
 
     private void UpdateVisuals(EntityUid uid, bool enabled)
     {
-        _appearance.SetData(uid, PoweredLightVisuals.BulbState, enabled ? PoweredLightState.On : PoweredLightState.Off);
+        _appearance.SetData(
+            uid,
+            PoweredLightVisuals.BulbState,
+            enabled ? PoweredLightState.On : PoweredLightState.Off);
     }
 }

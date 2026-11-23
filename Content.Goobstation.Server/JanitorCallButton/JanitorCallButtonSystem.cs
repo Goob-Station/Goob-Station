@@ -20,7 +20,7 @@ public sealed partial class JanitorCallButtonSystem : EntitySystem
 
     private void OnButtonPressed(Entity<JanitorCallButtonComponent> ent, ref JanitorCallButtonPressedEvent args)
     {
-        if (ent.Comp.enabled)
+        if (ent.Comp.Enabled)
         {
             var stationBeacon = _navMap.TryGetNearestBeacon(ent.Owner, out var beacon, out _)
                 ? beacon.Value.Comp.Text!

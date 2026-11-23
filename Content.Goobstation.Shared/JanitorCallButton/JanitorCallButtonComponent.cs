@@ -4,7 +4,7 @@ namespace Content.Goobstation.Shared.JanitorCallButton;
 public sealed partial class JanitorCallButtonComponent : Component
 {
     [DataField]
-    public bool enabled;
+    public bool Enabled;
 }
 
 public readonly record struct JanitorCallButtonPressedEvent;
