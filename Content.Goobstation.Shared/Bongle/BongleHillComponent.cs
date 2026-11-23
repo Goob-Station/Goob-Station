@@ -63,8 +63,11 @@ public sealed partial class BongleHillComponent : Component
     [DataField]
     public EntityWhitelist? TriumphBlacklist;
 
-    // bingle corpses
-    public int Corpses;
+    /// <summary>
+    /// Keeps track of how many bingle corpses this hill has slurped up.
+    /// </summary>
+    [ViewVariables]
+    public int BingleCorpses;
 
     /// <summary>
     /// Triumph over the adversary increases mouth capacity and spit count.

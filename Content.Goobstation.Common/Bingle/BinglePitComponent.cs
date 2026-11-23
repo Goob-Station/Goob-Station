@@ -84,7 +84,6 @@ public sealed partial class BinglePitComponent : Component
     /// <summary>
     /// Keep track of the freaking uh...the points multiplier.
     /// </summary>
-    [ViewVariables]
     public int PointMultiplier = 1;
 
     /// <summary>

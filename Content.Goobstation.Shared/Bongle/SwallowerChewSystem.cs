@@ -26,40 +26,32 @@ public sealed partial class SwallowerChewSystem : EntitySystem
 
     private readonly List<EntityUid> _contents = new();
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SwallowerComponent, SwallowerChewEvent>(OnChew);
-    }
-
+    [SubscribeLocalEvent]
     private void OnChew(Entity<SwallowerComponent> ent, ref SwallowerChewEvent args)
     {
-        var (uid, comp) = ent;
-
-        if (args.Handled || comp.Stomach.ContainedEntities.Count == 0)
+        if (args.Handled || ent.Comp.Stomach.ContainedEntities.Count == 0)
             return;
 
         _contents.Clear();
-        _contents.AddRange(comp.Stomach.ContainedEntities);
+        _contents.AddRange(ent.Comp.Stomach.ContainedEntities);
 
-        var coords = Transform(uid).Coordinates;
+        var coords = Transform(ent.Owner).Coordinates;
 
         var chewed = false;
 
         foreach (var item in _contents)
         {
-            if (_whitelist.IsWhitelistPass(comp.ChewBlacklist, item))
+            if (_whitelist.IsWhitelistPass(ent.Comp.ChewBlacklist, item))
             {
-                _popup.PopupPredicted(Loc.GetString("swallower-cannot-chew"), uid, uid);
+                _popup.PopupPredicted(Loc.GetString("swallower-cannot-chew"), ent.Owner, ent.Owner);
                 continue;
             }
 
             chewed = true;
 
-            if (_whitelist.IsWhitelistPass(comp.ChewHealWhitelist, item))
+            if (_whitelist.IsWhitelistPass(ent.Comp.ChewHealWhitelist, item))
             {
-                RaiseLocalEvent(uid, new RejuvenateEvent());
+                RaiseLocalEvent(ent.Owner, new RejuvenateEvent());
             }
 
             if (HasComp<BodyComponent>(item))
@@ -94,8 +86,8 @@ public sealed partial class SwallowerChewSystem : EntitySystem
         if (!chewed)
             return;
 
-        _popup.PopupPredicted(Loc.GetString("swallower-chew"), Loc.GetString("swallower-chew-others", ("user", Identity.Entity(uid, EntityManager))), uid, uid);
-        _audio.PlayPredicted(comp.ChewSound, uid, uid);
+        _popup.PopupPredicted(Loc.GetString("swallower-chew"), Loc.GetString("swallower-chew-others", ("user", Identity.Entity(ent.Owner, EntityManager))), ent.Owner, ent.Owner);
+        _audio.PlayPredicted(ent.Comp.ChewSound, ent.Owner, ent.Owner);
 
         args.Handled = true;
     }

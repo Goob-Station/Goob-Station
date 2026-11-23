@@ -19,25 +19,14 @@ public sealed partial class ChargedHeadbuttSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ChargedHeadbuttComponent, ChargedHeadbuttEvent>(OnHeadbutt);
-        SubscribeLocalEvent<ChargedHeadbuttComponent, ChargedHeadbuttDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<ChargedHeadbuttComponent, StartCollideEvent>(OnCollide);
-        SubscribeLocalEvent<ChargedHeadbuttComponent, StopThrowEvent>(OnStopThrow);
-    }
-
+    [SubscribeLocalEvent]
     private void OnHeadbutt(Entity<ChargedHeadbuttComponent> ent, ref ChargedHeadbuttEvent args)
     {
-        var (uid, comp) = ent;
-
-        if (args.Handled || comp.IsCharging)
+        if (args.Handled || ent.Comp.IsCharging)
             return;
 
         var doAfterEvent = new ChargedHeadbuttDoAfterEvent { TargetCoordinates = GetNetCoordinates(args.Target) };
-        var doAfterArgs = new DoAfterArgs(EntityManager, uid, comp.ChargeTime, doAfterEvent, uid)
+        var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.ChargeTime, doAfterEvent, ent.Owner)
         {
             BreakOnMove = true
         };
@@ -45,71 +34,64 @@ public sealed partial class ChargedHeadbuttSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
             return;
 
-        if (comp.StartPopup is not null)
+        if (ent.Comp.StartPopup is not null)
         {
-            _popup.PopupPredicted(Loc.GetString(comp.StartPopup.Value), uid, uid);
+            _popup.PopupPredicted(Loc.GetString(ent.Comp.StartPopup.Value), ent.Owner, ent.Owner);
         }
 
-        _audio.PlayPredicted(comp.ChargeSound, uid, uid);
+        _audio.PlayPredicted(ent.Comp.ChargeSound, ent.Owner, ent.Owner);
 
-        if (!HasComp<SeethingComponent>(uid)) // No cooldown on headbutt while seething because idk it sounds cool
+        if (!HasComp<SeethingComponent>(ent.Owner)) // No cooldown on headbutt while seething because idk it sounds cool
         {
             args.Handled = true;
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnDoAfter(Entity<ChargedHeadbuttComponent> ent, ref ChargedHeadbuttDoAfterEvent args)
     {
-        var (uid, comp) = ent;
-
         if (args.Cancelled || args.Handled)
             return;
 
-        comp.IsCharging = true;
+        ent.Comp.IsCharging = true;
         Dirty(ent);
 
-        var selfMap = _transform.GetMapCoordinates(uid);
+        var selfMap = _transform.GetMapCoordinates(ent.Owner);
         var targetMap = _transform.ToMapCoordinates(GetCoordinates(args.TargetCoordinates));
         var direction = targetMap.Position - selfMap.Position;
 
-        if (direction.Length() > comp.DashDistance)
+        if (direction.Length() > ent.Comp.DashDistance)
         {
-            direction = direction.Normalized() * comp.DashDistance;
+            direction = direction.Normalized() * ent.Comp.DashDistance;
         }
 
-        _throwing.TryThrow(uid, direction, comp.DashSpeed);
+        _throwing.TryThrow(ent.Owner, direction, ent.Comp.DashSpeed);
 
         args.Handled = true;
     }
 
+    [SubscribeLocalEvent]
     private void OnCollide(Entity<ChargedHeadbuttComponent> ent, ref StartCollideEvent args)
     {
-        var (uid, comp) = ent;
-
-        if (!comp.IsCharging)
+        if (!ent.Comp.IsCharging)
             return;
 
         var other = args.OtherEntity;
 
-        if (HasComp<MobStateComponent>(other))
-        {
-            _stun.TryAddStunDuration(other, comp.TargetStun);
-            _stun.TryKnockdown(other, comp.TargetKnockdown, comp.TargetDropItems);
-        }
+        _stun.TryAddStunDuration(other, ent.Comp.TargetStun);
+        _stun.TryKnockdown(other, ent.Comp.TargetKnockdown, ent.Comp.TargetDropItems);
+        _damageable.TryChangeDamage(other, ent.Comp.Damage, origin: ent.Owner);
 
-        _damageable.TryChangeDamage(other, comp.Damage, origin: uid);
+        _audio.PlayPredicted(ent.Comp.ImpactSound, ent.Owner, ent.Owner);
 
-        _audio.PlayPredicted(comp.ImpactSound, uid, uid);
-
-        comp.IsCharging = false;
+        ent.Comp.IsCharging = false;
         Dirty(ent);
     }
 
+    [SubscribeLocalEvent]
     private void OnStopThrow(Entity<ChargedHeadbuttComponent> ent, ref StopThrowEvent args)
     {
-        var (_, comp) = ent;
-
-        comp.IsCharging = false;
+        ent.Comp.IsCharging = false;
         Dirty(ent);
     }
 }

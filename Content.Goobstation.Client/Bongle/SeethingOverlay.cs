@@ -1,12 +1,13 @@
-using System.Numerics;
 using Content.Goobstation.Shared.Bongle;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Whitelist;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
+using System.Numerics;
 
 namespace Content.Goobstation.Client.Bongle;
 
@@ -21,6 +22,7 @@ public sealed partial class SeethingOverlay : Overlay
 
     private readonly SharedTransformSystem _transform;
     private readonly EntityWhitelistSystem _whitelist;
+    private readonly MobStateSystem _mobState;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -30,6 +32,7 @@ public sealed partial class SeethingOverlay : Overlay
 
         _transform = _entity.System<SharedTransformSystem>();
         _whitelist = _entity.System<EntityWhitelistSystem>();
+        _mobState = _entity.System<MobStateSystem>();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -50,10 +53,10 @@ public sealed partial class SeethingOverlay : Overlay
 
         handle.DrawRect(args.WorldAABB, seething.OverlayColor);
 
-        var query = _entity.EntityQueryEnumerator<SpriteComponent, TransformComponent, MobStateComponent>();
-        while (query.MoveNext(out var uid, out var sprite, out var xform, out var mobState))
+        var query = _entity.EntityQueryEnumerator<MobStateComponent, SpriteComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var sprite, out var xform))
         {
-            if (uid == player.Value || mobState.CurrentState == MobState.Dead || xform.MapID != mapId || !sprite.Visible)
+            if (uid == player.Value || _mobState.IsDead(uid) || xform.MapID != mapId || !sprite.Visible)
                 continue;
 
             if (_whitelist.IsWhitelistPassOrNull(seething.VisibleWhitelist, uid) && !_whitelist.IsWhitelistPass(seething.VisibleBlacklist, uid))

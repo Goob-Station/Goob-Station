@@ -13,10 +13,6 @@ using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.Bongle;
 
-/// <summary>
-/// Stfu about ERP for the love of god.
-/// </summary>
-
 public sealed partial class SwallowerSystem : EntitySystem
 {
     [Dependency] private SharedContainerSystem _container = default!;
@@ -28,130 +24,116 @@ public sealed partial class SwallowerSystem : EntitySystem
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedDamageOtherOnHitSystem _damageOtherOnHit = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SwallowerComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<SwallowerComponent, PullAttemptEvent>(OnPullAttempt);
-        SubscribeLocalEvent<SwallowerComponent, SwallowDoAfterEvent>(OnSwallowDoAfter);
-        SubscribeLocalEvent<SwallowerComponent, SwallowerSpitEvent>(OnSpit);
-        SubscribeLocalEvent<SwallowerComponent, SwallowerRegurgitateEvent>(OnRegurgitate);
-        SubscribeLocalEvent<SwallowerComponent, BeingGibbedEvent>(OnGibbed);
-    }
-
+    [SubscribeLocalEvent]
     private void OnStartup(Entity<SwallowerComponent> ent, ref ComponentStartup args)
     {
-        var (uid, comp) = ent;
-
-        comp.Stomach = _container.EnsureContainer<Container>(uid, comp.ContainerId);
+        ent.Comp.Stomach = _container.EnsureContainer<Container>(ent.Owner, ent.Comp.ContainerId);
     }
 
+    [SubscribeLocalEvent]
     private void OnPullAttempt(Entity<SwallowerComponent> ent, ref PullAttemptEvent args)
     {
-        var (uid, comp) = ent;
-
-        if (args.PullerUid != uid)
+        if (args.PullerUid != ent.Owner)
             return;
 
         args.Cancelled = true;
 
-        if (comp.Stomach.ContainedEntities.Count >= comp.Capacity)
+        if (ent.Comp.Stomach.ContainedEntities.Count >= ent.Comp.Capacity)
         {
-            _popup.PopupPredicted(Loc.GetString("swallower-full"), uid, uid, PopupType.Medium);
+            _popup.PopupPredicted(Loc.GetString("swallower-full"), ent.Owner, ent.Owner, PopupType.Medium);
             return;
         }
 
-        if (!IsSwallowable(comp, args.PulledUid))
+        if (!IsSwallowable(ent.Comp, args.PulledUid))
             return;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, uid, comp.SwallowTime, new SwallowDoAfterEvent(), uid, target: args.PulledUid)
+        var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.SwallowTime, new SwallowDoAfterEvent(), ent.Owner, target: args.PulledUid)
         {
             BreakOnMove = true,
             DuplicateCondition = DuplicateConditions.SameEvent
         };
+
         _doAfter.TryStartDoAfter(doAfterArgs);
 
-        _popup.PopupPredicted(Loc.GetString("swallower-begin"), Loc.GetString("swallower-begin-others", ("user", Identity.Entity(uid, EntityManager))), uid, uid);
+        _popup.PopupPredicted(Loc.GetString("swallower-begin"), Loc.GetString("swallower-begin-others", ("user", Identity.Entity(ent.Owner, EntityManager))), ent.Owner, ent.Owner);
     }
 
+    [SubscribeLocalEvent]
     private void OnSwallowDoAfter(Entity<SwallowerComponent> ent, ref SwallowDoAfterEvent args)
     {
-        var (uid, comp) = ent;
-
         if (args.Handled || args.Cancelled || args.Args.Target is not { } target)
             return;
 
-        if (comp.Stomach.ContainedEntities.Count >= comp.Capacity)
+        if (ent.Comp.Stomach.ContainedEntities.Count >= ent.Comp.Capacity)
             return;
 
-        if (!IsSwallowable(comp, target))
+        if (!IsSwallowable(ent.Comp, target))
             return;
 
-        if (!_container.Insert(target, comp.Stomach))
+        if (!_container.Insert(target, ent.Comp.Stomach))
             return;
 
-        _popup.PopupPredicted(Loc.GetString("swallower-finish"), Loc.GetString("swallower-finish-others", ("user", Identity.Entity(uid, EntityManager))), uid, uid);
+        _popup.PopupPredicted(Loc.GetString("swallower-finish"), Loc.GetString("swallower-finish-others", ("user", Identity.Entity(ent.Owner, EntityManager))), ent.Owner, ent.Owner);
 
-        _audio.PlayPredicted(comp.SwallowSound, uid, uid);
+        _audio.PlayPredicted(ent.Comp.SwallowSound, ent.Owner, ent.Owner);
 
         args.Handled = true;
     }
 
+    [SubscribeLocalEvent]
     private void OnRegurgitate(Entity<SwallowerComponent> ent, ref SwallowerRegurgitateEvent args)
     {
-        var (uid, comp) = ent;
-
-        if (args.Handled || comp.Stomach.ContainedEntities.Count == 0)
+        if (args.Handled || ent.Comp.Stomach.ContainedEntities.Count == 0)
             return;
 
-        _container.EmptyContainer(comp.Stomach);
+        _container.EmptyContainer(ent.Comp.Stomach);
 
-        _popup.PopupPredicted(Loc.GetString("swallower-regurgitate"), Loc.GetString("swallower-regurgitate-others", ("user", Identity.Entity(uid, EntityManager))), uid, uid);
-        _audio.PlayPredicted(comp.RegurgitateSound, uid, uid);
+        _popup.PopupPredicted(Loc.GetString("swallower-regurgitate"), Loc.GetString("swallower-regurgitate-others"
+        , ("user", Identity.Entity(ent.Owner, EntityManager))), ent.Owner, ent.Owner);
+
+        _audio.PlayPredicted(ent.Comp.RegurgitateSound, ent.Owner, ent.Owner);
 
         args.Handled = true;
     }
 
+    [SubscribeLocalEvent]
     private void OnSpit(Entity<SwallowerComponent> ent, ref SwallowerSpitEvent args)
     {
-        var (uid, comp) = ent;
-
-        if (args.Handled || comp.Stomach.ContainedEntities.Count == 0)
+        if (args.Handled || ent.Comp.Stomach.ContainedEntities.Count == 0)
             return;
 
-        var selfMap = _transform.GetMapCoordinates(uid);
+        var selfMap = _transform.GetMapCoordinates(ent.Owner);
         var targetMap = _transform.ToMapCoordinates(args.Target);
         var direction = targetMap.Position - selfMap.Position;
 
         if (direction.Length() <= 0f)
             return;
 
-        direction = direction.Normalized() * comp.SpitDistance;
+        direction = direction.Normalized() * ent.Comp.SpitDistance;
 
-        var spitCount = Math.Min(comp.SpitCount, comp.Stomach.ContainedEntities.Count);
+        var spitCount = Math.Min(ent.Comp.SpitCount, ent.Comp.Stomach.ContainedEntities.Count);
 
         var spat = 0;
 
-        for (var i = comp.Stomach.ContainedEntities.Count - 1; i >= 0 && spat < spitCount; i--)
+        for (var i = ent.Comp.Stomach.ContainedEntities.Count - 1; i >= 0 && spat < spitCount; i--)
         {
-            var item = comp.Stomach.ContainedEntities[i];
+            var item = ent.Comp.Stomach.ContainedEntities[i];
 
-            if (!_container.Remove(item, comp.Stomach))
+            if (!_container.Remove(item, ent.Comp.Stomach))
                 continue;
 
             var damageOther = EnsureComp<DamageOtherOnHitComponent>(item);
-            _damageOtherOnHit.SetDamage((item, damageOther), comp.SpitDamage);
+            _damageOtherOnHit.SetDamage((item, damageOther), ent.Comp.SpitDamage);
 
             var itemDirection = direction;
 
             if (spitCount > 1)
             {
-                var offset = Angle.FromDegrees(comp.SpitSpread * ((float) spat / (spitCount - 1) - 0.5f));
+                var offset = Angle.FromDegrees(ent.Comp.SpitSpread * ((float) spat / (spitCount - 1) - 0.5f));
                 itemDirection = offset.RotateVec(direction);
             }
 
-            _throwing.TryThrow(item, itemDirection, comp.SpitSpeed, uid);
+            _throwing.TryThrow(item, itemDirection, ent.Comp.SpitSpeed, ent.Owner);
 
             spat++;
         }
@@ -159,18 +141,17 @@ public sealed partial class SwallowerSystem : EntitySystem
         if (spat == 0)
             return;
 
-        _popup.PopupPredicted(Loc.GetString("swallower-spit"), Loc.GetString("swallower-spit-others", ("user", Identity.Entity(uid, EntityManager))), uid, uid);
+        _popup.PopupPredicted(Loc.GetString("swallower-spit"), Loc.GetString("swallower-spit-others", ("user", Identity.Entity(ent.Owner, EntityManager))), ent.Owner, ent.Owner);
 
-        _audio.PlayPredicted(comp.SpitSound, uid, uid);
+        _audio.PlayPredicted(ent.Comp.SpitSound, ent.Owner, ent.Owner);
 
         args.Handled = true;
     }
 
+    [SubscribeLocalEvent]
     private void OnGibbed(Entity<SwallowerComponent> ent, ref BeingGibbedEvent args)
     {
-        var (_, comp) = ent;
-
-        _container.EmptyContainer(comp.Stomach);
+        _container.EmptyContainer(ent.Comp.Stomach);
     }
 
     private bool IsSwallowable(SwallowerComponent comp, EntityUid target)

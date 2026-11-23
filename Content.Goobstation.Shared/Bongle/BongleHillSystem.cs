@@ -7,7 +7,7 @@ using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Container = Robust.Shared.Containers.Container; // i heart ambiguity errors
+using Container = Robust.Shared.Containers.Container; // i heart ambiguity errors, ambiguous reference between 'Robust.Shared.Containers.Container' and 'System.ComponentModel.Container'
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Bongle;
@@ -22,65 +22,78 @@ public sealed partial class BongleHillSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<BongleHillComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<BongleHillComponent, StepTriggeredOffEvent>(OnStepTriggered);
-        SubscribeLocalEvent<BongleHillComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
-        SubscribeLocalEvent<BongleHillComponent, DestructionEventArgs>(OnDestruction);
-    }
-
+    [SubscribeLocalEvent]
     private void OnStartup(Entity<BongleHillComponent> ent, ref ComponentStartup args)
     {
-        var (uid, comp) = ent;
-
-        comp.Container = _container.EnsureContainer<Container>(uid, comp.ContainerId);
+        ent.Comp.Container = _container.EnsureContainer<Container>(ent.Owner, ent.Comp.ContainerId);
     }
 
+    [SubscribeLocalEvent]
     private void OnStepTriggerAttempt(Entity<BongleHillComponent> ent, ref StepTriggerAttemptEvent args)
     {
         args.Continue = true;
     }
 
+    [SubscribeLocalEvent]
     private void OnStepTriggered(Entity<BongleHillComponent> ent, ref StepTriggeredOffEvent args)
     {
-        var (_, comp) = ent;
         var tripper = args.Tripper;
 
-        if (comp.IncapacitatedOnly && HasComp<MobStateComponent>(tripper) && !_mob.IsIncapacitated(tripper))
+        if (ent.Comp.IncapacitatedOnly && HasComp<MobStateComponent>(tripper) && !_mob.IsIncapacitated(tripper))
             return;
 
-        if (!_container.Insert(tripper, comp.Container))
+        if (!_container.Insert(tripper, ent.Comp.Container))
             return;
 
-        comp.Points += GetPoints(comp, tripper);
-        _audio.PlayPredicted(comp.SuckedInSound, ent, ent);
+        ent.Comp.Points += GetPoints(ent.Comp, tripper);
+        _audio.PlayPredicted(ent.Comp.SuckedInSound, ent, ent);
 
-        if (_mob.IsDead(tripper) && _whitelist.IsWhitelistPass(comp.TriumphWhitelist, tripper) && !_whitelist.IsWhitelistPass(comp.TriumphBlacklist, tripper))
+        if (_mob.IsDead(tripper) && _whitelist.IsWhitelistPass(ent.Comp.TriumphWhitelist, tripper) && !_whitelist.IsWhitelistPass(ent.Comp.TriumphBlacklist, tripper))
         {
-            comp.Corpses++;
+            ent.Comp.BingleCorpses++;
 
-            if (comp.Corpses >= comp.CorpsesForTriumph)
+            if (ent.Comp.BingleCorpses >= ent.Comp.CorpsesForTriumph)
             {
-                comp.Corpses -= comp.CorpsesForTriumph;
-                _bongle.BoostBongles(comp.CapacityIncrease, comp.SpitIncrease);
+                ent.Comp.BingleCorpses -= ent.Comp.CorpsesForTriumph;
+                _bongle.BoostBongles(ent.Comp.CapacityIncrease, ent.Comp.SpitIncrease);
             }
         }
 
-        if (comp.Points < comp.PointsToSpread)
+        if (ent.Comp.Points < ent.Comp.PointsToSpread)
             return;
 
-        comp.Points -= comp.PointsToSpread;
+        ent.Comp.Points -= ent.Comp.PointsToSpread;
         Spread(ent);
     }
 
+    [SubscribeLocalEvent]
     private void OnDestruction(Entity<BongleHillComponent> ent, ref DestructionEventArgs args)
     {
-        var (_, comp) = ent;
+        _container.EmptyContainer(ent.Comp.Container);
+    }
 
-        _container.EmptyContainer(comp.Container);
+    [SubscribeLocalEvent]
+    private void Spread(Entity<BongleHillComponent> ent)
+    {
+        var coords = Transform(ent.Owner).Coordinates.Offset(_random.NextVector2(ent.Comp.SpreadMinRange, ent.Comp.SpreadMaxRange));
+        PredictedSpawnAtPosition(ent.Comp.HillProto, coords);
+
+        var hillCount = 0;
+        var query = EntityQueryEnumerator<BongleHillComponent>();
+        while (query.MoveNext(out _, out _))
+        {
+            hillCount++;
+        }
+
+        _bongle.UpgradeBongles();
+
+        if (hillCount == ent.Comp.AscensionHillCount)
+        {
+            _bongle.AscendBongles();
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("heretic-ascension-bongle"), Name(ent.Owner), true, ent.Comp.AscensionSound, ent.Comp.AnnouncementColor);
+        }
+
+        PredictedSpawnAtPosition(ent.Comp.BongleProto, coords);
     }
 
     private int GetPoints(BongleHillComponent comp, EntityUid target)
@@ -92,30 +105,5 @@ public sealed partial class BongleHillSystem : EntitySystem
         }
 
         return comp.DefaultPoints;
-    }
-
-    private void Spread(Entity<BongleHillComponent> ent)
-    {
-        var (uid, comp) = ent;
-
-        var coords = Transform(uid).Coordinates.Offset(_random.NextVector2(comp.SpreadMinRange, comp.SpreadMaxRange));
-        PredictedSpawnAtPosition(comp.HillProto, coords);
-
-        var hillCount = 0;
-        var query = EntityQueryEnumerator<BongleHillComponent>();
-        while (query.MoveNext(out _, out _))
-        {
-            hillCount++;
-        }
-
-        _bongle.UpgradeBongles();
-
-        if (hillCount == comp.AscensionHillCount)
-        {
-            _bongle.AscendBongles();
-            _chat.DispatchGlobalAnnouncement(Loc.GetString("heretic-ascension-bongle"), Name(uid), true, comp.AscensionSound, comp.AnnouncementColor);
-        }
-
-        PredictedSpawnAtPosition(comp.BongleProto, coords);
     }
 }

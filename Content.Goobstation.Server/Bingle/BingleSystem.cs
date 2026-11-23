@@ -155,7 +155,9 @@ public sealed partial class BingleSystem : EntitySystem
     {
         //Prevent Friendly Bingle fire, and also allows bongles and bingles to fight
         // that's a lotta checks
-        if ((HasComp<BinglePitComponent>(args.Target) && !HasComp<BongleComponent>(uid)) || (HasComp<BingleComponent>(args.Target) && HasComp<BongleComponent>(args.Target) == HasComp<BongleComponent>(uid)))
+        if ((HasComp<BinglePitComponent>(args.Target) && !HasComp<BongleComponent>(uid)) // Only bongles can attack bingle pits
+            || (HasComp<BingleComponent>(args.Target) && // newline or else comment too big
+            HasComp<BongleComponent>(args.Target) == HasComp<BongleComponent>(uid))) // prevent friendly fire between bingles, and friendly fire between bongles
             args.Cancel();
     }
 

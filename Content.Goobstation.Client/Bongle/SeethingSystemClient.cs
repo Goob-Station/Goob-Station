@@ -17,13 +17,9 @@ public sealed partial class SeethingSystem : EntitySystem
         base.Initialize();
 
         _overlay = new SeethingOverlay();
-
-        SubscribeLocalEvent<SeethingComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<SeethingComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<SeethingComponent, LocalPlayerAttachedEvent>(OnAttached);
-        SubscribeLocalEvent<SeethingComponent, LocalPlayerDetachedEvent>(OnDetached);
     }
 
+    [SubscribeLocalEvent]
     private void OnStartup(Entity<SeethingComponent> ent, ref ComponentStartup args)
     {
         var (uid, _) = ent;
@@ -34,6 +30,7 @@ public sealed partial class SeethingSystem : EntitySystem
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnShutdown(Entity<SeethingComponent> ent, ref ComponentShutdown args)
     {
         var (uid, _) = ent;
@@ -44,11 +41,13 @@ public sealed partial class SeethingSystem : EntitySystem
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnAttached(Entity<SeethingComponent> ent, ref LocalPlayerAttachedEvent args)
     {
         AddOverlay();
     }
 
+    [SubscribeLocalEvent]
     private void OnDetached(Entity<SeethingComponent> ent, ref LocalPlayerDetachedEvent args)
     {
         RemoveOverlay();

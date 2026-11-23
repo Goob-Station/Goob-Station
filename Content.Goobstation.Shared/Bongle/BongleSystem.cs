@@ -3,7 +3,6 @@ using Content.Goobstation.Shared.Bongle;
 using Content.Shared.Actions.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Polymorph;
-using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -15,28 +14,18 @@ public sealed partial class BongleSystem : EntitySystem
 {
     [Dependency] private MobStateSystem _mob = default!;
     [Dependency] private SharedContainerSystem _container = default!;
-    [Dependency] private SharedPopupSystem _popup = default!;
 
     private readonly List<Entity<BongleComponent>> _bongles = new();
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<BongleComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<BongleComponent, PolymorphedEvent>(OnPolymorphed);
-    }
-
+    [SubscribeLocalEvent]
     private void OnMapInit(Entity<BongleComponent> ent, ref MapInitEvent args)
     {
-        var (uid, comp) = ent;
-
-        if (!comp.Prime || comp.HillProto is not { } hillProto)
+        if (!ent.Comp.Prime || ent.Comp.HillProto is not { } hillProto)
             return;
 
-        var coords = Transform(uid).Coordinates;
+        var coords = Transform(ent.Owner).Coordinates;
 
-        if (!coords.IsValid(EntityManager) || coords.Position == Vector2.Zero || Transform(uid).MapID == MapId.Nullspace) // Let's see if this fixes the test fail
+        if (!coords.IsValid(EntityManager) || coords.Position == Vector2.Zero || Transform(ent.Owner).MapID == MapId.Nullspace) // Let's see if this fixes the test fail
             return;
 
         PredictedSpawnAtPosition(hillProto, coords);
@@ -104,6 +93,7 @@ public sealed partial class BongleSystem : EntitySystem
     }
 
     // so they don't lose theys shit when polymorphin yo
+    [SubscribeLocalEvent]
     private void OnPolymorphed(Entity<BongleComponent> ent, ref PolymorphedEvent args)
     {
         if (args.IsRevert || !TryComp<SwallowerComponent>(args.OldEntity, out var oldSwallower) || !TryComp<SwallowerComponent>(args.NewEntity, out var newSwallower))
