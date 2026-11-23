@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Goobstation.Common.Stunnable;
 using Content.Goobstation.Shared.ModSuits.Components;
 using Content.Goobstation.Shared.ModSuits.Systems;
 using Content.Shared._Goobstation.Wizard.Projectiles;
@@ -7,6 +8,9 @@ using Content.Shared._Lavaland.Mobs;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Ensnaring;
+using Content.Shared.Ensnaring.Components;
 using Content.Shared.Explosion;
 using Content.Shared.Gravity;
 using Content.Shared.Hands;
@@ -76,6 +80,13 @@ public sealed partial class ModSphereTransformModuleSystem : EntitySystem
         {
             args.Cancelled = true;
             args.Reason = "modsuit-sphere-buckled";
+            return;
+        }
+
+        if (IsEnsnared(user))
+        {
+            args.Cancelled = true;
+            args.Reason = "modsuit-sphere-ensnared";
         }
     }
 
@@ -271,7 +282,40 @@ public sealed partial class ModSphereTransformModuleSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnKnockdownAttempt(Entity<ModSphereFormComponent> ent, ref KnockDownAttemptEvent args)
     {
+        if (IsStaminaCrit(ent))
+        {
+            Deactivate(ent);
+            return;
+        }
+
         args.Cancelled = true;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnEnsnaredChanged(EntityUid uid, ModSphereFormComponent comp, EnsnaredChangedEvent args)
+    {
+        if (args.IsEnsnared)
+            Deactivate((uid, comp));
+    }
+
+    private bool IsEnsnared(EntityUid uid)
+    {
+        return TryComp<EnsnareableComponent>(uid, out var ensnareable) && ensnareable.IsEnsnared;
+    }
+
+    private bool IsStaminaCrit(EntityUid uid)
+    {
+        if (!TryComp<StaminaComponent>(uid, out var stamina))
+            return false;
+
+        if (stamina.Critical)
+            return true;
+
+        var threshold = stamina.CritThreshold;
+        if (TryComp<StamcritResistComponent>(uid, out var resist))
+            threshold *= resist.Multiplier;
+
+        return stamina.StaminaDamage >= threshold;
     }
 
     [SubscribeLocalEvent]
@@ -360,7 +404,9 @@ public sealed partial class ModSphereTransformModuleSystem : EntitySystem
         {
             if (_gravity.IsWeightless(uid)
                 || TryComp<BuckleComponent>(uid, out var buckle) && buckle.Buckled
-                || _mobState.IsIncapacitated(uid))
+                || _mobState.IsIncapacitated(uid)
+                || IsStaminaCrit(uid)
+                || IsEnsnared(uid))
                 _toDeactivate.Add((uid, form));
         }
 

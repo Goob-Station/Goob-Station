@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Content.Goobstation.Maths.FixedPoint; // Goobstation
 using Content.Goobstation.Common.Chemistry;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.Chemistry;
 

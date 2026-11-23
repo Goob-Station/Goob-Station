@@ -1,11 +1,15 @@
+using System.Linq;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Server.StationEvents.Metric;
 using Content.Server.Administration.Logs;
+using Content.Server.Antag;
 using Content.Server.Chat.Managers;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
 using Content.Server.StationEvents;
+using Content.Server.StationEvents.Components;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
 using Content.Shared.GameTicking;
@@ -39,6 +43,8 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
     {
         base.Initialize();
         Subs.CVar(_configManager, GoobCVars.GameDirectorDebugPlayerCount, x => _gameDirectorDebugPlayerCount = x, true);
+        SubscribeLocalEvent<RulePlayerSpawningEvent>(OnRulePlayerSpawning, before: new[] { typeof(AntagSelectionSystem) });
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
     }
 
     [SubscribeLocalEvent]
@@ -55,11 +61,23 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
         if (scheduler.LastHelp != TimeSpan.Zero)
             scheduler.LastHelp += args.PausedTime;
 
-        for (var i = 0; i < scheduler.FiredEvents.Count; i++)
-        {
-            var fired = scheduler.FiredEvents[i];
-            scheduler.FiredEvents[i] = fired with { Time = fired.Time + args.PausedTime };
-        }
+        if (scheduler.RelaxUntil != TimeSpan.Zero)
+            scheduler.RelaxUntil += args.PausedTime;
+
+        if (scheduler.OverwhelmedSince != TimeSpan.Zero)
+            scheduler.OverwhelmedSince += args.PausedTime;
+
+        if (scheduler.LastArmedResponse != TimeSpan.Zero)
+            scheduler.LastArmedResponse += args.PausedTime;
+
+        foreach (var department in scheduler.LastSpotlight.Keys.ToList())
+            scheduler.LastSpotlight[department] += args.PausedTime;
+
+        foreach (var purchase in scheduler.Purchases)
+            purchase.Time += args.PausedTime;
+
+        foreach (var fired in scheduler.FiredEvents)
+            fired.Time += args.PausedTime;
     }
 
     [SubscribeLocalEvent]
@@ -72,7 +90,15 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
     {
         Log.Info($"Game Director Spawned at {uid}");
         ResetMetrics();
-        TrySpawnRoundstartAntags(scheduler);
+        scheduler.Purchases.Clear();
+
+        var connected = GetPlayerCount();
+        LogMessage($"Total player count: {connected}", false);
+        if (!TryStartNewStory((uid, scheduler), connected, null))
+            return;
+
+        if (GameTicker.RunLevel == GameRunLevel.PreRoundLobby)
+            PlanRoundstart(scheduler, _prototypeManager.Index(scheduler.CurrentStoryName), EstimateRoundstartPlayers(connected));
     }
 
     protected override void Ended(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleEndedEvent args)
@@ -86,7 +112,7 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
         if (currTime < scheduler.TimeNextEvent)
             return;
 
-        if (scheduler.Stories is not { Length: > 0 })
+        if (scheduler.Stories.Count == 0)
         {
             GameTicker.EndGameRule(uid, gameRule);
             return;
@@ -110,18 +136,34 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
             var minimumTimeUntilFirstEvent = _configManager.GetCVar(GoobCVars.MinimumTimeUntilFirstEvent) / _event.EventSpeedup;
             scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(minimumTimeUntilFirstEvent);
             scheduler.LastBudgetUpdate = currTime;
+            foreach (var department in scheduler.SpotlightDepartments.Values)
+                scheduler.LastSpotlight[department] = currTime;
+
             LogMessage($"Started, first event in {minimumTimeUntilFirstEvent} seconds");
             return;
         }
 
         RegenerateDestructionBudget(scheduler, currTime);
+        LogEventEffects(scheduler, chaos, currTime);
+        CleanupSpawners(scheduler, currTime, false);
 
         var pending = CalculatePendingChaos(scheduler, currTime);
         var effective = chaos + pending;
         var goal = EffectiveGoal(scheduler, beat, count);
         UpdateChaosMetrics(chaos, pending, goal, scheduler.DestructionBudget);
 
-        var chosenEvent = ChooseEvent(ent, beat, goal, effective, count);
+        var relaxing = UpdateRelax(scheduler, chaos, count, currTime);
+        var threat = MeasureThreat(scheduler, beat, count, currTime);
+        UpdateThreatMetrics(threat);
+
+        if (TryArmedResponse(ent, beat, chaos, count, currTime)
+            || !relaxing && TryPurchaseThreat(ent, beat, count, threat, currTime))
+        {
+            ScheduleNextEvent(scheduler, beat, count, currTime);
+            return;
+        }
+
+        var chosenEvent = ChooseEvent(ent, beat, goal, effective, count, relaxing);
         if (chosenEvent == null)
         {
             LogMessage($"No events ran (chaos {effective})", false);
@@ -129,21 +171,54 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
             return;
         }
 
-        RunEvent(ent, beat, chosenEvent, currTime);
-        scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(_random.NextFloat(beat.EventDelayMin, beat.EventDelayMax) / _event.EventSpeedup);
+        RunEvent(ent, beat, chosenEvent, chaos, currTime);
+        ScheduleNextEvent(scheduler, beat, count, currTime);
     }
 
-    private void RunEvent(Entity<GameDirectorComponent> ent, StoryBeatPrototype beat, PossibleEvent chosen, TimeSpan currTime)
+    private void ScheduleNextEvent(GameDirectorComponent scheduler, StoryBeatPrototype beat, PlayerCount count, TimeSpan currTime)
+    {
+        var delay = _random.NextFloat(beat.EventDelayMin, beat.EventDelayMax) * LowPopDelayScale(scheduler, count);
+        scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(delay / _event.EventSpeedup);
+    }
+
+    private static float LowPopDelayScale(GameDirectorComponent scheduler, PlayerCount count)
+    {
+        if (count.Players >= scheduler.LowPopPlayers)
+            return 1f;
+
+        return MathF.Min(scheduler.MaxLowPopDelayScale, MathF.Sqrt((float) scheduler.LowPopPlayers / Math.Max(1, count.Players)));
+    }
+
+    private void RunEvent(Entity<GameDirectorComponent> ent, StoryBeatPrototype beat, PossibleEvent chosen, ChaosMetrics chaos, TimeSpan currTime)
     {
         var scheduler = ent.Comp;
-        _event.RunNamedEvent(chosen.StationEvent);
+        var rule = GameTicker.AddGameRule(chosen.StationEvent);
 
-        scheduler.FiredEvents.Add(new FiredEvent(chosen.StationEvent, currTime, chosen.Chaos));
+        scheduler.FiredEvents.Add(new FiredEvent
+        {
+            Event = chosen.StationEvent,
+            Rule = rule,
+            Time = currTime,
+            Chaos = chosen.Chaos,
+            Before = new ChaosMetrics(chaos),
+        });
+
         if (IsHelpEvent(chosen))
             scheduler.LastHelp = currTime;
+
+        MarkSpotlight(scheduler, chosen.Chaos, currTime);
         scheduler.DestructionBudget = MathF.Max(0f, scheduler.DestructionBudget - chosen.Destruction);
         EventsRunTotal.WithLabels(chosen.StationEvent, beat.ID).Inc();
         DestructionBudgetGauge.Set(scheduler.DestructionBudget);
+    }
+
+    private void MarkSpotlight(GameDirectorComponent scheduler, ChaosMetrics chaos, TimeSpan currTime)
+    {
+        foreach (var (metric, value) in chaos.ChaosDict)
+        {
+            if (value > 0 && scheduler.SpotlightDepartments.TryGetValue(metric, out var department))
+                scheduler.LastSpotlight[department] = currTime;
+        }
     }
 
     private void RegenerateDestructionBudget(GameDirectorComponent scheduler, TimeSpan currTime)
@@ -156,14 +231,13 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
 
     private ChaosMetrics CalculatePendingChaos(GameDirectorComponent scheduler, TimeSpan currTime)
     {
-        var keep = scheduler.PendingDuration > scheduler.RepeatWindow ? scheduler.PendingDuration : scheduler.RepeatWindow;
+        var keep = new[] { scheduler.PendingDuration, scheduler.RepeatWindow, scheduler.EffectDelay, MaxGroupWindow() }.Max();
         scheduler.FiredEvents.RemoveAll(fired => (currTime - fired.Time) * _event.EventSpeedup > keep);
 
         var pending = new ChaosMetrics();
         foreach (var fired in scheduler.FiredEvents)
         {
-            var age = (currTime - fired.Time) * _event.EventSpeedup;
-            var remaining = 1.0 - age / scheduler.PendingDuration;
+            var remaining = PendingFraction(scheduler, fired, currTime);
             if (remaining <= 0)
                 continue;
 
@@ -172,6 +246,47 @@ public sealed partial class GameDirectorSystem : GameRuleSystem<GameDirectorComp
         }
 
         return pending;
+    }
+
+    private double PendingFraction(GameDirectorComponent scheduler, FiredEvent fired, TimeSpan currTime)
+    {
+        var age = (currTime - fired.Time) * _event.EventSpeedup;
+        if (age >= scheduler.PendingDuration)
+            return 0;
+
+        if (fired.Rule is not { } rule
+            || TerminatingOrDeleted(rule)
+            || !TryComp<StationEventComponent>(rule, out var stationEvent))
+            return 1.0 - age / scheduler.PendingDuration;
+
+        if (HasComp<DelayedStartRuleComponent>(rule) || stationEvent.EndTime is not { } end || currTime < end)
+            return 1.0;
+
+        return Math.Max(0.0, 1.0 - (currTime - end) * _event.EventSpeedup / scheduler.SettleTime);
+    }
+
+    private void LogEventEffects(GameDirectorComponent scheduler, ChaosMetrics chaos, TimeSpan currTime)
+    {
+        foreach (var fired in scheduler.FiredEvents)
+        {
+            var age = (currTime - fired.Time) * _event.EventSpeedup;
+            if (fired.EffectLogged || age < scheduler.EffectDelay)
+                continue;
+
+            fired.EffectLogged = true;
+            var changes = new List<string>();
+            foreach (var (metric, value) in chaos.ChaosDict)
+            {
+                if (metric is ChaosMetric.Friend or ChaosMetric.Combat)
+                    continue;
+
+                var change = value - fired.Before.ChaosDict.GetValueOrDefault(metric);
+                if (Math.Abs(change) >= 1 || fired.Chaos.ChaosDict.ContainsKey(metric))
+                    changes.Add($"{metric} {change:+0;-0;0}");
+            }
+
+            LogMessage($"Effect of {fired.Event} after {age.TotalMinutes:F0}m: {string.Join(", ", changes)} (declared {fired.Chaos})", false);
+        }
     }
 
     private void LogMessage(string message, bool showChat = true)
