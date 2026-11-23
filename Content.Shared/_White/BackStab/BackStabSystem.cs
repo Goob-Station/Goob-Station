@@ -11,7 +11,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using GoobVector = Content.Goobstation.Maths.Vectors;
 
 namespace Content.Shared._White.BackStab;
 
@@ -69,11 +68,13 @@ public sealed class BackStabSystem : EntitySystem
 
         var xform = Transform(target);
         var userXform = Transform(user);
-        var v1 = -_transform.GetWorldRotation(xform).ToWorldVec();
-        var v2 = _transform.GetWorldPosition(userXform) - _transform.GetWorldPosition(xform);
-        var angle = GoobVector.GoobVector3.CalculateAngle(new GoobVector.GoobVector3(v1), new GoobVector.GoobVector3(v2));
+        var a1 = (_transform.GetWorldRotation(xform) + MathHelper.PiOver2).Reduced();
+        var a2 = new Angle(_transform.GetWorldPosition(userXform) - _transform.GetWorldPosition(xform));
+        // when you are facing the same direction as the target (their back is turned)
+        // angle is close to 0, when you are facing eachother the angle is close to 180
+        var angle = new Angle(Math.Abs(a1.Theta - a2.Theta));
 
-        if (angle > tolerance.Theta)
+        if (angle > tolerance)
             return false;
 
         BackstabEffects(target, showPopup, playSound);

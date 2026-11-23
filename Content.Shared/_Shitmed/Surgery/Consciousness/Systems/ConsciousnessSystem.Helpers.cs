@@ -2,7 +2,7 @@
 using System.Linq;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;

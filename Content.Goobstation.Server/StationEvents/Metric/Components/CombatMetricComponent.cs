@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
@@ -30,13 +30,13 @@ public sealed partial class CombatMetricComponent : Component
     ///   Cost per point of medical damage for friendly entities
     /// </summary>
     [DataField]
-    public double MedicalMultiplier = 0.05f;
+    public double MedicalMultiplier = 0.2f;
 
     /// <summary>
     ///   Cost for friendlies who are in crit
     /// </summary>
     [DataField]
-    public double CritScore = 10.0f;
+    public double CritScore = 40.0f;
 
     /// <summary>
     ///   Cost for friendlies who are dead

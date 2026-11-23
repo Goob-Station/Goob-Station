@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Alert;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -64,6 +64,18 @@ public sealed partial class SlasherFearComponent : Component
     /// </summary>
     [DataField]
     public float JumpscareFear = 0.2f;
+
+    [DataField]
+    public float AscendedJumpscareFearBonus = 0.4f;
+
+    /// <summary>
+    /// How much less damage a victim deals to the slasher at full fear (0-1).
+    /// </summary>
+    [DataField]
+    public float MaxVictimDamageReduction = 0.3f;
+
+    [ViewVariables, AutoNetworkedField]
+    public bool HasAscended;
 
     /// <summary>
     /// Movement speed bonus granted to the Slasher at full meter.

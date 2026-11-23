@@ -18,6 +18,13 @@
     - ClockworkSet
     - BibleVedaSet
     - VelesBookSet
+    - BibleDruidSet
+    - BibleCommunistSet
+    - BibleSatanicSet
+    - BibleNarsieSet
+    - BibleNanoTrasenSet
+    - BibleHonkSet
+    - BibleRatvarSet
     maxSelectedSets: 1
 
 - type: selectableSet
@@ -79,6 +86,76 @@
     state: icon
   content:
   - BibleVelesBook
+
+- type: selectableSet
+  id: BibleDruidSet
+  name: "Druidical tablet"
+  description: "It's the mystery of the druids!"
+  sprite:
+    sprite: Objects/Specific/Chapel/mysteryofthedruids.rsi
+    state: icon
+  content:
+  - BibleDruid
+
+- type: selectableSet
+  id: BibleCommunistSet
+  name: "Communist Manifesto"
+  description: "Remove the mask of humanity from Capital."
+  sprite:
+    sprite: Objects/Specific/Chapel/communistmanifesto.rsi
+    state: icon
+  content:
+  - BibleCommunistManifesto
+
+- type: selectableSet
+  id: BibleSatanicSet
+  name: "Satanic Bible"
+  description: "What could possibly go wrong?"
+  sprite:
+    sprite: Objects/Specific/Chapel/satanicbible.rsi
+    state: icon
+  content:
+  - BibleSatanic
+
+- type: selectableSet
+  id: BibleNarsieSet
+  name: "Tome of Nar'sie"
+  description: "What could possibly go wrong with a book covered in blood?"
+  sprite:
+    sprite: Objects/Specific/Chapel/tomeofnarsie.rsi
+    state: icon
+  content:
+  - BibleNarsie
+
+- type: selectableSet
+  id: BibleNanoTrasenSet
+  name: "Codex Nanotrasimus"
+  description: "A familiar book containing the Sacred Operating Procedures."
+  sprite:
+    sprite: Objects/Specific/Chapel/codexnanotrasimus.rsi
+    state: icon
+  content:
+  - BibleNanoTrasen
+
+- type: selectableSet
+  id: BibleHonkSet
+  name: Mirth of The Honkmother
+  description: "Oh great and glorious Mother, Mistress of Mirth, Matron of Mask and Merriments, Blessed is she amongst us jesters."
+  sprite:
+    sprite: Objects/Specific/Chapel/honk.rsi
+    state: icon
+  content:
+  - BibleHonk
+
+- type: selectableSet
+  id: BibleRatvarSet
+  name: Tablet of Ratvar
+  description: "A holy relic of the Clockwork Cult, blessed by the Clockwork Justice, Ratvar."
+  sprite:
+    sprite: Objects/Specific/Chapel/ratvartablet.rsi
+    state: icon
+  content:
+  - BibleRatvar
 ##END SET SELECTION
 
 - type: entity
