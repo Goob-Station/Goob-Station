@@ -10,7 +10,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Goobstation.Maths.Vectors;
 
 namespace Content.Client._DV.CosmicCult.Visuals;
 
