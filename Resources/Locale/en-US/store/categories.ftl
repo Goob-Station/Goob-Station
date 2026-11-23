@@ -32,6 +32,8 @@ store-category-wearables = Wearables
 store-category-contractor = Contractor
 store-category-pointless = Pointless
 store-discounted-items = Discounts
+# Goobstation
+store-category-modsuit = MODsuits
 
 # Revenant
 store-category-abilities = Abilities

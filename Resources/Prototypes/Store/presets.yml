@@ -16,6 +16,7 @@
     - UplinkImplants
     - UplinkAllies
     - UplinkWearables
+    - UplinkModsuitModule # Goobstation
     - UplinkJob
     - UplinkPointless
     currencyWhitelist:
@@ -73,6 +74,7 @@
     - UplinkImplants
     - UplinkAllies
     - UplinkWearables
+    - UplinkModsuitModule # Goobstation
     - UplinkJob
     - UplinkPointless
     currencyWhitelist:
