@@ -1,3 +1,156 @@
+- type: entityEffect
+  id: BluespaceStormLavalandExplosion
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: Explosion
+
+- type: entityEffect
+  id: BluespaceStormLavalandFireballs
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: ProjectileBurst
+    prototypes:
+    - ProjectileDragonsBreath
+    minCount: 2
+    maxCount: 5
+    shootProjectiles: true
+
+- type: entityEffect
+  id: BluespaceStormLavalandMaterials
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: SpawnEntities
+    prototypes:
+    - Ash
+    - SteelOre
+    - OreQuartz
+    - OreCoal
+    minCount: 2
+    maxCount: 7
+    applyImpulse: true
+
+- type: entityEffect
+  id: BluespaceStormLavalandIgnite
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: IgniteNearby
+
+- type: entityEffect
+  id: BluespaceStormLavalandImpulse
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: ImpulseNearby
+
+- type: entityEffect
+  id: BluespaceStormPlantLasers
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: ProjectileBurst
+    prototypes:
+    - BulletLaser
+    minCount: 3
+    maxCount: 4
+
+- type: entityEffect
+  id: BluespaceStormPlantAngryFlowers
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: SpawnEntitiesAround
+    prototypes:
+    - KudzuFlowerAngry
+    minCount: 2
+    maxCount: 3
+    radius: 10
+
+- type: entityEffect
+  id: BluespaceStormPlantTrees
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: SpawnEntitiesAround
+    prototypes:
+    - FloraTree
+    minCount: 2
+    maxCount: 3
+    radius: 20
+
+- type: entityEffect
+  id: BluespaceStormFleshBlood
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: SpillReagent
+    reagent: Blood
+    amount: 300
+
+- type: entityEffect
+  id: BluespaceStormFleshMeat
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: SpawnEntities
+    prototypes:
+    - FoodMeatGoliath
+    - FoodMeatRat
+    - FoodMeatDragon
+    - FoodMeatHuman
+    - FoodMeatCorgi
+    - FoodMeatRotten
+    minCount: 5
+    maxCount: 6
+    applyImpulse: true
+
+- type: entityEffect
+  id: BluespaceStormFleshKudzu
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: SpawnEntities
+    prototypes:
+    - FleshKudzu
+
+- type: entityEffect
+  id: BluespaceStormFleshFloor
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: ReplaceTiles
+
+- type: entityEffect
+  id: BluespaceStormSlimePuddle
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: SpillReagent
+    reagent: Slime
+    amount: 300
+
+- type: entityEffect
+  id: BluespaceStormSlimeSyringes
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: SpawnEntities
+    prototypes:
+    - SyringeHeroin
+    - SyringePoisonFent
+    - SyringeEphedrine
+    - SyringeIpecac
+    - SyringeTramadol
+    minCount: 4
+    maxCount: 5
+    applyImpulse: true
+
+- type: entityEffect
+  id: BluespaceStormSlimeCorpse
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: SpawnEntities
+    prototypes:
+    - SalvageHumanCorpse
+    applyImpulse: true
+
+- type: entityEffect
+  id: BluespaceStormSlimeAmmonia
+  effects:
+  - !type:BluespaceStormPortalPulseEffect
+    type: AddGas
+    gas: Ammonia
+    amount: 400
+
 - type: entity
   id: LavalandBluespacePortal
   name: lavaland bluespace portal
@@ -14,12 +167,22 @@
     bodyType: Static
     canCollide: false
   - type: BluespaceStormPortal
-    portalType: LavalandBluespacePortal
     mobSpawnPool:
     - PortalGoliath
     - PortalWatcherBase
     - PortalLegion
     mobSpawnCount: 6
+    pulseEffects:
+    - weight: 11
+      effect: BluespaceStormLavalandExplosion
+    - weight: 30
+      effect: BluespaceStormLavalandFireballs
+    - weight: 20
+      effect: BluespaceStormLavalandMaterials
+    - weight: 20
+      effect: BluespaceStormLavalandIgnite
+    - weight: 20
+      effect: BluespaceStormLavalandImpulse
   - type: RequireProjectileTarget
   - type: AmbientSound
     volume: 2
@@ -46,13 +209,19 @@
     bodyType: Static
     canCollide: false
   - type: BluespaceStormPortal
-    portalType: PlantBluespacePortal
     mobSpawnPool:
     - PortalLivingLight
     - PortalLuminousObject
     - PortalAngryBee
     - PortalTomatoKiller
     mobSpawnCount: 8
+    pulseEffects:
+    - weight: 40
+      effect: BluespaceStormPlantLasers
+    - weight: 11
+      effect: BluespaceStormPlantAngryFlowers
+    - weight: 50
+      effect: BluespaceStormPlantTrees
   - type: RequireProjectileTarget
   - type: AmbientSound
     volume: 2
@@ -79,13 +248,21 @@
     bodyType: Static
     canCollide: false
   - type: BluespaceStormPortal
-    portalType: FleshBluespacePortal
     mobSpawnPool:
     - PortalRotHulk
     - PortalFleshGolemSalvage
     - PortalFleshLoverSalvage
     - PortalFleshJaredSalvage
     mobSpawnCount: 7
+    pulseEffects:
+    - weight: 20
+      effect: BluespaceStormFleshBlood
+    - weight: 20
+      effect: BluespaceStormFleshMeat
+    - weight: 10
+      effect: BluespaceStormFleshKudzu
+    - weight: 51
+      effect: BluespaceStormFleshFloor
   - type: RequireProjectileTarget
   - type: AmbientSound
     volume: 2
@@ -112,7 +289,6 @@
     bodyType: Static
     canCollide: false
   - type: BluespaceStormPortal
-    portalType: SlimeBluespacePortal
     mobSpawnPool:
     - PortalPlagueRatMedium
     - PortalPlagueRatSmall
@@ -120,6 +296,15 @@
     - PortalAncientLegsWraith
     - PortalGunbot
     mobSpawnCount: 8
+    pulseEffects:
+    - weight: 20
+      effect: BluespaceStormSlimePuddle
+    - weight: 20
+      effect: BluespaceStormSlimeSyringes
+    - weight: 20
+      effect: BluespaceStormSlimeCorpse
+    - weight: 41
+      effect: BluespaceStormSlimeAmmonia
   - type: RequireProjectileTarget
   - type: AmbientSound
     volume: 2

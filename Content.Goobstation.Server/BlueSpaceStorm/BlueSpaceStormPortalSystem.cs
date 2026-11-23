@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Goobstation.Common.BluespaceStorm;
 using Content.Server.Chat.Systems;
-using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -11,20 +10,13 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
-using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Throwing;
-using Content.Server.Atmos.EntitySystems;
 using Content.Server.GameTicking;
-using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Atmos.Components;
-using Content.Shared.Atmos;
-using Content.Shared.Physics;
-using Robust.Shared.Physics.Components;
-using Content.Shared.Chemistry.Components;
 using System.Numerics;
 using System.Linq;
 using Robust.Server.GameObjects;
+using Content.Shared.EntityEffects;
 
 namespace Content.Goobstation.Server.BluespaceStorm;
 
@@ -38,18 +30,9 @@ public sealed partial class BluespaceStormSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ITileDefinitionManager _tiledef = default!;
     [Dependency] private TileSystem _tile = default!;
-    [Dependency] private ExplosionSystem _explosionSystem = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
-    [Dependency] private PhysicsSystem _physics = default!;
-    [Dependency] private FlammableSystem _flammable = default!;
-    [Dependency] private EntityLookupSystem _lookup = default!;
-    [Dependency] private AtmosphereSystem _atmos = default!;
-    [Dependency] private PuddleSystem _puddle = default!;
     [Dependency] private GameTicker _gameTicker = default!;
-    [Dependency] private GunSystem _gun = default!;
-
-    private HashSet<EntityUid> _entities = new(); 
-    private EntityQuery<PhysicsComponent> _physQuery; 
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
 
     public override void Initialize()
     {
@@ -59,7 +42,6 @@ public sealed partial class BluespaceStormSystem : EntitySystem
         SubscribeLocalEvent<BluespaceStormPortalComponent, ComponentStartup>(OnInit);
         SubscribeLocalEvent<BluespaceStormPortalComponent, PortalMobsAllDeathEvent>(OnMobDeath);
         SubscribeLocalEvent<BluespaceStormPortalComponent, PortalMobSpawnEvent>(OnMobSpawn);
-        _physQuery = GetEntityQuery<PhysicsComponent>();
 
     }
 
@@ -117,207 +99,24 @@ public sealed partial class BluespaceStormSystem : EntitySystem
 
     private void OnPortalPulse(Entity<BluespaceStormPortalComponent> portalEnt, ref PortalPulseEvent args)
     {
-        var uid = portalEnt.Owner;
         var component = portalEnt.Comp;
-        var origin = _transform.GetMapCoordinates(uid);
-        var rollResult = 100;
-        rollResult = _random.Next(0, 101);
-        switch (component.PortalType)
+        var totalWeight = 0;
+        foreach (var option in component.PulseEffects)
+            totalWeight += option.Weight;
+
+        if (totalWeight <= 0)
+            return;
+
+        var roll = _random.Next(0, totalWeight);
+        foreach (var option in component.PulseEffects)
         {
-            case "LavalandBluespacePortal":
-                if (rollResult < 11)
-                {
-                    _explosionSystem.QueueExplosion(uid, "ExplosionAirtightGrid", 8, 3, 4, 0, 0);
-                }
-                if (rollResult > 10 && rollResult < 41)
-                {
-                    for (int i = 0; i < _random.Next(2, 5); i++)
-                    {
-                        var angle = _random.NextAngle();
-                        var fireball = Spawn("ProjectileDragonsBreath", origin);
-                        _gun.ShootProjectile(fireball, angle.ToVec(), Vector2.Zero, uid, speed: 5f);
-                    }
+            if (roll < option.Weight)
+            {
+                _effects.TryApplyEffect(portalEnt, new ProtoId<EntityEffectPrototype>(option.Effect));
+                return;
+            }
 
-                }
-                if (rollResult > 40 && rollResult < 61)
-                {
-                    for (int i = 0; i < _random.Next(2, 7); i++)
-                    {
-                        EntityUid spawnedMaterial = new();
-                        switch (_random.Next(0, 4))
-                        {
-                            case 0:
-                                spawnedMaterial = Spawn("Ash", origin);
-                                break;
-                            case 1:
-                                spawnedMaterial = Spawn("SteelOre", origin);
-                                break;
-                            case 2:
-                                spawnedMaterial = Spawn("OreQuartz", origin);
-                                break;
-                            case 3:
-                                spawnedMaterial = Spawn("OreCoal", origin);
-                                break;
-                        }
-                        _physics.ApplyLinearImpulse(spawnedMaterial, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
-
-                    }
-                }
-                if (rollResult > 60 && rollResult < 81)
-                {
-                    var flammables = new HashSet<Entity<FlammableComponent>>();
-                    _lookup.GetEntitiesInRange(origin, 6, flammables);
-
-                    foreach (var flammable in flammables)
-                    {
-                        var ent = flammable.Owner;
-                        _flammable.AdjustFireStacks(ent, 1, flammable);
-                        _flammable.Ignite(ent, uid, flammable);
-                    }
-                }
-                if (rollResult > 80)
-                {
-                    _lookup.GetEntitiesInRange(uid, 6, _entities, LookupFlags.Dynamic | LookupFlags.Sundries);
-                    foreach (var entity in _entities)
-                    {
-                        if (_physQuery.TryGetComponent(entity, out var phys)
-                            && (phys.CollisionMask & (int) CollisionGroup.GhostImpassable) != 0)
-                            continue;
-
-                        _physics.ApplyLinearImpulse(entity, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
-                    }
-                }
-                break;
-            case "PlantBluespacePortal":
-                if (rollResult < 40)
-                {
-                    for (int i = 0; i < 3; i++)
-                    {
-                        Spawn("BulletLaser", origin, null, _random.NextAngle());
-                    }
-                }
-                else if (rollResult >= 90)
-                {
-                    for (int i = 0; i < 2; i++)
-                    {
-                        MapCoordinates newOrigin = new(origin.X + _random.NextFloat(-10, 10), origin.Y + _random.NextFloat(-10, 10), origin.MapId);
-                        Spawn("KudzuFlowerAngry", newOrigin);
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < 2; i++)
-                    {
-                        MapCoordinates newOrigin = new(origin.X + _random.NextFloat(-20, 20), origin.Y + _random.NextFloat(-20, 20), origin.MapId);
-                        Spawn("FloraTree", newOrigin);
-                    }
-                }
-                break;
-            case "FleshBluespacePortal":
-                if (rollResult < 20)
-                {
-                    var solution = new Solution();
-                    solution.AddReagent(new string("Blood"), 300);
-                    _puddle.TrySpillAt(Transform(uid).Coordinates, solution, out _);
-                }
-                if (rollResult >= 20 && rollResult < 40)
-                {
-                    var spawnedMeats = new List<EntityUid>();
-                    for (int i = 0; i < 5; i++)
-                    {
-                        var meatSelected = _random.Next(0, 6);
-                        switch (meatSelected)
-                        {
-                            case 0:
-                                spawnedMeats.Add(Spawn("FoodMeatGoliath", origin));
-                                break;
-                            case 1:
-                                spawnedMeats.Add(Spawn("FoodMeatRat", origin));
-                                break;
-                            case 2:
-                                spawnedMeats.Add(Spawn("FoodMeatDragon", origin));
-                                break;
-                            case 3:
-                                spawnedMeats.Add(Spawn("FoodMeatHuman", origin));
-                                break;
-                            case 4:
-                                spawnedMeats.Add(Spawn("FoodMeatCorgi", origin));
-                                break;
-                            case 5:
-                                spawnedMeats.Add(Spawn("FoodMeatRotten", origin));
-                                break;
-                        }
-                    }
-                    foreach (EntityUid ent in spawnedMeats)
-                    {
-                        _physics.ApplyLinearImpulse(ent, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
-                    }
-                }
-                if (rollResult >= 40 && rollResult < 50)
-                {
-                    Spawn("FleshKudzu", origin);
-                }
-                if (rollResult >= 50)
-                {
-                    var tiles = GetSpawningPoints(uid, 5, 1);
-                    if (tiles != null)
-                    {
-                        foreach (var tileref in tiles)
-                        {
-                            ProtoId<ContentTileDefinition> floor = "FloorFlesh";
-                            var tile = (ContentTileDefinition) _tiledef[floor];
-                            _tile.ReplaceTile(tileref, tile);
-                        }
-                    }
-                }
-                break;
-            case "SlimeBluespacePortal":
-                if (rollResult < 20)
-                {
-                    var solution = new Solution();
-                    solution.AddReagent(new string("Slime"), 300);
-                    _puddle.TrySpillAt(Transform(uid).Coordinates, solution, out _);
-                }
-                if (rollResult >= 20 && rollResult < 40)
-                {
-                    List<EntityUid> spawnedSyringes = [];
-                    for (var i = 0; i < 4; i++)
-                    {
-                        switch (_random.Next(0, 5))
-                        {
-                            case 0:
-                                spawnedSyringes.Add(Spawn("SyringeHeroin", origin));
-                                break;
-                            case 1:
-                                spawnedSyringes.Add(Spawn("SyringePoisonFent", origin));
-                                break;
-                            case 2:
-                                spawnedSyringes.Add(Spawn("SyringeEphedrine", origin));
-                                break;
-                            case 3:
-                                spawnedSyringes.Add(Spawn("SyringeIpecac", origin));
-                                break;
-                            case 4:
-                                spawnedSyringes.Add(Spawn("SyringeTramadol", origin));
-                                break;
-                        }
-                    }
-                    foreach (EntityUid ent in spawnedSyringes)
-                    {
-                        _physics.ApplyLinearImpulse(ent, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
-                    }
-                }
-                if (rollResult >= 40 && rollResult < 60)
-                {
-                    var spawnedCorpse = Spawn("SalvageHumanCorpse", origin);
-                    _physics.ApplyLinearImpulse(spawnedCorpse, new Vector2(_random.Next(-15, 30), _random.Next(-15, 30)));
-                }
-                if (rollResult >= 60)
-                {
-                    var tileMix = _atmos.GetTileMixture(uid, excite: true);
-                    tileMix?.AdjustMoles(Gas.Ammonia, 400);
-                }
-                break;
+            roll -= option.Weight;
         }
     }
 

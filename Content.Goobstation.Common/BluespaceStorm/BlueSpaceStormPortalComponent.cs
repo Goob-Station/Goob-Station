@@ -7,12 +7,6 @@ namespace Content.Goobstation.Common.BluespaceStorm;
 public sealed partial class BluespaceStormPortalComponent : Component
 {
     /// <summary>
-    /// Portal type
-    /// </summary>
-    [DataField]
-    public EntProtoId PortalType;
-
-    /// <summary>
     /// Time until mobs spawn (seconds)
     /// </summary>
     [DataField]
@@ -23,6 +17,9 @@ public sealed partial class BluespaceStormPortalComponent : Component
     /// </summary>
     [DataField]
     public int TimeForPulse = 10;
+
+    [DataField]
+    public List<BluespaceStormPortalPulseEffectOption> PulseEffects = [];
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextMobSpawnTime;
@@ -50,6 +47,14 @@ public sealed partial class BluespaceStormPortalComponent : Component
     public bool MobsSpawned;
 
     public bool MobsAllDeadEventRaised;
+}
 
+[DataDefinition]
+public sealed partial class BluespaceStormPortalPulseEffectOption
+{
+    [DataField(required: true)]
+    public int Weight;
 
+    [DataField(required: true)]
+    public string Effect = string.Empty;
 }
