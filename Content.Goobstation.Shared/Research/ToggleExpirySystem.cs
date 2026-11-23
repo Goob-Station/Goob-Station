@@ -13,14 +13,7 @@ public sealed partial class ToggleExpirySystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private ItemToggleSystem _toggle = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<ToggleExpiryComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
-        SubscribeLocalEvent<ToggleExpiryComponent, ItemToggledEvent>(OnToggled);
-    }
-
+    [SubscribeLocalEvent]
     private void OnActivateAttempt(Entity<ToggleExpiryComponent> ent, ref ItemToggleActivateAttemptEvent args)
     {
         if (!ent.Comp.Expired)
@@ -30,6 +23,7 @@ public sealed partial class ToggleExpirySystem : EntitySystem
         args.Popup = Loc.GetString(ent.Comp.ExpiredPopup);
     }
 
+    [SubscribeLocalEvent]
     private void OnToggled(Entity<ToggleExpiryComponent> ent, ref ItemToggledEvent args)
     {
         if (!_net.IsServer || !args.Activated || ent.Comp.Expired || ent.Comp.ExpireTime is not null)
@@ -46,19 +40,15 @@ public sealed partial class ToggleExpirySystem : EntitySystem
         if (!_net.IsServer)
             return;
 
-        var curTime = _timing.CurTime;
         var query = EntityQueryEnumerator<ToggleExpiryComponent, ItemToggleComponent>();
         while (query.MoveNext(out var uid, out var expiry, out var toggle))
         {
-            if (expiry.ExpireTime is null || curTime < expiry.ExpireTime)
+            if (expiry.ExpireTime is null || _timing.CurTime < expiry.ExpireTime)
                 continue;
 
             expiry.ExpireTime = null;
             expiry.Expired = true;
             Dirty(uid, expiry);
-
-            if (!toggle.Activated)
-                continue;
 
             _toggle.TryDeactivate((uid, toggle));
             _audio.PlayPvs(expiry.ExpireSound, uid);

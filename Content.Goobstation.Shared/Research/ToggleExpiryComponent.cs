@@ -33,6 +33,6 @@ public sealed partial class ToggleExpiryComponent : Component
     /// <summary>
     /// Once true the item can no longer be activated.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public bool Expired;
 }
