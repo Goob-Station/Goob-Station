@@ -44,7 +44,7 @@ public sealed partial class SwallowerSystem : EntitySystem
             return;
         }
 
-        if (!IsSwallowable(ent.Comp, args.PulledUid))
+        if (!IsSwallowable(ent, args.PulledUid))
             return;
 
         var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.SwallowTime, new SwallowDoAfterEvent(), ent.Owner, target: args.PulledUid)
@@ -67,7 +67,7 @@ public sealed partial class SwallowerSystem : EntitySystem
         if (ent.Comp.Stomach.ContainedEntities.Count >= ent.Comp.Capacity)
             return;
 
-        if (!IsSwallowable(ent.Comp, target))
+        if (!IsSwallowable(ent, target))
             return;
 
         if (!_container.Insert(target, ent.Comp.Stomach))
@@ -154,8 +154,8 @@ public sealed partial class SwallowerSystem : EntitySystem
         _container.EmptyContainer(ent.Comp.Stomach);
     }
 
-    private bool IsSwallowable(SwallowerComponent comp, EntityUid target)
+    private bool IsSwallowable(Entity<SwallowerComponent> ent, EntityUid target)
     {
-        return !comp.IncapacitatedOnly || !HasComp<MobStateComponent>(target) || _mobState.IsIncapacitated(target);
+        return !ent.Comp.IncapacitatedOnly || !HasComp<MobStateComponent>(target) || _mobState.IsIncapacitated(target);
     }
 }
