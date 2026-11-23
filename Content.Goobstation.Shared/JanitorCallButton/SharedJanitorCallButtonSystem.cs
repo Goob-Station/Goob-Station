@@ -14,7 +14,7 @@ public sealed partial class SharedJanitorCallButtonSystem : EntitySystem
     private void OnMapInit(Entity<JanitorCallButtonComponent> ent, ref MapInitEvent args)
     {
         if (TryComp<SlimPoweredLightComponent>(ent.Owner, out var light))
-            UpdateVisuals(ent.Owner, light.Enabled);
+            SetEnabled(ent, light.Enabled);
     }
 
     [SubscribeLocalEvent]
@@ -29,18 +29,17 @@ public sealed partial class SharedJanitorCallButtonSystem : EntitySystem
         var enabled = !light.Enabled;
 
         _light.SetEnabled((ent.Owner, light), enabled);
-        UpdateVisuals(ent.Owner, enabled);
-
-        ent.Comp.Enabled = enabled;
+        SetEnabled(ent, enabled);
 
         RaiseLocalEvent(ent.Owner, new JanitorCallButtonPressedEvent());
         args.Handled = true;
     }
 
-    private void UpdateVisuals(EntityUid uid, bool enabled)
+    private void SetEnabled(Entity<JanitorCallButtonComponent> ent, bool enabled)
     {
+        ent.Comp.Enabled = enabled;
         _appearance.SetData(
-            uid,
+            ent.Owner,
             PoweredLightVisuals.BulbState,
             enabled ? PoweredLightState.On : PoweredLightState.Off);
     }
