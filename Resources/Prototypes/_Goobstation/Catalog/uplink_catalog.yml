@@ -2155,7 +2155,7 @@
   cost:
     Telecrystal: 15
   categories:
-  - UplinkWearables
+  - UplinkModsuitModule
 
 - type: listing
   id: UplinkModsuitModuleHolster
