@@ -1,13 +1,16 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+# parent: Poweredlight # Goobstation edit
   id: JanitorServiceLight
   name: janitorial service light
   description: A wall-mounted janitorial sign. If the light is blinking, a janitor's service is required.
   components:
+# Goobstation start
   - type: StationAiWhitelist
   - type: Clickable
   - type: InteractionOutline
+# Goobstation end
   - type: Sprite
     sprite: Structures/Wallmounts/service_light.rsi
     drawdepth: WallMountedItems
@@ -24,6 +27,16 @@
     softness: 3
     offset: "0, 0"
     enabled: false
+# Goobstation start
+# - type: PoweredLight
+#   bulb: Bulb
+#   on: false
+#   hasLampOnSpawn: ServiceLightBulb
+# - type: DamageOnInteract
+#   damage:
+#     types:
+#       Heat: 5
+#   popupText: powered-light-component-burn-hand
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: SlimPoweredLight
@@ -64,3 +77,4 @@
     mode: SnapgridCenter
     snap:
     - Wallmount
+# Goobstation end

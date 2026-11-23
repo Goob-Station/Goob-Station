@@ -652,7 +652,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - NanoChatCartridge
-    - JanitorMapCartridge # Goobstation Janitor Map
+    - JanitorMapCartridge # Goobstation janitor map cartridge
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
