@@ -3,6 +3,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Events;
@@ -157,6 +158,15 @@ public sealed partial class SwallowerSystem : EntitySystem
     {
         RemCompDeferred<DamageOtherOnHitComponent>(ent.Owner);
         RemCompDeferred<TemporaryDamageOtherOnHitComponent>(ent.Owner);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnMobStateChanged(Entity<SwallowerComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        _container.EmptyContainer(ent.Comp.Stomach);
     }
 
     [SubscribeLocalEvent]

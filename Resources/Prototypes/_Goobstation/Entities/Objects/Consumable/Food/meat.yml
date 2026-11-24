@@ -221,12 +221,13 @@
     tags:
     - Meat
 
-- type: microwaveMealRecipe
-  id: RecipeBongleBurger
-  name: bongle burger recipe
-  result: FoodBurgerBongle
-  time: 10
-  group: savory
-  solids:
-    FoodBreadBun: 1
-    FoodMeatBongleCooked: 1
+# Uncomment once that stupid test fail for new microwave recipes is removed
+#- type: microwaveMealRecipe
+#  id: RecipeBongleBurger
+#  name: bongle burger recipe
+#  result: FoodBurgerBongle
+#  time: 10
+#  group: savory
+#  solids:
+#    FoodBreadBun: 1
+#    FoodMeatBongleCooked: 1
