@@ -18,7 +18,7 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Components; // DeltaV - Melee Stamina Resistance Override
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Lavaland.Weapons;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
@@ -1104,6 +1104,9 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem // Goob - p
         var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
         RaiseLocalEvent(user, comboEv);
         // Goobstation end
+
+        if (IsShoveBlocked(target, user)) // Goob
+            return true;
 
         PhysicalShove(user, target);
         Interaction.DoContactInteraction(user, target, null, true); // Goob

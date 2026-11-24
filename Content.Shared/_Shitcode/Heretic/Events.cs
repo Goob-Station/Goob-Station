@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Prototypes;
 using Robust.Shared.Prototypes;

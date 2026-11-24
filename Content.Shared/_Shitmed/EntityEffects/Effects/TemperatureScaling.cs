@@ -2,7 +2,7 @@
 
 using Robust.Shared.Serialization;
 using Robust.Shared.GameObjects;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared._Shitmed.EntityEffects.Effects;
 

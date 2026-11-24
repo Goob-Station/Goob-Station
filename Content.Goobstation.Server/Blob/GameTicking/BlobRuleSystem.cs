@@ -15,7 +15,6 @@ using Content.Server.Mind;
 using Content.Server.Nuke;
 using Content.Server.Objectives;
 using Content.Server.RoundEnd;
-using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
@@ -36,7 +35,6 @@ public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private IPlayerManager _player = default!;
-    [Dependency] private EmergencyShuttleSystem _emergency = default!;
 
     public override void Initialize()
     {
@@ -125,29 +123,6 @@ public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 
         var stationName = Name(stationUid);
 
-        if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-            && _roundEndSystem.ExpectedCountdownEnd != null
-            && !_emergency.EmergencyShuttleArrived)
-        {
-            _roundEndSystem.CancelRoundEndCountdown(forceRecall: true);
-            _chatSystem.DispatchStationAnnouncement(stationUid,
-                Loc.GetString("blob-alert-recall-shuttle"),
-                Loc.GetString("Station"),
-                false,
-                null,
-                Color.Red);
-        }
-        else if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-                 && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived)
-        {
-            _chatSystem.DispatchStationAnnouncement(stationUid,
-                Loc.GetString("blob-alert-shuttle-arrived"),
-                Loc.GetString("Station"),
-                false,
-                null,
-                Color.OrangeRed);
-        }
-
         switch (blobRuleComp.Stage)
         {
             case BlobStage.Default when blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin):
@@ -218,6 +193,20 @@ public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     broadcast: true);
                 return;
             }
+        }
+    }
+
+    [SubscribeLocalEvent]
+    private void OnRoundEndRequestAttempt(ref RoundEndRequestAttemptEvent args)
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var blob, out _))
+        {
+            if (blob.Stage is not (BlobStage.Begin or BlobStage.Critical))
+                continue;
+
+            args.Block("blob-alert-block-shuttle", color: Color.Red);
+            return;
         }
     }
 

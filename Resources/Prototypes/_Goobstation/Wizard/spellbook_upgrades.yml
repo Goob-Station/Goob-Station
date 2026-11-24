@@ -305,6 +305,29 @@
     stock: 2
 
 - type: listing
+  id: SpellbookSummonSupermatterUpgrade
+  productUpgradeId: SpellbookSummonSupermatterUpgrade
+  name: spellbook-upgrade-summon-supermatter-name
+  description: spellbook-upgrade-summon-supermatter-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: summon_supermatter
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookSummonSupermatter
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+  - !type:ListingLimitedStockCondition
+    stock: 4
+  disableRefund: true
+
+- type: listing
   id: SpellbookRodFormUpgrade
   productUpgradeId: SpellbookRodFormUpgrade
   name: spellbook-upgrade-polymorph-rod-name
