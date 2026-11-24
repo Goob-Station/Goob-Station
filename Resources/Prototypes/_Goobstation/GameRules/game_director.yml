@@ -21,19 +21,21 @@
   parent: GameDirector
   categories: [ HideSpawnMenu ]
   components:
-  - type: GameRule
-    minPlayers: 25
   - type: GameDirector
-    dualAntags: true
+    threatPerPlayer: 0.4
     stories:
-      - RelaxedAttack
-      - ScienceAttack
-      - MajorCombat
-      - SlowBurn
-      - Siege
-      - Infestation
-      - Blackout
-      - SkeletonCrew
+      RelaxedAttack: 3
+      ScienceAttack: 2
+      SlowBurn: 2
+      Infestation: 2
+      Blackout: 2
+      SkeletonCrew: 1
+      MajorCombat: 1.5
+      Siege: 1
+      Raid: 1
+      Outbreak: 1
+      Uprising: 1
+      Arcane: 0.6
   - type: SelectedGameRules
     scheduledGameRules: !type:NestedSelector
       tableId: GameDirectorRulesTable
@@ -43,23 +45,21 @@
   parent: GameDirector
   categories: [ HideSpawnMenu ]
   components:
-  - type: GameRule
-    minPlayers: 40
   - type: GameDirector
-    dualAntags: true
+    threatPerPlayer: 0.5
     referencePlayers: 40
     maxDestructionBudget: 4
     destructionRegenPerMinute: 0.15
     repeatWindow: 15m
-    antaglessChance: 0.5
-    antaglessStories:
-    - Siege
-    - MajorCombat
     stories:
-      - MajorCombat
-      - Siege
-      - Blackout
-      - ScienceAttack
+      MajorCombat: 3
+      Siege: 3
+      Blackout: 1.5
+      ScienceAttack: 1.5
+      Raid: 1.5
+      Outbreak: 1
+      Uprising: 1
+      Arcane: 0.5
   - type: SelectedGameRules
     scheduledGameRules: !type:NestedSelector
       tableId: GameDirectorRulesTable
@@ -70,17 +70,20 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameDirector
-    roundStartAntagsWeightTable: GameDirectorWatcher
+    threatPerPlayer: 0.25
     maxDestructionBudget: 2
     destructionRegenPerMinute: 0.075
     repeatWindow: 25m
     stories:
-      - RelaxedAttack
-      - SlowBurn
-      - Infestation
-      - Blackout
-      - SkeletonCrew
-      - QuietShift
+      RelaxedAttack: 3
+      SlowBurn: 2
+      Infestation: 2
+      Blackout: 1
+      SkeletonCrew: 2
+      QuietShift: 2
+      Outbreak: 0.4
+      Uprising: 0.4
+      Arcane: 0.4
   - type: SelectedGameRules
     scheduledGameRules: !type:NestedSelector
       tableId: GameDirectorRulesTable
@@ -93,8 +96,6 @@
       tableId: BasicCalmEventsTable
     - !type:NestedSelector
       tableId: BasicAntagEventsTable
-    - !type:NestedSelector
-      tableId: ModerateAntagEventsTable
     - !type:NestedSelector
       tableId: CalmPestEventsTable
     - !type:NestedSelector
@@ -142,11 +143,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameDirector
-    noRoundstartAntags: true
+    threatPerPlayer: 0.15
+    roundstartThreatScale: 0
     stories:
-      - Relaxed
-      - Science
-      - QuietShift
+      Relaxed: 2
+      Science: 1
+      QuietShift: 1
   - type: SelectedGameRules
     scheduledGameRules: !type:NestedSelector
       tableId: GameDirectorRulesTable
@@ -154,6 +156,8 @@
 - type: story
   id: Relaxed
   description: A small attack
+  midround:
+  - InfiltratorMidrounds
   beats:
     - Peace
     - AttackMild
@@ -163,6 +167,8 @@
   id: Science
   description: Science and engineering issues
   minPlayers: 30
+  midround:
+  - ScienceMidrounds
   beats:
     - Peace
     - MadScience
@@ -173,6 +179,13 @@
 - type: story
   id: RelaxedAttack
   description: Mostly calm with a couple of minor problems.
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - InfiltratorMidrounds
   beats:
     - Peace
     - AttackMild
@@ -182,6 +195,13 @@
   id: ScienceAttack
   description: Science, minor attack and then engineering issues
   minPlayers: 30
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - ScienceMidrounds
   beats:
     - Peace
     - MadScience
@@ -194,14 +214,13 @@
   id: MajorCombat
   description: A minor and then major attack
   minPlayers: 40
-  blockedRoundstartAntags:
-  - Nukeops
-  - Honkops
-  - Revolutionary
-  - Zombie
-  - BlobGameMode
-  - CosmicCult
-  - Wizard
+  threat: 1.2
+  roundstartThreat: 0.25
+  roundstart:
+  - pool: CrewAntagsMinor
+  midround:
+  - RaiderMidrounds
+  - MonsterMidrounds
   beats:
     - Peace
     - AttackMild
@@ -215,6 +234,13 @@
   id: SlowBurn
   description: A long quiet shift with some science trouble and a late scuffle
   minPlayers: 20
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - InfiltratorMidrounds
   beats:
     - Peace
     - MadScience
@@ -227,14 +253,9 @@
   id: Siege
   description: Pressure builds into a full assault without much station damage
   minPlayers: 45
-  blockedRoundstartAntags:
-  - Nukeops
-  - Honkops
-  - Revolutionary
-  - Zombie
-  - BlobGameMode
-  - CosmicCult
-  - Wizard
+  threat: 1.2
+  midround:
+  - RaiderMidrounds
   beats:
     - Peace
     - AttackMild
@@ -248,6 +269,13 @@
   id: Infestation
   description: Pests and overgrowth, followed by something hiding among them
   minPlayers: 15
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - MonsterMidrounds
   beats:
     - Peace
     - Vermin
@@ -259,6 +287,13 @@
   id: Blackout
   description: The grid falls apart and someone takes advantage of it
   minPlayers: 25
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - RaiderMidrounds
   beats:
     - Peace
     - Brownout
@@ -271,6 +306,11 @@
   id: SkeletonCrew
   description: A short-staffed shift with small problems
   maxPlayers: 35
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntagsMinor
+  midround:
+  - InfiltratorMidrounds
   beats:
     - Peace
     - AttackMild
@@ -281,11 +321,86 @@
 - type: story
   id: QuietShift
   description: Maintenance trouble with no attackers
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
   beats:
     - Peace
     - Vermin
     - Peace
     - Brownout
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Raid
+  description: A Syndicate strike team hits the station
+  minPlayers: 30
+  threat: 1.3
+  roundstartThreat: 1
+  roundstart:
+  - pool: RaidAntags
+    share: 0.85
+  - pool: CrewAntagsMinor
+    share: 0.15
+  beats:
+    - Peace
+    - PowerIssues
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Outbreak
+  description: Something on board starts spreading
+  minPlayers: 25
+  threat: 1.2
+  roundstartThreat: 0.9
+  roundstart:
+  - pool: OutbreakAntags
+    share: 0.8
+  - pool: CrewAntagsMinor
+    share: 0.2
+  beats:
+    - Peace
+    - Vermin
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Uprising
+  description: Someone tries to take the station from within
+  minPlayers: 25
+  threat: 1.2
+  roundstartThreat: 0.9
+  roundstart:
+  - pool: ConversionAntags
+    share: 0.8
+  - pool: CrewAntagsMinor
+    share: 0.2
+  beats:
+    - Peace
+    - Brownout
+    - Peace
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Arcane
+  description: A wizard drops by while the crew has its own problems
+  minPlayers: 30
+  roundstartThreat: 0.8
+  roundstart:
+  - pool: WizardAntags
+    share: 0.6
+  - pool: CrewAntags
+  midround:
+  - InfiltratorMidrounds
+  beats:
+    - Peace
+    - MadScience
+    - AttackMild
     - RepairStation
     - Peace
 
@@ -352,12 +467,12 @@
   id: MadScience
   description: Create high Science chaos
   goal:
-    Anomaly: 100
+    Anomaly: 60
     Power: 50
     Atmos: 150
     Medical: 100
   endIfAnyWorse:
-    Anomaly: 300
+    Anomaly: 180
     Power: 300
     Medical: 300
     Death: 400
@@ -375,10 +490,10 @@
   id: Vermin
   description: Pests and overgrowth spread through the station
   goal:
-    Infestation: 120
+    Infestation: 70
     Medical: 80
   endIfAnyWorse:
-    Infestation: 400
+    Infestation: 200
     Medical: 300
     Death: 300
   minSecs: 600
@@ -390,8 +505,9 @@
 - type: storyBeat
   id: Attackers
   description: Drive high combat
+  threat: 1
   escalation:
-    Hostile: 120
+    Hostile: 40
   endIfAnyWorse:
     Atmos: 900
     Power: 600
@@ -409,8 +525,9 @@
 - type: storyBeat
   id: AttackMild
   description: Drive medium combat
+  threat: 0.75
   escalation:
-    Hostile: 40
+    Hostile: 20
   endIfAnyWorse:
     Atmos: 700
     Power: 400

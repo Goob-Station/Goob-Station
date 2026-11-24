@@ -476,5 +476,24 @@
   content:
   - WeaponHeadOfSecurityRifle
 
-# Captain
+# Warden
 
+- type: selectableSet
+  id: KravMagGloves
+  name: krav-maga-gloves-selector
+  description: krav-maga-gloves-selector-description
+  sprite:
+    sprite: _Goobstation/Clothing/Hands/Gloves/kravgloves.rsi
+    state: icon
+  content:
+  - ClothingHandsGlovesKravMaga
+
+- type: selectableSet
+  id: KravMagaEnvirogloves
+  name: krav-maga-envirogloves-selector
+  description: krav-maga-envirogloves-selector-description
+  sprite:
+    sprite: _Goobstation/Clothing/Hands/Gloves/kravenvirogloves.rsi
+    state: icon
+  content:
+  - ClothingHandsGlovesEnviroglovesKravMaga
