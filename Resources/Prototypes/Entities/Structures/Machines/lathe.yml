@@ -240,6 +240,7 @@
     dynamicPacks:
     #- ScienceEquipment - Goobstation - Moved to Scifab
     #- ScienceExplosives - Goobstation - Moved to Scifab
+    #- AdvancedTools
     - ScienceClothing
     - PowerCells
     #- ScienceWeapons - Goobstation - Moved to Scifab
