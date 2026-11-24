@@ -155,6 +155,9 @@
   - type: Puller
     needsHands: false
   - type: Swallower
+    chewHealWhitelist:
+      components:
+      - Bingle
     chewBlacklist: # If there's anything really important that I forgot, add it here
       components:
       - HumanoidAppearance # This gets ignored on ascension, just so bongle isnt too op.
@@ -228,40 +231,18 @@
     - ActionSwallowerChew
 
 # Admeme
+# Admeme
 - type: entity
   name: seething bongle
   id: MobBongleSeething
-  parent: MobSpaceBasic
+  parent: MobBongle
   description: BONGLLLEEEEEEEE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   components:
-  - type: ContainerContainer
-    containers:
-      swallower_stomach: !type:Container
   - type: PointLight
     radius: 4
     energy: 3
     color: Red
-  - type: Bongle
-    hillProto: BongleHill
-    ascendComponents:
-    - type: Devourer
-      devourAction: ActionDevour
-      structureDevourTime: 8
-      whitelist:
-        tags:
-        - Wall
-  - type: GhostTakeoverAvailable
-  - type: GhostRole
-    name: ghost-role-information-bongle-name
-    description: ghost-role-information-bongle-description
-    rules: ghost-role-information-bongle-rules
-    mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
-    raffle:
-      settings: default
   - type: Sprite
-    drawdepth: Mobs
-    sprite: _Goobstation/Bongle/Entities/bongle.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: bongle_seethe
@@ -269,36 +250,18 @@
     thresholds:
       0: Alive
       350: Dead
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
   - type: DamageStateVisuals
     states:
       Alive:
         Base: bongle_seethe
-      Dead:
-        Base: bongle_dead
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: BongleBlood
-        Quantity: 250
   - type: MeleeWeapon
-    altDisarm: false
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    angle: 0
-    wideAnimationRotation: 0
-    animation: WeaponArcPunch
     damage:
       groups:
-        Brute: 25
-        Burn: 15
+        Brute: 20
+        Burn: 20
       types:
         Structural: 50
         Ion: 30
-    bluntStaminaDamageFactor: 2.0
   - type: MovementSpeedModifier
     baseWalkSpeed : 4
     baseSprintSpeed : 6
@@ -306,51 +269,17 @@
     staminaDrainRate: 10
   - type: Stamina
     baseCritThreshold: 500
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Bingle
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/Effects/Footsteps/slime1.ogg
-      params:
-        volume: 3
-  - type: TypingIndicator
-    proto: alien
-  - type: Speech
-    speechVerb: Bingle
-    speechSounds: Slime
-  - type: LanguageKnowledge
-    speaks:
-    - Bongle
-    understands:
-    - TauCetiBasic
-  - type: CollectiveMind
-    defaultChannel: Bonglemind
-    respectAccents: true
-    channels:
-    - Bonglemind
-  - type: PassiveDamage #passive Healing
-    allowedStates:
-    - Alive
+  - type: PassiveDamage
     damage:
       types:
         Poison: -5
       groups:
         Brute: -3
         Burn: -3
-  - type: NightVision
-    color: Red
-    activateSound: null
-    deactivateSound: null
   - type: Butcherable
     spawned:
     - id: FoodMeatBongle
       amount: 5
-  - type: Insulated
-  - type: FlashImmunity
-  - type: NpcFactionMember
-    factions:
-    - Bongle
   - type: ChargedHeadbutt
     damage:
       groups:
@@ -358,23 +287,16 @@
       types:
         Structural: 300
         Ion: 100
-  - type: Puller
-    needsHands: false
   - type: Swallower
-    chewBlacklist: # If there's anything really important that I forgot, add it here
+    chewBlacklist:
       components:
       - NukeDisk
-    capacity: 3
-    spitCount: 3
     spitDamage:
       types:
         Blunt: 25
         Burn: 25
   - type: ActionGrant
     actions:
-    - ActionChargedHeadbutt
-    - ActionSwallowerSpit
-    - ActionSwallowerRegurgitate
     - ActionSwallowerChew
   - type: Seething
     visibleWhitelist:

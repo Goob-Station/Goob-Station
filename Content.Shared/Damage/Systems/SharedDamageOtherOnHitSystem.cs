@@ -30,12 +30,4 @@ public abstract partial class SharedDamageOtherOnHitSystem : EntitySystem // Tra
     {
         args.Cancel("pacified-cannot-throw");
     }
-
-    // Goob start - set damage when ent is thrown at something cuz Damage is write restricted
-    public void SetDamage(Entity<DamageOtherOnHitComponent> ent, DamageSpecifier damage)
-    {
-        ent.Comp.Damage = damage;
-        Dirty(ent);
-    }
-    // goob end
 }

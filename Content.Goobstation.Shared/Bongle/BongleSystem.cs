@@ -1,5 +1,4 @@
 using Content.Goobstation.Shared.Bingle;
-using Content.Goobstation.Shared.Bongle;
 using Content.Shared.Actions.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Polymorph;
@@ -8,7 +7,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using System.Numerics;
 
-namespace Content.Goobstation.Server.Bongle;
+namespace Content.Goobstation.Shared.Bongle;
 
 public sealed partial class BongleSystem : EntitySystem
 {
@@ -96,6 +95,8 @@ public sealed partial class BongleSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnPolymorphed(Entity<BongleComponent> ent, ref PolymorphedEvent args)
     {
+        RemCompDeferred<ActiveSeethingCheckComponent>(args.OldEntity);
+
         if (args.IsRevert || !TryComp<SwallowerComponent>(args.OldEntity, out var oldSwallower) || !TryComp<SwallowerComponent>(args.NewEntity, out var newSwallower))
             return;
 

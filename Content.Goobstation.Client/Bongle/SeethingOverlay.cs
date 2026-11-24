@@ -12,8 +12,7 @@ using System.Numerics;
 namespace Content.Goobstation.Client.Bongle;
 
 /// <summary>
-/// Just check the summary for drone overlay system lol
-/// Though this also tints the screen so hurray you get to look at nightvision code too.
+/// Applies a tint to the screen. Draws a black overlay on top of anyone who isn't in the whitelist.
 /// </summary>
 public sealed partial class SeethingOverlay : Overlay
 {
@@ -23,6 +22,8 @@ public sealed partial class SeethingOverlay : Overlay
     private readonly SharedTransformSystem _transform;
     private readonly EntityWhitelistSystem _whitelist;
     private readonly MobStateSystem _mobState;
+
+    public SeethingComponent? Seething;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -37,9 +38,7 @@ public sealed partial class SeethingOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        var player = _player.LocalEntity;
-
-        if (player is null || !_entity.TryGetComponent(player, out SeethingComponent? seething))
+        if (_player.LocalEntity is not { } player || Seething is not { } seething)
             return;
 
         var eye = args.Viewport.Eye;
@@ -56,7 +55,7 @@ public sealed partial class SeethingOverlay : Overlay
         var query = _entity.EntityQueryEnumerator<MobStateComponent, SpriteComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var sprite, out var xform))
         {
-            if (uid == player.Value || _mobState.IsDead(uid) || xform.MapID != mapId || !sprite.Visible)
+            if (uid == player || _mobState.IsDead(uid) || xform.MapID != mapId || !sprite.Visible)
                 continue;
 
             if (_whitelist.IsWhitelistPassOrNull(seething.VisibleWhitelist, uid) && !_whitelist.IsWhitelistPass(seething.VisibleBlacklist, uid))

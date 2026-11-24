@@ -9,10 +9,7 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Bongle;
 
 /// <summary>
-/// This is like the fifth time I'm doing something like this but whatever.
-/// Charges do-after, on finishing, dashes forward. If it hits a organic it deals damage.
-/// If it hits a structure...it deals damage.
-/// It just deals damage overall.
+/// Begins do-after. Upon finishing, charges forward and damages the first entity hit.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ChargedHeadbuttComponent : Component
@@ -45,7 +42,7 @@ public sealed partial class ChargedHeadbuttComponent : Component
     public TimeSpan ChargeTime = TimeSpan.FromSeconds(1.5);
 
     [DataField]
-    public LocId? StartPopup;
+    public LocId? StartPopup = "charged-headbutt-start";
 
     [DataField]
     public bool TargetDropItems = true;

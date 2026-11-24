@@ -122,8 +122,12 @@ public sealed partial class SwallowerSystem : EntitySystem
             if (!_container.Remove(item, ent.Comp.Stomach))
                 continue;
 
-            var damageOther = EnsureComp<DamageOtherOnHitComponent>(item);
-            _damageOtherOnHit.SetDamage((item, damageOther), ent.Comp.SpitDamage);
+            if (!HasComp<DamageOtherOnHitComponent>(item))
+            {
+                var damageOther = EnsureComp<DamageOtherOnHitComponent>(item);
+                _damageOtherOnHit.SetDamage((item, damageOther), ent.Comp.SpitDamage);
+                EnsureComp<TemporaryDamageOtherOnHitComponent>(item);
+            }
 
             var itemDirection = direction;
 
@@ -146,6 +150,13 @@ public sealed partial class SwallowerSystem : EntitySystem
         _audio.PlayPredicted(ent.Comp.SpitSound, ent.Owner, ent.Owner);
 
         args.Handled = true;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnSpitLanded(Entity<TemporaryDamageOtherOnHitComponent> ent, ref StopThrowEvent args)
+    {
+        RemCompDeferred<DamageOtherOnHitComponent>(ent.Owner);
+        RemCompDeferred<TemporaryDamageOtherOnHitComponent>(ent.Owner);
     }
 
     [SubscribeLocalEvent]

@@ -1,14 +1,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: BinglePit
+  id: BaseBingleStructure
+  abstract: true
   categories: [ Spawner ] # needed so tests don't sus
-  name: binglepit
-  description: Looks Hungry
   placement:
     mode: SnapgridCenter
   components:
-  - type: BinglePit
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
@@ -19,8 +17,6 @@
     anchored: true
   - type: Physics
     bodyType: Static
-  - type: WarpPoint
-    location: bingle pit
   - type: Fixtures
     fixtures:
       fix1:
@@ -33,25 +29,12 @@
         - ItemMask
         density: 1000
         hard: false
-  - type: Sprite
-    drawdepth: FloorTiles
-    layers:
-    - sprite: _Goobstation/Mobs/Bingle/bingle_pit.rsi
-      state: pit
   - type: Appearance
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
@@ -60,7 +43,7 @@
     solutions:
       drainBuffer:
         maxVol: 1000
-  - type: Drain # remove liquids around pit
+  - type: Drain # remove liquids around it
     unitsPerSecond: 10
     unitsDestroyedPerSecond: 10
   - type: ExplosionResistance
@@ -74,8 +57,34 @@
       groups:
         Brute: -3
   - type: AntiRottingContainer
-  - type: SpawnOnDespawn
-    prototype: CrateFunBingleLoot
+
+- type: entity
+  id: BinglePit
+  parent: BaseBingleStructure
+  name: binglepit
+  description: Looks Hungry
+  components:
+  - type: BinglePit
+  - type: WarpPoint
+    location: bingle pit
+  - type: Sprite
+    drawdepth: FloorTiles
+    layers:
+    - sprite: _Goobstation/Mobs/Bingle/bingle_pit.rsi
+      state: pit
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CrateFunBingleLoot:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: BinglePitBingleless

@@ -1,22 +1,22 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
-using Content.Server.Polymorph.Components;
+using Content.Goobstation.Shared.Bongle;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Actions;
+using Content.Shared.Actions.Events;
 using Content.Shared.CombatMode;
 using Content.Shared.Flash.Components;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Popups;
-using Content.Shared.Actions;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Polymorph;
-using Content.Shared.Actions.Events;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Content.Goobstation.Shared.Bongle;
-using Content.Shared.Mobs.Systems;
 using Robust.Shared.Timing;
+using System.Numerics;
 
 namespace Content.Goobstation.Server.Bingle;
 
@@ -30,7 +30,7 @@ public sealed partial class BingleSystem : EntitySystem
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private MobStateSystem _mob = default!;
 
-    private readonly HashSet<Entity<BongleComponent>> _bongles = new();
+    private readonly HashSet<Entity<BingleComponent>> _bingles = new();
 
     public override void Initialize()
     {
@@ -73,32 +73,48 @@ public sealed partial class BingleSystem : EntitySystem
         }
     }
 
+    [SubscribeLocalEvent]
+    private void OnBongleStartup(Entity<BongleComponent> ent, ref ComponentStartup args)
+    {
+        EnsureComp<ActiveSeethingCheckComponent>(ent.Owner);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnBongleMobStateChanged(Entity<BongleComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Alive)
+        {
+            EnsureComp<ActiveSeethingCheckComponent>(ent.Owner);
+        }
+        else
+        {
+            RemCompDeferred<ActiveSeethingCheckComponent>(ent.Owner);
+        }
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<BingleComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<ActiveSeethingCheckComponent, BingleComponent>();
+        while (query.MoveNext(out var uid, out var active, out var comp))
         {
-            if (_timing.CurTime < comp.NextRageCheck)
+            if (_timing.CurTime < active.NextCheck)
                 continue;
 
-            comp.NextRageCheck = _timing.CurTime + comp.RageCheckInterval;
+            active.NextCheck = _timing.CurTime + comp.RageCheckInterval;
 
-            if (HasComp<BongleComponent>(uid) || !_mob.IsAlive(uid))
-                continue;
-
-            _bongles.Clear();
-            _lookup.GetEntitiesInRange(Transform(uid).Coordinates, comp.RageRange, _bongles);
+            _bingles.Clear();
+            _lookup.GetEntitiesInRange(Transform(uid).Coordinates, comp.RageRange, _bingles);
 
             var enraged = false;
 
-            foreach (var (bongleUid, _) in _bongles)
+            foreach (var (bingleUid, bingle) in _bingles)
             {
-                if (!_mob.IsAlive(bongleUid) || !TryComp<BingleComponent>(bongleUid, out var bongleBingle))
+                if (HasComp<BongleComponent>(bingleUid) || !_mob.IsAlive(bingleUid))
                     continue;
 
-                Enrage(bongleUid, bongleBingle);
+                Enrage(bingleUid, bingle);
                 enraged = true;
             }
 

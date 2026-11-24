@@ -3,9 +3,9 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.Bongle;
 
 /// <summary>
-/// To run multiple gamerules at once.
-/// Idk if this exists somewhere already but  coudldn't find it.
-/// Probably not too useful outside of bingle bongle wars, its specifically because they need two differnet spawn points.
+/// Is capable of running multiple gamerules at once.
+/// Theoretically not the best way to be doing so, but if you wish for a gamerule
+/// to spawn two different oposing factions, this should do the trick.
 /// </summary>
 [RegisterComponent]
 public sealed partial class ChainRulesRuleComponent : Component

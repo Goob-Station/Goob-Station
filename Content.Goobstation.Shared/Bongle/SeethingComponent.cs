@@ -8,25 +8,25 @@ namespace Content.Goobstation.Shared.Bongle;
 /// Red overlay on screen, play heartbeat sound, popup every X amount of time.
 /// Also steals drone code for overlay if you set a component, so it will hide every living entity except the specified component having entity.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class SeethingComponent : Component
 {
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(30);
 
-    [ViewVariables]
+    [AutoPausedField, ViewVariables]
     public TimeSpan ExpireTime;
 
     [DataField]
     public TimeSpan HeartbeatInterval = TimeSpan.FromSeconds(3);
 
-    [ViewVariables]
+    [AutoPausedField, ViewVariables]
     public TimeSpan NextHeartbeat;
 
     [DataField]
     public SoundSpecifier? HeartbeatSound;
 
-    [DataField]
+    [AutoPausedField, DataField]
     public TimeSpan PopupInterval = TimeSpan.FromSeconds(10);
 
     [ViewVariables]

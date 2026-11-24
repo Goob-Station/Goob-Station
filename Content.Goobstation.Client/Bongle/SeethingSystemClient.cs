@@ -5,7 +5,7 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.Bongle;
 
-public sealed partial class SeethingSystem : EntitySystem
+public sealed partial class SeethingSystemClient : EntitySystem
 {
     [Dependency] private IOverlayManager _overlayMan = default!;
     [Dependency] private IPlayerManager _player = default!;

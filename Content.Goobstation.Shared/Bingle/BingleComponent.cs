@@ -26,7 +26,6 @@ public sealed partial class BingleComponent : Component
 
     [DataField]
     public TimeSpan RageCheckInterval = TimeSpan.FromSeconds(5);
-    public TimeSpan NextRageCheck;
 
     /// <summary>
     /// Component added when nearby valid whitelist passing entity.

@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Bongle;
 
 /// <summary>
-/// Bongle
+/// Handles upgrading, boosting, ascension and other bongle related systems.
 /// </summary>
 [RegisterComponent]
 public sealed partial class BongleComponent : Component

@@ -45,6 +45,8 @@ public sealed partial class BongleHillComponent : Component
     [DataField(required: true)]
     public EntProtoId HillProto;
 
+    public EntProtoId GhostHillProto = "BongleHillGhost";
+
     [DataField(required: true)]
     public EntProtoId BongleProto;
 
@@ -86,6 +88,12 @@ public sealed partial class BongleHillComponent : Component
     /// </summary>
     [DataField]
     public int AscensionHillCount = 5;
+
+    /// <summary>
+    /// Set to true once bongles have ascended.
+    /// </summary>
+    [ViewVariables]
+    public bool Ascended;
 
     [DataField]
     public SoundSpecifier SuckedInSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Voice/Slime/slime_schlorp.ogg");

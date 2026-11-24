@@ -53,15 +53,15 @@ public sealed partial class SwallowerComponent : Component
     public DamageSpecifier SpitDamage = new();
 
     /// <summary>
-    /// If it passes thw whitelist, will fully heal the swallower upon chewing.
+    /// If it passes the whitelist, will fully heal the swallower upon chewing.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityWhitelist? ChewHealWhitelist;
 
     /// <summary>
     /// Cannot chew stuff that fits the blacklist so it just ignores it and chews the rest.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityWhitelist? ChewBlacklist;
 
     [DataField]

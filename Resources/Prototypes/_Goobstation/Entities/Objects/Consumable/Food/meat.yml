@@ -220,3 +220,13 @@
   - type: Tag
     tags:
     - Meat
+
+- type: microwaveMealRecipe
+  id: RecipeBongleBurger
+  name: bongle burger recipe
+  result: FoodBurgerBongle
+  time: 10
+  group: savory
+  solids:
+    FoodBreadBun: 1
+    FoodMeatBongleCooked: 1

@@ -167,11 +167,7 @@ public sealed partial class BinglePitSystem : EntitySystem
         if (_query.HasComp(tripper))
             component.BinglePoints += (component.SpawnNewAt * component.Level) / 4; //recycling a bingle returns a quarter bingle.
 
-        // Bongle
-        if (HasComp<BongleComponent>(tripper) && _mob.IsDead(tripper) && component.PointMultiplier != component.BongleMultiplier)
-        {
-            component.PointMultiplier = component.BongleMultiplier;
-        }
+        component.BinglePoints += (component.BinglePoints - pointsBefore) * (component.PointMultiplier - 1); // Bongle
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(tripper, pullable, ignoreGrab: true);

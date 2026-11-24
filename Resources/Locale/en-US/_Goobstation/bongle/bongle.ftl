@@ -34,10 +34,6 @@ reagent-desc-bongleblood = bangle!!!
 
 seething-popup = You seethe in the presence of the Adversary.
 
-bongle-triumph = One of many has been captured. You feel your mouth capacity increasing, and your wounds healing...
-
-bingle-triumph = The pit feasts on the Adversary. Point production is boosted!
-
 language-Bongle-name = Bongle
 chat-language-Bongle-name = Bongle
 language-Bongle-description = BONG BANG BONGLE!!!

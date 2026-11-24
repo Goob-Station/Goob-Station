@@ -62,6 +62,8 @@ public sealed partial class SwallowerChewSystem : EntitySystem
 
             if (TryComp<PhysicalCompositionComponent>(item, out var composition))
             {
+                var count = TryComp<StackComponent>(item, out var itemStack) ? itemStack.Count : 1;
+
                 foreach (var (material, amount) in composition.MaterialComposition)
                 {
                     var proto = _prototype.Index(material);
@@ -70,7 +72,7 @@ public sealed partial class SwallowerChewSystem : EntitySystem
                     if (proto.StackEntity is not { } stackProto || sheetVolume <= 0)
                         continue;
 
-                    var sheets = amount / sheetVolume;
+                    var sheets = amount * count / sheetVolume;
 
                     if (sheets <= 0)
                         continue;
