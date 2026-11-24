@@ -22,29 +22,21 @@ public sealed partial class SeethingSystemClient : EntitySystem
     [SubscribeLocalEvent]
     private void OnStartup(Entity<SeethingComponent> ent, ref ComponentStartup args)
     {
-        var (uid, _) = ent;
-
-        if (_player.LocalEntity == uid)
-        {
-            AddOverlay();
-        }
+        if (_player.LocalEntity == ent.Owner)
+            AddOverlay(ent.Comp);
     }
 
     [SubscribeLocalEvent]
     private void OnShutdown(Entity<SeethingComponent> ent, ref ComponentShutdown args)
     {
-        var (uid, _) = ent;
-
-        if (_player.LocalEntity == uid)
-        {
+        if (_player.LocalEntity == ent.Owner)
             RemoveOverlay();
-        }
     }
 
     [SubscribeLocalEvent]
     private void OnAttached(Entity<SeethingComponent> ent, ref LocalPlayerAttachedEvent args)
     {
-        AddOverlay();
+        AddOverlay(ent.Comp);
     }
 
     [SubscribeLocalEvent]
@@ -53,8 +45,10 @@ public sealed partial class SeethingSystemClient : EntitySystem
         RemoveOverlay();
     }
 
-    private void AddOverlay()
+    private void AddOverlay(SeethingComponent seething)
     {
+        _overlay.Seething = seething;
+
         if (!_overlayMan.HasOverlay<SeethingOverlay>())
         {
             _overlayMan.AddOverlay(_overlay);
@@ -64,5 +58,6 @@ public sealed partial class SeethingSystemClient : EntitySystem
     private void RemoveOverlay()
     {
         _overlayMan.RemoveOverlay(_overlay);
+        _overlay.Seething = null;
     }
 }
