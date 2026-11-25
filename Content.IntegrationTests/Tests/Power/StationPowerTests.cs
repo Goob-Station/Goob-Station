@@ -33,6 +33,7 @@ public sealed class StationPowerTests
         "Marathon",
         "Oasis",
         "Packed",
+        "Submarine",
         "Plasma",
         "Relic",
         "Snowball",
