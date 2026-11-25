@@ -342,6 +342,7 @@
     steps: 5
     zeroVisible: true
   - type: Gun
+    fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
