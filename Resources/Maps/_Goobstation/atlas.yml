@@ -4,8 +4,8 @@ meta:
   engineVersion: 293.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/17/2026 22:39:42
-  entityCount: 9507
+  time: 11/25/2026 10:07:50
+  entityCount: 9512
 maps:
 - 1
 grids:
@@ -4403,6 +4403,28 @@ entities:
     - type: Transform
       parent: 2
       pos: 0.5,-20.5
+- proto: Airlock
+  entities:
+  - uid: 275
+    components:
+    - type: Transform
+      parent: 2
+      pos: -31.5,-13.5
+  - uid: 551
+    components:
+    - type: Transform
+      parent: 2
+      pos: -35.5,-9.5
+  - uid: 1034
+    components:
+    - type: Transform
+      parent: 2
+      pos: -31.5,-9.5
+  - uid: 4204
+    components:
+    - type: Transform
+      parent: 2
+      pos: -34.5,-13.5
 - proto: AirlockAllServiceGlassLocked
   entities:
   - uid: 48
@@ -4573,7 +4595,7 @@ entities:
       pos: -32.5,-2.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -144786.84
+      secondsUntilStateChange: -145318.86
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4608,7 +4630,7 @@ entities:
       pos: 27.5,18.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -72497.45
+      secondsUntilStateChange: -73029.48
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4848,7 +4870,7 @@ entities:
       pos: 6.5,29.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -23302.16
+      secondsUntilStateChange: -23834.184
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -5586,26 +5608,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -17.5,2.5
-  - uid: 551
-    components:
-    - type: Transform
-      parent: 2
-      pos: -31.5,-13.5
-  - uid: 1034
-    components:
-    - type: Transform
-      parent: 2
-      pos: -35.5,-9.5
-  - uid: 4204
-    components:
-    - type: Transform
-      parent: 2
-      pos: -31.5,-9.5
-  - uid: 4874
-    components:
-    - type: Transform
-      parent: 2
-      pos: -34.5,-13.5
   - uid: 8784
     components:
     - type: Transform
@@ -6171,6 +6173,9 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: 2.5,26.5
+    - type: AccessReader
+      accessListsOriginal:
+      - - Engineering
     - type: Fixtures
       fixtures: {}
 - proto: AppleSeeds
@@ -6275,12 +6280,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: 15.5,34.5
-  - uid: 275
-    components:
-    - type: Transform
-      parent: 2
-      rot: 1.5707963267948966 rad
-      pos: 31.5,-10.5
   - uid: 4582
     components:
     - type: Transform
@@ -6293,6 +6292,23 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -37.5,22.5
+- proto: AtmosDeviceFanTiny
+  entities:
+  - uid: 4874
+    components:
+    - type: Transform
+      parent: 2
+      pos: 31.5,-10.5
+  - uid: 9508
+    components:
+    - type: Transform
+      parent: 2
+      pos: -33.5,-15.5
+  - uid: 9509
+    components:
+    - type: Transform
+      parent: 2
+      pos: 6.5,31.5
 - proto: AtmosFixBlockerMarker
   entities:
   - uid: 232
@@ -13921,6 +13937,21 @@ entities:
     - type: Transform
       parent: 2
       pos: -51.5,-5.5
+  - uid: 9510
+    components:
+    - type: Transform
+      parent: 2
+      pos: -55.5,12.5
+  - uid: 9511
+    components:
+    - type: Transform
+      parent: 2
+      pos: -55.5,10.5
+  - uid: 9512
+    components:
+    - type: Transform
+      parent: 2
+      pos: -9.5,18.5
 - proto: CableApcStack
   entities:
   - uid: 4867
@@ -50374,11 +50405,9 @@ entities:
       pos: -38.5,-8.5
     - type: DeviceLinkSource
       linkedPorts:
-        1034:
+        551:
         - - Pressed
           - DoorBolt
-        - - Pressed
-          - Close
     - type: Fixtures
       fixtures: {}
   - uid: 3981
@@ -50441,7 +50470,7 @@ entities:
       pos: -34.5,-8.5
     - type: DeviceLinkSource
       linkedPorts:
-        4204:
+        1034:
         - - Pressed
           - DoorBolt
     - type: Fixtures
@@ -50454,7 +50483,7 @@ entities:
       pos: -38.5,-13.5
     - type: DeviceLinkSource
       linkedPorts:
-        4874:
+        4204:
         - - Pressed
           - DoorBolt
     - type: Fixtures
@@ -50467,11 +50496,9 @@ entities:
       pos: -29.5,-15.5
     - type: DeviceLinkSource
       linkedPorts:
-        551:
+        275:
         - - Pressed
           - DoorBolt
-        - - Pressed
-          - Close
     - type: Fixtures
       fixtures: {}
   - uid: 4518
@@ -52048,7 +52075,7 @@ entities:
     components:
     - type: Transform
       parent: 2
-      pos: 4.5,-6.5
+      pos: 38.5,3.5
 - proto: SpawnPointClown
   entities:
   - uid: 721
@@ -54592,11 +54619,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -63.5,-2.5
-    - type: ParallaxStargaze
-      stillTime: 30
-      music: !type:SoundCollectionSpecifier
-        collection: AmbienceSpaceChill
-      activationRadius: 1
 - proto: TegCirculator
   entities:
   - uid: 5265
