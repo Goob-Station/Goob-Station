@@ -157,7 +157,7 @@ public sealed partial class FartSystem : EntitySystem
         }
 
         var throwDirection = _transform.GetWorldRotation(ent).Opposite().ToWorldVec();
-        _throwing.TryThrow(butt, throwDirection * ent.Comp.ButtThrowDistance);
+        _throwing.TryThrow(butt, throwDirection * ent.Comp.ButtThrowDistance, user: ent);
     }
 
     private void OnButtAdded(Entity<ButtComponent> ent, ref OrganAddedToBodyEvent args)
