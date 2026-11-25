@@ -1,78 +1,188 @@
 <!--
+SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 basic pack <159909786+packmore@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+SPDX-FileCopyrightText: 2026 Leguia <236214778+zagreastyas@users.noreply.github.com>
+
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Revealing conditions for antags
+  # Metashield revealing conditions for antags
 
-  The following list provides revealing conditions for different antags you may see on the station
+  The Metashield is a protection given to antagonists so that they have the opportunity to prepare and contribute to the game without being pushed out of the round too early, it is an expansion on what is acceptable metaknowledge of an antag. Something having a Metashield does not mean you do not know of it's existence as a topic in character, only that you do not know of it being present on the station at that time. We do not require you are willfully ignorant to any threat to exist however metaknowledge should not be used in round.
+
+  The following list provides revealing conditions for different antags you may see on the station. Until a "metashield" is broken on an antag your character has no reason to assume an antag of that type is present on the station and until then you should act as if they are fictional. Command staff have knowledge of possible antagonists however should not assume they are present on the station and should act as if the shift is safe until proven otherwise.
+
+  *You must in character see an item/event occur in an unobstructed way to qualify as a metashield break. Hearing actions that you would not otherwise witness, seeing objects or entities through walls, and experiencing events while unconcious or dead do not contribute towards a metashield break. If you hear something suspicious you may seek out what it was to confirm a threat but may not call out a threat without visual confirmation. It is in bad faith to assume someone is an antagonist for otherwise mundane actions, and unless you have evidence against someone they should not be treated as one (i.e. hovering groups of people in maints building a bar, someone picking up tools outside of their department, 
+
+  ## Syndicate Agents (Including Traitors, Nukies, and Ninjas)
+
+  The Syndicate are well known as a major faction and a nuissance to NT, known to send agents from time to time to attempt to cause chaos and ruin our reputation.
+
+  Revealing conditions to the "Syndicate" Metashield:
+  - Finding Syndicate contraband
+  - Finding an open uplink
+  - Syndicate announcements
+  - Obvious Syndicate activities
+
+  Memorizing all of the syndicate codewords to try and "catch out" syndicate agents is considered metagaming. If they are being overly obvious with their codeword useage they may be considered suspicious and treated as such.
+
+  ## Thieves 
+
+  Pickpockets are well known as a fact of life and have existed since history was first recorded.
+
+  Revealing conditions to the "Thieves" Metashield:
+  - Finding an Undetermined Thieving Bundle
+  - Finding a Thieving Pinpointer or Thieving Beacon
+  - Obvious thieving activity
+
+  ## Changelings
+
+  Changelings are thought to be extinct in this sector, but you never know what can still be lurking in the far reaches of space...
+
+  Revealing conditions to the "Changeling" Metashield:
+  - Witnessing someone using Changeling abilities aside from stealth abilities like stings (excluding armblade sting)
+  - Finding a hollow body
+  - Finding ferrochromic acid (you must prove it is ferrochromic, not just blue juice)
+  - Finding a Head Slug
+
+  To confirm someone is a Changeling they must either be very obviously using Changeling abilities or confirmed through a blood test. In game there is an armblade sting and a fake armblade, keep these in mind. Suspicion is not solid proof to ash a player, when in doubt always bloodtest.
 
   ## Heretics
-  The revealing condition for this shield is any of the following:
+
+  Crazed religious fanatics who seclude themselves and perform dark rituals. Generally thought to be raving madmen, until proven otherwise.
+
+  Revealing conditions to the "Heretic" Metashield:
   - Finding a rune
   - Finding a reality fracture
-  - Witnessing a crewmember using their powers
+  - Finding heretic magical contraband
+  - Witnessing a crewmember using their powers 
+
+  To confirm a player is a Heretic you must witness them using their magical abilities. Heretic gear is considered magical contraband and not solid proof that someone is a Heretic, although it can indicate at one point a Heretic was on station. 
+
+  ## Shadowling
+
+  You've heard stories of strange and powerful aliens, why would they ever be here though?
+
+  Revealing conditions to the "Shadowling" Metashield:
+  - Finding a Shadowling egg
+  - Seeing a Shadowling
+  - Witnessing Shadowling abilities
+  - Identifying a Shadowling thrall
+
+  Breaking lights, while a characteristic Shadowling behavior, does not always mean there is a Shadowling on station.
 
   ## Cosmic Cult
 
-  The revealing condition for this shield is any of the following:
-  - witnessing a crewmember with the telltale facemask
+  Cults aren't a new concept but there are only a handful of officially recognized religions in this sector, whatever these guys are talking about isn't one of them and is probably best avoided.
+
+  Revealing conditions to the "Cosmic Cult" Metashield:
+  - Witnessing a crewmember with the telltale star facemask that is displayed during phase 3 of the cult's development
   - Seeing a glyph
-  - witnessing a crewmember absorb a malign shift
-  - witnessing a crewmember use a cult-specific ability
-  - witnessing cult gear like entropic swords and armor
+  - Witnessing a crewmember absorb a malign shift
+  - Witnessing a crewmember use a cult-specific ability
+  - Witnessing cult gear like entropic swords and armor
+  - Witness a deconversion through holy water useage
 
-  ## Devils
-
-  The revealing condition for this shield is any of the following:
-  - You are a Devil.
-  - You are the Chaplain, a lawyer, or a member of Central Command. (Including BSO and NTR)
-  - You have made a deal with the Devil.
-  - You have witnessed someone make a deal.
+  To confirm a player is a Cosmic Cult member you must either witness them using their magical abilities, witness them being deconverted, or once a cult has been established have reasonable cause to assume they are a cultist or contributing towards the cult. Malign rifts spawning is NOT considered a Metashield break and is a random occurance that has a possibility of happening.
 
   ## Zombies
+
+  The zombie virus has been eliminated for decades, as far as you know.
 
   Revealing conditions to the "Zombie" Shield:
   - You are a Nuclear Operative
   - You are a Syndicate Agent
-  - You are a Zombie
+  - You are a Zombie or Initial Infected
   - You have seen Zombies on the station
+  - The class 7 biohazard announcement plays (this is distinct from a code Violet)	
 
-  ## Infections(Once the zombie virus is proven)
+  ## Infections and Cure (Once the zombie virus is proven)
 
   Revealing conditions to the "Infections" Shield:
   - You are a Chemist
   - You are a Chief Medical Officer
   - Zombies are announced to be real and station-wide
 
+  ## Revolutionaries
+
+  Revolutions are no new idea, and with angry people there is always a chance for one.
+
+  Revealing conditions to the "Revolutionary" Shield:
+  - Declared Revolution
+  - Finding a tampered flash or quickdraw implanter
+  - Mindshield failure 
+  - Obvious Revolutionary activities
+
+  Due to the nature of how Revs play it is appropriate to assume large mobs of hostile entities can be a conversation antag, like Revs. If you have a suspicion that it may be Revs you are in fact allowed to act upon it as such.
+
+  ## Xenomorphs
+
+  Stories of ravenous xenomorphs have reached your ears, told by those who visit from other sectors. Thankfully, you are safe here.
+
+  Revealing conditions to the "Xenomorphs" Shield:
+  - Seeing a Xenomorph including facehuggers
+  - Seeing Xenomorph related structures
+  - Witnessing a chestburst or finding a larva inside someone
+
+  ## Blob
+
+  Known of as a possible threat in other sectors, they haven't reached us yet though.
+
+  Revealing conditions to the "Blob" Shield:
+  - Seeing a Blob or Blob entities/tiles
+  - Blob announcement being played
+
+  ## Abductors
+  
+  Aliens who traveled to our station to experiment on crew.
+  
+  Revealing conditions to the "Abductors" shield: 
+  - Seeing an Abductor
+  - Finding Abductor equipment including organs
+  
+  ## Xenoborgs
+  
+  (Insert description here I dont know xenoborgs)
+  
+  Revealing conditions to the "Xenoborgs" shield:
+  - Seeing a Xenoborg
+  - Finding Xenoborg structures
+
   ## Deathsquad
+  
+  Posters of these "marines" and advertisements to enlist are scattered around the station. NT heralds these operatives as their elite special forces who save the day.
 
   Revealing conditions to the "Deathsquad" Shield:
-  - You'll know.
+  - Being a member of Central Command staff or other dignitary
+  - Eplison Alert plays or a member of CentComm reveals the information to crew	
 
-  ## Implanted implants
+  ## Implants
 
   The revealing condition for this shield is any of the following:
-  - discovering a non-NT implanter, used or unused
-  - discovering a non-NT implant box
-  - discovering use of a non-NT implant by anyone
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
+  - Discovering a non-NT implanter, used or unused
+  - Discovering a non-NT implant box
+  - Discovering use of a non-NT implant by anyone
+  - Experiencing a situation where absolutely no other explanation is possible
+  - Discovering an unlocked uplink
 
   ## Chameleon Items
 
   The revealing condition for this shield is any of the following:
-  - seeing someone else cause any chameleon item to change
-  - finding holographic nanomachine fibers
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
+  - Seeing a chameleon item change
+  - Finding holographic nanomachine fibers
+  - Experiencing a situation where absolutely no other explanation is possible
+  - Discovering an unlocked uplink
 
   ## Stealth Items
 
   The revealing condition for this shield is any of the following:
-  - seeing the item behave differently than the expected behavior for the item
-  - seeing the item used for its hidden purpose
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
+  - Seeing the item behave differently than the expected behavior for the item
+  - Seeing the item used for its hidden purpose
+  - Experiencing a situation where absolutely no other explanation is possible
+  - Discovering an unlocked uplink
 
 </Document>
