@@ -12,12 +12,7 @@ public sealed partial class JanitorCallButtonSystem : EntitySystem
     [Dependency] private RadioSystem _radio = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<JanitorCallButtonComponent, JanitorCallButtonPressedEvent>(OnButtonPressed);
-    }
-
+    [SubscribeLocalEvent]
     private void OnButtonPressed(Entity<JanitorCallButtonComponent> ent, ref JanitorCallButtonPressedEvent args)
     {
         if (ent.Comp.Enabled)
