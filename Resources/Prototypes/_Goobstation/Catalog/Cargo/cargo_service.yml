@@ -96,6 +96,6 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/flaregun.rsi
     state: base
   product: CrateCargoFlareBundle
-  cost: 1500
+  cost: 2500
   category: cargoproduct-category-name-service
   group: market
