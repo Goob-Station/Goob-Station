@@ -26,7 +26,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/fireaxe.rsi
     state: icon
   product: CrateAtmosFireaxe
-  cost: 10000
+  cost: 15000
   category: cargoproduct-category-name-engineering
   group: market
 
@@ -36,6 +36,6 @@
     sprite: Objects/Weapons/Melee/sledgehammer.rsi
     state: icon
   product: CrateConstructionEquipment
-  cost: 2000
+  cost: 4000
   category: cargoproduct-category-name-armory
   group: market
