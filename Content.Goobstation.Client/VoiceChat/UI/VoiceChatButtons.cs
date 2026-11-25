@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.UserInterface.Systems.Chat.Controls;
+using Content.Goobstation.Client.News.UI;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
 using Robust.Client.Graphics;
@@ -10,7 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.VoiceChat.UI;
 
-public sealed class ChatVoiceControls : IChatVoiceControls
+public sealed partial class ChatVoiceControls : IChatVoiceControls
 {
     public IEnumerable<Control> CreateControls()
     {
@@ -19,11 +20,11 @@ public sealed class ChatVoiceControls : IChatVoiceControls
     }
 }
 
-public abstract class VoiceIconButton : Button
+public abstract partial class VoiceIconButton : Button
 {
-    [Dependency] protected readonly IConfigurationManager Cfg = default!;
-    [Dependency] protected readonly VoiceChatManager Voice = default!;
-    [Dependency] protected readonly IEntitySystemManager Systems = default!;
+    [Dependency] protected IConfigurationManager Cfg = default!;
+    [Dependency] protected VoiceChatManager Voice = default!;
+    [Dependency] protected IEntitySystemManager Systems = default!;
 
     protected static readonly Color OfflineColor = Color.FromHex("#6A6C7A");
     protected static readonly Color IdleColor = Color.FromHex("#C8C8D0");
@@ -105,7 +106,7 @@ public abstract class VoiceIconButton : Button
     }
 }
 
-public sealed class VoiceMicButton : VoiceIconButton
+public sealed partial class VoiceMicButton : VoiceIconButton
 {
     public VoiceMicButton()
     {
@@ -173,7 +174,7 @@ public sealed class VoiceMicButton : VoiceIconButton
     {
         if (!Voice.WebConnected)
         {
-            UserInterfaceManager.GetUIController<VoiceChatGuideUIController>().Open();
+            UserInterfaceManager.GetUIController<NewsUIController>().Open(VoiceChatManager.NewsEntry);
             return;
         }
 
@@ -188,7 +189,7 @@ public sealed class VoiceMicButton : VoiceIconButton
     }
 }
 
-public sealed class VoiceDeafenButton : VoiceIconButton
+public sealed partial class VoiceDeafenButton : VoiceIconButton
 {
     public VoiceDeafenButton()
     {

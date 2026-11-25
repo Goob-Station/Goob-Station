@@ -24,6 +24,7 @@ public sealed class StationAiVisionSystem : EntitySystem
 
     private SeedJob _seedJob;
     private ViewJob _job;
+    private readonly object _lock = new(); // Goob - Fix (parallel access race)
 
     private readonly HashSet<Entity<OccluderComponent>> _occluders = new();
     private readonly HashSet<Entity<StationAiVisionComponent>> _seeds = new();
@@ -67,6 +68,14 @@ public sealed class StationAiVisionSystem : EntitySystem
     /// Returns whether a tile is accessible based on vision.
     /// </summary>
     public bool IsAccessible(Entity<BroadphaseComponent, MapGridComponent> grid, Vector2i tile, float expansionSize = 8.5f, bool fastPath = false)
+    {
+        lock (_lock) // Goob - Fix (parallel access race)
+        {
+            return IsAccessibleUnlocked(grid, tile, expansionSize, fastPath);
+        }
+    }
+
+    private bool IsAccessibleUnlocked(Entity<BroadphaseComponent, MapGridComponent> grid, Vector2i tile, float expansionSize, bool fastPath)
     {
         _viewportTiles.Clear();
         _opaque.Clear();
@@ -153,6 +162,14 @@ public sealed class StationAiVisionSystem : EntitySystem
     /// </summary>
     /// <param name="expansionSize">How much to expand the bounds before to find vision intersecting it. Makes this the largest vision size + 1 tile.</param>
     public void GetView(Entity<BroadphaseComponent, MapGridComponent> grid, Box2Rotated worldBounds, HashSet<Vector2i> visibleTiles, float expansionSize = 8.5f)
+    {
+        lock (_lock) // Goob - Fix (parallel access race)
+        {
+            GetViewUnlocked(grid, worldBounds, visibleTiles, expansionSize);
+        }
+    }
+
+    private void GetViewUnlocked(Entity<BroadphaseComponent, MapGridComponent> grid, Box2Rotated worldBounds, HashSet<Vector2i> visibleTiles, float expansionSize)
     {
         _viewportTiles.Clear();
         _opaque.Clear();

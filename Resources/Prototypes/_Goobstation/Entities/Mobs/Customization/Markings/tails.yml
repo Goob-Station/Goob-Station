@@ -1,5 +1,6 @@
 - type: marking
   id: dogTail
+  wagging: dogTailWag # Goob
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, Dwarf]
@@ -15,3 +16,22 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/dog_markings.rsi
       state: dog_tail_animated
+
+- type: marking
+  id: SynthTailSynthliz
+  wagging: SynthTailSynthlizWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Synth/synthliz_tails.rsi
+    state: tail_synthliz
+
+- type: marking
+  id: SynthTailSynthlizWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Synth/synthliz_tails.rsi
+    state: tail_synthliz_wagging

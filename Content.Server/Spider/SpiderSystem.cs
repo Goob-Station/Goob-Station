@@ -49,6 +49,9 @@ public sealed class SpiderSystem : SharedSpiderSystem
                 continue;
 
             var transform = Transform(uid);
+            if (transform.GridUid == null || transform.ParentUid != transform.GridUid) // Goob
+                continue;
+
             SpawnWeb((uid, spider), transform.Coordinates);
         }
     }
@@ -60,7 +63,7 @@ public sealed class SpiderSystem : SharedSpiderSystem
 
         var transform = Transform(uid);
 
-        if (transform.GridUid == null)
+        if (transform.GridUid == null || transform.ParentUid != transform.GridUid) // Goob - not from inside vents/containers
         {
             _popup.PopupEntity(Loc.GetString("spider-web-action-nogrid"), args.Performer, args.Performer);
             return;

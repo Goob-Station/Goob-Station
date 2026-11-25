@@ -16,6 +16,7 @@
   id: ServiceBoardsStaticGoob
   recipes:
   - StationRadioCircuitboard
+  - PhotocopierMachineCircuitboard
 
 - type: latheRecipePack
   id: CargoBoardsStaticGoob

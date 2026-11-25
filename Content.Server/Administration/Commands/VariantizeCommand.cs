@@ -43,11 +43,13 @@ public sealed class VariantizeCommand : IConsoleCommand
         var tileSystem = _entManager.System<TileSystem>();
         var turfSystem = _entManager.System<TurfSystem>();
 
+        var changes = new List<(Vector2i GridIndices, Tile Tile)>();
         foreach (var tile in mapsSystem.GetAllTiles(euid.Value, gridComp))
         {
             var def = turfSystem.GetContentTileDefinition(tile);
-            var newTile = new Tile(tile.Tile.TypeId, tile.Tile.Flags, tileSystem.PickVariant(def), tile.Tile.RotationMirroring);
-            mapsSystem.SetTile(euid.Value, gridComp, tile.GridIndices, newTile);
+            changes.Add((tile.GridIndices, new Tile(tile.Tile.TypeId, tile.Tile.Flags, tileSystem.PickVariant(def), tile.Tile.RotationMirroring)));
         }
+
+        mapsSystem.SetTiles(euid.Value, gridComp, changes);
     }
 }

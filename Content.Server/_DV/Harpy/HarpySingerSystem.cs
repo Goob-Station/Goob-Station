@@ -7,7 +7,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared._DV.Harpy;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
@@ -22,6 +22,7 @@ using Content.Shared._DV.Harpy.Components;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._DV.Harpy
 {

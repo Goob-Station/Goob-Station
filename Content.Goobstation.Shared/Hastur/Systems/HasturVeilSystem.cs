@@ -5,10 +5,10 @@ using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 
 namespace Content.Goobstation.Shared.Hastur.Systems;
-public sealed class HasturVeilSystem : EntitySystem
+public sealed partial class HasturVeilSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStealthSystem _stealth = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

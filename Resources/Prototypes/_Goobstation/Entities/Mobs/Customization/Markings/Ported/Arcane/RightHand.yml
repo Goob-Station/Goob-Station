@@ -1,0 +1,157 @@
+# Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0
+
+- type: marking
+  id: AndroidScrapHandRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: r_hand_scrap
+
+- type: marking
+  id: AndroidSyntHandRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/android.rsi
+    state: r_hand_synt
+
+- type: marking
+  id: BS2RHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bs2ipc_r_hand
+
+- type: marking
+  id: BSHRHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: bshipc_r_hand
+
+- type: marking
+  id: CyberlimbRHandHephaestusTitan
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Dwarf, Felinid, Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/hephaestus_titan.rsi
+    state: r_hand
+
+- type: marking
+  id: CyberlimbRHandMorpheus
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/morpheus.rsi
+    state: r_hand
+
+- type: marking
+  id: CyberlimbRHandXion
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Dwarf, Felinid, Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/xion.rsi
+    state: r_hand
+
+- type: marking
+  id: CyberlimbRHandZenghu
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Dwarf, Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/Cyberlimbs/zenghu.rsi
+    state: r_hand
+
+- type: marking
+  id: IPCRHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ipc_r_hand
+
+- type: marking
+  id: IPSRHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: ips_r_hand
+
+- type: marking
+  id: MCGRHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: mcgipc_r_hand
+
+- type: marking
+  id: PawsitronsRHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: pawsitrons_r_hand
+
+- type: marking
+  id: SGMRHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: sgmipc_r_hand
+
+- type: marking
+  id: SteampunkRHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Arcane/_Arcane/Mobs/Customization/IPC/ipc_parts.rsi
+    state: staripc_r_hand

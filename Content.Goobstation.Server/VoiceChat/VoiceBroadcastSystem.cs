@@ -17,19 +17,19 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.VoiceChat;
 
-public sealed class VoiceBroadcastSystem : EntitySystem
+public sealed partial class VoiceBroadcastSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly VoiceChatManager _voice = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private VoiceChatManager _voice = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StationSystem _station = default!;
 
     private readonly Dictionary<EntityUid, EntityUid> _active = new();
     private readonly List<EntityUid> _toStop = new();
@@ -38,7 +38,6 @@ public sealed class VoiceBroadcastSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CommunicationsConsoleComponent, ComponentStartup>(OnConsoleStartup);
         SubscribeLocalEvent<CommunicationsConsoleComponent, VoiceBroadcastToggleMessage>(OnToggle);
         SubscribeLocalEvent<VoiceBroadcastConsoleComponent, ComponentShutdown>(OnShutdown);
     }
@@ -96,11 +95,6 @@ public sealed class VoiceBroadcastSystem : EntitySystem
         {
             recipients.Add(session);
         }
-    }
-
-    private void OnConsoleStartup(Entity<CommunicationsConsoleComponent> ent, ref ComponentStartup args)
-    {
-        EnsureComp<VoiceBroadcastConsoleComponent>(ent);
     }
 
     private void OnShutdown(Entity<VoiceBroadcastConsoleComponent> ent, ref ComponentShutdown args)

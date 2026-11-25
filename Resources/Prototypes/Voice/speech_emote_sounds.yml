@@ -47,6 +47,10 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Hum: # Goob
+      collection: MaleHums
+    Sniff: # Goob
+      path: /Audio/_WF/Wolfmed/Emotes/sniff_male1.ogg
 
 - type: emoteSounds
   id: FemaleHuman
@@ -95,6 +99,10 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Hum: # Goob
+      collection: FemaleHums
+    Sniff: # Goob
+      path: /Audio/_WF/Wolfmed/Emotes/sniff_female1.ogg
 
 - type: emoteSounds ## GOOB CONTENT START
   id: MonkeyMode
@@ -191,6 +199,20 @@
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
     ReptilianScreech: #Omu
       collection: ReptilianScreech
+    Chirp: # Goob
+      collection: ReptilianChirps
+    Gurgle: # Goob
+      collection: ReptilianGurgles
+    Liss: # Goob
+      collection: ReptilianLisses
+    Lurr: # Goob
+      path: /Audio/_Starlight/Voice/Reptilian/lizard_purr.ogg
+    Snicker: # Goob
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg
+    Sneeze: # Goob
+      collection: MaleSneezes
+    Snore: # Goob
+      collection: Snores
 
 
 - type: emoteSounds
@@ -242,6 +264,20 @@
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
     ReptilianScreech: #Omu
       collection: ReptilianScreech
+    Chirp: # Goob
+      collection: ReptilianChirps
+    Gurgle: # Goob
+      collection: ReptilianGurgles
+    Liss: # Goob
+      collection: ReptilianLisses
+    Lurr: # Goob
+      path: /Audio/_Starlight/Voice/Reptilian/lizard_purr.ogg
+    Snicker: # Goob
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg
+    Sneeze: # Goob
+      collection: FemaleSneezes
+    Snore: # Goob
+      collection: Snores
 
 - type: emoteSounds
   id: MaleSlime
@@ -415,11 +451,17 @@
       collection: Belch # Frontier
     Caw:
       collection: HarpyCaws
+    Bagawk:
+      path: /Audio/_Mono/Voice/bagawk.ogg 
     # Goob end
     #Gasp: # Goob
     #  path: /Audio/Effects/Gasp/vox_gasp.ogg
     #DefaultDeathgasp:
     #  path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
+    Chirp: # Goob
+      collection: ResomiChirp
+    Coo: # Goob
+      collection: VoxCoos
   params:
     variation: 0.125
 
@@ -460,6 +502,12 @@
       collection: Dionasigh
     Belch: # Frontier
       collection: Belch # Frontier
+    Multichirp: # Goob
+      path: /Audio/_Impstation/Effects/Emotes/multichirp.ogg
+    Sneeze: # Goob
+      path: /Audio/Voice/Diona/diona_sneeze.ogg
+    Snore: # Goob
+      collection: Snores
   params:
     variation: 0.125
 
@@ -495,6 +543,22 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Cough: # Goob
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cough.ogg
+    Crying: # Goob
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cry.ogg
+    Hiss: # Goob
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg
+    Sigh: # Goob
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_sigh.ogg
+    Yawn: # Goob
+      path: /Audio/_Impstation/Voice/Arachnid/arachnid_yawn.ogg
+    Sneeze: # Goob
+      collection: MaleSneezes
+    Snore: # Goob
+      collection: Snores
+    Whistle: # Goob
+      collection: Whistles
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -541,6 +605,10 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Hum: # Goob
+      collection: MaleHums
+    Sniff: # Goob
+      path: /Audio/_WF/Wolfmed/Emotes/sniff_male1.ogg
   params:
     variation: 0.125
     pitch: 0.75
@@ -588,6 +656,10 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Hum: # Goob
+      collection: FemaleHums
+    Sniff: # Goob
+      path: /Audio/_WF/Wolfmed/Emotes/sniff_female1.ogg
   params:
     variation: 0.125
     pitch: 0.75
@@ -889,6 +961,10 @@
       collection: Salutes
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Goob
+      path: /Audio/_Starlight/Effects/Emotes/blink.ogg
+    Stomp: # Goob
+      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
 
 - type: emoteSounds
   id: DionaBodyEmotes
@@ -908,6 +984,8 @@
        volume: -5
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Goob
+      path: /Audio/_Starlight/Effects/Emotes/blink.ogg
 
 - type: emoteSounds
   id: ReptilianBodyEmotes
@@ -930,6 +1008,8 @@
       collection: Cracks # Imp
 
 # mobs
+    Blink: # Goob
+      path: /Audio/_Starlight/Effects/Emotes/blink.ogg
 - type: emoteSounds
   id: Zombie
   sound:
@@ -1069,3 +1149,5 @@
       collection: Salutes
     Crack: # Imp
       collection: Cracks # Imp
+    Blink: # Goob
+      path: /Audio/_Starlight/Effects/Emotes/blink.ogg

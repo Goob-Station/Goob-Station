@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.BlockHandsOnBuckle;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Alert;
@@ -50,6 +51,7 @@ public abstract partial class SharedBuckleSystem
 
         SubscribeLocalEvent<BuckleComponent, PreventCollideEvent>(OnBucklePreventCollide);
         SubscribeLocalEvent<BuckleComponent, DownAttemptEvent>(OnBuckleDownAttempt);
+        SubscribeLocalEvent<BuckleComponent, KnockDownAttemptEvent>(OnBuckleKnockDownAttempt); // Goob
         SubscribeLocalEvent<BuckleComponent, StandAttemptEvent>(OnBuckleStandAttempt);
         SubscribeLocalEvent<BuckleComponent, ThrowPushbackAttemptEvent>(OnBuckleThrowPushbackAttempt);
         SubscribeLocalEvent<BuckleComponent, UpdateCanMoveEvent>(OnBuckleUpdateCanMove);
@@ -73,6 +75,11 @@ public abstract partial class SharedBuckleSystem
     {
         // Prevent people pulling the chair they're on, etc.
         if (ent.Comp.BuckledTo == args.Pulled && !ent.Comp.PullStrap)
+            args.Cancel();
+
+        // Goobstation
+        if (ent.Comp.BuckledTo is { } buckled
+            && HasComp<BlockHandsOnBuckleComponent>(buckled))
             args.Cancel();
     }
 
@@ -149,7 +156,23 @@ public abstract partial class SharedBuckleSystem
     private void OnBuckleMove(Entity<BuckleComponent> ent, ref MoveEvent ev)
     {
         BuckleTransformCheck(ent, ev.Component);
+        UnbuckledStrapParentCheck(ent, ev.Component); // Goobstation
     }
+
+    // Goobstation start
+    private void UnbuckledStrapParentCheck(Entity<BuckleComponent> buckle, TransformComponent xform)
+    {
+        if (_gameTiming.ApplyingState
+            || xform.ParentUid == xform.GridUid
+            || xform.ParentUid == xform.MapUid
+            || xform.ParentUid == buckle.Comp.BuckledTo
+            || !HasComp<StrapComponent>(xform.ParentUid)
+            || _container.IsEntityInContainer(buckle))
+            return;
+
+        _transform.AttachToGridOrMap(buckle, xform);
+    }
+    // Goobstation end
 
     /// <summary>
     /// Check if the entity should get unbuckled as a result of transform or container changes.
@@ -199,6 +222,14 @@ public abstract partial class SharedBuckleSystem
         if (component.Buckled)
             args.Cancel();
     }
+
+    // Goob start
+    private void OnBuckleKnockDownAttempt(Entity<BuckleComponent> ent, ref KnockDownAttemptEvent args)
+    {
+        if (ent.Comp.Buckled)
+            args.Cancelled = true;
+    }
+    // Goob end
 
     private void OnBuckleStandAttempt(EntityUid uid, BuckleComponent component, StandAttemptEvent args)
     {
@@ -527,7 +558,12 @@ public abstract partial class SharedBuckleSystem
 
         if (buckleXform.ParentUid == strap.Owner && !Terminating(oldBuckledXform.ParentUid))
         {
-            _transform.PlaceNextTo((buckle, buckleXform), (strap.Owner, oldBuckledXform));
+            // Goobstation start
+            if (_container.IsEntityInContainer(strap))
+                _transform.PlaceNextTo((buckle, buckleXform), (strap.Owner, oldBuckledXform));
+            else
+                _transform.SetCoordinates(buckle, buckleXform, _transform.GetMoverCoordinates(strap, oldBuckledXform));
+            // Goobstation end
             buckleXform.ActivelyLerping = false;
 
             var oldBuckledToWorldRot = _transform.GetWorldRotation(strap);
@@ -536,7 +572,7 @@ public abstract partial class SharedBuckleSystem
             // TODO: This is doing 4 moveevents this is why I left the warning in, if you're going to remove it make it only do 1 moveevent.
             if (strap.Comp.BuckleOffset != Vector2.Zero)
             {
-                _transform.SetCoordinates(buckle, buckleXform, oldBuckledXform.Coordinates.Offset(strap.Comp.BuckleOffset));
+                _transform.SetCoordinates(buckle, buckleXform, _transform.GetMoverCoordinates(oldBuckledXform.Coordinates.Offset(strap.Comp.BuckleOffset))); // Goobstation
             }
         }
 

@@ -206,9 +206,9 @@ public sealed partial class MarkingPicker : Control
 
     private IReadOnlyDictionary<string, MarkingPrototype> GetMarkings(MarkingCategories category)
     {
-        return IgnoreSpecies
+        return _markingManager.WithoutWaggingVariants(IgnoreSpecies
             ? _markingManager.MarkingsByCategoryAndSex(category, _currentSex)
-            : _markingManager.MarkingsByCategoryAndSpeciesAndSex(category, _currentSpecies, _currentSex);
+            : _markingManager.MarkingsByCategoryAndSpeciesAndSex(category, _currentSpecies, _currentSex)); // Goob
     }
 
     public void Populate(string filter)

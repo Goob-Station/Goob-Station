@@ -14,52 +14,47 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// <summary>
 /// Handles the Slasher Stagger Area action. When used, slows nearby mobs in range for a short duration.
 /// </summary>
-public sealed class SlasherStaggerAreaSystem : EntitySystem
+public sealed partial class SlasherStaggerAreaSystem : EntitySystem
 {
-
     public static readonly EntProtoId EffectId = "SlasherSlowdownStatusEffect";
 
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedInteractionSystem _interact = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly MovementModStatusSystem _movemod = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedInteractionSystem _interact = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private MovementModStatusSystem _movemod = default!;
+    [Dependency] private SlasherFearSystem _fear = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SlasherStaggerAreaComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlasherStaggerAreaComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<SlasherStaggerAreaComponent, SlasherStaggerAreaEvent>(OnUse);
-    }
-
+    [SubscribeLocalEvent]
     private void OnMapInit(Entity<SlasherStaggerAreaComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
+    [SubscribeLocalEvent]
     private void OnShutdown(Entity<SlasherStaggerAreaComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Comp.ActionEnt);
     }
 
+    [SubscribeLocalEvent]
     private void OnUse(Entity<SlasherStaggerAreaComponent> ent, ref SlasherStaggerAreaEvent args)
     {
         if (args.Handled)
             return;
 
         var (uid, comp) = ent;
+        var range = MathHelper.Lerp(comp.Range, comp.MaxFearRange, _fear.GetFearFraction(uid));
 
-        foreach (var (targetUid, _) in _lookup.GetEntitiesInRange<StatusEffectsComponent>(Transform(uid).Coordinates, comp.Range, LookupFlags.Dynamic))
+        foreach (var (targetUid, _) in _lookup.GetEntitiesInRange<StatusEffectsComponent>(Transform(uid).Coordinates, range, LookupFlags.Dynamic))
         {
             if (targetUid == uid)
                 continue;
 
-            if (!_interact.InRangeUnobstructed(uid, targetUid, comp.Range))
+            if (!_interact.InRangeUnobstructed(uid, targetUid, range))
                 continue;
 
             _movemod.TryUpdateMovementSpeedModDuration(targetUid, EffectId, TimeSpan.FromSeconds(comp.SlowDuration), comp.SlowMultiplier, comp.SlowMultiplier);
@@ -71,7 +66,12 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
 
         _audio.PlayPredicted(comp.StaggerSound, uid, uid);
 
-        // Show popup to the slasher only
+        var overlay = EnsureComp<SlasherStaggerOverlayComponent>(uid);
+        overlay.Range = range;
+        overlay.ShockwaveShader = comp.ShockwaveShader;
+        overlay.RingColor = comp.RingColor;
+        Dirty(uid, overlay);
+
         _popup.PopupClient(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
 
         args.Handled = true;

@@ -9,9 +9,9 @@ namespace Content.Goobstation.Shared.Traits.Systems;
 
 public sealed partial class SocialAnxietySystem : EntitySystem
 {
-    [Dependency] private readonly StandingStateSystem _standingSystem = default!;
+    [Dependency] private StandingStateSystem _standingSystem = default!;
     [Dependency] private SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Dynamics;
@@ -115,7 +115,7 @@ public sealed partial class ProjectileComponent : Component
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
     public int NoPenetrateMask = 0;
 
-    [NonSerialized]
+    [AutoNetworkedField] // Trauma - networked for prediction
     public List<EntityUid> IgnoredEntities = new();
 
     [DataField]

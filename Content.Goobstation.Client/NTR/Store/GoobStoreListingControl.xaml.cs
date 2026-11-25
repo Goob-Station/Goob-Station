@@ -10,8 +10,8 @@ namespace Content.Goobstation.Client.NTR;
 public sealed partial class GoobStoreListingControl : Control
 {
 
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     // private readonly ListingData _data;
     // _

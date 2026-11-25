@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.VoiceChat.Logs;
 
-public sealed class VoiceLogView
+public sealed partial class VoiceLogView
 {
     public const double MinDurationMs = 2000;
     public const int FrameMs = VoiceCodec.FrameSamples * 1000 / VoiceCodec.SampleRate;
@@ -59,7 +59,7 @@ public sealed class VoiceLogView
     }
 }
 
-public sealed class VoiceLogTrack(Guid userId, string username)
+public sealed partial class VoiceLogTrack(Guid userId, string username)
 {
     public readonly Guid UserId = userId;
     public string Username = username;
@@ -95,7 +95,7 @@ public sealed class VoiceLogTrack(Guid userId, string username)
     }
 }
 
-public abstract class VoiceLogTimelineControl : Control
+public abstract partial class VoiceLogTimelineControl : Control
 {
     protected readonly VoiceLogView View;
     private bool _dragging;
@@ -167,7 +167,7 @@ public abstract class VoiceLogTimelineControl : Control
     }
 }
 
-public sealed class VoiceLogRuler : VoiceLogTimelineControl
+public sealed partial class VoiceLogRuler : VoiceLogTimelineControl
 {
     private static readonly long[] Steps = { 1000, 5000, 10000, 30000, 60000, 300000, 600000, 1800000, 3600000 };
     private readonly Font _font;
@@ -208,9 +208,9 @@ public sealed class VoiceLogRuler : VoiceLogTimelineControl
     }
 }
 
-public sealed class VoiceLogLane : VoiceLogTimelineControl
+public sealed partial class VoiceLogLane : VoiceLogTimelineControl
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private static readonly Color Background = Color.FromHex("#15161B");
     private static readonly Color LocalColor = Color.FromHex("#9FD8A0");

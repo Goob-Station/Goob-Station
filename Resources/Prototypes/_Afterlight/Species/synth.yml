@@ -1,0 +1,180 @@
+- type: species
+  id: Synth
+  name: species-name-synth
+  roundStart: true
+  prototype: MobSynth
+  sprites: MobSynthSprites
+  defaultSkinTone: "#ffffff"
+  markingLimits: MobSynthMarkingLimits
+  dollPrototype: AppearanceSynth
+  skinColoration: Hues
+
+- type: speciesBaseSprites
+  id: MobSynthSprites
+  sprites:
+    Head: MobSynthHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobSynthTorso
+    Groin: MobSynthGroin
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobSynthEyes
+    LArm: MobSynthLArm
+    RArm: MobSynthRArm
+    LHand: MobSynthLHand
+    RHand: MobSynthRHand
+    LLeg: MobSynthLLeg
+    RLeg: MobSynthRLeg
+    LFoot: MobSynthLFoot
+    RFoot: MobSynthRFoot
+
+- type: humanoidBaseSprite
+  id: MobSynthEyes
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobSynthMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    HeadTop:
+      points: 2
+      required: false
+      defaultMarkings: [ SynthAntenna, SynthAntennaLight ]
+    HeadSide:
+      points: 2
+      required: false
+    Head:
+      points: 2
+      required: true
+      defaultMarkings: [ SynthVisor, SynthJawComposite ]
+    Snout:
+      points: 1
+      required: true
+      defaultMarkings: [ SynthSnout ]
+    Chest:
+      points: 3
+      required: false
+    Arms:
+      points: 4
+      required: false
+    Legs:
+      points: 4
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ SynthTail ]
+
+- type: humanoidBaseSprite
+  id: MobSynthHead
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobSynthHeadMale
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobSynthHeadFemale
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobSynthTorso
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: MobSynthTorsoMale
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: MobSynthTorsoFemale
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: MobSynthGroin
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: groin
+
+- type: humanoidBaseSprite
+  id: MobSynthGroinMale
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: groin
+
+- type: humanoidBaseSprite
+  id: MobSynthGroinFemale
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: groin
+
+- type: humanoidBaseSprite
+  id: MobSynthLLeg
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobSynthLHand
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobSynthLArm
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobSynthLFoot
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobSynthRLeg
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobSynthRHand
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobSynthRArm
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobSynthRFoot
+  baseSprite:
+    sprite: _Afterlight/Species/Synth/parts.rsi
+    state: r_foot

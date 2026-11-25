@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Meridian Rift at https://github.com/Aphelion-Moon/Meridian-Rift/tree/0fd8e40910402f2745e5e5e4adc7d37bd45fed40 (icons/mob/human/fish_features.dmi, icons/mob/human/species/alien/tail_xenomorph.dmi, modular_nova/master_files/icons/mob/sprite_accessory/tails_big.dmi), which carries the art of NovaSector, Skyrat-tg and tgstation. Layers merged per colour and centred for Wolfgate by Tools/_WF/MeridianMarkings/port.py. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_WF/MeridianMarkings/tails_48x32.rsi",
+  "size": {
+    "x": 48,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chonky_fish_infusion",
+      "directions": 4
+    },
+    {
+      "name": "chonky_fish_infusion_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "long_fish_infusion",
+      "directions": 4
+    },
+    {
+      "name": "long_fish_infusion_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "ring_tail_long_primary",
+      "directions": 4
+    },
+    {
+      "name": "ring_tail_long_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "ring_tail_long_secondary",
+      "directions": 4
+    },
+    {
+      "name": "ring_tail_long_secondary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "shadekin_striped_primary",
+      "directions": 4
+    },
+    {
+      "name": "shadekin_striped_primary_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "shadekin_striped_secondary",
+      "directions": 4
+    },
+    {
+      "name": "shadekin_striped_secondary_BEHIND",
+      "directions": 4
+    }
+  ]
+}

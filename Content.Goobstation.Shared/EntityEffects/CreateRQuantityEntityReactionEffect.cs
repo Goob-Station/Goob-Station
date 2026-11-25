@@ -4,15 +4,14 @@ using Content.Shared.Chemistry.Reaction;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Goobstation.Shared.EntityEffects;
 
 // i dont even know if this works. if you're reading this, it likely doesn't. Change the Comp.
 public sealed partial class CreateRQuantityEntityReactionEffectSystem : EntityEffectSystem<ReactiveComponent, CreateRQuantityEntityReactionEffect>
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<CreateRQuantityEntityReactionEffect> args)
     {
@@ -34,8 +33,8 @@ public sealed partial class CreateRQuantityEntityReactionEffect : EntityEffectBa
     /// <summary>
     ///     What entity to create.
     /// </summary>
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Entity = default!;
+    [DataField(required: true)]
+    public EntProtoId Entity = default!;
 
     /// <summary>
     ///     What is our maximum allowed entities to be spawned?

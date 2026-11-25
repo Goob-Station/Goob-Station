@@ -50,6 +50,7 @@
     speciesOverrideBlacklist:
     - Yowie # Penalized by wearing robes, still should be possible to select them in magic mirror.
     - Plasmaman # EE
+    - Synth
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/wizden.yml

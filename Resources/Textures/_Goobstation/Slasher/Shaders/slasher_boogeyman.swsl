@@ -1,0 +1,19 @@
+// Boogeyman shadow shader.
+// Fades the sprite out in darkness and back in under light.
+
+uniform highp float darkThreshold;
+uniform highp float lightThreshold;
+
+void fragment()
+{
+    COLOR = zTexture(UV);
+
+    highp vec3 light = texture2D(lightMap, SCREEN_UV).rgb;
+
+    highp vec3 perceived = zToSrgb(vec4(clamp(light, 0.0, 1.0), 1.0)).rgb;
+    highp float brightness = max(max(perceived.r, perceived.g), perceived.b);
+    highp float visibility = smoothstep(darkThreshold, lightThreshold, brightness);
+    COLOR *= visibility;
+
+    lightSample = vec3(1.0);
+}

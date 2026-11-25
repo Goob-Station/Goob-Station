@@ -1,0 +1,53 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float intensity;
+
+const highp vec3 COOL = vec3(0.80, 0.86, 1.05);
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float heartbeat(highp float t)
+{
+    highp float x = fract(t);
+    highp float u = x * 10.0;
+    highp float v = (x - 0.14) * 10.0;
+    return exp(-(u * u)) + exp(-(v * v)) * 0.65;
+}
+
+void fragment()
+{
+    highp float i = clamp(intensity, 0.0, 1.0);
+
+    highp float pulse = mix(heartbeat(TIME * 0.65), heartbeat(TIME * 1.30), smoothstep(0.40, 0.95, i));
+
+    highp vec2 uv = UV;
+    highp vec2 px = SCREEN_PIXEL_SIZE;
+    highp vec2 d = uv - 0.5;
+
+    highp float aspect = px.y / px.x;
+    highp vec2 ad = vec2(d.x * aspect, d.y);
+    highp float dist = length(ad) / length(vec2(0.5 * aspect, 0.5));
+
+    highp float ca = i * dist * (1.5 + 4.0 * pulse);
+    highp vec3 col;
+    col.r = zTextureSpec(SCREEN_TEXTURE, uv + d * px * ca).r;
+    col.g = zTextureSpec(SCREEN_TEXTURE, uv).g;
+    col.b = zTextureSpec(SCREEN_TEXTURE, uv - d * px * ca).b;
+
+    highp float luma = dot(col, vec3(0.299, 0.587, 0.114));
+    col = mix(col, vec3(luma), 0.55 * i);
+    col *= 1.0 - 0.20 * i;
+    col = mix(col, col * COOL, 0.50 * i);
+    col = pow(col, vec3(1.0 + 0.28 * i));
+
+    highp float vigStart = mix(0.85, 0.26, i) - 0.05 * pulse * i;
+    highp float vig = smoothstep(vigStart, vigStart + 0.55, dist);
+    col *= 1.0 - vig * (0.35 + 0.63 * i);
+
+    highp float grain = hash(uv * vec2(1920.0, 1080.0) + fract(TIME) * 97.0) - 0.5;
+    col += grain * (0.015 + 0.03 * i);
+
+    COLOR = vec4(clamp(col, 0.0, 1.0), 1.0);
+}

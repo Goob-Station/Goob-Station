@@ -11,10 +11,10 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Gangwars.Systems;
 
-public sealed class ServerGangLeaderSystem : EntitySystem
+public sealed partial class ServerGangLeaderSystem : EntitySystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {

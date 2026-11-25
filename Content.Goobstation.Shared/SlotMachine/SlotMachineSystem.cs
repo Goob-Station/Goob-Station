@@ -18,19 +18,19 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.SlotMachine
 {
-    public sealed class SlotMachineSystem : EntitySystem
+    public sealed partial class SlotMachineSystem : EntitySystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-        [Dependency] private readonly INetManager _net = default!;
-        [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-        [Dependency] private readonly SharedStackSystem _stackSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly PrizeSystem _prize = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private SharedDoAfterSystem _doAfter = default!;
+        [Dependency] private INetManager _net = default!;
+        [Dependency] private ItemSlotsSystem _itemSlots = default!;
+        [Dependency] private SharedPopupSystem _popupSystem = default!;
+        [Dependency] private SharedPowerReceiverSystem _power = default!;
+        [Dependency] private SharedStackSystem _stackSystem = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
+        [Dependency] private PrizeSystem _prize = default!;
 
         public override void Initialize()
         {
@@ -114,6 +114,7 @@ namespace Content.Goobstation.Shared.SlotMachine
                 _stackSystem.SetCount((item, stack), _stackSystem.GetCount(item) - ent.Comp.SpinCost);
 
             ent.Comp.IsSpinning = true;
+            ent.Comp.Spinner = args.User;
 
             if (_net.IsServer) // The DoAfter causes a weird jitter if its predicted for some reason
             {
@@ -140,7 +141,8 @@ namespace Content.Goobstation.Shared.SlotMachine
 
             _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
 
-            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner);
+            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner, ent.Comp.Spinner);
+            ent.Comp.Spinner = null;
         }
     }
 }

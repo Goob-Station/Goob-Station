@@ -39,7 +39,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 0.007
+        density: 10
         mask:
         - SmallMobMask
         layer:

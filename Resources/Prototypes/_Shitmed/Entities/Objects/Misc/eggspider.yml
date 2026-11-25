@@ -6,7 +6,6 @@
   name: spider egg
   description: Is it a gemstone? Is it an egg? It looks expensive.
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobGiantSpider

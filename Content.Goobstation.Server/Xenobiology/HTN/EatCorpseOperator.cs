@@ -9,7 +9,7 @@ namespace Content.Goobstation.Server.Xenobiology.HTN;
 
 public sealed partial class EatCorpseOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private EatCorpseSystem _eatCorpse = default!;
     private SharedDoAfterSystem _doAfter = default!;
 

@@ -41,6 +41,7 @@
     - saveconfig
     - chatwindow
     - voicechat # Goobstation - Voice chat
+    - achievements # Goobstation - Achievements
 
 - Flags: DEBUG
   Commands:

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
@@ -750,7 +750,9 @@ public partial class PainSystem
 
     private void UpdatePainConsciousness(EntityUid uid, NerveSystemComponent nerveSys)
     {
-        if (!TryComp<OrganComponent>(uid, out var organ) || organ.Body == null)
+        if (!TryComp<OrganComponent>(uid, out var organ)
+            || organ.Body == null
+            || !HasComp<ConsciousnessComponent>(organ.Body))
             return;
 
         _consciousness.SetConsciousnessModifier(

@@ -6,10 +6,10 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Goobstation.Shared.Containers.OnCollide;
 
-public sealed class InsertToContainerOnCollideSystem : EntitySystem
+public sealed partial class InsertToContainerOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
 
     /// <inheritdoc/>

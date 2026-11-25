@@ -13,12 +13,13 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Destructible.Thresholds.Triggers;
 using Content.Shared.Humanoid;
 using Content.Shared.Trigger.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
@@ -113,7 +114,7 @@ namespace Content.Server.Destructible
         /// <summary>
         /// Check if the given threshold should trigger.
         /// </summary>
-        public bool Triggered(DamageThreshold threshold, Entity<DamageableComponent> owner)
+        public bool Triggered(DamageThreshold threshold, Entity<Shared.Damage.Components.DamageableComponent> owner)
         {
             if (threshold.Trigger == null)
                 return false;
@@ -137,7 +138,7 @@ namespace Content.Server.Destructible
         /// <summary>
         /// Check if the conditions for the given threshold are currently true.
         /// </summary>
-        public bool Reached(DamageThreshold threshold, Entity<DamageableComponent> owner)
+        public bool Reached(DamageThreshold threshold, Entity<Shared.Damage.Components.DamageableComponent> owner)
         {
             if (threshold.Trigger == null)
                 return false;

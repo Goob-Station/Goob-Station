@@ -1,0 +1,26 @@
+# Ported from https://github.com/Fractal-Sector/Fractal-Sector/tree/15cf6b242a5080476122ccd57ceffdbe22f11816
+
+- type: marking
+  id: AurelianVoxRoboticHandRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: robotic_hand_right
+
+- type: marking
+  id: AurelianVoxScutesArmsRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Vox]
+  canBeDisplaced: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#bc7d3e"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/FractalSector/_WF/Mobs/Customization/aurelian_markings.rsi
+    state: scutes_arms_right

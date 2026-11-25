@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Meridian Rift at https://github.com/Aphelion-Moon/Meridian-Rift/tree/0fd8e40910402f2745e5e5e4adc7d37bd45fed40 (modular_nova/master_files/icons/mob/body_markings/akula_markings.dmi, modular_nova/master_files/icons/mob/body_markings/moth_grayscale_markings.dmi, modular_nova/master_files/icons/mob/body_markings/moth_markings.dmi, modular_nova/master_files/icons/mob/body_markings/other_markings.dmi, modular_nova/master_files/icons/mob/body_markings/secondary_markings.dmi, modular_nova/master_files/icons/mob/body_markings/synthliz_secondary.dmi, modular_nova/master_files/icons/mob/body_markings/synthliz_tertiary.dmi, modular_nova/master_files/icons/mob/body_markings/tattoo_markings.dmi, modular_nova/master_files/icons/mob/body_markings/tertiary_markings.dmi, modular_nova/master_files/icons/mob/sprite_accessory/species/ramatae.dmi), which carries the art of NovaSector, Skyrat-tg and tgstation. Layers merged per colour and centred for Wolfgate by Tools/_WF/MeridianMarkings/port.py. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_WF/MeridianMarkings/body_chest.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "back_stripe_chest",
+      "directions": 4
+    },
+    {
+      "name": "bee_chest",
+      "directions": 4
+    },
+    {
+      "name": "belly_outline_chest",
+      "directions": 4
+    },
+    {
+      "name": "belly_slim_alt_tonage_chest",
+      "directions": 4
+    },
+    {
+      "name": "belly_slim_chest",
+      "directions": 4
+    },
+    {
+      "name": "body_tonage_chest",
+      "directions": 4
+    },
+    {
+      "name": "body_weight_chest",
+      "directions": 4
+    },
+    {
+      "name": "body_weight_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "chitin_chest",
+      "directions": 4
+    },
+    {
+      "name": "color_bands_chest",
+      "directions": 4
+    },
+    {
+      "name": "corgi_chest",
+      "directions": 4
+    },
+    {
+      "name": "corvid_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "dalmatian_chest",
+      "directions": 4
+    },
+    {
+      "name": "datashark_chest",
+      "directions": 4
+    },
+    {
+      "name": "dog_chest",
+      "directions": 4
+    },
+    {
+      "name": "dog_spot_chest",
+      "directions": 4
+    },
+    {
+      "name": "drake_bone_chest",
+      "directions": 4
+    },
+    {
+      "name": "eevee_chest",
+      "directions": 4
+    },
+    {
+      "name": "fennec_chest",
+      "directions": 4
+    },
+    {
+      "name": "fennec_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "floof_chest",
+      "directions": 4
+    },
+    {
+      "name": "fox_chest",
+      "directions": 4
+    },
+    {
+      "name": "fox_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "guilmon_chest",
+      "directions": 4
+    },
+    {
+      "name": "guilmon_mark_chest",
+      "directions": 4
+    },
+    {
+      "name": "harlequin_chest",
+      "directions": 4
+    },
+    {
+      "name": "harlequin_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "harlequin_reversed_chest",
+      "directions": 4
+    },
+    {
+      "name": "harlequin_reversed_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "hawk_chest",
+      "directions": 4
+    },
+    {
+      "name": "hyena_chest",
+      "directions": 4
+    },
+    {
+      "name": "hyena_side_chest",
+      "directions": 4
+    },
+    {
+      "name": "jackal_back_fur_accents_chest",
+      "directions": 4
+    },
+    {
+      "name": "jackal_back_fur_chest",
+      "directions": 4
+    },
+    {
+      "name": "light_belly_chest",
+      "directions": 4
+    },
+    {
+      "name": "lightbearer_chest",
+      "directions": 4
+    },
+    {
+      "name": "otie_chest",
+      "directions": 4
+    },
+    {
+      "name": "otie_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "otie_spot_chest",
+      "directions": 4
+    },
+    {
+      "name": "otie_spot_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "panther_chest",
+      "directions": 4
+    },
+    {
+      "name": "possum_chest",
+      "directions": 4
+    },
+    {
+      "name": "raccoon_chest",
+      "directions": 4
+    },
+    {
+      "name": "rat_spot_chest",
+      "directions": 4
+    },
+    {
+      "name": "rat_spot_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "red_panda_chest",
+      "directions": 4
+    },
+    {
+      "name": "sabresune_chest",
+      "directions": 4
+    },
+    {
+      "name": "scolipede_chest",
+      "directions": 4
+    },
+    {
+      "name": "scolipede_spikes_chest",
+      "directions": 4
+    },
+    {
+      "name": "shark_chest",
+      "directions": 4
+    },
+    {
+      "name": "shepherd_chest",
+      "directions": 4
+    },
+    {
+      "name": "shepherd_spot_chest",
+      "directions": 4
+    },
+    {
+      "name": "simple_light_belly_chest",
+      "directions": 4
+    },
+    {
+      "name": "simple_light_belly_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "skunk_chest",
+      "directions": 4
+    },
+    {
+      "name": "splotches_chest",
+      "directions": 4
+    },
+    {
+      "name": "synth_collar_lights_chest",
+      "directions": 4
+    },
+    {
+      "name": "synth_lights_chest",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_butterfly_chest",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_heart_chest",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_infinity_chest",
+      "directions": 4
+    },
+    {
+      "name": "tattoo_tiger_chest",
+      "directions": 4
+    },
+    {
+      "name": "tiger_spot_chest_f",
+      "directions": 4
+    },
+    {
+      "name": "tiger_stripe_chest",
+      "directions": 4
+    },
+    {
+      "name": "top_surgery_scars_chest",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_grayscale_chest",
+      "directions": 4
+    },
+    {
+      "name": "wolf_chest",
+      "directions": 4
+    },
+    {
+      "name": "wolf_spot_chest",
+      "directions": 4
+    }
+  ]
+}

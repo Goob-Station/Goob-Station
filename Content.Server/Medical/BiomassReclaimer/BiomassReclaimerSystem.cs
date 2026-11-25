@@ -81,7 +81,8 @@ namespace Content.Server.Medical.BiomassReclaimer
                     {
                         var thrown = Spawn(_robustRandom.Pick(reclaimer.SpawnedEntities).PrototypeId, Transform(uid).Coordinates);
                         var direction = new Vector2(_robustRandom.Next(-30, 30), _robustRandom.Next(-30, 30));
-                        _throwing.TryThrow(thrown, direction, _robustRandom.Next(1, 10));
+                        _throwing.TryThrow(thrown, direction, _robustRandom.Next(1, 10),
+                            predicted: false); // Trauma
                     }
                     reclaimer.RandomMessTimer += (float) reclaimer.RandomMessInterval.TotalSeconds;
                 }
@@ -179,7 +180,7 @@ namespace Content.Server.Medical.BiomassReclaimer
 
             if (storage != null)
                 foreach (var (item, _location) in storage.StoredItems)
-                    if (CanGib(reclaimer, item) && TryComp<PhysicsComponent>(args.Used, out var itemPhysics))
+                    if (CanGib(reclaimer, item) && TryComp<PhysicsComponent>(item, out var itemPhysics))
                         massToInsert += itemPhysics.FixturesMass;
 
             var delay = reclaimer.Comp.BaseInsertionDelay * massToInsert;
@@ -218,7 +219,8 @@ namespace Content.Server.Medical.BiomassReclaimer
             if (!CanGib(reclaimer, args.Climber))
             {
                 var direction = new Vector2(_robustRandom.Next(-2, 2), _robustRandom.Next(-2, 2));
-                _throwing.TryThrow(args.Climber, direction, 0.5f);
+                _throwing.TryThrow(args.Climber, direction, 0.5f,
+                    predicted: false); // Trauma
                 return;
             }
             _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Instigator):player} used a biomass reclaimer to gib {ToPrettyString(args.Climber):target} in {ToPrettyString(reclaimer):reclaimer}");
@@ -279,7 +281,8 @@ namespace Content.Server.Medical.BiomassReclaimer
             var component = ent.Comp;
 
             if (TryComp<BloodstreamComponent>(toProcess, out var stream) &&
-                _solution.ResolveSolution(toProcess, stream.BloodSolutionName, ref stream.BloodSolution, out var solution))
+                _solution.ResolveSolution(toProcess, stream.BloodSolutionName, ref stream.BloodSolution, out var solution) &&
+                solution.Volume > 0)
             {
                 component.BloodReagents = solution.Clone();
                 component.BloodReagents.ScaleSolution(50 / component.BloodReagents.Volume);

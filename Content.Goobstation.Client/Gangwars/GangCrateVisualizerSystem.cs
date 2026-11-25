@@ -9,9 +9,9 @@ namespace Content.Goobstation.Client.Gangwars;
 /// Manages the overlay light layer on the gang crate sprite.
 /// Starts at full light when spawned and progresses to blinking as the anchor timer expires.
 /// </summary>
-public sealed class GangCrateVisualizerSystem : EntitySystem
+public sealed partial class GangCrateVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private static readonly ResPath LightRsi = new("_Goobstation/Gangs/Crates/crate_light.rsi");
 

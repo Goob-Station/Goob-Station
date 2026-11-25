@@ -8,9 +8,9 @@ using Content.Shared.Popups;
 namespace Content.Goobstation.Shared.Wraith.Systems;
 public sealed partial class DecaySystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private EmagSystem _emag = default!;
 
     public override void Initialize()
     {

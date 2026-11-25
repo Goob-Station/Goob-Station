@@ -1,0 +1,865 @@
+# Ported from https://github.com/LoneStarSS14/lonestar-frontier/tree/e89d3b232f60adb1eb762dbf7a84a9569e955fab
+
+- type: marking
+  id: Drillandbunhair
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/drillandbunhair.rsi
+    state: hair_drillandbun
+
+- type: marking
+  id: DrillsBigFront
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_LoneStar/Entities/Mobs/Markings/hairextensions.rsi
+    state: drills-big-front
+
+- type: marking
+  id: DrillsFront
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_LoneStar/Entities/Mobs/Markings/hairextensions.rsi
+    state: drills-front
+
+- type: marking
+  id: Hairafro2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairafro2generic
+
+- type: marking
+  id: Hairafrogeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairafrogeneric
+
+- type: marking
+  id: Hairantennageneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairantennageneric
+
+- type: marking
+  id: Hairbangs
+  bodyPart: Eyes
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_LoneStar/Entities/Mobs/Markings/hairextensions.rsi
+    state: hairbangs
+
+- type: marking
+  id: Hairbedheadgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbedheadgeneric
+
+- type: marking
+  id: Hairbedheadv2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbedheadv2genric
+
+- type: marking
+  id: Hairbedheadv3generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbedheadv3generic
+
+- type: marking
+  id: Hairbeehivegeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbeehivegeneric
+
+- type: marking
+  id: Hairbeehivev2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbeehivev2generic
+
+- type: marking
+  id: Hairbgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbgeneric
+
+- type: marking
+  id: Hairbigafrogeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbigafrogeneric
+
+- type: marking
+  id: Hairbigflattopgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbigflattopgeneric
+
+- type: marking
+  id: Hairbigpompadourgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbigpompadourgeneric
+
+- type: marking
+  id: Hairbobcurlgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbobcurlgeneric
+
+- type: marking
+  id: Hairbobcutgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbobcutgeneric
+
+- type: marking
+  id: Hairbobgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbobgeneric
+
+- type: marking
+  id: Hairbraid2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbraid2generic
+
+- type: marking
+  id: Hairbraidgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbraidgeneric
+
+- type: marking
+  id: Hairbraidtailgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbraidtailgeneric
+
+- type: marking
+  id: Hairbungeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbungeneric
+
+- type: marking
+  id: Hairbunhead2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbunhead2generic
+
+- type: marking
+  id: Hairbusiness2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbusiness2generic
+
+- type: marking
+  id: Hairbusiness3generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbusiness3generic
+
+- type: marking
+  id: Hairbusiness4generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbusiness4generic
+
+- type: marking
+  id: Hairbusinessgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairbusinessgeneric
+
+- type: marking
+  id: Haircgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: haircgeneric
+
+- type: marking
+  id: Haircombovergeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: haircombovergeneric
+
+- type: marking
+  id: Haircrewcutgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: haircrewcutgeneric
+
+- type: marking
+  id: Haircurlsgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: haircurlsgeneric
+
+- type: marking
+  id: Hairdevillockgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairdevillockgeneric
+
+- type: marking
+  id: Hairdrillhairextendedgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairdrillhairextendedgeneric
+
+- type: marking
+  id: Hairdrillhairgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairdrillhairgeneric
+
+- type: marking
+  id: Hairemogeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairemogeneric
+
+- type: marking
+  id: Hairfeathergeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairfeathergeneric
+
+- type: marking
+  id: Hairgelledgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairgelledgeneric
+
+- type: marking
+  id: Hairgentlegeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairgentlegeneric
+
+- type: marking
+  id: Hairhbraidgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairhbraidgeneric
+
+- type: marking
+  id: Hairhedgehoggeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairhedgehoggeneric
+
+- type: marking
+  id: Hairhighponytailgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairhighponytailgeneric
+
+- type: marking
+  id: Hairhightoptailgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairhightopgeneric
+
+- type: marking
+  id: Hairhimecut2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairhimecut2generic
+
+- type: marking
+  id: Hairhimecutgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairhimecutgeneric
+
+- type: marking
+  id: Hairhimecutupgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairhimeupgeneric
+
+- type: marking
+  id: Hairjensengeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairjensengeneric
+
+- type: marking
+  id: Hairkagamigeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairkagamigeneric
+
+- type: marking
+  id: Hairkeanugeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairkeanugeneric
+
+- type: marking
+  id: Hairkusanagigeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairkusanagigeneric
+
+- type: marking
+  id: Hairlargebungeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlargebungeneric
+
+- type: marking
+  id: Hairlong2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlong2generic
+
+- type: marking
+  id: Hairlong3generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlong3generic
+
+- type: marking
+  id: Hairlongemogeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlongemogeneric
+
+- type: marking
+  id: Hairlongest2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlongest2generic
+
+- type: marking
+  id: Hairlongfringegeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlongfringegeneric
+
+- type: marking
+  id: Hairlonggeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlonggeneric
+
+- type: marking
+  id: Hairlongovereyegeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlongovereyegeneric
+
+- type: marking
+  id: Hairlongsidepartgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlongsidepartgeneric
+
+- type: marking
+  id: Hairlongstraightponytailgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairlongstraightponytailgeneric
+
+- type: marking
+  id: Hairmegaeyebrowsgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairmegaeyebrowsgeneric
+
+- type: marking
+  id: Hairmessygeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairmessygeneric
+
+- type: marking
+  id: Hairodangogeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairodangogeneric
+
+- type: marking
+  id: Hairombregeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairombregeneric
+
+- type: marking
+  id: Haironeshouldergeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: haironeshouldergeneric
+
+- type: marking
+  id: Hairpartedgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairpartedgeneric
+
+- type: marking
+  id: Hairpartgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairpartgeneric
+
+- type: marking
+  id: Hairpigtails2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairpigtails2generic
+
+- type: marking
+  id: Hairpigtailsgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairpigtailsgeneric
+
+- type: marking
+  id: Hairpixiegeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairpixiegeneric
+
+- type: marking
+  id: Hairpompadourgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairpompadourgeneric
+
+- type: marking
+  id: Hairponytail2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairponytail2generic
+
+- type: marking
+  id: Hairponytail3generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairponytail3generic
+
+- type: marking
+  id: Hairponytail4generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairponytail4generic
+
+- type: marking
+  id: Hairponytail5generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairponytail5generic
+
+- type: marking
+  id: Hairprotagonistgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairprotagonistgeneric
+
+- type: marking
+  id: Hairquiffgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairquiffgeneric
+
+- type: marking
+  id: Hairsargeantgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairsargeantgeneric
+
+- type: marking
+  id: Hairshortbraidgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairshortbraidgeneric
+
+- type: marking
+  id: Hairshorthair2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairshorthair2generic
+
+- type: marking
+  id: Hairshorthair3generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairshorthair3generic
+
+- type: marking
+  id: Hairshortovereyegeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairshortovereyegeneric
+
+- type: marking
+  id: Hairsidecutgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairsidecutgeneric
+
+- type: marking
+  id: Hairsidetail2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairsidetail2generic
+
+- type: marking
+  id: Hairsidetail3generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairsidetail3generic
+
+- type: marking
+  id: Hairsidetail4generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairsidetail4generic
+
+- type: marking
+  id: Hairsidetailgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairsidetailgeneric
+
+- type: marking
+  id: Hairspikeygeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairspikeygeneric
+
+- type: marking
+  id: Hairspiky2generic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairspiky2generic
+
+- type: marking
+  id: Hairsweptgeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairsweptgeneric
+
+- type: marking
+  id: Hairtressshouldergeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairtressshouldergeneric
+
+- type: marking
+  id: Hairupdogeneric
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dwarf, Felinid, Human, Oni]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_CS/Hairmarkings/hairextensions.rsi
+    state: hairupdogeneric
+
+- type: marking
+  id: ResomiHeadJewelleryFourLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: resomi_earring_4_2
+
+- type: marking
+  id: ResomiHeadJewelleryOneLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: resomi_earring_1_2
+
+- type: marking
+  id: ResomiHeadJewelleryThreeLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: resomi_earring_3_2
+
+- type: marking
+  id: ResomiHeadJewelleryTwoLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/LoneStar/_Starlight/Mobs/Customization/Resomi/resomi_head_markings.rsi
+    state: resomi_earring_2_2

@@ -5,10 +5,10 @@ using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.Body;
 
-public sealed class OrganInsertOnUseSystem : EntitySystem
+public sealed partial class OrganInsertOnUseSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedBodySystem _body = default!;
 
     public override void Initialize()
     {

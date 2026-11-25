@@ -9,7 +9,7 @@
     - id: WeaponDisablerAdvanced
     - id: BedsheetCentcom
     - id: CaneSheathFilledNanotrasen
-    - id: HandheldFaxOfficial
+    - id: HandheldFaxNTR
     - id: RubberStampNanorep
     #- id: ExecutiveBriefcaseEmpty # nanorep update # No gamer loot.
     #- id: ComputerNTRTasksFlatpack # nanorep update
@@ -43,7 +43,8 @@
     - id: NitrogenTankFilled
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
-    - id: BlueshieldUndeterminedHardsuit
+    - id: ClothingOuterHardsuitBlueshieldLight
+    - id: ModsuitPlatingPraetorian
     - id: FlashlightSeclite
 
 - type: entity

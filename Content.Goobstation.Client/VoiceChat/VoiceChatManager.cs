@@ -8,12 +8,12 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Client.VoiceChat;
 
-public sealed class VoiceChatManager
+public sealed partial class VoiceChatManager
 {
-    [Dependency] private readonly IClientNetManager _net = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IUriOpener _uriOpener = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private IClientNetManager _net = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IUriOpener _uriOpener = default!;
+    [Dependency] private ILogManager _logManager = default!;
 
     private readonly List<ushort> _mutedSpeakers = new();
 
@@ -26,6 +26,8 @@ public sealed class VoiceChatManager
     public event Action<bool>? WebConnectedChanged;
     public event Action<bool>? DeafenedChanged;
     public event Action? LinkChanged;
+
+    public const string NewsEntry = "VoiceChat";
 
     public bool WebConnected { get; private set; }
 

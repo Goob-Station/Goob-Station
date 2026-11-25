@@ -4,12 +4,14 @@ using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Network;
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Weapons.Multihit;
 
-public sealed class ActiveMultihitSystem : EntitySystem
+public sealed partial class ActiveMultihitSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -28,8 +30,7 @@ public sealed class ActiveMultihitSystem : EntitySystem
             var modifierSet = new DamageModifierSet
             {
                 Coefficients = args.BaseDamage.DamageDict
-                    .Select(x => new KeyValuePair<string, float>(x.Key, ent.Comp.DamageMultiplier))
-                    .ToDictionary(),
+                    .ToDictionary(x => (ProtoId<DamageTypePrototype>) x.Key, _ => ent.Comp.DamageMultiplier),
             };
 
             args.ModifiersList.Add(modifierSet);

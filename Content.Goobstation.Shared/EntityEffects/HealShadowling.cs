@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage;
@@ -9,6 +9,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.EntityEffects;
 
@@ -18,7 +19,7 @@ namespace Content.Goobstation.Shared.EntityEffects;
 public sealed partial class HealShadowlingSystem
     : EntityEffectSystem<SolutionContainerManagerComponent, HealShadowling>
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private DamageableSystem _damage = default!;
 
     protected override void Effect(Entity<SolutionContainerManagerComponent> entity, ref EntityEffectEvent<HealShadowling> args)
     {

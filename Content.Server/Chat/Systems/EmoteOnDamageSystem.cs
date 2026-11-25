@@ -1,8 +1,7 @@
-// SPDX-License-Identifier: MIT
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Chat.Systems;
 
-using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
@@ -46,7 +45,7 @@ public sealed class EmoteOnDamageSystem : EntitySystem
         }
         else
         {
-            _chatSystem.TryEmoteWithoutChat(uid, emote, voluntary: false);
+            _chatSystem.TryEmoteWithoutChat(uid, emote);
         }
 
         emoteOnDamage.LastEmoteTime = _gameTiming.CurTime;

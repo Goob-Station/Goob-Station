@@ -16,6 +16,7 @@ namespace Content.IntegrationTests.Tests.GameRules;
 // Once upon a time, players in the lobby weren't ever considered eligible for antag roles.
 // Lets not let that happen again.
 [TestFixture]
+[Category("GameRuleTests")]
 public sealed class AntagPreferenceTest
 {
     [Test]

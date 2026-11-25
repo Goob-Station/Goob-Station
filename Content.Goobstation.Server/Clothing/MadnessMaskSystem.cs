@@ -16,15 +16,15 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Clothing;
 
-public sealed class MadnessMaskSystem : EntitySystem
+public sealed partial class MadnessMaskSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedJitteringSystem _jitter = default!;
+    [Dependency] private StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private HereticSystem _heretic = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {

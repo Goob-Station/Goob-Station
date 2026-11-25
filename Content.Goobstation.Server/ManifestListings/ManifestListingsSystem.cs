@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Text;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Server.Store.Conditions;
 using Content.Goobstation.Shared.ManifestListings;
 using Content.Goobstation.Shared.Store;
@@ -12,9 +12,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.ManifestListings;
 
-public sealed class ManifestListingsSystem : EntitySystem
+public sealed partial class ManifestListingsSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {

@@ -15,7 +15,6 @@ namespace Content.Server.Trigger.Systems;
 /// </summary>
 public sealed class SmokeOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
@@ -56,7 +55,7 @@ public sealed class SmokeOnTriggerSystem : EntitySystem
     {
         var xform = Transform(target);
         var mapCoords = _transform.GetMapCoordinates(target, xform);
-        if (!_mapMan.TryFindGridAt(mapCoords, out var gridUid, out var gridComp) ||
+        if (!_map.TryFindGridAt(mapCoords, out var gridUid, out var gridComp) ||
             !_map.TryGetTileRef(gridUid, gridComp, xform.Coordinates, out var tileRef) ||
             tileRef.Tile.IsEmpty)
         {

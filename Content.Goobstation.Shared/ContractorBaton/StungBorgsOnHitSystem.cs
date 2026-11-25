@@ -9,11 +9,11 @@ using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Shared.ContractorBaton;
 
-public sealed class StungBorgsOnHitSystem : EntitySystem
+public sealed partial class StungBorgsOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedJitteringSystem _jitter = default!;
 
     public override void Initialize()
     {

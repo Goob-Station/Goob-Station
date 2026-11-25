@@ -1,0 +1,30 @@
+# Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42
+
+- type: marking
+  id: HeadScarLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Human, Oni, Reptilian]
+  followSkinColor: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/Generic/scars.rsi
+    state: scar-head-l
+
+- type: marking
+  id: HeadScarRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dwarf, Human, Oni, Reptilian]
+  followSkinColor: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/Generic/scars.rsi
+    state: scar-head-r
+
+- type: marking
+  id: VulpHeadSkunk
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Starlight/_Starlight/Mobs/Customization/vulpkanin/head_markings.rsi
+    state: skunk

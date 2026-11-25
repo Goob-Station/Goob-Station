@@ -136,36 +136,6 @@
     - MobHumanSecurityOfficerSuit
 
 - type: entity
-  name: Head of Security ModSuit Spawner
-  id: SpawnMobHumanHosModSuit
-  parent: MarkerBase
-  suffix: DEBUG
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: Mobs/Species/Human/parts.rsi
-      state: full
-  - type: ConditionalSpawner
-    prototypes:
-    - MobHumanHosModSuit
-
-- type: entity
-  name: Security Officer ModSuit Spawner
-  id: SpawnMobHumanSecurityOfficerModSuit
-  parent: MarkerBase
-  suffix: DEBUG
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: Mobs/Species/Human/parts.rsi
-      state: full
-  - type: ConditionalSpawner
-    prototypes:
-    - MobHumanSecurityOfficerModSuit
-
-- type: entity
   name: Head of Security Suit Spawner
   id: SpawnMobHumanHoSSuit
   parent: MarkerBase
@@ -346,21 +316,6 @@
     - MobHumanBSOSuit
 
 - type: entity
-  name: Blueshield Officer ModSuit Spawner
-  id: SpawnMobHumanBSOModSuit
-  parent: MarkerBase
-  suffix: DEBUG
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: Mobs/Species/Human/parts.rsi
-      state: full
-  - type: ConditionalSpawner
-    prototypes:
-    - MobHumanBSOModSuit
-
-- type: entity
   name: Wizard Spawner
   id: SpawnMobHumanWizardDebug
   parent: MarkerBase
@@ -449,21 +404,6 @@
   - type: ConditionalSpawner
     prototypes:
     - MobHumanCaptainHardsuit
-
-- type: entity
-  name: Captain Armor Spawner Modsuit
-  id: SpawnMobHumanCaptainModsuit
-  parent: MarkerBase
-  suffix: DEBUG
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: Mobs/Species/Human/parts.rsi
-      state: full
-  - type: ConditionalSpawner
-    prototypes:
-    - MobHumanCaptainModsuit
 
 - type: entity
   name: Captain Armor Spawner

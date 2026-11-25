@@ -21,3 +21,15 @@
   canBuildInImpassable: true
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: PaintEasel
+  graph: PaintEaselGraph
+  startNode: start
+  targetNode: easel
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

@@ -12,23 +12,130 @@
   - type: DoorMetric
   - type: FoodMetric
   - type: PuddleMetric
+  - type: StationAtmosMetric
+  - type: PowerMetric
+  - type: InfestationMetric
 
 - type: entity
   id: CombatDynamic
   parent: GameDirector
   categories: [ HideSpawnMenu ]
   components:
-  - type: GameRule
-    minPlayers: 25
   - type: GameDirector
-    dualAntags: true
+    threatPerPlayer: 0.4
     stories:
-      - RelaxedAttack
-      - ScienceAttack
-      - MajorCombat
+      RelaxedAttack: 3
+      ScienceAttack: 2
+      SlowBurn: 2
+      Infestation: 2
+      Blackout: 2
+      SkeletonCrew: 1
+      MajorCombat: 1.5
+      Siege: 1
+      Raid: 1
+      Outbreak: 1
+      Uprising: 1
+      Arcane: 0.6
   - type: SelectedGameRules
     scheduledGameRules: !type:NestedSelector
-      tableId: BasicGameRulesTable
+      tableId: GameDirectorRulesTable
+
+- type: entity
+  id: ChaoticDynamic
+  parent: GameDirector
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameDirector
+    threatPerPlayer: 0.5
+    referencePlayers: 40
+    maxDestructionBudget: 4
+    destructionRegenPerMinute: 0.15
+    repeatWindow: 15m
+    stories:
+      MajorCombat: 3
+      Siege: 3
+      Blackout: 1.5
+      ScienceAttack: 1.5
+      Raid: 1.5
+      Outbreak: 1
+      Uprising: 1
+      Arcane: 0.5
+  - type: SelectedGameRules
+    scheduledGameRules: !type:NestedSelector
+      tableId: GameDirectorRulesTable
+
+- type: entity
+  id: ClassicDynamic
+  parent: GameDirector
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameDirector
+    threatPerPlayer: 0.25
+    maxDestructionBudget: 2
+    destructionRegenPerMinute: 0.075
+    repeatWindow: 25m
+    stories:
+      RelaxedAttack: 3
+      SlowBurn: 2
+      Infestation: 2
+      Blackout: 1
+      SkeletonCrew: 2
+      QuietShift: 2
+      Outbreak: 0.4
+      Uprising: 0.4
+      Arcane: 0.4
+  - type: SelectedGameRules
+    scheduledGameRules: !type:NestedSelector
+      tableId: GameDirectorRulesTable
+
+- type: entityTable
+  id: GameDirectorRulesTable
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: BasicCalmEventsTable
+    - !type:NestedSelector
+      tableId: BasicAntagEventsTable
+    - !type:NestedSelector
+      tableId: CalmPestEventsTable
+    - !type:NestedSelector
+      tableId: SpicyPestEventsTable
+    - id: DropPodMedical
+    - id: DropPodSecurityArmory
+    - id: DropPodSecurityRiot
+    - id: DropPodEngineeringRepair
+    - id: DropPodHullBreach
+    - id: DropPodFireFighting
+    - id: DropPodJanitorial
+    - id: DropPodCatering
+    - id: EmergencyGridRestore
+    - id: UnknownShuttleNTIncorporation
+    - id: UnknownShuttleCruiser
+    - id: UnknownShuttleFlatline
+    - id: UnknownShuttleNTQuark
+    - id: UnknownShuttleCargoLost
+    - !type:GroupSelector
+      prob: 0.4
+      children:
+      - id: UnknownShuttleTravelingCuisine
+      - id: UnknownShuttleDisasterEvacPod
+      - id: UnknownShuttleHonki
+      - id: UnknownShuttleCryptid
+      - id: UnknownShuttleEternal
+      - id: UnknownShuttleGym
+      - id: UnknownShuttleJoe
+      - id: UnknownShuttleLambordeere
+      - id: UnknownShuttleMeatZone
+      - id: UnknownShuttleMicroshuttle
+      - id: UnknownShuttleSpacebus
+      - id: UnknownShuttleFrontierProspector
+      - id: UnknownShuttleAlienTourist
+    - id: GameRuleSpaceDustMinor
+    - id: GameRuleSpaceDustMajor
+    - id: GameRuleMeteorSwarmSmall
+    - id: GameRuleMeteorSwarmMedium
+    - id: GameRuleMeteorSwarmLarge
+    - id: ImmovableRodSpawn
 
 - type: entity
   id: CalmDynamic
@@ -36,14 +143,21 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameDirector
-    noRoundstartAntags: true
+    threatPerPlayer: 0.15
+    roundstartThreatScale: 0
     stories:
-      - Relaxed
-      - Science
+      Relaxed: 2
+      Science: 1
+      QuietShift: 1
+  - type: SelectedGameRules
+    scheduledGameRules: !type:NestedSelector
+      tableId: GameDirectorRulesTable
 
 - type: story
   id: Relaxed
   description: A small attack
+  midround:
+  - InfiltratorMidrounds
   beats:
     - Peace
     - AttackMild
@@ -53,6 +167,8 @@
   id: Science
   description: Science and engineering issues
   minPlayers: 30
+  midround:
+  - ScienceMidrounds
   beats:
     - Peace
     - MadScience
@@ -63,6 +179,13 @@
 - type: story
   id: RelaxedAttack
   description: Mostly calm with a couple of minor problems.
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - InfiltratorMidrounds
   beats:
     - Peace
     - AttackMild
@@ -72,6 +195,13 @@
   id: ScienceAttack
   description: Science, minor attack and then engineering issues
   minPlayers: 30
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - ScienceMidrounds
   beats:
     - Peace
     - MadScience
@@ -84,6 +214,13 @@
   id: MajorCombat
   description: A minor and then major attack
   minPlayers: 40
+  threat: 1.2
+  roundstartThreat: 0.25
+  roundstart:
+  - pool: CrewAntagsMinor
+  midround:
+  - RaiderMidrounds
+  - MonsterMidrounds
   beats:
     - Peace
     - AttackMild
@@ -93,86 +230,373 @@
     - RepairStation
     - Peace
 
+- type: story
+  id: SlowBurn
+  description: A long quiet shift with some science trouble and a late scuffle
+  minPlayers: 20
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - InfiltratorMidrounds
+  beats:
+    - Peace
+    - MadScience
+    - Peace
+    - AttackMild
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Siege
+  description: Pressure builds into a full assault without much station damage
+  minPlayers: 45
+  threat: 1.2
+  midround:
+  - RaiderMidrounds
+  beats:
+    - Peace
+    - AttackMild
+    - Peace
+    - Attackers
+    - RestoreOrder
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Infestation
+  description: Pests and overgrowth, followed by something hiding among them
+  minPlayers: 15
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - MonsterMidrounds
+  beats:
+    - Peace
+    - Vermin
+    - Peace
+    - AttackMild
+    - RepairStation
+
+- type: story
+  id: Blackout
+  description: The grid falls apart and someone takes advantage of it
+  minPlayers: 25
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  midround:
+  - RaiderMidrounds
+  beats:
+    - Peace
+    - Brownout
+    - AttackMild
+    - PowerIssues
+    - RepairStation
+    - Peace
+
+- type: story
+  id: SkeletonCrew
+  description: A short-staffed shift with small problems
+  maxPlayers: 35
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntagsMinor
+  midround:
+  - InfiltratorMidrounds
+  beats:
+    - Peace
+    - AttackMild
+    - Peace
+    - Brownout
+    - Peace
+
+- type: story
+  id: QuietShift
+  description: Maintenance trouble with no attackers
+  roundstartThreat: 0.6
+  roundstart:
+  - pool: CrewAntags
+    share: 0.7
+  - pool: CrewAntagsMinor
+  beats:
+    - Peace
+    - Vermin
+    - Peace
+    - Brownout
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Raid
+  description: A Syndicate strike team hits the station
+  minPlayers: 30
+  threat: 1.3
+  roundstartThreat: 1
+  roundstart:
+  - pool: RaidAntags
+    share: 0.85
+  - pool: CrewAntagsMinor
+    share: 0.15
+  beats:
+    - Peace
+    - PowerIssues
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Outbreak
+  description: Something on board starts spreading
+  minPlayers: 25
+  threat: 1.2
+  roundstartThreat: 0.9
+  roundstart:
+  - pool: OutbreakAntags
+    share: 0.8
+  - pool: CrewAntagsMinor
+    share: 0.2
+  beats:
+    - Peace
+    - Vermin
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Uprising
+  description: Someone tries to take the station from within
+  minPlayers: 25
+  threat: 1.2
+  roundstartThreat: 0.9
+  roundstart:
+  - pool: ConversionAntags
+    share: 0.8
+  - pool: CrewAntagsMinor
+    share: 0.2
+  beats:
+    - Peace
+    - Brownout
+    - Peace
+    - RepairStation
+    - Peace
+
+- type: story
+  id: Arcane
+  description: A wizard drops by while the crew has its own problems
+  minPlayers: 30
+  roundstartThreat: 0.8
+  roundstart:
+  - pool: WizardAntags
+    share: 0.6
+  - pool: CrewAntags
+  midround:
+  - InfiltratorMidrounds
+  beats:
+    - Peace
+    - MadScience
+    - AttackMild
+    - RepairStation
+    - Peace
+
 - type: storyBeat
   id: Peace
-  description: Minor Chaos across a wide range
-  goal: # Try to achieve a wide range of different moderate values.
-    Combat: -200 # Friendly forces should have the upper hand
-    Anomaly: 100
-    Atmos: 200
-    Power: 100
-    Mess: 100
-    Hunger: 100
-    Thirst: 100
-    Medical: 100
+  description: Minor chaos across a wide range
+  goal:
+    Anomaly: 40
+    Atmos: 100
+    Fire: 0
+    Power: 30
+    Infestation: 40
+    Medical: 80
+    Hunger: 50
+    Thirst: 50
+  minSecs: 600
+  maxSecs: 900
+  eventDelayMin: 180
+  eventDelayMax: 420
+  maxDestruction: 1
+  allowReinforcements: true
+  blockedEventTypes:
+  - HostilesSpawn
 
 - type: storyBeat
   id: PowerIssues
   description: Create high engineering chaos
-  goal:   # Annoying engineering issues
+  goal:
     Atmos: 400
-    Power: 400
-    Medical: 100
+    Power: 200
+    Medical: 120
+  endIfAnyWorse:
+    Atmos: 900
+    Power: 600
+  onWorse: RepairStation
+  requiredDepartments:
+  - Engineering
+  minSecs: 420
+  maxSecs: 720
+  eventDelayMin: 150
+  eventDelayMax: 300
+  maxDestruction: 3
+  blockedEventTypes:
+  - HostilesSpawn
+
+- type: storyBeat
+  id: Brownout
+  description: Electrical trouble without breaking the station
+  goal:
+    Power: 150
+    Medical: 80
+  endIfAnyWorse:
+    Power: 500
+  onWorse: RepairStation
+  requiredDepartments:
+  - Engineering
+  minSecs: 420
+  maxSecs: 720
+  maxDestruction: 0
+  blockedEventTypes:
+  - HostilesSpawn
 
 - type: storyBeat
   id: MadScience
   description: Create high Science chaos
   goal:
-    Anomaly: 400
-    Power: 100
-    Atmos: 100
+    Anomaly: 60
+    Power: 50
+    Atmos: 150
     Medical: 100
   endIfAnyWorse:
-    Anomaly: 500   # Severe atmos, power or medical issues should end this beat.
+    Anomaly: 180
     Power: 300
     Medical: 300
     Death: 400
-    Combat: -100 # Friendly forces should retain the upper hand
+    Combat: -100
+  onWorse: RepairStation
+  requiredDepartments:
+  - Science
+  minSecs: 600
+  maxSecs: 1080
+  maxDestruction: 1
+  blockedEventTypes:
+  - HostilesSpawn
+
+- type: storyBeat
+  id: Vermin
+  description: Pests and overgrowth spread through the station
+  goal:
+    Infestation: 70
+    Medical: 80
+  endIfAnyWorse:
+    Infestation: 200
+    Medical: 300
+    Death: 300
+  minSecs: 600
+  maxSecs: 900
+  maxDestruction: 1
+  blockedEventTypes:
+  - HostilesSpawn
 
 - type: storyBeat
   id: Attackers
   description: Drive high combat
-  goal:
-    Hostile: 100  # Quite a few hostiles
+  threat: 1
+  escalation:
+    Hostile: 40
   endIfAnyWorse:
-    Atmos: 800   # Severe atmos, power or medical issues should end this beat.
-    Power: 800
-    Medical: 600
+    Atmos: 900
+    Power: 600
+    Medical: 500
     Death: 400
-    Combat: -50 # Friendly forces should just retain the upper hand
+    Security: 250
+    Combat: -50
+  onWorse: RestoreOrder
+  requiredDepartments:
+  - Security
+  minSecs: 600
+  maxSecs: 1200
+  maxDestruction: 2
 
 - type: storyBeat
   id: AttackMild
   description: Drive medium combat
-  goal:
-    Hostile: 40  # Perhaps 4 hostiles
+  threat: 0.75
+  escalation:
+    Hostile: 20
   endIfAnyWorse:
-    Atmos: 400   # Severe atmos, power or medical issues should end this beat.
+    Atmos: 700
     Power: 400
     Medical: 300
     Death: 300
-    Combat: -100 # Friendly forces should easily retain the upper hand
+    Security: 150
+    Combat: -100
+  onWorse: RestoreOrder
+  requiredDepartments:
+  - Security
+  minSecs: 600
+  maxSecs: 1200
+  maxDestruction: 1
 
 - type: storyBeat
   id: RestoreOrder
   description: Send help to quell disorder on the station
   goal:
-    # Traitors: 0  # Try to drive down hostiles and engineering issues
-    Hostile: 10
+    Hostile: 20
+    Security: 0
     Atmos: 0
+    Fire: 0
     Medical: 0
   endIfAllBetter:
-    Atmos: 200
-    Hostile: 20
-    Medical: 200
+    Atmos: 250
+    Hostile: 60
+    Security: 40
+    Medical: 150
+  minSecs: 300
+  maxSecs: 900
+  maxDestruction: 0
+  allowReinforcements: true
+  blockedEventTypes:
+  - HostilesSpawn
 
 - type: storyBeat
   id: RepairStation
   description: Repair that station
   goal:
     Atmos: 0
+    Fire: 0
     Power: 0
     Medical: 0
   endIfAllBetter:
-    Atmos: 200
-    Power: 200
+    Atmos: 250
+    Power: 150
+  minSecs: 300
+  maxSecs: 900
+  maxDestruction: 0
+  allowReinforcements: true
+  blockedEventTypes:
+  - HostilesSpawn
+
+- type: storyBeat
+  id: Denouement
+  description: Evacuation is underway, only send help
+  goal:
+    Hostile: 0
+    Security: 0
+    Atmos: 120
+    Fire: 0
+    Power: 0
+    Medical: 80
+  minSecs: 0
+  maxSecs: 7200
+  eventDelayMin: 240
+  eventDelayMax: 480
+  maxDestruction: 0
+  allowCalmEvents: false
+  helpOnly: true
+  blockedEventTypes:
+  - HostilesSpawn

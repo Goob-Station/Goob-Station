@@ -1,0 +1,29 @@
+- type: entity
+  name: almanac blade
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: WeaponAlmanacBlade
+  description: lasagna.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/katana.rsi
+  - type: Item
+    sprite: Objects/Weapons/Melee/katana.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/katana.rsi
+    slots:
+    - Back
+    - Belt
+  - type: MeleeWeapon
+    attackRate: 0.75
+    canWideSwing: false
+    damage:
+      types:
+        Slash: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: UseDelay
+    delay: 0.8
+    delays:
+      blink:
+        length: 4
+  - type: AlmanacBlade

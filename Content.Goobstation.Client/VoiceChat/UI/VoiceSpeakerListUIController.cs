@@ -11,14 +11,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.VoiceChat.UI;
 
-public sealed class VoiceSpeakerListUIController : UIController,
+public sealed partial class VoiceSpeakerListUIController : UIController,
     IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>,
     IOnStateEntered<LobbyState>, IOnStateExited<LobbyState>
 {
     private const float Margin = 10f;
     private const float GameplayBottom = 110f;
 
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     [UISystemDependency] private readonly VoiceChatSystem? _voice = default;
 
     private VoiceSpeakerList? _list;

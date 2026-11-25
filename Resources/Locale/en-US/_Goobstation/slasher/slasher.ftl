@@ -8,6 +8,7 @@ slasher-round-end-agent-name = Slasher
 slasher-kit-select-title = Choose Your Kit
 slasher-kit-select-header = Choose a kit. Each one comes with a unique song and a unique look.
 slasher-kit-select-button = Select
+slasher-kit-guide-button = This variant plays differently - open its guidebook page.
 
 slasher-kit-butcher = Butcher
 slasher-kit-butcher-desc = The classic. A welding mask and apron for a no nonsense killing machine.
@@ -35,6 +36,9 @@ slasher-kit-glutton-desc = Something hungry stalks the halls. It wears a skin th
 
 slasher-kit-hockey = Hockey Mask
 slasher-kit-hockey-desc = A hockey mask and a machete. What more could you want?
+
+slasher-kit-boogeyman = Boogeyman
+slasher-kit-boogeyman-desc = "I wonder, if perhaps.. The Boogeyman is able to actually move through shadows.."
 
 slasher-machete-no-hands = You have no hands!
 slasher-machete-hands-full = Your hands are full!
@@ -70,7 +74,8 @@ slasher-corporealize-fail-camera = You cannot corporealize when there's a camera
 slasher-corporealize-fail-nearby = You cannot corporealize while someone is nearby!
 slasher-corporealize-fail-inside-wall = You cannot corporealize while near a solid object!
 
-slasher-relentless-grab-activate = You prepare to grab your next victim!
+slasher-relentless-grab-fail = You can't grab that.
+slasher-relentless-grab-door-welded = The door is welded shut.
 
 reagent-name-slasherium = Slasherium
 reagent-desc-slasherium = Used by the Slasher to heal themselves.
@@ -95,3 +100,6 @@ slasher-fear-music-unmuted = Your theme plays again.
 
 alerts-slasher-fear-victim-name = Fear
 alerts-slasher-fear-victim-desc = The terror clawing at your mind as the slasher hunts you. The higher it climbs, the more it slows and wounds you. Break their line of sight to let it fade.
+
+alerts-slasher-soul-bonus-name = Soul Bonus
+alerts-slasher-soul-bonus-desc = Bonuses gained from harvesting souls. Top row is your extra damage, bottom row is your extra defense.

@@ -14,12 +14,12 @@ using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Fax;
 
-public sealed class FaxSlipSystem : EntitySystem
+public sealed partial class FaxSlipSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly IRobustRandom _gambling = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private IRobustRandom _gambling = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

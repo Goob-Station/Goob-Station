@@ -30,12 +30,10 @@
   id: SlasherGear
   equipment:
     jumpsuit: ClothingUniformSlasher
-    back: ClothingBackpackSatchel
     head: ClothingHeadHatSlasherMask
     gloves: ClothingHandsSlasherGloves
     outerClothing: ClothingOuterSlasherApron
     shoes: ClothingShoesSlasher
-    id: AgentIDCard
 
 - type: startingGear
   id: SlasherGearSpring
@@ -109,6 +107,13 @@
     jumpsuit: ClothingUniformSlasherHockey
     head: ClothingMaskSlasherHockey
     outerClothing: ClothingOuterSlasherHockey
+
+- type: startingGear
+  id: SlasherGearBoogeyman
+  equipment:
+    jumpsuit: ClothingUniformSlasherBoogeyman
+    head: ClothingHeadHatSlasherMaskBoogeyman
+    shoes: ClothingShoesSlasher
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]

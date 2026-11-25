@@ -1,0 +1,50 @@
+- type: entity
+  name: coal crunch
+  parent: FoodSnackBase
+  id: FoodSnackCoalCrunch
+  description: Cracker rounds fashioned from refined coal. Delicious to Synths!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bitter
+      - chalky
+  - type: Sprite
+    sprite: _Afterlight/Objects/Consumable/Food/snacks.rsi
+    state: coalcrunch
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Carbon
+          Quantity: 4.3
+        - ReagentId: Hydrogen
+          Quantity: 0.5
+        - ReagentId: Sulfur
+          Quantity: 0.2
+  - type: Item
+    sprite: _Afterlight/Objects/Consumable/Food/snacks.rsi
+    heldPrefix: coalcrunch
+  - type: Edible
+    trash:
+    - FoodPacketCoalCrunchTrash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketCoalCrunchTrash
+  name: coal crunch wrapper
+  components:
+  - type: Sprite
+    sprite: _Afterlight/Objects/Consumable/Food/snacks.rsi
+    state: coalcrunch-trash
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: trash-inhand-left
+        color: "#5180D5"
+      right:
+      - state: trash-inhand-right
+        color: "#5180D5"

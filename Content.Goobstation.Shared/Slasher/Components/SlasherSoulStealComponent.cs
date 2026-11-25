@@ -1,3 +1,5 @@
+using Content.Shared.Alert;
+using Content.Shared.Damage;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -8,7 +10,7 @@ namespace Content.Goobstation.Shared.Slasher.Components;
 /// <summary>
 /// Grants the Slasher the Soul Steal action and tracks cumulative bonuses.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlasherSoulStealComponent : Component
 {
     [ViewVariables]
@@ -17,41 +19,44 @@ public sealed partial class SlasherSoulStealComponent : Component
     [DataField]
     public EntProtoId ActionId = "ActionSlasherSoulSteal";
 
-    /// <summary>
-    /// Flat slash bonus per alive soul stolen (applied to machete melee and throw).
-    /// </summary>
     [DataField]
-    public float AliveBruteBonusPerSoul = 1.5f;
+    public ProtoId<AlertPrototype> Alert = "SlasherSoulBonus";
+
+    [DataField]
+    public DamageSpecifier AliveDamageBonusPerSoul = new()
+    {
+        DamageDict = new() { { "Slash", 1 } },
+    };
+
+    [DataField]
+    public DamageSpecifier DeadDamageBonusPerSoul = new()
+    {
+        DamageDict = new() { { "Slash", 0.5 } },
+    };
 
     /// <summary>
-    /// Flat slash bonus per corpse soul stolen.
+    /// Armor (percent damage reduction) granted per alive soul.
     /// </summary>
     [DataField]
-    public float DeadBruteBonusPerSoul = 0.75f;
+    public float AliveArmorPercentPerSoul = 5f;
 
     /// <summary>
-    /// Armor (damage reduction) granted per alive soul.
+    /// Armor (percent damage reduction) granted per dead soul.
     /// </summary>
     [DataField]
-    public float AliveArmorPercentPerSoul = 0.05f;
+    public float DeadArmorPercentPerSoul = 2.5f;
 
     /// <summary>
-    /// Armor (damage reduction) granted per dead soul.
+    /// Maximum armor, in percent damage reduction.
     /// </summary>
     [DataField]
-    public float DeadArmorPercentPerSoul = 0.025f;
+    public float ArmorCap = 70f;
 
     /// <summary>
-    /// Maximum armor (damage reduction) reduction.
+    /// Current total armor, in percent damage reduction (0-100).
     /// </summary>
-    [DataField]
-    public float ArmorCap = 0.70f;
-
-    /// <summary>
-    /// Current total armor reduction (0-1).
-    /// </summary>
-    [ViewVariables]
-    public float ArmorReduction;
+    [ViewVariables, AutoNetworkedField]
+    public float ArmorPercent;
 
     /// <summary>
     /// How long it takes to perform soul steal.
@@ -133,10 +138,10 @@ public sealed partial class SlasherSoulStealComponent : Component
     public int DeadSouls;
 
     /// <summary>
-    /// Cached applied brute bonus so we can reapply if machete is resummoned.
+    /// Cached applied damage bonus so we can reapply if machete is resummoned.
     /// </summary>
-    [ViewVariables]
-    public float TotalAppliedBruteBonus;
+    [ViewVariables, AutoNetworkedField]
+    public DamageSpecifier TotalAppliedDamageBonus = new();
 
     /// <summary>
     /// Last known machete entity to which we applied damage components.

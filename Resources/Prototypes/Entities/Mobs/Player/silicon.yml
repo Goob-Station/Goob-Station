@@ -73,6 +73,7 @@
     transmitFrequencyId: ShuttleTimer
   - type: RadarConsole
     followEntity: false
+  - type: VoiceBroadcastConsole # Goobstation
   - type: CommunicationsConsole
     canShuttle: false
     title: comms-console-announcement-title-station-ai

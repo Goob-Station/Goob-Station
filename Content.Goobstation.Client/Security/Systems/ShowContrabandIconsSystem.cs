@@ -6,9 +6,9 @@ using VisibleContrabandComponent = Content.Goobstation.Shared.Security.Contraban
 
 namespace Content.Goobstation.Client.Security.Systems;
 
-public sealed class ShowContrabandIconsSystem : EquipmentHudSystem<ShowContrabandIconsComponent>
+public sealed partial class ShowContrabandIconsSystem : EquipmentHudSystem<ShowContrabandIconsComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

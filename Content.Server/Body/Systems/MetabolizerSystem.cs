@@ -19,7 +19,7 @@ using Content.Shared.EntityConditions.Conditions.Body;
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects.Body;
 using Content.Shared.EntityEffects.Effects.Solution;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -44,6 +44,7 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
     private EntityQuery<OrganComponent> _organQuery;
     private EntityQuery<SolutionContainerManagerComponent> _solutionQuery;
     private static readonly ProtoId<MetabolismGroupPrototype> Gas = "Gas";
+    private readonly List<ReagentQuantity> _metabolizeList = new(); // Goob
 
     public override void Initialize()
     {
@@ -141,7 +142,9 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
         }
 
         // Copy the solution do not edit the original solution list
-        var list = solution.Contents.ToList();
+        var list = _metabolizeList; // Goob
+        list.Clear(); // Goob
+        list.AddRange(solution.Contents); // Goob
 
         // Collecting blood reagent for filtering
         var ev = new MetabolismExclusionEvent();

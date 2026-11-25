@@ -1,0 +1,97 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      MinSize="680 500">
+
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" MinWidth="460">
+
+            <PanelContainer Name="GlassBackground" VerticalExpand="True" HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#111115" />
+                </PanelContainer.PanelOverride>
+
+                <ScrollContainer Name="GridScroll" VerticalExpand="True" HorizontalExpand="True" Margin="8" HScrollEnabled="False">
+                    <GridContainer Name="ItemGrid" Columns="5" HSeparationOverride="4" VSeparationOverride="4" HorizontalAlignment="Center" />
+                </ScrollContainer>
+            </PanelContainer>
+
+            <Control MinHeight="8" />
+            <Control MinHeight="28" Margin="12 0 12 0" HorizontalExpand="True">
+                <PanelContainer Name="DispenseChute" HorizontalExpand="True" VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1a1a1e" BorderColor="#0d0d11" BorderThickness="2" />
+                    </PanelContainer.PanelOverride>
+                    <Label Text="DISPENSE" FontColorOverride="#333333" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </PanelContainer>
+            </Control>
+            <Control MinHeight="8" />
+
+            <PanelContainer StyleClasses="LowDivider" />
+
+            <BoxContainer Orientation="Horizontal" Margin="8 4 8 4" MinHeight="24" VerticalAlignment="Center">
+                <Label Text="{Loc 'vending-machine-flavor-left'}" StyleClasses="WindowFooterText" />
+                <Label Text="{Loc 'vending-machine-flavor-right'}" StyleClasses="WindowFooterText"
+                       HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
+                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+                             VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
+            </BoxContainer>
+        </BoxContainer>
+
+        <PanelContainer MinWidth="2" StyleClasses="LowDivider" />
+
+        <BoxContainer Orientation="Vertical" MinWidth="200" VerticalExpand="True">
+
+            <BoxContainer Orientation="Horizontal" Margin="12 12 12 8" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <BoxContainer Orientation="Vertical" Margin="0 0 10 0" SeparationOverride="6" VerticalAlignment="Center">
+                    <TextureRect Name="RedLed" TexturePath="/Textures/Interface/NavMap/beveled_circle.png" SetSize="8 8" Stretch="KeepAspectCentered" />
+                    <TextureRect Name="GreenLed" TexturePath="/Textures/Interface/NavMap/beveled_circle.png" SetSize="8 8" Stretch="KeepAspectCentered" />
+                </BoxContainer>
+
+                <controls:StripeBack>
+                    <PanelContainer Name="ScreenBackground" Margin="2" MinWidth="130">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0a120a" BorderColor="#1a331a" BorderThickness="2" />
+                        </PanelContainer.PanelOverride>
+
+                        <BoxContainer Orientation="Vertical" Margin="8 6" HorizontalAlignment="Center">
+                            <Label Text="TARGET" StyleClasses="LabelSubText" FontColorOverride="#1a551a" HorizontalAlignment="Center"/>
+                            <Label Name="BufferLabel" HorizontalAlignment="Center" Margin="0 2 0 0" StyleClasses="LabelBig" FontColorOverride="#33ff33" />
+                        </BoxContainer>
+                    </PanelContainer>
+                </controls:StripeBack>
+
+            </BoxContainer>
+
+            <Control VerticalExpand="True" />
+
+            <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="12 0 12 12">
+                <Label Text="ROW" StyleClasses="LabelSubText" FontColorOverride="#555555" HorizontalAlignment="Center" />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#111115" BorderColor="#222228" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginRightOverride="8" ContentMarginTopOverride="8" ContentMarginBottomOverride="8" />
+                    </PanelContainer.PanelOverride>
+                    <GridContainer Name="LetterGrid" Columns="3" HSeparationOverride="6" VSeparationOverride="6" HorizontalAlignment="Center" />
+                </PanelContainer>
+            </BoxContainer>
+
+            <PanelContainer StyleClasses="LowDivider" />
+
+            <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="12 12 12 12">
+                <Label Text="COL" StyleClasses="LabelSubText" FontColorOverride="#555555" HorizontalAlignment="Center" />
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#111115" BorderColor="#222228" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginRightOverride="8" ContentMarginTopOverride="8" ContentMarginBottomOverride="8" />
+                    </PanelContainer.PanelOverride>
+                    <GridContainer Name="NumpadGrid" Columns="3" HSeparationOverride="6" VSeparationOverride="6" HorizontalAlignment="Center" />
+                </PanelContainer>
+            </BoxContainer>
+
+            <Control VerticalExpand="True" />
+
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

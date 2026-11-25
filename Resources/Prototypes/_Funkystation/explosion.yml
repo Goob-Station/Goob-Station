@@ -1,0 +1,50 @@
+# Same as the Default / MicroBomb / Minibomb explosions, but with invisible fire so the explosion visuals show instead.
+- type: explosion
+  id: Transparent
+  damagePerIntensity:
+    types:
+      Heat: 5
+      Blunt: 5
+      Slash: 5
+  fireColor: Transparent
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  temperature: 800
+
+- type: explosion
+  id: TransparentMicroBomb
+  damagePerIntensity:
+    types:
+      Heat: 6
+      Blunt: 6
+      Slash: 6
+      Structural: 20
+  fireColor: Transparent
+  tileBreakChance: [ 0, 0.5, 1 ]
+  tileBreakIntensity: [ 1, 10, 15 ]
+  tileBreakRerollReduction: 30
+  intensityPerState: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  temperature: 800
+
+- type: explosion
+  id: TransparentMinibomb
+  damagePerIntensity:
+    types:
+      Heat: 8
+      Blunt: 14
+      Slash: 8
+  fireColor: Transparent
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  temperature: 800

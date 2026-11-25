@@ -7,9 +7,9 @@ namespace Content.Goobstation.Shared.Wraith.Actions;
 /// <summary>
 /// Increments/Decrements the use delay of an action
 /// </summary>
-public sealed class ActionUseDelayOnUseSystem : EntitySystem
+public sealed partial class ActionUseDelayOnUseSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     private EntityQuery<ActionComponent> _actionQuery;
 
