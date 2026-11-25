@@ -5,30 +5,32 @@
     <GuideEntityEmbed Entity="MobPlasmaman" Caption=""/>
   </Box>
 
-  Plasmamen are a species discerned by their skeletal appearance. They breathe plasma, and oxygen is highly toxic to them when inhaled.
+  Plasmamen are a species of skeletal appearance and mysterious origin. They breathe plasma to survive and oxygen is extremely toxic.
   Being exposed to oxygen sets them on fire.
 
 
   ## Unique Abilities
 
   ### Envirosuit Shell
-  
-  - To prevent ignition, they wear sealed suits made up of an envirosuit (in the jumpsuit slot) and a [bold]spaceworthy[/bold] envirosuit helmet.
+
+  - To prevent ignition, they wear sealed suits made up of an envirosuit, envirosuit helmet and envirogloves of various type.
+  - Envirosuits are spaceworthy, meaning plasmaman do not need EVA suits to survive in space.
   - Other suits like EVA suits, vacsuits, and hardsuits will also seal them from oxygen exposure.
-  
+
   <Box>
     <GuideEntityEmbed Entity="ClothingUniformEnvirosuit" Caption="envirosuit"/>
     <GuideEntityEmbed Entity="ClothingHeadEnvirohelm" Caption="envirosuit helmet"/>
     <GuideEntityEmbed Entity="DoubleEmergencyPlasmaTankFilled" />
   </Box>
 
-  - All Plasmamen start with an envirosuit, an envirosuit helmet, and a plasma internals tank.
+  - All Plasmamen start with an envirosuit, an envirosuit helmet, envirogloves and a plasma internals tank.
 
   - Their envirosuits contain a [color=#1e90ff]self-extinguisher[/color] with limited charges, which they can activate when they are on fire
   and wearing their envirosuit helmet. The self-extinguisher needs to recharge between uses.
 
-  - Their envirosuit helmets are [bold]spaceworthy[/bold] and provide welding protection. The helmet's visor can be lit up like a flashlight, using the inserted power cell as a battery.
+  - Their envirosuit helmets provide welding protection and the helmet's visor can be made transparent to let the natural glow of the plasmamen to function as a flashlight.
   - They cannot eat nor drink without taking off their envirosuit helmet.
+  - Their body glows naturally of the colour of the plasmaman.
 
   - The plasma internals tank lasts roughly an hour before needing to be replaced or refilled.
 
@@ -51,7 +53,7 @@
 
   ### All Bones!
   - They don't experience hunger nor thirst.
-  - They don't have blood and cannot bleed out.
+  - They don't have blood and cannot bleed out, the liquid plasma in their system is a byproduct of their breathing functions.
 
   - Due to their skeleton body, they can consume Milk to gain a positive moodlet and slowly heal Brute, Heat, Shock, and Caustic damage.
   - They can also consume Plasma to gain a bigger positive moodlet and heal every damage type faster, except for Cellular damage.
@@ -62,16 +64,17 @@
   </Box>
 
   ## Benefits
-  
-  - They infuse their fists with plasma dust that combusts when they punch, dealing [color=orange]5 Heat[/color] and [color=red]2.25 Blunt[/color] damage. 
+
+  - They infuse their fists with plasma dust that combusts when they punch, dealing [color=orange]5 Heat[/color] and [color=red]2.25 Blunt[/color] damage.
   - They take [color=#1e90ff]25% less Piercing, 20% less Poison, and 15% less Slash damage[/color]
   - They are [color=#1e90ff]immune to Radiation and Cold damage[/color]. Due to their [color=#1e90ff]Cold immunity[/color], they can live in cold environments without the need of a winter coat.
-  
+
   ## Drawbacks
 
   - Each successful punch deals [color=orange]2 Heat[/color] damage to their hands.
   - They take [color=#ffa500]50% more Blunt and 50% more Heat damage[/color].
   - They have a slightly lower density than the average species. This results in weaknesses such as but not limited to: being slightly more vulnerable to being shoved, picked up, and thrown by Space Wind, and having a harder time pulling heavy objects.
+  - Exposure to oxygen will poison and burn them extremely fast.
 
 
 </Document>
