@@ -156,7 +156,8 @@ public sealed partial class FartSystem : EntitySystem
             butt = Spawn(ent.Comp.ButtPrototype, coords);
         }
 
-        _throwing.TryThrow(butt, _random.NextAngle().ToVec() * ent.Comp.ButtThrowDistance);
+        var throwDirection = _transform.GetWorldRotation(ent).Opposite().ToWorldVec();
+        _throwing.TryThrow(butt, throwDirection * ent.Comp.ButtThrowDistance);
     }
 
     private void OnButtAdded(Entity<ButtComponent> ent, ref OrganAddedToBodyEvent args)
