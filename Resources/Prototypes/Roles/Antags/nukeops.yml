@@ -80,6 +80,7 @@
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
+    - NukeConversionKit # Goobstation - siege rework
 
 #Nuclear Operative Gear
 - type: startingGear
@@ -143,6 +144,7 @@
     - CombatMedipen
     - DeathAcidifierImplanter
     - MedkitCombatFilled # Goobstation
+    - NukeConversionKit # Goobstation - siege rework
 
 - type: chameleonOutfit
   id: NukeopsMedicOutfit
