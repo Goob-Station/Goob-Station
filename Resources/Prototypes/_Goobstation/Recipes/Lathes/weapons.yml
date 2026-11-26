@@ -50,3 +50,13 @@
   result: MagazineNailgunArmorPiercing
   materials:
     Steel: 400
+
+- type: latheRecipe
+  id: EEEShield
+  result: WeaponEmergencyEnergyShield
+  completetime: 5
+  materials:
+    Steel: 500
+    Plastic: 100
+    Silver: 100
+    Diamond: 50

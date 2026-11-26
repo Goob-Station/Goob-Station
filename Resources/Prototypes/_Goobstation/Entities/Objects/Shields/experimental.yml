@@ -1,0 +1,85 @@
+- type: entity
+  name: E.E.E. shield
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: WeaponEmergencyEnergyShield
+  description: An experimental shield emitter. Raises a nearly impenetrable shield that lasts for a very short while before breaking.
+  components:
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: Blocking
+    passiveBlockFraction: 0.9
+    activeBlockFraction: 0.98
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Cold: 0.1
+        Shock: 0.1
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.01
+        Slash: 0.01
+        Piercing: 0.01
+        Heat: 0.05
+        Cold: 0.05
+        Shock: 0.05
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Energy
+  - type: Damageable
+    damageContainer: Shield
+  - type: Sprite
+    sprite: _Goobstation/Objects/Shields/ephemeral.rsi
+    layers:
+    - state: eshield-icon
+    - state: eshield-on
+      color: Green
+      visible: false
+      shader: unshaded
+      map:
+      - shield
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Objects/Shields/ephemeral.rsi
+    heldPrefix: eshield
+  - type: ToggleableVisuals
+    spriteLayer: shield
+    inhandVisuals:
+      left:
+      - state: inhand-left-shield
+        shader: unshaded
+      right:
+      - state: inhand-right-shield
+        shader: unshaded
+  - type: PointLight
+    netsync: false
+    enabled: false
+    radius: 1.5
+    energy: 0.7
+    color: "#678AD9"
+  - type: ItemTogglePointLight
+  - type: Appearance
+  - type: UseDelay
+    delay: 0.5
+  - type: StaticPrice
+    price: 500
+  - type: ToggleExpiry
+    duration: 5
+    expireSound:
+      path: /Audio/_Goobstation/Heretic/runebreak.ogg
