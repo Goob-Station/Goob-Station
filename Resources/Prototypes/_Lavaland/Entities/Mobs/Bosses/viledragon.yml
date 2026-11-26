@@ -1,0 +1,86 @@
+- type: entity
+  name: The vile
+  id: MobMegafaunaVileDragon
+  parent: LavalandMobBase
+  description: Oh, terror incarnate!
+  suffix: DO NOT MAP, UNFINISHED
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-1,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/vile.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: vile
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: vile
+      Dead:
+        Base: vile
+  - type: BatteryAmmoProvider
+    proto: ProjectileVampiricBolt
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 10
+    fireRate: 0.3
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Slash: 20
+        Structural: 150
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      3000: Dead
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Megafauna
+  - type: BossMusic
+    soundId: VileDragon
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
+  - type: CombatPower # Goobstation
+    factor: 25 # times more dangerous than a crew-member
+  - type: MegafaunaAnchor # Keeps anchored until fight starts
+  - type: MegafaunaGodmode # Godmode against any damage not coming from player
+  - type: MegafaunaRejuvenate # Regens on fight over

@@ -49,3 +49,48 @@
   positionOnEnd: 0
   sound:
     path: /Audio/_Lavaland/Mobs/Bosses/miniboss_fight.ogg
+
+- type: bossMusic
+  id: ChildishOni
+  fade: true
+  fadeInTime: 2
+  fadeOutTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Lavaland/Mobs/Bosses/childishoni.ogg
+
+- type: bossMusic
+  id: VileDragon
+  fade: true
+  fadeInTime: 5
+  fadeOutTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Lavaland/Mobs/Bosses/Retribution.ogg
+
+- type: bossMusic
+  id: SerpentGod
+  fade: true
+  fadeInTime: 5
+  fadeOutTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Lavaland/Mobs/Bosses/SerpentGod.ogg
+
+- type: bossMusic
+  id: ORT
+  fade: true
+  fadeInTime: 5
+  fadeOutTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Lavaland/Mobs/Bosses/Finale.ogg
+
+- type: bossMusic
+  id: UltimateOne
+  fade: true
+  fadeInTime: 3
+  fadeOutTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Lavaland/Mobs/Bosses/Xibalba.ogg

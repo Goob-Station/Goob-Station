@@ -56,7 +56,7 @@
       1000: Dead
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
   - type: TileMovement
   - type: BossMusic
     soundId: Miniboss
@@ -114,7 +114,7 @@
       1000: Dead
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
 
 - type: entity
   id: LavalandElitePandora #Just a hierophant resprite, all of these are templates anyway.
@@ -158,7 +158,7 @@
   # Actual boss from here
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -253,7 +253,7 @@
     forgiveRange: 20.0
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
 
 - type: entity
   name: Broodmother
@@ -304,5 +304,5 @@
       1000: Dead
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
 

@@ -1,8 +1,9 @@
 - type: entity
   name: ash drake
-  id: LavalandBossAshDrake
+  id: MobMegafaunaAshDrake
   parent: LavalandMobBase
   description: Guardian of the Necropolis.
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: Physics
     bodyType: KinematicController
@@ -38,7 +39,7 @@
       Dead:
         Base: dragon_dead
   - type: BatteryAmmoProvider
-    proto: ProjectileFireball
+    proto: ProjectileDragonsBreath
     fireCost: 50
   - type: BatterySelfRecharger
     autoRechargeRate: 50
@@ -77,7 +78,7 @@
       amount: 1
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
   - type: TileMovement
   - type: BossMusic
     soundId: AshDrake

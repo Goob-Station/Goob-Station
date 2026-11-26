@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: MobHierophant
+  id: MobMegafaunaHierophant
   name: hierophant
   description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
   components:
@@ -46,7 +46,7 @@
   - type: MobState
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
   - type: NoSlip
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5

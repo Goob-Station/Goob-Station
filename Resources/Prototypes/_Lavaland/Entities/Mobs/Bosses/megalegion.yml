@@ -1,8 +1,9 @@
 - type: entity
   name: Legion
-  id: LavalandBossMegaLegion
+  id: MobMegafaunaMegaLegion
   parent: LavalandMobBase
   description: One of many.
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: EmitSoundOnSpawn
     sound:
@@ -60,7 +61,7 @@
       700: Dead
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Hierophant
+    damageModifierSet: Megafauna
   - type: TileMovement
   - type: BossMusic
     soundId: AshDrake

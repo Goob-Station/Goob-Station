@@ -1,6 +1,6 @@
 - type: entity
   parent: MarkerBase
-  id: SpawnMobHierophant
+  id: SpawnMobMegafaunaHierophant
   name: Hierophant Spawner
   components:
   - type: Sprite
@@ -9,4 +9,121 @@
     - state: ai
   - type: ConditionalSpawner
     prototypes:
-    - MobHierophant
+    - MobMegafaunaHierophant
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMegafaunaAshDrake
+  name: Ash Drake Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMegafaunaAshDrake
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMegafaunaBubblegum
+  name: Bubblegum Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMegafaunaBubblegum
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMegafaunaChildishOni
+  name: Childish Oni Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMegafaunaChildishOni
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMegafaunaColossus
+  name: Colossus Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMegafaunaColossus
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMegafaunaMegaLegion
+  name: Legion Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMegafaunaMegaLegion
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMegafaunaSerpentGod
+  name: Serpent God Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMegafaunaSerpentGod
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMegafaunaVileDragon
+  name: The Vile Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMegafaunaVileDragon
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMegafaunaORT
+  name: Spider of Mercury Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMegafaunaORTForming
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMegafaunaORTXibalba
+  name: The Ultimate One Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - ORTXibalbaWarpIn
