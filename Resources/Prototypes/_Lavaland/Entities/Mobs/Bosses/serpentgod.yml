@@ -1,7 +1,7 @@
 - type: entity
   id: MobMegafaunaSerpentGod
-  name: serpent god
-  description: What happens when an oni consumes the essence of a eight-headed serpent.
+  name: drunken oni
+  description: The smell of alcohol almost masks the stench of blood.
   suffix: DO NOT MAP, UNFINISHED
   components:
   - type: Vocal
@@ -33,7 +33,7 @@
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/serpent.rsi
     noRot: true
-    state: phase_3
+    state: phase_1
   - type: Clickable
   - type: InteractionOutline
   - type: LagCompensation

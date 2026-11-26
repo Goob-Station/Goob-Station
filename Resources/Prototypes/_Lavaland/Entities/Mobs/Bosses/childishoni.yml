@@ -33,7 +33,7 @@
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/banana.rsi
     noRot: true
-    state: phase_3
+    state: phase_1
   - type: Clickable
   - type: InteractionOutline
   - type: LagCompensation

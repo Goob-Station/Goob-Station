@@ -42,7 +42,7 @@
   id: MobMegafaunaORTForming
   parent: BaseORT
   description: The air trembles around it...
-  categories: [ Spawner ]
+  categories: [ Spawner, HideSpawnMenu ]
   suffix: DO NOT MAP, UNFINISHED
   components:
   - type: PointLight
@@ -148,7 +148,7 @@
   name: UFO
   id: MobMegafaunaORTUFO
   parent: BaseORT
-  categories: [HideSpawnMenu]
+  categories: [HideSpawnMenu, HideSpawnMenu]
   description: The spider was only an empty shell. The true body was above all along.
   components:
   - type: Transform
