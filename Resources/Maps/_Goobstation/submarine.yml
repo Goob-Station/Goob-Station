@@ -198065,13 +198065,6 @@ entities:
     - type: Transform
       pos: -50.5,0.5
       parent: 2
-- proto: HolopadServiceBoxer
-  entities:
-  - uid: 18051
-    components:
-    - type: Transform
-      pos: 38.5,-29.5
-      parent: 2
 - proto: HolopadServiceChapel
   entities:
   - uid: 16299
@@ -237028,13 +237021,6 @@ entities:
     - type: Transform
       pos: -58.5,-3.5
       parent: 2
-- proto: SpawnPointBoxer
-  entities:
-  - uid: 3467
-    components:
-    - type: Transform
-      pos: 42.5,-23.5
-      parent: 2
 - proto: SpawnPointBrigmedic
   entities:
   - uid: 21207
@@ -237720,13 +237706,6 @@ entities:
     components:
     - type: Transform
       pos: -22.5,50.5
-      parent: 2
-- proto: SpawnPointZookeeper
-  entities:
-  - uid: 22903
-    components:
-    - type: Transform
-      pos: -68.5,13.5
       parent: 2
 - proto: SpawnVehicleJanicart
   entities:
