@@ -12,6 +12,7 @@
       organs:
         brain: OrganHumanBrain
         eyes: OrganArachnidEyes
+        tongue: OrganArachnidTongue
     chest:
       part: ChestArachnid
       organs:

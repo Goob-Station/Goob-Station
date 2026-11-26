@@ -10,6 +10,7 @@
       organs:
         brain: OrganSynthBrain
         eyes: OrganSynthEyes
+        tongue: OrganSynthTongue
     chest:
       part: ChestSynth
       connections:

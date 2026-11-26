@@ -12,6 +12,7 @@
       organs:
         brain: OrganHydrakinBrain
         eyes: OrganHumanEyes
+        tongue: OrganHumanTongue
     torso:
       part: TorsoHydrakin
       connections:

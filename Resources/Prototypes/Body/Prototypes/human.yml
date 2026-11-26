@@ -12,6 +12,7 @@
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
+        tongue: OrganHumanTongue
     chest:
       part: ChestHuman
       connections:
