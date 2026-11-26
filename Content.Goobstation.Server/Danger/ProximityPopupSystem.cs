@@ -10,7 +10,7 @@ namespace Content.Goobstation.Server.Danger;
 /// Shows a pop-up to all players nearby on a timer.
 /// Picks randomly which pop-up to show.
 /// </summary>
-public sealed partial class DangerZoneSystem : EntitySystem
+public sealed partial class ProximityPopupSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;
@@ -23,31 +23,33 @@ public sealed partial class DangerZoneSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<DangerZoneComponent>();
+        var query = EntityQueryEnumerator<ProximityPopupComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime < comp.NextPopup || comp.Popups.Count == 0)
                 continue;
 
-            comp.NextPopup = _timing.CurTime + comp.PopupInterval;
+            // As per the component statement, picks PopupInterval as default, but if a MaxPopupInterval is set, picks a random number in-between.
+            var interval = comp.MaxPopupInterval is null ? comp.PopupInterval : _random.Next(comp.PopupInterval, comp.MaxPopupInterval.Value);
+            comp.NextPopup = _timing.CurTime + interval;
 
-            TryPopup(uid, comp);
+            TryPopup((uid,comp));
         }
     }
 
-    private void TryPopup(EntityUid uid, DangerZoneComponent comp)
+    private void TryPopup(Entity<ProximityPopupComponent> ent)
     {
-        var message = Loc.GetString(_random.Pick(comp.Popups));
+        var message = Loc.GetString(_random.Pick(ent.Comp.Popups));
 
         _mobCache.Clear();
-        _lookup.GetEntitiesInRange(Transform(uid).Coordinates, comp.PopupRange, _mobCache);
+        _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, ent.Comp.PopupRange, _mobCache);
 
         foreach (var mob in _mobCache)
         {
-            if (mob.Owner == uid)
+            if (mob.Owner == ent.Owner)
                 continue;
 
-            _popup.PopupEntity(message, mob, mob, PopupType.MediumCaution);
+            _popup.PopupEntity(message, mob, mob, ent.Comp.PopupType);
         }
     }
 }

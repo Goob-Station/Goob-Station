@@ -1,11 +1,13 @@
+using Content.Shared.Popups;
+
 namespace Content.Goobstation.Shared.Danger;
 
 /// <summary>
 /// This component is used for showing pop-ups to anyone that goes near this entity, on a timer.
 /// The pop-up can be selected from a list, and is picked at random.
 /// </summary>
-[RegisterComponent]
-public sealed partial class DangerZoneComponent : Component
+[RegisterComponent, AutoGenerateComponentPause]
+public sealed partial class ProximityPopupComponent : Component
 {
     /// <summary>
     /// How far the entity searches for targets to show a pop-up to.
@@ -20,10 +22,24 @@ public sealed partial class DangerZoneComponent : Component
     public List<LocId> Popups;
 
     /// <summary>
+    /// Defines the type of pop-up.
+    /// </summary>
+    [DataField]
+    public PopupType PopupType = PopupType.MediumCaution;
+
+    /// <summary>
     /// Interval between popups.
     /// </summary>
     [DataField]
     public TimeSpan PopupInterval = TimeSpan.FromSeconds(5);
 
+    /// <summary>
+    /// If not null, the system will pick a random number between PopupInterval and MaxPopupInterval.
+    /// Otherwise, obviously, just defaults to PopupInterval.
+    /// </summary>
+    [DataField]
+    public TimeSpan? MaxPopupInterval;
+
+    [AutoPausedField]
     public TimeSpan NextPopup;
 }
