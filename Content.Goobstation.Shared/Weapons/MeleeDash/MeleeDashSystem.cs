@@ -75,6 +75,12 @@ public sealed partial class MeleeDashSystem : EntitySystem
     {
         var (uid, comp) = ent;
 
+        if (comp.Weapon is { } weapon)
+        {
+            var ev = new DashLandedEvent(uid);
+            RaiseLocalEvent(weapon, ref ev);
+        }
+
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
         {
             foreach (var key in comp.ChangedFixtures)
