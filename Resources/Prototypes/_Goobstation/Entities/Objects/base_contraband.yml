@@ -116,3 +116,11 @@
   - type: Contraband
     severity: Major
     allowedDepartments: [ Cargo, Command ]
+
+- type: entity
+  id: BaseScienceEngineeringContraband # For jaws of life.
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Science, Engineering ]

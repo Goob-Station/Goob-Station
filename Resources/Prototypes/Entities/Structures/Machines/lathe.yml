@@ -238,7 +238,7 @@
     #- ChemistryStatic
     #- SurgeryStatic
     dynamicPacks:
-    - AdvancedTools
+    #- AdvancedTools - Goobstation - Moved to Sci/engifab
     #- ScienceEquipment - Goobstation - Moved to Scifab
     #- ScienceExplosives - Goobstation - Moved to Scifab
     - ScienceClothing
