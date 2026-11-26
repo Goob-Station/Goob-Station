@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
@@ -60,6 +61,9 @@ public sealed class WizardJauntSystem : EntitySystem
     private void OnPolymorph(Entity<WizardJauntComponent> ent, ref PolymorphedEvent args)
     {
         var (uid, comp) = ent;
+
+        if (HasComp<BlockTeleportComponent>(uid))
+            return;
 
         if (args.IsRevert)
             return;

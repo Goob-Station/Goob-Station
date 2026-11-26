@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Shared.Throwing;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Throwing;
@@ -29,6 +30,9 @@ public sealed partial class SwapTeleportOnThrowSystem : EntitySystem
         var target = args.TargetUid;
 
         if (!HasComp<MobStateComponent>(target))
+            return;
+
+        if (HasComp<BlockTeleportComponent>(target) || HasComp<BlockTeleportComponent>(thrower))
             return;
 
         var throwerTransform = Transform(thrower);

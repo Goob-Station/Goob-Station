@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Shared.Teleportation.Systems;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.EntityEffects;
@@ -25,6 +26,9 @@ public sealed partial class RandomTeleportEffectSystem : EntityEffectSystem<Tran
 
     protected override void Effect(Entity<TransformComponent> ent, ref EntityEffectEvent<RandomTeleport> args)
     {
+        if (HasComp<BlockTeleportComponent>(ent))
+            return;
+
         _teleport.RandomTeleport(ent, args.Effect.Radius, args.Effect.TeleportAttempts, user: args.User);
     }
 }
