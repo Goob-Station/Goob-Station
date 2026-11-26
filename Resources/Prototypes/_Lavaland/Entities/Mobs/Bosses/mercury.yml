@@ -209,7 +209,7 @@
   id: MobMegafaunaORTXibalba
   parent: BaseORT
   description: Long-range weaponry analyzed. Adaptation complete.
-  suffix: DO NOT MAP, FINAL FORM
+  suffix: DO NOT MAP, UNFINISHED
   components:
   - type: Fixtures
     fixtures:
@@ -243,3 +243,5 @@
     energy: 5
     color: gold
   - type: MegafaunaAnchor
+  - type: FloatingVisuals
+    floatRegardlessOfGravity: true
