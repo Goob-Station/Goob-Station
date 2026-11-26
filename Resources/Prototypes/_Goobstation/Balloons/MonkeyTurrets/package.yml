@@ -13,7 +13,6 @@
     items:
     - id: MonkeyTurretDartBase
       path: /Audio/Effects/unwrap.ogg
-   
     
 - type: entity
   id: CrateDartMonkey
