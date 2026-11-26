@@ -46,7 +46,7 @@ public partial class SharedDiseaseSystem
     {
         args.DoEffect = args.DoEffect
             && (ent.Comp.MinProgress == null || args.Disease.Comp.InfectionProgress > ent.Comp.MinProgress)
-            && (ent.Comp.MaxProgress == null || args.Disease.Comp.InfectionProgress > ent.Comp.MaxProgress);
+            && (ent.Comp.MaxProgress == null || args.Disease.Comp.InfectionProgress < ent.Comp.MaxProgress);
     }
 
     protected float GetScale(DiseaseCheckConditionsEvent args, ScalingDiseaseEffect effect)

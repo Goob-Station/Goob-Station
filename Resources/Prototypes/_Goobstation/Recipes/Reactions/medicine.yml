@@ -461,3 +461,25 @@
       amount: 1
   products:
     Devirate: 2
+
+- type: reaction
+  id: Nemozol
+  reactants:
+    Immurin:
+      amount: 2
+    DexalinPlus:
+      amount: 1
+    Ipecac:
+      amount: 1
+  products:
+    Nemozol: 3
+
+- type: reaction
+  id: Nanotetrazol
+  reactants:
+    Immurin:
+      amount: 2
+    Plasma:
+      amount: 2
+  products:
+    Nanotetrazol: 3
