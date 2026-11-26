@@ -4,7 +4,7 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Shared.Faction;
+namespace Content.Goobstation.Shared.Faction; //
 
 public sealed partial class FactionWhileHeldSystem : EntitySystem
 {
