@@ -87,12 +87,22 @@
 - type: entity
   id: ClothingBeltSheathHeadOfSecurityFilled
   parent: ClothingBeltSheathHeadOfSecurity
-  suffix: Filled, Head Of Security
+  suffix: Filled, Justice, Head Of Security
   components:
   - type: ContainerFill
     containers:
       item:
       - Justice
+
+- type: entity
+  id: ClothingBeltSheathHeadOfSecurityFilledGun
+  parent: ClothingBeltSheathHeadOfSecurity
+  suffix: Filled, Lawbringer, Head Of Security
+  components:
+  - type: ContainerFill
+    containers:
+      item2:
+      - WeaponEnergyGunLawbringer
 
 - type: entityTable
   id: BeltSecurityNoBatonEntityTable
