@@ -1,0 +1,119 @@
+- type: entity
+  id: BaseBluespaceStormPortalMob
+  abstract: true
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Lavafauna
+
+- type: entity
+  id: PortalGoliath
+  parent: [ BaseBluespaceStormPortalMob, MobGoliath ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalWatcherBase
+  parent: [ BaseBluespaceStormPortalMob, MobWatcherBase ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalLegion
+  parent: [ BaseBluespaceStormPortalMob, MobLegion ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalLivingLight
+  parent: [ BaseBluespaceStormPortalMob, MobLivingLight ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalLuminousObject
+  parent: [ BaseBluespaceStormPortalMob, MobLuminousObject ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalAngryBee
+  parent: [ BaseBluespaceStormPortalMob, MobAngryBee ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalRotHulk
+  parent: [ BaseBluespaceStormPortalMob, MobRotHulk ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalTomatoKiller
+  parent: [ BaseBluespaceStormPortalMob, MobTomatoKiller ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalFleshGolemSalvage
+  parent: [ BaseBluespaceStormPortalMob, MobFleshGolemSalvage ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalFleshLoverSalvage
+  parent: [ BaseBluespaceStormPortalMob, MobFleshLoverSalvage ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalFleshJaredSalvage
+  parent: [ BaseBluespaceStormPortalMob, MobFleshJaredSalvage ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalBaseAdultSlime
+  parent: [ BaseBluespaceStormPortalMob, BaseMobAdultSlime ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalPlagueRatMedium
+  parent: [ BaseBluespaceStormPortalMob, MobPlagueRatMedium ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalPlagueRatSmall
+  parent: [ BaseBluespaceStormPortalMob, MobPlagueRatSmall ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalAncientLegsWraith
+  parent: [ BaseBluespaceStormPortalMob, MobAncientLegsWraith ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
+
+- type: entity
+  id: PortalGunbot
+  parent: [ BaseBluespaceStormPortalMob, GunBot ]
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BluespaceStormPortalMob
