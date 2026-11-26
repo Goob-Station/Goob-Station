@@ -2,7 +2,7 @@
   parent: [ ClothingModsuitStandard, BaseCargoContraband ]
   id: ClothingModsuitMining
   name: mining modsuit control unit
-  description: A Nanotrasen mining suit for on-site operations, fit with ceramic blast plating and a sphere form. The systems run near their maximum load, leaving far less room for customization than other suits.
+  description: "A Nanotrasen mining suit for on-site operations, fit with accreting ash armor and a sphere form."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/mining.rsi

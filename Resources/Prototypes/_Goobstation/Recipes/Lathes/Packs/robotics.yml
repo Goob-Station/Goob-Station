@@ -47,6 +47,15 @@
   - ModsuitModuleStorageCompact
   - ModsuitModuleStorageLarge
   - ModsuitModuleStorageBluespace
+  - ModsuitModuleStorageHolding
+  - ModsuitModuleStorageCase
+  - ModsuitModuleKinesis
+  - ModsuitModuleJointTorsion
+  - ModsuitModuleGloveTranslator
+  - ModsuitModulePlasmaStabilizer
+  - ModsuitModuleHatStabilizer
+  - ModsuitModuleRecycler
+  - ModsuitModuleDonkRecycler
   - ModsuitModuleFlashlight
   - ModsuitModuleWelding
   - ModsuitModuleThermalRegulator
@@ -69,6 +78,10 @@
   - ModsuitModuleRadProtection
   - ModsuitModuleResinMister
   - ModsuitModuleAntiGravity
+  - ModsuitModuleJetpackAdvanced
+  - ModsuitModuleMagbootsAdvanced
+  - ModsuitModuleJumpJet
+  - ModsuitModuleEmpShieldAdvanced
 
 - type: latheRecipePack
   id: ModsuitMedical
@@ -81,6 +94,8 @@
   - ModsuitModuleDefibrillator
   - ModsuitModulePatientTransport
   - ModsuitModuleThreadRipper
+  - ModsuitModuleQuickCarryAdvanced
+  - ModsuitModuleNightVisor
 
 - type: latheRecipePack
   id: ModsuitSecurity
@@ -94,6 +109,13 @@
   - ModsuitModuleRestraintAssist
   - ModsuitModuleBulwark
   - ModsuitModuleEmpShield
+  - ModsuitModuleThermalVisor
+  - ModsuitModuleNightVisor
+  - ModsuitModuleShockAbsorber
+  - ModsuitModuleCriminalCapture
+  - ModsuitModuleMagneticHarness
+  - ModsuitModuleProjectileDampener
+  - ModsuitModuleShootingAssistant
 
 - type: latheRecipePack
   id: ModsuitService
@@ -102,6 +124,11 @@
   - ModsuitModuleWaddle
   - ModsuitModuleJanitorMister
   - ModsuitModuleMouthhole
+  - ModsuitModuleBurgerDispenser
+  - ModsuitModulePaperDispenser
+  - ModsuitModuleBalloonBlower
+  - ModsuitModuleStamper
+  - ModsuitModuleFishingGlove
 
 - type: latheRecipePack
   id: ModsuitSupply

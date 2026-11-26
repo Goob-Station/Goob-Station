@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.ModSuits.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
@@ -22,6 +23,7 @@ public sealed partial class ModPowerKickModuleSystem : EntitySystem
     [Dependency] private SharedGravitySystem _gravity = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
 
     [SubscribeLocalEvent]
@@ -37,10 +39,10 @@ public sealed partial class ModPowerKickModuleSystem : EntitySystem
 
         _audio.PlayPredicted(ent.Comp.ChargeSound, user, user);
         _popup.PopupPredicted(Loc.GetString(ent.Comp.ChargePopup), user, user);
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.ChargeTime, new ModPowerKickDoAfterEvent(GetNetCoordinates(args.Target)), ent)
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.ChargeTime, new ModPowerKickDoAfterEvent(GetNetCoordinates(args.Target), GetNetEntity(args.Entity), CompOrNull<TargetActionComponent>(args.Action)?.Range), ent)
         {
-            BreakOnMove = true,
-            BreakOnDamage = true,
+            BreakOnMove = false,
+            BreakOnDamage = false,
         });
     }
 
@@ -61,8 +63,21 @@ public sealed partial class ModPowerKickModuleSystem : EntitySystem
         kicking.Module = ent;
         Dirty(user, kicking);
 
+        var target = GetEntity(args.Target) is { } targetEnt && !TerminatingOrDeleted(targetEnt)
+            ? Transform(targetEnt).Coordinates
+            : GetCoordinates(args.Coordinates);
+
+        if (args.Range is { } range)
+        {
+            var from = _transform.GetMapCoordinates(user);
+            var to = _transform.ToMapCoordinates(target);
+            var offset = to.Position - from.Position;
+            if (to.MapId == from.MapId && offset.Length() > range)
+                target = _transform.ToCoordinates(new MapCoordinates(from.Position + offset.Normalized() * range, from.MapId));
+        }
+
         _throwing.TryThrow(user,
-            GetCoordinates(args.Coordinates),
+            target,
             ent.Comp.ThrowSpeed,
             user,
             pushbackRatio: 0f,
@@ -113,11 +128,19 @@ public sealed partial class ModPowerKickDoAfterEvent : DoAfterEvent
     [DataField(required: true)]
     public NetCoordinates Coordinates { get; private set; }
 
+    [DataField]
+    public NetEntity? Target { get; private set; }
+
+    [DataField]
+    public float? Range { get; private set; }
+
     private ModPowerKickDoAfterEvent() { }
 
-    public ModPowerKickDoAfterEvent(NetCoordinates coordinates)
+    public ModPowerKickDoAfterEvent(NetCoordinates coordinates, NetEntity? target, float? range)
     {
         Coordinates = coordinates;
+        Target = target;
+        Range = range;
     }
 
     public override DoAfterEvent Clone()

@@ -137,6 +137,8 @@
   - ModsuitModuleDefibrillator
   - ModsuitModulePatientTransport
   - ModsuitModuleThreadRipper
+  - ModsuitModuleQuickCarryAdvanced
+  - ModsuitModuleNightVisor
   position: 3,7
   technologyPrerequisites:
   - ModsuitsTech
@@ -155,6 +157,11 @@
   - ModsuitModuleWaddle
   - ModsuitModuleJanitorMister
   - ModsuitModuleMouthhole
+  - ModsuitModuleBurgerDispenser
+  - ModsuitModulePaperDispenser
+  - ModsuitModuleBalloonBlower
+  - ModsuitModuleStamper
+  - ModsuitModuleFishingGlove
   position: 4,7
   technologyPrerequisites:
   - ModsuitsTech

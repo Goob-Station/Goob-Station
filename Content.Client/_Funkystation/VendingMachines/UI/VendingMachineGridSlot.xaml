@@ -5,7 +5,7 @@
                 StyleClasses="WindowBackground"
                 RectClipContent="True">
     <LayoutContainer Name="SlotLayout">
-        <EntityPrototypeView Name="ItemSprite" />
+        <SpriteView Name="ItemSprite" />
         <Label Name="CodeLabel" StyleClasses="DimNormal" />
         <PanelContainer Name="AmountBadge" StyleClasses="StripeBack">
             <Label Name="AmountLabel" HorizontalAlignment="Center" VerticalAlignment="Center" />

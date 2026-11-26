@@ -118,6 +118,10 @@
   - ModsuitModuleRadProtection
   - ModsuitModuleResinMister
   - ModsuitModuleAntiGravity
+  - ModsuitModuleJetpackAdvanced
+  - ModsuitModuleMagbootsAdvanced
+  - ModsuitModuleJumpJet
+  - ModsuitModuleEmpShieldAdvanced
   position: -3,-5
   technologyPrerequisites:
   - ModsuitEngineeringTech

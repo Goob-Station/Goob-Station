@@ -36,6 +36,7 @@
   - ModsuitPlatingExternal
   - ModsuitCoreStandard
   - ModsuitModuleStorageCompact
+  - ModsuitModuleStorageCase
   - ModsuitModuleFlashlight
   position: -4,-1
   technologyPrerequisites:
@@ -58,6 +59,12 @@
   - ModsuitModuleGps
   - ModsuitModuleVisorDiagnostic
   - ModsuitModuleReagentScanner
+  - ModsuitModuleJointTorsion
+  - ModsuitModuleGloveTranslator
+  - ModsuitModulePlasmaStabilizer
+  - ModsuitModuleHatStabilizer
+  - ModsuitModuleRecycler
+  - ModsuitModuleDonkRecycler
   position: -5,-2
   technologyPrerequisites:
   - ModsuitsTech

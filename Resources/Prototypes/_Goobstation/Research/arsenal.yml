@@ -232,7 +232,7 @@
     state: sec
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 20000
   recipeUnlocks:
   - SecEndoskeleton
   position: 5,2
@@ -257,6 +257,12 @@
   - ModsuitModuleRestraintAssist
   - ModsuitModuleBulwark
   - ModsuitModuleEmpShield
+  - ModsuitModuleThermalVisor
+  - ModsuitModuleShockAbsorber
+  - ModsuitModuleCriminalCapture
+  - ModsuitModuleMagneticHarness
+  - ModsuitModuleProjectileDampener
+  - ModsuitModuleShootingAssistant
   - ModsuitPlatingSecurity
   - ModsuitPlatingBrigMed
   position: 4,1

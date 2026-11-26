@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Server.GameTicking;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Polymorph;

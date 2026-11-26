@@ -137,7 +137,7 @@ public sealed partial class RadioSystem : EntitySystem
         if (language == null)
             language = _language.GetLanguage(messageSource);
 
-        if (!language.SpeechOverride.AllowRadio)
+        if (!language.SpeechOverride.AllowRadio && !LanguageRadioOverride(messageSource, ref language)) // Goob
             return;
         // Einstein Engines - Language end
 

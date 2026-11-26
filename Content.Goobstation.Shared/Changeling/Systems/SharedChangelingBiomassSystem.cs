@@ -1,5 +1,5 @@
 using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;

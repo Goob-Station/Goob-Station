@@ -19,7 +19,7 @@ using Content.Shared.Destructible;
 using Content.Shared.Destructible.Thresholds.Triggers;
 using Content.Shared.Humanoid;
 using Content.Shared.Trigger.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;

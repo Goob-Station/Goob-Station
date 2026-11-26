@@ -23,6 +23,7 @@ public sealed partial class ModSuitSystem
             }
 
             moduleComp.Removable = false;
+            Dirty(module, moduleComp);
             InstallModule(ent, (module, moduleComp));
         }
 
