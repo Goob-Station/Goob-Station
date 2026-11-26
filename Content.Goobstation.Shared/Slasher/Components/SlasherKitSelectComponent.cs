@@ -2,6 +2,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Inventory;
 using Content.Shared.Roles;
 
 namespace Content.Goobstation.Shared.Slasher.Components;
@@ -30,6 +31,9 @@ public sealed partial class SlasherKit
     /// </summary>
     [DataField(required: true)]
     public ProtoId<StartingGearPrototype> Gear;
+
+    [DataField]
+    public ProtoId<InventoryTemplatePrototype>? InventoryTemplate = "slasher";
 
     /// <summary>
     /// Localization key for the kit description shown in the UI.

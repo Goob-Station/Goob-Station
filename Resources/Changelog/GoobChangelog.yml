@@ -27164,3 +27164,117 @@ Entries:
       message: Fixed new vend UI not showing reagent colors (i.e., chemvend jugs)
   id: 3040
   time: '2026-11-13T00:28:43.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        Massive changes to game director once again, im too lazy to type it all
+        out but antag spawning should be better as well as several other event
+        related shits, still getting metrics once again (kill
+        me)...................................... 
+  id: 3041
+  time: '2026-11-17T01:57:42.0000000+00:00'
+- author: charcuteriesampler
+  changes:
+    - type: Tweak
+      message: >-
+        The handheld mass scanner will now rotate with the camera, instead of
+        being fixed to the cardinal directions.
+  id: 3042
+  time: '2026-11-17T02:25:42.0000000+00:00'
+- author: clinux
+  changes:
+    - type: Tweak
+      message: guns now fire slightly farther from your character's center
+  id: 3043
+  time: '2026-11-17T02:30:22.0000000+00:00'
+- author: TechnicFighter
+  changes:
+    - type: Add
+      message: Added Plasmaman insuls
+    - type: Add
+      message: Added Plasmaman bluespace gloves
+    - type: Add
+      message: Added Plasmaman Krav Maga gloves
+    - type: Tweak
+      message: The Engivend now has plasmamen envirogloves insuls
+    - type: Fix
+      message: Plasmamen are no longer unable to put weapons in their suitStorage
+  id: 3044
+  time: '2026-11-17T02:40:57.0000000+00:00'
+- author: Them
+  changes:
+    - type: Add
+      message: Added a Black Hawaiian Shirt with Flames
+  id: 3045
+  time: '2026-11-17T02:41:33.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: Micro upstream merge
+  id: 3046
+  time: '2026-11-17T02:45:24.0000000+00:00'
+- author: JohnJJohn
+  changes:
+    - type: Add
+      message: >-
+        Added a shredder for the hop to use, it can shred: Paper, ID cards and
+        hammy...
+  id: 3047
+  time: '2026-11-17T02:47:51.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: New soulsteal bonus alert for slashers.
+    - type: Remove
+      message: Slasher fear buildup no longer slows down victims.
+    - type: Remove
+      message: Removed slashers agent IDs
+    - type: Remove
+      message: Removed slashers utility inventory slots (bags, pockets, etc).
+    - type: Tweak
+      message: Updated the guidebook to reflect all these changes.
+    - type: Tweak
+      message: >-
+        Slashers massacre action now gets a timer next to the users cursor to
+        show when it ends.
+    - type: Tweak
+      message: >-
+        Slashers now get max fear on ascension permanently along with increased
+        jumpscare fear.
+    - type: Tweak
+      message: >-
+        Nerfed slashers soulsteal damage bonus for alive victims 1.5 slash to 1
+        slash.
+    - type: Tweak
+      message: Nerfed relentless grab so it depends on fear.
+    - type: Tweak
+      message: Relentless grab can now be used to instantly pry open any doors.
+    - type: Tweak
+      message: Slashers now get passive healing that scales with fear while corporeal.
+    - type: Tweak
+      message: Nerfed slashers machete thrown damage, 30 slash to 15 slash 15 struct.
+    - type: Tweak
+      message: Slashers stagger area now scales with their fear.
+    - type: Tweak
+      message: >-
+        Victims now deal less damage to slashers depending on how much fear they
+        have.
+    - type: Fix
+      message: Fixed minor mispredicts with slashers soulsteal bonuses.
+  id: 3048
+  time: '2026-11-17T02:49:33.0000000+00:00'
+- author: Miruneko72
+  changes:
+    - type: Fix
+      message: Fixed spam mail appearing as generic text.
+  id: 3049
+  time: '2026-11-17T03:01:46.0000000+00:00'
+- author: TechnicFighter
+  changes:
+    - type: Add
+      message: >-
+        Added the Annoying Duckbot! You can craft it with a robot arm and a bike
+        horn.
+  id: 3050
+  time: '2026-11-17T17:24:40.0000000+00:00'
