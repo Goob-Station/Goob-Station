@@ -3,13 +3,14 @@
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Magic.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Goobstation.Wizard.Chuuni;
 

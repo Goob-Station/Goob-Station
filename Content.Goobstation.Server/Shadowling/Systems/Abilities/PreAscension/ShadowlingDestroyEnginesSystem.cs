@@ -14,13 +14,13 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 /// This handles Destroy Engines ability.
 /// An ability that delays the evacuation shuttle by 10 minutes
 /// </summary>
-public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
+public sealed partial class ShadowlingDestroyEnginesSystem : EntitySystem
 {
-    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private EmergencyShuttleSystem _emergency = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {
@@ -57,7 +57,7 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
             return;
         }
 
-        if (_roundEnd.ExpectedCountdownEnd is null)
+        if (_roundEnd.ExpectedCountdownEnd is null || !_roundEnd.IsRoundEndRequested())
         {
             _popup.PopupEntity(Loc.GetString("shadowling-destroy-engines-not-called"), uid);
             return;
@@ -71,10 +71,9 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
             Loc.GetString("shadowling-destroy-engines-sender"),
             colorOverride: Color.MediumPurple);
 
-        // add sound
         comp.HasBeenUsed = true;
 
-        _roundEnd.ExpectedCountdownEnd += comp.DelayTime;
+        _roundEnd.DelayRoundEndCountdown(comp.DelayTime);
         args.Handled = true;
         _actions.RemoveAction(args.Performer, (args.Action.Owner, args.Action.Comp));
     }

@@ -5,7 +5,10 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Slasher;
 
-public sealed class SlasherAscendedEvent : EntityEventArgs;
+public sealed class SlasherAscendedEvent(EntityUid slasher) : EntityEventArgs
+{
+    public readonly EntityUid Slasher = slasher;
+}
 
 public sealed partial class SlasherToggleFearMusicAlertEvent : BaseAlertEvent;
 
@@ -40,7 +43,7 @@ public sealed partial class SlasherSummonMacheteEvent : InstantActionEvent;
 public sealed partial class SlasherSummonMeatSpikeEvent : InstantActionEvent;
 
 [ByRefEvent]
-public sealed partial class SlasherRelentlessGrabEvent : InstantActionEvent;
+public sealed partial class SlasherRelentlessGrabEvent : EntityTargetActionEvent;
 
 /// <summary>
 /// DoAfter event raised when Soul Steal completes.

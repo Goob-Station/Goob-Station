@@ -1,0 +1,4 @@
+- files: [sniff_male1.ogg, sniff_female1.ogg]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Bobstation reignited (tgstation lineage), modular_septic/sound/emotes, at commit 7850ebd9f86f8ba7cef23b34b60e309c39e156e9. Downmixed to mono."
+  source: "https://gitgud.io/bobstation/bobstation-reignited/-/tree/7850ebd9f86f8ba7cef23b34b60e309c39e156e9/modular_septic/sound/emotes"

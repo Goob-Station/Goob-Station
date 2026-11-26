@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Bed.Sleep;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared._Goobstation.Heretic.Components;
@@ -36,7 +37,7 @@ public sealed partial class HereticAbilitySystem
         RemCompDeferred<StunnedComponent>(ent);
         RemCompDeferred<DelayedKnockdownComponent>(ent);
 
-        _statusEffect.TryRemoveStatusEffect(ent, "ForcedSleep");
+        _statusNew.TryRemoveStatusEffect(ent, SleepingSystem.StatusEffectForcedSleeping);
         _statusEffect.TryRemoveStatusEffect(ent, "Drowsiness");
 
         if (TryComp<StaminaComponent>(ent, out var stam))

@@ -65,6 +65,15 @@
   - type: Appearance
   - type: Extractable
     grindableSolutionName: steel
+  # Goob start - Afterlight synths
+  - type: Edible
+    requiresSpecialDigestion: true
+    solution: steel
+  - type: FlavorProfile
+    flavors:
+    - metallic
+  - type: BadFood
+  # Goob end
   - type: SolutionContainerManager
     solutions:
       steel:
@@ -137,6 +146,15 @@
     - PlatingBrass
   - type: Extractable
     grindableSolutionName: brass
+  # Goob start - Afterlight synths
+  - type: Edible
+    requiresSpecialDigestion: true
+    solution: brass
+  - type: FlavorProfile
+    flavors:
+    - metallic
+  - type: BadFood
+  # Goob end
   - type: SolutionContainerManager
     solutions:
       brass:

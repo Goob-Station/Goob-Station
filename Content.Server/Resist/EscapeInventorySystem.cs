@@ -15,6 +15,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Resist;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Resist;
 
@@ -34,8 +35,7 @@ public sealed class EscapeInventorySystem : EntitySystem
     /// <summary>
     /// DeltaV - action to cancel inventory escape
     /// </summary>
-    [ValidatePrototypeId<EntityPrototype>]
-    private readonly string _escapeCancelAction = "ActionCancelEscape";
+    private readonly EntProtoId _escapeCancelAction = "ActionCancelEscape";
 
     public override void Initialize()
     {

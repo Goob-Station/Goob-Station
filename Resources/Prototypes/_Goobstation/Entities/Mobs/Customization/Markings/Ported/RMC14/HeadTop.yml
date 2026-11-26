@@ -1,0 +1,34 @@
+# Ported from https://github.com/RMC-14/RMC-14/tree/30df7cf0ec5fe9c24bac7b8d12768c72139fc04f
+
+- type: marking
+  id: FelinidEarsFlat
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Felinids/felinid_ears.rsi
+    state: flat
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Felinids/felinid_ears.rsi
+    state: flat_inner
+
+- type: marking
+  id: LongEarsDrow
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Customization/ears.rsi
+    state: drow
+
+- type: marking
+  id: VulpEarFloppy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/ear_markings.rsi
+    state: floppy
+  - sprite: _Goobstation/Mobs/Customization/Ported/RMC14/_RMC14/Mobs/Vulpkanin/ear_markings.rsi
+    state: floppy-inner

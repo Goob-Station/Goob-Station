@@ -21,15 +21,15 @@ namespace Content.Goobstation.Shared.OfficeChair;
 
 public sealed partial class VehicleWallPushSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly ContestsSystem _contests = default!;
-    [Dependency] private readonly INetConfigurationManager _config = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private ContestsSystem _contests = default!;
+    [Dependency] private INetConfigurationManager _config = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

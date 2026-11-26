@@ -2,7 +2,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
@@ -57,11 +57,12 @@ public sealed class HungerSystem : EntitySystem
     private void OnShutdown(EntityUid uid, HungerComponent component, ComponentShutdown args)
     {
         _alerts.ClearAlertCategory(uid, component.HungerAlertCategory);
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(uid); // Goob
     }
 
     private void OnRefreshMovespeed(EntityUid uid, HungerComponent component, RefreshMovementSpeedModifiersEvent args)
     {
-        if (component.CurrentThreshold > HungerThreshold.Starving)
+        if (component.CurrentThreshold > HungerThreshold.Starving || component.LifeStage > ComponentLifeStage.Running) // Goob
             return;
 
         if (_jetpack.IsUserFlying(uid))

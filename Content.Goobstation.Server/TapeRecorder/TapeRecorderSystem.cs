@@ -13,12 +13,12 @@ using System.Text;
 
 namespace Content.Goobstation.Server.TapeRecorder;
 
-public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
+public sealed partial class TapeRecorderSystem : SharedTapeRecorderSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private PaperSystem _paper = default!;
 
     public override void Initialize()
     {
@@ -78,6 +78,9 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         var verb = _chat.GetSpeechVerb(args.Source, args.Message);
         var name = nameEv.VoiceName;
         cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message));
+
+        var recordedEv = new TapeRecordedEvent(ent);
+        RaiseLocalEvent(args.Source, ref recordedEv);
     }
 
     private void OnPrintMessage(Entity<TapeRecorderComponent> ent, ref PrintTapeRecorderMessage args)

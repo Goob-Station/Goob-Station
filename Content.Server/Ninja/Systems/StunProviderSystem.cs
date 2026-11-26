@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Ninja.Events;
-using Content.Server.Power.EntitySystems;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Ninja.Components;
@@ -64,7 +62,7 @@ public sealed class StunProviderSystem : SharedStunProviderSystem
 
         _audio.PlayPvs(comp.Sound, target);
 
-        _damageable.TryChangeDamage(target, comp.StunDamage, false, true, null, origin: uid);
+        _damageable.ChangeDamage(target, comp.StunDamage, origin: uid);
         _stun.TryAddParalyzeDuration(target, comp.StunTime);
 
         // short cooldown to prevent instant stunlocking

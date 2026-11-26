@@ -6,7 +6,7 @@ using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
@@ -23,7 +23,7 @@ namespace Content.Goobstation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
-    [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
+    [Dependency] private WoundSystem _wound = default!; // Shitmed Change
 
     private void InitializeHellRip()
     {

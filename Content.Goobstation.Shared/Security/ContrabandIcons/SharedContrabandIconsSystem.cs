@@ -13,10 +13,10 @@ namespace Content.Goobstation.Shared.Security.ContrabandIcons;
 /// <summary>
 /// This handles...
 /// </summary>
-public abstract class SharedContrabandIconsSystem : EntitySystem
+public abstract partial class SharedContrabandIconsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContrabandDetectorSystem _detectorSystem = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] private SharedContrabandDetectorSystem _detectorSystem = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
     private bool _isEnabled = true;
 
     public override void Initialize()

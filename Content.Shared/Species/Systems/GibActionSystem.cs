@@ -48,6 +48,11 @@ public sealed partial class GibActionSystem : EntitySystem
         }
 
         // If they aren't given the action, remove it.
+        // Goob - Fix (action not attached)
+        if (_actionsSystem.GetAction(comp.ActionEntity, false) is not { } action
+            || action.Comp.AttachedEntity != uid)
+            return;
+
         _actionsSystem.RemoveAction(uid, comp.ActionEntity);
     }
 
@@ -62,8 +67,8 @@ public sealed partial class GibActionSystem : EntitySystem
         // Goobstation end
 
         // When they use the action, gib them.
-        _popupSystem.PopupClient(Loc.GetString(comp.PopupText, ("name", uid)), uid, uid);
-        _bodySystem.GibBody(uid, true);
+        _popupSystem.PopupClient(Loc.GetString(comp.PopupText, ("name", args.Performer)), args.Performer, args.Performer); // Goob
+        _bodySystem.GibBody(args.Performer, true); // Goob - the action container can be a polymorph's stored original in nullspace
     }
 
 

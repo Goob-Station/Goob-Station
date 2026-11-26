@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared.Mobs;
 using Robust.Shared.GameStates;

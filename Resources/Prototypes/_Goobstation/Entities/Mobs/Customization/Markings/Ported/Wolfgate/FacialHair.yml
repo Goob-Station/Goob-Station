@@ -1,0 +1,66 @@
+# Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f
+
+- type: marking
+  id: VulpFacialHairGoatee
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Vulpkanin]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/Mobs/Customization/Vulpkanin/facial_hair.rsi
+    state: goatee
+
+- type: marking
+  id: WFMeridianFacialHairChinHorns
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/facial_hair.rsi
+    state: chin_horns
+
+- type: marking
+  id: WFMeridianFacialHairGoatee
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/facial_hair.rsi
+    state: goatee
+
+- type: marking
+  id: WFMeridianFacialHairHornadorns
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/facial_hair.rsi
+    state: hornadorns
+
+- type: marking
+  id: WFMeridianFacialHairMoustacheSelleckAlt
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/facial_hair.rsi
+    state: moustache_selleck_alt
+
+- type: marking
+  id: WFMeridianFacialHairNeckfluff
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/facial_hair.rsi
+    state: neckfluff
+
+- type: marking
+  id: WFMeridianFacialHairTentacleBeard
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/facial_hair.rsi
+    state: tentacle_beard
+
+- type: marking
+  id: WFMeridianFacialHairTriBeard
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Ported/Wolfgate/_WF/MeridianMarkings/facial_hair.rsi
+    state: tri_beard

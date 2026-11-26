@@ -30,7 +30,7 @@ namespace Content.Server.Inventory
 
         public void TransferEntityInventories(Entity<InventoryComponent?> source, Entity<InventoryComponent?> target, bool force = true) // Goob edit
         {
-            if (!Resolve(source.Owner, ref source.Comp) || !Resolve(target.Owner, ref target.Comp))
+            if (!Resolve(source.Owner, ref source.Comp, false) || !Resolve(target.Owner, ref target.Comp, false)) // Goob - Fix (inventoryless polymorph targets)
                 return;
 
             // Goob edit start

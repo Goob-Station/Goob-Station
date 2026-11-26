@@ -20,6 +20,7 @@
           #Service
             Passenger: [ -1, -1 ]
             ServiceWorker: [ 1, 2 ]
+            RadioHost: [ 1, 1 ]
             Reporter: [ 0, 1 ]
             Lawyer: [ 1, 1 ]
             Bartender: [ 1, 2 ]
@@ -31,7 +32,7 @@
             Mime: [ 1, 1 ]
           #Command
             Captain: [ 1, 1 ]
-            BlueshieldOfficer: [ 1, 1]
+            BlueshieldOfficer: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
           #Engineering

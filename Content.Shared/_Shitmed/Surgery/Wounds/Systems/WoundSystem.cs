@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -25,6 +25,8 @@ using Robust.Shared.Timing;
 using Content.Shared.Damage.Prototypes;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 

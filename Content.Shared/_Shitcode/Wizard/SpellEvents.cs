@@ -7,7 +7,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Item;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Physics;
@@ -294,6 +294,21 @@ public sealed partial class LesserSummonGunsEvent : InstantActionEvent
 {
     [DataField]
     public EntProtoId Proto = "WeaponBoltActionEnchanted";
+}
+
+public sealed partial class SummonSupermatterEvent : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Proto = "Supermatter";
+
+    /// <summary>
+    /// Whether the summoned crystal starts out active.
+    /// </summary>
+    [DataField]
+    public bool Activated = true;
+
+    [DataField]
+    public ProtoId<DamageModifierSetPrototype> RadiationModifier = "SupermatterImbued";
 }
 
 public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent

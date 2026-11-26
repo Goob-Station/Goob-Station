@@ -1,4 +1,4 @@
-﻿using Content.Goobstation.Maths.FixedPoint;
+﻿using Content.Shared.FixedPoint;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
@@ -429,6 +429,7 @@ public sealed partial class IngestionSystem : EntitySystem
             // do-after will stop if item is dropped when trying to feed someone else
             // or if the item started out in the user's own hands
             NeedHand = forceFeed || _hands.IsHolding(user, food),
+            FaceTarget = false, // Goob
         };
 
         return doAfterArgs;

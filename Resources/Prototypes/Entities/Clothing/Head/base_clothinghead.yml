@@ -76,7 +76,7 @@
     enabled: false
     radius: 3
     energy: 1
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: false
   - type: Appearance
@@ -203,6 +203,8 @@
       NerveDamage: 0
   - type: GroupExamine
   - type: IngestionBlocker
+  - type: GlowShielding # Goobstation - hardsuit helmet moderately dims the plasmaman body glow
+    reduction: 0.3
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -241,7 +243,7 @@
     enabled: false
     radius: 3
     energy: 2
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: false
   - type: Appearance

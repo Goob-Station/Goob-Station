@@ -3,7 +3,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Disposal.Tube;
 using Content.Shared.Body.Components;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Disposal.Components;
 using Content.Shared.Item;
 using Content.Shared.Throwing;
@@ -126,7 +126,8 @@ namespace Content.Server.Disposal.Unit
                     {
                         var directionAngle = direction.ToAngle();
                         directionAngle += _xformSystem.GetWorldRotation(gridXform);
-                        _throwing.TryThrow(entity, directionAngle.ToWorldVec() * 3f, 10f);
+                        _throwing.TryThrow(entity, directionAngle.ToWorldVec() * 3f, 10f,
+                            predicted: false); // Trauma
                     }
                 }
             }

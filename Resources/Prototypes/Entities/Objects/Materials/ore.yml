@@ -345,6 +345,15 @@
   - type: Material
   - type: Extractable
     grindableSolutionName: coal
+  # Goob start - Afterlight synths
+  - type: Edible
+    requiresSpecialDigestion: true
+    solution: coal
+  - type: FlavorProfile
+    flavors:
+    - bitter
+  - type: BadFood
+  # Goob end
   - type: SolutionContainerManager
     solutions:
       coal:

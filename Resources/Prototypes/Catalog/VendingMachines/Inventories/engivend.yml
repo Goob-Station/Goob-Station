@@ -3,6 +3,10 @@
 - type: vendingMachineInventory
   id: EngiVendInventory
   startingInventory:
+    # <Goob>
+    ClothingHandsGlovesColorYellow: 12 # was 6, IPCs need insuls more than usual
+    ClothingHandsGlovesEnviroglovesColorYellow: 3
+    # </Goob>
     ClothingEyesGlassesMeson: 4
     ClothingEyesHudDiagnostic: 4
     ClothingHeadHatWelding: 6
@@ -10,12 +14,13 @@
     Multitool: 4
     NetworkConfigurator: 5
     PowerCellMedium: 5
-    ClothingHandsGlovesColorYellow: 12 # GoobStation: was 6, IPCs need insuls more than usual
     BoxInflatable: 2
     ClothingHeadHatCone: 4
   contrabandInventory:
     CowToolboxFilled: 1
     DrinkBeerCan: 3
-  emaggedInventory: #goob
+  # <Goob>
+  emaggedInventory:
     ToolboxSyndicateFilled: 1
     ClothingHeadHatConeStorage: 4 # Trauma
+  # </Goob>

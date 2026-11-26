@@ -2,9 +2,14 @@
 
 - type: entity
   id: Butt
-  name: "butt"
-  parent: [BaseItem]
+  parent: BaseHumanOrgan
+  name: butt
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/butt.rsi
-    state: "butt"
+    state: butt
+  - type: Item
+    size: Small
+  - type: Organ
+    slotId: butt
+  - type: Butt

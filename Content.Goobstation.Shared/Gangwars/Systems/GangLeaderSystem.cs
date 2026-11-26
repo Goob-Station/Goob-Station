@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.DropPod;
 using Content.Goobstation.Shared.Gangwars.Components;
 using Content.Goobstation.Shared.Gangwars.Events;
 using Content.Shared.Actions;
@@ -7,7 +8,6 @@ using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
-using Content.Shared.Trigger.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -16,21 +16,19 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Gangwars.Systems;
 
-public sealed class GangLeaderSystem : EntitySystem
+public sealed partial class GangLeaderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly GangwarRuleSystem _gangwarRule = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private GangwarRuleSystem _gangwarRule = default!;
+    [Dependency] private DropPodSystem _dropPod = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
 
-    private static readonly EntProtoId DropPodSpawner = "DropPodspawner";
     private static readonly EntProtoId GangMemberMindRole = "MindRoleGangMember";
 
     public override void Initialize()
@@ -200,7 +198,7 @@ public sealed class GangLeaderSystem : EntitySystem
     }
 
     /// <summary>
-    /// Places the gang locker inside a DropPodspawner and triggers it.
+    /// Places the gang locker inside a drop pod.
     /// If placing it in the pod fails for any reason, the locker is placed at the target coordinates instead.
     /// </summary>
     private void PlaceLockerInDropPod(Entity<GangLeaderComponent> leader, EntityUid locker, EntityCoordinates coords)
@@ -220,15 +218,7 @@ public sealed class GangLeaderSystem : EntitySystem
     {
         try
         {
-            var pod = Spawn(DropPodSpawner, coords);
-
-            if (!_containers.TryGetContainer(pod, "clowncar_container", out var container)) // I don't know why drop pods use clowncar_container. It's just the magic of goobcode
-                return false;
-
-            _xform.Unanchor(locker);
-            _containers.Insert(locker, container);
-            _trigger.Trigger(pod);
-            return true;
+            return _dropPod.Launch(coords, existing: new[] { locker }) != null;
         }
         catch (Exception ex)
         {

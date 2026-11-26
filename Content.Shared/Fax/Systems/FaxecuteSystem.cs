@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Fax.Components;
 
@@ -28,7 +28,7 @@ public sealed class FaxecuteSystem : EntitySystem
             return;
 
         var damageSpec = faxecute.Damage;
-        _damageable.TryChangeDamage(sendEntity, damageSpec);
+        _damageable.ChangeDamage(sendEntity.Value, damageSpec);
         _popupSystem.PopupEntity(Loc.GetString("fax-machine-popup-error", ("target", uid)), uid, PopupType.LargeCaution);
         return;
 

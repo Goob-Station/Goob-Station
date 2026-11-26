@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Power;
 using Content.Shared.Whitelist;
 
@@ -13,8 +12,8 @@ namespace Content.Server.Power.Components
         /// <summary>
         /// The structure prototype for the cable coil to place.
         /// </summary>
-        [DataField("cablePrototypeID", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string? CablePrototypeId = "CableHV";
+        [DataField("cablePrototypeID")]
+        public EntProtoId? CablePrototypeId = "CableHV";
 
         /// <summary>
         /// What kind of wire prevents placing this wire over it as CableType.

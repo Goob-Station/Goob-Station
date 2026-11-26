@@ -2,6 +2,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Inventory;
 using Content.Shared.Roles;
 
 namespace Content.Goobstation.Shared.Slasher.Components;
@@ -30,6 +31,9 @@ public sealed partial class SlasherKit
     /// </summary>
     [DataField(required: true)]
     public ProtoId<StartingGearPrototype> Gear;
+
+    [DataField]
+    public ProtoId<InventoryTemplatePrototype>? InventoryTemplate = "slasher";
 
     /// <summary>
     /// Localization key for the kit description shown in the UI.
@@ -63,6 +67,13 @@ public sealed partial class SlasherKit
     /// </summary>
     [DataField]
     public SoundSpecifier? JumpscareSound;
+
+    /// <summary>
+    /// Optional override for how much fear (0-1) a victim gains when jumpscared by this kit.
+    /// If null, the default on SlasherFearComponent is kept.
+    /// </summary>
+    [DataField]
+    public float? JumpscareFear;
 
     /// <summary>
     /// Optional extra component added alongside the fear status effect.
@@ -112,4 +123,25 @@ public sealed partial class SlasherKit
     /// </summary>
     [DataField]
     public SoundSpecifier? AscendanceSound;
+
+    /// <summary>
+    /// Extra components added to the Slasher when this kit is selected. Used for kit-specific
+    /// mechanics like the boogeyman's shadow invisibility.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry Components = new();
+
+    /// <summary>
+    /// Components removed from the Slasher after the shared post-selection and kit components are
+    /// added. Used to strip shared abilities (like the incorporeal jaunt) from specific kits.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry RemoveComponents = new();
+
+    /// <summary>
+    /// Guidebook entry id for this kit. Set on kits whose gameplay differs from the default slasher;
+    /// the kit-select card shows a "?" that opens the guidebook to this page.
+    /// </summary>
+    [DataField]
+    public string? Guide;
 }

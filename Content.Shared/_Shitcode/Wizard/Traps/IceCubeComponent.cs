@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared._Shitcode.Heretic.SpriteOverlay;
 using Content.Shared.Damage;
 using Content.Shared.Physics;
@@ -18,6 +18,9 @@ public sealed partial class IceCubeComponent : BaseSpriteOverlayComponent
 {
     [ViewVariables(VVAccess.ReadOnly)]
     public BodyType? OldBodyType = null;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool AddedBlockMovement;
 
     [DataField]
     public BodyType FrozenBodyType = BodyType.Dynamic;

@@ -668,6 +668,7 @@
   loadouts:
   - WhiteEnvirogloves
 
+
 # Janitor
 
 - type: loadoutGroup
@@ -1703,6 +1704,7 @@
   loadouts:
   - JumpsuitHawaiBlack
   - JumpsuitHawaiBlue
+  - JumpsuitHawaiGreen
   - JumpsuitHawaiRed
   - JumpsuitHawaiYellow
 

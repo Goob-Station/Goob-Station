@@ -27,7 +27,11 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 30
+        Slash: 15
+        Structural: 15
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: Item
     size: Large
     storedSprite:
@@ -42,7 +46,7 @@
   - type: SlasherMassacreMachete
   - type: Prying
     pryPowered: True
-    speedModifier: 1.5
+    speedModifier: 3
   - type: ThrowingAngle
     angle: 225
 
@@ -140,6 +144,8 @@
         Piercing: 0.90
         Heat: 0.90
         Caustic: 0.90
+  - type: Insulated
+    coefficient: 0.5
   - type: SelfUnremovableClothing
   - type: SelfEquipOnly
     unequipRequireConscious: false
@@ -759,6 +765,51 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING
 
+# Boogeyman Kit
+
+- type: entity
+  name: kitchen knife
+  parent: SlasherMachete
+  id: SlasherKitchenKnife
+  categories: [ HideSpawnMenu ]
+  description: A general purpose chef's knife. It has found a far grislier purpose.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+    storedOffset: -1,1
+    storedRotation: -45
+
+- type: entity
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadHatSlasherMaskBoogeyman
+  name: boogeyman mask
+  description: A featureless mask worn by the thing that hides under the bed. It watches, and it waits.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/mask.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-MASK
+
+- type: entity
+  parent: ClothingUniformSlasher
+  id: ClothingUniformSlasherBoogeyman
+  name: tattered outfit
+  description: A dark, ragged outfit that seems to drink the light around it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/outfit.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/boogeyman/outfit.rsi
+    clothingVisuals:
+      innerClothing:
+      - state: equipped-INNERCLOTHING
 
 - type: entity
   id: SlasherMeatSpike

@@ -3,7 +3,7 @@
 using System.Linq;
 using Content.Goobstation.Shared.Traits.Components;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Systems;
@@ -13,8 +13,8 @@ namespace Content.Goobstation.Shared.Traits.Systems;
 
 public sealed partial class MovementImpairedSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private INetManager _net = default!;
     public override void Initialize()
     {
         base.Initialize();

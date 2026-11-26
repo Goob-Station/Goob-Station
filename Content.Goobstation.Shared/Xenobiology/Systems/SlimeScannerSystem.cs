@@ -11,10 +11,10 @@ using System.Text;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
-public sealed class SlimeScannerSystem : EntitySystem
+public sealed partial class SlimeScannerSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private StringBuilder _sb = new();
 
@@ -70,9 +70,8 @@ public sealed class SlimeScannerSystem : EntitySystem
             var info = _proto.Index(mutations[i]);
 
             var color = "white";
-            // todo make the colors work
-            if (info.Components.TryGetComponent(nameof(SlimeComponent), out var sc))
-                color = ((SlimeComponent) sc).SlimeColor.ToHex();
+            if (info.Components.TryGetComponent<SlimeComponent>(Factory, out var sc))
+                color = sc.SlimeColor.ToHex();
 
             sb.Append($"[color={color}]{info.BreedName}[/color]");
 

@@ -4,9 +4,9 @@ using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Goobstation.Server.Projectiles;
 
-public sealed class ProjectileImmunitySystem : EntitySystem
+public sealed partial class ProjectileImmunitySystem : EntitySystem
 {
-    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private BatterySystem _battery = default!;
 
     public override void Initialize()
     {

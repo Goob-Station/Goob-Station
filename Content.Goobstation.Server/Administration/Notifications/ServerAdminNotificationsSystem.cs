@@ -6,9 +6,9 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Administration.Notifications;
 
-public sealed class ServerAdminNotificationsSystem : SharedAdminNotificationSystem
+public sealed partial class ServerAdminNotificationsSystem : SharedAdminNotificationSystem
 {
-    [Dependency] private readonly IAdminManager _admin = default!;
+    [Dependency] private IAdminManager _admin = default!;
 
     /// <inheritdoc/>
     public override void PlayNotification(SoundSpecifier? path)

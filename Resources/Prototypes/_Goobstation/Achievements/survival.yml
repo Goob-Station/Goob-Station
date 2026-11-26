@@ -1,0 +1,311 @@
+- type: achievement
+  id: Survivor
+  name: achievement-survivor-name
+  description: achievement-survivor-desc
+  category: Survival
+  icon: { entity: ClothingNeckBronzeheart }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+
+- type: achievement
+  id: HardenedSurvivor
+  name: achievement-hardened-survivor-name
+  description: achievement-hardened-survivor-desc
+  category: Survival
+  icon: { entity: ClothingNeckGoldmedal }
+  condition: !type:RoundEndCondition
+    count: 50
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+
+- type: achievement
+  id: HundredMeterDash
+  name: achievement-hundred-meter-dash-name
+  description: achievement-hundred-meter-dash-desc
+  category: Survival
+  icon: { entity: ClothingOuterHardsuitEVA }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:EscapingCondition
+
+- type: achievement
+  id: LongShift
+  name: achievement-long-shift-name
+  description: achievement-long-shift-desc
+  category: Survival
+  icon: { entity: Clock }
+  condition: !type:RoundEndCondition
+    maxRoundDuration: 600
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+
+- type: achievement
+  id: MostlyArmless
+  name: achievement-mostly-armless-name
+  description: achievement-mostly-armless-desc
+  category: Survival
+  icon: { entity: LeftArmHuman }
+  hidden: true
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:EscapingCondition
+    - !type:HandCountCondition
+      max: 0
+
+- type: achievement
+  id: LeaveNoManBehind
+  name: achievement-leave-no-man-behind-name
+  description: achievement-leave-no-man-behind-desc
+  category: Survival
+  icon: { entity: BodyBag }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:EscapingCondition
+    - !type:PullingCondition
+      conditions:
+      - !type:MobStateCondition
+        mobstate: Dead
+
+- type: achievement
+  id: FellDownTheStairs
+  name: achievement-fell-down-the-stairs-name
+  description: achievement-fell-down-the-stairs-desc
+  category: Survival
+  icon: { entity: Handcuffs }
+  condition: !type:MobStateEnteredCondition
+    requirements:
+    - !type:CuffedCondition
+
+- type: achievement
+  id: HumanoidMustNotEscape
+  name: achievement-humanoid-must-not-escape-name
+  description: achievement-humanoid-must-not-escape-desc
+  category: Survival
+  icon: { entity: ClothingOuterHardsuitEVA }
+  condition: !type:MobStateEnteredCondition
+    requirements:
+    - !type:EvacuationArrivedCondition
+
+- type: achievement
+  id: BlackAndBlue
+  name: achievement-black-and-blue-name
+  description: achievement-black-and-blue-desc
+  category: Survival
+  icon: { entity: FireExtinguisher }
+  condition: !type:MobStateEnteredCondition
+    requirements:
+    - !type:OnFireCondition
+
+- type: achievement
+  id: PartyHard
+  name: achievement-party-hard-name
+  description: achievement-party-hard-desc
+  category: Survival
+  icon: { entity: GlowstickRed }
+  hidden: true
+  condition: !type:MobStateEnteredCondition
+    mobState: Critical
+    requirements:
+    - !type:StatusEffectCondition
+      effect: StatusEffectDrunk
+    - !type:HoldingCondition
+      whitelist:
+        components:
+        - ExpendableLight
+
+- type: achievement
+  id: Damned
+  name: achievement-damned-name
+  description: achievement-damned-desc
+  category: Survival
+  icon: { entity: Bible }
+  condition: !type:SuicideCondition
+
+- type: achievement
+  id: GoreFest
+  name: achievement-gore-fest-name
+  description: achievement-gore-fest-desc
+  category: Survival
+  icon: { entity: FoodMeat }
+  condition: !type:GibbedCondition
+
+- type: achievement
+  id: Yield
+  name: achievement-yield-name
+  description: achievement-yield-desc
+  category: Survival
+  icon: { entity: BodyBag }
+  condition: !type:SuccumbCondition
+
+- type: achievement
+  id: ReservedParking
+  name: achievement-reserved-parking-name
+  description: achievement-reserved-parking-desc
+  category: Survival
+  icon: { entity: ComputerEmergencyShuttle }
+  hidden: true
+  condition: !type:ShuttleCrushedCondition
+
+- type: achievement
+  id: FeatOfStrength
+  name: achievement-feat-of-strength-name
+  description: achievement-feat-of-strength-desc
+  category: Survival
+  icon: { entity: ImmovableRod }
+  condition: !type:RodSurvivedCondition
+
+- type: achievement
+  id: Frankenstein
+  name: achievement-frankenstein-name
+  description: achievement-frankenstein-desc
+  category: Survival
+  icon: { entity: RightArmMoth }
+  condition: !type:PeriodicRequirementsCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:ForeignBodyPartCondition
+
+- type: achievement
+  id: HandsOff
+  name: achievement-hands-off-name
+  description: achievement-hands-off-desc
+  category: Survival
+  icon: { entity: ClothingOuterArmorBasic }
+  condition: !type:UndamagedCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+
+- type: achievement
+  id: WereAllGonnaDie
+  name: achievement-were-all-gonna-die-name
+  description: achievement-were-all-gonna-die-desc
+  category: Survival
+  icon: { entity: NuclearBomb }
+  condition: !type:CatastropheCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+
+- type: achievement
+  id: SinguloFood
+  name: achievement-singulo-food-name
+  description: achievement-singulo-food-desc
+  category: Survival
+  icon: { entity: Singularity }
+  hidden: true
+  condition: !type:SingularityConsumedCondition
+
+- type: achievement
+  id: SorryForYourLoss
+  name: achievement-sorry-for-your-loss-name
+  description: achievement-sorry-for-your-loss-desc
+  category: Survival
+  icon: { entity: CrateCoffin }
+  condition: !type:EarlyDeathCondition
+
+- type: achievement
+  id: EasyPrey
+  name: achievement-easy-prey-name
+  description: achievement-easy-prey-desc
+  category: Survival
+  icon: { entity: LeftArmHuman }
+  hidden: true
+  condition: !type:CausedMobStateCondition
+    requirements:
+    - !type:NoLimbsCondition
+    targetRequirements:
+    - !type:HasComponentCondition
+      components:
+      - type: HumanoidAppearance
+
+- type: achievement
+  id: Dormammu
+  name: achievement-dormammu-name
+  description: achievement-dormammu-desc
+  category: Survival
+  icon: { entity: CrateCoffin }
+  condition: !type:KilledBySameCondition
+    kills: 3
+
+- type: achievement
+  id: OutRobusted
+  name: achievement-out-robusted-name
+  description: achievement-out-robusted-desc
+  category: Survival
+  icon: { entity: ToolboxMechanical }
+  condition: !type:KillRageQuitCondition
+
+- type: achievement
+  id: FreakWorkplaceAccident
+  name: achievement-freak-workplace-accident-name
+  description: achievement-freak-workplace-accident-desc
+  category: Survival
+  icon: { entity: Recycler }
+  hidden: true
+  condition: !type:RecyclerGibbedCondition
+
+- type: achievement
+  id: SubZeroSurvivor
+  name: achievement-sub-zero-survivor-name
+  description: achievement-sub-zero-survivor-desc
+  category: Survival
+  icon: { entity: LockerFreezer }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:NukeDetonatedCondition
+    - !type:InsideContainerCondition
+      whitelist:
+        components:
+        - AntiRottingContainer
+
+- type: achievement
+  id: BadLuck
+  name: achievement-bad-luck-name
+  description: achievement-bad-luck-desc
+  category: Survival
+  icon: { entity: WeaponRussianRevolver }
+  condition: !type:MobStateEnteredCondition
+    requirements:
+    - !type:HoldingCondition
+      prototypes:
+      - WeaponRussianRevolver
+
+- type: achievement
+  id: GroundControl
+  name: achievement-ground-control-name
+  description: achievement-ground-control-desc
+  category: Survival
+  icon: { entity: ClothingOuterHardsuitEVA }
+  hidden: true
+  condition: !type:LostInFtlCondition
+
+- type: achievement
+  id: JusticeIsBlind
+  name: achievement-justice-is-blind-name
+  description: achievement-justice-is-blind-desc
+  category: Survival
+  icon: { entity: ClothingEyesBlindfold }
+  condition: !type:RoundEndCondition
+    requirements:
+    - !type:MobStateCondition
+      mobstate: Alive
+    - !type:DepartmentCondition
+      departments:
+      - Security
+    - !type:HasComponentCondition
+      components:
+      - type: PermanentBlindness

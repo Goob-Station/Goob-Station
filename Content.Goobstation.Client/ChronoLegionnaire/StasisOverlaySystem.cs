@@ -8,10 +8,10 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.ChronoLegionnaire;
 
-public sealed class StasisOverlaySystem : EntitySystem
+public sealed partial class StasisOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
 
     private StasisOverlay _overlay = default!;
 

@@ -574,6 +574,12 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/meals.rsi
     state: amanita-jelly
+  - type: Jiggle # Goobstation
+    stiffness: 300
+    damping: 3
+    inertia: 4
+    drag: 0.1
+    maxOffset: 2
   - type: SolutionContainerManager
     solutions:
       food:

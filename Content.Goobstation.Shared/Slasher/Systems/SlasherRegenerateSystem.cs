@@ -1,4 +1,4 @@
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -13,31 +13,29 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
-public sealed class SlasherRegenerateSystem : EntitySystem
+public sealed partial class SlasherRegenerateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SlasherRegenerateComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlasherRegenerateComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<SlasherRegenerateComponent, SlasherRegenerateEvent>(OnRegenerate);
-    }
-
-    private void OnMapInit(Entity<SlasherRegenerateComponent> ent, ref MapInitEvent args)
+    [SubscribeLocalEvent]
+    private void OnStartup(Entity<SlasherRegenerateComponent> ent, ref ComponentStartup args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
-        Dirty(ent);
+        UpdateActionState(ent);
     }
 
+    private void UpdateActionState(Entity<SlasherRegenerateComponent> ent)
+    {
+        _actions.SetEnabled(ent.Comp.ActionEnt, ent.Comp.HasSoulAvailable);
+    }
+
+    [SubscribeLocalEvent]
     private void OnShutdown(Entity<SlasherRegenerateComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Comp.ActionEnt);
@@ -49,6 +47,7 @@ public sealed class SlasherRegenerateSystem : EntitySystem
     /// <param name="uid">Slasher UID</param>
     /// <param name="comp">SlasherRegenerateComponent</param>
     /// <param name="args">SlasherRegenerateEvent</param>
+    [SubscribeLocalEvent]
     private void OnRegenerate(EntityUid uid, SlasherRegenerateComponent comp, SlasherRegenerateEvent args)
     {
         if (args.Handled)
@@ -80,6 +79,7 @@ public sealed class SlasherRegenerateSystem : EntitySystem
 
         // Consume the soul
         comp.HasSoulAvailable = false;
+        UpdateActionState((uid, comp));
         Dirty(uid, comp);
 
         args.Handled = true;
@@ -128,6 +128,7 @@ public sealed class SlasherRegenerateSystem : EntitySystem
             return;
 
         comp.HasSoulAvailable = true;
+        UpdateActionState((uid, comp));
         Dirty(uid, comp);
     }
 }

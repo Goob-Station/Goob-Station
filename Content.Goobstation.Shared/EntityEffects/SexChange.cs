@@ -10,8 +10,8 @@ namespace Content.Goobstation.Shared.EntityEffects;
 
 public sealed partial class SexChangeSystem : EntityEffectSystem<HumanoidAppearanceComponent, SexChange>
 {
-    [Dependency] private readonly SharedGoobHumanoidAppearanceSystem _goobHumanoid = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private SharedGoobHumanoidAppearanceSystem _goobHumanoid = default!;
+    [Dependency] private SharedHumanoidAppearanceSystem _humanoid = default!;
 
     protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<SexChange> args)
     {

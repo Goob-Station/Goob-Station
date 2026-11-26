@@ -2,23 +2,23 @@
 
 using Content.Shared.Stealth.Components;
 using Content.Shared.Stealth;
-using Content.Shared.Damage;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Throwing;
-using Content.Goobstation.Shared.Slasher.Components; // For SlasherIncorporealComponent
+using Content.Goobstation.Shared.Slasher.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Goobstation.Shared.Stealth;
 
 /// <summary>
 /// This handles goobstations additions to stealth system
 /// </summary>
-public sealed class SharedGoobStealthSystem : EntitySystem
+public sealed partial class SharedGoobStealthSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
-    [Dependency] private readonly SharedNinjaSuitSystem _suit = default!;
+    [Dependency] private SharedStealthSystem _stealth = default!;
+    [Dependency] private SharedNinjaSuitSystem _suit = default!;
 
     public override void Initialize()
     {

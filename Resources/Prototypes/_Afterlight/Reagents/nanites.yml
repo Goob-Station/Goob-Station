@@ -1,0 +1,109 @@
+- type: reagent
+  id: Nanites
+  name: reagent-name-nanites
+  group: Medicine
+  desc: reagent-desc-nanites
+  physicalDesc: reagent-physical-desc-glowing
+  contrabandSeverity: Minor
+  flavor: metallic
+  color: "#8AFFFd"
+  recognizable: true
+  worksOnTheDead: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        ignoreResistances: false
+        conditions:
+        - !type:TagCondition
+          inverted: true
+          tag: Synth
+        damage:
+          types:
+            Slash: 0.15
+            Piercing: 0.1
+            Blunt: 0.05
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        - !type:ReagentCondition
+          reagent: Nanites
+          max: 10.5
+        damage:
+          groups:
+            Brute: -3
+            Burn: -4
+            Toxin: -3
+          types:
+            Bloodloss: -0.9
+            Cellular: -1.5
+      - !type:ModifyBleed
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        - !type:ReagentCondition
+          reagent: Nanites
+          max: 10.5
+        amount: -0.375
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        - !type:ReagentCondition
+          reagent: Nanites
+          max: 10.5
+        amount: 1.5
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        - !type:ReagentCondition
+          reagent: Nanites
+          min: 10.5
+        damage:
+          groups:
+            Brute: 0.75
+      - !type:ModifyBleed
+        conditions:
+        - !type:ReagentCondition
+          reagent: Nanites
+          min: 10.5
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        amount: 0.15
+      - !type:Jitter
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+        - !type:ReagentCondition
+          reagent: Nanites
+          min: 10.5
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+          inverted: true
+        damage:
+          groups:
+            Brute: 3
+      - !type:Emote
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Synth ]
+          inverted: true
+        emote: Scream
+        probability: 0.2
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6

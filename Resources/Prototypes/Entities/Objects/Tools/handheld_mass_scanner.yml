@@ -20,6 +20,7 @@
   - type: RadarConsole
     maxRange: 256
     followEntity: true
+    rotateWithEye: true # Goobstation - What if mass scanners were usable?
   - type: Appearance
   - type: BatteryVisuals
   - type: GenericVisualizer

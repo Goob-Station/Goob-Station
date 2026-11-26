@@ -7,8 +7,8 @@ namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class AugmentedEyesightSystem : SharedAugmentedEyesightSystem
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
     private EntityQuery<EyeComponent> _eyeQuery;

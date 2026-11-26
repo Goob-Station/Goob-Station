@@ -3,34 +3,29 @@ using Content.Shared.Actions;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
-public sealed class SlasherSummonMacheteSystem : EntitySystem
+public sealed partial class SlasherSummonMacheteSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly IPrototypeManager _protos = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private IPrototypeManager _protos = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedProjectileSystem _projectile = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SlasherSummonMacheteComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlasherSummonMacheteComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<SlasherSummonMacheteComponent, SlasherSummonMacheteEvent>(OnSummon);
-    }
-
+    [SubscribeLocalEvent]
     private void OnMapInit(Entity<SlasherSummonMacheteComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEnt, ent.Comp.ActionId);
     }
 
+    [SubscribeLocalEvent]
     private void OnShutdown(Entity<SlasherSummonMacheteComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEnt);
@@ -39,6 +34,7 @@ public sealed class SlasherSummonMacheteSystem : EntitySystem
     /// <summary>
     /// Slasher - Handles summoning the Machete
     /// </summary>
+    [SubscribeLocalEvent]
     private void OnSummon(Entity<SlasherSummonMacheteComponent> ent, ref SlasherSummonMacheteEvent args)
     {
         // Fail if the user has no hands.
@@ -77,6 +73,9 @@ public sealed class SlasherSummonMacheteSystem : EntitySystem
                 ent.Comp.MacheteUid = machete;
                 Dirty(ent);
             }
+
+            if (TryComp<EmbeddableProjectileComponent>(machete.Value, out var embeddable))
+                _projectile.EmbedDetach(machete.Value, embeddable, ent.Owner);
 
             _hands.TryPickupAnyHand(ent.Owner, machete.Value);
         }

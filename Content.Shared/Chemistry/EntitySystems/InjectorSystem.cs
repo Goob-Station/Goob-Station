@@ -6,7 +6,7 @@ using Content.Shared.Chemistry.Events;
 using Content.Shared.Chemistry.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Forensics.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -197,9 +197,9 @@ public sealed partial class InjectorSystem : EntitySystem
     private bool TryMobsDoAfter(Entity<InjectorComponent> injector, EntityUid user, EntityUid target)
     {
         //Checks if target has blockInjection comp - fuck Chitinid, no more hypos for them - also Goob start
-        if (HasComp<BlockInjectionComponent>(target))
+        if (TryComp<BlockInjectionComponent>(target, out var block))
         {
-            _popup.PopupClient(Loc.GetString("injector-component-deny-user"), user, user);
+            _popup.PopupClient(Loc.GetString(block.DenyMessage), user, user);
             return false;
         }
         //Goob end

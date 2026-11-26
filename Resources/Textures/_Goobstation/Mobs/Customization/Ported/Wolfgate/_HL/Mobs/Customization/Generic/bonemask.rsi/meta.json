@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "themageofmicrosoftpaints on Discord. Ported from https://github.com/VanguardControl/Wolfgate/tree/f629218f44001244bddf67dc3fd46affd3a56e2f/Resources/Textures/_HL/Mobs/Customization/Generic/bonemask.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "beakBonemask-marking-head",
+      "directions": 4
+    },
+    {
+      "name": "FlatBonemask-marking-head",
+      "directions": 4
+    },
+    {
+      "name": "SocketsBonemask-marking-head",
+      "directions": 4
+    }
+  ]
+}

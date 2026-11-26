@@ -1,0 +1,8 @@
+- type: entity
+  parent: Stunbaton
+  id: StunbatonBorg
+  categories: [ HideSpawnMenu ]
+  suffix: Borg
+  components:
+  - type: BatterySelfRecharger
+    autoRechargeRate: 10

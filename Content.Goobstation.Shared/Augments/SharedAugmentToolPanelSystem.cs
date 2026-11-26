@@ -3,9 +3,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Augments;
 
-public abstract class SharedAugmentToolPanelSystem : EntitySystem
+public abstract partial class SharedAugmentToolPanelSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

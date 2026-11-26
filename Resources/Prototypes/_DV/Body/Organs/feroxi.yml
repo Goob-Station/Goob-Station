@@ -8,6 +8,8 @@
   components:
   - type: Stomach
     specialDigestible:
+      components:
+      - BodyPart
       tags:
       - ReptilianFood
       - Meat

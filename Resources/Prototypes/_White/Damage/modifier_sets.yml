@@ -1,8 +1,8 @@
 - type: damageModifierSet
   id: Xenomorph
   coefficients:
-    Blunt: 0.80
-    Slash: 0.80
+    Blunt: 0.5
+    Slash: 1.5
     Piercing: 0.80
     Cold: 0
     Heat: 1.2

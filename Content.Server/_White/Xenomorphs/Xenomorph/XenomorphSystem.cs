@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Server._EinsteinEngines.Language;
 using Content.Server.Administration.Managers;
 using Content.Server.Body.Components;
@@ -14,6 +14,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;

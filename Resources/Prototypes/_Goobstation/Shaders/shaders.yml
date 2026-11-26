@@ -60,3 +60,18 @@
   id: VoiceGodRays
   kind: source
   path: "/Textures/_Goobstation/Shaders/voice_god_rays.swsl"
+
+- type: shader
+  id: Jiggle
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/jiggle.swsl"
+
+- type: shader
+  id: ModSphere
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/mod_sphere.swsl"
+
+- type: shader
+  id: ModDampenerField
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/mod_dampener_field.swsl"

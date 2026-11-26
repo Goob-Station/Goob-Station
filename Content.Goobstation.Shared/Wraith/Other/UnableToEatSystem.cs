@@ -3,9 +3,9 @@ using Content.Shared.Popups;
 
 namespace Content.Goobstation.Shared.Wraith.Other;
 
-public sealed class UnableToEatSystem : EntitySystem
+public sealed partial class UnableToEatSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

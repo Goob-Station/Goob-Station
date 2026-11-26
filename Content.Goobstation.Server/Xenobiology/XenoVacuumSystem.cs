@@ -10,7 +10,7 @@ namespace Content.Goobstation.Server.Xenobiology;
 /// </summary>
 public sealed partial class XenoVacuumSystem : SharedXenoVacuumSystem
 {
-    [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private HTNSystem _htn = default!;
 
     protected override void SetHTNEnabled(EntityUid uid, bool enabled, float planCooldown)
     {

@@ -20,7 +20,7 @@ using Content.Server.Revenant.Components;
 using Content.Shared.Physics;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Light.Components;
 using Content.Shared.Maps;
@@ -215,7 +215,7 @@ public sealed partial class RevenantSystem
             return;
         DamageSpecifier dspec = new();
         dspec.DamageDict.Add("Cold", damage.Value);
-        _damage.TryChangeDamage(args.Args.Target, dspec, true, origin: uid);
+        _damage.ChangeDamage(args.Args.Target.Value, dspec, true, origin: uid);
 
         args.Handled = true;
     }
@@ -278,7 +278,8 @@ public sealed partial class RevenantSystem
             //chucks shit
             if (items.HasComponent(ent) &&
                 TryComp<PhysicsComponent>(ent, out var phys) && phys.BodyType != BodyType.Static)
-                _throwing.TryThrow(ent, _random.NextAngle().ToWorldVec());
+                _throwing.TryThrow(ent, _random.NextAngle().ToWorldVec(),
+                    predicted: false); // Trauma
 
             //flicker lights
             if (lights.HasComponent(ent))

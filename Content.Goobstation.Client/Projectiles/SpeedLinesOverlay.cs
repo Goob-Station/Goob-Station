@@ -6,14 +6,14 @@ using System.Numerics;
 
 namespace Content.Goobstation.Client.Projectiles;
 
-public sealed class SpeedLinesOverlay : Overlay
+public sealed partial class SpeedLinesOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> ShaderProto = "SpeedLines";
 
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
-    private readonly SharedTransformSystem _xformSystem;
+    private readonly TransformSystem _xformSystem;
     private readonly ShaderInstance _shader;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowEntities;
@@ -21,7 +21,7 @@ public sealed class SpeedLinesOverlay : Overlay
     public SpeedLinesOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _xformSystem = _entMan.System<SharedTransformSystem>();
+        _xformSystem = _entMan.System<TransformSystem>();
         _shader = _protoMan.Index(ShaderProto).InstanceUnique();
     }
 
@@ -41,7 +41,7 @@ public sealed class SpeedLinesOverlay : Overlay
                 continue;
 
             var seed = lines.Seed;
-            var worldPos = _xformSystem.GetWorldPosition(uid);
+            var worldPos = _xformSystem.GetWorldPosition(xform);
             var direction = lines.Direction;
             if (direction == Vector2.Zero)
                 direction = Vector2.UnitX;

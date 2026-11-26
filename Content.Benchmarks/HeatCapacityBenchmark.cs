@@ -7,6 +7,8 @@ using Content.Shared.Atmos;
 using Robust.Shared;
 using Robust.Shared.Analyzers;
 using Robust.Shared.GameObjects;
+using Robust.UnitTesting.Pool;
+using System.IO;
 
 namespace Content.Benchmarks;
 
@@ -27,7 +29,7 @@ public class HeatCapacityBenchmark
     {
         ProgramShared.PathOffset = "../../../../";
         PoolManager.Startup();
-        _pair = await PoolManager.GetServerClient();
+        _pair = await PoolManager.GetServerClient(testContext: new ExternalTestContext("Benchmark", StreamWriter.Null));
         await _pair.Connect();
         _cEntMan = _pair.Client.ResolveDependency<IEntityManager>();
         _sEntMan = _pair.Server.ResolveDependency<IEntityManager>();

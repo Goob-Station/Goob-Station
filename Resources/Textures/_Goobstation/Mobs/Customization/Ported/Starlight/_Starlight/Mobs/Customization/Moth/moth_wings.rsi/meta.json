@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "State based copyright. Ported from https://github.com/ss14Starlight/space-station-14/tree/66c273bc9d2bed4263072527f1dde41cb4279b42/Resources/Textures/_Starlight/Mobs/Customization/Moth/moth_wings.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dswirl_wings",
+      "directions": 4,
+      "copyright": "wings by orsonik, edited by neomoth"
+    },
+    {
+      "name": "dswirl_wings_fluff",
+      "directions": 4,
+      "copyright": "wings by orsonik, edited by neomoth & modified by Huaqas (Github/Discord)"
+    }
+  ]
+}

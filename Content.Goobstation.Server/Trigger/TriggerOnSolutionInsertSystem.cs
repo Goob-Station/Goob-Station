@@ -3,16 +3,16 @@
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Trigger.Systems;
 using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Trigger;
 
-public sealed class TriggerOnSolutionInsertSystem : EntitySystem
+public sealed partial class TriggerOnSolutionInsertSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
-    [Dependency] private readonly TriggerSystem _triggersystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainers = default!;
+    [Dependency] private TriggerSystem _triggersystem = default!;
 
     public override void Initialize()
     {

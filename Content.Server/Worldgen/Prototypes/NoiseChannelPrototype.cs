@@ -10,8 +10,8 @@ namespace Content.Server.Worldgen.Prototypes;
 /// <summary>
 ///     This is a config for noise channels, used by worldgen.
 /// </summary>
-[Virtual]
-public class NoiseChannelConfig
+[Virtual, DataDefinition]
+public partial class NoiseChannelConfig
 {
     /// <summary>
     ///     The noise type used by the noise generator.

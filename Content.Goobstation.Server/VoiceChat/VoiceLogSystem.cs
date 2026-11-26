@@ -14,13 +14,13 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.VoiceChat;
 
-public sealed class VoiceLogSystem : EntitySystem
+public sealed partial class VoiceLogSystem : EntitySystem
 {
-    [Dependency] private readonly VoiceLogManager _logs = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly EuiManager _eui = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private VoiceLogManager _logs = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IAdminManager _admin = default!;
+    [Dependency] private EuiManager _eui = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private static readonly SpriteSpecifier VerbIcon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"));
 

@@ -8,12 +8,12 @@ using Robust.Shared.Random;                     //skill issue.
 // todo: clean these usings
 namespace Content.Goobstation.Server.NTR.Documents
 {
-    public sealed class RandomDocumentSystem : EntitySystem
+    public sealed partial class RandomDocumentSystem : EntitySystem
     {
-        [Dependency] private readonly ILocalizationManager _loc = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly PaperSystem _paper = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
+        [Dependency] private ILocalizationManager _loc = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private PaperSystem _paper = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
 
         public override void Initialize()
         {

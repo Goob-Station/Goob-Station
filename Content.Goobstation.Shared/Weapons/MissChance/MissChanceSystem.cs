@@ -8,10 +8,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Weapons.MissChance;
 
-public sealed class MissChanceSystem : EntitySystem
+public sealed partial class MissChanceSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

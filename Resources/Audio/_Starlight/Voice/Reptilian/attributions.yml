@@ -1,0 +1,19 @@
+- files: [lizard_hiss1.ogg]
+  license: "CC0-1.0"
+  copyright: "Adapted from schreibsel on Freesound"
+  source: "https://freesound.org/people/schreibsel/sounds/540162/"
+
+- files: [lizard_hiss2.ogg]
+  license: "CC0-1.0"
+  copyright: "Adapted from xoiziox on Freesound"
+  source: "https://freesound.org/people/xoiziox/sounds/553374/"
+
+- files: [lizard_hiss3.ogg]
+  license: "CC-BY-SA-3.0"
+  copyright: "\"hiss.ogg\" by Skyrat-SS13"
+  source: "https://github.com/Skyrat-SS13/Skyrat-tg/blob/595b17aaeaaf9fec87550bf1f8242fa9bb8e1d92/modular_skyrat/modules/emotes/sound/voice/hiss.ogg"
+
+- files: [lizard_purr.ogg]
+  license: "CC-BY-SA-3.0"
+  copyright: "\"raptor_purr.ogg\" by Citadel-Station-13"
+  source: "https://github.com/BlackMajor/Citadel-Station-13/blob/c2b09cf3ee949e9454a10d8f8fa40296bf435428/modular_citadel/sound/voice/raptor_purr.ogg"

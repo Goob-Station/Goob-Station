@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by bulbo44kkey (Discord). Ported from https://github.com/ArcaneSS14/arcane/tree/349326398f687b35dc56ae3b1325fa56f740ecd0/Resources/Textures/_Arcane/Mobs/Customization/IPC/ipc_tails.rsi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "claw_tail_anim",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "claw_tail",
+      "directions": 4
+    },
+    {
+      "name": "cord_outlet_plug",
+      "directions": 4
+    },
+    {
+      "name": "cord_outlet",
+      "directions": 4
+    },
+    {
+      "name": "cut_wire_copper",
+      "directions": 4
+    },
+    {
+      "name": "cut_wire",
+      "directions": 4
+    },
+    {
+      "name": "hologram_base",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "hologram_sparkles",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "jst_plug",
+      "directions": 4
+    },
+    {
+      "name": "jst_tail",
+      "directions": 4
+    },
+    {
+      "name": "jst_wire1",
+      "directions": 4
+    },
+    {
+      "name": "jst_wire2",
+      "directions": 4
+    },
+    {
+      "name": "jst_wire3",
+      "directions": 4
+    },
+    {
+      "name": "mini_jack_base",
+      "directions": 4
+    },
+    {
+      "name": "mini_jack_plug",
+      "directions": 4
+    },
+    {
+      "name": "rat_tail",
+      "directions": 4
+    },
+    {
+      "name": "segmented_base",
+      "directions": 4
+    },
+    {
+      "name": "segmented_cover",
+      "directions": 4
+    },
+    {
+      "name": "usb_plug",
+      "directions": 4
+    },
+    {
+      "name": "usb_tail",
+      "directions": 4
+    }
+  ]
+}

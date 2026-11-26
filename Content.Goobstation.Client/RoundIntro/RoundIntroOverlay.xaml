@@ -1,0 +1,38 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+         MouseFilter="Ignore">
+    <PanelContainer MouseFilter="Ignore">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#000000" />
+        </PanelContainer.PanelOverride>
+    </PanelContainer>
+    <BoxContainer Name="TextBox"
+                  Orientation="Vertical"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  MouseFilter="Ignore">
+        <SpriteView Name="SelfView"
+                    HorizontalAlignment="Center"
+                    SetSize="192 192"
+                    Scale="6 6"
+                    OverrideDirection="South"
+                    MouseFilter="Ignore" />
+        <Control MinHeight="8" />
+        <Label Name="PrefixLabel" HorizontalAlignment="Center" FontColorOverride="#9a9a9a" />
+        <Label Name="NameLabel" HorizontalAlignment="Center" FontColorOverride="#ffffff" />
+        <Label Name="JobLabel" HorizontalAlignment="Center" FontColorOverride="#d8c48a" />
+        <Label Name="AntagLabel" HorizontalAlignment="Center" FontColorOverride="#d9483b" Visible="False" />
+        <Control MinHeight="12" />
+        <Label Name="StationLabel" HorizontalAlignment="Center" FontColorOverride="#7a7a7a" />
+        <BoxContainer Name="CoworkersBox" Orientation="Vertical" Visible="False" MouseFilter="Ignore">
+            <Control MinHeight="32" />
+            <Label Name="CoworkersLabel" HorizontalAlignment="Center" FontColorOverride="#9a9a9a" />
+            <Control MinHeight="8" />
+            <BoxContainer Name="CoworkersRows"
+                          Orientation="Vertical"
+                          HorizontalAlignment="Center"
+                          SeparationOverride="16"
+                          MouseFilter="Ignore" />
+        </BoxContainer>
+    </BoxContainer>
+</Control>

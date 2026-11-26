@@ -51,7 +51,6 @@ public sealed class CarvingKnifeSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
 
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
@@ -264,7 +263,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private bool CanDrawRune(EntityUid user, MapCoordinates mapCoords)
     {
-        if (!_mapMan.TryFindGridAt(mapCoords, out var gridUid, out var gridComp))
+        if (!_map.TryFindGridAt(mapCoords, out var gridUid, out var gridComp))
             return !_gravity.IsWeightless(user);
 
         if (!_map.TryGetTileDef(gridComp, _map.TileIndicesFor(gridUid, gridComp, mapCoords), out var tile))

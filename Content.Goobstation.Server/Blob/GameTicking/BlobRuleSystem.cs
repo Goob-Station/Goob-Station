@@ -15,7 +15,6 @@ using Content.Server.Mind;
 using Content.Server.Nuke;
 using Content.Server.Objectives;
 using Content.Server.RoundEnd;
-using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
@@ -25,24 +24,32 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Blob.GameTicking;
 
-public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
+public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 {
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly NukeCodePaperSystem _nukeCode = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly ObjectivesSystem _objectivesSystem = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private RoundEndSystem _roundEndSystem = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private NukeCodePaperSystem _nukeCode = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private ObjectivesSystem _objectivesSystem = default!;
+    [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BlobRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagSelected);
+        SubscribeLocalEvent<NukeExplodedEvent>(OnNukeExploded);
+    }
+
+    private void OnNukeExploded(NukeExplodedEvent ev)
+    {
+        if (ev.OwningStation is { } grid
+            && _stationSystem.GetOwningStation(grid) != null
+            && GameTicker.IsGameRuleActive<BlobRuleComponent>())
+            _roundEndSystem.EndRound();
     }
 
     protected override void Started(EntityUid uid, BlobRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -116,29 +123,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 
         var stationName = Name(stationUid);
 
-        if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-            && _roundEndSystem.ExpectedCountdownEnd != null
-            && !_emergency.EmergencyShuttleArrived)
-        {
-            _roundEndSystem.CancelRoundEndCountdown(forceRecall: true);
-            _chatSystem.DispatchStationAnnouncement(stationUid,
-                Loc.GetString("blob-alert-recall-shuttle"),
-                Loc.GetString("Station"),
-                false,
-                null,
-                Color.Red);
-        }
-        else if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-                 && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived)
-        {
-            _chatSystem.DispatchStationAnnouncement(stationUid,
-                Loc.GetString("blob-alert-shuttle-arrived"),
-                Loc.GetString("Station"),
-                false,
-                null,
-                Color.OrangeRed);
-        }
-
         switch (blobRuleComp.Stage)
         {
             case BlobStage.Default when blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin):
@@ -209,6 +193,20 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     broadcast: true);
                 return;
             }
+        }
+    }
+
+    [SubscribeLocalEvent]
+    private void OnRoundEndRequestAttempt(ref RoundEndRequestAttemptEvent args)
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var blob, out _))
+        {
+            if (blob.Stage is not (BlobStage.Begin or BlobStage.Critical))
+                continue;
+
+            args.Block("blob-alert-block-shuttle", color: Color.Red);
+            return;
         }
     }
 
