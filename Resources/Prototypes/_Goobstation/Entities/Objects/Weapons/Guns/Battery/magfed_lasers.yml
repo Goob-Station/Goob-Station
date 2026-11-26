@@ -72,7 +72,7 @@
   - type: Gun
     burstFireRate: 15
     shotsPerBurst: 3
-    burstCooldown: 1.5
+    burstCooldown: 1
     fireRate: 1.5
     lockOnTargetBurst: true
     selectedMode: Burst

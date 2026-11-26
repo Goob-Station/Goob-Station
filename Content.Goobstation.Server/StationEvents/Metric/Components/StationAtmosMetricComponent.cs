@@ -12,6 +12,9 @@ public sealed partial class StationAtmosMetricComponent : Component
     public double FireTileCost = 1.0;
 
     [DataField]
+    public int FireLeewayTiles = 20;
+
+    [DataField]
     public double ToxicTileCost = 0.25;
 
     [DataField]
