@@ -60,10 +60,61 @@
     malus: 0.45
   - type: Appearance
   - type: EmbeddableProjectile
-    offset: 0.3,0.0
-    removalTime: 0.0
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
   - type: StaticPrice
     price: 800
   - type: Tool
     qualities:
     - Prying
+
+- type: entity
+  parent: [ CburnSpear, BaseSecurityContraband ]
+  id: CburnSpearCrew
+  name: deterrence spear
+  description: A spear used by Nanotrasen's security officers. Effective at incinerating organic targets.
+  components:
+  - type: IgniteOnMeleeHitToggled
+    fireStacks: 2
+  - type: IgniteOnMeleeHit # parent
+    fireStacks: 0
+  - type: Stunbaton
+    energyPerUse: 50
+    lightAttackEnergyMultiplier: 2
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Heat: 5
+        Piercing: 5
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 5
+  - type: StaminaDamageOnHit # Only here so Stunbaton's charge drain fires
+    damage: 1
+    overtime: 1
+    lightAttackDamageMultiplier: 0
+    lightAttackOvertimeDamageMultiplier: 0
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 20
+        Heat: 8

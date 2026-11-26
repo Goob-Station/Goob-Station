@@ -103,3 +103,8 @@
   recipes:
   - ClothingMaskMuzzleSecure
   - ClothingMaskMuzzleShock
+
+- type: latheRecipePack
+  id: BiologicalDeterrence
+  recipes:
+  - CburnSpearCrew
