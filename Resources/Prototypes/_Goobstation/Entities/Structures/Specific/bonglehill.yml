@@ -1,0 +1,83 @@
+- type: entity
+  id: BongleHill
+  parent: BaseBingleStructure
+  name: bonglehill
+  description: Stands tall
+  components:
+  - type: ContainerContainer # Test fails...
+    containers:
+      hill: !type:Container
+  - type: BongleHill
+    triumphWhitelist:
+      components:
+      - Bingle
+    triumphBlacklist:
+      components:
+      - Bongle
+    corpsesForTriumph: 3
+    capacityIncrease: 1
+    spitIncrease: 1
+    hillProto: BongleHill
+    bongleProto: MobBongle
+    pointsToSpread: 50
+    ascensionHillCount: 5
+    pointValues:
+    - whitelist:
+        components:
+        - HumanoidAppearance
+      points: 10
+    - whitelist:
+        components:
+        - Bingle
+      points: 10
+    - whitelist:
+        components:
+        - Material
+      points: 2
+  - type: Sprite
+    drawdepth: HighFloorObjects
+    layers:
+    - sprite: _Goobstation/Bongle/Entities/hill.rsi
+      state: bongle_hill
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 900
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CrateFunBongleLoot:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: BongleHillGhost
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - WallLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Appearance
+  - type: Sprite
+    drawdepth: HighFloorObjects
+    layers:
+    - sprite: _Goobstation/Bongle/Entities/hill.rsi
+      state: bongle_hill

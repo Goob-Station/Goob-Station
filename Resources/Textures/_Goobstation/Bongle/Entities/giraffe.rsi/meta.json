@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by Yummi",
+  "size": {
+        "x": 45,
+        "y": 45
+  },
+  "states": [
+    {
+        "name": "bongle_giraffe"
+    }
+  ]
+}

@@ -1,19 +1,22 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
-using Content.Server.Polymorph.Components;
+using Content.Goobstation.Shared.Bongle;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Actions;
+using Content.Shared.Actions.Events;
 using Content.Shared.CombatMode;
 using Content.Shared.Flash.Components;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Popups;
-using Content.Shared.Actions;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Polymorph;
-using Content.Shared.Actions.Events;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Timing;
+using System.Numerics;
 
 namespace Content.Goobstation.Server.Bingle;
 
@@ -23,6 +26,12 @@ public sealed partial class BingleSystem : EntitySystem
     [Dependency] private PolymorphSystem _polymorph = default!;
     [Dependency] private AppearanceSystem _appearance = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+
+    private readonly HashSet<Entity<BingleComponent>> _bingles = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -35,6 +44,9 @@ public sealed partial class BingleSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args)
     {
+        if (!component.LinkToPit)
+            return;
+
         var cords = Transform(uid).Coordinates;
         if (!cords.IsValid(EntityManager) || cords.Position == Vector2.Zero)
             return;
@@ -42,7 +54,7 @@ public sealed partial class BingleSystem : EntitySystem
             return;
 
         if (component.Prime)
-            component.MyPit = Spawn("BinglePit", cords);
+            component.MyPit = SpawnAtPosition("BinglePit", cords);
         else
         {
             var query = EntityQueryEnumerator<BinglePitComponent>();
@@ -59,6 +71,71 @@ public sealed partial class BingleSystem : EntitySystem
             }
             component.MyPit = closestPit;
         }
+    }
+
+    [SubscribeLocalEvent]
+    private void OnBongleStartup(Entity<BongleComponent> ent, ref ComponentStartup args)
+    {
+        EnsureComp<ActiveSeethingCheckComponent>(ent.Owner);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnBongleMobStateChanged(Entity<BongleComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Alive)
+        {
+            EnsureComp<ActiveSeethingCheckComponent>(ent.Owner);
+        }
+        else
+        {
+            RemCompDeferred<ActiveSeethingCheckComponent>(ent.Owner);
+        }
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ActiveSeethingCheckComponent, BingleComponent>();
+        while (query.MoveNext(out var uid, out var active, out var comp))
+        {
+            if (_timing.CurTime < active.NextCheck)
+                continue;
+
+            active.NextCheck = _timing.CurTime + comp.RageCheckInterval;
+
+            _bingles.Clear();
+            _lookup.GetEntitiesInRange(Transform(uid).Coordinates, comp.RageRange, _bingles);
+
+            var enraged = false;
+
+            foreach (var (bingleUid, bingle) in _bingles)
+            {
+                if (HasComp<BongleComponent>(bingleUid) || !_mob.IsAlive(bingleUid))
+                    continue;
+
+                Enrage(bingleUid, bingle);
+                enraged = true;
+            }
+
+            if (enraged)
+            {
+                Enrage(uid, comp);
+            }
+        }
+    }
+
+    private void Enrage(EntityUid uid, BingleComponent comp)
+    {
+        if (!HasComp<SeethingComponent>(uid))
+        {
+            EntityManager.AddComponents(uid, comp.CompToAdd);
+        }
+
+        if (!TryComp<SeethingComponent>(uid, out var seething))
+            return;
+
+        seething.ExpireTime = _timing.CurTime + seething.Duration;
     }
 
     //ran by the pit to upgrade bingle damage
@@ -92,8 +169,11 @@ public sealed partial class BingleSystem : EntitySystem
 
     private void OnAttackAttempt(EntityUid uid, BingleComponent component, AttackAttemptEvent args)
     {
-        //Prevent Friendly Bingle fire
-        if (HasComp<BinglePitComponent>(args.Target) || HasComp<BingleComponent>(args.Target))
+        //Prevent Friendly Bingle fire, and also allows bongles and bingles to fight
+        // that's a lotta checks
+        if ((HasComp<BinglePitComponent>(args.Target) && !HasComp<BongleComponent>(uid)) // Only bongles can attack bingle pits
+            || (HasComp<BingleComponent>(args.Target) && // newline or else comment too big
+            HasComp<BongleComponent>(args.Target) == HasComp<BongleComponent>(uid))) // prevent friendly fire between bingles, and friendly fire between bongles
             args.Cancel();
     }
 

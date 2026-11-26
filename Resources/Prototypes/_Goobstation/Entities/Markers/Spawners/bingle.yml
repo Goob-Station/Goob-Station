@@ -37,3 +37,35 @@
   components:
   - type: GhostRoleMobSpawner
     prototype: MobBinglePrime
+
+# Bongle
+
+- type: entity
+  id: SpawnPointGhostBongle
+  name: ghost role spawn point
+  suffix: Bongle
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-bongle-name
+    description: ghost-role-information-bongle-description
+    rules: ghost-role-information-bongle-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle: null # no raffle for spammed role fuck you
+  - type: GhostRoleMobSpawner
+    prototype: MobBongle
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _Goobstation/Bongle/Entities/bongle.rsi
+        state: bongle
+
+- type: entity
+  id: SpawnPointGhostBonglePrime
+  parent: SpawnPointGhostBongle
+  suffix: Prime
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobBonglePrime

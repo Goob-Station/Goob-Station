@@ -32,6 +32,8 @@
     - id: LoneAbductorSpawn
     - id: DuoAbductorSpawn
     - id: BingleSpawn
+    - id: BongleSpawn
+    - id: BingleBongleSpawn
    #- id: SlaughterDemonMidround
    #- id: XenomorphsInfestation #  removed for low pop too little sec
     - id: SlasherSpawn

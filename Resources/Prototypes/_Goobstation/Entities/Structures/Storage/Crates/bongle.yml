@@ -1,0 +1,32 @@
+- type: entity
+  parent: CrateBaseWeldable
+  id: CrateBongle
+  name: bongle crate
+  components:
+  - type: Icon
+    sprite: _Goobstation/Bongle/Entities/bonglecrate.rsi
+  - type: Sprite
+    sprite: _Goobstation/Bongle/Entities/bonglecrate.rsi
+
+- type: entity
+  id: CrateFunBongleLoot
+  parent: CrateBongle
+  name: Bongle loot
+  components:
+  - type: StorageFill
+    contents:
+    - id: PlushieBongle
+    - id: PlushieBongleGiraffe
+
+- type: entity
+  id: CrateFunBongleAdmeme
+  parent: CrateBongle
+  suffix: Admeme voice triggered bongle crate
+  name: Bongle
+  components:
+  - type: SpawnOnTrigger
+    proto: MobBongle
+  - type: TriggerOnVoice
+    keyPhrase: Bongle
+  - type: ActiveListener
+    range: 4

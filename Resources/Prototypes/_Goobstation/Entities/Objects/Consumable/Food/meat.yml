@@ -140,3 +140,94 @@
       Burger: FSE_FoodMeatVoxFried
       Taco: FSE_FoodMeatVoxFried
       Skewer: FSE_FoodMeatVoxFriedSkewer
+
+- type: entity
+  name: raw bongle meat
+  parent: [ FoodMeatRawBase, BaseMinorContraband ]
+  id: FoodMeatBongle
+  description: Smells like RAGE!!!!!.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Bongle/Entities/meat.rsi
+    state: bongle_meat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
+        - ReagentId: Fat
+          Quantity: 9
+        - ReagentId: BongleJuice
+          Quantity: 1
+  - type: Construction
+    graph: BongleSteak
+    node: start
+    defaultTarget: bongle steak
+
+- type: entity
+  name: bongle steak
+  parent: [ FoodMeatBase, BaseMinorContraband ]
+  id: FoodMeatBongleCooked
+  description: Still smells like RAW, SEETHING RAGE!!!!!
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bingle.rsi
+    state: cookedbinglemeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Protein
+          Quantity: 9
+        - ReagentId: BongleJuice
+          Quantity: 5
+  - type: Construction
+    graph: BongleSteak
+    node: bongle steak
+
+- type: entity
+  name: bongle burger
+  parent: FoodBurgerBase
+  id: FoodBurgerBongle
+  description: Somehow, it smells delicious. May make you hate the color blue.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Bongle/Entities/meat.rsi
+    state: bongle_burger
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - Steak
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 19
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: BongleJuice
+          Quantity: 15
+  - type: Tag
+    tags:
+    - Meat
+
+# Uncomment once that stupid test fail for new microwave recipes is removed
+#- type: microwaveMealRecipe
+#  id: RecipeBongleBurger
+#  name: bongle burger recipe
+#  result: FoodBurgerBongle
+#  time: 10
+#  group: savory
+#  solids:
+#    FoodBreadBun: 1
+#    FoodMeatBongleCooked: 1

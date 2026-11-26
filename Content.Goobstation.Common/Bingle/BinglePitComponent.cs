@@ -80,4 +80,15 @@ public sealed partial class BinglePitComponent : Component
     /// Bunch of available bingle ghost role
     /// </summary>
     public HashSet<EntityUid?> BingleGhostRoles = [];
+
+    /// <summary>
+    /// Keep track of the point multiplier for the pit.
+    /// </summary>
+    public int PointMultiplier = 1;
+
+    /// <summary>
+    /// Bongle multiplies point generation by this much.
+    /// </summary>
+    [DataField]
+    public int BongleMultiplier = 2;
 }

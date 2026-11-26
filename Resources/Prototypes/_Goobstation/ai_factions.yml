@@ -29,3 +29,49 @@
   - Lavafauna
   - AllHostile
   - Xenoborg
+
+- type: npcFaction
+  id: Bingle
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - AllHostile
+  - Xenoborg
+  - Heretic
+  - Blob
+  - PirateFaction
+  - Lavafauna
+  - Bongle
+  friendly:
+  - Wizard
+  - Shadowling
+  - Wraith
+
+- type: npcFaction
+  id: Bongle
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - AllHostile
+  - Xenoborg
+  - Heretic
+  - Blob
+  - PirateFaction
+  - Lavafauna
+  - Bingle
+  friendly:
+  - Wizard
+  - Shadowling
+  - Wraith
