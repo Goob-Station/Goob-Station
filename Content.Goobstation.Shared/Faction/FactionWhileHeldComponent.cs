@@ -2,7 +2,7 @@ using Content.Shared.NPC.Prototypes;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Faction; //
+namespace Content.Goobstation.Shared.Faction;
 
 /// <summary>
 /// While held, makes holder a specific faction instead of the faction they belong to.
