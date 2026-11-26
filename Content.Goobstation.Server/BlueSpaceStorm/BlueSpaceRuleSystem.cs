@@ -11,6 +11,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
+using Content.Shared.Silicons.StationAi;
 
 using Content.Goobstation.Server.BluespaceStorm;
 
@@ -60,7 +61,7 @@ public sealed partial class BluespaceStormRuleSystem :
 
         //Portals will spawn if:
         //Non-spaced 3x3 area, with no impassable or high impassable tiles
-        //No power infrastructure nearby (only checks for SMES and Substations)
+        //No power infrastructure or AI core nearby (only checks for SMES and Substations)
         //No chemmasters nearby (Portals are destructive enough that would make chemistry useless for the rest of the shift)
         //Max portals: 4 with no dupes, can spawn less than 4 if no valid locations are found
 
@@ -81,6 +82,7 @@ public sealed partial class BluespaceStormRuleSystem :
                     continue;
 
                 if (_lookup.GetEntitiesInRange<ChemMasterComponent>(coords, 10).Count != 0
+                    || _lookup.GetEntitiesInRange<StationAiCoreComponent>(coords, 10).Count != 0
                     || IsPowerInfrastructureNearby(coords))
                     continue;
 
