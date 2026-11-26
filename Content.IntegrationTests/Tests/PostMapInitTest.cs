@@ -88,6 +88,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/cluster.yml",
             "/Maps/_Goobstation/amber.yml",
             "/Maps/_Goobstation/kettle.yml",
+            "/Maps/_Goobstation/submarine.yml",
             "/Maps/_Goobstation/lambda.yml",
             "/Maps/_Goobstation/leonid.yml",
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
@@ -149,6 +150,7 @@ namespace Content.IntegrationTests.Tests
             "Serpentcrest",
 			"Shoukou",
             "Snowball",
+            "Submarine",
             "TestTeg",        // Dev map
             "Train"           // Not in pool
             // Goob end
@@ -184,6 +186,7 @@ namespace Content.IntegrationTests.Tests
             //"MeteorArena",    // Deathmatch
             //  "Oasis",        // kill due to memory
               "OasisHighPop",
+              "Submarine",
               "Omega",
               "Origin",
             //"OriginHighPop",  //Not in pool
@@ -194,6 +197,7 @@ namespace Content.IntegrationTests.Tests
               "Saltern",
               "Serpentcrest",
 			  "Shoukou",
+              "Submarine",
              // "Snowball", // fuck off not in pool
         };
         // Goobstation edit end
