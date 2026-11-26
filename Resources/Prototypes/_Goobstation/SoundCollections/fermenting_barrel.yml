@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: soundCollection
+  id: FermentingBarrelLidOff
+  files:
+  - /Audio/_Goobstation/Effects/FermentingBarrel/cardboardbox_pickup.ogg
+
+- type: soundCollection
+  id: FermentingBarrelLidOn
+  files:
+  - /Audio/_Goobstation/Effects/FermentingBarrel/woodclaw2.ogg
+
+- type: soundCollection
+  id: FermentingBarrelBubbling
+  files:
+  - /Audio/_Goobstation/Effects/FermentingBarrel/bubbles2.ogg

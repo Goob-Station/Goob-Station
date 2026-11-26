@@ -1,0 +1,133 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: FermentingBarrel
+  name: wooden barrel
+  description: Seal crops in this wooden barrel and they'll slowly ferment into something to drink.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Furniture/fermenting_barrel.rsi
+    noRot: true
+    layers:
+    - state: closed
+      map: [ "lid" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        lid:
+          True: { state: open }
+          False: { state: closed }
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Anchorable
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ContainerContainer
+    containers:
+      produce: !type:Container
+  - type: SolutionContainerManager
+    solutions:
+      barrel:
+        maxVol: 600
+  - type: DrainableSolution
+    solution: barrel
+  - type: AmbientSound
+    enabled: false
+    volume: -12
+    range: 8
+    sound:
+      collection: FermentingBarrelBubbling
+  - type: ItemToggle
+    onUse: false
+    verbToggleOn: fermenting-barrel-verb-open
+    verbToggleOff: fermenting-barrel-verb-close
+    soundActivate:
+      collection: FermentingBarrelLidOff
+      params:
+        volume: -12
+    soundDeactivate:
+      collection: FermentingBarrelLidOn
+      params:
+        volume: -12
+  - type: FermentingBarrel
+    openComponents:
+    - type: RefillableSolution
+      solution: barrel
+    - type: ExaminableSolution
+      solution: barrel
+    closedComponents:
+    - type: DrainableSolution
+      solution: barrel
+    fermentFrom:
+      FoodAloe: { Aloe: 1, SilverSulfadiazine: 1 }
+      LeavesTobacco: { Nicotine: 0.5 }
+      LeavesTobaccoDried: { Nicotine: 0.5 }
+      WheatBushel: { Nutriment: 1, Vitamin: 1, Flour: 1 }
+      OatBushel: { Nutriment: 1, Vitamin: 1, Oats: 1 }
+      RiceBushel: { Nutriment: 1, Vitamin: 1, Rice: 1 }
+      Sugarcane: { Sugar: 0.29 }
+    notCrops:
+    - CottonBol
+    - PyrottonBol
+    extraCrops:
+    - DeathNettle
+    - LeavesTobaccoDried
+    bags:
+    - PlantBag
+    unfermentable:
+    - MeatwheatBushel
+    - LeavesTea
+    - LeavesTeaDried
+    drinks:
+      FoodAloe: Tequila
+      FoodApple: Cider
+      FoodCherry: Maraschino
+      FoodOrange: TripleSec
+      FoodCocoaPod: CremeDeCacao
+      LeavesTobacco: CremeDeMenthe
+      LeavesTobaccoDried: CremeDeMenthe
+      FoodBanana: BananaHonk
+      FoodMimana: Silencer
+      FoodSoybeans: Soysauce
+      FoodBerries: Gin
+      FoodGrape: Wine
+      WheatBushel: Beer
+      OatBushel: Ale
+      RiceBushel: Sake
+      FoodCorn: Whiskey
+      FoodPoppy: Vermouth
+      FoodLily: Vermouth
+      FoodPotato: Vodka
+      Sugarcane: Rum
+      FoodTomato: Enzyme
+      FoodBloodTomato: BloodyMary
+      FoodBlueTomato: Laughter
+      FoodExtradimensionalOrange: MindbreakerToxin
+  - type: Construction
+    graph: FermentingBarrel
+    node: barrel
+  - type: StaticPrice
+    price: 80
