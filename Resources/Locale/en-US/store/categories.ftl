@@ -22,7 +22,8 @@ store-category-debug2 = debug category 2
 store-category-weapons = Weaponry
 store-category-ammo = Ammo
 store-category-explosives = Explosives
-store-category-chemicals = Chemicals
+# Goobstation - Uplink reorganization
+store-category-chemicals = Medical
 store-category-deception = Deception
 store-category-disruption = Disruption
 store-category-implants = Implants
@@ -32,6 +33,8 @@ store-category-wearables = Wearables
 store-category-contractor = Contractor
 store-category-pointless = Pointless
 store-discounted-items = Discounts
+# Goobstation - Uplink reorganization
+store-category-modsuit = MODsuits
 
 # Revenant
 store-category-abilities = Abilities
