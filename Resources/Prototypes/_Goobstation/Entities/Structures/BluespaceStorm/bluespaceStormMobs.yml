@@ -1,143 +1,119 @@
 - type: entity
-  id: PortalGoliath
-  parent: MobGoliath
+  id: BaseBluespaceStormPortalMob
+  abstract: true
   components:
     - type: NpcFactionMember
       factions:
         - Lavafauna
+
+- type: entity
+  id: PortalGoliath
+  parent: [ BaseBluespaceStormPortalMob, MobGoliath ]
+  categories: [ HideSpawnMenu ]
+  components:
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalWatcherBase
-  parent: MobWatcherBase
+  parent: [ BaseBluespaceStormPortalMob, MobWatcherBase ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalLegion
-  parent: MobLegion
+  parent: [ BaseBluespaceStormPortalMob, MobLegion ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalLivingLight
-  parent: MobLivingLight
+  parent: [ BaseBluespaceStormPortalMob, MobLivingLight ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalLuminousObject
-  parent: MobLuminousObject
+  parent: [ BaseBluespaceStormPortalMob, MobLuminousObject ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalAngryBee
-  parent: MobAngryBee
+  parent: [ BaseBluespaceStormPortalMob, MobAngryBee ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalRotHulk
-  parent: MobRotHulk
+  parent: [ BaseBluespaceStormPortalMob, MobRotHulk ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalTomatoKiller
-  parent: MobTomatoKiller
+  parent: [ BaseBluespaceStormPortalMob, MobTomatoKiller ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalFleshGolemSalvage
-  parent: MobFleshGolemSalvage
+  parent: [ BaseBluespaceStormPortalMob, MobFleshGolemSalvage ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalFleshLoverSalvage
-  parent: MobFleshLoverSalvage
+  parent: [ BaseBluespaceStormPortalMob, MobFleshLoverSalvage ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalFleshJaredSalvage
-  parent: MobFleshJaredSalvage
+  parent: [ BaseBluespaceStormPortalMob, MobFleshJaredSalvage ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalBaseAdultSlime
-  parent: BaseMobAdultSlime
+  parent: [ BaseBluespaceStormPortalMob, BaseMobAdultSlime ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalPlagueRatMedium
-  parent: MobPlagueRatMedium
+  parent: [ BaseBluespaceStormPortalMob, MobPlagueRatMedium ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalPlagueRatSmall
-  parent: MobPlagueRatSmall
+  parent: [ BaseBluespaceStormPortalMob, MobPlagueRatSmall ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalAncientLegsWraith
-  parent: MobAncientLegsWraith
+  parent: [ BaseBluespaceStormPortalMob, MobAncientLegsWraith ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
 
 - type: entity
   id: PortalGunbot
-  parent: GunBot
+  parent: [ BaseBluespaceStormPortalMob, GunBot ]
+  categories: [ HideSpawnMenu ]
   components:
-    - type: NpcFactionMember
-      factions:
-        - Lavafauna
     - type: BluespaceStormPortalMob
