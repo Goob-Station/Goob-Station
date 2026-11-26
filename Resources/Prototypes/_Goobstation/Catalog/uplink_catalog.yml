@@ -502,6 +502,38 @@
       tags:
       - ContractorUplink
 
+- type: listing
+  id: UplinkWeaponHFMuramasa
+  name: uplink-contractor-muramasa-name
+  description: uplink-contractor-muramasa-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/HF_muramasa.rsi, state: icon }
+  productEntity: WeaponHFMuramasa
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
+
+- type: listing
+  id: UplinkWeaponEnergyCrowbar
+  name: uplink-weapon-ecrowbar-name
+  description: uplink-weapon-ecrowbar-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/e_crowbar.rsi, state: icon }
+  productEntity: WeaponEnergyCrowbar
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
+
 # Wearables
 
 - type: listing

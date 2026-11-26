@@ -1,0 +1,35 @@
+- type: entity
+  name: energy crowbar
+  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
+  id: WeaponEnergyCrowbar
+  description: A crowbar with a beam made of pure, concentrated plasma. Pries open doors and skulls alike.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_crowbar.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Objects/Weapons/Melee/e_crowbar-inhands.rsi
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 12
+        Heat: 8
+        Structural: 20
+  - type: ComponentToggler
+    components:
+    - type: Prying
+  - type: MeleeWeapon
+    heavyStaminaCost: 2.5
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 4.5
+  - type: Reflect
+    reflectProb: 0
