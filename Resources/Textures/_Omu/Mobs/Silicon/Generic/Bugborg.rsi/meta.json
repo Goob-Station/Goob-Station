@@ -1,0 +1,27 @@
+﻿{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-4.0",
+    "copyright": "made by @boiWab",
+    "states": [
+        {
+            "name": "robot",
+            "directions": 4
+        },
+        {
+            "name": "robot_e_r",
+            "directions": 4
+        },
+        {
+            "name": "robot_e",
+            "directions": 4
+        },
+        {
+            "name": "robot_l",
+            "directions": 4
+        }
+    ]
+}

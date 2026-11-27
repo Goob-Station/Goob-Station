@@ -7,6 +7,12 @@
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisGeneric
 
+- type: borgSubtype  # Omu bugborgs
+  parentBorgType: generic
+  id: generic_bugborg
+  spritePath: _Omu/Mobs/Silicon/Generic/Bugborg.rsi
+  dummyPrototype: BorgChassisGenericBugborg
+
 # Mining subtypes
 - type: borgSubtype
   parentBorgType: mining
@@ -56,6 +62,18 @@
   spritePath: _Goobstation/Mobs/Silicon/Miner/squat.rsi
   dummyPrototype: BorgChassisMiningSquat
 
+- type: borgSubtype # Omu stuff
+  parentBorgType: mining
+  id: mining_bugborg
+  spritePath: _Omu/Mobs/Silicon/Miner/Bugsalv.rsi
+  dummyPrototype: BorgChassisMiningBugborg
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: mining
+  id: mining_bugborgbag
+  spritePath: _Omu/Mobs/Silicon/Miner/Bugsalv_bag.rsi
+  dummyPrototype: BorgChassisMiningBugborgBag
+
 # Engineer subtypes
 - type: borgSubtype
   parentBorgType: engineering
@@ -98,6 +116,30 @@
   id: engineer_rover
   spritePath: _Goobstation/Mobs/Silicon/Engineering/rover.rsi
   dummyPrototype: BorgChassisEngineerRover
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: engineering
+  id: engineer_bugborg
+  spritePath: _Omu/Mobs/Silicon/Engineering/Bugengi.rsi
+  dummyPrototype: BorgChassisEngineerBugborg
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: engineering
+  id: engineer_bag_bugborg
+  spritePath: _Omu/Mobs/Silicon/Engineering/Bugengi_bag.rsi
+  dummyPrototype: BorgChassisEngineerBugborgBag
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: engineering
+  id: engineer_atmos_bugborg
+  spritePath: _Omu/Mobs/Silicon/Engineering/Bugatmos.rsi
+  dummyPrototype: BorgChassisEngineerBugborgAtmos
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: engineering
+  id: engineer_atmos_bag_bugborg
+  spritePath: _Omu/Mobs/Silicon/Engineering/Bugatmos_bag.rsi
+  dummyPrototype: BorgChassisEngineerBugborgAtmosBag
 
 # Janitor subtypes
 - type: borgSubtype
@@ -147,6 +189,18 @@
   id: janitor_rover
   spritePath: _Goobstation/Mobs/Silicon/Janitor/rover.rsi
   dummyPrototype: BorgChassisJanitorRover
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: janitor
+  id: janitor_bugborg
+  spritePath: _Omu/Mobs/Silicon/Janitor/Bugjani.rsi
+  dummyPrototype: BorgChassisJanitorBugborg
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: janitor
+  id: janitor_bugcentipede
+  spritePath: _Omu/Mobs/Silicon/Janitor/Janipede.rsi
+  dummyPrototype: BorgChassisJanitorBugborgCentipede
 
 # Medical subtypes
 - type: borgSubtype
@@ -203,6 +257,18 @@
   spritePath: _Goobstation/Mobs/Silicon/Medical/rover.rsi
   dummyPrototype: BorgChassisMedicalRover
 
+- type: borgSubtype # Omu stuff
+  parentBorgType: medical
+  id: medical_bugborg
+  spritePath: _Omu/Mobs/Silicon/Medical/Bugmed.rsi
+  dummyPrototype: BorgChassisMedicalBugborg
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: medical
+  id: medical_bugcybersun
+  spritePath: _Omu/Mobs/Silicon/Medical/Bugmed_cybersun.rsi
+  dummyPrototype: BorgChassisMedicalBugborgCybersun
+
 # Service subtypes
 - type: borgSubtype
   parentBorgType: service
@@ -257,3 +323,22 @@
   id: service_rover
   spritePath: _Goobstation/Mobs/Silicon/Service/rover.rsi
   dummyPrototype: BorgChassisServiceRover
+
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_slenderbug
+  spritePath: _Omu/Mobs/Silicon/Service/Slenderbug.rsi
+  dummyPrototype: BorgChassisServiceSlenderbug
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: service
+  id: service_bugtractor
+  spritePath: _Omu/Mobs/Silicon/Service/Bugtractor.rsi
+  dummyPrototype: BorgChassisServiceBugtractor
+
+- type: borgSubtype # Omu stuff
+  parentBorgType: service
+  id: service_bugdj
+  spritePath: _Omu/Mobs/Silicon/Service/bugdj.rsi
+  dummyPrototype: BorgChassisServiceBugdj

@@ -1,0 +1,31 @@
+﻿{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-4.0",
+    "copyright": "made by @boiWab",
+    "states": [
+        {
+            "name": "medical",
+            "directions": 4
+        },
+        {
+            "name": "medical_e_r",
+            "directions": 4
+        },
+        {
+            "name": "medical_e",
+            "directions": 4
+        },
+        {
+            "name": "medical_l",
+            "directions": 4
+        },
+        {
+            "name": "medical_moving",
+            "directions": 4
+        }
+    ]
+}
