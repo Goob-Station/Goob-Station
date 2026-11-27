@@ -27298,3 +27298,15 @@ Entries:
         Ammo Economy increased.
   id: 3051
   time: '2026-11-25T00:00:57.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Fix
+      message: Blood Demon no longer one taps you by throwing a body
+  id: 3052
+  time: '2026-11-26T17:21:27.0000000+00:00'
+- author: nlaky
+  changes:
+    - type: Tweak
+      message: Your ass now obeys Newton's Third Law of Motion
+  id: 3053
+  time: '2026-11-26T17:37:14.0000000+00:00'

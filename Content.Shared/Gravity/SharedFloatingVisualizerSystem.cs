@@ -9,7 +9,7 @@ namespace Content.Shared.Gravity;
 /// <summary>
 /// Handles offsetting a sprite when there is no gravity
 /// </summary>
-public abstract class SharedFloatingVisualizerSystem : EntitySystem
+public abstract partial class SharedFloatingVisualizerSystem : EntitySystem // Goob edit - made partial
 {
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
@@ -29,7 +29,8 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
 
     protected bool CanFloat(Entity<FloatingVisualsComponent> entity)
     {
-        entity.Comp.CanFloat = _gravity.IsWeightless(entity.Owner);
+        entity.Comp.CanFloat = _gravity.IsWeightless(entity.Owner) || ShouldFloatRegardlessOfGravity(entity); // Goob edit - Optionally float regardless of gravity.
+
         Dirty(entity);
         return entity.Comp.CanFloat;
     }
