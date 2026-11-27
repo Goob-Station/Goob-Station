@@ -1242,6 +1242,18 @@
       head: ClothingHeadHelmetHardsuitERTEngineer
   - type: FireProtection
     reduction: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.0
+  - type: ClothingGrantComponent # porting from CE's hardsuit cause it's silly for ERT engis to be vulnerable to these
+    component:
+    - type: SupermatterImmune
+    - type: EventHorizonIgnore
+      horizonWhitelist:
+        tags:
+        - Tesla
+    - type: ContainmentFieldIgnore
 
 #ERT Medic Hardsuit
 - type: entity
