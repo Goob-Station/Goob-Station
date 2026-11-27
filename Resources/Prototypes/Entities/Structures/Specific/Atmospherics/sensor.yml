@@ -28,7 +28,7 @@
       NitrousOxide: stationNO
       Frezon: danger
       # <Goobstation>
-      BZ: danger
+      BZ: stationBZ
       Healium: ignore # it's harmless unless you also breathe in nitrium, which is danger
       Nitrium: danger
       Pluoxium: ignore
