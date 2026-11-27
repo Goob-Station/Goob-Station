@@ -63,6 +63,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]
             Reporter: [ 1, 2 ]
+            RadioHost: [ 1, 1]
             ServiceWorker: [ 1, 2 ]
           #science
             Chaplain: [ 1, 1 ]
