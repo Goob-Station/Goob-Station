@@ -3,21 +3,28 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Roleplay Rule 14 - Death Amnesia
+  # Roleplay Rule 14 - Death Amnesia/New Life Rule(NLR)
 
-  Players are not allowed to remember the person who killed them, you may [bold]not[/bold] describe the person who killed you at all past their species and gender.
+  Players are not allowed to remember the person who killed them, you may [bold]not[/bold] describe the person who killed you at all. Being in a critical state is not the same as being dead, as you are more so considered to be incapacitated. You do not remember things that happen while in the critical or sleep state, but you suffer no further amnesia if you do not die.
 
-  They are allowed to remember what injury might've killed them such as a gunshot, being stabbed, or where they died.
+  You are allowed to remember what injury may have killed you, such as a gunshot, being stabbed or loosely where you died. Any user playing as a race with a positronic brain and Dionas that split are still required to follow NLR. Assume you do not remember anything for the first few minutes from being removed from your body.
 
   ## Examples
   Acceptable:
   - Saying you got killed by a stab wound in maints, even though you died to an armblade.
   - Reporting to security that you died in engineering to a gunshot wound.
-  - Explaining that a Vox Male stabbed you.
+  - After being healed from crit, without dying, explaining in detail what led to it.
 
   Prohibited:
   - Explaining that a heretic killed you.
   - Explaining a moth with Blue wings and green eyes killed you.
   - Saying you got killed by an armblade.
   - Saying you got killed by a bulldog shotgun
+  - Saying you got killed by a John.
+
+  As a general rule of thumb, do not give information that directly reveals your killer. Examples of this can be:
+  - “Someone walked to this door and stabbed me.” Leave this work to the detective.
+  - “I managed to hit him back so the blood on the floor should be his.”
+  - “He grabbed that knife over there, it might have his fingerprints.”
+
 </Document>

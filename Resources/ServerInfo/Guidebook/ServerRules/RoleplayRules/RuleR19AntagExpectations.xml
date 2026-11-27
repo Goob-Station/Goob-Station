@@ -1,0 +1,343 @@
+﻿<Document>
+
+  # Roleplay rule 19 - Antagonism expectations
+
+  This rule is to define what we expect from antags on Goob, some rules will be more strict than others and those rules will be highlighted to make sure you’re aware of what is or isn’t allowed. This list is not exhaustive but it intends to stop shitty behaviour.
+
+  Antags are always stronger than normal crew - the exception is security. Crew is disallowed to ‘validhunt’, so antags are expected to not be major detriments to the round.
+
+  # Restricted Antag Death and Destruction
+
+  ## With Objectives
+  Antagonist objectives are the core of what antagonists are allowed to directly do with no or limited roleplay reasoning. Actions taken to directly accomplish an objective do not have to be proportionate.
+
+  Causing death and destruction to help with indirectly accomplishing objectives must have an in-character roleplay reason. If questioned about a chain of events involving indirect actions, the antagonist should be able to clearly explain what events in the current shift led them to their course of action without resorting to hypotheticals.
+
+  If a player or department directly interferes with the completion of an objective, this is no longer a hypothetical as the antagonist can now point to specific events in the shift to justify their actions.
+
+  ## Without Objectives
+
+  When wanting to cause death and destruction not related to objectives, restricted antagonists may instead rely on extremely relaxed escalation.
+
+  They may escalate lethally sooner and with less justification, may use more lethal methods to escalate and may rely on antagonistic reasons for escalating. Such reasons may include escalating against people who are excessively polite or helpful as well as being mean or rude, escalating against groups of people who exclude them or escalating against people who ignore or avoid attempts to communicate entirely.
+
+  They have no obligation to treat their victims but escalating over minor issues should not result in the antagonist taking steps to permanently round-remove the other player unless escalation policy would otherwise permit it.
+
+  ## Mass Sabotage Exception
+
+  There exist some antagonistic actions which are so indiscriminate that they can never form justification for directly accomplishing an objective, but are also so disproportionate that no IC reason can allow for using them to indirectly accomplish an objective. This has the potential to make dangerous areas of the station safer than intended, because the crew know common antagonists can't take full advantage of those spaces in dangerous or deadly ways.
+
+  To avoid this, mass station sabotage that is likely to kill people is allowed so long as the antagonist does not take any direct and specific personal actions to maximise the bodycount beyond what the sabotage itself causes.
+
+  The test for mass station sabotage is to consider only strategies that a restricted antagonist could never justify using to complete a standard kill objective. Examples include but are not limited to plasma flooding, causing a supermatter delamination, breaking the singulariy/tesla out of containment, making large portions of the station/departments unuseable outside of justified bombing, and spacing the station. An example of a strategy which does not fall under mass station sabotage would be uses of bombs or other explosives, which can form justification for completing a standard kill objective and follow those rules instead.
+
+  # Is this antagonist role restricted in how it can deliver death and destruction?
+  This table covers which antagonists must abide by restrictions in how they deliver death and destruction to the station under RPR 6, as well as any partial or grey-area exemptions.
+  <Table Columns="3">
+    <ColorBox>
+      <Box>
+        Antagonist
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Expectation
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Restriction exempt?
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHumanSyndicateAgentBase" Caption="Traitor"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Unless you have DAGD, it is preferable if you do not murderbone to murderbone. As stated in roleplay rule 12. It is not fun if every round is the same. Try doing different things or different builds. Meta isn’t going anywhere fast.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHumanChangelingArmor" Caption="Changeling"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Changelings don’t have many limits to their antagonism, however if you’re not gonna bother cleaning up the obvious blood you leave behind then don’t throw people into space. Hide the bodies on station or just outside the station.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="PlayerStationAiPreview" Caption="Station AI"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        The station AI laws trump the rules if they allow for station destruction, the same rule applies to borgs and ion laws.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="ClothingOuterHardsuitCosmicCult" Caption="Coscult"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        The cultist's main goal is to further the cult and ascend. You should listen to the Cult leader to the best of your ability. You should aim to convert as many people as possible. There is no reason to round remove a bunch of people as anyone crit or dead can be converted. [bold]Working against your team will result in a ban.[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No(However a war with the station may be necessary)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHuman" Caption="Thief"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        As a thief, you like to steal. Simple as that. Do not go out of your way to murder people unless it's in self-defense.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobAbductorScientist" Caption="Abductor"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Abductors are on the station to conduct experiments. They are provided with organs to implant into the crew, this is your main gameplay loop. If you manage to fulfil this objective, you can then progress into other types of surgeries such as lobotomies, limb removals or brain transplants. However if you are not well versed in surgery or you cause an accidental round removal, you will get in trouble.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHumanHereticArmor" Caption="Heretic"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Heretics don’t have many limits, but it’s considered bad acting if you decide to murderbone and round remove people before you can sacrifice them.
+        Heretics do not team with any other antagonist, they are selfish antags. They also don’t team with each other. Heretics should be diametrically opposed to other heretics. Heretics benefit from sacrificing each other and should take great offense to the fact that they could steal your sacrificial lamb causing your ascension to be stalled. Kill each other.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No(Until Ascension)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="SignZomlab" Caption="Zombies"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Zombies are mindless creatures. You will attack anything that moves, speaks or tweaks. However zombies should not be interested in something like a chemmaster or computer, this will be considered metagaming if you’re caught attacking chemmasters. Breaking down doors or lockers with the assumption a person could be hiding in them is fine. Breaking the announcement console because you, OOC know it will prevent command being able to call evac is metagaming.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="CoreBlobTile" Caption="Blob"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Blob(and it’s spawn) has no limits on its gameplay, the world is your oyster because you’re pretty limited in how you interact with the station. However blob drops and blobbernaughts should only be interested in progressing the blob. You should never work against the blob.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobXenomorphQueen" Caption="Xenomorphs"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Xenomorphs are tasked with taking over the station, this is your main objective. All Xeno’s must listen to the Queen. You are not held to many rules however the station should stay as intact as possible for your objective - this means don’t loose the singulo or tesla on purpose.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHuman" Caption="Revs"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Revolutionaries should aim to convert the whole station. You should listen to your head rev as much as possible and mainly aim to further the revolution, this means not purposefully sabotaging. You are able to convert command members, [bold]however depending on game state and chaos you may round remove them if necessary but this should be the last option.[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHumanLoneNuclearOperative" Caption="Nuke ops"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        You’re tasked with destroying the station. You should listen to your commander to the best of your ability. Sabotaging your team will result in a ban. This does not mean you will be banned for being unrobust, shit happens. [bold]Your goal is to nuke the station as fast as possible, so do not get sidetracked or decide you will take 20+ minutes to kill the rest of the crew after obtaining the nuke disk.[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHumanNinjaArmor" Caption="Ninja"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Your goal is to steal information and sabotage the station. [bold]You should generally be stealthy, it is not your goal to kill everyone you see.[/bold] You may attack security if you are in a threatening situation but avoiding them is better and healthy for the round flow.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobSlasher" Caption="Slasher"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Your goal is to steal information and sabotage the station. [bold]You should generally be stealthy, is it not your goal to kill everyone you see.[/bold] You may attack security but avoiding them is better and healthy for the round flow.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No(Unless ascended)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobShadowling" Caption="Shadowling"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Shadowling's thrall’s main goal is to further your master’s ascension while protecting them. You should listen to your master to the best of your ability. You can convert people crit and dead after obtaining the ability to do so, so you should make it your best effort to convert people and not permanently round remove them.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No(Unless ascended)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobBingle" Caption="Bingle"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Your aim is to feed the hole. You do not care for the station unless it is obstructing your ability to feed the hole. You may protect yourself and feed the hole with bodies once the hole is big enough.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobDragon" Caption="Dragon"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        The Space Dragon is here to terrorise the station. Kill and eat people, this will benefit you in the long run. Spawned fish are to attack the crew and protect the dragon.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHuman" Caption="Devil"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+          The Devils only interest is to take soles and inflict sadness while doing it. People who make a deal with the devil should get more than what they bargained for.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHumanWizardDebug" Caption="Wizard"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        IT’S A WIZARD!? You say “fuck the rules”, go buck daft. Nanotrasen deserves it for banning magic. (Core rules still apply)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes
+      </Box>
+    </ColorBox>
+</Table>
+</Document>
+
+
+
+
