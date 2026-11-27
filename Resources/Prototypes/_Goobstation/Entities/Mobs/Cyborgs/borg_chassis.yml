@@ -178,6 +178,16 @@
     - Security
   - type: Hailer
 
+# Generic - Omu
+- type: entity
+  id: BorgChassisGenericBugborg
+  parent: BorgChassisGeneric
+  name: bugborg generic cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: generic_bugborg
+
 # Mining
 - type: entity
   id: BorgChassisMiningBasic
@@ -242,6 +252,24 @@
   - type: BorgSwitchableSubtype
     borgSubtype: mining_noble
 
+- type: entity #Omu stuff
+  id: BorgChassisMiningBugborg
+  parent: BorgChassisMining
+  name: bugborg mining cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_bugborg
+
+- type: entity #Omu stuff
+  id: BorgChassisMiningBugborgBag
+  parent: BorgChassisMining
+  name: bugborg bagged mining cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_bugborgbag
+
 # Engineer
 - type: entity
   id: BorgChassisEngineerBasic
@@ -296,6 +324,42 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: engineer_rover
+
+- type: entity # Omu stuff
+  id: BorgChassisEngineerBugborg
+  parent: BorgChassisEngineer
+  name: bug engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_bugborg
+
+- type: entity # Omu stuff
+  id: BorgChassisEngineerBugborgBag
+  parent: BorgChassisEngineer
+  name: bug engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_bag_bugborg
+
+- type: entity # Omu stuff
+  id: BorgChassisEngineerBugborgAtmos
+  parent: BorgChassisEngineer
+  name: bug engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_atmos_bugborg
+
+- type: entity # Omu stuff
+  id: BorgChassisEngineerBugborgAtmosBag
+  parent: BorgChassisEngineer
+  name: bug engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_atmos_bag_bugborg
 
 # Janitor
 - type: entity
@@ -360,6 +424,24 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: janitor_rover
+
+- type: entity # Omu stuff
+  id: BorgChassisJanitorBugborg
+  parent: BorgChassisJanitor
+  name: bugborg janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_bugborg
+
+- type: entity # Omu stuff
+  id: BorgChassisJanitorBugborgCentipede
+  parent: BorgChassisJanitor
+  name: bugborg centipede janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_bugcentipede
 
 # Medical
 - type: entity
@@ -434,6 +516,24 @@
   - type: BorgSwitchableSubtype
     borgSubtype: medical_rover
 
+- type: entity # Omu stuff
+  id: BorgChassisMedicalBugborg
+  parent: BorgChassisMedical
+  name: bugborg medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_bugborg
+
+- type: entity #Omu stuff
+  id: BorgChassisMedicalBugborgCybersun
+  parent: BorgChassisMedical
+  name: bugborg cybersun medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_bugcybersun
+
 # Service
 - type: entity
   id: BorgChassisServiceStandart
@@ -506,3 +606,30 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: service_rover
+
+- type: entity # Omu stuff
+  id: BorgChassisServiceSlenderbug
+  parent: BorgChassisService
+  name: slenderbug service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_slenderbug
+
+- type: entity # Omu stuff
+  id: BorgChassisServiceBugtractor
+  parent: BorgChassisService
+  name: bugtractor service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_bugtractor
+
+- type: entity #Omu stuff
+  id: BorgChassisServiceBugdj
+  parent: BorgChassisService
+  name: bugdj service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_bugdj

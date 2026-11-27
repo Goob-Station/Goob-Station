@@ -1,0 +1,31 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Made by @BoiWab",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "miner_e",
+            "directions": 4
+        },
+        {
+            "name": "miner",
+            "directions": 4
+        },
+        {
+            "name": "miner_e_r",
+            "directions": 4
+        },
+        {
+            "name": "miner_l",
+            "directions": 4
+        },
+        {
+            "name": "miner_moving",
+            "directions": 4
+        }
+    ]
+}
