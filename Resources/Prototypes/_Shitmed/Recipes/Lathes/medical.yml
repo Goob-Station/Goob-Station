@@ -105,6 +105,11 @@
     BSCrystal: 100
 
 - type: latheRecipe
+  parent: ClothingHandsGlovesSurgical
+  id: ClothingHandsGlovesEnviroglovesSurgical
+  result: ClothingHandsGlovesEnviroglovesSurgical
+
+- type: latheRecipe
   id: BasicCyberneticHeart
   result: BasicCyberneticHeart
   categories:

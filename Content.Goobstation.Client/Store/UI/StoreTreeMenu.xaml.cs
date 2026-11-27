@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Goobstation.UIKit.UserInterface.Controls.NodeTree;
 using Content.Shared.Actions.Components;
 using Content.Shared.Store;

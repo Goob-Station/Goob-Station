@@ -13,7 +13,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Damage.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
