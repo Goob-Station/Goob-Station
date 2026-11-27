@@ -7,6 +7,8 @@ using Content.Shared.Smoking.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Glue;
+using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 
@@ -16,6 +18,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 public sealed class SurgeryToolConditionsSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     public override void Initialize()
     {
@@ -24,6 +27,7 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
         SubscribeLocalEvent<ItemToggleComponent, SurgeryToolUsedEvent>(OnToggleUsed);
         SubscribeLocalEvent<GunComponent, SurgeryToolUsedEvent>(OnGunUsed);
         SubscribeLocalEvent<MatchstickComponent, SurgeryToolUsedEvent>(OnMatchUsed);
+        SubscribeLocalEvent<GlueComponent, SurgeryToolUsedEvent>(OnGlueUsed);
     }
 
     private void OnToggleUsed(Entity<ItemToggleComponent> ent, ref SurgeryToolUsedEvent args)
@@ -58,4 +62,14 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString(key), ent, args.User);
         args.Cancelled = true;
     }
+
+    private void OnGlueUsed(Entity<GlueComponent> ent, ref SurgeryToolUsedEvent args)
+    {
+        if (_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution)
+            && solution.GetTotalPrototypeQuantity(ent.Comp.Reagent) > 0)
+            return;
+            
+        args.Cancelled = true;
+    }
+
 }
