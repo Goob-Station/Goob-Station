@@ -1,6 +1,6 @@
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -14,8 +14,9 @@ public sealed partial class ProximityPopupSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
-    [Dependency] private ISharedPlayerManager _player = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+
+    private readonly HashSet<Entity<MobStateComponent>> _mobCache = new();
 
     public override void Update(float frameTime)
     {
@@ -42,13 +43,17 @@ public sealed partial class ProximityPopupSystem : EntitySystem
 
     private void TryPopup(Entity<ProximityPopupComponent> ent, IRobustRandom rand)
     {
-        if (_player.LocalEntity is not { } local || local == ent.Owner)
-            return;
-
-        if (!_transform.InRange(Transform(ent.Owner).Coordinates, Transform(local).Coordinates, ent.Comp.PopupRange))
-            return;
-
         var message = Loc.GetString(rand.Pick(ent.Comp.Popups));
-        _popup.PopupClient(message, local, local, ent.Comp.PopupType);
+
+        _mobCache.Clear();
+        _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, ent.Comp.PopupRange, _mobCache);
+
+        foreach (var mob in _mobCache)
+        {
+            if (mob.Owner == ent.Owner)
+                continue;
+
+            _popup.PopupClient(message, mob, mob, ent.Comp.PopupType);
+        }
     }
 }
