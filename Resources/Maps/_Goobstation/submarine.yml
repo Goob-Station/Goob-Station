@@ -4,8 +4,8 @@ meta:
   engineVersion: 293.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/27/2026 03:41:53
-  entityCount: 40458
+  time: 11/27/2026 14:07:08
+  entityCount: 40465
 maps:
 - 18185
 grids:
@@ -220720,6 +220720,28 @@ entities:
     - type: Transform
       parent: 2
       pos: 20.5,0.5
+- proto: SpawnPointMedicalIntern
+  entities:
+  - uid: 24988
+    components:
+    - type: Transform
+      parent: 2
+      pos: 10.5,14.5
+  - uid: 26701
+    components:
+    - type: Transform
+      parent: 2
+      pos: 11.5,14.5
+  - uid: 26717
+    components:
+    - type: Transform
+      parent: 2
+      pos: 12.5,14.5
+  - uid: 26724
+    components:
+    - type: Transform
+      parent: 2
+      pos: 13.5,14.5
 - proto: SpawnPointMime
   entities:
   - uid: 3708
@@ -221093,6 +221115,23 @@ entities:
     - type: Transform
       parent: 2
       pos: -50.5,23.5
+- proto: SpawnPointVirologist
+  entities:
+  - uid: 26747
+    components:
+    - type: Transform
+      parent: 2
+      pos: -8.5,6.5
+  - uid: 26860
+    components:
+    - type: Transform
+      parent: 2
+      pos: -7.5,6.5
+  - uid: 26864
+    components:
+    - type: Transform
+      parent: 2
+      pos: -6.5,6.5
 - proto: SpawnPointWarden
   entities:
   - uid: 41391
@@ -259200,7 +259239,7 @@ entities:
       pos: -15.5,13.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -11385.054
+      secondsUntilStateChange: -11512.785
 - proto: WoodenBench
   entities:
   - uid: 3791
