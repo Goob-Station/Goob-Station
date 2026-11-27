@@ -1,4 +1,5 @@
 using Content.Shared.Popups;
+using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Danger;
 
@@ -6,7 +7,7 @@ namespace Content.Goobstation.Shared.Danger;
 /// This component is used for showing pop-ups to anyone that goes near this entity, on a timer.
 /// The pop-up can be selected from a list, and is picked at random.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause, AutoGenerateComponentState]
 public sealed partial class ProximityPopupComponent : Component
 {
     /// <summary>
@@ -40,6 +41,6 @@ public sealed partial class ProximityPopupComponent : Component
     [DataField]
     public TimeSpan? MaxPopupInterval;
 
-    [AutoPausedField]
+    [AutoPausedField, AutoNetworkedField]
     public TimeSpan NextPopup;
 }
