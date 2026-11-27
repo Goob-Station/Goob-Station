@@ -2015,7 +2015,7 @@
   id: UplinkModsuitModuleArmorBooster
   productEntity: ModsuitModuleArmorBooster
   cost:
-    Telecrystal: 40
+    Telecrystal: 20
   categories:
   - UplinkWearables
 
@@ -2023,7 +2023,7 @@
   id: UplinkModsuitModuleEnergyShield
   productEntity: ModsuitModuleEnergyShield
   cost:
-    Telecrystal: 40
+    Telecrystal: 20
   categories:
   - UplinkWearables
 
@@ -2031,7 +2031,7 @@
   id: UplinkModsuitModuleNoSlip
   productEntity: ModsuitModuleNoSlip
   cost:
-    Telecrystal: 15
+    Telecrystal: 10
   categories:
   - UplinkWearables
 
@@ -2039,7 +2039,7 @@
   id: UplinkModsuitModulePlateCompression
   productEntity: ModsuitModulePlateCompression
   cost:
-    Telecrystal: 10
+    Telecrystal: 5
   categories:
   - UplinkWearables
 
@@ -2047,7 +2047,7 @@
   id: UplinkModsuitModuleChameleon
   productEntity: ModsuitModuleChameleon
   cost:
-    Telecrystal: 10
+    Telecrystal: 5
   categories:
   - UplinkWearables
 
@@ -2055,7 +2055,7 @@
   id: UplinkModsuitModuleEmpPulse
   productEntity: ModsuitModuleEmpPulse
   cost:
-    Telecrystal: 35
+    Telecrystal: 25
   categories:
   - UplinkWearables
 
@@ -2063,7 +2063,7 @@
   id: UplinkModsuitModuleCloak
   productEntity: ModsuitModuleCloak
   cost:
-    Telecrystal: 40
+    Telecrystal: 25
   categories:
   - UplinkWearables
 
@@ -2071,7 +2071,7 @@
   id: UplinkModsuitModuleAdrenalineBoost
   productEntity: ModsuitModuleAdrenalineBoost
   cost:
-    Telecrystal: 35
+    Telecrystal: 25
   categories:
   - UplinkWearables
 
@@ -2087,7 +2087,7 @@
   id: UplinkModsuitModuleInfiltrator
   productEntity: ModsuitModuleInfiltrator
   cost:
-    Telecrystal: 15
+    Telecrystal: 5
   categories:
   - UplinkWearables
 
@@ -2095,7 +2095,7 @@
   id: UplinkModsuitModulePowerKick
   productEntity: ModsuitModulePowerKick
   cost:
-    Telecrystal: 30
+    Telecrystal: 20
   categories:
   - UplinkWearables
 
@@ -2103,7 +2103,7 @@
   id: UplinkModsuitModuleMedbeam
   productEntity: ModsuitModuleMedbeam
   cost:
-    Telecrystal: 120
+    Telecrystal: 100
   categories:
   - UplinkWearables
 
@@ -2111,7 +2111,7 @@
   id: UplinkModsuitModuleJetpack
   productEntity: ModsuitModuleJetpack
   cost:
-    Telecrystal: 10
+    Telecrystal: 5
   categories:
   - UplinkWearables
 
@@ -2119,7 +2119,7 @@
   id: UplinkModsuitModuleJetpackAdvanced
   productEntity: ModsuitModuleJetpackAdvanced
   cost:
-    Telecrystal: 15
+    Telecrystal: 10
   categories:
   - UplinkWearables
 
@@ -2151,7 +2151,7 @@
   id: UplinkModsuitModuleEmpShieldAdvanced
   productEntity: ModsuitModuleEmpShieldAdvanced
   cost:
-    Telecrystal: 15
+    Telecrystal: 10
   categories:
   - UplinkWearables
 
@@ -2179,11 +2179,11 @@
   categories:
   - UplinkWearables
 
-- type: listing
+- type: listing    
   id: UplinkModsuitModuleNightVisor
-  productEntity: ModsuitModuleNightVisor
+  productEntity: ModsuitModuleNightVisor   
   cost:
-    Telecrystal: 10
+    Telecrystal: 5
   categories:
   - UplinkWearables
 
@@ -2191,7 +2191,7 @@
   id: UplinkModsuitModuleThermalVisor
   productEntity: ModsuitModuleThermalVisor
   cost:
-    Telecrystal: 15
+    Telecrystal: 10
   categories:
   - UplinkWearables
 
@@ -2207,7 +2207,7 @@
   id: UplinkModsuitModuleJumpJet
   productEntity: ModsuitModuleJumpJet
   cost:
-    Telecrystal: 10
+    Telecrystal: 5
   categories:
   - UplinkWearables
 
@@ -2215,7 +2215,7 @@
   id: UplinkModsuitSyndicate
   productEntity: ClothingModsuitSyndicateFilled
   cost:
-    Telecrystal: 60
+    Telecrystal: 55
   categories:
   - UplinkWearables
   conditions:
@@ -2228,7 +2228,7 @@
   id: UplinkModsuitSyndicateElite
   productEntity: ClothingModsuitSyndicateEliteFilled
   cost:
-    Telecrystal: 90
+    Telecrystal: 80
   categories:
   - UplinkWearables
   conditions:
