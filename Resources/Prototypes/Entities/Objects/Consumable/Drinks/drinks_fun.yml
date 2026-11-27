@@ -42,6 +42,8 @@
           Quantity: 30
   - type: Glue
   - type: BoneGel # Goobstation
+    speed: 0.35
+  - type: SurgeryTool # Goobstation
 
 - type: entity
   parent: BaseSqueezeBottle
