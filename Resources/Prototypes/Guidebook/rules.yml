@@ -175,6 +175,7 @@
   - RuleR18
   - RuleR19
   - RuleR20
+  - RuleR21
 
 - type: guideEntry
   id: RuleR1
@@ -315,6 +316,13 @@
   ruleEntry: true
   priority: 20
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR20FreeAgents.xml"
+
+- type: guideEntry
+  id: RuleR21
+  name: guide-entry-rules-r21
+  ruleEntry: true
+  priority: 21
+  text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR21Contraband.xml"
 
 - type: guideEntry
   id: SiliconRules

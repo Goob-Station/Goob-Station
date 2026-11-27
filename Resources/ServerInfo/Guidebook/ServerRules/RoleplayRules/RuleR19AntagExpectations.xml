@@ -307,6 +307,21 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
+        <GuideEntityEmbed Entity="MobHuman" Caption="Devil"/>
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+          The Devils only interest is to take soles and inflict sadness while doing it. People who make a deal with the devil should get more than what they bargained for.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
         <GuideEntityEmbed Entity="MobHumanWizardDebug" Caption="Wizard"/>
       </Box>
     </ColorBox>
