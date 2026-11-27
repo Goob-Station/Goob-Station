@@ -41,6 +41,7 @@
         - ReagentId: SpaceGlue
           Quantity: 30
   - type: Glue
+  - type: BoneGel # Goobstation
 
 - type: entity
   parent: BaseSqueezeBottle
