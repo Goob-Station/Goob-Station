@@ -16,7 +16,6 @@ using Robust.Server.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Emoting;
@@ -27,7 +26,6 @@ public sealed partial class FartSystem : EntitySystem
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedBodySystem _body = default!;
     [Dependency] private SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
@@ -156,7 +154,8 @@ public sealed partial class FartSystem : EntitySystem
             butt = Spawn(ent.Comp.ButtPrototype, coords);
         }
 
-        _throwing.TryThrow(butt, _random.NextAngle().ToVec() * ent.Comp.ButtThrowDistance);
+        var throwDirection = _transform.GetWorldRotation(ent).Opposite().ToWorldVec();
+        _throwing.TryThrow(butt, throwDirection * ent.Comp.ButtThrowDistance, user: ent);
     }
 
     private void OnButtAdded(Entity<ButtComponent> ent, ref OrganAddedToBodyEvent args)
