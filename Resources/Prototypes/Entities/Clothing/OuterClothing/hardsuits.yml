@@ -1245,7 +1245,12 @@
   - type: Armor
     modifiers:
       coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.2
         Radiation: 0.0
+        Caustic: 0.2
   - type: ClothingGrantComponent # porting from CE's hardsuit cause it's silly for ERT engis to be vulnerable to these
     component:
     - type: SupermatterImmune
