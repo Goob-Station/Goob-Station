@@ -8,12 +8,10 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Hands.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Security.Cryptography;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
@@ -164,11 +162,11 @@ public partial class XenobiologySystem
         PredictedQueueDel(ent);
     }
 
-    // <summary>
+    /// <summary>
     ///     Spawns a slime with a given mutation
     /// </summary>
     /// <param name="parent">The original entity.</param>
-    /// <param name="newEntityProto">The proto of the entity being spawned.</param>
+    /// <param name="newEntityProto">The prototype of the entity being spawned.</param>
     /// <param name="selectedBreed">The selected breed of the entity.</param>
     public Entity<SlimeComponent>? SpawnSlime(EntityUid parent, [ForbidLiteral] EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {

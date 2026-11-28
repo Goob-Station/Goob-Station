@@ -51,3 +51,48 @@
   - type: Tag
     tags:
     - XenobiologyOrangeExtract
+
+- type: entity
+  parent: [ FilledBaseSlimeExtract, OrangeSlimeExtract ]
+  id: FilledOrangeSlimeExtract
+  components:
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:DoSmokeEffect
+        duration: 10
+        spreadAmount: 75
+        smokePrototype: Smoke
+        solution:
+          reagents:
+          - ReagentId: TearGas
+            Quantity: 20
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReaction
+      - !type:RelayNearby
+        compName: Flammable
+        range: 3
+        effect: !type:NestedEffect
+          proto: Ignite5
+      - !type:Flash
+        maxRange: 7
+        rangePerUnit: 1
+        sound: /Audio/_Goobstation/Wizard/zapbang.ogg
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:NestedEffect
+        proto: XenobioMultipleExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: CapsaicinOil
+          amount: 30
