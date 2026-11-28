@@ -1,4 +1,3 @@
-using Content.Shared.Physics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -37,5 +36,5 @@ public sealed partial class VicinitySpawnerComponent : Component
     /// Offset for how far away the entities can be spawned away from the spawner.
     /// </summary>
     [DataField]
-    public int OffsetForSpawn;
+    public int Range;
 }
