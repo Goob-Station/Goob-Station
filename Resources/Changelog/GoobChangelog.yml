@@ -27278,3 +27278,35 @@ Entries:
         horn.
   id: 3050
   time: '2026-11-17T17:24:40.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: >-
+        All Magazine-fed Laser weapons had their damage numbers reworked ( apart
+        from the LMG and Overclocked SMG bullets)
+    - type: Tweak
+      message: >-
+        Overclocked ammo had their lower ammo downside removed, in exchange for
+        worse recharging and worse recipes overall
+    - type: Tweak
+      message: >-
+        CR-2 Hera has been fully reworked into a Slow firing Semi-Auto
+        Multipurpose Rifle 
+    - type: Tweak
+      message: >-
+        All (with the exception of the LMG) Magazine-fed Laser Weapons had their
+        Ammo Economy increased.
+  id: 3051
+  time: '2026-11-25T00:00:57.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Fix
+      message: Blood Demon no longer one taps you by throwing a body
+  id: 3052
+  time: '2026-11-26T17:21:27.0000000+00:00'
+- author: nlaky
+  changes:
+    - type: Tweak
+      message: Your ass now obeys Newton's Third Law of Motion
+  id: 3053
+  time: '2026-11-26T17:37:14.0000000+00:00'
